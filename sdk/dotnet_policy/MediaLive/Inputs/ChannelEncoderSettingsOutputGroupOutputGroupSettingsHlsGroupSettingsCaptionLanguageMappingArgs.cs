@@ -12,25 +12,46 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
 {
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs
     {
-        [Input("captionChannel")]
+        [PolicyResourceProperty("captionChannel", "_mUnknown_CaptionChannel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCaptionChannel;
+        private int? _mValue_CaptionChannel;
+        private bool _mUnknown_CaptionChannel;
+        public int? CaptionChannel
+        {
+            get
+            {
+                if (!_mUnknown_CaptionChannel) return _mValue_CaptionChannel;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs.CaptionChannel' is not present");
+            }
+        }
 
-        public int? CaptionChannel => _mCaptionChannel.GetValue("captionChannel");
-
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
-
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs.LanguageCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Human readable information to indicate captions available for players (eg. English, or Spanish).
         /// </summary>
-        [Input("languageDescription")]
+        [PolicyResourceProperty("languageDescription", "_mUnknown_LanguageDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageDescription;
-
-        public string? LanguageDescription => _mLanguageDescription.GetValue("languageDescription");
+        private string? _mValue_LanguageDescription;
+        private bool _mUnknown_LanguageDescription;
+        public string? LanguageDescription
+        {
+            get
+            {
+                if (!_mUnknown_LanguageDescription) return _mValue_LanguageDescription;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs.LanguageDescription' is not present");
+            }
+        }
     }
 }

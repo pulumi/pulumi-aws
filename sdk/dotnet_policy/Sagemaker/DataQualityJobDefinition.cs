@@ -16,110 +16,194 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinition.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the container that runs the monitoring job. Fields are documented below.
         /// </summary>
-        [Input("dataQualityAppSpecification")]
+        [PolicyResourceProperty("dataQualityAppSpecification", "_mUnknown_DataQualityAppSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataQualityJobDefinitionDataQualityAppSpecification> _mDataQualityAppSpecification;
-
-        public Outputs.DataQualityJobDefinitionDataQualityAppSpecification? DataQualityAppSpecification => _mDataQualityAppSpecification.GetValue("dataQualityAppSpecification");
+        private Outputs.DataQualityJobDefinitionDataQualityAppSpecification? _mValue_DataQualityAppSpecification;
+        private bool _mUnknown_DataQualityAppSpecification;
+        public Outputs.DataQualityJobDefinitionDataQualityAppSpecification? DataQualityAppSpecification
+        {
+            get
+            {
+                if (!_mUnknown_DataQualityAppSpecification) return _mValue_DataQualityAppSpecification;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinition.DataQualityAppSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures the constraints and baselines for the monitoring job. Fields are documented below.
         /// </summary>
-        [Input("dataQualityBaselineConfig")]
+        [PolicyResourceProperty("dataQualityBaselineConfig", "_mUnknown_DataQualityBaselineConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataQualityJobDefinitionDataQualityBaselineConfig> _mDataQualityBaselineConfig;
-
-        public Outputs.DataQualityJobDefinitionDataQualityBaselineConfig? DataQualityBaselineConfig => _mDataQualityBaselineConfig.GetValue("dataQualityBaselineConfig");
+        private Outputs.DataQualityJobDefinitionDataQualityBaselineConfig? _mValue_DataQualityBaselineConfig;
+        private bool _mUnknown_DataQualityBaselineConfig;
+        public Outputs.DataQualityJobDefinitionDataQualityBaselineConfig? DataQualityBaselineConfig
+        {
+            get
+            {
+                if (!_mUnknown_DataQualityBaselineConfig) return _mValue_DataQualityBaselineConfig;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinition.DataQualityBaselineConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of inputs for the monitoring job. Fields are documented below.
         /// </summary>
-        [Input("dataQualityJobInput")]
+        [PolicyResourceProperty("dataQualityJobInput", "_mUnknown_DataQualityJobInput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataQualityJobDefinitionDataQualityJobInput> _mDataQualityJobInput;
-
-        public Outputs.DataQualityJobDefinitionDataQualityJobInput? DataQualityJobInput => _mDataQualityJobInput.GetValue("dataQualityJobInput");
+        private Outputs.DataQualityJobDefinitionDataQualityJobInput? _mValue_DataQualityJobInput;
+        private bool _mUnknown_DataQualityJobInput;
+        public Outputs.DataQualityJobDefinitionDataQualityJobInput? DataQualityJobInput
+        {
+            get
+            {
+                if (!_mUnknown_DataQualityJobInput) return _mValue_DataQualityJobInput;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinition.DataQualityJobInput' is not present");
+            }
+        }
 
         /// <summary>
         /// The output configuration for monitoring jobs. Fields are documented below.
         /// </summary>
-        [Input("dataQualityJobOutputConfig")]
+        [PolicyResourceProperty("dataQualityJobOutputConfig", "_mUnknown_DataQualityJobOutputConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataQualityJobDefinitionDataQualityJobOutputConfig> _mDataQualityJobOutputConfig;
-
-        public Outputs.DataQualityJobDefinitionDataQualityJobOutputConfig? DataQualityJobOutputConfig => _mDataQualityJobOutputConfig.GetValue("dataQualityJobOutputConfig");
+        private Outputs.DataQualityJobDefinitionDataQualityJobOutputConfig? _mValue_DataQualityJobOutputConfig;
+        private bool _mUnknown_DataQualityJobOutputConfig;
+        public Outputs.DataQualityJobDefinitionDataQualityJobOutputConfig? DataQualityJobOutputConfig
+        {
+            get
+            {
+                if (!_mUnknown_DataQualityJobOutputConfig) return _mValue_DataQualityJobOutputConfig;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinition.DataQualityJobOutputConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifies the resources to deploy for a monitoring job. Fields are documented below.
         /// </summary>
-        [Input("jobResources")]
+        [PolicyResourceProperty("jobResources", "_mUnknown_JobResources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataQualityJobDefinitionJobResources> _mJobResources;
-
-        public Outputs.DataQualityJobDefinitionJobResources? JobResources => _mJobResources.GetValue("jobResources");
+        private Outputs.DataQualityJobDefinitionJobResources? _mValue_JobResources;
+        private bool _mUnknown_JobResources;
+        public Outputs.DataQualityJobDefinitionJobResources? JobResources
+        {
+            get
+            {
+                if (!_mUnknown_JobResources) return _mValue_JobResources;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinition.JobResources' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinition.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies networking configuration for the monitoring job. Fields are documented below.
         /// </summary>
-        [Input("networkConfig")]
+        [PolicyResourceProperty("networkConfig", "_mUnknown_NetworkConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataQualityJobDefinitionNetworkConfig> _mNetworkConfig;
-
-        public Outputs.DataQualityJobDefinitionNetworkConfig? NetworkConfig => _mNetworkConfig.GetValue("networkConfig");
+        private Outputs.DataQualityJobDefinitionNetworkConfig? _mValue_NetworkConfig;
+        private bool _mUnknown_NetworkConfig;
+        public Outputs.DataQualityJobDefinitionNetworkConfig? NetworkConfig
+        {
+            get
+            {
+                if (!_mUnknown_NetworkConfig) return _mValue_NetworkConfig;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinition.NetworkConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinition.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
         /// </summary>
-        [Input("stoppingCondition")]
+        [PolicyResourceProperty("stoppingCondition", "_mUnknown_StoppingCondition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataQualityJobDefinitionStoppingCondition> _mStoppingCondition;
-
-        public Outputs.DataQualityJobDefinitionStoppingCondition? StoppingCondition => _mStoppingCondition.GetValue("stoppingCondition");
+        private Outputs.DataQualityJobDefinitionStoppingCondition? _mValue_StoppingCondition;
+        private bool _mUnknown_StoppingCondition;
+        public Outputs.DataQualityJobDefinitionStoppingCondition? StoppingCondition
+        {
+            get
+            {
+                if (!_mUnknown_StoppingCondition) return _mValue_StoppingCondition;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinition.StoppingCondition' is not present");
+            }
+        }
 
         /// <summary>
         /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinition.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinition.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition")]
@@ -128,91 +212,161 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// Specifies the container that runs the monitoring job. Fields are documented below.
         /// </summary>
-        [Input("dataQualityAppSpecification")]
+        [PolicyResourceProperty("dataQualityAppSpecification", "_mUnknown_DataQualityAppSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataQualityJobDefinitionDataQualityAppSpecificationArgs> _mDataQualityAppSpecification;
-
-        public Inputs.DataQualityJobDefinitionDataQualityAppSpecificationArgs? DataQualityAppSpecification => _mDataQualityAppSpecification.GetValue("dataQualityAppSpecification");
+        private Inputs.DataQualityJobDefinitionDataQualityAppSpecificationArgs? _mValue_DataQualityAppSpecification;
+        private bool _mUnknown_DataQualityAppSpecification;
+        public Inputs.DataQualityJobDefinitionDataQualityAppSpecificationArgs? DataQualityAppSpecification
+        {
+            get
+            {
+                if (!_mUnknown_DataQualityAppSpecification) return _mValue_DataQualityAppSpecification;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.DataQualityAppSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures the constraints and baselines for the monitoring job. Fields are documented below.
         /// </summary>
-        [Input("dataQualityBaselineConfig")]
+        [PolicyResourceProperty("dataQualityBaselineConfig", "_mUnknown_DataQualityBaselineConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataQualityJobDefinitionDataQualityBaselineConfigArgs> _mDataQualityBaselineConfig;
-
-        public Inputs.DataQualityJobDefinitionDataQualityBaselineConfigArgs? DataQualityBaselineConfig => _mDataQualityBaselineConfig.GetValue("dataQualityBaselineConfig");
+        private Inputs.DataQualityJobDefinitionDataQualityBaselineConfigArgs? _mValue_DataQualityBaselineConfig;
+        private bool _mUnknown_DataQualityBaselineConfig;
+        public Inputs.DataQualityJobDefinitionDataQualityBaselineConfigArgs? DataQualityBaselineConfig
+        {
+            get
+            {
+                if (!_mUnknown_DataQualityBaselineConfig) return _mValue_DataQualityBaselineConfig;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.DataQualityBaselineConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of inputs for the monitoring job. Fields are documented below.
         /// </summary>
-        [Input("dataQualityJobInput")]
+        [PolicyResourceProperty("dataQualityJobInput", "_mUnknown_DataQualityJobInput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataQualityJobDefinitionDataQualityJobInputArgs> _mDataQualityJobInput;
-
-        public Inputs.DataQualityJobDefinitionDataQualityJobInputArgs? DataQualityJobInput => _mDataQualityJobInput.GetValue("dataQualityJobInput");
+        private Inputs.DataQualityJobDefinitionDataQualityJobInputArgs? _mValue_DataQualityJobInput;
+        private bool _mUnknown_DataQualityJobInput;
+        public Inputs.DataQualityJobDefinitionDataQualityJobInputArgs? DataQualityJobInput
+        {
+            get
+            {
+                if (!_mUnknown_DataQualityJobInput) return _mValue_DataQualityJobInput;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.DataQualityJobInput' is not present");
+            }
+        }
 
         /// <summary>
         /// The output configuration for monitoring jobs. Fields are documented below.
         /// </summary>
-        [Input("dataQualityJobOutputConfig")]
+        [PolicyResourceProperty("dataQualityJobOutputConfig", "_mUnknown_DataQualityJobOutputConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataQualityJobDefinitionDataQualityJobOutputConfigArgs> _mDataQualityJobOutputConfig;
-
-        public Inputs.DataQualityJobDefinitionDataQualityJobOutputConfigArgs? DataQualityJobOutputConfig => _mDataQualityJobOutputConfig.GetValue("dataQualityJobOutputConfig");
+        private Inputs.DataQualityJobDefinitionDataQualityJobOutputConfigArgs? _mValue_DataQualityJobOutputConfig;
+        private bool _mUnknown_DataQualityJobOutputConfig;
+        public Inputs.DataQualityJobDefinitionDataQualityJobOutputConfigArgs? DataQualityJobOutputConfig
+        {
+            get
+            {
+                if (!_mUnknown_DataQualityJobOutputConfig) return _mValue_DataQualityJobOutputConfig;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.DataQualityJobOutputConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifies the resources to deploy for a monitoring job. Fields are documented below.
         /// </summary>
-        [Input("jobResources")]
+        [PolicyResourceProperty("jobResources", "_mUnknown_JobResources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataQualityJobDefinitionJobResourcesArgs> _mJobResources;
-
-        public Inputs.DataQualityJobDefinitionJobResourcesArgs? JobResources => _mJobResources.GetValue("jobResources");
+        private Inputs.DataQualityJobDefinitionJobResourcesArgs? _mValue_JobResources;
+        private bool _mUnknown_JobResources;
+        public Inputs.DataQualityJobDefinitionJobResourcesArgs? JobResources
+        {
+            get
+            {
+                if (!_mUnknown_JobResources) return _mValue_JobResources;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.JobResources' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies networking configuration for the monitoring job. Fields are documented below.
         /// </summary>
-        [Input("networkConfig")]
+        [PolicyResourceProperty("networkConfig", "_mUnknown_NetworkConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataQualityJobDefinitionNetworkConfigArgs> _mNetworkConfig;
-
-        public Inputs.DataQualityJobDefinitionNetworkConfigArgs? NetworkConfig => _mNetworkConfig.GetValue("networkConfig");
+        private Inputs.DataQualityJobDefinitionNetworkConfigArgs? _mValue_NetworkConfig;
+        private bool _mUnknown_NetworkConfig;
+        public Inputs.DataQualityJobDefinitionNetworkConfigArgs? NetworkConfig
+        {
+            get
+            {
+                if (!_mUnknown_NetworkConfig) return _mValue_NetworkConfig;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.NetworkConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
         /// </summary>
-        [Input("stoppingCondition")]
+        [PolicyResourceProperty("stoppingCondition", "_mUnknown_StoppingCondition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataQualityJobDefinitionStoppingConditionArgs> _mStoppingCondition;
-
-        public Inputs.DataQualityJobDefinitionStoppingConditionArgs? StoppingCondition => _mStoppingCondition.GetValue("stoppingCondition");
+        private Inputs.DataQualityJobDefinitionStoppingConditionArgs? _mValue_StoppingCondition;
+        private bool _mUnknown_StoppingCondition;
+        public Inputs.DataQualityJobDefinitionStoppingConditionArgs? StoppingCondition
+        {
+            get
+            {
+                if (!_mUnknown_StoppingCondition) return _mValue_StoppingCondition;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.StoppingCondition' is not present");
+            }
+        }
 
         /// <summary>
         /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.Tags' is not present");
+            }
+        }
     }
 }

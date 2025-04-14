@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AutoScalingPlans.Inputs
         /// <summary>
         /// ARN of a AWS CloudFormation stack.
         /// </summary>
-        [Input("cloudformationStackArn")]
+        [PolicyResourceProperty("cloudformationStackArn", "_mUnknown_CloudformationStackArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudformationStackArn;
-
-        public string? CloudformationStackArn => _mCloudformationStackArn.GetValue("cloudformationStackArn");
+        private string? _mValue_CloudformationStackArn;
+        private bool _mUnknown_CloudformationStackArn;
+        public string? CloudformationStackArn
+        {
+            get
+            {
+                if (!_mUnknown_CloudformationStackArn) return _mValue_CloudformationStackArn;
+                throw new UndeferrableValueException("Value 'ScalingPlanApplicationSourceArgs.CloudformationStackArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of tags.
         /// </summary>
-        [Input("tagFilters")]
+        [PolicyResourceProperty("tagFilters", "_mUnknown_TagFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ScalingPlanApplicationSourceTagFilterArgs>> _mTagFilters;
-
-        public List<Inputs.ScalingPlanApplicationSourceTagFilterArgs>? TagFilters => _mTagFilters.GetValue("tagFilters");
+        private List<Inputs.ScalingPlanApplicationSourceTagFilterArgs>? _mValue_TagFilters;
+        private bool _mUnknown_TagFilters;
+        public List<Inputs.ScalingPlanApplicationSourceTagFilterArgs>? TagFilters
+        {
+            get
+            {
+                if (!_mUnknown_TagFilters) return _mValue_TagFilters;
+                throw new UndeferrableValueException("Value 'ScalingPlanApplicationSourceArgs.TagFilters' is not present");
+            }
+        }
     }
 }

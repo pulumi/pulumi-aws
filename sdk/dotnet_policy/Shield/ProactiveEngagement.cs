@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Shield
         /// <summary>
         /// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
         /// </summary>
-        [Input("emergencyContacts")]
+        [PolicyResourceProperty("emergencyContacts", "_mUnknown_EmergencyContacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProactiveEngagementEmergencyContact>> _mEmergencyContacts;
-
-        public List<Outputs.ProactiveEngagementEmergencyContact>? EmergencyContacts => _mEmergencyContacts.GetValue("emergencyContacts");
+        private List<Outputs.ProactiveEngagementEmergencyContact>? _mValue_EmergencyContacts;
+        private bool _mUnknown_EmergencyContacts;
+        public List<Outputs.ProactiveEngagementEmergencyContact>? EmergencyContacts
+        {
+            get
+            {
+                if (!_mUnknown_EmergencyContacts) return _mValue_EmergencyContacts;
+                throw new UndeferrableValueException("Value 'ProactiveEngagement.EmergencyContacts' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean value indicating if Proactive Engagement should be enabled or not.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ProactiveEngagement.Enabled' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:shield/proactiveEngagement:ProactiveEngagement")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Shield
         /// <summary>
         /// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
         /// </summary>
-        [Input("emergencyContacts")]
+        [PolicyResourceProperty("emergencyContacts", "_mUnknown_EmergencyContacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ProactiveEngagementEmergencyContactArgs>> _mEmergencyContacts;
-
-        public List<Inputs.ProactiveEngagementEmergencyContactArgs>? EmergencyContacts => _mEmergencyContacts.GetValue("emergencyContacts");
+        private List<Inputs.ProactiveEngagementEmergencyContactArgs>? _mValue_EmergencyContacts;
+        private bool _mUnknown_EmergencyContacts;
+        public List<Inputs.ProactiveEngagementEmergencyContactArgs>? EmergencyContacts
+        {
+            get
+            {
+                if (!_mUnknown_EmergencyContacts) return _mValue_EmergencyContacts;
+                throw new UndeferrableValueException("Value 'ProactiveEngagementArgs.EmergencyContacts' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean value indicating if Proactive Engagement should be enabled or not.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ProactiveEngagementArgs.Enabled' is not present");
+            }
+        }
     }
 }

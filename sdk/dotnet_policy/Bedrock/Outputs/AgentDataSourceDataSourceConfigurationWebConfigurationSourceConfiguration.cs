@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// The URL configuration of your web data source. See `url_configuration` block for details.
         /// </summary>
-        [Input("urlConfiguration")]
+        [PolicyResourceProperty("urlConfiguration", "_mUnknown_UrlConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration> _mUrlConfiguration;
-
-        public Outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration? UrlConfiguration => _mUrlConfiguration.GetValue("urlConfiguration");
+        private Outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration? _mValue_UrlConfiguration;
+        private bool _mUnknown_UrlConfiguration;
+        public Outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration? UrlConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_UrlConfiguration) return _mValue_UrlConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration.UrlConfiguration' is not present");
+            }
+        }
     }
 }

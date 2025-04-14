@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// The Amazon Resource Name (ARN) of the CIDR collection.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CidrCollection.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the CIDR collection.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CidrCollection.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The lastest version of the CIDR collection.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
-
-        public int? Version => _mVersion.GetValue("version");
+        private int? _mValue_Version;
+        private bool _mUnknown_Version;
+        public int? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'CidrCollection.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/cidrCollection:CidrCollection")]
@@ -47,10 +68,17 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// Unique name for the CIDR collection.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CidrCollectionArgs.Name' is not present");
+            }
+        }
     }
 }

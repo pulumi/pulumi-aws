@@ -16,155 +16,274 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// <summary>
         /// The access URL for the directory, such as `http://alias.awsapps.com`.
         /// </summary>
-        [Input("accessUrl")]
+        [PolicyResourceProperty("accessUrl", "_mUnknown_AccessUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessUrl;
-
-        public string? AccessUrl => _mAccessUrl.GetValue("accessUrl");
+        private string? _mValue_AccessUrl;
+        private bool _mUnknown_AccessUrl;
+        public string? AccessUrl
+        {
+            get
+            {
+                if (!_mUnknown_AccessUrl) return _mValue_AccessUrl;
+                throw new UndeferrableValueException("Value 'Directory.AccessUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
         /// </summary>
-        [Input("alias")]
+        [PolicyResourceProperty("alias", "_mUnknown_Alias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
-
-        public string? Alias => _mAlias.GetValue("alias");
+        private string? _mValue_Alias;
+        private bool _mUnknown_Alias;
+        public string? Alias
+        {
+            get
+            {
+                if (!_mUnknown_Alias) return _mValue_Alias;
+                throw new UndeferrableValueException("Value 'Directory.Alias' is not present");
+            }
+        }
 
         /// <summary>
         /// Connector related information about the directory. Fields documented below.
         /// </summary>
-        [Input("connectSettings")]
+        [PolicyResourceProperty("connectSettings", "_mUnknown_ConnectSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DirectoryConnectSettings> _mConnectSettings;
-
-        public Outputs.DirectoryConnectSettings? ConnectSettings => _mConnectSettings.GetValue("connectSettings");
+        private Outputs.DirectoryConnectSettings? _mValue_ConnectSettings;
+        private bool _mUnknown_ConnectSettings;
+        public Outputs.DirectoryConnectSettings? ConnectSettings
+        {
+            get
+            {
+                if (!_mUnknown_ConnectSettings) return _mValue_ConnectSettings;
+                throw new UndeferrableValueException("Value 'Directory.ConnectSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// A textual description for the directory.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Directory.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         /// </summary>
-        [Input("desiredNumberOfDomainControllers")]
+        [PolicyResourceProperty("desiredNumberOfDomainControllers", "_mUnknown_DesiredNumberOfDomainControllers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredNumberOfDomainControllers;
-
-        public int? DesiredNumberOfDomainControllers => _mDesiredNumberOfDomainControllers.GetValue("desiredNumberOfDomainControllers");
+        private int? _mValue_DesiredNumberOfDomainControllers;
+        private bool _mUnknown_DesiredNumberOfDomainControllers;
+        public int? DesiredNumberOfDomainControllers
+        {
+            get
+            {
+                if (!_mUnknown_DesiredNumberOfDomainControllers) return _mValue_DesiredNumberOfDomainControllers;
+                throw new UndeferrableValueException("Value 'Directory.DesiredNumberOfDomainControllers' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IP addresses of the DNS servers for the directory or connector.
         /// </summary>
-        [Input("dnsIpAddresses")]
+        [PolicyResourceProperty("dnsIpAddresses", "_mUnknown_DnsIpAddresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDnsIpAddresses;
-
-        public List<string>? DnsIpAddresses => _mDnsIpAddresses.GetValue("dnsIpAddresses");
+        private List<string>? _mValue_DnsIpAddresses;
+        private bool _mUnknown_DnsIpAddresses;
+        public List<string>? DnsIpAddresses
+        {
+            get
+            {
+                if (!_mUnknown_DnsIpAddresses) return _mValue_DnsIpAddresses;
+                throw new UndeferrableValueException("Value 'Directory.DnsIpAddresses' is not present");
+            }
+        }
 
         /// <summary>
         /// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
         /// </summary>
-        [Input("edition")]
+        [PolicyResourceProperty("edition", "_mUnknown_Edition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEdition;
-
-        public string? Edition => _mEdition.GetValue("edition");
+        private string? _mValue_Edition;
+        private bool _mUnknown_Edition;
+        public string? Edition
+        {
+            get
+            {
+                if (!_mUnknown_Edition) return _mValue_Edition;
+                throw new UndeferrableValueException("Value 'Directory.Edition' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         /// </summary>
-        [Input("enableSso")]
+        [PolicyResourceProperty("enableSso", "_mUnknown_EnableSso")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableSso;
-
-        public bool? EnableSso => _mEnableSso.GetValue("enableSso");
+        private bool? _mValue_EnableSso;
+        private bool _mUnknown_EnableSso;
+        public bool? EnableSso
+        {
+            get
+            {
+                if (!_mUnknown_EnableSso) return _mValue_EnableSso;
+                throw new UndeferrableValueException("Value 'Directory.EnableSso' is not present");
+            }
+        }
 
         /// <summary>
         /// The fully qualified name for the directory, such as `corp.example.com`
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Directory.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The password for the directory administrator or connector user.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'Directory.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the security group created by the directory.
         /// </summary>
-        [Input("securityGroupId")]
+        [PolicyResourceProperty("securityGroupId", "_mUnknown_SecurityGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
-
-        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
+        private string? _mValue_SecurityGroupId;
+        private bool _mUnknown_SecurityGroupId;
+        public string? SecurityGroupId
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupId) return _mValue_SecurityGroupId;
+                throw new UndeferrableValueException("Value 'Directory.SecurityGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The short name of the directory, such as `CORP`.
         /// </summary>
-        [Input("shortName")]
+        [PolicyResourceProperty("shortName", "_mUnknown_ShortName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShortName;
-
-        public string? ShortName => _mShortName.GetValue("shortName");
+        private string? _mValue_ShortName;
+        private bool _mUnknown_ShortName;
+        public string? ShortName
+        {
+            get
+            {
+                if (!_mUnknown_ShortName) return _mValue_ShortName;
+                throw new UndeferrableValueException("Value 'Directory.ShortName' is not present");
+            }
+        }
 
         /// <summary>
         /// (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
         /// </summary>
-        [Input("size")]
+        [PolicyResourceProperty("size", "_mUnknown_Size")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSize;
-
-        public string? Size => _mSize.GetValue("size");
+        private string? _mValue_Size;
+        private bool _mUnknown_Size;
+        public string? Size
+        {
+            get
+            {
+                if (!_mUnknown_Size) return _mValue_Size;
+                throw new UndeferrableValueException("Value 'Directory.Size' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Directory.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Directory.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Directory.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC related information about the directory. Fields documented below.
         /// </summary>
-        [Input("vpcSettings")]
+        [PolicyResourceProperty("vpcSettings", "_mUnknown_VpcSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DirectoryVpcSettings> _mVpcSettings;
-
-        public Outputs.DirectoryVpcSettings? VpcSettings => _mVpcSettings.GetValue("vpcSettings");
+        private Outputs.DirectoryVpcSettings? _mValue_VpcSettings;
+        private bool _mUnknown_VpcSettings;
+        public Outputs.DirectoryVpcSettings? VpcSettings
+        {
+            get
+            {
+                if (!_mUnknown_VpcSettings) return _mValue_VpcSettings;
+                throw new UndeferrableValueException("Value 'Directory.VpcSettings' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:directoryservice/directory:Directory")]
@@ -173,118 +292,209 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// <summary>
         /// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
         /// </summary>
-        [Input("alias")]
+        [PolicyResourceProperty("alias", "_mUnknown_Alias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
-
-        public string? Alias => _mAlias.GetValue("alias");
+        private string? _mValue_Alias;
+        private bool _mUnknown_Alias;
+        public string? Alias
+        {
+            get
+            {
+                if (!_mUnknown_Alias) return _mValue_Alias;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.Alias' is not present");
+            }
+        }
 
         /// <summary>
         /// Connector related information about the directory. Fields documented below.
         /// </summary>
-        [Input("connectSettings")]
+        [PolicyResourceProperty("connectSettings", "_mUnknown_ConnectSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DirectoryConnectSettingsArgs> _mConnectSettings;
-
-        public Inputs.DirectoryConnectSettingsArgs? ConnectSettings => _mConnectSettings.GetValue("connectSettings");
+        private Inputs.DirectoryConnectSettingsArgs? _mValue_ConnectSettings;
+        private bool _mUnknown_ConnectSettings;
+        public Inputs.DirectoryConnectSettingsArgs? ConnectSettings
+        {
+            get
+            {
+                if (!_mUnknown_ConnectSettings) return _mValue_ConnectSettings;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.ConnectSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// A textual description for the directory.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         /// </summary>
-        [Input("desiredNumberOfDomainControllers")]
+        [PolicyResourceProperty("desiredNumberOfDomainControllers", "_mUnknown_DesiredNumberOfDomainControllers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredNumberOfDomainControllers;
-
-        public int? DesiredNumberOfDomainControllers => _mDesiredNumberOfDomainControllers.GetValue("desiredNumberOfDomainControllers");
+        private int? _mValue_DesiredNumberOfDomainControllers;
+        private bool _mUnknown_DesiredNumberOfDomainControllers;
+        public int? DesiredNumberOfDomainControllers
+        {
+            get
+            {
+                if (!_mUnknown_DesiredNumberOfDomainControllers) return _mValue_DesiredNumberOfDomainControllers;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.DesiredNumberOfDomainControllers' is not present");
+            }
+        }
 
         /// <summary>
         /// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
         /// </summary>
-        [Input("edition")]
+        [PolicyResourceProperty("edition", "_mUnknown_Edition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEdition;
-
-        public string? Edition => _mEdition.GetValue("edition");
+        private string? _mValue_Edition;
+        private bool _mUnknown_Edition;
+        public string? Edition
+        {
+            get
+            {
+                if (!_mUnknown_Edition) return _mValue_Edition;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.Edition' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         /// </summary>
-        [Input("enableSso")]
+        [PolicyResourceProperty("enableSso", "_mUnknown_EnableSso")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableSso;
-
-        public bool? EnableSso => _mEnableSso.GetValue("enableSso");
+        private bool? _mValue_EnableSso;
+        private bool _mUnknown_EnableSso;
+        public bool? EnableSso
+        {
+            get
+            {
+                if (!_mUnknown_EnableSso) return _mValue_EnableSso;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.EnableSso' is not present");
+            }
+        }
 
         /// <summary>
         /// The fully qualified name for the directory, such as `corp.example.com`
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The password for the directory administrator or connector user.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// The short name of the directory, such as `CORP`.
         /// </summary>
-        [Input("shortName")]
+        [PolicyResourceProperty("shortName", "_mUnknown_ShortName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShortName;
-
-        public string? ShortName => _mShortName.GetValue("shortName");
+        private string? _mValue_ShortName;
+        private bool _mUnknown_ShortName;
+        public string? ShortName
+        {
+            get
+            {
+                if (!_mUnknown_ShortName) return _mValue_ShortName;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.ShortName' is not present");
+            }
+        }
 
         /// <summary>
         /// (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
         /// </summary>
-        [Input("size")]
+        [PolicyResourceProperty("size", "_mUnknown_Size")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSize;
-
-        public string? Size => _mSize.GetValue("size");
+        private string? _mValue_Size;
+        private bool _mUnknown_Size;
+        public string? Size
+        {
+            get
+            {
+                if (!_mUnknown_Size) return _mValue_Size;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.Size' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC related information about the directory. Fields documented below.
         /// </summary>
-        [Input("vpcSettings")]
+        [PolicyResourceProperty("vpcSettings", "_mUnknown_VpcSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DirectoryVpcSettingsArgs> _mVpcSettings;
-
-        public Inputs.DirectoryVpcSettingsArgs? VpcSettings => _mVpcSettings.GetValue("vpcSettings");
+        private Inputs.DirectoryVpcSettingsArgs? _mValue_VpcSettings;
+        private bool _mUnknown_VpcSettings;
+        public Inputs.DirectoryVpcSettingsArgs? VpcSettings
+        {
+            get
+            {
+                if (!_mUnknown_VpcSettings) return _mValue_VpcSettings;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.VpcSettings' is not present");
+            }
+        }
     }
 }

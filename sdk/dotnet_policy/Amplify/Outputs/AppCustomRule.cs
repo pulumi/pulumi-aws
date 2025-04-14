@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Amplify.Outputs
         /// <summary>
         /// Condition for a URL rewrite or redirect rule, such as a country code.
         /// </summary>
-        [Input("condition")]
+        [PolicyResourceProperty("condition", "_mUnknown_Condition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCondition;
-
-        public string? Condition => _mCondition.GetValue("condition");
+        private string? _mValue_Condition;
+        private bool _mUnknown_Condition;
+        public string? Condition
+        {
+            get
+            {
+                if (!_mUnknown_Condition) return _mValue_Condition;
+                throw new UndeferrableValueException("Value 'AppCustomRule.Condition' is not present");
+            }
+        }
 
         /// <summary>
         /// Source pattern for a URL rewrite or redirect rule.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
-
-        public string? Source => _mSource.GetValue("source");
+        private string? _mValue_Source;
+        private bool _mUnknown_Source;
+        public string? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'AppCustomRule.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'AppCustomRule.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Target pattern for a URL rewrite or redirect rule.
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
-
-        public string? Target => _mTarget.GetValue("target");
+        private string? _mValue_Target;
+        private bool _mUnknown_Target;
+        public string? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'AppCustomRule.Target' is not present");
+            }
+        }
     }
 }

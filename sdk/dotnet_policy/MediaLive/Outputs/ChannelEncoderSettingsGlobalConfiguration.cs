@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Value to set the initial audio gain for the Live Event.
         /// </summary>
-        [Input("initialAudioGain")]
+        [PolicyResourceProperty("initialAudioGain", "_mUnknown_InitialAudioGain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInitialAudioGain;
-
-        public int? InitialAudioGain => _mInitialAudioGain.GetValue("initialAudioGain");
+        private int? _mValue_InitialAudioGain;
+        private bool _mUnknown_InitialAudioGain;
+        public int? InitialAudioGain
+        {
+            get
+            {
+                if (!_mUnknown_InitialAudioGain) return _mValue_InitialAudioGain;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfiguration.InitialAudioGain' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
         /// </summary>
-        [Input("inputEndAction")]
+        [PolicyResourceProperty("inputEndAction", "_mUnknown_InputEndAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputEndAction;
-
-        public string? InputEndAction => _mInputEndAction.GetValue("inputEndAction");
+        private string? _mValue_InputEndAction;
+        private bool _mUnknown_InputEndAction;
+        public string? InputEndAction
+        {
+            get
+            {
+                if (!_mUnknown_InputEndAction) return _mValue_InputEndAction;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfiguration.InputEndAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Settings for system actions when input is lost. See Input Loss Behavior for more details.
         /// </summary>
-        [Input("inputLossBehavior")]
+        [PolicyResourceProperty("inputLossBehavior", "_mUnknown_InputLossBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehavior> _mInputLossBehavior;
-
-        public Outputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehavior? InputLossBehavior => _mInputLossBehavior.GetValue("inputLossBehavior");
+        private Outputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehavior? _mValue_InputLossBehavior;
+        private bool _mUnknown_InputLossBehavior;
+        public Outputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehavior? InputLossBehavior
+        {
+            get
+            {
+                if (!_mUnknown_InputLossBehavior) return _mValue_InputLossBehavior;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfiguration.InputLossBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
         /// </summary>
-        [Input("outputLockingMode")]
+        [PolicyResourceProperty("outputLockingMode", "_mUnknown_OutputLockingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputLockingMode;
-
-        public string? OutputLockingMode => _mOutputLockingMode.GetValue("outputLockingMode");
+        private string? _mValue_OutputLockingMode;
+        private bool _mUnknown_OutputLockingMode;
+        public string? OutputLockingMode
+        {
+            get
+            {
+                if (!_mUnknown_OutputLockingMode) return _mValue_OutputLockingMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfiguration.OutputLockingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
         /// </summary>
-        [Input("outputTimingSource")]
+        [PolicyResourceProperty("outputTimingSource", "_mUnknown_OutputTimingSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputTimingSource;
-
-        public string? OutputTimingSource => _mOutputTimingSource.GetValue("outputTimingSource");
+        private string? _mValue_OutputTimingSource;
+        private bool _mUnknown_OutputTimingSource;
+        public string? OutputTimingSource
+        {
+            get
+            {
+                if (!_mUnknown_OutputTimingSource) return _mValue_OutputTimingSource;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfiguration.OutputTimingSource' is not present");
+            }
+        }
 
         /// <summary>
         /// Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
         /// </summary>
-        [Input("supportLowFramerateInputs")]
+        [PolicyResourceProperty("supportLowFramerateInputs", "_mUnknown_SupportLowFramerateInputs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSupportLowFramerateInputs;
-
-        public string? SupportLowFramerateInputs => _mSupportLowFramerateInputs.GetValue("supportLowFramerateInputs");
+        private string? _mValue_SupportLowFramerateInputs;
+        private bool _mUnknown_SupportLowFramerateInputs;
+        public string? SupportLowFramerateInputs
+        {
+            get
+            {
+                if (!_mUnknown_SupportLowFramerateInputs) return _mValue_SupportLowFramerateInputs;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfiguration.SupportLowFramerateInputs' is not present");
+            }
+        }
     }
 }

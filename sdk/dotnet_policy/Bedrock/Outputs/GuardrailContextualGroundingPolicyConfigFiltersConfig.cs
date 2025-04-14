@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// The threshold for this filter.
         /// </summary>
-        [Input("threshold")]
+        [PolicyResourceProperty("threshold", "_mUnknown_Threshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mThreshold;
-
-        public double? Threshold => _mThreshold.GetValue("threshold");
+        private double? _mValue_Threshold;
+        private bool _mUnknown_Threshold;
+        public double? Threshold
+        {
+            get
+            {
+                if (!_mUnknown_Threshold) return _mValue_Threshold;
+                throw new UndeferrableValueException("Value 'GuardrailContextualGroundingPolicyConfigFiltersConfig.Threshold' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of contextual grounding filter.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GuardrailContextualGroundingPolicyConfigFiltersConfig.Type' is not present");
+            }
+        }
     }
 }

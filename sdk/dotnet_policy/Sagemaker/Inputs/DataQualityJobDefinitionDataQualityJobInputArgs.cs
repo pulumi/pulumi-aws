@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// Input object for the batch transform job. Fields are documented below.
         /// </summary>
-        [Input("batchTransformInput")]
+        [PolicyResourceProperty("batchTransformInput", "_mUnknown_BatchTransformInput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs> _mBatchTransformInput;
-
-        public Inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs? BatchTransformInput => _mBatchTransformInput.GetValue("batchTransformInput");
+        private Inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs? _mValue_BatchTransformInput;
+        private bool _mUnknown_BatchTransformInput;
+        public Inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs? BatchTransformInput
+        {
+            get
+            {
+                if (!_mUnknown_BatchTransformInput) return _mValue_BatchTransformInput;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputArgs.BatchTransformInput' is not present");
+            }
+        }
 
         /// <summary>
         /// Input object for the endpoint. Fields are documented below.
         /// </summary>
-        [Input("endpointInput")]
+        [PolicyResourceProperty("endpointInput", "_mUnknown_EndpointInput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs> _mEndpointInput;
-
-        public Inputs.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs? EndpointInput => _mEndpointInput.GetValue("endpointInput");
+        private Inputs.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs? _mValue_EndpointInput;
+        private bool _mUnknown_EndpointInput;
+        public Inputs.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs? EndpointInput
+        {
+            get
+            {
+                if (!_mUnknown_EndpointInput) return _mValue_EndpointInput;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputArgs.EndpointInput' is not present");
+            }
+        }
     }
 }

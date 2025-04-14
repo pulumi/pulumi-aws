@@ -15,91 +15,168 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Advanced audio normalization settings. See Audio Normalization Settings for more details.
         /// </summary>
-        [Input("audioNormalizationSettings")]
+        [PolicyResourceProperty("audioNormalizationSettings", "_mUnknown_AudioNormalizationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs> _mAudioNormalizationSettings;
-
-        public Inputs.ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs? AudioNormalizationSettings => _mAudioNormalizationSettings.GetValue("audioNormalizationSettings");
+        private Inputs.ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs? _mValue_AudioNormalizationSettings;
+        private bool _mUnknown_AudioNormalizationSettings;
+        public Inputs.ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs? AudioNormalizationSettings
+        {
+            get
+            {
+                if (!_mUnknown_AudioNormalizationSettings) return _mValue_AudioNormalizationSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.AudioNormalizationSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the audio selector used as the source for this AudioDescription.
         /// </summary>
-        [Input("audioSelectorName")]
+        [PolicyResourceProperty("audioSelectorName", "_mUnknown_AudioSelectorName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAudioSelectorName;
-
-        public string? AudioSelectorName => _mAudioSelectorName.GetValue("audioSelectorName");
+        private string? _mValue_AudioSelectorName;
+        private bool _mUnknown_AudioSelectorName;
+        public string? AudioSelectorName
+        {
+            get
+            {
+                if (!_mUnknown_AudioSelectorName) return _mValue_AudioSelectorName;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.AudioSelectorName' is not present");
+            }
+        }
 
         /// <summary>
         /// Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
         /// </summary>
-        [Input("audioType")]
+        [PolicyResourceProperty("audioType", "_mUnknown_AudioType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAudioType;
-
-        public string? AudioType => _mAudioType.GetValue("audioType");
+        private string? _mValue_AudioType;
+        private bool _mUnknown_AudioType;
+        public string? AudioType
+        {
+            get
+            {
+                if (!_mUnknown_AudioType) return _mValue_AudioType;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.AudioType' is not present");
+            }
+        }
 
         /// <summary>
         /// Determined how audio type is determined.
         /// </summary>
-        [Input("audioTypeControl")]
+        [PolicyResourceProperty("audioTypeControl", "_mUnknown_AudioTypeControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAudioTypeControl;
-
-        public string? AudioTypeControl => _mAudioTypeControl.GetValue("audioTypeControl");
+        private string? _mValue_AudioTypeControl;
+        private bool _mUnknown_AudioTypeControl;
+        public string? AudioTypeControl
+        {
+            get
+            {
+                if (!_mUnknown_AudioTypeControl) return _mValue_AudioTypeControl;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.AudioTypeControl' is not present");
+            }
+        }
 
         /// <summary>
         /// Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
         /// </summary>
-        [Input("audioWatermarkSettings")]
+        [PolicyResourceProperty("audioWatermarkSettings", "_mUnknown_AudioWatermarkSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs> _mAudioWatermarkSettings;
-
-        public Inputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs? AudioWatermarkSettings => _mAudioWatermarkSettings.GetValue("audioWatermarkSettings");
+        private Inputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs? _mValue_AudioWatermarkSettings;
+        private bool _mUnknown_AudioWatermarkSettings;
+        public Inputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs? AudioWatermarkSettings
+        {
+            get
+            {
+                if (!_mUnknown_AudioWatermarkSettings) return _mValue_AudioWatermarkSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.AudioWatermarkSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Audio codec settings. See Audio Codec Settings for more details.
         /// </summary>
-        [Input("codecSettings")]
+        [PolicyResourceProperty("codecSettings", "_mUnknown_CodecSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs> _mCodecSettings;
+        private Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs? _mValue_CodecSettings;
+        private bool _mUnknown_CodecSettings;
+        public Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs? CodecSettings
+        {
+            get
+            {
+                if (!_mUnknown_CodecSettings) return _mValue_CodecSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.CodecSettings' is not present");
+            }
+        }
 
-        public Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs? CodecSettings => _mCodecSettings.GetValue("codecSettings");
-
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.LanguageCode' is not present");
+            }
+        }
 
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
-
-        [Input("languageCodeControl")]
+        [PolicyResourceProperty("languageCodeControl", "_mUnknown_LanguageCodeControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCodeControl;
-
-        public string? LanguageCodeControl => _mLanguageCodeControl.GetValue("languageCodeControl");
+        private string? _mValue_LanguageCodeControl;
+        private bool _mUnknown_LanguageCodeControl;
+        public string? LanguageCodeControl
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCodeControl) return _mValue_LanguageCodeControl;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.LanguageCodeControl' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of this audio description.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("remixSettings")]
+        [PolicyResourceProperty("remixSettings", "_mUnknown_RemixSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs> _mRemixSettings;
-
-        public Inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs? RemixSettings => _mRemixSettings.GetValue("remixSettings");
+        private Inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs? _mValue_RemixSettings;
+        private bool _mUnknown_RemixSettings;
+        public Inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs? RemixSettings
+        {
+            get
+            {
+                if (!_mUnknown_RemixSettings) return _mValue_RemixSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.RemixSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Stream name RTMP destinations (URLs of type rtmp://)
         /// </summary>
-        [Input("streamName")]
+        [PolicyResourceProperty("streamName", "_mUnknown_StreamName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamName;
-
-        public string? StreamName => _mStreamName.GetValue("streamName");
+        private string? _mValue_StreamName;
+        private bool _mUnknown_StreamName;
+        public string? StreamName
+        {
+            get
+            {
+                if (!_mUnknown_StreamName) return _mValue_StreamName;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.StreamName' is not present");
+            }
+        }
     }
 }

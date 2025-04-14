@@ -12,37 +12,65 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Inputs
 {
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs
     {
-        [Input("referenceId")]
+        [PolicyResourceProperty("referenceId", "_mUnknown_ReferenceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReferenceId;
-
-        public string? ReferenceId => _mReferenceId.GetValue("referenceId");
+        private string? _mValue_ReferenceId;
+        private bool _mUnknown_ReferenceId;
+        public string? ReferenceId
+        {
+            get
+            {
+                if (!_mUnknown_ReferenceId) return _mValue_ReferenceId;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs.ReferenceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
         /// </summary>
-        [Input("referenceSchema")]
+        [PolicyResourceProperty("referenceSchema", "_mUnknown_ReferenceSchema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs> _mReferenceSchema;
-
-        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs? ReferenceSchema => _mReferenceSchema.GetValue("referenceSchema");
+        private Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs? _mValue_ReferenceSchema;
+        private bool _mUnknown_ReferenceSchema;
+        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs? ReferenceSchema
+        {
+            get
+            {
+                if (!_mUnknown_ReferenceSchema) return _mValue_ReferenceSchema;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs.ReferenceSchema' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifies the S3 bucket and object that contains the reference data.
         /// </summary>
-        [Input("s3ReferenceDataSource")]
+        [PolicyResourceProperty("s3ReferenceDataSource", "_mUnknown_S3ReferenceDataSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs> _mS3ReferenceDataSource;
-
-        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs? S3ReferenceDataSource => _mS3ReferenceDataSource.GetValue("s3ReferenceDataSource");
+        private Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs? _mValue_S3ReferenceDataSource;
+        private bool _mUnknown_S3ReferenceDataSource;
+        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs? S3ReferenceDataSource
+        {
+            get
+            {
+                if (!_mUnknown_S3ReferenceDataSource) return _mValue_S3ReferenceDataSource;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs.S3ReferenceDataSource' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the in-application table to create.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs.TableName' is not present");
+            }
+        }
     }
 }

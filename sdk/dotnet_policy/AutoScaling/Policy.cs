@@ -16,116 +16,200 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// <summary>
         /// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         /// </summary>
-        [Input("adjustmentType")]
+        [PolicyResourceProperty("adjustmentType", "_mUnknown_AdjustmentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdjustmentType;
-
-        public string? AdjustmentType => _mAdjustmentType.GetValue("adjustmentType");
+        private string? _mValue_AdjustmentType;
+        private bool _mUnknown_AdjustmentType;
+        public string? AdjustmentType
+        {
+            get
+            {
+                if (!_mUnknown_AdjustmentType) return _mValue_AdjustmentType;
+                throw new UndeferrableValueException("Value 'Policy.AdjustmentType' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN assigned by AWS to the scaling policy.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Policy.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the autoscaling group.
         /// </summary>
-        [Input("autoscalingGroupName")]
+        [PolicyResourceProperty("autoscalingGroupName", "_mUnknown_AutoscalingGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
-
-        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
+        private string? _mValue_AutoscalingGroupName;
+        private bool _mUnknown_AutoscalingGroupName;
+        public string? AutoscalingGroupName
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingGroupName) return _mValue_AutoscalingGroupName;
+                throw new UndeferrableValueException("Value 'Policy.AutoscalingGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         /// </summary>
-        [Input("cooldown")]
+        [PolicyResourceProperty("cooldown", "_mUnknown_Cooldown")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCooldown;
-
-        public int? Cooldown => _mCooldown.GetValue("cooldown");
+        private int? _mValue_Cooldown;
+        private bool _mUnknown_Cooldown;
+        public int? Cooldown
+        {
+            get
+            {
+                if (!_mUnknown_Cooldown) return _mValue_Cooldown;
+                throw new UndeferrableValueException("Value 'Policy.Cooldown' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the scaling policy is enabled or disabled. Default: `true`.
         /// 
         /// The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'Policy.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         /// </summary>
-        [Input("estimatedInstanceWarmup")]
+        [PolicyResourceProperty("estimatedInstanceWarmup", "_mUnknown_EstimatedInstanceWarmup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mEstimatedInstanceWarmup;
-
-        public int? EstimatedInstanceWarmup => _mEstimatedInstanceWarmup.GetValue("estimatedInstanceWarmup");
+        private int? _mValue_EstimatedInstanceWarmup;
+        private bool _mUnknown_EstimatedInstanceWarmup;
+        public int? EstimatedInstanceWarmup
+        {
+            get
+            {
+                if (!_mUnknown_EstimatedInstanceWarmup) return _mValue_EstimatedInstanceWarmup;
+                throw new UndeferrableValueException("Value 'Policy.EstimatedInstanceWarmup' is not present");
+            }
+        }
 
         /// <summary>
         /// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         /// </summary>
-        [Input("metricAggregationType")]
+        [PolicyResourceProperty("metricAggregationType", "_mUnknown_MetricAggregationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricAggregationType;
-
-        public string? MetricAggregationType => _mMetricAggregationType.GetValue("metricAggregationType");
+        private string? _mValue_MetricAggregationType;
+        private bool _mUnknown_MetricAggregationType;
+        public string? MetricAggregationType
+        {
+            get
+            {
+                if (!_mUnknown_MetricAggregationType) return _mValue_MetricAggregationType;
+                throw new UndeferrableValueException("Value 'Policy.MetricAggregationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
         /// 
         /// The following arguments are only available to "SimpleScaling" type policies:
         /// </summary>
-        [Input("minAdjustmentMagnitude")]
+        [PolicyResourceProperty("minAdjustmentMagnitude", "_mUnknown_MinAdjustmentMagnitude")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinAdjustmentMagnitude;
-
-        public int? MinAdjustmentMagnitude => _mMinAdjustmentMagnitude.GetValue("minAdjustmentMagnitude");
+        private int? _mValue_MinAdjustmentMagnitude;
+        private bool _mUnknown_MinAdjustmentMagnitude;
+        public int? MinAdjustmentMagnitude
+        {
+            get
+            {
+                if (!_mUnknown_MinAdjustmentMagnitude) return _mValue_MinAdjustmentMagnitude;
+                throw new UndeferrableValueException("Value 'Policy.MinAdjustmentMagnitude' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Policy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         /// </summary>
-        [Input("policyType")]
+        [PolicyResourceProperty("policyType", "_mUnknown_PolicyType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyType;
-
-        public string? PolicyType => _mPolicyType.GetValue("policyType");
+        private string? _mValue_PolicyType;
+        private bool _mUnknown_PolicyType;
+        public string? PolicyType
+        {
+            get
+            {
+                if (!_mUnknown_PolicyType) return _mValue_PolicyType;
+                throw new UndeferrableValueException("Value 'Policy.PolicyType' is not present");
+            }
+        }
 
         /// <summary>
         /// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
         /// </summary>
-        [Input("predictiveScalingConfiguration")]
+        [PolicyResourceProperty("predictiveScalingConfiguration", "_mUnknown_PredictiveScalingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyPredictiveScalingConfiguration> _mPredictiveScalingConfiguration;
-
-        public Outputs.PolicyPredictiveScalingConfiguration? PredictiveScalingConfiguration => _mPredictiveScalingConfiguration.GetValue("predictiveScalingConfiguration");
+        private Outputs.PolicyPredictiveScalingConfiguration? _mValue_PredictiveScalingConfiguration;
+        private bool _mUnknown_PredictiveScalingConfiguration;
+        public Outputs.PolicyPredictiveScalingConfiguration? PredictiveScalingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_PredictiveScalingConfiguration) return _mValue_PredictiveScalingConfiguration;
+                throw new UndeferrableValueException("Value 'Policy.PredictiveScalingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of members by which to
         /// scale, when the adjustment bounds are breached. A positive value scales
         /// up. A negative value scales down.
         /// </summary>
-        [Input("scalingAdjustment")]
+        [PolicyResourceProperty("scalingAdjustment", "_mUnknown_ScalingAdjustment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mScalingAdjustment;
-
-        public int? ScalingAdjustment => _mScalingAdjustment.GetValue("scalingAdjustment");
+        private int? _mValue_ScalingAdjustment;
+        private bool _mUnknown_ScalingAdjustment;
+        public int? ScalingAdjustment
+        {
+            get
+            {
+                if (!_mUnknown_ScalingAdjustment) return _mValue_ScalingAdjustment;
+                throw new UndeferrableValueException("Value 'Policy.ScalingAdjustment' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of adjustments that manage
@@ -163,11 +247,18 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// 
         /// The following fields are available in step adjustments:
         /// </summary>
-        [Input("stepAdjustments")]
+        [PolicyResourceProperty("stepAdjustments", "_mUnknown_StepAdjustments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PolicyStepAdjustment>> _mStepAdjustments;
-
-        public List<Outputs.PolicyStepAdjustment>? StepAdjustments => _mStepAdjustments.GetValue("stepAdjustments");
+        private List<Outputs.PolicyStepAdjustment>? _mValue_StepAdjustments;
+        private bool _mUnknown_StepAdjustments;
+        public List<Outputs.PolicyStepAdjustment>? StepAdjustments
+        {
+            get
+            {
+                if (!_mUnknown_StepAdjustments) return _mValue_StepAdjustments;
+                throw new UndeferrableValueException("Value 'Policy.StepAdjustments' is not present");
+            }
+        }
 
         /// <summary>
         /// Target tracking policy. These have the following structure:
@@ -197,11 +288,18 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// 
         /// The following fields are available in target tracking configuration:
         /// </summary>
-        [Input("targetTrackingConfiguration")]
+        [PolicyResourceProperty("targetTrackingConfiguration", "_mUnknown_TargetTrackingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyTargetTrackingConfiguration> _mTargetTrackingConfiguration;
-
-        public Outputs.PolicyTargetTrackingConfiguration? TargetTrackingConfiguration => _mTargetTrackingConfiguration.GetValue("targetTrackingConfiguration");
+        private Outputs.PolicyTargetTrackingConfiguration? _mValue_TargetTrackingConfiguration;
+        private bool _mUnknown_TargetTrackingConfiguration;
+        public Outputs.PolicyTargetTrackingConfiguration? TargetTrackingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_TargetTrackingConfiguration) return _mValue_TargetTrackingConfiguration;
+                throw new UndeferrableValueException("Value 'Policy.TargetTrackingConfiguration' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:autoscaling/policy:Policy")]
@@ -210,107 +308,184 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// <summary>
         /// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         /// </summary>
-        [Input("adjustmentType")]
+        [PolicyResourceProperty("adjustmentType", "_mUnknown_AdjustmentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdjustmentType;
-
-        public string? AdjustmentType => _mAdjustmentType.GetValue("adjustmentType");
+        private string? _mValue_AdjustmentType;
+        private bool _mUnknown_AdjustmentType;
+        public string? AdjustmentType
+        {
+            get
+            {
+                if (!_mUnknown_AdjustmentType) return _mValue_AdjustmentType;
+                throw new UndeferrableValueException("Value 'PolicyArgs.AdjustmentType' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the autoscaling group.
         /// </summary>
-        [Input("autoscalingGroupName")]
+        [PolicyResourceProperty("autoscalingGroupName", "_mUnknown_AutoscalingGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
-
-        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
+        private string? _mValue_AutoscalingGroupName;
+        private bool _mUnknown_AutoscalingGroupName;
+        public string? AutoscalingGroupName
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingGroupName) return _mValue_AutoscalingGroupName;
+                throw new UndeferrableValueException("Value 'PolicyArgs.AutoscalingGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         /// </summary>
-        [Input("cooldown")]
+        [PolicyResourceProperty("cooldown", "_mUnknown_Cooldown")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCooldown;
-
-        public int? Cooldown => _mCooldown.GetValue("cooldown");
+        private int? _mValue_Cooldown;
+        private bool _mUnknown_Cooldown;
+        public int? Cooldown
+        {
+            get
+            {
+                if (!_mUnknown_Cooldown) return _mValue_Cooldown;
+                throw new UndeferrableValueException("Value 'PolicyArgs.Cooldown' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the scaling policy is enabled or disabled. Default: `true`.
         /// 
         /// The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'PolicyArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         /// </summary>
-        [Input("estimatedInstanceWarmup")]
+        [PolicyResourceProperty("estimatedInstanceWarmup", "_mUnknown_EstimatedInstanceWarmup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mEstimatedInstanceWarmup;
-
-        public int? EstimatedInstanceWarmup => _mEstimatedInstanceWarmup.GetValue("estimatedInstanceWarmup");
+        private int? _mValue_EstimatedInstanceWarmup;
+        private bool _mUnknown_EstimatedInstanceWarmup;
+        public int? EstimatedInstanceWarmup
+        {
+            get
+            {
+                if (!_mUnknown_EstimatedInstanceWarmup) return _mValue_EstimatedInstanceWarmup;
+                throw new UndeferrableValueException("Value 'PolicyArgs.EstimatedInstanceWarmup' is not present");
+            }
+        }
 
         /// <summary>
         /// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         /// </summary>
-        [Input("metricAggregationType")]
+        [PolicyResourceProperty("metricAggregationType", "_mUnknown_MetricAggregationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricAggregationType;
-
-        public string? MetricAggregationType => _mMetricAggregationType.GetValue("metricAggregationType");
+        private string? _mValue_MetricAggregationType;
+        private bool _mUnknown_MetricAggregationType;
+        public string? MetricAggregationType
+        {
+            get
+            {
+                if (!_mUnknown_MetricAggregationType) return _mValue_MetricAggregationType;
+                throw new UndeferrableValueException("Value 'PolicyArgs.MetricAggregationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
         /// 
         /// The following arguments are only available to "SimpleScaling" type policies:
         /// </summary>
-        [Input("minAdjustmentMagnitude")]
+        [PolicyResourceProperty("minAdjustmentMagnitude", "_mUnknown_MinAdjustmentMagnitude")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinAdjustmentMagnitude;
-
-        public int? MinAdjustmentMagnitude => _mMinAdjustmentMagnitude.GetValue("minAdjustmentMagnitude");
+        private int? _mValue_MinAdjustmentMagnitude;
+        private bool _mUnknown_MinAdjustmentMagnitude;
+        public int? MinAdjustmentMagnitude
+        {
+            get
+            {
+                if (!_mUnknown_MinAdjustmentMagnitude) return _mValue_MinAdjustmentMagnitude;
+                throw new UndeferrableValueException("Value 'PolicyArgs.MinAdjustmentMagnitude' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PolicyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         /// </summary>
-        [Input("policyType")]
+        [PolicyResourceProperty("policyType", "_mUnknown_PolicyType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyType;
-
-        public string? PolicyType => _mPolicyType.GetValue("policyType");
+        private string? _mValue_PolicyType;
+        private bool _mUnknown_PolicyType;
+        public string? PolicyType
+        {
+            get
+            {
+                if (!_mUnknown_PolicyType) return _mValue_PolicyType;
+                throw new UndeferrableValueException("Value 'PolicyArgs.PolicyType' is not present");
+            }
+        }
 
         /// <summary>
         /// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
         /// </summary>
-        [Input("predictiveScalingConfiguration")]
+        [PolicyResourceProperty("predictiveScalingConfiguration", "_mUnknown_PredictiveScalingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyPredictiveScalingConfigurationArgs> _mPredictiveScalingConfiguration;
-
-        public Inputs.PolicyPredictiveScalingConfigurationArgs? PredictiveScalingConfiguration => _mPredictiveScalingConfiguration.GetValue("predictiveScalingConfiguration");
+        private Inputs.PolicyPredictiveScalingConfigurationArgs? _mValue_PredictiveScalingConfiguration;
+        private bool _mUnknown_PredictiveScalingConfiguration;
+        public Inputs.PolicyPredictiveScalingConfigurationArgs? PredictiveScalingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_PredictiveScalingConfiguration) return _mValue_PredictiveScalingConfiguration;
+                throw new UndeferrableValueException("Value 'PolicyArgs.PredictiveScalingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of members by which to
         /// scale, when the adjustment bounds are breached. A positive value scales
         /// up. A negative value scales down.
         /// </summary>
-        [Input("scalingAdjustment")]
+        [PolicyResourceProperty("scalingAdjustment", "_mUnknown_ScalingAdjustment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mScalingAdjustment;
-
-        public int? ScalingAdjustment => _mScalingAdjustment.GetValue("scalingAdjustment");
+        private int? _mValue_ScalingAdjustment;
+        private bool _mUnknown_ScalingAdjustment;
+        public int? ScalingAdjustment
+        {
+            get
+            {
+                if (!_mUnknown_ScalingAdjustment) return _mValue_ScalingAdjustment;
+                throw new UndeferrableValueException("Value 'PolicyArgs.ScalingAdjustment' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of adjustments that manage
@@ -348,11 +523,18 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// 
         /// The following fields are available in step adjustments:
         /// </summary>
-        [Input("stepAdjustments")]
+        [PolicyResourceProperty("stepAdjustments", "_mUnknown_StepAdjustments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PolicyStepAdjustmentArgs>> _mStepAdjustments;
-
-        public List<Inputs.PolicyStepAdjustmentArgs>? StepAdjustments => _mStepAdjustments.GetValue("stepAdjustments");
+        private List<Inputs.PolicyStepAdjustmentArgs>? _mValue_StepAdjustments;
+        private bool _mUnknown_StepAdjustments;
+        public List<Inputs.PolicyStepAdjustmentArgs>? StepAdjustments
+        {
+            get
+            {
+                if (!_mUnknown_StepAdjustments) return _mValue_StepAdjustments;
+                throw new UndeferrableValueException("Value 'PolicyArgs.StepAdjustments' is not present");
+            }
+        }
 
         /// <summary>
         /// Target tracking policy. These have the following structure:
@@ -382,10 +564,17 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// 
         /// The following fields are available in target tracking configuration:
         /// </summary>
-        [Input("targetTrackingConfiguration")]
+        [PolicyResourceProperty("targetTrackingConfiguration", "_mUnknown_TargetTrackingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyTargetTrackingConfigurationArgs> _mTargetTrackingConfiguration;
-
-        public Inputs.PolicyTargetTrackingConfigurationArgs? TargetTrackingConfiguration => _mTargetTrackingConfiguration.GetValue("targetTrackingConfiguration");
+        private Inputs.PolicyTargetTrackingConfigurationArgs? _mValue_TargetTrackingConfiguration;
+        private bool _mUnknown_TargetTrackingConfiguration;
+        public Inputs.PolicyTargetTrackingConfigurationArgs? TargetTrackingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_TargetTrackingConfiguration) return _mValue_TargetTrackingConfiguration;
+                throw new UndeferrableValueException("Value 'PolicyArgs.TargetTrackingConfiguration' is not present");
+            }
+        }
     }
 }

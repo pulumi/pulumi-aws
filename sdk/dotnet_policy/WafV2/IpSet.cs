@@ -16,89 +16,159 @@ namespace Pulumi.PolicyPacks.Aws.WafV2
         /// <summary>
         /// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
         /// </summary>
-        [Input("addresses")]
+        [PolicyResourceProperty("addresses", "_mUnknown_Addresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAddresses;
-
-        public List<string>? Addresses => _mAddresses.GetValue("addresses");
+        private List<string>? _mValue_Addresses;
+        private bool _mUnknown_Addresses;
+        public List<string>? Addresses
+        {
+            get
+            {
+                if (!_mUnknown_Addresses) return _mValue_Addresses;
+                throw new UndeferrableValueException("Value 'IpSet.Addresses' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IP set.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'IpSet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly description of the IP set.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'IpSet.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
         /// </summary>
-        [Input("ipAddressVersion")]
+        [PolicyResourceProperty("ipAddressVersion", "_mUnknown_IpAddressVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressVersion;
+        private string? _mValue_IpAddressVersion;
+        private bool _mUnknown_IpAddressVersion;
+        public string? IpAddressVersion
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressVersion) return _mValue_IpAddressVersion;
+                throw new UndeferrableValueException("Value 'IpSet.IpAddressVersion' is not present");
+            }
+        }
 
-        public string? IpAddressVersion => _mIpAddressVersion.GetValue("ipAddressVersion");
-
-        [Input("lockToken")]
+        [PolicyResourceProperty("lockToken", "_mUnknown_LockToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLockToken;
-
-        public string? LockToken => _mLockToken.GetValue("lockToken");
+        private string? _mValue_LockToken;
+        private bool _mUnknown_LockToken;
+        public string? LockToken
+        {
+            get
+            {
+                if (!_mUnknown_LockToken) return _mValue_LockToken;
+                throw new UndeferrableValueException("Value 'IpSet.LockToken' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'IpSet.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'IpSet.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
-
-        public string? Scope => _mScope.GetValue("scope");
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'IpSet.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'IpSet.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'IpSet.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:wafv2/ipSet:IpSet")]
@@ -107,64 +177,113 @@ namespace Pulumi.PolicyPacks.Aws.WafV2
         /// <summary>
         /// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
         /// </summary>
-        [Input("addresses")]
+        [PolicyResourceProperty("addresses", "_mUnknown_Addresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAddresses;
-
-        public List<string>? Addresses => _mAddresses.GetValue("addresses");
+        private List<string>? _mValue_Addresses;
+        private bool _mUnknown_Addresses;
+        public List<string>? Addresses
+        {
+            get
+            {
+                if (!_mUnknown_Addresses) return _mValue_Addresses;
+                throw new UndeferrableValueException("Value 'IpSetArgs.Addresses' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly description of the IP set.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'IpSetArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
         /// </summary>
-        [Input("ipAddressVersion")]
+        [PolicyResourceProperty("ipAddressVersion", "_mUnknown_IpAddressVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressVersion;
-
-        public string? IpAddressVersion => _mIpAddressVersion.GetValue("ipAddressVersion");
+        private string? _mValue_IpAddressVersion;
+        private bool _mUnknown_IpAddressVersion;
+        public string? IpAddressVersion
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressVersion) return _mValue_IpAddressVersion;
+                throw new UndeferrableValueException("Value 'IpSetArgs.IpAddressVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'IpSetArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'IpSetArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
-
-        public string? Scope => _mScope.GetValue("scope");
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'IpSetArgs.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'IpSetArgs.Tags' is not present");
+            }
+        }
     }
 }

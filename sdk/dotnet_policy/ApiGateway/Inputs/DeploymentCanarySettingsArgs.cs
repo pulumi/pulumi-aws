@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway.Inputs
         /// <summary>
         /// Percentage (0.0-100.0) of traffic routed to the canary deployment.
         /// </summary>
-        [Input("percentTraffic")]
+        [PolicyResourceProperty("percentTraffic", "_mUnknown_PercentTraffic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mPercentTraffic;
-
-        public double? PercentTraffic => _mPercentTraffic.GetValue("percentTraffic");
+        private double? _mValue_PercentTraffic;
+        private bool _mUnknown_PercentTraffic;
+        public double? PercentTraffic
+        {
+            get
+            {
+                if (!_mUnknown_PercentTraffic) return _mValue_PercentTraffic;
+                throw new UndeferrableValueException("Value 'DeploymentCanarySettingsArgs.PercentTraffic' is not present");
+            }
+        }
 
         /// <summary>
         /// Stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
         /// </summary>
-        [Input("stageVariableOverrides")]
+        [PolicyResourceProperty("stageVariableOverrides", "_mUnknown_StageVariableOverrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mStageVariableOverrides;
-
-        public Dictionary<string, string>? StageVariableOverrides => _mStageVariableOverrides.GetValue("stageVariableOverrides");
+        private Dictionary<string, string>? _mValue_StageVariableOverrides;
+        private bool _mUnknown_StageVariableOverrides;
+        public Dictionary<string, string>? StageVariableOverrides
+        {
+            get
+            {
+                if (!_mUnknown_StageVariableOverrides) return _mValue_StageVariableOverrides;
+                throw new UndeferrableValueException("Value 'DeploymentCanarySettingsArgs.StageVariableOverrides' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
         /// </summary>
-        [Input("useStageCache")]
+        [PolicyResourceProperty("useStageCache", "_mUnknown_UseStageCache")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseStageCache;
-
-        public bool? UseStageCache => _mUseStageCache.GetValue("useStageCache");
+        private bool? _mValue_UseStageCache;
+        private bool _mUnknown_UseStageCache;
+        public bool? UseStageCache
+        {
+            get
+            {
+                if (!_mUnknown_UseStageCache) return _mValue_UseStageCache;
+                throw new UndeferrableValueException("Value 'DeploymentCanarySettingsArgs.UseStageCache' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Inputs
         /// <summary>
         /// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
         /// </summary>
-        [Input("metric")]
+        [PolicyResourceProperty("metric", "_mUnknown_Metric")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs> _mMetric;
-
-        public Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs? Metric => _mMetric.GetValue("metric");
+        private Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs? _mValue_Metric;
+        private bool _mUnknown_Metric;
+        public Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs? Metric
+        {
+            get
+            {
+                if (!_mUnknown_Metric) return _mValue_Metric;
+                throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs.Metric' is not present");
+            }
+        }
 
         /// <summary>
         /// Statistic of the metrics to return.
         /// </summary>
-        [Input("stat")]
+        [PolicyResourceProperty("stat", "_mUnknown_Stat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStat;
-
-        public string? Stat => _mStat.GetValue("stat");
+        private string? _mValue_Stat;
+        private bool _mUnknown_Stat;
+        public string? Stat
+        {
+            get
+            {
+                if (!_mUnknown_Stat) return _mValue_Stat;
+                throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs.Stat' is not present");
+            }
+        }
 
         /// <summary>
         /// Unit of the metrics to return.
         /// </summary>
-        [Input("unit")]
+        [PolicyResourceProperty("unit", "_mUnknown_Unit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnit;
-
-        public string? Unit => _mUnit.GetValue("unit");
+        private string? _mValue_Unit;
+        private bool _mUnknown_Unit;
+        public string? Unit
+        {
+            get
+            {
+                if (!_mUnknown_Unit) return _mValue_Unit;
+                throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs.Unit' is not present");
+            }
+        }
     }
 }

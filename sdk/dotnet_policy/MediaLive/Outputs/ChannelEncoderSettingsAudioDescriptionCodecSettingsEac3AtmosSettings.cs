@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Average bitrate in bits/second.
         /// </summary>
-        [Input("bitrate")]
+        [PolicyResourceProperty("bitrate", "_mUnknown_Bitrate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mBitrate;
-
-        public double? Bitrate => _mBitrate.GetValue("bitrate");
+        private double? _mValue_Bitrate;
+        private bool _mUnknown_Bitrate;
+        public double? Bitrate
+        {
+            get
+            {
+                if (!_mUnknown_Bitrate) return _mValue_Bitrate;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings.Bitrate' is not present");
+            }
+        }
 
         /// <summary>
         /// Dolby Digital Plus with Dolby Atmos coding mode.
         /// </summary>
-        [Input("codingMode")]
+        [PolicyResourceProperty("codingMode", "_mUnknown_CodingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodingMode;
-
-        public string? CodingMode => _mCodingMode.GetValue("codingMode");
+        private string? _mValue_CodingMode;
+        private bool _mUnknown_CodingMode;
+        public string? CodingMode
+        {
+            get
+            {
+                if (!_mUnknown_CodingMode) return _mValue_CodingMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings.CodingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the dialnorm for the output.
         /// </summary>
-        [Input("dialnorm")]
+        [PolicyResourceProperty("dialnorm", "_mUnknown_Dialnorm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mDialnorm;
-
-        public double? Dialnorm => _mDialnorm.GetValue("dialnorm");
+        private double? _mValue_Dialnorm;
+        private bool _mUnknown_Dialnorm;
+        public double? Dialnorm
+        {
+            get
+            {
+                if (!_mUnknown_Dialnorm) return _mValue_Dialnorm;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings.Dialnorm' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the Dolby dynamic range compression profile.
         /// </summary>
-        [Input("drcLine")]
+        [PolicyResourceProperty("drcLine", "_mUnknown_DrcLine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDrcLine;
-
-        public string? DrcLine => _mDrcLine.GetValue("drcLine");
+        private string? _mValue_DrcLine;
+        private bool _mUnknown_DrcLine;
+        public string? DrcLine
+        {
+            get
+            {
+                if (!_mUnknown_DrcLine) return _mValue_DrcLine;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings.DrcLine' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the profile for heavy Dolby dynamic range compression.
         /// </summary>
-        [Input("drcRf")]
+        [PolicyResourceProperty("drcRf", "_mUnknown_DrcRf")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDrcRf;
-
-        public string? DrcRf => _mDrcRf.GetValue("drcRf");
+        private string? _mValue_DrcRf;
+        private bool _mUnknown_DrcRf;
+        public string? DrcRf
+        {
+            get
+            {
+                if (!_mUnknown_DrcRf) return _mValue_DrcRf;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings.DrcRf' is not present");
+            }
+        }
 
         /// <summary>
         /// Height dimensional trim.
         /// </summary>
-        [Input("heightTrim")]
+        [PolicyResourceProperty("heightTrim", "_mUnknown_HeightTrim")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mHeightTrim;
-
-        public double? HeightTrim => _mHeightTrim.GetValue("heightTrim");
+        private double? _mValue_HeightTrim;
+        private bool _mUnknown_HeightTrim;
+        public double? HeightTrim
+        {
+            get
+            {
+                if (!_mUnknown_HeightTrim) return _mValue_HeightTrim;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings.HeightTrim' is not present");
+            }
+        }
 
         /// <summary>
         /// Surround dimensional trim.
         /// </summary>
-        [Input("surroundTrim")]
+        [PolicyResourceProperty("surroundTrim", "_mUnknown_SurroundTrim")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mSurroundTrim;
-
-        public double? SurroundTrim => _mSurroundTrim.GetValue("surroundTrim");
+        private double? _mValue_SurroundTrim;
+        private bool _mUnknown_SurroundTrim;
+        public double? SurroundTrim
+        {
+            get
+            {
+                if (!_mUnknown_SurroundTrim) return _mValue_SurroundTrim;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings.SurroundTrim' is not present");
+            }
+        }
     }
 }

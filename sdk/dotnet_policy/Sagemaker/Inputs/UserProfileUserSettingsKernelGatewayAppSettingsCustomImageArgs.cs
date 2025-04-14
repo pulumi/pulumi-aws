@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The name of the App Image Config.
         /// </summary>
-        [Input("appImageConfigName")]
+        [PolicyResourceProperty("appImageConfigName", "_mUnknown_AppImageConfigName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppImageConfigName;
-
-        public string? AppImageConfigName => _mAppImageConfigName.GetValue("appImageConfigName");
+        private string? _mValue_AppImageConfigName;
+        private bool _mUnknown_AppImageConfigName;
+        public string? AppImageConfigName
+        {
+            get
+            {
+                if (!_mUnknown_AppImageConfigName) return _mValue_AppImageConfigName;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs.AppImageConfigName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Custom Image.
         /// </summary>
-        [Input("imageName")]
+        [PolicyResourceProperty("imageName", "_mUnknown_ImageName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageName;
-
-        public string? ImageName => _mImageName.GetValue("imageName");
+        private string? _mValue_ImageName;
+        private bool _mUnknown_ImageName;
+        public string? ImageName
+        {
+            get
+            {
+                if (!_mUnknown_ImageName) return _mValue_ImageName;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs.ImageName' is not present");
+            }
+        }
 
         /// <summary>
         /// The version number of the Custom Image.
         /// </summary>
-        [Input("imageVersionNumber")]
+        [PolicyResourceProperty("imageVersionNumber", "_mUnknown_ImageVersionNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mImageVersionNumber;
-
-        public int? ImageVersionNumber => _mImageVersionNumber.GetValue("imageVersionNumber");
+        private int? _mValue_ImageVersionNumber;
+        private bool _mUnknown_ImageVersionNumber;
+        public int? ImageVersionNumber
+        {
+            get
+            {
+                if (!_mUnknown_ImageVersionNumber) return _mValue_ImageVersionNumber;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs.ImageVersionNumber' is not present");
+            }
+        }
     }
 }

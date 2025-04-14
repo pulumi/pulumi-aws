@@ -15,30 +15,51 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
         /// </summary>
-        [Input("defaultGid")]
+        [PolicyResourceProperty("defaultGid", "_mUnknown_DefaultGid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultGid;
-
-        public int? DefaultGid => _mDefaultGid.GetValue("defaultGid");
+        private int? _mValue_DefaultGid;
+        private bool _mUnknown_DefaultGid;
+        public int? DefaultGid
+        {
+            get
+            {
+                if (!_mUnknown_DefaultGid) return _mValue_DefaultGid;
+                throw new UndeferrableValueException("Value 'AppImageConfigJupyterLabImageConfigFileSystemConfig.DefaultGid' is not present");
+            }
+        }
 
         /// <summary>
         /// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
         /// </summary>
-        [Input("defaultUid")]
+        [PolicyResourceProperty("defaultUid", "_mUnknown_DefaultUid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultUid;
-
-        public int? DefaultUid => _mDefaultUid.GetValue("defaultUid");
+        private int? _mValue_DefaultUid;
+        private bool _mUnknown_DefaultUid;
+        public int? DefaultUid
+        {
+            get
+            {
+                if (!_mUnknown_DefaultUid) return _mValue_DefaultUid;
+                throw new UndeferrableValueException("Value 'AppImageConfigJupyterLabImageConfigFileSystemConfig.DefaultUid' is not present");
+            }
+        }
 
         /// <summary>
         /// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
         /// 
         /// &gt; **Note:** When specifying `default_gid` and `default_uid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
         /// </summary>
-        [Input("mountPath")]
+        [PolicyResourceProperty("mountPath", "_mUnknown_MountPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMountPath;
-
-        public string? MountPath => _mMountPath.GetValue("mountPath");
+        private string? _mValue_MountPath;
+        private bool _mUnknown_MountPath;
+        public string? MountPath
+        {
+            get
+            {
+                if (!_mUnknown_MountPath) return _mValue_MountPath;
+                throw new UndeferrableValueException("Value 'AppImageConfigJupyterLabImageConfigFileSystemConfig.MountPath' is not present");
+            }
+        }
     }
 }

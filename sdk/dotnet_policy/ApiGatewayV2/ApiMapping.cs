@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// <summary>
         /// API identifier.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'ApiMapping.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
         /// </summary>
-        [Input("apiMappingKey")]
+        [PolicyResourceProperty("apiMappingKey", "_mUnknown_ApiMappingKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiMappingKey;
-
-        public string? ApiMappingKey => _mApiMappingKey.GetValue("apiMappingKey");
+        private string? _mValue_ApiMappingKey;
+        private bool _mUnknown_ApiMappingKey;
+        public string? ApiMappingKey
+        {
+            get
+            {
+                if (!_mUnknown_ApiMappingKey) return _mValue_ApiMappingKey;
+                throw new UndeferrableValueException("Value 'ApiMapping.ApiMappingKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'ApiMapping.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
         /// </summary>
-        [Input("stage")]
+        [PolicyResourceProperty("stage", "_mUnknown_Stage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStage;
-
-        public string? Stage => _mStage.GetValue("stage");
+        private string? _mValue_Stage;
+        private bool _mUnknown_Stage;
+        public string? Stage
+        {
+            get
+            {
+                if (!_mUnknown_Stage) return _mValue_Stage;
+                throw new UndeferrableValueException("Value 'ApiMapping.Stage' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigatewayv2/apiMapping:ApiMapping")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// <summary>
         /// API identifier.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'ApiMappingArgs.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
         /// </summary>
-        [Input("apiMappingKey")]
+        [PolicyResourceProperty("apiMappingKey", "_mUnknown_ApiMappingKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiMappingKey;
-
-        public string? ApiMappingKey => _mApiMappingKey.GetValue("apiMappingKey");
+        private string? _mValue_ApiMappingKey;
+        private bool _mUnknown_ApiMappingKey;
+        public string? ApiMappingKey
+        {
+            get
+            {
+                if (!_mUnknown_ApiMappingKey) return _mValue_ApiMappingKey;
+                throw new UndeferrableValueException("Value 'ApiMappingArgs.ApiMappingKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'ApiMappingArgs.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
         /// </summary>
-        [Input("stage")]
+        [PolicyResourceProperty("stage", "_mUnknown_Stage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStage;
-
-        public string? Stage => _mStage.GetValue("stage");
+        private string? _mValue_Stage;
+        private bool _mUnknown_Stage;
+        public string? Stage
+        {
+            get
+            {
+                if (!_mUnknown_Stage) return _mValue_Stage;
+                throw new UndeferrableValueException("Value 'ApiMappingArgs.Stage' is not present");
+            }
+        }
     }
 }

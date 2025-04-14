@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager.Inputs
         /// <summary>
         /// Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
         /// </summary>
-        [Input("keywordInputType")]
+        [PolicyResourceProperty("keywordInputType", "_mUnknown_KeywordInputType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeywordInputType;
-
-        public string? KeywordInputType => _mKeywordInputType.GetValue("keywordInputType");
+        private string? _mValue_KeywordInputType;
+        private bool _mUnknown_KeywordInputType;
+        public string? KeywordInputType
+        {
+            get
+            {
+                if (!_mUnknown_KeywordInputType) return _mValue_KeywordInputType;
+                throw new UndeferrableValueException("Value 'ControlControlMappingSourceSourceKeywordArgs.KeywordInputType' is not present");
+            }
+        }
 
         /// <summary>
         /// The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
         /// </summary>
-        [Input("keywordValue")]
+        [PolicyResourceProperty("keywordValue", "_mUnknown_KeywordValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeywordValue;
-
-        public string? KeywordValue => _mKeywordValue.GetValue("keywordValue");
+        private string? _mValue_KeywordValue;
+        private bool _mUnknown_KeywordValue;
+        public string? KeywordValue
+        {
+            get
+            {
+                if (!_mUnknown_KeywordValue) return _mValue_KeywordValue;
+                throw new UndeferrableValueException("Value 'ControlControlMappingSourceSourceKeywordArgs.KeywordValue' is not present");
+            }
+        }
     }
 }

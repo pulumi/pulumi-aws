@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppStream.Outputs
         /// <summary>
         /// Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
         /// </summary>
-        [Input("endpointType")]
+        [PolicyResourceProperty("endpointType", "_mUnknown_EndpointType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
-
-        public string? EndpointType => _mEndpointType.GetValue("endpointType");
+        private string? _mValue_EndpointType;
+        private bool _mUnknown_EndpointType;
+        public string? EndpointType
+        {
+            get
+            {
+                if (!_mUnknown_EndpointType) return _mValue_EndpointType;
+                throw new UndeferrableValueException("Value 'ImageBuilderAccessEndpoint.EndpointType' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier (ID) of the interface VPC endpoint.
         /// </summary>
-        [Input("vpceId")]
+        [PolicyResourceProperty("vpceId", "_mUnknown_VpceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpceId;
-
-        public string? VpceId => _mVpceId.GetValue("vpceId");
+        private string? _mValue_VpceId;
+        private bool _mUnknown_VpceId;
+        public string? VpceId
+        {
+            get
+            {
+                if (!_mUnknown_VpceId) return _mValue_VpceId;
+                throw new UndeferrableValueException("Value 'ImageBuilderAccessEndpoint.VpceId' is not present");
+            }
+        }
     }
 }

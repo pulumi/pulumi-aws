@@ -16,98 +16,175 @@ namespace Pulumi.PolicyPacks.Aws.Detective
         /// <summary>
         /// AWS account ID for the account.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'Member.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID for the administrator account.
         /// </summary>
-        [Input("administratorId")]
+        [PolicyResourceProperty("administratorId", "_mUnknown_AdministratorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdministratorId;
-
-        public string? AdministratorId => _mAdministratorId.GetValue("administratorId");
+        private string? _mValue_AdministratorId;
+        private bool _mUnknown_AdministratorId;
+        public string? AdministratorId
+        {
+            get
+            {
+                if (!_mUnknown_AdministratorId) return _mValue_AdministratorId;
+                throw new UndeferrableValueException("Value 'Member.AdministratorId' is not present");
+            }
+        }
 
         /// <summary>
         /// If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
         /// </summary>
-        [Input("disableEmailNotification")]
+        [PolicyResourceProperty("disableEmailNotification", "_mUnknown_DisableEmailNotification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableEmailNotification;
+        private bool? _mValue_DisableEmailNotification;
+        private bool _mUnknown_DisableEmailNotification;
+        public bool? DisableEmailNotification
+        {
+            get
+            {
+                if (!_mUnknown_DisableEmailNotification) return _mValue_DisableEmailNotification;
+                throw new UndeferrableValueException("Value 'Member.DisableEmailNotification' is not present");
+            }
+        }
 
-        public bool? DisableEmailNotification => _mDisableEmailNotification.GetValue("disableEmailNotification");
-
-        [Input("disabledReason")]
+        [PolicyResourceProperty("disabledReason", "_mUnknown_DisabledReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisabledReason;
-
-        public string? DisabledReason => _mDisabledReason.GetValue("disabledReason");
+        private string? _mValue_DisabledReason;
+        private bool _mUnknown_DisabledReason;
+        public string? DisabledReason
+        {
+            get
+            {
+                if (!_mUnknown_DisabledReason) return _mValue_DisabledReason;
+                throw new UndeferrableValueException("Value 'Member.DisabledReason' is not present");
+            }
+        }
 
         /// <summary>
         /// Email address for the account.
         /// </summary>
-        [Input("emailAddress")]
+        [PolicyResourceProperty("emailAddress", "_mUnknown_EmailAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAddress;
-
-        public string? EmailAddress => _mEmailAddress.GetValue("emailAddress");
+        private string? _mValue_EmailAddress;
+        private bool _mUnknown_EmailAddress;
+        public string? EmailAddress
+        {
+            get
+            {
+                if (!_mUnknown_EmailAddress) return _mValue_EmailAddress;
+                throw new UndeferrableValueException("Value 'Member.EmailAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the behavior graph to invite the member accounts to contribute their data to.
         /// </summary>
-        [Input("graphArn")]
+        [PolicyResourceProperty("graphArn", "_mUnknown_GraphArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGraphArn;
-
-        public string? GraphArn => _mGraphArn.GetValue("graphArn");
+        private string? _mValue_GraphArn;
+        private bool _mUnknown_GraphArn;
+        public string? GraphArn
+        {
+            get
+            {
+                if (!_mUnknown_GraphArn) return _mValue_GraphArn;
+                throw new UndeferrableValueException("Value 'Member.GraphArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
         /// </summary>
-        [Input("invitedTime")]
+        [PolicyResourceProperty("invitedTime", "_mUnknown_InvitedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInvitedTime;
-
-        public string? InvitedTime => _mInvitedTime.GetValue("invitedTime");
+        private string? _mValue_InvitedTime;
+        private bool _mUnknown_InvitedTime;
+        public string? InvitedTime
+        {
+            get
+            {
+                if (!_mUnknown_InvitedTime) return _mValue_InvitedTime;
+                throw new UndeferrableValueException("Value 'Member.InvitedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
         /// </summary>
-        [Input("message")]
+        [PolicyResourceProperty("message", "_mUnknown_Message")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessage;
-
-        public string? Message => _mMessage.GetValue("message");
+        private string? _mValue_Message;
+        private bool _mUnknown_Message;
+        public string? Message
+        {
+            get
+            {
+                if (!_mUnknown_Message) return _mValue_Message;
+                throw new UndeferrableValueException("Value 'Member.Message' is not present");
+            }
+        }
 
         /// <summary>
         /// Current membership status of the member account.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Member.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
         /// </summary>
-        [Input("updatedTime")]
+        [PolicyResourceProperty("updatedTime", "_mUnknown_UpdatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedTime;
-
-        public string? UpdatedTime => _mUpdatedTime.GetValue("updatedTime");
+        private string? _mValue_UpdatedTime;
+        private bool _mUnknown_UpdatedTime;
+        public string? UpdatedTime
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedTime) return _mValue_UpdatedTime;
+                throw new UndeferrableValueException("Value 'Member.UpdatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Data volume in bytes per day for the member account.
         /// </summary>
-        [Input("volumeUsageInBytes")]
+        [PolicyResourceProperty("volumeUsageInBytes", "_mUnknown_VolumeUsageInBytes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeUsageInBytes;
-
-        public string? VolumeUsageInBytes => _mVolumeUsageInBytes.GetValue("volumeUsageInBytes");
+        private string? _mValue_VolumeUsageInBytes;
+        private bool _mUnknown_VolumeUsageInBytes;
+        public string? VolumeUsageInBytes
+        {
+            get
+            {
+                if (!_mUnknown_VolumeUsageInBytes) return _mValue_VolumeUsageInBytes;
+                throw new UndeferrableValueException("Value 'Member.VolumeUsageInBytes' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:detective/member:Member")]
@@ -116,46 +193,81 @@ namespace Pulumi.PolicyPacks.Aws.Detective
         /// <summary>
         /// AWS account ID for the account.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'MemberArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
         /// </summary>
-        [Input("disableEmailNotification")]
+        [PolicyResourceProperty("disableEmailNotification", "_mUnknown_DisableEmailNotification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableEmailNotification;
-
-        public bool? DisableEmailNotification => _mDisableEmailNotification.GetValue("disableEmailNotification");
+        private bool? _mValue_DisableEmailNotification;
+        private bool _mUnknown_DisableEmailNotification;
+        public bool? DisableEmailNotification
+        {
+            get
+            {
+                if (!_mUnknown_DisableEmailNotification) return _mValue_DisableEmailNotification;
+                throw new UndeferrableValueException("Value 'MemberArgs.DisableEmailNotification' is not present");
+            }
+        }
 
         /// <summary>
         /// Email address for the account.
         /// </summary>
-        [Input("emailAddress")]
+        [PolicyResourceProperty("emailAddress", "_mUnknown_EmailAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAddress;
-
-        public string? EmailAddress => _mEmailAddress.GetValue("emailAddress");
+        private string? _mValue_EmailAddress;
+        private bool _mUnknown_EmailAddress;
+        public string? EmailAddress
+        {
+            get
+            {
+                if (!_mUnknown_EmailAddress) return _mValue_EmailAddress;
+                throw new UndeferrableValueException("Value 'MemberArgs.EmailAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the behavior graph to invite the member accounts to contribute their data to.
         /// </summary>
-        [Input("graphArn")]
+        [PolicyResourceProperty("graphArn", "_mUnknown_GraphArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGraphArn;
-
-        public string? GraphArn => _mGraphArn.GetValue("graphArn");
+        private string? _mValue_GraphArn;
+        private bool _mUnknown_GraphArn;
+        public string? GraphArn
+        {
+            get
+            {
+                if (!_mUnknown_GraphArn) return _mValue_GraphArn;
+                throw new UndeferrableValueException("Value 'MemberArgs.GraphArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
         /// </summary>
-        [Input("message")]
+        [PolicyResourceProperty("message", "_mUnknown_Message")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessage;
-
-        public string? Message => _mMessage.GetValue("message");
+        private string? _mValue_Message;
+        private bool _mUnknown_Message;
+        public string? Message
+        {
+            get
+            {
+                if (!_mUnknown_Message) return _mValue_Message;
+                throw new UndeferrableValueException("Value 'MemberArgs.Message' is not present");
+            }
+        }
     }
 }

@@ -15,30 +15,51 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
         /// </summary>
-        [Input("amdSevSnp")]
+        [PolicyResourceProperty("amdSevSnp", "_mUnknown_AmdSevSnp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmdSevSnp;
-
-        public string? AmdSevSnp => _mAmdSevSnp.GetValue("amdSevSnp");
+        private string? _mValue_AmdSevSnp;
+        private bool _mUnknown_AmdSevSnp;
+        public string? AmdSevSnp
+        {
+            get
+            {
+                if (!_mUnknown_AmdSevSnp) return _mValue_AmdSevSnp;
+                throw new UndeferrableValueException("Value 'InstanceCpuOptions.AmdSevSnp' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         /// </summary>
-        [Input("coreCount")]
+        [PolicyResourceProperty("coreCount", "_mUnknown_CoreCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCoreCount;
-
-        public int? CoreCount => _mCoreCount.GetValue("coreCount");
+        private int? _mValue_CoreCount;
+        private bool _mUnknown_CoreCount;
+        public int? CoreCount
+        {
+            get
+            {
+                if (!_mUnknown_CoreCount) return _mValue_CoreCount;
+                throw new UndeferrableValueException("Value 'InstanceCpuOptions.CoreCount' is not present");
+            }
+        }
 
         /// <summary>
         /// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         /// 
         /// For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
         /// </summary>
-        [Input("threadsPerCore")]
+        [PolicyResourceProperty("threadsPerCore", "_mUnknown_ThreadsPerCore")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThreadsPerCore;
-
-        public int? ThreadsPerCore => _mThreadsPerCore.GetValue("threadsPerCore");
+        private int? _mValue_ThreadsPerCore;
+        private bool _mUnknown_ThreadsPerCore;
+        public int? ThreadsPerCore
+        {
+            get
+            {
+                if (!_mUnknown_ThreadsPerCore) return _mValue_ThreadsPerCore;
+                throw new UndeferrableValueException("Value 'InstanceCpuOptions.ThreadsPerCore' is not present");
+            }
+        }
     }
 }

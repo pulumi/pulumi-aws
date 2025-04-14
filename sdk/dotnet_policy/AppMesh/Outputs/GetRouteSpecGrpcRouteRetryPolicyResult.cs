@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetRouteSpecGrpcRouteRetryPolicyResult
     {
-        [Input("grpcRetryEvents")]
+        [PolicyResourceProperty("grpcRetryEvents", "_mUnknown_GrpcRetryEvents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGrpcRetryEvents;
+        private List<string>? _mValue_GrpcRetryEvents;
+        private bool _mUnknown_GrpcRetryEvents;
+        public List<string>? GrpcRetryEvents
+        {
+            get
+            {
+                if (!_mUnknown_GrpcRetryEvents) return _mValue_GrpcRetryEvents;
+                throw new UndeferrableValueException("Value 'GetRouteSpecGrpcRouteRetryPolicyResult.GrpcRetryEvents' is not present");
+            }
+        }
 
-        public List<string>? GrpcRetryEvents => _mGrpcRetryEvents.GetValue("grpcRetryEvents");
-
-        [Input("httpRetryEvents")]
+        [PolicyResourceProperty("httpRetryEvents", "_mUnknown_HttpRetryEvents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mHttpRetryEvents;
+        private List<string>? _mValue_HttpRetryEvents;
+        private bool _mUnknown_HttpRetryEvents;
+        public List<string>? HttpRetryEvents
+        {
+            get
+            {
+                if (!_mUnknown_HttpRetryEvents) return _mValue_HttpRetryEvents;
+                throw new UndeferrableValueException("Value 'GetRouteSpecGrpcRouteRetryPolicyResult.HttpRetryEvents' is not present");
+            }
+        }
 
-        public List<string>? HttpRetryEvents => _mHttpRetryEvents.GetValue("httpRetryEvents");
-
-        [Input("maxRetries")]
+        [PolicyResourceProperty("maxRetries", "_mUnknown_MaxRetries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRetries;
+        private int? _mValue_MaxRetries;
+        private bool _mUnknown_MaxRetries;
+        public int? MaxRetries
+        {
+            get
+            {
+                if (!_mUnknown_MaxRetries) return _mValue_MaxRetries;
+                throw new UndeferrableValueException("Value 'GetRouteSpecGrpcRouteRetryPolicyResult.MaxRetries' is not present");
+            }
+        }
 
-        public int? MaxRetries => _mMaxRetries.GetValue("maxRetries");
-
-        [Input("perRetryTimeouts")]
+        [PolicyResourceProperty("perRetryTimeouts", "_mUnknown_PerRetryTimeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult>> _mPerRetryTimeouts;
+        private List<Outputs.GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult>? _mValue_PerRetryTimeouts;
+        private bool _mUnknown_PerRetryTimeouts;
+        public List<Outputs.GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult>? PerRetryTimeouts
+        {
+            get
+            {
+                if (!_mUnknown_PerRetryTimeouts) return _mValue_PerRetryTimeouts;
+                throw new UndeferrableValueException("Value 'GetRouteSpecGrpcRouteRetryPolicyResult.PerRetryTimeouts' is not present");
+            }
+        }
 
-        public List<Outputs.GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult>? PerRetryTimeouts => _mPerRetryTimeouts.GetValue("perRetryTimeouts");
-
-        [Input("tcpRetryEvents")]
+        [PolicyResourceProperty("tcpRetryEvents", "_mUnknown_TcpRetryEvents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTcpRetryEvents;
-
-        public List<string>? TcpRetryEvents => _mTcpRetryEvents.GetValue("tcpRetryEvents");
+        private List<string>? _mValue_TcpRetryEvents;
+        private bool _mUnknown_TcpRetryEvents;
+        public List<string>? TcpRetryEvents
+        {
+            get
+            {
+                if (!_mUnknown_TcpRetryEvents) return _mValue_TcpRetryEvents;
+                throw new UndeferrableValueException("Value 'GetRouteSpecGrpcRouteRetryPolicyResult.TcpRetryEvents' is not present");
+            }
+        }
     }
 }

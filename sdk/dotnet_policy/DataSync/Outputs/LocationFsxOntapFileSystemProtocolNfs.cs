@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.DataSync.Outputs
         /// <summary>
         /// Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
         /// </summary>
-        [Input("mountOptions")]
+        [PolicyResourceProperty("mountOptions", "_mUnknown_MountOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LocationFsxOntapFileSystemProtocolNfsMountOptions> _mMountOptions;
-
-        public Outputs.LocationFsxOntapFileSystemProtocolNfsMountOptions? MountOptions => _mMountOptions.GetValue("mountOptions");
+        private Outputs.LocationFsxOntapFileSystemProtocolNfsMountOptions? _mValue_MountOptions;
+        private bool _mUnknown_MountOptions;
+        public Outputs.LocationFsxOntapFileSystemProtocolNfsMountOptions? MountOptions
+        {
+            get
+            {
+                if (!_mUnknown_MountOptions) return _mValue_MountOptions;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemProtocolNfs.MountOptions' is not present");
+            }
+        }
     }
 }

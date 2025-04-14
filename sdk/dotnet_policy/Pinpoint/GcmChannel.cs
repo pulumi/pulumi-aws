@@ -16,41 +16,76 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// <summary>
         /// Platform credential API key from Google.
         /// </summary>
-        [Input("apiKey")]
+        [PolicyResourceProperty("apiKey", "_mUnknown_ApiKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiKey;
-
-        public string? ApiKey => _mApiKey.GetValue("apiKey");
+        private string? _mValue_ApiKey;
+        private bool _mUnknown_ApiKey;
+        public string? ApiKey
+        {
+            get
+            {
+                if (!_mUnknown_ApiKey) return _mValue_ApiKey;
+                throw new UndeferrableValueException("Value 'GcmChannel.ApiKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The application ID.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'GcmChannel.ApplicationId' is not present");
+            }
+        }
 
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
-
-        [Input("defaultAuthenticationMethod")]
+        [PolicyResourceProperty("defaultAuthenticationMethod", "_mUnknown_DefaultAuthenticationMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultAuthenticationMethod;
-
-        public string? DefaultAuthenticationMethod => _mDefaultAuthenticationMethod.GetValue("defaultAuthenticationMethod");
+        private string? _mValue_DefaultAuthenticationMethod;
+        private bool _mUnknown_DefaultAuthenticationMethod;
+        public string? DefaultAuthenticationMethod
+        {
+            get
+            {
+                if (!_mUnknown_DefaultAuthenticationMethod) return _mValue_DefaultAuthenticationMethod;
+                throw new UndeferrableValueException("Value 'GcmChannel.DefaultAuthenticationMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the channel is enabled or disabled. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'GcmChannel.Enabled' is not present");
+            }
+        }
 
-        public bool? Enabled => _mEnabled.GetValue("enabled");
-
-        [Input("serviceJson")]
+        [PolicyResourceProperty("serviceJson", "_mUnknown_ServiceJson")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceJson;
-
-        public string? ServiceJson => _mServiceJson.GetValue("serviceJson");
+        private string? _mValue_ServiceJson;
+        private bool _mUnknown_ServiceJson;
+        public string? ServiceJson
+        {
+            get
+            {
+                if (!_mUnknown_ServiceJson) return _mValue_ServiceJson;
+                throw new UndeferrableValueException("Value 'GcmChannel.ServiceJson' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:pinpoint/gcmChannel:GcmChannel")]
@@ -59,40 +94,75 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// <summary>
         /// Platform credential API key from Google.
         /// </summary>
-        [Input("apiKey")]
+        [PolicyResourceProperty("apiKey", "_mUnknown_ApiKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiKey;
-
-        public string? ApiKey => _mApiKey.GetValue("apiKey");
+        private string? _mValue_ApiKey;
+        private bool _mUnknown_ApiKey;
+        public string? ApiKey
+        {
+            get
+            {
+                if (!_mUnknown_ApiKey) return _mValue_ApiKey;
+                throw new UndeferrableValueException("Value 'GcmChannelArgs.ApiKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The application ID.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'GcmChannelArgs.ApplicationId' is not present");
+            }
+        }
 
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
-
-        [Input("defaultAuthenticationMethod")]
+        [PolicyResourceProperty("defaultAuthenticationMethod", "_mUnknown_DefaultAuthenticationMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultAuthenticationMethod;
-
-        public string? DefaultAuthenticationMethod => _mDefaultAuthenticationMethod.GetValue("defaultAuthenticationMethod");
+        private string? _mValue_DefaultAuthenticationMethod;
+        private bool _mUnknown_DefaultAuthenticationMethod;
+        public string? DefaultAuthenticationMethod
+        {
+            get
+            {
+                if (!_mUnknown_DefaultAuthenticationMethod) return _mValue_DefaultAuthenticationMethod;
+                throw new UndeferrableValueException("Value 'GcmChannelArgs.DefaultAuthenticationMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the channel is enabled or disabled. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'GcmChannelArgs.Enabled' is not present");
+            }
+        }
 
-        public bool? Enabled => _mEnabled.GetValue("enabled");
-
-        [Input("serviceJson")]
+        [PolicyResourceProperty("serviceJson", "_mUnknown_ServiceJson")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceJson;
-
-        public string? ServiceJson => _mServiceJson.GetValue("serviceJson");
+        private string? _mValue_ServiceJson;
+        private bool _mUnknown_ServiceJson;
+        public string? ServiceJson
+        {
+            get
+            {
+                if (!_mUnknown_ServiceJson) return _mValue_ServiceJson;
+                throw new UndeferrableValueException("Value 'GcmChannelArgs.ServiceJson' is not present");
+            }
+        }
     }
 }

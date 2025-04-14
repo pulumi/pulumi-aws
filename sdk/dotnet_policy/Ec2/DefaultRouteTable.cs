@@ -16,76 +16,132 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ARN of the route table.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DefaultRouteTable.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the default route table.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("defaultRouteTableId")]
+        [PolicyResourceProperty("defaultRouteTableId", "_mUnknown_DefaultRouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultRouteTableId;
-
-        public string? DefaultRouteTableId => _mDefaultRouteTableId.GetValue("defaultRouteTableId");
+        private string? _mValue_DefaultRouteTableId;
+        private bool _mUnknown_DefaultRouteTableId;
+        public string? DefaultRouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultRouteTableId) return _mValue_DefaultRouteTableId;
+                throw new UndeferrableValueException("Value 'DefaultRouteTable.DefaultRouteTableId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the AWS account that owns the route table.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'DefaultRouteTable.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// List of virtual gateways for propagation.
         /// </summary>
-        [Input("propagatingVgws")]
+        [PolicyResourceProperty("propagatingVgws", "_mUnknown_PropagatingVgws")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPropagatingVgws;
-
-        public List<string>? PropagatingVgws => _mPropagatingVgws.GetValue("propagatingVgws");
+        private List<string>? _mValue_PropagatingVgws;
+        private bool _mUnknown_PropagatingVgws;
+        public List<string>? PropagatingVgws
+        {
+            get
+            {
+                if (!_mUnknown_PropagatingVgws) return _mValue_PropagatingVgws;
+                throw new UndeferrableValueException("Value 'DefaultRouteTable.PropagatingVgws' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of objects. Detailed below
         /// </summary>
-        [Input("routes")]
+        [PolicyResourceProperty("routes", "_mUnknown_Routes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DefaultRouteTableRoute>> _mRoutes;
-
-        public List<Outputs.DefaultRouteTableRoute>? Routes => _mRoutes.GetValue("routes");
+        private List<Outputs.DefaultRouteTableRoute>? _mValue_Routes;
+        private bool _mUnknown_Routes;
+        public List<Outputs.DefaultRouteTableRoute>? Routes
+        {
+            get
+            {
+                if (!_mUnknown_Routes) return _mValue_Routes;
+                throw new UndeferrableValueException("Value 'DefaultRouteTable.Routes' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DefaultRouteTable.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DefaultRouteTable.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the VPC.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'DefaultRouteTable.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/defaultRouteTable:DefaultRouteTable")]
@@ -96,37 +152,65 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("defaultRouteTableId")]
+        [PolicyResourceProperty("defaultRouteTableId", "_mUnknown_DefaultRouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultRouteTableId;
-
-        public string? DefaultRouteTableId => _mDefaultRouteTableId.GetValue("defaultRouteTableId");
+        private string? _mValue_DefaultRouteTableId;
+        private bool _mUnknown_DefaultRouteTableId;
+        public string? DefaultRouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultRouteTableId) return _mValue_DefaultRouteTableId;
+                throw new UndeferrableValueException("Value 'DefaultRouteTableArgs.DefaultRouteTableId' is not present");
+            }
+        }
 
         /// <summary>
         /// List of virtual gateways for propagation.
         /// </summary>
-        [Input("propagatingVgws")]
+        [PolicyResourceProperty("propagatingVgws", "_mUnknown_PropagatingVgws")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPropagatingVgws;
-
-        public List<string>? PropagatingVgws => _mPropagatingVgws.GetValue("propagatingVgws");
+        private List<string>? _mValue_PropagatingVgws;
+        private bool _mUnknown_PropagatingVgws;
+        public List<string>? PropagatingVgws
+        {
+            get
+            {
+                if (!_mUnknown_PropagatingVgws) return _mValue_PropagatingVgws;
+                throw new UndeferrableValueException("Value 'DefaultRouteTableArgs.PropagatingVgws' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of objects. Detailed below
         /// </summary>
-        [Input("routes")]
+        [PolicyResourceProperty("routes", "_mUnknown_Routes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DefaultRouteTableRouteArgs>> _mRoutes;
-
-        public List<Inputs.DefaultRouteTableRouteArgs>? Routes => _mRoutes.GetValue("routes");
+        private List<Inputs.DefaultRouteTableRouteArgs>? _mValue_Routes;
+        private bool _mUnknown_Routes;
+        public List<Inputs.DefaultRouteTableRouteArgs>? Routes
+        {
+            get
+            {
+                if (!_mUnknown_Routes) return _mValue_Routes;
+                throw new UndeferrableValueException("Value 'DefaultRouteTableArgs.Routes' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DefaultRouteTableArgs.Tags' is not present");
+            }
+        }
     }
 }

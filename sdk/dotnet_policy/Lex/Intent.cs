@@ -16,21 +16,35 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// <summary>
         /// The ARN of the Lex intent.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Intent.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Checksum identifying the version of the intent that was created. The checksum is not
         /// included as an argument because the resource will add it automatically when updating the intent.
         /// </summary>
-        [Input("checksum")]
+        [PolicyResourceProperty("checksum", "_mUnknown_Checksum")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChecksum;
-
-        public string? Checksum => _mChecksum.GetValue("checksum");
+        private string? _mValue_Checksum;
+        private bool _mUnknown_Checksum;
+        public string? Checksum
+        {
+            get
+            {
+                if (!_mUnknown_Checksum) return _mValue_Checksum;
+                throw new UndeferrableValueException("Value 'Intent.Checksum' is not present");
+            }
+        }
 
         /// <summary>
         /// The statement that you want Amazon Lex to convey to the user
@@ -39,60 +53,102 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// application, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are
         /// mutually exclusive. You can specify only one. Attributes are documented under statement.
         /// </summary>
-        [Input("conclusionStatement")]
+        [PolicyResourceProperty("conclusionStatement", "_mUnknown_ConclusionStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IntentConclusionStatement> _mConclusionStatement;
-
-        public Outputs.IntentConclusionStatement? ConclusionStatement => _mConclusionStatement.GetValue("conclusionStatement");
+        private Outputs.IntentConclusionStatement? _mValue_ConclusionStatement;
+        private bool _mUnknown_ConclusionStatement;
+        public Outputs.IntentConclusionStatement? ConclusionStatement
+        {
+            get
+            {
+                if (!_mUnknown_ConclusionStatement) return _mValue_ConclusionStatement;
+                throw new UndeferrableValueException("Value 'Intent.ConclusionStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// Prompts the user to confirm the intent. This question should
         /// have a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,
         /// or neither. Attributes are documented under prompt.
         /// </summary>
-        [Input("confirmationPrompt")]
+        [PolicyResourceProperty("confirmationPrompt", "_mUnknown_ConfirmationPrompt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IntentConfirmationPrompt> _mConfirmationPrompt;
-
-        public Outputs.IntentConfirmationPrompt? ConfirmationPrompt => _mConfirmationPrompt.GetValue("confirmationPrompt");
+        private Outputs.IntentConfirmationPrompt? _mValue_ConfirmationPrompt;
+        private bool _mUnknown_ConfirmationPrompt;
+        public Outputs.IntentConfirmationPrompt? ConfirmationPrompt
+        {
+            get
+            {
+                if (!_mUnknown_ConfirmationPrompt) return _mValue_ConfirmationPrompt;
+                throw new UndeferrableValueException("Value 'Intent.ConfirmationPrompt' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines if a new slot type version is created when the initial
         /// resource is created and on each update. Defaults to `false`.
         /// </summary>
-        [Input("createVersion")]
+        [PolicyResourceProperty("createVersion", "_mUnknown_CreateVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCreateVersion;
-
-        public bool? CreateVersion => _mCreateVersion.GetValue("createVersion");
+        private bool? _mValue_CreateVersion;
+        private bool _mUnknown_CreateVersion;
+        public bool? CreateVersion
+        {
+            get
+            {
+                if (!_mUnknown_CreateVersion) return _mValue_CreateVersion;
+                throw new UndeferrableValueException("Value 'Intent.CreateVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The date when the intent version was created.
         /// </summary>
-        [Input("createdDate")]
+        [PolicyResourceProperty("createdDate", "_mUnknown_CreatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
-
-        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
+        private string? _mValue_CreatedDate;
+        private bool _mUnknown_CreatedDate;
+        public string? CreatedDate
+        {
+            get
+            {
+                if (!_mUnknown_CreatedDate) return _mValue_CreatedDate;
+                throw new UndeferrableValueException("Value 'Intent.CreatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the intent. Must be less than or equal to 200 characters in length.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Intent.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a Lambda function to invoke for each user input. You can
         /// invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
         /// </summary>
-        [Input("dialogCodeHook")]
+        [PolicyResourceProperty("dialogCodeHook", "_mUnknown_DialogCodeHook")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IntentDialogCodeHook> _mDialogCodeHook;
-
-        public Outputs.IntentDialogCodeHook? DialogCodeHook => _mDialogCodeHook.GetValue("dialogCodeHook");
+        private Outputs.IntentDialogCodeHook? _mValue_DialogCodeHook;
+        private bool _mUnknown_DialogCodeHook;
+        public Outputs.IntentDialogCodeHook? DialogCodeHook
+        {
+            get
+            {
+                if (!_mUnknown_DialogCodeHook) return _mValue_DialogCodeHook;
+                throw new UndeferrableValueException("Value 'Intent.DialogCodeHook' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Lex uses this prompt to solicit additional activity after
@@ -100,40 +156,68 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// user to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually
         /// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
         /// </summary>
-        [Input("followUpPrompt")]
+        [PolicyResourceProperty("followUpPrompt", "_mUnknown_FollowUpPrompt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IntentFollowUpPrompt> _mFollowUpPrompt;
-
-        public Outputs.IntentFollowUpPrompt? FollowUpPrompt => _mFollowUpPrompt.GetValue("followUpPrompt");
+        private Outputs.IntentFollowUpPrompt? _mValue_FollowUpPrompt;
+        private bool _mUnknown_FollowUpPrompt;
+        public Outputs.IntentFollowUpPrompt? FollowUpPrompt
+        {
+            get
+            {
+                if (!_mUnknown_FollowUpPrompt) return _mValue_FollowUpPrompt;
+                throw new UndeferrableValueException("Value 'Intent.FollowUpPrompt' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes how the intent is fulfilled. For example, after a
         /// user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
         /// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
         /// </summary>
-        [Input("fulfillmentActivity")]
+        [PolicyResourceProperty("fulfillmentActivity", "_mUnknown_FulfillmentActivity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IntentFulfillmentActivity> _mFulfillmentActivity;
-
-        public Outputs.IntentFulfillmentActivity? FulfillmentActivity => _mFulfillmentActivity.GetValue("fulfillmentActivity");
+        private Outputs.IntentFulfillmentActivity? _mValue_FulfillmentActivity;
+        private bool _mUnknown_FulfillmentActivity;
+        public Outputs.IntentFulfillmentActivity? FulfillmentActivity
+        {
+            get
+            {
+                if (!_mUnknown_FulfillmentActivity) return _mValue_FulfillmentActivity;
+                throw new UndeferrableValueException("Value 'Intent.FulfillmentActivity' is not present");
+            }
+        }
 
         /// <summary>
         /// The date when the $LATEST version of this intent was updated.
         /// </summary>
-        [Input("lastUpdatedDate")]
+        [PolicyResourceProperty("lastUpdatedDate", "_mUnknown_LastUpdatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedDate;
-
-        public string? LastUpdatedDate => _mLastUpdatedDate.GetValue("lastUpdatedDate");
+        private string? _mValue_LastUpdatedDate;
+        private bool _mUnknown_LastUpdatedDate;
+        public string? LastUpdatedDate
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedDate) return _mValue_LastUpdatedDate;
+                throw new UndeferrableValueException("Value 'Intent.LastUpdatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Intent.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier for the built-in intent to base this
@@ -141,11 +225,18 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
         /// in the Alexa Skills Kit.
         /// </summary>
-        [Input("parentIntentSignature")]
+        [PolicyResourceProperty("parentIntentSignature", "_mUnknown_ParentIntentSignature")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentIntentSignature;
-
-        public string? ParentIntentSignature => _mParentIntentSignature.GetValue("parentIntentSignature");
+        private string? _mValue_ParentIntentSignature;
+        private bool _mUnknown_ParentIntentSignature;
+        public string? ParentIntentSignature
+        {
+            get
+            {
+                if (!_mUnknown_ParentIntentSignature) return _mValue_ParentIntentSignature;
+                throw new UndeferrableValueException("Value 'Intent.ParentIntentSignature' is not present");
+            }
+        }
 
         /// <summary>
         /// When the user answers "no" to the question defined in
@@ -153,41 +244,69 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
         /// Attributes are documented under statement.
         /// </summary>
-        [Input("rejectionStatement")]
+        [PolicyResourceProperty("rejectionStatement", "_mUnknown_RejectionStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IntentRejectionStatement> _mRejectionStatement;
-
-        public Outputs.IntentRejectionStatement? RejectionStatement => _mRejectionStatement.GetValue("rejectionStatement");
+        private Outputs.IntentRejectionStatement? _mValue_RejectionStatement;
+        private bool _mUnknown_RejectionStatement;
+        public Outputs.IntentRejectionStatement? RejectionStatement
+        {
+            get
+            {
+                if (!_mUnknown_RejectionStatement) return _mValue_RejectionStatement;
+                throw new UndeferrableValueException("Value 'Intent.RejectionStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of utterances (strings) that a user might say to signal
         /// the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
         /// In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
         /// </summary>
-        [Input("sampleUtterances")]
+        [PolicyResourceProperty("sampleUtterances", "_mUnknown_SampleUtterances")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSampleUtterances;
-
-        public List<string>? SampleUtterances => _mSampleUtterances.GetValue("sampleUtterances");
+        private List<string>? _mValue_SampleUtterances;
+        private bool _mUnknown_SampleUtterances;
+        public List<string>? SampleUtterances
+        {
+            get
+            {
+                if (!_mUnknown_SampleUtterances) return _mValue_SampleUtterances;
+                throw new UndeferrableValueException("Value 'Intent.SampleUtterances' is not present");
+            }
+        }
 
         /// <summary>
         /// An list of intent slots. At runtime, Amazon Lex elicits required slot values
         /// from the user using prompts defined in the slots. Attributes are documented under slot.
         /// </summary>
-        [Input("slots")]
+        [PolicyResourceProperty("slots", "_mUnknown_Slots")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.IntentSlot>> _mSlots;
-
-        public List<Outputs.IntentSlot>? Slots => _mSlots.GetValue("slots");
+        private List<Outputs.IntentSlot>? _mValue_Slots;
+        private bool _mUnknown_Slots;
+        public List<Outputs.IntentSlot>? Slots
+        {
+            get
+            {
+                if (!_mUnknown_Slots) return _mValue_Slots;
+                throw new UndeferrableValueException("Value 'Intent.Slots' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the bot.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'Intent.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lex/intent:Intent")]
@@ -200,51 +319,86 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// application, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are
         /// mutually exclusive. You can specify only one. Attributes are documented under statement.
         /// </summary>
-        [Input("conclusionStatement")]
+        [PolicyResourceProperty("conclusionStatement", "_mUnknown_ConclusionStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IntentConclusionStatementArgs> _mConclusionStatement;
-
-        public Inputs.IntentConclusionStatementArgs? ConclusionStatement => _mConclusionStatement.GetValue("conclusionStatement");
+        private Inputs.IntentConclusionStatementArgs? _mValue_ConclusionStatement;
+        private bool _mUnknown_ConclusionStatement;
+        public Inputs.IntentConclusionStatementArgs? ConclusionStatement
+        {
+            get
+            {
+                if (!_mUnknown_ConclusionStatement) return _mValue_ConclusionStatement;
+                throw new UndeferrableValueException("Value 'IntentArgs.ConclusionStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// Prompts the user to confirm the intent. This question should
         /// have a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,
         /// or neither. Attributes are documented under prompt.
         /// </summary>
-        [Input("confirmationPrompt")]
+        [PolicyResourceProperty("confirmationPrompt", "_mUnknown_ConfirmationPrompt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IntentConfirmationPromptArgs> _mConfirmationPrompt;
-
-        public Inputs.IntentConfirmationPromptArgs? ConfirmationPrompt => _mConfirmationPrompt.GetValue("confirmationPrompt");
+        private Inputs.IntentConfirmationPromptArgs? _mValue_ConfirmationPrompt;
+        private bool _mUnknown_ConfirmationPrompt;
+        public Inputs.IntentConfirmationPromptArgs? ConfirmationPrompt
+        {
+            get
+            {
+                if (!_mUnknown_ConfirmationPrompt) return _mValue_ConfirmationPrompt;
+                throw new UndeferrableValueException("Value 'IntentArgs.ConfirmationPrompt' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines if a new slot type version is created when the initial
         /// resource is created and on each update. Defaults to `false`.
         /// </summary>
-        [Input("createVersion")]
+        [PolicyResourceProperty("createVersion", "_mUnknown_CreateVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCreateVersion;
-
-        public bool? CreateVersion => _mCreateVersion.GetValue("createVersion");
+        private bool? _mValue_CreateVersion;
+        private bool _mUnknown_CreateVersion;
+        public bool? CreateVersion
+        {
+            get
+            {
+                if (!_mUnknown_CreateVersion) return _mValue_CreateVersion;
+                throw new UndeferrableValueException("Value 'IntentArgs.CreateVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the intent. Must be less than or equal to 200 characters in length.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'IntentArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a Lambda function to invoke for each user input. You can
         /// invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
         /// </summary>
-        [Input("dialogCodeHook")]
+        [PolicyResourceProperty("dialogCodeHook", "_mUnknown_DialogCodeHook")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IntentDialogCodeHookArgs> _mDialogCodeHook;
-
-        public Inputs.IntentDialogCodeHookArgs? DialogCodeHook => _mDialogCodeHook.GetValue("dialogCodeHook");
+        private Inputs.IntentDialogCodeHookArgs? _mValue_DialogCodeHook;
+        private bool _mUnknown_DialogCodeHook;
+        public Inputs.IntentDialogCodeHookArgs? DialogCodeHook
+        {
+            get
+            {
+                if (!_mUnknown_DialogCodeHook) return _mValue_DialogCodeHook;
+                throw new UndeferrableValueException("Value 'IntentArgs.DialogCodeHook' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Lex uses this prompt to solicit additional activity after
@@ -252,31 +406,52 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// user to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually
         /// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
         /// </summary>
-        [Input("followUpPrompt")]
+        [PolicyResourceProperty("followUpPrompt", "_mUnknown_FollowUpPrompt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IntentFollowUpPromptArgs> _mFollowUpPrompt;
-
-        public Inputs.IntentFollowUpPromptArgs? FollowUpPrompt => _mFollowUpPrompt.GetValue("followUpPrompt");
+        private Inputs.IntentFollowUpPromptArgs? _mValue_FollowUpPrompt;
+        private bool _mUnknown_FollowUpPrompt;
+        public Inputs.IntentFollowUpPromptArgs? FollowUpPrompt
+        {
+            get
+            {
+                if (!_mUnknown_FollowUpPrompt) return _mValue_FollowUpPrompt;
+                throw new UndeferrableValueException("Value 'IntentArgs.FollowUpPrompt' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes how the intent is fulfilled. For example, after a
         /// user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
         /// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
         /// </summary>
-        [Input("fulfillmentActivity")]
+        [PolicyResourceProperty("fulfillmentActivity", "_mUnknown_FulfillmentActivity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IntentFulfillmentActivityArgs> _mFulfillmentActivity;
-
-        public Inputs.IntentFulfillmentActivityArgs? FulfillmentActivity => _mFulfillmentActivity.GetValue("fulfillmentActivity");
+        private Inputs.IntentFulfillmentActivityArgs? _mValue_FulfillmentActivity;
+        private bool _mUnknown_FulfillmentActivity;
+        public Inputs.IntentFulfillmentActivityArgs? FulfillmentActivity
+        {
+            get
+            {
+                if (!_mUnknown_FulfillmentActivity) return _mValue_FulfillmentActivity;
+                throw new UndeferrableValueException("Value 'IntentArgs.FulfillmentActivity' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'IntentArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier for the built-in intent to base this
@@ -284,11 +459,18 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
         /// in the Alexa Skills Kit.
         /// </summary>
-        [Input("parentIntentSignature")]
+        [PolicyResourceProperty("parentIntentSignature", "_mUnknown_ParentIntentSignature")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentIntentSignature;
-
-        public string? ParentIntentSignature => _mParentIntentSignature.GetValue("parentIntentSignature");
+        private string? _mValue_ParentIntentSignature;
+        private bool _mUnknown_ParentIntentSignature;
+        public string? ParentIntentSignature
+        {
+            get
+            {
+                if (!_mUnknown_ParentIntentSignature) return _mValue_ParentIntentSignature;
+                throw new UndeferrableValueException("Value 'IntentArgs.ParentIntentSignature' is not present");
+            }
+        }
 
         /// <summary>
         /// When the user answers "no" to the question defined in
@@ -296,31 +478,52 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
         /// Attributes are documented under statement.
         /// </summary>
-        [Input("rejectionStatement")]
+        [PolicyResourceProperty("rejectionStatement", "_mUnknown_RejectionStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IntentRejectionStatementArgs> _mRejectionStatement;
-
-        public Inputs.IntentRejectionStatementArgs? RejectionStatement => _mRejectionStatement.GetValue("rejectionStatement");
+        private Inputs.IntentRejectionStatementArgs? _mValue_RejectionStatement;
+        private bool _mUnknown_RejectionStatement;
+        public Inputs.IntentRejectionStatementArgs? RejectionStatement
+        {
+            get
+            {
+                if (!_mUnknown_RejectionStatement) return _mValue_RejectionStatement;
+                throw new UndeferrableValueException("Value 'IntentArgs.RejectionStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of utterances (strings) that a user might say to signal
         /// the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
         /// In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
         /// </summary>
-        [Input("sampleUtterances")]
+        [PolicyResourceProperty("sampleUtterances", "_mUnknown_SampleUtterances")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSampleUtterances;
-
-        public List<string>? SampleUtterances => _mSampleUtterances.GetValue("sampleUtterances");
+        private List<string>? _mValue_SampleUtterances;
+        private bool _mUnknown_SampleUtterances;
+        public List<string>? SampleUtterances
+        {
+            get
+            {
+                if (!_mUnknown_SampleUtterances) return _mValue_SampleUtterances;
+                throw new UndeferrableValueException("Value 'IntentArgs.SampleUtterances' is not present");
+            }
+        }
 
         /// <summary>
         /// An list of intent slots. At runtime, Amazon Lex elicits required slot values
         /// from the user using prompts defined in the slots. Attributes are documented under slot.
         /// </summary>
-        [Input("slots")]
+        [PolicyResourceProperty("slots", "_mUnknown_Slots")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.IntentSlotArgs>> _mSlots;
-
-        public List<Inputs.IntentSlotArgs>? Slots => _mSlots.GetValue("slots");
+        private List<Inputs.IntentSlotArgs>? _mValue_Slots;
+        private bool _mUnknown_Slots;
+        public List<Inputs.IntentSlotArgs>? Slots
+        {
+            get
+            {
+                if (!_mUnknown_Slots) return _mValue_Slots;
+                throw new UndeferrableValueException("Value 'IntentArgs.Slots' is not present");
+            }
+        }
     }
 }

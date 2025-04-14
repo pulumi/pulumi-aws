@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
         /// </summary>
-        [Input("hlsInputSettings")]
+        [PolicyResourceProperty("hlsInputSettings", "_mUnknown_HlsInputSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs> _mHlsInputSettings;
-
-        public Inputs.ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs? HlsInputSettings => _mHlsInputSettings.GetValue("hlsInputSettings");
+        private Inputs.ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs? _mValue_HlsInputSettings;
+        private bool _mUnknown_HlsInputSettings;
+        public Inputs.ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs? HlsInputSettings
+        {
+            get
+            {
+                if (!_mUnknown_HlsInputSettings) return _mValue_HlsInputSettings;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs.HlsInputSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Check HTTPS server certificates.
         /// </summary>
-        [Input("serverValidation")]
+        [PolicyResourceProperty("serverValidation", "_mUnknown_ServerValidation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerValidation;
-
-        public string? ServerValidation => _mServerValidation.GetValue("serverValidation");
+        private string? _mValue_ServerValidation;
+        private bool _mUnknown_ServerValidation;
+        public string? ServerValidation
+        {
+            get
+            {
+                if (!_mUnknown_ServerValidation) return _mValue_ServerValidation;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs.ServerValidation' is not present");
+            }
+        }
     }
 }

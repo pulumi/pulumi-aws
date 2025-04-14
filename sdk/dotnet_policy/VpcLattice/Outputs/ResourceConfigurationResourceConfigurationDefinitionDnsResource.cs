@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Outputs
         /// <summary>
         /// The hostname of the Resource for this configuration.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'ResourceConfigurationResourceConfigurationDefinitionDnsResource.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP Address type either `IPV4` or `IPV6`
         /// </summary>
-        [Input("ipAddressType")]
+        [PolicyResourceProperty("ipAddressType", "_mUnknown_IpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
-
-        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+        private string? _mValue_IpAddressType;
+        private bool _mUnknown_IpAddressType;
+        public string? IpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressType) return _mValue_IpAddressType;
+                throw new UndeferrableValueException("Value 'ResourceConfigurationResourceConfigurationDefinitionDnsResource.IpAddressType' is not present");
+            }
+        }
     }
 }

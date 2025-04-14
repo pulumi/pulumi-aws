@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
 {
     public sealed class GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoResult
     {
-        [Input("provisionedThroughputs")]
+        [PolicyResourceProperty("provisionedThroughputs", "_mUnknown_ProvisionedThroughputs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputResult>> _mProvisionedThroughputs;
+        private List<Outputs.GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputResult>? _mValue_ProvisionedThroughputs;
+        private bool _mUnknown_ProvisionedThroughputs;
+        public List<Outputs.GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputResult>? ProvisionedThroughputs
+        {
+            get
+            {
+                if (!_mUnknown_ProvisionedThroughputs) return _mValue_ProvisionedThroughputs;
+                throw new UndeferrableValueException("Value 'GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoResult.ProvisionedThroughputs' is not present");
+            }
+        }
 
-        public List<Outputs.GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputResult>? ProvisionedThroughputs => _mProvisionedThroughputs.GetValue("provisionedThroughputs");
-
-        [Input("volumeSize")]
+        [PolicyResourceProperty("volumeSize", "_mUnknown_VolumeSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVolumeSize;
-
-        public int? VolumeSize => _mVolumeSize.GetValue("volumeSize");
+        private int? _mValue_VolumeSize;
+        private bool _mUnknown_VolumeSize;
+        public int? VolumeSize
+        {
+            get
+            {
+                if (!_mUnknown_VolumeSize) return _mValue_VolumeSize;
+                throw new UndeferrableValueException("Value 'GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoResult.VolumeSize' is not present");
+            }
+        }
     }
 }

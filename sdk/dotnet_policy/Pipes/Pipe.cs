@@ -16,148 +16,260 @@ namespace Pulumi.PolicyPacks.Aws.Pipes
         /// <summary>
         /// ARN of this pipe.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Pipe.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the pipe. At most 512 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Pipe.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         /// </summary>
-        [Input("desiredState")]
+        [PolicyResourceProperty("desiredState", "_mUnknown_DesiredState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDesiredState;
-
-        public string? DesiredState => _mDesiredState.GetValue("desiredState");
+        private string? _mValue_DesiredState;
+        private bool _mUnknown_DesiredState;
+        public string? DesiredState
+        {
+            get
+            {
+                if (!_mUnknown_DesiredState) return _mValue_DesiredState;
+                throw new UndeferrableValueException("Value 'Pipe.DesiredState' is not present");
+            }
+        }
 
         /// <summary>
         /// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
         /// </summary>
-        [Input("enrichment")]
+        [PolicyResourceProperty("enrichment", "_mUnknown_Enrichment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnrichment;
-
-        public string? Enrichment => _mEnrichment.GetValue("enrichment");
+        private string? _mValue_Enrichment;
+        private bool _mUnknown_Enrichment;
+        public string? Enrichment
+        {
+            get
+            {
+                if (!_mUnknown_Enrichment) return _mValue_Enrichment;
+                throw new UndeferrableValueException("Value 'Pipe.Enrichment' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters to configure enrichment for your pipe. Detailed below.
         /// </summary>
-        [Input("enrichmentParameters")]
+        [PolicyResourceProperty("enrichmentParameters", "_mUnknown_EnrichmentParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipeEnrichmentParameters> _mEnrichmentParameters;
-
-        public Outputs.PipeEnrichmentParameters? EnrichmentParameters => _mEnrichmentParameters.GetValue("enrichmentParameters");
+        private Outputs.PipeEnrichmentParameters? _mValue_EnrichmentParameters;
+        private bool _mUnknown_EnrichmentParameters;
+        public Outputs.PipeEnrichmentParameters? EnrichmentParameters
+        {
+            get
+            {
+                if (!_mUnknown_EnrichmentParameters) return _mValue_EnrichmentParameters;
+                throw new UndeferrableValueException("Value 'Pipe.EnrichmentParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
         /// </summary>
-        [Input("kmsKeyIdentifier")]
+        [PolicyResourceProperty("kmsKeyIdentifier", "_mUnknown_KmsKeyIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyIdentifier;
-
-        public string? KmsKeyIdentifier => _mKmsKeyIdentifier.GetValue("kmsKeyIdentifier");
+        private string? _mValue_KmsKeyIdentifier;
+        private bool _mUnknown_KmsKeyIdentifier;
+        public string? KmsKeyIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyIdentifier) return _mValue_KmsKeyIdentifier;
+                throw new UndeferrableValueException("Value 'Pipe.KmsKeyIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Logging configuration settings for the pipe. Detailed below.
         /// </summary>
-        [Input("logConfiguration")]
+        [PolicyResourceProperty("logConfiguration", "_mUnknown_LogConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipeLogConfiguration> _mLogConfiguration;
-
-        public Outputs.PipeLogConfiguration? LogConfiguration => _mLogConfiguration.GetValue("logConfiguration");
+        private Outputs.PipeLogConfiguration? _mValue_LogConfiguration;
+        private bool _mUnknown_LogConfiguration;
+        public Outputs.PipeLogConfiguration? LogConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LogConfiguration) return _mValue_LogConfiguration;
+                throw new UndeferrableValueException("Value 'Pipe.LogConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Pipe.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'Pipe.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the role that allows the pipe to send data to the target.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Pipe.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
-
-        public string? Source => _mSource.GetValue("source");
+        private string? _mValue_Source;
+        private bool _mUnknown_Source;
+        public string? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'Pipe.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters to configure a source for the pipe. Detailed below.
         /// </summary>
-        [Input("sourceParameters")]
+        [PolicyResourceProperty("sourceParameters", "_mUnknown_SourceParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipeSourceParameters> _mSourceParameters;
-
-        public Outputs.PipeSourceParameters? SourceParameters => _mSourceParameters.GetValue("sourceParameters");
+        private Outputs.PipeSourceParameters? _mValue_SourceParameters;
+        private bool _mUnknown_SourceParameters;
+        public Outputs.PipeSourceParameters? SourceParameters
+        {
+            get
+            {
+                if (!_mUnknown_SourceParameters) return _mValue_SourceParameters;
+                throw new UndeferrableValueException("Value 'Pipe.SourceParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Pipe.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Pipe.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Target resource of the pipe (typically an ARN).
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
-
-        public string? Target => _mTarget.GetValue("target");
+        private string? _mValue_Target;
+        private bool _mUnknown_Target;
+        public string? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'Pipe.Target' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters to configure a target for your pipe. Detailed below.
         /// </summary>
-        [Input("targetParameters")]
+        [PolicyResourceProperty("targetParameters", "_mUnknown_TargetParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipeTargetParameters> _mTargetParameters;
-
-        public Outputs.PipeTargetParameters? TargetParameters => _mTargetParameters.GetValue("targetParameters");
+        private Outputs.PipeTargetParameters? _mValue_TargetParameters;
+        private bool _mUnknown_TargetParameters;
+        public Outputs.PipeTargetParameters? TargetParameters
+        {
+            get
+            {
+                if (!_mUnknown_TargetParameters) return _mValue_TargetParameters;
+                throw new UndeferrableValueException("Value 'Pipe.TargetParameters' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:pipes/pipe:Pipe")]
@@ -166,129 +278,227 @@ namespace Pulumi.PolicyPacks.Aws.Pipes
         /// <summary>
         /// A description of the pipe. At most 512 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'PipeArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         /// </summary>
-        [Input("desiredState")]
+        [PolicyResourceProperty("desiredState", "_mUnknown_DesiredState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDesiredState;
-
-        public string? DesiredState => _mDesiredState.GetValue("desiredState");
+        private string? _mValue_DesiredState;
+        private bool _mUnknown_DesiredState;
+        public string? DesiredState
+        {
+            get
+            {
+                if (!_mUnknown_DesiredState) return _mValue_DesiredState;
+                throw new UndeferrableValueException("Value 'PipeArgs.DesiredState' is not present");
+            }
+        }
 
         /// <summary>
         /// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
         /// </summary>
-        [Input("enrichment")]
+        [PolicyResourceProperty("enrichment", "_mUnknown_Enrichment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnrichment;
-
-        public string? Enrichment => _mEnrichment.GetValue("enrichment");
+        private string? _mValue_Enrichment;
+        private bool _mUnknown_Enrichment;
+        public string? Enrichment
+        {
+            get
+            {
+                if (!_mUnknown_Enrichment) return _mValue_Enrichment;
+                throw new UndeferrableValueException("Value 'PipeArgs.Enrichment' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters to configure enrichment for your pipe. Detailed below.
         /// </summary>
-        [Input("enrichmentParameters")]
+        [PolicyResourceProperty("enrichmentParameters", "_mUnknown_EnrichmentParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeEnrichmentParametersArgs> _mEnrichmentParameters;
-
-        public Inputs.PipeEnrichmentParametersArgs? EnrichmentParameters => _mEnrichmentParameters.GetValue("enrichmentParameters");
+        private Inputs.PipeEnrichmentParametersArgs? _mValue_EnrichmentParameters;
+        private bool _mUnknown_EnrichmentParameters;
+        public Inputs.PipeEnrichmentParametersArgs? EnrichmentParameters
+        {
+            get
+            {
+                if (!_mUnknown_EnrichmentParameters) return _mValue_EnrichmentParameters;
+                throw new UndeferrableValueException("Value 'PipeArgs.EnrichmentParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
         /// </summary>
-        [Input("kmsKeyIdentifier")]
+        [PolicyResourceProperty("kmsKeyIdentifier", "_mUnknown_KmsKeyIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyIdentifier;
-
-        public string? KmsKeyIdentifier => _mKmsKeyIdentifier.GetValue("kmsKeyIdentifier");
+        private string? _mValue_KmsKeyIdentifier;
+        private bool _mUnknown_KmsKeyIdentifier;
+        public string? KmsKeyIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyIdentifier) return _mValue_KmsKeyIdentifier;
+                throw new UndeferrableValueException("Value 'PipeArgs.KmsKeyIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Logging configuration settings for the pipe. Detailed below.
         /// </summary>
-        [Input("logConfiguration")]
+        [PolicyResourceProperty("logConfiguration", "_mUnknown_LogConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeLogConfigurationArgs> _mLogConfiguration;
-
-        public Inputs.PipeLogConfigurationArgs? LogConfiguration => _mLogConfiguration.GetValue("logConfiguration");
+        private Inputs.PipeLogConfigurationArgs? _mValue_LogConfiguration;
+        private bool _mUnknown_LogConfiguration;
+        public Inputs.PipeLogConfigurationArgs? LogConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LogConfiguration) return _mValue_LogConfiguration;
+                throw new UndeferrableValueException("Value 'PipeArgs.LogConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PipeArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'PipeArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the role that allows the pipe to send data to the target.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'PipeArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
-
-        public string? Source => _mSource.GetValue("source");
+        private string? _mValue_Source;
+        private bool _mUnknown_Source;
+        public string? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'PipeArgs.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters to configure a source for the pipe. Detailed below.
         /// </summary>
-        [Input("sourceParameters")]
+        [PolicyResourceProperty("sourceParameters", "_mUnknown_SourceParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeSourceParametersArgs> _mSourceParameters;
-
-        public Inputs.PipeSourceParametersArgs? SourceParameters => _mSourceParameters.GetValue("sourceParameters");
+        private Inputs.PipeSourceParametersArgs? _mValue_SourceParameters;
+        private bool _mUnknown_SourceParameters;
+        public Inputs.PipeSourceParametersArgs? SourceParameters
+        {
+            get
+            {
+                if (!_mUnknown_SourceParameters) return _mValue_SourceParameters;
+                throw new UndeferrableValueException("Value 'PipeArgs.SourceParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'PipeArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Target resource of the pipe (typically an ARN).
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
-
-        public string? Target => _mTarget.GetValue("target");
+        private string? _mValue_Target;
+        private bool _mUnknown_Target;
+        public string? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'PipeArgs.Target' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters to configure a target for your pipe. Detailed below.
         /// </summary>
-        [Input("targetParameters")]
+        [PolicyResourceProperty("targetParameters", "_mUnknown_TargetParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeTargetParametersArgs> _mTargetParameters;
-
-        public Inputs.PipeTargetParametersArgs? TargetParameters => _mTargetParameters.GetValue("targetParameters");
+        private Inputs.PipeTargetParametersArgs? _mValue_TargetParameters;
+        private bool _mUnknown_TargetParameters;
+        public Inputs.PipeTargetParametersArgs? TargetParameters
+        {
+            get
+            {
+                if (!_mUnknown_TargetParameters) return _mValue_TargetParameters;
+                throw new UndeferrableValueException("Value 'PipeArgs.TargetParameters' is not present");
+            }
+        }
     }
 }

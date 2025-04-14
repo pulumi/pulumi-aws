@@ -16,130 +16,228 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner
         /// <summary>
         /// ARN of the App Runner service.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Service.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
         /// </summary>
-        [Input("autoScalingConfigurationArn")]
+        [PolicyResourceProperty("autoScalingConfigurationArn", "_mUnknown_AutoScalingConfigurationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingConfigurationArn;
-
-        public string? AutoScalingConfigurationArn => _mAutoScalingConfigurationArn.GetValue("autoScalingConfigurationArn");
+        private string? _mValue_AutoScalingConfigurationArn;
+        private bool _mUnknown_AutoScalingConfigurationArn;
+        public string? AutoScalingConfigurationArn
+        {
+            get
+            {
+                if (!_mUnknown_AutoScalingConfigurationArn) return _mValue_AutoScalingConfigurationArn;
+                throw new UndeferrableValueException("Value 'Service.AutoScalingConfigurationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
         /// </summary>
-        [Input("encryptionConfiguration")]
+        [PolicyResourceProperty("encryptionConfiguration", "_mUnknown_EncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceEncryptionConfiguration> _mEncryptionConfiguration;
-
-        public Outputs.ServiceEncryptionConfiguration? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+        private Outputs.ServiceEncryptionConfiguration? _mValue_EncryptionConfiguration;
+        private bool _mUnknown_EncryptionConfiguration;
+        public Outputs.ServiceEncryptionConfiguration? EncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfiguration) return _mValue_EncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'Service.EncryptionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
         /// </summary>
-        [Input("healthCheckConfiguration")]
+        [PolicyResourceProperty("healthCheckConfiguration", "_mUnknown_HealthCheckConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceHealthCheckConfiguration> _mHealthCheckConfiguration;
-
-        public Outputs.ServiceHealthCheckConfiguration? HealthCheckConfiguration => _mHealthCheckConfiguration.GetValue("healthCheckConfiguration");
+        private Outputs.ServiceHealthCheckConfiguration? _mValue_HealthCheckConfiguration;
+        private bool _mUnknown_HealthCheckConfiguration;
+        public Outputs.ServiceHealthCheckConfiguration? HealthCheckConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckConfiguration) return _mValue_HealthCheckConfiguration;
+                throw new UndeferrableValueException("Value 'Service.HealthCheckConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
         /// </summary>
-        [Input("instanceConfiguration")]
+        [PolicyResourceProperty("instanceConfiguration", "_mUnknown_InstanceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceInstanceConfiguration> _mInstanceConfiguration;
-
-        public Outputs.ServiceInstanceConfiguration? InstanceConfiguration => _mInstanceConfiguration.GetValue("instanceConfiguration");
+        private Outputs.ServiceInstanceConfiguration? _mValue_InstanceConfiguration;
+        private bool _mUnknown_InstanceConfiguration;
+        public Outputs.ServiceInstanceConfiguration? InstanceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_InstanceConfiguration) return _mValue_InstanceConfiguration;
+                throw new UndeferrableValueException("Value 'Service.InstanceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
         /// </summary>
-        [Input("networkConfiguration")]
+        [PolicyResourceProperty("networkConfiguration", "_mUnknown_NetworkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceNetworkConfiguration> _mNetworkConfiguration;
-
-        public Outputs.ServiceNetworkConfiguration? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
+        private Outputs.ServiceNetworkConfiguration? _mValue_NetworkConfiguration;
+        private bool _mUnknown_NetworkConfiguration;
+        public Outputs.ServiceNetworkConfiguration? NetworkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_NetworkConfiguration) return _mValue_NetworkConfiguration;
+                throw new UndeferrableValueException("Value 'Service.NetworkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The observability configuration of your service. See Observability Configuration below for more details.
         /// </summary>
-        [Input("observabilityConfiguration")]
+        [PolicyResourceProperty("observabilityConfiguration", "_mUnknown_ObservabilityConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceObservabilityConfiguration> _mObservabilityConfiguration;
-
-        public Outputs.ServiceObservabilityConfiguration? ObservabilityConfiguration => _mObservabilityConfiguration.GetValue("observabilityConfiguration");
+        private Outputs.ServiceObservabilityConfiguration? _mValue_ObservabilityConfiguration;
+        private bool _mUnknown_ObservabilityConfiguration;
+        public Outputs.ServiceObservabilityConfiguration? ObservabilityConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ObservabilityConfiguration) return _mValue_ObservabilityConfiguration;
+                throw new UndeferrableValueException("Value 'Service.ObservabilityConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         /// </summary>
-        [Input("serviceId")]
+        [PolicyResourceProperty("serviceId", "_mUnknown_ServiceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceId;
-
-        public string? ServiceId => _mServiceId.GetValue("serviceId");
+        private string? _mValue_ServiceId;
+        private bool _mUnknown_ServiceId;
+        public string? ServiceId
+        {
+            get
+            {
+                if (!_mUnknown_ServiceId) return _mValue_ServiceId;
+                throw new UndeferrableValueException("Value 'Service.ServiceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the service.
         /// </summary>
-        [Input("serviceName")]
+        [PolicyResourceProperty("serviceName", "_mUnknown_ServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
-
-        public string? ServiceName => _mServiceName.GetValue("serviceName");
+        private string? _mValue_ServiceName;
+        private bool _mUnknown_ServiceName;
+        public string? ServiceName
+        {
+            get
+            {
+                if (!_mUnknown_ServiceName) return _mValue_ServiceName;
+                throw new UndeferrableValueException("Value 'Service.ServiceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
         /// </summary>
-        [Input("serviceUrl")]
+        [PolicyResourceProperty("serviceUrl", "_mUnknown_ServiceUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceUrl;
-
-        public string? ServiceUrl => _mServiceUrl.GetValue("serviceUrl");
+        private string? _mValue_ServiceUrl;
+        private bool _mUnknown_ServiceUrl;
+        public string? ServiceUrl
+        {
+            get
+            {
+                if (!_mUnknown_ServiceUrl) return _mValue_ServiceUrl;
+                throw new UndeferrableValueException("Value 'Service.ServiceUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("sourceConfiguration")]
+        [PolicyResourceProperty("sourceConfiguration", "_mUnknown_SourceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceSourceConfiguration> _mSourceConfiguration;
-
-        public Outputs.ServiceSourceConfiguration? SourceConfiguration => _mSourceConfiguration.GetValue("sourceConfiguration");
+        private Outputs.ServiceSourceConfiguration? _mValue_SourceConfiguration;
+        private bool _mUnknown_SourceConfiguration;
+        public Outputs.ServiceSourceConfiguration? SourceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SourceConfiguration) return _mValue_SourceConfiguration;
+                throw new UndeferrableValueException("Value 'Service.SourceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Current state of the App Runner service.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Service.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Service.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Service.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apprunner/service:Service")]
@@ -148,84 +246,147 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner
         /// <summary>
         /// ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
         /// </summary>
-        [Input("autoScalingConfigurationArn")]
+        [PolicyResourceProperty("autoScalingConfigurationArn", "_mUnknown_AutoScalingConfigurationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingConfigurationArn;
-
-        public string? AutoScalingConfigurationArn => _mAutoScalingConfigurationArn.GetValue("autoScalingConfigurationArn");
+        private string? _mValue_AutoScalingConfigurationArn;
+        private bool _mUnknown_AutoScalingConfigurationArn;
+        public string? AutoScalingConfigurationArn
+        {
+            get
+            {
+                if (!_mUnknown_AutoScalingConfigurationArn) return _mValue_AutoScalingConfigurationArn;
+                throw new UndeferrableValueException("Value 'ServiceArgs.AutoScalingConfigurationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
         /// </summary>
-        [Input("encryptionConfiguration")]
+        [PolicyResourceProperty("encryptionConfiguration", "_mUnknown_EncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceEncryptionConfigurationArgs> _mEncryptionConfiguration;
-
-        public Inputs.ServiceEncryptionConfigurationArgs? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+        private Inputs.ServiceEncryptionConfigurationArgs? _mValue_EncryptionConfiguration;
+        private bool _mUnknown_EncryptionConfiguration;
+        public Inputs.ServiceEncryptionConfigurationArgs? EncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfiguration) return _mValue_EncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'ServiceArgs.EncryptionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
         /// </summary>
-        [Input("healthCheckConfiguration")]
+        [PolicyResourceProperty("healthCheckConfiguration", "_mUnknown_HealthCheckConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceHealthCheckConfigurationArgs> _mHealthCheckConfiguration;
-
-        public Inputs.ServiceHealthCheckConfigurationArgs? HealthCheckConfiguration => _mHealthCheckConfiguration.GetValue("healthCheckConfiguration");
+        private Inputs.ServiceHealthCheckConfigurationArgs? _mValue_HealthCheckConfiguration;
+        private bool _mUnknown_HealthCheckConfiguration;
+        public Inputs.ServiceHealthCheckConfigurationArgs? HealthCheckConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckConfiguration) return _mValue_HealthCheckConfiguration;
+                throw new UndeferrableValueException("Value 'ServiceArgs.HealthCheckConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
         /// </summary>
-        [Input("instanceConfiguration")]
+        [PolicyResourceProperty("instanceConfiguration", "_mUnknown_InstanceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceInstanceConfigurationArgs> _mInstanceConfiguration;
-
-        public Inputs.ServiceInstanceConfigurationArgs? InstanceConfiguration => _mInstanceConfiguration.GetValue("instanceConfiguration");
+        private Inputs.ServiceInstanceConfigurationArgs? _mValue_InstanceConfiguration;
+        private bool _mUnknown_InstanceConfiguration;
+        public Inputs.ServiceInstanceConfigurationArgs? InstanceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_InstanceConfiguration) return _mValue_InstanceConfiguration;
+                throw new UndeferrableValueException("Value 'ServiceArgs.InstanceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
         /// </summary>
-        [Input("networkConfiguration")]
+        [PolicyResourceProperty("networkConfiguration", "_mUnknown_NetworkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceNetworkConfigurationArgs> _mNetworkConfiguration;
-
-        public Inputs.ServiceNetworkConfigurationArgs? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
+        private Inputs.ServiceNetworkConfigurationArgs? _mValue_NetworkConfiguration;
+        private bool _mUnknown_NetworkConfiguration;
+        public Inputs.ServiceNetworkConfigurationArgs? NetworkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_NetworkConfiguration) return _mValue_NetworkConfiguration;
+                throw new UndeferrableValueException("Value 'ServiceArgs.NetworkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The observability configuration of your service. See Observability Configuration below for more details.
         /// </summary>
-        [Input("observabilityConfiguration")]
+        [PolicyResourceProperty("observabilityConfiguration", "_mUnknown_ObservabilityConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceObservabilityConfigurationArgs> _mObservabilityConfiguration;
-
-        public Inputs.ServiceObservabilityConfigurationArgs? ObservabilityConfiguration => _mObservabilityConfiguration.GetValue("observabilityConfiguration");
+        private Inputs.ServiceObservabilityConfigurationArgs? _mValue_ObservabilityConfiguration;
+        private bool _mUnknown_ObservabilityConfiguration;
+        public Inputs.ServiceObservabilityConfigurationArgs? ObservabilityConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ObservabilityConfiguration) return _mValue_ObservabilityConfiguration;
+                throw new UndeferrableValueException("Value 'ServiceArgs.ObservabilityConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the service.
         /// </summary>
-        [Input("serviceName")]
+        [PolicyResourceProperty("serviceName", "_mUnknown_ServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
-
-        public string? ServiceName => _mServiceName.GetValue("serviceName");
+        private string? _mValue_ServiceName;
+        private bool _mUnknown_ServiceName;
+        public string? ServiceName
+        {
+            get
+            {
+                if (!_mUnknown_ServiceName) return _mValue_ServiceName;
+                throw new UndeferrableValueException("Value 'ServiceArgs.ServiceName' is not present");
+            }
+        }
 
         /// <summary>
         /// The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("sourceConfiguration")]
+        [PolicyResourceProperty("sourceConfiguration", "_mUnknown_SourceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceSourceConfigurationArgs> _mSourceConfiguration;
-
-        public Inputs.ServiceSourceConfigurationArgs? SourceConfiguration => _mSourceConfiguration.GetValue("sourceConfiguration");
+        private Inputs.ServiceSourceConfigurationArgs? _mValue_SourceConfiguration;
+        private bool _mUnknown_SourceConfiguration;
+        public Inputs.ServiceSourceConfigurationArgs? SourceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SourceConfiguration) return _mValue_SourceConfiguration;
+                throw new UndeferrableValueException("Value 'ServiceArgs.SourceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServiceArgs.Tags' is not present");
+            }
+        }
     }
 }

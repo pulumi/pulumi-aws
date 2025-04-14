@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Inputs
         /// <summary>
         /// Starting hour of the 10-hour window for updates
         /// </summary>
-        [Input("hours")]
+        [PolicyResourceProperty("hours", "_mUnknown_Hours")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHours;
-
-        public int? Hours => _mHours.GetValue("hours");
+        private int? _mValue_Hours;
+        private bool _mUnknown_Hours;
+        public int? Hours
+        {
+            get
+            {
+                if (!_mUnknown_Hours) return _mValue_Hours;
+                throw new UndeferrableValueException("Value 'GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInputArgs.Hours' is not present");
+            }
+        }
 
         /// <summary>
         /// Starting minute of the 10-hour window for updates
         /// </summary>
-        [Input("minutes")]
+        [PolicyResourceProperty("minutes", "_mUnknown_Minutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinutes;
-
-        public int? Minutes => _mMinutes.GetValue("minutes");
+        private int? _mValue_Minutes;
+        private bool _mUnknown_Minutes;
+        public int? Minutes
+        {
+            get
+            {
+                if (!_mUnknown_Minutes) return _mValue_Minutes;
+                throw new UndeferrableValueException("Value 'GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInputArgs.Minutes' is not present");
+            }
+        }
     }
 }

@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.NetworkMonitor
         /// <summary>
         /// The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
         /// </summary>
-        [Input("aggregationPeriod")]
+        [PolicyResourceProperty("aggregationPeriod", "_mUnknown_AggregationPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAggregationPeriod;
-
-        public int? AggregationPeriod => _mAggregationPeriod.GetValue("aggregationPeriod");
+        private int? _mValue_AggregationPeriod;
+        private bool _mUnknown_AggregationPeriod;
+        public int? AggregationPeriod
+        {
+            get
+            {
+                if (!_mUnknown_AggregationPeriod) return _mValue_AggregationPeriod;
+                throw new UndeferrableValueException("Value 'Monitor.AggregationPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the monitor.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Monitor.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the monitor.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("monitorName")]
+        [PolicyResourceProperty("monitorName", "_mUnknown_MonitorName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMonitorName;
-
-        public string? MonitorName => _mMonitorName.GetValue("monitorName");
+        private string? _mValue_MonitorName;
+        private bool _mUnknown_MonitorName;
+        public string? MonitorName
+        {
+            get
+            {
+                if (!_mUnknown_MonitorName) return _mValue_MonitorName;
+                throw new UndeferrableValueException("Value 'Monitor.MonitorName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Monitor.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Monitor.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:networkmonitor/monitor:Monitor")]
@@ -67,30 +102,51 @@ namespace Pulumi.PolicyPacks.Aws.NetworkMonitor
         /// <summary>
         /// The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
         /// </summary>
-        [Input("aggregationPeriod")]
+        [PolicyResourceProperty("aggregationPeriod", "_mUnknown_AggregationPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAggregationPeriod;
-
-        public int? AggregationPeriod => _mAggregationPeriod.GetValue("aggregationPeriod");
+        private int? _mValue_AggregationPeriod;
+        private bool _mUnknown_AggregationPeriod;
+        public int? AggregationPeriod
+        {
+            get
+            {
+                if (!_mUnknown_AggregationPeriod) return _mValue_AggregationPeriod;
+                throw new UndeferrableValueException("Value 'MonitorArgs.AggregationPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the monitor.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("monitorName")]
+        [PolicyResourceProperty("monitorName", "_mUnknown_MonitorName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMonitorName;
-
-        public string? MonitorName => _mMonitorName.GetValue("monitorName");
+        private string? _mValue_MonitorName;
+        private bool _mUnknown_MonitorName;
+        public string? MonitorName
+        {
+            get
+            {
+                if (!_mUnknown_MonitorName) return _mValue_MonitorName;
+                throw new UndeferrableValueException("Value 'MonitorArgs.MonitorName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'MonitorArgs.Tags' is not present");
+            }
+        }
     }
 }

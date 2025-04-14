@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// Description of the function and its purpose.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the function.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs>> _mParameters;
-
-        public List<Inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs>? Parameters => _mParameters.GetValue("parameters");
+        private List<Inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs.Parameters' is not present");
+            }
+        }
     }
 }

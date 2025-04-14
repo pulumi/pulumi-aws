@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamWrite.Outputs
 {
     public sealed class GetTableSchemaResult
     {
-        [Input("compositePartitionKeys")]
+        [PolicyResourceProperty("compositePartitionKeys", "_mUnknown_CompositePartitionKeys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetTableSchemaCompositePartitionKeyResult>> _mCompositePartitionKeys;
-
-        public List<Outputs.GetTableSchemaCompositePartitionKeyResult>? CompositePartitionKeys => _mCompositePartitionKeys.GetValue("compositePartitionKeys");
+        private List<Outputs.GetTableSchemaCompositePartitionKeyResult>? _mValue_CompositePartitionKeys;
+        private bool _mUnknown_CompositePartitionKeys;
+        public List<Outputs.GetTableSchemaCompositePartitionKeyResult>? CompositePartitionKeys
+        {
+            get
+            {
+                if (!_mUnknown_CompositePartitionKeys) return _mValue_CompositePartitionKeys;
+                throw new UndeferrableValueException("Value 'GetTableSchemaResult.CompositePartitionKeys' is not present");
+            }
+        }
     }
 }

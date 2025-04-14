@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'RealtimeLogConfig.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Kinesis data streams where real-time log data is sent.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RealtimeLogConfigEndpoint> _mEndpoint;
-
-        public Outputs.RealtimeLogConfigEndpoint? Endpoint => _mEndpoint.GetValue("endpoint");
+        private Outputs.RealtimeLogConfigEndpoint? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public Outputs.RealtimeLogConfigEndpoint? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'RealtimeLogConfig.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
         /// </summary>
-        [Input("fields")]
+        [PolicyResourceProperty("fields", "_mUnknown_Fields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFields;
-
-        public List<string>? Fields => _mFields.GetValue("fields");
+        private List<string>? _mValue_Fields;
+        private bool _mUnknown_Fields;
+        public List<string>? Fields
+        {
+            get
+            {
+                if (!_mUnknown_Fields) return _mValue_Fields;
+                throw new UndeferrableValueException("Value 'RealtimeLogConfig.Fields' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique name to identify this real-time log configuration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RealtimeLogConfig.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
         /// </summary>
-        [Input("samplingRate")]
+        [PolicyResourceProperty("samplingRate", "_mUnknown_SamplingRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSamplingRate;
-
-        public int? SamplingRate => _mSamplingRate.GetValue("samplingRate");
+        private int? _mValue_SamplingRate;
+        private bool _mUnknown_SamplingRate;
+        public int? SamplingRate
+        {
+            get
+            {
+                if (!_mUnknown_SamplingRate) return _mValue_SamplingRate;
+                throw new UndeferrableValueException("Value 'RealtimeLogConfig.SamplingRate' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudfront/realtimeLogConfig:RealtimeLogConfig")]
@@ -65,37 +100,65 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// The Amazon Kinesis data streams where real-time log data is sent.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RealtimeLogConfigEndpointArgs> _mEndpoint;
-
-        public Inputs.RealtimeLogConfigEndpointArgs? Endpoint => _mEndpoint.GetValue("endpoint");
+        private Inputs.RealtimeLogConfigEndpointArgs? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public Inputs.RealtimeLogConfigEndpointArgs? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'RealtimeLogConfigArgs.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
         /// </summary>
-        [Input("fields")]
+        [PolicyResourceProperty("fields", "_mUnknown_Fields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFields;
-
-        public List<string>? Fields => _mFields.GetValue("fields");
+        private List<string>? _mValue_Fields;
+        private bool _mUnknown_Fields;
+        public List<string>? Fields
+        {
+            get
+            {
+                if (!_mUnknown_Fields) return _mValue_Fields;
+                throw new UndeferrableValueException("Value 'RealtimeLogConfigArgs.Fields' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique name to identify this real-time log configuration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RealtimeLogConfigArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
         /// </summary>
-        [Input("samplingRate")]
+        [PolicyResourceProperty("samplingRate", "_mUnknown_SamplingRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSamplingRate;
-
-        public int? SamplingRate => _mSamplingRate.GetValue("samplingRate");
+        private int? _mValue_SamplingRate;
+        private bool _mUnknown_SamplingRate;
+        public int? SamplingRate
+        {
+            get
+            {
+                if (!_mUnknown_SamplingRate) return _mValue_SamplingRate;
+                throw new UndeferrableValueException("Value 'RealtimeLogConfigArgs.SamplingRate' is not present");
+            }
+        }
     }
 }

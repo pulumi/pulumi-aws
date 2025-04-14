@@ -16,119 +16,210 @@ namespace Pulumi.PolicyPacks.Aws.AppConfig
         /// <summary>
         /// Application ID. Must be between 4 and 7 characters in length.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'Deployment.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the AppConfig Deployment.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Deployment.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration profile ID. Must be between 4 and 7 characters in length.
         /// </summary>
-        [Input("configurationProfileId")]
+        [PolicyResourceProperty("configurationProfileId", "_mUnknown_ConfigurationProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationProfileId;
-
-        public string? ConfigurationProfileId => _mConfigurationProfileId.GetValue("configurationProfileId");
+        private string? _mValue_ConfigurationProfileId;
+        private bool _mUnknown_ConfigurationProfileId;
+        public string? ConfigurationProfileId
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationProfileId) return _mValue_ConfigurationProfileId;
+                throw new UndeferrableValueException("Value 'Deployment.ConfigurationProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration version to deploy. Can be at most 1024 characters.
         /// </summary>
-        [Input("configurationVersion")]
+        [PolicyResourceProperty("configurationVersion", "_mUnknown_ConfigurationVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationVersion;
-
-        public string? ConfigurationVersion => _mConfigurationVersion.GetValue("configurationVersion");
+        private string? _mValue_ConfigurationVersion;
+        private bool _mUnknown_ConfigurationVersion;
+        public string? ConfigurationVersion
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationVersion) return _mValue_ConfigurationVersion;
+                throw new UndeferrableValueException("Value 'Deployment.ConfigurationVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Deployment number.
         /// </summary>
-        [Input("deploymentNumber")]
+        [PolicyResourceProperty("deploymentNumber", "_mUnknown_DeploymentNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeploymentNumber;
-
-        public int? DeploymentNumber => _mDeploymentNumber.GetValue("deploymentNumber");
+        private int? _mValue_DeploymentNumber;
+        private bool _mUnknown_DeploymentNumber;
+        public int? DeploymentNumber
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentNumber) return _mValue_DeploymentNumber;
+                throw new UndeferrableValueException("Value 'Deployment.DeploymentNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         /// </summary>
-        [Input("deploymentStrategyId")]
+        [PolicyResourceProperty("deploymentStrategyId", "_mUnknown_DeploymentStrategyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentStrategyId;
-
-        public string? DeploymentStrategyId => _mDeploymentStrategyId.GetValue("deploymentStrategyId");
+        private string? _mValue_DeploymentStrategyId;
+        private bool _mUnknown_DeploymentStrategyId;
+        public string? DeploymentStrategyId
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentStrategyId) return _mValue_DeploymentStrategyId;
+                throw new UndeferrableValueException("Value 'Deployment.DeploymentStrategyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the deployment. Can be at most 1024 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Deployment.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Environment ID. Must be between 4 and 7 characters in length.
         /// </summary>
-        [Input("environmentId")]
+        [PolicyResourceProperty("environmentId", "_mUnknown_EnvironmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
-
-        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+        private string? _mValue_EnvironmentId;
+        private bool _mUnknown_EnvironmentId;
+        public string? EnvironmentId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentId) return _mValue_EnvironmentId;
+                throw new UndeferrableValueException("Value 'Deployment.EnvironmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the KMS key used to encrypt configuration data.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'Deployment.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
         /// </summary>
-        [Input("kmsKeyIdentifier")]
+        [PolicyResourceProperty("kmsKeyIdentifier", "_mUnknown_KmsKeyIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyIdentifier;
-
-        public string? KmsKeyIdentifier => _mKmsKeyIdentifier.GetValue("kmsKeyIdentifier");
+        private string? _mValue_KmsKeyIdentifier;
+        private bool _mUnknown_KmsKeyIdentifier;
+        public string? KmsKeyIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyIdentifier) return _mValue_KmsKeyIdentifier;
+                throw new UndeferrableValueException("Value 'Deployment.KmsKeyIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// State of the deployment.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'Deployment.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Deployment.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Deployment.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appconfig/deployment:Deployment")]
@@ -137,73 +228,129 @@ namespace Pulumi.PolicyPacks.Aws.AppConfig
         /// <summary>
         /// Application ID. Must be between 4 and 7 characters in length.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration profile ID. Must be between 4 and 7 characters in length.
         /// </summary>
-        [Input("configurationProfileId")]
+        [PolicyResourceProperty("configurationProfileId", "_mUnknown_ConfigurationProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationProfileId;
-
-        public string? ConfigurationProfileId => _mConfigurationProfileId.GetValue("configurationProfileId");
+        private string? _mValue_ConfigurationProfileId;
+        private bool _mUnknown_ConfigurationProfileId;
+        public string? ConfigurationProfileId
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationProfileId) return _mValue_ConfigurationProfileId;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.ConfigurationProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration version to deploy. Can be at most 1024 characters.
         /// </summary>
-        [Input("configurationVersion")]
+        [PolicyResourceProperty("configurationVersion", "_mUnknown_ConfigurationVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationVersion;
-
-        public string? ConfigurationVersion => _mConfigurationVersion.GetValue("configurationVersion");
+        private string? _mValue_ConfigurationVersion;
+        private bool _mUnknown_ConfigurationVersion;
+        public string? ConfigurationVersion
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationVersion) return _mValue_ConfigurationVersion;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.ConfigurationVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         /// </summary>
-        [Input("deploymentStrategyId")]
+        [PolicyResourceProperty("deploymentStrategyId", "_mUnknown_DeploymentStrategyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentStrategyId;
-
-        public string? DeploymentStrategyId => _mDeploymentStrategyId.GetValue("deploymentStrategyId");
+        private string? _mValue_DeploymentStrategyId;
+        private bool _mUnknown_DeploymentStrategyId;
+        public string? DeploymentStrategyId
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentStrategyId) return _mValue_DeploymentStrategyId;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.DeploymentStrategyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the deployment. Can be at most 1024 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Environment ID. Must be between 4 and 7 characters in length.
         /// </summary>
-        [Input("environmentId")]
+        [PolicyResourceProperty("environmentId", "_mUnknown_EnvironmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
-
-        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+        private string? _mValue_EnvironmentId;
+        private bool _mUnknown_EnvironmentId;
+        public string? EnvironmentId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentId) return _mValue_EnvironmentId;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.EnvironmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
         /// </summary>
-        [Input("kmsKeyIdentifier")]
+        [PolicyResourceProperty("kmsKeyIdentifier", "_mUnknown_KmsKeyIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyIdentifier;
-
-        public string? KmsKeyIdentifier => _mKmsKeyIdentifier.GetValue("kmsKeyIdentifier");
+        private string? _mValue_KmsKeyIdentifier;
+        private bool _mUnknown_KmsKeyIdentifier;
+        public string? KmsKeyIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyIdentifier) return _mValue_KmsKeyIdentifier;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.KmsKeyIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.Tags' is not present");
+            }
+        }
     }
 }

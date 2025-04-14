@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Shield.Outputs
         /// <summary>
         /// Additional notes regarding the contact.
         /// </summary>
-        [Input("contactNotes")]
+        [PolicyResourceProperty("contactNotes", "_mUnknown_ContactNotes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContactNotes;
-
-        public string? ContactNotes => _mContactNotes.GetValue("contactNotes");
+        private string? _mValue_ContactNotes;
+        private bool _mUnknown_ContactNotes;
+        public string? ContactNotes
+        {
+            get
+            {
+                if (!_mUnknown_ContactNotes) return _mValue_ContactNotes;
+                throw new UndeferrableValueException("Value 'ProactiveEngagementEmergencyContact.ContactNotes' is not present");
+            }
+        }
 
         /// <summary>
         /// A valid email address that will be used for this contact.
         /// </summary>
-        [Input("emailAddress")]
+        [PolicyResourceProperty("emailAddress", "_mUnknown_EmailAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAddress;
-
-        public string? EmailAddress => _mEmailAddress.GetValue("emailAddress");
+        private string? _mValue_EmailAddress;
+        private bool _mUnknown_EmailAddress;
+        public string? EmailAddress
+        {
+            get
+            {
+                if (!_mUnknown_EmailAddress) return _mValue_EmailAddress;
+                throw new UndeferrableValueException("Value 'ProactiveEngagementEmergencyContact.EmailAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// A phone number, starting with `+` and up to 15 digits that will be used for this contact.
         /// </summary>
-        [Input("phoneNumber")]
+        [PolicyResourceProperty("phoneNumber", "_mUnknown_PhoneNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPhoneNumber;
-
-        public string? PhoneNumber => _mPhoneNumber.GetValue("phoneNumber");
+        private string? _mValue_PhoneNumber;
+        private bool _mUnknown_PhoneNumber;
+        public string? PhoneNumber
+        {
+            get
+            {
+                if (!_mUnknown_PhoneNumber) return _mValue_PhoneNumber;
+                throw new UndeferrableValueException("Value 'ProactiveEngagementEmergencyContact.PhoneNumber' is not present");
+            }
+        }
     }
 }

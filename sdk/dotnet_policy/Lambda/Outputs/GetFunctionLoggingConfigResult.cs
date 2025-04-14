@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Outputs
 {
     public sealed class GetFunctionLoggingConfigResult
     {
-        [Input("applicationLogLevel")]
+        [PolicyResourceProperty("applicationLogLevel", "_mUnknown_ApplicationLogLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationLogLevel;
+        private string? _mValue_ApplicationLogLevel;
+        private bool _mUnknown_ApplicationLogLevel;
+        public string? ApplicationLogLevel
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationLogLevel) return _mValue_ApplicationLogLevel;
+                throw new UndeferrableValueException("Value 'GetFunctionLoggingConfigResult.ApplicationLogLevel' is not present");
+            }
+        }
 
-        public string? ApplicationLogLevel => _mApplicationLogLevel.GetValue("applicationLogLevel");
-
-        [Input("logFormat")]
+        [PolicyResourceProperty("logFormat", "_mUnknown_LogFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogFormat;
+        private string? _mValue_LogFormat;
+        private bool _mUnknown_LogFormat;
+        public string? LogFormat
+        {
+            get
+            {
+                if (!_mUnknown_LogFormat) return _mValue_LogFormat;
+                throw new UndeferrableValueException("Value 'GetFunctionLoggingConfigResult.LogFormat' is not present");
+            }
+        }
 
-        public string? LogFormat => _mLogFormat.GetValue("logFormat");
-
-        [Input("logGroup")]
+        [PolicyResourceProperty("logGroup", "_mUnknown_LogGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroup;
+        private string? _mValue_LogGroup;
+        private bool _mUnknown_LogGroup;
+        public string? LogGroup
+        {
+            get
+            {
+                if (!_mUnknown_LogGroup) return _mValue_LogGroup;
+                throw new UndeferrableValueException("Value 'GetFunctionLoggingConfigResult.LogGroup' is not present");
+            }
+        }
 
-        public string? LogGroup => _mLogGroup.GetValue("logGroup");
-
-        [Input("systemLogLevel")]
+        [PolicyResourceProperty("systemLogLevel", "_mUnknown_SystemLogLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSystemLogLevel;
-
-        public string? SystemLogLevel => _mSystemLogLevel.GetValue("systemLogLevel");
+        private string? _mValue_SystemLogLevel;
+        private bool _mUnknown_SystemLogLevel;
+        public string? SystemLogLevel
+        {
+            get
+            {
+                if (!_mUnknown_SystemLogLevel) return _mValue_SystemLogLevel;
+                throw new UndeferrableValueException("Value 'GetFunctionLoggingConfigResult.SystemLogLevel' is not present");
+            }
+        }
     }
 }

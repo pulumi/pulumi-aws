@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Blanking image to be used. See Avail Blanking Image for more details.
         /// </summary>
-        [Input("availBlankingImage")]
+        [PolicyResourceProperty("availBlankingImage", "_mUnknown_AvailBlankingImage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsAvailBlankingAvailBlankingImage> _mAvailBlankingImage;
-
-        public Outputs.ChannelEncoderSettingsAvailBlankingAvailBlankingImage? AvailBlankingImage => _mAvailBlankingImage.GetValue("availBlankingImage");
+        private Outputs.ChannelEncoderSettingsAvailBlankingAvailBlankingImage? _mValue_AvailBlankingImage;
+        private bool _mUnknown_AvailBlankingImage;
+        public Outputs.ChannelEncoderSettingsAvailBlankingAvailBlankingImage? AvailBlankingImage
+        {
+            get
+            {
+                if (!_mUnknown_AvailBlankingImage) return _mValue_AvailBlankingImage;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAvailBlanking.AvailBlankingImage' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAvailBlanking.State' is not present");
+            }
+        }
     }
 }

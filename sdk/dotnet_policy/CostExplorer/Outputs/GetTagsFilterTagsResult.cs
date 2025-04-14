@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer.Outputs
 {
     public sealed class GetTagsFilterTagsResult
     {
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'GetTagsFilterTagsResult.Key' is not present");
+            }
+        }
 
-        public string? Key => _mKey.GetValue("key");
-
-        [Input("matchOptions")]
+        [PolicyResourceProperty("matchOptions", "_mUnknown_MatchOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMatchOptions;
+        private List<string>? _mValue_MatchOptions;
+        private bool _mUnknown_MatchOptions;
+        public List<string>? MatchOptions
+        {
+            get
+            {
+                if (!_mUnknown_MatchOptions) return _mValue_MatchOptions;
+                throw new UndeferrableValueException("Value 'GetTagsFilterTagsResult.MatchOptions' is not present");
+            }
+        }
 
-        public List<string>? MatchOptions => _mMatchOptions.GetValue("matchOptions");
-
-        [Input("values")]
+        [PolicyResourceProperty("values", "_mUnknown_Values")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mValues;
-
-        public List<string>? Values => _mValues.GetValue("values");
+        private List<string>? _mValue_Values;
+        private bool _mUnknown_Values;
+        public List<string>? Values
+        {
+            get
+            {
+                if (!_mUnknown_Values) return _mValue_Values;
+                throw new UndeferrableValueException("Value 'GetTagsFilterTagsResult.Values' is not present");
+            }
+        }
     }
 }

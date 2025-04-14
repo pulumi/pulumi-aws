@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Backup.Outputs
         /// <summary>
         /// List of the format of your reports: CSV, JSON, or both.
         /// </summary>
-        [Input("formats")]
+        [PolicyResourceProperty("formats", "_mUnknown_Formats")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFormats;
-
-        public List<string>? Formats => _mFormats.GetValue("formats");
+        private List<string>? _mValue_Formats;
+        private bool _mUnknown_Formats;
+        public List<string>? Formats
+        {
+            get
+            {
+                if (!_mUnknown_Formats) return _mValue_Formats;
+                throw new UndeferrableValueException("Value 'GetReportPlanReportDeliveryChannelResult.Formats' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name of the S3 bucket that receives your reports.
         /// </summary>
-        [Input("s3BucketName")]
+        [PolicyResourceProperty("s3BucketName", "_mUnknown_S3BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketName;
-
-        public string? S3BucketName => _mS3BucketName.GetValue("s3BucketName");
+        private string? _mValue_S3BucketName;
+        private bool _mUnknown_S3BucketName;
+        public string? S3BucketName
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketName) return _mValue_S3BucketName;
+                throw new UndeferrableValueException("Value 'GetReportPlanReportDeliveryChannelResult.S3BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
         /// </summary>
-        [Input("s3KeyPrefix")]
+        [PolicyResourceProperty("s3KeyPrefix", "_mUnknown_S3KeyPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3KeyPrefix;
-
-        public string? S3KeyPrefix => _mS3KeyPrefix.GetValue("s3KeyPrefix");
+        private string? _mValue_S3KeyPrefix;
+        private bool _mUnknown_S3KeyPrefix;
+        public string? S3KeyPrefix
+        {
+            get
+            {
+                if (!_mUnknown_S3KeyPrefix) return _mValue_S3KeyPrefix;
+                throw new UndeferrableValueException("Value 'GetReportPlanReportDeliveryChannelResult.S3KeyPrefix' is not present");
+            }
+        }
     }
 }

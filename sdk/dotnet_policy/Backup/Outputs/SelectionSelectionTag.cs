@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Backup.Outputs
         /// <summary>
         /// Key for the filter.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'SelectionSelectionTag.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'SelectionSelectionTag.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Value for the filter.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'SelectionSelectionTag.Value' is not present");
+            }
+        }
     }
 }

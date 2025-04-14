@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// The continuous deployment policy ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicy.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether this continuous deployment policy is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicy.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Current version of the continuous distribution policy.
         /// </summary>
-        [Input("etag")]
+        [PolicyResourceProperty("etag", "_mUnknown_Etag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
-
-        public string? Etag => _mEtag.GetValue("etag");
+        private string? _mValue_Etag;
+        private bool _mUnknown_Etag;
+        public string? Etag
+        {
+            get
+            {
+                if (!_mUnknown_Etag) return _mValue_Etag;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicy.Etag' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time the continuous deployment policy was last modified.
         /// </summary>
-        [Input("lastModifiedTime")]
+        [PolicyResourceProperty("lastModifiedTime", "_mUnknown_LastModifiedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedTime;
-
-        public string? LastModifiedTime => _mLastModifiedTime.GetValue("lastModifiedTime");
+        private string? _mValue_LastModifiedTime;
+        private bool _mUnknown_LastModifiedTime;
+        public string? LastModifiedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastModifiedTime) return _mValue_LastModifiedTime;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicy.LastModifiedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
         /// </summary>
-        [Input("stagingDistributionDnsNames")]
+        [PolicyResourceProperty("stagingDistributionDnsNames", "_mUnknown_StagingDistributionDnsNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ContinuousDeploymentPolicyStagingDistributionDnsNames> _mStagingDistributionDnsNames;
-
-        public Outputs.ContinuousDeploymentPolicyStagingDistributionDnsNames? StagingDistributionDnsNames => _mStagingDistributionDnsNames.GetValue("stagingDistributionDnsNames");
+        private Outputs.ContinuousDeploymentPolicyStagingDistributionDnsNames? _mValue_StagingDistributionDnsNames;
+        private bool _mUnknown_StagingDistributionDnsNames;
+        public Outputs.ContinuousDeploymentPolicyStagingDistributionDnsNames? StagingDistributionDnsNames
+        {
+            get
+            {
+                if (!_mUnknown_StagingDistributionDnsNames) return _mValue_StagingDistributionDnsNames;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicy.StagingDistributionDnsNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
         /// </summary>
-        [Input("trafficConfig")]
+        [PolicyResourceProperty("trafficConfig", "_mUnknown_TrafficConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ContinuousDeploymentPolicyTrafficConfig> _mTrafficConfig;
-
-        public Outputs.ContinuousDeploymentPolicyTrafficConfig? TrafficConfig => _mTrafficConfig.GetValue("trafficConfig");
+        private Outputs.ContinuousDeploymentPolicyTrafficConfig? _mValue_TrafficConfig;
+        private bool _mUnknown_TrafficConfig;
+        public Outputs.ContinuousDeploymentPolicyTrafficConfig? TrafficConfig
+        {
+            get
+            {
+                if (!_mUnknown_TrafficConfig) return _mValue_TrafficConfig;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicy.TrafficConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy")]
@@ -74,28 +116,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// Whether this continuous deployment policy is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
         /// </summary>
-        [Input("stagingDistributionDnsNames")]
+        [PolicyResourceProperty("stagingDistributionDnsNames", "_mUnknown_StagingDistributionDnsNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs> _mStagingDistributionDnsNames;
-
-        public Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs? StagingDistributionDnsNames => _mStagingDistributionDnsNames.GetValue("stagingDistributionDnsNames");
+        private Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs? _mValue_StagingDistributionDnsNames;
+        private bool _mUnknown_StagingDistributionDnsNames;
+        public Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs? StagingDistributionDnsNames
+        {
+            get
+            {
+                if (!_mUnknown_StagingDistributionDnsNames) return _mValue_StagingDistributionDnsNames;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyArgs.StagingDistributionDnsNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
         /// </summary>
-        [Input("trafficConfig")]
+        [PolicyResourceProperty("trafficConfig", "_mUnknown_TrafficConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ContinuousDeploymentPolicyTrafficConfigArgs> _mTrafficConfig;
-
-        public Inputs.ContinuousDeploymentPolicyTrafficConfigArgs? TrafficConfig => _mTrafficConfig.GetValue("trafficConfig");
+        private Inputs.ContinuousDeploymentPolicyTrafficConfigArgs? _mValue_TrafficConfig;
+        private bool _mUnknown_TrafficConfig;
+        public Inputs.ContinuousDeploymentPolicyTrafficConfigArgs? TrafficConfig
+        {
+            get
+            {
+                if (!_mUnknown_TrafficConfig) return _mValue_TrafficConfig;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyArgs.TrafficConfig' is not present");
+            }
+        }
     }
 }

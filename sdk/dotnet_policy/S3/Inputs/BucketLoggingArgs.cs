@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// The name of the bucket that will receive the log objects.
         /// </summary>
-        [Input("targetBucket")]
+        [PolicyResourceProperty("targetBucket", "_mUnknown_TargetBucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetBucket;
-
-        public string? TargetBucket => _mTargetBucket.GetValue("targetBucket");
+        private string? _mValue_TargetBucket;
+        private bool _mUnknown_TargetBucket;
+        public string? TargetBucket
+        {
+            get
+            {
+                if (!_mUnknown_TargetBucket) return _mValue_TargetBucket;
+                throw new UndeferrableValueException("Value 'BucketLoggingArgs.TargetBucket' is not present");
+            }
+        }
 
         /// <summary>
         /// To specify a key prefix for log objects.
         /// </summary>
-        [Input("targetPrefix")]
+        [PolicyResourceProperty("targetPrefix", "_mUnknown_TargetPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetPrefix;
-
-        public string? TargetPrefix => _mTargetPrefix.GetValue("targetPrefix");
+        private string? _mValue_TargetPrefix;
+        private bool _mUnknown_TargetPrefix;
+        public string? TargetPrefix
+        {
+            get
+            {
+                if (!_mUnknown_TargetPrefix) return _mValue_TargetPrefix;
+                throw new UndeferrableValueException("Value 'BucketLoggingArgs.TargetPrefix' is not present");
+            }
+        }
     }
 }

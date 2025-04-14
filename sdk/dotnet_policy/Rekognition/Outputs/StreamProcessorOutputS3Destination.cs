@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Rekognition.Outputs
         /// <summary>
         /// Name of the Amazon S3 bucket you want to associate with the streaming video project.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'StreamProcessorOutputS3Destination.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// The prefix value of the location within the bucket that you want the information to be published to.
         /// </summary>
-        [Input("keyPrefix")]
+        [PolicyResourceProperty("keyPrefix", "_mUnknown_KeyPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyPrefix;
-
-        public string? KeyPrefix => _mKeyPrefix.GetValue("keyPrefix");
+        private string? _mValue_KeyPrefix;
+        private bool _mUnknown_KeyPrefix;
+        public string? KeyPrefix
+        {
+            get
+            {
+                if (!_mUnknown_KeyPrefix) return _mValue_KeyPrefix;
+                throw new UndeferrableValueException("Value 'StreamProcessorOutputS3Destination.KeyPrefix' is not present");
+            }
+        }
     }
 }

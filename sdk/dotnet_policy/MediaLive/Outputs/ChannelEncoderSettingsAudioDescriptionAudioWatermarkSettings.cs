@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings
     {
-        [Input("nielsenWatermarksSettings")]
+        [PolicyResourceProperty("nielsenWatermarksSettings", "_mUnknown_NielsenWatermarksSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings> _mNielsenWatermarksSettings;
-
-        public Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings? NielsenWatermarksSettings => _mNielsenWatermarksSettings.GetValue("nielsenWatermarksSettings");
+        private Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings? _mValue_NielsenWatermarksSettings;
+        private bool _mUnknown_NielsenWatermarksSettings;
+        public Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings? NielsenWatermarksSettings
+        {
+            get
+            {
+                if (!_mUnknown_NielsenWatermarksSettings) return _mValue_NielsenWatermarksSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings.NielsenWatermarksSettings' is not present");
+            }
+        }
     }
 }

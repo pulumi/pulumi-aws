@@ -16,91 +16,161 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// <summary>
         /// Time of glossary term creation.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'GlossaryTerm.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Creator of glossary term.
         /// </summary>
-        [Input("createdBy")]
+        [PolicyResourceProperty("createdBy", "_mUnknown_CreatedBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedBy;
-
-        public string? CreatedBy => _mCreatedBy.GetValue("createdBy");
+        private string? _mValue_CreatedBy;
+        private bool _mUnknown_CreatedBy;
+        public string? CreatedBy
+        {
+            get
+            {
+                if (!_mUnknown_CreatedBy) return _mValue_CreatedBy;
+                throw new UndeferrableValueException("Value 'GlossaryTerm.CreatedBy' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of domain.
         /// </summary>
-        [Input("domainIdentifier")]
+        [PolicyResourceProperty("domainIdentifier", "_mUnknown_DomainIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
-
-        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
+        private string? _mValue_DomainIdentifier;
+        private bool _mUnknown_DomainIdentifier;
+        public string? DomainIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DomainIdentifier) return _mValue_DomainIdentifier;
+                throw new UndeferrableValueException("Value 'GlossaryTerm.DomainIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of glossary.
         /// </summary>
-        [Input("glossaryIdentifier")]
+        [PolicyResourceProperty("glossaryIdentifier", "_mUnknown_GlossaryIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlossaryIdentifier;
-
-        public string? GlossaryIdentifier => _mGlossaryIdentifier.GetValue("glossaryIdentifier");
+        private string? _mValue_GlossaryIdentifier;
+        private bool _mUnknown_GlossaryIdentifier;
+        public string? GlossaryIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_GlossaryIdentifier) return _mValue_GlossaryIdentifier;
+                throw new UndeferrableValueException("Value 'GlossaryTerm.GlossaryIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Long description of entry.
         /// </summary>
-        [Input("longDescription")]
+        [PolicyResourceProperty("longDescription", "_mUnknown_LongDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLongDescription;
-
-        public string? LongDescription => _mLongDescription.GetValue("longDescription");
+        private string? _mValue_LongDescription;
+        private bool _mUnknown_LongDescription;
+        public string? LongDescription
+        {
+            get
+            {
+                if (!_mUnknown_LongDescription) return _mValue_LongDescription;
+                throw new UndeferrableValueException("Value 'GlossaryTerm.LongDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of glossary term.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GlossaryTerm.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Short description of entry.
         /// </summary>
-        [Input("shortDescription")]
+        [PolicyResourceProperty("shortDescription", "_mUnknown_ShortDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShortDescription;
-
-        public string? ShortDescription => _mShortDescription.GetValue("shortDescription");
+        private string? _mValue_ShortDescription;
+        private bool _mUnknown_ShortDescription;
+        public string? ShortDescription
+        {
+            get
+            {
+                if (!_mUnknown_ShortDescription) return _mValue_ShortDescription;
+                throw new UndeferrableValueException("Value 'GlossaryTerm.ShortDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// If glossary term is ENABLED or DISABLED.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'GlossaryTerm.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Object classifying the term relations through the following attributes:
         /// </summary>
-        [Input("termRelations")]
+        [PolicyResourceProperty("termRelations", "_mUnknown_TermRelations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GlossaryTermTermRelations> _mTermRelations;
+        private Outputs.GlossaryTermTermRelations? _mValue_TermRelations;
+        private bool _mUnknown_TermRelations;
+        public Outputs.GlossaryTermTermRelations? TermRelations
+        {
+            get
+            {
+                if (!_mUnknown_TermRelations) return _mValue_TermRelations;
+                throw new UndeferrableValueException("Value 'GlossaryTerm.TermRelations' is not present");
+            }
+        }
 
-        public Outputs.GlossaryTermTermRelations? TermRelations => _mTermRelations.GetValue("termRelations");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GlossaryTermTimeouts> _mTimeouts;
-
-        public Outputs.GlossaryTermTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.GlossaryTermTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.GlossaryTermTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'GlossaryTerm.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datazone/glossaryTerm:GlossaryTerm")]
@@ -109,72 +179,128 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// <summary>
         /// Identifier of domain.
         /// </summary>
-        [Input("domainIdentifier")]
+        [PolicyResourceProperty("domainIdentifier", "_mUnknown_DomainIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
-
-        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
+        private string? _mValue_DomainIdentifier;
+        private bool _mUnknown_DomainIdentifier;
+        public string? DomainIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DomainIdentifier) return _mValue_DomainIdentifier;
+                throw new UndeferrableValueException("Value 'GlossaryTermArgs.DomainIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of glossary.
         /// </summary>
-        [Input("glossaryIdentifier")]
+        [PolicyResourceProperty("glossaryIdentifier", "_mUnknown_GlossaryIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlossaryIdentifier;
-
-        public string? GlossaryIdentifier => _mGlossaryIdentifier.GetValue("glossaryIdentifier");
+        private string? _mValue_GlossaryIdentifier;
+        private bool _mUnknown_GlossaryIdentifier;
+        public string? GlossaryIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_GlossaryIdentifier) return _mValue_GlossaryIdentifier;
+                throw new UndeferrableValueException("Value 'GlossaryTermArgs.GlossaryIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Long description of entry.
         /// </summary>
-        [Input("longDescription")]
+        [PolicyResourceProperty("longDescription", "_mUnknown_LongDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLongDescription;
-
-        public string? LongDescription => _mLongDescription.GetValue("longDescription");
+        private string? _mValue_LongDescription;
+        private bool _mUnknown_LongDescription;
+        public string? LongDescription
+        {
+            get
+            {
+                if (!_mUnknown_LongDescription) return _mValue_LongDescription;
+                throw new UndeferrableValueException("Value 'GlossaryTermArgs.LongDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of glossary term.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GlossaryTermArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Short description of entry.
         /// </summary>
-        [Input("shortDescription")]
+        [PolicyResourceProperty("shortDescription", "_mUnknown_ShortDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShortDescription;
-
-        public string? ShortDescription => _mShortDescription.GetValue("shortDescription");
+        private string? _mValue_ShortDescription;
+        private bool _mUnknown_ShortDescription;
+        public string? ShortDescription
+        {
+            get
+            {
+                if (!_mUnknown_ShortDescription) return _mValue_ShortDescription;
+                throw new UndeferrableValueException("Value 'GlossaryTermArgs.ShortDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// If glossary term is ENABLED or DISABLED.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'GlossaryTermArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Object classifying the term relations through the following attributes:
         /// </summary>
-        [Input("termRelations")]
+        [PolicyResourceProperty("termRelations", "_mUnknown_TermRelations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GlossaryTermTermRelationsArgs> _mTermRelations;
+        private Inputs.GlossaryTermTermRelationsArgs? _mValue_TermRelations;
+        private bool _mUnknown_TermRelations;
+        public Inputs.GlossaryTermTermRelationsArgs? TermRelations
+        {
+            get
+            {
+                if (!_mUnknown_TermRelations) return _mValue_TermRelations;
+                throw new UndeferrableValueException("Value 'GlossaryTermArgs.TermRelations' is not present");
+            }
+        }
 
-        public Inputs.GlossaryTermTermRelationsArgs? TermRelations => _mTermRelations.GetValue("termRelations");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GlossaryTermTimeoutsArgs> _mTimeouts;
-
-        public Inputs.GlossaryTermTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.GlossaryTermTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.GlossaryTermTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'GlossaryTermArgs.Timeouts' is not present");
+            }
+        }
     }
 }

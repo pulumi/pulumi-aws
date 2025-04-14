@@ -16,53 +16,95 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// ARN assigned by AWS for this provider.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'OpenIdConnectProvider.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         /// </summary>
-        [Input("clientIdLists")]
+        [PolicyResourceProperty("clientIdLists", "_mUnknown_ClientIdLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClientIdLists;
-
-        public List<string>? ClientIdLists => _mClientIdLists.GetValue("clientIdLists");
+        private List<string>? _mValue_ClientIdLists;
+        private bool _mUnknown_ClientIdLists;
+        public List<string>? ClientIdLists
+        {
+            get
+            {
+                if (!_mUnknown_ClientIdLists) return _mValue_ClientIdLists;
+                throw new UndeferrableValueException("Value 'OpenIdConnectProvider.ClientIdLists' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'OpenIdConnectProvider.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'OpenIdConnectProvider.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("thumbprintLists")]
+        [PolicyResourceProperty("thumbprintLists", "_mUnknown_ThumbprintLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mThumbprintLists;
-
-        public List<string>? ThumbprintLists => _mThumbprintLists.GetValue("thumbprintLists");
+        private List<string>? _mValue_ThumbprintLists;
+        private bool _mUnknown_ThumbprintLists;
+        public List<string>? ThumbprintLists
+        {
+            get
+            {
+                if (!_mUnknown_ThumbprintLists) return _mValue_ThumbprintLists;
+                throw new UndeferrableValueException("Value 'OpenIdConnectProvider.ThumbprintLists' is not present");
+            }
+        }
 
         /// <summary>
         /// URL of the identity provider, corresponding to the `iss` claim.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'OpenIdConnectProvider.Url' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/openIdConnectProvider:OpenIdConnectProvider")]
@@ -71,34 +113,62 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         /// </summary>
-        [Input("clientIdLists")]
+        [PolicyResourceProperty("clientIdLists", "_mUnknown_ClientIdLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClientIdLists;
-
-        public List<string>? ClientIdLists => _mClientIdLists.GetValue("clientIdLists");
+        private List<string>? _mValue_ClientIdLists;
+        private bool _mUnknown_ClientIdLists;
+        public List<string>? ClientIdLists
+        {
+            get
+            {
+                if (!_mUnknown_ClientIdLists) return _mValue_ClientIdLists;
+                throw new UndeferrableValueException("Value 'OpenIdConnectProviderArgs.ClientIdLists' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'OpenIdConnectProviderArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("thumbprintLists")]
+        [PolicyResourceProperty("thumbprintLists", "_mUnknown_ThumbprintLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mThumbprintLists;
-
-        public List<string>? ThumbprintLists => _mThumbprintLists.GetValue("thumbprintLists");
+        private List<string>? _mValue_ThumbprintLists;
+        private bool _mUnknown_ThumbprintLists;
+        public List<string>? ThumbprintLists
+        {
+            get
+            {
+                if (!_mUnknown_ThumbprintLists) return _mValue_ThumbprintLists;
+                throw new UndeferrableValueException("Value 'OpenIdConnectProviderArgs.ThumbprintLists' is not present");
+            }
+        }
 
         /// <summary>
         /// URL of the identity provider, corresponding to the `iss` claim.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'OpenIdConnectProviderArgs.Url' is not present");
+            }
+        }
     }
 }

@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
 {
     public sealed class InternetMonitorInternetMeasurementsLogDeliveryArgs
     {
-        [Input("s3Config")]
+        [PolicyResourceProperty("s3Config", "_mUnknown_S3Config")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs> _mS3Config;
-
-        public Inputs.InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs? S3Config => _mS3Config.GetValue("s3Config");
+        private Inputs.InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs? _mValue_S3Config;
+        private bool _mUnknown_S3Config;
+        public Inputs.InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs? S3Config
+        {
+            get
+            {
+                if (!_mUnknown_S3Config) return _mValue_S3Config;
+                throw new UndeferrableValueException("Value 'InternetMonitorInternetMeasurementsLogDeliveryArgs.S3Config' is not present");
+            }
+        }
     }
 }

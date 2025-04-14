@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Outputs
         /// <summary>
         /// A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
         /// </summary>
-        [Input("continent")]
+        [PolicyResourceProperty("continent", "_mUnknown_Continent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContinent;
-
-        public string? Continent => _mContinent.GetValue("continent");
+        private string? _mValue_Continent;
+        private bool _mUnknown_Continent;
+        public string? Continent
+        {
+            get
+            {
+                if (!_mUnknown_Continent) return _mValue_Continent;
+                throw new UndeferrableValueException("Value 'RecordGeolocationRoutingPolicy.Continent' is not present");
+            }
+        }
 
         /// <summary>
         /// A two-character country code or `*` to indicate a default resource record set.
         /// </summary>
-        [Input("country")]
+        [PolicyResourceProperty("country", "_mUnknown_Country")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCountry;
-
-        public string? Country => _mCountry.GetValue("country");
+        private string? _mValue_Country;
+        private bool _mUnknown_Country;
+        public string? Country
+        {
+            get
+            {
+                if (!_mUnknown_Country) return _mValue_Country;
+                throw new UndeferrableValueException("Value 'RecordGeolocationRoutingPolicy.Country' is not present");
+            }
+        }
 
         /// <summary>
         /// A subdivision code for a country.
         /// </summary>
-        [Input("subdivision")]
+        [PolicyResourceProperty("subdivision", "_mUnknown_Subdivision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdivision;
-
-        public string? Subdivision => _mSubdivision.GetValue("subdivision");
+        private string? _mValue_Subdivision;
+        private bool _mUnknown_Subdivision;
+        public string? Subdivision
+        {
+            get
+            {
+                if (!_mUnknown_Subdivision) return _mValue_Subdivision;
+                throw new UndeferrableValueException("Value 'RecordGeolocationRoutingPolicy.Subdivision' is not present");
+            }
+        }
     }
 }

@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ARN of the principal to allow permissions.
         /// </summary>
-        [Input("principalArn")]
+        [PolicyResourceProperty("principalArn", "_mUnknown_PrincipalArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalArn;
-
-        public string? PrincipalArn => _mPrincipalArn.GetValue("principalArn");
+        private string? _mValue_PrincipalArn;
+        private bool _mUnknown_PrincipalArn;
+        public string? PrincipalArn
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalArn) return _mValue_PrincipalArn;
+                throw new UndeferrableValueException("Value 'VpcEndpointServiceAllowedPrinciple.PrincipalArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC endpoint service to allow permission.
         /// </summary>
-        [Input("vpcEndpointServiceId")]
+        [PolicyResourceProperty("vpcEndpointServiceId", "_mUnknown_VpcEndpointServiceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointServiceId;
-
-        public string? VpcEndpointServiceId => _mVpcEndpointServiceId.GetValue("vpcEndpointServiceId");
+        private string? _mValue_VpcEndpointServiceId;
+        private bool _mUnknown_VpcEndpointServiceId;
+        public string? VpcEndpointServiceId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointServiceId) return _mValue_VpcEndpointServiceId;
+                throw new UndeferrableValueException("Value 'VpcEndpointServiceAllowedPrinciple.VpcEndpointServiceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ARN of the principal to allow permissions.
         /// </summary>
-        [Input("principalArn")]
+        [PolicyResourceProperty("principalArn", "_mUnknown_PrincipalArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalArn;
-
-        public string? PrincipalArn => _mPrincipalArn.GetValue("principalArn");
+        private string? _mValue_PrincipalArn;
+        private bool _mUnknown_PrincipalArn;
+        public string? PrincipalArn
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalArn) return _mValue_PrincipalArn;
+                throw new UndeferrableValueException("Value 'VpcEndpointServiceAllowedPrincipleArgs.PrincipalArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC endpoint service to allow permission.
         /// </summary>
-        [Input("vpcEndpointServiceId")]
+        [PolicyResourceProperty("vpcEndpointServiceId", "_mUnknown_VpcEndpointServiceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointServiceId;
-
-        public string? VpcEndpointServiceId => _mVpcEndpointServiceId.GetValue("vpcEndpointServiceId");
+        private string? _mValue_VpcEndpointServiceId;
+        private bool _mUnknown_VpcEndpointServiceId;
+        public string? VpcEndpointServiceId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointServiceId) return _mValue_VpcEndpointServiceId;
+                throw new UndeferrableValueException("Value 'VpcEndpointServiceAllowedPrincipleArgs.VpcEndpointServiceId' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Iam.Outputs
         /// <summary>
         /// Identifier of one of the policies used as input to the simulation.
         /// </summary>
-        [Input("sourcePolicyId")]
+        [PolicyResourceProperty("sourcePolicyId", "_mUnknown_SourcePolicyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourcePolicyId;
-
-        public string? SourcePolicyId => _mSourcePolicyId.GetValue("sourcePolicyId");
+        private string? _mValue_SourcePolicyId;
+        private bool _mUnknown_SourcePolicyId;
+        public string? SourcePolicyId
+        {
+            get
+            {
+                if (!_mUnknown_SourcePolicyId) return _mValue_SourcePolicyId;
+                throw new UndeferrableValueException("Value 'GetPrincipalPolicySimulationResultMatchedStatementResult.SourcePolicyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the policy identified in source_policy_id.
         /// </summary>
-        [Input("sourcePolicyType")]
+        [PolicyResourceProperty("sourcePolicyType", "_mUnknown_SourcePolicyType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourcePolicyType;
-
-        public string? SourcePolicyType => _mSourcePolicyType.GetValue("sourcePolicyType");
+        private string? _mValue_SourcePolicyType;
+        private bool _mUnknown_SourcePolicyType;
+        public string? SourcePolicyType
+        {
+            get
+            {
+                if (!_mUnknown_SourcePolicyType) return _mValue_SourcePolicyType;
+                throw new UndeferrableValueException("Value 'GetPrincipalPolicySimulationResultMatchedStatementResult.SourcePolicyType' is not present");
+            }
+        }
     }
 }

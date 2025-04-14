@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.LightSail.Outputs
         /// <summary>
         /// The Availability Zone. Follows the format us-east-2a (case-sensitive).
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'DistributionLocation.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Region name.
         /// </summary>
-        [Input("regionName")]
+        [PolicyResourceProperty("regionName", "_mUnknown_RegionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegionName;
-
-        public string? RegionName => _mRegionName.GetValue("regionName");
+        private string? _mValue_RegionName;
+        private bool _mUnknown_RegionName;
+        public string? RegionName
+        {
+            get
+            {
+                if (!_mUnknown_RegionName) return _mValue_RegionName;
+                throw new UndeferrableValueException("Value 'DistributionLocation.RegionName' is not present");
+            }
+        }
     }
 }

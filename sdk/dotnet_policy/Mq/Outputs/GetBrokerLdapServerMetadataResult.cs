@@ -12,70 +12,147 @@ namespace Pulumi.PolicyPacks.Aws.Mq.Outputs
 {
     public sealed class GetBrokerLdapServerMetadataResult
     {
-        [Input("hosts")]
+        [PolicyResourceProperty("hosts", "_mUnknown_Hosts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mHosts;
+        private List<string>? _mValue_Hosts;
+        private bool _mUnknown_Hosts;
+        public List<string>? Hosts
+        {
+            get
+            {
+                if (!_mUnknown_Hosts) return _mValue_Hosts;
+                throw new UndeferrableValueException("Value 'GetBrokerLdapServerMetadataResult.Hosts' is not present");
+            }
+        }
 
-        public List<string>? Hosts => _mHosts.GetValue("hosts");
-
-        [Input("roleBase")]
+        [PolicyResourceProperty("roleBase", "_mUnknown_RoleBase")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleBase;
+        private string? _mValue_RoleBase;
+        private bool _mUnknown_RoleBase;
+        public string? RoleBase
+        {
+            get
+            {
+                if (!_mUnknown_RoleBase) return _mValue_RoleBase;
+                throw new UndeferrableValueException("Value 'GetBrokerLdapServerMetadataResult.RoleBase' is not present");
+            }
+        }
 
-        public string? RoleBase => _mRoleBase.GetValue("roleBase");
-
-        [Input("roleName")]
+        [PolicyResourceProperty("roleName", "_mUnknown_RoleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleName;
+        private string? _mValue_RoleName;
+        private bool _mUnknown_RoleName;
+        public string? RoleName
+        {
+            get
+            {
+                if (!_mUnknown_RoleName) return _mValue_RoleName;
+                throw new UndeferrableValueException("Value 'GetBrokerLdapServerMetadataResult.RoleName' is not present");
+            }
+        }
 
-        public string? RoleName => _mRoleName.GetValue("roleName");
-
-        [Input("roleSearchMatching")]
+        [PolicyResourceProperty("roleSearchMatching", "_mUnknown_RoleSearchMatching")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleSearchMatching;
+        private string? _mValue_RoleSearchMatching;
+        private bool _mUnknown_RoleSearchMatching;
+        public string? RoleSearchMatching
+        {
+            get
+            {
+                if (!_mUnknown_RoleSearchMatching) return _mValue_RoleSearchMatching;
+                throw new UndeferrableValueException("Value 'GetBrokerLdapServerMetadataResult.RoleSearchMatching' is not present");
+            }
+        }
 
-        public string? RoleSearchMatching => _mRoleSearchMatching.GetValue("roleSearchMatching");
-
-        [Input("roleSearchSubtree")]
+        [PolicyResourceProperty("roleSearchSubtree", "_mUnknown_RoleSearchSubtree")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRoleSearchSubtree;
+        private bool? _mValue_RoleSearchSubtree;
+        private bool _mUnknown_RoleSearchSubtree;
+        public bool? RoleSearchSubtree
+        {
+            get
+            {
+                if (!_mUnknown_RoleSearchSubtree) return _mValue_RoleSearchSubtree;
+                throw new UndeferrableValueException("Value 'GetBrokerLdapServerMetadataResult.RoleSearchSubtree' is not present");
+            }
+        }
 
-        public bool? RoleSearchSubtree => _mRoleSearchSubtree.GetValue("roleSearchSubtree");
-
-        [Input("serviceAccountPassword")]
+        [PolicyResourceProperty("serviceAccountPassword", "_mUnknown_ServiceAccountPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccountPassword;
+        private string? _mValue_ServiceAccountPassword;
+        private bool _mUnknown_ServiceAccountPassword;
+        public string? ServiceAccountPassword
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccountPassword) return _mValue_ServiceAccountPassword;
+                throw new UndeferrableValueException("Value 'GetBrokerLdapServerMetadataResult.ServiceAccountPassword' is not present");
+            }
+        }
 
-        public string? ServiceAccountPassword => _mServiceAccountPassword.GetValue("serviceAccountPassword");
-
-        [Input("serviceAccountUsername")]
+        [PolicyResourceProperty("serviceAccountUsername", "_mUnknown_ServiceAccountUsername")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccountUsername;
+        private string? _mValue_ServiceAccountUsername;
+        private bool _mUnknown_ServiceAccountUsername;
+        public string? ServiceAccountUsername
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccountUsername) return _mValue_ServiceAccountUsername;
+                throw new UndeferrableValueException("Value 'GetBrokerLdapServerMetadataResult.ServiceAccountUsername' is not present");
+            }
+        }
 
-        public string? ServiceAccountUsername => _mServiceAccountUsername.GetValue("serviceAccountUsername");
-
-        [Input("userBase")]
+        [PolicyResourceProperty("userBase", "_mUnknown_UserBase")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserBase;
+        private string? _mValue_UserBase;
+        private bool _mUnknown_UserBase;
+        public string? UserBase
+        {
+            get
+            {
+                if (!_mUnknown_UserBase) return _mValue_UserBase;
+                throw new UndeferrableValueException("Value 'GetBrokerLdapServerMetadataResult.UserBase' is not present");
+            }
+        }
 
-        public string? UserBase => _mUserBase.GetValue("userBase");
-
-        [Input("userRoleName")]
+        [PolicyResourceProperty("userRoleName", "_mUnknown_UserRoleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserRoleName;
+        private string? _mValue_UserRoleName;
+        private bool _mUnknown_UserRoleName;
+        public string? UserRoleName
+        {
+            get
+            {
+                if (!_mUnknown_UserRoleName) return _mValue_UserRoleName;
+                throw new UndeferrableValueException("Value 'GetBrokerLdapServerMetadataResult.UserRoleName' is not present");
+            }
+        }
 
-        public string? UserRoleName => _mUserRoleName.GetValue("userRoleName");
-
-        [Input("userSearchMatching")]
+        [PolicyResourceProperty("userSearchMatching", "_mUnknown_UserSearchMatching")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserSearchMatching;
+        private string? _mValue_UserSearchMatching;
+        private bool _mUnknown_UserSearchMatching;
+        public string? UserSearchMatching
+        {
+            get
+            {
+                if (!_mUnknown_UserSearchMatching) return _mValue_UserSearchMatching;
+                throw new UndeferrableValueException("Value 'GetBrokerLdapServerMetadataResult.UserSearchMatching' is not present");
+            }
+        }
 
-        public string? UserSearchMatching => _mUserSearchMatching.GetValue("userSearchMatching");
-
-        [Input("userSearchSubtree")]
+        [PolicyResourceProperty("userSearchSubtree", "_mUnknown_UserSearchSubtree")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUserSearchSubtree;
-
-        public bool? UserSearchSubtree => _mUserSearchSubtree.GetValue("userSearchSubtree");
+        private bool? _mValue_UserSearchSubtree;
+        private bool _mUnknown_UserSearchSubtree;
+        public bool? UserSearchSubtree
+        {
+            get
+            {
+                if (!_mUnknown_UserSearchSubtree) return _mValue_UserSearchSubtree;
+                throw new UndeferrableValueException("Value 'GetBrokerLdapServerMetadataResult.UserSearchSubtree' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.LicenseManager.Outputs
         /// <summary>
         /// Indicates whether early check-ins are allowed.
         /// </summary>
-        [Input("allowEarlyCheckIn")]
+        [PolicyResourceProperty("allowEarlyCheckIn", "_mUnknown_AllowEarlyCheckIn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowEarlyCheckIn;
-
-        public bool? AllowEarlyCheckIn => _mAllowEarlyCheckIn.GetValue("allowEarlyCheckIn");
+        private bool? _mValue_AllowEarlyCheckIn;
+        private bool _mUnknown_AllowEarlyCheckIn;
+        public bool? AllowEarlyCheckIn
+        {
+            get
+            {
+                if (!_mUnknown_AllowEarlyCheckIn) return _mValue_AllowEarlyCheckIn;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult.AllowEarlyCheckIn' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum time for the provisional configuration, in minutes.
         /// </summary>
-        [Input("maxTimeToLiveInMinutes")]
+        [PolicyResourceProperty("maxTimeToLiveInMinutes", "_mUnknown_MaxTimeToLiveInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxTimeToLiveInMinutes;
-
-        public int? MaxTimeToLiveInMinutes => _mMaxTimeToLiveInMinutes.GetValue("maxTimeToLiveInMinutes");
+        private int? _mValue_MaxTimeToLiveInMinutes;
+        private bool _mUnknown_MaxTimeToLiveInMinutes;
+        public int? MaxTimeToLiveInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_MaxTimeToLiveInMinutes) return _mValue_MaxTimeToLiveInMinutes;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult.MaxTimeToLiveInMinutes' is not present");
+            }
+        }
     }
 }

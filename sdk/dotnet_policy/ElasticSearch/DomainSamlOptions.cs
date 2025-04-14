@@ -18,20 +18,34 @@ namespace Pulumi.PolicyPacks.Aws.ElasticSearch
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'DomainSamlOptions.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The SAML authentication options for an AWS Elasticsearch Domain.
         /// </summary>
-        [Input("samlOptions")]
+        [PolicyResourceProperty("samlOptions", "_mUnknown_SamlOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainSamlOptionsSamlOptions> _mSamlOptions;
-
-        public Outputs.DomainSamlOptionsSamlOptions? SamlOptions => _mSamlOptions.GetValue("samlOptions");
+        private Outputs.DomainSamlOptionsSamlOptions? _mValue_SamlOptions;
+        private bool _mUnknown_SamlOptions;
+        public Outputs.DomainSamlOptionsSamlOptions? SamlOptions
+        {
+            get
+            {
+                if (!_mUnknown_SamlOptions) return _mValue_SamlOptions;
+                throw new UndeferrableValueException("Value 'DomainSamlOptions.SamlOptions' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:elasticsearch/domainSamlOptions:DomainSamlOptions")]
@@ -42,19 +56,33 @@ namespace Pulumi.PolicyPacks.Aws.ElasticSearch
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'DomainSamlOptionsArgs.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The SAML authentication options for an AWS Elasticsearch Domain.
         /// </summary>
-        [Input("samlOptions")]
+        [PolicyResourceProperty("samlOptions", "_mUnknown_SamlOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainSamlOptionsSamlOptionsArgs> _mSamlOptions;
-
-        public Inputs.DomainSamlOptionsSamlOptionsArgs? SamlOptions => _mSamlOptions.GetValue("samlOptions");
+        private Inputs.DomainSamlOptionsSamlOptionsArgs? _mValue_SamlOptions;
+        private bool _mUnknown_SamlOptions;
+        public Inputs.DomainSamlOptionsSamlOptionsArgs? SamlOptions
+        {
+            get
+            {
+                if (!_mUnknown_SamlOptions) return _mValue_SamlOptions;
+                throw new UndeferrableValueException("Value 'DomainSamlOptionsArgs.SamlOptions' is not present");
+            }
+        }
     }
 }

@@ -12,28 +12,49 @@ namespace Pulumi.PolicyPacks.Aws.Amp.Inputs
 {
     public sealed class ScraperSourceEksArgs
     {
-        [Input("clusterArn")]
+        [PolicyResourceProperty("clusterArn", "_mUnknown_ClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterArn;
-
-        public string? ClusterArn => _mClusterArn.GetValue("clusterArn");
+        private string? _mValue_ClusterArn;
+        private bool _mUnknown_ClusterArn;
+        public string? ClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_ClusterArn) return _mValue_ClusterArn;
+                throw new UndeferrableValueException("Value 'ScraperSourceEksArgs.ClusterArn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of the security group IDs for the Amazon EKS cluster VPC configuration.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ScraperSourceEksArgs.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// List of subnet IDs. Must be in at least two different availability zones.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'ScraperSourceEksArgs.SubnetIds' is not present");
+            }
+        }
     }
 }

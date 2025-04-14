@@ -16,180 +16,313 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The add-on configuration for the instance. Detailed below.
         /// </summary>
-        [Input("addOn")]
+        [PolicyResourceProperty("addOn", "_mUnknown_AddOn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceAddOn> _mAddOn;
-
-        public Outputs.InstanceAddOn? AddOn => _mAddOn.GetValue("addOn");
+        private Outputs.InstanceAddOn? _mValue_AddOn;
+        private bool _mUnknown_AddOn;
+        public Outputs.InstanceAddOn? AddOn
+        {
+            get
+            {
+                if (!_mUnknown_AddOn) return _mValue_AddOn;
+                throw new UndeferrableValueException("Value 'Instance.AddOn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Lightsail instance (matches `id`).
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Instance.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Availability Zone in which to create your instance. A
         /// list of available zones can be obtained using the AWS CLI command:
         /// [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'Instance.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID for a virtual private server image. A list of available
         /// blueprint IDs can be obtained using the AWS CLI command:
         /// [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
         /// </summary>
-        [Input("blueprintId")]
+        [PolicyResourceProperty("blueprintId", "_mUnknown_BlueprintId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlueprintId;
-
-        public string? BlueprintId => _mBlueprintId.GetValue("blueprintId");
+        private string? _mValue_BlueprintId;
+        private bool _mUnknown_BlueprintId;
+        public string? BlueprintId
+        {
+            get
+            {
+                if (!_mUnknown_BlueprintId) return _mValue_BlueprintId;
+                throw new UndeferrableValueException("Value 'Instance.BlueprintId' is not present");
+            }
+        }
 
         /// <summary>
         /// The bundle of specification information. A list of available
         /// bundle IDs can be obtained using the AWS CLI command:
         /// [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
         /// </summary>
-        [Input("bundleId")]
+        [PolicyResourceProperty("bundleId", "_mUnknown_BundleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
-
-        public string? BundleId => _mBundleId.GetValue("bundleId");
+        private string? _mValue_BundleId;
+        private bool _mUnknown_BundleId;
+        public string? BundleId
+        {
+            get
+            {
+                if (!_mUnknown_BundleId) return _mValue_BundleId;
+                throw new UndeferrableValueException("Value 'Instance.BundleId' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of vCPUs the instance has.
         /// </summary>
-        [Input("cpuCount")]
+        [PolicyResourceProperty("cpuCount", "_mUnknown_CpuCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCpuCount;
-
-        public int? CpuCount => _mCpuCount.GetValue("cpuCount");
+        private int? _mValue_CpuCount;
+        private bool _mUnknown_CpuCount;
+        public int? CpuCount
+        {
+            get
+            {
+                if (!_mUnknown_CpuCount) return _mValue_CpuCount;
+                throw new UndeferrableValueException("Value 'Instance.CpuCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The timestamp when the instance was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'Instance.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
         /// </summary>
-        [Input("ipAddressType")]
+        [PolicyResourceProperty("ipAddressType", "_mUnknown_IpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
-
-        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+        private string? _mValue_IpAddressType;
+        private bool _mUnknown_IpAddressType;
+        public string? IpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressType) return _mValue_IpAddressType;
+                throw new UndeferrableValueException("Value 'Instance.IpAddressType' is not present");
+            }
+        }
 
         /// <summary>
         /// List of IPv6 addresses for the Lightsail instance.
         /// </summary>
-        [Input("ipv6Addresses")]
+        [PolicyResourceProperty("ipv6Addresses", "_mUnknown_Ipv6Addresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6Addresses;
-
-        public List<string>? Ipv6Addresses => _mIpv6Addresses.GetValue("ipv6Addresses");
+        private List<string>? _mValue_Ipv6Addresses;
+        private bool _mUnknown_Ipv6Addresses;
+        public List<string>? Ipv6Addresses
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6Addresses) return _mValue_Ipv6Addresses;
+                throw new UndeferrableValueException("Value 'Instance.Ipv6Addresses' is not present");
+            }
+        }
 
         /// <summary>
         /// A Boolean value indicating whether this instance has a static IP assigned to it.
         /// </summary>
-        [Input("isStaticIp")]
+        [PolicyResourceProperty("isStaticIp", "_mUnknown_IsStaticIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsStaticIp;
-
-        public bool? IsStaticIp => _mIsStaticIp.GetValue("isStaticIp");
+        private bool? _mValue_IsStaticIp;
+        private bool _mUnknown_IsStaticIp;
+        public bool? IsStaticIp
+        {
+            get
+            {
+                if (!_mUnknown_IsStaticIp) return _mValue_IsStaticIp;
+                throw new UndeferrableValueException("Value 'Instance.IsStaticIp' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of your key pair. Created in the
         /// Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
         /// </summary>
-        [Input("keyPairName")]
+        [PolicyResourceProperty("keyPairName", "_mUnknown_KeyPairName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyPairName;
-
-        public string? KeyPairName => _mKeyPairName.GetValue("keyPairName");
+        private string? _mValue_KeyPairName;
+        private bool _mUnknown_KeyPairName;
+        public string? KeyPairName
+        {
+            get
+            {
+                if (!_mUnknown_KeyPairName) return _mValue_KeyPairName;
+                throw new UndeferrableValueException("Value 'Instance.KeyPairName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Instance.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The private IP address of the instance.
         /// </summary>
-        [Input("privateIpAddress")]
+        [PolicyResourceProperty("privateIpAddress", "_mUnknown_PrivateIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIpAddress;
-
-        public string? PrivateIpAddress => _mPrivateIpAddress.GetValue("privateIpAddress");
+        private string? _mValue_PrivateIpAddress;
+        private bool _mUnknown_PrivateIpAddress;
+        public string? PrivateIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIpAddress) return _mValue_PrivateIpAddress;
+                throw new UndeferrableValueException("Value 'Instance.PrivateIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The public IP address of the instance.
         /// </summary>
-        [Input("publicIpAddress")]
+        [PolicyResourceProperty("publicIpAddress", "_mUnknown_PublicIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIpAddress;
-
-        public string? PublicIpAddress => _mPublicIpAddress.GetValue("publicIpAddress");
+        private string? _mValue_PublicIpAddress;
+        private bool _mUnknown_PublicIpAddress;
+        public string? PublicIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_PublicIpAddress) return _mValue_PublicIpAddress;
+                throw new UndeferrableValueException("Value 'Instance.PublicIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of RAM in GB on the instance (e.g., 1.0).
         /// </summary>
-        [Input("ramSize")]
+        [PolicyResourceProperty("ramSize", "_mUnknown_RamSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mRamSize;
-
-        public double? RamSize => _mRamSize.GetValue("ramSize");
+        private double? _mValue_RamSize;
+        private bool _mUnknown_RamSize;
+        public double? RamSize
+        {
+            get
+            {
+                if (!_mUnknown_RamSize) return _mValue_RamSize;
+                throw new UndeferrableValueException("Value 'Instance.RamSize' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Instance.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Instance.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Single lined launch script as a string to configure server with additional user data
         /// </summary>
-        [Input("userData")]
+        [PolicyResourceProperty("userData", "_mUnknown_UserData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserData;
-
-        public string? UserData => _mUserData.GetValue("userData");
+        private string? _mValue_UserData;
+        private bool _mUnknown_UserData;
+        public string? UserData
+        {
+            get
+            {
+                if (!_mUnknown_UserData) return _mValue_UserData;
+                throw new UndeferrableValueException("Value 'Instance.UserData' is not present");
+            }
+        }
 
         /// <summary>
         /// The user name for connecting to the instance (e.g., ec2-user).
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'Instance.Username' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lightsail/instance:Instance")]
@@ -198,89 +331,152 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The add-on configuration for the instance. Detailed below.
         /// </summary>
-        [Input("addOn")]
+        [PolicyResourceProperty("addOn", "_mUnknown_AddOn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceAddOnArgs> _mAddOn;
-
-        public Inputs.InstanceAddOnArgs? AddOn => _mAddOn.GetValue("addOn");
+        private Inputs.InstanceAddOnArgs? _mValue_AddOn;
+        private bool _mUnknown_AddOn;
+        public Inputs.InstanceAddOnArgs? AddOn
+        {
+            get
+            {
+                if (!_mUnknown_AddOn) return _mValue_AddOn;
+                throw new UndeferrableValueException("Value 'InstanceArgs.AddOn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Availability Zone in which to create your instance. A
         /// list of available zones can be obtained using the AWS CLI command:
         /// [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'InstanceArgs.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID for a virtual private server image. A list of available
         /// blueprint IDs can be obtained using the AWS CLI command:
         /// [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
         /// </summary>
-        [Input("blueprintId")]
+        [PolicyResourceProperty("blueprintId", "_mUnknown_BlueprintId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlueprintId;
-
-        public string? BlueprintId => _mBlueprintId.GetValue("blueprintId");
+        private string? _mValue_BlueprintId;
+        private bool _mUnknown_BlueprintId;
+        public string? BlueprintId
+        {
+            get
+            {
+                if (!_mUnknown_BlueprintId) return _mValue_BlueprintId;
+                throw new UndeferrableValueException("Value 'InstanceArgs.BlueprintId' is not present");
+            }
+        }
 
         /// <summary>
         /// The bundle of specification information. A list of available
         /// bundle IDs can be obtained using the AWS CLI command:
         /// [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
         /// </summary>
-        [Input("bundleId")]
+        [PolicyResourceProperty("bundleId", "_mUnknown_BundleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
-
-        public string? BundleId => _mBundleId.GetValue("bundleId");
+        private string? _mValue_BundleId;
+        private bool _mUnknown_BundleId;
+        public string? BundleId
+        {
+            get
+            {
+                if (!_mUnknown_BundleId) return _mValue_BundleId;
+                throw new UndeferrableValueException("Value 'InstanceArgs.BundleId' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
         /// </summary>
-        [Input("ipAddressType")]
+        [PolicyResourceProperty("ipAddressType", "_mUnknown_IpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
-
-        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+        private string? _mValue_IpAddressType;
+        private bool _mUnknown_IpAddressType;
+        public string? IpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressType) return _mValue_IpAddressType;
+                throw new UndeferrableValueException("Value 'InstanceArgs.IpAddressType' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of your key pair. Created in the
         /// Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
         /// </summary>
-        [Input("keyPairName")]
+        [PolicyResourceProperty("keyPairName", "_mUnknown_KeyPairName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyPairName;
-
-        public string? KeyPairName => _mKeyPairName.GetValue("keyPairName");
+        private string? _mValue_KeyPairName;
+        private bool _mUnknown_KeyPairName;
+        public string? KeyPairName
+        {
+            get
+            {
+                if (!_mUnknown_KeyPairName) return _mValue_KeyPairName;
+                throw new UndeferrableValueException("Value 'InstanceArgs.KeyPairName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Single lined launch script as a string to configure server with additional user data
         /// </summary>
-        [Input("userData")]
+        [PolicyResourceProperty("userData", "_mUnknown_UserData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserData;
-
-        public string? UserData => _mUserData.GetValue("userData");
+        private string? _mValue_UserData;
+        private bool _mUnknown_UserData;
+        public string? UserData
+        {
+            get
+            {
+                if (!_mUnknown_UserData) return _mValue_UserData;
+                throw new UndeferrableValueException("Value 'InstanceArgs.UserData' is not present");
+            }
+        }
     }
 }

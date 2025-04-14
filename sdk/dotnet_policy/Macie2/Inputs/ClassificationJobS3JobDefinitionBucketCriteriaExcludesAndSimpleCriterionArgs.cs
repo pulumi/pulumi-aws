@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Macie2.Inputs
         /// <summary>
         /// The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
         /// </summary>
-        [Input("comparator")]
+        [PolicyResourceProperty("comparator", "_mUnknown_Comparator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComparator;
-
-        public string? Comparator => _mComparator.GetValue("comparator");
+        private string? _mValue_Comparator;
+        private bool _mUnknown_Comparator;
+        public string? Comparator
+        {
+            get
+            {
+                if (!_mUnknown_Comparator) return _mValue_Comparator;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgs.Comparator' is not present");
+            }
+        }
 
         /// <summary>
         /// The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgs.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
         /// </summary>
-        [Input("values")]
+        [PolicyResourceProperty("values", "_mUnknown_Values")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mValues;
-
-        public List<string>? Values => _mValues.GetValue("values");
+        private List<string>? _mValue_Values;
+        private bool _mUnknown_Values;
+        public List<string>? Values
+        {
+            get
+            {
+                if (!_mUnknown_Values) return _mValue_Values;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgs.Values' is not present");
+            }
+        }
     }
 }

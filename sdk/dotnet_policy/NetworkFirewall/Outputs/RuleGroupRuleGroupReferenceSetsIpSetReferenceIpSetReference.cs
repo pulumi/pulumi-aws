@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// Set of Managed Prefix IP ARN(s)
         /// </summary>
-        [Input("referenceArn")]
+        [PolicyResourceProperty("referenceArn", "_mUnknown_ReferenceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReferenceArn;
-
-        public string? ReferenceArn => _mReferenceArn.GetValue("referenceArn");
+        private string? _mValue_ReferenceArn;
+        private bool _mUnknown_ReferenceArn;
+        public string? ReferenceArn
+        {
+            get
+            {
+                if (!_mUnknown_ReferenceArn) return _mValue_ReferenceArn;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference.ReferenceArn' is not present");
+            }
+        }
     }
 }

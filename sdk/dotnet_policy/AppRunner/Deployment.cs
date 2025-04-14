@@ -16,35 +16,63 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner
         /// <summary>
         /// The unique ID of the operation associated with deployment.
         /// </summary>
-        [Input("operationId")]
+        [PolicyResourceProperty("operationId", "_mUnknown_OperationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOperationId;
-
-        public string? OperationId => _mOperationId.GetValue("operationId");
+        private string? _mValue_OperationId;
+        private bool _mUnknown_OperationId;
+        public string? OperationId
+        {
+            get
+            {
+                if (!_mUnknown_OperationId) return _mValue_OperationId;
+                throw new UndeferrableValueException("Value 'Deployment.OperationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
         /// </summary>
-        [Input("serviceArn")]
+        [PolicyResourceProperty("serviceArn", "_mUnknown_ServiceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceArn;
-
-        public string? ServiceArn => _mServiceArn.GetValue("serviceArn");
+        private string? _mValue_ServiceArn;
+        private bool _mUnknown_ServiceArn;
+        public string? ServiceArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceArn) return _mValue_ServiceArn;
+                throw new UndeferrableValueException("Value 'Deployment.ServiceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The current status of the App Runner service deployment.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Deployment.Status' is not present");
+            }
+        }
 
-        public string? Status => _mStatus.GetValue("status");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentTimeouts> _mTimeouts;
-
-        public Outputs.DeploymentTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.DeploymentTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.DeploymentTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'Deployment.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apprunner/deployment:Deployment")]
@@ -53,16 +81,30 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner
         /// <summary>
         /// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
         /// </summary>
-        [Input("serviceArn")]
+        [PolicyResourceProperty("serviceArn", "_mUnknown_ServiceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceArn;
+        private string? _mValue_ServiceArn;
+        private bool _mUnknown_ServiceArn;
+        public string? ServiceArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceArn) return _mValue_ServiceArn;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.ServiceArn' is not present");
+            }
+        }
 
-        public string? ServiceArn => _mServiceArn.GetValue("serviceArn");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentTimeoutsArgs> _mTimeouts;
-
-        public Inputs.DeploymentTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.DeploymentTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.DeploymentTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.Timeouts' is not present");
+            }
+        }
     }
 }

@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetMeshSpecServiceDiscoveryResult
     {
-        [Input("ipPreference")]
+        [PolicyResourceProperty("ipPreference", "_mUnknown_IpPreference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpPreference;
-
-        public string? IpPreference => _mIpPreference.GetValue("ipPreference");
+        private string? _mValue_IpPreference;
+        private bool _mUnknown_IpPreference;
+        public string? IpPreference
+        {
+            get
+            {
+                if (!_mUnknown_IpPreference) return _mValue_IpPreference;
+                throw new UndeferrableValueException("Value 'GetMeshSpecServiceDiscoveryResult.IpPreference' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.M2.Inputs
         /// <summary>
         /// Desired number of instances for the Environment.
         /// </summary>
-        [Input("desiredCapacity")]
+        [PolicyResourceProperty("desiredCapacity", "_mUnknown_DesiredCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredCapacity;
-
-        public int? DesiredCapacity => _mDesiredCapacity.GetValue("desiredCapacity");
+        private int? _mValue_DesiredCapacity;
+        private bool _mUnknown_DesiredCapacity;
+        public int? DesiredCapacity
+        {
+            get
+            {
+                if (!_mUnknown_DesiredCapacity) return _mValue_DesiredCapacity;
+                throw new UndeferrableValueException("Value 'EnvironmentHighAvailabilityConfigArgs.DesiredCapacity' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Rekognition.Outputs
         /// <summary>
         /// Kinesis input stream. See `kinesis_video_stream`.
         /// </summary>
-        [Input("kinesisVideoStream")]
+        [PolicyResourceProperty("kinesisVideoStream", "_mUnknown_KinesisVideoStream")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamProcessorInputKinesisVideoStream> _mKinesisVideoStream;
-
-        public Outputs.StreamProcessorInputKinesisVideoStream? KinesisVideoStream => _mKinesisVideoStream.GetValue("kinesisVideoStream");
+        private Outputs.StreamProcessorInputKinesisVideoStream? _mValue_KinesisVideoStream;
+        private bool _mUnknown_KinesisVideoStream;
+        public Outputs.StreamProcessorInputKinesisVideoStream? KinesisVideoStream
+        {
+            get
+            {
+                if (!_mUnknown_KinesisVideoStream) return _mValue_KinesisVideoStream;
+                throw new UndeferrableValueException("Value 'StreamProcessorInput.KinesisVideoStream' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Outputs
         /// <summary>
         /// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
         /// </summary>
-        [Input("apiKey")]
+        [PolicyResourceProperty("apiKey", "_mUnknown_ApiKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventConnectionAuthParametersApiKey> _mApiKey;
-
-        public Outputs.EventConnectionAuthParametersApiKey? ApiKey => _mApiKey.GetValue("apiKey");
+        private Outputs.EventConnectionAuthParametersApiKey? _mValue_ApiKey;
+        private bool _mUnknown_ApiKey;
+        public Outputs.EventConnectionAuthParametersApiKey? ApiKey
+        {
+            get
+            {
+                if (!_mUnknown_ApiKey) return _mValue_ApiKey;
+                throw new UndeferrableValueException("Value 'EventConnectionAuthParameters.ApiKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
         /// </summary>
-        [Input("basic")]
+        [PolicyResourceProperty("basic", "_mUnknown_Basic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventConnectionAuthParametersBasic> _mBasic;
-
-        public Outputs.EventConnectionAuthParametersBasic? Basic => _mBasic.GetValue("basic");
+        private Outputs.EventConnectionAuthParametersBasic? _mValue_Basic;
+        private bool _mUnknown_Basic;
+        public Outputs.EventConnectionAuthParametersBasic? Basic
+        {
+            get
+            {
+                if (!_mUnknown_Basic) return _mValue_Basic;
+                throw new UndeferrableValueException("Value 'EventConnectionAuthParameters.Basic' is not present");
+            }
+        }
 
         /// <summary>
         /// Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
         /// </summary>
-        [Input("invocationHttpParameters")]
+        [PolicyResourceProperty("invocationHttpParameters", "_mUnknown_InvocationHttpParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventConnectionAuthParametersInvocationHttpParameters> _mInvocationHttpParameters;
-
-        public Outputs.EventConnectionAuthParametersInvocationHttpParameters? InvocationHttpParameters => _mInvocationHttpParameters.GetValue("invocationHttpParameters");
+        private Outputs.EventConnectionAuthParametersInvocationHttpParameters? _mValue_InvocationHttpParameters;
+        private bool _mUnknown_InvocationHttpParameters;
+        public Outputs.EventConnectionAuthParametersInvocationHttpParameters? InvocationHttpParameters
+        {
+            get
+            {
+                if (!_mUnknown_InvocationHttpParameters) return _mValue_InvocationHttpParameters;
+                throw new UndeferrableValueException("Value 'EventConnectionAuthParameters.InvocationHttpParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
         /// </summary>
-        [Input("oauth")]
+        [PolicyResourceProperty("oauth", "_mUnknown_Oauth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventConnectionAuthParametersOauth> _mOauth;
-
-        public Outputs.EventConnectionAuthParametersOauth? Oauth => _mOauth.GetValue("oauth");
+        private Outputs.EventConnectionAuthParametersOauth? _mValue_Oauth;
+        private bool _mUnknown_Oauth;
+        public Outputs.EventConnectionAuthParametersOauth? Oauth
+        {
+            get
+            {
+                if (!_mUnknown_Oauth) return _mValue_Oauth;
+                throw new UndeferrableValueException("Value 'EventConnectionAuthParameters.Oauth' is not present");
+            }
+        }
     }
 }

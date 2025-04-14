@@ -15,34 +15,62 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// Aggregated count of all resources used by reference sets in a firewall.
         /// </summary>
-        [Input("capacityUsageSummaries")]
+        [PolicyResourceProperty("capacityUsageSummaries", "_mUnknown_CapacityUsageSummaries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetFirewallFirewallStatusCapacityUsageSummaryResult>> _mCapacityUsageSummaries;
-
-        public List<Outputs.GetFirewallFirewallStatusCapacityUsageSummaryResult>? CapacityUsageSummaries => _mCapacityUsageSummaries.GetValue("capacityUsageSummaries");
+        private List<Outputs.GetFirewallFirewallStatusCapacityUsageSummaryResult>? _mValue_CapacityUsageSummaries;
+        private bool _mUnknown_CapacityUsageSummaries;
+        public List<Outputs.GetFirewallFirewallStatusCapacityUsageSummaryResult>? CapacityUsageSummaries
+        {
+            get
+            {
+                if (!_mUnknown_CapacityUsageSummaries) return _mValue_CapacityUsageSummaries;
+                throw new UndeferrableValueException("Value 'GetFirewallFirewallStatusResult.CapacityUsageSummaries' is not present");
+            }
+        }
 
         /// <summary>
         /// Summary of sync states for all availability zones in which the firewall is configured.
         /// </summary>
-        [Input("configurationSyncStateSummary")]
+        [PolicyResourceProperty("configurationSyncStateSummary", "_mUnknown_ConfigurationSyncStateSummary")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSyncStateSummary;
+        private string? _mValue_ConfigurationSyncStateSummary;
+        private bool _mUnknown_ConfigurationSyncStateSummary;
+        public string? ConfigurationSyncStateSummary
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationSyncStateSummary) return _mValue_ConfigurationSyncStateSummary;
+                throw new UndeferrableValueException("Value 'GetFirewallFirewallStatusResult.ConfigurationSyncStateSummary' is not present");
+            }
+        }
 
-        public string? ConfigurationSyncStateSummary => _mConfigurationSyncStateSummary.GetValue("configurationSyncStateSummary");
-
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'GetFirewallFirewallStatusResult.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of subnets configured for use by the firewall.
         /// </summary>
-        [Input("syncStates")]
+        [PolicyResourceProperty("syncStates", "_mUnknown_SyncStates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetFirewallFirewallStatusSyncStateResult>> _mSyncStates;
-
-        public List<Outputs.GetFirewallFirewallStatusSyncStateResult>? SyncStates => _mSyncStates.GetValue("syncStates");
+        private List<Outputs.GetFirewallFirewallStatusSyncStateResult>? _mValue_SyncStates;
+        private bool _mUnknown_SyncStates;
+        public List<Outputs.GetFirewallFirewallStatusSyncStateResult>? SyncStates
+        {
+            get
+            {
+                if (!_mUnknown_SyncStates) return _mValue_SyncStates;
+                throw new UndeferrableValueException("Value 'GetFirewallFirewallStatusResult.SyncStates' is not present");
+            }
+        }
     }
 }

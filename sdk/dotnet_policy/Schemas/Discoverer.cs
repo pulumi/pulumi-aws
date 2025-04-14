@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Schemas
         /// <summary>
         /// The Amazon Resource Name (ARN) of the discoverer.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Discoverer.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the discoverer. Maximum of 256 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Discoverer.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the event bus to discover event schemas on.
         /// </summary>
-        [Input("sourceArn")]
+        [PolicyResourceProperty("sourceArn", "_mUnknown_SourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
-
-        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
+        private string? _mValue_SourceArn;
+        private bool _mUnknown_SourceArn;
+        public string? SourceArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceArn) return _mValue_SourceArn;
+                throw new UndeferrableValueException("Value 'Discoverer.SourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Discoverer.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Discoverer.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:schemas/discoverer:Discoverer")]
@@ -65,28 +100,49 @@ namespace Pulumi.PolicyPacks.Aws.Schemas
         /// <summary>
         /// The description of the discoverer. Maximum of 256 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DiscovererArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the event bus to discover event schemas on.
         /// </summary>
-        [Input("sourceArn")]
+        [PolicyResourceProperty("sourceArn", "_mUnknown_SourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
-
-        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
+        private string? _mValue_SourceArn;
+        private bool _mUnknown_SourceArn;
+        public string? SourceArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceArn) return _mValue_SourceArn;
+                throw new UndeferrableValueException("Value 'DiscovererArgs.SourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DiscovererArgs.Tags' is not present");
+            }
+        }
     }
 }

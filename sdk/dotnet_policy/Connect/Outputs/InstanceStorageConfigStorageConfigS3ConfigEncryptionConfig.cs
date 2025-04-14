@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Connect.Outputs
         /// <summary>
         /// The type of encryption. Valid Values: `KMS`.
         /// </summary>
-        [Input("encryptionType")]
+        [PolicyResourceProperty("encryptionType", "_mUnknown_EncryptionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionType;
-
-        public string? EncryptionType => _mEncryptionType.GetValue("encryptionType");
+        private string? _mValue_EncryptionType;
+        private bool _mUnknown_EncryptionType;
+        public string? EncryptionType
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionType) return _mValue_EncryptionType;
+                throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig.EncryptionType' is not present");
+            }
+        }
 
         /// <summary>
         /// The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
         /// </summary>
-        [Input("keyId")]
+        [PolicyResourceProperty("keyId", "_mUnknown_KeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
-
-        public string? KeyId => _mKeyId.GetValue("keyId");
+        private string? _mValue_KeyId;
+        private bool _mUnknown_KeyId;
+        public string? KeyId
+        {
+            get
+            {
+                if (!_mUnknown_KeyId) return _mValue_KeyId;
+                throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig.KeyId' is not present");
+            }
+        }
     }
 }

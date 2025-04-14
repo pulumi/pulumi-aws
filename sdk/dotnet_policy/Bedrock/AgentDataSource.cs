@@ -16,82 +16,145 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
         /// </summary>
-        [Input("dataDeletionPolicy")]
+        [PolicyResourceProperty("dataDeletionPolicy", "_mUnknown_DataDeletionPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataDeletionPolicy;
-
-        public string? DataDeletionPolicy => _mDataDeletionPolicy.GetValue("dataDeletionPolicy");
+        private string? _mValue_DataDeletionPolicy;
+        private bool _mUnknown_DataDeletionPolicy;
+        public string? DataDeletionPolicy
+        {
+            get
+            {
+                if (!_mUnknown_DataDeletionPolicy) return _mValue_DataDeletionPolicy;
+                throw new UndeferrableValueException("Value 'AgentDataSource.DataDeletionPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about how the data source is stored. See `data_source_configuration` block for details.
         /// </summary>
-        [Input("dataSourceConfiguration")]
+        [PolicyResourceProperty("dataSourceConfiguration", "_mUnknown_DataSourceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceDataSourceConfiguration> _mDataSourceConfiguration;
-
-        public Outputs.AgentDataSourceDataSourceConfiguration? DataSourceConfiguration => _mDataSourceConfiguration.GetValue("dataSourceConfiguration");
+        private Outputs.AgentDataSourceDataSourceConfiguration? _mValue_DataSourceConfiguration;
+        private bool _mUnknown_DataSourceConfiguration;
+        public Outputs.AgentDataSourceDataSourceConfiguration? DataSourceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceConfiguration) return _mValue_DataSourceConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSource.DataSourceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of the data source.
         /// </summary>
-        [Input("dataSourceId")]
+        [PolicyResourceProperty("dataSourceId", "_mUnknown_DataSourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceId;
-
-        public string? DataSourceId => _mDataSourceId.GetValue("dataSourceId");
+        private string? _mValue_DataSourceId;
+        private bool _mUnknown_DataSourceId;
+        public string? DataSourceId
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceId) return _mValue_DataSourceId;
+                throw new UndeferrableValueException("Value 'AgentDataSource.DataSourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the data source.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AgentDataSource.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of the knowledge base to which the data source belongs.
         /// </summary>
-        [Input("knowledgeBaseId")]
+        [PolicyResourceProperty("knowledgeBaseId", "_mUnknown_KnowledgeBaseId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKnowledgeBaseId;
-
-        public string? KnowledgeBaseId => _mKnowledgeBaseId.GetValue("knowledgeBaseId");
+        private string? _mValue_KnowledgeBaseId;
+        private bool _mUnknown_KnowledgeBaseId;
+        public string? KnowledgeBaseId
+        {
+            get
+            {
+                if (!_mUnknown_KnowledgeBaseId) return _mValue_KnowledgeBaseId;
+                throw new UndeferrableValueException("Value 'AgentDataSource.KnowledgeBaseId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the data source.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AgentDataSource.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
         /// </summary>
-        [Input("serverSideEncryptionConfiguration")]
+        [PolicyResourceProperty("serverSideEncryptionConfiguration", "_mUnknown_ServerSideEncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceServerSideEncryptionConfiguration> _mServerSideEncryptionConfiguration;
+        private Outputs.AgentDataSourceServerSideEncryptionConfiguration? _mValue_ServerSideEncryptionConfiguration;
+        private bool _mUnknown_ServerSideEncryptionConfiguration;
+        public Outputs.AgentDataSourceServerSideEncryptionConfiguration? ServerSideEncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryptionConfiguration) return _mValue_ServerSideEncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSource.ServerSideEncryptionConfiguration' is not present");
+            }
+        }
 
-        public Outputs.AgentDataSourceServerSideEncryptionConfiguration? ServerSideEncryptionConfiguration => _mServerSideEncryptionConfiguration.GetValue("serverSideEncryptionConfiguration");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceTimeouts> _mTimeouts;
-
-        public Outputs.AgentDataSourceTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.AgentDataSourceTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.AgentDataSourceTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'AgentDataSource.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         /// </summary>
-        [Input("vectorIngestionConfiguration")]
+        [PolicyResourceProperty("vectorIngestionConfiguration", "_mUnknown_VectorIngestionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceVectorIngestionConfiguration> _mVectorIngestionConfiguration;
-
-        public Outputs.AgentDataSourceVectorIngestionConfiguration? VectorIngestionConfiguration => _mVectorIngestionConfiguration.GetValue("vectorIngestionConfiguration");
+        private Outputs.AgentDataSourceVectorIngestionConfiguration? _mValue_VectorIngestionConfiguration;
+        private bool _mUnknown_VectorIngestionConfiguration;
+        public Outputs.AgentDataSourceVectorIngestionConfiguration? VectorIngestionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VectorIngestionConfiguration) return _mValue_VectorIngestionConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSource.VectorIngestionConfiguration' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:bedrock/agentDataSource:AgentDataSource")]
@@ -100,72 +163,128 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
         /// </summary>
-        [Input("dataDeletionPolicy")]
+        [PolicyResourceProperty("dataDeletionPolicy", "_mUnknown_DataDeletionPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataDeletionPolicy;
-
-        public string? DataDeletionPolicy => _mDataDeletionPolicy.GetValue("dataDeletionPolicy");
+        private string? _mValue_DataDeletionPolicy;
+        private bool _mUnknown_DataDeletionPolicy;
+        public string? DataDeletionPolicy
+        {
+            get
+            {
+                if (!_mUnknown_DataDeletionPolicy) return _mValue_DataDeletionPolicy;
+                throw new UndeferrableValueException("Value 'AgentDataSourceArgs.DataDeletionPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about how the data source is stored. See `data_source_configuration` block for details.
         /// </summary>
-        [Input("dataSourceConfiguration")]
+        [PolicyResourceProperty("dataSourceConfiguration", "_mUnknown_DataSourceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceDataSourceConfigurationArgs> _mDataSourceConfiguration;
-
-        public Inputs.AgentDataSourceDataSourceConfigurationArgs? DataSourceConfiguration => _mDataSourceConfiguration.GetValue("dataSourceConfiguration");
+        private Inputs.AgentDataSourceDataSourceConfigurationArgs? _mValue_DataSourceConfiguration;
+        private bool _mUnknown_DataSourceConfiguration;
+        public Inputs.AgentDataSourceDataSourceConfigurationArgs? DataSourceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceConfiguration) return _mValue_DataSourceConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceArgs.DataSourceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the data source.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AgentDataSourceArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of the knowledge base to which the data source belongs.
         /// </summary>
-        [Input("knowledgeBaseId")]
+        [PolicyResourceProperty("knowledgeBaseId", "_mUnknown_KnowledgeBaseId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKnowledgeBaseId;
-
-        public string? KnowledgeBaseId => _mKnowledgeBaseId.GetValue("knowledgeBaseId");
+        private string? _mValue_KnowledgeBaseId;
+        private bool _mUnknown_KnowledgeBaseId;
+        public string? KnowledgeBaseId
+        {
+            get
+            {
+                if (!_mUnknown_KnowledgeBaseId) return _mValue_KnowledgeBaseId;
+                throw new UndeferrableValueException("Value 'AgentDataSourceArgs.KnowledgeBaseId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the data source.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AgentDataSourceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
         /// </summary>
-        [Input("serverSideEncryptionConfiguration")]
+        [PolicyResourceProperty("serverSideEncryptionConfiguration", "_mUnknown_ServerSideEncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceServerSideEncryptionConfigurationArgs> _mServerSideEncryptionConfiguration;
+        private Inputs.AgentDataSourceServerSideEncryptionConfigurationArgs? _mValue_ServerSideEncryptionConfiguration;
+        private bool _mUnknown_ServerSideEncryptionConfiguration;
+        public Inputs.AgentDataSourceServerSideEncryptionConfigurationArgs? ServerSideEncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryptionConfiguration) return _mValue_ServerSideEncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceArgs.ServerSideEncryptionConfiguration' is not present");
+            }
+        }
 
-        public Inputs.AgentDataSourceServerSideEncryptionConfigurationArgs? ServerSideEncryptionConfiguration => _mServerSideEncryptionConfiguration.GetValue("serverSideEncryptionConfiguration");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceTimeoutsArgs> _mTimeouts;
-
-        public Inputs.AgentDataSourceTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.AgentDataSourceTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.AgentDataSourceTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'AgentDataSourceArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         /// </summary>
-        [Input("vectorIngestionConfiguration")]
+        [PolicyResourceProperty("vectorIngestionConfiguration", "_mUnknown_VectorIngestionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceVectorIngestionConfigurationArgs> _mVectorIngestionConfiguration;
-
-        public Inputs.AgentDataSourceVectorIngestionConfigurationArgs? VectorIngestionConfiguration => _mVectorIngestionConfiguration.GetValue("vectorIngestionConfiguration");
+        private Inputs.AgentDataSourceVectorIngestionConfigurationArgs? _mValue_VectorIngestionConfiguration;
+        private bool _mUnknown_VectorIngestionConfiguration;
+        public Inputs.AgentDataSourceVectorIngestionConfigurationArgs? VectorIngestionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VectorIngestionConfiguration) return _mValue_VectorIngestionConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceArgs.VectorIngestionConfiguration' is not present");
+            }
+        }
     }
 }

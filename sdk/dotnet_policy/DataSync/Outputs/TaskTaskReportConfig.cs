@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.DataSync.Outputs
         /// <summary>
         /// Specifies the type of task report you'd like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
         /// </summary>
-        [Input("outputType")]
+        [PolicyResourceProperty("outputType", "_mUnknown_OutputType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputType;
-
-        public string? OutputType => _mOutputType.GetValue("outputType");
+        private string? _mValue_OutputType;
+        private bool _mUnknown_OutputType;
+        public string? OutputType
+        {
+            get
+            {
+                if (!_mUnknown_OutputType) return _mValue_OutputType;
+                throw new UndeferrableValueException("Value 'TaskTaskReportConfig.OutputType' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
         /// </summary>
-        [Input("reportLevel")]
+        [PolicyResourceProperty("reportLevel", "_mUnknown_ReportLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReportLevel;
-
-        public string? ReportLevel => _mReportLevel.GetValue("reportLevel");
+        private string? _mValue_ReportLevel;
+        private bool _mUnknown_ReportLevel;
+        public string? ReportLevel
+        {
+            get
+            {
+                if (!_mUnknown_ReportLevel) return _mValue_ReportLevel;
+                throw new UndeferrableValueException("Value 'TaskTaskReportConfig.ReportLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing the configuration of the reporting level for aspects of your task report. See `report_overrides` below.
         /// </summary>
-        [Input("reportOverrides")]
+        [PolicyResourceProperty("reportOverrides", "_mUnknown_ReportOverrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskTaskReportConfigReportOverrides> _mReportOverrides;
-
-        public Outputs.TaskTaskReportConfigReportOverrides? ReportOverrides => _mReportOverrides.GetValue("reportOverrides");
+        private Outputs.TaskTaskReportConfigReportOverrides? _mValue_ReportOverrides;
+        private bool _mUnknown_ReportOverrides;
+        public Outputs.TaskTaskReportConfigReportOverrides? ReportOverrides
+        {
+            get
+            {
+                if (!_mUnknown_ReportOverrides) return _mValue_ReportOverrides;
+                throw new UndeferrableValueException("Value 'TaskTaskReportConfig.ReportOverrides' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3_destination` below.
         /// </summary>
-        [Input("s3Destination")]
+        [PolicyResourceProperty("s3Destination", "_mUnknown_S3Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskTaskReportConfigS3Destination> _mS3Destination;
-
-        public Outputs.TaskTaskReportConfigS3Destination? S3Destination => _mS3Destination.GetValue("s3Destination");
+        private Outputs.TaskTaskReportConfigS3Destination? _mValue_S3Destination;
+        private bool _mUnknown_S3Destination;
+        public Outputs.TaskTaskReportConfigS3Destination? S3Destination
+        {
+            get
+            {
+                if (!_mUnknown_S3Destination) return _mValue_S3Destination;
+                throw new UndeferrableValueException("Value 'TaskTaskReportConfig.S3Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
         /// </summary>
-        [Input("s3ObjectVersioning")]
+        [PolicyResourceProperty("s3ObjectVersioning", "_mUnknown_S3ObjectVersioning")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3ObjectVersioning;
-
-        public string? S3ObjectVersioning => _mS3ObjectVersioning.GetValue("s3ObjectVersioning");
+        private string? _mValue_S3ObjectVersioning;
+        private bool _mUnknown_S3ObjectVersioning;
+        public string? S3ObjectVersioning
+        {
+            get
+            {
+                if (!_mUnknown_S3ObjectVersioning) return _mValue_S3ObjectVersioning;
+                throw new UndeferrableValueException("Value 'TaskTaskReportConfig.S3ObjectVersioning' is not present");
+            }
+        }
     }
 }

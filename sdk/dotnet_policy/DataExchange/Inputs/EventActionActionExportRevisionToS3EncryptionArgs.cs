@@ -15,20 +15,34 @@ namespace Pulumi.PolicyPacks.Aws.DataExchange.Inputs
         /// <summary>
         /// ARN of the KMS key used for encryption.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'EventActionActionExportRevisionToS3EncryptionArgs.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of server-side encryption.
         /// Valid values are `aws:kms` or `aws:s3`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'EventActionActionExportRevisionToS3EncryptionArgs.Type' is not present");
+            }
+        }
     }
 }

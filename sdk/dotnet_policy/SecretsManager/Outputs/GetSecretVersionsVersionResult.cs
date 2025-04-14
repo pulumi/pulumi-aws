@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.SecretsManager.Outputs
         /// <summary>
         /// Date and time this version of the secret was created.
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
-
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'GetSecretVersionsVersionResult.CreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Date that this version of the secret was last accessed.
         /// </summary>
-        [Input("lastAccessedDate")]
+        [PolicyResourceProperty("lastAccessedDate", "_mUnknown_LastAccessedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastAccessedDate;
-
-        public string? LastAccessedDate => _mLastAccessedDate.GetValue("lastAccessedDate");
+        private string? _mValue_LastAccessedDate;
+        private bool _mUnknown_LastAccessedDate;
+        public string? LastAccessedDate
+        {
+            get
+            {
+                if (!_mUnknown_LastAccessedDate) return _mValue_LastAccessedDate;
+                throw new UndeferrableValueException("Value 'GetSecretVersionsVersionResult.LastAccessedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique version identifier of this version of the secret.
         /// </summary>
-        [Input("versionId")]
+        [PolicyResourceProperty("versionId", "_mUnknown_VersionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionId;
-
-        public string? VersionId => _mVersionId.GetValue("versionId");
+        private string? _mValue_VersionId;
+        private bool _mUnknown_VersionId;
+        public string? VersionId
+        {
+            get
+            {
+                if (!_mUnknown_VersionId) return _mValue_VersionId;
+                throw new UndeferrableValueException("Value 'GetSecretVersionsVersionResult.VersionId' is not present");
+            }
+        }
 
         /// <summary>
         /// List of staging labels attached to the version.
         /// </summary>
-        [Input("versionStages")]
+        [PolicyResourceProperty("versionStages", "_mUnknown_VersionStages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVersionStages;
-
-        public List<string>? VersionStages => _mVersionStages.GetValue("versionStages");
+        private List<string>? _mValue_VersionStages;
+        private bool _mUnknown_VersionStages;
+        public List<string>? VersionStages
+        {
+            get
+            {
+                if (!_mUnknown_VersionStages) return _mValue_VersionStages;
+                throw new UndeferrableValueException("Value 'GetSecretVersionsVersionResult.VersionStages' is not present");
+            }
+        }
     }
 }

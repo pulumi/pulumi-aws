@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// S3 Access Point ARN for filtering (singular).
         /// </summary>
-        [Input("accessPoint")]
+        [PolicyResourceProperty("accessPoint", "_mUnknown_AccessPoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPoint;
-
-        public string? AccessPoint => _mAccessPoint.GetValue("accessPoint");
+        private string? _mValue_AccessPoint;
+        private bool _mUnknown_AccessPoint;
+        public string? AccessPoint
+        {
+            get
+            {
+                if (!_mUnknown_AccessPoint) return _mValue_AccessPoint;
+                throw new UndeferrableValueException("Value 'BucketMetricFilter.AccessPoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Object prefix for filtering (singular).
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'BucketMetricFilter.Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Object tags for filtering (up to 10).
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'BucketMetricFilter.Tags' is not present");
+            }
+        }
     }
 }

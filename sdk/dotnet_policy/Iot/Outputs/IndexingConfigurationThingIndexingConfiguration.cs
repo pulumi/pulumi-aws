@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Outputs
         /// <summary>
         /// Contains custom field names and their data type. See below.
         /// </summary>
-        [Input("customFields")]
+        [PolicyResourceProperty("customFields", "_mUnknown_CustomFields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.IndexingConfigurationThingIndexingConfigurationCustomField>> _mCustomFields;
-
-        public List<Outputs.IndexingConfigurationThingIndexingConfigurationCustomField>? CustomFields => _mCustomFields.GetValue("customFields");
+        private List<Outputs.IndexingConfigurationThingIndexingConfigurationCustomField>? _mValue_CustomFields;
+        private bool _mUnknown_CustomFields;
+        public List<Outputs.IndexingConfigurationThingIndexingConfigurationCustomField>? CustomFields
+        {
+            get
+            {
+                if (!_mUnknown_CustomFields) return _mValue_CustomFields;
+                throw new UndeferrableValueException("Value 'IndexingConfigurationThingIndexingConfiguration.CustomFields' is not present");
+            }
+        }
 
         /// <summary>
         /// Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
         /// </summary>
-        [Input("deviceDefenderIndexingMode")]
+        [PolicyResourceProperty("deviceDefenderIndexingMode", "_mUnknown_DeviceDefenderIndexingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceDefenderIndexingMode;
-
-        public string? DeviceDefenderIndexingMode => _mDeviceDefenderIndexingMode.GetValue("deviceDefenderIndexingMode");
+        private string? _mValue_DeviceDefenderIndexingMode;
+        private bool _mUnknown_DeviceDefenderIndexingMode;
+        public string? DeviceDefenderIndexingMode
+        {
+            get
+            {
+                if (!_mUnknown_DeviceDefenderIndexingMode) return _mValue_DeviceDefenderIndexingMode;
+                throw new UndeferrableValueException("Value 'IndexingConfigurationThingIndexingConfiguration.DeviceDefenderIndexingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
         /// </summary>
-        [Input("filter")]
+        [PolicyResourceProperty("filter", "_mUnknown_Filter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IndexingConfigurationThingIndexingConfigurationFilter> _mFilter;
-
-        public Outputs.IndexingConfigurationThingIndexingConfigurationFilter? Filter => _mFilter.GetValue("filter");
+        private Outputs.IndexingConfigurationThingIndexingConfigurationFilter? _mValue_Filter;
+        private bool _mUnknown_Filter;
+        public Outputs.IndexingConfigurationThingIndexingConfigurationFilter? Filter
+        {
+            get
+            {
+                if (!_mUnknown_Filter) return _mValue_Filter;
+                throw new UndeferrableValueException("Value 'IndexingConfigurationThingIndexingConfiguration.Filter' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
         /// </summary>
-        [Input("managedFields")]
+        [PolicyResourceProperty("managedFields", "_mUnknown_ManagedFields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.IndexingConfigurationThingIndexingConfigurationManagedField>> _mManagedFields;
-
-        public List<Outputs.IndexingConfigurationThingIndexingConfigurationManagedField>? ManagedFields => _mManagedFields.GetValue("managedFields");
+        private List<Outputs.IndexingConfigurationThingIndexingConfigurationManagedField>? _mValue_ManagedFields;
+        private bool _mUnknown_ManagedFields;
+        public List<Outputs.IndexingConfigurationThingIndexingConfigurationManagedField>? ManagedFields
+        {
+            get
+            {
+                if (!_mUnknown_ManagedFields) return _mValue_ManagedFields;
+                throw new UndeferrableValueException("Value 'IndexingConfigurationThingIndexingConfiguration.ManagedFields' is not present");
+            }
+        }
 
         /// <summary>
         /// [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
         /// </summary>
-        [Input("namedShadowIndexingMode")]
+        [PolicyResourceProperty("namedShadowIndexingMode", "_mUnknown_NamedShadowIndexingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamedShadowIndexingMode;
-
-        public string? NamedShadowIndexingMode => _mNamedShadowIndexingMode.GetValue("namedShadowIndexingMode");
+        private string? _mValue_NamedShadowIndexingMode;
+        private bool _mUnknown_NamedShadowIndexingMode;
+        public string? NamedShadowIndexingMode
+        {
+            get
+            {
+                if (!_mUnknown_NamedShadowIndexingMode) return _mValue_NamedShadowIndexingMode;
+                throw new UndeferrableValueException("Value 'IndexingConfigurationThingIndexingConfiguration.NamedShadowIndexingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
         /// </summary>
-        [Input("thingConnectivityIndexingMode")]
+        [PolicyResourceProperty("thingConnectivityIndexingMode", "_mUnknown_ThingConnectivityIndexingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThingConnectivityIndexingMode;
-
-        public string? ThingConnectivityIndexingMode => _mThingConnectivityIndexingMode.GetValue("thingConnectivityIndexingMode");
+        private string? _mValue_ThingConnectivityIndexingMode;
+        private bool _mUnknown_ThingConnectivityIndexingMode;
+        public string? ThingConnectivityIndexingMode
+        {
+            get
+            {
+                if (!_mUnknown_ThingConnectivityIndexingMode) return _mValue_ThingConnectivityIndexingMode;
+                throw new UndeferrableValueException("Value 'IndexingConfigurationThingIndexingConfiguration.ThingConnectivityIndexingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
         /// </summary>
-        [Input("thingIndexingMode")]
+        [PolicyResourceProperty("thingIndexingMode", "_mUnknown_ThingIndexingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThingIndexingMode;
-
-        public string? ThingIndexingMode => _mThingIndexingMode.GetValue("thingIndexingMode");
+        private string? _mValue_ThingIndexingMode;
+        private bool _mUnknown_ThingIndexingMode;
+        public string? ThingIndexingMode
+        {
+            get
+            {
+                if (!_mUnknown_ThingIndexingMode) return _mValue_ThingIndexingMode;
+                throw new UndeferrableValueException("Value 'IndexingConfigurationThingIndexingConfiguration.ThingIndexingMode' is not present");
+            }
+        }
     }
 }

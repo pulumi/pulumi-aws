@@ -16,175 +16,308 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The Amazon Resource Name of the launch configuration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Associate a public ip address with an instance in a VPC.
         /// </summary>
-        [Input("associatePublicIpAddress")]
+        [PolicyResourceProperty("associatePublicIpAddress", "_mUnknown_AssociatePublicIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAssociatePublicIpAddress;
-
-        public bool? AssociatePublicIpAddress => _mAssociatePublicIpAddress.GetValue("associatePublicIpAddress");
+        private bool? _mValue_AssociatePublicIpAddress;
+        private bool _mUnknown_AssociatePublicIpAddress;
+        public bool? AssociatePublicIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_AssociatePublicIpAddress) return _mValue_AssociatePublicIpAddress;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.AssociatePublicIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional EBS block devices to attach to the instance. See Block Devices below for details.
         /// </summary>
-        [Input("ebsBlockDevices")]
+        [PolicyResourceProperty("ebsBlockDevices", "_mUnknown_EbsBlockDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchConfigurationEbsBlockDevice>> _mEbsBlockDevices;
-
-        public List<Outputs.LaunchConfigurationEbsBlockDevice>? EbsBlockDevices => _mEbsBlockDevices.GetValue("ebsBlockDevices");
+        private List<Outputs.LaunchConfigurationEbsBlockDevice>? _mValue_EbsBlockDevices;
+        private bool _mUnknown_EbsBlockDevices;
+        public List<Outputs.LaunchConfigurationEbsBlockDevice>? EbsBlockDevices
+        {
+            get
+            {
+                if (!_mUnknown_EbsBlockDevices) return _mValue_EbsBlockDevices;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.EbsBlockDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, the launched EC2 instance will be EBS-optimized.
         /// </summary>
-        [Input("ebsOptimized")]
+        [PolicyResourceProperty("ebsOptimized", "_mUnknown_EbsOptimized")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimized;
-
-        public bool? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
+        private bool? _mValue_EbsOptimized;
+        private bool _mUnknown_EbsOptimized;
+        public bool? EbsOptimized
+        {
+            get
+            {
+                if (!_mUnknown_EbsOptimized) return _mValue_EbsOptimized;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.EbsOptimized' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables/disables detailed monitoring. This is enabled by default.
         /// </summary>
-        [Input("enableMonitoring")]
+        [PolicyResourceProperty("enableMonitoring", "_mUnknown_EnableMonitoring")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableMonitoring;
-
-        public bool? EnableMonitoring => _mEnableMonitoring.GetValue("enableMonitoring");
+        private bool? _mValue_EnableMonitoring;
+        private bool _mUnknown_EnableMonitoring;
+        public bool? EnableMonitoring
+        {
+            get
+            {
+                if (!_mUnknown_EnableMonitoring) return _mValue_EnableMonitoring;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.EnableMonitoring' is not present");
+            }
+        }
 
         /// <summary>
         /// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
-        [Input("ephemeralBlockDevices")]
+        [PolicyResourceProperty("ephemeralBlockDevices", "_mUnknown_EphemeralBlockDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchConfigurationEphemeralBlockDevice>> _mEphemeralBlockDevices;
-
-        public List<Outputs.LaunchConfigurationEphemeralBlockDevice>? EphemeralBlockDevices => _mEphemeralBlockDevices.GetValue("ephemeralBlockDevices");
+        private List<Outputs.LaunchConfigurationEphemeralBlockDevice>? _mValue_EphemeralBlockDevices;
+        private bool _mUnknown_EphemeralBlockDevices;
+        public List<Outputs.LaunchConfigurationEphemeralBlockDevice>? EphemeralBlockDevices
+        {
+            get
+            {
+                if (!_mUnknown_EphemeralBlockDevices) return _mValue_EphemeralBlockDevices;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.EphemeralBlockDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// The name attribute of the IAM instance profile to associate with launched instances.
         /// </summary>
-        [Input("iamInstanceProfile")]
+        [PolicyResourceProperty("iamInstanceProfile", "_mUnknown_IamInstanceProfile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamInstanceProfile;
-
-        public string? IamInstanceProfile => _mIamInstanceProfile.GetValue("iamInstanceProfile");
+        private string? _mValue_IamInstanceProfile;
+        private bool _mUnknown_IamInstanceProfile;
+        public string? IamInstanceProfile
+        {
+            get
+            {
+                if (!_mUnknown_IamInstanceProfile) return _mValue_IamInstanceProfile;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.IamInstanceProfile' is not present");
+            }
+        }
 
         /// <summary>
         /// The EC2 image ID to launch.
         /// </summary>
-        [Input("imageId")]
+        [PolicyResourceProperty("imageId", "_mUnknown_ImageId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
-
-        public string? ImageId => _mImageId.GetValue("imageId");
+        private string? _mValue_ImageId;
+        private bool _mUnknown_ImageId;
+        public string? ImageId
+        {
+            get
+            {
+                if (!_mUnknown_ImageId) return _mValue_ImageId;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.ImageId' is not present");
+            }
+        }
 
         /// <summary>
         /// The size of instance to launch.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The key name that should be used for the instance.
         /// </summary>
-        [Input("keyName")]
+        [PolicyResourceProperty("keyName", "_mUnknown_KeyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
-
-        public string? KeyName => _mKeyName.GetValue("keyName");
+        private string? _mValue_KeyName;
+        private bool _mUnknown_KeyName;
+        public string? KeyName
+        {
+            get
+            {
+                if (!_mUnknown_KeyName) return _mValue_KeyName;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.KeyName' is not present");
+            }
+        }
 
         /// <summary>
         /// The metadata options for the instance.
         /// </summary>
-        [Input("metadataOptions")]
+        [PolicyResourceProperty("metadataOptions", "_mUnknown_MetadataOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchConfigurationMetadataOptions> _mMetadataOptions;
-
-        public Outputs.LaunchConfigurationMetadataOptions? MetadataOptions => _mMetadataOptions.GetValue("metadataOptions");
+        private Outputs.LaunchConfigurationMetadataOptions? _mValue_MetadataOptions;
+        private bool _mUnknown_MetadataOptions;
+        public Outputs.LaunchConfigurationMetadataOptions? MetadataOptions
+        {
+            get
+            {
+                if (!_mUnknown_MetadataOptions) return _mValue_MetadataOptions;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.MetadataOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
         /// </summary>
-        [Input("placementTenancy")]
+        [PolicyResourceProperty("placementTenancy", "_mUnknown_PlacementTenancy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementTenancy;
-
-        public string? PlacementTenancy => _mPlacementTenancy.GetValue("placementTenancy");
+        private string? _mValue_PlacementTenancy;
+        private bool _mUnknown_PlacementTenancy;
+        public string? PlacementTenancy
+        {
+            get
+            {
+                if (!_mUnknown_PlacementTenancy) return _mValue_PlacementTenancy;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.PlacementTenancy' is not present");
+            }
+        }
 
         /// <summary>
         /// Customize details about the root block device of the instance. See Block Devices below for details.
         /// </summary>
-        [Input("rootBlockDevice")]
+        [PolicyResourceProperty("rootBlockDevice", "_mUnknown_RootBlockDevice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchConfigurationRootBlockDevice> _mRootBlockDevice;
-
-        public Outputs.LaunchConfigurationRootBlockDevice? RootBlockDevice => _mRootBlockDevice.GetValue("rootBlockDevice");
+        private Outputs.LaunchConfigurationRootBlockDevice? _mValue_RootBlockDevice;
+        private bool _mUnknown_RootBlockDevice;
+        public Outputs.LaunchConfigurationRootBlockDevice? RootBlockDevice
+        {
+            get
+            {
+                if (!_mUnknown_RootBlockDevice) return _mValue_RootBlockDevice;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.RootBlockDevice' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of associated security group IDS.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum price to use for reserving spot instances.
         /// </summary>
-        [Input("spotPrice")]
+        [PolicyResourceProperty("spotPrice", "_mUnknown_SpotPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpotPrice;
-
-        public string? SpotPrice => _mSpotPrice.GetValue("spotPrice");
+        private string? _mValue_SpotPrice;
+        private bool _mUnknown_SpotPrice;
+        public string? SpotPrice
+        {
+            get
+            {
+                if (!_mUnknown_SpotPrice) return _mValue_SpotPrice;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.SpotPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         /// </summary>
-        [Input("userData")]
+        [PolicyResourceProperty("userData", "_mUnknown_UserData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserData;
-
-        public string? UserData => _mUserData.GetValue("userData");
+        private string? _mValue_UserData;
+        private bool _mUnknown_UserData;
+        public string? UserData
+        {
+            get
+            {
+                if (!_mUnknown_UserData) return _mValue_UserData;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.UserData' is not present");
+            }
+        }
 
         /// <summary>
         /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         /// </summary>
-        [Input("userDataBase64")]
+        [PolicyResourceProperty("userDataBase64", "_mUnknown_UserDataBase64")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserDataBase64;
-
-        public string? UserDataBase64 => _mUserDataBase64.GetValue("userDataBase64");
+        private string? _mValue_UserDataBase64;
+        private bool _mUnknown_UserDataBase64;
+        public string? UserDataBase64
+        {
+            get
+            {
+                if (!_mUnknown_UserDataBase64) return _mValue_UserDataBase64;
+                throw new UndeferrableValueException("Value 'LaunchConfiguration.UserDataBase64' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/launchConfiguration:LaunchConfiguration")]
@@ -193,165 +326,291 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Associate a public ip address with an instance in a VPC.
         /// </summary>
-        [Input("associatePublicIpAddress")]
+        [PolicyResourceProperty("associatePublicIpAddress", "_mUnknown_AssociatePublicIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAssociatePublicIpAddress;
-
-        public bool? AssociatePublicIpAddress => _mAssociatePublicIpAddress.GetValue("associatePublicIpAddress");
+        private bool? _mValue_AssociatePublicIpAddress;
+        private bool _mUnknown_AssociatePublicIpAddress;
+        public bool? AssociatePublicIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_AssociatePublicIpAddress) return _mValue_AssociatePublicIpAddress;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationArgs.AssociatePublicIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional EBS block devices to attach to the instance. See Block Devices below for details.
         /// </summary>
-        [Input("ebsBlockDevices")]
+        [PolicyResourceProperty("ebsBlockDevices", "_mUnknown_EbsBlockDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LaunchConfigurationEbsBlockDeviceArgs>> _mEbsBlockDevices;
-
-        public List<Inputs.LaunchConfigurationEbsBlockDeviceArgs>? EbsBlockDevices => _mEbsBlockDevices.GetValue("ebsBlockDevices");
+        private List<Inputs.LaunchConfigurationEbsBlockDeviceArgs>? _mValue_EbsBlockDevices;
+        private bool _mUnknown_EbsBlockDevices;
+        public List<Inputs.LaunchConfigurationEbsBlockDeviceArgs>? EbsBlockDevices
+        {
+            get
+            {
+                if (!_mUnknown_EbsBlockDevices) return _mValue_EbsBlockDevices;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationArgs.EbsBlockDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, the launched EC2 instance will be EBS-optimized.
         /// </summary>
-        [Input("ebsOptimized")]
+        [PolicyResourceProperty("ebsOptimized", "_mUnknown_EbsOptimized")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimized;
-
-        public bool? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
+        private bool? _mValue_EbsOptimized;
+        private bool _mUnknown_EbsOptimized;
+        public bool? EbsOptimized
+        {
+            get
+            {
+                if (!_mUnknown_EbsOptimized) return _mValue_EbsOptimized;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationArgs.EbsOptimized' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables/disables detailed monitoring. This is enabled by default.
         /// </summary>
-        [Input("enableMonitoring")]
+        [PolicyResourceProperty("enableMonitoring", "_mUnknown_EnableMonitoring")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableMonitoring;
-
-        public bool? EnableMonitoring => _mEnableMonitoring.GetValue("enableMonitoring");
+        private bool? _mValue_EnableMonitoring;
+        private bool _mUnknown_EnableMonitoring;
+        public bool? EnableMonitoring
+        {
+            get
+            {
+                if (!_mUnknown_EnableMonitoring) return _mValue_EnableMonitoring;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationArgs.EnableMonitoring' is not present");
+            }
+        }
 
         /// <summary>
         /// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
-        [Input("ephemeralBlockDevices")]
+        [PolicyResourceProperty("ephemeralBlockDevices", "_mUnknown_EphemeralBlockDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LaunchConfigurationEphemeralBlockDeviceArgs>> _mEphemeralBlockDevices;
-
-        public List<Inputs.LaunchConfigurationEphemeralBlockDeviceArgs>? EphemeralBlockDevices => _mEphemeralBlockDevices.GetValue("ephemeralBlockDevices");
+        private List<Inputs.LaunchConfigurationEphemeralBlockDeviceArgs>? _mValue_EphemeralBlockDevices;
+        private bool _mUnknown_EphemeralBlockDevices;
+        public List<Inputs.LaunchConfigurationEphemeralBlockDeviceArgs>? EphemeralBlockDevices
+        {
+            get
+            {
+                if (!_mUnknown_EphemeralBlockDevices) return _mValue_EphemeralBlockDevices;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationArgs.EphemeralBlockDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// The name attribute of the IAM instance profile to associate with launched instances.
         /// </summary>
-        [Input("iamInstanceProfile")]
+        [PolicyResourceProperty("iamInstanceProfile", "_mUnknown_IamInstanceProfile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamInstanceProfile;
-
-        public string? IamInstanceProfile => _mIamInstanceProfile.GetValue("iamInstanceProfile");
+        private string? _mValue_IamInstanceProfile;
+        private bool _mUnknown_IamInstanceProfile;
+        public string? IamInstanceProfile
+        {
+            get
+            {
+                if (!_mUnknown_IamInstanceProfile) return _mValue_IamInstanceProfile;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationArgs.IamInstanceProfile' is not present");
+            }
+        }
 
         /// <summary>
         /// The EC2 image ID to launch.
         /// </summary>
-        [Input("imageId")]
+        [PolicyResourceProperty("imageId", "_mUnknown_ImageId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
-
-        public string? ImageId => _mImageId.GetValue("imageId");
+        private string? _mValue_ImageId;
+        private bool _mUnknown_ImageId;
+        public string? ImageId
+        {
+            get
+            {
+                if (!_mUnknown_ImageId) return _mValue_ImageId;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationArgs.ImageId' is not present");
+            }
+        }
 
         /// <summary>
         /// The size of instance to launch.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationArgs.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The key name that should be used for the instance.
         /// </summary>
-        [Input("keyName")]
+        [PolicyResourceProperty("keyName", "_mUnknown_KeyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
-
-        public string? KeyName => _mKeyName.GetValue("keyName");
+        private string? _mValue_KeyName;
+        private bool _mUnknown_KeyName;
+        public string? KeyName
+        {
+            get
+            {
+                if (!_mUnknown_KeyName) return _mValue_KeyName;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationArgs.KeyName' is not present");
+            }
+        }
 
         /// <summary>
         /// The metadata options for the instance.
         /// </summary>
-        [Input("metadataOptions")]
+        [PolicyResourceProperty("metadataOptions", "_mUnknown_MetadataOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchConfigurationMetadataOptionsArgs> _mMetadataOptions;
-
-        public Inputs.LaunchConfigurationMetadataOptionsArgs? MetadataOptions => _mMetadataOptions.GetValue("metadataOptions");
+        private Inputs.LaunchConfigurationMetadataOptionsArgs? _mValue_MetadataOptions;
+        private bool _mUnknown_MetadataOptions;
+        public Inputs.LaunchConfigurationMetadataOptionsArgs? MetadataOptions
+        {
+            get
+            {
+                if (!_mUnknown_MetadataOptions) return _mValue_MetadataOptions;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationArgs.MetadataOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
         /// </summary>
-        [Input("placementTenancy")]
+        [PolicyResourceProperty("placementTenancy", "_mUnknown_PlacementTenancy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementTenancy;
-
-        public string? PlacementTenancy => _mPlacementTenancy.GetValue("placementTenancy");
+        private string? _mValue_PlacementTenancy;
+        private bool _mUnknown_PlacementTenancy;
+        public string? PlacementTenancy
+        {
+            get
+            {
+                if (!_mUnknown_PlacementTenancy) return _mValue_PlacementTenancy;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationArgs.PlacementTenancy' is not present");
+            }
+        }
 
         /// <summary>
         /// Customize details about the root block device of the instance. See Block Devices below for details.
         /// </summary>
-        [Input("rootBlockDevice")]
+        [PolicyResourceProperty("rootBlockDevice", "_mUnknown_RootBlockDevice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchConfigurationRootBlockDeviceArgs> _mRootBlockDevice;
-
-        public Inputs.LaunchConfigurationRootBlockDeviceArgs? RootBlockDevice => _mRootBlockDevice.GetValue("rootBlockDevice");
+        private Inputs.LaunchConfigurationRootBlockDeviceArgs? _mValue_RootBlockDevice;
+        private bool _mUnknown_RootBlockDevice;
+        public Inputs.LaunchConfigurationRootBlockDeviceArgs? RootBlockDevice
+        {
+            get
+            {
+                if (!_mUnknown_RootBlockDevice) return _mValue_RootBlockDevice;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationArgs.RootBlockDevice' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of associated security group IDS.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationArgs.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum price to use for reserving spot instances.
         /// </summary>
-        [Input("spotPrice")]
+        [PolicyResourceProperty("spotPrice", "_mUnknown_SpotPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpotPrice;
-
-        public string? SpotPrice => _mSpotPrice.GetValue("spotPrice");
+        private string? _mValue_SpotPrice;
+        private bool _mUnknown_SpotPrice;
+        public string? SpotPrice
+        {
+            get
+            {
+                if (!_mUnknown_SpotPrice) return _mValue_SpotPrice;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationArgs.SpotPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         /// </summary>
-        [Input("userData")]
+        [PolicyResourceProperty("userData", "_mUnknown_UserData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserData;
-
-        public string? UserData => _mUserData.GetValue("userData");
+        private string? _mValue_UserData;
+        private bool _mUnknown_UserData;
+        public string? UserData
+        {
+            get
+            {
+                if (!_mUnknown_UserData) return _mValue_UserData;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationArgs.UserData' is not present");
+            }
+        }
 
         /// <summary>
         /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         /// </summary>
-        [Input("userDataBase64")]
+        [PolicyResourceProperty("userDataBase64", "_mUnknown_UserDataBase64")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserDataBase64;
-
-        public string? UserDataBase64 => _mUserDataBase64.GetValue("userDataBase64");
+        private string? _mValue_UserDataBase64;
+        private bool _mUnknown_UserDataBase64;
+        public string? UserDataBase64
+        {
+            get
+            {
+                if (!_mUnknown_UserDataBase64) return _mValue_UserDataBase64;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationArgs.UserDataBase64' is not present");
+            }
+        }
     }
 }

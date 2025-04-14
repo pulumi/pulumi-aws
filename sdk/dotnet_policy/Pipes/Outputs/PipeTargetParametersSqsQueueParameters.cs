@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Outputs
         /// <summary>
         /// This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
         /// </summary>
-        [Input("messageDeduplicationId")]
+        [PolicyResourceProperty("messageDeduplicationId", "_mUnknown_MessageDeduplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessageDeduplicationId;
-
-        public string? MessageDeduplicationId => _mMessageDeduplicationId.GetValue("messageDeduplicationId");
+        private string? _mValue_MessageDeduplicationId;
+        private bool _mUnknown_MessageDeduplicationId;
+        public string? MessageDeduplicationId
+        {
+            get
+            {
+                if (!_mUnknown_MessageDeduplicationId) return _mValue_MessageDeduplicationId;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersSqsQueueParameters.MessageDeduplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The FIFO message group ID to use as the target.
         /// </summary>
-        [Input("messageGroupId")]
+        [PolicyResourceProperty("messageGroupId", "_mUnknown_MessageGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessageGroupId;
-
-        public string? MessageGroupId => _mMessageGroupId.GetValue("messageGroupId");
+        private string? _mValue_MessageGroupId;
+        private bool _mUnknown_MessageGroupId;
+        public string? MessageGroupId
+        {
+            get
+            {
+                if (!_mUnknown_MessageGroupId) return _mValue_MessageGroupId;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersSqsQueueParameters.MessageGroupId' is not present");
+            }
+        }
     }
 }

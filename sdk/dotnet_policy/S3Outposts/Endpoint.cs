@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.S3Outposts
         /// <summary>
         /// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
         /// </summary>
-        [Input("accessType")]
+        [PolicyResourceProperty("accessType", "_mUnknown_AccessType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessType;
-
-        public string? AccessType => _mAccessType.GetValue("accessType");
+        private string? _mValue_AccessType;
+        private bool _mUnknown_AccessType;
+        public string? AccessType
+        {
+            get
+            {
+                if (!_mUnknown_AccessType) return _mValue_AccessType;
+                throw new UndeferrableValueException("Value 'Endpoint.AccessType' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the endpoint.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Endpoint.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC CIDR block of the endpoint.
         /// </summary>
-        [Input("cidrBlock")]
+        [PolicyResourceProperty("cidrBlock", "_mUnknown_CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
-
-        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
+        private string? _mValue_CidrBlock;
+        private bool _mUnknown_CidrBlock;
+        public string? CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_CidrBlock) return _mValue_CidrBlock;
+                throw new UndeferrableValueException("Value 'Endpoint.CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        [Input("creationTime")]
+        [PolicyResourceProperty("creationTime", "_mUnknown_CreationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
-
-        public string? CreationTime => _mCreationTime.GetValue("creationTime");
+        private string? _mValue_CreationTime;
+        private bool _mUnknown_CreationTime;
+        public string? CreationTime
+        {
+            get
+            {
+                if (!_mUnknown_CreationTime) return _mValue_CreationTime;
+                throw new UndeferrableValueException("Value 'Endpoint.CreationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         /// </summary>
-        [Input("customerOwnedIpv4Pool")]
+        [PolicyResourceProperty("customerOwnedIpv4Pool", "_mUnknown_CustomerOwnedIpv4Pool")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerOwnedIpv4Pool;
-
-        public string? CustomerOwnedIpv4Pool => _mCustomerOwnedIpv4Pool.GetValue("customerOwnedIpv4Pool");
+        private string? _mValue_CustomerOwnedIpv4Pool;
+        private bool _mUnknown_CustomerOwnedIpv4Pool;
+        public string? CustomerOwnedIpv4Pool
+        {
+            get
+            {
+                if (!_mUnknown_CustomerOwnedIpv4Pool) return _mValue_CustomerOwnedIpv4Pool;
+                throw new UndeferrableValueException("Value 'Endpoint.CustomerOwnedIpv4Pool' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
         /// </summary>
-        [Input("networkInterfaces")]
+        [PolicyResourceProperty("networkInterfaces", "_mUnknown_NetworkInterfaces")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EndpointNetworkInterface>> _mNetworkInterfaces;
-
-        public List<Outputs.EndpointNetworkInterface>? NetworkInterfaces => _mNetworkInterfaces.GetValue("networkInterfaces");
+        private List<Outputs.EndpointNetworkInterface>? _mValue_NetworkInterfaces;
+        private bool _mUnknown_NetworkInterfaces;
+        public List<Outputs.EndpointNetworkInterface>? NetworkInterfaces
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaces) return _mValue_NetworkInterfaces;
+                throw new UndeferrableValueException("Value 'Endpoint.NetworkInterfaces' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the Outpost to contain this endpoint.
         /// </summary>
-        [Input("outpostId")]
+        [PolicyResourceProperty("outpostId", "_mUnknown_OutpostId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostId;
-
-        public string? OutpostId => _mOutpostId.GetValue("outpostId");
+        private string? _mValue_OutpostId;
+        private bool _mUnknown_OutpostId;
+        public string? OutpostId
+        {
+            get
+            {
+                if (!_mUnknown_OutpostId) return _mValue_OutpostId;
+                throw new UndeferrableValueException("Value 'Endpoint.OutpostId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the EC2 Security Group.
         /// </summary>
-        [Input("securityGroupId")]
+        [PolicyResourceProperty("securityGroupId", "_mUnknown_SecurityGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
-
-        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
+        private string? _mValue_SecurityGroupId;
+        private bool _mUnknown_SecurityGroupId;
+        public string? SecurityGroupId
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupId) return _mValue_SecurityGroupId;
+                throw new UndeferrableValueException("Value 'Endpoint.SecurityGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the EC2 Subnet.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'Endpoint.SubnetId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3outposts/endpoint:Endpoint")]
@@ -101,46 +164,81 @@ namespace Pulumi.PolicyPacks.Aws.S3Outposts
         /// <summary>
         /// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
         /// </summary>
-        [Input("accessType")]
+        [PolicyResourceProperty("accessType", "_mUnknown_AccessType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessType;
-
-        public string? AccessType => _mAccessType.GetValue("accessType");
+        private string? _mValue_AccessType;
+        private bool _mUnknown_AccessType;
+        public string? AccessType
+        {
+            get
+            {
+                if (!_mUnknown_AccessType) return _mValue_AccessType;
+                throw new UndeferrableValueException("Value 'EndpointArgs.AccessType' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         /// </summary>
-        [Input("customerOwnedIpv4Pool")]
+        [PolicyResourceProperty("customerOwnedIpv4Pool", "_mUnknown_CustomerOwnedIpv4Pool")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerOwnedIpv4Pool;
-
-        public string? CustomerOwnedIpv4Pool => _mCustomerOwnedIpv4Pool.GetValue("customerOwnedIpv4Pool");
+        private string? _mValue_CustomerOwnedIpv4Pool;
+        private bool _mUnknown_CustomerOwnedIpv4Pool;
+        public string? CustomerOwnedIpv4Pool
+        {
+            get
+            {
+                if (!_mUnknown_CustomerOwnedIpv4Pool) return _mValue_CustomerOwnedIpv4Pool;
+                throw new UndeferrableValueException("Value 'EndpointArgs.CustomerOwnedIpv4Pool' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the Outpost to contain this endpoint.
         /// </summary>
-        [Input("outpostId")]
+        [PolicyResourceProperty("outpostId", "_mUnknown_OutpostId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostId;
-
-        public string? OutpostId => _mOutpostId.GetValue("outpostId");
+        private string? _mValue_OutpostId;
+        private bool _mUnknown_OutpostId;
+        public string? OutpostId
+        {
+            get
+            {
+                if (!_mUnknown_OutpostId) return _mValue_OutpostId;
+                throw new UndeferrableValueException("Value 'EndpointArgs.OutpostId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the EC2 Security Group.
         /// </summary>
-        [Input("securityGroupId")]
+        [PolicyResourceProperty("securityGroupId", "_mUnknown_SecurityGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
-
-        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
+        private string? _mValue_SecurityGroupId;
+        private bool _mUnknown_SecurityGroupId;
+        public string? SecurityGroupId
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupId) return _mValue_SecurityGroupId;
+                throw new UndeferrableValueException("Value 'EndpointArgs.SecurityGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the EC2 Subnet.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'EndpointArgs.SubnetId' is not present");
+            }
+        }
     }
 }

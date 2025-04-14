@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Configuration block(s) with block device mappings for the container recipe. Detailed below.
         /// </summary>
-        [Input("blockDeviceMappings")]
+        [PolicyResourceProperty("blockDeviceMappings", "_mUnknown_BlockDeviceMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ContainerRecipeInstanceConfigurationBlockDeviceMapping>> _mBlockDeviceMappings;
-
-        public List<Outputs.ContainerRecipeInstanceConfigurationBlockDeviceMapping>? BlockDeviceMappings => _mBlockDeviceMappings.GetValue("blockDeviceMappings");
+        private List<Outputs.ContainerRecipeInstanceConfigurationBlockDeviceMapping>? _mValue_BlockDeviceMappings;
+        private bool _mUnknown_BlockDeviceMappings;
+        public List<Outputs.ContainerRecipeInstanceConfigurationBlockDeviceMapping>? BlockDeviceMappings
+        {
+            get
+            {
+                if (!_mUnknown_BlockDeviceMappings) return _mValue_BlockDeviceMappings;
+                throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfiguration.BlockDeviceMappings' is not present");
+            }
+        }
 
         /// <summary>
         /// The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
         /// </summary>
-        [Input("image")]
+        [PolicyResourceProperty("image", "_mUnknown_Image")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImage;
-
-        public string? Image => _mImage.GetValue("image");
+        private string? _mValue_Image;
+        private bool _mUnknown_Image;
+        public string? Image
+        {
+            get
+            {
+                if (!_mUnknown_Image) return _mValue_Image;
+                throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfiguration.Image' is not present");
+            }
+        }
     }
 }

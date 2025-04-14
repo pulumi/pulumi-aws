@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EgressOnlyInternetGateway.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'EgressOnlyInternetGateway.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC ID to create in.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'EgressOnlyInternetGateway.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EgressOnlyInternetGatewayArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC ID to create in.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'EgressOnlyInternetGatewayArgs.VpcId' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Oam.Inputs
         /// <summary>
         /// Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
         /// </summary>
-        [Input("logGroupConfiguration")]
+        [PolicyResourceProperty("logGroupConfiguration", "_mUnknown_LogGroupConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LinkLinkConfigurationLogGroupConfigurationArgs> _mLogGroupConfiguration;
-
-        public Inputs.LinkLinkConfigurationLogGroupConfigurationArgs? LogGroupConfiguration => _mLogGroupConfiguration.GetValue("logGroupConfiguration");
+        private Inputs.LinkLinkConfigurationLogGroupConfigurationArgs? _mValue_LogGroupConfiguration;
+        private bool _mUnknown_LogGroupConfiguration;
+        public Inputs.LinkLinkConfigurationLogGroupConfigurationArgs? LogGroupConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupConfiguration) return _mValue_LogGroupConfiguration;
+                throw new UndeferrableValueException("Value 'LinkLinkConfigurationArgs.LogGroupConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
         /// </summary>
-        [Input("metricConfiguration")]
+        [PolicyResourceProperty("metricConfiguration", "_mUnknown_MetricConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LinkLinkConfigurationMetricConfigurationArgs> _mMetricConfiguration;
-
-        public Inputs.LinkLinkConfigurationMetricConfigurationArgs? MetricConfiguration => _mMetricConfiguration.GetValue("metricConfiguration");
+        private Inputs.LinkLinkConfigurationMetricConfigurationArgs? _mValue_MetricConfiguration;
+        private bool _mUnknown_MetricConfiguration;
+        public Inputs.LinkLinkConfigurationMetricConfigurationArgs? MetricConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_MetricConfiguration) return _mValue_MetricConfiguration;
+                throw new UndeferrableValueException("Value 'LinkLinkConfigurationArgs.MetricConfiguration' is not present");
+            }
+        }
     }
 }

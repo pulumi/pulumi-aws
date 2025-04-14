@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
         /// </summary>
-        [Input("connectivity")]
+        [PolicyResourceProperty("connectivity", "_mUnknown_Connectivity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectivity;
-
-        public string? Connectivity => _mConnectivity.GetValue("connectivity");
+        private string? _mValue_Connectivity;
+        private bool _mUnknown_Connectivity;
+        public string? Connectivity
+        {
+            get
+            {
+                if (!_mUnknown_Connectivity) return _mValue_Connectivity;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs.Connectivity' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the role used to access the Amazon MSK cluster.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs.RoleArn' is not present");
+            }
+        }
     }
 }

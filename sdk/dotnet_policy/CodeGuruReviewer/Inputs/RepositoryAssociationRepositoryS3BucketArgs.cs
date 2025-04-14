@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CodeGuruReviewer.Inputs
         /// <summary>
         /// The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'RepositoryAssociationRepositoryS3BucketArgs.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the repository in the S3 bucket.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RepositoryAssociationRepositoryS3BucketArgs.Name' is not present");
+            }
+        }
     }
 }

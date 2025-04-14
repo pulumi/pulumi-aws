@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.EmrContainers.Inputs
         /// <summary>
         /// The configurations for the application running by the job run.
         /// </summary>
-        [Input("applicationConfigurations")]
+        [PolicyResourceProperty("applicationConfigurations", "_mUnknown_ApplicationConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs>> _mApplicationConfigurations;
-
-        public List<Inputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs>? ApplicationConfigurations => _mApplicationConfigurations.GetValue("applicationConfigurations");
+        private List<Inputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs>? _mValue_ApplicationConfigurations;
+        private bool _mUnknown_ApplicationConfigurations;
+        public List<Inputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs>? ApplicationConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationConfigurations) return _mValue_ApplicationConfigurations;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesArgs.ApplicationConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The configurations for monitoring.
         /// </summary>
-        [Input("monitoringConfiguration")]
+        [PolicyResourceProperty("monitoringConfiguration", "_mUnknown_MonitoringConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs> _mMonitoringConfiguration;
-
-        public Inputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs? MonitoringConfiguration => _mMonitoringConfiguration.GetValue("monitoringConfiguration");
+        private Inputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs? _mValue_MonitoringConfiguration;
+        private bool _mUnknown_MonitoringConfiguration;
+        public Inputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs? MonitoringConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_MonitoringConfiguration) return _mValue_MonitoringConfiguration;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesArgs.MonitoringConfiguration' is not present");
+            }
+        }
     }
 }

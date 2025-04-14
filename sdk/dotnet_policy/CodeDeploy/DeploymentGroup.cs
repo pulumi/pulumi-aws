@@ -16,200 +16,354 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy
         /// <summary>
         /// Configuration block of alarms associated with the deployment group (documented below).
         /// </summary>
-        [Input("alarmConfiguration")]
+        [PolicyResourceProperty("alarmConfiguration", "_mUnknown_AlarmConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentGroupAlarmConfiguration> _mAlarmConfiguration;
-
-        public Outputs.DeploymentGroupAlarmConfiguration? AlarmConfiguration => _mAlarmConfiguration.GetValue("alarmConfiguration");
+        private Outputs.DeploymentGroupAlarmConfiguration? _mValue_AlarmConfiguration;
+        private bool _mUnknown_AlarmConfiguration;
+        public Outputs.DeploymentGroupAlarmConfiguration? AlarmConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AlarmConfiguration) return _mValue_AlarmConfiguration;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.AlarmConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the application.
         /// </summary>
-        [Input("appName")]
+        [PolicyResourceProperty("appName", "_mUnknown_AppName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppName;
-
-        public string? AppName => _mAppName.GetValue("appName");
+        private string? _mValue_AppName;
+        private bool _mUnknown_AppName;
+        public string? AppName
+        {
+            get
+            {
+                if (!_mUnknown_AppName) return _mValue_AppName;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.AppName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the CodeDeploy deployment group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
         /// </summary>
-        [Input("autoRollbackConfiguration")]
+        [PolicyResourceProperty("autoRollbackConfiguration", "_mUnknown_AutoRollbackConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentGroupAutoRollbackConfiguration> _mAutoRollbackConfiguration;
-
-        public Outputs.DeploymentGroupAutoRollbackConfiguration? AutoRollbackConfiguration => _mAutoRollbackConfiguration.GetValue("autoRollbackConfiguration");
+        private Outputs.DeploymentGroupAutoRollbackConfiguration? _mValue_AutoRollbackConfiguration;
+        private bool _mUnknown_AutoRollbackConfiguration;
+        public Outputs.DeploymentGroupAutoRollbackConfiguration? AutoRollbackConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AutoRollbackConfiguration) return _mValue_AutoRollbackConfiguration;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.AutoRollbackConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Autoscaling groups associated with the deployment group.
         /// </summary>
-        [Input("autoscalingGroups")]
+        [PolicyResourceProperty("autoscalingGroups", "_mUnknown_AutoscalingGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAutoscalingGroups;
-
-        public List<string>? AutoscalingGroups => _mAutoscalingGroups.GetValue("autoscalingGroups");
+        private List<string>? _mValue_AutoscalingGroups;
+        private bool _mUnknown_AutoscalingGroups;
+        public List<string>? AutoscalingGroups
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingGroups) return _mValue_AutoscalingGroups;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.AutoscalingGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block of the blue/green deployment options for a deployment group (documented below).
         /// </summary>
-        [Input("blueGreenDeploymentConfig")]
+        [PolicyResourceProperty("blueGreenDeploymentConfig", "_mUnknown_BlueGreenDeploymentConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentGroupBlueGreenDeploymentConfig> _mBlueGreenDeploymentConfig;
-
-        public Outputs.DeploymentGroupBlueGreenDeploymentConfig? BlueGreenDeploymentConfig => _mBlueGreenDeploymentConfig.GetValue("blueGreenDeploymentConfig");
+        private Outputs.DeploymentGroupBlueGreenDeploymentConfig? _mValue_BlueGreenDeploymentConfig;
+        private bool _mUnknown_BlueGreenDeploymentConfig;
+        public Outputs.DeploymentGroupBlueGreenDeploymentConfig? BlueGreenDeploymentConfig
+        {
+            get
+            {
+                if (!_mUnknown_BlueGreenDeploymentConfig) return _mValue_BlueGreenDeploymentConfig;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.BlueGreenDeploymentConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The destination platform type for the deployment.
         /// </summary>
-        [Input("computePlatform")]
+        [PolicyResourceProperty("computePlatform", "_mUnknown_ComputePlatform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComputePlatform;
-
-        public string? ComputePlatform => _mComputePlatform.GetValue("computePlatform");
+        private string? _mValue_ComputePlatform;
+        private bool _mUnknown_ComputePlatform;
+        public string? ComputePlatform
+        {
+            get
+            {
+                if (!_mUnknown_ComputePlatform) return _mValue_ComputePlatform;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.ComputePlatform' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
         /// </summary>
-        [Input("deploymentConfigName")]
+        [PolicyResourceProperty("deploymentConfigName", "_mUnknown_DeploymentConfigName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentConfigName;
-
-        public string? DeploymentConfigName => _mDeploymentConfigName.GetValue("deploymentConfigName");
+        private string? _mValue_DeploymentConfigName;
+        private bool _mUnknown_DeploymentConfigName;
+        public string? DeploymentConfigName
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentConfigName) return _mValue_DeploymentConfigName;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.DeploymentConfigName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the CodeDeploy deployment group.
         /// </summary>
-        [Input("deploymentGroupId")]
+        [PolicyResourceProperty("deploymentGroupId", "_mUnknown_DeploymentGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentGroupId;
-
-        public string? DeploymentGroupId => _mDeploymentGroupId.GetValue("deploymentGroupId");
+        private string? _mValue_DeploymentGroupId;
+        private bool _mUnknown_DeploymentGroupId;
+        public string? DeploymentGroupId
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentGroupId) return _mValue_DeploymentGroupId;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.DeploymentGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the deployment group.
         /// </summary>
-        [Input("deploymentGroupName")]
+        [PolicyResourceProperty("deploymentGroupName", "_mUnknown_DeploymentGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentGroupName;
-
-        public string? DeploymentGroupName => _mDeploymentGroupName.GetValue("deploymentGroupName");
+        private string? _mValue_DeploymentGroupName;
+        private bool _mUnknown_DeploymentGroupName;
+        public string? DeploymentGroupName
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentGroupName) return _mValue_DeploymentGroupName;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.DeploymentGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
         /// </summary>
-        [Input("deploymentStyle")]
+        [PolicyResourceProperty("deploymentStyle", "_mUnknown_DeploymentStyle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentGroupDeploymentStyle> _mDeploymentStyle;
-
-        public Outputs.DeploymentGroupDeploymentStyle? DeploymentStyle => _mDeploymentStyle.GetValue("deploymentStyle");
+        private Outputs.DeploymentGroupDeploymentStyle? _mValue_DeploymentStyle;
+        private bool _mUnknown_DeploymentStyle;
+        public Outputs.DeploymentGroupDeploymentStyle? DeploymentStyle
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentStyle) return _mValue_DeploymentStyle;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.DeploymentStyle' is not present");
+            }
+        }
 
         /// <summary>
         /// Tag filters associated with the deployment group. See the AWS docs for details.
         /// </summary>
-        [Input("ec2TagFilters")]
+        [PolicyResourceProperty("ec2TagFilters", "_mUnknown_Ec2TagFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DeploymentGroupEc2TagFilter>> _mEc2TagFilters;
-
-        public List<Outputs.DeploymentGroupEc2TagFilter>? Ec2TagFilters => _mEc2TagFilters.GetValue("ec2TagFilters");
+        private List<Outputs.DeploymentGroupEc2TagFilter>? _mValue_Ec2TagFilters;
+        private bool _mUnknown_Ec2TagFilters;
+        public List<Outputs.DeploymentGroupEc2TagFilter>? Ec2TagFilters
+        {
+            get
+            {
+                if (!_mUnknown_Ec2TagFilters) return _mValue_Ec2TagFilters;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.Ec2TagFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
         /// </summary>
-        [Input("ec2TagSets")]
+        [PolicyResourceProperty("ec2TagSets", "_mUnknown_Ec2TagSets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DeploymentGroupEc2TagSet>> _mEc2TagSets;
-
-        public List<Outputs.DeploymentGroupEc2TagSet>? Ec2TagSets => _mEc2TagSets.GetValue("ec2TagSets");
+        private List<Outputs.DeploymentGroupEc2TagSet>? _mValue_Ec2TagSets;
+        private bool _mUnknown_Ec2TagSets;
+        public List<Outputs.DeploymentGroupEc2TagSet>? Ec2TagSets
+        {
+            get
+            {
+                if (!_mUnknown_Ec2TagSets) return _mValue_Ec2TagSets;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.Ec2TagSets' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) of the ECS services for a deployment group (documented below).
         /// </summary>
-        [Input("ecsService")]
+        [PolicyResourceProperty("ecsService", "_mUnknown_EcsService")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentGroupEcsService> _mEcsService;
-
-        public Outputs.DeploymentGroupEcsService? EcsService => _mEcsService.GetValue("ecsService");
+        private Outputs.DeploymentGroupEcsService? _mValue_EcsService;
+        private bool _mUnknown_EcsService;
+        public Outputs.DeploymentGroupEcsService? EcsService
+        {
+            get
+            {
+                if (!_mUnknown_EcsService) return _mValue_EcsService;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.EcsService' is not present");
+            }
+        }
 
         /// <summary>
         /// Single configuration block of the load balancer to use in a blue/green deployment (documented below).
         /// </summary>
-        [Input("loadBalancerInfo")]
+        [PolicyResourceProperty("loadBalancerInfo", "_mUnknown_LoadBalancerInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentGroupLoadBalancerInfo> _mLoadBalancerInfo;
-
-        public Outputs.DeploymentGroupLoadBalancerInfo? LoadBalancerInfo => _mLoadBalancerInfo.GetValue("loadBalancerInfo");
+        private Outputs.DeploymentGroupLoadBalancerInfo? _mValue_LoadBalancerInfo;
+        private bool _mUnknown_LoadBalancerInfo;
+        public Outputs.DeploymentGroupLoadBalancerInfo? LoadBalancerInfo
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerInfo) return _mValue_LoadBalancerInfo;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.LoadBalancerInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// On premise tag filters associated with the group. See the AWS docs for details.
         /// </summary>
-        [Input("onPremisesInstanceTagFilters")]
+        [PolicyResourceProperty("onPremisesInstanceTagFilters", "_mUnknown_OnPremisesInstanceTagFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DeploymentGroupOnPremisesInstanceTagFilter>> _mOnPremisesInstanceTagFilters;
-
-        public List<Outputs.DeploymentGroupOnPremisesInstanceTagFilter>? OnPremisesInstanceTagFilters => _mOnPremisesInstanceTagFilters.GetValue("onPremisesInstanceTagFilters");
+        private List<Outputs.DeploymentGroupOnPremisesInstanceTagFilter>? _mValue_OnPremisesInstanceTagFilters;
+        private bool _mUnknown_OnPremisesInstanceTagFilters;
+        public List<Outputs.DeploymentGroupOnPremisesInstanceTagFilter>? OnPremisesInstanceTagFilters
+        {
+            get
+            {
+                if (!_mUnknown_OnPremisesInstanceTagFilters) return _mValue_OnPremisesInstanceTagFilters;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.OnPremisesInstanceTagFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
         /// </summary>
-        [Input("outdatedInstancesStrategy")]
+        [PolicyResourceProperty("outdatedInstancesStrategy", "_mUnknown_OutdatedInstancesStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutdatedInstancesStrategy;
-
-        public string? OutdatedInstancesStrategy => _mOutdatedInstancesStrategy.GetValue("outdatedInstancesStrategy");
+        private string? _mValue_OutdatedInstancesStrategy;
+        private bool _mUnknown_OutdatedInstancesStrategy;
+        public string? OutdatedInstancesStrategy
+        {
+            get
+            {
+                if (!_mUnknown_OutdatedInstancesStrategy) return _mValue_OutdatedInstancesStrategy;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.OutdatedInstancesStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// The service role ARN that allows deployments.
         /// </summary>
-        [Input("serviceRoleArn")]
+        [PolicyResourceProperty("serviceRoleArn", "_mUnknown_ServiceRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRoleArn;
-
-        public string? ServiceRoleArn => _mServiceRoleArn.GetValue("serviceRoleArn");
+        private string? _mValue_ServiceRoleArn;
+        private bool _mUnknown_ServiceRoleArn;
+        public string? ServiceRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRoleArn) return _mValue_ServiceRoleArn;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.ServiceRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
         /// </summary>
-        [Input("terminationHookEnabled")]
+        [PolicyResourceProperty("terminationHookEnabled", "_mUnknown_TerminationHookEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminationHookEnabled;
-
-        public bool? TerminationHookEnabled => _mTerminationHookEnabled.GetValue("terminationHookEnabled");
+        private bool? _mValue_TerminationHookEnabled;
+        private bool _mUnknown_TerminationHookEnabled;
+        public bool? TerminationHookEnabled
+        {
+            get
+            {
+                if (!_mUnknown_TerminationHookEnabled) return _mValue_TerminationHookEnabled;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.TerminationHookEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) of the triggers for the deployment group (documented below).
         /// </summary>
-        [Input("triggerConfigurations")]
+        [PolicyResourceProperty("triggerConfigurations", "_mUnknown_TriggerConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DeploymentGroupTriggerConfiguration>> _mTriggerConfigurations;
-
-        public List<Outputs.DeploymentGroupTriggerConfiguration>? TriggerConfigurations => _mTriggerConfigurations.GetValue("triggerConfigurations");
+        private List<Outputs.DeploymentGroupTriggerConfiguration>? _mValue_TriggerConfigurations;
+        private bool _mUnknown_TriggerConfigurations;
+        public List<Outputs.DeploymentGroupTriggerConfiguration>? TriggerConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_TriggerConfigurations) return _mValue_TriggerConfigurations;
+                throw new UndeferrableValueException("Value 'DeploymentGroup.TriggerConfigurations' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codedeploy/deploymentGroup:DeploymentGroup")]
@@ -218,163 +372,289 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy
         /// <summary>
         /// Configuration block of alarms associated with the deployment group (documented below).
         /// </summary>
-        [Input("alarmConfiguration")]
+        [PolicyResourceProperty("alarmConfiguration", "_mUnknown_AlarmConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentGroupAlarmConfigurationArgs> _mAlarmConfiguration;
-
-        public Inputs.DeploymentGroupAlarmConfigurationArgs? AlarmConfiguration => _mAlarmConfiguration.GetValue("alarmConfiguration");
+        private Inputs.DeploymentGroupAlarmConfigurationArgs? _mValue_AlarmConfiguration;
+        private bool _mUnknown_AlarmConfiguration;
+        public Inputs.DeploymentGroupAlarmConfigurationArgs? AlarmConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AlarmConfiguration) return _mValue_AlarmConfiguration;
+                throw new UndeferrableValueException("Value 'DeploymentGroupArgs.AlarmConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the application.
         /// </summary>
-        [Input("appName")]
+        [PolicyResourceProperty("appName", "_mUnknown_AppName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppName;
-
-        public string? AppName => _mAppName.GetValue("appName");
+        private string? _mValue_AppName;
+        private bool _mUnknown_AppName;
+        public string? AppName
+        {
+            get
+            {
+                if (!_mUnknown_AppName) return _mValue_AppName;
+                throw new UndeferrableValueException("Value 'DeploymentGroupArgs.AppName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
         /// </summary>
-        [Input("autoRollbackConfiguration")]
+        [PolicyResourceProperty("autoRollbackConfiguration", "_mUnknown_AutoRollbackConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentGroupAutoRollbackConfigurationArgs> _mAutoRollbackConfiguration;
-
-        public Inputs.DeploymentGroupAutoRollbackConfigurationArgs? AutoRollbackConfiguration => _mAutoRollbackConfiguration.GetValue("autoRollbackConfiguration");
+        private Inputs.DeploymentGroupAutoRollbackConfigurationArgs? _mValue_AutoRollbackConfiguration;
+        private bool _mUnknown_AutoRollbackConfiguration;
+        public Inputs.DeploymentGroupAutoRollbackConfigurationArgs? AutoRollbackConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AutoRollbackConfiguration) return _mValue_AutoRollbackConfiguration;
+                throw new UndeferrableValueException("Value 'DeploymentGroupArgs.AutoRollbackConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Autoscaling groups associated with the deployment group.
         /// </summary>
-        [Input("autoscalingGroups")]
+        [PolicyResourceProperty("autoscalingGroups", "_mUnknown_AutoscalingGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAutoscalingGroups;
-
-        public List<string>? AutoscalingGroups => _mAutoscalingGroups.GetValue("autoscalingGroups");
+        private List<string>? _mValue_AutoscalingGroups;
+        private bool _mUnknown_AutoscalingGroups;
+        public List<string>? AutoscalingGroups
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingGroups) return _mValue_AutoscalingGroups;
+                throw new UndeferrableValueException("Value 'DeploymentGroupArgs.AutoscalingGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block of the blue/green deployment options for a deployment group (documented below).
         /// </summary>
-        [Input("blueGreenDeploymentConfig")]
+        [PolicyResourceProperty("blueGreenDeploymentConfig", "_mUnknown_BlueGreenDeploymentConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentGroupBlueGreenDeploymentConfigArgs> _mBlueGreenDeploymentConfig;
-
-        public Inputs.DeploymentGroupBlueGreenDeploymentConfigArgs? BlueGreenDeploymentConfig => _mBlueGreenDeploymentConfig.GetValue("blueGreenDeploymentConfig");
+        private Inputs.DeploymentGroupBlueGreenDeploymentConfigArgs? _mValue_BlueGreenDeploymentConfig;
+        private bool _mUnknown_BlueGreenDeploymentConfig;
+        public Inputs.DeploymentGroupBlueGreenDeploymentConfigArgs? BlueGreenDeploymentConfig
+        {
+            get
+            {
+                if (!_mUnknown_BlueGreenDeploymentConfig) return _mValue_BlueGreenDeploymentConfig;
+                throw new UndeferrableValueException("Value 'DeploymentGroupArgs.BlueGreenDeploymentConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
         /// </summary>
-        [Input("deploymentConfigName")]
+        [PolicyResourceProperty("deploymentConfigName", "_mUnknown_DeploymentConfigName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentConfigName;
-
-        public string? DeploymentConfigName => _mDeploymentConfigName.GetValue("deploymentConfigName");
+        private string? _mValue_DeploymentConfigName;
+        private bool _mUnknown_DeploymentConfigName;
+        public string? DeploymentConfigName
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentConfigName) return _mValue_DeploymentConfigName;
+                throw new UndeferrableValueException("Value 'DeploymentGroupArgs.DeploymentConfigName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the deployment group.
         /// </summary>
-        [Input("deploymentGroupName")]
+        [PolicyResourceProperty("deploymentGroupName", "_mUnknown_DeploymentGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentGroupName;
-
-        public string? DeploymentGroupName => _mDeploymentGroupName.GetValue("deploymentGroupName");
+        private string? _mValue_DeploymentGroupName;
+        private bool _mUnknown_DeploymentGroupName;
+        public string? DeploymentGroupName
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentGroupName) return _mValue_DeploymentGroupName;
+                throw new UndeferrableValueException("Value 'DeploymentGroupArgs.DeploymentGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
         /// </summary>
-        [Input("deploymentStyle")]
+        [PolicyResourceProperty("deploymentStyle", "_mUnknown_DeploymentStyle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentGroupDeploymentStyleArgs> _mDeploymentStyle;
-
-        public Inputs.DeploymentGroupDeploymentStyleArgs? DeploymentStyle => _mDeploymentStyle.GetValue("deploymentStyle");
+        private Inputs.DeploymentGroupDeploymentStyleArgs? _mValue_DeploymentStyle;
+        private bool _mUnknown_DeploymentStyle;
+        public Inputs.DeploymentGroupDeploymentStyleArgs? DeploymentStyle
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentStyle) return _mValue_DeploymentStyle;
+                throw new UndeferrableValueException("Value 'DeploymentGroupArgs.DeploymentStyle' is not present");
+            }
+        }
 
         /// <summary>
         /// Tag filters associated with the deployment group. See the AWS docs for details.
         /// </summary>
-        [Input("ec2TagFilters")]
+        [PolicyResourceProperty("ec2TagFilters", "_mUnknown_Ec2TagFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DeploymentGroupEc2TagFilterArgs>> _mEc2TagFilters;
-
-        public List<Inputs.DeploymentGroupEc2TagFilterArgs>? Ec2TagFilters => _mEc2TagFilters.GetValue("ec2TagFilters");
+        private List<Inputs.DeploymentGroupEc2TagFilterArgs>? _mValue_Ec2TagFilters;
+        private bool _mUnknown_Ec2TagFilters;
+        public List<Inputs.DeploymentGroupEc2TagFilterArgs>? Ec2TagFilters
+        {
+            get
+            {
+                if (!_mUnknown_Ec2TagFilters) return _mValue_Ec2TagFilters;
+                throw new UndeferrableValueException("Value 'DeploymentGroupArgs.Ec2TagFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
         /// </summary>
-        [Input("ec2TagSets")]
+        [PolicyResourceProperty("ec2TagSets", "_mUnknown_Ec2TagSets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DeploymentGroupEc2TagSetArgs>> _mEc2TagSets;
-
-        public List<Inputs.DeploymentGroupEc2TagSetArgs>? Ec2TagSets => _mEc2TagSets.GetValue("ec2TagSets");
+        private List<Inputs.DeploymentGroupEc2TagSetArgs>? _mValue_Ec2TagSets;
+        private bool _mUnknown_Ec2TagSets;
+        public List<Inputs.DeploymentGroupEc2TagSetArgs>? Ec2TagSets
+        {
+            get
+            {
+                if (!_mUnknown_Ec2TagSets) return _mValue_Ec2TagSets;
+                throw new UndeferrableValueException("Value 'DeploymentGroupArgs.Ec2TagSets' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) of the ECS services for a deployment group (documented below).
         /// </summary>
-        [Input("ecsService")]
+        [PolicyResourceProperty("ecsService", "_mUnknown_EcsService")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentGroupEcsServiceArgs> _mEcsService;
-
-        public Inputs.DeploymentGroupEcsServiceArgs? EcsService => _mEcsService.GetValue("ecsService");
+        private Inputs.DeploymentGroupEcsServiceArgs? _mValue_EcsService;
+        private bool _mUnknown_EcsService;
+        public Inputs.DeploymentGroupEcsServiceArgs? EcsService
+        {
+            get
+            {
+                if (!_mUnknown_EcsService) return _mValue_EcsService;
+                throw new UndeferrableValueException("Value 'DeploymentGroupArgs.EcsService' is not present");
+            }
+        }
 
         /// <summary>
         /// Single configuration block of the load balancer to use in a blue/green deployment (documented below).
         /// </summary>
-        [Input("loadBalancerInfo")]
+        [PolicyResourceProperty("loadBalancerInfo", "_mUnknown_LoadBalancerInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentGroupLoadBalancerInfoArgs> _mLoadBalancerInfo;
-
-        public Inputs.DeploymentGroupLoadBalancerInfoArgs? LoadBalancerInfo => _mLoadBalancerInfo.GetValue("loadBalancerInfo");
+        private Inputs.DeploymentGroupLoadBalancerInfoArgs? _mValue_LoadBalancerInfo;
+        private bool _mUnknown_LoadBalancerInfo;
+        public Inputs.DeploymentGroupLoadBalancerInfoArgs? LoadBalancerInfo
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerInfo) return _mValue_LoadBalancerInfo;
+                throw new UndeferrableValueException("Value 'DeploymentGroupArgs.LoadBalancerInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// On premise tag filters associated with the group. See the AWS docs for details.
         /// </summary>
-        [Input("onPremisesInstanceTagFilters")]
+        [PolicyResourceProperty("onPremisesInstanceTagFilters", "_mUnknown_OnPremisesInstanceTagFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DeploymentGroupOnPremisesInstanceTagFilterArgs>> _mOnPremisesInstanceTagFilters;
-
-        public List<Inputs.DeploymentGroupOnPremisesInstanceTagFilterArgs>? OnPremisesInstanceTagFilters => _mOnPremisesInstanceTagFilters.GetValue("onPremisesInstanceTagFilters");
+        private List<Inputs.DeploymentGroupOnPremisesInstanceTagFilterArgs>? _mValue_OnPremisesInstanceTagFilters;
+        private bool _mUnknown_OnPremisesInstanceTagFilters;
+        public List<Inputs.DeploymentGroupOnPremisesInstanceTagFilterArgs>? OnPremisesInstanceTagFilters
+        {
+            get
+            {
+                if (!_mUnknown_OnPremisesInstanceTagFilters) return _mValue_OnPremisesInstanceTagFilters;
+                throw new UndeferrableValueException("Value 'DeploymentGroupArgs.OnPremisesInstanceTagFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
         /// </summary>
-        [Input("outdatedInstancesStrategy")]
+        [PolicyResourceProperty("outdatedInstancesStrategy", "_mUnknown_OutdatedInstancesStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutdatedInstancesStrategy;
-
-        public string? OutdatedInstancesStrategy => _mOutdatedInstancesStrategy.GetValue("outdatedInstancesStrategy");
+        private string? _mValue_OutdatedInstancesStrategy;
+        private bool _mUnknown_OutdatedInstancesStrategy;
+        public string? OutdatedInstancesStrategy
+        {
+            get
+            {
+                if (!_mUnknown_OutdatedInstancesStrategy) return _mValue_OutdatedInstancesStrategy;
+                throw new UndeferrableValueException("Value 'DeploymentGroupArgs.OutdatedInstancesStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// The service role ARN that allows deployments.
         /// </summary>
-        [Input("serviceRoleArn")]
+        [PolicyResourceProperty("serviceRoleArn", "_mUnknown_ServiceRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRoleArn;
-
-        public string? ServiceRoleArn => _mServiceRoleArn.GetValue("serviceRoleArn");
+        private string? _mValue_ServiceRoleArn;
+        private bool _mUnknown_ServiceRoleArn;
+        public string? ServiceRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRoleArn) return _mValue_ServiceRoleArn;
+                throw new UndeferrableValueException("Value 'DeploymentGroupArgs.ServiceRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DeploymentGroupArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
         /// </summary>
-        [Input("terminationHookEnabled")]
+        [PolicyResourceProperty("terminationHookEnabled", "_mUnknown_TerminationHookEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminationHookEnabled;
-
-        public bool? TerminationHookEnabled => _mTerminationHookEnabled.GetValue("terminationHookEnabled");
+        private bool? _mValue_TerminationHookEnabled;
+        private bool _mUnknown_TerminationHookEnabled;
+        public bool? TerminationHookEnabled
+        {
+            get
+            {
+                if (!_mUnknown_TerminationHookEnabled) return _mValue_TerminationHookEnabled;
+                throw new UndeferrableValueException("Value 'DeploymentGroupArgs.TerminationHookEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) of the triggers for the deployment group (documented below).
         /// </summary>
-        [Input("triggerConfigurations")]
+        [PolicyResourceProperty("triggerConfigurations", "_mUnknown_TriggerConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DeploymentGroupTriggerConfigurationArgs>> _mTriggerConfigurations;
-
-        public List<Inputs.DeploymentGroupTriggerConfigurationArgs>? TriggerConfigurations => _mTriggerConfigurations.GetValue("triggerConfigurations");
+        private List<Inputs.DeploymentGroupTriggerConfigurationArgs>? _mValue_TriggerConfigurations;
+        private bool _mUnknown_TriggerConfigurations;
+        public List<Inputs.DeploymentGroupTriggerConfigurationArgs>? TriggerConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_TriggerConfigurations) return _mValue_TriggerConfigurations;
+                throw new UndeferrableValueException("Value 'DeploymentGroupArgs.TriggerConfigurations' is not present");
+            }
+        }
     }
 }

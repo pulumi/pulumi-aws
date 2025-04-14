@@ -15,84 +15,147 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// The ARN of the S3 bucket
         /// </summary>
-        [Input("bucketArn")]
+        [PolicyResourceProperty("bucketArn", "_mUnknown_BucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketArn;
-
-        public string? BucketArn => _mBucketArn.GetValue("bucketArn");
+        private string? _mValue_BucketArn;
+        private bool _mUnknown_BucketArn;
+        public string? BucketArn
+        {
+            get
+            {
+                if (!_mUnknown_BucketArn) return _mValue_BucketArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationS3Configuration.BucketArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
         /// </summary>
-        [Input("bufferingInterval")]
+        [PolicyResourceProperty("bufferingInterval", "_mUnknown_BufferingInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferingInterval;
-
-        public int? BufferingInterval => _mBufferingInterval.GetValue("bufferingInterval");
+        private int? _mValue_BufferingInterval;
+        private bool _mUnknown_BufferingInterval;
+        public int? BufferingInterval
+        {
+            get
+            {
+                if (!_mUnknown_BufferingInterval) return _mValue_BufferingInterval;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationS3Configuration.BufferingInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
         /// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         /// </summary>
-        [Input("bufferingSize")]
+        [PolicyResourceProperty("bufferingSize", "_mUnknown_BufferingSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferingSize;
-
-        public int? BufferingSize => _mBufferingSize.GetValue("bufferingSize");
+        private int? _mValue_BufferingSize;
+        private bool _mUnknown_BufferingSize;
+        public int? BufferingSize
+        {
+            get
+            {
+                if (!_mUnknown_BufferingSize) return _mValue_BufferingSize;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationS3Configuration.BufferingSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
-        [Input("cloudwatchLoggingOptions")]
+        [PolicyResourceProperty("cloudwatchLoggingOptions", "_mUnknown_CloudwatchLoggingOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions> _mCloudwatchLoggingOptions;
-
-        public Outputs.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions => _mCloudwatchLoggingOptions.GetValue("cloudwatchLoggingOptions");
+        private Outputs.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions? _mValue_CloudwatchLoggingOptions;
+        private bool _mUnknown_CloudwatchLoggingOptions;
+        public Outputs.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLoggingOptions) return _mValue_CloudwatchLoggingOptions;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationS3Configuration.CloudwatchLoggingOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
         /// </summary>
-        [Input("compressionFormat")]
+        [PolicyResourceProperty("compressionFormat", "_mUnknown_CompressionFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCompressionFormat;
-
-        public string? CompressionFormat => _mCompressionFormat.GetValue("compressionFormat");
+        private string? _mValue_CompressionFormat;
+        private bool _mUnknown_CompressionFormat;
+        public string? CompressionFormat
+        {
+            get
+            {
+                if (!_mUnknown_CompressionFormat) return _mValue_CompressionFormat;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationS3Configuration.CompressionFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
         /// </summary>
-        [Input("errorOutputPrefix")]
+        [PolicyResourceProperty("errorOutputPrefix", "_mUnknown_ErrorOutputPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mErrorOutputPrefix;
-
-        public string? ErrorOutputPrefix => _mErrorOutputPrefix.GetValue("errorOutputPrefix");
+        private string? _mValue_ErrorOutputPrefix;
+        private bool _mUnknown_ErrorOutputPrefix;
+        public string? ErrorOutputPrefix
+        {
+            get
+            {
+                if (!_mUnknown_ErrorOutputPrefix) return _mValue_ErrorOutputPrefix;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationS3Configuration.ErrorOutputPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
         /// be used.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationS3Configuration.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationS3Configuration.Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the AWS credentials.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationS3Configuration.RoleArn' is not present");
+            }
+        }
     }
 }

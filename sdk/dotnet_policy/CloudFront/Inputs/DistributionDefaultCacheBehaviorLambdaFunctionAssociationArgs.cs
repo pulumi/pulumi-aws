@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
         /// </summary>
-        [Input("eventType")]
+        [PolicyResourceProperty("eventType", "_mUnknown_EventType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventType;
-
-        public string? EventType => _mEventType.GetValue("eventType");
+        private string? _mValue_EventType;
+        private bool _mUnknown_EventType;
+        public string? EventType
+        {
+            get
+            {
+                if (!_mUnknown_EventType) return _mValue_EventType;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs.EventType' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
         /// </summary>
-        [Input("includeBody")]
+        [PolicyResourceProperty("includeBody", "_mUnknown_IncludeBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeBody;
-
-        public bool? IncludeBody => _mIncludeBody.GetValue("includeBody");
+        private bool? _mValue_IncludeBody;
+        private bool _mUnknown_IncludeBody;
+        public bool? IncludeBody
+        {
+            get
+            {
+                if (!_mUnknown_IncludeBody) return _mValue_IncludeBody;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs.IncludeBody' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Lambda function.
         /// </summary>
-        [Input("lambdaArn")]
+        [PolicyResourceProperty("lambdaArn", "_mUnknown_LambdaArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaArn;
-
-        public string? LambdaArn => _mLambdaArn.GetValue("lambdaArn");
+        private string? _mValue_LambdaArn;
+        private bool _mUnknown_LambdaArn;
+        public string? LambdaArn
+        {
+            get
+            {
+                if (!_mUnknown_LambdaArn) return _mValue_LambdaArn;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs.LambdaArn' is not present");
+            }
+        }
     }
 }

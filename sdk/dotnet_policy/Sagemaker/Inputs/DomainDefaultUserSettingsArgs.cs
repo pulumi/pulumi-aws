@@ -15,163 +15,289 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
         /// </summary>
-        [Input("autoMountHomeEfs")]
+        [PolicyResourceProperty("autoMountHomeEfs", "_mUnknown_AutoMountHomeEfs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoMountHomeEfs;
-
-        public string? AutoMountHomeEfs => _mAutoMountHomeEfs.GetValue("autoMountHomeEfs");
+        private string? _mValue_AutoMountHomeEfs;
+        private bool _mUnknown_AutoMountHomeEfs;
+        public string? AutoMountHomeEfs
+        {
+            get
+            {
+                if (!_mUnknown_AutoMountHomeEfs) return _mValue_AutoMountHomeEfs;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsArgs.AutoMountHomeEfs' is not present");
+            }
+        }
 
         /// <summary>
         /// The Canvas app settings. See `canvas_app_settings` Block below.
         /// </summary>
-        [Input("canvasAppSettings")]
+        [PolicyResourceProperty("canvasAppSettings", "_mUnknown_CanvasAppSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultUserSettingsCanvasAppSettingsArgs> _mCanvasAppSettings;
-
-        public Inputs.DomainDefaultUserSettingsCanvasAppSettingsArgs? CanvasAppSettings => _mCanvasAppSettings.GetValue("canvasAppSettings");
+        private Inputs.DomainDefaultUserSettingsCanvasAppSettingsArgs? _mValue_CanvasAppSettings;
+        private bool _mUnknown_CanvasAppSettings;
+        public Inputs.DomainDefaultUserSettingsCanvasAppSettingsArgs? CanvasAppSettings
+        {
+            get
+            {
+                if (!_mUnknown_CanvasAppSettings) return _mValue_CanvasAppSettings;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsArgs.CanvasAppSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The Code Editor application settings. See `code_editor_app_settings` Block below.
         /// </summary>
-        [Input("codeEditorAppSettings")]
+        [PolicyResourceProperty("codeEditorAppSettings", "_mUnknown_CodeEditorAppSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultUserSettingsCodeEditorAppSettingsArgs> _mCodeEditorAppSettings;
-
-        public Inputs.DomainDefaultUserSettingsCodeEditorAppSettingsArgs? CodeEditorAppSettings => _mCodeEditorAppSettings.GetValue("codeEditorAppSettings");
+        private Inputs.DomainDefaultUserSettingsCodeEditorAppSettingsArgs? _mValue_CodeEditorAppSettings;
+        private bool _mUnknown_CodeEditorAppSettings;
+        public Inputs.DomainDefaultUserSettingsCodeEditorAppSettingsArgs? CodeEditorAppSettings
+        {
+            get
+            {
+                if (!_mUnknown_CodeEditorAppSettings) return _mValue_CodeEditorAppSettings;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsArgs.CodeEditorAppSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
         /// </summary>
-        [Input("customFileSystemConfigs")]
+        [PolicyResourceProperty("customFileSystemConfigs", "_mUnknown_CustomFileSystemConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DomainDefaultUserSettingsCustomFileSystemConfigArgs>> _mCustomFileSystemConfigs;
-
-        public List<Inputs.DomainDefaultUserSettingsCustomFileSystemConfigArgs>? CustomFileSystemConfigs => _mCustomFileSystemConfigs.GetValue("customFileSystemConfigs");
+        private List<Inputs.DomainDefaultUserSettingsCustomFileSystemConfigArgs>? _mValue_CustomFileSystemConfigs;
+        private bool _mUnknown_CustomFileSystemConfigs;
+        public List<Inputs.DomainDefaultUserSettingsCustomFileSystemConfigArgs>? CustomFileSystemConfigs
+        {
+            get
+            {
+                if (!_mUnknown_CustomFileSystemConfigs) return _mValue_CustomFileSystemConfigs;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsArgs.CustomFileSystemConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
         /// </summary>
-        [Input("customPosixUserConfig")]
+        [PolicyResourceProperty("customPosixUserConfig", "_mUnknown_CustomPosixUserConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultUserSettingsCustomPosixUserConfigArgs> _mCustomPosixUserConfig;
-
-        public Inputs.DomainDefaultUserSettingsCustomPosixUserConfigArgs? CustomPosixUserConfig => _mCustomPosixUserConfig.GetValue("customPosixUserConfig");
+        private Inputs.DomainDefaultUserSettingsCustomPosixUserConfigArgs? _mValue_CustomPosixUserConfig;
+        private bool _mUnknown_CustomPosixUserConfig;
+        public Inputs.DomainDefaultUserSettingsCustomPosixUserConfigArgs? CustomPosixUserConfig
+        {
+            get
+            {
+                if (!_mUnknown_CustomPosixUserConfig) return _mValue_CustomPosixUserConfig;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsArgs.CustomPosixUserConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
         /// </summary>
-        [Input("defaultLandingUri")]
+        [PolicyResourceProperty("defaultLandingUri", "_mUnknown_DefaultLandingUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultLandingUri;
-
-        public string? DefaultLandingUri => _mDefaultLandingUri.GetValue("defaultLandingUri");
+        private string? _mValue_DefaultLandingUri;
+        private bool _mUnknown_DefaultLandingUri;
+        public string? DefaultLandingUri
+        {
+            get
+            {
+                if (!_mUnknown_DefaultLandingUri) return _mValue_DefaultLandingUri;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsArgs.DefaultLandingUri' is not present");
+            }
+        }
 
         /// <summary>
         /// The execution role ARN for the user.
         /// </summary>
-        [Input("executionRole")]
+        [PolicyResourceProperty("executionRole", "_mUnknown_ExecutionRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRole;
-
-        public string? ExecutionRole => _mExecutionRole.GetValue("executionRole");
+        private string? _mValue_ExecutionRole;
+        private bool _mUnknown_ExecutionRole;
+        public string? ExecutionRole
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRole) return _mValue_ExecutionRole;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsArgs.ExecutionRole' is not present");
+            }
+        }
 
         /// <summary>
         /// The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
         /// </summary>
-        [Input("jupyterLabAppSettings")]
+        [PolicyResourceProperty("jupyterLabAppSettings", "_mUnknown_JupyterLabAppSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultUserSettingsJupyterLabAppSettingsArgs> _mJupyterLabAppSettings;
-
-        public Inputs.DomainDefaultUserSettingsJupyterLabAppSettingsArgs? JupyterLabAppSettings => _mJupyterLabAppSettings.GetValue("jupyterLabAppSettings");
+        private Inputs.DomainDefaultUserSettingsJupyterLabAppSettingsArgs? _mValue_JupyterLabAppSettings;
+        private bool _mUnknown_JupyterLabAppSettings;
+        public Inputs.DomainDefaultUserSettingsJupyterLabAppSettingsArgs? JupyterLabAppSettings
+        {
+            get
+            {
+                if (!_mUnknown_JupyterLabAppSettings) return _mValue_JupyterLabAppSettings;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsArgs.JupyterLabAppSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
         /// </summary>
-        [Input("jupyterServerAppSettings")]
+        [PolicyResourceProperty("jupyterServerAppSettings", "_mUnknown_JupyterServerAppSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultUserSettingsJupyterServerAppSettingsArgs> _mJupyterServerAppSettings;
-
-        public Inputs.DomainDefaultUserSettingsJupyterServerAppSettingsArgs? JupyterServerAppSettings => _mJupyterServerAppSettings.GetValue("jupyterServerAppSettings");
+        private Inputs.DomainDefaultUserSettingsJupyterServerAppSettingsArgs? _mValue_JupyterServerAppSettings;
+        private bool _mUnknown_JupyterServerAppSettings;
+        public Inputs.DomainDefaultUserSettingsJupyterServerAppSettingsArgs? JupyterServerAppSettings
+        {
+            get
+            {
+                if (!_mUnknown_JupyterServerAppSettings) return _mValue_JupyterServerAppSettings;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsArgs.JupyterServerAppSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
         /// </summary>
-        [Input("kernelGatewayAppSettings")]
+        [PolicyResourceProperty("kernelGatewayAppSettings", "_mUnknown_KernelGatewayAppSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs> _mKernelGatewayAppSettings;
-
-        public Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs? KernelGatewayAppSettings => _mKernelGatewayAppSettings.GetValue("kernelGatewayAppSettings");
+        private Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs? _mValue_KernelGatewayAppSettings;
+        private bool _mUnknown_KernelGatewayAppSettings;
+        public Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs? KernelGatewayAppSettings
+        {
+            get
+            {
+                if (!_mUnknown_KernelGatewayAppSettings) return _mValue_KernelGatewayAppSettings;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsArgs.KernelGatewayAppSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The RSession app settings. See `r_session_app_settings` Block below.
         /// </summary>
-        [Input("rSessionAppSettings")]
+        [PolicyResourceProperty("rSessionAppSettings", "_mUnknown_RSessionAppSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultUserSettingsRSessionAppSettingsArgs> _mRSessionAppSettings;
-
-        public Inputs.DomainDefaultUserSettingsRSessionAppSettingsArgs? RSessionAppSettings => _mRSessionAppSettings.GetValue("rSessionAppSettings");
+        private Inputs.DomainDefaultUserSettingsRSessionAppSettingsArgs? _mValue_RSessionAppSettings;
+        private bool _mUnknown_RSessionAppSettings;
+        public Inputs.DomainDefaultUserSettingsRSessionAppSettingsArgs? RSessionAppSettings
+        {
+            get
+            {
+                if (!_mUnknown_RSessionAppSettings) return _mValue_RSessionAppSettings;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsArgs.RSessionAppSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// A collection of settings that configure user interaction with the RStudioServerPro app. See `r_studio_server_pro_app_settings` Block below.
         /// </summary>
-        [Input("rStudioServerProAppSettings")]
+        [PolicyResourceProperty("rStudioServerProAppSettings", "_mUnknown_RStudioServerProAppSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultUserSettingsRStudioServerProAppSettingsArgs> _mRStudioServerProAppSettings;
-
-        public Inputs.DomainDefaultUserSettingsRStudioServerProAppSettingsArgs? RStudioServerProAppSettings => _mRStudioServerProAppSettings.GetValue("rStudioServerProAppSettings");
+        private Inputs.DomainDefaultUserSettingsRStudioServerProAppSettingsArgs? _mValue_RStudioServerProAppSettings;
+        private bool _mUnknown_RStudioServerProAppSettings;
+        public Inputs.DomainDefaultUserSettingsRStudioServerProAppSettingsArgs? RStudioServerProAppSettings
+        {
+            get
+            {
+                if (!_mUnknown_RStudioServerProAppSettings) return _mValue_RStudioServerProAppSettings;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsArgs.RStudioServerProAppSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of security group IDs that will be attached to the user.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsArgs.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// The sharing settings. See `sharing_settings` Block below.
         /// </summary>
-        [Input("sharingSettings")]
+        [PolicyResourceProperty("sharingSettings", "_mUnknown_SharingSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultUserSettingsSharingSettingsArgs> _mSharingSettings;
-
-        public Inputs.DomainDefaultUserSettingsSharingSettingsArgs? SharingSettings => _mSharingSettings.GetValue("sharingSettings");
+        private Inputs.DomainDefaultUserSettingsSharingSettingsArgs? _mValue_SharingSettings;
+        private bool _mUnknown_SharingSettings;
+        public Inputs.DomainDefaultUserSettingsSharingSettingsArgs? SharingSettings
+        {
+            get
+            {
+                if (!_mUnknown_SharingSettings) return _mValue_SharingSettings;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsArgs.SharingSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The storage settings for a private space. See `space_storage_settings` Block below.
         /// </summary>
-        [Input("spaceStorageSettings")]
+        [PolicyResourceProperty("spaceStorageSettings", "_mUnknown_SpaceStorageSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultUserSettingsSpaceStorageSettingsArgs> _mSpaceStorageSettings;
-
-        public Inputs.DomainDefaultUserSettingsSpaceStorageSettingsArgs? SpaceStorageSettings => _mSpaceStorageSettings.GetValue("spaceStorageSettings");
+        private Inputs.DomainDefaultUserSettingsSpaceStorageSettingsArgs? _mValue_SpaceStorageSettings;
+        private bool _mUnknown_SpaceStorageSettings;
+        public Inputs.DomainDefaultUserSettingsSpaceStorageSettingsArgs? SpaceStorageSettings
+        {
+            get
+            {
+                if (!_mUnknown_SpaceStorageSettings) return _mValue_SpaceStorageSettings;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsArgs.SpaceStorageSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("studioWebPortal")]
+        [PolicyResourceProperty("studioWebPortal", "_mUnknown_StudioWebPortal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStudioWebPortal;
-
-        public string? StudioWebPortal => _mStudioWebPortal.GetValue("studioWebPortal");
+        private string? _mValue_StudioWebPortal;
+        private bool _mUnknown_StudioWebPortal;
+        public string? StudioWebPortal
+        {
+            get
+            {
+                if (!_mUnknown_StudioWebPortal) return _mValue_StudioWebPortal;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsArgs.StudioWebPortal' is not present");
+            }
+        }
 
         /// <summary>
         /// The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
         /// </summary>
-        [Input("studioWebPortalSettings")]
+        [PolicyResourceProperty("studioWebPortalSettings", "_mUnknown_StudioWebPortalSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultUserSettingsStudioWebPortalSettingsArgs> _mStudioWebPortalSettings;
-
-        public Inputs.DomainDefaultUserSettingsStudioWebPortalSettingsArgs? StudioWebPortalSettings => _mStudioWebPortalSettings.GetValue("studioWebPortalSettings");
+        private Inputs.DomainDefaultUserSettingsStudioWebPortalSettingsArgs? _mValue_StudioWebPortalSettings;
+        private bool _mUnknown_StudioWebPortalSettings;
+        public Inputs.DomainDefaultUserSettingsStudioWebPortalSettingsArgs? StudioWebPortalSettings
+        {
+            get
+            {
+                if (!_mUnknown_StudioWebPortalSettings) return _mValue_StudioWebPortalSettings;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsArgs.StudioWebPortalSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The TensorBoard app settings. See `tensor_board_app_settings` Block below.
         /// </summary>
-        [Input("tensorBoardAppSettings")]
+        [PolicyResourceProperty("tensorBoardAppSettings", "_mUnknown_TensorBoardAppSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultUserSettingsTensorBoardAppSettingsArgs> _mTensorBoardAppSettings;
-
-        public Inputs.DomainDefaultUserSettingsTensorBoardAppSettingsArgs? TensorBoardAppSettings => _mTensorBoardAppSettings.GetValue("tensorBoardAppSettings");
+        private Inputs.DomainDefaultUserSettingsTensorBoardAppSettingsArgs? _mValue_TensorBoardAppSettings;
+        private bool _mUnknown_TensorBoardAppSettings;
+        public Inputs.DomainDefaultUserSettingsTensorBoardAppSettingsArgs? TensorBoardAppSettings
+        {
+            get
+            {
+                if (!_mUnknown_TensorBoardAppSettings) return _mValue_TensorBoardAppSettings;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsArgs.TensorBoardAppSettings' is not present");
+            }
+        }
     }
 }

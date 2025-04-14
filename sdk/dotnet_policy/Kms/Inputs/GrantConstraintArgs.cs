@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kms.Inputs
         /// <summary>
         /// A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
         /// </summary>
-        [Input("encryptionContextEquals")]
+        [PolicyResourceProperty("encryptionContextEquals", "_mUnknown_EncryptionContextEquals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEncryptionContextEquals;
-
-        public Dictionary<string, string>? EncryptionContextEquals => _mEncryptionContextEquals.GetValue("encryptionContextEquals");
+        private Dictionary<string, string>? _mValue_EncryptionContextEquals;
+        private bool _mUnknown_EncryptionContextEquals;
+        public Dictionary<string, string>? EncryptionContextEquals
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionContextEquals) return _mValue_EncryptionContextEquals;
+                throw new UndeferrableValueException("Value 'GrantConstraintArgs.EncryptionContextEquals' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
         /// </summary>
-        [Input("encryptionContextSubset")]
+        [PolicyResourceProperty("encryptionContextSubset", "_mUnknown_EncryptionContextSubset")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEncryptionContextSubset;
-
-        public Dictionary<string, string>? EncryptionContextSubset => _mEncryptionContextSubset.GetValue("encryptionContextSubset");
+        private Dictionary<string, string>? _mValue_EncryptionContextSubset;
+        private bool _mUnknown_EncryptionContextSubset;
+        public Dictionary<string, string>? EncryptionContextSubset
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionContextSubset) return _mValue_EncryptionContextSubset;
+                throw new UndeferrableValueException("Value 'GrantConstraintArgs.EncryptionContextSubset' is not present");
+            }
+        }
     }
 }

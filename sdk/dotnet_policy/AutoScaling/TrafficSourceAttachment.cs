@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// <summary>
         /// The name of the Auto Scaling group.
         /// </summary>
-        [Input("autoscalingGroupName")]
+        [PolicyResourceProperty("autoscalingGroupName", "_mUnknown_AutoscalingGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
-
-        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
+        private string? _mValue_AutoscalingGroupName;
+        private bool _mUnknown_AutoscalingGroupName;
+        public string? AutoscalingGroupName
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingGroupName) return _mValue_AutoscalingGroupName;
+                throw new UndeferrableValueException("Value 'TrafficSourceAttachment.AutoscalingGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifiers of a traffic sources.
         /// </summary>
-        [Input("trafficSource")]
+        [PolicyResourceProperty("trafficSource", "_mUnknown_TrafficSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TrafficSourceAttachmentTrafficSource> _mTrafficSource;
-
-        public Outputs.TrafficSourceAttachmentTrafficSource? TrafficSource => _mTrafficSource.GetValue("trafficSource");
+        private Outputs.TrafficSourceAttachmentTrafficSource? _mValue_TrafficSource;
+        private bool _mUnknown_TrafficSource;
+        public Outputs.TrafficSourceAttachmentTrafficSource? TrafficSource
+        {
+            get
+            {
+                if (!_mUnknown_TrafficSource) return _mValue_TrafficSource;
+                throw new UndeferrableValueException("Value 'TrafficSourceAttachment.TrafficSource' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// <summary>
         /// The name of the Auto Scaling group.
         /// </summary>
-        [Input("autoscalingGroupName")]
+        [PolicyResourceProperty("autoscalingGroupName", "_mUnknown_AutoscalingGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
-
-        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
+        private string? _mValue_AutoscalingGroupName;
+        private bool _mUnknown_AutoscalingGroupName;
+        public string? AutoscalingGroupName
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingGroupName) return _mValue_AutoscalingGroupName;
+                throw new UndeferrableValueException("Value 'TrafficSourceAttachmentArgs.AutoscalingGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifiers of a traffic sources.
         /// </summary>
-        [Input("trafficSource")]
+        [PolicyResourceProperty("trafficSource", "_mUnknown_TrafficSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TrafficSourceAttachmentTrafficSourceArgs> _mTrafficSource;
-
-        public Inputs.TrafficSourceAttachmentTrafficSourceArgs? TrafficSource => _mTrafficSource.GetValue("trafficSource");
+        private Inputs.TrafficSourceAttachmentTrafficSourceArgs? _mValue_TrafficSource;
+        private bool _mUnknown_TrafficSource;
+        public Inputs.TrafficSourceAttachmentTrafficSourceArgs? TrafficSource
+        {
+            get
+            {
+                if (!_mUnknown_TrafficSource) return _mValue_TrafficSource;
+                throw new UndeferrableValueException("Value 'TrafficSourceAttachmentArgs.TrafficSource' is not present");
+            }
+        }
     }
 }

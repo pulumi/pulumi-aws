@@ -13,47 +13,82 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
     [PolicyResourceType("aws:quicksight/groupMembership:GroupMembership")]
     public sealed class GroupMembership : global::Pulumi.PolicyResourceOutput
     {
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'GroupMembership.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'GroupMembership.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the group in which the member will be added.
         /// </summary>
-        [Input("groupName")]
+        [PolicyResourceProperty("groupName", "_mUnknown_GroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
-
-        public string? GroupName => _mGroupName.GetValue("groupName");
+        private string? _mValue_GroupName;
+        private bool _mUnknown_GroupName;
+        public string? GroupName
+        {
+            get
+            {
+                if (!_mUnknown_GroupName) return _mValue_GroupName;
+                throw new UndeferrableValueException("Value 'GroupMembership.GroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the member to add to the group.
         /// </summary>
-        [Input("memberName")]
+        [PolicyResourceProperty("memberName", "_mUnknown_MemberName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMemberName;
-
-        public string? MemberName => _mMemberName.GetValue("memberName");
+        private string? _mValue_MemberName;
+        private bool _mUnknown_MemberName;
+        public string? MemberName
+        {
+            get
+            {
+                if (!_mUnknown_MemberName) return _mValue_MemberName;
+                throw new UndeferrableValueException("Value 'GroupMembership.MemberName' is not present");
+            }
+        }
 
         /// <summary>
         /// The namespace that you want the user to be a part of. Defaults to `default`.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'GroupMembership.Namespace' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:quicksight/groupMembership:GroupMembership")]
@@ -62,37 +97,65 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'GroupMembershipArgs.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the group in which the member will be added.
         /// </summary>
-        [Input("groupName")]
+        [PolicyResourceProperty("groupName", "_mUnknown_GroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
-
-        public string? GroupName => _mGroupName.GetValue("groupName");
+        private string? _mValue_GroupName;
+        private bool _mUnknown_GroupName;
+        public string? GroupName
+        {
+            get
+            {
+                if (!_mUnknown_GroupName) return _mValue_GroupName;
+                throw new UndeferrableValueException("Value 'GroupMembershipArgs.GroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the member to add to the group.
         /// </summary>
-        [Input("memberName")]
+        [PolicyResourceProperty("memberName", "_mUnknown_MemberName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMemberName;
-
-        public string? MemberName => _mMemberName.GetValue("memberName");
+        private string? _mValue_MemberName;
+        private bool _mUnknown_MemberName;
+        public string? MemberName
+        {
+            get
+            {
+                if (!_mUnknown_MemberName) return _mValue_MemberName;
+                throw new UndeferrableValueException("Value 'GroupMembershipArgs.MemberName' is not present");
+            }
+        }
 
         /// <summary>
         /// The namespace that you want the user to be a part of. Defaults to `default`.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'GroupMembershipArgs.Namespace' is not present");
+            }
+        }
     }
 }

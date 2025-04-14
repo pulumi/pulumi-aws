@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// The Salesforce standard object configuration. See `filter_configuration` block for details.
         /// </summary>
-        [Input("filterConfiguration")]
+        [PolicyResourceProperty("filterConfiguration", "_mUnknown_FilterConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration> _mFilterConfiguration;
-
-        public Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration? FilterConfiguration => _mFilterConfiguration.GetValue("filterConfiguration");
+        private Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration? _mValue_FilterConfiguration;
+        private bool _mUnknown_FilterConfiguration;
+        public Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration? FilterConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_FilterConfiguration) return _mValue_FilterConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration.FilterConfiguration' is not present");
+            }
+        }
     }
 }

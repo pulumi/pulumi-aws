@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
         /// </summary>
-        [Input("sharingType")]
+        [PolicyResourceProperty("sharingType", "_mUnknown_SharingType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSharingType;
-
-        public string? SharingType => _mSharingType.GetValue("sharingType");
+        private string? _mValue_SharingType;
+        private bool _mUnknown_SharingType;
+        public string? SharingType
+        {
+            get
+            {
+                if (!_mUnknown_SharingType) return _mValue_SharingType;
+                throw new UndeferrableValueException("Value 'SpaceSpaceSharingSettingsArgs.SharingType' is not present");
+            }
+        }
     }
 }

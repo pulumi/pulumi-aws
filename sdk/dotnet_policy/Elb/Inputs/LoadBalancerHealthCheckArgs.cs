@@ -15,20 +15,34 @@ namespace Pulumi.PolicyPacks.Aws.Elb.Inputs
         /// <summary>
         /// The number of checks before the instance is declared healthy.
         /// </summary>
-        [Input("healthyThreshold")]
+        [PolicyResourceProperty("healthyThreshold", "_mUnknown_HealthyThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHealthyThreshold;
-
-        public int? HealthyThreshold => _mHealthyThreshold.GetValue("healthyThreshold");
+        private int? _mValue_HealthyThreshold;
+        private bool _mUnknown_HealthyThreshold;
+        public int? HealthyThreshold
+        {
+            get
+            {
+                if (!_mUnknown_HealthyThreshold) return _mValue_HealthyThreshold;
+                throw new UndeferrableValueException("Value 'LoadBalancerHealthCheckArgs.HealthyThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// The interval between checks.
         /// </summary>
-        [Input("interval")]
+        [PolicyResourceProperty("interval", "_mUnknown_Interval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInterval;
-
-        public int? Interval => _mInterval.GetValue("interval");
+        private int? _mValue_Interval;
+        private bool _mUnknown_Interval;
+        public int? Interval
+        {
+            get
+            {
+                if (!_mUnknown_Interval) return _mValue_Interval;
+                throw new UndeferrableValueException("Value 'LoadBalancerHealthCheckArgs.Interval' is not present");
+            }
+        }
 
         /// <summary>
         /// The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
@@ -36,28 +50,49 @@ namespace Pulumi.PolicyPacks.Aws.Elb.Inputs
         /// * `HTTP`, `HTTPS` - PORT and PATH are required
         /// * `TCP`, `SSL` - PORT is required, PATH is not supported
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
-
-        public string? Target => _mTarget.GetValue("target");
+        private string? _mValue_Target;
+        private bool _mUnknown_Target;
+        public string? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'LoadBalancerHealthCheckArgs.Target' is not present");
+            }
+        }
 
         /// <summary>
         /// The length of time before the check times out.
         /// </summary>
-        [Input("timeout")]
+        [PolicyResourceProperty("timeout", "_mUnknown_Timeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeout;
-
-        public int? Timeout => _mTimeout.GetValue("timeout");
+        private int? _mValue_Timeout;
+        private bool _mUnknown_Timeout;
+        public int? Timeout
+        {
+            get
+            {
+                if (!_mUnknown_Timeout) return _mValue_Timeout;
+                throw new UndeferrableValueException("Value 'LoadBalancerHealthCheckArgs.Timeout' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of checks before the instance is declared unhealthy.
         /// </summary>
-        [Input("unhealthyThreshold")]
+        [PolicyResourceProperty("unhealthyThreshold", "_mUnknown_UnhealthyThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUnhealthyThreshold;
-
-        public int? UnhealthyThreshold => _mUnhealthyThreshold.GetValue("unhealthyThreshold");
+        private int? _mValue_UnhealthyThreshold;
+        private bool _mUnknown_UnhealthyThreshold;
+        public int? UnhealthyThreshold
+        {
+            get
+            {
+                if (!_mUnknown_UnhealthyThreshold) return _mValue_UnhealthyThreshold;
+                throw new UndeferrableValueException("Value 'LoadBalancerHealthCheckArgs.UnhealthyThreshold' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms.Inputs
 {
     public sealed class ConfiguredTableTableReferenceArgs
     {
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'ConfiguredTableTableReferenceArgs.DatabaseName' is not present");
+            }
+        }
 
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
-
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'ConfiguredTableTableReferenceArgs.TableName' is not present");
+            }
+        }
     }
 }

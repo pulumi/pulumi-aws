@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Dax
         /// <summary>
         /// A description of the subnet group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SubnetGroup.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the subnet group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SubnetGroup.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of VPC subnet IDs for the subnet group.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'SubnetGroup.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC ID of the subnet group.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'SubnetGroup.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:dax/subnetGroup:SubnetGroup")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.Dax
         /// <summary>
         /// A description of the subnet group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SubnetGroupArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the subnet group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SubnetGroupArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of VPC subnet IDs for the subnet group.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'SubnetGroupArgs.SubnetIds' is not present");
+            }
+        }
     }
 }

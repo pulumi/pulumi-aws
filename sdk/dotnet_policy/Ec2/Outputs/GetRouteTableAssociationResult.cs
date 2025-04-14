@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
         /// </summary>
-        [Input("gatewayId")]
+        [PolicyResourceProperty("gatewayId", "_mUnknown_GatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayId;
-
-        public string? GatewayId => _mGatewayId.GetValue("gatewayId");
+        private string? _mValue_GatewayId;
+        private bool _mUnknown_GatewayId;
+        public string? GatewayId
+        {
+            get
+            {
+                if (!_mUnknown_GatewayId) return _mValue_GatewayId;
+                throw new UndeferrableValueException("Value 'GetRouteTableAssociationResult.GatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the association is due to the main route table.
         /// </summary>
-        [Input("main")]
+        [PolicyResourceProperty("main", "_mUnknown_Main")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMain;
-
-        public bool? Main => _mMain.GetValue("main");
+        private bool? _mValue_Main;
+        private bool _mUnknown_Main;
+        public bool? Main
+        {
+            get
+            {
+                if (!_mUnknown_Main) return _mValue_Main;
+                throw new UndeferrableValueException("Value 'GetRouteTableAssociationResult.Main' is not present");
+            }
+        }
 
         /// <summary>
         /// Association ID.
         /// </summary>
-        [Input("routeTableAssociationId")]
+        [PolicyResourceProperty("routeTableAssociationId", "_mUnknown_RouteTableAssociationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableAssociationId;
-
-        public string? RouteTableAssociationId => _mRouteTableAssociationId.GetValue("routeTableAssociationId");
+        private string? _mValue_RouteTableAssociationId;
+        private bool _mUnknown_RouteTableAssociationId;
+        public string? RouteTableAssociationId
+        {
+            get
+            {
+                if (!_mUnknown_RouteTableAssociationId) return _mValue_RouteTableAssociationId;
+                throw new UndeferrableValueException("Value 'GetRouteTableAssociationResult.RouteTableAssociationId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the specific Route Table to retrieve.
         /// </summary>
-        [Input("routeTableId")]
+        [PolicyResourceProperty("routeTableId", "_mUnknown_RouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
-
-        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
+        private string? _mValue_RouteTableId;
+        private bool _mUnknown_RouteTableId;
+        public string? RouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_RouteTableId) return _mValue_RouteTableId;
+                throw new UndeferrableValueException("Value 'GetRouteTableAssociationResult.RouteTableId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'GetRouteTableAssociationResult.SubnetId' is not present");
+            }
+        }
     }
 }

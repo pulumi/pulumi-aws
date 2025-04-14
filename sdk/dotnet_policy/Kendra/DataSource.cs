@@ -16,157 +16,276 @@ namespace Pulumi.PolicyPacks.Aws.Kendra
         /// <summary>
         /// ARN of the Data Source.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DataSource.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceConfiguration> _mConfiguration;
-
-        public Outputs.DataSourceConfiguration? Configuration => _mConfiguration.GetValue("configuration");
+        private Outputs.DataSourceConfiguration? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Outputs.DataSourceConfiguration? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'DataSource.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The Unix time stamp of when the Data Source was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'DataSource.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
         /// </summary>
-        [Input("customDocumentEnrichmentConfiguration")]
+        [PolicyResourceProperty("customDocumentEnrichmentConfiguration", "_mUnknown_CustomDocumentEnrichmentConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceCustomDocumentEnrichmentConfiguration> _mCustomDocumentEnrichmentConfiguration;
-
-        public Outputs.DataSourceCustomDocumentEnrichmentConfiguration? CustomDocumentEnrichmentConfiguration => _mCustomDocumentEnrichmentConfiguration.GetValue("customDocumentEnrichmentConfiguration");
+        private Outputs.DataSourceCustomDocumentEnrichmentConfiguration? _mValue_CustomDocumentEnrichmentConfiguration;
+        private bool _mUnknown_CustomDocumentEnrichmentConfiguration;
+        public Outputs.DataSourceCustomDocumentEnrichmentConfiguration? CustomDocumentEnrichmentConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CustomDocumentEnrichmentConfiguration) return _mValue_CustomDocumentEnrichmentConfiguration;
+                throw new UndeferrableValueException("Value 'DataSource.CustomDocumentEnrichmentConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifiers of the Data Source.
         /// </summary>
-        [Input("dataSourceId")]
+        [PolicyResourceProperty("dataSourceId", "_mUnknown_DataSourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceId;
-
-        public string? DataSourceId => _mDataSourceId.GetValue("dataSourceId");
+        private string? _mValue_DataSourceId;
+        private bool _mUnknown_DataSourceId;
+        public string? DataSourceId
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceId) return _mValue_DataSourceId;
+                throw new UndeferrableValueException("Value 'DataSource.DataSourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the Data Source connector.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DataSource.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
         /// </summary>
-        [Input("errorMessage")]
+        [PolicyResourceProperty("errorMessage", "_mUnknown_ErrorMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mErrorMessage;
-
-        public string? ErrorMessage => _mErrorMessage.GetValue("errorMessage");
+        private string? _mValue_ErrorMessage;
+        private bool _mUnknown_ErrorMessage;
+        public string? ErrorMessage
+        {
+            get
+            {
+                if (!_mUnknown_ErrorMessage) return _mValue_ErrorMessage;
+                throw new UndeferrableValueException("Value 'DataSource.ErrorMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the index for your Amazon Kendra data source.
         /// </summary>
-        [Input("indexId")]
+        [PolicyResourceProperty("indexId", "_mUnknown_IndexId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIndexId;
-
-        public string? IndexId => _mIndexId.GetValue("indexId");
+        private string? _mValue_IndexId;
+        private bool _mUnknown_IndexId;
+        public string? IndexId
+        {
+            get
+            {
+                if (!_mUnknown_IndexId) return _mValue_IndexId;
+                throw new UndeferrableValueException("Value 'DataSource.IndexId' is not present");
+            }
+        }
 
         /// <summary>
         /// The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         /// </summary>
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
-
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'DataSource.LanguageCode' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for your data source connector.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DataSource.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'DataSource.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchedule;
-
-        public string? Schedule => _mSchedule.GetValue("schedule");
+        private string? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public string? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'DataSource.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'DataSource.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DataSource.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DataSource.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'DataSource.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// The Unix time stamp of when the Data Source was last updated.
         /// </summary>
-        [Input("updatedAt")]
+        [PolicyResourceProperty("updatedAt", "_mUnknown_UpdatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
-
-        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
+        private string? _mValue_UpdatedAt;
+        private bool _mUnknown_UpdatedAt;
+        public string? UpdatedAt
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedAt) return _mValue_UpdatedAt;
+                throw new UndeferrableValueException("Value 'DataSource.UpdatedAt' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:kendra/dataSource:DataSource")]
@@ -175,93 +294,163 @@ namespace Pulumi.PolicyPacks.Aws.Kendra
         /// <summary>
         /// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceConfigurationArgs> _mConfiguration;
-
-        public Inputs.DataSourceConfigurationArgs? Configuration => _mConfiguration.GetValue("configuration");
+        private Inputs.DataSourceConfigurationArgs? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Inputs.DataSourceConfigurationArgs? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
         /// </summary>
-        [Input("customDocumentEnrichmentConfiguration")]
+        [PolicyResourceProperty("customDocumentEnrichmentConfiguration", "_mUnknown_CustomDocumentEnrichmentConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceCustomDocumentEnrichmentConfigurationArgs> _mCustomDocumentEnrichmentConfiguration;
-
-        public Inputs.DataSourceCustomDocumentEnrichmentConfigurationArgs? CustomDocumentEnrichmentConfiguration => _mCustomDocumentEnrichmentConfiguration.GetValue("customDocumentEnrichmentConfiguration");
+        private Inputs.DataSourceCustomDocumentEnrichmentConfigurationArgs? _mValue_CustomDocumentEnrichmentConfiguration;
+        private bool _mUnknown_CustomDocumentEnrichmentConfiguration;
+        public Inputs.DataSourceCustomDocumentEnrichmentConfigurationArgs? CustomDocumentEnrichmentConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CustomDocumentEnrichmentConfiguration) return _mValue_CustomDocumentEnrichmentConfiguration;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.CustomDocumentEnrichmentConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the Data Source connector.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the index for your Amazon Kendra data source.
         /// </summary>
-        [Input("indexId")]
+        [PolicyResourceProperty("indexId", "_mUnknown_IndexId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIndexId;
-
-        public string? IndexId => _mIndexId.GetValue("indexId");
+        private string? _mValue_IndexId;
+        private bool _mUnknown_IndexId;
+        public string? IndexId
+        {
+            get
+            {
+                if (!_mUnknown_IndexId) return _mValue_IndexId;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.IndexId' is not present");
+            }
+        }
 
         /// <summary>
         /// The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         /// </summary>
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
-
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.LanguageCode' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for your data source connector.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchedule;
-
-        public string? Schedule => _mSchedule.GetValue("schedule");
+        private string? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public string? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.Type' is not present");
+            }
+        }
     }
 }

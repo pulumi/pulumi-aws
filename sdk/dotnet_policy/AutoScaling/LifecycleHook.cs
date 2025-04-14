@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// <summary>
         /// Name of the Auto Scaling group to which you want to assign the lifecycle hook
         /// </summary>
-        [Input("autoscalingGroupName")]
+        [PolicyResourceProperty("autoscalingGroupName", "_mUnknown_AutoscalingGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
-
-        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
+        private string? _mValue_AutoscalingGroupName;
+        private bool _mUnknown_AutoscalingGroupName;
+        public string? AutoscalingGroupName
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingGroupName) return _mValue_AutoscalingGroupName;
+                throw new UndeferrableValueException("Value 'LifecycleHook.AutoscalingGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
         /// </summary>
-        [Input("defaultResult")]
+        [PolicyResourceProperty("defaultResult", "_mUnknown_DefaultResult")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultResult;
-
-        public string? DefaultResult => _mDefaultResult.GetValue("defaultResult");
+        private string? _mValue_DefaultResult;
+        private bool _mUnknown_DefaultResult;
+        public string? DefaultResult
+        {
+            get
+            {
+                if (!_mUnknown_DefaultResult) return _mValue_DefaultResult;
+                throw new UndeferrableValueException("Value 'LifecycleHook.DefaultResult' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
         /// </summary>
-        [Input("heartbeatTimeout")]
+        [PolicyResourceProperty("heartbeatTimeout", "_mUnknown_HeartbeatTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHeartbeatTimeout;
-
-        public int? HeartbeatTimeout => _mHeartbeatTimeout.GetValue("heartbeatTimeout");
+        private int? _mValue_HeartbeatTimeout;
+        private bool _mUnknown_HeartbeatTimeout;
+        public int? HeartbeatTimeout
+        {
+            get
+            {
+                if (!_mUnknown_HeartbeatTimeout) return _mValue_HeartbeatTimeout;
+                throw new UndeferrableValueException("Value 'LifecycleHook.HeartbeatTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
         /// </summary>
-        [Input("lifecycleTransition")]
+        [PolicyResourceProperty("lifecycleTransition", "_mUnknown_LifecycleTransition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLifecycleTransition;
-
-        public string? LifecycleTransition => _mLifecycleTransition.GetValue("lifecycleTransition");
+        private string? _mValue_LifecycleTransition;
+        private bool _mUnknown_LifecycleTransition;
+        public string? LifecycleTransition
+        {
+            get
+            {
+                if (!_mUnknown_LifecycleTransition) return _mValue_LifecycleTransition;
+                throw new UndeferrableValueException("Value 'LifecycleHook.LifecycleTransition' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the lifecycle hook.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LifecycleHook.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
         /// </summary>
-        [Input("notificationMetadata")]
+        [PolicyResourceProperty("notificationMetadata", "_mUnknown_NotificationMetadata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationMetadata;
-
-        public string? NotificationMetadata => _mNotificationMetadata.GetValue("notificationMetadata");
+        private string? _mValue_NotificationMetadata;
+        private bool _mUnknown_NotificationMetadata;
+        public string? NotificationMetadata
+        {
+            get
+            {
+                if (!_mUnknown_NotificationMetadata) return _mValue_NotificationMetadata;
+                throw new UndeferrableValueException("Value 'LifecycleHook.NotificationMetadata' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
         /// </summary>
-        [Input("notificationTargetArn")]
+        [PolicyResourceProperty("notificationTargetArn", "_mUnknown_NotificationTargetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationTargetArn;
-
-        public string? NotificationTargetArn => _mNotificationTargetArn.GetValue("notificationTargetArn");
+        private string? _mValue_NotificationTargetArn;
+        private bool _mUnknown_NotificationTargetArn;
+        public string? NotificationTargetArn
+        {
+            get
+            {
+                if (!_mUnknown_NotificationTargetArn) return _mValue_NotificationTargetArn;
+                throw new UndeferrableValueException("Value 'LifecycleHook.NotificationTargetArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'LifecycleHook.RoleArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:autoscaling/lifecycleHook:LifecycleHook")]
@@ -92,73 +148,129 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// <summary>
         /// Name of the Auto Scaling group to which you want to assign the lifecycle hook
         /// </summary>
-        [Input("autoscalingGroupName")]
+        [PolicyResourceProperty("autoscalingGroupName", "_mUnknown_AutoscalingGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
-
-        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
+        private string? _mValue_AutoscalingGroupName;
+        private bool _mUnknown_AutoscalingGroupName;
+        public string? AutoscalingGroupName
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingGroupName) return _mValue_AutoscalingGroupName;
+                throw new UndeferrableValueException("Value 'LifecycleHookArgs.AutoscalingGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
         /// </summary>
-        [Input("defaultResult")]
+        [PolicyResourceProperty("defaultResult", "_mUnknown_DefaultResult")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultResult;
-
-        public string? DefaultResult => _mDefaultResult.GetValue("defaultResult");
+        private string? _mValue_DefaultResult;
+        private bool _mUnknown_DefaultResult;
+        public string? DefaultResult
+        {
+            get
+            {
+                if (!_mUnknown_DefaultResult) return _mValue_DefaultResult;
+                throw new UndeferrableValueException("Value 'LifecycleHookArgs.DefaultResult' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
         /// </summary>
-        [Input("heartbeatTimeout")]
+        [PolicyResourceProperty("heartbeatTimeout", "_mUnknown_HeartbeatTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHeartbeatTimeout;
-
-        public int? HeartbeatTimeout => _mHeartbeatTimeout.GetValue("heartbeatTimeout");
+        private int? _mValue_HeartbeatTimeout;
+        private bool _mUnknown_HeartbeatTimeout;
+        public int? HeartbeatTimeout
+        {
+            get
+            {
+                if (!_mUnknown_HeartbeatTimeout) return _mValue_HeartbeatTimeout;
+                throw new UndeferrableValueException("Value 'LifecycleHookArgs.HeartbeatTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
         /// </summary>
-        [Input("lifecycleTransition")]
+        [PolicyResourceProperty("lifecycleTransition", "_mUnknown_LifecycleTransition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLifecycleTransition;
-
-        public string? LifecycleTransition => _mLifecycleTransition.GetValue("lifecycleTransition");
+        private string? _mValue_LifecycleTransition;
+        private bool _mUnknown_LifecycleTransition;
+        public string? LifecycleTransition
+        {
+            get
+            {
+                if (!_mUnknown_LifecycleTransition) return _mValue_LifecycleTransition;
+                throw new UndeferrableValueException("Value 'LifecycleHookArgs.LifecycleTransition' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the lifecycle hook.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LifecycleHookArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
         /// </summary>
-        [Input("notificationMetadata")]
+        [PolicyResourceProperty("notificationMetadata", "_mUnknown_NotificationMetadata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationMetadata;
-
-        public string? NotificationMetadata => _mNotificationMetadata.GetValue("notificationMetadata");
+        private string? _mValue_NotificationMetadata;
+        private bool _mUnknown_NotificationMetadata;
+        public string? NotificationMetadata
+        {
+            get
+            {
+                if (!_mUnknown_NotificationMetadata) return _mValue_NotificationMetadata;
+                throw new UndeferrableValueException("Value 'LifecycleHookArgs.NotificationMetadata' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
         /// </summary>
-        [Input("notificationTargetArn")]
+        [PolicyResourceProperty("notificationTargetArn", "_mUnknown_NotificationTargetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationTargetArn;
-
-        public string? NotificationTargetArn => _mNotificationTargetArn.GetValue("notificationTargetArn");
+        private string? _mValue_NotificationTargetArn;
+        private bool _mUnknown_NotificationTargetArn;
+        public string? NotificationTargetArn
+        {
+            get
+            {
+                if (!_mUnknown_NotificationTargetArn) return _mValue_NotificationTargetArn;
+                throw new UndeferrableValueException("Value 'LifecycleHookArgs.NotificationTargetArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'LifecycleHookArgs.RoleArn' is not present");
+            }
+        }
     }
 }

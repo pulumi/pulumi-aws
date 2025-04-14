@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// Nested argument containing EC2 Launch Template to use. Defined below.
         /// </summary>
-        [Input("launchTemplateSpecification")]
+        [PolicyResourceProperty("launchTemplateSpecification", "_mUnknown_LaunchTemplateSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetLaunchTemplateConfigLaunchTemplateSpecification> _mLaunchTemplateSpecification;
-
-        public Outputs.FleetLaunchTemplateConfigLaunchTemplateSpecification? LaunchTemplateSpecification => _mLaunchTemplateSpecification.GetValue("launchTemplateSpecification");
+        private Outputs.FleetLaunchTemplateConfigLaunchTemplateSpecification? _mValue_LaunchTemplateSpecification;
+        private bool _mUnknown_LaunchTemplateSpecification;
+        public Outputs.FleetLaunchTemplateConfigLaunchTemplateSpecification? LaunchTemplateSpecification
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplateSpecification) return _mValue_LaunchTemplateSpecification;
+                throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfig.LaunchTemplateSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
         /// </summary>
-        [Input("overrides")]
+        [PolicyResourceProperty("overrides", "_mUnknown_Overrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FleetLaunchTemplateConfigOverride>> _mOverrides;
-
-        public List<Outputs.FleetLaunchTemplateConfigOverride>? Overrides => _mOverrides.GetValue("overrides");
+        private List<Outputs.FleetLaunchTemplateConfigOverride>? _mValue_Overrides;
+        private bool _mUnknown_Overrides;
+        public List<Outputs.FleetLaunchTemplateConfigOverride>? Overrides
+        {
+            get
+            {
+                if (!_mUnknown_Overrides) return _mValue_Overrides;
+                throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfig.Overrides' is not present");
+            }
+        }
     }
 }

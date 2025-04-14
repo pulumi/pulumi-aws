@@ -15,40 +15,75 @@ namespace Pulumi.PolicyPacks.Aws.Dlm.Inputs
         /// <summary>
         /// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
         /// </summary>
-        [Input("cronExpression")]
+        [PolicyResourceProperty("cronExpression", "_mUnknown_CronExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCronExpression;
+        private string? _mValue_CronExpression;
+        private bool _mUnknown_CronExpression;
+        public string? CronExpression
+        {
+            get
+            {
+                if (!_mUnknown_CronExpression) return _mValue_CronExpression;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.CronExpression' is not present");
+            }
+        }
 
-        public string? CronExpression => _mCronExpression.GetValue("cronExpression");
-
-        [Input("interval")]
+        [PolicyResourceProperty("interval", "_mUnknown_Interval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInterval;
+        private int? _mValue_Interval;
+        private bool _mUnknown_Interval;
+        public int? Interval
+        {
+            get
+            {
+                if (!_mUnknown_Interval) return _mValue_Interval;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.Interval' is not present");
+            }
+        }
 
-        public int? Interval => _mInterval.GetValue("interval");
-
-        [Input("intervalUnit")]
+        [PolicyResourceProperty("intervalUnit", "_mUnknown_IntervalUnit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIntervalUnit;
-
-        public string? IntervalUnit => _mIntervalUnit.GetValue("intervalUnit");
+        private string? _mValue_IntervalUnit;
+        private bool _mUnknown_IntervalUnit;
+        public string? IntervalUnit
+        {
+            get
+            {
+                if (!_mUnknown_IntervalUnit) return _mValue_IntervalUnit;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.IntervalUnit' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
-
-        public string? Location => _mLocation.GetValue("location");
+        private string? _mValue_Location;
+        private bool _mUnknown_Location;
+        public string? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
         /// </summary>
-        [Input("times")]
+        [PolicyResourceProperty("times", "_mUnknown_Times")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimes;
-
-        public string? Times => _mTimes.GetValue("times");
+        private string? _mValue_Times;
+        private bool _mUnknown_Times;
+        public string? Times
+        {
+            get
+            {
+                if (!_mUnknown_Times) return _mValue_Times;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.Times' is not present");
+            }
+        }
     }
 }

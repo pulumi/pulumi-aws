@@ -15,47 +15,82 @@ namespace Pulumi.PolicyPacks.Aws.CloudHsmV2.Outputs
         /// <summary>
         /// The HSM hardware certificate issued (signed) by AWS CloudHSM.
         /// </summary>
-        [Input("awsHardwareCertificate")]
+        [PolicyResourceProperty("awsHardwareCertificate", "_mUnknown_AwsHardwareCertificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsHardwareCertificate;
-
-        public string? AwsHardwareCertificate => _mAwsHardwareCertificate.GetValue("awsHardwareCertificate");
+        private string? _mValue_AwsHardwareCertificate;
+        private bool _mUnknown_AwsHardwareCertificate;
+        public string? AwsHardwareCertificate
+        {
+            get
+            {
+                if (!_mUnknown_AwsHardwareCertificate) return _mValue_AwsHardwareCertificate;
+                throw new UndeferrableValueException("Value 'GetClusterClusterCertificateResult.AwsHardwareCertificate' is not present");
+            }
+        }
 
         /// <summary>
         /// The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
         /// </summary>
-        [Input("clusterCertificate")]
+        [PolicyResourceProperty("clusterCertificate", "_mUnknown_ClusterCertificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterCertificate;
-
-        public string? ClusterCertificate => _mClusterCertificate.GetValue("clusterCertificate");
+        private string? _mValue_ClusterCertificate;
+        private bool _mUnknown_ClusterCertificate;
+        public string? ClusterCertificate
+        {
+            get
+            {
+                if (!_mUnknown_ClusterCertificate) return _mValue_ClusterCertificate;
+                throw new UndeferrableValueException("Value 'GetClusterClusterCertificateResult.ClusterCertificate' is not present");
+            }
+        }
 
         /// <summary>
         /// The certificate signing request (CSR). Available only in UNINITIALIZED state.
         /// </summary>
-        [Input("clusterCsr")]
+        [PolicyResourceProperty("clusterCsr", "_mUnknown_ClusterCsr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterCsr;
-
-        public string? ClusterCsr => _mClusterCsr.GetValue("clusterCsr");
+        private string? _mValue_ClusterCsr;
+        private bool _mUnknown_ClusterCsr;
+        public string? ClusterCsr
+        {
+            get
+            {
+                if (!_mUnknown_ClusterCsr) return _mValue_ClusterCsr;
+                throw new UndeferrableValueException("Value 'GetClusterClusterCertificateResult.ClusterCsr' is not present");
+            }
+        }
 
         /// <summary>
         /// The HSM certificate issued (signed) by the HSM hardware.
         /// </summary>
-        [Input("hsmCertificate")]
+        [PolicyResourceProperty("hsmCertificate", "_mUnknown_HsmCertificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHsmCertificate;
-
-        public string? HsmCertificate => _mHsmCertificate.GetValue("hsmCertificate");
+        private string? _mValue_HsmCertificate;
+        private bool _mUnknown_HsmCertificate;
+        public string? HsmCertificate
+        {
+            get
+            {
+                if (!_mUnknown_HsmCertificate) return _mValue_HsmCertificate;
+                throw new UndeferrableValueException("Value 'GetClusterClusterCertificateResult.HsmCertificate' is not present");
+            }
+        }
 
         /// <summary>
         /// The HSM hardware certificate issued (signed) by the hardware manufacturer.
         /// The number of available cluster certificates may vary depending on state of the cluster.
         /// </summary>
-        [Input("manufacturerHardwareCertificate")]
+        [PolicyResourceProperty("manufacturerHardwareCertificate", "_mUnknown_ManufacturerHardwareCertificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManufacturerHardwareCertificate;
-
-        public string? ManufacturerHardwareCertificate => _mManufacturerHardwareCertificate.GetValue("manufacturerHardwareCertificate");
+        private string? _mValue_ManufacturerHardwareCertificate;
+        private bool _mUnknown_ManufacturerHardwareCertificate;
+        public string? ManufacturerHardwareCertificate
+        {
+            get
+            {
+                if (!_mUnknown_ManufacturerHardwareCertificate) return _mValue_ManufacturerHardwareCertificate;
+                throw new UndeferrableValueException("Value 'GetClusterClusterCertificateResult.ManufacturerHardwareCertificate' is not present");
+            }
+        }
     }
 }

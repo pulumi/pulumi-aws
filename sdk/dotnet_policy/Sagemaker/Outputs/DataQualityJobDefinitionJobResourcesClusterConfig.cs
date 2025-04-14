@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1.
         /// </summary>
-        [Input("instanceCount")]
+        [PolicyResourceProperty("instanceCount", "_mUnknown_InstanceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceCount;
-
-        public int? InstanceCount => _mInstanceCount.GetValue("instanceCount");
+        private int? _mValue_InstanceCount;
+        private bool _mUnknown_InstanceCount;
+        public int? InstanceCount
+        {
+            get
+            {
+                if (!_mUnknown_InstanceCount) return _mValue_InstanceCount;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionJobResourcesClusterConfig.InstanceCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The ML compute instance type for the processing job.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionJobResourcesClusterConfig.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
         /// </summary>
-        [Input("volumeKmsKeyId")]
+        [PolicyResourceProperty("volumeKmsKeyId", "_mUnknown_VolumeKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeKmsKeyId;
-
-        public string? VolumeKmsKeyId => _mVolumeKmsKeyId.GetValue("volumeKmsKeyId");
+        private string? _mValue_VolumeKmsKeyId;
+        private bool _mUnknown_VolumeKmsKeyId;
+        public string? VolumeKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_VolumeKmsKeyId) return _mValue_VolumeKmsKeyId;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionJobResourcesClusterConfig.VolumeKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
         /// </summary>
-        [Input("volumeSizeInGb")]
+        [PolicyResourceProperty("volumeSizeInGb", "_mUnknown_VolumeSizeInGb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVolumeSizeInGb;
-
-        public int? VolumeSizeInGb => _mVolumeSizeInGb.GetValue("volumeSizeInGb");
+        private int? _mValue_VolumeSizeInGb;
+        private bool _mUnknown_VolumeSizeInGb;
+        public int? VolumeSizeInGb
+        {
+            get
+            {
+                if (!_mUnknown_VolumeSizeInGb) return _mValue_VolumeSizeInGb;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionJobResourcesClusterConfig.VolumeSizeInGb' is not present");
+            }
+        }
     }
 }

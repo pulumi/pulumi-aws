@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
         /// </summary>
-        [Input("contentTypeProfiles")]
+        [PolicyResourceProperty("contentTypeProfiles", "_mUnknown_ContentTypeProfiles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs> _mContentTypeProfiles;
-
-        public Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs? ContentTypeProfiles => _mContentTypeProfiles.GetValue("contentTypeProfiles");
+        private Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs? _mValue_ContentTypeProfiles;
+        private bool _mUnknown_ContentTypeProfiles;
+        public Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs? ContentTypeProfiles
+        {
+            get
+            {
+                if (!_mUnknown_ContentTypeProfiles) return _mValue_ContentTypeProfiles;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigContentTypeProfileConfigArgs.ContentTypeProfiles' is not present");
+            }
+        }
 
         /// <summary>
         /// specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
         /// </summary>
-        [Input("forwardWhenContentTypeIsUnknown")]
+        [PolicyResourceProperty("forwardWhenContentTypeIsUnknown", "_mUnknown_ForwardWhenContentTypeIsUnknown")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForwardWhenContentTypeIsUnknown;
-
-        public bool? ForwardWhenContentTypeIsUnknown => _mForwardWhenContentTypeIsUnknown.GetValue("forwardWhenContentTypeIsUnknown");
+        private bool? _mValue_ForwardWhenContentTypeIsUnknown;
+        private bool _mUnknown_ForwardWhenContentTypeIsUnknown;
+        public bool? ForwardWhenContentTypeIsUnknown
+        {
+            get
+            {
+                if (!_mUnknown_ForwardWhenContentTypeIsUnknown) return _mValue_ForwardWhenContentTypeIsUnknown;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigContentTypeProfileConfigArgs.ForwardWhenContentTypeIsUnknown' is not present");
+            }
+        }
     }
 }

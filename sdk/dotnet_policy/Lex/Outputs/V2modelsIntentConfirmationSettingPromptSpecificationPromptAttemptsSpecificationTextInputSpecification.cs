@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Time for which a bot waits before re-prompting a customer for text input.
         /// </summary>
-        [Input("startTimeoutMs")]
+        [PolicyResourceProperty("startTimeoutMs", "_mUnknown_StartTimeoutMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStartTimeoutMs;
-
-        public int? StartTimeoutMs => _mStartTimeoutMs.GetValue("startTimeoutMs");
+        private int? _mValue_StartTimeoutMs;
+        private bool _mUnknown_StartTimeoutMs;
+        public int? StartTimeoutMs
+        {
+            get
+            {
+                if (!_mUnknown_StartTimeoutMs) return _mValue_StartTimeoutMs;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification.StartTimeoutMs' is not present");
+            }
+        }
     }
 }

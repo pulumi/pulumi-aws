@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// <summary>
         /// [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
         /// </summary>
-        [Input("apiMappingSelectionExpression")]
+        [PolicyResourceProperty("apiMappingSelectionExpression", "_mUnknown_ApiMappingSelectionExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiMappingSelectionExpression;
-
-        public string? ApiMappingSelectionExpression => _mApiMappingSelectionExpression.GetValue("apiMappingSelectionExpression");
+        private string? _mValue_ApiMappingSelectionExpression;
+        private bool _mUnknown_ApiMappingSelectionExpression;
+        public string? ApiMappingSelectionExpression
+        {
+            get
+            {
+                if (!_mUnknown_ApiMappingSelectionExpression) return _mValue_ApiMappingSelectionExpression;
+                throw new UndeferrableValueException("Value 'DomainName.ApiMappingSelectionExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the domain name.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DomainName.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain name. Must be between 1 and 512 characters in length.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domainName");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'DomainName.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain name configuration. See below.
         /// </summary>
-        [Input("domainNameConfiguration")]
+        [PolicyResourceProperty("domainNameConfiguration", "_mUnknown_DomainNameConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainNameDomainNameConfiguration> _mDomainNameConfiguration;
-
-        public Outputs.DomainNameDomainNameConfiguration? DomainNameConfiguration => _mDomainNameConfiguration.GetValue("domainNameConfiguration");
+        private Outputs.DomainNameDomainNameConfiguration? _mValue_DomainNameConfiguration;
+        private bool _mUnknown_DomainNameConfiguration;
+        public Outputs.DomainNameDomainNameConfiguration? DomainNameConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DomainNameConfiguration) return _mValue_DomainNameConfiguration;
+                throw new UndeferrableValueException("Value 'DomainName.DomainNameConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Mutual TLS authentication configuration for the domain name.
         /// </summary>
-        [Input("mutualTlsAuthentication")]
+        [PolicyResourceProperty("mutualTlsAuthentication", "_mUnknown_MutualTlsAuthentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainNameMutualTlsAuthentication> _mMutualTlsAuthentication;
-
-        public Outputs.DomainNameMutualTlsAuthentication? MutualTlsAuthentication => _mMutualTlsAuthentication.GetValue("mutualTlsAuthentication");
+        private Outputs.DomainNameMutualTlsAuthentication? _mValue_MutualTlsAuthentication;
+        private bool _mUnknown_MutualTlsAuthentication;
+        public Outputs.DomainNameMutualTlsAuthentication? MutualTlsAuthentication
+        {
+            get
+            {
+                if (!_mUnknown_MutualTlsAuthentication) return _mValue_MutualTlsAuthentication;
+                throw new UndeferrableValueException("Value 'DomainName.MutualTlsAuthentication' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DomainName.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DomainName.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigatewayv2/domainName:DomainName")]
@@ -83,37 +132,65 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// <summary>
         /// Domain name. Must be between 1 and 512 characters in length.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domainName");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'DomainNameArgs.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain name configuration. See below.
         /// </summary>
-        [Input("domainNameConfiguration")]
+        [PolicyResourceProperty("domainNameConfiguration", "_mUnknown_DomainNameConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainNameDomainNameConfigurationArgs> _mDomainNameConfiguration;
-
-        public Inputs.DomainNameDomainNameConfigurationArgs? DomainNameConfiguration => _mDomainNameConfiguration.GetValue("domainNameConfiguration");
+        private Inputs.DomainNameDomainNameConfigurationArgs? _mValue_DomainNameConfiguration;
+        private bool _mUnknown_DomainNameConfiguration;
+        public Inputs.DomainNameDomainNameConfigurationArgs? DomainNameConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DomainNameConfiguration) return _mValue_DomainNameConfiguration;
+                throw new UndeferrableValueException("Value 'DomainNameArgs.DomainNameConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Mutual TLS authentication configuration for the domain name.
         /// </summary>
-        [Input("mutualTlsAuthentication")]
+        [PolicyResourceProperty("mutualTlsAuthentication", "_mUnknown_MutualTlsAuthentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainNameMutualTlsAuthenticationArgs> _mMutualTlsAuthentication;
-
-        public Inputs.DomainNameMutualTlsAuthenticationArgs? MutualTlsAuthentication => _mMutualTlsAuthentication.GetValue("mutualTlsAuthentication");
+        private Inputs.DomainNameMutualTlsAuthenticationArgs? _mValue_MutualTlsAuthentication;
+        private bool _mUnknown_MutualTlsAuthentication;
+        public Inputs.DomainNameMutualTlsAuthenticationArgs? MutualTlsAuthentication
+        {
+            get
+            {
+                if (!_mUnknown_MutualTlsAuthentication) return _mValue_MutualTlsAuthentication;
+                throw new UndeferrableValueException("Value 'DomainNameArgs.MutualTlsAuthentication' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DomainNameArgs.Tags' is not present");
+            }
+        }
     }
 }

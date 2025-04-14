@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Inputs
         /// <summary>
         /// Name of S3 bucket where the aggregated data is stored.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'ResourceDataSyncS3DestinationArgs.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an encryption key for a destination in Amazon S3.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'ResourceDataSyncS3DestinationArgs.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix for the bucket.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'ResourceDataSyncS3DestinationArgs.Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Region with the bucket targeted by the Resource Data Sync.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'ResourceDataSyncS3DestinationArgs.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
         /// </summary>
-        [Input("syncFormat")]
+        [PolicyResourceProperty("syncFormat", "_mUnknown_SyncFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSyncFormat;
-
-        public string? SyncFormat => _mSyncFormat.GetValue("syncFormat");
+        private string? _mValue_SyncFormat;
+        private bool _mUnknown_SyncFormat;
+        public string? SyncFormat
+        {
+            get
+            {
+                if (!_mUnknown_SyncFormat) return _mValue_SyncFormat;
+                throw new UndeferrableValueException("Value 'ResourceDataSyncS3DestinationArgs.SyncFormat' is not present");
+            }
+        }
     }
 }

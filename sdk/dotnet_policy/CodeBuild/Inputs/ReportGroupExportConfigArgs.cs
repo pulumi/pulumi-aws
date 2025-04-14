@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Inputs
         /// <summary>
         /// contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
         /// </summary>
-        [Input("s3Destination")]
+        [PolicyResourceProperty("s3Destination", "_mUnknown_S3Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ReportGroupExportConfigS3DestinationArgs> _mS3Destination;
-
-        public Inputs.ReportGroupExportConfigS3DestinationArgs? S3Destination => _mS3Destination.GetValue("s3Destination");
+        private Inputs.ReportGroupExportConfigS3DestinationArgs? _mValue_S3Destination;
+        private bool _mUnknown_S3Destination;
+        public Inputs.ReportGroupExportConfigS3DestinationArgs? S3Destination
+        {
+            get
+            {
+                if (!_mUnknown_S3Destination) return _mValue_S3Destination;
+                throw new UndeferrableValueException("Value 'ReportGroupExportConfigArgs.S3Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// The export configuration type. Valid values are `S3` and `NO_EXPORT`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ReportGroupExportConfigArgs.Type' is not present");
+            }
+        }
     }
 }

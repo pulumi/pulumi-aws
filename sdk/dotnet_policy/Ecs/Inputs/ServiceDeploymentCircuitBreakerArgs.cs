@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Inputs
         /// <summary>
         /// Whether to enable the deployment circuit breaker logic for the service.
         /// </summary>
-        [Input("enable")]
+        [PolicyResourceProperty("enable", "_mUnknown_Enable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnable;
-
-        public bool? Enable => _mEnable.GetValue("enable");
+        private bool? _mValue_Enable;
+        private bool _mUnknown_Enable;
+        public bool? Enable
+        {
+            get
+            {
+                if (!_mUnknown_Enable) return _mValue_Enable;
+                throw new UndeferrableValueException("Value 'ServiceDeploymentCircuitBreakerArgs.Enable' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
         /// </summary>
-        [Input("rollback")]
+        [PolicyResourceProperty("rollback", "_mUnknown_Rollback")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRollback;
-
-        public bool? Rollback => _mRollback.GetValue("rollback");
+        private bool? _mValue_Rollback;
+        private bool _mUnknown_Rollback;
+        public bool? Rollback
+        {
+            get
+            {
+                if (!_mUnknown_Rollback) return _mValue_Rollback;
+                throw new UndeferrableValueException("Value 'ServiceDeploymentCircuitBreakerArgs.Rollback' is not present");
+            }
+        }
     }
 }

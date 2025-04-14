@@ -17,171 +17,297 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketAccelerateConfigurationV2` instead.
         /// </summary>
-        [Input("accelerationStatus")]
+        [PolicyResourceProperty("accelerationStatus", "_mUnknown_AccelerationStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccelerationStatus;
-
-        public string? AccelerationStatus => _mAccelerationStatus.GetValue("accelerationStatus");
+        private string? _mValue_AccelerationStatus;
+        private bool _mUnknown_AccelerationStatus;
+        public string? AccelerationStatus
+        {
+            get
+            {
+                if (!_mUnknown_AccelerationStatus) return _mValue_AccelerationStatus;
+                throw new UndeferrableValueException("Value 'BucketV2.AccelerationStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
         /// </summary>
-        [Input("acl")]
+        [PolicyResourceProperty("acl", "_mUnknown_Acl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcl;
-
-        public string? Acl => _mAcl.GetValue("acl");
+        private string? _mValue_Acl;
+        private bool _mUnknown_Acl;
+        public string? Acl
+        {
+            get
+            {
+                if (!_mUnknown_Acl) return _mValue_Acl;
+                throw new UndeferrableValueException("Value 'BucketV2.Acl' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'BucketV2.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketV2.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
         /// </summary>
-        [Input("bucketDomainName")]
+        [PolicyResourceProperty("bucketDomainName", "_mUnknown_BucketDomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketDomainName;
-
-        public string? BucketDomainName => _mBucketDomainName.GetValue("bucketDomainName");
+        private string? _mValue_BucketDomainName;
+        private bool _mUnknown_BucketDomainName;
+        public string? BucketDomainName
+        {
+            get
+            {
+                if (!_mUnknown_BucketDomainName) return _mValue_BucketDomainName;
+                throw new UndeferrableValueException("Value 'BucketV2.BucketDomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         /// </summary>
-        [Input("bucketPrefix")]
+        [PolicyResourceProperty("bucketPrefix", "_mUnknown_BucketPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketPrefix;
-
-        public string? BucketPrefix => _mBucketPrefix.GetValue("bucketPrefix");
+        private string? _mValue_BucketPrefix;
+        private bool _mUnknown_BucketPrefix;
+        public string? BucketPrefix
+        {
+            get
+            {
+                if (!_mUnknown_BucketPrefix) return _mValue_BucketPrefix;
+                throw new UndeferrableValueException("Value 'BucketV2.BucketPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
         /// </summary>
-        [Input("bucketRegionalDomainName")]
+        [PolicyResourceProperty("bucketRegionalDomainName", "_mUnknown_BucketRegionalDomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketRegionalDomainName;
-
-        public string? BucketRegionalDomainName => _mBucketRegionalDomainName.GetValue("bucketRegionalDomainName");
+        private string? _mValue_BucketRegionalDomainName;
+        private bool _mUnknown_BucketRegionalDomainName;
+        public string? BucketRegionalDomainName
+        {
+            get
+            {
+                if (!_mUnknown_BucketRegionalDomainName) return _mValue_BucketRegionalDomainName;
+                throw new UndeferrableValueException("Value 'BucketV2.BucketRegionalDomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfigurationV2` instead.
         /// </summary>
-        [Input("corsRules")]
+        [PolicyResourceProperty("corsRules", "_mUnknown_CorsRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketV2CorsRule>> _mCorsRules;
-
-        public List<Outputs.BucketV2CorsRule>? CorsRules => _mCorsRules.GetValue("corsRules");
+        private List<Outputs.BucketV2CorsRule>? _mValue_CorsRules;
+        private bool _mUnknown_CorsRules;
+        public List<Outputs.BucketV2CorsRule>? CorsRules
+        {
+            get
+            {
+                if (!_mUnknown_CorsRules) return _mValue_CorsRules;
+                throw new UndeferrableValueException("Value 'BucketV2.CorsRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'BucketV2.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
         /// </summary>
-        [Input("grants")]
+        [PolicyResourceProperty("grants", "_mUnknown_Grants")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketV2Grant>> _mGrants;
-
-        public List<Outputs.BucketV2Grant>? Grants => _mGrants.GetValue("grants");
+        private List<Outputs.BucketV2Grant>? _mValue_Grants;
+        private bool _mUnknown_Grants;
+        public List<Outputs.BucketV2Grant>? Grants
+        {
+            get
+            {
+                if (!_mUnknown_Grants) return _mValue_Grants;
+                throw new UndeferrableValueException("Value 'BucketV2.Grants' is not present");
+            }
+        }
 
         /// <summary>
         /// [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         /// </summary>
-        [Input("hostedZoneId")]
+        [PolicyResourceProperty("hostedZoneId", "_mUnknown_HostedZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
-
-        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+        private string? _mValue_HostedZoneId;
+        private bool _mUnknown_HostedZoneId;
+        public string? HostedZoneId
+        {
+            get
+            {
+                if (!_mUnknown_HostedZoneId) return _mValue_HostedZoneId;
+                throw new UndeferrableValueException("Value 'BucketV2.HostedZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketLifecycleConfigurationV2` instead.
         /// </summary>
-        [Input("lifecycleRules")]
+        [PolicyResourceProperty("lifecycleRules", "_mUnknown_LifecycleRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketV2LifecycleRule>> _mLifecycleRules;
-
-        public List<Outputs.BucketV2LifecycleRule>? LifecycleRules => _mLifecycleRules.GetValue("lifecycleRules");
+        private List<Outputs.BucketV2LifecycleRule>? _mValue_LifecycleRules;
+        private bool _mUnknown_LifecycleRules;
+        public List<Outputs.BucketV2LifecycleRule>? LifecycleRules
+        {
+            get
+            {
+                if (!_mUnknown_LifecycleRules) return _mValue_LifecycleRules;
+                throw new UndeferrableValueException("Value 'BucketV2.LifecycleRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketLoggingV2` instead.
         /// </summary>
-        [Input("loggings")]
+        [PolicyResourceProperty("loggings", "_mUnknown_Loggings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketV2Logging>> _mLoggings;
-
-        public List<Outputs.BucketV2Logging>? Loggings => _mLoggings.GetValue("loggings");
+        private List<Outputs.BucketV2Logging>? _mValue_Loggings;
+        private bool _mUnknown_Loggings;
+        public List<Outputs.BucketV2Logging>? Loggings
+        {
+            get
+            {
+                if (!_mUnknown_Loggings) return _mValue_Loggings;
+                throw new UndeferrableValueException("Value 'BucketV2.Loggings' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
         /// The provider wil only perform drift detection if a configuration value is provided.
         /// Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
         /// </summary>
-        [Input("objectLockConfiguration")]
+        [PolicyResourceProperty("objectLockConfiguration", "_mUnknown_ObjectLockConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketV2ObjectLockConfiguration> _mObjectLockConfiguration;
-
-        public Outputs.BucketV2ObjectLockConfiguration? ObjectLockConfiguration => _mObjectLockConfiguration.GetValue("objectLockConfiguration");
+        private Outputs.BucketV2ObjectLockConfiguration? _mValue_ObjectLockConfiguration;
+        private bool _mUnknown_ObjectLockConfiguration;
+        public Outputs.BucketV2ObjectLockConfiguration? ObjectLockConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ObjectLockConfiguration) return _mValue_ObjectLockConfiguration;
+                throw new UndeferrableValueException("Value 'BucketV2.ObjectLockConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
         /// </summary>
-        [Input("objectLockEnabled")]
+        [PolicyResourceProperty("objectLockEnabled", "_mUnknown_ObjectLockEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mObjectLockEnabled;
-
-        public bool? ObjectLockEnabled => _mObjectLockEnabled.GetValue("objectLockEnabled");
+        private bool? _mValue_ObjectLockEnabled;
+        private bool _mUnknown_ObjectLockEnabled;
+        public bool? ObjectLockEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ObjectLockEnabled) return _mValue_ObjectLockEnabled;
+                throw new UndeferrableValueException("Value 'BucketV2.ObjectLockEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
         /// The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketPolicy` instead.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'BucketV2.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS region this bucket resides in.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'BucketV2.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketReplicationConfig` instead.
         /// </summary>
-        [Input("replicationConfigurations")]
+        [PolicyResourceProperty("replicationConfigurations", "_mUnknown_ReplicationConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketV2ReplicationConfiguration>> _mReplicationConfigurations;
-
-        public List<Outputs.BucketV2ReplicationConfiguration>? ReplicationConfigurations => _mReplicationConfigurations.GetValue("replicationConfigurations");
+        private List<Outputs.BucketV2ReplicationConfiguration>? _mValue_ReplicationConfigurations;
+        private bool _mUnknown_ReplicationConfigurations;
+        public List<Outputs.BucketV2ReplicationConfiguration>? ReplicationConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationConfigurations) return _mValue_ReplicationConfigurations;
+                throw new UndeferrableValueException("Value 'BucketV2.ReplicationConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies who should bear the cost of Amazon S3 data transfer.
@@ -190,79 +316,135 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketRequestPaymentConfigurationV2` instead.
         /// </summary>
-        [Input("requestPayer")]
+        [PolicyResourceProperty("requestPayer", "_mUnknown_RequestPayer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequestPayer;
-
-        public string? RequestPayer => _mRequestPayer.GetValue("requestPayer");
+        private string? _mValue_RequestPayer;
+        private bool _mUnknown_RequestPayer;
+        public string? RequestPayer
+        {
+            get
+            {
+                if (!_mUnknown_RequestPayer) return _mValue_RequestPayer;
+                throw new UndeferrableValueException("Value 'BucketV2.RequestPayer' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
         /// The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
         /// </summary>
-        [Input("serverSideEncryptionConfigurations")]
+        [PolicyResourceProperty("serverSideEncryptionConfigurations", "_mUnknown_ServerSideEncryptionConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketV2ServerSideEncryptionConfiguration>> _mServerSideEncryptionConfigurations;
-
-        public List<Outputs.BucketV2ServerSideEncryptionConfiguration>? ServerSideEncryptionConfigurations => _mServerSideEncryptionConfigurations.GetValue("serverSideEncryptionConfigurations");
+        private List<Outputs.BucketV2ServerSideEncryptionConfiguration>? _mValue_ServerSideEncryptionConfigurations;
+        private bool _mUnknown_ServerSideEncryptionConfigurations;
+        public List<Outputs.BucketV2ServerSideEncryptionConfiguration>? ServerSideEncryptionConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryptionConfigurations) return _mValue_ServerSideEncryptionConfigurations;
+                throw new UndeferrableValueException("Value 'BucketV2.ServerSideEncryptionConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// The following arguments are deprecated, and will be removed in a future major version:
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'BucketV2.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'BucketV2.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
         /// </summary>
-        [Input("versionings")]
+        [PolicyResourceProperty("versionings", "_mUnknown_Versionings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketV2Versioning>> _mVersionings;
-
-        public List<Outputs.BucketV2Versioning>? Versionings => _mVersionings.GetValue("versionings");
+        private List<Outputs.BucketV2Versioning>? _mValue_Versionings;
+        private bool _mUnknown_Versionings;
+        public List<Outputs.BucketV2Versioning>? Versionings
+        {
+            get
+            {
+                if (!_mUnknown_Versionings) return _mValue_Versionings;
+                throw new UndeferrableValueException("Value 'BucketV2.Versionings' is not present");
+            }
+        }
 
         /// <summary>
         /// (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
         /// </summary>
-        [Input("websiteDomain")]
+        [PolicyResourceProperty("websiteDomain", "_mUnknown_WebsiteDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebsiteDomain;
-
-        public string? WebsiteDomain => _mWebsiteDomain.GetValue("websiteDomain");
+        private string? _mValue_WebsiteDomain;
+        private bool _mUnknown_WebsiteDomain;
+        public string? WebsiteDomain
+        {
+            get
+            {
+                if (!_mUnknown_WebsiteDomain) return _mValue_WebsiteDomain;
+                throw new UndeferrableValueException("Value 'BucketV2.WebsiteDomain' is not present");
+            }
+        }
 
         /// <summary>
         /// (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
         /// </summary>
-        [Input("websiteEndpoint")]
+        [PolicyResourceProperty("websiteEndpoint", "_mUnknown_WebsiteEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebsiteEndpoint;
-
-        public string? WebsiteEndpoint => _mWebsiteEndpoint.GetValue("websiteEndpoint");
+        private string? _mValue_WebsiteEndpoint;
+        private bool _mUnknown_WebsiteEndpoint;
+        public string? WebsiteEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_WebsiteEndpoint) return _mValue_WebsiteEndpoint;
+                throw new UndeferrableValueException("Value 'BucketV2.WebsiteEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
         /// </summary>
-        [Input("websites")]
+        [PolicyResourceProperty("websites", "_mUnknown_Websites")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketV2Website>> _mWebsites;
-
-        public List<Outputs.BucketV2Website>? Websites => _mWebsites.GetValue("websites");
+        private List<Outputs.BucketV2Website>? _mValue_Websites;
+        private bool _mUnknown_Websites;
+        public List<Outputs.BucketV2Website>? Websites
+        {
+            get
+            {
+                if (!_mUnknown_Websites) return _mValue_Websites;
+                throw new UndeferrableValueException("Value 'BucketV2.Websites' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/bucketV2:BucketV2")]
@@ -272,126 +454,217 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketAccelerateConfigurationV2` instead.
         /// </summary>
-        [Input("accelerationStatus")]
+        [PolicyResourceProperty("accelerationStatus", "_mUnknown_AccelerationStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccelerationStatus;
-
-        public string? AccelerationStatus => _mAccelerationStatus.GetValue("accelerationStatus");
+        private string? _mValue_AccelerationStatus;
+        private bool _mUnknown_AccelerationStatus;
+        public string? AccelerationStatus
+        {
+            get
+            {
+                if (!_mUnknown_AccelerationStatus) return _mValue_AccelerationStatus;
+                throw new UndeferrableValueException("Value 'BucketV2Args.AccelerationStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
         /// </summary>
-        [Input("acl")]
+        [PolicyResourceProperty("acl", "_mUnknown_Acl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcl;
-
-        public string? Acl => _mAcl.GetValue("acl");
+        private string? _mValue_Acl;
+        private bool _mUnknown_Acl;
+        public string? Acl
+        {
+            get
+            {
+                if (!_mUnknown_Acl) return _mValue_Acl;
+                throw new UndeferrableValueException("Value 'BucketV2Args.Acl' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketV2Args.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         /// </summary>
-        [Input("bucketPrefix")]
+        [PolicyResourceProperty("bucketPrefix", "_mUnknown_BucketPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketPrefix;
-
-        public string? BucketPrefix => _mBucketPrefix.GetValue("bucketPrefix");
+        private string? _mValue_BucketPrefix;
+        private bool _mUnknown_BucketPrefix;
+        public string? BucketPrefix
+        {
+            get
+            {
+                if (!_mUnknown_BucketPrefix) return _mValue_BucketPrefix;
+                throw new UndeferrableValueException("Value 'BucketV2Args.BucketPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfigurationV2` instead.
         /// </summary>
-        [Input("corsRules")]
+        [PolicyResourceProperty("corsRules", "_mUnknown_CorsRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketV2CorsRuleArgs>> _mCorsRules;
-
-        public List<Inputs.BucketV2CorsRuleArgs>? CorsRules => _mCorsRules.GetValue("corsRules");
+        private List<Inputs.BucketV2CorsRuleArgs>? _mValue_CorsRules;
+        private bool _mUnknown_CorsRules;
+        public List<Inputs.BucketV2CorsRuleArgs>? CorsRules
+        {
+            get
+            {
+                if (!_mUnknown_CorsRules) return _mValue_CorsRules;
+                throw new UndeferrableValueException("Value 'BucketV2Args.CorsRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'BucketV2Args.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
         /// </summary>
-        [Input("grants")]
+        [PolicyResourceProperty("grants", "_mUnknown_Grants")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketV2GrantArgs>> _mGrants;
-
-        public List<Inputs.BucketV2GrantArgs>? Grants => _mGrants.GetValue("grants");
+        private List<Inputs.BucketV2GrantArgs>? _mValue_Grants;
+        private bool _mUnknown_Grants;
+        public List<Inputs.BucketV2GrantArgs>? Grants
+        {
+            get
+            {
+                if (!_mUnknown_Grants) return _mValue_Grants;
+                throw new UndeferrableValueException("Value 'BucketV2Args.Grants' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketLifecycleConfigurationV2` instead.
         /// </summary>
-        [Input("lifecycleRules")]
+        [PolicyResourceProperty("lifecycleRules", "_mUnknown_LifecycleRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketV2LifecycleRuleArgs>> _mLifecycleRules;
-
-        public List<Inputs.BucketV2LifecycleRuleArgs>? LifecycleRules => _mLifecycleRules.GetValue("lifecycleRules");
+        private List<Inputs.BucketV2LifecycleRuleArgs>? _mValue_LifecycleRules;
+        private bool _mUnknown_LifecycleRules;
+        public List<Inputs.BucketV2LifecycleRuleArgs>? LifecycleRules
+        {
+            get
+            {
+                if (!_mUnknown_LifecycleRules) return _mValue_LifecycleRules;
+                throw new UndeferrableValueException("Value 'BucketV2Args.LifecycleRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketLoggingV2` instead.
         /// </summary>
-        [Input("loggings")]
+        [PolicyResourceProperty("loggings", "_mUnknown_Loggings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketV2LoggingArgs>> _mLoggings;
-
-        public List<Inputs.BucketV2LoggingArgs>? Loggings => _mLoggings.GetValue("loggings");
+        private List<Inputs.BucketV2LoggingArgs>? _mValue_Loggings;
+        private bool _mUnknown_Loggings;
+        public List<Inputs.BucketV2LoggingArgs>? Loggings
+        {
+            get
+            {
+                if (!_mUnknown_Loggings) return _mValue_Loggings;
+                throw new UndeferrableValueException("Value 'BucketV2Args.Loggings' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
         /// The provider wil only perform drift detection if a configuration value is provided.
         /// Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
         /// </summary>
-        [Input("objectLockConfiguration")]
+        [PolicyResourceProperty("objectLockConfiguration", "_mUnknown_ObjectLockConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketV2ObjectLockConfigurationArgs> _mObjectLockConfiguration;
-
-        public Inputs.BucketV2ObjectLockConfigurationArgs? ObjectLockConfiguration => _mObjectLockConfiguration.GetValue("objectLockConfiguration");
+        private Inputs.BucketV2ObjectLockConfigurationArgs? _mValue_ObjectLockConfiguration;
+        private bool _mUnknown_ObjectLockConfiguration;
+        public Inputs.BucketV2ObjectLockConfigurationArgs? ObjectLockConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ObjectLockConfiguration) return _mValue_ObjectLockConfiguration;
+                throw new UndeferrableValueException("Value 'BucketV2Args.ObjectLockConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
         /// </summary>
-        [Input("objectLockEnabled")]
+        [PolicyResourceProperty("objectLockEnabled", "_mUnknown_ObjectLockEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mObjectLockEnabled;
-
-        public bool? ObjectLockEnabled => _mObjectLockEnabled.GetValue("objectLockEnabled");
+        private bool? _mValue_ObjectLockEnabled;
+        private bool _mUnknown_ObjectLockEnabled;
+        public bool? ObjectLockEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ObjectLockEnabled) return _mValue_ObjectLockEnabled;
+                throw new UndeferrableValueException("Value 'BucketV2Args.ObjectLockEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
         /// The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketPolicy` instead.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'BucketV2Args.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketReplicationConfig` instead.
         /// </summary>
-        [Input("replicationConfigurations")]
+        [PolicyResourceProperty("replicationConfigurations", "_mUnknown_ReplicationConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketV2ReplicationConfigurationArgs>> _mReplicationConfigurations;
-
-        public List<Inputs.BucketV2ReplicationConfigurationArgs>? ReplicationConfigurations => _mReplicationConfigurations.GetValue("replicationConfigurations");
+        private List<Inputs.BucketV2ReplicationConfigurationArgs>? _mValue_ReplicationConfigurations;
+        private bool _mUnknown_ReplicationConfigurations;
+        public List<Inputs.BucketV2ReplicationConfigurationArgs>? ReplicationConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationConfigurations) return _mValue_ReplicationConfigurations;
+                throw new UndeferrableValueException("Value 'BucketV2Args.ReplicationConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies who should bear the cost of Amazon S3 data transfer.
@@ -400,51 +673,86 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketRequestPaymentConfigurationV2` instead.
         /// </summary>
-        [Input("requestPayer")]
+        [PolicyResourceProperty("requestPayer", "_mUnknown_RequestPayer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequestPayer;
-
-        public string? RequestPayer => _mRequestPayer.GetValue("requestPayer");
+        private string? _mValue_RequestPayer;
+        private bool _mUnknown_RequestPayer;
+        public string? RequestPayer
+        {
+            get
+            {
+                if (!_mUnknown_RequestPayer) return _mValue_RequestPayer;
+                throw new UndeferrableValueException("Value 'BucketV2Args.RequestPayer' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
         /// The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
         /// </summary>
-        [Input("serverSideEncryptionConfigurations")]
+        [PolicyResourceProperty("serverSideEncryptionConfigurations", "_mUnknown_ServerSideEncryptionConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketV2ServerSideEncryptionConfigurationArgs>> _mServerSideEncryptionConfigurations;
-
-        public List<Inputs.BucketV2ServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfigurations => _mServerSideEncryptionConfigurations.GetValue("serverSideEncryptionConfigurations");
+        private List<Inputs.BucketV2ServerSideEncryptionConfigurationArgs>? _mValue_ServerSideEncryptionConfigurations;
+        private bool _mUnknown_ServerSideEncryptionConfigurations;
+        public List<Inputs.BucketV2ServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryptionConfigurations) return _mValue_ServerSideEncryptionConfigurations;
+                throw new UndeferrableValueException("Value 'BucketV2Args.ServerSideEncryptionConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// The following arguments are deprecated, and will be removed in a future major version:
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'BucketV2Args.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
         /// </summary>
-        [Input("versionings")]
+        [PolicyResourceProperty("versionings", "_mUnknown_Versionings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketV2VersioningArgs>> _mVersionings;
-
-        public List<Inputs.BucketV2VersioningArgs>? Versionings => _mVersionings.GetValue("versionings");
+        private List<Inputs.BucketV2VersioningArgs>? _mValue_Versionings;
+        private bool _mUnknown_Versionings;
+        public List<Inputs.BucketV2VersioningArgs>? Versionings
+        {
+            get
+            {
+                if (!_mUnknown_Versionings) return _mValue_Versionings;
+                throw new UndeferrableValueException("Value 'BucketV2Args.Versionings' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
         /// </summary>
-        [Input("websites")]
+        [PolicyResourceProperty("websites", "_mUnknown_Websites")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketV2WebsiteArgs>> _mWebsites;
-
-        public List<Inputs.BucketV2WebsiteArgs>? Websites => _mWebsites.GetValue("websites");
+        private List<Inputs.BucketV2WebsiteArgs>? _mValue_Websites;
+        private bool _mUnknown_Websites;
+        public List<Inputs.BucketV2WebsiteArgs>? Websites
+        {
+            get
+            {
+                if (!_mUnknown_Websites) return _mValue_Websites;
+                throw new UndeferrableValueException("Value 'BucketV2Args.Websites' is not present");
+            }
+        }
     }
 }

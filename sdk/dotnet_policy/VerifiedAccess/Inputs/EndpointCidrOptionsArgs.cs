@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess.Inputs
 {
     public sealed class EndpointCidrOptionsArgs
     {
-        [Input("cidr")]
+        [PolicyResourceProperty("cidr", "_mUnknown_Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidr;
+        private string? _mValue_Cidr;
+        private bool _mUnknown_Cidr;
+        public string? Cidr
+        {
+            get
+            {
+                if (!_mUnknown_Cidr) return _mValue_Cidr;
+                throw new UndeferrableValueException("Value 'EndpointCidrOptionsArgs.Cidr' is not present");
+            }
+        }
 
-        public string? Cidr => _mCidr.GetValue("cidr");
-
-        [Input("portRanges")]
+        [PolicyResourceProperty("portRanges", "_mUnknown_PortRanges")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EndpointCidrOptionsPortRangeArgs>> _mPortRanges;
+        private List<Inputs.EndpointCidrOptionsPortRangeArgs>? _mValue_PortRanges;
+        private bool _mUnknown_PortRanges;
+        public List<Inputs.EndpointCidrOptionsPortRangeArgs>? PortRanges
+        {
+            get
+            {
+                if (!_mUnknown_PortRanges) return _mValue_PortRanges;
+                throw new UndeferrableValueException("Value 'EndpointCidrOptionsArgs.PortRanges' is not present");
+            }
+        }
 
-        public List<Inputs.EndpointCidrOptionsPortRangeArgs>? PortRanges => _mPortRanges.GetValue("portRanges");
-
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'EndpointCidrOptionsArgs.Protocol' is not present");
+            }
+        }
 
-        public string? Protocol => _mProtocol.GetValue("protocol");
-
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'EndpointCidrOptionsArgs.SubnetIds' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.DataZone.Outputs
 {
     public sealed class EnvironmentLastDeploymentFailureReason
     {
-        [Input("code")]
+        [PolicyResourceProperty("code", "_mUnknown_Code")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCode;
+        private string? _mValue_Code;
+        private bool _mUnknown_Code;
+        public string? Code
+        {
+            get
+            {
+                if (!_mUnknown_Code) return _mValue_Code;
+                throw new UndeferrableValueException("Value 'EnvironmentLastDeploymentFailureReason.Code' is not present");
+            }
+        }
 
-        public string? Code => _mCode.GetValue("code");
-
-        [Input("message")]
+        [PolicyResourceProperty("message", "_mUnknown_Message")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessage;
-
-        public string? Message => _mMessage.GetValue("message");
+        private string? _mValue_Message;
+        private bool _mUnknown_Message;
+        public string? Message
+        {
+            get
+            {
+                if (!_mUnknown_Message) return _mValue_Message;
+                throw new UndeferrableValueException("Value 'EnvironmentLastDeploymentFailureReason.Message' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.LightSail.Inputs
         /// <summary>
         /// The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
         /// </summary>
-        [Input("snapshotTime")]
+        [PolicyResourceProperty("snapshotTime", "_mUnknown_SnapshotTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotTime;
-
-        public string? SnapshotTime => _mSnapshotTime.GetValue("snapshotTime");
+        private string? _mValue_SnapshotTime;
+        private bool _mUnknown_SnapshotTime;
+        public string? SnapshotTime
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotTime) return _mValue_SnapshotTime;
+                throw new UndeferrableValueException("Value 'InstanceAddOnArgs.SnapshotTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the add-on. Valid Values: `Enabled`, `Disabled`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'InstanceAddOnArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The add-on type. There is currently only one valid type `AutoSnapshot`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'InstanceAddOnArgs.Type' is not present");
+            }
+        }
     }
 }

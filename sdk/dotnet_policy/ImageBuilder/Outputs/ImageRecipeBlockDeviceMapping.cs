@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
         /// </summary>
-        [Input("deviceName")]
+        [PolicyResourceProperty("deviceName", "_mUnknown_DeviceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceName;
-
-        public string? DeviceName => _mDeviceName.GetValue("deviceName");
+        private string? _mValue_DeviceName;
+        private bool _mUnknown_DeviceName;
+        public string? DeviceName
+        {
+            get
+            {
+                if (!_mUnknown_DeviceName) return _mValue_DeviceName;
+                throw new UndeferrableValueException("Value 'ImageRecipeBlockDeviceMapping.DeviceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
         /// </summary>
-        [Input("ebs")]
+        [PolicyResourceProperty("ebs", "_mUnknown_Ebs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ImageRecipeBlockDeviceMappingEbs> _mEbs;
-
-        public Outputs.ImageRecipeBlockDeviceMappingEbs? Ebs => _mEbs.GetValue("ebs");
+        private Outputs.ImageRecipeBlockDeviceMappingEbs? _mValue_Ebs;
+        private bool _mUnknown_Ebs;
+        public Outputs.ImageRecipeBlockDeviceMappingEbs? Ebs
+        {
+            get
+            {
+                if (!_mUnknown_Ebs) return _mValue_Ebs;
+                throw new UndeferrableValueException("Value 'ImageRecipeBlockDeviceMapping.Ebs' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to `true` to remove a mapping from the parent image.
         /// </summary>
-        [Input("noDevice")]
+        [PolicyResourceProperty("noDevice", "_mUnknown_NoDevice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mNoDevice;
-
-        public bool? NoDevice => _mNoDevice.GetValue("noDevice");
+        private bool? _mValue_NoDevice;
+        private bool _mUnknown_NoDevice;
+        public bool? NoDevice
+        {
+            get
+            {
+                if (!_mUnknown_NoDevice) return _mValue_NoDevice;
+                throw new UndeferrableValueException("Value 'ImageRecipeBlockDeviceMapping.NoDevice' is not present");
+            }
+        }
 
         /// <summary>
         /// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
         /// </summary>
-        [Input("virtualName")]
+        [PolicyResourceProperty("virtualName", "_mUnknown_VirtualName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualName;
-
-        public string? VirtualName => _mVirtualName.GetValue("virtualName");
+        private string? _mValue_VirtualName;
+        private bool _mUnknown_VirtualName;
+        public string? VirtualName
+        {
+            get
+            {
+                if (!_mUnknown_VirtualName) return _mValue_VirtualName;
+                throw new UndeferrableValueException("Value 'ImageRecipeBlockDeviceMapping.VirtualName' is not present");
+            }
+        }
     }
 }

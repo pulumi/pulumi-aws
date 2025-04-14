@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Inputs
         /// <summary>
         /// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
         /// </summary>
-        [Input("jobExecutionTimeoutMinutes")]
+        [PolicyResourceProperty("jobExecutionTimeoutMinutes", "_mUnknown_JobExecutionTimeoutMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mJobExecutionTimeoutMinutes;
-
-        public int? JobExecutionTimeoutMinutes => _mJobExecutionTimeoutMinutes.GetValue("jobExecutionTimeoutMinutes");
+        private int? _mValue_JobExecutionTimeoutMinutes;
+        private bool _mUnknown_JobExecutionTimeoutMinutes;
+        public int? JobExecutionTimeoutMinutes
+        {
+            get
+            {
+                if (!_mUnknown_JobExecutionTimeoutMinutes) return _mValue_JobExecutionTimeoutMinutes;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentUpdatePolicyArgs.JobExecutionTimeoutMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
         /// </summary>
-        [Input("terminateJobsOnUpdate")]
+        [PolicyResourceProperty("terminateJobsOnUpdate", "_mUnknown_TerminateJobsOnUpdate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminateJobsOnUpdate;
-
-        public bool? TerminateJobsOnUpdate => _mTerminateJobsOnUpdate.GetValue("terminateJobsOnUpdate");
+        private bool? _mValue_TerminateJobsOnUpdate;
+        private bool _mUnknown_TerminateJobsOnUpdate;
+        public bool? TerminateJobsOnUpdate
+        {
+            get
+            {
+                if (!_mUnknown_TerminateJobsOnUpdate) return _mValue_TerminateJobsOnUpdate;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentUpdatePolicyArgs.TerminateJobsOnUpdate' is not present");
+            }
+        }
     }
 }

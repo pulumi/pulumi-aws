@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.LicenseManager.Outputs
         /// <summary>
         /// Issuer key fingerprint.
         /// </summary>
-        [Input("keyFingerprint")]
+        [PolicyResourceProperty("keyFingerprint", "_mUnknown_KeyFingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyFingerprint;
-
-        public string? KeyFingerprint => _mKeyFingerprint.GetValue("keyFingerprint");
+        private string? _mValue_KeyFingerprint;
+        private bool _mUnknown_KeyFingerprint;
+        public string? KeyFingerprint
+        {
+            get
+            {
+                if (!_mUnknown_KeyFingerprint) return _mValue_KeyFingerprint;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseIssuerResult.KeyFingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// The key name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseIssuerResult.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
         /// </summary>
-        [Input("signKey")]
+        [PolicyResourceProperty("signKey", "_mUnknown_SignKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSignKey;
-
-        public string? SignKey => _mSignKey.GetValue("signKey");
+        private string? _mValue_SignKey;
+        private bool _mUnknown_SignKey;
+        public string? SignKey
+        {
+            get
+            {
+                if (!_mUnknown_SignKey) return _mValue_SignKey;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseIssuerResult.SignKey' is not present");
+            }
+        }
     }
 }

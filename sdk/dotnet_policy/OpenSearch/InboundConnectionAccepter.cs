@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// Specifies the ID of the connection to accept.
         /// </summary>
-        [Input("connectionId")]
+        [PolicyResourceProperty("connectionId", "_mUnknown_ConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
-
-        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+        private string? _mValue_ConnectionId;
+        private bool _mUnknown_ConnectionId;
+        public string? ConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionId) return _mValue_ConnectionId;
+                throw new UndeferrableValueException("Value 'InboundConnectionAccepter.ConnectionId' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the connection request.
         /// </summary>
-        [Input("connectionStatus")]
+        [PolicyResourceProperty("connectionStatus", "_mUnknown_ConnectionStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionStatus;
-
-        public string? ConnectionStatus => _mConnectionStatus.GetValue("connectionStatus");
+        private string? _mValue_ConnectionStatus;
+        private bool _mUnknown_ConnectionStatus;
+        public string? ConnectionStatus
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionStatus) return _mValue_ConnectionStatus;
+                throw new UndeferrableValueException("Value 'InboundConnectionAccepter.ConnectionStatus' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter")]
@@ -38,10 +52,17 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// Specifies the ID of the connection to accept.
         /// </summary>
-        [Input("connectionId")]
+        [PolicyResourceProperty("connectionId", "_mUnknown_ConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
-
-        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+        private string? _mValue_ConnectionId;
+        private bool _mUnknown_ConnectionId;
+        public string? ConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionId) return _mValue_ConnectionId;
+                throw new UndeferrableValueException("Value 'InboundConnectionAccepterArgs.ConnectionId' is not present");
+            }
+        }
     }
 }

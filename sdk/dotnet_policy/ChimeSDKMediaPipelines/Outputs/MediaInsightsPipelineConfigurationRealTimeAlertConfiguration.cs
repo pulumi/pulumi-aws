@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ChimeSDKMediaPipelines.Outputs
         /// <summary>
         /// Disables real time alert rules.
         /// </summary>
-        [Input("disabled")]
+        [PolicyResourceProperty("disabled", "_mUnknown_Disabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisabled;
-
-        public bool? Disabled => _mDisabled.GetValue("disabled");
+        private bool? _mValue_Disabled;
+        private bool _mUnknown_Disabled;
+        public bool? Disabled
+        {
+            get
+            {
+                if (!_mUnknown_Disabled) return _mValue_Disabled;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfiguration.Disabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Collection of real time alert rules
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule>> _mRules;
-
-        public List<Outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule>? Rules => _mRules.GetValue("rules");
+        private List<Outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfiguration.Rules' is not present");
+            }
+        }
     }
 }

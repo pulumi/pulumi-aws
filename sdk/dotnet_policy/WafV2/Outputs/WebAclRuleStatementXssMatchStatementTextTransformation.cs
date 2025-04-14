@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementXssMatchStatementTextTransformation.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementXssMatchStatementTextTransformation.Type' is not present");
+            }
+        }
     }
 }

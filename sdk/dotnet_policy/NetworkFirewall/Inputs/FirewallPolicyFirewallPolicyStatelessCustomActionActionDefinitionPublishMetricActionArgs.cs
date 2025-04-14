@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Inputs
         /// <summary>
         /// Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
         /// </summary>
-        [Input("dimensions")]
+        [PolicyResourceProperty("dimensions", "_mUnknown_Dimensions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs>> _mDimensions;
-
-        public List<Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs>? Dimensions => _mDimensions.GetValue("dimensions");
+        private List<Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs>? _mValue_Dimensions;
+        private bool _mUnknown_Dimensions;
+        public List<Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs>? Dimensions
+        {
+            get
+            {
+                if (!_mUnknown_Dimensions) return _mValue_Dimensions;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs.Dimensions' is not present");
+            }
+        }
     }
 }

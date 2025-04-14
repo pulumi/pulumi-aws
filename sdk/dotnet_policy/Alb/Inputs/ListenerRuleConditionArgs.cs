@@ -15,57 +15,99 @@ namespace Pulumi.PolicyPacks.Aws.Alb.Inputs
         /// <summary>
         /// Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
         /// </summary>
-        [Input("hostHeader")]
+        [PolicyResourceProperty("hostHeader", "_mUnknown_HostHeader")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ListenerRuleConditionHostHeaderArgs> _mHostHeader;
-
-        public Inputs.ListenerRuleConditionHostHeaderArgs? HostHeader => _mHostHeader.GetValue("hostHeader");
+        private Inputs.ListenerRuleConditionHostHeaderArgs? _mValue_HostHeader;
+        private bool _mUnknown_HostHeader;
+        public Inputs.ListenerRuleConditionHostHeaderArgs? HostHeader
+        {
+            get
+            {
+                if (!_mUnknown_HostHeader) return _mValue_HostHeader;
+                throw new UndeferrableValueException("Value 'ListenerRuleConditionArgs.HostHeader' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP headers to match. HTTP Header block fields documented below.
         /// </summary>
-        [Input("httpHeader")]
+        [PolicyResourceProperty("httpHeader", "_mUnknown_HttpHeader")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ListenerRuleConditionHttpHeaderArgs> _mHttpHeader;
-
-        public Inputs.ListenerRuleConditionHttpHeaderArgs? HttpHeader => _mHttpHeader.GetValue("httpHeader");
+        private Inputs.ListenerRuleConditionHttpHeaderArgs? _mValue_HttpHeader;
+        private bool _mUnknown_HttpHeader;
+        public Inputs.ListenerRuleConditionHttpHeaderArgs? HttpHeader
+        {
+            get
+            {
+                if (!_mUnknown_HttpHeader) return _mValue_HttpHeader;
+                throw new UndeferrableValueException("Value 'ListenerRuleConditionArgs.HttpHeader' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
         /// </summary>
-        [Input("httpRequestMethod")]
+        [PolicyResourceProperty("httpRequestMethod", "_mUnknown_HttpRequestMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ListenerRuleConditionHttpRequestMethodArgs> _mHttpRequestMethod;
-
-        public Inputs.ListenerRuleConditionHttpRequestMethodArgs? HttpRequestMethod => _mHttpRequestMethod.GetValue("httpRequestMethod");
+        private Inputs.ListenerRuleConditionHttpRequestMethodArgs? _mValue_HttpRequestMethod;
+        private bool _mUnknown_HttpRequestMethod;
+        public Inputs.ListenerRuleConditionHttpRequestMethodArgs? HttpRequestMethod
+        {
+            get
+            {
+                if (!_mUnknown_HttpRequestMethod) return _mValue_HttpRequestMethod;
+                throw new UndeferrableValueException("Value 'ListenerRuleConditionArgs.HttpRequestMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition.
         /// </summary>
-        [Input("pathPattern")]
+        [PolicyResourceProperty("pathPattern", "_mUnknown_PathPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ListenerRuleConditionPathPatternArgs> _mPathPattern;
-
-        public Inputs.ListenerRuleConditionPathPatternArgs? PathPattern => _mPathPattern.GetValue("pathPattern");
+        private Inputs.ListenerRuleConditionPathPatternArgs? _mValue_PathPattern;
+        private bool _mUnknown_PathPattern;
+        public Inputs.ListenerRuleConditionPathPatternArgs? PathPattern
+        {
+            get
+            {
+                if (!_mUnknown_PathPattern) return _mValue_PathPattern;
+                throw new UndeferrableValueException("Value 'ListenerRuleConditionArgs.PathPattern' is not present");
+            }
+        }
 
         /// <summary>
         /// Query strings to match. Query String block fields documented below.
         /// </summary>
-        [Input("queryStrings")]
+        [PolicyResourceProperty("queryStrings", "_mUnknown_QueryStrings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ListenerRuleConditionQueryStringArgs>> _mQueryStrings;
-
-        public List<Inputs.ListenerRuleConditionQueryStringArgs>? QueryStrings => _mQueryStrings.GetValue("queryStrings");
+        private List<Inputs.ListenerRuleConditionQueryStringArgs>? _mValue_QueryStrings;
+        private bool _mUnknown_QueryStrings;
+        public List<Inputs.ListenerRuleConditionQueryStringArgs>? QueryStrings
+        {
+            get
+            {
+                if (!_mUnknown_QueryStrings) return _mValue_QueryStrings;
+                throw new UndeferrableValueException("Value 'ListenerRuleConditionArgs.QueryStrings' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
         /// 
         /// &gt; **NOTE::** Exactly one of `host_header`, `http_header`, `http_request_method`, `path_pattern`, `query_string` or `source_ip` must be set per condition.
         /// </summary>
-        [Input("sourceIp")]
+        [PolicyResourceProperty("sourceIp", "_mUnknown_SourceIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ListenerRuleConditionSourceIpArgs> _mSourceIp;
-
-        public Inputs.ListenerRuleConditionSourceIpArgs? SourceIp => _mSourceIp.GetValue("sourceIp");
+        private Inputs.ListenerRuleConditionSourceIpArgs? _mValue_SourceIp;
+        private bool _mUnknown_SourceIp;
+        public Inputs.ListenerRuleConditionSourceIpArgs? SourceIp
+        {
+            get
+            {
+                if (!_mUnknown_SourceIp) return _mValue_SourceIp;
+                throw new UndeferrableValueException("Value 'ListenerRuleConditionArgs.SourceIp' is not present");
+            }
+        }
     }
 }

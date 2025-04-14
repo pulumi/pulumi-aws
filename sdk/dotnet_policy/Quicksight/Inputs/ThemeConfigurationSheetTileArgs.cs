@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// The border around a tile. See border.
         /// </summary>
-        [Input("border")]
+        [PolicyResourceProperty("border", "_mUnknown_Border")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ThemeConfigurationSheetTileBorderArgs> _mBorder;
-
-        public Inputs.ThemeConfigurationSheetTileBorderArgs? Border => _mBorder.GetValue("border");
+        private Inputs.ThemeConfigurationSheetTileBorderArgs? _mValue_Border;
+        private bool _mUnknown_Border;
+        public Inputs.ThemeConfigurationSheetTileBorderArgs? Border
+        {
+            get
+            {
+                if (!_mUnknown_Border) return _mValue_Border;
+                throw new UndeferrableValueException("Value 'ThemeConfigurationSheetTileArgs.Border' is not present");
+            }
+        }
     }
 }

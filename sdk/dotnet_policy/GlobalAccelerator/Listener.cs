@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator
         /// <summary>
         /// The Amazon Resource Name (ARN) of your accelerator.
         /// </summary>
-        [Input("acceleratorArn")]
+        [PolicyResourceProperty("acceleratorArn", "_mUnknown_AcceleratorArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcceleratorArn;
-
-        public string? AcceleratorArn => _mAcceleratorArn.GetValue("acceleratorArn");
+        private string? _mValue_AcceleratorArn;
+        private bool _mUnknown_AcceleratorArn;
+        public string? AcceleratorArn
+        {
+            get
+            {
+                if (!_mUnknown_AcceleratorArn) return _mValue_AcceleratorArn;
+                throw new UndeferrableValueException("Value 'Listener.AcceleratorArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the listener.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Listener.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
         /// </summary>
-        [Input("clientAffinity")]
+        [PolicyResourceProperty("clientAffinity", "_mUnknown_ClientAffinity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientAffinity;
-
-        public string? ClientAffinity => _mClientAffinity.GetValue("clientAffinity");
+        private string? _mValue_ClientAffinity;
+        private bool _mUnknown_ClientAffinity;
+        public string? ClientAffinity
+        {
+            get
+            {
+                if (!_mUnknown_ClientAffinity) return _mValue_ClientAffinity;
+                throw new UndeferrableValueException("Value 'Listener.ClientAffinity' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         /// </summary>
-        [Input("portRanges")]
+        [PolicyResourceProperty("portRanges", "_mUnknown_PortRanges")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ListenerPortRange>> _mPortRanges;
-
-        public List<Outputs.ListenerPortRange>? PortRanges => _mPortRanges.GetValue("portRanges");
+        private List<Outputs.ListenerPortRange>? _mValue_PortRanges;
+        private bool _mUnknown_PortRanges;
+        public List<Outputs.ListenerPortRange>? PortRanges
+        {
+            get
+            {
+                if (!_mUnknown_PortRanges) return _mValue_PortRanges;
+                throw new UndeferrableValueException("Value 'Listener.PortRanges' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'Listener.Protocol' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:globalaccelerator/listener:Listener")]
@@ -65,37 +100,65 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator
         /// <summary>
         /// The Amazon Resource Name (ARN) of your accelerator.
         /// </summary>
-        [Input("acceleratorArn")]
+        [PolicyResourceProperty("acceleratorArn", "_mUnknown_AcceleratorArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcceleratorArn;
-
-        public string? AcceleratorArn => _mAcceleratorArn.GetValue("acceleratorArn");
+        private string? _mValue_AcceleratorArn;
+        private bool _mUnknown_AcceleratorArn;
+        public string? AcceleratorArn
+        {
+            get
+            {
+                if (!_mUnknown_AcceleratorArn) return _mValue_AcceleratorArn;
+                throw new UndeferrableValueException("Value 'ListenerArgs.AcceleratorArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
         /// </summary>
-        [Input("clientAffinity")]
+        [PolicyResourceProperty("clientAffinity", "_mUnknown_ClientAffinity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientAffinity;
-
-        public string? ClientAffinity => _mClientAffinity.GetValue("clientAffinity");
+        private string? _mValue_ClientAffinity;
+        private bool _mUnknown_ClientAffinity;
+        public string? ClientAffinity
+        {
+            get
+            {
+                if (!_mUnknown_ClientAffinity) return _mValue_ClientAffinity;
+                throw new UndeferrableValueException("Value 'ListenerArgs.ClientAffinity' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         /// </summary>
-        [Input("portRanges")]
+        [PolicyResourceProperty("portRanges", "_mUnknown_PortRanges")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ListenerPortRangeArgs>> _mPortRanges;
-
-        public List<Inputs.ListenerPortRangeArgs>? PortRanges => _mPortRanges.GetValue("portRanges");
+        private List<Inputs.ListenerPortRangeArgs>? _mValue_PortRanges;
+        private bool _mUnknown_PortRanges;
+        public List<Inputs.ListenerPortRangeArgs>? PortRanges
+        {
+            get
+            {
+                if (!_mUnknown_PortRanges) return _mValue_PortRanges;
+                throw new UndeferrableValueException("Value 'ListenerArgs.PortRanges' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'ListenerArgs.Protocol' is not present");
+            }
+        }
     }
 }

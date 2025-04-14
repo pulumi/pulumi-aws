@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Macie2.Outputs
         /// <summary>
         /// Specifies a daily recurrence pattern for running the job.
         /// </summary>
-        [Input("dailySchedule")]
+        [PolicyResourceProperty("dailySchedule", "_mUnknown_DailySchedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDailySchedule;
-
-        public bool? DailySchedule => _mDailySchedule.GetValue("dailySchedule");
+        private bool? _mValue_DailySchedule;
+        private bool _mUnknown_DailySchedule;
+        public bool? DailySchedule
+        {
+            get
+            {
+                if (!_mUnknown_DailySchedule) return _mValue_DailySchedule;
+                throw new UndeferrableValueException("Value 'ClassificationJobScheduleFrequency.DailySchedule' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a monthly recurrence pattern for running the job.
         /// </summary>
-        [Input("monthlySchedule")]
+        [PolicyResourceProperty("monthlySchedule", "_mUnknown_MonthlySchedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMonthlySchedule;
-
-        public int? MonthlySchedule => _mMonthlySchedule.GetValue("monthlySchedule");
+        private int? _mValue_MonthlySchedule;
+        private bool _mUnknown_MonthlySchedule;
+        public int? MonthlySchedule
+        {
+            get
+            {
+                if (!_mUnknown_MonthlySchedule) return _mValue_MonthlySchedule;
+                throw new UndeferrableValueException("Value 'ClassificationJobScheduleFrequency.MonthlySchedule' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a weekly recurrence pattern for running the job.
         /// </summary>
-        [Input("weeklySchedule")]
+        [PolicyResourceProperty("weeklySchedule", "_mUnknown_WeeklySchedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWeeklySchedule;
-
-        public string? WeeklySchedule => _mWeeklySchedule.GetValue("weeklySchedule");
+        private string? _mValue_WeeklySchedule;
+        private bool _mUnknown_WeeklySchedule;
+        public string? WeeklySchedule
+        {
+            get
+            {
+                if (!_mUnknown_WeeklySchedule) return _mValue_WeeklySchedule;
+                throw new UndeferrableValueException("Value 'ClassificationJobScheduleFrequency.WeeklySchedule' is not present");
+            }
+        }
     }
 }

@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Inputs
         /// <summary>
         /// The maximum number of records to include in each batch. Maximum value of 10000.
         /// </summary>
-        [Input("batchSize")]
+        [PolicyResourceProperty("batchSize", "_mUnknown_BatchSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBatchSize;
-
-        public int? BatchSize => _mBatchSize.GetValue("batchSize");
+        private int? _mValue_BatchSize;
+        private bool _mUnknown_BatchSize;
+        public int? BatchSize
+        {
+            get
+            {
+                if (!_mUnknown_BatchSize) return _mValue_BatchSize;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersManagedStreamingKafkaParametersArgs.BatchSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the destination queue to consume. Maximum value of 200.
         /// </summary>
-        [Input("consumerGroupId")]
+        [PolicyResourceProperty("consumerGroupId", "_mUnknown_ConsumerGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerGroupId;
-
-        public string? ConsumerGroupId => _mConsumerGroupId.GetValue("consumerGroupId");
+        private string? _mValue_ConsumerGroupId;
+        private bool _mUnknown_ConsumerGroupId;
+        public string? ConsumerGroupId
+        {
+            get
+            {
+                if (!_mUnknown_ConsumerGroupId) return _mValue_ConsumerGroupId;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersManagedStreamingKafkaParametersArgs.ConsumerGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The credentials needed to access the resource. Detailed below.
         /// </summary>
-        [Input("credentials")]
+        [PolicyResourceProperty("credentials", "_mUnknown_Credentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs> _mCredentials;
-
-        public Inputs.PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs? Credentials => _mCredentials.GetValue("credentials");
+        private Inputs.PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs? _mValue_Credentials;
+        private bool _mUnknown_Credentials;
+        public Inputs.PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs? Credentials
+        {
+            get
+            {
+                if (!_mUnknown_Credentials) return _mValue_Credentials;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersManagedStreamingKafkaParametersArgs.Credentials' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum length of a time to wait for events. Maximum value of 300.
         /// </summary>
-        [Input("maximumBatchingWindowInSeconds")]
+        [PolicyResourceProperty("maximumBatchingWindowInSeconds", "_mUnknown_MaximumBatchingWindowInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumBatchingWindowInSeconds;
-
-        public int? MaximumBatchingWindowInSeconds => _mMaximumBatchingWindowInSeconds.GetValue("maximumBatchingWindowInSeconds");
+        private int? _mValue_MaximumBatchingWindowInSeconds;
+        private bool _mUnknown_MaximumBatchingWindowInSeconds;
+        public int? MaximumBatchingWindowInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaximumBatchingWindowInSeconds) return _mValue_MaximumBatchingWindowInSeconds;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersManagedStreamingKafkaParametersArgs.MaximumBatchingWindowInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
         /// </summary>
-        [Input("startingPosition")]
+        [PolicyResourceProperty("startingPosition", "_mUnknown_StartingPosition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartingPosition;
-
-        public string? StartingPosition => _mStartingPosition.GetValue("startingPosition");
+        private string? _mValue_StartingPosition;
+        private bool _mUnknown_StartingPosition;
+        public string? StartingPosition
+        {
+            get
+            {
+                if (!_mUnknown_StartingPosition) return _mValue_StartingPosition;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersManagedStreamingKafkaParametersArgs.StartingPosition' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the topic that the pipe will read from. Maximum length of 249.
         /// </summary>
-        [Input("topicName")]
+        [PolicyResourceProperty("topicName", "_mUnknown_TopicName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopicName;
-
-        public string? TopicName => _mTopicName.GetValue("topicName");
+        private string? _mValue_TopicName;
+        private bool _mUnknown_TopicName;
+        public string? TopicName
+        {
+            get
+            {
+                if (!_mUnknown_TopicName) return _mValue_TopicName;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersManagedStreamingKafkaParametersArgs.TopicName' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
         /// </summary>
-        [Input("invert")]
+        [PolicyResourceProperty("invert", "_mUnknown_Invert")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInvert;
-
-        public bool? Invert => _mInvert.GetValue("invert");
+        private bool? _mValue_Invert;
+        private bool _mUnknown_Invert;
+        public bool? Invert
+        {
+            get
+            {
+                if (!_mUnknown_Invert) return _mValue_Invert;
+                throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatchHeader.Invert' is not present");
+            }
+        }
 
         /// <summary>
         /// Method and value to match the header value sent with a request. Specify one match method.
         /// </summary>
-        [Input("match")]
+        [PolicyResourceProperty("match", "_mUnknown_Match")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RouteSpecHttp2RouteMatchHeaderMatch> _mMatch;
-
-        public Outputs.RouteSpecHttp2RouteMatchHeaderMatch? Match => _mMatch.GetValue("match");
+        private Outputs.RouteSpecHttp2RouteMatchHeaderMatch? _mValue_Match;
+        private bool _mUnknown_Match;
+        public Outputs.RouteSpecHttp2RouteMatchHeaderMatch? Match
+        {
+            get
+            {
+                if (!_mUnknown_Match) return _mValue_Match;
+                throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatchHeader.Match' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the HTTP header in the client request that will be matched on.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatchHeader.Name' is not present");
+            }
+        }
     }
 }

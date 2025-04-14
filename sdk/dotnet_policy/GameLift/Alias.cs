@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.GameLift
         /// <summary>
         /// Alias ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Alias.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the alias.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Alias.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the alias.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Alias.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the fleet and/or routing type to use for the alias.
         /// </summary>
-        [Input("routingStrategy")]
+        [PolicyResourceProperty("routingStrategy", "_mUnknown_RoutingStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AliasRoutingStrategy> _mRoutingStrategy;
-
-        public Outputs.AliasRoutingStrategy? RoutingStrategy => _mRoutingStrategy.GetValue("routingStrategy");
+        private Outputs.AliasRoutingStrategy? _mValue_RoutingStrategy;
+        private bool _mUnknown_RoutingStrategy;
+        public Outputs.AliasRoutingStrategy? RoutingStrategy
+        {
+            get
+            {
+                if (!_mUnknown_RoutingStrategy) return _mValue_RoutingStrategy;
+                throw new UndeferrableValueException("Value 'Alias.RoutingStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Alias.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Alias.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:gamelift/alias:Alias")]
@@ -74,37 +116,65 @@ namespace Pulumi.PolicyPacks.Aws.GameLift
         /// <summary>
         /// Description of the alias.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AliasArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the alias.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AliasArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the fleet and/or routing type to use for the alias.
         /// </summary>
-        [Input("routingStrategy")]
+        [PolicyResourceProperty("routingStrategy", "_mUnknown_RoutingStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AliasRoutingStrategyArgs> _mRoutingStrategy;
-
-        public Inputs.AliasRoutingStrategyArgs? RoutingStrategy => _mRoutingStrategy.GetValue("routingStrategy");
+        private Inputs.AliasRoutingStrategyArgs? _mValue_RoutingStrategy;
+        private bool _mUnknown_RoutingStrategy;
+        public Inputs.AliasRoutingStrategyArgs? RoutingStrategy
+        {
+            get
+            {
+                if (!_mUnknown_RoutingStrategy) return _mValue_RoutingStrategy;
+                throw new UndeferrableValueException("Value 'AliasArgs.RoutingStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AliasArgs.Tags' is not present");
+            }
+        }
     }
 }

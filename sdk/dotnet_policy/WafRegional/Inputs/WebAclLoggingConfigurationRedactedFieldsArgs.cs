@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional.Inputs
         /// <summary>
         /// Set of configuration blocks for fields to redact. Detailed below.
         /// </summary>
-        [Input("fieldToMatches")]
+        [PolicyResourceProperty("fieldToMatches", "_mUnknown_FieldToMatches")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs>> _mFieldToMatches;
-
-        public List<Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs>? FieldToMatches => _mFieldToMatches.GetValue("fieldToMatches");
+        private List<Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs>? _mValue_FieldToMatches;
+        private bool _mUnknown_FieldToMatches;
+        public List<Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs>? FieldToMatches
+        {
+            get
+            {
+                if (!_mUnknown_FieldToMatches) return _mValue_FieldToMatches;
+                throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationRedactedFieldsArgs.FieldToMatches' is not present");
+            }
+        }
     }
 }

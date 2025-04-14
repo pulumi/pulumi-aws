@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
         /// </summary>
-        [Input("failureConditional")]
+        [PolicyResourceProperty("failureConditional", "_mUnknown_FailureConditional")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalArgs> _mFailureConditional;
-
-        public Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalArgs? FailureConditional => _mFailureConditional.GetValue("failureConditional");
+        private Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalArgs? _mValue_FailureConditional;
+        private bool _mUnknown_FailureConditional;
+        public Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalArgs? FailureConditional
+        {
+            get
+            {
+                if (!_mUnknown_FailureConditional) return _mValue_FailureConditional;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs.FailureConditional' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed . See `failure_next_step`.
         /// </summary>
-        [Input("failureNextStep")]
+        [PolicyResourceProperty("failureNextStep", "_mUnknown_FailureNextStep")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepArgs> _mFailureNextStep;
-
-        public Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepArgs? FailureNextStep => _mFailureNextStep.GetValue("failureNextStep");
+        private Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepArgs? _mValue_FailureNextStep;
+        private bool _mUnknown_FailureNextStep;
+        public Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepArgs? FailureNextStep
+        {
+            get
+            {
+                if (!_mUnknown_FailureNextStep) return _mValue_FailureNextStep;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs.FailureNextStep' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
         /// </summary>
-        [Input("failureResponse")]
+        [PolicyResourceProperty("failureResponse", "_mUnknown_FailureResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseArgs> _mFailureResponse;
-
-        public Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseArgs? FailureResponse => _mFailureResponse.GetValue("failureResponse");
+        private Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseArgs? _mValue_FailureResponse;
+        private bool _mUnknown_FailureResponse;
+        public Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseArgs? FailureResponse
+        {
+            get
+            {
+                if (!_mUnknown_FailureResponse) return _mValue_FailureResponse;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs.FailureResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `success_conditional`.
         /// </summary>
-        [Input("successConditional")]
+        [PolicyResourceProperty("successConditional", "_mUnknown_SuccessConditional")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalArgs> _mSuccessConditional;
-
-        public Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalArgs? SuccessConditional => _mSuccessConditional.GetValue("successConditional");
+        private Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalArgs? _mValue_SuccessConditional;
+        private bool _mUnknown_SuccessConditional;
+        public Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalArgs? SuccessConditional
+        {
+            get
+            {
+                if (!_mUnknown_SuccessConditional) return _mValue_SuccessConditional;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs.SuccessConditional' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `success_next_step`.
         /// </summary>
-        [Input("successNextStep")]
+        [PolicyResourceProperty("successNextStep", "_mUnknown_SuccessNextStep")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepArgs> _mSuccessNextStep;
-
-        public Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepArgs? SuccessNextStep => _mSuccessNextStep.GetValue("successNextStep");
+        private Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepArgs? _mValue_SuccessNextStep;
+        private bool _mUnknown_SuccessNextStep;
+        public Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepArgs? SuccessNextStep
+        {
+            get
+            {
+                if (!_mUnknown_SuccessNextStep) return _mValue_SuccessNextStep;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs.SuccessNextStep' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `success_response`.
         /// </summary>
-        [Input("successResponse")]
+        [PolicyResourceProperty("successResponse", "_mUnknown_SuccessResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseArgs> _mSuccessResponse;
-
-        public Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseArgs? SuccessResponse => _mSuccessResponse.GetValue("successResponse");
+        private Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseArgs? _mValue_SuccessResponse;
+        private bool _mUnknown_SuccessResponse;
+        public Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseArgs? SuccessResponse
+        {
+            get
+            {
+                if (!_mUnknown_SuccessResponse) return _mValue_SuccessResponse;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs.SuccessResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for conditional branches to evaluate if the code hook times out. See `timeout_conditional`.
         /// </summary>
-        [Input("timeoutConditional")]
+        [PolicyResourceProperty("timeoutConditional", "_mUnknown_TimeoutConditional")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalArgs> _mTimeoutConditional;
-
-        public Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalArgs? TimeoutConditional => _mTimeoutConditional.GetValue("timeoutConditional");
+        private Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalArgs? _mValue_TimeoutConditional;
+        private bool _mUnknown_TimeoutConditional;
+        public Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalArgs? TimeoutConditional
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutConditional) return _mValue_TimeoutConditional;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs.TimeoutConditional' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the next step that the bot runs when the code hook times out. See `timeout_next_step`.
         /// </summary>
-        [Input("timeoutNextStep")]
+        [PolicyResourceProperty("timeoutNextStep", "_mUnknown_TimeoutNextStep")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepArgs> _mTimeoutNextStep;
-
-        public Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepArgs? TimeoutNextStep => _mTimeoutNextStep.GetValue("timeoutNextStep");
+        private Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepArgs? _mValue_TimeoutNextStep;
+        private bool _mUnknown_TimeoutNextStep;
+        public Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepArgs? TimeoutNextStep
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutNextStep) return _mValue_TimeoutNextStep;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs.TimeoutNextStep' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeout_response`.
         /// </summary>
-        [Input("timeoutResponse")]
+        [PolicyResourceProperty("timeoutResponse", "_mUnknown_TimeoutResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseArgs> _mTimeoutResponse;
-
-        public Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseArgs? TimeoutResponse => _mTimeoutResponse.GetValue("timeoutResponse");
+        private Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseArgs? _mValue_TimeoutResponse;
+        private bool _mUnknown_TimeoutResponse;
+        public Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseArgs? TimeoutResponse
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutResponse) return _mValue_TimeoutResponse;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs.TimeoutResponse' is not present");
+            }
+        }
     }
 }

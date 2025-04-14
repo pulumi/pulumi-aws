@@ -16,31 +16,52 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Delegation Set.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DelegationSet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of authoritative name servers for the hosted zone
         /// (effectively a list of NS records).
         /// </summary>
-        [Input("nameServers")]
+        [PolicyResourceProperty("nameServers", "_mUnknown_NameServers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNameServers;
-
-        public List<string>? NameServers => _mNameServers.GetValue("nameServers");
+        private List<string>? _mValue_NameServers;
+        private bool _mUnknown_NameServers;
+        public List<string>? NameServers
+        {
+            get
+            {
+                if (!_mUnknown_NameServers) return _mValue_NameServers;
+                throw new UndeferrableValueException("Value 'DelegationSet.NameServers' is not present");
+            }
+        }
 
         /// <summary>
         /// This is a reference name used in Caller Reference
         /// (helpful for identifying single delegation set amongst others)
         /// </summary>
-        [Input("referenceName")]
+        [PolicyResourceProperty("referenceName", "_mUnknown_ReferenceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReferenceName;
-
-        public string? ReferenceName => _mReferenceName.GetValue("referenceName");
+        private string? _mValue_ReferenceName;
+        private bool _mUnknown_ReferenceName;
+        public string? ReferenceName
+        {
+            get
+            {
+                if (!_mUnknown_ReferenceName) return _mValue_ReferenceName;
+                throw new UndeferrableValueException("Value 'DelegationSet.ReferenceName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/delegationSet:DelegationSet")]
@@ -50,10 +71,17 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// This is a reference name used in Caller Reference
         /// (helpful for identifying single delegation set amongst others)
         /// </summary>
-        [Input("referenceName")]
+        [PolicyResourceProperty("referenceName", "_mUnknown_ReferenceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReferenceName;
-
-        public string? ReferenceName => _mReferenceName.GetValue("referenceName");
+        private string? _mValue_ReferenceName;
+        private bool _mUnknown_ReferenceName;
+        public string? ReferenceName
+        {
+            get
+            {
+                if (!_mUnknown_ReferenceName) return _mValue_ReferenceName;
+                throw new UndeferrableValueException("Value 'DelegationSetArgs.ReferenceName' is not present");
+            }
+        }
     }
 }

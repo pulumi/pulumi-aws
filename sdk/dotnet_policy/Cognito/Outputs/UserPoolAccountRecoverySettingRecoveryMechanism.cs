@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// Recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UserPoolAccountRecoverySettingRecoveryMechanism.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Positive integer specifying priority of a method with 1 being the highest priority.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'UserPoolAccountRecoverySettingRecoveryMechanism.Priority' is not present");
+            }
+        }
     }
 }

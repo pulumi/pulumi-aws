@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// The name of the lookback window column.
         /// </summary>
-        [Input("columnName")]
+        [PolicyResourceProperty("columnName", "_mUnknown_ColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColumnName;
-
-        public string? ColumnName => _mColumnName.GetValue("columnName");
+        private string? _mValue_ColumnName;
+        private bool _mUnknown_ColumnName;
+        public string? ColumnName
+        {
+            get
+            {
+                if (!_mUnknown_ColumnName) return _mValue_ColumnName;
+                throw new UndeferrableValueException("Value 'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow.ColumnName' is not present");
+            }
+        }
 
         /// <summary>
         /// The lookback window column size.
         /// </summary>
-        [Input("size")]
+        [PolicyResourceProperty("size", "_mUnknown_Size")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSize;
-
-        public int? Size => _mSize.GetValue("size");
+        private int? _mValue_Size;
+        private bool _mUnknown_Size;
+        public int? Size
+        {
+            get
+            {
+                if (!_mUnknown_Size) return _mValue_Size;
+                throw new UndeferrableValueException("Value 'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow.Size' is not present");
+            }
+        }
 
         /// <summary>
         /// The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
         /// </summary>
-        [Input("sizeUnit")]
+        [PolicyResourceProperty("sizeUnit", "_mUnknown_SizeUnit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSizeUnit;
-
-        public string? SizeUnit => _mSizeUnit.GetValue("sizeUnit");
+        private string? _mValue_SizeUnit;
+        private bool _mUnknown_SizeUnit;
+        public string? SizeUnit
+        {
+            get
+            {
+                if (!_mUnknown_SizeUnit) return _mValue_SizeUnit;
+                throw new UndeferrableValueException("Value 'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow.SizeUnit' is not present");
+            }
+        }
     }
 }

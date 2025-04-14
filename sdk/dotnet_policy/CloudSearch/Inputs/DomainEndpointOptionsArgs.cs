@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudSearch.Inputs
         /// <summary>
         /// Enables or disables the requirement that all requests to the domain arrive over HTTPS.
         /// </summary>
-        [Input("enforceHttps")]
+        [PolicyResourceProperty("enforceHttps", "_mUnknown_EnforceHttps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnforceHttps;
-
-        public bool? EnforceHttps => _mEnforceHttps.GetValue("enforceHttps");
+        private bool? _mValue_EnforceHttps;
+        private bool _mUnknown_EnforceHttps;
+        public bool? EnforceHttps
+        {
+            get
+            {
+                if (!_mUnknown_EnforceHttps) return _mValue_EnforceHttps;
+                throw new UndeferrableValueException("Value 'DomainEndpointOptionsArgs.EnforceHttps' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum required TLS version. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DomainEndpointOptions.html) for valid values.
         /// </summary>
-        [Input("tlsSecurityPolicy")]
+        [PolicyResourceProperty("tlsSecurityPolicy", "_mUnknown_TlsSecurityPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTlsSecurityPolicy;
-
-        public string? TlsSecurityPolicy => _mTlsSecurityPolicy.GetValue("tlsSecurityPolicy");
+        private string? _mValue_TlsSecurityPolicy;
+        private bool _mUnknown_TlsSecurityPolicy;
+        public string? TlsSecurityPolicy
+        {
+            get
+            {
+                if (!_mUnknown_TlsSecurityPolicy) return _mValue_TlsSecurityPolicy;
+                throw new UndeferrableValueException("Value 'DomainEndpointOptionsArgs.TlsSecurityPolicy' is not present");
+            }
+        }
     }
 }

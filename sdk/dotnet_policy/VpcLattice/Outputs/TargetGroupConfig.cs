@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Outputs
         /// <summary>
         /// The health check configuration.
         /// </summary>
-        [Input("healthCheck")]
+        [PolicyResourceProperty("healthCheck", "_mUnknown_HealthCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TargetGroupConfigHealthCheck> _mHealthCheck;
-
-        public Outputs.TargetGroupConfigHealthCheck? HealthCheck => _mHealthCheck.GetValue("healthCheck");
+        private Outputs.TargetGroupConfigHealthCheck? _mValue_HealthCheck;
+        private bool _mUnknown_HealthCheck;
+        public Outputs.TargetGroupConfigHealthCheck? HealthCheck
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheck) return _mValue_HealthCheck;
+                throw new UndeferrableValueException("Value 'TargetGroupConfig.HealthCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
         /// </summary>
-        [Input("ipAddressType")]
+        [PolicyResourceProperty("ipAddressType", "_mUnknown_IpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
-
-        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+        private string? _mValue_IpAddressType;
+        private bool _mUnknown_IpAddressType;
+        public string? IpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressType) return _mValue_IpAddressType;
+                throw new UndeferrableValueException("Value 'TargetGroupConfig.IpAddressType' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
         /// </summary>
-        [Input("lambdaEventStructureVersion")]
+        [PolicyResourceProperty("lambdaEventStructureVersion", "_mUnknown_LambdaEventStructureVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaEventStructureVersion;
-
-        public string? LambdaEventStructureVersion => _mLambdaEventStructureVersion.GetValue("lambdaEventStructureVersion");
+        private string? _mValue_LambdaEventStructureVersion;
+        private bool _mUnknown_LambdaEventStructureVersion;
+        public string? LambdaEventStructureVersion
+        {
+            get
+            {
+                if (!_mUnknown_LambdaEventStructureVersion) return _mValue_LambdaEventStructureVersion;
+                throw new UndeferrableValueException("Value 'TargetGroupConfig.LambdaEventStructureVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The port on which the targets are listening.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'TargetGroupConfig.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'TargetGroupConfig.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
         /// </summary>
-        [Input("protocolVersion")]
+        [PolicyResourceProperty("protocolVersion", "_mUnknown_ProtocolVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocolVersion;
-
-        public string? ProtocolVersion => _mProtocolVersion.GetValue("protocolVersion");
+        private string? _mValue_ProtocolVersion;
+        private bool _mUnknown_ProtocolVersion;
+        public string? ProtocolVersion
+        {
+            get
+            {
+                if (!_mUnknown_ProtocolVersion) return _mValue_ProtocolVersion;
+                throw new UndeferrableValueException("Value 'TargetGroupConfig.ProtocolVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC.
         /// </summary>
-        [Input("vpcIdentifier")]
+        [PolicyResourceProperty("vpcIdentifier", "_mUnknown_VpcIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcIdentifier;
-
-        public string? VpcIdentifier => _mVpcIdentifier.GetValue("vpcIdentifier");
+        private string? _mValue_VpcIdentifier;
+        private bool _mUnknown_VpcIdentifier;
+        public string? VpcIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_VpcIdentifier) return _mValue_VpcIdentifier;
+                throw new UndeferrableValueException("Value 'TargetGroupConfig.VpcIdentifier' is not present");
+            }
+        }
     }
 }

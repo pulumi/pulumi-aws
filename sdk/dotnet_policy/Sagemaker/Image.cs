@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Image.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Image.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the image.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Image.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The display name of the image. When the image is added to a domain (must be unique to the domain).
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'Image.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the image. Must be unique to your account.
         /// </summary>
-        [Input("imageName")]
+        [PolicyResourceProperty("imageName", "_mUnknown_ImageName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageName;
-
-        public string? ImageName => _mImageName.GetValue("imageName");
+        private string? _mValue_ImageName;
+        private bool _mUnknown_ImageName;
+        public string? ImageName
+        {
+            get
+            {
+                if (!_mUnknown_ImageName) return _mValue_ImageName;
+                throw new UndeferrableValueException("Value 'Image.ImageName' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Image.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Image.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Image.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/image:Image")]
@@ -83,46 +132,81 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The description of the image.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ImageArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The display name of the image. When the image is added to a domain (must be unique to the domain).
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'ImageArgs.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the image. Must be unique to your account.
         /// </summary>
-        [Input("imageName")]
+        [PolicyResourceProperty("imageName", "_mUnknown_ImageName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageName;
-
-        public string? ImageName => _mImageName.GetValue("imageName");
+        private string? _mValue_ImageName;
+        private bool _mUnknown_ImageName;
+        public string? ImageName
+        {
+            get
+            {
+                if (!_mUnknown_ImageName) return _mValue_ImageName;
+                throw new UndeferrableValueException("Value 'ImageArgs.ImageName' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ImageArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ImageArgs.Tags' is not present");
+            }
+        }
     }
 }

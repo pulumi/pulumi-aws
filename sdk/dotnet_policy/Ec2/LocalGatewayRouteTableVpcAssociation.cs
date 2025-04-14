@@ -13,49 +13,84 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
     [PolicyResourceType("aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation")]
     public sealed class LocalGatewayRouteTableVpcAssociation : global::Pulumi.PolicyResourceOutput
     {
-        [Input("localGatewayId")]
+        [PolicyResourceProperty("localGatewayId", "_mUnknown_LocalGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalGatewayId;
-
-        public string? LocalGatewayId => _mLocalGatewayId.GetValue("localGatewayId");
+        private string? _mValue_LocalGatewayId;
+        private bool _mUnknown_LocalGatewayId;
+        public string? LocalGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_LocalGatewayId) return _mValue_LocalGatewayId;
+                throw new UndeferrableValueException("Value 'LocalGatewayRouteTableVpcAssociation.LocalGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Local Gateway Route Table.
         /// </summary>
-        [Input("localGatewayRouteTableId")]
+        [PolicyResourceProperty("localGatewayRouteTableId", "_mUnknown_LocalGatewayRouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalGatewayRouteTableId;
-
-        public string? LocalGatewayRouteTableId => _mLocalGatewayRouteTableId.GetValue("localGatewayRouteTableId");
+        private string? _mValue_LocalGatewayRouteTableId;
+        private bool _mUnknown_LocalGatewayRouteTableId;
+        public string? LocalGatewayRouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_LocalGatewayRouteTableId) return _mValue_LocalGatewayRouteTableId;
+                throw new UndeferrableValueException("Value 'LocalGatewayRouteTableVpcAssociation.LocalGatewayRouteTableId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LocalGatewayRouteTableVpcAssociation.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'LocalGatewayRouteTableVpcAssociation.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 VPC.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'LocalGatewayRouteTableVpcAssociation.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation")]
@@ -64,30 +99,51 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Identifier of EC2 Local Gateway Route Table.
         /// </summary>
-        [Input("localGatewayRouteTableId")]
+        [PolicyResourceProperty("localGatewayRouteTableId", "_mUnknown_LocalGatewayRouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalGatewayRouteTableId;
-
-        public string? LocalGatewayRouteTableId => _mLocalGatewayRouteTableId.GetValue("localGatewayRouteTableId");
+        private string? _mValue_LocalGatewayRouteTableId;
+        private bool _mUnknown_LocalGatewayRouteTableId;
+        public string? LocalGatewayRouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_LocalGatewayRouteTableId) return _mValue_LocalGatewayRouteTableId;
+                throw new UndeferrableValueException("Value 'LocalGatewayRouteTableVpcAssociationArgs.LocalGatewayRouteTableId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LocalGatewayRouteTableVpcAssociationArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 VPC.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'LocalGatewayRouteTableVpcAssociationArgs.VpcId' is not present");
+            }
+        }
     }
 }

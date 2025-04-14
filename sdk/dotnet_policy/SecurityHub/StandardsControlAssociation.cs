@@ -16,40 +16,68 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("associationStatus")]
+        [PolicyResourceProperty("associationStatus", "_mUnknown_AssociationStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationStatus;
-
-        public string? AssociationStatus => _mAssociationStatus.GetValue("associationStatus");
+        private string? _mValue_AssociationStatus;
+        private bool _mUnknown_AssociationStatus;
+        public string? AssociationStatus
+        {
+            get
+            {
+                if (!_mUnknown_AssociationStatus) return _mValue_AssociationStatus;
+                throw new UndeferrableValueException("Value 'StandardsControlAssociation.AssociationStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the security control whose enablement status you want to update.
         /// </summary>
-        [Input("securityControlId")]
+        [PolicyResourceProperty("securityControlId", "_mUnknown_SecurityControlId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityControlId;
-
-        public string? SecurityControlId => _mSecurityControlId.GetValue("securityControlId");
+        private string? _mValue_SecurityControlId;
+        private bool _mUnknown_SecurityControlId;
+        public string? SecurityControlId
+        {
+            get
+            {
+                if (!_mUnknown_SecurityControlId) return _mValue_SecurityControlId;
+                throw new UndeferrableValueException("Value 'StandardsControlAssociation.SecurityControlId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("standardsArn")]
+        [PolicyResourceProperty("standardsArn", "_mUnknown_StandardsArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStandardsArn;
-
-        public string? StandardsArn => _mStandardsArn.GetValue("standardsArn");
+        private string? _mValue_StandardsArn;
+        private bool _mUnknown_StandardsArn;
+        public string? StandardsArn
+        {
+            get
+            {
+                if (!_mUnknown_StandardsArn) return _mValue_StandardsArn;
+                throw new UndeferrableValueException("Value 'StandardsControlAssociation.StandardsArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The reason for updating the control's enablement status in the standard. Required when `association_status` is `DISABLED`.
         /// </summary>
-        [Input("updatedReason")]
+        [PolicyResourceProperty("updatedReason", "_mUnknown_UpdatedReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedReason;
-
-        public string? UpdatedReason => _mUpdatedReason.GetValue("updatedReason");
+        private string? _mValue_UpdatedReason;
+        private bool _mUnknown_UpdatedReason;
+        public string? UpdatedReason
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedReason) return _mValue_UpdatedReason;
+                throw new UndeferrableValueException("Value 'StandardsControlAssociation.UpdatedReason' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:securityhub/standardsControlAssociation:StandardsControlAssociation")]
@@ -58,39 +86,67 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("associationStatus")]
+        [PolicyResourceProperty("associationStatus", "_mUnknown_AssociationStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationStatus;
-
-        public string? AssociationStatus => _mAssociationStatus.GetValue("associationStatus");
+        private string? _mValue_AssociationStatus;
+        private bool _mUnknown_AssociationStatus;
+        public string? AssociationStatus
+        {
+            get
+            {
+                if (!_mUnknown_AssociationStatus) return _mValue_AssociationStatus;
+                throw new UndeferrableValueException("Value 'StandardsControlAssociationArgs.AssociationStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the security control whose enablement status you want to update.
         /// </summary>
-        [Input("securityControlId")]
+        [PolicyResourceProperty("securityControlId", "_mUnknown_SecurityControlId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityControlId;
-
-        public string? SecurityControlId => _mSecurityControlId.GetValue("securityControlId");
+        private string? _mValue_SecurityControlId;
+        private bool _mUnknown_SecurityControlId;
+        public string? SecurityControlId
+        {
+            get
+            {
+                if (!_mUnknown_SecurityControlId) return _mValue_SecurityControlId;
+                throw new UndeferrableValueException("Value 'StandardsControlAssociationArgs.SecurityControlId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("standardsArn")]
+        [PolicyResourceProperty("standardsArn", "_mUnknown_StandardsArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStandardsArn;
-
-        public string? StandardsArn => _mStandardsArn.GetValue("standardsArn");
+        private string? _mValue_StandardsArn;
+        private bool _mUnknown_StandardsArn;
+        public string? StandardsArn
+        {
+            get
+            {
+                if (!_mUnknown_StandardsArn) return _mValue_StandardsArn;
+                throw new UndeferrableValueException("Value 'StandardsControlAssociationArgs.StandardsArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The reason for updating the control's enablement status in the standard. Required when `association_status` is `DISABLED`.
         /// </summary>
-        [Input("updatedReason")]
+        [PolicyResourceProperty("updatedReason", "_mUnknown_UpdatedReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedReason;
-
-        public string? UpdatedReason => _mUpdatedReason.GetValue("updatedReason");
+        private string? _mValue_UpdatedReason;
+        private bool _mUnknown_UpdatedReason;
+        public string? UpdatedReason
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedReason) return _mValue_UpdatedReason;
+                throw new UndeferrableValueException("Value 'StandardsControlAssociationArgs.UpdatedReason' is not present");
+            }
+        }
     }
 }

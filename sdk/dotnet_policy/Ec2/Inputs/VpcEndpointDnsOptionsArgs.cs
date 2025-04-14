@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
         /// </summary>
-        [Input("dnsRecordIpType")]
+        [PolicyResourceProperty("dnsRecordIpType", "_mUnknown_DnsRecordIpType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsRecordIpType;
-
-        public string? DnsRecordIpType => _mDnsRecordIpType.GetValue("dnsRecordIpType");
+        private string? _mValue_DnsRecordIpType;
+        private bool _mUnknown_DnsRecordIpType;
+        public string? DnsRecordIpType
+        {
+            get
+            {
+                if (!_mUnknown_DnsRecordIpType) return _mValue_DnsRecordIpType;
+                throw new UndeferrableValueException("Value 'VpcEndpointDnsOptionsArgs.DnsRecordIpType' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if private_dns_enabled is `true`.
         /// </summary>
-        [Input("privateDnsOnlyForInboundResolverEndpoint")]
+        [PolicyResourceProperty("privateDnsOnlyForInboundResolverEndpoint", "_mUnknown_PrivateDnsOnlyForInboundResolverEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPrivateDnsOnlyForInboundResolverEndpoint;
-
-        public bool? PrivateDnsOnlyForInboundResolverEndpoint => _mPrivateDnsOnlyForInboundResolverEndpoint.GetValue("privateDnsOnlyForInboundResolverEndpoint");
+        private bool? _mValue_PrivateDnsOnlyForInboundResolverEndpoint;
+        private bool _mUnknown_PrivateDnsOnlyForInboundResolverEndpoint;
+        public bool? PrivateDnsOnlyForInboundResolverEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_PrivateDnsOnlyForInboundResolverEndpoint) return _mValue_PrivateDnsOnlyForInboundResolverEndpoint;
+                throw new UndeferrableValueException("Value 'VpcEndpointDnsOptionsArgs.PrivateDnsOnlyForInboundResolverEndpoint' is not present");
+            }
+        }
     }
 }

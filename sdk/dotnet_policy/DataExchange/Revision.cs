@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.DataExchange
         /// <summary>
         /// The Amazon Resource Name of this data set.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Revision.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// An optional comment about the revision.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'Revision.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// The dataset id.
         /// </summary>
-        [Input("dataSetId")]
+        [PolicyResourceProperty("dataSetId", "_mUnknown_DataSetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSetId;
-
-        public string? DataSetId => _mDataSetId.GetValue("dataSetId");
+        private string? _mValue_DataSetId;
+        private bool _mUnknown_DataSetId;
+        public string? DataSetId
+        {
+            get
+            {
+                if (!_mUnknown_DataSetId) return _mValue_DataSetId;
+                throw new UndeferrableValueException("Value 'Revision.DataSetId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Id of the revision.
         /// </summary>
-        [Input("revisionId")]
+        [PolicyResourceProperty("revisionId", "_mUnknown_RevisionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevisionId;
-
-        public string? RevisionId => _mRevisionId.GetValue("revisionId");
+        private string? _mValue_RevisionId;
+        private bool _mUnknown_RevisionId;
+        public string? RevisionId
+        {
+            get
+            {
+                if (!_mUnknown_RevisionId) return _mValue_RevisionId;
+                throw new UndeferrableValueException("Value 'Revision.RevisionId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Revision.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Revision.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:dataexchange/revision:Revision")]
@@ -74,28 +116,49 @@ namespace Pulumi.PolicyPacks.Aws.DataExchange
         /// <summary>
         /// An optional comment about the revision.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'RevisionArgs.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// The dataset id.
         /// </summary>
-        [Input("dataSetId")]
+        [PolicyResourceProperty("dataSetId", "_mUnknown_DataSetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSetId;
-
-        public string? DataSetId => _mDataSetId.GetValue("dataSetId");
+        private string? _mValue_DataSetId;
+        private bool _mUnknown_DataSetId;
+        public string? DataSetId
+        {
+            get
+            {
+                if (!_mUnknown_DataSetId) return _mValue_DataSetId;
+                throw new UndeferrableValueException("Value 'RevisionArgs.DataSetId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RevisionArgs.Tags' is not present");
+            }
+        }
     }
 }

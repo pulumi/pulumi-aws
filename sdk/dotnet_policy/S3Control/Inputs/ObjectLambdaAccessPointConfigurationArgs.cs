@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Inputs
         /// <summary>
         /// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
         /// </summary>
-        [Input("allowedFeatures")]
+        [PolicyResourceProperty("allowedFeatures", "_mUnknown_AllowedFeatures")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedFeatures;
-
-        public List<string>? AllowedFeatures => _mAllowedFeatures.GetValue("allowedFeatures");
+        private List<string>? _mValue_AllowedFeatures;
+        private bool _mUnknown_AllowedFeatures;
+        public List<string>? AllowedFeatures
+        {
+            get
+            {
+                if (!_mUnknown_AllowedFeatures) return _mValue_AllowedFeatures;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfigurationArgs.AllowedFeatures' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not the CloudWatch metrics configuration is enabled.
         /// </summary>
-        [Input("cloudWatchMetricsEnabled")]
+        [PolicyResourceProperty("cloudWatchMetricsEnabled", "_mUnknown_CloudWatchMetricsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCloudWatchMetricsEnabled;
-
-        public bool? CloudWatchMetricsEnabled => _mCloudWatchMetricsEnabled.GetValue("cloudWatchMetricsEnabled");
+        private bool? _mValue_CloudWatchMetricsEnabled;
+        private bool _mUnknown_CloudWatchMetricsEnabled;
+        public bool? CloudWatchMetricsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_CloudWatchMetricsEnabled) return _mValue_CloudWatchMetricsEnabled;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfigurationArgs.CloudWatchMetricsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Standard access point associated with the Object Lambda Access Point.
         /// </summary>
-        [Input("supportingAccessPoint")]
+        [PolicyResourceProperty("supportingAccessPoint", "_mUnknown_SupportingAccessPoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSupportingAccessPoint;
-
-        public string? SupportingAccessPoint => _mSupportingAccessPoint.GetValue("supportingAccessPoint");
+        private string? _mValue_SupportingAccessPoint;
+        private bool _mUnknown_SupportingAccessPoint;
+        public string? SupportingAccessPoint
+        {
+            get
+            {
+                if (!_mUnknown_SupportingAccessPoint) return _mValue_SupportingAccessPoint;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfigurationArgs.SupportingAccessPoint' is not present");
+            }
+        }
 
         /// <summary>
         /// List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
         /// </summary>
-        [Input("transformationConfigurations")]
+        [PolicyResourceProperty("transformationConfigurations", "_mUnknown_TransformationConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs>> _mTransformationConfigurations;
-
-        public List<Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs>? TransformationConfigurations => _mTransformationConfigurations.GetValue("transformationConfigurations");
+        private List<Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs>? _mValue_TransformationConfigurations;
+        private bool _mUnknown_TransformationConfigurations;
+        public List<Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs>? TransformationConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_TransformationConfigurations) return _mValue_TransformationConfigurations;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfigurationArgs.TransformationConfigurations' is not present");
+            }
+        }
     }
 }

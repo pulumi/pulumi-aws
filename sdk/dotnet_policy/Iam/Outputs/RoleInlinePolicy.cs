@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Iam.Outputs
         /// <summary>
         /// Name of the role policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RoleInlinePolicy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Policy document as a JSON formatted string.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'RoleInlinePolicy.Policy' is not present");
+            }
+        }
     }
 }

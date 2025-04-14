@@ -12,66 +12,115 @@ namespace Pulumi.PolicyPacks.Aws.StorageGateway.Outputs
 {
     public sealed class GatewaySmbActiveDirectorySettings
     {
-        [Input("activeDirectoryStatus")]
+        [PolicyResourceProperty("activeDirectoryStatus", "_mUnknown_ActiveDirectoryStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActiveDirectoryStatus;
-
-        public string? ActiveDirectoryStatus => _mActiveDirectoryStatus.GetValue("activeDirectoryStatus");
+        private string? _mValue_ActiveDirectoryStatus;
+        private bool _mUnknown_ActiveDirectoryStatus;
+        public string? ActiveDirectoryStatus
+        {
+            get
+            {
+                if (!_mUnknown_ActiveDirectoryStatus) return _mValue_ActiveDirectoryStatus;
+                throw new UndeferrableValueException("Value 'GatewaySmbActiveDirectorySettings.ActiveDirectoryStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// List of IPv4 addresses, NetBIOS names, or host names of your domain server.
         /// If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
         /// </summary>
-        [Input("domainControllers")]
+        [PolicyResourceProperty("domainControllers", "_mUnknown_DomainControllers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDomainControllers;
-
-        public List<string>? DomainControllers => _mDomainControllers.GetValue("domainControllers");
+        private List<string>? _mValue_DomainControllers;
+        private bool _mUnknown_DomainControllers;
+        public List<string>? DomainControllers
+        {
+            get
+            {
+                if (!_mUnknown_DomainControllers) return _mValue_DomainControllers;
+                throw new UndeferrableValueException("Value 'GatewaySmbActiveDirectorySettings.DomainControllers' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the domain that you want the gateway to join.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'GatewaySmbActiveDirectorySettings.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
         /// computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
         /// </summary>
-        [Input("organizationalUnit")]
+        [PolicyResourceProperty("organizationalUnit", "_mUnknown_OrganizationalUnit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationalUnit;
-
-        public string? OrganizationalUnit => _mOrganizationalUnit.GetValue("organizationalUnit");
+        private string? _mValue_OrganizationalUnit;
+        private bool _mUnknown_OrganizationalUnit;
+        public string? OrganizationalUnit
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationalUnit) return _mValue_OrganizationalUnit;
+                throw new UndeferrableValueException("Value 'GatewaySmbActiveDirectorySettings.OrganizationalUnit' is not present");
+            }
+        }
 
         /// <summary>
         /// The password of the user who has permission to add the gateway to the Active Directory domain.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'GatewaySmbActiveDirectorySettings.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
         /// </summary>
-        [Input("timeoutInSeconds")]
+        [PolicyResourceProperty("timeoutInSeconds", "_mUnknown_TimeoutInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutInSeconds;
-
-        public int? TimeoutInSeconds => _mTimeoutInSeconds.GetValue("timeoutInSeconds");
+        private int? _mValue_TimeoutInSeconds;
+        private bool _mUnknown_TimeoutInSeconds;
+        public int? TimeoutInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutInSeconds) return _mValue_TimeoutInSeconds;
+                throw new UndeferrableValueException("Value 'GatewaySmbActiveDirectorySettings.TimeoutInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The user name of user who has permission to add the gateway to the Active Directory domain.
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'GatewaySmbActiveDirectorySettings.Username' is not present");
+            }
+        }
     }
 }

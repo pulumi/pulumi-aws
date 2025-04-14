@@ -16,10 +16,17 @@ namespace Pulumi.PolicyPacks.Aws.AppStream.Inputs
         /// The preferred protocol that you want to use while streaming your application.
         /// Valid values are `TCP` and `UDP`.
         /// </summary>
-        [Input("preferredProtocol")]
+        [PolicyResourceProperty("preferredProtocol", "_mUnknown_PreferredProtocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredProtocol;
-
-        public string? PreferredProtocol => _mPreferredProtocol.GetValue("preferredProtocol");
+        private string? _mValue_PreferredProtocol;
+        private bool _mUnknown_PreferredProtocol;
+        public string? PreferredProtocol
+        {
+            get
+            {
+                if (!_mUnknown_PreferredProtocol) return _mValue_PreferredProtocol;
+                throw new UndeferrableValueException("Value 'StackStreamingExperienceSettingsArgs.PreferredProtocol' is not present");
+            }
+        }
     }
 }

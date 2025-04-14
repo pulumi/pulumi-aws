@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway.Outputs
         /// <summary>
         /// Maximum number of requests that can be made in a given time period.
         /// </summary>
-        [Input("limit")]
+        [PolicyResourceProperty("limit", "_mUnknown_Limit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLimit;
-
-        public int? Limit => _mLimit.GetValue("limit");
+        private int? _mValue_Limit;
+        private bool _mUnknown_Limit;
+        public int? Limit
+        {
+            get
+            {
+                if (!_mUnknown_Limit) return _mValue_Limit;
+                throw new UndeferrableValueException("Value 'UsagePlanQuotaSettings.Limit' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of requests subtracted from the given limit in the initial time period.
         /// </summary>
-        [Input("offset")]
+        [PolicyResourceProperty("offset", "_mUnknown_Offset")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOffset;
-
-        public int? Offset => _mOffset.GetValue("offset");
+        private int? _mValue_Offset;
+        private bool _mUnknown_Offset;
+        public int? Offset
+        {
+            get
+            {
+                if (!_mUnknown_Offset) return _mValue_Offset;
+                throw new UndeferrableValueException("Value 'UsagePlanQuotaSettings.Offset' is not present");
+            }
+        }
 
         /// <summary>
         /// Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
         /// </summary>
-        [Input("period")]
+        [PolicyResourceProperty("period", "_mUnknown_Period")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeriod;
-
-        public string? Period => _mPeriod.GetValue("period");
+        private string? _mValue_Period;
+        private bool _mUnknown_Period;
+        public string? Period
+        {
+            get
+            {
+                if (!_mUnknown_Period) return _mValue_Period;
+                throw new UndeferrableValueException("Value 'UsagePlanQuotaSettings.Period' is not present");
+            }
+        }
     }
 }

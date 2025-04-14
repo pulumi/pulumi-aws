@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Inputs
 {
     public sealed class FirewallPolicyFirewallPolicyPolicyVariablesArgs
     {
-        [Input("ruleVariables")]
+        [PolicyResourceProperty("ruleVariables", "_mUnknown_RuleVariables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs>> _mRuleVariables;
-
-        public List<Inputs.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs>? RuleVariables => _mRuleVariables.GetValue("ruleVariables");
+        private List<Inputs.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs>? _mValue_RuleVariables;
+        private bool _mUnknown_RuleVariables;
+        public List<Inputs.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs>? RuleVariables
+        {
+            get
+            {
+                if (!_mUnknown_RuleVariables) return _mValue_RuleVariables;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyPolicyVariablesArgs.RuleVariables' is not present");
+            }
+        }
     }
 }

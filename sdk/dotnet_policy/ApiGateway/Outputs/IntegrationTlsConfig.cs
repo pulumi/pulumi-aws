@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway.Outputs
         /// <summary>
         /// Whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate's expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
         /// </summary>
-        [Input("insecureSkipVerification")]
+        [PolicyResourceProperty("insecureSkipVerification", "_mUnknown_InsecureSkipVerification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInsecureSkipVerification;
-
-        public bool? InsecureSkipVerification => _mInsecureSkipVerification.GetValue("insecureSkipVerification");
+        private bool? _mValue_InsecureSkipVerification;
+        private bool _mUnknown_InsecureSkipVerification;
+        public bool? InsecureSkipVerification
+        {
+            get
+            {
+                if (!_mUnknown_InsecureSkipVerification) return _mValue_InsecureSkipVerification;
+                throw new UndeferrableValueException("Value 'IntegrationTlsConfig.InsecureSkipVerification' is not present");
+            }
+        }
     }
 }

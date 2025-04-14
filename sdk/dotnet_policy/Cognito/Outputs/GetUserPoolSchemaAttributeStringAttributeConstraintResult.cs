@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// - Maximum allowed length.
         /// </summary>
-        [Input("maxLength")]
+        [PolicyResourceProperty("maxLength", "_mUnknown_MaxLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxLength;
-
-        public string? MaxLength => _mMaxLength.GetValue("maxLength");
+        private string? _mValue_MaxLength;
+        private bool _mUnknown_MaxLength;
+        public string? MaxLength
+        {
+            get
+            {
+                if (!_mUnknown_MaxLength) return _mValue_MaxLength;
+                throw new UndeferrableValueException("Value 'GetUserPoolSchemaAttributeStringAttributeConstraintResult.MaxLength' is not present");
+            }
+        }
 
         /// <summary>
         /// - Minimum allowed length.
         /// </summary>
-        [Input("minLength")]
+        [PolicyResourceProperty("minLength", "_mUnknown_MinLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMinLength;
-
-        public string? MinLength => _mMinLength.GetValue("minLength");
+        private string? _mValue_MinLength;
+        private bool _mUnknown_MinLength;
+        public string? MinLength
+        {
+            get
+            {
+                if (!_mUnknown_MinLength) return _mValue_MinLength;
+                throw new UndeferrableValueException("Value 'GetUserPoolSchemaAttributeStringAttributeConstraintResult.MinLength' is not present");
+            }
+        }
     }
 }

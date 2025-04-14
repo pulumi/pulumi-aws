@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// Amazon Resource Name (ARN) of the Security Hub custom action target.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ActionTarget.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the custom action target.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ActionTarget.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID for the custom action target.
         /// </summary>
-        [Input("identifier")]
+        [PolicyResourceProperty("identifier", "_mUnknown_Identifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
-
-        public string? Identifier => _mIdentifier.GetValue("identifier");
+        private string? _mValue_Identifier;
+        private bool _mUnknown_Identifier;
+        public string? Identifier
+        {
+            get
+            {
+                if (!_mUnknown_Identifier) return _mValue_Identifier;
+                throw new UndeferrableValueException("Value 'ActionTarget.Identifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The description for the custom action target.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ActionTarget.Name' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:securityhub/actionTarget:ActionTarget")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// The name of the custom action target.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ActionTargetArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID for the custom action target.
         /// </summary>
-        [Input("identifier")]
+        [PolicyResourceProperty("identifier", "_mUnknown_Identifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
-
-        public string? Identifier => _mIdentifier.GetValue("identifier");
+        private string? _mValue_Identifier;
+        private bool _mUnknown_Identifier;
+        public string? Identifier
+        {
+            get
+            {
+                if (!_mUnknown_Identifier) return _mValue_Identifier;
+                throw new UndeferrableValueException("Value 'ActionTargetArgs.Identifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The description for the custom action target.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ActionTargetArgs.Name' is not present");
+            }
+        }
     }
 }

@@ -16,145 +16,257 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild
         /// <summary>
         /// ARN of the Fleet.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Fleet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of machines allocated to the ﬂeet.
         /// </summary>
-        [Input("baseCapacity")]
+        [PolicyResourceProperty("baseCapacity", "_mUnknown_BaseCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBaseCapacity;
-
-        public int? BaseCapacity => _mBaseCapacity.GetValue("baseCapacity");
+        private int? _mValue_BaseCapacity;
+        private bool _mUnknown_BaseCapacity;
+        public int? BaseCapacity
+        {
+            get
+            {
+                if (!_mUnknown_BaseCapacity) return _mValue_BaseCapacity;
+                throw new UndeferrableValueException("Value 'Fleet.BaseCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
         /// </summary>
-        [Input("computeConfiguration")]
+        [PolicyResourceProperty("computeConfiguration", "_mUnknown_ComputeConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetComputeConfiguration> _mComputeConfiguration;
-
-        public Outputs.FleetComputeConfiguration? ComputeConfiguration => _mComputeConfiguration.GetValue("computeConfiguration");
+        private Outputs.FleetComputeConfiguration? _mValue_ComputeConfiguration;
+        private bool _mUnknown_ComputeConfiguration;
+        public Outputs.FleetComputeConfiguration? ComputeConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ComputeConfiguration) return _mValue_ComputeConfiguration;
+                throw new UndeferrableValueException("Value 'Fleet.ComputeConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         /// </summary>
-        [Input("computeType")]
+        [PolicyResourceProperty("computeType", "_mUnknown_ComputeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComputeType;
-
-        public string? ComputeType => _mComputeType.GetValue("computeType");
+        private string? _mValue_ComputeType;
+        private bool _mUnknown_ComputeType;
+        public string? ComputeType
+        {
+            get
+            {
+                if (!_mUnknown_ComputeType) return _mValue_ComputeType;
+                throw new UndeferrableValueException("Value 'Fleet.ComputeType' is not present");
+            }
+        }
 
         /// <summary>
         /// Creation time of the fleet.
         /// </summary>
-        [Input("created")]
+        [PolicyResourceProperty("created", "_mUnknown_Created")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreated;
-
-        public string? Created => _mCreated.GetValue("created");
+        private string? _mValue_Created;
+        private bool _mUnknown_Created;
+        public string? Created
+        {
+            get
+            {
+                if (!_mUnknown_Created) return _mValue_Created;
+                throw new UndeferrableValueException("Value 'Fleet.Created' is not present");
+            }
+        }
 
         /// <summary>
         /// Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("environmentType")]
+        [PolicyResourceProperty("environmentType", "_mUnknown_EnvironmentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentType;
-
-        public string? EnvironmentType => _mEnvironmentType.GetValue("environmentType");
+        private string? _mValue_EnvironmentType;
+        private bool _mUnknown_EnvironmentType;
+        public string? EnvironmentType
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentType) return _mValue_EnvironmentType;
+                throw new UndeferrableValueException("Value 'Fleet.EnvironmentType' is not present");
+            }
+        }
 
         /// <summary>
         /// The service role associated with the compute fleet.
         /// </summary>
-        [Input("fleetServiceRole")]
+        [PolicyResourceProperty("fleetServiceRole", "_mUnknown_FleetServiceRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFleetServiceRole;
-
-        public string? FleetServiceRole => _mFleetServiceRole.GetValue("fleetServiceRole");
+        private string? _mValue_FleetServiceRole;
+        private bool _mUnknown_FleetServiceRole;
+        public string? FleetServiceRole
+        {
+            get
+            {
+                if (!_mUnknown_FleetServiceRole) return _mValue_FleetServiceRole;
+                throw new UndeferrableValueException("Value 'Fleet.FleetServiceRole' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Machine Image (AMI) of the compute fleet.
         /// </summary>
-        [Input("imageId")]
+        [PolicyResourceProperty("imageId", "_mUnknown_ImageId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
-
-        public string? ImageId => _mImageId.GetValue("imageId");
+        private string? _mValue_ImageId;
+        private bool _mUnknown_ImageId;
+        public string? ImageId
+        {
+            get
+            {
+                if (!_mUnknown_ImageId) return _mValue_ImageId;
+                throw new UndeferrableValueException("Value 'Fleet.ImageId' is not present");
+            }
+        }
 
         /// <summary>
         /// Last modification time of the fleet.
         /// </summary>
-        [Input("lastModified")]
+        [PolicyResourceProperty("lastModified", "_mUnknown_LastModified")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModified;
-
-        public string? LastModified => _mLastModified.GetValue("lastModified");
+        private string? _mValue_LastModified;
+        private bool _mUnknown_LastModified;
+        public string? LastModified
+        {
+            get
+            {
+                if (!_mUnknown_LastModified) return _mValue_LastModified;
+                throw new UndeferrableValueException("Value 'Fleet.LastModified' is not present");
+            }
+        }
 
         /// <summary>
         /// Fleet name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Fleet.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
         /// </summary>
-        [Input("overflowBehavior")]
+        [PolicyResourceProperty("overflowBehavior", "_mUnknown_OverflowBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOverflowBehavior;
-
-        public string? OverflowBehavior => _mOverflowBehavior.GetValue("overflowBehavior");
+        private string? _mValue_OverflowBehavior;
+        private bool _mUnknown_OverflowBehavior;
+        public string? OverflowBehavior
+        {
+            get
+            {
+                if (!_mUnknown_OverflowBehavior) return _mValue_OverflowBehavior;
+                throw new UndeferrableValueException("Value 'Fleet.OverflowBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         /// </summary>
-        [Input("scalingConfiguration")]
+        [PolicyResourceProperty("scalingConfiguration", "_mUnknown_ScalingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetScalingConfiguration> _mScalingConfiguration;
-
-        public Outputs.FleetScalingConfiguration? ScalingConfiguration => _mScalingConfiguration.GetValue("scalingConfiguration");
+        private Outputs.FleetScalingConfiguration? _mValue_ScalingConfiguration;
+        private bool _mUnknown_ScalingConfiguration;
+        public Outputs.FleetScalingConfiguration? ScalingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ScalingConfiguration) return _mValue_ScalingConfiguration;
+                throw new UndeferrableValueException("Value 'Fleet.ScalingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested attribute containing information about the current status of the fleet.
         /// </summary>
-        [Input("statuses")]
+        [PolicyResourceProperty("statuses", "_mUnknown_Statuses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FleetStatus>> _mStatuses;
-
-        public List<Outputs.FleetStatus>? Statuses => _mStatuses.GetValue("statuses");
+        private List<Outputs.FleetStatus>? _mValue_Statuses;
+        private bool _mUnknown_Statuses;
+        public List<Outputs.FleetStatus>? Statuses
+        {
+            get
+            {
+                if (!_mUnknown_Statuses) return _mValue_Statuses;
+                throw new UndeferrableValueException("Value 'Fleet.Statuses' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Fleet.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Fleet.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. See `vpc_config` below.
         /// </summary>
-        [Input("vpcConfigs")]
+        [PolicyResourceProperty("vpcConfigs", "_mUnknown_VpcConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FleetVpcConfig>> _mVpcConfigs;
-
-        public List<Outputs.FleetVpcConfig>? VpcConfigs => _mVpcConfigs.GetValue("vpcConfigs");
+        private List<Outputs.FleetVpcConfig>? _mValue_VpcConfigs;
+        private bool _mUnknown_VpcConfigs;
+        public List<Outputs.FleetVpcConfig>? VpcConfigs
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfigs) return _mValue_VpcConfigs;
+                throw new UndeferrableValueException("Value 'Fleet.VpcConfigs' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codebuild/fleet:Fleet")]
@@ -163,102 +275,179 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild
         /// <summary>
         /// Number of machines allocated to the ﬂeet.
         /// </summary>
-        [Input("baseCapacity")]
+        [PolicyResourceProperty("baseCapacity", "_mUnknown_BaseCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBaseCapacity;
-
-        public int? BaseCapacity => _mBaseCapacity.GetValue("baseCapacity");
+        private int? _mValue_BaseCapacity;
+        private bool _mUnknown_BaseCapacity;
+        public int? BaseCapacity
+        {
+            get
+            {
+                if (!_mUnknown_BaseCapacity) return _mValue_BaseCapacity;
+                throw new UndeferrableValueException("Value 'FleetArgs.BaseCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
         /// </summary>
-        [Input("computeConfiguration")]
+        [PolicyResourceProperty("computeConfiguration", "_mUnknown_ComputeConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetComputeConfigurationArgs> _mComputeConfiguration;
-
-        public Inputs.FleetComputeConfigurationArgs? ComputeConfiguration => _mComputeConfiguration.GetValue("computeConfiguration");
+        private Inputs.FleetComputeConfigurationArgs? _mValue_ComputeConfiguration;
+        private bool _mUnknown_ComputeConfiguration;
+        public Inputs.FleetComputeConfigurationArgs? ComputeConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ComputeConfiguration) return _mValue_ComputeConfiguration;
+                throw new UndeferrableValueException("Value 'FleetArgs.ComputeConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         /// </summary>
-        [Input("computeType")]
+        [PolicyResourceProperty("computeType", "_mUnknown_ComputeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComputeType;
-
-        public string? ComputeType => _mComputeType.GetValue("computeType");
+        private string? _mValue_ComputeType;
+        private bool _mUnknown_ComputeType;
+        public string? ComputeType
+        {
+            get
+            {
+                if (!_mUnknown_ComputeType) return _mValue_ComputeType;
+                throw new UndeferrableValueException("Value 'FleetArgs.ComputeType' is not present");
+            }
+        }
 
         /// <summary>
         /// Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("environmentType")]
+        [PolicyResourceProperty("environmentType", "_mUnknown_EnvironmentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentType;
-
-        public string? EnvironmentType => _mEnvironmentType.GetValue("environmentType");
+        private string? _mValue_EnvironmentType;
+        private bool _mUnknown_EnvironmentType;
+        public string? EnvironmentType
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentType) return _mValue_EnvironmentType;
+                throw new UndeferrableValueException("Value 'FleetArgs.EnvironmentType' is not present");
+            }
+        }
 
         /// <summary>
         /// The service role associated with the compute fleet.
         /// </summary>
-        [Input("fleetServiceRole")]
+        [PolicyResourceProperty("fleetServiceRole", "_mUnknown_FleetServiceRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFleetServiceRole;
-
-        public string? FleetServiceRole => _mFleetServiceRole.GetValue("fleetServiceRole");
+        private string? _mValue_FleetServiceRole;
+        private bool _mUnknown_FleetServiceRole;
+        public string? FleetServiceRole
+        {
+            get
+            {
+                if (!_mUnknown_FleetServiceRole) return _mValue_FleetServiceRole;
+                throw new UndeferrableValueException("Value 'FleetArgs.FleetServiceRole' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Machine Image (AMI) of the compute fleet.
         /// </summary>
-        [Input("imageId")]
+        [PolicyResourceProperty("imageId", "_mUnknown_ImageId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
-
-        public string? ImageId => _mImageId.GetValue("imageId");
+        private string? _mValue_ImageId;
+        private bool _mUnknown_ImageId;
+        public string? ImageId
+        {
+            get
+            {
+                if (!_mUnknown_ImageId) return _mValue_ImageId;
+                throw new UndeferrableValueException("Value 'FleetArgs.ImageId' is not present");
+            }
+        }
 
         /// <summary>
         /// Fleet name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FleetArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
         /// </summary>
-        [Input("overflowBehavior")]
+        [PolicyResourceProperty("overflowBehavior", "_mUnknown_OverflowBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOverflowBehavior;
-
-        public string? OverflowBehavior => _mOverflowBehavior.GetValue("overflowBehavior");
+        private string? _mValue_OverflowBehavior;
+        private bool _mUnknown_OverflowBehavior;
+        public string? OverflowBehavior
+        {
+            get
+            {
+                if (!_mUnknown_OverflowBehavior) return _mValue_OverflowBehavior;
+                throw new UndeferrableValueException("Value 'FleetArgs.OverflowBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         /// </summary>
-        [Input("scalingConfiguration")]
+        [PolicyResourceProperty("scalingConfiguration", "_mUnknown_ScalingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetScalingConfigurationArgs> _mScalingConfiguration;
-
-        public Inputs.FleetScalingConfigurationArgs? ScalingConfiguration => _mScalingConfiguration.GetValue("scalingConfiguration");
+        private Inputs.FleetScalingConfigurationArgs? _mValue_ScalingConfiguration;
+        private bool _mUnknown_ScalingConfiguration;
+        public Inputs.FleetScalingConfigurationArgs? ScalingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ScalingConfiguration) return _mValue_ScalingConfiguration;
+                throw new UndeferrableValueException("Value 'FleetArgs.ScalingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FleetArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. See `vpc_config` below.
         /// </summary>
-        [Input("vpcConfigs")]
+        [PolicyResourceProperty("vpcConfigs", "_mUnknown_VpcConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FleetVpcConfigArgs>> _mVpcConfigs;
-
-        public List<Inputs.FleetVpcConfigArgs>? VpcConfigs => _mVpcConfigs.GetValue("vpcConfigs");
+        private List<Inputs.FleetVpcConfigArgs>? _mValue_VpcConfigs;
+        private bool _mUnknown_VpcConfigs;
+        public List<Inputs.FleetVpcConfigArgs>? VpcConfigs
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfigs) return _mValue_VpcConfigs;
+                throw new UndeferrableValueException("Value 'FleetArgs.VpcConfigs' is not present");
+            }
+        }
     }
 }

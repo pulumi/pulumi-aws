@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty
         /// <summary>
         /// *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         /// </summary>
-        [Input("autoEnable")]
+        [PolicyResourceProperty("autoEnable", "_mUnknown_AutoEnable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnable;
-
-        public bool? AutoEnable => _mAutoEnable.GetValue("autoEnable");
+        private bool? _mValue_AutoEnable;
+        private bool _mUnknown_AutoEnable;
+        public bool? AutoEnable
+        {
+            get
+            {
+                if (!_mUnknown_AutoEnable) return _mValue_AutoEnable;
+                throw new UndeferrableValueException("Value 'OrganizationConfiguration.AutoEnable' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
         /// </summary>
-        [Input("autoEnableOrganizationMembers")]
+        [PolicyResourceProperty("autoEnableOrganizationMembers", "_mUnknown_AutoEnableOrganizationMembers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoEnableOrganizationMembers;
-
-        public string? AutoEnableOrganizationMembers => _mAutoEnableOrganizationMembers.GetValue("autoEnableOrganizationMembers");
+        private string? _mValue_AutoEnableOrganizationMembers;
+        private bool _mUnknown_AutoEnableOrganizationMembers;
+        public string? AutoEnableOrganizationMembers
+        {
+            get
+            {
+                if (!_mUnknown_AutoEnableOrganizationMembers) return _mValue_AutoEnableOrganizationMembers;
+                throw new UndeferrableValueException("Value 'OrganizationConfiguration.AutoEnableOrganizationMembers' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
         /// </summary>
-        [Input("datasources")]
+        [PolicyResourceProperty("datasources", "_mUnknown_Datasources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OrganizationConfigurationDatasources> _mDatasources;
-
-        public Outputs.OrganizationConfigurationDatasources? Datasources => _mDatasources.GetValue("datasources");
+        private Outputs.OrganizationConfigurationDatasources? _mValue_Datasources;
+        private bool _mUnknown_Datasources;
+        public Outputs.OrganizationConfigurationDatasources? Datasources
+        {
+            get
+            {
+                if (!_mUnknown_Datasources) return _mValue_Datasources;
+                throw new UndeferrableValueException("Value 'OrganizationConfiguration.Datasources' is not present");
+            }
+        }
 
         /// <summary>
         /// The detector ID of the GuardDuty account.
         /// </summary>
-        [Input("detectorId")]
+        [PolicyResourceProperty("detectorId", "_mUnknown_DetectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
-
-        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+        private string? _mValue_DetectorId;
+        private bool _mUnknown_DetectorId;
+        public string? DetectorId
+        {
+            get
+            {
+                if (!_mUnknown_DetectorId) return _mValue_DetectorId;
+                throw new UndeferrableValueException("Value 'OrganizationConfiguration.DetectorId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:guardduty/organizationConfiguration:OrganizationConfiguration")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty
         /// <summary>
         /// *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         /// </summary>
-        [Input("autoEnable")]
+        [PolicyResourceProperty("autoEnable", "_mUnknown_AutoEnable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnable;
-
-        public bool? AutoEnable => _mAutoEnable.GetValue("autoEnable");
+        private bool? _mValue_AutoEnable;
+        private bool _mUnknown_AutoEnable;
+        public bool? AutoEnable
+        {
+            get
+            {
+                if (!_mUnknown_AutoEnable) return _mValue_AutoEnable;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationArgs.AutoEnable' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
         /// </summary>
-        [Input("autoEnableOrganizationMembers")]
+        [PolicyResourceProperty("autoEnableOrganizationMembers", "_mUnknown_AutoEnableOrganizationMembers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoEnableOrganizationMembers;
-
-        public string? AutoEnableOrganizationMembers => _mAutoEnableOrganizationMembers.GetValue("autoEnableOrganizationMembers");
+        private string? _mValue_AutoEnableOrganizationMembers;
+        private bool _mUnknown_AutoEnableOrganizationMembers;
+        public string? AutoEnableOrganizationMembers
+        {
+            get
+            {
+                if (!_mUnknown_AutoEnableOrganizationMembers) return _mValue_AutoEnableOrganizationMembers;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationArgs.AutoEnableOrganizationMembers' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
         /// </summary>
-        [Input("datasources")]
+        [PolicyResourceProperty("datasources", "_mUnknown_Datasources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OrganizationConfigurationDatasourcesArgs> _mDatasources;
-
-        public Inputs.OrganizationConfigurationDatasourcesArgs? Datasources => _mDatasources.GetValue("datasources");
+        private Inputs.OrganizationConfigurationDatasourcesArgs? _mValue_Datasources;
+        private bool _mUnknown_Datasources;
+        public Inputs.OrganizationConfigurationDatasourcesArgs? Datasources
+        {
+            get
+            {
+                if (!_mUnknown_Datasources) return _mValue_Datasources;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationArgs.Datasources' is not present");
+            }
+        }
 
         /// <summary>
         /// The detector ID of the GuardDuty account.
         /// </summary>
-        [Input("detectorId")]
+        [PolicyResourceProperty("detectorId", "_mUnknown_DetectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
-
-        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+        private string? _mValue_DetectorId;
+        private bool _mUnknown_DetectorId;
+        public string? DetectorId
+        {
+            get
+            {
+                if (!_mUnknown_DetectorId) return _mValue_DetectorId;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationArgs.DetectorId' is not present");
+            }
+        }
     }
 }

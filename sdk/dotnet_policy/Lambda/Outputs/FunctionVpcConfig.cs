@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Outputs
         /// <summary>
         /// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
         /// </summary>
-        [Input("ipv6AllowedForDualStack")]
+        [PolicyResourceProperty("ipv6AllowedForDualStack", "_mUnknown_Ipv6AllowedForDualStack")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIpv6AllowedForDualStack;
-
-        public bool? Ipv6AllowedForDualStack => _mIpv6AllowedForDualStack.GetValue("ipv6AllowedForDualStack");
+        private bool? _mValue_Ipv6AllowedForDualStack;
+        private bool _mUnknown_Ipv6AllowedForDualStack;
+        public bool? Ipv6AllowedForDualStack
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6AllowedForDualStack) return _mValue_Ipv6AllowedForDualStack;
+                throw new UndeferrableValueException("Value 'FunctionVpcConfig.Ipv6AllowedForDualStack' is not present");
+            }
+        }
 
         /// <summary>
         /// List of security group IDs associated with the Lambda function.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'FunctionVpcConfig.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// List of subnet IDs associated with the Lambda function.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'FunctionVpcConfig.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the VPC.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'FunctionVpcConfig.VpcId' is not present");
+            }
+        }
     }
 }

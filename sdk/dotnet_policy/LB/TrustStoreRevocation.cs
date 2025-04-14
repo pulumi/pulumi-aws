@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.LB
         /// <summary>
         /// AWS assigned RevocationId, (number).
         /// </summary>
-        [Input("revocationId")]
+        [PolicyResourceProperty("revocationId", "_mUnknown_RevocationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRevocationId;
-
-        public int? RevocationId => _mRevocationId.GetValue("revocationId");
+        private int? _mValue_RevocationId;
+        private bool _mUnknown_RevocationId;
+        public int? RevocationId
+        {
+            get
+            {
+                if (!_mUnknown_RevocationId) return _mValue_RevocationId;
+                throw new UndeferrableValueException("Value 'TrustStoreRevocation.RevocationId' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 Bucket name holding the client certificate CA bundle.
         /// </summary>
-        [Input("revocationsS3Bucket")]
+        [PolicyResourceProperty("revocationsS3Bucket", "_mUnknown_RevocationsS3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevocationsS3Bucket;
-
-        public string? RevocationsS3Bucket => _mRevocationsS3Bucket.GetValue("revocationsS3Bucket");
+        private string? _mValue_RevocationsS3Bucket;
+        private bool _mUnknown_RevocationsS3Bucket;
+        public string? RevocationsS3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_RevocationsS3Bucket) return _mValue_RevocationsS3Bucket;
+                throw new UndeferrableValueException("Value 'TrustStoreRevocation.RevocationsS3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 object key holding the client certificate CA bundle.
         /// </summary>
-        [Input("revocationsS3Key")]
+        [PolicyResourceProperty("revocationsS3Key", "_mUnknown_RevocationsS3Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevocationsS3Key;
-
-        public string? RevocationsS3Key => _mRevocationsS3Key.GetValue("revocationsS3Key");
+        private string? _mValue_RevocationsS3Key;
+        private bool _mUnknown_RevocationsS3Key;
+        public string? RevocationsS3Key
+        {
+            get
+            {
+                if (!_mUnknown_RevocationsS3Key) return _mValue_RevocationsS3Key;
+                throw new UndeferrableValueException("Value 'TrustStoreRevocation.RevocationsS3Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         /// </summary>
-        [Input("revocationsS3ObjectVersion")]
+        [PolicyResourceProperty("revocationsS3ObjectVersion", "_mUnknown_RevocationsS3ObjectVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevocationsS3ObjectVersion;
-
-        public string? RevocationsS3ObjectVersion => _mRevocationsS3ObjectVersion.GetValue("revocationsS3ObjectVersion");
+        private string? _mValue_RevocationsS3ObjectVersion;
+        private bool _mUnknown_RevocationsS3ObjectVersion;
+        public string? RevocationsS3ObjectVersion
+        {
+            get
+            {
+                if (!_mUnknown_RevocationsS3ObjectVersion) return _mValue_RevocationsS3ObjectVersion;
+                throw new UndeferrableValueException("Value 'TrustStoreRevocation.RevocationsS3ObjectVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Trust Store ARN.
         /// </summary>
-        [Input("trustStoreArn")]
+        [PolicyResourceProperty("trustStoreArn", "_mUnknown_TrustStoreArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrustStoreArn;
-
-        public string? TrustStoreArn => _mTrustStoreArn.GetValue("trustStoreArn");
+        private string? _mValue_TrustStoreArn;
+        private bool _mUnknown_TrustStoreArn;
+        public string? TrustStoreArn
+        {
+            get
+            {
+                if (!_mUnknown_TrustStoreArn) return _mValue_TrustStoreArn;
+                throw new UndeferrableValueException("Value 'TrustStoreRevocation.TrustStoreArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lb/trustStoreRevocation:TrustStoreRevocation")]
@@ -65,37 +100,65 @@ namespace Pulumi.PolicyPacks.Aws.LB
         /// <summary>
         /// S3 Bucket name holding the client certificate CA bundle.
         /// </summary>
-        [Input("revocationsS3Bucket")]
+        [PolicyResourceProperty("revocationsS3Bucket", "_mUnknown_RevocationsS3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevocationsS3Bucket;
-
-        public string? RevocationsS3Bucket => _mRevocationsS3Bucket.GetValue("revocationsS3Bucket");
+        private string? _mValue_RevocationsS3Bucket;
+        private bool _mUnknown_RevocationsS3Bucket;
+        public string? RevocationsS3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_RevocationsS3Bucket) return _mValue_RevocationsS3Bucket;
+                throw new UndeferrableValueException("Value 'TrustStoreRevocationArgs.RevocationsS3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 object key holding the client certificate CA bundle.
         /// </summary>
-        [Input("revocationsS3Key")]
+        [PolicyResourceProperty("revocationsS3Key", "_mUnknown_RevocationsS3Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevocationsS3Key;
-
-        public string? RevocationsS3Key => _mRevocationsS3Key.GetValue("revocationsS3Key");
+        private string? _mValue_RevocationsS3Key;
+        private bool _mUnknown_RevocationsS3Key;
+        public string? RevocationsS3Key
+        {
+            get
+            {
+                if (!_mUnknown_RevocationsS3Key) return _mValue_RevocationsS3Key;
+                throw new UndeferrableValueException("Value 'TrustStoreRevocationArgs.RevocationsS3Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         /// </summary>
-        [Input("revocationsS3ObjectVersion")]
+        [PolicyResourceProperty("revocationsS3ObjectVersion", "_mUnknown_RevocationsS3ObjectVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevocationsS3ObjectVersion;
-
-        public string? RevocationsS3ObjectVersion => _mRevocationsS3ObjectVersion.GetValue("revocationsS3ObjectVersion");
+        private string? _mValue_RevocationsS3ObjectVersion;
+        private bool _mUnknown_RevocationsS3ObjectVersion;
+        public string? RevocationsS3ObjectVersion
+        {
+            get
+            {
+                if (!_mUnknown_RevocationsS3ObjectVersion) return _mValue_RevocationsS3ObjectVersion;
+                throw new UndeferrableValueException("Value 'TrustStoreRevocationArgs.RevocationsS3ObjectVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Trust Store ARN.
         /// </summary>
-        [Input("trustStoreArn")]
+        [PolicyResourceProperty("trustStoreArn", "_mUnknown_TrustStoreArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrustStoreArn;
-
-        public string? TrustStoreArn => _mTrustStoreArn.GetValue("trustStoreArn");
+        private string? _mValue_TrustStoreArn;
+        private bool _mUnknown_TrustStoreArn;
+        public string? TrustStoreArn
+        {
+            get
+            {
+                if (!_mUnknown_TrustStoreArn) return _mValue_TrustStoreArn;
+                throw new UndeferrableValueException("Value 'TrustStoreRevocationArgs.TrustStoreArn' is not present");
+            }
+        }
     }
 }

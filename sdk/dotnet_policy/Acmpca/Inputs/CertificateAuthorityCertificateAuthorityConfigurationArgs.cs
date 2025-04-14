@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Acmpca.Inputs
         /// <summary>
         /// Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
         /// </summary>
-        [Input("keyAlgorithm")]
+        [PolicyResourceProperty("keyAlgorithm", "_mUnknown_KeyAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyAlgorithm;
-
-        public string? KeyAlgorithm => _mKeyAlgorithm.GetValue("keyAlgorithm");
+        private string? _mValue_KeyAlgorithm;
+        private bool _mUnknown_KeyAlgorithm;
+        public string? KeyAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_KeyAlgorithm) return _mValue_KeyAlgorithm;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationArgs.KeyAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
         /// </summary>
-        [Input("signingAlgorithm")]
+        [PolicyResourceProperty("signingAlgorithm", "_mUnknown_SigningAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSigningAlgorithm;
-
-        public string? SigningAlgorithm => _mSigningAlgorithm.GetValue("signingAlgorithm");
+        private string? _mValue_SigningAlgorithm;
+        private bool _mUnknown_SigningAlgorithm;
+        public string? SigningAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_SigningAlgorithm) return _mValue_SigningAlgorithm;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationArgs.SigningAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
         /// </summary>
-        [Input("subject")]
+        [PolicyResourceProperty("subject", "_mUnknown_Subject")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs> _mSubject;
-
-        public Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs? Subject => _mSubject.GetValue("subject");
+        private Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs? _mValue_Subject;
+        private bool _mUnknown_Subject;
+        public Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs? Subject
+        {
+            get
+            {
+                if (!_mUnknown_Subject) return _mValue_Subject;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationArgs.Subject' is not present");
+            }
+        }
     }
 }

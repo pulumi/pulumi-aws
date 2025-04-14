@@ -15,34 +15,62 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamWrite.Outputs
         /// <summary>
         /// Name of S3 bucket.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationResult.BucketName' is not present");
+            }
+        }
 
-        public string? BucketName => _mBucketName.GetValue("bucketName");
-
-        [Input("encryptionOption")]
+        [PolicyResourceProperty("encryptionOption", "_mUnknown_EncryptionOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionOption;
-
-        public string? EncryptionOption => _mEncryptionOption.GetValue("encryptionOption");
+        private string? _mValue_EncryptionOption;
+        private bool _mUnknown_EncryptionOption;
+        public string? EncryptionOption
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionOption) return _mValue_EncryptionOption;
+                throw new UndeferrableValueException("Value 'GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationResult.EncryptionOption' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS KMS key ID for S3 location with AWS maanged key.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationResult.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Object key preview for S3 location.
         /// </summary>
-        [Input("objectKeyPrefix")]
+        [PolicyResourceProperty("objectKeyPrefix", "_mUnknown_ObjectKeyPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectKeyPrefix;
-
-        public string? ObjectKeyPrefix => _mObjectKeyPrefix.GetValue("objectKeyPrefix");
+        private string? _mValue_ObjectKeyPrefix;
+        private bool _mUnknown_ObjectKeyPrefix;
+        public string? ObjectKeyPrefix
+        {
+            get
+            {
+                if (!_mUnknown_ObjectKeyPrefix) return _mValue_ObjectKeyPrefix;
+                throw new UndeferrableValueException("Value 'GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationResult.ObjectKeyPrefix' is not present");
+            }
+        }
     }
 }

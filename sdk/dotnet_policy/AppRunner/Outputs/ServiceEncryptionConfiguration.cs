@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner.Outputs
         /// <summary>
         /// ARN of the KMS key used for encryption.
         /// </summary>
-        [Input("kmsKey")]
+        [PolicyResourceProperty("kmsKey", "_mUnknown_KmsKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKey;
-
-        public string? KmsKey => _mKmsKey.GetValue("kmsKey");
+        private string? _mValue_KmsKey;
+        private bool _mUnknown_KmsKey;
+        public string? KmsKey
+        {
+            get
+            {
+                if (!_mUnknown_KmsKey) return _mValue_KmsKey;
+                throw new UndeferrableValueException("Value 'ServiceEncryptionConfiguration.KmsKey' is not present");
+            }
+        }
     }
 }

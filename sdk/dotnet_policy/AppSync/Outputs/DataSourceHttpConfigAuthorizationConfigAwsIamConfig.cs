@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Outputs
         /// <summary>
         /// Signing Amazon Web Services Region for IAM authorization.
         /// </summary>
-        [Input("signingRegion")]
+        [PolicyResourceProperty("signingRegion", "_mUnknown_SigningRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSigningRegion;
-
-        public string? SigningRegion => _mSigningRegion.GetValue("signingRegion");
+        private string? _mValue_SigningRegion;
+        private bool _mUnknown_SigningRegion;
+        public string? SigningRegion
+        {
+            get
+            {
+                if (!_mUnknown_SigningRegion) return _mValue_SigningRegion;
+                throw new UndeferrableValueException("Value 'DataSourceHttpConfigAuthorizationConfigAwsIamConfig.SigningRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// Signing service name for IAM authorization.
         /// </summary>
-        [Input("signingServiceName")]
+        [PolicyResourceProperty("signingServiceName", "_mUnknown_SigningServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSigningServiceName;
-
-        public string? SigningServiceName => _mSigningServiceName.GetValue("signingServiceName");
+        private string? _mValue_SigningServiceName;
+        private bool _mUnknown_SigningServiceName;
+        public string? SigningServiceName
+        {
+            get
+            {
+                if (!_mUnknown_SigningServiceName) return _mValue_SigningServiceName;
+                throw new UndeferrableValueException("Value 'DataSourceHttpConfigAuthorizationConfigAwsIamConfig.SigningServiceName' is not present");
+            }
+        }
     }
 }

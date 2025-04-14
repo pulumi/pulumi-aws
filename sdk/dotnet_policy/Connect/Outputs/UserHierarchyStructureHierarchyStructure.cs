@@ -17,46 +17,81 @@ namespace Pulumi.PolicyPacks.Aws.Connect.Outputs
         /// 
         /// Each level block supports the following arguments:
         /// </summary>
-        [Input("levelFive")]
+        [PolicyResourceProperty("levelFive", "_mUnknown_LevelFive")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserHierarchyStructureHierarchyStructureLevelFive> _mLevelFive;
-
-        public Outputs.UserHierarchyStructureHierarchyStructureLevelFive? LevelFive => _mLevelFive.GetValue("levelFive");
+        private Outputs.UserHierarchyStructureHierarchyStructureLevelFive? _mValue_LevelFive;
+        private bool _mUnknown_LevelFive;
+        public Outputs.UserHierarchyStructureHierarchyStructureLevelFive? LevelFive
+        {
+            get
+            {
+                if (!_mUnknown_LevelFive) return _mValue_LevelFive;
+                throw new UndeferrableValueException("Value 'UserHierarchyStructureHierarchyStructure.LevelFive' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that defines the details of level four. The level block is documented below.
         /// </summary>
-        [Input("levelFour")]
+        [PolicyResourceProperty("levelFour", "_mUnknown_LevelFour")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserHierarchyStructureHierarchyStructureLevelFour> _mLevelFour;
-
-        public Outputs.UserHierarchyStructureHierarchyStructureLevelFour? LevelFour => _mLevelFour.GetValue("levelFour");
+        private Outputs.UserHierarchyStructureHierarchyStructureLevelFour? _mValue_LevelFour;
+        private bool _mUnknown_LevelFour;
+        public Outputs.UserHierarchyStructureHierarchyStructureLevelFour? LevelFour
+        {
+            get
+            {
+                if (!_mUnknown_LevelFour) return _mValue_LevelFour;
+                throw new UndeferrableValueException("Value 'UserHierarchyStructureHierarchyStructure.LevelFour' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that defines the details of level one. The level block is documented below.
         /// </summary>
-        [Input("levelOne")]
+        [PolicyResourceProperty("levelOne", "_mUnknown_LevelOne")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserHierarchyStructureHierarchyStructureLevelOne> _mLevelOne;
-
-        public Outputs.UserHierarchyStructureHierarchyStructureLevelOne? LevelOne => _mLevelOne.GetValue("levelOne");
+        private Outputs.UserHierarchyStructureHierarchyStructureLevelOne? _mValue_LevelOne;
+        private bool _mUnknown_LevelOne;
+        public Outputs.UserHierarchyStructureHierarchyStructureLevelOne? LevelOne
+        {
+            get
+            {
+                if (!_mUnknown_LevelOne) return _mValue_LevelOne;
+                throw new UndeferrableValueException("Value 'UserHierarchyStructureHierarchyStructure.LevelOne' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that defines the details of level three. The level block is documented below.
         /// </summary>
-        [Input("levelThree")]
+        [PolicyResourceProperty("levelThree", "_mUnknown_LevelThree")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserHierarchyStructureHierarchyStructureLevelThree> _mLevelThree;
-
-        public Outputs.UserHierarchyStructureHierarchyStructureLevelThree? LevelThree => _mLevelThree.GetValue("levelThree");
+        private Outputs.UserHierarchyStructureHierarchyStructureLevelThree? _mValue_LevelThree;
+        private bool _mUnknown_LevelThree;
+        public Outputs.UserHierarchyStructureHierarchyStructureLevelThree? LevelThree
+        {
+            get
+            {
+                if (!_mUnknown_LevelThree) return _mValue_LevelThree;
+                throw new UndeferrableValueException("Value 'UserHierarchyStructureHierarchyStructure.LevelThree' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that defines the details of level two. The level block is documented below.
         /// </summary>
-        [Input("levelTwo")]
+        [PolicyResourceProperty("levelTwo", "_mUnknown_LevelTwo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserHierarchyStructureHierarchyStructureLevelTwo> _mLevelTwo;
-
-        public Outputs.UserHierarchyStructureHierarchyStructureLevelTwo? LevelTwo => _mLevelTwo.GetValue("levelTwo");
+        private Outputs.UserHierarchyStructureHierarchyStructureLevelTwo? _mValue_LevelTwo;
+        private bool _mUnknown_LevelTwo;
+        public Outputs.UserHierarchyStructureHierarchyStructureLevelTwo? LevelTwo
+        {
+            get
+            {
+                if (!_mUnknown_LevelTwo) return _mValue_LevelTwo;
+                throw new UndeferrableValueException("Value 'UserHierarchyStructureHierarchyStructure.LevelTwo' is not present");
+            }
+        }
     }
 }

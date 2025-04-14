@@ -15,25 +15,46 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
         /// <summary>
         /// The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
         /// </summary>
-        [Input("authCodeUrl")]
+        [PolicyResourceProperty("authCodeUrl", "_mUnknown_AuthCodeUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthCodeUrl;
-
-        public string? AuthCodeUrl => _mAuthCodeUrl.GetValue("authCodeUrl");
+        private string? _mValue_AuthCodeUrl;
+        private bool _mUnknown_AuthCodeUrl;
+        public string? AuthCodeUrl
+        {
+            get
+            {
+                if (!_mUnknown_AuthCodeUrl) return _mValue_AuthCodeUrl;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs.AuthCodeUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The OAuth scopes required for OAuth type authentication.
         /// </summary>
-        [Input("oauthScopes")]
+        [PolicyResourceProperty("oauthScopes", "_mUnknown_OauthScopes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOauthScopes;
+        private List<string>? _mValue_OauthScopes;
+        private bool _mUnknown_OauthScopes;
+        public List<string>? OauthScopes
+        {
+            get
+            {
+                if (!_mUnknown_OauthScopes) return _mValue_OauthScopes;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs.OauthScopes' is not present");
+            }
+        }
 
-        public List<string>? OauthScopes => _mOauthScopes.GetValue("oauthScopes");
-
-        [Input("tokenUrl")]
+        [PolicyResourceProperty("tokenUrl", "_mUnknown_TokenUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTokenUrl;
-
-        public string? TokenUrl => _mTokenUrl.GetValue("tokenUrl");
+        private string? _mValue_TokenUrl;
+        private bool _mUnknown_TokenUrl;
+        public string? TokenUrl
+        {
+            get
+            {
+                if (!_mUnknown_TokenUrl) return _mValue_TokenUrl;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs.TokenUrl' is not present");
+            }
+        }
     }
 }

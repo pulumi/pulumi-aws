@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery.Outputs
         /// <summary>
         /// Insights into the most sub-optimal performing table on the temporal axis:
         /// </summary>
-        [Input("maxes")]
+        [PolicyResourceProperty("maxes", "_mUnknown_Maxes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis>> _mMaxes;
-
-        public List<Outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis>? Maxes => _mMaxes.GetValue("maxes");
+        private List<Outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis>? _mValue_Maxes;
+        private bool _mUnknown_Maxes;
+        public List<Outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis>? Maxes
+        {
+            get
+            {
+                if (!_mUnknown_Maxes) return _mValue_Maxes;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage.Maxes' is not present");
+            }
+        }
     }
 }

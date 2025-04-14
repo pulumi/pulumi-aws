@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The name of the log group under which the log stream is to be created.
         /// </summary>
-        [Input("logGroupName")]
+        [PolicyResourceProperty("logGroupName", "_mUnknown_LogGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
-
-        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+        private string? _mValue_LogGroupName;
+        private bool _mUnknown_LogGroupName;
+        public string? LogGroupName
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupName) return _mValue_LogGroupName;
+                throw new UndeferrableValueException("Value 'LogDataProtectionPolicy.LogGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
         /// </summary>
-        [Input("policyDocument")]
+        [PolicyResourceProperty("policyDocument", "_mUnknown_PolicyDocument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
-
-        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
+        private string? _mValue_PolicyDocument;
+        private bool _mUnknown_PolicyDocument;
+        public string? PolicyDocument
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDocument) return _mValue_PolicyDocument;
+                throw new UndeferrableValueException("Value 'LogDataProtectionPolicy.PolicyDocument' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The name of the log group under which the log stream is to be created.
         /// </summary>
-        [Input("logGroupName")]
+        [PolicyResourceProperty("logGroupName", "_mUnknown_LogGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
-
-        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+        private string? _mValue_LogGroupName;
+        private bool _mUnknown_LogGroupName;
+        public string? LogGroupName
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupName) return _mValue_LogGroupName;
+                throw new UndeferrableValueException("Value 'LogDataProtectionPolicyArgs.LogGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
         /// </summary>
-        [Input("policyDocument")]
+        [PolicyResourceProperty("policyDocument", "_mUnknown_PolicyDocument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
-
-        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
+        private string? _mValue_PolicyDocument;
+        private bool _mUnknown_PolicyDocument;
+        public string? PolicyDocument
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDocument) return _mValue_PolicyDocument;
+                throw new UndeferrableValueException("Value 'LogDataProtectionPolicyArgs.PolicyDocument' is not present");
+            }
+        }
     }
 }

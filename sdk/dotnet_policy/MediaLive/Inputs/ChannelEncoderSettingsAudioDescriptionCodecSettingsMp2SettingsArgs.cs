@@ -12,25 +12,46 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
 {
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs
     {
-        [Input("bitrate")]
+        [PolicyResourceProperty("bitrate", "_mUnknown_Bitrate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mBitrate;
+        private double? _mValue_Bitrate;
+        private bool _mUnknown_Bitrate;
+        public double? Bitrate
+        {
+            get
+            {
+                if (!_mUnknown_Bitrate) return _mValue_Bitrate;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs.Bitrate' is not present");
+            }
+        }
 
-        public double? Bitrate => _mBitrate.GetValue("bitrate");
-
-        [Input("codingMode")]
+        [PolicyResourceProperty("codingMode", "_mUnknown_CodingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodingMode;
-
-        public string? CodingMode => _mCodingMode.GetValue("codingMode");
+        private string? _mValue_CodingMode;
+        private bool _mUnknown_CodingMode;
+        public string? CodingMode
+        {
+            get
+            {
+                if (!_mUnknown_CodingMode) return _mValue_CodingMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs.CodingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Sample rate in Hz.
         /// </summary>
-        [Input("sampleRate")]
+        [PolicyResourceProperty("sampleRate", "_mUnknown_SampleRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mSampleRate;
-
-        public double? SampleRate => _mSampleRate.GetValue("sampleRate");
+        private double? _mValue_SampleRate;
+        private bool _mUnknown_SampleRate;
+        public double? SampleRate
+        {
+            get
+            {
+                if (!_mUnknown_SampleRate) return _mValue_SampleRate;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs.SampleRate' is not present");
+            }
+        }
     }
 }

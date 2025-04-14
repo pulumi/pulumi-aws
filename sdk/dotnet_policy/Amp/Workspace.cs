@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.Amp
         /// <summary>
         /// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
         /// </summary>
-        [Input("alias")]
+        [PolicyResourceProperty("alias", "_mUnknown_Alias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
-
-        public string? Alias => _mAlias.GetValue("alias");
+        private string? _mValue_Alias;
+        private bool _mUnknown_Alias;
+        public string? Alias
+        {
+            get
+            {
+                if (!_mUnknown_Alias) return _mValue_Alias;
+                throw new UndeferrableValueException("Value 'Workspace.Alias' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the workspace.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Workspace.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'Workspace.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Logging configuration for the workspace. See Logging Configuration below for details.
         /// </summary>
-        [Input("loggingConfiguration")]
+        [PolicyResourceProperty("loggingConfiguration", "_mUnknown_LoggingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkspaceLoggingConfiguration> _mLoggingConfiguration;
-
-        public Outputs.WorkspaceLoggingConfiguration? LoggingConfiguration => _mLoggingConfiguration.GetValue("loggingConfiguration");
+        private Outputs.WorkspaceLoggingConfiguration? _mValue_LoggingConfiguration;
+        private bool _mUnknown_LoggingConfiguration;
+        public Outputs.WorkspaceLoggingConfiguration? LoggingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LoggingConfiguration) return _mValue_LoggingConfiguration;
+                throw new UndeferrableValueException("Value 'Workspace.LoggingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Prometheus endpoint available for this workspace.
         /// </summary>
-        [Input("prometheusEndpoint")]
+        [PolicyResourceProperty("prometheusEndpoint", "_mUnknown_PrometheusEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrometheusEndpoint;
-
-        public string? PrometheusEndpoint => _mPrometheusEndpoint.GetValue("prometheusEndpoint");
+        private string? _mValue_PrometheusEndpoint;
+        private bool _mUnknown_PrometheusEndpoint;
+        public string? PrometheusEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_PrometheusEndpoint) return _mValue_PrometheusEndpoint;
+                throw new UndeferrableValueException("Value 'Workspace.PrometheusEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Workspace.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Workspace.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:amp/workspace:Workspace")]
@@ -83,37 +132,65 @@ namespace Pulumi.PolicyPacks.Aws.Amp
         /// <summary>
         /// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
         /// </summary>
-        [Input("alias")]
+        [PolicyResourceProperty("alias", "_mUnknown_Alias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
-
-        public string? Alias => _mAlias.GetValue("alias");
+        private string? _mValue_Alias;
+        private bool _mUnknown_Alias;
+        public string? Alias
+        {
+            get
+            {
+                if (!_mUnknown_Alias) return _mValue_Alias;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.Alias' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Logging configuration for the workspace. See Logging Configuration below for details.
         /// </summary>
-        [Input("loggingConfiguration")]
+        [PolicyResourceProperty("loggingConfiguration", "_mUnknown_LoggingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkspaceLoggingConfigurationArgs> _mLoggingConfiguration;
-
-        public Inputs.WorkspaceLoggingConfigurationArgs? LoggingConfiguration => _mLoggingConfiguration.GetValue("loggingConfiguration");
+        private Inputs.WorkspaceLoggingConfigurationArgs? _mValue_LoggingConfiguration;
+        private bool _mUnknown_LoggingConfiguration;
+        public Inputs.WorkspaceLoggingConfigurationArgs? LoggingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LoggingConfiguration) return _mValue_LoggingConfiguration;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.LoggingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ecr.Inputs
         /// <summary>
         /// One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
         /// </summary>
-        [Input("repositoryFilters")]
+        [PolicyResourceProperty("repositoryFilters", "_mUnknown_RepositoryFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs>> _mRepositoryFilters;
-
-        public List<Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs>? RepositoryFilters => _mRepositoryFilters.GetValue("repositoryFilters");
+        private List<Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs>? _mValue_RepositoryFilters;
+        private bool _mUnknown_RepositoryFilters;
+        public List<Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs>? RepositoryFilters
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryFilters) return _mValue_RepositoryFilters;
+                throw new UndeferrableValueException("Value 'RegistryScanningConfigurationRuleArgs.RepositoryFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
         /// </summary>
-        [Input("scanFrequency")]
+        [PolicyResourceProperty("scanFrequency", "_mUnknown_ScanFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScanFrequency;
-
-        public string? ScanFrequency => _mScanFrequency.GetValue("scanFrequency");
+        private string? _mValue_ScanFrequency;
+        private bool _mUnknown_ScanFrequency;
+        public string? ScanFrequency
+        {
+            get
+            {
+                if (!_mUnknown_ScanFrequency) return _mValue_ScanFrequency;
+                throw new UndeferrableValueException("Value 'RegistryScanningConfigurationRuleArgs.ScanFrequency' is not present");
+            }
+        }
     }
 }

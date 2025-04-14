@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Outputs
 {
     public sealed class GetContactsRotationRecurrenceMonthlySettingResult
     {
-        [Input("dayOfMonth")]
+        [PolicyResourceProperty("dayOfMonth", "_mUnknown_DayOfMonth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDayOfMonth;
+        private int? _mValue_DayOfMonth;
+        private bool _mUnknown_DayOfMonth;
+        public int? DayOfMonth
+        {
+            get
+            {
+                if (!_mUnknown_DayOfMonth) return _mValue_DayOfMonth;
+                throw new UndeferrableValueException("Value 'GetContactsRotationRecurrenceMonthlySettingResult.DayOfMonth' is not present");
+            }
+        }
 
-        public int? DayOfMonth => _mDayOfMonth.GetValue("dayOfMonth");
-
-        [Input("handOffTimes")]
+        [PolicyResourceProperty("handOffTimes", "_mUnknown_HandOffTimes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetContactsRotationRecurrenceMonthlySettingHandOffTimeResult>> _mHandOffTimes;
-
-        public List<Outputs.GetContactsRotationRecurrenceMonthlySettingHandOffTimeResult>? HandOffTimes => _mHandOffTimes.GetValue("handOffTimes");
+        private List<Outputs.GetContactsRotationRecurrenceMonthlySettingHandOffTimeResult>? _mValue_HandOffTimes;
+        private bool _mUnknown_HandOffTimes;
+        public List<Outputs.GetContactsRotationRecurrenceMonthlySettingHandOffTimeResult>? HandOffTimes
+        {
+            get
+            {
+                if (!_mUnknown_HandOffTimes) return _mValue_HandOffTimes;
+                throw new UndeferrableValueException("Value 'GetContactsRotationRecurrenceMonthlySettingResult.HandOffTimes' is not present");
+            }
+        }
     }
 }

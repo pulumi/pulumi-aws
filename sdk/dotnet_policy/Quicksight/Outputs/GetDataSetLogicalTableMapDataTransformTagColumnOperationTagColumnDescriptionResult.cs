@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult
     {
-        [Input("text")]
+        [PolicyResourceProperty("text", "_mUnknown_Text")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mText;
-
-        public string? Text => _mText.GetValue("text");
+        private string? _mValue_Text;
+        private bool _mUnknown_Text;
+        public string? Text
+        {
+            get
+            {
+                if (!_mUnknown_Text) return _mValue_Text;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult.Text' is not present");
+            }
+        }
     }
 }

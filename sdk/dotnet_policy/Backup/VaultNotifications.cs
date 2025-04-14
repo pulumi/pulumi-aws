@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// The ARN of the vault.
         /// </summary>
-        [Input("backupVaultArn")]
+        [PolicyResourceProperty("backupVaultArn", "_mUnknown_BackupVaultArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupVaultArn;
-
-        public string? BackupVaultArn => _mBackupVaultArn.GetValue("backupVaultArn");
+        private string? _mValue_BackupVaultArn;
+        private bool _mUnknown_BackupVaultArn;
+        public string? BackupVaultArn
+        {
+            get
+            {
+                if (!_mUnknown_BackupVaultArn) return _mValue_BackupVaultArn;
+                throw new UndeferrableValueException("Value 'VaultNotifications.BackupVaultArn' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of events that indicate the status of jobs to back up resources to the backup vault.
         /// </summary>
-        [Input("backupVaultEvents")]
+        [PolicyResourceProperty("backupVaultEvents", "_mUnknown_BackupVaultEvents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mBackupVaultEvents;
-
-        public List<string>? BackupVaultEvents => _mBackupVaultEvents.GetValue("backupVaultEvents");
+        private List<string>? _mValue_BackupVaultEvents;
+        private bool _mUnknown_BackupVaultEvents;
+        public List<string>? BackupVaultEvents
+        {
+            get
+            {
+                if (!_mUnknown_BackupVaultEvents) return _mValue_BackupVaultEvents;
+                throw new UndeferrableValueException("Value 'VaultNotifications.BackupVaultEvents' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the backup vault to add notifications for.
         /// </summary>
-        [Input("backupVaultName")]
+        [PolicyResourceProperty("backupVaultName", "_mUnknown_BackupVaultName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupVaultName;
-
-        public string? BackupVaultName => _mBackupVaultName.GetValue("backupVaultName");
+        private string? _mValue_BackupVaultName;
+        private bool _mUnknown_BackupVaultName;
+        public string? BackupVaultName
+        {
+            get
+            {
+                if (!_mUnknown_BackupVaultName) return _mValue_BackupVaultName;
+                throw new UndeferrableValueException("Value 'VaultNotifications.BackupVaultName' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
         /// </summary>
-        [Input("snsTopicArn")]
+        [PolicyResourceProperty("snsTopicArn", "_mUnknown_SnsTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicArn;
-
-        public string? SnsTopicArn => _mSnsTopicArn.GetValue("snsTopicArn");
+        private string? _mValue_SnsTopicArn;
+        private bool _mUnknown_SnsTopicArn;
+        public string? SnsTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_SnsTopicArn) return _mValue_SnsTopicArn;
+                throw new UndeferrableValueException("Value 'VaultNotifications.SnsTopicArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:backup/vaultNotifications:VaultNotifications")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// An array of events that indicate the status of jobs to back up resources to the backup vault.
         /// </summary>
-        [Input("backupVaultEvents")]
+        [PolicyResourceProperty("backupVaultEvents", "_mUnknown_BackupVaultEvents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mBackupVaultEvents;
-
-        public List<string>? BackupVaultEvents => _mBackupVaultEvents.GetValue("backupVaultEvents");
+        private List<string>? _mValue_BackupVaultEvents;
+        private bool _mUnknown_BackupVaultEvents;
+        public List<string>? BackupVaultEvents
+        {
+            get
+            {
+                if (!_mUnknown_BackupVaultEvents) return _mValue_BackupVaultEvents;
+                throw new UndeferrableValueException("Value 'VaultNotificationsArgs.BackupVaultEvents' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the backup vault to add notifications for.
         /// </summary>
-        [Input("backupVaultName")]
+        [PolicyResourceProperty("backupVaultName", "_mUnknown_BackupVaultName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupVaultName;
-
-        public string? BackupVaultName => _mBackupVaultName.GetValue("backupVaultName");
+        private string? _mValue_BackupVaultName;
+        private bool _mUnknown_BackupVaultName;
+        public string? BackupVaultName
+        {
+            get
+            {
+                if (!_mUnknown_BackupVaultName) return _mValue_BackupVaultName;
+                throw new UndeferrableValueException("Value 'VaultNotificationsArgs.BackupVaultName' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
         /// </summary>
-        [Input("snsTopicArn")]
+        [PolicyResourceProperty("snsTopicArn", "_mUnknown_SnsTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicArn;
-
-        public string? SnsTopicArn => _mSnsTopicArn.GetValue("snsTopicArn");
+        private string? _mValue_SnsTopicArn;
+        private bool _mUnknown_SnsTopicArn;
+        public string? SnsTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_SnsTopicArn) return _mValue_SnsTopicArn;
+                throw new UndeferrableValueException("Value 'VaultNotificationsArgs.SnsTopicArn' is not present");
+            }
+        }
     }
 }

@@ -15,60 +15,102 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Outputs
         /// <summary>
         /// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
-        [Input("dimensions")]
+        [PolicyResourceProperty("dimensions", "_mUnknown_Dimensions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mDimensions;
-
-        public Dictionary<string, string>? Dimensions => _mDimensions.GetValue("dimensions");
+        private Dictionary<string, string>? _mValue_Dimensions;
+        private bool _mUnknown_Dimensions;
+        public Dictionary<string, string>? Dimensions
+        {
+            get
+            {
+                if (!_mUnknown_Dimensions) return _mValue_Dimensions;
+                throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryMetric.Dimensions' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for this metric.
         /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
-        [Input("metricName")]
+        [PolicyResourceProperty("metricName", "_mUnknown_MetricName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricName;
-
-        public string? MetricName => _mMetricName.GetValue("metricName");
+        private string? _mValue_MetricName;
+        private bool _mUnknown_MetricName;
+        public string? MetricName
+        {
+            get
+            {
+                if (!_mUnknown_MetricName) return _mValue_MetricName;
+                throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryMetric.MetricName' is not present");
+            }
+        }
 
         /// <summary>
         /// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
         /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryMetric.Namespace' is not present");
+            }
+        }
 
         /// <summary>
         /// Granularity in seconds of returned data points.
         /// For metrics with regular resolution, valid values are any multiple of `60`.
         /// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
         /// </summary>
-        [Input("period")]
+        [PolicyResourceProperty("period", "_mUnknown_Period")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPeriod;
-
-        public int? Period => _mPeriod.GetValue("period");
+        private int? _mValue_Period;
+        private bool _mUnknown_Period;
+        public int? Period
+        {
+            get
+            {
+                if (!_mUnknown_Period) return _mValue_Period;
+                throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryMetric.Period' is not present");
+            }
+        }
 
         /// <summary>
         /// The statistic to apply to this metric.
         /// See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
         /// </summary>
-        [Input("stat")]
+        [PolicyResourceProperty("stat", "_mUnknown_Stat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStat;
-
-        public string? Stat => _mStat.GetValue("stat");
+        private string? _mValue_Stat;
+        private bool _mUnknown_Stat;
+        public string? Stat
+        {
+            get
+            {
+                if (!_mUnknown_Stat) return _mValue_Stat;
+                throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryMetric.Stat' is not present");
+            }
+        }
 
         /// <summary>
         /// The unit for this metric.
         /// </summary>
-        [Input("unit")]
+        [PolicyResourceProperty("unit", "_mUnknown_Unit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnit;
-
-        public string? Unit => _mUnit.GetValue("unit");
+        private string? _mValue_Unit;
+        private bool _mUnknown_Unit;
+        public string? Unit
+        {
+            get
+            {
+                if (!_mUnknown_Unit) return _mValue_Unit;
+                throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryMetric.Unit' is not present");
+            }
+        }
     }
 }

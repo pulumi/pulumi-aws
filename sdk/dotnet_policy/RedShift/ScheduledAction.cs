@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// The description of the scheduled action.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ScheduledAction.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable the scheduled action. Default is `true` .
         /// </summary>
-        [Input("enable")]
+        [PolicyResourceProperty("enable", "_mUnknown_Enable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnable;
-
-        public bool? Enable => _mEnable.GetValue("enable");
+        private bool? _mValue_Enable;
+        private bool _mUnknown_Enable;
+        public bool? Enable
+        {
+            get
+            {
+                if (!_mUnknown_Enable) return _mValue_Enable;
+                throw new UndeferrableValueException("Value 'ScheduledAction.Enable' is not present");
+            }
+        }
 
         /// <summary>
         /// The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         /// </summary>
-        [Input("endTime")]
+        [PolicyResourceProperty("endTime", "_mUnknown_EndTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndTime;
-
-        public string? EndTime => _mEndTime.GetValue("endTime");
+        private string? _mValue_EndTime;
+        private bool _mUnknown_EndTime;
+        public string? EndTime
+        {
+            get
+            {
+                if (!_mUnknown_EndTime) return _mValue_EndTime;
+                throw new UndeferrableValueException("Value 'ScheduledAction.EndTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role to assume to run the scheduled action.
         /// </summary>
-        [Input("iamRole")]
+        [PolicyResourceProperty("iamRole", "_mUnknown_IamRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRole;
-
-        public string? IamRole => _mIamRole.GetValue("iamRole");
+        private string? _mValue_IamRole;
+        private bool _mUnknown_IamRole;
+        public string? IamRole
+        {
+            get
+            {
+                if (!_mUnknown_IamRole) return _mValue_IamRole;
+                throw new UndeferrableValueException("Value 'ScheduledAction.IamRole' is not present");
+            }
+        }
 
         /// <summary>
         /// The scheduled action name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ScheduledAction.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchedule;
-
-        public string? Schedule => _mSchedule.GetValue("schedule");
+        private string? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public string? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'ScheduledAction.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         /// </summary>
-        [Input("startTime")]
+        [PolicyResourceProperty("startTime", "_mUnknown_StartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
-
-        public string? StartTime => _mStartTime.GetValue("startTime");
+        private string? _mValue_StartTime;
+        private bool _mUnknown_StartTime;
+        public string? StartTime
+        {
+            get
+            {
+                if (!_mUnknown_StartTime) return _mValue_StartTime;
+                throw new UndeferrableValueException("Value 'ScheduledAction.StartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Target action. Documented below.
         /// </summary>
-        [Input("targetAction")]
+        [PolicyResourceProperty("targetAction", "_mUnknown_TargetAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduledActionTargetAction> _mTargetAction;
-
-        public Outputs.ScheduledActionTargetAction? TargetAction => _mTargetAction.GetValue("targetAction");
+        private Outputs.ScheduledActionTargetAction? _mValue_TargetAction;
+        private bool _mUnknown_TargetAction;
+        public Outputs.ScheduledActionTargetAction? TargetAction
+        {
+            get
+            {
+                if (!_mUnknown_TargetAction) return _mValue_TargetAction;
+                throw new UndeferrableValueException("Value 'ScheduledAction.TargetAction' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshift/scheduledAction:ScheduledAction")]
@@ -92,73 +148,129 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// The description of the scheduled action.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ScheduledActionArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable the scheduled action. Default is `true` .
         /// </summary>
-        [Input("enable")]
+        [PolicyResourceProperty("enable", "_mUnknown_Enable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnable;
-
-        public bool? Enable => _mEnable.GetValue("enable");
+        private bool? _mValue_Enable;
+        private bool _mUnknown_Enable;
+        public bool? Enable
+        {
+            get
+            {
+                if (!_mUnknown_Enable) return _mValue_Enable;
+                throw new UndeferrableValueException("Value 'ScheduledActionArgs.Enable' is not present");
+            }
+        }
 
         /// <summary>
         /// The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         /// </summary>
-        [Input("endTime")]
+        [PolicyResourceProperty("endTime", "_mUnknown_EndTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndTime;
-
-        public string? EndTime => _mEndTime.GetValue("endTime");
+        private string? _mValue_EndTime;
+        private bool _mUnknown_EndTime;
+        public string? EndTime
+        {
+            get
+            {
+                if (!_mUnknown_EndTime) return _mValue_EndTime;
+                throw new UndeferrableValueException("Value 'ScheduledActionArgs.EndTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role to assume to run the scheduled action.
         /// </summary>
-        [Input("iamRole")]
+        [PolicyResourceProperty("iamRole", "_mUnknown_IamRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRole;
-
-        public string? IamRole => _mIamRole.GetValue("iamRole");
+        private string? _mValue_IamRole;
+        private bool _mUnknown_IamRole;
+        public string? IamRole
+        {
+            get
+            {
+                if (!_mUnknown_IamRole) return _mValue_IamRole;
+                throw new UndeferrableValueException("Value 'ScheduledActionArgs.IamRole' is not present");
+            }
+        }
 
         /// <summary>
         /// The scheduled action name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ScheduledActionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchedule;
-
-        public string? Schedule => _mSchedule.GetValue("schedule");
+        private string? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public string? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'ScheduledActionArgs.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         /// </summary>
-        [Input("startTime")]
+        [PolicyResourceProperty("startTime", "_mUnknown_StartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
-
-        public string? StartTime => _mStartTime.GetValue("startTime");
+        private string? _mValue_StartTime;
+        private bool _mUnknown_StartTime;
+        public string? StartTime
+        {
+            get
+            {
+                if (!_mUnknown_StartTime) return _mValue_StartTime;
+                throw new UndeferrableValueException("Value 'ScheduledActionArgs.StartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Target action. Documented below.
         /// </summary>
-        [Input("targetAction")]
+        [PolicyResourceProperty("targetAction", "_mUnknown_TargetAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScheduledActionTargetActionArgs> _mTargetAction;
-
-        public Inputs.ScheduledActionTargetActionArgs? TargetAction => _mTargetAction.GetValue("targetAction");
+        private Inputs.ScheduledActionTargetActionArgs? _mValue_TargetAction;
+        private bool _mUnknown_TargetAction;
+        public Inputs.ScheduledActionTargetActionArgs? TargetAction
+        {
+            get
+            {
+                if (!_mUnknown_TargetAction) return _mValue_TargetAction;
+                throw new UndeferrableValueException("Value 'ScheduledActionArgs.TargetAction' is not present");
+            }
+        }
     }
 }

@@ -28,11 +28,18 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// | NIST SP 800-53 Rev. 5                    | `arn:${var.partition}:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
         /// | PCI DSS                                  | `arn:${var.partition}:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
         /// </summary>
-        [Input("standardsArn")]
+        [PolicyResourceProperty("standardsArn", "_mUnknown_StandardsArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStandardsArn;
-
-        public string? StandardsArn => _mStandardsArn.GetValue("standardsArn");
+        private string? _mValue_StandardsArn;
+        private bool _mUnknown_StandardsArn;
+        public string? StandardsArn
+        {
+            get
+            {
+                if (!_mUnknown_StandardsArn) return _mValue_StandardsArn;
+                throw new UndeferrableValueException("Value 'StandardsSubscription.StandardsArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:securityhub/standardsSubscription:StandardsSubscription")]
@@ -53,10 +60,17 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// | NIST SP 800-53 Rev. 5                    | `arn:${var.partition}:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
         /// | PCI DSS                                  | `arn:${var.partition}:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
         /// </summary>
-        [Input("standardsArn")]
+        [PolicyResourceProperty("standardsArn", "_mUnknown_StandardsArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStandardsArn;
-
-        public string? StandardsArn => _mStandardsArn.GetValue("standardsArn");
+        private string? _mValue_StandardsArn;
+        private bool _mUnknown_StandardsArn;
+        public string? StandardsArn
+        {
+            get
+            {
+                if (!_mUnknown_StandardsArn) return _mValue_StandardsArn;
+                throw new UndeferrableValueException("Value 'StandardsSubscriptionArgs.StandardsArn' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.BcmData.Outputs
         /// <summary>
         /// Frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily. Valid values `SYNCHRONOUS`.
         /// </summary>
-        [Input("frequency")]
+        [PolicyResourceProperty("frequency", "_mUnknown_Frequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFrequency;
-
-        public string? Frequency => _mFrequency.GetValue("frequency");
+        private string? _mValue_Frequency;
+        private bool _mUnknown_Frequency;
+        public string? Frequency
+        {
+            get
+            {
+                if (!_mUnknown_Frequency) return _mValue_Frequency;
+                throw new UndeferrableValueException("Value 'ExportExportRefreshCadence.Frequency' is not present");
+            }
+        }
     }
 }

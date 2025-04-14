@@ -12,37 +12,72 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
 {
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData
     {
-        [Input("errorHandlingConfig")]
+        [PolicyResourceProperty("errorHandlingConfig", "_mUnknown_ErrorHandlingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig> _mErrorHandlingConfig;
+        private Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig? _mValue_ErrorHandlingConfig;
+        private bool _mUnknown_ErrorHandlingConfig;
+        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig? ErrorHandlingConfig
+        {
+            get
+            {
+                if (!_mUnknown_ErrorHandlingConfig) return _mValue_ErrorHandlingConfig;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData.ErrorHandlingConfig' is not present");
+            }
+        }
 
-        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig? ErrorHandlingConfig => _mErrorHandlingConfig.GetValue("errorHandlingConfig");
-
-        [Input("idFieldNames")]
+        [PolicyResourceProperty("idFieldNames", "_mUnknown_IdFieldNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIdFieldNames;
+        private List<string>? _mValue_IdFieldNames;
+        private bool _mUnknown_IdFieldNames;
+        public List<string>? IdFieldNames
+        {
+            get
+            {
+                if (!_mUnknown_IdFieldNames) return _mValue_IdFieldNames;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData.IdFieldNames' is not present");
+            }
+        }
 
-        public List<string>? IdFieldNames => _mIdFieldNames.GetValue("idFieldNames");
-
-        [Input("objectPath")]
+        [PolicyResourceProperty("objectPath", "_mUnknown_ObjectPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectPath;
-
-        public string? ObjectPath => _mObjectPath.GetValue("objectPath");
+        private string? _mValue_ObjectPath;
+        private bool _mUnknown_ObjectPath;
+        public string? ObjectPath
+        {
+            get
+            {
+                if (!_mUnknown_ObjectPath) return _mValue_ObjectPath;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData.ObjectPath' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
         /// </summary>
-        [Input("successResponseHandlingConfig")]
+        [PolicyResourceProperty("successResponseHandlingConfig", "_mUnknown_SuccessResponseHandlingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig> _mSuccessResponseHandlingConfig;
+        private Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig? _mValue_SuccessResponseHandlingConfig;
+        private bool _mUnknown_SuccessResponseHandlingConfig;
+        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig? SuccessResponseHandlingConfig
+        {
+            get
+            {
+                if (!_mUnknown_SuccessResponseHandlingConfig) return _mValue_SuccessResponseHandlingConfig;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData.SuccessResponseHandlingConfig' is not present");
+            }
+        }
 
-        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig? SuccessResponseHandlingConfig => _mSuccessResponseHandlingConfig.GetValue("successResponseHandlingConfig");
-
-        [Input("writeOperationType")]
+        [PolicyResourceProperty("writeOperationType", "_mUnknown_WriteOperationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWriteOperationType;
-
-        public string? WriteOperationType => _mWriteOperationType.GetValue("writeOperationType");
+        private string? _mValue_WriteOperationType;
+        private bool _mUnknown_WriteOperationType;
+        public string? WriteOperationType
+        {
+            get
+            {
+                if (!_mUnknown_WriteOperationType) return _mValue_WriteOperationType;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData.WriteOperationType' is not present");
+            }
+        }
     }
 }

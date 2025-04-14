@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Outputs
         /// <summary>
         /// List of overriding launch template specification objects.
         /// </summary>
-        [Input("launchTemplateSpecifications")]
+        [PolicyResourceProperty("launchTemplateSpecifications", "_mUnknown_LaunchTemplateSpecifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationResult>> _mLaunchTemplateSpecifications;
-
-        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationResult>? LaunchTemplateSpecifications => _mLaunchTemplateSpecifications.GetValue("launchTemplateSpecifications");
+        private List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationResult>? _mValue_LaunchTemplateSpecifications;
+        private bool _mUnknown_LaunchTemplateSpecifications;
+        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationResult>? LaunchTemplateSpecifications
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplateSpecifications) return _mValue_LaunchTemplateSpecifications;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateResult.LaunchTemplateSpecifications' is not present");
+            }
+        }
 
         /// <summary>
         /// List of properties overriding the same properties in the launch template.
         /// </summary>
-        [Input("overrides")]
+        [PolicyResourceProperty("overrides", "_mUnknown_Overrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult>> _mOverrides;
-
-        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult>? Overrides => _mOverrides.GetValue("overrides");
+        private List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult>? _mValue_Overrides;
+        private bool _mUnknown_Overrides;
+        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult>? Overrides
+        {
+            get
+            {
+                if (!_mUnknown_Overrides) return _mValue_Overrides;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateResult.Overrides' is not present");
+            }
+        }
     }
 }

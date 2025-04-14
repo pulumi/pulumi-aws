@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect.Inputs
         /// <summary>
         /// The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
         /// </summary>
-        [Input("encryptionType")]
+        [PolicyResourceProperty("encryptionType", "_mUnknown_EncryptionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionType;
-
-        public string? EncryptionType => _mEncryptionType.GetValue("encryptionType");
+        private string? _mValue_EncryptionType;
+        private bool _mUnknown_EncryptionType;
+        public string? EncryptionType
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionType) return _mValue_EncryptionType;
+                throw new UndeferrableValueException("Value 'ConnectorKafkaClusterEncryptionInTransitArgs.EncryptionType' is not present");
+            }
+        }
     }
 }

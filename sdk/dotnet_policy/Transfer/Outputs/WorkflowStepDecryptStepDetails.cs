@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Transfer.Outputs
         /// <summary>
         /// Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
         /// </summary>
-        [Input("destinationFileLocation")]
+        [PolicyResourceProperty("destinationFileLocation", "_mUnknown_DestinationFileLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkflowStepDecryptStepDetailsDestinationFileLocation> _mDestinationFileLocation;
-
-        public Outputs.WorkflowStepDecryptStepDetailsDestinationFileLocation? DestinationFileLocation => _mDestinationFileLocation.GetValue("destinationFileLocation");
+        private Outputs.WorkflowStepDecryptStepDetailsDestinationFileLocation? _mValue_DestinationFileLocation;
+        private bool _mUnknown_DestinationFileLocation;
+        public Outputs.WorkflowStepDecryptStepDetailsDestinationFileLocation? DestinationFileLocation
+        {
+            get
+            {
+                if (!_mUnknown_DestinationFileLocation) return _mValue_DestinationFileLocation;
+                throw new UndeferrableValueException("Value 'WorkflowStepDecryptStepDetails.DestinationFileLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the step, used as an identifier.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'WorkflowStepDecryptStepDetails.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
         /// </summary>
-        [Input("overwriteExisting")]
+        [PolicyResourceProperty("overwriteExisting", "_mUnknown_OverwriteExisting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOverwriteExisting;
-
-        public string? OverwriteExisting => _mOverwriteExisting.GetValue("overwriteExisting");
+        private string? _mValue_OverwriteExisting;
+        private bool _mUnknown_OverwriteExisting;
+        public string? OverwriteExisting
+        {
+            get
+            {
+                if (!_mUnknown_OverwriteExisting) return _mValue_OverwriteExisting;
+                throw new UndeferrableValueException("Value 'WorkflowStepDecryptStepDetails.OverwriteExisting' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
         /// </summary>
-        [Input("sourceFileLocation")]
+        [PolicyResourceProperty("sourceFileLocation", "_mUnknown_SourceFileLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceFileLocation;
-
-        public string? SourceFileLocation => _mSourceFileLocation.GetValue("sourceFileLocation");
+        private string? _mValue_SourceFileLocation;
+        private bool _mUnknown_SourceFileLocation;
+        public string? SourceFileLocation
+        {
+            get
+            {
+                if (!_mUnknown_SourceFileLocation) return _mValue_SourceFileLocation;
+                throw new UndeferrableValueException("Value 'WorkflowStepDecryptStepDetails.SourceFileLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of encryption used. Currently, this value must be `"PGP"`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'WorkflowStepDecryptStepDetails.Type' is not present");
+            }
+        }
     }
 }

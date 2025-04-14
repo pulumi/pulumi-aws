@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog.Outputs
         /// <summary>
         /// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ProductProvisioningArtifactParameters.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
         /// </summary>
-        [Input("disableTemplateValidation")]
+        [PolicyResourceProperty("disableTemplateValidation", "_mUnknown_DisableTemplateValidation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableTemplateValidation;
-
-        public bool? DisableTemplateValidation => _mDisableTemplateValidation.GetValue("disableTemplateValidation");
+        private bool? _mValue_DisableTemplateValidation;
+        private bool _mUnknown_DisableTemplateValidation;
+        public bool? DisableTemplateValidation
+        {
+            get
+            {
+                if (!_mUnknown_DisableTemplateValidation) return _mValue_DisableTemplateValidation;
+                throw new UndeferrableValueException("Value 'ProductProvisioningArtifactParameters.DisableTemplateValidation' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ProductProvisioningArtifactParameters.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
         /// </summary>
-        [Input("templatePhysicalId")]
+        [PolicyResourceProperty("templatePhysicalId", "_mUnknown_TemplatePhysicalId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplatePhysicalId;
-
-        public string? TemplatePhysicalId => _mTemplatePhysicalId.GetValue("templatePhysicalId");
+        private string? _mValue_TemplatePhysicalId;
+        private bool _mUnknown_TemplatePhysicalId;
+        public string? TemplatePhysicalId
+        {
+            get
+            {
+                if (!_mUnknown_TemplatePhysicalId) return _mValue_TemplatePhysicalId;
+                throw new UndeferrableValueException("Value 'ProductProvisioningArtifactParameters.TemplatePhysicalId' is not present");
+            }
+        }
 
         /// <summary>
         /// Template source as URL of the CloudFormation template in Amazon S3.
         /// </summary>
-        [Input("templateUrl")]
+        [PolicyResourceProperty("templateUrl", "_mUnknown_TemplateUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateUrl;
-
-        public string? TemplateUrl => _mTemplateUrl.GetValue("templateUrl");
+        private string? _mValue_TemplateUrl;
+        private bool _mUnknown_TemplateUrl;
+        public string? TemplateUrl
+        {
+            get
+            {
+                if (!_mUnknown_TemplateUrl) return _mValue_TemplateUrl;
+                throw new UndeferrableValueException("Value 'ProductProvisioningArtifactParameters.TemplateUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ProductProvisioningArtifactParameters.Type' is not present");
+            }
+        }
     }
 }

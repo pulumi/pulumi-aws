@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetLaunchTemplateCpuOptionResult
     {
-        [Input("amdSevSnp")]
+        [PolicyResourceProperty("amdSevSnp", "_mUnknown_AmdSevSnp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmdSevSnp;
+        private string? _mValue_AmdSevSnp;
+        private bool _mUnknown_AmdSevSnp;
+        public string? AmdSevSnp
+        {
+            get
+            {
+                if (!_mUnknown_AmdSevSnp) return _mValue_AmdSevSnp;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateCpuOptionResult.AmdSevSnp' is not present");
+            }
+        }
 
-        public string? AmdSevSnp => _mAmdSevSnp.GetValue("amdSevSnp");
-
-        [Input("coreCount")]
+        [PolicyResourceProperty("coreCount", "_mUnknown_CoreCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCoreCount;
+        private int? _mValue_CoreCount;
+        private bool _mUnknown_CoreCount;
+        public int? CoreCount
+        {
+            get
+            {
+                if (!_mUnknown_CoreCount) return _mValue_CoreCount;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateCpuOptionResult.CoreCount' is not present");
+            }
+        }
 
-        public int? CoreCount => _mCoreCount.GetValue("coreCount");
-
-        [Input("threadsPerCore")]
+        [PolicyResourceProperty("threadsPerCore", "_mUnknown_ThreadsPerCore")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThreadsPerCore;
-
-        public int? ThreadsPerCore => _mThreadsPerCore.GetValue("threadsPerCore");
+        private int? _mValue_ThreadsPerCore;
+        private bool _mUnknown_ThreadsPerCore;
+        public int? ThreadsPerCore
+        {
+            get
+            {
+                if (!_mUnknown_ThreadsPerCore) return _mValue_ThreadsPerCore;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateCpuOptionResult.ThreadsPerCore' is not present");
+            }
+        }
     }
 }

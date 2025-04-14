@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Ses.Outputs
         /// <summary>
         /// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
         /// </summary>
-        [Input("tlsPolicy")]
+        [PolicyResourceProperty("tlsPolicy", "_mUnknown_TlsPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTlsPolicy;
-
-        public string? TlsPolicy => _mTlsPolicy.GetValue("tlsPolicy");
+        private string? _mValue_TlsPolicy;
+        private bool _mUnknown_TlsPolicy;
+        public string? TlsPolicy
+        {
+            get
+            {
+                if (!_mUnknown_TlsPolicy) return _mValue_TlsPolicy;
+                throw new UndeferrableValueException("Value 'ConfigurationSetDeliveryOptions.TlsPolicy' is not present");
+            }
+        }
     }
 }

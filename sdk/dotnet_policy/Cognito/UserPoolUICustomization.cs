@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// <summary>
         /// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
         /// </summary>
-        [Input("clientId")]
+        [PolicyResourceProperty("clientId", "_mUnknown_ClientId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
-
-        public string? ClientId => _mClientId.GetValue("clientId");
+        private string? _mValue_ClientId;
+        private bool _mUnknown_ClientId;
+        public string? ClientId
+        {
+            get
+            {
+                if (!_mUnknown_ClientId) return _mValue_ClientId;
+                throw new UndeferrableValueException("Value 'UserPoolUICustomization.ClientId' is not present");
+            }
+        }
 
         /// <summary>
         /// The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
         /// </summary>
-        [Input("creationDate")]
+        [PolicyResourceProperty("creationDate", "_mUnknown_CreationDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDate;
-
-        public string? CreationDate => _mCreationDate.GetValue("creationDate");
+        private string? _mValue_CreationDate;
+        private bool _mUnknown_CreationDate;
+        public string? CreationDate
+        {
+            get
+            {
+                if (!_mUnknown_CreationDate) return _mValue_CreationDate;
+                throw new UndeferrableValueException("Value 'UserPoolUICustomization.CreationDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
         /// </summary>
-        [Input("css")]
+        [PolicyResourceProperty("css", "_mUnknown_Css")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCss;
-
-        public string? Css => _mCss.GetValue("css");
+        private string? _mValue_Css;
+        private bool _mUnknown_Css;
+        public string? Css
+        {
+            get
+            {
+                if (!_mUnknown_Css) return _mValue_Css;
+                throw new UndeferrableValueException("Value 'UserPoolUICustomization.Css' is not present");
+            }
+        }
 
         /// <summary>
         /// The CSS version number.
         /// </summary>
-        [Input("cssVersion")]
+        [PolicyResourceProperty("cssVersion", "_mUnknown_CssVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCssVersion;
-
-        public string? CssVersion => _mCssVersion.GetValue("cssVersion");
+        private string? _mValue_CssVersion;
+        private bool _mUnknown_CssVersion;
+        public string? CssVersion
+        {
+            get
+            {
+                if (!_mUnknown_CssVersion) return _mValue_CssVersion;
+                throw new UndeferrableValueException("Value 'UserPoolUICustomization.CssVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
         /// </summary>
-        [Input("imageFile")]
+        [PolicyResourceProperty("imageFile", "_mUnknown_ImageFile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageFile;
-
-        public string? ImageFile => _mImageFile.GetValue("imageFile");
+        private string? _mValue_ImageFile;
+        private bool _mUnknown_ImageFile;
+        public string? ImageFile
+        {
+            get
+            {
+                if (!_mUnknown_ImageFile) return _mValue_ImageFile;
+                throw new UndeferrableValueException("Value 'UserPoolUICustomization.ImageFile' is not present");
+            }
+        }
 
         /// <summary>
         /// The logo image URL for the UI customization.
         /// </summary>
-        [Input("imageUrl")]
+        [PolicyResourceProperty("imageUrl", "_mUnknown_ImageUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageUrl;
-
-        public string? ImageUrl => _mImageUrl.GetValue("imageUrl");
+        private string? _mValue_ImageUrl;
+        private bool _mUnknown_ImageUrl;
+        public string? ImageUrl
+        {
+            get
+            {
+                if (!_mUnknown_ImageUrl) return _mValue_ImageUrl;
+                throw new UndeferrableValueException("Value 'UserPoolUICustomization.ImageUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
         /// </summary>
-        [Input("lastModifiedDate")]
+        [PolicyResourceProperty("lastModifiedDate", "_mUnknown_LastModifiedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedDate;
-
-        public string? LastModifiedDate => _mLastModifiedDate.GetValue("lastModifiedDate");
+        private string? _mValue_LastModifiedDate;
+        private bool _mUnknown_LastModifiedDate;
+        public string? LastModifiedDate
+        {
+            get
+            {
+                if (!_mUnknown_LastModifiedDate) return _mValue_LastModifiedDate;
+                throw new UndeferrableValueException("Value 'UserPoolUICustomization.LastModifiedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The user pool ID for the user pool.
         /// </summary>
-        [Input("userPoolId")]
+        [PolicyResourceProperty("userPoolId", "_mUnknown_UserPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
-
-        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+        private string? _mValue_UserPoolId;
+        private bool _mUnknown_UserPoolId;
+        public string? UserPoolId
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolId) return _mValue_UserPoolId;
+                throw new UndeferrableValueException("Value 'UserPoolUICustomization.UserPoolId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cognito/userPoolUICustomization:UserPoolUICustomization")]
@@ -92,37 +148,65 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// <summary>
         /// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
         /// </summary>
-        [Input("clientId")]
+        [PolicyResourceProperty("clientId", "_mUnknown_ClientId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
-
-        public string? ClientId => _mClientId.GetValue("clientId");
+        private string? _mValue_ClientId;
+        private bool _mUnknown_ClientId;
+        public string? ClientId
+        {
+            get
+            {
+                if (!_mUnknown_ClientId) return _mValue_ClientId;
+                throw new UndeferrableValueException("Value 'UserPoolUICustomizationArgs.ClientId' is not present");
+            }
+        }
 
         /// <summary>
         /// The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
         /// </summary>
-        [Input("css")]
+        [PolicyResourceProperty("css", "_mUnknown_Css")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCss;
-
-        public string? Css => _mCss.GetValue("css");
+        private string? _mValue_Css;
+        private bool _mUnknown_Css;
+        public string? Css
+        {
+            get
+            {
+                if (!_mUnknown_Css) return _mValue_Css;
+                throw new UndeferrableValueException("Value 'UserPoolUICustomizationArgs.Css' is not present");
+            }
+        }
 
         /// <summary>
         /// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
         /// </summary>
-        [Input("imageFile")]
+        [PolicyResourceProperty("imageFile", "_mUnknown_ImageFile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageFile;
-
-        public string? ImageFile => _mImageFile.GetValue("imageFile");
+        private string? _mValue_ImageFile;
+        private bool _mUnknown_ImageFile;
+        public string? ImageFile
+        {
+            get
+            {
+                if (!_mUnknown_ImageFile) return _mValue_ImageFile;
+                throw new UndeferrableValueException("Value 'UserPoolUICustomizationArgs.ImageFile' is not present");
+            }
+        }
 
         /// <summary>
         /// The user pool ID for the user pool.
         /// </summary>
-        [Input("userPoolId")]
+        [PolicyResourceProperty("userPoolId", "_mUnknown_UserPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
-
-        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+        private string? _mValue_UserPoolId;
+        private bool _mUnknown_UserPoolId;
+        public string? UserPoolId
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolId) return _mValue_UserPoolId;
+                throw new UndeferrableValueException("Value 'UserPoolUICustomizationArgs.UserPoolId' is not present");
+            }
+        }
     }
 }

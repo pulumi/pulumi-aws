@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.LicenseManager.Outputs
         /// <summary>
         /// Start of the validity time range.
         /// </summary>
-        [Input("begin")]
+        [PolicyResourceProperty("begin", "_mUnknown_Begin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBegin;
-
-        public string? Begin => _mBegin.GetValue("begin");
+        private string? _mValue_Begin;
+        private bool _mUnknown_Begin;
+        public string? Begin
+        {
+            get
+            {
+                if (!_mUnknown_Begin) return _mValue_Begin;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseValidityResult.Begin' is not present");
+            }
+        }
 
         /// <summary>
         /// End of the validity time range.
         /// </summary>
-        [Input("end")]
+        [PolicyResourceProperty("end", "_mUnknown_End")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnd;
-
-        public string? End => _mEnd.GetValue("end");
+        private string? _mValue_End;
+        private bool _mUnknown_End;
+        public string? End
+        {
+            get
+            {
+                if (!_mUnknown_End) return _mValue_End;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseValidityResult.End' is not present");
+            }
+        }
     }
 }

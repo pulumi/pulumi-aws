@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
         /// </summary>
-        [Input("acceptEula")]
+        [PolicyResourceProperty("acceptEula", "_mUnknown_AcceptEula")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAcceptEula;
-
-        public bool? AcceptEula => _mAcceptEula.GetValue("acceptEula");
+        private bool? _mValue_AcceptEula;
+        private bool _mUnknown_AcceptEula;
+        public bool? AcceptEula
+        {
+            get
+            {
+                if (!_mUnknown_AcceptEula) return _mValue_AcceptEula;
+                throw new UndeferrableValueException("Value 'ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs.AcceptEula' is not present");
+            }
+        }
     }
 }

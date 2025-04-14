@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks.Outputs
 {
     public sealed class GangliaLayerLoadBasedAutoScaling
     {
-        [Input("downscaling")]
+        [PolicyResourceProperty("downscaling", "_mUnknown_Downscaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GangliaLayerLoadBasedAutoScalingDownscaling> _mDownscaling;
+        private Outputs.GangliaLayerLoadBasedAutoScalingDownscaling? _mValue_Downscaling;
+        private bool _mUnknown_Downscaling;
+        public Outputs.GangliaLayerLoadBasedAutoScalingDownscaling? Downscaling
+        {
+            get
+            {
+                if (!_mUnknown_Downscaling) return _mValue_Downscaling;
+                throw new UndeferrableValueException("Value 'GangliaLayerLoadBasedAutoScaling.Downscaling' is not present");
+            }
+        }
 
-        public Outputs.GangliaLayerLoadBasedAutoScalingDownscaling? Downscaling => _mDownscaling.GetValue("downscaling");
-
-        [Input("enable")]
+        [PolicyResourceProperty("enable", "_mUnknown_Enable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnable;
+        private bool? _mValue_Enable;
+        private bool _mUnknown_Enable;
+        public bool? Enable
+        {
+            get
+            {
+                if (!_mUnknown_Enable) return _mValue_Enable;
+                throw new UndeferrableValueException("Value 'GangliaLayerLoadBasedAutoScaling.Enable' is not present");
+            }
+        }
 
-        public bool? Enable => _mEnable.GetValue("enable");
-
-        [Input("upscaling")]
+        [PolicyResourceProperty("upscaling", "_mUnknown_Upscaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GangliaLayerLoadBasedAutoScalingUpscaling> _mUpscaling;
-
-        public Outputs.GangliaLayerLoadBasedAutoScalingUpscaling? Upscaling => _mUpscaling.GetValue("upscaling");
+        private Outputs.GangliaLayerLoadBasedAutoScalingUpscaling? _mValue_Upscaling;
+        private bool _mUnknown_Upscaling;
+        public Outputs.GangliaLayerLoadBasedAutoScalingUpscaling? Upscaling
+        {
+            get
+            {
+                if (!_mUnknown_Upscaling) return _mValue_Upscaling;
+                throw new UndeferrableValueException("Value 'GangliaLayerLoadBasedAutoScaling.Upscaling' is not present");
+            }
+        }
     }
 }

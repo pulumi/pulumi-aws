@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.Elb.Outputs
 {
     public sealed class GetLoadBalancerHealthCheckResult
     {
-        [Input("healthyThreshold")]
+        [PolicyResourceProperty("healthyThreshold", "_mUnknown_HealthyThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHealthyThreshold;
+        private int? _mValue_HealthyThreshold;
+        private bool _mUnknown_HealthyThreshold;
+        public int? HealthyThreshold
+        {
+            get
+            {
+                if (!_mUnknown_HealthyThreshold) return _mValue_HealthyThreshold;
+                throw new UndeferrableValueException("Value 'GetLoadBalancerHealthCheckResult.HealthyThreshold' is not present");
+            }
+        }
 
-        public int? HealthyThreshold => _mHealthyThreshold.GetValue("healthyThreshold");
-
-        [Input("interval")]
+        [PolicyResourceProperty("interval", "_mUnknown_Interval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInterval;
+        private int? _mValue_Interval;
+        private bool _mUnknown_Interval;
+        public int? Interval
+        {
+            get
+            {
+                if (!_mUnknown_Interval) return _mValue_Interval;
+                throw new UndeferrableValueException("Value 'GetLoadBalancerHealthCheckResult.Interval' is not present");
+            }
+        }
 
-        public int? Interval => _mInterval.GetValue("interval");
-
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
+        private string? _mValue_Target;
+        private bool _mUnknown_Target;
+        public string? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'GetLoadBalancerHealthCheckResult.Target' is not present");
+            }
+        }
 
-        public string? Target => _mTarget.GetValue("target");
-
-        [Input("timeout")]
+        [PolicyResourceProperty("timeout", "_mUnknown_Timeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeout;
+        private int? _mValue_Timeout;
+        private bool _mUnknown_Timeout;
+        public int? Timeout
+        {
+            get
+            {
+                if (!_mUnknown_Timeout) return _mValue_Timeout;
+                throw new UndeferrableValueException("Value 'GetLoadBalancerHealthCheckResult.Timeout' is not present");
+            }
+        }
 
-        public int? Timeout => _mTimeout.GetValue("timeout");
-
-        [Input("unhealthyThreshold")]
+        [PolicyResourceProperty("unhealthyThreshold", "_mUnknown_UnhealthyThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUnhealthyThreshold;
-
-        public int? UnhealthyThreshold => _mUnhealthyThreshold.GetValue("unhealthyThreshold");
+        private int? _mValue_UnhealthyThreshold;
+        private bool _mUnknown_UnhealthyThreshold;
+        public int? UnhealthyThreshold
+        {
+            get
+            {
+                if (!_mUnknown_UnhealthyThreshold) return _mValue_UnhealthyThreshold;
+                throw new UndeferrableValueException("Value 'GetLoadBalancerHealthCheckResult.UnhealthyThreshold' is not present");
+            }
+        }
     }
 }

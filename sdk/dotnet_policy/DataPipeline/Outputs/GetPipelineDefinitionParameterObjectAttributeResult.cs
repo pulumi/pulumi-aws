@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.DataPipeline.Outputs
         /// <summary>
         /// Field identifier.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'GetPipelineDefinitionParameterObjectAttributeResult.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Field value, expressed as a String.
         /// </summary>
-        [Input("stringValue")]
+        [PolicyResourceProperty("stringValue", "_mUnknown_StringValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStringValue;
-
-        public string? StringValue => _mStringValue.GetValue("stringValue");
+        private string? _mValue_StringValue;
+        private bool _mUnknown_StringValue;
+        public string? StringValue
+        {
+            get
+            {
+                if (!_mUnknown_StringValue) return _mValue_StringValue;
+                throw new UndeferrableValueException("Value 'GetPipelineDefinitionParameterObjectAttributeResult.StringValue' is not present");
+            }
+        }
     }
 }

@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Ram
         /// <summary>
         /// Indicates whether principals outside your organization can be associated with a resource share.
         /// </summary>
-        [Input("allowExternalPrincipals")]
+        [PolicyResourceProperty("allowExternalPrincipals", "_mUnknown_AllowExternalPrincipals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowExternalPrincipals;
-
-        public bool? AllowExternalPrincipals => _mAllowExternalPrincipals.GetValue("allowExternalPrincipals");
+        private bool? _mValue_AllowExternalPrincipals;
+        private bool _mUnknown_AllowExternalPrincipals;
+        public bool? AllowExternalPrincipals
+        {
+            get
+            {
+                if (!_mUnknown_AllowExternalPrincipals) return _mValue_AllowExternalPrincipals;
+                throw new UndeferrableValueException("Value 'ResourceShare.AllowExternalPrincipals' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the resource share.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ResourceShare.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the resource share.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResourceShare.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
         /// </summary>
-        [Input("permissionArns")]
+        [PolicyResourceProperty("permissionArns", "_mUnknown_PermissionArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPermissionArns;
-
-        public List<string>? PermissionArns => _mPermissionArns.GetValue("permissionArns");
+        private List<string>? _mValue_PermissionArns;
+        private bool _mUnknown_PermissionArns;
+        public List<string>? PermissionArns
+        {
+            get
+            {
+                if (!_mUnknown_PermissionArns) return _mValue_PermissionArns;
+                throw new UndeferrableValueException("Value 'ResourceShare.PermissionArns' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResourceShare.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ResourceShare.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ram/resourceShare:ResourceShare")]
@@ -74,37 +116,65 @@ namespace Pulumi.PolicyPacks.Aws.Ram
         /// <summary>
         /// Indicates whether principals outside your organization can be associated with a resource share.
         /// </summary>
-        [Input("allowExternalPrincipals")]
+        [PolicyResourceProperty("allowExternalPrincipals", "_mUnknown_AllowExternalPrincipals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowExternalPrincipals;
-
-        public bool? AllowExternalPrincipals => _mAllowExternalPrincipals.GetValue("allowExternalPrincipals");
+        private bool? _mValue_AllowExternalPrincipals;
+        private bool _mUnknown_AllowExternalPrincipals;
+        public bool? AllowExternalPrincipals
+        {
+            get
+            {
+                if (!_mUnknown_AllowExternalPrincipals) return _mValue_AllowExternalPrincipals;
+                throw new UndeferrableValueException("Value 'ResourceShareArgs.AllowExternalPrincipals' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the resource share.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResourceShareArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
         /// </summary>
-        [Input("permissionArns")]
+        [PolicyResourceProperty("permissionArns", "_mUnknown_PermissionArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPermissionArns;
-
-        public List<string>? PermissionArns => _mPermissionArns.GetValue("permissionArns");
+        private List<string>? _mValue_PermissionArns;
+        private bool _mUnknown_PermissionArns;
+        public List<string>? PermissionArns
+        {
+            get
+            {
+                if (!_mUnknown_PermissionArns) return _mValue_PermissionArns;
+                throw new UndeferrableValueException("Value 'ResourceShareArgs.PermissionArns' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResourceShareArgs.Tags' is not present");
+            }
+        }
     }
 }

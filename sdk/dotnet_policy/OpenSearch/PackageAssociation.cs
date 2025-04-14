@@ -16,26 +16,47 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// Name of the domain to associate the package with.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'PackageAssociation.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Internal ID of the package to associate with a domain.
         /// </summary>
-        [Input("packageId")]
+        [PolicyResourceProperty("packageId", "_mUnknown_PackageId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPackageId;
+        private string? _mValue_PackageId;
+        private bool _mUnknown_PackageId;
+        public string? PackageId
+        {
+            get
+            {
+                if (!_mUnknown_PackageId) return _mValue_PackageId;
+                throw new UndeferrableValueException("Value 'PackageAssociation.PackageId' is not present");
+            }
+        }
 
-        public string? PackageId => _mPackageId.GetValue("packageId");
-
-        [Input("referencePath")]
+        [PolicyResourceProperty("referencePath", "_mUnknown_ReferencePath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReferencePath;
-
-        public string? ReferencePath => _mReferencePath.GetValue("referencePath");
+        private string? _mValue_ReferencePath;
+        private bool _mUnknown_ReferencePath;
+        public string? ReferencePath
+        {
+            get
+            {
+                if (!_mUnknown_ReferencePath) return _mValue_ReferencePath;
+                throw new UndeferrableValueException("Value 'PackageAssociation.ReferencePath' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opensearch/packageAssociation:PackageAssociation")]
@@ -44,19 +65,33 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// Name of the domain to associate the package with.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'PackageAssociationArgs.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Internal ID of the package to associate with a domain.
         /// </summary>
-        [Input("packageId")]
+        [PolicyResourceProperty("packageId", "_mUnknown_PackageId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPackageId;
-
-        public string? PackageId => _mPackageId.GetValue("packageId");
+        private string? _mValue_PackageId;
+        private bool _mUnknown_PackageId;
+        public string? PackageId
+        {
+            get
+            {
+                if (!_mUnknown_PackageId) return _mValue_PackageId;
+                throw new UndeferrableValueException("Value 'PackageAssociationArgs.PackageId' is not present");
+            }
+        }
     }
 }

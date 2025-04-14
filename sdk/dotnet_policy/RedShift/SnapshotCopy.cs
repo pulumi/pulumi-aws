@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// Identifier of the source cluster.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'SnapshotCopy.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Region to copy snapshots to.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("destinationRegion")]
+        [PolicyResourceProperty("destinationRegion", "_mUnknown_DestinationRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationRegion;
-
-        public string? DestinationRegion => _mDestinationRegion.GetValue("destinationRegion");
+        private string? _mValue_DestinationRegion;
+        private bool _mUnknown_DestinationRegion;
+        public string? DestinationRegion
+        {
+            get
+            {
+                if (!_mUnknown_DestinationRegion) return _mValue_DestinationRegion;
+                throw new UndeferrableValueException("Value 'SnapshotCopy.DestinationRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
         /// </summary>
-        [Input("manualSnapshotRetentionPeriod")]
+        [PolicyResourceProperty("manualSnapshotRetentionPeriod", "_mUnknown_ManualSnapshotRetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mManualSnapshotRetentionPeriod;
-
-        public int? ManualSnapshotRetentionPeriod => _mManualSnapshotRetentionPeriod.GetValue("manualSnapshotRetentionPeriod");
+        private int? _mValue_ManualSnapshotRetentionPeriod;
+        private bool _mUnknown_ManualSnapshotRetentionPeriod;
+        public int? ManualSnapshotRetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_ManualSnapshotRetentionPeriod) return _mValue_ManualSnapshotRetentionPeriod;
+                throw new UndeferrableValueException("Value 'SnapshotCopy.ManualSnapshotRetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
         /// </summary>
-        [Input("retentionPeriod")]
+        [PolicyResourceProperty("retentionPeriod", "_mUnknown_RetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
-
-        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
+        private int? _mValue_RetentionPeriod;
+        private bool _mUnknown_RetentionPeriod;
+        public int? RetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_RetentionPeriod) return _mValue_RetentionPeriod;
+                throw new UndeferrableValueException("Value 'SnapshotCopy.RetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
         /// </summary>
-        [Input("snapshotCopyGrantName")]
+        [PolicyResourceProperty("snapshotCopyGrantName", "_mUnknown_SnapshotCopyGrantName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotCopyGrantName;
-
-        public string? SnapshotCopyGrantName => _mSnapshotCopyGrantName.GetValue("snapshotCopyGrantName");
+        private string? _mValue_SnapshotCopyGrantName;
+        private bool _mUnknown_SnapshotCopyGrantName;
+        public string? SnapshotCopyGrantName
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotCopyGrantName) return _mValue_SnapshotCopyGrantName;
+                throw new UndeferrableValueException("Value 'SnapshotCopy.SnapshotCopyGrantName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshift/snapshotCopy:SnapshotCopy")]
@@ -67,48 +102,83 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// Identifier of the source cluster.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'SnapshotCopyArgs.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Region to copy snapshots to.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("destinationRegion")]
+        [PolicyResourceProperty("destinationRegion", "_mUnknown_DestinationRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationRegion;
-
-        public string? DestinationRegion => _mDestinationRegion.GetValue("destinationRegion");
+        private string? _mValue_DestinationRegion;
+        private bool _mUnknown_DestinationRegion;
+        public string? DestinationRegion
+        {
+            get
+            {
+                if (!_mUnknown_DestinationRegion) return _mValue_DestinationRegion;
+                throw new UndeferrableValueException("Value 'SnapshotCopyArgs.DestinationRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
         /// </summary>
-        [Input("manualSnapshotRetentionPeriod")]
+        [PolicyResourceProperty("manualSnapshotRetentionPeriod", "_mUnknown_ManualSnapshotRetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mManualSnapshotRetentionPeriod;
-
-        public int? ManualSnapshotRetentionPeriod => _mManualSnapshotRetentionPeriod.GetValue("manualSnapshotRetentionPeriod");
+        private int? _mValue_ManualSnapshotRetentionPeriod;
+        private bool _mUnknown_ManualSnapshotRetentionPeriod;
+        public int? ManualSnapshotRetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_ManualSnapshotRetentionPeriod) return _mValue_ManualSnapshotRetentionPeriod;
+                throw new UndeferrableValueException("Value 'SnapshotCopyArgs.ManualSnapshotRetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
         /// </summary>
-        [Input("retentionPeriod")]
+        [PolicyResourceProperty("retentionPeriod", "_mUnknown_RetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
-
-        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
+        private int? _mValue_RetentionPeriod;
+        private bool _mUnknown_RetentionPeriod;
+        public int? RetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_RetentionPeriod) return _mValue_RetentionPeriod;
+                throw new UndeferrableValueException("Value 'SnapshotCopyArgs.RetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
         /// </summary>
-        [Input("snapshotCopyGrantName")]
+        [PolicyResourceProperty("snapshotCopyGrantName", "_mUnknown_SnapshotCopyGrantName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotCopyGrantName;
-
-        public string? SnapshotCopyGrantName => _mSnapshotCopyGrantName.GetValue("snapshotCopyGrantName");
+        private string? _mValue_SnapshotCopyGrantName;
+        private bool _mUnknown_SnapshotCopyGrantName;
+        public string? SnapshotCopyGrantName
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotCopyGrantName) return _mValue_SnapshotCopyGrantName;
+                throw new UndeferrableValueException("Value 'SnapshotCopyArgs.SnapshotCopyGrantName' is not present");
+            }
+        }
     }
 }

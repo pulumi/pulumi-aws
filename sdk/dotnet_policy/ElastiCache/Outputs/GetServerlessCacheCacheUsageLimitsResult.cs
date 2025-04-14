@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache.Outputs
         /// <summary>
         /// The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
         /// </summary>
-        [Input("dataStorage")]
+        [PolicyResourceProperty("dataStorage", "_mUnknown_DataStorage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GetServerlessCacheCacheUsageLimitsDataStorageResult> _mDataStorage;
-
-        public Outputs.GetServerlessCacheCacheUsageLimitsDataStorageResult? DataStorage => _mDataStorage.GetValue("dataStorage");
+        private Outputs.GetServerlessCacheCacheUsageLimitsDataStorageResult? _mValue_DataStorage;
+        private bool _mUnknown_DataStorage;
+        public Outputs.GetServerlessCacheCacheUsageLimitsDataStorageResult? DataStorage
+        {
+            get
+            {
+                if (!_mUnknown_DataStorage) return _mValue_DataStorage;
+                throw new UndeferrableValueException("Value 'GetServerlessCacheCacheUsageLimitsResult.DataStorage' is not present");
+            }
+        }
 
         /// <summary>
         /// The configured number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
         /// </summary>
-        [Input("ecpuPerSecond")]
+        [PolicyResourceProperty("ecpuPerSecond", "_mUnknown_EcpuPerSecond")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GetServerlessCacheCacheUsageLimitsEcpuPerSecondResult> _mEcpuPerSecond;
-
-        public Outputs.GetServerlessCacheCacheUsageLimitsEcpuPerSecondResult? EcpuPerSecond => _mEcpuPerSecond.GetValue("ecpuPerSecond");
+        private Outputs.GetServerlessCacheCacheUsageLimitsEcpuPerSecondResult? _mValue_EcpuPerSecond;
+        private bool _mUnknown_EcpuPerSecond;
+        public Outputs.GetServerlessCacheCacheUsageLimitsEcpuPerSecondResult? EcpuPerSecond
+        {
+            get
+            {
+                if (!_mUnknown_EcpuPerSecond) return _mValue_EcpuPerSecond;
+                throw new UndeferrableValueException("Value 'GetServerlessCacheCacheUsageLimitsResult.EcpuPerSecond' is not present");
+            }
+        }
     }
 }

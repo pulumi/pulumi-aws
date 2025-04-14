@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// Capacity usage of CIDR blocks used by IP set references in a firewall.
         /// </summary>
-        [Input("cidrs")]
+        [PolicyResourceProperty("cidrs", "_mUnknown_Cidrs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrResult>> _mCidrs;
-
-        public List<Outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrResult>? Cidrs => _mCidrs.GetValue("cidrs");
+        private List<Outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrResult>? _mValue_Cidrs;
+        private bool _mUnknown_Cidrs;
+        public List<Outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrResult>? Cidrs
+        {
+            get
+            {
+                if (!_mUnknown_Cidrs) return _mValue_Cidrs;
+                throw new UndeferrableValueException("Value 'GetFirewallFirewallStatusCapacityUsageSummaryResult.Cidrs' is not present");
+            }
+        }
     }
 }

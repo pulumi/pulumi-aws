@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ARN of the Dedicated Host.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DedicatedHost.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
         /// </summary>
-        [Input("assetId")]
+        [PolicyResourceProperty("assetId", "_mUnknown_AssetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssetId;
-
-        public string? AssetId => _mAssetId.GetValue("assetId");
+        private string? _mValue_AssetId;
+        private bool _mUnknown_AssetId;
+        public string? AssetId
+        {
+            get
+            {
+                if (!_mUnknown_AssetId) return _mValue_AssetId;
+                throw new UndeferrableValueException("Value 'DedicatedHost.AssetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
         /// </summary>
-        [Input("autoPlacement")]
+        [PolicyResourceProperty("autoPlacement", "_mUnknown_AutoPlacement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoPlacement;
-
-        public string? AutoPlacement => _mAutoPlacement.GetValue("autoPlacement");
+        private string? _mValue_AutoPlacement;
+        private bool _mUnknown_AutoPlacement;
+        public string? AutoPlacement
+        {
+            get
+            {
+                if (!_mUnknown_AutoPlacement) return _mValue_AutoPlacement;
+                throw new UndeferrableValueException("Value 'DedicatedHost.AutoPlacement' is not present");
+            }
+        }
 
         /// <summary>
         /// The Availability Zone in which to allocate the Dedicated Host.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'DedicatedHost.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
         /// </summary>
-        [Input("hostRecovery")]
+        [PolicyResourceProperty("hostRecovery", "_mUnknown_HostRecovery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostRecovery;
-
-        public string? HostRecovery => _mHostRecovery.GetValue("hostRecovery");
+        private string? _mValue_HostRecovery;
+        private bool _mUnknown_HostRecovery;
+        public string? HostRecovery
+        {
+            get
+            {
+                if (!_mUnknown_HostRecovery) return _mValue_HostRecovery;
+                throw new UndeferrableValueException("Value 'DedicatedHost.HostRecovery' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
         /// </summary>
-        [Input("instanceFamily")]
+        [PolicyResourceProperty("instanceFamily", "_mUnknown_InstanceFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceFamily;
-
-        public string? InstanceFamily => _mInstanceFamily.GetValue("instanceFamily");
+        private string? _mValue_InstanceFamily;
+        private bool _mUnknown_InstanceFamily;
+        public string? InstanceFamily
+        {
+            get
+            {
+                if (!_mUnknown_InstanceFamily) return _mValue_InstanceFamily;
+                throw new UndeferrableValueException("Value 'DedicatedHost.InstanceFamily' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'DedicatedHost.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
         /// </summary>
-        [Input("outpostArn")]
+        [PolicyResourceProperty("outpostArn", "_mUnknown_OutpostArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostArn;
-
-        public string? OutpostArn => _mOutpostArn.GetValue("outpostArn");
+        private string? _mValue_OutpostArn;
+        private bool _mUnknown_OutpostArn;
+        public string? OutpostArn
+        {
+            get
+            {
+                if (!_mUnknown_OutpostArn) return _mValue_OutpostArn;
+                throw new UndeferrableValueException("Value 'DedicatedHost.OutpostArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the AWS account that owns the Dedicated Host.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'DedicatedHost.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DedicatedHost.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DedicatedHost.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/dedicatedHost:DedicatedHost")]
@@ -119,73 +196,129 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
         /// </summary>
-        [Input("assetId")]
+        [PolicyResourceProperty("assetId", "_mUnknown_AssetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssetId;
-
-        public string? AssetId => _mAssetId.GetValue("assetId");
+        private string? _mValue_AssetId;
+        private bool _mUnknown_AssetId;
+        public string? AssetId
+        {
+            get
+            {
+                if (!_mUnknown_AssetId) return _mValue_AssetId;
+                throw new UndeferrableValueException("Value 'DedicatedHostArgs.AssetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
         /// </summary>
-        [Input("autoPlacement")]
+        [PolicyResourceProperty("autoPlacement", "_mUnknown_AutoPlacement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoPlacement;
-
-        public string? AutoPlacement => _mAutoPlacement.GetValue("autoPlacement");
+        private string? _mValue_AutoPlacement;
+        private bool _mUnknown_AutoPlacement;
+        public string? AutoPlacement
+        {
+            get
+            {
+                if (!_mUnknown_AutoPlacement) return _mValue_AutoPlacement;
+                throw new UndeferrableValueException("Value 'DedicatedHostArgs.AutoPlacement' is not present");
+            }
+        }
 
         /// <summary>
         /// The Availability Zone in which to allocate the Dedicated Host.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'DedicatedHostArgs.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
         /// </summary>
-        [Input("hostRecovery")]
+        [PolicyResourceProperty("hostRecovery", "_mUnknown_HostRecovery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostRecovery;
-
-        public string? HostRecovery => _mHostRecovery.GetValue("hostRecovery");
+        private string? _mValue_HostRecovery;
+        private bool _mUnknown_HostRecovery;
+        public string? HostRecovery
+        {
+            get
+            {
+                if (!_mUnknown_HostRecovery) return _mValue_HostRecovery;
+                throw new UndeferrableValueException("Value 'DedicatedHostArgs.HostRecovery' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
         /// </summary>
-        [Input("instanceFamily")]
+        [PolicyResourceProperty("instanceFamily", "_mUnknown_InstanceFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceFamily;
-
-        public string? InstanceFamily => _mInstanceFamily.GetValue("instanceFamily");
+        private string? _mValue_InstanceFamily;
+        private bool _mUnknown_InstanceFamily;
+        public string? InstanceFamily
+        {
+            get
+            {
+                if (!_mUnknown_InstanceFamily) return _mValue_InstanceFamily;
+                throw new UndeferrableValueException("Value 'DedicatedHostArgs.InstanceFamily' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'DedicatedHostArgs.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
         /// </summary>
-        [Input("outpostArn")]
+        [PolicyResourceProperty("outpostArn", "_mUnknown_OutpostArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostArn;
-
-        public string? OutpostArn => _mOutpostArn.GetValue("outpostArn");
+        private string? _mValue_OutpostArn;
+        private bool _mUnknown_OutpostArn;
+        public string? OutpostArn
+        {
+            get
+            {
+                if (!_mUnknown_OutpostArn) return _mValue_OutpostArn;
+                throw new UndeferrableValueException("Value 'DedicatedHostArgs.OutpostArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DedicatedHostArgs.Tags' is not present");
+            }
+        }
     }
 }

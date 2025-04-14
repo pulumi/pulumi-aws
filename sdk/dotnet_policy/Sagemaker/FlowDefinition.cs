@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'FlowDefinition.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of your flow definition.
         /// </summary>
-        [Input("flowDefinitionName")]
+        [PolicyResourceProperty("flowDefinitionName", "_mUnknown_FlowDefinitionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFlowDefinitionName;
-
-        public string? FlowDefinitionName => _mFlowDefinitionName.GetValue("flowDefinitionName");
+        private string? _mValue_FlowDefinitionName;
+        private bool _mUnknown_FlowDefinitionName;
+        public string? FlowDefinitionName
+        {
+            get
+            {
+                if (!_mUnknown_FlowDefinitionName) return _mValue_FlowDefinitionName;
+                throw new UndeferrableValueException("Value 'FlowDefinition.FlowDefinitionName' is not present");
+            }
+        }
 
         /// <summary>
         /// An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
         /// </summary>
-        [Input("humanLoopActivationConfig")]
+        [PolicyResourceProperty("humanLoopActivationConfig", "_mUnknown_HumanLoopActivationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDefinitionHumanLoopActivationConfig> _mHumanLoopActivationConfig;
-
-        public Outputs.FlowDefinitionHumanLoopActivationConfig? HumanLoopActivationConfig => _mHumanLoopActivationConfig.GetValue("humanLoopActivationConfig");
+        private Outputs.FlowDefinitionHumanLoopActivationConfig? _mValue_HumanLoopActivationConfig;
+        private bool _mUnknown_HumanLoopActivationConfig;
+        public Outputs.FlowDefinitionHumanLoopActivationConfig? HumanLoopActivationConfig
+        {
+            get
+            {
+                if (!_mUnknown_HumanLoopActivationConfig) return _mValue_HumanLoopActivationConfig;
+                throw new UndeferrableValueException("Value 'FlowDefinition.HumanLoopActivationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
         /// </summary>
-        [Input("humanLoopConfig")]
+        [PolicyResourceProperty("humanLoopConfig", "_mUnknown_HumanLoopConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDefinitionHumanLoopConfig> _mHumanLoopConfig;
-
-        public Outputs.FlowDefinitionHumanLoopConfig? HumanLoopConfig => _mHumanLoopConfig.GetValue("humanLoopConfig");
+        private Outputs.FlowDefinitionHumanLoopConfig? _mValue_HumanLoopConfig;
+        private bool _mUnknown_HumanLoopConfig;
+        public Outputs.FlowDefinitionHumanLoopConfig? HumanLoopConfig
+        {
+            get
+            {
+                if (!_mUnknown_HumanLoopConfig) return _mValue_HumanLoopConfig;
+                throw new UndeferrableValueException("Value 'FlowDefinition.HumanLoopConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
         /// </summary>
-        [Input("humanLoopRequestSource")]
+        [PolicyResourceProperty("humanLoopRequestSource", "_mUnknown_HumanLoopRequestSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDefinitionHumanLoopRequestSource> _mHumanLoopRequestSource;
-
-        public Outputs.FlowDefinitionHumanLoopRequestSource? HumanLoopRequestSource => _mHumanLoopRequestSource.GetValue("humanLoopRequestSource");
+        private Outputs.FlowDefinitionHumanLoopRequestSource? _mValue_HumanLoopRequestSource;
+        private bool _mUnknown_HumanLoopRequestSource;
+        public Outputs.FlowDefinitionHumanLoopRequestSource? HumanLoopRequestSource
+        {
+            get
+            {
+                if (!_mUnknown_HumanLoopRequestSource) return _mValue_HumanLoopRequestSource;
+                throw new UndeferrableValueException("Value 'FlowDefinition.HumanLoopRequestSource' is not present");
+            }
+        }
 
         /// <summary>
         /// An object containing information about where the human review results will be uploaded. See Output Config details below.
         /// </summary>
-        [Input("outputConfig")]
+        [PolicyResourceProperty("outputConfig", "_mUnknown_OutputConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDefinitionOutputConfig> _mOutputConfig;
-
-        public Outputs.FlowDefinitionOutputConfig? OutputConfig => _mOutputConfig.GetValue("outputConfig");
+        private Outputs.FlowDefinitionOutputConfig? _mValue_OutputConfig;
+        private bool _mUnknown_OutputConfig;
+        public Outputs.FlowDefinitionOutputConfig? OutputConfig
+        {
+            get
+            {
+                if (!_mUnknown_OutputConfig) return _mValue_OutputConfig;
+                throw new UndeferrableValueException("Value 'FlowDefinition.OutputConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'FlowDefinition.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FlowDefinition.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'FlowDefinition.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/flowDefinition:FlowDefinition")]
@@ -101,64 +164,113 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The name of your flow definition.
         /// </summary>
-        [Input("flowDefinitionName")]
+        [PolicyResourceProperty("flowDefinitionName", "_mUnknown_FlowDefinitionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFlowDefinitionName;
-
-        public string? FlowDefinitionName => _mFlowDefinitionName.GetValue("flowDefinitionName");
+        private string? _mValue_FlowDefinitionName;
+        private bool _mUnknown_FlowDefinitionName;
+        public string? FlowDefinitionName
+        {
+            get
+            {
+                if (!_mUnknown_FlowDefinitionName) return _mValue_FlowDefinitionName;
+                throw new UndeferrableValueException("Value 'FlowDefinitionArgs.FlowDefinitionName' is not present");
+            }
+        }
 
         /// <summary>
         /// An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
         /// </summary>
-        [Input("humanLoopActivationConfig")]
+        [PolicyResourceProperty("humanLoopActivationConfig", "_mUnknown_HumanLoopActivationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowDefinitionHumanLoopActivationConfigArgs> _mHumanLoopActivationConfig;
-
-        public Inputs.FlowDefinitionHumanLoopActivationConfigArgs? HumanLoopActivationConfig => _mHumanLoopActivationConfig.GetValue("humanLoopActivationConfig");
+        private Inputs.FlowDefinitionHumanLoopActivationConfigArgs? _mValue_HumanLoopActivationConfig;
+        private bool _mUnknown_HumanLoopActivationConfig;
+        public Inputs.FlowDefinitionHumanLoopActivationConfigArgs? HumanLoopActivationConfig
+        {
+            get
+            {
+                if (!_mUnknown_HumanLoopActivationConfig) return _mValue_HumanLoopActivationConfig;
+                throw new UndeferrableValueException("Value 'FlowDefinitionArgs.HumanLoopActivationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
         /// </summary>
-        [Input("humanLoopConfig")]
+        [PolicyResourceProperty("humanLoopConfig", "_mUnknown_HumanLoopConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowDefinitionHumanLoopConfigArgs> _mHumanLoopConfig;
-
-        public Inputs.FlowDefinitionHumanLoopConfigArgs? HumanLoopConfig => _mHumanLoopConfig.GetValue("humanLoopConfig");
+        private Inputs.FlowDefinitionHumanLoopConfigArgs? _mValue_HumanLoopConfig;
+        private bool _mUnknown_HumanLoopConfig;
+        public Inputs.FlowDefinitionHumanLoopConfigArgs? HumanLoopConfig
+        {
+            get
+            {
+                if (!_mUnknown_HumanLoopConfig) return _mValue_HumanLoopConfig;
+                throw new UndeferrableValueException("Value 'FlowDefinitionArgs.HumanLoopConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
         /// </summary>
-        [Input("humanLoopRequestSource")]
+        [PolicyResourceProperty("humanLoopRequestSource", "_mUnknown_HumanLoopRequestSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowDefinitionHumanLoopRequestSourceArgs> _mHumanLoopRequestSource;
-
-        public Inputs.FlowDefinitionHumanLoopRequestSourceArgs? HumanLoopRequestSource => _mHumanLoopRequestSource.GetValue("humanLoopRequestSource");
+        private Inputs.FlowDefinitionHumanLoopRequestSourceArgs? _mValue_HumanLoopRequestSource;
+        private bool _mUnknown_HumanLoopRequestSource;
+        public Inputs.FlowDefinitionHumanLoopRequestSourceArgs? HumanLoopRequestSource
+        {
+            get
+            {
+                if (!_mUnknown_HumanLoopRequestSource) return _mValue_HumanLoopRequestSource;
+                throw new UndeferrableValueException("Value 'FlowDefinitionArgs.HumanLoopRequestSource' is not present");
+            }
+        }
 
         /// <summary>
         /// An object containing information about where the human review results will be uploaded. See Output Config details below.
         /// </summary>
-        [Input("outputConfig")]
+        [PolicyResourceProperty("outputConfig", "_mUnknown_OutputConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowDefinitionOutputConfigArgs> _mOutputConfig;
-
-        public Inputs.FlowDefinitionOutputConfigArgs? OutputConfig => _mOutputConfig.GetValue("outputConfig");
+        private Inputs.FlowDefinitionOutputConfigArgs? _mValue_OutputConfig;
+        private bool _mUnknown_OutputConfig;
+        public Inputs.FlowDefinitionOutputConfigArgs? OutputConfig
+        {
+            get
+            {
+                if (!_mUnknown_OutputConfig) return _mValue_OutputConfig;
+                throw new UndeferrableValueException("Value 'FlowDefinitionArgs.OutputConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'FlowDefinitionArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FlowDefinitionArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppConfig.Inputs
         /// <summary>
         /// Information about the parameter.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ExtensionParameterArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameter name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ExtensionParameterArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines if a parameter value must be specified in the extension association.
         /// </summary>
-        [Input("required")]
+        [PolicyResourceProperty("required", "_mUnknown_Required")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequired;
-
-        public bool? Required => _mRequired.GetValue("required");
+        private bool? _mValue_Required;
+        private bool _mUnknown_Required;
+        public bool? Required
+        {
+            get
+            {
+                if (!_mUnknown_Required) return _mValue_Required;
+                throw new UndeferrableValueException("Value 'ExtensionParameterArgs.Required' is not present");
+            }
+        }
     }
 }

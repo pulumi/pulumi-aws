@@ -15,56 +15,98 @@ namespace Pulumi.PolicyPacks.Aws.Dms.Outputs
         /// <summary>
         /// The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'ReplicationConfigComputeConfig.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
         /// </summary>
-        [Input("dnsNameServers")]
+        [PolicyResourceProperty("dnsNameServers", "_mUnknown_DnsNameServers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsNameServers;
-
-        public string? DnsNameServers => _mDnsNameServers.GetValue("dnsNameServers");
+        private string? _mValue_DnsNameServers;
+        private bool _mUnknown_DnsNameServers;
+        public string? DnsNameServers
+        {
+            get
+            {
+                if (!_mUnknown_DnsNameServers) return _mValue_DnsNameServers;
+                throw new UndeferrableValueException("Value 'ReplicationConfigComputeConfig.DnsNameServers' is not present");
+            }
+        }
 
         /// <summary>
         /// An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ReplicationConfigComputeConfig.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
         /// </summary>
-        [Input("maxCapacityUnits")]
+        [PolicyResourceProperty("maxCapacityUnits", "_mUnknown_MaxCapacityUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxCapacityUnits;
-
-        public int? MaxCapacityUnits => _mMaxCapacityUnits.GetValue("maxCapacityUnits");
+        private int? _mValue_MaxCapacityUnits;
+        private bool _mUnknown_MaxCapacityUnits;
+        public int? MaxCapacityUnits
+        {
+            get
+            {
+                if (!_mUnknown_MaxCapacityUnits) return _mValue_MaxCapacityUnits;
+                throw new UndeferrableValueException("Value 'ReplicationConfigComputeConfig.MaxCapacityUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS sets the lowest allowed value, 1.
         /// </summary>
-        [Input("minCapacityUnits")]
+        [PolicyResourceProperty("minCapacityUnits", "_mUnknown_MinCapacityUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinCapacityUnits;
-
-        public int? MinCapacityUnits => _mMinCapacityUnits.GetValue("minCapacityUnits");
+        private int? _mValue_MinCapacityUnits;
+        private bool _mUnknown_MinCapacityUnits;
+        public int? MinCapacityUnits
+        {
+            get
+            {
+                if (!_mUnknown_MinCapacityUnits) return _mValue_MinCapacityUnits;
+                throw new UndeferrableValueException("Value 'ReplicationConfigComputeConfig.MinCapacityUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         /// </summary>
-        [Input("multiAz")]
+        [PolicyResourceProperty("multiAz", "_mUnknown_MultiAz")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiAz;
-
-        public bool? MultiAz => _mMultiAz.GetValue("multiAz");
+        private bool? _mValue_MultiAz;
+        private bool _mUnknown_MultiAz;
+        public bool? MultiAz
+        {
+            get
+            {
+                if (!_mUnknown_MultiAz) return _mValue_MultiAz;
+                throw new UndeferrableValueException("Value 'ReplicationConfigComputeConfig.MultiAz' is not present");
+            }
+        }
 
         /// <summary>
         /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
@@ -74,28 +116,49 @@ namespace Pulumi.PolicyPacks.Aws.Dms.Outputs
         /// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
         /// - Constraints: Minimum 30-minute window.
         /// </summary>
-        [Input("preferredMaintenanceWindow")]
+        [PolicyResourceProperty("preferredMaintenanceWindow", "_mUnknown_PreferredMaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
-
-        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+        private string? _mValue_PreferredMaintenanceWindow;
+        private bool _mUnknown_PreferredMaintenanceWindow;
+        public string? PreferredMaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredMaintenanceWindow) return _mValue_PreferredMaintenanceWindow;
+                throw new UndeferrableValueException("Value 'ReplicationConfigComputeConfig.PreferredMaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a subnet group identifier to associate with the DMS Serverless replication.
         /// </summary>
-        [Input("replicationSubnetGroupId")]
+        [PolicyResourceProperty("replicationSubnetGroupId", "_mUnknown_ReplicationSubnetGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationSubnetGroupId;
-
-        public string? ReplicationSubnetGroupId => _mReplicationSubnetGroupId.GetValue("replicationSubnetGroupId");
+        private string? _mValue_ReplicationSubnetGroupId;
+        private bool _mUnknown_ReplicationSubnetGroupId;
+        public string? ReplicationSubnetGroupId
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationSubnetGroupId) return _mValue_ReplicationSubnetGroupId;
+                throw new UndeferrableValueException("Value 'ReplicationConfigComputeConfig.ReplicationSubnetGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ReplicationConfigComputeConfig.VpcSecurityGroupIds' is not present");
+            }
+        }
     }
 }

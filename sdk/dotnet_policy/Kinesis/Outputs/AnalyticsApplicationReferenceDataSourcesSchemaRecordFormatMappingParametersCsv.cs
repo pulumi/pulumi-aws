@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// The Column Delimiter.
         /// </summary>
-        [Input("recordColumnDelimiter")]
+        [PolicyResourceProperty("recordColumnDelimiter", "_mUnknown_RecordColumnDelimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecordColumnDelimiter;
-
-        public string? RecordColumnDelimiter => _mRecordColumnDelimiter.GetValue("recordColumnDelimiter");
+        private string? _mValue_RecordColumnDelimiter;
+        private bool _mUnknown_RecordColumnDelimiter;
+        public string? RecordColumnDelimiter
+        {
+            get
+            {
+                if (!_mUnknown_RecordColumnDelimiter) return _mValue_RecordColumnDelimiter;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv.RecordColumnDelimiter' is not present");
+            }
+        }
 
         /// <summary>
         /// The Row Delimiter.
         /// </summary>
-        [Input("recordRowDelimiter")]
+        [PolicyResourceProperty("recordRowDelimiter", "_mUnknown_RecordRowDelimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecordRowDelimiter;
-
-        public string? RecordRowDelimiter => _mRecordRowDelimiter.GetValue("recordRowDelimiter");
+        private string? _mValue_RecordRowDelimiter;
+        private bool _mUnknown_RecordRowDelimiter;
+        public string? RecordRowDelimiter
+        {
+            get
+            {
+                if (!_mUnknown_RecordRowDelimiter) return _mValue_RecordRowDelimiter;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv.RecordRowDelimiter' is not present");
+            }
+        }
     }
 }

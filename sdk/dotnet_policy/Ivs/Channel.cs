@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.Ivs
         /// <summary>
         /// ARN of the Channel.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Channel.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// If `true`, channel is private (enabled for playback authorization).
         /// </summary>
-        [Input("authorized")]
+        [PolicyResourceProperty("authorized", "_mUnknown_Authorized")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAuthorized;
-
-        public bool? Authorized => _mAuthorized.GetValue("authorized");
+        private bool? _mValue_Authorized;
+        private bool _mUnknown_Authorized;
+        public bool? Authorized
+        {
+            get
+            {
+                if (!_mUnknown_Authorized) return _mValue_Authorized;
+                throw new UndeferrableValueException("Value 'Channel.Authorized' is not present");
+            }
+        }
 
         /// <summary>
         /// Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
         /// </summary>
-        [Input("ingestEndpoint")]
+        [PolicyResourceProperty("ingestEndpoint", "_mUnknown_IngestEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIngestEndpoint;
-
-        public string? IngestEndpoint => _mIngestEndpoint.GetValue("ingestEndpoint");
+        private string? _mValue_IngestEndpoint;
+        private bool _mUnknown_IngestEndpoint;
+        public string? IngestEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_IngestEndpoint) return _mValue_IngestEndpoint;
+                throw new UndeferrableValueException("Value 'Channel.IngestEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Channel latency mode. Valid values: `NORMAL`, `LOW`.
         /// </summary>
-        [Input("latencyMode")]
+        [PolicyResourceProperty("latencyMode", "_mUnknown_LatencyMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLatencyMode;
-
-        public string? LatencyMode => _mLatencyMode.GetValue("latencyMode");
+        private string? _mValue_LatencyMode;
+        private bool _mUnknown_LatencyMode;
+        public string? LatencyMode
+        {
+            get
+            {
+                if (!_mUnknown_LatencyMode) return _mValue_LatencyMode;
+                throw new UndeferrableValueException("Value 'Channel.LatencyMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Channel name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Channel.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Channel playback URL.
         /// </summary>
-        [Input("playbackUrl")]
+        [PolicyResourceProperty("playbackUrl", "_mUnknown_PlaybackUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlaybackUrl;
-
-        public string? PlaybackUrl => _mPlaybackUrl.GetValue("playbackUrl");
+        private string? _mValue_PlaybackUrl;
+        private bool _mUnknown_PlaybackUrl;
+        public string? PlaybackUrl
+        {
+            get
+            {
+                if (!_mUnknown_PlaybackUrl) return _mValue_PlaybackUrl;
+                throw new UndeferrableValueException("Value 'Channel.PlaybackUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// Recording configuration ARN.
         /// </summary>
-        [Input("recordingConfigurationArn")]
+        [PolicyResourceProperty("recordingConfigurationArn", "_mUnknown_RecordingConfigurationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecordingConfigurationArn;
-
-        public string? RecordingConfigurationArn => _mRecordingConfigurationArn.GetValue("recordingConfigurationArn");
+        private string? _mValue_RecordingConfigurationArn;
+        private bool _mUnknown_RecordingConfigurationArn;
+        public string? RecordingConfigurationArn
+        {
+            get
+            {
+                if (!_mUnknown_RecordingConfigurationArn) return _mValue_RecordingConfigurationArn;
+                throw new UndeferrableValueException("Value 'Channel.RecordingConfigurationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Channel.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Channel.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Channel.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ivs/channel:Channel")]
@@ -110,55 +180,97 @@ namespace Pulumi.PolicyPacks.Aws.Ivs
         /// <summary>
         /// If `true`, channel is private (enabled for playback authorization).
         /// </summary>
-        [Input("authorized")]
+        [PolicyResourceProperty("authorized", "_mUnknown_Authorized")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAuthorized;
-
-        public bool? Authorized => _mAuthorized.GetValue("authorized");
+        private bool? _mValue_Authorized;
+        private bool _mUnknown_Authorized;
+        public bool? Authorized
+        {
+            get
+            {
+                if (!_mUnknown_Authorized) return _mValue_Authorized;
+                throw new UndeferrableValueException("Value 'ChannelArgs.Authorized' is not present");
+            }
+        }
 
         /// <summary>
         /// Channel latency mode. Valid values: `NORMAL`, `LOW`.
         /// </summary>
-        [Input("latencyMode")]
+        [PolicyResourceProperty("latencyMode", "_mUnknown_LatencyMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLatencyMode;
-
-        public string? LatencyMode => _mLatencyMode.GetValue("latencyMode");
+        private string? _mValue_LatencyMode;
+        private bool _mUnknown_LatencyMode;
+        public string? LatencyMode
+        {
+            get
+            {
+                if (!_mUnknown_LatencyMode) return _mValue_LatencyMode;
+                throw new UndeferrableValueException("Value 'ChannelArgs.LatencyMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Channel name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ChannelArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Recording configuration ARN.
         /// </summary>
-        [Input("recordingConfigurationArn")]
+        [PolicyResourceProperty("recordingConfigurationArn", "_mUnknown_RecordingConfigurationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecordingConfigurationArn;
-
-        public string? RecordingConfigurationArn => _mRecordingConfigurationArn.GetValue("recordingConfigurationArn");
+        private string? _mValue_RecordingConfigurationArn;
+        private bool _mUnknown_RecordingConfigurationArn;
+        public string? RecordingConfigurationArn
+        {
+            get
+            {
+                if (!_mUnknown_RecordingConfigurationArn) return _mValue_RecordingConfigurationArn;
+                throw new UndeferrableValueException("Value 'ChannelArgs.RecordingConfigurationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ChannelArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ChannelArgs.Type' is not present");
+            }
+        }
     }
 }

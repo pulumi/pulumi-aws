@@ -12,31 +12,59 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
 {
     public sealed class GetJobQueueJobStateTimeLimitActionResult
     {
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'GetJobQueueJobStateTimeLimitActionResult.Action' is not present");
+            }
+        }
 
-        public string? Action => _mAction.GetValue("action");
-
-        [Input("maxTimeSeconds")]
+        [PolicyResourceProperty("maxTimeSeconds", "_mUnknown_MaxTimeSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxTimeSeconds;
+        private int? _mValue_MaxTimeSeconds;
+        private bool _mUnknown_MaxTimeSeconds;
+        public int? MaxTimeSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaxTimeSeconds) return _mValue_MaxTimeSeconds;
+                throw new UndeferrableValueException("Value 'GetJobQueueJobStateTimeLimitActionResult.MaxTimeSeconds' is not present");
+            }
+        }
 
-        public int? MaxTimeSeconds => _mMaxTimeSeconds.GetValue("maxTimeSeconds");
-
-        [Input("reason")]
+        [PolicyResourceProperty("reason", "_mUnknown_Reason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReason;
-
-        public string? Reason => _mReason.GetValue("reason");
+        private string? _mValue_Reason;
+        private bool _mUnknown_Reason;
+        public string? Reason
+        {
+            get
+            {
+                if (!_mUnknown_Reason) return _mValue_Reason;
+                throw new UndeferrableValueException("Value 'GetJobQueueJobStateTimeLimitActionResult.Reason' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'GetJobQueueJobStateTimeLimitActionResult.State' is not present");
+            }
+        }
     }
 }

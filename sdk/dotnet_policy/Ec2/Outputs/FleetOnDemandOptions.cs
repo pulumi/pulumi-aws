@@ -15,56 +15,98 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
         /// </summary>
-        [Input("allocationStrategy")]
+        [PolicyResourceProperty("allocationStrategy", "_mUnknown_AllocationStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationStrategy;
-
-        public string? AllocationStrategy => _mAllocationStrategy.GetValue("allocationStrategy");
+        private string? _mValue_AllocationStrategy;
+        private bool _mUnknown_AllocationStrategy;
+        public string? AllocationStrategy
+        {
+            get
+            {
+                if (!_mUnknown_AllocationStrategy) return _mValue_AllocationStrategy;
+                throw new UndeferrableValueException("Value 'FleetOnDemandOptions.AllocationStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
         /// </summary>
-        [Input("capacityReservationOptions")]
+        [PolicyResourceProperty("capacityReservationOptions", "_mUnknown_CapacityReservationOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetOnDemandOptionsCapacityReservationOptions> _mCapacityReservationOptions;
-
-        public Outputs.FleetOnDemandOptionsCapacityReservationOptions? CapacityReservationOptions => _mCapacityReservationOptions.GetValue("capacityReservationOptions");
+        private Outputs.FleetOnDemandOptionsCapacityReservationOptions? _mValue_CapacityReservationOptions;
+        private bool _mUnknown_CapacityReservationOptions;
+        public Outputs.FleetOnDemandOptionsCapacityReservationOptions? CapacityReservationOptions
+        {
+            get
+            {
+                if (!_mUnknown_CapacityReservationOptions) return _mValue_CapacityReservationOptions;
+                throw new UndeferrableValueException("Value 'FleetOnDemandOptions.CapacityReservationOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum amount per hour for On-Demand Instances that you're willing to pay.
         /// </summary>
-        [Input("maxTotalPrice")]
+        [PolicyResourceProperty("maxTotalPrice", "_mUnknown_MaxTotalPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxTotalPrice;
-
-        public string? MaxTotalPrice => _mMaxTotalPrice.GetValue("maxTotalPrice");
+        private string? _mValue_MaxTotalPrice;
+        private bool _mUnknown_MaxTotalPrice;
+        public string? MaxTotalPrice
+        {
+            get
+            {
+                if (!_mUnknown_MaxTotalPrice) return _mValue_MaxTotalPrice;
+                throw new UndeferrableValueException("Value 'FleetOnDemandOptions.MaxTotalPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
         /// If you specify `min_target_capacity`, at least one of the following must be specified: `single_availability_zone` or `single_instance_type`.
         /// </summary>
-        [Input("minTargetCapacity")]
+        [PolicyResourceProperty("minTargetCapacity", "_mUnknown_MinTargetCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinTargetCapacity;
-
-        public int? MinTargetCapacity => _mMinTargetCapacity.GetValue("minTargetCapacity");
+        private int? _mValue_MinTargetCapacity;
+        private bool _mUnknown_MinTargetCapacity;
+        public int? MinTargetCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MinTargetCapacity) return _mValue_MinTargetCapacity;
+                throw new UndeferrableValueException("Value 'FleetOnDemandOptions.MinTargetCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates that the fleet launches all On-Demand Instances into a single Availability Zone. Supported only for fleets of type `instant`.
         /// </summary>
-        [Input("singleAvailabilityZone")]
+        [PolicyResourceProperty("singleAvailabilityZone", "_mUnknown_SingleAvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSingleAvailabilityZone;
-
-        public bool? SingleAvailabilityZone => _mSingleAvailabilityZone.GetValue("singleAvailabilityZone");
+        private bool? _mValue_SingleAvailabilityZone;
+        private bool _mUnknown_SingleAvailabilityZone;
+        public bool? SingleAvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_SingleAvailabilityZone) return _mValue_SingleAvailabilityZone;
+                throw new UndeferrableValueException("Value 'FleetOnDemandOptions.SingleAvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet. Supported only for fleets of type `instant`.
         /// </summary>
-        [Input("singleInstanceType")]
+        [PolicyResourceProperty("singleInstanceType", "_mUnknown_SingleInstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSingleInstanceType;
-
-        public bool? SingleInstanceType => _mSingleInstanceType.GetValue("singleInstanceType");
+        private bool? _mValue_SingleInstanceType;
+        private bool _mUnknown_SingleInstanceType;
+        public bool? SingleInstanceType
+        {
+            get
+            {
+                if (!_mUnknown_SingleInstanceType) return _mValue_SingleInstanceType;
+                throw new UndeferrableValueException("Value 'FleetOnDemandOptions.SingleInstanceType' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Inputs
 {
     public sealed class GetTrafficPolicyDocumentRuleItemArgs
     {
-        [Input("endpointReference")]
+        [PolicyResourceProperty("endpointReference", "_mUnknown_EndpointReference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointReference;
+        private string? _mValue_EndpointReference;
+        private bool _mUnknown_EndpointReference;
+        public string? EndpointReference
+        {
+            get
+            {
+                if (!_mUnknown_EndpointReference) return _mValue_EndpointReference;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleItemArgs.EndpointReference' is not present");
+            }
+        }
 
-        public string? EndpointReference => _mEndpointReference.GetValue("endpointReference");
-
-        [Input("healthCheck")]
+        [PolicyResourceProperty("healthCheck", "_mUnknown_HealthCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheck;
-
-        public string? HealthCheck => _mHealthCheck.GetValue("healthCheck");
+        private string? _mValue_HealthCheck;
+        private bool _mUnknown_HealthCheck;
+        public string? HealthCheck
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheck) return _mValue_HealthCheck;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleItemArgs.HealthCheck' is not present");
+            }
+        }
     }
 }

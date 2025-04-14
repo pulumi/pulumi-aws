@@ -15,20 +15,34 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Inputs
         /// <summary>
         /// Describes the interval in milliseconds between checkpoint operations.
         /// </summary>
-        [Input("checkpointInterval")]
+        [PolicyResourceProperty("checkpointInterval", "_mUnknown_CheckpointInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCheckpointInterval;
-
-        public int? CheckpointInterval => _mCheckpointInterval.GetValue("checkpointInterval");
+        private int? _mValue_CheckpointInterval;
+        private bool _mUnknown_CheckpointInterval;
+        public int? CheckpointInterval
+        {
+            get
+            {
+                if (!_mUnknown_CheckpointInterval) return _mValue_CheckpointInterval;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs.CheckpointInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
         /// </summary>
-        [Input("checkpointingEnabled")]
+        [PolicyResourceProperty("checkpointingEnabled", "_mUnknown_CheckpointingEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCheckpointingEnabled;
-
-        public bool? CheckpointingEnabled => _mCheckpointingEnabled.GetValue("checkpointingEnabled");
+        private bool? _mValue_CheckpointingEnabled;
+        private bool _mUnknown_CheckpointingEnabled;
+        public bool? CheckpointingEnabled
+        {
+            get
+            {
+                if (!_mUnknown_CheckpointingEnabled) return _mValue_CheckpointingEnabled;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs.CheckpointingEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointing_enabled`, `checkpoint_interval`, or `min_pause_between_checkpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
@@ -36,19 +50,33 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Inputs
         /// * `checkpoint_interval = 60000`
         /// * `min_pause_between_checkpoints = 5000`
         /// </summary>
-        [Input("configurationType")]
+        [PolicyResourceProperty("configurationType", "_mUnknown_ConfigurationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationType;
-
-        public string? ConfigurationType => _mConfigurationType.GetValue("configurationType");
+        private string? _mValue_ConfigurationType;
+        private bool _mUnknown_ConfigurationType;
+        public string? ConfigurationType
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationType) return _mValue_ConfigurationType;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs.ConfigurationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
         /// </summary>
-        [Input("minPauseBetweenCheckpoints")]
+        [PolicyResourceProperty("minPauseBetweenCheckpoints", "_mUnknown_MinPauseBetweenCheckpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinPauseBetweenCheckpoints;
-
-        public int? MinPauseBetweenCheckpoints => _mMinPauseBetweenCheckpoints.GetValue("minPauseBetweenCheckpoints");
+        private int? _mValue_MinPauseBetweenCheckpoints;
+        private bool _mUnknown_MinPauseBetweenCheckpoints;
+        public int? MinPauseBetweenCheckpoints
+        {
+            get
+            {
+                if (!_mUnknown_MinPauseBetweenCheckpoints) return _mValue_MinPauseBetweenCheckpoints;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs.MinPauseBetweenCheckpoints' is not present");
+            }
+        }
     }
 }

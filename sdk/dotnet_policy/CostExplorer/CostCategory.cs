@@ -16,94 +16,164 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer
         /// <summary>
         /// ARN of the cost category.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CostCategory.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Default value for the cost category.
         /// </summary>
-        [Input("defaultValue")]
+        [PolicyResourceProperty("defaultValue", "_mUnknown_DefaultValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultValue;
-
-        public string? DefaultValue => _mDefaultValue.GetValue("defaultValue");
+        private string? _mValue_DefaultValue;
+        private bool _mUnknown_DefaultValue;
+        public string? DefaultValue
+        {
+            get
+            {
+                if (!_mUnknown_DefaultValue) return _mValue_DefaultValue;
+                throw new UndeferrableValueException("Value 'CostCategory.DefaultValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Effective end data of your Cost Category.
         /// </summary>
-        [Input("effectiveEnd")]
+        [PolicyResourceProperty("effectiveEnd", "_mUnknown_EffectiveEnd")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEffectiveEnd;
-
-        public string? EffectiveEnd => _mEffectiveEnd.GetValue("effectiveEnd");
+        private string? _mValue_EffectiveEnd;
+        private bool _mUnknown_EffectiveEnd;
+        public string? EffectiveEnd
+        {
+            get
+            {
+                if (!_mUnknown_EffectiveEnd) return _mValue_EffectiveEnd;
+                throw new UndeferrableValueException("Value 'CostCategory.EffectiveEnd' is not present");
+            }
+        }
 
         /// <summary>
         /// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("effectiveStart")]
+        [PolicyResourceProperty("effectiveStart", "_mUnknown_EffectiveStart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEffectiveStart;
-
-        public string? EffectiveStart => _mEffectiveStart.GetValue("effectiveStart");
+        private string? _mValue_EffectiveStart;
+        private bool _mUnknown_EffectiveStart;
+        public string? EffectiveStart
+        {
+            get
+            {
+                if (!_mUnknown_EffectiveStart) return _mValue_EffectiveStart;
+                throw new UndeferrableValueException("Value 'CostCategory.EffectiveStart' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the Cost Category.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CostCategory.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule schema version in this particular Cost Category.
         /// </summary>
-        [Input("ruleVersion")]
+        [PolicyResourceProperty("ruleVersion", "_mUnknown_RuleVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleVersion;
-
-        public string? RuleVersion => _mRuleVersion.GetValue("ruleVersion");
+        private string? _mValue_RuleVersion;
+        private bool _mUnknown_RuleVersion;
+        public string? RuleVersion
+        {
+            get
+            {
+                if (!_mUnknown_RuleVersion) return _mValue_RuleVersion;
+                throw new UndeferrableValueException("Value 'CostCategory.RuleVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the Cost Category rules used to categorize costs. See below.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CostCategoryRule>> _mRules;
-
-        public List<Outputs.CostCategoryRule>? Rules => _mRules.GetValue("rules");
+        private List<Outputs.CostCategoryRule>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Outputs.CostCategoryRule>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'CostCategory.Rules' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
         /// </summary>
-        [Input("splitChargeRules")]
+        [PolicyResourceProperty("splitChargeRules", "_mUnknown_SplitChargeRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CostCategorySplitChargeRule>> _mSplitChargeRules;
-
-        public List<Outputs.CostCategorySplitChargeRule>? SplitChargeRules => _mSplitChargeRules.GetValue("splitChargeRules");
+        private List<Outputs.CostCategorySplitChargeRule>? _mValue_SplitChargeRules;
+        private bool _mUnknown_SplitChargeRules;
+        public List<Outputs.CostCategorySplitChargeRule>? SplitChargeRules
+        {
+            get
+            {
+                if (!_mUnknown_SplitChargeRules) return _mValue_SplitChargeRules;
+                throw new UndeferrableValueException("Value 'CostCategory.SplitChargeRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CostCategory.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'CostCategory.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:costexplorer/costCategory:CostCategory")]
@@ -112,66 +182,115 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer
         /// <summary>
         /// Default value for the cost category.
         /// </summary>
-        [Input("defaultValue")]
+        [PolicyResourceProperty("defaultValue", "_mUnknown_DefaultValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultValue;
-
-        public string? DefaultValue => _mDefaultValue.GetValue("defaultValue");
+        private string? _mValue_DefaultValue;
+        private bool _mUnknown_DefaultValue;
+        public string? DefaultValue
+        {
+            get
+            {
+                if (!_mUnknown_DefaultValue) return _mValue_DefaultValue;
+                throw new UndeferrableValueException("Value 'CostCategoryArgs.DefaultValue' is not present");
+            }
+        }
 
         /// <summary>
         /// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("effectiveStart")]
+        [PolicyResourceProperty("effectiveStart", "_mUnknown_EffectiveStart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEffectiveStart;
-
-        public string? EffectiveStart => _mEffectiveStart.GetValue("effectiveStart");
+        private string? _mValue_EffectiveStart;
+        private bool _mUnknown_EffectiveStart;
+        public string? EffectiveStart
+        {
+            get
+            {
+                if (!_mUnknown_EffectiveStart) return _mValue_EffectiveStart;
+                throw new UndeferrableValueException("Value 'CostCategoryArgs.EffectiveStart' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the Cost Category.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CostCategoryArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule schema version in this particular Cost Category.
         /// </summary>
-        [Input("ruleVersion")]
+        [PolicyResourceProperty("ruleVersion", "_mUnknown_RuleVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleVersion;
-
-        public string? RuleVersion => _mRuleVersion.GetValue("ruleVersion");
+        private string? _mValue_RuleVersion;
+        private bool _mUnknown_RuleVersion;
+        public string? RuleVersion
+        {
+            get
+            {
+                if (!_mUnknown_RuleVersion) return _mValue_RuleVersion;
+                throw new UndeferrableValueException("Value 'CostCategoryArgs.RuleVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the Cost Category rules used to categorize costs. See below.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CostCategoryRuleArgs>> _mRules;
-
-        public List<Inputs.CostCategoryRuleArgs>? Rules => _mRules.GetValue("rules");
+        private List<Inputs.CostCategoryRuleArgs>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Inputs.CostCategoryRuleArgs>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'CostCategoryArgs.Rules' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
         /// </summary>
-        [Input("splitChargeRules")]
+        [PolicyResourceProperty("splitChargeRules", "_mUnknown_SplitChargeRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CostCategorySplitChargeRuleArgs>> _mSplitChargeRules;
-
-        public List<Inputs.CostCategorySplitChargeRuleArgs>? SplitChargeRules => _mSplitChargeRules.GetValue("splitChargeRules");
+        private List<Inputs.CostCategorySplitChargeRuleArgs>? _mValue_SplitChargeRules;
+        private bool _mUnknown_SplitChargeRules;
+        public List<Inputs.CostCategorySplitChargeRuleArgs>? SplitChargeRules
+        {
+            get
+            {
+                if (!_mUnknown_SplitChargeRules) return _mValue_SplitChargeRules;
+                throw new UndeferrableValueException("Value 'CostCategoryArgs.SplitChargeRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CostCategoryArgs.Tags' is not present");
+            }
+        }
     }
 }

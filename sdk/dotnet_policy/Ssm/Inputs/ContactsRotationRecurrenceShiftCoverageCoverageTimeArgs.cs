@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Inputs
         /// <summary>
         /// (Required) The end time of the on-call shift. See Hand Off Time for more details.
         /// </summary>
-        [Input("end")]
+        [PolicyResourceProperty("end", "_mUnknown_End")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs> _mEnd;
-
-        public Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs? End => _mEnd.GetValue("end");
+        private Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs? _mValue_End;
+        private bool _mUnknown_End;
+        public Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs? End
+        {
+            get
+            {
+                if (!_mUnknown_End) return _mValue_End;
+                throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs.End' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required) The start time of the on-call shift. See Hand Off Time for more details.
         /// </summary>
-        [Input("start")]
+        [PolicyResourceProperty("start", "_mUnknown_Start")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs> _mStart;
-
-        public Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs? Start => _mStart.GetValue("start");
+        private Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs? _mValue_Start;
+        private bool _mUnknown_Start;
+        public Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs? Start
+        {
+            get
+            {
+                if (!_mUnknown_Start) return _mValue_Start;
+                throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs.Start' is not present");
+            }
+        }
     }
 }

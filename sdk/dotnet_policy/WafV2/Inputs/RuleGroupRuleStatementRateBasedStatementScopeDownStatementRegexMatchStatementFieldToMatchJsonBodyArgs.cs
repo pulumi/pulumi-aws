@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         /// </summary>
-        [Input("invalidFallbackBehavior")]
+        [PolicyResourceProperty("invalidFallbackBehavior", "_mUnknown_InvalidFallbackBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInvalidFallbackBehavior;
-
-        public string? InvalidFallbackBehavior => _mInvalidFallbackBehavior.GetValue("invalidFallbackBehavior");
+        private string? _mValue_InvalidFallbackBehavior;
+        private bool _mUnknown_InvalidFallbackBehavior;
+        public string? InvalidFallbackBehavior
+        {
+            get
+            {
+                if (!_mUnknown_InvalidFallbackBehavior) return _mValue_InvalidFallbackBehavior;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs.InvalidFallbackBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         /// </summary>
-        [Input("matchPattern")]
+        [PolicyResourceProperty("matchPattern", "_mUnknown_MatchPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgs> _mMatchPattern;
-
-        public Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgs? MatchPattern => _mMatchPattern.GetValue("matchPattern");
+        private Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgs? _mValue_MatchPattern;
+        private bool _mUnknown_MatchPattern;
+        public Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgs? MatchPattern
+        {
+            get
+            {
+                if (!_mUnknown_MatchPattern) return _mValue_MatchPattern;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs.MatchPattern' is not present");
+            }
+        }
 
         /// <summary>
         /// The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         /// </summary>
-        [Input("matchScope")]
+        [PolicyResourceProperty("matchScope", "_mUnknown_MatchScope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMatchScope;
-
-        public string? MatchScope => _mMatchScope.GetValue("matchScope");
+        private string? _mValue_MatchScope;
+        private bool _mUnknown_MatchScope;
+        public string? MatchScope
+        {
+            get
+            {
+                if (!_mUnknown_MatchScope) return _mValue_MatchScope;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs.MatchScope' is not present");
+            }
+        }
 
         /// <summary>
         /// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         /// </summary>
-        [Input("oversizeHandling")]
+        [PolicyResourceProperty("oversizeHandling", "_mUnknown_OversizeHandling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOversizeHandling;
-
-        public string? OversizeHandling => _mOversizeHandling.GetValue("oversizeHandling");
+        private string? _mValue_OversizeHandling;
+        private bool _mUnknown_OversizeHandling;
+        public string? OversizeHandling
+        {
+            get
+            {
+                if (!_mUnknown_OversizeHandling) return _mValue_OversizeHandling;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs.OversizeHandling' is not present");
+            }
+        }
     }
 }

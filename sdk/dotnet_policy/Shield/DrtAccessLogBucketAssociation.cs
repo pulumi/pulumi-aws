@@ -16,26 +16,47 @@ namespace Pulumi.PolicyPacks.Aws.Shield
         /// <summary>
         /// The Amazon S3 bucket that contains the logs that you want to share.
         /// </summary>
-        [Input("logBucket")]
+        [PolicyResourceProperty("logBucket", "_mUnknown_LogBucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogBucket;
-
-        public string? LogBucket => _mLogBucket.GetValue("logBucket");
+        private string? _mValue_LogBucket;
+        private bool _mUnknown_LogBucket;
+        public string? LogBucket
+        {
+            get
+            {
+                if (!_mUnknown_LogBucket) return _mValue_LogBucket;
+                throw new UndeferrableValueException("Value 'DrtAccessLogBucketAssociation.LogBucket' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Role Arn association used for allowing Shield DRT Access.
         /// </summary>
-        [Input("roleArnAssociationId")]
+        [PolicyResourceProperty("roleArnAssociationId", "_mUnknown_RoleArnAssociationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArnAssociationId;
+        private string? _mValue_RoleArnAssociationId;
+        private bool _mUnknown_RoleArnAssociationId;
+        public string? RoleArnAssociationId
+        {
+            get
+            {
+                if (!_mUnknown_RoleArnAssociationId) return _mValue_RoleArnAssociationId;
+                throw new UndeferrableValueException("Value 'DrtAccessLogBucketAssociation.RoleArnAssociationId' is not present");
+            }
+        }
 
-        public string? RoleArnAssociationId => _mRoleArnAssociationId.GetValue("roleArnAssociationId");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DrtAccessLogBucketAssociationTimeouts> _mTimeouts;
-
-        public Outputs.DrtAccessLogBucketAssociationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.DrtAccessLogBucketAssociationTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.DrtAccessLogBucketAssociationTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'DrtAccessLogBucketAssociation.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation")]
@@ -44,25 +65,46 @@ namespace Pulumi.PolicyPacks.Aws.Shield
         /// <summary>
         /// The Amazon S3 bucket that contains the logs that you want to share.
         /// </summary>
-        [Input("logBucket")]
+        [PolicyResourceProperty("logBucket", "_mUnknown_LogBucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogBucket;
-
-        public string? LogBucket => _mLogBucket.GetValue("logBucket");
+        private string? _mValue_LogBucket;
+        private bool _mUnknown_LogBucket;
+        public string? LogBucket
+        {
+            get
+            {
+                if (!_mUnknown_LogBucket) return _mValue_LogBucket;
+                throw new UndeferrableValueException("Value 'DrtAccessLogBucketAssociationArgs.LogBucket' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Role Arn association used for allowing Shield DRT Access.
         /// </summary>
-        [Input("roleArnAssociationId")]
+        [PolicyResourceProperty("roleArnAssociationId", "_mUnknown_RoleArnAssociationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArnAssociationId;
+        private string? _mValue_RoleArnAssociationId;
+        private bool _mUnknown_RoleArnAssociationId;
+        public string? RoleArnAssociationId
+        {
+            get
+            {
+                if (!_mUnknown_RoleArnAssociationId) return _mValue_RoleArnAssociationId;
+                throw new UndeferrableValueException("Value 'DrtAccessLogBucketAssociationArgs.RoleArnAssociationId' is not present");
+            }
+        }
 
-        public string? RoleArnAssociationId => _mRoleArnAssociationId.GetValue("roleArnAssociationId");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DrtAccessLogBucketAssociationTimeoutsArgs> _mTimeouts;
-
-        public Inputs.DrtAccessLogBucketAssociationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.DrtAccessLogBucketAssociationTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.DrtAccessLogBucketAssociationTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'DrtAccessLogBucketAssociationArgs.Timeouts' is not present");
+            }
+        }
     }
 }

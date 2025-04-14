@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace.Inputs
         /// <summary>
         /// IP address of the DNS server.
         /// </summary>
-        [Input("customDnsServerIp")]
+        [PolicyResourceProperty("customDnsServerIp", "_mUnknown_CustomDnsServerIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomDnsServerIp;
-
-        public string? CustomDnsServerIp => _mCustomDnsServerIp.GetValue("customDnsServerIp");
+        private string? _mValue_CustomDnsServerIp;
+        private bool _mUnknown_CustomDnsServerIp;
+        public string? CustomDnsServerIp
+        {
+            get
+            {
+                if (!_mUnknown_CustomDnsServerIp) return _mValue_CustomDnsServerIp;
+                throw new UndeferrableValueException("Value 'KxEnvironmentCustomDnsConfigurationArgs.CustomDnsServerIp' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the DNS server.
         /// </summary>
-        [Input("customDnsServerName")]
+        [PolicyResourceProperty("customDnsServerName", "_mUnknown_CustomDnsServerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomDnsServerName;
-
-        public string? CustomDnsServerName => _mCustomDnsServerName.GetValue("customDnsServerName");
+        private string? _mValue_CustomDnsServerName;
+        private bool _mUnknown_CustomDnsServerName;
+        public string? CustomDnsServerName
+        {
+            get
+            {
+                if (!_mUnknown_CustomDnsServerName) return _mValue_CustomDnsServerName;
+                throw new UndeferrableValueException("Value 'KxEnvironmentCustomDnsConfigurationArgs.CustomDnsServerName' is not present");
+            }
+        }
     }
 }

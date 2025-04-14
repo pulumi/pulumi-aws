@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Inputs
         /// <summary>
         /// Specifies whether the lifecycle action should apply to distributed AMIs.
         /// </summary>
-        [Input("amis")]
+        [PolicyResourceProperty("amis", "_mUnknown_Amis")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAmis;
-
-        public bool? Amis => _mAmis.GetValue("amis");
+        private bool? _mValue_Amis;
+        private bool _mUnknown_Amis;
+        public bool? Amis
+        {
+            get
+            {
+                if (!_mUnknown_Amis) return _mValue_Amis;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailActionIncludeResourcesArgs.Amis' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the lifecycle action should apply to distributed containers.
         /// </summary>
-        [Input("containers")]
+        [PolicyResourceProperty("containers", "_mUnknown_Containers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mContainers;
-
-        public bool? Containers => _mContainers.GetValue("containers");
+        private bool? _mValue_Containers;
+        private bool _mUnknown_Containers;
+        public bool? Containers
+        {
+            get
+            {
+                if (!_mUnknown_Containers) return _mValue_Containers;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailActionIncludeResourcesArgs.Containers' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the lifecycle action should apply to snapshots associated with distributed AMIs.
         /// </summary>
-        [Input("snapshots")]
+        [PolicyResourceProperty("snapshots", "_mUnknown_Snapshots")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSnapshots;
-
-        public bool? Snapshots => _mSnapshots.GetValue("snapshots");
+        private bool? _mValue_Snapshots;
+        private bool _mUnknown_Snapshots;
+        public bool? Snapshots
+        {
+            get
+            {
+                if (!_mUnknown_Snapshots) return _mValue_Snapshots;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailActionIncludeResourcesArgs.Snapshots' is not present");
+            }
+        }
     }
 }

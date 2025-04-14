@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Outputs
         /// <summary>
         /// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
         /// </summary>
-        [Input("storageCapacity")]
+        [PolicyResourceProperty("storageCapacity", "_mUnknown_StorageCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStorageCapacity;
-
-        public int? StorageCapacity => _mStorageCapacity.GetValue("storageCapacity");
+        private int? _mValue_StorageCapacity;
+        private bool _mUnknown_StorageCapacity;
+        public int? StorageCapacity
+        {
+            get
+            {
+                if (!_mUnknown_StorageCapacity) return _mValue_StorageCapacity;
+                throw new UndeferrableValueException("Value 'FileCacheLustreConfigurationMetadataConfiguration.StorageCapacity' is not present");
+            }
+        }
     }
 }

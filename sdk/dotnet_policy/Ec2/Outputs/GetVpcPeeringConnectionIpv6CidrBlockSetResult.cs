@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetVpcPeeringConnectionIpv6CidrBlockSetResult
     {
-        [Input("ipv6CidrBlock")]
+        [PolicyResourceProperty("ipv6CidrBlock", "_mUnknown_Ipv6CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlock;
-
-        public string? Ipv6CidrBlock => _mIpv6CidrBlock.GetValue("ipv6CidrBlock");
+        private string? _mValue_Ipv6CidrBlock;
+        private bool _mUnknown_Ipv6CidrBlock;
+        public string? Ipv6CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6CidrBlock) return _mValue_Ipv6CidrBlock;
+                throw new UndeferrableValueException("Value 'GetVpcPeeringConnectionIpv6CidrBlockSetResult.Ipv6CidrBlock' is not present");
+            }
+        }
     }
 }

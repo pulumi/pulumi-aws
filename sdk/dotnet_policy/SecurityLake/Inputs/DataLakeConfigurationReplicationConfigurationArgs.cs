@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake.Inputs
         /// <summary>
         /// Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different AWS Regions or within the same Region as the source bucket.
         /// </summary>
-        [Input("regions")]
+        [PolicyResourceProperty("regions", "_mUnknown_Regions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegions;
-
-        public List<string>? Regions => _mRegions.GetValue("regions");
+        private List<string>? _mValue_Regions;
+        private bool _mUnknown_Regions;
+        public List<string>? Regions
+        {
+            get
+            {
+                if (!_mUnknown_Regions) return _mValue_Regions;
+                throw new UndeferrableValueException("Value 'DataLakeConfigurationReplicationConfigurationArgs.Regions' is not present");
+            }
+        }
 
         /// <summary>
         /// Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'DataLakeConfigurationReplicationConfigurationArgs.RoleArn' is not present");
+            }
+        }
     }
 }

@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `api_gateway` below for details.
         /// </summary>
-        [Input("apiGateways")]
+        [PolicyResourceProperty("apiGateways", "_mUnknown_ApiGateways")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclAssociationConfigRequestBodyApiGatewayArgs>> _mApiGateways;
-
-        public List<Inputs.WebAclAssociationConfigRequestBodyApiGatewayArgs>? ApiGateways => _mApiGateways.GetValue("apiGateways");
+        private List<Inputs.WebAclAssociationConfigRequestBodyApiGatewayArgs>? _mValue_ApiGateways;
+        private bool _mUnknown_ApiGateways;
+        public List<Inputs.WebAclAssociationConfigRequestBodyApiGatewayArgs>? ApiGateways
+        {
+            get
+            {
+                if (!_mUnknown_ApiGateways) return _mValue_ApiGateways;
+                throw new UndeferrableValueException("Value 'WebAclAssociationConfigRequestBodyArgs.ApiGateways' is not present");
+            }
+        }
 
         /// <summary>
         /// Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `app_runner_service` below for details.
         /// </summary>
-        [Input("appRunnerServices")]
+        [PolicyResourceProperty("appRunnerServices", "_mUnknown_AppRunnerServices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclAssociationConfigRequestBodyAppRunnerServiceArgs>> _mAppRunnerServices;
-
-        public List<Inputs.WebAclAssociationConfigRequestBodyAppRunnerServiceArgs>? AppRunnerServices => _mAppRunnerServices.GetValue("appRunnerServices");
+        private List<Inputs.WebAclAssociationConfigRequestBodyAppRunnerServiceArgs>? _mValue_AppRunnerServices;
+        private bool _mUnknown_AppRunnerServices;
+        public List<Inputs.WebAclAssociationConfigRequestBodyAppRunnerServiceArgs>? AppRunnerServices
+        {
+            get
+            {
+                if (!_mUnknown_AppRunnerServices) return _mValue_AppRunnerServices;
+                throw new UndeferrableValueException("Value 'WebAclAssociationConfigRequestBodyArgs.AppRunnerServices' is not present");
+            }
+        }
 
         /// <summary>
         /// Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
         /// </summary>
-        [Input("cloudfronts")]
+        [PolicyResourceProperty("cloudfronts", "_mUnknown_Cloudfronts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclAssociationConfigRequestBodyCloudfrontArgs>> _mCloudfronts;
-
-        public List<Inputs.WebAclAssociationConfigRequestBodyCloudfrontArgs>? Cloudfronts => _mCloudfronts.GetValue("cloudfronts");
+        private List<Inputs.WebAclAssociationConfigRequestBodyCloudfrontArgs>? _mValue_Cloudfronts;
+        private bool _mUnknown_Cloudfronts;
+        public List<Inputs.WebAclAssociationConfigRequestBodyCloudfrontArgs>? Cloudfronts
+        {
+            get
+            {
+                if (!_mUnknown_Cloudfronts) return _mValue_Cloudfronts;
+                throw new UndeferrableValueException("Value 'WebAclAssociationConfigRequestBodyArgs.Cloudfronts' is not present");
+            }
+        }
 
         /// <summary>
         /// Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognito_user_pool` below for details.
         /// </summary>
-        [Input("cognitoUserPools")]
+        [PolicyResourceProperty("cognitoUserPools", "_mUnknown_CognitoUserPools")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclAssociationConfigRequestBodyCognitoUserPoolArgs>> _mCognitoUserPools;
-
-        public List<Inputs.WebAclAssociationConfigRequestBodyCognitoUserPoolArgs>? CognitoUserPools => _mCognitoUserPools.GetValue("cognitoUserPools");
+        private List<Inputs.WebAclAssociationConfigRequestBodyCognitoUserPoolArgs>? _mValue_CognitoUserPools;
+        private bool _mUnknown_CognitoUserPools;
+        public List<Inputs.WebAclAssociationConfigRequestBodyCognitoUserPoolArgs>? CognitoUserPools
+        {
+            get
+            {
+                if (!_mUnknown_CognitoUserPools) return _mValue_CognitoUserPools;
+                throw new UndeferrableValueException("Value 'WebAclAssociationConfigRequestBodyArgs.CognitoUserPools' is not present");
+            }
+        }
 
         /// <summary>
         /// Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
         /// </summary>
-        [Input("verifiedAccessInstances")]
+        [PolicyResourceProperty("verifiedAccessInstances", "_mUnknown_VerifiedAccessInstances")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs>> _mVerifiedAccessInstances;
-
-        public List<Inputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs>? VerifiedAccessInstances => _mVerifiedAccessInstances.GetValue("verifiedAccessInstances");
+        private List<Inputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs>? _mValue_VerifiedAccessInstances;
+        private bool _mUnknown_VerifiedAccessInstances;
+        public List<Inputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs>? VerifiedAccessInstances
+        {
+            get
+            {
+                if (!_mUnknown_VerifiedAccessInstances) return _mValue_VerifiedAccessInstances;
+                throw new UndeferrableValueException("Value 'WebAclAssociationConfigRequestBodyArgs.VerifiedAccessInstances' is not present");
+            }
+        }
     }
 }

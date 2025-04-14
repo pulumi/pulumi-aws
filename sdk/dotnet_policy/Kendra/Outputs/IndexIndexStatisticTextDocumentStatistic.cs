@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// The total size, in bytes, of the indexed documents.
         /// </summary>
-        [Input("indexedTextBytes")]
+        [PolicyResourceProperty("indexedTextBytes", "_mUnknown_IndexedTextBytes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIndexedTextBytes;
-
-        public int? IndexedTextBytes => _mIndexedTextBytes.GetValue("indexedTextBytes");
+        private int? _mValue_IndexedTextBytes;
+        private bool _mUnknown_IndexedTextBytes;
+        public int? IndexedTextBytes
+        {
+            get
+            {
+                if (!_mUnknown_IndexedTextBytes) return _mValue_IndexedTextBytes;
+                throw new UndeferrableValueException("Value 'IndexIndexStatisticTextDocumentStatistic.IndexedTextBytes' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of text documents indexed.
         /// </summary>
-        [Input("indexedTextDocumentsCount")]
+        [PolicyResourceProperty("indexedTextDocumentsCount", "_mUnknown_IndexedTextDocumentsCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIndexedTextDocumentsCount;
-
-        public int? IndexedTextDocumentsCount => _mIndexedTextDocumentsCount.GetValue("indexedTextDocumentsCount");
+        private int? _mValue_IndexedTextDocumentsCount;
+        private bool _mUnknown_IndexedTextDocumentsCount;
+        public int? IndexedTextDocumentsCount
+        {
+            get
+            {
+                if (!_mUnknown_IndexedTextDocumentsCount) return _mValue_IndexedTextDocumentsCount;
+                throw new UndeferrableValueException("Value 'IndexIndexStatisticTextDocumentStatistic.IndexedTextDocumentsCount' is not present");
+            }
+        }
     }
 }

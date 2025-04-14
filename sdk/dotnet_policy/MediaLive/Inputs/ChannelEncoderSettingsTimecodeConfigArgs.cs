@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// The source for the timecode that will be associated with the events outputs.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
-
-        public string? Source => _mSource.GetValue("source");
+        private string? _mValue_Source;
+        private bool _mUnknown_Source;
+        public string? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsTimecodeConfigArgs.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// Threshold in frames beyond which output timecode is resynchronized to the input timecode.
         /// </summary>
-        [Input("syncThreshold")]
+        [PolicyResourceProperty("syncThreshold", "_mUnknown_SyncThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSyncThreshold;
-
-        public int? SyncThreshold => _mSyncThreshold.GetValue("syncThreshold");
+        private int? _mValue_SyncThreshold;
+        private bool _mUnknown_SyncThreshold;
+        public int? SyncThreshold
+        {
+            get
+            {
+                if (!_mUnknown_SyncThreshold) return _mValue_SyncThreshold;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsTimecodeConfigArgs.SyncThreshold' is not present");
+            }
+        }
     }
 }

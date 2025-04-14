@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms.Outputs
         /// <summary>
         /// Indicates whether the collaboration member has accepted to pay for query compute costs.
         /// </summary>
-        [Input("isResponsible")]
+        [PolicyResourceProperty("isResponsible", "_mUnknown_IsResponsible")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsResponsible;
-
-        public bool? IsResponsible => _mIsResponsible.GetValue("isResponsible");
+        private bool? _mValue_IsResponsible;
+        private bool _mUnknown_IsResponsible;
+        public bool? IsResponsible
+        {
+            get
+            {
+                if (!_mUnknown_IsResponsible) return _mValue_IsResponsible;
+                throw new UndeferrableValueException("Value 'MembershipPaymentConfigurationQueryCompute.IsResponsible' is not present");
+            }
+        }
     }
 }

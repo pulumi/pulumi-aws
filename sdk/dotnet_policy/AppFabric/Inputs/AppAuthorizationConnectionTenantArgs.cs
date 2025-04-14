@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppFabric.Inputs
 {
     public sealed class AppAuthorizationConnectionTenantArgs
     {
-        [Input("tenantDisplayName")]
+        [PolicyResourceProperty("tenantDisplayName", "_mUnknown_TenantDisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTenantDisplayName;
+        private string? _mValue_TenantDisplayName;
+        private bool _mUnknown_TenantDisplayName;
+        public string? TenantDisplayName
+        {
+            get
+            {
+                if (!_mUnknown_TenantDisplayName) return _mValue_TenantDisplayName;
+                throw new UndeferrableValueException("Value 'AppAuthorizationConnectionTenantArgs.TenantDisplayName' is not present");
+            }
+        }
 
-        public string? TenantDisplayName => _mTenantDisplayName.GetValue("tenantDisplayName");
-
-        [Input("tenantIdentifier")]
+        [PolicyResourceProperty("tenantIdentifier", "_mUnknown_TenantIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTenantIdentifier;
-
-        public string? TenantIdentifier => _mTenantIdentifier.GetValue("tenantIdentifier");
+        private string? _mValue_TenantIdentifier;
+        private bool _mUnknown_TenantIdentifier;
+        public string? TenantIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_TenantIdentifier) return _mValue_TenantIdentifier;
+                throw new UndeferrableValueException("Value 'AppAuthorizationConnectionTenantArgs.TenantIdentifier' is not present");
+            }
+        }
     }
 }

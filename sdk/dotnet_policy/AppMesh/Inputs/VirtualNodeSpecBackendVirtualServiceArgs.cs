@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Client policy for the backend.
         /// </summary>
-        [Input("clientPolicy")]
+        [PolicyResourceProperty("clientPolicy", "_mUnknown_ClientPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyArgs> _mClientPolicy;
-
-        public Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyArgs? ClientPolicy => _mClientPolicy.GetValue("clientPolicy");
+        private Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyArgs? _mValue_ClientPolicy;
+        private bool _mUnknown_ClientPolicy;
+        public Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyArgs? ClientPolicy
+        {
+            get
+            {
+                if (!_mUnknown_ClientPolicy) return _mValue_ClientPolicy;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendVirtualServiceArgs.ClientPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
         /// </summary>
-        [Input("virtualServiceName")]
+        [PolicyResourceProperty("virtualServiceName", "_mUnknown_VirtualServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualServiceName;
-
-        public string? VirtualServiceName => _mVirtualServiceName.GetValue("virtualServiceName");
+        private string? _mValue_VirtualServiceName;
+        private bool _mUnknown_VirtualServiceName;
+        public string? VirtualServiceName
+        {
+            get
+            {
+                if (!_mUnknown_VirtualServiceName) return _mValue_VirtualServiceName;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendVirtualServiceArgs.VirtualServiceName' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'DistributionOriginOriginShieldArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
         /// </summary>
-        [Input("originShieldRegion")]
+        [PolicyResourceProperty("originShieldRegion", "_mUnknown_OriginShieldRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOriginShieldRegion;
-
-        public string? OriginShieldRegion => _mOriginShieldRegion.GetValue("originShieldRegion");
+        private string? _mValue_OriginShieldRegion;
+        private bool _mUnknown_OriginShieldRegion;
+        public string? OriginShieldRegion
+        {
+            get
+            {
+                if (!_mUnknown_OriginShieldRegion) return _mValue_OriginShieldRegion;
+                throw new UndeferrableValueException("Value 'DistributionOriginOriginShieldArgs.OriginShieldRegion' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
         /// </summary>
-        [Input("filtersConfigs")]
+        [PolicyResourceProperty("filtersConfigs", "_mUnknown_FiltersConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GuardrailContextualGroundingPolicyConfigFiltersConfig>> _mFiltersConfigs;
-
-        public List<Outputs.GuardrailContextualGroundingPolicyConfigFiltersConfig>? FiltersConfigs => _mFiltersConfigs.GetValue("filtersConfigs");
+        private List<Outputs.GuardrailContextualGroundingPolicyConfigFiltersConfig>? _mValue_FiltersConfigs;
+        private bool _mUnknown_FiltersConfigs;
+        public List<Outputs.GuardrailContextualGroundingPolicyConfigFiltersConfig>? FiltersConfigs
+        {
+            get
+            {
+                if (!_mUnknown_FiltersConfigs) return _mValue_FiltersConfigs;
+                throw new UndeferrableValueException("Value 'GuardrailContextualGroundingPolicyConfig.FiltersConfigs' is not present");
+            }
+        }
     }
 }

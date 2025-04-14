@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Inputs
         /// <summary>
         /// The number of minutes that an Item is stored in the data source.
         /// </summary>
-        [Input("baseTableTtl")]
+        [PolicyResourceProperty("baseTableTtl", "_mUnknown_BaseTableTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBaseTableTtl;
-
-        public int? BaseTableTtl => _mBaseTableTtl.GetValue("baseTableTtl");
+        private int? _mValue_BaseTableTtl;
+        private bool _mUnknown_BaseTableTtl;
+        public int? BaseTableTtl
+        {
+            get
+            {
+                if (!_mUnknown_BaseTableTtl) return _mValue_BaseTableTtl;
+                throw new UndeferrableValueException("Value 'DataSourceDynamodbConfigDeltaSyncConfigArgs.BaseTableTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// The table name.
         /// </summary>
-        [Input("deltaSyncTableName")]
+        [PolicyResourceProperty("deltaSyncTableName", "_mUnknown_DeltaSyncTableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeltaSyncTableName;
-
-        public string? DeltaSyncTableName => _mDeltaSyncTableName.GetValue("deltaSyncTableName");
+        private string? _mValue_DeltaSyncTableName;
+        private bool _mUnknown_DeltaSyncTableName;
+        public string? DeltaSyncTableName
+        {
+            get
+            {
+                if (!_mUnknown_DeltaSyncTableName) return _mValue_DeltaSyncTableName;
+                throw new UndeferrableValueException("Value 'DataSourceDynamodbConfigDeltaSyncConfigArgs.DeltaSyncTableName' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
         /// </summary>
-        [Input("deltaSyncTableTtl")]
+        [PolicyResourceProperty("deltaSyncTableTtl", "_mUnknown_DeltaSyncTableTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeltaSyncTableTtl;
-
-        public int? DeltaSyncTableTtl => _mDeltaSyncTableTtl.GetValue("deltaSyncTableTtl");
+        private int? _mValue_DeltaSyncTableTtl;
+        private bool _mUnknown_DeltaSyncTableTtl;
+        public int? DeltaSyncTableTtl
+        {
+            get
+            {
+                if (!_mUnknown_DeltaSyncTableTtl) return _mValue_DeltaSyncTableTtl;
+                throw new UndeferrableValueException("Value 'DataSourceDynamodbConfigDeltaSyncConfigArgs.DeltaSyncTableTtl' is not present");
+            }
+        }
     }
 }

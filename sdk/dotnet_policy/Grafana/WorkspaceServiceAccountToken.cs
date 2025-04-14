@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.Grafana
         /// <summary>
         /// Specifies when the service account token was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccountToken.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies when the service account token will expire.
         /// </summary>
-        [Input("expiresAt")]
+        [PolicyResourceProperty("expiresAt", "_mUnknown_ExpiresAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpiresAt;
-
-        public string? ExpiresAt => _mExpiresAt.GetValue("expiresAt");
+        private string? _mValue_ExpiresAt;
+        private bool _mUnknown_ExpiresAt;
+        public string? ExpiresAt
+        {
+            get
+            {
+                if (!_mUnknown_ExpiresAt) return _mValue_ExpiresAt;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccountToken.ExpiresAt' is not present");
+            }
+        }
 
         /// <summary>
         /// The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccountToken.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the token to create. The name must be unique within the workspace.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccountToken.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
         /// </summary>
-        [Input("secondsToLive")]
+        [PolicyResourceProperty("secondsToLive", "_mUnknown_SecondsToLive")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSecondsToLive;
-
-        public int? SecondsToLive => _mSecondsToLive.GetValue("secondsToLive");
+        private int? _mValue_SecondsToLive;
+        private bool _mUnknown_SecondsToLive;
+        public int? SecondsToLive
+        {
+            get
+            {
+                if (!_mUnknown_SecondsToLive) return _mValue_SecondsToLive;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccountToken.SecondsToLive' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the service account for which to create a token.
         /// </summary>
-        [Input("serviceAccountId")]
+        [PolicyResourceProperty("serviceAccountId", "_mUnknown_ServiceAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccountId;
-
-        public string? ServiceAccountId => _mServiceAccountId.GetValue("serviceAccountId");
+        private string? _mValue_ServiceAccountId;
+        private bool _mUnknown_ServiceAccountId;
+        public string? ServiceAccountId
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccountId) return _mValue_ServiceAccountId;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccountToken.ServiceAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the service account token in the given Grafana workspace.
         /// </summary>
-        [Input("serviceAccountTokenId")]
+        [PolicyResourceProperty("serviceAccountTokenId", "_mUnknown_ServiceAccountTokenId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccountTokenId;
-
-        public string? ServiceAccountTokenId => _mServiceAccountTokenId.GetValue("serviceAccountTokenId");
+        private string? _mValue_ServiceAccountTokenId;
+        private bool _mUnknown_ServiceAccountTokenId;
+        public string? ServiceAccountTokenId
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccountTokenId) return _mValue_ServiceAccountTokenId;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccountToken.ServiceAccountTokenId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Grafana workspace with which the service account token is associated.
         /// </summary>
-        [Input("workspaceId")]
+        [PolicyResourceProperty("workspaceId", "_mUnknown_WorkspaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
-
-        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+        private string? _mValue_WorkspaceId;
+        private bool _mUnknown_WorkspaceId;
+        public string? WorkspaceId
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceId) return _mValue_WorkspaceId;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccountToken.WorkspaceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken")]
@@ -92,37 +148,65 @@ namespace Pulumi.PolicyPacks.Aws.Grafana
         /// <summary>
         /// A name for the token to create. The name must be unique within the workspace.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccountTokenArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
         /// </summary>
-        [Input("secondsToLive")]
+        [PolicyResourceProperty("secondsToLive", "_mUnknown_SecondsToLive")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSecondsToLive;
-
-        public int? SecondsToLive => _mSecondsToLive.GetValue("secondsToLive");
+        private int? _mValue_SecondsToLive;
+        private bool _mUnknown_SecondsToLive;
+        public int? SecondsToLive
+        {
+            get
+            {
+                if (!_mUnknown_SecondsToLive) return _mValue_SecondsToLive;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccountTokenArgs.SecondsToLive' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the service account for which to create a token.
         /// </summary>
-        [Input("serviceAccountId")]
+        [PolicyResourceProperty("serviceAccountId", "_mUnknown_ServiceAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccountId;
-
-        public string? ServiceAccountId => _mServiceAccountId.GetValue("serviceAccountId");
+        private string? _mValue_ServiceAccountId;
+        private bool _mUnknown_ServiceAccountId;
+        public string? ServiceAccountId
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccountId) return _mValue_ServiceAccountId;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccountTokenArgs.ServiceAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Grafana workspace with which the service account token is associated.
         /// </summary>
-        [Input("workspaceId")]
+        [PolicyResourceProperty("workspaceId", "_mUnknown_WorkspaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
-
-        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+        private string? _mValue_WorkspaceId;
+        private bool _mUnknown_WorkspaceId;
+        public string? WorkspaceId
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceId) return _mValue_WorkspaceId;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccountTokenArgs.WorkspaceId' is not present");
+            }
+        }
     }
 }

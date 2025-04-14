@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.PaymentCryptography.Outputs
         /// <summary>
         /// Key algorithm to be use during creation of an AWS Payment Cryptography key.
         /// </summary>
-        [Input("keyAlgorithm")]
+        [PolicyResourceProperty("keyAlgorithm", "_mUnknown_KeyAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyAlgorithm;
-
-        public string? KeyAlgorithm => _mKeyAlgorithm.GetValue("keyAlgorithm");
+        private string? _mValue_KeyAlgorithm;
+        private bool _mUnknown_KeyAlgorithm;
+        public string? KeyAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_KeyAlgorithm) return _mValue_KeyAlgorithm;
+                throw new UndeferrableValueException("Value 'KeyKeyAttributes.KeyAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of AWS Payment Cryptography key to create.
         /// </summary>
-        [Input("keyClass")]
+        [PolicyResourceProperty("keyClass", "_mUnknown_KeyClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyClass;
-
-        public string? KeyClass => _mKeyClass.GetValue("keyClass");
+        private string? _mValue_KeyClass;
+        private bool _mUnknown_KeyClass;
+        public string? KeyClass
+        {
+            get
+            {
+                if (!_mUnknown_KeyClass) return _mValue_KeyClass;
+                throw new UndeferrableValueException("Value 'KeyKeyAttributes.KeyClass' is not present");
+            }
+        }
 
         /// <summary>
         /// List of cryptographic operations that you can perform using the key.
         /// </summary>
-        [Input("keyModesOfUse")]
+        [PolicyResourceProperty("keyModesOfUse", "_mUnknown_KeyModesOfUse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.KeyKeyAttributesKeyModesOfUse> _mKeyModesOfUse;
-
-        public Outputs.KeyKeyAttributesKeyModesOfUse? KeyModesOfUse => _mKeyModesOfUse.GetValue("keyModesOfUse");
+        private Outputs.KeyKeyAttributesKeyModesOfUse? _mValue_KeyModesOfUse;
+        private bool _mUnknown_KeyModesOfUse;
+        public Outputs.KeyKeyAttributesKeyModesOfUse? KeyModesOfUse
+        {
+            get
+            {
+                if (!_mUnknown_KeyModesOfUse) return _mValue_KeyModesOfUse;
+                throw new UndeferrableValueException("Value 'KeyKeyAttributes.KeyModesOfUse' is not present");
+            }
+        }
 
         /// <summary>
         /// Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
         /// </summary>
-        [Input("keyUsage")]
+        [PolicyResourceProperty("keyUsage", "_mUnknown_KeyUsage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyUsage;
-
-        public string? KeyUsage => _mKeyUsage.GetValue("keyUsage");
+        private string? _mValue_KeyUsage;
+        private bool _mUnknown_KeyUsage;
+        public string? KeyUsage
+        {
+            get
+            {
+                if (!_mUnknown_KeyUsage) return _mValue_KeyUsage;
+                throw new UndeferrableValueException("Value 'KeyKeyAttributes.KeyUsage' is not present");
+            }
+        }
     }
 }

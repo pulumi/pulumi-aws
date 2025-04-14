@@ -18,11 +18,18 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// Can be an ID or an ARN.
         /// When specifying an AWS-provided patch baseline, must be the ARN.
         /// </summary>
-        [Input("baselineId")]
+        [PolicyResourceProperty("baselineId", "_mUnknown_BaselineId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaselineId;
-
-        public string? BaselineId => _mBaselineId.GetValue("baselineId");
+        private string? _mValue_BaselineId;
+        private bool _mUnknown_BaselineId;
+        public string? BaselineId
+        {
+            get
+            {
+                if (!_mUnknown_BaselineId) return _mValue_BaselineId;
+                throw new UndeferrableValueException("Value 'DefaultPatchBaseline.BaselineId' is not present");
+            }
+        }
 
         /// <summary>
         /// The operating system the patch baseline applies to.
@@ -41,11 +48,18 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// `UBUNTU`, and
         /// `WINDOWS`.
         /// </summary>
-        [Input("operatingSystem")]
+        [PolicyResourceProperty("operatingSystem", "_mUnknown_OperatingSystem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOperatingSystem;
-
-        public string? OperatingSystem => _mOperatingSystem.GetValue("operatingSystem");
+        private string? _mValue_OperatingSystem;
+        private bool _mUnknown_OperatingSystem;
+        public string? OperatingSystem
+        {
+            get
+            {
+                if (!_mUnknown_OperatingSystem) return _mValue_OperatingSystem;
+                throw new UndeferrableValueException("Value 'DefaultPatchBaseline.OperatingSystem' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssm/defaultPatchBaseline:DefaultPatchBaseline")]
@@ -56,11 +70,18 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// Can be an ID or an ARN.
         /// When specifying an AWS-provided patch baseline, must be the ARN.
         /// </summary>
-        [Input("baselineId")]
+        [PolicyResourceProperty("baselineId", "_mUnknown_BaselineId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaselineId;
-
-        public string? BaselineId => _mBaselineId.GetValue("baselineId");
+        private string? _mValue_BaselineId;
+        private bool _mUnknown_BaselineId;
+        public string? BaselineId
+        {
+            get
+            {
+                if (!_mUnknown_BaselineId) return _mValue_BaselineId;
+                throw new UndeferrableValueException("Value 'DefaultPatchBaselineArgs.BaselineId' is not present");
+            }
+        }
 
         /// <summary>
         /// The operating system the patch baseline applies to.
@@ -79,10 +100,17 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// `UBUNTU`, and
         /// `WINDOWS`.
         /// </summary>
-        [Input("operatingSystem")]
+        [PolicyResourceProperty("operatingSystem", "_mUnknown_OperatingSystem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOperatingSystem;
-
-        public string? OperatingSystem => _mOperatingSystem.GetValue("operatingSystem");
+        private string? _mValue_OperatingSystem;
+        private bool _mUnknown_OperatingSystem;
+        public string? OperatingSystem
+        {
+            get
+            {
+                if (!_mUnknown_OperatingSystem) return _mValue_OperatingSystem;
+                throw new UndeferrableValueException("Value 'DefaultPatchBaselineArgs.OperatingSystem' is not present");
+            }
+        }
     }
 }

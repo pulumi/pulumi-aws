@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Outputs
         /// <summary>
         /// Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
         /// </summary>
-        [Input("onDemandAllocationStrategy")]
+        [PolicyResourceProperty("onDemandAllocationStrategy", "_mUnknown_OnDemandAllocationStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOnDemandAllocationStrategy;
-
-        public string? OnDemandAllocationStrategy => _mOnDemandAllocationStrategy.GetValue("onDemandAllocationStrategy");
+        private string? _mValue_OnDemandAllocationStrategy;
+        private bool _mUnknown_OnDemandAllocationStrategy;
+        public string? OnDemandAllocationStrategy
+        {
+            get
+            {
+                if (!_mUnknown_OnDemandAllocationStrategy) return _mValue_OnDemandAllocationStrategy;
+                throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyInstancesDistribution.OnDemandAllocationStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
         /// </summary>
-        [Input("onDemandBaseCapacity")]
+        [PolicyResourceProperty("onDemandBaseCapacity", "_mUnknown_OnDemandBaseCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOnDemandBaseCapacity;
-
-        public int? OnDemandBaseCapacity => _mOnDemandBaseCapacity.GetValue("onDemandBaseCapacity");
+        private int? _mValue_OnDemandBaseCapacity;
+        private bool _mUnknown_OnDemandBaseCapacity;
+        public int? OnDemandBaseCapacity
+        {
+            get
+            {
+                if (!_mUnknown_OnDemandBaseCapacity) return _mValue_OnDemandBaseCapacity;
+                throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyInstancesDistribution.OnDemandBaseCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
         /// </summary>
-        [Input("onDemandPercentageAboveBaseCapacity")]
+        [PolicyResourceProperty("onDemandPercentageAboveBaseCapacity", "_mUnknown_OnDemandPercentageAboveBaseCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOnDemandPercentageAboveBaseCapacity;
-
-        public int? OnDemandPercentageAboveBaseCapacity => _mOnDemandPercentageAboveBaseCapacity.GetValue("onDemandPercentageAboveBaseCapacity");
+        private int? _mValue_OnDemandPercentageAboveBaseCapacity;
+        private bool _mUnknown_OnDemandPercentageAboveBaseCapacity;
+        public int? OnDemandPercentageAboveBaseCapacity
+        {
+            get
+            {
+                if (!_mUnknown_OnDemandPercentageAboveBaseCapacity) return _mValue_OnDemandPercentageAboveBaseCapacity;
+                throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyInstancesDistribution.OnDemandPercentageAboveBaseCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
         /// </summary>
-        [Input("spotAllocationStrategy")]
+        [PolicyResourceProperty("spotAllocationStrategy", "_mUnknown_SpotAllocationStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpotAllocationStrategy;
-
-        public string? SpotAllocationStrategy => _mSpotAllocationStrategy.GetValue("spotAllocationStrategy");
+        private string? _mValue_SpotAllocationStrategy;
+        private bool _mUnknown_SpotAllocationStrategy;
+        public string? SpotAllocationStrategy
+        {
+            get
+            {
+                if (!_mUnknown_SpotAllocationStrategy) return _mValue_SpotAllocationStrategy;
+                throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyInstancesDistribution.SpotAllocationStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spot_allocation_strategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
         /// </summary>
-        [Input("spotInstancePools")]
+        [PolicyResourceProperty("spotInstancePools", "_mUnknown_SpotInstancePools")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSpotInstancePools;
-
-        public int? SpotInstancePools => _mSpotInstancePools.GetValue("spotInstancePools");
+        private int? _mValue_SpotInstancePools;
+        private bool _mUnknown_SpotInstancePools;
+        public int? SpotInstancePools
+        {
+            get
+            {
+                if (!_mUnknown_SpotInstancePools) return _mValue_SpotInstancePools;
+                throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyInstancesDistribution.SpotInstancePools' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
         /// </summary>
-        [Input("spotMaxPrice")]
+        [PolicyResourceProperty("spotMaxPrice", "_mUnknown_SpotMaxPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpotMaxPrice;
-
-        public string? SpotMaxPrice => _mSpotMaxPrice.GetValue("spotMaxPrice");
+        private string? _mValue_SpotMaxPrice;
+        private bool _mUnknown_SpotMaxPrice;
+        public string? SpotMaxPrice
+        {
+            get
+            {
+                if (!_mUnknown_SpotMaxPrice) return _mValue_SpotMaxPrice;
+                throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyInstancesDistribution.SpotMaxPrice' is not present");
+            }
+        }
     }
 }

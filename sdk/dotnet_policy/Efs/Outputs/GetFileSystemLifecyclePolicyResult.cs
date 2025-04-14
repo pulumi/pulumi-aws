@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Efs.Outputs
 {
     public sealed class GetFileSystemLifecyclePolicyResult
     {
-        [Input("transitionToArchive")]
+        [PolicyResourceProperty("transitionToArchive", "_mUnknown_TransitionToArchive")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitionToArchive;
+        private string? _mValue_TransitionToArchive;
+        private bool _mUnknown_TransitionToArchive;
+        public string? TransitionToArchive
+        {
+            get
+            {
+                if (!_mUnknown_TransitionToArchive) return _mValue_TransitionToArchive;
+                throw new UndeferrableValueException("Value 'GetFileSystemLifecyclePolicyResult.TransitionToArchive' is not present");
+            }
+        }
 
-        public string? TransitionToArchive => _mTransitionToArchive.GetValue("transitionToArchive");
-
-        [Input("transitionToIa")]
+        [PolicyResourceProperty("transitionToIa", "_mUnknown_TransitionToIa")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitionToIa;
+        private string? _mValue_TransitionToIa;
+        private bool _mUnknown_TransitionToIa;
+        public string? TransitionToIa
+        {
+            get
+            {
+                if (!_mUnknown_TransitionToIa) return _mValue_TransitionToIa;
+                throw new UndeferrableValueException("Value 'GetFileSystemLifecyclePolicyResult.TransitionToIa' is not present");
+            }
+        }
 
-        public string? TransitionToIa => _mTransitionToIa.GetValue("transitionToIa");
-
-        [Input("transitionToPrimaryStorageClass")]
+        [PolicyResourceProperty("transitionToPrimaryStorageClass", "_mUnknown_TransitionToPrimaryStorageClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitionToPrimaryStorageClass;
-
-        public string? TransitionToPrimaryStorageClass => _mTransitionToPrimaryStorageClass.GetValue("transitionToPrimaryStorageClass");
+        private string? _mValue_TransitionToPrimaryStorageClass;
+        private bool _mUnknown_TransitionToPrimaryStorageClass;
+        public string? TransitionToPrimaryStorageClass
+        {
+            get
+            {
+                if (!_mUnknown_TransitionToPrimaryStorageClass) return _mValue_TransitionToPrimaryStorageClass;
+                throw new UndeferrableValueException("Value 'GetFileSystemLifecyclePolicyResult.TransitionToPrimaryStorageClass' is not present");
+            }
+        }
     }
 }

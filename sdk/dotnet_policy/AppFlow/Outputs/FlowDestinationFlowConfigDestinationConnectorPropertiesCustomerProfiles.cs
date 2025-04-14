@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
         /// <summary>
         /// Unique name of the Amazon Connect Customer Profiles domain.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Object specified in the Amazon Connect Customer Profiles flow destination.
         /// </summary>
-        [Input("objectTypeName")]
+        [PolicyResourceProperty("objectTypeName", "_mUnknown_ObjectTypeName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectTypeName;
-
-        public string? ObjectTypeName => _mObjectTypeName.GetValue("objectTypeName");
+        private string? _mValue_ObjectTypeName;
+        private bool _mUnknown_ObjectTypeName;
+        public string? ObjectTypeName
+        {
+            get
+            {
+                if (!_mUnknown_ObjectTypeName) return _mValue_ObjectTypeName;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles.ObjectTypeName' is not present");
+            }
+        }
     }
 }

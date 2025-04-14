@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.LightSail.Inputs
         /// <summary>
         /// Indicates whether the distribution forwards and caches based on query strings.
         /// </summary>
-        [Input("option")]
+        [PolicyResourceProperty("option", "_mUnknown_Option")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOption;
-
-        public bool? Option => _mOption.GetValue("option");
+        private bool? _mValue_Option;
+        private bool _mUnknown_Option;
+        public bool? Option
+        {
+            get
+            {
+                if (!_mUnknown_Option) return _mValue_Option;
+                throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsForwardedQueryStringsArgs.Option' is not present");
+            }
+        }
 
         /// <summary>
         /// The specific query strings that the distribution forwards to the origin.
         /// </summary>
-        [Input("queryStringsAllowedLists")]
+        [PolicyResourceProperty("queryStringsAllowedLists", "_mUnknown_QueryStringsAllowedLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mQueryStringsAllowedLists;
-
-        public List<string>? QueryStringsAllowedLists => _mQueryStringsAllowedLists.GetValue("queryStringsAllowedLists");
+        private List<string>? _mValue_QueryStringsAllowedLists;
+        private bool _mUnknown_QueryStringsAllowedLists;
+        public List<string>? QueryStringsAllowedLists
+        {
+            get
+            {
+                if (!_mUnknown_QueryStringsAllowedLists) return _mValue_QueryStringsAllowedLists;
+                throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsForwardedQueryStringsArgs.QueryStringsAllowedLists' is not present");
+            }
+        }
     }
 }

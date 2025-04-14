@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Outputs
         /// <summary>
         /// Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `git_configuration` block is documented below.
         /// </summary>
-        [Input("gitConfiguration")]
+        [PolicyResourceProperty("gitConfiguration", "_mUnknown_GitConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineTriggerGitConfiguration> _mGitConfiguration;
-
-        public Outputs.PipelineTriggerGitConfiguration? GitConfiguration => _mGitConfiguration.GetValue("gitConfiguration");
+        private Outputs.PipelineTriggerGitConfiguration? _mValue_GitConfiguration;
+        private bool _mUnknown_GitConfiguration;
+        public Outputs.PipelineTriggerGitConfiguration? GitConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_GitConfiguration) return _mValue_GitConfiguration;
+                throw new UndeferrableValueException("Value 'PipelineTrigger.GitConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The source provider for the event. Possible value is `CodeStarSourceConnection`.
         /// </summary>
-        [Input("providerType")]
+        [PolicyResourceProperty("providerType", "_mUnknown_ProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
-
-        public string? ProviderType => _mProviderType.GetValue("providerType");
+        private string? _mValue_ProviderType;
+        private bool _mUnknown_ProviderType;
+        public string? ProviderType
+        {
+            get
+            {
+                if (!_mUnknown_ProviderType) return _mValue_ProviderType;
+                throw new UndeferrableValueException("Value 'PipelineTrigger.ProviderType' is not present");
+            }
+        }
     }
 }

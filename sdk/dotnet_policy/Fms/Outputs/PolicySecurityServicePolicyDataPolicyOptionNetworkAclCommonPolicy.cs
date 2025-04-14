@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Fms.Outputs
         /// <summary>
         /// Defines NACL entries for Network ACL policy. See the `network_acl_entry_set` block.
         /// </summary>
-        [Input("networkAclEntrySet")]
+        [PolicyResourceProperty("networkAclEntrySet", "_mUnknown_NetworkAclEntrySet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet> _mNetworkAclEntrySet;
-
-        public Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet? NetworkAclEntrySet => _mNetworkAclEntrySet.GetValue("networkAclEntrySet");
+        private Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet? _mValue_NetworkAclEntrySet;
+        private bool _mUnknown_NetworkAclEntrySet;
+        public Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet? NetworkAclEntrySet
+        {
+            get
+            {
+                if (!_mUnknown_NetworkAclEntrySet) return _mValue_NetworkAclEntrySet;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy.NetworkAclEntrySet' is not present");
+            }
+        }
     }
 }

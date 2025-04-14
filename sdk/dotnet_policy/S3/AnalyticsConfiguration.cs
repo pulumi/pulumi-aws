@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the bucket this analytics configuration is associated with.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'AnalyticsConfiguration.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         /// </summary>
-        [Input("filter")]
+        [PolicyResourceProperty("filter", "_mUnknown_Filter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalyticsConfigurationFilter> _mFilter;
-
-        public Outputs.AnalyticsConfigurationFilter? Filter => _mFilter.GetValue("filter");
+        private Outputs.AnalyticsConfigurationFilter? _mValue_Filter;
+        private bool _mUnknown_Filter;
+        public Outputs.AnalyticsConfigurationFilter? Filter
+        {
+            get
+            {
+                if (!_mUnknown_Filter) return _mValue_Filter;
+                throw new UndeferrableValueException("Value 'AnalyticsConfiguration.Filter' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of the analytics configuration for the bucket.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AnalyticsConfiguration.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for the analytics data export (documented below).
         /// </summary>
-        [Input("storageClassAnalysis")]
+        [PolicyResourceProperty("storageClassAnalysis", "_mUnknown_StorageClassAnalysis")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalyticsConfigurationStorageClassAnalysis> _mStorageClassAnalysis;
-
-        public Outputs.AnalyticsConfigurationStorageClassAnalysis? StorageClassAnalysis => _mStorageClassAnalysis.GetValue("storageClassAnalysis");
+        private Outputs.AnalyticsConfigurationStorageClassAnalysis? _mValue_StorageClassAnalysis;
+        private bool _mUnknown_StorageClassAnalysis;
+        public Outputs.AnalyticsConfigurationStorageClassAnalysis? StorageClassAnalysis
+        {
+            get
+            {
+                if (!_mUnknown_StorageClassAnalysis) return _mValue_StorageClassAnalysis;
+                throw new UndeferrableValueException("Value 'AnalyticsConfiguration.StorageClassAnalysis' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/analyticsConfiguration:AnalyticsConfiguration")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the bucket this analytics configuration is associated with.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'AnalyticsConfigurationArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         /// </summary>
-        [Input("filter")]
+        [PolicyResourceProperty("filter", "_mUnknown_Filter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsConfigurationFilterArgs> _mFilter;
-
-        public Inputs.AnalyticsConfigurationFilterArgs? Filter => _mFilter.GetValue("filter");
+        private Inputs.AnalyticsConfigurationFilterArgs? _mValue_Filter;
+        private bool _mUnknown_Filter;
+        public Inputs.AnalyticsConfigurationFilterArgs? Filter
+        {
+            get
+            {
+                if (!_mUnknown_Filter) return _mValue_Filter;
+                throw new UndeferrableValueException("Value 'AnalyticsConfigurationArgs.Filter' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of the analytics configuration for the bucket.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AnalyticsConfigurationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for the analytics data export (documented below).
         /// </summary>
-        [Input("storageClassAnalysis")]
+        [PolicyResourceProperty("storageClassAnalysis", "_mUnknown_StorageClassAnalysis")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsConfigurationStorageClassAnalysisArgs> _mStorageClassAnalysis;
-
-        public Inputs.AnalyticsConfigurationStorageClassAnalysisArgs? StorageClassAnalysis => _mStorageClassAnalysis.GetValue("storageClassAnalysis");
+        private Inputs.AnalyticsConfigurationStorageClassAnalysisArgs? _mValue_StorageClassAnalysis;
+        private bool _mUnknown_StorageClassAnalysis;
+        public Inputs.AnalyticsConfigurationStorageClassAnalysisArgs? StorageClassAnalysis
+        {
+            get
+            {
+                if (!_mUnknown_StorageClassAnalysis) return _mValue_StorageClassAnalysis;
+                throw new UndeferrableValueException("Value 'AnalyticsConfigurationArgs.StorageClassAnalysis' is not present");
+            }
+        }
     }
 }

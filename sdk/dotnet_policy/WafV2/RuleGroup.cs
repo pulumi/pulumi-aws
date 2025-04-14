@@ -16,107 +16,191 @@ namespace Pulumi.PolicyPacks.Aws.WafV2
         /// <summary>
         /// The ARN of the WAF rule group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'RuleGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
         /// </summary>
-        [Input("capacity")]
+        [PolicyResourceProperty("capacity", "_mUnknown_Capacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCapacity;
-
-        public int? Capacity => _mCapacity.GetValue("capacity");
+        private int? _mValue_Capacity;
+        private bool _mUnknown_Capacity;
+        public int? Capacity
+        {
+            get
+            {
+                if (!_mUnknown_Capacity) return _mValue_Capacity;
+                throw new UndeferrableValueException("Value 'RuleGroup.Capacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         /// </summary>
-        [Input("customResponseBodies")]
+        [PolicyResourceProperty("customResponseBodies", "_mUnknown_CustomResponseBodies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleGroupCustomResponseBody>> _mCustomResponseBodies;
-
-        public List<Outputs.RuleGroupCustomResponseBody>? CustomResponseBodies => _mCustomResponseBodies.GetValue("customResponseBodies");
+        private List<Outputs.RuleGroupCustomResponseBody>? _mValue_CustomResponseBodies;
+        private bool _mUnknown_CustomResponseBodies;
+        public List<Outputs.RuleGroupCustomResponseBody>? CustomResponseBodies
+        {
+            get
+            {
+                if (!_mUnknown_CustomResponseBodies) return _mValue_CustomResponseBodies;
+                throw new UndeferrableValueException("Value 'RuleGroup.CustomResponseBodies' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly description of the rule group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'RuleGroup.Description' is not present");
+            }
+        }
 
-        public string? Description => _mDescription.GetValue("description");
-
-        [Input("lockToken")]
+        [PolicyResourceProperty("lockToken", "_mUnknown_LockToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLockToken;
-
-        public string? LockToken => _mLockToken.GetValue("lockToken");
+        private string? _mValue_LockToken;
+        private bool _mUnknown_LockToken;
+        public string? LockToken
+        {
+            get
+            {
+                if (!_mUnknown_LockToken) return _mValue_LockToken;
+                throw new UndeferrableValueException("Value 'RuleGroup.LockToken' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly name of the rule group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RuleGroup.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'RuleGroup.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleGroupRule>> _mRules;
-
-        public List<Outputs.RuleGroupRule>? Rules => _mRules.GetValue("rules");
+        private List<Outputs.RuleGroupRule>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Outputs.RuleGroupRule>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'RuleGroup.Rules' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
-
-        public string? Scope => _mScope.GetValue("scope");
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'RuleGroup.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RuleGroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'RuleGroup.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
         /// </summary>
-        [Input("visibilityConfig")]
+        [PolicyResourceProperty("visibilityConfig", "_mUnknown_VisibilityConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupVisibilityConfig> _mVisibilityConfig;
-
-        public Outputs.RuleGroupVisibilityConfig? VisibilityConfig => _mVisibilityConfig.GetValue("visibilityConfig");
+        private Outputs.RuleGroupVisibilityConfig? _mValue_VisibilityConfig;
+        private bool _mUnknown_VisibilityConfig;
+        public Outputs.RuleGroupVisibilityConfig? VisibilityConfig
+        {
+            get
+            {
+                if (!_mUnknown_VisibilityConfig) return _mValue_VisibilityConfig;
+                throw new UndeferrableValueException("Value 'RuleGroup.VisibilityConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:wafv2/ruleGroup:RuleGroup")]
@@ -125,82 +209,145 @@ namespace Pulumi.PolicyPacks.Aws.WafV2
         /// <summary>
         /// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
         /// </summary>
-        [Input("capacity")]
+        [PolicyResourceProperty("capacity", "_mUnknown_Capacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCapacity;
-
-        public int? Capacity => _mCapacity.GetValue("capacity");
+        private int? _mValue_Capacity;
+        private bool _mUnknown_Capacity;
+        public int? Capacity
+        {
+            get
+            {
+                if (!_mUnknown_Capacity) return _mValue_Capacity;
+                throw new UndeferrableValueException("Value 'RuleGroupArgs.Capacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         /// </summary>
-        [Input("customResponseBodies")]
+        [PolicyResourceProperty("customResponseBodies", "_mUnknown_CustomResponseBodies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleGroupCustomResponseBodyArgs>> _mCustomResponseBodies;
-
-        public List<Inputs.RuleGroupCustomResponseBodyArgs>? CustomResponseBodies => _mCustomResponseBodies.GetValue("customResponseBodies");
+        private List<Inputs.RuleGroupCustomResponseBodyArgs>? _mValue_CustomResponseBodies;
+        private bool _mUnknown_CustomResponseBodies;
+        public List<Inputs.RuleGroupCustomResponseBodyArgs>? CustomResponseBodies
+        {
+            get
+            {
+                if (!_mUnknown_CustomResponseBodies) return _mValue_CustomResponseBodies;
+                throw new UndeferrableValueException("Value 'RuleGroupArgs.CustomResponseBodies' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly description of the rule group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'RuleGroupArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly name of the rule group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RuleGroupArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'RuleGroupArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleGroupRuleArgs>> _mRules;
-
-        public List<Inputs.RuleGroupRuleArgs>? Rules => _mRules.GetValue("rules");
+        private List<Inputs.RuleGroupRuleArgs>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Inputs.RuleGroupRuleArgs>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'RuleGroupArgs.Rules' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
-
-        public string? Scope => _mScope.GetValue("scope");
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'RuleGroupArgs.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RuleGroupArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
         /// </summary>
-        [Input("visibilityConfig")]
+        [PolicyResourceProperty("visibilityConfig", "_mUnknown_VisibilityConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupVisibilityConfigArgs> _mVisibilityConfig;
-
-        public Inputs.RuleGroupVisibilityConfigArgs? VisibilityConfig => _mVisibilityConfig.GetValue("visibilityConfig");
+        private Inputs.RuleGroupVisibilityConfigArgs? _mValue_VisibilityConfig;
+        private bool _mUnknown_VisibilityConfig;
+        public Inputs.RuleGroupVisibilityConfigArgs? VisibilityConfig
+        {
+            get
+            {
+                if (!_mUnknown_VisibilityConfig) return _mValue_VisibilityConfig;
+                throw new UndeferrableValueException("Value 'RuleGroupArgs.VisibilityConfig' is not present");
+            }
+        }
     }
 }

@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the AWS Glue database that contains the schema for the output data.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// If you don't specify an AWS Region, the default is the current region.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the AWS Glue table that contains the column information that constitutes your data schema.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs.TableName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the table version for the output data schema. Defaults to `LATEST`.
         /// </summary>
-        [Input("versionId")]
+        [PolicyResourceProperty("versionId", "_mUnknown_VersionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionId;
-
-        public string? VersionId => _mVersionId.GetValue("versionId");
+        private string? _mValue_VersionId;
+        private bool _mUnknown_VersionId;
+        public string? VersionId
+        {
+            get
+            {
+                if (!_mUnknown_VersionId) return _mValue_VersionId;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs.VersionId' is not present");
+            }
+        }
     }
 }

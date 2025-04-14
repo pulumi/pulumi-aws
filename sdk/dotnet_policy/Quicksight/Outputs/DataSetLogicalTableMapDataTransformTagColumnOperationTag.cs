@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// A description for a column. See column_description.
         /// </summary>
-        [Input("columnDescription")]
+        [PolicyResourceProperty("columnDescription", "_mUnknown_ColumnDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription> _mColumnDescription;
-
-        public Outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription? ColumnDescription => _mColumnDescription.GetValue("columnDescription");
+        private Outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription? _mValue_ColumnDescription;
+        private bool _mUnknown_ColumnDescription;
+        public Outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription? ColumnDescription
+        {
+            get
+            {
+                if (!_mUnknown_ColumnDescription) return _mValue_ColumnDescription;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformTagColumnOperationTag.ColumnDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
         /// </summary>
-        [Input("columnGeographicRole")]
+        [PolicyResourceProperty("columnGeographicRole", "_mUnknown_ColumnGeographicRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColumnGeographicRole;
-
-        public string? ColumnGeographicRole => _mColumnGeographicRole.GetValue("columnGeographicRole");
+        private string? _mValue_ColumnGeographicRole;
+        private bool _mUnknown_ColumnGeographicRole;
+        public string? ColumnGeographicRole
+        {
+            get
+            {
+                if (!_mUnknown_ColumnGeographicRole) return _mValue_ColumnGeographicRole;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformTagColumnOperationTag.ColumnGeographicRole' is not present");
+            }
+        }
     }
 }

@@ -16,90 +16,160 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// ARN of the DataSync Location for the FSx Ontap File System.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystem.Arn' is not present");
+            }
+        }
 
-        public string? Arn => _mArn.GetValue("arn");
-
-        [Input("creationTime")]
+        [PolicyResourceProperty("creationTime", "_mUnknown_CreationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
-
-        public string? CreationTime => _mCreationTime.GetValue("creationTime");
+        private string? _mValue_CreationTime;
+        private bool _mUnknown_CreationTime;
+        public string? CreationTime
+        {
+            get
+            {
+                if (!_mUnknown_CreationTime) return _mValue_CreationTime;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystem.CreationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the FSx Ontap File System.
         /// </summary>
-        [Input("fsxFilesystemArn")]
+        [PolicyResourceProperty("fsxFilesystemArn", "_mUnknown_FsxFilesystemArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFsxFilesystemArn;
-
-        public string? FsxFilesystemArn => _mFsxFilesystemArn.GetValue("fsxFilesystemArn");
+        private string? _mValue_FsxFilesystemArn;
+        private bool _mUnknown_FsxFilesystemArn;
+        public string? FsxFilesystemArn
+        {
+            get
+            {
+                if (!_mUnknown_FsxFilesystemArn) return _mValue_FsxFilesystemArn;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystem.FsxFilesystemArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LocationFsxOntapFileSystemProtocol> _mProtocol;
-
-        public Outputs.LocationFsxOntapFileSystemProtocol? Protocol => _mProtocol.GetValue("protocol");
+        private Outputs.LocationFsxOntapFileSystemProtocol? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public Outputs.LocationFsxOntapFileSystemProtocol? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystem.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
         /// * Network File System (NFS): TCP ports 111, 635, and 2049
         /// * Server Message Block (SMB): TCP port 445
         /// </summary>
-        [Input("securityGroupArns")]
+        [PolicyResourceProperty("securityGroupArns", "_mUnknown_SecurityGroupArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupArns;
-
-        public List<string>? SecurityGroupArns => _mSecurityGroupArns.GetValue("securityGroupArns");
+        private List<string>? _mValue_SecurityGroupArns;
+        private bool _mUnknown_SecurityGroupArns;
+        public List<string>? SecurityGroupArns
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupArns) return _mValue_SecurityGroupArns;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystem.SecurityGroupArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SVM in your file system where you want to copy data to of from.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("storageVirtualMachineArn")]
+        [PolicyResourceProperty("storageVirtualMachineArn", "_mUnknown_StorageVirtualMachineArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageVirtualMachineArn;
-
-        public string? StorageVirtualMachineArn => _mStorageVirtualMachineArn.GetValue("storageVirtualMachineArn");
+        private string? _mValue_StorageVirtualMachineArn;
+        private bool _mUnknown_StorageVirtualMachineArn;
+        public string? StorageVirtualMachineArn
+        {
+            get
+            {
+                if (!_mUnknown_StorageVirtualMachineArn) return _mValue_StorageVirtualMachineArn;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystem.StorageVirtualMachineArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystem.Subdirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystem.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystem.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// URI of the FSx ONTAP file system location
         /// </summary>
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystem.Uri' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem")]
@@ -108,50 +178,85 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LocationFsxOntapFileSystemProtocolArgs> _mProtocol;
-
-        public Inputs.LocationFsxOntapFileSystemProtocolArgs? Protocol => _mProtocol.GetValue("protocol");
+        private Inputs.LocationFsxOntapFileSystemProtocolArgs? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public Inputs.LocationFsxOntapFileSystemProtocolArgs? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemArgs.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
         /// * Network File System (NFS): TCP ports 111, 635, and 2049
         /// * Server Message Block (SMB): TCP port 445
         /// </summary>
-        [Input("securityGroupArns")]
+        [PolicyResourceProperty("securityGroupArns", "_mUnknown_SecurityGroupArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupArns;
-
-        public List<string>? SecurityGroupArns => _mSecurityGroupArns.GetValue("securityGroupArns");
+        private List<string>? _mValue_SecurityGroupArns;
+        private bool _mUnknown_SecurityGroupArns;
+        public List<string>? SecurityGroupArns
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupArns) return _mValue_SecurityGroupArns;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemArgs.SecurityGroupArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SVM in your file system where you want to copy data to of from.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("storageVirtualMachineArn")]
+        [PolicyResourceProperty("storageVirtualMachineArn", "_mUnknown_StorageVirtualMachineArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageVirtualMachineArn;
-
-        public string? StorageVirtualMachineArn => _mStorageVirtualMachineArn.GetValue("storageVirtualMachineArn");
+        private string? _mValue_StorageVirtualMachineArn;
+        private bool _mUnknown_StorageVirtualMachineArn;
+        public string? StorageVirtualMachineArn
+        {
+            get
+            {
+                if (!_mUnknown_StorageVirtualMachineArn) return _mValue_StorageVirtualMachineArn;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemArgs.StorageVirtualMachineArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemArgs.Subdirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemArgs.Tags' is not present");
+            }
+        }
     }
 }

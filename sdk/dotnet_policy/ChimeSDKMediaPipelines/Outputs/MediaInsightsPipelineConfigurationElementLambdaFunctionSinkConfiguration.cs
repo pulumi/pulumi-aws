@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.ChimeSDKMediaPipelines.Outputs
         /// <summary>
         /// Lambda Function to deliver results.
         /// </summary>
-        [Input("insightsTarget")]
+        [PolicyResourceProperty("insightsTarget", "_mUnknown_InsightsTarget")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInsightsTarget;
-
-        public string? InsightsTarget => _mInsightsTarget.GetValue("insightsTarget");
+        private string? _mValue_InsightsTarget;
+        private bool _mUnknown_InsightsTarget;
+        public string? InsightsTarget
+        {
+            get
+            {
+                if (!_mUnknown_InsightsTarget) return _mValue_InsightsTarget;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration.InsightsTarget' is not present");
+            }
+        }
     }
 }

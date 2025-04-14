@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.BcmData.Inputs
         /// <summary>
         /// Object that describes the destination of the data exports file. See the `s3_destination` argument reference below.
         /// </summary>
-        [Input("s3Destinations")]
+        [PolicyResourceProperty("s3Destinations", "_mUnknown_S3Destinations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ExportExportDestinationConfigurationS3DestinationArgs>> _mS3Destinations;
-
-        public List<Inputs.ExportExportDestinationConfigurationS3DestinationArgs>? S3Destinations => _mS3Destinations.GetValue("s3Destinations");
+        private List<Inputs.ExportExportDestinationConfigurationS3DestinationArgs>? _mValue_S3Destinations;
+        private bool _mUnknown_S3Destinations;
+        public List<Inputs.ExportExportDestinationConfigurationS3DestinationArgs>? S3Destinations
+        {
+            get
+            {
+                if (!_mUnknown_S3Destinations) return _mValue_S3Destinations;
+                throw new UndeferrableValueException("Value 'ExportExportDestinationConfigurationArgs.S3Destinations' is not present");
+            }
+        }
     }
 }

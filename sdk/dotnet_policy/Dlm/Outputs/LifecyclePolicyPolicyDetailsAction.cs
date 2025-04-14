@@ -15,16 +15,30 @@ namespace Pulumi.PolicyPacks.Aws.Dlm.Outputs
         /// <summary>
         /// The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
         /// </summary>
-        [Input("crossRegionCopies")]
+        [PolicyResourceProperty("crossRegionCopies", "_mUnknown_CrossRegionCopies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopy>> _mCrossRegionCopies;
+        private List<Outputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopy>? _mValue_CrossRegionCopies;
+        private bool _mUnknown_CrossRegionCopies;
+        public List<Outputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopy>? CrossRegionCopies
+        {
+            get
+            {
+                if (!_mUnknown_CrossRegionCopies) return _mValue_CrossRegionCopies;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsAction.CrossRegionCopies' is not present");
+            }
+        }
 
-        public List<Outputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopy>? CrossRegionCopies => _mCrossRegionCopies.GetValue("crossRegionCopies");
-
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsAction.Name' is not present");
+            }
+        }
     }
 }

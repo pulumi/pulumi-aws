@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake.Outputs
         /// <summary>
         /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         /// </summary>
-        [Input("create")]
+        [PolicyResourceProperty("create", "_mUnknown_Create")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreate;
-
-        public string? Create => _mCreate.GetValue("create");
+        private string? _mValue_Create;
+        private bool _mUnknown_Create;
+        public string? Create
+        {
+            get
+            {
+                if (!_mUnknown_Create) return _mValue_Create;
+                throw new UndeferrableValueException("Value 'DataLakeTimeouts.Create' is not present");
+            }
+        }
 
         /// <summary>
         /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         /// </summary>
-        [Input("delete")]
+        [PolicyResourceProperty("delete", "_mUnknown_Delete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDelete;
-
-        public string? Delete => _mDelete.GetValue("delete");
+        private string? _mValue_Delete;
+        private bool _mUnknown_Delete;
+        public string? Delete
+        {
+            get
+            {
+                if (!_mUnknown_Delete) return _mValue_Delete;
+                throw new UndeferrableValueException("Value 'DataLakeTimeouts.Delete' is not present");
+            }
+        }
 
         /// <summary>
         /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         /// </summary>
-        [Input("update")]
+        [PolicyResourceProperty("update", "_mUnknown_Update")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdate;
-
-        public string? Update => _mUpdate.GetValue("update");
+        private string? _mValue_Update;
+        private bool _mUnknown_Update;
+        public string? Update
+        {
+            get
+            {
+                if (!_mUnknown_Update) return _mValue_Update;
+                throw new UndeferrableValueException("Value 'DataLakeTimeouts.Update' is not present");
+            }
+        }
     }
 }

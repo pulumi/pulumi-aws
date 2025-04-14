@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Outputs
         /// <summary>
         /// The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
         /// </summary>
-        [Input("attempts")]
+        [PolicyResourceProperty("attempts", "_mUnknown_Attempts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAttempts;
-
-        public int? Attempts => _mAttempts.GetValue("attempts");
+        private int? _mValue_Attempts;
+        private bool _mUnknown_Attempts;
+        public int? Attempts
+        {
+            get
+            {
+                if (!_mUnknown_Attempts) return _mValue_Attempts;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersRetryStrategy.Attempts' is not present");
+            }
+        }
     }
 }

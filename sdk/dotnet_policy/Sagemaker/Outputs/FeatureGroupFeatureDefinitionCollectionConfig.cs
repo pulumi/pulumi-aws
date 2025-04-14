@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
 {
     public sealed class FeatureGroupFeatureDefinitionCollectionConfig
     {
-        [Input("vectorConfig")]
+        [PolicyResourceProperty("vectorConfig", "_mUnknown_VectorConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FeatureGroupFeatureDefinitionCollectionConfigVectorConfig> _mVectorConfig;
-
-        public Outputs.FeatureGroupFeatureDefinitionCollectionConfigVectorConfig? VectorConfig => _mVectorConfig.GetValue("vectorConfig");
+        private Outputs.FeatureGroupFeatureDefinitionCollectionConfigVectorConfig? _mValue_VectorConfig;
+        private bool _mUnknown_VectorConfig;
+        public Outputs.FeatureGroupFeatureDefinitionCollectionConfigVectorConfig? VectorConfig
+        {
+            get
+            {
+                if (!_mUnknown_VectorConfig) return _mValue_VectorConfig;
+                throw new UndeferrableValueException("Value 'FeatureGroupFeatureDefinitionCollectionConfig.VectorConfig' is not present");
+            }
+        }
     }
 }

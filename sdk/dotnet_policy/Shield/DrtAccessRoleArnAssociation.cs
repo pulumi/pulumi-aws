@@ -16,17 +16,31 @@ namespace Pulumi.PolicyPacks.Aws.Shield
         /// <summary>
         /// The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'DrtAccessRoleArnAssociation.RoleArn' is not present");
+            }
+        }
 
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DrtAccessRoleArnAssociationTimeouts> _mTimeouts;
-
-        public Outputs.DrtAccessRoleArnAssociationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.DrtAccessRoleArnAssociationTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.DrtAccessRoleArnAssociationTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'DrtAccessRoleArnAssociation.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation")]
@@ -35,16 +49,30 @@ namespace Pulumi.PolicyPacks.Aws.Shield
         /// <summary>
         /// The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'DrtAccessRoleArnAssociationArgs.RoleArn' is not present");
+            }
+        }
 
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DrtAccessRoleArnAssociationTimeoutsArgs> _mTimeouts;
-
-        public Inputs.DrtAccessRoleArnAssociationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.DrtAccessRoleArnAssociationTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.DrtAccessRoleArnAssociationTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'DrtAccessRoleArnAssociationArgs.Timeouts' is not present");
+            }
+        }
     }
 }

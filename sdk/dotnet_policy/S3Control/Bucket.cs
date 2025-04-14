@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
         /// <summary>
         /// Amazon Resource Name (ARN) of the bucket.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Bucket.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the bucket.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucket");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'Bucket.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        [Input("creationDate")]
+        [PolicyResourceProperty("creationDate", "_mUnknown_CreationDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDate;
-
-        public string? CreationDate => _mCreationDate.GetValue("creationDate");
+        private string? _mValue_CreationDate;
+        private bool _mUnknown_CreationDate;
+        public string? CreationDate
+        {
+            get
+            {
+                if (!_mUnknown_CreationDate) return _mValue_CreationDate;
+                throw new UndeferrableValueException("Value 'Bucket.CreationDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the Outpost to contain this bucket.
         /// </summary>
-        [Input("outpostId")]
+        [PolicyResourceProperty("outpostId", "_mUnknown_OutpostId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostId;
-
-        public string? OutpostId => _mOutpostId.GetValue("outpostId");
+        private string? _mValue_OutpostId;
+        private bool _mUnknown_OutpostId;
+        public string? OutpostId
+        {
+            get
+            {
+                if (!_mUnknown_OutpostId) return _mValue_OutpostId;
+                throw new UndeferrableValueException("Value 'Bucket.OutpostId' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether Public Access Block is enabled.
         /// </summary>
-        [Input("publicAccessBlockEnabled")]
+        [PolicyResourceProperty("publicAccessBlockEnabled", "_mUnknown_PublicAccessBlockEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPublicAccessBlockEnabled;
-
-        public bool? PublicAccessBlockEnabled => _mPublicAccessBlockEnabled.GetValue("publicAccessBlockEnabled");
+        private bool? _mValue_PublicAccessBlockEnabled;
+        private bool _mUnknown_PublicAccessBlockEnabled;
+        public bool? PublicAccessBlockEnabled
+        {
+            get
+            {
+                if (!_mUnknown_PublicAccessBlockEnabled) return _mValue_PublicAccessBlockEnabled;
+                throw new UndeferrableValueException("Value 'Bucket.PublicAccessBlockEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Bucket.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Bucket.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3control/bucket:Bucket")]
@@ -83,28 +132,49 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
         /// <summary>
         /// Name of the bucket.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucket");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'BucketArgs.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the Outpost to contain this bucket.
         /// </summary>
-        [Input("outpostId")]
+        [PolicyResourceProperty("outpostId", "_mUnknown_OutpostId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostId;
-
-        public string? OutpostId => _mOutpostId.GetValue("outpostId");
+        private string? _mValue_OutpostId;
+        private bool _mUnknown_OutpostId;
+        public string? OutpostId
+        {
+            get
+            {
+                if (!_mUnknown_OutpostId) return _mValue_OutpostId;
+                throw new UndeferrableValueException("Value 'BucketArgs.OutpostId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'BucketArgs.Tags' is not present");
+            }
+        }
     }
 }

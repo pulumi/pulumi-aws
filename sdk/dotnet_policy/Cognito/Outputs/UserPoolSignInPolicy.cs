@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
         /// </summary>
-        [Input("allowedFirstAuthFactors")]
+        [PolicyResourceProperty("allowedFirstAuthFactors", "_mUnknown_AllowedFirstAuthFactors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedFirstAuthFactors;
-
-        public List<string>? AllowedFirstAuthFactors => _mAllowedFirstAuthFactors.GetValue("allowedFirstAuthFactors");
+        private List<string>? _mValue_AllowedFirstAuthFactors;
+        private bool _mUnknown_AllowedFirstAuthFactors;
+        public List<string>? AllowedFirstAuthFactors
+        {
+            get
+            {
+                if (!_mUnknown_AllowedFirstAuthFactors) return _mValue_AllowedFirstAuthFactors;
+                throw new UndeferrableValueException("Value 'UserPoolSignInPolicy.AllowedFirstAuthFactors' is not present");
+            }
+        }
     }
 }

@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.SecretsManager.Outputs
         /// <summary>
         /// ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'SecretReplica.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Date that you last accessed the secret in the Region.
         /// </summary>
-        [Input("lastAccessedDate")]
+        [PolicyResourceProperty("lastAccessedDate", "_mUnknown_LastAccessedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastAccessedDate;
-
-        public string? LastAccessedDate => _mLastAccessedDate.GetValue("lastAccessedDate");
+        private string? _mValue_LastAccessedDate;
+        private bool _mUnknown_LastAccessedDate;
+        public string? LastAccessedDate
+        {
+            get
+            {
+                if (!_mUnknown_LastAccessedDate) return _mValue_LastAccessedDate;
+                throw new UndeferrableValueException("Value 'SecretReplica.LastAccessedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Region for replicating the secret.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'SecretReplica.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// Status can be `InProgress`, `Failed`, or `InSync`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'SecretReplica.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
         /// </summary>
-        [Input("statusMessage")]
+        [PolicyResourceProperty("statusMessage", "_mUnknown_StatusMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusMessage;
-
-        public string? StatusMessage => _mStatusMessage.GetValue("statusMessage");
+        private string? _mValue_StatusMessage;
+        private bool _mUnknown_StatusMessage;
+        public string? StatusMessage
+        {
+            get
+            {
+                if (!_mUnknown_StatusMessage) return _mValue_StatusMessage;
+                throw new UndeferrableValueException("Value 'SecretReplica.StatusMessage' is not present");
+            }
+        }
     }
 }

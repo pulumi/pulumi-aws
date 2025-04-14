@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// One or more CloudWatch alarm names.
         /// </summary>
-        [Input("alarmNames")]
+        [PolicyResourceProperty("alarmNames", "_mUnknown_AlarmNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAlarmNames;
-
-        public List<string>? AlarmNames => _mAlarmNames.GetValue("alarmNames");
+        private List<string>? _mValue_AlarmNames;
+        private bool _mUnknown_AlarmNames;
+        public List<string>? AlarmNames
+        {
+            get
+            {
+                if (!_mUnknown_AlarmNames) return _mValue_AlarmNames;
+                throw new UndeferrableValueException("Value 'ServiceAlarms.AlarmNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to use the CloudWatch alarm option in the service deployment process.
         /// </summary>
-        [Input("enable")]
+        [PolicyResourceProperty("enable", "_mUnknown_Enable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnable;
-
-        public bool? Enable => _mEnable.GetValue("enable");
+        private bool? _mValue_Enable;
+        private bool _mUnknown_Enable;
+        public bool? Enable
+        {
+            get
+            {
+                if (!_mUnknown_Enable) return _mValue_Enable;
+                throw new UndeferrableValueException("Value 'ServiceAlarms.Enable' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
         /// </summary>
-        [Input("rollback")]
+        [PolicyResourceProperty("rollback", "_mUnknown_Rollback")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRollback;
-
-        public bool? Rollback => _mRollback.GetValue("rollback");
+        private bool? _mValue_Rollback;
+        private bool _mUnknown_Rollback;
+        public bool? Rollback
+        {
+            get
+            {
+                if (!_mUnknown_Rollback) return _mValue_Rollback;
+                throw new UndeferrableValueException("Value 'ServiceAlarms.Rollback' is not present");
+            }
+        }
     }
 }

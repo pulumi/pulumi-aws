@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Connect.Outputs
         /// <summary>
         /// Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
         /// </summary>
-        [Input("channel")]
+        [PolicyResourceProperty("channel", "_mUnknown_Channel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChannel;
-
-        public string? Channel => _mChannel.GetValue("channel");
+        private string? _mValue_Channel;
+        private bool _mUnknown_Channel;
+        public string? Channel
+        {
+            get
+            {
+                if (!_mUnknown_Channel) return _mValue_Channel;
+                throw new UndeferrableValueException("Value 'RoutingProfileQueueConfig.Channel' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
         /// </summary>
-        [Input("delay")]
+        [PolicyResourceProperty("delay", "_mUnknown_Delay")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDelay;
-
-        public int? Delay => _mDelay.GetValue("delay");
+        private int? _mValue_Delay;
+        private bool _mUnknown_Delay;
+        public int? Delay
+        {
+            get
+            {
+                if (!_mUnknown_Delay) return _mValue_Delay;
+                throw new UndeferrableValueException("Value 'RoutingProfileQueueConfig.Delay' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the order in which contacts are to be handled for the queue.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'RoutingProfileQueueConfig.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the queue.
         /// </summary>
-        [Input("queueArn")]
+        [PolicyResourceProperty("queueArn", "_mUnknown_QueueArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueueArn;
-
-        public string? QueueArn => _mQueueArn.GetValue("queueArn");
+        private string? _mValue_QueueArn;
+        private bool _mUnknown_QueueArn;
+        public string? QueueArn
+        {
+            get
+            {
+                if (!_mUnknown_QueueArn) return _mValue_QueueArn;
+                throw new UndeferrableValueException("Value 'RoutingProfileQueueConfig.QueueArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the identifier for the queue.
         /// </summary>
-        [Input("queueId")]
+        [PolicyResourceProperty("queueId", "_mUnknown_QueueId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueueId;
-
-        public string? QueueId => _mQueueId.GetValue("queueId");
+        private string? _mValue_QueueId;
+        private bool _mUnknown_QueueId;
+        public string? QueueId
+        {
+            get
+            {
+                if (!_mUnknown_QueueId) return _mValue_QueueId;
+                throw new UndeferrableValueException("Value 'RoutingProfileQueueConfig.QueueId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the queue.
         /// </summary>
-        [Input("queueName")]
+        [PolicyResourceProperty("queueName", "_mUnknown_QueueName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueueName;
-
-        public string? QueueName => _mQueueName.GetValue("queueName");
+        private string? _mValue_QueueName;
+        private bool _mUnknown_QueueName;
+        public string? QueueName
+        {
+            get
+            {
+                if (!_mUnknown_QueueName) return _mValue_QueueName;
+                throw new UndeferrableValueException("Value 'RoutingProfileQueueConfig.QueueName' is not present");
+            }
+        }
     }
 }

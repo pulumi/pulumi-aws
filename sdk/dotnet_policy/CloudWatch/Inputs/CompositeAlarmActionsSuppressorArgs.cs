@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
         /// </summary>
-        [Input("alarm")]
+        [PolicyResourceProperty("alarm", "_mUnknown_Alarm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlarm;
-
-        public string? Alarm => _mAlarm.GetValue("alarm");
+        private string? _mValue_Alarm;
+        private bool _mUnknown_Alarm;
+        public string? Alarm
+        {
+            get
+            {
+                if (!_mUnknown_Alarm) return _mValue_Alarm;
+                throw new UndeferrableValueException("Value 'CompositeAlarmActionsSuppressorArgs.Alarm' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
         /// </summary>
-        [Input("extensionPeriod")]
+        [PolicyResourceProperty("extensionPeriod", "_mUnknown_ExtensionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mExtensionPeriod;
-
-        public int? ExtensionPeriod => _mExtensionPeriod.GetValue("extensionPeriod");
+        private int? _mValue_ExtensionPeriod;
+        private bool _mUnknown_ExtensionPeriod;
+        public int? ExtensionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_ExtensionPeriod) return _mValue_ExtensionPeriod;
+                throw new UndeferrableValueException("Value 'CompositeAlarmActionsSuppressorArgs.ExtensionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
         /// </summary>
-        [Input("waitPeriod")]
+        [PolicyResourceProperty("waitPeriod", "_mUnknown_WaitPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWaitPeriod;
-
-        public int? WaitPeriod => _mWaitPeriod.GetValue("waitPeriod");
+        private int? _mValue_WaitPeriod;
+        private bool _mUnknown_WaitPeriod;
+        public int? WaitPeriod
+        {
+            get
+            {
+                if (!_mUnknown_WaitPeriod) return _mValue_WaitPeriod;
+                throw new UndeferrableValueException("Value 'CompositeAlarmActionsSuppressorArgs.WaitPeriod' is not present");
+            }
+        }
     }
 }

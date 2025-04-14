@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualGatewaySpecLoggingAccessLogFileResult
     {
-        [Input("formats")]
+        [PolicyResourceProperty("formats", "_mUnknown_Formats")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatResult>> _mFormats;
+        private List<Outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatResult>? _mValue_Formats;
+        private bool _mUnknown_Formats;
+        public List<Outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatResult>? Formats
+        {
+            get
+            {
+                if (!_mUnknown_Formats) return _mValue_Formats;
+                throw new UndeferrableValueException("Value 'GetVirtualGatewaySpecLoggingAccessLogFileResult.Formats' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatResult>? Formats => _mFormats.GetValue("formats");
-
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'GetVirtualGatewaySpecLoggingAccessLogFileResult.Path' is not present");
+            }
+        }
     }
 }

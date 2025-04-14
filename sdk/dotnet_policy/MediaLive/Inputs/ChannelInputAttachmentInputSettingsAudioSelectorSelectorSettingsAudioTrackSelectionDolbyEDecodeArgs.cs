@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
         /// </summary>
-        [Input("programSelection")]
+        [PolicyResourceProperty("programSelection", "_mUnknown_ProgramSelection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProgramSelection;
-
-        public string? ProgramSelection => _mProgramSelection.GetValue("programSelection");
+        private string? _mValue_ProgramSelection;
+        private bool _mUnknown_ProgramSelection;
+        public string? ProgramSelection
+        {
+            get
+            {
+                if (!_mUnknown_ProgramSelection) return _mValue_ProgramSelection;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs.ProgramSelection' is not present");
+            }
+        }
     }
 }

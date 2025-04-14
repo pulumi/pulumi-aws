@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
         /// </summary>
-        [Input("enableHybrid")]
+        [PolicyResourceProperty("enableHybrid", "_mUnknown_EnableHybrid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnableHybrid;
-
-        public string? EnableHybrid => _mEnableHybrid.GetValue("enableHybrid");
+        private string? _mValue_EnableHybrid;
+        private bool _mUnknown_EnableHybrid;
+        public string? EnableHybrid
+        {
+            get
+            {
+                if (!_mUnknown_EnableHybrid) return _mValue_EnableHybrid;
+                throw new UndeferrableValueException("Value 'ResourcePolicy.EnableHybrid' is not present");
+            }
+        }
 
         /// <summary>
         /// The policy to be applied to the aws glue data catalog.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ResourcePolicy.Policy' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:glue/resourcePolicy:ResourcePolicy")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
         /// </summary>
-        [Input("enableHybrid")]
+        [PolicyResourceProperty("enableHybrid", "_mUnknown_EnableHybrid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnableHybrid;
-
-        public string? EnableHybrid => _mEnableHybrid.GetValue("enableHybrid");
+        private string? _mValue_EnableHybrid;
+        private bool _mUnknown_EnableHybrid;
+        public string? EnableHybrid
+        {
+            get
+            {
+                if (!_mUnknown_EnableHybrid) return _mValue_EnableHybrid;
+                throw new UndeferrableValueException("Value 'ResourcePolicyArgs.EnableHybrid' is not present");
+            }
+        }
 
         /// <summary>
         /// The policy to be applied to the aws glue data catalog.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ResourcePolicyArgs.Policy' is not present");
+            }
+        }
     }
 }

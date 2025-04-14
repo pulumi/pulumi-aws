@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
         /// </summary>
-        [Input("cents")]
+        [PolicyResourceProperty("cents", "_mUnknown_Cents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCents;
-
-        public int? Cents => _mCents.GetValue("cents");
+        private int? _mValue_Cents;
+        private bool _mUnknown_Cents;
+        public int? Cents
+        {
+            get
+            {
+                if (!_mUnknown_Cents) return _mValue_Cents;
+                throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs.Cents' is not present");
+            }
+        }
 
         /// <summary>
         /// The whole number of dollars in the amount. Valid value range between `0` and `2`.
         /// </summary>
-        [Input("dollars")]
+        [PolicyResourceProperty("dollars", "_mUnknown_Dollars")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDollars;
-
-        public int? Dollars => _mDollars.GetValue("dollars");
+        private int? _mValue_Dollars;
+        private bool _mUnknown_Dollars;
+        public int? Dollars
+        {
+            get
+            {
+                if (!_mUnknown_Dollars) return _mValue_Dollars;
+                throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs.Dollars' is not present");
+            }
+        }
 
         /// <summary>
         /// Fractions of a cent, in tenths. Valid value range between `0` and `9`.
         /// </summary>
-        [Input("tenthFractionsOfACent")]
+        [PolicyResourceProperty("tenthFractionsOfACent", "_mUnknown_TenthFractionsOfACent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTenthFractionsOfACent;
-
-        public int? TenthFractionsOfACent => _mTenthFractionsOfACent.GetValue("tenthFractionsOfACent");
+        private int? _mValue_TenthFractionsOfACent;
+        private bool _mUnknown_TenthFractionsOfACent;
+        public int? TenthFractionsOfACent
+        {
+            get
+            {
+                if (!_mUnknown_TenthFractionsOfACent) return _mValue_TenthFractionsOfACent;
+                throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs.TenthFractionsOfACent' is not present");
+            }
+        }
     }
 }

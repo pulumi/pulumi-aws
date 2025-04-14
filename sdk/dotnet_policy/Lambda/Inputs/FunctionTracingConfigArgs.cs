@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Inputs
         /// <summary>
         /// Whether to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
         /// </summary>
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
-
-        public string? Mode => _mMode.GetValue("mode");
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'FunctionTracingConfigArgs.Mode' is not present");
+            }
+        }
     }
 }

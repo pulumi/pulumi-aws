@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Connect.Inputs
         /// <summary>
         /// Specifies the phone number in in E.164 format.
         /// </summary>
-        [Input("phoneNumber")]
+        [PolicyResourceProperty("phoneNumber", "_mUnknown_PhoneNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPhoneNumber;
-
-        public string? PhoneNumber => _mPhoneNumber.GetValue("phoneNumber");
+        private string? _mValue_PhoneNumber;
+        private bool _mUnknown_PhoneNumber;
+        public string? PhoneNumber
+        {
+            get
+            {
+                if (!_mUnknown_PhoneNumber) return _mValue_PhoneNumber;
+                throw new UndeferrableValueException("Value 'QuickConnectQuickConnectConfigPhoneConfigArgs.PhoneNumber' is not present");
+            }
+        }
     }
 }

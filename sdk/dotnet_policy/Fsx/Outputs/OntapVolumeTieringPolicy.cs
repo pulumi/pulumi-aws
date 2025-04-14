@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Outputs
         /// <summary>
         /// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
         /// </summary>
-        [Input("coolingPeriod")]
+        [PolicyResourceProperty("coolingPeriod", "_mUnknown_CoolingPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCoolingPeriod;
-
-        public int? CoolingPeriod => _mCoolingPeriod.GetValue("coolingPeriod");
+        private int? _mValue_CoolingPeriod;
+        private bool _mUnknown_CoolingPeriod;
+        public int? CoolingPeriod
+        {
+            get
+            {
+                if (!_mUnknown_CoolingPeriod) return _mValue_CoolingPeriod;
+                throw new UndeferrableValueException("Value 'OntapVolumeTieringPolicy.CoolingPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'OntapVolumeTieringPolicy.Name' is not present");
+            }
+        }
     }
 }

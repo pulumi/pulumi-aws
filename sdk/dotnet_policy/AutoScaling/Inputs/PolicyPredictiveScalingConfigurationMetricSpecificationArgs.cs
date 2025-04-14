@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Inputs
         /// <summary>
         /// Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
         /// </summary>
-        [Input("customizedCapacityMetricSpecification")]
+        [PolicyResourceProperty("customizedCapacityMetricSpecification", "_mUnknown_CustomizedCapacityMetricSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs> _mCustomizedCapacityMetricSpecification;
-
-        public Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs? CustomizedCapacityMetricSpecification => _mCustomizedCapacityMetricSpecification.GetValue("customizedCapacityMetricSpecification");
+        private Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs? _mValue_CustomizedCapacityMetricSpecification;
+        private bool _mUnknown_CustomizedCapacityMetricSpecification;
+        public Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs? CustomizedCapacityMetricSpecification
+        {
+            get
+            {
+                if (!_mUnknown_CustomizedCapacityMetricSpecification) return _mValue_CustomizedCapacityMetricSpecification;
+                throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationArgs.CustomizedCapacityMetricSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Customized load metric specification.
         /// </summary>
-        [Input("customizedLoadMetricSpecification")]
+        [PolicyResourceProperty("customizedLoadMetricSpecification", "_mUnknown_CustomizedLoadMetricSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs> _mCustomizedLoadMetricSpecification;
-
-        public Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs? CustomizedLoadMetricSpecification => _mCustomizedLoadMetricSpecification.GetValue("customizedLoadMetricSpecification");
+        private Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs? _mValue_CustomizedLoadMetricSpecification;
+        private bool _mUnknown_CustomizedLoadMetricSpecification;
+        public Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs? CustomizedLoadMetricSpecification
+        {
+            get
+            {
+                if (!_mUnknown_CustomizedLoadMetricSpecification) return _mValue_CustomizedLoadMetricSpecification;
+                throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationArgs.CustomizedLoadMetricSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Customized scaling metric specification.
         /// </summary>
-        [Input("customizedScalingMetricSpecification")]
+        [PolicyResourceProperty("customizedScalingMetricSpecification", "_mUnknown_CustomizedScalingMetricSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs> _mCustomizedScalingMetricSpecification;
-
-        public Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs? CustomizedScalingMetricSpecification => _mCustomizedScalingMetricSpecification.GetValue("customizedScalingMetricSpecification");
+        private Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs? _mValue_CustomizedScalingMetricSpecification;
+        private bool _mUnknown_CustomizedScalingMetricSpecification;
+        public Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs? CustomizedScalingMetricSpecification
+        {
+            get
+            {
+                if (!_mUnknown_CustomizedScalingMetricSpecification) return _mValue_CustomizedScalingMetricSpecification;
+                throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationArgs.CustomizedScalingMetricSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Predefined load metric specification.
         /// </summary>
-        [Input("predefinedLoadMetricSpecification")]
+        [PolicyResourceProperty("predefinedLoadMetricSpecification", "_mUnknown_PredefinedLoadMetricSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs> _mPredefinedLoadMetricSpecification;
-
-        public Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs? PredefinedLoadMetricSpecification => _mPredefinedLoadMetricSpecification.GetValue("predefinedLoadMetricSpecification");
+        private Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs? _mValue_PredefinedLoadMetricSpecification;
+        private bool _mUnknown_PredefinedLoadMetricSpecification;
+        public Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs? PredefinedLoadMetricSpecification
+        {
+            get
+            {
+                if (!_mUnknown_PredefinedLoadMetricSpecification) return _mValue_PredefinedLoadMetricSpecification;
+                throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationArgs.PredefinedLoadMetricSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
         /// </summary>
-        [Input("predefinedMetricPairSpecification")]
+        [PolicyResourceProperty("predefinedMetricPairSpecification", "_mUnknown_PredefinedMetricPairSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs> _mPredefinedMetricPairSpecification;
-
-        public Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs? PredefinedMetricPairSpecification => _mPredefinedMetricPairSpecification.GetValue("predefinedMetricPairSpecification");
+        private Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs? _mValue_PredefinedMetricPairSpecification;
+        private bool _mUnknown_PredefinedMetricPairSpecification;
+        public Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs? PredefinedMetricPairSpecification
+        {
+            get
+            {
+                if (!_mUnknown_PredefinedMetricPairSpecification) return _mValue_PredefinedMetricPairSpecification;
+                throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationArgs.PredefinedMetricPairSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Predefined scaling metric specification.
         /// </summary>
-        [Input("predefinedScalingMetricSpecification")]
+        [PolicyResourceProperty("predefinedScalingMetricSpecification", "_mUnknown_PredefinedScalingMetricSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs> _mPredefinedScalingMetricSpecification;
-
-        public Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs? PredefinedScalingMetricSpecification => _mPredefinedScalingMetricSpecification.GetValue("predefinedScalingMetricSpecification");
+        private Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs? _mValue_PredefinedScalingMetricSpecification;
+        private bool _mUnknown_PredefinedScalingMetricSpecification;
+        public Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs? PredefinedScalingMetricSpecification
+        {
+            get
+            {
+                if (!_mUnknown_PredefinedScalingMetricSpecification) return _mValue_PredefinedScalingMetricSpecification;
+                throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationArgs.PredefinedScalingMetricSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Target value for the metric.
         /// </summary>
-        [Input("targetValue")]
+        [PolicyResourceProperty("targetValue", "_mUnknown_TargetValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mTargetValue;
-
-        public double? TargetValue => _mTargetValue.GetValue("targetValue");
+        private double? _mValue_TargetValue;
+        private bool _mUnknown_TargetValue;
+        public double? TargetValue
+        {
+            get
+            {
+                if (!_mUnknown_TargetValue) return _mValue_TargetValue;
+                throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationArgs.TargetValue' is not present");
+            }
+        }
     }
 }

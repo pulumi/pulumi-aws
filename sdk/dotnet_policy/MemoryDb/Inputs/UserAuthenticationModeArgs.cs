@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.MemoryDb.Inputs
         /// <summary>
         /// Number of passwords belonging to the user if `type` is set to `password`.
         /// </summary>
-        [Input("passwordCount")]
+        [PolicyResourceProperty("passwordCount", "_mUnknown_PasswordCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPasswordCount;
-
-        public int? PasswordCount => _mPasswordCount.GetValue("passwordCount");
+        private int? _mValue_PasswordCount;
+        private bool _mUnknown_PasswordCount;
+        public int? PasswordCount
+        {
+            get
+            {
+                if (!_mUnknown_PasswordCount) return _mValue_PasswordCount;
+                throw new UndeferrableValueException("Value 'UserAuthenticationModeArgs.PasswordCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
         /// </summary>
-        [Input("passwords")]
+        [PolicyResourceProperty("passwords", "_mUnknown_Passwords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPasswords;
-
-        public List<string>? Passwords => _mPasswords.GetValue("passwords");
+        private List<string>? _mValue_Passwords;
+        private bool _mUnknown_Passwords;
+        public List<string>? Passwords
+        {
+            get
+            {
+                if (!_mUnknown_Passwords) return _mValue_Passwords;
+                throw new UndeferrableValueException("Value 'UserAuthenticationModeArgs.Passwords' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the authentication type. Valid values are: `password` or `iam`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'UserAuthenticationModeArgs.Type' is not present");
+            }
+        }
     }
 }

@@ -15,72 +15,128 @@ namespace Pulumi.PolicyPacks.Aws.Dlm.Inputs
         /// <summary>
         /// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LifecyclePolicyPolicyDetailsActionArgs> _mAction;
-
-        public Inputs.LifecyclePolicyPolicyDetailsActionArgs? Action => _mAction.GetValue("action");
+        private Inputs.LifecyclePolicyPolicyDetailsActionArgs? _mValue_Action;
+        private bool _mUnknown_Action;
+        public Inputs.LifecyclePolicyPolicyDetailsActionArgs? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsArgs.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
         /// </summary>
-        [Input("eventSource")]
+        [PolicyResourceProperty("eventSource", "_mUnknown_EventSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LifecyclePolicyPolicyDetailsEventSourceArgs> _mEventSource;
+        private Inputs.LifecyclePolicyPolicyDetailsEventSourceArgs? _mValue_EventSource;
+        private bool _mUnknown_EventSource;
+        public Inputs.LifecyclePolicyPolicyDetailsEventSourceArgs? EventSource
+        {
+            get
+            {
+                if (!_mUnknown_EventSource) return _mValue_EventSource;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsArgs.EventSource' is not present");
+            }
+        }
 
-        public Inputs.LifecyclePolicyPolicyDetailsEventSourceArgs? EventSource => _mEventSource.GetValue("eventSource");
-
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LifecyclePolicyPolicyDetailsParametersArgs> _mParameters;
-
-        public Inputs.LifecyclePolicyPolicyDetailsParametersArgs? Parameters => _mParameters.GetValue("parameters");
+        private Inputs.LifecyclePolicyPolicyDetailsParametersArgs? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Inputs.LifecyclePolicyPolicyDetailsParametersArgs? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
         /// </summary>
-        [Input("policyType")]
+        [PolicyResourceProperty("policyType", "_mUnknown_PolicyType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyType;
-
-        public string? PolicyType => _mPolicyType.GetValue("policyType");
+        private string? _mValue_PolicyType;
+        private bool _mUnknown_PolicyType;
+        public string? PolicyType
+        {
+            get
+            {
+                if (!_mUnknown_PolicyType) return _mValue_PolicyType;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsArgs.PolicyType' is not present");
+            }
+        }
 
         /// <summary>
         /// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
         /// </summary>
-        [Input("resourceLocations")]
+        [PolicyResourceProperty("resourceLocations", "_mUnknown_ResourceLocations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceLocations;
-
-        public string? ResourceLocations => _mResourceLocations.GetValue("resourceLocations");
+        private string? _mValue_ResourceLocations;
+        private bool _mUnknown_ResourceLocations;
+        public string? ResourceLocations
+        {
+            get
+            {
+                if (!_mUnknown_ResourceLocations) return _mValue_ResourceLocations;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsArgs.ResourceLocations' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
         /// </summary>
-        [Input("resourceTypes")]
+        [PolicyResourceProperty("resourceTypes", "_mUnknown_ResourceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceTypes;
-
-        public List<string>? ResourceTypes => _mResourceTypes.GetValue("resourceTypes");
+        private List<string>? _mValue_ResourceTypes;
+        private bool _mUnknown_ResourceTypes;
+        public List<string>? ResourceTypes
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTypes) return _mValue_ResourceTypes;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsArgs.ResourceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// See the `schedule` configuration block.
         /// </summary>
-        [Input("schedules")]
+        [PolicyResourceProperty("schedules", "_mUnknown_Schedules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LifecyclePolicyPolicyDetailsScheduleArgs>> _mSchedules;
-
-        public List<Inputs.LifecyclePolicyPolicyDetailsScheduleArgs>? Schedules => _mSchedules.GetValue("schedules");
+        private List<Inputs.LifecyclePolicyPolicyDetailsScheduleArgs>? _mValue_Schedules;
+        private bool _mUnknown_Schedules;
+        public List<Inputs.LifecyclePolicyPolicyDetailsScheduleArgs>? Schedules
+        {
+            get
+            {
+                if (!_mUnknown_Schedules) return _mValue_Schedules;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsArgs.Schedules' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
         /// 
         /// &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. Pulumi is unable to detect this at plan time but it will fail during apply.
         /// </summary>
-        [Input("targetTags")]
+        [PolicyResourceProperty("targetTags", "_mUnknown_TargetTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTargetTags;
-
-        public Dictionary<string, string>? TargetTags => _mTargetTags.GetValue("targetTags");
+        private Dictionary<string, string>? _mValue_TargetTags;
+        private bool _mUnknown_TargetTags;
+        public Dictionary<string, string>? TargetTags
+        {
+            get
+            {
+                if (!_mUnknown_TargetTags) return _mValue_TargetTags;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsArgs.TargetTags' is not present");
+            }
+        }
     }
 }

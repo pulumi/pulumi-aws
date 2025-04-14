@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting
     {
-        [Input("keyProviderServer")]
+        [PolicyResourceProperty("keyProviderServer", "_mUnknown_KeyProviderServer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer> _mKeyProviderServer;
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer? _mValue_KeyProviderServer;
+        private bool _mUnknown_KeyProviderServer;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer? KeyProviderServer
+        {
+            get
+            {
+                if (!_mUnknown_KeyProviderServer) return _mValue_KeyProviderServer;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting.KeyProviderServer' is not present");
+            }
+        }
 
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer? KeyProviderServer => _mKeyProviderServer.GetValue("keyProviderServer");
-
-        [Input("staticKeyValue")]
+        [PolicyResourceProperty("staticKeyValue", "_mUnknown_StaticKeyValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStaticKeyValue;
-
-        public string? StaticKeyValue => _mStaticKeyValue.GetValue("staticKeyValue");
+        private string? _mValue_StaticKeyValue;
+        private bool _mUnknown_StaticKeyValue;
+        public string? StaticKeyValue
+        {
+            get
+            {
+                if (!_mUnknown_StaticKeyValue) return _mValue_StaticKeyValue;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting.StaticKeyValue' is not present");
+            }
+        }
     }
 }

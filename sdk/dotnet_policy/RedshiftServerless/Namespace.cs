@@ -16,139 +16,244 @@ namespace Pulumi.PolicyPacks.Aws.RedshiftServerless
         /// <summary>
         /// Amazon Resource Name (ARN) of namespace's admin user credentials secret.
         /// </summary>
-        [Input("adminPasswordSecretArn")]
+        [PolicyResourceProperty("adminPasswordSecretArn", "_mUnknown_AdminPasswordSecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdminPasswordSecretArn;
-
-        public string? AdminPasswordSecretArn => _mAdminPasswordSecretArn.GetValue("adminPasswordSecretArn");
+        private string? _mValue_AdminPasswordSecretArn;
+        private bool _mUnknown_AdminPasswordSecretArn;
+        public string? AdminPasswordSecretArn
+        {
+            get
+            {
+                if (!_mUnknown_AdminPasswordSecretArn) return _mValue_AdminPasswordSecretArn;
+                throw new UndeferrableValueException("Value 'Namespace.AdminPasswordSecretArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the KMS key used to encrypt the namespace's admin credentials secret.
         /// </summary>
-        [Input("adminPasswordSecretKmsKeyId")]
+        [PolicyResourceProperty("adminPasswordSecretKmsKeyId", "_mUnknown_AdminPasswordSecretKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdminPasswordSecretKmsKeyId;
-
-        public string? AdminPasswordSecretKmsKeyId => _mAdminPasswordSecretKmsKeyId.GetValue("adminPasswordSecretKmsKeyId");
+        private string? _mValue_AdminPasswordSecretKmsKeyId;
+        private bool _mUnknown_AdminPasswordSecretKmsKeyId;
+        public string? AdminPasswordSecretKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_AdminPasswordSecretKmsKeyId) return _mValue_AdminPasswordSecretKmsKeyId;
+                throw new UndeferrableValueException("Value 'Namespace.AdminPasswordSecretKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The password of the administrator for the first database created in the namespace.
         /// Conflicts with `manage_admin_password` and `admin_user_password_wo`.
         /// </summary>
-        [Input("adminUserPassword")]
+        [PolicyResourceProperty("adminUserPassword", "_mUnknown_AdminUserPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdminUserPassword;
-
-        public string? AdminUserPassword => _mAdminUserPassword.GetValue("adminUserPassword");
+        private string? _mValue_AdminUserPassword;
+        private bool _mUnknown_AdminUserPassword;
+        public string? AdminUserPassword
+        {
+            get
+            {
+                if (!_mUnknown_AdminUserPassword) return _mValue_AdminUserPassword;
+                throw new UndeferrableValueException("Value 'Namespace.AdminUserPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// The username of the administrator for the first database created in the namespace.
         /// </summary>
-        [Input("adminUsername")]
+        [PolicyResourceProperty("adminUsername", "_mUnknown_AdminUsername")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdminUsername;
-
-        public string? AdminUsername => _mAdminUsername.GetValue("adminUsername");
+        private string? _mValue_AdminUsername;
+        private bool _mUnknown_AdminUsername;
+        public string? AdminUsername
+        {
+            get
+            {
+                if (!_mUnknown_AdminUsername) return _mValue_AdminUsername;
+                throw new UndeferrableValueException("Value 'Namespace.AdminUsername' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Namespace.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the first database created in the namespace.
         /// </summary>
-        [Input("dbName")]
+        [PolicyResourceProperty("dbName", "_mUnknown_DbName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbName;
-
-        public string? DbName => _mDbName.GetValue("dbName");
+        private string? _mValue_DbName;
+        private bool _mUnknown_DbName;
+        public string? DbName
+        {
+            get
+            {
+                if (!_mUnknown_DbName) return _mValue_DbName;
+                throw new UndeferrableValueException("Value 'Namespace.DbName' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
         /// </summary>
-        [Input("defaultIamRoleArn")]
+        [PolicyResourceProperty("defaultIamRoleArn", "_mUnknown_DefaultIamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultIamRoleArn;
-
-        public string? DefaultIamRoleArn => _mDefaultIamRoleArn.GetValue("defaultIamRoleArn");
+        private string? _mValue_DefaultIamRoleArn;
+        private bool _mUnknown_DefaultIamRoleArn;
+        public string? DefaultIamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_DefaultIamRoleArn) return _mValue_DefaultIamRoleArn;
+                throw new UndeferrableValueException("Value 'Namespace.DefaultIamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IAM roles to associate with the namespace.
         /// </summary>
-        [Input("iamRoles")]
+        [PolicyResourceProperty("iamRoles", "_mUnknown_IamRoles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIamRoles;
-
-        public List<string>? IamRoles => _mIamRoles.GetValue("iamRoles");
+        private List<string>? _mValue_IamRoles;
+        private bool _mUnknown_IamRoles;
+        public List<string>? IamRoles
+        {
+            get
+            {
+                if (!_mUnknown_IamRoles) return _mValue_IamRoles;
+                throw new UndeferrableValueException("Value 'Namespace.IamRoles' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'Namespace.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
         /// </summary>
-        [Input("logExports")]
+        [PolicyResourceProperty("logExports", "_mUnknown_LogExports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLogExports;
-
-        public List<string>? LogExports => _mLogExports.GetValue("logExports");
+        private List<string>? _mValue_LogExports;
+        private bool _mUnknown_LogExports;
+        public List<string>? LogExports
+        {
+            get
+            {
+                if (!_mUnknown_LogExports) return _mValue_LogExports;
+                throw new UndeferrableValueException("Value 'Namespace.LogExports' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to use AWS SecretManager to manage namespace's admin credentials.
         /// Conflicts with `admin_user_password` and `admin_user_password_wo`.
         /// </summary>
-        [Input("manageAdminPassword")]
+        [PolicyResourceProperty("manageAdminPassword", "_mUnknown_ManageAdminPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mManageAdminPassword;
-
-        public bool? ManageAdminPassword => _mManageAdminPassword.GetValue("manageAdminPassword");
+        private bool? _mValue_ManageAdminPassword;
+        private bool _mUnknown_ManageAdminPassword;
+        public bool? ManageAdminPassword
+        {
+            get
+            {
+                if (!_mUnknown_ManageAdminPassword) return _mValue_ManageAdminPassword;
+                throw new UndeferrableValueException("Value 'Namespace.ManageAdminPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// The Redshift Namespace ID.
         /// </summary>
-        [Input("namespaceId")]
+        [PolicyResourceProperty("namespaceId", "_mUnknown_NamespaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceId;
-
-        public string? NamespaceId => _mNamespaceId.GetValue("namespaceId");
+        private string? _mValue_NamespaceId;
+        private bool _mUnknown_NamespaceId;
+        public string? NamespaceId
+        {
+            get
+            {
+                if (!_mUnknown_NamespaceId) return _mValue_NamespaceId;
+                throw new UndeferrableValueException("Value 'Namespace.NamespaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the namespace.
         /// </summary>
-        [Input("namespaceName")]
+        [PolicyResourceProperty("namespaceName", "_mUnknown_NamespaceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceName;
-
-        public string? NamespaceName => _mNamespaceName.GetValue("namespaceName");
+        private string? _mValue_NamespaceName;
+        private bool _mUnknown_NamespaceName;
+        public string? NamespaceName
+        {
+            get
+            {
+                if (!_mUnknown_NamespaceName) return _mValue_NamespaceName;
+                throw new UndeferrableValueException("Value 'Namespace.NamespaceName' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Namespace.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Namespace.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshiftserverless/namespace:Namespace")]
@@ -157,102 +262,179 @@ namespace Pulumi.PolicyPacks.Aws.RedshiftServerless
         /// <summary>
         /// ID of the KMS key used to encrypt the namespace's admin credentials secret.
         /// </summary>
-        [Input("adminPasswordSecretKmsKeyId")]
+        [PolicyResourceProperty("adminPasswordSecretKmsKeyId", "_mUnknown_AdminPasswordSecretKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdminPasswordSecretKmsKeyId;
-
-        public string? AdminPasswordSecretKmsKeyId => _mAdminPasswordSecretKmsKeyId.GetValue("adminPasswordSecretKmsKeyId");
+        private string? _mValue_AdminPasswordSecretKmsKeyId;
+        private bool _mUnknown_AdminPasswordSecretKmsKeyId;
+        public string? AdminPasswordSecretKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_AdminPasswordSecretKmsKeyId) return _mValue_AdminPasswordSecretKmsKeyId;
+                throw new UndeferrableValueException("Value 'NamespaceArgs.AdminPasswordSecretKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The password of the administrator for the first database created in the namespace.
         /// Conflicts with `manage_admin_password` and `admin_user_password_wo`.
         /// </summary>
-        [Input("adminUserPassword")]
+        [PolicyResourceProperty("adminUserPassword", "_mUnknown_AdminUserPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdminUserPassword;
-
-        public string? AdminUserPassword => _mAdminUserPassword.GetValue("adminUserPassword");
+        private string? _mValue_AdminUserPassword;
+        private bool _mUnknown_AdminUserPassword;
+        public string? AdminUserPassword
+        {
+            get
+            {
+                if (!_mUnknown_AdminUserPassword) return _mValue_AdminUserPassword;
+                throw new UndeferrableValueException("Value 'NamespaceArgs.AdminUserPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// The username of the administrator for the first database created in the namespace.
         /// </summary>
-        [Input("adminUsername")]
+        [PolicyResourceProperty("adminUsername", "_mUnknown_AdminUsername")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdminUsername;
-
-        public string? AdminUsername => _mAdminUsername.GetValue("adminUsername");
+        private string? _mValue_AdminUsername;
+        private bool _mUnknown_AdminUsername;
+        public string? AdminUsername
+        {
+            get
+            {
+                if (!_mUnknown_AdminUsername) return _mValue_AdminUsername;
+                throw new UndeferrableValueException("Value 'NamespaceArgs.AdminUsername' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the first database created in the namespace.
         /// </summary>
-        [Input("dbName")]
+        [PolicyResourceProperty("dbName", "_mUnknown_DbName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbName;
-
-        public string? DbName => _mDbName.GetValue("dbName");
+        private string? _mValue_DbName;
+        private bool _mUnknown_DbName;
+        public string? DbName
+        {
+            get
+            {
+                if (!_mUnknown_DbName) return _mValue_DbName;
+                throw new UndeferrableValueException("Value 'NamespaceArgs.DbName' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
         /// </summary>
-        [Input("defaultIamRoleArn")]
+        [PolicyResourceProperty("defaultIamRoleArn", "_mUnknown_DefaultIamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultIamRoleArn;
-
-        public string? DefaultIamRoleArn => _mDefaultIamRoleArn.GetValue("defaultIamRoleArn");
+        private string? _mValue_DefaultIamRoleArn;
+        private bool _mUnknown_DefaultIamRoleArn;
+        public string? DefaultIamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_DefaultIamRoleArn) return _mValue_DefaultIamRoleArn;
+                throw new UndeferrableValueException("Value 'NamespaceArgs.DefaultIamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IAM roles to associate with the namespace.
         /// </summary>
-        [Input("iamRoles")]
+        [PolicyResourceProperty("iamRoles", "_mUnknown_IamRoles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIamRoles;
-
-        public List<string>? IamRoles => _mIamRoles.GetValue("iamRoles");
+        private List<string>? _mValue_IamRoles;
+        private bool _mUnknown_IamRoles;
+        public List<string>? IamRoles
+        {
+            get
+            {
+                if (!_mUnknown_IamRoles) return _mValue_IamRoles;
+                throw new UndeferrableValueException("Value 'NamespaceArgs.IamRoles' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'NamespaceArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
         /// </summary>
-        [Input("logExports")]
+        [PolicyResourceProperty("logExports", "_mUnknown_LogExports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLogExports;
-
-        public List<string>? LogExports => _mLogExports.GetValue("logExports");
+        private List<string>? _mValue_LogExports;
+        private bool _mUnknown_LogExports;
+        public List<string>? LogExports
+        {
+            get
+            {
+                if (!_mUnknown_LogExports) return _mValue_LogExports;
+                throw new UndeferrableValueException("Value 'NamespaceArgs.LogExports' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to use AWS SecretManager to manage namespace's admin credentials.
         /// Conflicts with `admin_user_password` and `admin_user_password_wo`.
         /// </summary>
-        [Input("manageAdminPassword")]
+        [PolicyResourceProperty("manageAdminPassword", "_mUnknown_ManageAdminPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mManageAdminPassword;
-
-        public bool? ManageAdminPassword => _mManageAdminPassword.GetValue("manageAdminPassword");
+        private bool? _mValue_ManageAdminPassword;
+        private bool _mUnknown_ManageAdminPassword;
+        public bool? ManageAdminPassword
+        {
+            get
+            {
+                if (!_mUnknown_ManageAdminPassword) return _mValue_ManageAdminPassword;
+                throw new UndeferrableValueException("Value 'NamespaceArgs.ManageAdminPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the namespace.
         /// </summary>
-        [Input("namespaceName")]
+        [PolicyResourceProperty("namespaceName", "_mUnknown_NamespaceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceName;
-
-        public string? NamespaceName => _mNamespaceName.GetValue("namespaceName");
+        private string? _mValue_NamespaceName;
+        private bool _mUnknown_NamespaceName;
+        public string? NamespaceName
+        {
+            get
+            {
+                if (!_mUnknown_NamespaceName) return _mValue_NamespaceName;
+                throw new UndeferrableValueException("Value 'NamespaceArgs.NamespaceName' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NamespaceArgs.Tags' is not present");
+            }
+        }
     }
 }

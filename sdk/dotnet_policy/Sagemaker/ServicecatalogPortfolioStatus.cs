@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'ServicecatalogPortfolioStatus.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'ServicecatalogPortfolioStatusArgs.Status' is not present");
+            }
+        }
     }
 }

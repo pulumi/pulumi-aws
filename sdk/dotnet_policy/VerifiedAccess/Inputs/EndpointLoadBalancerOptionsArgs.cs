@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess.Inputs
 {
     public sealed class EndpointLoadBalancerOptionsArgs
     {
-        [Input("loadBalancerArn")]
+        [PolicyResourceProperty("loadBalancerArn", "_mUnknown_LoadBalancerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancerArn;
+        private string? _mValue_LoadBalancerArn;
+        private bool _mUnknown_LoadBalancerArn;
+        public string? LoadBalancerArn
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerArn) return _mValue_LoadBalancerArn;
+                throw new UndeferrableValueException("Value 'EndpointLoadBalancerOptionsArgs.LoadBalancerArn' is not present");
+            }
+        }
 
-        public string? LoadBalancerArn => _mLoadBalancerArn.GetValue("loadBalancerArn");
-
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'EndpointLoadBalancerOptionsArgs.Port' is not present");
+            }
+        }
 
-        public int? Port => _mPort.GetValue("port");
-
-        [Input("portRanges")]
+        [PolicyResourceProperty("portRanges", "_mUnknown_PortRanges")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EndpointLoadBalancerOptionsPortRangeArgs>> _mPortRanges;
+        private List<Inputs.EndpointLoadBalancerOptionsPortRangeArgs>? _mValue_PortRanges;
+        private bool _mUnknown_PortRanges;
+        public List<Inputs.EndpointLoadBalancerOptionsPortRangeArgs>? PortRanges
+        {
+            get
+            {
+                if (!_mUnknown_PortRanges) return _mValue_PortRanges;
+                throw new UndeferrableValueException("Value 'EndpointLoadBalancerOptionsArgs.PortRanges' is not present");
+            }
+        }
 
-        public List<Inputs.EndpointLoadBalancerOptionsPortRangeArgs>? PortRanges => _mPortRanges.GetValue("portRanges");
-
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'EndpointLoadBalancerOptionsArgs.Protocol' is not present");
+            }
+        }
 
-        public string? Protocol => _mProtocol.GetValue("protocol");
-
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'EndpointLoadBalancerOptionsArgs.SubnetIds' is not present");
+            }
+        }
     }
 }

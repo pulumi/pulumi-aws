@@ -15,30 +15,51 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexPatternSetReferenceStatement.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         /// </summary>
-        [Input("fieldToMatch")]
+        [PolicyResourceProperty("fieldToMatch", "_mUnknown_FieldToMatch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch> _mFieldToMatch;
-
-        public Outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch? FieldToMatch => _mFieldToMatch.GetValue("fieldToMatch");
+        private Outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch? _mValue_FieldToMatch;
+        private bool _mUnknown_FieldToMatch;
+        public Outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch? FieldToMatch
+        {
+            get
+            {
+                if (!_mUnknown_FieldToMatch) return _mValue_FieldToMatch;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexPatternSetReferenceStatement.FieldToMatch' is not present");
+            }
+        }
 
         /// <summary>
         /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
         /// At least one required.
         /// See Text Transformation below for details.
         /// </summary>
-        [Input("textTransformations")]
+        [PolicyResourceProperty("textTransformations", "_mUnknown_TextTransformations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation>> _mTextTransformations;
-
-        public List<Outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation>? TextTransformations => _mTextTransformations.GetValue("textTransformations");
+        private List<Outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation>? _mValue_TextTransformations;
+        private bool _mUnknown_TextTransformations;
+        public List<Outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation>? TextTransformations
+        {
+            get
+            {
+                if (!_mUnknown_TextTransformations) return _mValue_TextTransformations;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexPatternSetReferenceStatement.TextTransformations' is not present");
+            }
+        }
     }
 }

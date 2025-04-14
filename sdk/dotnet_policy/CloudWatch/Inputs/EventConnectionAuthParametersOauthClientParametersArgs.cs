@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
         /// </summary>
-        [Input("clientId")]
+        [PolicyResourceProperty("clientId", "_mUnknown_ClientId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
-
-        public string? ClientId => _mClientId.GetValue("clientId");
+        private string? _mValue_ClientId;
+        private bool _mUnknown_ClientId;
+        public string? ClientId
+        {
+            get
+            {
+                if (!_mUnknown_ClientId) return _mValue_ClientId;
+                throw new UndeferrableValueException("Value 'EventConnectionAuthParametersOauthClientParametersArgs.ClientId' is not present");
+            }
+        }
 
         /// <summary>
         /// The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
         /// </summary>
-        [Input("clientSecret")]
+        [PolicyResourceProperty("clientSecret", "_mUnknown_ClientSecret")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientSecret;
-
-        public string? ClientSecret => _mClientSecret.GetValue("clientSecret");
+        private string? _mValue_ClientSecret;
+        private bool _mUnknown_ClientSecret;
+        public string? ClientSecret
+        {
+            get
+            {
+                if (!_mUnknown_ClientSecret) return _mValue_ClientSecret;
+                throw new UndeferrableValueException("Value 'EventConnectionAuthParametersOauthClientParametersArgs.ClientSecret' is not present");
+            }
+        }
     }
 }

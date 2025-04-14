@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.Cfg
         /// <summary>
         /// The ARN of the config rule
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Rule.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the rule
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Rule.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         /// </summary>
-        [Input("evaluationModes")]
+        [PolicyResourceProperty("evaluationModes", "_mUnknown_EvaluationModes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleEvaluationMode>> _mEvaluationModes;
-
-        public List<Outputs.RuleEvaluationMode>? EvaluationModes => _mEvaluationModes.GetValue("evaluationModes");
+        private List<Outputs.RuleEvaluationMode>? _mValue_EvaluationModes;
+        private bool _mUnknown_EvaluationModes;
+        public List<Outputs.RuleEvaluationMode>? EvaluationModes
+        {
+            get
+            {
+                if (!_mUnknown_EvaluationModes) return _mValue_EvaluationModes;
+                throw new UndeferrableValueException("Value 'Rule.EvaluationModes' is not present");
+            }
+        }
 
         /// <summary>
         /// A string in JSON format that is passed to the AWS Config rule Lambda function.
         /// </summary>
-        [Input("inputParameters")]
+        [PolicyResourceProperty("inputParameters", "_mUnknown_InputParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputParameters;
-
-        public string? InputParameters => _mInputParameters.GetValue("inputParameters");
+        private string? _mValue_InputParameters;
+        private bool _mUnknown_InputParameters;
+        public string? InputParameters
+        {
+            get
+            {
+                if (!_mUnknown_InputParameters) return _mValue_InputParameters;
+                throw new UndeferrableValueException("Value 'Rule.InputParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum frequency with which AWS Config runs evaluations for a rule.
         /// </summary>
-        [Input("maximumExecutionFrequency")]
+        [PolicyResourceProperty("maximumExecutionFrequency", "_mUnknown_MaximumExecutionFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaximumExecutionFrequency;
-
-        public string? MaximumExecutionFrequency => _mMaximumExecutionFrequency.GetValue("maximumExecutionFrequency");
+        private string? _mValue_MaximumExecutionFrequency;
+        private bool _mUnknown_MaximumExecutionFrequency;
+        public string? MaximumExecutionFrequency
+        {
+            get
+            {
+                if (!_mUnknown_MaximumExecutionFrequency) return _mValue_MaximumExecutionFrequency;
+                throw new UndeferrableValueException("Value 'Rule.MaximumExecutionFrequency' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the rule
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Rule.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the config rule
         /// </summary>
-        [Input("ruleId")]
+        [PolicyResourceProperty("ruleId", "_mUnknown_RuleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleId;
-
-        public string? RuleId => _mRuleId.GetValue("ruleId");
+        private string? _mValue_RuleId;
+        private bool _mUnknown_RuleId;
+        public string? RuleId
+        {
+            get
+            {
+                if (!_mUnknown_RuleId) return _mValue_RuleId;
+                throw new UndeferrableValueException("Value 'Rule.RuleId' is not present");
+            }
+        }
 
         /// <summary>
         /// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleScope> _mScope;
-
-        public Outputs.RuleScope? Scope => _mScope.GetValue("scope");
+        private Outputs.RuleScope? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public Outputs.RuleScope? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'Rule.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleSource> _mSource;
-
-        public Outputs.RuleSource? Source => _mSource.GetValue("source");
+        private Outputs.RuleSource? _mValue_Source;
+        private bool _mUnknown_Source;
+        public Outputs.RuleSource? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'Rule.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Rule.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Rule.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cfg/rule:Rule")]
@@ -119,73 +196,129 @@ namespace Pulumi.PolicyPacks.Aws.Cfg
         /// <summary>
         /// Description of the rule
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'RuleArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         /// </summary>
-        [Input("evaluationModes")]
+        [PolicyResourceProperty("evaluationModes", "_mUnknown_EvaluationModes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleEvaluationModeArgs>> _mEvaluationModes;
-
-        public List<Inputs.RuleEvaluationModeArgs>? EvaluationModes => _mEvaluationModes.GetValue("evaluationModes");
+        private List<Inputs.RuleEvaluationModeArgs>? _mValue_EvaluationModes;
+        private bool _mUnknown_EvaluationModes;
+        public List<Inputs.RuleEvaluationModeArgs>? EvaluationModes
+        {
+            get
+            {
+                if (!_mUnknown_EvaluationModes) return _mValue_EvaluationModes;
+                throw new UndeferrableValueException("Value 'RuleArgs.EvaluationModes' is not present");
+            }
+        }
 
         /// <summary>
         /// A string in JSON format that is passed to the AWS Config rule Lambda function.
         /// </summary>
-        [Input("inputParameters")]
+        [PolicyResourceProperty("inputParameters", "_mUnknown_InputParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputParameters;
-
-        public string? InputParameters => _mInputParameters.GetValue("inputParameters");
+        private string? _mValue_InputParameters;
+        private bool _mUnknown_InputParameters;
+        public string? InputParameters
+        {
+            get
+            {
+                if (!_mUnknown_InputParameters) return _mValue_InputParameters;
+                throw new UndeferrableValueException("Value 'RuleArgs.InputParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum frequency with which AWS Config runs evaluations for a rule.
         /// </summary>
-        [Input("maximumExecutionFrequency")]
+        [PolicyResourceProperty("maximumExecutionFrequency", "_mUnknown_MaximumExecutionFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaximumExecutionFrequency;
-
-        public string? MaximumExecutionFrequency => _mMaximumExecutionFrequency.GetValue("maximumExecutionFrequency");
+        private string? _mValue_MaximumExecutionFrequency;
+        private bool _mUnknown_MaximumExecutionFrequency;
+        public string? MaximumExecutionFrequency
+        {
+            get
+            {
+                if (!_mUnknown_MaximumExecutionFrequency) return _mValue_MaximumExecutionFrequency;
+                throw new UndeferrableValueException("Value 'RuleArgs.MaximumExecutionFrequency' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the rule
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RuleArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleScopeArgs> _mScope;
-
-        public Inputs.RuleScopeArgs? Scope => _mScope.GetValue("scope");
+        private Inputs.RuleScopeArgs? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public Inputs.RuleScopeArgs? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'RuleArgs.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleSourceArgs> _mSource;
-
-        public Inputs.RuleSourceArgs? Source => _mSource.GetValue("source");
+        private Inputs.RuleSourceArgs? _mValue_Source;
+        private bool _mUnknown_Source;
+        public Inputs.RuleSourceArgs? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'RuleArgs.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RuleArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Inputs
         /// <summary>
         /// Configuration block containing settings for abort incomplete multipart upload.
         /// </summary>
-        [Input("abortIncompleteMultipartUpload")]
+        [PolicyResourceProperty("abortIncompleteMultipartUpload", "_mUnknown_AbortIncompleteMultipartUpload")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs> _mAbortIncompleteMultipartUpload;
-
-        public Inputs.BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs? AbortIncompleteMultipartUpload => _mAbortIncompleteMultipartUpload.GetValue("abortIncompleteMultipartUpload");
+        private Inputs.BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs? _mValue_AbortIncompleteMultipartUpload;
+        private bool _mUnknown_AbortIncompleteMultipartUpload;
+        public Inputs.BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs? AbortIncompleteMultipartUpload
+        {
+            get
+            {
+                if (!_mUnknown_AbortIncompleteMultipartUpload) return _mValue_AbortIncompleteMultipartUpload;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationRuleArgs.AbortIncompleteMultipartUpload' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing settings for expiration of objects.
         /// </summary>
-        [Input("expiration")]
+        [PolicyResourceProperty("expiration", "_mUnknown_Expiration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketLifecycleConfigurationRuleExpirationArgs> _mExpiration;
-
-        public Inputs.BucketLifecycleConfigurationRuleExpirationArgs? Expiration => _mExpiration.GetValue("expiration");
+        private Inputs.BucketLifecycleConfigurationRuleExpirationArgs? _mValue_Expiration;
+        private bool _mUnknown_Expiration;
+        public Inputs.BucketLifecycleConfigurationRuleExpirationArgs? Expiration
+        {
+            get
+            {
+                if (!_mUnknown_Expiration) return _mValue_Expiration;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationRuleArgs.Expiration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing settings for filtering.
         /// </summary>
-        [Input("filter")]
+        [PolicyResourceProperty("filter", "_mUnknown_Filter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketLifecycleConfigurationRuleFilterArgs> _mFilter;
-
-        public Inputs.BucketLifecycleConfigurationRuleFilterArgs? Filter => _mFilter.GetValue("filter");
+        private Inputs.BucketLifecycleConfigurationRuleFilterArgs? _mValue_Filter;
+        private bool _mUnknown_Filter;
+        public Inputs.BucketLifecycleConfigurationRuleFilterArgs? Filter
+        {
+            get
+            {
+                if (!_mUnknown_Filter) return _mValue_Filter;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationRuleArgs.Filter' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the rule.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationRuleArgs.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the rule. Valid values: `Enabled` and `Disabled`. Defaults to `Enabled`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationRuleArgs.Status' is not present");
+            }
+        }
     }
 }

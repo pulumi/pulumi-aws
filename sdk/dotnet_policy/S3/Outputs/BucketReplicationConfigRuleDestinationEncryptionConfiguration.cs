@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
         /// </summary>
-        [Input("replicaKmsKeyId")]
+        [PolicyResourceProperty("replicaKmsKeyId", "_mUnknown_ReplicaKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicaKmsKeyId;
-
-        public string? ReplicaKmsKeyId => _mReplicaKmsKeyId.GetValue("replicaKmsKeyId");
+        private string? _mValue_ReplicaKmsKeyId;
+        private bool _mUnknown_ReplicaKmsKeyId;
+        public string? ReplicaKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_ReplicaKmsKeyId) return _mValue_ReplicaKmsKeyId;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationEncryptionConfiguration.ReplicaKmsKeyId' is not present");
+            }
+        }
     }
 }

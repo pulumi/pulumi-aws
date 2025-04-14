@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Setting to allow self signed or verified RTMP certificates.
         /// </summary>
-        [Input("certificateMode")]
+        [PolicyResourceProperty("certificateMode", "_mUnknown_CertificateMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateMode;
-
-        public string? CertificateMode => _mCertificateMode.GetValue("certificateMode");
+        private string? _mValue_CertificateMode;
+        private bool _mUnknown_CertificateMode;
+        public string? CertificateMode
+        {
+            get
+            {
+                if (!_mUnknown_CertificateMode) return _mValue_CertificateMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings.CertificateMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
         /// </summary>
-        [Input("connectionRetryInterval")]
+        [PolicyResourceProperty("connectionRetryInterval", "_mUnknown_ConnectionRetryInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mConnectionRetryInterval;
-
-        public int? ConnectionRetryInterval => _mConnectionRetryInterval.GetValue("connectionRetryInterval");
+        private int? _mValue_ConnectionRetryInterval;
+        private bool _mUnknown_ConnectionRetryInterval;
+        public int? ConnectionRetryInterval
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionRetryInterval) return _mValue_ConnectionRetryInterval;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings.ConnectionRetryInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// The RTMP endpoint excluding the stream name. See Destination for more details.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination> _mDestination;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination? Destination => _mDestination.GetValue("destination");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of retry attempts.
         /// </summary>
-        [Input("numRetries")]
+        [PolicyResourceProperty("numRetries", "_mUnknown_NumRetries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumRetries;
-
-        public int? NumRetries => _mNumRetries.GetValue("numRetries");
+        private int? _mValue_NumRetries;
+        private bool _mUnknown_NumRetries;
+        public int? NumRetries
+        {
+            get
+            {
+                if (!_mUnknown_NumRetries) return _mValue_NumRetries;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings.NumRetries' is not present");
+            }
+        }
     }
 }

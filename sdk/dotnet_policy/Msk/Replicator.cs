@@ -16,80 +16,143 @@ namespace Pulumi.PolicyPacks.Aws.Msk
         /// <summary>
         /// ARN of the Replicator.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Replicator.Arn' is not present");
+            }
+        }
 
-        public string? Arn => _mArn.GetValue("arn");
-
-        [Input("currentVersion")]
+        [PolicyResourceProperty("currentVersion", "_mUnknown_CurrentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCurrentVersion;
-
-        public string? CurrentVersion => _mCurrentVersion.GetValue("currentVersion");
+        private string? _mValue_CurrentVersion;
+        private bool _mUnknown_CurrentVersion;
+        public string? CurrentVersion
+        {
+            get
+            {
+                if (!_mUnknown_CurrentVersion) return _mValue_CurrentVersion;
+                throw new UndeferrableValueException("Value 'Replicator.CurrentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A summary description of the replicator.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Replicator.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of Kafka clusters which are targets of the replicator.
         /// </summary>
-        [Input("kafkaClusters")]
+        [PolicyResourceProperty("kafkaClusters", "_mUnknown_KafkaClusters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReplicatorKafkaCluster>> _mKafkaClusters;
-
-        public List<Outputs.ReplicatorKafkaCluster>? KafkaClusters => _mKafkaClusters.GetValue("kafkaClusters");
+        private List<Outputs.ReplicatorKafkaCluster>? _mValue_KafkaClusters;
+        private bool _mUnknown_KafkaClusters;
+        public List<Outputs.ReplicatorKafkaCluster>? KafkaClusters
+        {
+            get
+            {
+                if (!_mUnknown_KafkaClusters) return _mValue_KafkaClusters;
+                throw new UndeferrableValueException("Value 'Replicator.KafkaClusters' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         /// </summary>
-        [Input("replicationInfoList")]
+        [PolicyResourceProperty("replicationInfoList", "_mUnknown_ReplicationInfoList")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ReplicatorReplicationInfoList> _mReplicationInfoList;
-
-        public Outputs.ReplicatorReplicationInfoList? ReplicationInfoList => _mReplicationInfoList.GetValue("replicationInfoList");
+        private Outputs.ReplicatorReplicationInfoList? _mValue_ReplicationInfoList;
+        private bool _mUnknown_ReplicationInfoList;
+        public Outputs.ReplicatorReplicationInfoList? ReplicationInfoList
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationInfoList) return _mValue_ReplicationInfoList;
+                throw new UndeferrableValueException("Value 'Replicator.ReplicationInfoList' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the replicator.
         /// </summary>
-        [Input("replicatorName")]
+        [PolicyResourceProperty("replicatorName", "_mUnknown_ReplicatorName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicatorName;
-
-        public string? ReplicatorName => _mReplicatorName.GetValue("replicatorName");
+        private string? _mValue_ReplicatorName;
+        private bool _mUnknown_ReplicatorName;
+        public string? ReplicatorName
+        {
+            get
+            {
+                if (!_mUnknown_ReplicatorName) return _mValue_ReplicatorName;
+                throw new UndeferrableValueException("Value 'Replicator.ReplicatorName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         /// </summary>
-        [Input("serviceExecutionRoleArn")]
+        [PolicyResourceProperty("serviceExecutionRoleArn", "_mUnknown_ServiceExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceExecutionRoleArn;
-
-        public string? ServiceExecutionRoleArn => _mServiceExecutionRoleArn.GetValue("serviceExecutionRoleArn");
+        private string? _mValue_ServiceExecutionRoleArn;
+        private bool _mUnknown_ServiceExecutionRoleArn;
+        public string? ServiceExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceExecutionRoleArn) return _mValue_ServiceExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'Replicator.ServiceExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Replicator.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Replicator.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:msk/replicator:Replicator")]
@@ -98,55 +161,97 @@ namespace Pulumi.PolicyPacks.Aws.Msk
         /// <summary>
         /// A summary description of the replicator.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ReplicatorArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of Kafka clusters which are targets of the replicator.
         /// </summary>
-        [Input("kafkaClusters")]
+        [PolicyResourceProperty("kafkaClusters", "_mUnknown_KafkaClusters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReplicatorKafkaClusterArgs>> _mKafkaClusters;
-
-        public List<Inputs.ReplicatorKafkaClusterArgs>? KafkaClusters => _mKafkaClusters.GetValue("kafkaClusters");
+        private List<Inputs.ReplicatorKafkaClusterArgs>? _mValue_KafkaClusters;
+        private bool _mUnknown_KafkaClusters;
+        public List<Inputs.ReplicatorKafkaClusterArgs>? KafkaClusters
+        {
+            get
+            {
+                if (!_mUnknown_KafkaClusters) return _mValue_KafkaClusters;
+                throw new UndeferrableValueException("Value 'ReplicatorArgs.KafkaClusters' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         /// </summary>
-        [Input("replicationInfoList")]
+        [PolicyResourceProperty("replicationInfoList", "_mUnknown_ReplicationInfoList")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ReplicatorReplicationInfoListArgs> _mReplicationInfoList;
-
-        public Inputs.ReplicatorReplicationInfoListArgs? ReplicationInfoList => _mReplicationInfoList.GetValue("replicationInfoList");
+        private Inputs.ReplicatorReplicationInfoListArgs? _mValue_ReplicationInfoList;
+        private bool _mUnknown_ReplicationInfoList;
+        public Inputs.ReplicatorReplicationInfoListArgs? ReplicationInfoList
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationInfoList) return _mValue_ReplicationInfoList;
+                throw new UndeferrableValueException("Value 'ReplicatorArgs.ReplicationInfoList' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the replicator.
         /// </summary>
-        [Input("replicatorName")]
+        [PolicyResourceProperty("replicatorName", "_mUnknown_ReplicatorName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicatorName;
-
-        public string? ReplicatorName => _mReplicatorName.GetValue("replicatorName");
+        private string? _mValue_ReplicatorName;
+        private bool _mUnknown_ReplicatorName;
+        public string? ReplicatorName
+        {
+            get
+            {
+                if (!_mUnknown_ReplicatorName) return _mValue_ReplicatorName;
+                throw new UndeferrableValueException("Value 'ReplicatorArgs.ReplicatorName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         /// </summary>
-        [Input("serviceExecutionRoleArn")]
+        [PolicyResourceProperty("serviceExecutionRoleArn", "_mUnknown_ServiceExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceExecutionRoleArn;
-
-        public string? ServiceExecutionRoleArn => _mServiceExecutionRoleArn.GetValue("serviceExecutionRoleArn");
+        private string? _mValue_ServiceExecutionRoleArn;
+        private bool _mUnknown_ServiceExecutionRoleArn;
+        public string? ServiceExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceExecutionRoleArn) return _mValue_ServiceExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'ReplicatorArgs.ServiceExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReplicatorArgs.Tags' is not present");
+            }
+        }
     }
 }

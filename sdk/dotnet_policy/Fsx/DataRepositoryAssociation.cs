@@ -16,99 +16,176 @@ namespace Pulumi.PolicyPacks.Aws.Fsx
         /// <summary>
         /// Amazon Resource Name of the file system.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociation.Arn' is not present");
+            }
+        }
 
-        public string? Arn => _mArn.GetValue("arn");
-
-        [Input("associationId")]
+        [PolicyResourceProperty("associationId", "_mUnknown_AssociationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationId;
-
-        public string? AssociationId => _mAssociationId.GetValue("associationId");
+        private string? _mValue_AssociationId;
+        private bool _mUnknown_AssociationId;
+        public string? AssociationId
+        {
+            get
+            {
+                if (!_mUnknown_AssociationId) return _mValue_AssociationId;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociation.AssociationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
         /// </summary>
-        [Input("batchImportMetaDataOnCreate")]
+        [PolicyResourceProperty("batchImportMetaDataOnCreate", "_mUnknown_BatchImportMetaDataOnCreate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBatchImportMetaDataOnCreate;
-
-        public bool? BatchImportMetaDataOnCreate => _mBatchImportMetaDataOnCreate.GetValue("batchImportMetaDataOnCreate");
+        private bool? _mValue_BatchImportMetaDataOnCreate;
+        private bool _mUnknown_BatchImportMetaDataOnCreate;
+        public bool? BatchImportMetaDataOnCreate
+        {
+            get
+            {
+                if (!_mUnknown_BatchImportMetaDataOnCreate) return _mValue_BatchImportMetaDataOnCreate;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociation.BatchImportMetaDataOnCreate' is not present");
+            }
+        }
 
         /// <summary>
         /// The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
         /// </summary>
-        [Input("dataRepositoryPath")]
+        [PolicyResourceProperty("dataRepositoryPath", "_mUnknown_DataRepositoryPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataRepositoryPath;
-
-        public string? DataRepositoryPath => _mDataRepositoryPath.GetValue("dataRepositoryPath");
+        private string? _mValue_DataRepositoryPath;
+        private bool _mUnknown_DataRepositoryPath;
+        public string? DataRepositoryPath
+        {
+            get
+            {
+                if (!_mUnknown_DataRepositoryPath) return _mValue_DataRepositoryPath;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociation.DataRepositoryPath' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to true to delete files from the file system upon deleting this data repository association. Defaults to `false`.
         /// </summary>
-        [Input("deleteDataInFilesystem")]
+        [PolicyResourceProperty("deleteDataInFilesystem", "_mUnknown_DeleteDataInFilesystem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteDataInFilesystem;
-
-        public bool? DeleteDataInFilesystem => _mDeleteDataInFilesystem.GetValue("deleteDataInFilesystem");
+        private bool? _mValue_DeleteDataInFilesystem;
+        private bool _mUnknown_DeleteDataInFilesystem;
+        public bool? DeleteDataInFilesystem
+        {
+            get
+            {
+                if (!_mUnknown_DeleteDataInFilesystem) return _mValue_DeleteDataInFilesystem;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociation.DeleteDataInFilesystem' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Amazon FSx file system to on which to create a data repository association.
         /// </summary>
-        [Input("fileSystemId")]
+        [PolicyResourceProperty("fileSystemId", "_mUnknown_FileSystemId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
-
-        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+        private string? _mValue_FileSystemId;
+        private bool _mUnknown_FileSystemId;
+        public string? FileSystemId
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemId) return _mValue_FileSystemId;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociation.FileSystemId' is not present");
+            }
+        }
 
         /// <summary>
         /// A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `data_repository_path`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
         /// </summary>
-        [Input("fileSystemPath")]
+        [PolicyResourceProperty("fileSystemPath", "_mUnknown_FileSystemPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemPath;
-
-        public string? FileSystemPath => _mFileSystemPath.GetValue("fileSystemPath");
+        private string? _mValue_FileSystemPath;
+        private bool _mUnknown_FileSystemPath;
+        public string? FileSystemPath
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemPath) return _mValue_FileSystemPath;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociation.FileSystemPath' is not present");
+            }
+        }
 
         /// <summary>
         /// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
         /// </summary>
-        [Input("importedFileChunkSize")]
+        [PolicyResourceProperty("importedFileChunkSize", "_mUnknown_ImportedFileChunkSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mImportedFileChunkSize;
-
-        public int? ImportedFileChunkSize => _mImportedFileChunkSize.GetValue("importedFileChunkSize");
+        private int? _mValue_ImportedFileChunkSize;
+        private bool _mUnknown_ImportedFileChunkSize;
+        public int? ImportedFileChunkSize
+        {
+            get
+            {
+                if (!_mUnknown_ImportedFileChunkSize) return _mValue_ImportedFileChunkSize;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociation.ImportedFileChunkSize' is not present");
+            }
+        }
 
         /// <summary>
         /// See the `s3` configuration block. Max of 1.
         /// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
         /// </summary>
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataRepositoryAssociationS3> _mS3;
-
-        public Outputs.DataRepositoryAssociationS3? S3 => _mS3.GetValue("s3");
+        private Outputs.DataRepositoryAssociationS3? _mValue_S3;
+        private bool _mUnknown_S3;
+        public Outputs.DataRepositoryAssociationS3? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociation.S3' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the data repository association. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociation.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociation.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation")]
@@ -117,74 +194,130 @@ namespace Pulumi.PolicyPacks.Aws.Fsx
         /// <summary>
         /// Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
         /// </summary>
-        [Input("batchImportMetaDataOnCreate")]
+        [PolicyResourceProperty("batchImportMetaDataOnCreate", "_mUnknown_BatchImportMetaDataOnCreate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBatchImportMetaDataOnCreate;
-
-        public bool? BatchImportMetaDataOnCreate => _mBatchImportMetaDataOnCreate.GetValue("batchImportMetaDataOnCreate");
+        private bool? _mValue_BatchImportMetaDataOnCreate;
+        private bool _mUnknown_BatchImportMetaDataOnCreate;
+        public bool? BatchImportMetaDataOnCreate
+        {
+            get
+            {
+                if (!_mUnknown_BatchImportMetaDataOnCreate) return _mValue_BatchImportMetaDataOnCreate;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociationArgs.BatchImportMetaDataOnCreate' is not present");
+            }
+        }
 
         /// <summary>
         /// The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
         /// </summary>
-        [Input("dataRepositoryPath")]
+        [PolicyResourceProperty("dataRepositoryPath", "_mUnknown_DataRepositoryPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataRepositoryPath;
-
-        public string? DataRepositoryPath => _mDataRepositoryPath.GetValue("dataRepositoryPath");
+        private string? _mValue_DataRepositoryPath;
+        private bool _mUnknown_DataRepositoryPath;
+        public string? DataRepositoryPath
+        {
+            get
+            {
+                if (!_mUnknown_DataRepositoryPath) return _mValue_DataRepositoryPath;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociationArgs.DataRepositoryPath' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to true to delete files from the file system upon deleting this data repository association. Defaults to `false`.
         /// </summary>
-        [Input("deleteDataInFilesystem")]
+        [PolicyResourceProperty("deleteDataInFilesystem", "_mUnknown_DeleteDataInFilesystem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteDataInFilesystem;
-
-        public bool? DeleteDataInFilesystem => _mDeleteDataInFilesystem.GetValue("deleteDataInFilesystem");
+        private bool? _mValue_DeleteDataInFilesystem;
+        private bool _mUnknown_DeleteDataInFilesystem;
+        public bool? DeleteDataInFilesystem
+        {
+            get
+            {
+                if (!_mUnknown_DeleteDataInFilesystem) return _mValue_DeleteDataInFilesystem;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociationArgs.DeleteDataInFilesystem' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Amazon FSx file system to on which to create a data repository association.
         /// </summary>
-        [Input("fileSystemId")]
+        [PolicyResourceProperty("fileSystemId", "_mUnknown_FileSystemId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
-
-        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+        private string? _mValue_FileSystemId;
+        private bool _mUnknown_FileSystemId;
+        public string? FileSystemId
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemId) return _mValue_FileSystemId;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociationArgs.FileSystemId' is not present");
+            }
+        }
 
         /// <summary>
         /// A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `data_repository_path`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
         /// </summary>
-        [Input("fileSystemPath")]
+        [PolicyResourceProperty("fileSystemPath", "_mUnknown_FileSystemPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemPath;
-
-        public string? FileSystemPath => _mFileSystemPath.GetValue("fileSystemPath");
+        private string? _mValue_FileSystemPath;
+        private bool _mUnknown_FileSystemPath;
+        public string? FileSystemPath
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemPath) return _mValue_FileSystemPath;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociationArgs.FileSystemPath' is not present");
+            }
+        }
 
         /// <summary>
         /// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
         /// </summary>
-        [Input("importedFileChunkSize")]
+        [PolicyResourceProperty("importedFileChunkSize", "_mUnknown_ImportedFileChunkSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mImportedFileChunkSize;
-
-        public int? ImportedFileChunkSize => _mImportedFileChunkSize.GetValue("importedFileChunkSize");
+        private int? _mValue_ImportedFileChunkSize;
+        private bool _mUnknown_ImportedFileChunkSize;
+        public int? ImportedFileChunkSize
+        {
+            get
+            {
+                if (!_mUnknown_ImportedFileChunkSize) return _mValue_ImportedFileChunkSize;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociationArgs.ImportedFileChunkSize' is not present");
+            }
+        }
 
         /// <summary>
         /// See the `s3` configuration block. Max of 1.
         /// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
         /// </summary>
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataRepositoryAssociationS3Args> _mS3;
-
-        public Inputs.DataRepositoryAssociationS3Args? S3 => _mS3.GetValue("s3");
+        private Inputs.DataRepositoryAssociationS3Args? _mValue_S3;
+        private bool _mUnknown_S3;
+        public Inputs.DataRepositoryAssociationS3Args? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociationArgs.S3' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the data repository association. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociationArgs.Tags' is not present");
+            }
+        }
     }
 }

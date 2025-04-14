@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// The specified format for the logs.
         /// </summary>
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualGatewaySpecLoggingAccessLogFileFormatArgs> _mFormat;
-
-        public Inputs.VirtualGatewaySpecLoggingAccessLogFileFormatArgs? Format => _mFormat.GetValue("format");
+        private Inputs.VirtualGatewaySpecLoggingAccessLogFileFormatArgs? _mValue_Format;
+        private bool _mUnknown_Format;
+        public Inputs.VirtualGatewaySpecLoggingAccessLogFileFormatArgs? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecLoggingAccessLogFileArgs.Format' is not present");
+            }
+        }
 
         /// <summary>
         /// File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecLoggingAccessLogFileArgs.Path' is not present");
+            }
+        }
     }
 }

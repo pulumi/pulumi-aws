@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.DataSync.Outputs
         /// <summary>
         /// List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
         /// </summary>
-        [Input("agentArns")]
+        [PolicyResourceProperty("agentArns", "_mUnknown_AgentArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAgentArns;
-
-        public List<string>? AgentArns => _mAgentArns.GetValue("agentArns");
+        private List<string>? _mValue_AgentArns;
+        private bool _mUnknown_AgentArns;
+        public List<string>? AgentArns
+        {
+            get
+            {
+                if (!_mUnknown_AgentArns) return _mValue_AgentArns;
+                throw new UndeferrableValueException("Value 'NfsLocationOnPremConfig.AgentArns' is not present");
+            }
+        }
     }
 }

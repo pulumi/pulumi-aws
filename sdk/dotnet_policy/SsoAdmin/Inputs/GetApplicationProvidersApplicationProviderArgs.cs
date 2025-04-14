@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin.Inputs
         /// <summary>
         /// ARN of the application provider.
         /// </summary>
-        [Input("applicationProviderArn")]
+        [PolicyResourceProperty("applicationProviderArn", "_mUnknown_ApplicationProviderArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationProviderArn;
-
-        public string? ApplicationProviderArn => _mApplicationProviderArn.GetValue("applicationProviderArn");
+        private string? _mValue_ApplicationProviderArn;
+        private bool _mUnknown_ApplicationProviderArn;
+        public string? ApplicationProviderArn
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationProviderArn) return _mValue_ApplicationProviderArn;
+                throw new UndeferrableValueException("Value 'GetApplicationProvidersApplicationProviderInputArgs.ApplicationProviderArn' is not present");
+            }
+        }
 
         /// <summary>
         /// An object describing how IAM Identity Center represents the application provider in the portal. See `display_data` below.
         /// </summary>
-        [Input("displayDatas")]
+        [PolicyResourceProperty("displayDatas", "_mUnknown_DisplayDatas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GetApplicationProvidersApplicationProviderDisplayDataInputArgs>> _mDisplayDatas;
-
-        public List<Inputs.GetApplicationProvidersApplicationProviderDisplayDataInputArgs>? DisplayDatas => _mDisplayDatas.GetValue("displayDatas");
+        private List<Inputs.GetApplicationProvidersApplicationProviderDisplayDataInputArgs>? _mValue_DisplayDatas;
+        private bool _mUnknown_DisplayDatas;
+        public List<Inputs.GetApplicationProvidersApplicationProviderDisplayDataInputArgs>? DisplayDatas
+        {
+            get
+            {
+                if (!_mUnknown_DisplayDatas) return _mValue_DisplayDatas;
+                throw new UndeferrableValueException("Value 'GetApplicationProvidersApplicationProviderInputArgs.DisplayDatas' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
         /// </summary>
-        [Input("federationProtocol")]
+        [PolicyResourceProperty("federationProtocol", "_mUnknown_FederationProtocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFederationProtocol;
-
-        public string? FederationProtocol => _mFederationProtocol.GetValue("federationProtocol");
+        private string? _mValue_FederationProtocol;
+        private bool _mUnknown_FederationProtocol;
+        public string? FederationProtocol
+        {
+            get
+            {
+                if (!_mUnknown_FederationProtocol) return _mValue_FederationProtocol;
+                throw new UndeferrableValueException("Value 'GetApplicationProvidersApplicationProviderInputArgs.FederationProtocol' is not present");
+            }
+        }
     }
 }

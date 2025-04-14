@@ -16,130 +16,228 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// Regular expression used to validate the parameter value.
         /// </summary>
-        [Input("allowedPattern")]
+        [PolicyResourceProperty("allowedPattern", "_mUnknown_AllowedPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAllowedPattern;
-
-        public string? AllowedPattern => _mAllowedPattern.GetValue("allowedPattern");
+        private string? _mValue_AllowedPattern;
+        private bool _mUnknown_AllowedPattern;
+        public string? AllowedPattern
+        {
+            get
+            {
+                if (!_mUnknown_AllowedPattern) return _mValue_AllowedPattern;
+                throw new UndeferrableValueException("Value 'Parameter.AllowedPattern' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the parameter.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Parameter.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         /// </summary>
-        [Input("dataType")]
+        [PolicyResourceProperty("dataType", "_mUnknown_DataType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataType;
-
-        public string? DataType => _mDataType.GetValue("dataType");
+        private string? _mValue_DataType;
+        private bool _mUnknown_DataType;
+        public string? DataType
+        {
+            get
+            {
+                if (!_mUnknown_DataType) return _mValue_DataType;
+                throw new UndeferrableValueException("Value 'Parameter.DataType' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the parameter.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Parameter.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
         /// </summary>
-        [Input("insecureValue")]
+        [PolicyResourceProperty("insecureValue", "_mUnknown_InsecureValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInsecureValue;
-
-        public string? InsecureValue => _mInsecureValue.GetValue("insecureValue");
+        private string? _mValue_InsecureValue;
+        private bool _mUnknown_InsecureValue;
+        public string? InsecureValue
+        {
+            get
+            {
+                if (!_mUnknown_InsecureValue) return _mValue_InsecureValue;
+                throw new UndeferrableValueException("Value 'Parameter.InsecureValue' is not present");
+            }
+        }
 
         /// <summary>
         /// KMS key ID or ARN for encrypting a SecureString.
         /// </summary>
-        [Input("keyId")]
+        [PolicyResourceProperty("keyId", "_mUnknown_KeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
-
-        public string? KeyId => _mKeyId.GetValue("keyId");
+        private string? _mValue_KeyId;
+        private bool _mUnknown_KeyId;
+        public string? KeyId
+        {
+            get
+            {
+                if (!_mUnknown_KeyId) return _mValue_KeyId;
+                throw new UndeferrableValueException("Value 'Parameter.KeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Parameter.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
         /// </summary>
-        [Input("overwrite")]
+        [PolicyResourceProperty("overwrite", "_mUnknown_Overwrite")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOverwrite;
-
-        public bool? Overwrite => _mOverwrite.GetValue("overwrite");
+        private bool? _mValue_Overwrite;
+        private bool _mUnknown_Overwrite;
+        public bool? Overwrite
+        {
+            get
+            {
+                if (!_mUnknown_Overwrite) return _mValue_Overwrite;
+                throw new UndeferrableValueException("Value 'Parameter.Overwrite' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Parameter.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Parameter.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         /// </summary>
-        [Input("tier")]
+        [PolicyResourceProperty("tier", "_mUnknown_Tier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTier;
-
-        public string? Tier => _mTier.GetValue("tier");
+        private string? _mValue_Tier;
+        private bool _mUnknown_Tier;
+        public string? Tier
+        {
+            get
+            {
+                if (!_mUnknown_Tier) return _mValue_Tier;
+                throw new UndeferrableValueException("Value 'Parameter.Tier' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Parameter.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'Parameter.Value' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the parameter.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
-
-        public int? Version => _mVersion.GetValue("version");
+        private int? _mValue_Version;
+        private bool _mUnknown_Version;
+        public int? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'Parameter.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssm/parameter:Parameter")]
@@ -148,111 +246,195 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// Regular expression used to validate the parameter value.
         /// </summary>
-        [Input("allowedPattern")]
+        [PolicyResourceProperty("allowedPattern", "_mUnknown_AllowedPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAllowedPattern;
-
-        public string? AllowedPattern => _mAllowedPattern.GetValue("allowedPattern");
+        private string? _mValue_AllowedPattern;
+        private bool _mUnknown_AllowedPattern;
+        public string? AllowedPattern
+        {
+            get
+            {
+                if (!_mUnknown_AllowedPattern) return _mValue_AllowedPattern;
+                throw new UndeferrableValueException("Value 'ParameterArgs.AllowedPattern' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the parameter.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ParameterArgs.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         /// </summary>
-        [Input("dataType")]
+        [PolicyResourceProperty("dataType", "_mUnknown_DataType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataType;
-
-        public string? DataType => _mDataType.GetValue("dataType");
+        private string? _mValue_DataType;
+        private bool _mUnknown_DataType;
+        public string? DataType
+        {
+            get
+            {
+                if (!_mUnknown_DataType) return _mValue_DataType;
+                throw new UndeferrableValueException("Value 'ParameterArgs.DataType' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the parameter.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ParameterArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
         /// </summary>
-        [Input("insecureValue")]
+        [PolicyResourceProperty("insecureValue", "_mUnknown_InsecureValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInsecureValue;
-
-        public string? InsecureValue => _mInsecureValue.GetValue("insecureValue");
+        private string? _mValue_InsecureValue;
+        private bool _mUnknown_InsecureValue;
+        public string? InsecureValue
+        {
+            get
+            {
+                if (!_mUnknown_InsecureValue) return _mValue_InsecureValue;
+                throw new UndeferrableValueException("Value 'ParameterArgs.InsecureValue' is not present");
+            }
+        }
 
         /// <summary>
         /// KMS key ID or ARN for encrypting a SecureString.
         /// </summary>
-        [Input("keyId")]
+        [PolicyResourceProperty("keyId", "_mUnknown_KeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
-
-        public string? KeyId => _mKeyId.GetValue("keyId");
+        private string? _mValue_KeyId;
+        private bool _mUnknown_KeyId;
+        public string? KeyId
+        {
+            get
+            {
+                if (!_mUnknown_KeyId) return _mValue_KeyId;
+                throw new UndeferrableValueException("Value 'ParameterArgs.KeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ParameterArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
         /// </summary>
-        [Input("overwrite")]
+        [PolicyResourceProperty("overwrite", "_mUnknown_Overwrite")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOverwrite;
-
-        public bool? Overwrite => _mOverwrite.GetValue("overwrite");
+        private bool? _mValue_Overwrite;
+        private bool _mUnknown_Overwrite;
+        public bool? Overwrite
+        {
+            get
+            {
+                if (!_mUnknown_Overwrite) return _mValue_Overwrite;
+                throw new UndeferrableValueException("Value 'ParameterArgs.Overwrite' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ParameterArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         /// </summary>
-        [Input("tier")]
+        [PolicyResourceProperty("tier", "_mUnknown_Tier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTier;
-
-        public string? Tier => _mTier.GetValue("tier");
+        private string? _mValue_Tier;
+        private bool _mUnknown_Tier;
+        public string? Tier
+        {
+            get
+            {
+                if (!_mUnknown_Tier) return _mValue_Tier;
+                throw new UndeferrableValueException("Value 'ParameterArgs.Tier' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ParameterArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'ParameterArgs.Value' is not present");
+            }
+        }
     }
 }

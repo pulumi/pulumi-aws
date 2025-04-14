@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Amplify.Outputs
         /// <summary>
         /// Branch name setting for the subdomain.
         /// </summary>
-        [Input("branchName")]
+        [PolicyResourceProperty("branchName", "_mUnknown_BranchName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBranchName;
-
-        public string? BranchName => _mBranchName.GetValue("branchName");
+        private string? _mValue_BranchName;
+        private bool _mUnknown_BranchName;
+        public string? BranchName
+        {
+            get
+            {
+                if (!_mUnknown_BranchName) return _mValue_BranchName;
+                throw new UndeferrableValueException("Value 'DomainAssociationSubDomain.BranchName' is not present");
+            }
+        }
 
         /// <summary>
         /// DNS record for the subdomain in a space-prefixed and space-delimited format (` CNAME &lt;target&gt;`).
         /// </summary>
-        [Input("dnsRecord")]
+        [PolicyResourceProperty("dnsRecord", "_mUnknown_DnsRecord")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsRecord;
-
-        public string? DnsRecord => _mDnsRecord.GetValue("dnsRecord");
+        private string? _mValue_DnsRecord;
+        private bool _mUnknown_DnsRecord;
+        public string? DnsRecord
+        {
+            get
+            {
+                if (!_mUnknown_DnsRecord) return _mValue_DnsRecord;
+                throw new UndeferrableValueException("Value 'DomainAssociationSubDomain.DnsRecord' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix setting for the subdomain.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'DomainAssociationSubDomain.Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Verified status of the subdomain.
         /// </summary>
-        [Input("verified")]
+        [PolicyResourceProperty("verified", "_mUnknown_Verified")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mVerified;
-
-        public bool? Verified => _mVerified.GetValue("verified");
+        private bool? _mValue_Verified;
+        private bool _mUnknown_Verified;
+        public bool? Verified
+        {
+            get
+            {
+                if (!_mUnknown_Verified) return _mValue_Verified;
+                throw new UndeferrableValueException("Value 'DomainAssociationSubDomain.Verified' is not present");
+            }
+        }
     }
 }

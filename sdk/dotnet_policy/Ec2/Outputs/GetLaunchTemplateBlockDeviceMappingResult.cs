@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetLaunchTemplateBlockDeviceMappingResult
     {
-        [Input("deviceName")]
+        [PolicyResourceProperty("deviceName", "_mUnknown_DeviceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceName;
+        private string? _mValue_DeviceName;
+        private bool _mUnknown_DeviceName;
+        public string? DeviceName
+        {
+            get
+            {
+                if (!_mUnknown_DeviceName) return _mValue_DeviceName;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateBlockDeviceMappingResult.DeviceName' is not present");
+            }
+        }
 
-        public string? DeviceName => _mDeviceName.GetValue("deviceName");
-
-        [Input("ebs")]
+        [PolicyResourceProperty("ebs", "_mUnknown_Ebs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetLaunchTemplateBlockDeviceMappingEbResult>> _mEbs;
+        private List<Outputs.GetLaunchTemplateBlockDeviceMappingEbResult>? _mValue_Ebs;
+        private bool _mUnknown_Ebs;
+        public List<Outputs.GetLaunchTemplateBlockDeviceMappingEbResult>? Ebs
+        {
+            get
+            {
+                if (!_mUnknown_Ebs) return _mValue_Ebs;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateBlockDeviceMappingResult.Ebs' is not present");
+            }
+        }
 
-        public List<Outputs.GetLaunchTemplateBlockDeviceMappingEbResult>? Ebs => _mEbs.GetValue("ebs");
-
-        [Input("noDevice")]
+        [PolicyResourceProperty("noDevice", "_mUnknown_NoDevice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNoDevice;
+        private string? _mValue_NoDevice;
+        private bool _mUnknown_NoDevice;
+        public string? NoDevice
+        {
+            get
+            {
+                if (!_mUnknown_NoDevice) return _mValue_NoDevice;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateBlockDeviceMappingResult.NoDevice' is not present");
+            }
+        }
 
-        public string? NoDevice => _mNoDevice.GetValue("noDevice");
-
-        [Input("virtualName")]
+        [PolicyResourceProperty("virtualName", "_mUnknown_VirtualName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualName;
-
-        public string? VirtualName => _mVirtualName.GetValue("virtualName");
+        private string? _mValue_VirtualName;
+        private bool _mUnknown_VirtualName;
+        public string? VirtualName
+        {
+            get
+            {
+                if (!_mUnknown_VirtualName) return _mValue_VirtualName;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateBlockDeviceMappingResult.VirtualName' is not present");
+            }
+        }
     }
 }

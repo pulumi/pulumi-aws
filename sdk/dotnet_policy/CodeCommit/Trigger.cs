@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.CodeCommit
         /// <summary>
         /// System-generated unique identifier.
         /// </summary>
-        [Input("configurationId")]
+        [PolicyResourceProperty("configurationId", "_mUnknown_ConfigurationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationId;
-
-        public string? ConfigurationId => _mConfigurationId.GetValue("configurationId");
+        private string? _mValue_ConfigurationId;
+        private bool _mUnknown_ConfigurationId;
+        public string? ConfigurationId
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationId) return _mValue_ConfigurationId;
+                throw new UndeferrableValueException("Value 'Trigger.ConfigurationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the repository. This needs to be less than 100 characters.
         /// </summary>
-        [Input("repositoryName")]
+        [PolicyResourceProperty("repositoryName", "_mUnknown_RepositoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
-
-        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
+        private string? _mValue_RepositoryName;
+        private bool _mUnknown_RepositoryName;
+        public string? RepositoryName
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryName) return _mValue_RepositoryName;
+                throw new UndeferrableValueException("Value 'Trigger.RepositoryName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the trigger.
         /// </summary>
-        [Input("triggers")]
+        [PolicyResourceProperty("triggers", "_mUnknown_Triggers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TriggerTrigger>> _mTriggers;
-
-        public List<Outputs.TriggerTrigger>? Triggers => _mTriggers.GetValue("triggers");
+        private List<Outputs.TriggerTrigger>? _mValue_Triggers;
+        private bool _mUnknown_Triggers;
+        public List<Outputs.TriggerTrigger>? Triggers
+        {
+            get
+            {
+                if (!_mUnknown_Triggers) return _mValue_Triggers;
+                throw new UndeferrableValueException("Value 'Trigger.Triggers' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codecommit/trigger:Trigger")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.CodeCommit
         /// <summary>
         /// The name for the repository. This needs to be less than 100 characters.
         /// </summary>
-        [Input("repositoryName")]
+        [PolicyResourceProperty("repositoryName", "_mUnknown_RepositoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
-
-        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
+        private string? _mValue_RepositoryName;
+        private bool _mUnknown_RepositoryName;
+        public string? RepositoryName
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryName) return _mValue_RepositoryName;
+                throw new UndeferrableValueException("Value 'TriggerArgs.RepositoryName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the trigger.
         /// </summary>
-        [Input("triggers")]
+        [PolicyResourceProperty("triggers", "_mUnknown_Triggers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TriggerTriggerArgs>> _mTriggers;
-
-        public List<Inputs.TriggerTriggerArgs>? Triggers => _mTriggers.GetValue("triggers");
+        private List<Inputs.TriggerTriggerArgs>? _mValue_Triggers;
+        private bool _mUnknown_Triggers;
+        public List<Inputs.TriggerTriggerArgs>? Triggers
+        {
+            get
+            {
+                if (!_mUnknown_Triggers) return _mValue_Triggers;
+                throw new UndeferrableValueException("Value 'TriggerArgs.Triggers' is not present");
+            }
+        }
     }
 }

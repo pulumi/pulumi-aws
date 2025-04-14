@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// <summary>
         /// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
         /// </summary>
-        [Input("approximateCreationDateTimePrecision")]
+        [PolicyResourceProperty("approximateCreationDateTimePrecision", "_mUnknown_ApproximateCreationDateTimePrecision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApproximateCreationDateTimePrecision;
-
-        public string? ApproximateCreationDateTimePrecision => _mApproximateCreationDateTimePrecision.GetValue("approximateCreationDateTimePrecision");
+        private string? _mValue_ApproximateCreationDateTimePrecision;
+        private bool _mUnknown_ApproximateCreationDateTimePrecision;
+        public string? ApproximateCreationDateTimePrecision
+        {
+            get
+            {
+                if (!_mUnknown_ApproximateCreationDateTimePrecision) return _mValue_ApproximateCreationDateTimePrecision;
+                throw new UndeferrableValueException("Value 'KinesisStreamingDestination.ApproximateCreationDateTimePrecision' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
         /// </summary>
-        [Input("streamArn")]
+        [PolicyResourceProperty("streamArn", "_mUnknown_StreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamArn;
-
-        public string? StreamArn => _mStreamArn.GetValue("streamArn");
+        private string? _mValue_StreamArn;
+        private bool _mUnknown_StreamArn;
+        public string? StreamArn
+        {
+            get
+            {
+                if (!_mUnknown_StreamArn) return _mValue_StreamArn;
+                throw new UndeferrableValueException("Value 'KinesisStreamingDestination.StreamArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'KinesisStreamingDestination.TableName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// <summary>
         /// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
         /// </summary>
-        [Input("approximateCreationDateTimePrecision")]
+        [PolicyResourceProperty("approximateCreationDateTimePrecision", "_mUnknown_ApproximateCreationDateTimePrecision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApproximateCreationDateTimePrecision;
-
-        public string? ApproximateCreationDateTimePrecision => _mApproximateCreationDateTimePrecision.GetValue("approximateCreationDateTimePrecision");
+        private string? _mValue_ApproximateCreationDateTimePrecision;
+        private bool _mUnknown_ApproximateCreationDateTimePrecision;
+        public string? ApproximateCreationDateTimePrecision
+        {
+            get
+            {
+                if (!_mUnknown_ApproximateCreationDateTimePrecision) return _mValue_ApproximateCreationDateTimePrecision;
+                throw new UndeferrableValueException("Value 'KinesisStreamingDestinationArgs.ApproximateCreationDateTimePrecision' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
         /// </summary>
-        [Input("streamArn")]
+        [PolicyResourceProperty("streamArn", "_mUnknown_StreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamArn;
-
-        public string? StreamArn => _mStreamArn.GetValue("streamArn");
+        private string? _mValue_StreamArn;
+        private bool _mUnknown_StreamArn;
+        public string? StreamArn
+        {
+            get
+            {
+                if (!_mUnknown_StreamArn) return _mValue_StreamArn;
+                throw new UndeferrableValueException("Value 'KinesisStreamingDestinationArgs.StreamArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'KinesisStreamingDestinationArgs.TableName' is not present");
+            }
+        }
     }
 }

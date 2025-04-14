@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetPhysicalTableMapResult
     {
-        [Input("customSqls")]
+        [PolicyResourceProperty("customSqls", "_mUnknown_CustomSqls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDataSetPhysicalTableMapCustomSqlResult>> _mCustomSqls;
+        private List<Outputs.GetDataSetPhysicalTableMapCustomSqlResult>? _mValue_CustomSqls;
+        private bool _mUnknown_CustomSqls;
+        public List<Outputs.GetDataSetPhysicalTableMapCustomSqlResult>? CustomSqls
+        {
+            get
+            {
+                if (!_mUnknown_CustomSqls) return _mValue_CustomSqls;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapResult.CustomSqls' is not present");
+            }
+        }
 
-        public List<Outputs.GetDataSetPhysicalTableMapCustomSqlResult>? CustomSqls => _mCustomSqls.GetValue("customSqls");
-
-        [Input("physicalTableMapId")]
+        [PolicyResourceProperty("physicalTableMapId", "_mUnknown_PhysicalTableMapId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPhysicalTableMapId;
+        private string? _mValue_PhysicalTableMapId;
+        private bool _mUnknown_PhysicalTableMapId;
+        public string? PhysicalTableMapId
+        {
+            get
+            {
+                if (!_mUnknown_PhysicalTableMapId) return _mValue_PhysicalTableMapId;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapResult.PhysicalTableMapId' is not present");
+            }
+        }
 
-        public string? PhysicalTableMapId => _mPhysicalTableMapId.GetValue("physicalTableMapId");
-
-        [Input("relationalTables")]
+        [PolicyResourceProperty("relationalTables", "_mUnknown_RelationalTables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDataSetPhysicalTableMapRelationalTableResult>> _mRelationalTables;
+        private List<Outputs.GetDataSetPhysicalTableMapRelationalTableResult>? _mValue_RelationalTables;
+        private bool _mUnknown_RelationalTables;
+        public List<Outputs.GetDataSetPhysicalTableMapRelationalTableResult>? RelationalTables
+        {
+            get
+            {
+                if (!_mUnknown_RelationalTables) return _mValue_RelationalTables;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapResult.RelationalTables' is not present");
+            }
+        }
 
-        public List<Outputs.GetDataSetPhysicalTableMapRelationalTableResult>? RelationalTables => _mRelationalTables.GetValue("relationalTables");
-
-        [Input("s3Sources")]
+        [PolicyResourceProperty("s3Sources", "_mUnknown_S3Sources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDataSetPhysicalTableMapS3SourceResult>> _mS3Sources;
-
-        public List<Outputs.GetDataSetPhysicalTableMapS3SourceResult>? S3Sources => _mS3Sources.GetValue("s3Sources");
+        private List<Outputs.GetDataSetPhysicalTableMapS3SourceResult>? _mValue_S3Sources;
+        private bool _mUnknown_S3Sources;
+        public List<Outputs.GetDataSetPhysicalTableMapS3SourceResult>? S3Sources
+        {
+            get
+            {
+                if (!_mUnknown_S3Sources) return _mValue_S3Sources;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapResult.S3Sources' is not present");
+            }
+        }
     }
 }

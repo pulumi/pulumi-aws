@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// Automatic recovery behavior of the instance.
         /// </summary>
-        [Input("autoRecovery")]
+        [PolicyResourceProperty("autoRecovery", "_mUnknown_AutoRecovery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoRecovery;
-
-        public string? AutoRecovery => _mAutoRecovery.GetValue("autoRecovery");
+        private string? _mValue_AutoRecovery;
+        private bool _mUnknown_AutoRecovery;
+        public string? AutoRecovery
+        {
+            get
+            {
+                if (!_mUnknown_AutoRecovery) return _mValue_AutoRecovery;
+                throw new UndeferrableValueException("Value 'GetInstanceMaintenanceOptionResult.AutoRecovery' is not present");
+            }
+        }
     }
 }

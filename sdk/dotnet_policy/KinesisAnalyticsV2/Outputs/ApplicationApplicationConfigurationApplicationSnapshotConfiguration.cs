@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
         /// </summary>
-        [Input("snapshotsEnabled")]
+        [PolicyResourceProperty("snapshotsEnabled", "_mUnknown_SnapshotsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSnapshotsEnabled;
-
-        public bool? SnapshotsEnabled => _mSnapshotsEnabled.GetValue("snapshotsEnabled");
+        private bool? _mValue_SnapshotsEnabled;
+        private bool _mUnknown_SnapshotsEnabled;
+        public bool? SnapshotsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotsEnabled) return _mValue_SnapshotsEnabled;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationApplicationSnapshotConfiguration.SnapshotsEnabled' is not present");
+            }
+        }
     }
 }

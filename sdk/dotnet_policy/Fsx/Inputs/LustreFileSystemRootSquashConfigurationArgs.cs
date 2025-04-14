@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Inputs
         /// <summary>
         /// When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6@tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]@tcp).
         /// </summary>
-        [Input("noSquashNids")]
+        [PolicyResourceProperty("noSquashNids", "_mUnknown_NoSquashNids")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNoSquashNids;
-
-        public List<string>? NoSquashNids => _mNoSquashNids.GetValue("noSquashNids");
+        private List<string>? _mValue_NoSquashNids;
+        private bool _mUnknown_NoSquashNids;
+        public List<string>? NoSquashNids
+        {
+            get
+            {
+                if (!_mUnknown_NoSquashNids) return _mValue_NoSquashNids;
+                throw new UndeferrableValueException("Value 'LustreFileSystemRootSquashConfigurationArgs.NoSquashNids' is not present");
+            }
+        }
 
         /// <summary>
         /// You enable root squash by setting a user ID (UID) and group ID (GID) for the file system in the format UID:GID (for example, 365534:65534). The UID and GID values can range from 0 to 4294967294.
         /// </summary>
-        [Input("rootSquash")]
+        [PolicyResourceProperty("rootSquash", "_mUnknown_RootSquash")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRootSquash;
-
-        public string? RootSquash => _mRootSquash.GetValue("rootSquash");
+        private string? _mValue_RootSquash;
+        private bool _mUnknown_RootSquash;
+        public string? RootSquash
+        {
+            get
+            {
+                if (!_mUnknown_RootSquash) return _mValue_RootSquash;
+                throw new UndeferrableValueException("Value 'LustreFileSystemRootSquashConfigurationArgs.RootSquash' is not present");
+            }
+        }
     }
 }

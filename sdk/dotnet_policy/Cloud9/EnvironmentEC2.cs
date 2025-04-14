@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Cloud9
         /// <summary>
         /// The ARN of the environment.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of minutes until the running instance is shut down after the environment has last been used.
         /// </summary>
-        [Input("automaticStopTimeMinutes")]
+        [PolicyResourceProperty("automaticStopTimeMinutes", "_mUnknown_AutomaticStopTimeMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAutomaticStopTimeMinutes;
-
-        public int? AutomaticStopTimeMinutes => _mAutomaticStopTimeMinutes.GetValue("automaticStopTimeMinutes");
+        private int? _mValue_AutomaticStopTimeMinutes;
+        private bool _mUnknown_AutomaticStopTimeMinutes;
+        public int? AutomaticStopTimeMinutes
+        {
+            get
+            {
+                if (!_mUnknown_AutomaticStopTimeMinutes) return _mValue_AutomaticStopTimeMinutes;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2.AutomaticStopTimeMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
         /// </summary>
-        [Input("connectionType")]
+        [PolicyResourceProperty("connectionType", "_mUnknown_ConnectionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionType;
-
-        public string? ConnectionType => _mConnectionType.GetValue("connectionType");
+        private string? _mValue_ConnectionType;
+        private bool _mUnknown_ConnectionType;
+        public string? ConnectionType
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionType) return _mValue_ConnectionType;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2.ConnectionType' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the environment.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
@@ -60,74 +88,130 @@ namespace Pulumi.PolicyPacks.Aws.Cloud9
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         /// </summary>
-        [Input("imageId")]
+        [PolicyResourceProperty("imageId", "_mUnknown_ImageId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
-
-        public string? ImageId => _mImageId.GetValue("imageId");
+        private string? _mValue_ImageId;
+        private bool _mUnknown_ImageId;
+        public string? ImageId
+        {
+            get
+            {
+                if (!_mUnknown_ImageId) return _mValue_ImageId;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2.ImageId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of instance to connect to the environment, e.g., `t2.micro`.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the environment.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         /// </summary>
-        [Input("ownerArn")]
+        [PolicyResourceProperty("ownerArn", "_mUnknown_OwnerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerArn;
-
-        public string? OwnerArn => _mOwnerArn.GetValue("ownerArn");
+        private string? _mValue_OwnerArn;
+        private bool _mUnknown_OwnerArn;
+        public string? OwnerArn
+        {
+            get
+            {
+                if (!_mUnknown_OwnerArn) return _mValue_OwnerArn;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2.OwnerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the environment (e.g., `ssh` or `ec2`).
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloud9/environmentEC2:EnvironmentEC2")]
@@ -136,29 +220,50 @@ namespace Pulumi.PolicyPacks.Aws.Cloud9
         /// <summary>
         /// The number of minutes until the running instance is shut down after the environment has last been used.
         /// </summary>
-        [Input("automaticStopTimeMinutes")]
+        [PolicyResourceProperty("automaticStopTimeMinutes", "_mUnknown_AutomaticStopTimeMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAutomaticStopTimeMinutes;
-
-        public int? AutomaticStopTimeMinutes => _mAutomaticStopTimeMinutes.GetValue("automaticStopTimeMinutes");
+        private int? _mValue_AutomaticStopTimeMinutes;
+        private bool _mUnknown_AutomaticStopTimeMinutes;
+        public int? AutomaticStopTimeMinutes
+        {
+            get
+            {
+                if (!_mUnknown_AutomaticStopTimeMinutes) return _mValue_AutomaticStopTimeMinutes;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2Args.AutomaticStopTimeMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
         /// </summary>
-        [Input("connectionType")]
+        [PolicyResourceProperty("connectionType", "_mUnknown_ConnectionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionType;
-
-        public string? ConnectionType => _mConnectionType.GetValue("connectionType");
+        private string? _mValue_ConnectionType;
+        private bool _mUnknown_ConnectionType;
+        public string? ConnectionType
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionType) return _mValue_ConnectionType;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2Args.ConnectionType' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the environment.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2Args.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
@@ -171,55 +276,97 @@ namespace Pulumi.PolicyPacks.Aws.Cloud9
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         /// </summary>
-        [Input("imageId")]
+        [PolicyResourceProperty("imageId", "_mUnknown_ImageId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
-
-        public string? ImageId => _mImageId.GetValue("imageId");
+        private string? _mValue_ImageId;
+        private bool _mUnknown_ImageId;
+        public string? ImageId
+        {
+            get
+            {
+                if (!_mUnknown_ImageId) return _mValue_ImageId;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2Args.ImageId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of instance to connect to the environment, e.g., `t2.micro`.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2Args.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the environment.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2Args.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         /// </summary>
-        [Input("ownerArn")]
+        [PolicyResourceProperty("ownerArn", "_mUnknown_OwnerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerArn;
-
-        public string? OwnerArn => _mOwnerArn.GetValue("ownerArn");
+        private string? _mValue_OwnerArn;
+        private bool _mUnknown_OwnerArn;
+        public string? OwnerArn
+        {
+            get
+            {
+                if (!_mUnknown_OwnerArn) return _mValue_OwnerArn;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2Args.OwnerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2Args.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EnvironmentEC2Args.Tags' is not present");
+            }
+        }
     }
 }

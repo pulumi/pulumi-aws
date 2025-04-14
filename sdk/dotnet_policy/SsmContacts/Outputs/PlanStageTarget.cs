@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SsmContacts.Outputs
         /// <summary>
         /// A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
         /// </summary>
-        [Input("channelTargetInfo")]
+        [PolicyResourceProperty("channelTargetInfo", "_mUnknown_ChannelTargetInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PlanStageTargetChannelTargetInfo> _mChannelTargetInfo;
-
-        public Outputs.PlanStageTargetChannelTargetInfo? ChannelTargetInfo => _mChannelTargetInfo.GetValue("channelTargetInfo");
+        private Outputs.PlanStageTargetChannelTargetInfo? _mValue_ChannelTargetInfo;
+        private bool _mUnknown_ChannelTargetInfo;
+        public Outputs.PlanStageTargetChannelTargetInfo? ChannelTargetInfo
+        {
+            get
+            {
+                if (!_mUnknown_ChannelTargetInfo) return _mValue_ChannelTargetInfo;
+                throw new UndeferrableValueException("Value 'PlanStageTarget.ChannelTargetInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
         /// </summary>
-        [Input("contactTargetInfo")]
+        [PolicyResourceProperty("contactTargetInfo", "_mUnknown_ContactTargetInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PlanStageTargetContactTargetInfo> _mContactTargetInfo;
-
-        public Outputs.PlanStageTargetContactTargetInfo? ContactTargetInfo => _mContactTargetInfo.GetValue("contactTargetInfo");
+        private Outputs.PlanStageTargetContactTargetInfo? _mValue_ContactTargetInfo;
+        private bool _mUnknown_ContactTargetInfo;
+        public Outputs.PlanStageTargetContactTargetInfo? ContactTargetInfo
+        {
+            get
+            {
+                if (!_mUnknown_ContactTargetInfo) return _mValue_ContactTargetInfo;
+                throw new UndeferrableValueException("Value 'PlanStageTarget.ContactTargetInfo' is not present");
+            }
+        }
     }
 }

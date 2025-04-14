@@ -16,10 +16,17 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// Enables using the slot values as a custom vocabulary for recognizing user utterances.
         /// Valid value is `UseSlotValuesAsCustomVocabulary`.
         /// </summary>
-        [Input("audioRecognitionStrategy")]
+        [PolicyResourceProperty("audioRecognitionStrategy", "_mUnknown_AudioRecognitionStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAudioRecognitionStrategy;
-
-        public string? AudioRecognitionStrategy => _mAudioRecognitionStrategy.GetValue("audioRecognitionStrategy");
+        private string? _mValue_AudioRecognitionStrategy;
+        private bool _mUnknown_AudioRecognitionStrategy;
+        public string? AudioRecognitionStrategy
+        {
+            get
+            {
+                if (!_mUnknown_AudioRecognitionStrategy) return _mValue_AudioRecognitionStrategy;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs.AudioRecognitionStrategy' is not present");
+            }
+        }
     }
 }

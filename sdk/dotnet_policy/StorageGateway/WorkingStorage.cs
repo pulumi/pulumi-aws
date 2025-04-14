@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.StorageGateway
         /// <summary>
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         /// </summary>
-        [Input("diskId")]
+        [PolicyResourceProperty("diskId", "_mUnknown_DiskId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDiskId;
-
-        public string? DiskId => _mDiskId.GetValue("diskId");
+        private string? _mValue_DiskId;
+        private bool _mUnknown_DiskId;
+        public string? DiskId
+        {
+            get
+            {
+                if (!_mUnknown_DiskId) return _mValue_DiskId;
+                throw new UndeferrableValueException("Value 'WorkingStorage.DiskId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the gateway.
         /// </summary>
-        [Input("gatewayArn")]
+        [PolicyResourceProperty("gatewayArn", "_mUnknown_GatewayArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayArn;
-
-        public string? GatewayArn => _mGatewayArn.GetValue("gatewayArn");
+        private string? _mValue_GatewayArn;
+        private bool _mUnknown_GatewayArn;
+        public string? GatewayArn
+        {
+            get
+            {
+                if (!_mUnknown_GatewayArn) return _mValue_GatewayArn;
+                throw new UndeferrableValueException("Value 'WorkingStorage.GatewayArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:storagegateway/workingStorage:WorkingStorage")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.StorageGateway
         /// <summary>
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         /// </summary>
-        [Input("diskId")]
+        [PolicyResourceProperty("diskId", "_mUnknown_DiskId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDiskId;
-
-        public string? DiskId => _mDiskId.GetValue("diskId");
+        private string? _mValue_DiskId;
+        private bool _mUnknown_DiskId;
+        public string? DiskId
+        {
+            get
+            {
+                if (!_mUnknown_DiskId) return _mValue_DiskId;
+                throw new UndeferrableValueException("Value 'WorkingStorageArgs.DiskId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the gateway.
         /// </summary>
-        [Input("gatewayArn")]
+        [PolicyResourceProperty("gatewayArn", "_mUnknown_GatewayArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayArn;
-
-        public string? GatewayArn => _mGatewayArn.GetValue("gatewayArn");
+        private string? _mValue_GatewayArn;
+        private bool _mUnknown_GatewayArn;
+        public string? GatewayArn
+        {
+            get
+            {
+                if (!_mUnknown_GatewayArn) return _mValue_GatewayArn;
+                throw new UndeferrableValueException("Value 'WorkingStorageArgs.GatewayArn' is not present");
+            }
+        }
     }
 }

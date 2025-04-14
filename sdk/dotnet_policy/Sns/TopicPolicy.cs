@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Sns
         /// <summary>
         /// The ARN of the SNS topic
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TopicPolicy.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Account ID of the SNS topic owner
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'TopicPolicy.Owner' is not present");
+            }
+        }
 
         /// <summary>
         /// The fully-formed AWS policy as JSON.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'TopicPolicy.Policy' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sns/topicPolicy:TopicPolicy")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.Sns
         /// <summary>
         /// The ARN of the SNS topic
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TopicPolicyArgs.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The fully-formed AWS policy as JSON.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'TopicPolicyArgs.Policy' is not present");
+            }
+        }
     }
 }

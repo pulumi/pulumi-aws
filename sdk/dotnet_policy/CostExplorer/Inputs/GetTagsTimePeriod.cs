@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer.Inputs
         /// <summary>
         /// Beginning of the time period.
         /// </summary>
-        [Input("end")]
+        [PolicyResourceProperty("end", "_mUnknown_End")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnd;
-
-        public string? End => _mEnd.GetValue("end");
+        private string? _mValue_End;
+        private bool _mUnknown_End;
+        public string? End
+        {
+            get
+            {
+                if (!_mUnknown_End) return _mValue_End;
+                throw new UndeferrableValueException("Value 'GetTagsTimePeriodArgs.End' is not present");
+            }
+        }
 
         /// <summary>
         /// End of the time period.
         /// </summary>
-        [Input("start")]
+        [PolicyResourceProperty("start", "_mUnknown_Start")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStart;
-
-        public string? Start => _mStart.GetValue("start");
+        private string? _mValue_Start;
+        private bool _mUnknown_Start;
+        public string? Start
+        {
+            get
+            {
+                if (!_mUnknown_Start) return _mValue_Start;
+                throw new UndeferrableValueException("Value 'GetTagsTimePeriodArgs.Start' is not present");
+            }
+        }
     }
 }

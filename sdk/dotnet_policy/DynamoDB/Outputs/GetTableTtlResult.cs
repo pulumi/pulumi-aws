@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB.Outputs
 {
     public sealed class GetTableTtlResult
     {
-        [Input("attributeName")]
+        [PolicyResourceProperty("attributeName", "_mUnknown_AttributeName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttributeName;
+        private string? _mValue_AttributeName;
+        private bool _mUnknown_AttributeName;
+        public string? AttributeName
+        {
+            get
+            {
+                if (!_mUnknown_AttributeName) return _mValue_AttributeName;
+                throw new UndeferrableValueException("Value 'GetTableTtlResult.AttributeName' is not present");
+            }
+        }
 
-        public string? AttributeName => _mAttributeName.GetValue("attributeName");
-
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'GetTableTtlResult.Enabled' is not present");
+            }
+        }
     }
 }

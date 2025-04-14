@@ -16,10 +16,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// Targets that traffic is routed to when a request matches the route.
         /// You can specify one or more targets and their relative weights with which to distribute traffic.
         /// </summary>
-        [Input("weightedTargets")]
+        [PolicyResourceProperty("weightedTargets", "_mUnknown_WeightedTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RouteSpecGrpcRouteActionWeightedTarget>> _mWeightedTargets;
-
-        public List<Outputs.RouteSpecGrpcRouteActionWeightedTarget>? WeightedTargets => _mWeightedTargets.GetValue("weightedTargets");
+        private List<Outputs.RouteSpecGrpcRouteActionWeightedTarget>? _mValue_WeightedTargets;
+        private bool _mUnknown_WeightedTargets;
+        public List<Outputs.RouteSpecGrpcRouteActionWeightedTarget>? WeightedTargets
+        {
+            get
+            {
+                if (!_mUnknown_WeightedTargets) return _mValue_WeightedTargets;
+                throw new UndeferrableValueException("Value 'RouteSpecGrpcRouteAction.WeightedTargets' is not present");
+            }
+        }
     }
 }

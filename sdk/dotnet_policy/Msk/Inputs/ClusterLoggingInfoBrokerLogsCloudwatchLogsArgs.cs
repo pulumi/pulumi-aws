@@ -12,19 +12,33 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Inputs
 {
     public sealed class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs
     {
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Cloudwatch Log Group to deliver logs to.
         /// </summary>
-        [Input("logGroup")]
+        [PolicyResourceProperty("logGroup", "_mUnknown_LogGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroup;
-
-        public string? LogGroup => _mLogGroup.GetValue("logGroup");
+        private string? _mValue_LogGroup;
+        private bool _mUnknown_LogGroup;
+        public string? LogGroup
+        {
+            get
+            {
+                if (!_mUnknown_LogGroup) return _mValue_LogGroup;
+                throw new UndeferrableValueException("Value 'ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs.LogGroup' is not present");
+            }
+        }
     }
 }

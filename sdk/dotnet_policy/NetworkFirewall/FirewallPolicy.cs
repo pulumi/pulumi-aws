@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall
         /// <summary>
         /// The Amazon Resource Name (ARN) that identifies the firewall policy.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'FirewallPolicy.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly description of the firewall policy.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'FirewallPolicy.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// KMS encryption configuration settings. See Encryption Configuration below for details.
         /// </summary>
-        [Input("encryptionConfiguration")]
+        [PolicyResourceProperty("encryptionConfiguration", "_mUnknown_EncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirewallPolicyEncryptionConfiguration> _mEncryptionConfiguration;
-
-        public Outputs.FirewallPolicyEncryptionConfiguration? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+        private Outputs.FirewallPolicyEncryptionConfiguration? _mValue_EncryptionConfiguration;
+        private bool _mUnknown_EncryptionConfiguration;
+        public Outputs.FirewallPolicyEncryptionConfiguration? EncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfiguration) return _mValue_EncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'FirewallPolicy.EncryptionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         /// </summary>
-        [Input("firewallPolicy")]
+        [PolicyResourceProperty("firewallPolicy", "_mUnknown_FirewallPolicyConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirewallPolicyFirewallPolicy> _mFirewallPolicyConfiguration;
-
-        public Outputs.FirewallPolicyFirewallPolicy? FirewallPolicyConfiguration => _mFirewallPolicyConfiguration.GetValue("firewallPolicy");
+        private Outputs.FirewallPolicyFirewallPolicy? _mValue_FirewallPolicyConfiguration;
+        private bool _mUnknown_FirewallPolicyConfiguration;
+        public Outputs.FirewallPolicyFirewallPolicy? FirewallPolicyConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_FirewallPolicyConfiguration) return _mValue_FirewallPolicyConfiguration;
+                throw new UndeferrableValueException("Value 'FirewallPolicy.FirewallPolicyConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly name of the firewall policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FirewallPolicy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FirewallPolicy.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'FirewallPolicy.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// A string token used when updating a firewall policy.
         /// </summary>
-        [Input("updateToken")]
+        [PolicyResourceProperty("updateToken", "_mUnknown_UpdateToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateToken;
-
-        public string? UpdateToken => _mUpdateToken.GetValue("updateToken");
+        private string? _mValue_UpdateToken;
+        private bool _mUnknown_UpdateToken;
+        public string? UpdateToken
+        {
+            get
+            {
+                if (!_mUnknown_UpdateToken) return _mValue_UpdateToken;
+                throw new UndeferrableValueException("Value 'FirewallPolicy.UpdateToken' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:networkfirewall/firewallPolicy:FirewallPolicy")]
@@ -92,46 +148,81 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall
         /// <summary>
         /// A friendly description of the firewall policy.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'FirewallPolicyArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// KMS encryption configuration settings. See Encryption Configuration below for details.
         /// </summary>
-        [Input("encryptionConfiguration")]
+        [PolicyResourceProperty("encryptionConfiguration", "_mUnknown_EncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirewallPolicyEncryptionConfigurationArgs> _mEncryptionConfiguration;
-
-        public Inputs.FirewallPolicyEncryptionConfigurationArgs? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+        private Inputs.FirewallPolicyEncryptionConfigurationArgs? _mValue_EncryptionConfiguration;
+        private bool _mUnknown_EncryptionConfiguration;
+        public Inputs.FirewallPolicyEncryptionConfigurationArgs? EncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfiguration) return _mValue_EncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'FirewallPolicyArgs.EncryptionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         /// </summary>
-        [Input("firewallPolicy")]
+        [PolicyResourceProperty("firewallPolicy", "_mUnknown_FirewallPolicyConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirewallPolicyFirewallPolicyArgs> _mFirewallPolicyConfiguration;
-
-        public Inputs.FirewallPolicyFirewallPolicyArgs? FirewallPolicyConfiguration => _mFirewallPolicyConfiguration.GetValue("firewallPolicy");
+        private Inputs.FirewallPolicyFirewallPolicyArgs? _mValue_FirewallPolicyConfiguration;
+        private bool _mUnknown_FirewallPolicyConfiguration;
+        public Inputs.FirewallPolicyFirewallPolicyArgs? FirewallPolicyConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_FirewallPolicyConfiguration) return _mValue_FirewallPolicyConfiguration;
+                throw new UndeferrableValueException("Value 'FirewallPolicyArgs.FirewallPolicyConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly name of the firewall policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FirewallPolicyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FirewallPolicyArgs.Tags' is not present");
+            }
+        }
     }
 }

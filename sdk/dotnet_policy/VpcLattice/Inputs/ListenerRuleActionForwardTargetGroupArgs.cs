@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Inputs
 {
     public sealed class ListenerRuleActionForwardTargetGroupArgs
     {
-        [Input("targetGroupIdentifier")]
+        [PolicyResourceProperty("targetGroupIdentifier", "_mUnknown_TargetGroupIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetGroupIdentifier;
+        private string? _mValue_TargetGroupIdentifier;
+        private bool _mUnknown_TargetGroupIdentifier;
+        public string? TargetGroupIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroupIdentifier) return _mValue_TargetGroupIdentifier;
+                throw new UndeferrableValueException("Value 'ListenerRuleActionForwardTargetGroupArgs.TargetGroupIdentifier' is not present");
+            }
+        }
 
-        public string? TargetGroupIdentifier => _mTargetGroupIdentifier.GetValue("targetGroupIdentifier");
-
-        [Input("weight")]
+        [PolicyResourceProperty("weight", "_mUnknown_Weight")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWeight;
-
-        public int? Weight => _mWeight.GetValue("weight");
+        private int? _mValue_Weight;
+        private bool _mUnknown_Weight;
+        public int? Weight
+        {
+            get
+            {
+                if (!_mUnknown_Weight) return _mValue_Weight;
+                throw new UndeferrableValueException("Value 'ListenerRuleActionForwardTargetGroupArgs.Weight' is not present");
+            }
+        }
     }
 }

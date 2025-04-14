@@ -12,34 +12,62 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
 {
     public sealed class FeatureGroupFeatureDefinition
     {
-        [Input("collectionConfig")]
+        [PolicyResourceProperty("collectionConfig", "_mUnknown_CollectionConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FeatureGroupFeatureDefinitionCollectionConfig> _mCollectionConfig;
+        private Outputs.FeatureGroupFeatureDefinitionCollectionConfig? _mValue_CollectionConfig;
+        private bool _mUnknown_CollectionConfig;
+        public Outputs.FeatureGroupFeatureDefinitionCollectionConfig? CollectionConfig
+        {
+            get
+            {
+                if (!_mUnknown_CollectionConfig) return _mValue_CollectionConfig;
+                throw new UndeferrableValueException("Value 'FeatureGroupFeatureDefinition.CollectionConfig' is not present");
+            }
+        }
 
-        public Outputs.FeatureGroupFeatureDefinitionCollectionConfig? CollectionConfig => _mCollectionConfig.GetValue("collectionConfig");
-
-        [Input("collectionType")]
+        [PolicyResourceProperty("collectionType", "_mUnknown_CollectionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollectionType;
-
-        public string? CollectionType => _mCollectionType.GetValue("collectionType");
+        private string? _mValue_CollectionType;
+        private bool _mUnknown_CollectionType;
+        public string? CollectionType
+        {
+            get
+            {
+                if (!_mUnknown_CollectionType) return _mValue_CollectionType;
+                throw new UndeferrableValueException("Value 'FeatureGroupFeatureDefinition.CollectionType' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
         /// </summary>
-        [Input("featureName")]
+        [PolicyResourceProperty("featureName", "_mUnknown_FeatureName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFeatureName;
-
-        public string? FeatureName => _mFeatureName.GetValue("featureName");
+        private string? _mValue_FeatureName;
+        private bool _mUnknown_FeatureName;
+        public string? FeatureName
+        {
+            get
+            {
+                if (!_mUnknown_FeatureName) return _mValue_FeatureName;
+                throw new UndeferrableValueException("Value 'FeatureGroupFeatureDefinition.FeatureName' is not present");
+            }
+        }
 
         /// <summary>
         /// The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
         /// </summary>
-        [Input("featureType")]
+        [PolicyResourceProperty("featureType", "_mUnknown_FeatureType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFeatureType;
-
-        public string? FeatureType => _mFeatureType.GetValue("featureType");
+        private string? _mValue_FeatureType;
+        private bool _mUnknown_FeatureType;
+        public string? FeatureType
+        {
+            get
+            {
+                if (!_mUnknown_FeatureType) return _mValue_FeatureType;
+                throw new UndeferrableValueException("Value 'FeatureGroupFeatureDefinition.FeatureType' is not present");
+            }
+        }
     }
 }

@@ -15,34 +15,62 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
         /// </summary>
-        [Input("dateValue")]
+        [PolicyResourceProperty("dateValue", "_mUnknown_DateValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDateValue;
-
-        public string? DateValue => _mDateValue.GetValue("dateValue");
+        private string? _mValue_DateValue;
+        private bool _mUnknown_DateValue;
+        public string? DateValue
+        {
+            get
+            {
+                if (!_mUnknown_DateValue) return _mValue_DateValue;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue.DateValue' is not present");
+            }
+        }
 
         /// <summary>
         /// A long integer value.
         /// </summary>
-        [Input("longValue")]
+        [PolicyResourceProperty("longValue", "_mUnknown_LongValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLongValue;
-
-        public int? LongValue => _mLongValue.GetValue("longValue");
+        private int? _mValue_LongValue;
+        private bool _mUnknown_LongValue;
+        public int? LongValue
+        {
+            get
+            {
+                if (!_mUnknown_LongValue) return _mValue_LongValue;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue.LongValue' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of strings.
         /// </summary>
-        [Input("stringListValues")]
+        [PolicyResourceProperty("stringListValues", "_mUnknown_StringListValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStringListValues;
+        private List<string>? _mValue_StringListValues;
+        private bool _mUnknown_StringListValues;
+        public List<string>? StringListValues
+        {
+            get
+            {
+                if (!_mUnknown_StringListValues) return _mValue_StringListValues;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue.StringListValues' is not present");
+            }
+        }
 
-        public List<string>? StringListValues => _mStringListValues.GetValue("stringListValues");
-
-        [Input("stringValue")]
+        [PolicyResourceProperty("stringValue", "_mUnknown_StringValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStringValue;
-
-        public string? StringValue => _mStringValue.GetValue("stringValue");
+        private string? _mValue_StringValue;
+        private bool _mUnknown_StringValue;
+        public string? StringValue
+        {
+            get
+            {
+                if (!_mUnknown_StringValue) return _mValue_StringValue;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue.StringValue' is not present");
+            }
+        }
     }
 }

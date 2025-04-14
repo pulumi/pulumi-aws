@@ -15,20 +15,34 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// <summary>
         /// ARN or name of credentials created using AWS Secrets Manager.
         /// </summary>
-        [Input("credential")]
+        [PolicyResourceProperty("credential", "_mUnknown_Credential")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCredential;
-
-        public string? Credential => _mCredential.GetValue("credential");
+        private string? _mValue_Credential;
+        private bool _mUnknown_Credential;
+        public string? Credential
+        {
+            get
+            {
+                if (!_mUnknown_Credential) return _mValue_Credential;
+                throw new UndeferrableValueException("Value 'ProjectEnvironmentRegistryCredential.Credential' is not present");
+            }
+        }
 
         /// <summary>
         /// Service that created the credentials to access a private Docker registry. Valid
         /// value: `SECRETS_MANAGER` (AWS Secrets Manager).
         /// </summary>
-        [Input("credentialProvider")]
+        [PolicyResourceProperty("credentialProvider", "_mUnknown_CredentialProvider")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCredentialProvider;
-
-        public string? CredentialProvider => _mCredentialProvider.GetValue("credentialProvider");
+        private string? _mValue_CredentialProvider;
+        private bool _mUnknown_CredentialProvider;
+        public string? CredentialProvider
+        {
+            get
+            {
+                if (!_mUnknown_CredentialProvider) return _mValue_CredentialProvider;
+                throw new UndeferrableValueException("Value 'ProjectEnvironmentRegistryCredential.CredentialProvider' is not present");
+            }
+        }
     }
 }

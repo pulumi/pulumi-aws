@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Backup.Outputs
         /// <summary>
         /// Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
         /// </summary>
-        [Input("algorithm")]
+        [PolicyResourceProperty("algorithm", "_mUnknown_Algorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlgorithm;
-
-        public string? Algorithm => _mAlgorithm.GetValue("algorithm");
+        private string? _mValue_Algorithm;
+        private bool _mUnknown_Algorithm;
+        public string? Algorithm
+        {
+            get
+            {
+                if (!_mUnknown_Algorithm) return _mValue_Algorithm;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlanRecoveryPointSelection.Algorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
         /// </summary>
-        [Input("excludeVaults")]
+        [PolicyResourceProperty("excludeVaults", "_mUnknown_ExcludeVaults")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludeVaults;
-
-        public List<string>? ExcludeVaults => _mExcludeVaults.GetValue("excludeVaults");
+        private List<string>? _mValue_ExcludeVaults;
+        private bool _mUnknown_ExcludeVaults;
+        public List<string>? ExcludeVaults
+        {
+            get
+            {
+                if (!_mUnknown_ExcludeVaults) return _mValue_ExcludeVaults;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlanRecoveryPointSelection.ExcludeVaults' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
         /// </summary>
-        [Input("includeVaults")]
+        [PolicyResourceProperty("includeVaults", "_mUnknown_IncludeVaults")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIncludeVaults;
-
-        public List<string>? IncludeVaults => _mIncludeVaults.GetValue("includeVaults");
+        private List<string>? _mValue_IncludeVaults;
+        private bool _mUnknown_IncludeVaults;
+        public List<string>? IncludeVaults
+        {
+            get
+            {
+                if (!_mUnknown_IncludeVaults) return _mValue_IncludeVaults;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlanRecoveryPointSelection.IncludeVaults' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
         /// </summary>
-        [Input("recoveryPointTypes")]
+        [PolicyResourceProperty("recoveryPointTypes", "_mUnknown_RecoveryPointTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRecoveryPointTypes;
-
-        public List<string>? RecoveryPointTypes => _mRecoveryPointTypes.GetValue("recoveryPointTypes");
+        private List<string>? _mValue_RecoveryPointTypes;
+        private bool _mUnknown_RecoveryPointTypes;
+        public List<string>? RecoveryPointTypes
+        {
+            get
+            {
+                if (!_mUnknown_RecoveryPointTypes) return _mValue_RecoveryPointTypes;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlanRecoveryPointSelection.RecoveryPointTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
         /// </summary>
-        [Input("selectionWindowDays")]
+        [PolicyResourceProperty("selectionWindowDays", "_mUnknown_SelectionWindowDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSelectionWindowDays;
-
-        public int? SelectionWindowDays => _mSelectionWindowDays.GetValue("selectionWindowDays");
+        private int? _mValue_SelectionWindowDays;
+        private bool _mUnknown_SelectionWindowDays;
+        public int? SelectionWindowDays
+        {
+            get
+            {
+                if (!_mUnknown_SelectionWindowDays) return _mValue_SelectionWindowDays;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlanRecoveryPointSelection.SelectionWindowDays' is not present");
+            }
+        }
     }
 }

@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation.Outputs
         /// <summary>
         /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
         /// </summary>
-        [Input("catalogs")]
+        [PolicyResourceProperty("catalogs", "_mUnknown_Catalogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OptInResourceDataCatalog>> _mCatalogs;
-
-        public List<Outputs.OptInResourceDataCatalog>? Catalogs => _mCatalogs.GetValue("catalogs");
+        private List<Outputs.OptInResourceDataCatalog>? _mValue_Catalogs;
+        private bool _mUnknown_Catalogs;
+        public List<Outputs.OptInResourceDataCatalog>? Catalogs
+        {
+            get
+            {
+                if (!_mUnknown_Catalogs) return _mValue_Catalogs;
+                throw new UndeferrableValueException("Value 'OptInResourceData.Catalogs' is not present");
+            }
+        }
 
         /// <summary>
         /// Data cell filter. See Data Cells Filter for more details.
         /// </summary>
-        [Input("dataCellsFilters")]
+        [PolicyResourceProperty("dataCellsFilters", "_mUnknown_DataCellsFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OptInResourceDataDataCellsFilter>> _mDataCellsFilters;
-
-        public List<Outputs.OptInResourceDataDataCellsFilter>? DataCellsFilters => _mDataCellsFilters.GetValue("dataCellsFilters");
+        private List<Outputs.OptInResourceDataDataCellsFilter>? _mValue_DataCellsFilters;
+        private bool _mUnknown_DataCellsFilters;
+        public List<Outputs.OptInResourceDataDataCellsFilter>? DataCellsFilters
+        {
+            get
+            {
+                if (!_mUnknown_DataCellsFilters) return _mValue_DataCellsFilters;
+                throw new UndeferrableValueException("Value 'OptInResourceData.DataCellsFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
         /// </summary>
-        [Input("dataLocations")]
+        [PolicyResourceProperty("dataLocations", "_mUnknown_DataLocations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OptInResourceDataDataLocation>> _mDataLocations;
-
-        public List<Outputs.OptInResourceDataDataLocation>? DataLocations => _mDataLocations.GetValue("dataLocations");
+        private List<Outputs.OptInResourceDataDataLocation>? _mValue_DataLocations;
+        private bool _mUnknown_DataLocations;
+        public List<Outputs.OptInResourceDataDataLocation>? DataLocations
+        {
+            get
+            {
+                if (!_mUnknown_DataLocations) return _mValue_DataLocations;
+                throw new UndeferrableValueException("Value 'OptInResourceData.DataLocations' is not present");
+            }
+        }
 
         /// <summary>
         /// Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
         /// </summary>
-        [Input("database")]
+        [PolicyResourceProperty("database", "_mUnknown_Database")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OptInResourceDataDatabase> _mDatabase;
-
-        public Outputs.OptInResourceDataDatabase? Database => _mDatabase.GetValue("database");
+        private Outputs.OptInResourceDataDatabase? _mValue_Database;
+        private bool _mUnknown_Database;
+        public Outputs.OptInResourceDataDatabase? Database
+        {
+            get
+            {
+                if (!_mUnknown_Database) return _mValue_Database;
+                throw new UndeferrableValueException("Value 'OptInResourceData.Database' is not present");
+            }
+        }
 
         /// <summary>
         /// LF-tag key and values attached to a resource.
         /// </summary>
-        [Input("lfTag")]
+        [PolicyResourceProperty("lfTag", "_mUnknown_LfTag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OptInResourceDataLfTag> _mLfTag;
-
-        public Outputs.OptInResourceDataLfTag? LfTag => _mLfTag.GetValue("lfTag");
+        private Outputs.OptInResourceDataLfTag? _mValue_LfTag;
+        private bool _mUnknown_LfTag;
+        public Outputs.OptInResourceDataLfTag? LfTag
+        {
+            get
+            {
+                if (!_mUnknown_LfTag) return _mValue_LfTag;
+                throw new UndeferrableValueException("Value 'OptInResourceData.LfTag' is not present");
+            }
+        }
 
         /// <summary>
         /// Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
         /// </summary>
-        [Input("lfTagExpressions")]
+        [PolicyResourceProperty("lfTagExpressions", "_mUnknown_LfTagExpressions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OptInResourceDataLfTagExpression>> _mLfTagExpressions;
-
-        public List<Outputs.OptInResourceDataLfTagExpression>? LfTagExpressions => _mLfTagExpressions.GetValue("lfTagExpressions");
+        private List<Outputs.OptInResourceDataLfTagExpression>? _mValue_LfTagExpressions;
+        private bool _mUnknown_LfTagExpressions;
+        public List<Outputs.OptInResourceDataLfTagExpression>? LfTagExpressions
+        {
+            get
+            {
+                if (!_mUnknown_LfTagExpressions) return _mValue_LfTagExpressions;
+                throw new UndeferrableValueException("Value 'OptInResourceData.LfTagExpressions' is not present");
+            }
+        }
 
         /// <summary>
         /// List of LF-Tag conditions or saved LF-Tag expressions that define a resource's LF-Tag policy. See LF-Tag Policy for more details.
         /// </summary>
-        [Input("lfTagPolicies")]
+        [PolicyResourceProperty("lfTagPolicies", "_mUnknown_LfTagPolicies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OptInResourceDataLfTagPolicy>> _mLfTagPolicies;
-
-        public List<Outputs.OptInResourceDataLfTagPolicy>? LfTagPolicies => _mLfTagPolicies.GetValue("lfTagPolicies");
+        private List<Outputs.OptInResourceDataLfTagPolicy>? _mValue_LfTagPolicies;
+        private bool _mUnknown_LfTagPolicies;
+        public List<Outputs.OptInResourceDataLfTagPolicy>? LfTagPolicies
+        {
+            get
+            {
+                if (!_mUnknown_LfTagPolicies) return _mValue_LfTagPolicies;
+                throw new UndeferrableValueException("Value 'OptInResourceData.LfTagPolicies' is not present");
+            }
+        }
 
         /// <summary>
         /// Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
         /// </summary>
-        [Input("table")]
+        [PolicyResourceProperty("table", "_mUnknown_Table")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OptInResourceDataTable> _mTable;
-
-        public Outputs.OptInResourceDataTable? Table => _mTable.GetValue("table");
+        private Outputs.OptInResourceDataTable? _mValue_Table;
+        private bool _mUnknown_Table;
+        public Outputs.OptInResourceDataTable? Table
+        {
+            get
+            {
+                if (!_mUnknown_Table) return _mValue_Table;
+                throw new UndeferrableValueException("Value 'OptInResourceData.Table' is not present");
+            }
+        }
 
         /// <summary>
         /// Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
         /// </summary>
-        [Input("tableWithColumns")]
+        [PolicyResourceProperty("tableWithColumns", "_mUnknown_TableWithColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OptInResourceDataTableWithColumns> _mTableWithColumns;
-
-        public Outputs.OptInResourceDataTableWithColumns? TableWithColumns => _mTableWithColumns.GetValue("tableWithColumns");
+        private Outputs.OptInResourceDataTableWithColumns? _mValue_TableWithColumns;
+        private bool _mUnknown_TableWithColumns;
+        public Outputs.OptInResourceDataTableWithColumns? TableWithColumns
+        {
+            get
+            {
+                if (!_mUnknown_TableWithColumns) return _mValue_TableWithColumns;
+                throw new UndeferrableValueException("Value 'OptInResourceData.TableWithColumns' is not present");
+            }
+        }
     }
 }

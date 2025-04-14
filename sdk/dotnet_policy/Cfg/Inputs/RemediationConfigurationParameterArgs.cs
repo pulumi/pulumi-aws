@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Cfg.Inputs
         /// <summary>
         /// Name of the attribute.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RemediationConfigurationParameterArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Value is dynamic and changes at run-time.
         /// </summary>
-        [Input("resourceValue")]
+        [PolicyResourceProperty("resourceValue", "_mUnknown_ResourceValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceValue;
-
-        public string? ResourceValue => _mResourceValue.GetValue("resourceValue");
+        private string? _mValue_ResourceValue;
+        private bool _mUnknown_ResourceValue;
+        public string? ResourceValue
+        {
+            get
+            {
+                if (!_mUnknown_ResourceValue) return _mValue_ResourceValue;
+                throw new UndeferrableValueException("Value 'RemediationConfigurationParameterArgs.ResourceValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Value is static and does not change at run-time.
         /// </summary>
-        [Input("staticValue")]
+        [PolicyResourceProperty("staticValue", "_mUnknown_StaticValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStaticValue;
-
-        public string? StaticValue => _mStaticValue.GetValue("staticValue");
+        private string? _mValue_StaticValue;
+        private bool _mUnknown_StaticValue;
+        public string? StaticValue
+        {
+            get
+            {
+                if (!_mUnknown_StaticValue) return _mValue_StaticValue;
+                throw new UndeferrableValueException("Value 'RemediationConfigurationParameterArgs.StaticValue' is not present");
+            }
+        }
 
         /// <summary>
         /// List of static values.
         /// </summary>
-        [Input("staticValues")]
+        [PolicyResourceProperty("staticValues", "_mUnknown_StaticValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStaticValues;
-
-        public List<string>? StaticValues => _mStaticValues.GetValue("staticValues");
+        private List<string>? _mValue_StaticValues;
+        private bool _mUnknown_StaticValues;
+        public List<string>? StaticValues
+        {
+            get
+            {
+                if (!_mUnknown_StaticValues) return _mValue_StaticValues;
+                throw new UndeferrableValueException("Value 'RemediationConfigurationParameterArgs.StaticValues' is not present");
+            }
+        }
     }
 }

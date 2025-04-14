@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Outputs
         /// <summary>
         /// The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
         /// </summary>
-        [Input("batchMode")]
+        [PolicyResourceProperty("batchMode", "_mUnknown_BatchMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBatchMode;
-
-        public bool? BatchMode => _mBatchMode.GetValue("batchMode");
+        private bool? _mValue_BatchMode;
+        private bool _mUnknown_BatchMode;
+        public bool? BatchMode
+        {
+            get
+            {
+                if (!_mUnknown_BatchMode) return _mValue_BatchMode;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionCloudwatchLogs.BatchMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The CloudWatch log group name.
         /// </summary>
-        [Input("logGroupName")]
+        [PolicyResourceProperty("logGroupName", "_mUnknown_LogGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
-
-        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+        private string? _mValue_LogGroupName;
+        private bool _mUnknown_LogGroupName;
+        public string? LogGroupName
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupName) return _mValue_LogGroupName;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionCloudwatchLogs.LogGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role ARN that allows access to the CloudWatch alarm.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionCloudwatchLogs.RoleArn' is not present");
+            }
+        }
     }
 }

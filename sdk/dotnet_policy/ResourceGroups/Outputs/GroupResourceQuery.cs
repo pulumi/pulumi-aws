@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ResourceGroups.Outputs
         /// <summary>
         /// The resource query as a JSON string.
         /// </summary>
-        [Input("query")]
+        [PolicyResourceProperty("query", "_mUnknown_Query")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQuery;
-
-        public string? Query => _mQuery.GetValue("query");
+        private string? _mValue_Query;
+        private bool _mUnknown_Query;
+        public string? Query
+        {
+            get
+            {
+                if (!_mUnknown_Query) return _mValue_Query;
+                throw new UndeferrableValueException("Value 'GroupResourceQuery.Query' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GroupResourceQuery.Type' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.RedshiftServerless.Outputs
         /// <summary>
         /// The network interfaces of the endpoint.. See `Network Interface` below.
         /// </summary>
-        [Input("networkInterfaces")]
+        [PolicyResourceProperty("networkInterfaces", "_mUnknown_NetworkInterfaces")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetWorkgroupEndpointVpcEndpointNetworkInterfaceResult>> _mNetworkInterfaces;
-
-        public List<Outputs.GetWorkgroupEndpointVpcEndpointNetworkInterfaceResult>? NetworkInterfaces => _mNetworkInterfaces.GetValue("networkInterfaces");
+        private List<Outputs.GetWorkgroupEndpointVpcEndpointNetworkInterfaceResult>? _mValue_NetworkInterfaces;
+        private bool _mUnknown_NetworkInterfaces;
+        public List<Outputs.GetWorkgroupEndpointVpcEndpointNetworkInterfaceResult>? NetworkInterfaces
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaces) return _mValue_NetworkInterfaces;
+                throw new UndeferrableValueException("Value 'GetWorkgroupEndpointVpcEndpointResult.NetworkInterfaces' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS address of the VPC endpoint.
         /// </summary>
-        [Input("vpcEndpointId")]
+        [PolicyResourceProperty("vpcEndpointId", "_mUnknown_VpcEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
-
-        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+        private string? _mValue_VpcEndpointId;
+        private bool _mUnknown_VpcEndpointId;
+        public string? VpcEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointId) return _mValue_VpcEndpointId;
+                throw new UndeferrableValueException("Value 'GetWorkgroupEndpointVpcEndpointResult.VpcEndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// The port that Amazon Redshift Serverless listens on.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'GetWorkgroupEndpointVpcEndpointResult.VpcId' is not present");
+            }
+        }
     }
 }

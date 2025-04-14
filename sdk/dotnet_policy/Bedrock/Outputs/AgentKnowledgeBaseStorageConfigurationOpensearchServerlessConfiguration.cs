@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// ARN of the OpenSearch Service vector store.
         /// </summary>
-        [Input("collectionArn")]
+        [PolicyResourceProperty("collectionArn", "_mUnknown_CollectionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollectionArn;
-
-        public string? CollectionArn => _mCollectionArn.GetValue("collectionArn");
+        private string? _mValue_CollectionArn;
+        private bool _mUnknown_CollectionArn;
+        public string? CollectionArn
+        {
+            get
+            {
+                if (!_mUnknown_CollectionArn) return _mValue_CollectionArn;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration.CollectionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The names of the fields to which to map information about the vector store. This block supports the following arguments:
         /// </summary>
-        [Input("fieldMapping")]
+        [PolicyResourceProperty("fieldMapping", "_mUnknown_FieldMapping")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping> _mFieldMapping;
-
-        public Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping? FieldMapping => _mFieldMapping.GetValue("fieldMapping");
+        private Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping? _mValue_FieldMapping;
+        private bool _mUnknown_FieldMapping;
+        public Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping? FieldMapping
+        {
+            get
+            {
+                if (!_mUnknown_FieldMapping) return _mValue_FieldMapping;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration.FieldMapping' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the vector store.
         /// </summary>
-        [Input("vectorIndexName")]
+        [PolicyResourceProperty("vectorIndexName", "_mUnknown_VectorIndexName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVectorIndexName;
-
-        public string? VectorIndexName => _mVectorIndexName.GetValue("vectorIndexName");
+        private string? _mValue_VectorIndexName;
+        private bool _mUnknown_VectorIndexName;
+        public string? VectorIndexName
+        {
+            get
+            {
+                if (!_mUnknown_VectorIndexName) return _mValue_VectorIndexName;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration.VectorIndexName' is not present");
+            }
+        }
     }
 }

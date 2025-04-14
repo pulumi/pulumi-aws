@@ -15,34 +15,62 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Inputs
         /// <summary>
         /// IPv4 address in the subnet that you want to use for DNS queries.
         /// </summary>
-        [Input("ip")]
+        [PolicyResourceProperty("ip", "_mUnknown_Ip")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIp;
+        private string? _mValue_Ip;
+        private bool _mUnknown_Ip;
+        public string? Ip
+        {
+            get
+            {
+                if (!_mUnknown_Ip) return _mValue_Ip;
+                throw new UndeferrableValueException("Value 'ResolverEndpointIpAddressArgs.Ip' is not present");
+            }
+        }
 
-        public string? Ip => _mIp.GetValue("ip");
-
-        [Input("ipId")]
+        [PolicyResourceProperty("ipId", "_mUnknown_IpId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpId;
-
-        public string? IpId => _mIpId.GetValue("ipId");
+        private string? _mValue_IpId;
+        private bool _mUnknown_IpId;
+        public string? IpId
+        {
+            get
+            {
+                if (!_mUnknown_IpId) return _mValue_IpId;
+                throw new UndeferrableValueException("Value 'ResolverEndpointIpAddressArgs.IpId' is not present");
+            }
+        }
 
         /// <summary>
         /// IPv6 address in the subnet that you want to use for DNS queries.
         /// </summary>
-        [Input("ipv6")]
+        [PolicyResourceProperty("ipv6", "_mUnknown_Ipv6")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6;
-
-        public string? Ipv6 => _mIpv6.GetValue("ipv6");
+        private string? _mValue_Ipv6;
+        private bool _mUnknown_Ipv6;
+        public string? Ipv6
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6) return _mValue_Ipv6;
+                throw new UndeferrableValueException("Value 'ResolverEndpointIpAddressArgs.Ipv6' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the subnet that contains the IP address.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'ResolverEndpointIpAddressArgs.SubnetId' is not present");
+            }
+        }
     }
 }

@@ -16,46 +16,81 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// Description of the Guardrail version.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GuardrailVersion.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Guardrail ARN.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("guardrailArn")]
+        [PolicyResourceProperty("guardrailArn", "_mUnknown_GuardrailArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGuardrailArn;
-
-        public string? GuardrailArn => _mGuardrailArn.GetValue("guardrailArn");
+        private string? _mValue_GuardrailArn;
+        private bool _mUnknown_GuardrailArn;
+        public string? GuardrailArn
+        {
+            get
+            {
+                if (!_mUnknown_GuardrailArn) return _mValue_GuardrailArn;
+                throw new UndeferrableValueException("Value 'GuardrailVersion.GuardrailArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'GuardrailVersion.SkipDestroy' is not present");
+            }
+        }
 
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GuardrailVersionTimeouts> _mTimeouts;
-
-        public Outputs.GuardrailVersionTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.GuardrailVersionTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.GuardrailVersionTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'GuardrailVersion.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Guardrail version.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'GuardrailVersion.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:bedrock/guardrailVersion:GuardrailVersion")]
@@ -64,36 +99,64 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// Description of the Guardrail version.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GuardrailVersionArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Guardrail ARN.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("guardrailArn")]
+        [PolicyResourceProperty("guardrailArn", "_mUnknown_GuardrailArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGuardrailArn;
-
-        public string? GuardrailArn => _mGuardrailArn.GetValue("guardrailArn");
+        private string? _mValue_GuardrailArn;
+        private bool _mUnknown_GuardrailArn;
+        public string? GuardrailArn
+        {
+            get
+            {
+                if (!_mUnknown_GuardrailArn) return _mValue_GuardrailArn;
+                throw new UndeferrableValueException("Value 'GuardrailVersionArgs.GuardrailArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'GuardrailVersionArgs.SkipDestroy' is not present");
+            }
+        }
 
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GuardrailVersionTimeoutsArgs> _mTimeouts;
-
-        public Inputs.GuardrailVersionTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.GuardrailVersionTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.GuardrailVersionTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'GuardrailVersionArgs.Timeouts' is not present");
+            }
+        }
     }
 }

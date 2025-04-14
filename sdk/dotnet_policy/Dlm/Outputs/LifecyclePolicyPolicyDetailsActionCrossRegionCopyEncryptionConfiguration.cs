@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Dlm.Outputs
 {
     public sealed class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration
     {
-        [Input("cmkArn")]
+        [PolicyResourceProperty("cmkArn", "_mUnknown_CmkArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCmkArn;
+        private string? _mValue_CmkArn;
+        private bool _mUnknown_CmkArn;
+        public string? CmkArn
+        {
+            get
+            {
+                if (!_mUnknown_CmkArn) return _mValue_CmkArn;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration.CmkArn' is not present");
+            }
+        }
 
-        public string? CmkArn => _mCmkArn.GetValue("cmkArn");
-
-        [Input("encrypted")]
+        [PolicyResourceProperty("encrypted", "_mUnknown_Encrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypted;
-
-        public bool? Encrypted => _mEncrypted.GetValue("encrypted");
+        private bool? _mValue_Encrypted;
+        private bool _mUnknown_Encrypted;
+        public bool? Encrypted
+        {
+            get
+            {
+                if (!_mUnknown_Encrypted) return _mValue_Encrypted;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration.Encrypted' is not present");
+            }
+        }
     }
 }

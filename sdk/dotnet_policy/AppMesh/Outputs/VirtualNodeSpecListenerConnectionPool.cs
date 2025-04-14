@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// Connection pool information for gRPC listeners.
         /// </summary>
-        [Input("grpc")]
+        [PolicyResourceProperty("grpc", "_mUnknown_Grpc")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualNodeSpecListenerConnectionPoolGrpc> _mGrpc;
-
-        public Outputs.VirtualNodeSpecListenerConnectionPoolGrpc? Grpc => _mGrpc.GetValue("grpc");
+        private Outputs.VirtualNodeSpecListenerConnectionPoolGrpc? _mValue_Grpc;
+        private bool _mUnknown_Grpc;
+        public Outputs.VirtualNodeSpecListenerConnectionPoolGrpc? Grpc
+        {
+            get
+            {
+                if (!_mUnknown_Grpc) return _mValue_Grpc;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerConnectionPool.Grpc' is not present");
+            }
+        }
 
         /// <summary>
         /// Connection pool information for HTTP2 listeners.
         /// </summary>
-        [Input("http2s")]
+        [PolicyResourceProperty("http2s", "_mUnknown_Http2s")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VirtualNodeSpecListenerConnectionPoolHttp2>> _mHttp2s;
-
-        public List<Outputs.VirtualNodeSpecListenerConnectionPoolHttp2>? Http2s => _mHttp2s.GetValue("http2s");
+        private List<Outputs.VirtualNodeSpecListenerConnectionPoolHttp2>? _mValue_Http2s;
+        private bool _mUnknown_Http2s;
+        public List<Outputs.VirtualNodeSpecListenerConnectionPoolHttp2>? Http2s
+        {
+            get
+            {
+                if (!_mUnknown_Http2s) return _mValue_Http2s;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerConnectionPool.Http2s' is not present");
+            }
+        }
 
         /// <summary>
         /// Connection pool information for HTTP listeners.
         /// </summary>
-        [Input("https")]
+        [PolicyResourceProperty("https", "_mUnknown_Https")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VirtualNodeSpecListenerConnectionPoolHttp>> _mHttps;
-
-        public List<Outputs.VirtualNodeSpecListenerConnectionPoolHttp>? Https => _mHttps.GetValue("https");
+        private List<Outputs.VirtualNodeSpecListenerConnectionPoolHttp>? _mValue_Https;
+        private bool _mUnknown_Https;
+        public List<Outputs.VirtualNodeSpecListenerConnectionPoolHttp>? Https
+        {
+            get
+            {
+                if (!_mUnknown_Https) return _mValue_Https;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerConnectionPool.Https' is not present");
+            }
+        }
 
         /// <summary>
         /// Connection pool information for TCP listeners.
         /// </summary>
-        [Input("tcps")]
+        [PolicyResourceProperty("tcps", "_mUnknown_Tcps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VirtualNodeSpecListenerConnectionPoolTcp>> _mTcps;
-
-        public List<Outputs.VirtualNodeSpecListenerConnectionPoolTcp>? Tcps => _mTcps.GetValue("tcps");
+        private List<Outputs.VirtualNodeSpecListenerConnectionPoolTcp>? _mValue_Tcps;
+        private bool _mUnknown_Tcps;
+        public List<Outputs.VirtualNodeSpecListenerConnectionPoolTcp>? Tcps
+        {
+            get
+            {
+                if (!_mUnknown_Tcps) return _mValue_Tcps;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerConnectionPool.Tcps' is not present");
+            }
+        }
     }
 }

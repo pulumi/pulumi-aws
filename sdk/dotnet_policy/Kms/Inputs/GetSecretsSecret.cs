@@ -15,29 +15,50 @@ namespace Pulumi.PolicyPacks.Aws.Kms.Inputs
         /// <summary>
         /// An optional mapping that makes up the Encryption Context for the secret.
         /// </summary>
-        [Input("context")]
+        [PolicyResourceProperty("context", "_mUnknown_Context")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mContext;
-
-        public Dictionary<string, string>? Context => _mContext.GetValue("context");
+        private Dictionary<string, string>? _mValue_Context;
+        private bool _mUnknown_Context;
+        public Dictionary<string, string>? Context
+        {
+            get
+            {
+                if (!_mUnknown_Context) return _mValue_Context;
+                throw new UndeferrableValueException("Value 'GetSecretsSecretArgs.Context' is not present");
+            }
+        }
 
         /// <summary>
         /// The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
         /// </summary>
-        [Input("encryptionAlgorithm")]
+        [PolicyResourceProperty("encryptionAlgorithm", "_mUnknown_EncryptionAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionAlgorithm;
-
-        public string? EncryptionAlgorithm => _mEncryptionAlgorithm.GetValue("encryptionAlgorithm");
+        private string? _mValue_EncryptionAlgorithm;
+        private bool _mUnknown_EncryptionAlgorithm;
+        public string? EncryptionAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionAlgorithm) return _mValue_EncryptionAlgorithm;
+                throw new UndeferrableValueException("Value 'GetSecretsSecretArgs.EncryptionAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// An optional list of Grant Tokens for the secret.
         /// </summary>
-        [Input("grantTokens")]
+        [PolicyResourceProperty("grantTokens", "_mUnknown_GrantTokens")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGrantTokens;
-
-        public List<string>? GrantTokens => _mGrantTokens.GetValue("grantTokens");
+        private List<string>? _mValue_GrantTokens;
+        private bool _mUnknown_GrantTokens;
+        public List<string>? GrantTokens
+        {
+            get
+            {
+                if (!_mUnknown_GrantTokens) return _mValue_GrantTokens;
+                throw new UndeferrableValueException("Value 'GetSecretsSecretArgs.GrantTokens' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
@@ -45,28 +66,49 @@ namespace Pulumi.PolicyPacks.Aws.Kms.Inputs
         /// For more information on `context` and `grant_tokens` see the [KMS
         /// Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
         /// </summary>
-        [Input("keyId")]
+        [PolicyResourceProperty("keyId", "_mUnknown_KeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
-
-        public string? KeyId => _mKeyId.GetValue("keyId");
+        private string? _mValue_KeyId;
+        private bool _mUnknown_KeyId;
+        public string? KeyId
+        {
+            get
+            {
+                if (!_mUnknown_KeyId) return _mValue_KeyId;
+                throw new UndeferrableValueException("Value 'GetSecretsSecretArgs.KeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name to export this secret under in the attributes.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetSecretsSecretArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Base64 encoded payload, as returned from a KMS encrypt operation.
         /// </summary>
-        [Input("payload")]
+        [PolicyResourceProperty("payload", "_mUnknown_Payload")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPayload;
-
-        public string? Payload => _mPayload.GetValue("payload");
+        private string? _mValue_Payload;
+        private bool _mUnknown_Payload;
+        public string? Payload
+        {
+            get
+            {
+                if (!_mUnknown_Payload) return _mValue_Payload;
+                throw new UndeferrableValueException("Value 'GetSecretsSecretArgs.Payload' is not present");
+            }
+        }
     }
 }

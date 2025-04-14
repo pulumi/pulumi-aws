@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Outputs
         /// <summary>
         /// IAM principal that is allowed to access to the domain.
         /// </summary>
-        [Input("principal")]
+        [PolicyResourceProperty("principal", "_mUnknown_Principal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
-
-        public string? Principal => _mPrincipal.GetValue("principal");
+        private string? _mValue_Principal;
+        private bool _mUnknown_Principal;
+        public string? Principal
+        {
+            get
+            {
+                if (!_mUnknown_Principal) return _mValue_Principal;
+                throw new UndeferrableValueException("Value 'AuthorizeVpcEndpointAccessAuthorizedPrincipal.Principal' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of principal.
         /// </summary>
-        [Input("principalType")]
+        [PolicyResourceProperty("principalType", "_mUnknown_PrincipalType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalType;
-
-        public string? PrincipalType => _mPrincipalType.GetValue("principalType");
+        private string? _mValue_PrincipalType;
+        private bool _mUnknown_PrincipalType;
+        public string? PrincipalType
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalType) return _mValue_PrincipalType;
+                throw new UndeferrableValueException("Value 'AuthorizeVpcEndpointAccessAuthorizedPrincipal.PrincipalType' is not present");
+            }
+        }
     }
 }

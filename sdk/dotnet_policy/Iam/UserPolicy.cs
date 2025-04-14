@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The name of the policy. If omitted, the provider will assign a random, unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UserPolicy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'UserPolicy.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The policy document. This is a JSON formatted string.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'UserPolicy.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM user to which to attach this policy.
         /// </summary>
-        [Input("user")]
+        [PolicyResourceProperty("user", "_mUnknown_User")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
-
-        public string? User => _mUser.GetValue("user");
+        private string? _mValue_User;
+        private bool _mUnknown_User;
+        public string? User
+        {
+            get
+            {
+                if (!_mUnknown_User) return _mValue_User;
+                throw new UndeferrableValueException("Value 'UserPolicy.User' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/userPolicy:UserPolicy")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The name of the policy. If omitted, the provider will assign a random, unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UserPolicyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'UserPolicyArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The policy document. This is a JSON formatted string.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'UserPolicyArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM user to which to attach this policy.
         /// </summary>
-        [Input("user")]
+        [PolicyResourceProperty("user", "_mUnknown_User")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
-
-        public string? User => _mUser.GetValue("user");
+        private string? _mValue_User;
+        private bool _mUnknown_User;
+        public string? User
+        {
+            get
+            {
+                if (!_mUnknown_User) return _mValue_User;
+                throw new UndeferrableValueException("Value 'UserPolicyArgs.User' is not present");
+            }
+        }
     }
 }

@@ -16,64 +16,113 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// <summary>
         /// ARN of the Service Network Resource Association.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ServiceNetworkResourceAssociation.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// DNS entry of the association in the service network.
         /// </summary>
-        [Input("dnsEntries")]
+        [PolicyResourceProperty("dnsEntries", "_mUnknown_DnsEntries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServiceNetworkResourceAssociationDnsEntry>> _mDnsEntries;
-
-        public List<Outputs.ServiceNetworkResourceAssociationDnsEntry>? DnsEntries => _mDnsEntries.GetValue("dnsEntries");
+        private List<Outputs.ServiceNetworkResourceAssociationDnsEntry>? _mValue_DnsEntries;
+        private bool _mUnknown_DnsEntries;
+        public List<Outputs.ServiceNetworkResourceAssociationDnsEntry>? DnsEntries
+        {
+            get
+            {
+                if (!_mUnknown_DnsEntries) return _mValue_DnsEntries;
+                throw new UndeferrableValueException("Value 'ServiceNetworkResourceAssociation.DnsEntries' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of Resource Configuration to associate to the Service Network.
         /// </summary>
-        [Input("resourceConfigurationIdentifier")]
+        [PolicyResourceProperty("resourceConfigurationIdentifier", "_mUnknown_ResourceConfigurationIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceConfigurationIdentifier;
-
-        public string? ResourceConfigurationIdentifier => _mResourceConfigurationIdentifier.GetValue("resourceConfigurationIdentifier");
+        private string? _mValue_ResourceConfigurationIdentifier;
+        private bool _mUnknown_ResourceConfigurationIdentifier;
+        public string? ResourceConfigurationIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ResourceConfigurationIdentifier) return _mValue_ResourceConfigurationIdentifier;
+                throw new UndeferrableValueException("Value 'ServiceNetworkResourceAssociation.ResourceConfigurationIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the Service Network to associate the Resource to.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("serviceNetworkIdentifier")]
+        [PolicyResourceProperty("serviceNetworkIdentifier", "_mUnknown_ServiceNetworkIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNetworkIdentifier;
-
-        public string? ServiceNetworkIdentifier => _mServiceNetworkIdentifier.GetValue("serviceNetworkIdentifier");
+        private string? _mValue_ServiceNetworkIdentifier;
+        private bool _mUnknown_ServiceNetworkIdentifier;
+        public string? ServiceNetworkIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ServiceNetworkIdentifier) return _mValue_ServiceNetworkIdentifier;
+                throw new UndeferrableValueException("Value 'ServiceNetworkResourceAssociation.ServiceNetworkIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServiceNetworkResourceAssociation.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ServiceNetworkResourceAssociation.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceNetworkResourceAssociationTimeouts> _mTimeouts;
-
-        public Outputs.ServiceNetworkResourceAssociationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.ServiceNetworkResourceAssociationTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.ServiceNetworkResourceAssociationTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ServiceNetworkResourceAssociation.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation")]
@@ -82,36 +131,64 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// <summary>
         /// Identifier of Resource Configuration to associate to the Service Network.
         /// </summary>
-        [Input("resourceConfigurationIdentifier")]
+        [PolicyResourceProperty("resourceConfigurationIdentifier", "_mUnknown_ResourceConfigurationIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceConfigurationIdentifier;
-
-        public string? ResourceConfigurationIdentifier => _mResourceConfigurationIdentifier.GetValue("resourceConfigurationIdentifier");
+        private string? _mValue_ResourceConfigurationIdentifier;
+        private bool _mUnknown_ResourceConfigurationIdentifier;
+        public string? ResourceConfigurationIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ResourceConfigurationIdentifier) return _mValue_ResourceConfigurationIdentifier;
+                throw new UndeferrableValueException("Value 'ServiceNetworkResourceAssociationArgs.ResourceConfigurationIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the Service Network to associate the Resource to.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("serviceNetworkIdentifier")]
+        [PolicyResourceProperty("serviceNetworkIdentifier", "_mUnknown_ServiceNetworkIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNetworkIdentifier;
-
-        public string? ServiceNetworkIdentifier => _mServiceNetworkIdentifier.GetValue("serviceNetworkIdentifier");
+        private string? _mValue_ServiceNetworkIdentifier;
+        private bool _mUnknown_ServiceNetworkIdentifier;
+        public string? ServiceNetworkIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ServiceNetworkIdentifier) return _mValue_ServiceNetworkIdentifier;
+                throw new UndeferrableValueException("Value 'ServiceNetworkResourceAssociationArgs.ServiceNetworkIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServiceNetworkResourceAssociationArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceNetworkResourceAssociationTimeoutsArgs> _mTimeouts;
-
-        public Inputs.ServiceNetworkResourceAssociationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.ServiceNetworkResourceAssociationTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.ServiceNetworkResourceAssociationTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ServiceNetworkResourceAssociationArgs.Timeouts' is not present");
+            }
+        }
     }
 }

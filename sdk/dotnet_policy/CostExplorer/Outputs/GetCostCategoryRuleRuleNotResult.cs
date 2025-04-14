@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer.Outputs
         /// <summary>
         /// Return results that match both `Dimension` objects.
         /// </summary>
-        [Input("ands")]
+        [PolicyResourceProperty("ands", "_mUnknown_Ands")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetCostCategoryRuleRuleNotAndResult>> _mAnds;
-
-        public List<Outputs.GetCostCategoryRuleRuleNotAndResult>? Ands => _mAnds.GetValue("ands");
+        private List<Outputs.GetCostCategoryRuleRuleNotAndResult>? _mValue_Ands;
+        private bool _mUnknown_Ands;
+        public List<Outputs.GetCostCategoryRuleRuleNotAndResult>? Ands
+        {
+            get
+            {
+                if (!_mUnknown_Ands) return _mValue_Ands;
+                throw new UndeferrableValueException("Value 'GetCostCategoryRuleRuleNotResult.Ands' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the filter that's based on `CostCategory` values. See below.
         /// </summary>
-        [Input("costCategories")]
+        [PolicyResourceProperty("costCategories", "_mUnknown_CostCategories")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetCostCategoryRuleRuleNotCostCategoryResult>> _mCostCategories;
-
-        public List<Outputs.GetCostCategoryRuleRuleNotCostCategoryResult>? CostCategories => _mCostCategories.GetValue("costCategories");
+        private List<Outputs.GetCostCategoryRuleRuleNotCostCategoryResult>? _mValue_CostCategories;
+        private bool _mUnknown_CostCategories;
+        public List<Outputs.GetCostCategoryRuleRuleNotCostCategoryResult>? CostCategories
+        {
+            get
+            {
+                if (!_mUnknown_CostCategories) return _mValue_CostCategories;
+                throw new UndeferrableValueException("Value 'GetCostCategoryRuleRuleNotResult.CostCategories' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the specific `Dimension` to use for `Expression`. See below.
         /// </summary>
-        [Input("dimensions")]
+        [PolicyResourceProperty("dimensions", "_mUnknown_Dimensions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetCostCategoryRuleRuleNotDimensionResult>> _mDimensions;
-
-        public List<Outputs.GetCostCategoryRuleRuleNotDimensionResult>? Dimensions => _mDimensions.GetValue("dimensions");
+        private List<Outputs.GetCostCategoryRuleRuleNotDimensionResult>? _mValue_Dimensions;
+        private bool _mUnknown_Dimensions;
+        public List<Outputs.GetCostCategoryRuleRuleNotDimensionResult>? Dimensions
+        {
+            get
+            {
+                if (!_mUnknown_Dimensions) return _mValue_Dimensions;
+                throw new UndeferrableValueException("Value 'GetCostCategoryRuleRuleNotResult.Dimensions' is not present");
+            }
+        }
 
         /// <summary>
         /// Return results that do not match the `Dimension` object.
         /// </summary>
-        [Input("nots")]
+        [PolicyResourceProperty("nots", "_mUnknown_Nots")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetCostCategoryRuleRuleNotNotResult>> _mNots;
-
-        public List<Outputs.GetCostCategoryRuleRuleNotNotResult>? Nots => _mNots.GetValue("nots");
+        private List<Outputs.GetCostCategoryRuleRuleNotNotResult>? _mValue_Nots;
+        private bool _mUnknown_Nots;
+        public List<Outputs.GetCostCategoryRuleRuleNotNotResult>? Nots
+        {
+            get
+            {
+                if (!_mUnknown_Nots) return _mValue_Nots;
+                throw new UndeferrableValueException("Value 'GetCostCategoryRuleRuleNotResult.Nots' is not present");
+            }
+        }
 
         /// <summary>
         /// Return results that match either `Dimension` object.
         /// </summary>
-        [Input("ors")]
+        [PolicyResourceProperty("ors", "_mUnknown_Ors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetCostCategoryRuleRuleNotOrResult>> _mOrs;
-
-        public List<Outputs.GetCostCategoryRuleRuleNotOrResult>? Ors => _mOrs.GetValue("ors");
+        private List<Outputs.GetCostCategoryRuleRuleNotOrResult>? _mValue_Ors;
+        private bool _mUnknown_Ors;
+        public List<Outputs.GetCostCategoryRuleRuleNotOrResult>? Ors
+        {
+            get
+            {
+                if (!_mUnknown_Ors) return _mValue_Ors;
+                throw new UndeferrableValueException("Value 'GetCostCategoryRuleRuleNotResult.Ors' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the specific `Tag` to use for `Expression`. See below.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetCostCategoryRuleRuleNotTagResult>> _mTags;
-
-        public List<Outputs.GetCostCategoryRuleRuleNotTagResult>? Tags => _mTags.GetValue("tags");
+        private List<Outputs.GetCostCategoryRuleRuleNotTagResult>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public List<Outputs.GetCostCategoryRuleRuleNotTagResult>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GetCostCategoryRuleRuleNotResult.Tags' is not present");
+            }
+        }
     }
 }

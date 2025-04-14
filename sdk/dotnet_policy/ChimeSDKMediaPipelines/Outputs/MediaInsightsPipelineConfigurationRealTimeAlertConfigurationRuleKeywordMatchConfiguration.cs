@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ChimeSDKMediaPipelines.Outputs
         /// <summary>
         /// Collection of keywords to match.
         /// </summary>
-        [Input("keywords")]
+        [PolicyResourceProperty("keywords", "_mUnknown_Keywords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKeywords;
-
-        public List<string>? Keywords => _mKeywords.GetValue("keywords");
+        private List<string>? _mValue_Keywords;
+        private bool _mUnknown_Keywords;
+        public List<string>? Keywords
+        {
+            get
+            {
+                if (!_mUnknown_Keywords) return _mValue_Keywords;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration.Keywords' is not present");
+            }
+        }
 
         /// <summary>
         /// Negate the rule.
         /// </summary>
-        [Input("negate")]
+        [PolicyResourceProperty("negate", "_mUnknown_Negate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mNegate;
-
-        public bool? Negate => _mNegate.GetValue("negate");
+        private bool? _mValue_Negate;
+        private bool _mUnknown_Negate;
+        public bool? Negate
+        {
+            get
+            {
+                if (!_mUnknown_Negate) return _mValue_Negate;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration.Negate' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule name.
         /// </summary>
-        [Input("ruleName")]
+        [PolicyResourceProperty("ruleName", "_mUnknown_RuleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
-
-        public string? RuleName => _mRuleName.GetValue("ruleName");
+        private string? _mValue_RuleName;
+        private bool _mUnknown_RuleName;
+        public string? RuleName
+        {
+            get
+            {
+                if (!_mUnknown_RuleName) return _mValue_RuleName;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration.RuleName' is not present");
+            }
+        }
     }
 }

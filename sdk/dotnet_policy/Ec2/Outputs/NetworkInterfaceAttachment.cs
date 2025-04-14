@@ -12,28 +12,49 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class NetworkInterfaceAttachment
     {
-        [Input("attachmentId")]
+        [PolicyResourceProperty("attachmentId", "_mUnknown_AttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentId;
-
-        public string? AttachmentId => _mAttachmentId.GetValue("attachmentId");
+        private string? _mValue_AttachmentId;
+        private bool _mUnknown_AttachmentId;
+        public string? AttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentId) return _mValue_AttachmentId;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceAttachment.AttachmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Integer to define the devices index.
         /// </summary>
-        [Input("deviceIndex")]
+        [PolicyResourceProperty("deviceIndex", "_mUnknown_DeviceIndex")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeviceIndex;
-
-        public int? DeviceIndex => _mDeviceIndex.GetValue("deviceIndex");
+        private int? _mValue_DeviceIndex;
+        private bool _mUnknown_DeviceIndex;
+        public int? DeviceIndex
+        {
+            get
+            {
+                if (!_mUnknown_DeviceIndex) return _mValue_DeviceIndex;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceAttachment.DeviceIndex' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the instance to attach to.
         /// </summary>
-        [Input("instance")]
+        [PolicyResourceProperty("instance", "_mUnknown_Instance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstance;
-
-        public string? Instance => _mInstance.GetValue("instance");
+        private string? _mValue_Instance;
+        private bool _mUnknown_Instance;
+        public string? Instance
+        {
+            get
+            {
+                if (!_mUnknown_Instance) return _mValue_Instance;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceAttachment.Instance' is not present");
+            }
+        }
     }
 }

@@ -15,20 +15,34 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// <summary>
         /// Configuration block with elastic load balancing configuration for the cluster. Detailed below.
         /// </summary>
-        [Input("elasticLoadBalancing")]
+        [PolicyResourceProperty("elasticLoadBalancing", "_mUnknown_ElasticLoadBalancing")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterKubernetesNetworkConfigElasticLoadBalancing> _mElasticLoadBalancing;
-
-        public Outputs.ClusterKubernetesNetworkConfigElasticLoadBalancing? ElasticLoadBalancing => _mElasticLoadBalancing.GetValue("elasticLoadBalancing");
+        private Outputs.ClusterKubernetesNetworkConfigElasticLoadBalancing? _mValue_ElasticLoadBalancing;
+        private bool _mUnknown_ElasticLoadBalancing;
+        public Outputs.ClusterKubernetesNetworkConfigElasticLoadBalancing? ElasticLoadBalancing
+        {
+            get
+            {
+                if (!_mUnknown_ElasticLoadBalancing) return _mValue_ElasticLoadBalancing;
+                throw new UndeferrableValueException("Value 'ClusterKubernetesNetworkConfig.ElasticLoadBalancing' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
         /// </summary>
-        [Input("ipFamily")]
+        [PolicyResourceProperty("ipFamily", "_mUnknown_IpFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpFamily;
-
-        public string? IpFamily => _mIpFamily.GetValue("ipFamily");
+        private string? _mValue_IpFamily;
+        private bool _mUnknown_IpFamily;
+        public string? IpFamily
+        {
+            get
+            {
+                if (!_mUnknown_IpFamily) return _mValue_IpFamily;
+                throw new UndeferrableValueException("Value 'ClusterKubernetesNetworkConfig.IpFamily' is not present");
+            }
+        }
 
         /// <summary>
         /// The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
@@ -39,19 +53,33 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// 
         /// * Between /24 and /12.
         /// </summary>
-        [Input("serviceIpv4Cidr")]
+        [PolicyResourceProperty("serviceIpv4Cidr", "_mUnknown_ServiceIpv4Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceIpv4Cidr;
-
-        public string? ServiceIpv4Cidr => _mServiceIpv4Cidr.GetValue("serviceIpv4Cidr");
+        private string? _mValue_ServiceIpv4Cidr;
+        private bool _mUnknown_ServiceIpv4Cidr;
+        public string? ServiceIpv4Cidr
+        {
+            get
+            {
+                if (!_mUnknown_ServiceIpv4Cidr) return _mValue_ServiceIpv4Cidr;
+                throw new UndeferrableValueException("Value 'ClusterKubernetesNetworkConfig.ServiceIpv4Cidr' is not present");
+            }
+        }
 
         /// <summary>
         /// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specify `ipv6` for `ip_family` when you create the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
         /// </summary>
-        [Input("serviceIpv6Cidr")]
+        [PolicyResourceProperty("serviceIpv6Cidr", "_mUnknown_ServiceIpv6Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceIpv6Cidr;
-
-        public string? ServiceIpv6Cidr => _mServiceIpv6Cidr.GetValue("serviceIpv6Cidr");
+        private string? _mValue_ServiceIpv6Cidr;
+        private bool _mUnknown_ServiceIpv6Cidr;
+        public string? ServiceIpv6Cidr
+        {
+            get
+            {
+                if (!_mUnknown_ServiceIpv6Cidr) return _mValue_ServiceIpv6Cidr;
+                throw new UndeferrableValueException("Value 'ClusterKubernetesNetworkConfig.ServiceIpv6Cidr' is not present");
+            }
+        }
     }
 }

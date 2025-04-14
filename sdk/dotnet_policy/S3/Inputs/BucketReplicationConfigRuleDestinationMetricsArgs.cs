@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See below.
         /// </summary>
-        [Input("eventThreshold")]
+        [PolicyResourceProperty("eventThreshold", "_mUnknown_EventThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs> _mEventThreshold;
-
-        public Inputs.BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs? EventThreshold => _mEventThreshold.GetValue("eventThreshold");
+        private Inputs.BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs? _mValue_EventThreshold;
+        private bool _mUnknown_EventThreshold;
+        public Inputs.BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs? EventThreshold
+        {
+            get
+            {
+                if (!_mUnknown_EventThreshold) return _mValue_EventThreshold;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationMetricsArgs.EventThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the Destination Metrics. Either `"Enabled"` or `"Disabled"`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationMetricsArgs.Status' is not present");
+            }
+        }
     }
 }

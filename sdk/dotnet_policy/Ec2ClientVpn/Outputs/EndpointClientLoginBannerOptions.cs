@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2ClientVpn.Outputs
         /// <summary>
         /// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
         /// </summary>
-        [Input("bannerText")]
+        [PolicyResourceProperty("bannerText", "_mUnknown_BannerText")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBannerText;
-
-        public string? BannerText => _mBannerText.GetValue("bannerText");
+        private string? _mValue_BannerText;
+        private bool _mUnknown_BannerText;
+        public string? BannerText
+        {
+            get
+            {
+                if (!_mUnknown_BannerText) return _mValue_BannerText;
+                throw new UndeferrableValueException("Value 'EndpointClientLoginBannerOptions.BannerText' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'EndpointClientLoginBannerOptions.Enabled' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2.Inputs
         /// <summary>
         /// ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
         /// </summary>
-        [Input("destinationArn")]
+        [PolicyResourceProperty("destinationArn", "_mUnknown_DestinationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
-
-        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
+        private string? _mValue_DestinationArn;
+        private bool _mUnknown_DestinationArn;
+        public string? DestinationArn
+        {
+            get
+            {
+                if (!_mUnknown_DestinationArn) return _mValue_DestinationArn;
+                throw new UndeferrableValueException("Value 'StageAccessLogSettingsArgs.DestinationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data. Refer to log settings for [HTTP](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-logging-variables.html) or [Websocket](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-logging.html).
         /// </summary>
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
-
-        public string? Format => _mFormat.GetValue("format");
+        private string? _mValue_Format;
+        private bool _mUnknown_Format;
+        public string? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'StageAccessLogSettingsArgs.Format' is not present");
+            }
+        }
     }
 }

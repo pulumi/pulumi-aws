@@ -15,22 +15,43 @@ namespace Pulumi.PolicyPacks.Aws.CodeArtifact.Inputs
         /// <summary>
         /// The name of the external connection associated with a repository.
         /// </summary>
-        [Input("externalConnectionName")]
+        [PolicyResourceProperty("externalConnectionName", "_mUnknown_ExternalConnectionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExternalConnectionName;
+        private string? _mValue_ExternalConnectionName;
+        private bool _mUnknown_ExternalConnectionName;
+        public string? ExternalConnectionName
+        {
+            get
+            {
+                if (!_mUnknown_ExternalConnectionName) return _mValue_ExternalConnectionName;
+                throw new UndeferrableValueException("Value 'RepositoryExternalConnectionsArgs.ExternalConnectionName' is not present");
+            }
+        }
 
-        public string? ExternalConnectionName => _mExternalConnectionName.GetValue("externalConnectionName");
-
-        [Input("packageFormat")]
+        [PolicyResourceProperty("packageFormat", "_mUnknown_PackageFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPackageFormat;
+        private string? _mValue_PackageFormat;
+        private bool _mUnknown_PackageFormat;
+        public string? PackageFormat
+        {
+            get
+            {
+                if (!_mUnknown_PackageFormat) return _mValue_PackageFormat;
+                throw new UndeferrableValueException("Value 'RepositoryExternalConnectionsArgs.PackageFormat' is not present");
+            }
+        }
 
-        public string? PackageFormat => _mPackageFormat.GetValue("packageFormat");
-
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'RepositoryExternalConnectionsArgs.Status' is not present");
+            }
+        }
     }
 }

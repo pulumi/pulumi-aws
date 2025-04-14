@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The group the policy should be applied to
         /// </summary>
-        [Input("group")]
+        [PolicyResourceProperty("group", "_mUnknown_Group")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroup;
-
-        public string? Group => _mGroup.GetValue("group");
+        private string? _mValue_Group;
+        private bool _mUnknown_Group;
+        public string? Group
+        {
+            get
+            {
+                if (!_mUnknown_Group) return _mValue_Group;
+                throw new UndeferrableValueException("Value 'GroupPolicyAttachment.Group' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the policy you want to apply
         /// </summary>
-        [Input("policyArn")]
+        [PolicyResourceProperty("policyArn", "_mUnknown_PolicyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
-
-        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
+        private string? _mValue_PolicyArn;
+        private bool _mUnknown_PolicyArn;
+        public string? PolicyArn
+        {
+            get
+            {
+                if (!_mUnknown_PolicyArn) return _mValue_PolicyArn;
+                throw new UndeferrableValueException("Value 'GroupPolicyAttachment.PolicyArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/groupPolicyAttachment:GroupPolicyAttachment")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The group the policy should be applied to
         /// </summary>
-        [Input("group")]
+        [PolicyResourceProperty("group", "_mUnknown_Group")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroup;
-
-        public string? Group => _mGroup.GetValue("group");
+        private string? _mValue_Group;
+        private bool _mUnknown_Group;
+        public string? Group
+        {
+            get
+            {
+                if (!_mUnknown_Group) return _mValue_Group;
+                throw new UndeferrableValueException("Value 'GroupPolicyAttachmentArgs.Group' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the policy you want to apply
         /// </summary>
-        [Input("policyArn")]
+        [PolicyResourceProperty("policyArn", "_mUnknown_PolicyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
-
-        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
+        private string? _mValue_PolicyArn;
+        private bool _mUnknown_PolicyArn;
+        public string? PolicyArn
+        {
+            get
+            {
+                if (!_mUnknown_PolicyArn) return _mValue_PolicyArn;
+                throw new UndeferrableValueException("Value 'GroupPolicyAttachmentArgs.PolicyArn' is not present");
+            }
+        }
     }
 }

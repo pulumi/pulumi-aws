@@ -16,204 +16,358 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// ARN of domain name.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DomainName.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'DomainName.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Certificate issued for the domain name being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         /// </summary>
-        [Input("certificateBody")]
+        [PolicyResourceProperty("certificateBody", "_mUnknown_CertificateBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateBody;
-
-        public string? CertificateBody => _mCertificateBody.GetValue("certificateBody");
+        private string? _mValue_CertificateBody;
+        private bool _mUnknown_CertificateBody;
+        public string? CertificateBody
+        {
+            get
+            {
+                if (!_mUnknown_CertificateBody) return _mValue_CertificateBody;
+                throw new UndeferrableValueException("Value 'DomainName.CertificateBody' is not present");
+            }
+        }
 
         /// <summary>
         /// Certificate for the CA that issued the certificate, along with any intermediate CA certificates required to create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         /// </summary>
-        [Input("certificateChain")]
+        [PolicyResourceProperty("certificateChain", "_mUnknown_CertificateChain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
-
-        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
+        private string? _mValue_CertificateChain;
+        private bool _mUnknown_CertificateChain;
+        public string? CertificateChain
+        {
+            get
+            {
+                if (!_mUnknown_CertificateChain) return _mValue_CertificateChain;
+                throw new UndeferrableValueException("Value 'DomainName.CertificateChain' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name to use when registering this certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`. Required if `certificate_arn` is not set.
         /// </summary>
-        [Input("certificateName")]
+        [PolicyResourceProperty("certificateName", "_mUnknown_CertificateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateName;
-
-        public string? CertificateName => _mCertificateName.GetValue("certificateName");
+        private string? _mValue_CertificateName;
+        private bool _mUnknown_CertificateName;
+        public string? CertificateName
+        {
+            get
+            {
+                if (!_mUnknown_CertificateName) return _mValue_CertificateName;
+                throw new UndeferrableValueException("Value 'DomainName.CertificateName' is not present");
+            }
+        }
 
         /// <summary>
         /// Private key associated with the domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         /// </summary>
-        [Input("certificatePrivateKey")]
+        [PolicyResourceProperty("certificatePrivateKey", "_mUnknown_CertificatePrivateKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificatePrivateKey;
-
-        public string? CertificatePrivateKey => _mCertificatePrivateKey.GetValue("certificatePrivateKey");
+        private string? _mValue_CertificatePrivateKey;
+        private bool _mUnknown_CertificatePrivateKey;
+        public string? CertificatePrivateKey
+        {
+            get
+            {
+                if (!_mUnknown_CertificatePrivateKey) return _mValue_CertificatePrivateKey;
+                throw new UndeferrableValueException("Value 'DomainName.CertificatePrivateKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Upload date associated with the domain certificate.
         /// </summary>
-        [Input("certificateUploadDate")]
+        [PolicyResourceProperty("certificateUploadDate", "_mUnknown_CertificateUploadDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateUploadDate;
-
-        public string? CertificateUploadDate => _mCertificateUploadDate.GetValue("certificateUploadDate");
+        private string? _mValue_CertificateUploadDate;
+        private bool _mUnknown_CertificateUploadDate;
+        public string? CertificateUploadDate
+        {
+            get
+            {
+                if (!_mUnknown_CertificateUploadDate) return _mValue_CertificateUploadDate;
+                throw new UndeferrableValueException("Value 'DomainName.CertificateUploadDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
         /// </summary>
-        [Input("cloudfrontDomainName")]
+        [PolicyResourceProperty("cloudfrontDomainName", "_mUnknown_CloudfrontDomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudfrontDomainName;
-
-        public string? CloudfrontDomainName => _mCloudfrontDomainName.GetValue("cloudfrontDomainName");
+        private string? _mValue_CloudfrontDomainName;
+        private bool _mUnknown_CloudfrontDomainName;
+        public string? CloudfrontDomainName
+        {
+            get
+            {
+                if (!_mUnknown_CloudfrontDomainName) return _mValue_CloudfrontDomainName;
+                throw new UndeferrableValueException("Value 'DomainName.CloudfrontDomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
         /// </summary>
-        [Input("cloudfrontZoneId")]
+        [PolicyResourceProperty("cloudfrontZoneId", "_mUnknown_CloudfrontZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudfrontZoneId;
-
-        public string? CloudfrontZoneId => _mCloudfrontZoneId.GetValue("cloudfrontZoneId");
+        private string? _mValue_CloudfrontZoneId;
+        private bool _mUnknown_CloudfrontZoneId;
+        public string? CloudfrontZoneId
+        {
+            get
+            {
+                if (!_mUnknown_CloudfrontZoneId) return _mValue_CloudfrontZoneId;
+                throw new UndeferrableValueException("Value 'DomainName.CloudfrontZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// Fully-qualified domain name to register.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domainName");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'DomainName.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the domain name resource. Supported only for private custom domain names.
         /// </summary>
-        [Input("domainNameId")]
+        [PolicyResourceProperty("domainNameId", "_mUnknown_DomainNameId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainNameId;
-
-        public string? DomainNameId => _mDomainNameId.GetValue("domainNameId");
+        private string? _mValue_DomainNameId;
+        private bool _mUnknown_DomainNameId;
+        public string? DomainNameId
+        {
+            get
+            {
+                if (!_mUnknown_DomainNameId) return _mValue_DomainNameId;
+                throw new UndeferrableValueException("Value 'DomainName.DomainNameId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block defining API endpoint information including type. See below.
         /// </summary>
-        [Input("endpointConfiguration")]
+        [PolicyResourceProperty("endpointConfiguration", "_mUnknown_EndpointConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainNameEndpointConfiguration> _mEndpointConfiguration;
-
-        public Outputs.DomainNameEndpointConfiguration? EndpointConfiguration => _mEndpointConfiguration.GetValue("endpointConfiguration");
+        private Outputs.DomainNameEndpointConfiguration? _mValue_EndpointConfiguration;
+        private bool _mUnknown_EndpointConfiguration;
+        public Outputs.DomainNameEndpointConfiguration? EndpointConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EndpointConfiguration) return _mValue_EndpointConfiguration;
+                throw new UndeferrableValueException("Value 'DomainName.EndpointConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Mutual TLS authentication configuration for the domain name. See below.
         /// </summary>
-        [Input("mutualTlsAuthentication")]
+        [PolicyResourceProperty("mutualTlsAuthentication", "_mUnknown_MutualTlsAuthentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainNameMutualTlsAuthentication> _mMutualTlsAuthentication;
-
-        public Outputs.DomainNameMutualTlsAuthentication? MutualTlsAuthentication => _mMutualTlsAuthentication.GetValue("mutualTlsAuthentication");
+        private Outputs.DomainNameMutualTlsAuthentication? _mValue_MutualTlsAuthentication;
+        private bool _mUnknown_MutualTlsAuthentication;
+        public Outputs.DomainNameMutualTlsAuthentication? MutualTlsAuthentication
+        {
+            get
+            {
+                if (!_mUnknown_MutualTlsAuthentication) return _mValue_MutualTlsAuthentication;
+                throw new UndeferrableValueException("Value 'DomainName.MutualTlsAuthentication' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
         /// </summary>
-        [Input("ownershipVerificationCertificateArn")]
+        [PolicyResourceProperty("ownershipVerificationCertificateArn", "_mUnknown_OwnershipVerificationCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnershipVerificationCertificateArn;
-
-        public string? OwnershipVerificationCertificateArn => _mOwnershipVerificationCertificateArn.GetValue("ownershipVerificationCertificateArn");
+        private string? _mValue_OwnershipVerificationCertificateArn;
+        private bool _mUnknown_OwnershipVerificationCertificateArn;
+        public string? OwnershipVerificationCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_OwnershipVerificationCertificateArn) return _mValue_OwnershipVerificationCertificateArn;
+                throw new UndeferrableValueException("Value 'DomainName.OwnershipVerificationCertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'DomainName.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         /// 
         /// When uploading a certificate, the following arguments are supported:
         /// </summary>
-        [Input("regionalCertificateArn")]
+        [PolicyResourceProperty("regionalCertificateArn", "_mUnknown_RegionalCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegionalCertificateArn;
-
-        public string? RegionalCertificateArn => _mRegionalCertificateArn.GetValue("regionalCertificateArn");
+        private string? _mValue_RegionalCertificateArn;
+        private bool _mUnknown_RegionalCertificateArn;
+        public string? RegionalCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_RegionalCertificateArn) return _mValue_RegionalCertificateArn;
+                throw new UndeferrableValueException("Value 'DomainName.RegionalCertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         /// </summary>
-        [Input("regionalCertificateName")]
+        [PolicyResourceProperty("regionalCertificateName", "_mUnknown_RegionalCertificateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegionalCertificateName;
-
-        public string? RegionalCertificateName => _mRegionalCertificateName.GetValue("regionalCertificateName");
+        private string? _mValue_RegionalCertificateName;
+        private bool _mUnknown_RegionalCertificateName;
+        public string? RegionalCertificateName
+        {
+            get
+            {
+                if (!_mUnknown_RegionalCertificateName) return _mValue_RegionalCertificateName;
+                throw new UndeferrableValueException("Value 'DomainName.RegionalCertificateName' is not present");
+            }
+        }
 
         /// <summary>
         /// Hostname for the custom domain's regional endpoint.
         /// </summary>
-        [Input("regionalDomainName")]
+        [PolicyResourceProperty("regionalDomainName", "_mUnknown_RegionalDomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegionalDomainName;
-
-        public string? RegionalDomainName => _mRegionalDomainName.GetValue("regionalDomainName");
+        private string? _mValue_RegionalDomainName;
+        private bool _mUnknown_RegionalDomainName;
+        public string? RegionalDomainName
+        {
+            get
+            {
+                if (!_mUnknown_RegionalDomainName) return _mValue_RegionalDomainName;
+                throw new UndeferrableValueException("Value 'DomainName.RegionalDomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
         /// </summary>
-        [Input("regionalZoneId")]
+        [PolicyResourceProperty("regionalZoneId", "_mUnknown_RegionalZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegionalZoneId;
-
-        public string? RegionalZoneId => _mRegionalZoneId.GetValue("regionalZoneId");
+        private string? _mValue_RegionalZoneId;
+        private bool _mUnknown_RegionalZoneId;
+        public string? RegionalZoneId
+        {
+            get
+            {
+                if (!_mUnknown_RegionalZoneId) return _mValue_RegionalZoneId;
+                throw new UndeferrableValueException("Value 'DomainName.RegionalZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
         /// </summary>
-        [Input("securityPolicy")]
+        [PolicyResourceProperty("securityPolicy", "_mUnknown_SecurityPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityPolicy;
-
-        public string? SecurityPolicy => _mSecurityPolicy.GetValue("securityPolicy");
+        private string? _mValue_SecurityPolicy;
+        private bool _mUnknown_SecurityPolicy;
+        public string? SecurityPolicy
+        {
+            get
+            {
+                if (!_mUnknown_SecurityPolicy) return _mValue_SecurityPolicy;
+                throw new UndeferrableValueException("Value 'DomainName.SecurityPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// When referencing an AWS-managed certificate, the following arguments are supported:
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DomainName.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DomainName.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/domainName:DomainName")]
@@ -222,131 +376,229 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'DomainNameArgs.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Certificate issued for the domain name being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         /// </summary>
-        [Input("certificateBody")]
+        [PolicyResourceProperty("certificateBody", "_mUnknown_CertificateBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateBody;
-
-        public string? CertificateBody => _mCertificateBody.GetValue("certificateBody");
+        private string? _mValue_CertificateBody;
+        private bool _mUnknown_CertificateBody;
+        public string? CertificateBody
+        {
+            get
+            {
+                if (!_mUnknown_CertificateBody) return _mValue_CertificateBody;
+                throw new UndeferrableValueException("Value 'DomainNameArgs.CertificateBody' is not present");
+            }
+        }
 
         /// <summary>
         /// Certificate for the CA that issued the certificate, along with any intermediate CA certificates required to create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         /// </summary>
-        [Input("certificateChain")]
+        [PolicyResourceProperty("certificateChain", "_mUnknown_CertificateChain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
-
-        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
+        private string? _mValue_CertificateChain;
+        private bool _mUnknown_CertificateChain;
+        public string? CertificateChain
+        {
+            get
+            {
+                if (!_mUnknown_CertificateChain) return _mValue_CertificateChain;
+                throw new UndeferrableValueException("Value 'DomainNameArgs.CertificateChain' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name to use when registering this certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`. Required if `certificate_arn` is not set.
         /// </summary>
-        [Input("certificateName")]
+        [PolicyResourceProperty("certificateName", "_mUnknown_CertificateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateName;
-
-        public string? CertificateName => _mCertificateName.GetValue("certificateName");
+        private string? _mValue_CertificateName;
+        private bool _mUnknown_CertificateName;
+        public string? CertificateName
+        {
+            get
+            {
+                if (!_mUnknown_CertificateName) return _mValue_CertificateName;
+                throw new UndeferrableValueException("Value 'DomainNameArgs.CertificateName' is not present");
+            }
+        }
 
         /// <summary>
         /// Private key associated with the domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         /// </summary>
-        [Input("certificatePrivateKey")]
+        [PolicyResourceProperty("certificatePrivateKey", "_mUnknown_CertificatePrivateKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificatePrivateKey;
-
-        public string? CertificatePrivateKey => _mCertificatePrivateKey.GetValue("certificatePrivateKey");
+        private string? _mValue_CertificatePrivateKey;
+        private bool _mUnknown_CertificatePrivateKey;
+        public string? CertificatePrivateKey
+        {
+            get
+            {
+                if (!_mUnknown_CertificatePrivateKey) return _mValue_CertificatePrivateKey;
+                throw new UndeferrableValueException("Value 'DomainNameArgs.CertificatePrivateKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Fully-qualified domain name to register.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domainName");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'DomainNameArgs.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block defining API endpoint information including type. See below.
         /// </summary>
-        [Input("endpointConfiguration")]
+        [PolicyResourceProperty("endpointConfiguration", "_mUnknown_EndpointConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainNameEndpointConfigurationArgs> _mEndpointConfiguration;
-
-        public Inputs.DomainNameEndpointConfigurationArgs? EndpointConfiguration => _mEndpointConfiguration.GetValue("endpointConfiguration");
+        private Inputs.DomainNameEndpointConfigurationArgs? _mValue_EndpointConfiguration;
+        private bool _mUnknown_EndpointConfiguration;
+        public Inputs.DomainNameEndpointConfigurationArgs? EndpointConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EndpointConfiguration) return _mValue_EndpointConfiguration;
+                throw new UndeferrableValueException("Value 'DomainNameArgs.EndpointConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Mutual TLS authentication configuration for the domain name. See below.
         /// </summary>
-        [Input("mutualTlsAuthentication")]
+        [PolicyResourceProperty("mutualTlsAuthentication", "_mUnknown_MutualTlsAuthentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainNameMutualTlsAuthenticationArgs> _mMutualTlsAuthentication;
-
-        public Inputs.DomainNameMutualTlsAuthenticationArgs? MutualTlsAuthentication => _mMutualTlsAuthentication.GetValue("mutualTlsAuthentication");
+        private Inputs.DomainNameMutualTlsAuthenticationArgs? _mValue_MutualTlsAuthentication;
+        private bool _mUnknown_MutualTlsAuthentication;
+        public Inputs.DomainNameMutualTlsAuthenticationArgs? MutualTlsAuthentication
+        {
+            get
+            {
+                if (!_mUnknown_MutualTlsAuthentication) return _mValue_MutualTlsAuthentication;
+                throw new UndeferrableValueException("Value 'DomainNameArgs.MutualTlsAuthentication' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
         /// </summary>
-        [Input("ownershipVerificationCertificateArn")]
+        [PolicyResourceProperty("ownershipVerificationCertificateArn", "_mUnknown_OwnershipVerificationCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnershipVerificationCertificateArn;
-
-        public string? OwnershipVerificationCertificateArn => _mOwnershipVerificationCertificateArn.GetValue("ownershipVerificationCertificateArn");
+        private string? _mValue_OwnershipVerificationCertificateArn;
+        private bool _mUnknown_OwnershipVerificationCertificateArn;
+        public string? OwnershipVerificationCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_OwnershipVerificationCertificateArn) return _mValue_OwnershipVerificationCertificateArn;
+                throw new UndeferrableValueException("Value 'DomainNameArgs.OwnershipVerificationCertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'DomainNameArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         /// 
         /// When uploading a certificate, the following arguments are supported:
         /// </summary>
-        [Input("regionalCertificateArn")]
+        [PolicyResourceProperty("regionalCertificateArn", "_mUnknown_RegionalCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegionalCertificateArn;
-
-        public string? RegionalCertificateArn => _mRegionalCertificateArn.GetValue("regionalCertificateArn");
+        private string? _mValue_RegionalCertificateArn;
+        private bool _mUnknown_RegionalCertificateArn;
+        public string? RegionalCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_RegionalCertificateArn) return _mValue_RegionalCertificateArn;
+                throw new UndeferrableValueException("Value 'DomainNameArgs.RegionalCertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         /// </summary>
-        [Input("regionalCertificateName")]
+        [PolicyResourceProperty("regionalCertificateName", "_mUnknown_RegionalCertificateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegionalCertificateName;
-
-        public string? RegionalCertificateName => _mRegionalCertificateName.GetValue("regionalCertificateName");
+        private string? _mValue_RegionalCertificateName;
+        private bool _mUnknown_RegionalCertificateName;
+        public string? RegionalCertificateName
+        {
+            get
+            {
+                if (!_mUnknown_RegionalCertificateName) return _mValue_RegionalCertificateName;
+                throw new UndeferrableValueException("Value 'DomainNameArgs.RegionalCertificateName' is not present");
+            }
+        }
 
         /// <summary>
         /// Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
         /// </summary>
-        [Input("securityPolicy")]
+        [PolicyResourceProperty("securityPolicy", "_mUnknown_SecurityPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityPolicy;
-
-        public string? SecurityPolicy => _mSecurityPolicy.GetValue("securityPolicy");
+        private string? _mValue_SecurityPolicy;
+        private bool _mUnknown_SecurityPolicy;
+        public string? SecurityPolicy
+        {
+            get
+            {
+                if (!_mUnknown_SecurityPolicy) return _mValue_SecurityPolicy;
+                throw new UndeferrableValueException("Value 'DomainNameArgs.SecurityPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// When referencing an AWS-managed certificate, the following arguments are supported:
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DomainNameArgs.Tags' is not present");
+            }
+        }
     }
 }

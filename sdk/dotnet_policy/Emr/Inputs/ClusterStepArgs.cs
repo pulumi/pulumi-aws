@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Inputs
         /// <summary>
         /// Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
         /// </summary>
-        [Input("actionOnFailure")]
+        [PolicyResourceProperty("actionOnFailure", "_mUnknown_ActionOnFailure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionOnFailure;
-
-        public string? ActionOnFailure => _mActionOnFailure.GetValue("actionOnFailure");
+        private string? _mValue_ActionOnFailure;
+        private bool _mUnknown_ActionOnFailure;
+        public string? ActionOnFailure
+        {
+            get
+            {
+                if (!_mUnknown_ActionOnFailure) return _mValue_ActionOnFailure;
+                throw new UndeferrableValueException("Value 'ClusterStepArgs.ActionOnFailure' is not present");
+            }
+        }
 
         /// <summary>
         /// JAR file used for the step. See below.
         /// </summary>
-        [Input("hadoopJarStep")]
+        [PolicyResourceProperty("hadoopJarStep", "_mUnknown_HadoopJarStep")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterStepHadoopJarStepArgs> _mHadoopJarStep;
-
-        public Inputs.ClusterStepHadoopJarStepArgs? HadoopJarStep => _mHadoopJarStep.GetValue("hadoopJarStep");
+        private Inputs.ClusterStepHadoopJarStepArgs? _mValue_HadoopJarStep;
+        private bool _mUnknown_HadoopJarStep;
+        public Inputs.ClusterStepHadoopJarStepArgs? HadoopJarStep
+        {
+            get
+            {
+                if (!_mUnknown_HadoopJarStep) return _mValue_HadoopJarStep;
+                throw new UndeferrableValueException("Value 'ClusterStepArgs.HadoopJarStep' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the step.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ClusterStepArgs.Name' is not present");
+            }
+        }
     }
 }

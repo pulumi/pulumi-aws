@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The configuration for the cluster resources used to run the processing job. Fields are documented below.
         /// </summary>
-        [Input("clusterConfig")]
+        [PolicyResourceProperty("clusterConfig", "_mUnknown_ClusterConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataQualityJobDefinitionJobResourcesClusterConfig> _mClusterConfig;
-
-        public Outputs.DataQualityJobDefinitionJobResourcesClusterConfig? ClusterConfig => _mClusterConfig.GetValue("clusterConfig");
+        private Outputs.DataQualityJobDefinitionJobResourcesClusterConfig? _mValue_ClusterConfig;
+        private bool _mUnknown_ClusterConfig;
+        public Outputs.DataQualityJobDefinitionJobResourcesClusterConfig? ClusterConfig
+        {
+            get
+            {
+                if (!_mUnknown_ClusterConfig) return _mValue_ClusterConfig;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionJobResources.ClusterConfig' is not present");
+            }
+        }
     }
 }

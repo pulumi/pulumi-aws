@@ -16,168 +16,301 @@ namespace Pulumi.PolicyPacks.Aws.PaymentCryptography
         /// <summary>
         /// ARN of the key.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Key.Arn' is not present");
+            }
+        }
 
-        public string? Arn => _mArn.GetValue("arn");
-
-        [Input("deletionWindowInDays")]
+        [PolicyResourceProperty("deletionWindowInDays", "_mUnknown_DeletionWindowInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeletionWindowInDays;
-
-        public int? DeletionWindowInDays => _mDeletionWindowInDays.GetValue("deletionWindowInDays");
+        private int? _mValue_DeletionWindowInDays;
+        private bool _mUnknown_DeletionWindowInDays;
+        public int? DeletionWindowInDays
+        {
+            get
+            {
+                if (!_mUnknown_DeletionWindowInDays) return _mValue_DeletionWindowInDays;
+                throw new UndeferrableValueException("Value 'Key.DeletionWindowInDays' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable the key.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'Key.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the key is exportable from the service.
         /// </summary>
-        [Input("exportable")]
+        [PolicyResourceProperty("exportable", "_mUnknown_Exportable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mExportable;
-
-        public bool? Exportable => _mExportable.GetValue("exportable");
+        private bool? _mValue_Exportable;
+        private bool _mUnknown_Exportable;
+        public bool? Exportable
+        {
+            get
+            {
+                if (!_mUnknown_Exportable) return _mValue_Exportable;
+                throw new UndeferrableValueException("Value 'Key.Exportable' is not present");
+            }
+        }
 
         /// <summary>
         /// Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("keyAttributes")]
+        [PolicyResourceProperty("keyAttributes", "_mUnknown_KeyAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.KeyKeyAttributes> _mKeyAttributes;
-
-        public Outputs.KeyKeyAttributes? KeyAttributes => _mKeyAttributes.GetValue("keyAttributes");
+        private Outputs.KeyKeyAttributes? _mValue_KeyAttributes;
+        private bool _mUnknown_KeyAttributes;
+        public Outputs.KeyKeyAttributes? KeyAttributes
+        {
+            get
+            {
+                if (!_mUnknown_KeyAttributes) return _mValue_KeyAttributes;
+                throw new UndeferrableValueException("Value 'Key.KeyAttributes' is not present");
+            }
+        }
 
         /// <summary>
         /// Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
         /// </summary>
-        [Input("keyCheckValue")]
+        [PolicyResourceProperty("keyCheckValue", "_mUnknown_KeyCheckValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyCheckValue;
-
-        public string? KeyCheckValue => _mKeyCheckValue.GetValue("keyCheckValue");
+        private string? _mValue_KeyCheckValue;
+        private bool _mUnknown_KeyCheckValue;
+        public string? KeyCheckValue
+        {
+            get
+            {
+                if (!_mUnknown_KeyCheckValue) return _mValue_KeyCheckValue;
+                throw new UndeferrableValueException("Value 'Key.KeyCheckValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
         /// </summary>
-        [Input("keyCheckValueAlgorithm")]
+        [PolicyResourceProperty("keyCheckValueAlgorithm", "_mUnknown_KeyCheckValueAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyCheckValueAlgorithm;
-
-        public string? KeyCheckValueAlgorithm => _mKeyCheckValueAlgorithm.GetValue("keyCheckValueAlgorithm");
+        private string? _mValue_KeyCheckValueAlgorithm;
+        private bool _mUnknown_KeyCheckValueAlgorithm;
+        public string? KeyCheckValueAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_KeyCheckValueAlgorithm) return _mValue_KeyCheckValueAlgorithm;
+                throw new UndeferrableValueException("Value 'Key.KeyCheckValueAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Source of the key material.
         /// </summary>
-        [Input("keyOrigin")]
+        [PolicyResourceProperty("keyOrigin", "_mUnknown_KeyOrigin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyOrigin;
-
-        public string? KeyOrigin => _mKeyOrigin.GetValue("keyOrigin");
+        private string? _mValue_KeyOrigin;
+        private bool _mUnknown_KeyOrigin;
+        public string? KeyOrigin
+        {
+            get
+            {
+                if (!_mUnknown_KeyOrigin) return _mValue_KeyOrigin;
+                throw new UndeferrableValueException("Value 'Key.KeyOrigin' is not present");
+            }
+        }
 
         /// <summary>
         /// State of key that is being created or deleted.
         /// </summary>
-        [Input("keyState")]
+        [PolicyResourceProperty("keyState", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("keyState");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'Key.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Key.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Key.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.KeyTimeouts> _mTimeouts;
-
-        public Outputs.KeyTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.KeyTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.KeyTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'Key.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:paymentcryptography/key:Key")]
     public sealed class KeyArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("deletionWindowInDays")]
+        [PolicyResourceProperty("deletionWindowInDays", "_mUnknown_DeletionWindowInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeletionWindowInDays;
-
-        public int? DeletionWindowInDays => _mDeletionWindowInDays.GetValue("deletionWindowInDays");
+        private int? _mValue_DeletionWindowInDays;
+        private bool _mUnknown_DeletionWindowInDays;
+        public int? DeletionWindowInDays
+        {
+            get
+            {
+                if (!_mUnknown_DeletionWindowInDays) return _mValue_DeletionWindowInDays;
+                throw new UndeferrableValueException("Value 'KeyArgs.DeletionWindowInDays' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable the key.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'KeyArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the key is exportable from the service.
         /// </summary>
-        [Input("exportable")]
+        [PolicyResourceProperty("exportable", "_mUnknown_Exportable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mExportable;
-
-        public bool? Exportable => _mExportable.GetValue("exportable");
+        private bool? _mValue_Exportable;
+        private bool _mUnknown_Exportable;
+        public bool? Exportable
+        {
+            get
+            {
+                if (!_mUnknown_Exportable) return _mValue_Exportable;
+                throw new UndeferrableValueException("Value 'KeyArgs.Exportable' is not present");
+            }
+        }
 
         /// <summary>
         /// Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("keyAttributes")]
+        [PolicyResourceProperty("keyAttributes", "_mUnknown_KeyAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.KeyKeyAttributesArgs> _mKeyAttributes;
-
-        public Inputs.KeyKeyAttributesArgs? KeyAttributes => _mKeyAttributes.GetValue("keyAttributes");
+        private Inputs.KeyKeyAttributesArgs? _mValue_KeyAttributes;
+        private bool _mUnknown_KeyAttributes;
+        public Inputs.KeyKeyAttributesArgs? KeyAttributes
+        {
+            get
+            {
+                if (!_mUnknown_KeyAttributes) return _mValue_KeyAttributes;
+                throw new UndeferrableValueException("Value 'KeyArgs.KeyAttributes' is not present");
+            }
+        }
 
         /// <summary>
         /// Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
         /// </summary>
-        [Input("keyCheckValueAlgorithm")]
+        [PolicyResourceProperty("keyCheckValueAlgorithm", "_mUnknown_KeyCheckValueAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyCheckValueAlgorithm;
-
-        public string? KeyCheckValueAlgorithm => _mKeyCheckValueAlgorithm.GetValue("keyCheckValueAlgorithm");
+        private string? _mValue_KeyCheckValueAlgorithm;
+        private bool _mUnknown_KeyCheckValueAlgorithm;
+        public string? KeyCheckValueAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_KeyCheckValueAlgorithm) return _mValue_KeyCheckValueAlgorithm;
+                throw new UndeferrableValueException("Value 'KeyArgs.KeyCheckValueAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'KeyArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.KeyTimeoutsArgs> _mTimeouts;
-
-        public Inputs.KeyTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.KeyTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.KeyTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'KeyArgs.Timeouts' is not present");
+            }
+        }
     }
 }

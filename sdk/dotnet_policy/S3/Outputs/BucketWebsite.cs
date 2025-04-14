@@ -15,29 +15,50 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// An absolute path to the document to return in case of a 4XX error.
         /// </summary>
-        [Input("errorDocument")]
+        [PolicyResourceProperty("errorDocument", "_mUnknown_ErrorDocument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mErrorDocument;
-
-        public string? ErrorDocument => _mErrorDocument.GetValue("errorDocument");
+        private string? _mValue_ErrorDocument;
+        private bool _mUnknown_ErrorDocument;
+        public string? ErrorDocument
+        {
+            get
+            {
+                if (!_mUnknown_ErrorDocument) return _mValue_ErrorDocument;
+                throw new UndeferrableValueException("Value 'BucketWebsite.ErrorDocument' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
         /// </summary>
-        [Input("indexDocument")]
+        [PolicyResourceProperty("indexDocument", "_mUnknown_IndexDocument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIndexDocument;
-
-        public string? IndexDocument => _mIndexDocument.GetValue("indexDocument");
+        private string? _mValue_IndexDocument;
+        private bool _mUnknown_IndexDocument;
+        public string? IndexDocument
+        {
+            get
+            {
+                if (!_mUnknown_IndexDocument) return _mValue_IndexDocument;
+                throw new UndeferrableValueException("Value 'BucketWebsite.IndexDocument' is not present");
+            }
+        }
 
         /// <summary>
         /// A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
         /// </summary>
-        [Input("redirectAllRequestsTo")]
+        [PolicyResourceProperty("redirectAllRequestsTo", "_mUnknown_RedirectAllRequestsTo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRedirectAllRequestsTo;
-
-        public string? RedirectAllRequestsTo => _mRedirectAllRequestsTo.GetValue("redirectAllRequestsTo");
+        private string? _mValue_RedirectAllRequestsTo;
+        private bool _mUnknown_RedirectAllRequestsTo;
+        public string? RedirectAllRequestsTo
+        {
+            get
+            {
+                if (!_mUnknown_RedirectAllRequestsTo) return _mValue_RedirectAllRequestsTo;
+                throw new UndeferrableValueException("Value 'BucketWebsite.RedirectAllRequestsTo' is not present");
+            }
+        }
 
         /// <summary>
         /// A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
@@ -45,10 +66,17 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// 
         /// The `CORS` object supports the following:
         /// </summary>
-        [Input("routingRules")]
+        [PolicyResourceProperty("routingRules", "_mUnknown_RoutingRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingRules;
-
-        public string? RoutingRules => _mRoutingRules.GetValue("routingRules");
+        private string? _mValue_RoutingRules;
+        private bool _mUnknown_RoutingRules;
+        public string? RoutingRules
+        {
+            get
+            {
+                if (!_mUnknown_RoutingRules) return _mValue_RoutingRules;
+                throw new UndeferrableValueException("Value 'BucketWebsite.RoutingRules' is not present");
+            }
+        }
     }
 }

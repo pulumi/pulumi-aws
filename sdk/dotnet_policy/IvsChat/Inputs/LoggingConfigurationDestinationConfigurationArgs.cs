@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.IvsChat.Inputs
         /// <summary>
         /// An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
         /// </summary>
-        [Input("cloudwatchLogs")]
+        [PolicyResourceProperty("cloudwatchLogs", "_mUnknown_CloudwatchLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs> _mCloudwatchLogs;
-
-        public Inputs.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs? CloudwatchLogs => _mCloudwatchLogs.GetValue("cloudwatchLogs");
+        private Inputs.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs? _mValue_CloudwatchLogs;
+        private bool _mUnknown_CloudwatchLogs;
+        public Inputs.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs? CloudwatchLogs
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogs) return _mValue_CloudwatchLogs;
+                throw new UndeferrableValueException("Value 'LoggingConfigurationDestinationConfigurationArgs.CloudwatchLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
         /// </summary>
-        [Input("firehose")]
+        [PolicyResourceProperty("firehose", "_mUnknown_Firehose")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LoggingConfigurationDestinationConfigurationFirehoseArgs> _mFirehose;
-
-        public Inputs.LoggingConfigurationDestinationConfigurationFirehoseArgs? Firehose => _mFirehose.GetValue("firehose");
+        private Inputs.LoggingConfigurationDestinationConfigurationFirehoseArgs? _mValue_Firehose;
+        private bool _mUnknown_Firehose;
+        public Inputs.LoggingConfigurationDestinationConfigurationFirehoseArgs? Firehose
+        {
+            get
+            {
+                if (!_mUnknown_Firehose) return _mValue_Firehose;
+                throw new UndeferrableValueException("Value 'LoggingConfigurationDestinationConfigurationArgs.Firehose' is not present");
+            }
+        }
 
         /// <summary>
         /// An Amazon S3 destination configuration where chat activity will be logged.
         /// </summary>
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LoggingConfigurationDestinationConfigurationS3Args> _mS3;
-
-        public Inputs.LoggingConfigurationDestinationConfigurationS3Args? S3 => _mS3.GetValue("s3");
+        private Inputs.LoggingConfigurationDestinationConfigurationS3Args? _mValue_S3;
+        private bool _mUnknown_S3;
+        public Inputs.LoggingConfigurationDestinationConfigurationS3Args? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'LoggingConfigurationDestinationConfigurationArgs.S3' is not present");
+            }
+        }
     }
 }

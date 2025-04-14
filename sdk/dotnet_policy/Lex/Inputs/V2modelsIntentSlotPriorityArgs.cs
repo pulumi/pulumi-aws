@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Priority that Amazon Lex should apply to the slot.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'V2modelsIntentSlotPriorityArgs.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of the slot.
         /// </summary>
-        [Input("slotId")]
+        [PolicyResourceProperty("slotId", "_mUnknown_SlotId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSlotId;
-
-        public string? SlotId => _mSlotId.GetValue("slotId");
+        private string? _mValue_SlotId;
+        private bool _mUnknown_SlotId;
+        public string? SlotId
+        {
+            get
+            {
+                if (!_mUnknown_SlotId) return _mValue_SlotId;
+                throw new UndeferrableValueException("Value 'V2modelsIntentSlotPriorityArgs.SlotId' is not present");
+            }
+        }
     }
 }

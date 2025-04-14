@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Location.Outputs
 {
     public sealed class GetPlaceIndexDataSourceConfigurationResult
     {
-        [Input("intendedUse")]
+        [PolicyResourceProperty("intendedUse", "_mUnknown_IntendedUse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIntendedUse;
-
-        public string? IntendedUse => _mIntendedUse.GetValue("intendedUse");
+        private string? _mValue_IntendedUse;
+        private bool _mUnknown_IntendedUse;
+        public string? IntendedUse
+        {
+            get
+            {
+                if (!_mUnknown_IntendedUse) return _mValue_IntendedUse;
+                throw new UndeferrableValueException("Value 'GetPlaceIndexDataSourceConfigurationResult.IntendedUse' is not present");
+            }
+        }
     }
 }

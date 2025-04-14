@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
         /// <summary>
         /// Name of the Amazon S3 bucket.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon S3 bucket prefix.
         /// </summary>
-        [Input("bucketPrefix")]
+        [PolicyResourceProperty("bucketPrefix", "_mUnknown_BucketPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketPrefix;
-
-        public string? BucketPrefix => _mBucketPrefix.GetValue("bucketPrefix");
+        private string? _mValue_BucketPrefix;
+        private bool _mUnknown_BucketPrefix;
+        public string? BucketPrefix
+        {
+            get
+            {
+                if (!_mUnknown_BucketPrefix) return _mValue_BucketPrefix;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig.BucketPrefix' is not present");
+            }
+        }
     }
 }

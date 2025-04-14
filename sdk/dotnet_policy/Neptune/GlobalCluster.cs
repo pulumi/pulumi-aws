@@ -16,90 +16,160 @@ namespace Pulumi.PolicyPacks.Aws.Neptune
         /// <summary>
         /// Global Cluster Amazon Resource Name (ARN)
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'GlobalCluster.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         /// </summary>
-        [Input("deletionProtection")]
+        [PolicyResourceProperty("deletionProtection", "_mUnknown_DeletionProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtection;
-
-        public bool? DeletionProtection => _mDeletionProtection.GetValue("deletionProtection");
+        private bool? _mValue_DeletionProtection;
+        private bool _mUnknown_DeletionProtection;
+        public bool? DeletionProtection
+        {
+            get
+            {
+                if (!_mUnknown_DeletionProtection) return _mValue_DeletionProtection;
+                throw new UndeferrableValueException("Value 'GlobalCluster.DeletionProtection' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'GlobalCluster.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
         /// * **NOTE:** Upgrading major versions is not supported.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'GlobalCluster.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The global cluster identifier.
         /// </summary>
-        [Input("globalClusterIdentifier")]
+        [PolicyResourceProperty("globalClusterIdentifier", "_mUnknown_GlobalClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalClusterIdentifier;
-
-        public string? GlobalClusterIdentifier => _mGlobalClusterIdentifier.GetValue("globalClusterIdentifier");
+        private string? _mValue_GlobalClusterIdentifier;
+        private bool _mUnknown_GlobalClusterIdentifier;
+        public string? GlobalClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_GlobalClusterIdentifier) return _mValue_GlobalClusterIdentifier;
+                throw new UndeferrableValueException("Value 'GlobalCluster.GlobalClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of objects containing Global Cluster members.
         /// </summary>
-        [Input("globalClusterMembers")]
+        [PolicyResourceProperty("globalClusterMembers", "_mUnknown_GlobalClusterMembers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GlobalClusterGlobalClusterMember>> _mGlobalClusterMembers;
-
-        public List<Outputs.GlobalClusterGlobalClusterMember>? GlobalClusterMembers => _mGlobalClusterMembers.GetValue("globalClusterMembers");
+        private List<Outputs.GlobalClusterGlobalClusterMember>? _mValue_GlobalClusterMembers;
+        private bool _mUnknown_GlobalClusterMembers;
+        public List<Outputs.GlobalClusterGlobalClusterMember>? GlobalClusterMembers
+        {
+            get
+            {
+                if (!_mUnknown_GlobalClusterMembers) return _mValue_GlobalClusterMembers;
+                throw new UndeferrableValueException("Value 'GlobalCluster.GlobalClusterMembers' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
         /// </summary>
-        [Input("globalClusterResourceId")]
+        [PolicyResourceProperty("globalClusterResourceId", "_mUnknown_GlobalClusterResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalClusterResourceId;
-
-        public string? GlobalClusterResourceId => _mGlobalClusterResourceId.GetValue("globalClusterResourceId");
+        private string? _mValue_GlobalClusterResourceId;
+        private bool _mUnknown_GlobalClusterResourceId;
+        public string? GlobalClusterResourceId
+        {
+            get
+            {
+                if (!_mUnknown_GlobalClusterResourceId) return _mValue_GlobalClusterResourceId;
+                throw new UndeferrableValueException("Value 'GlobalCluster.GlobalClusterResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
         /// </summary>
-        [Input("sourceDbClusterIdentifier")]
+        [PolicyResourceProperty("sourceDbClusterIdentifier", "_mUnknown_SourceDbClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceDbClusterIdentifier;
+        private string? _mValue_SourceDbClusterIdentifier;
+        private bool _mUnknown_SourceDbClusterIdentifier;
+        public string? SourceDbClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SourceDbClusterIdentifier) return _mValue_SourceDbClusterIdentifier;
+                throw new UndeferrableValueException("Value 'GlobalCluster.SourceDbClusterIdentifier' is not present");
+            }
+        }
 
-        public string? SourceDbClusterIdentifier => _mSourceDbClusterIdentifier.GetValue("sourceDbClusterIdentifier");
-
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'GlobalCluster.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
-        [Input("storageEncrypted")]
+        [PolicyResourceProperty("storageEncrypted", "_mUnknown_StorageEncrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEncrypted;
-
-        public bool? StorageEncrypted => _mStorageEncrypted.GetValue("storageEncrypted");
+        private bool? _mValue_StorageEncrypted;
+        private bool _mUnknown_StorageEncrypted;
+        public bool? StorageEncrypted
+        {
+            get
+            {
+                if (!_mUnknown_StorageEncrypted) return _mValue_StorageEncrypted;
+                throw new UndeferrableValueException("Value 'GlobalCluster.StorageEncrypted' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:neptune/globalCluster:GlobalCluster")]
@@ -108,56 +178,98 @@ namespace Pulumi.PolicyPacks.Aws.Neptune
         /// <summary>
         /// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         /// </summary>
-        [Input("deletionProtection")]
+        [PolicyResourceProperty("deletionProtection", "_mUnknown_DeletionProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtection;
-
-        public bool? DeletionProtection => _mDeletionProtection.GetValue("deletionProtection");
+        private bool? _mValue_DeletionProtection;
+        private bool _mUnknown_DeletionProtection;
+        public bool? DeletionProtection
+        {
+            get
+            {
+                if (!_mUnknown_DeletionProtection) return _mValue_DeletionProtection;
+                throw new UndeferrableValueException("Value 'GlobalClusterArgs.DeletionProtection' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'GlobalClusterArgs.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
         /// * **NOTE:** Upgrading major versions is not supported.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'GlobalClusterArgs.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The global cluster identifier.
         /// </summary>
-        [Input("globalClusterIdentifier")]
+        [PolicyResourceProperty("globalClusterIdentifier", "_mUnknown_GlobalClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalClusterIdentifier;
-
-        public string? GlobalClusterIdentifier => _mGlobalClusterIdentifier.GetValue("globalClusterIdentifier");
+        private string? _mValue_GlobalClusterIdentifier;
+        private bool _mUnknown_GlobalClusterIdentifier;
+        public string? GlobalClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_GlobalClusterIdentifier) return _mValue_GlobalClusterIdentifier;
+                throw new UndeferrableValueException("Value 'GlobalClusterArgs.GlobalClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
         /// </summary>
-        [Input("sourceDbClusterIdentifier")]
+        [PolicyResourceProperty("sourceDbClusterIdentifier", "_mUnknown_SourceDbClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceDbClusterIdentifier;
-
-        public string? SourceDbClusterIdentifier => _mSourceDbClusterIdentifier.GetValue("sourceDbClusterIdentifier");
+        private string? _mValue_SourceDbClusterIdentifier;
+        private bool _mUnknown_SourceDbClusterIdentifier;
+        public string? SourceDbClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SourceDbClusterIdentifier) return _mValue_SourceDbClusterIdentifier;
+                throw new UndeferrableValueException("Value 'GlobalClusterArgs.SourceDbClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
-        [Input("storageEncrypted")]
+        [PolicyResourceProperty("storageEncrypted", "_mUnknown_StorageEncrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEncrypted;
-
-        public bool? StorageEncrypted => _mStorageEncrypted.GetValue("storageEncrypted");
+        private bool? _mValue_StorageEncrypted;
+        private bool _mUnknown_StorageEncrypted;
+        public bool? StorageEncrypted
+        {
+            get
+            {
+                if (!_mUnknown_StorageEncrypted) return _mValue_StorageEncrypted;
+                throw new UndeferrableValueException("Value 'GlobalClusterArgs.StorageEncrypted' is not present");
+            }
+        }
     }
 }

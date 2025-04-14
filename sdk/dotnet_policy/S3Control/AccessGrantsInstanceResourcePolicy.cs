@@ -13,38 +13,66 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
     [PolicyResourceType("aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy")]
     public sealed class AccessGrantsInstanceResourcePolicy : global::Pulumi.PolicyResourceOutput
     {
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'AccessGrantsInstanceResourcePolicy.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The policy document.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'AccessGrantsInstanceResourcePolicy.Policy' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy")]
     public sealed class AccessGrantsInstanceResourcePolicyArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'AccessGrantsInstanceResourcePolicyArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The policy document.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'AccessGrantsInstanceResourcePolicyArgs.Policy' is not present");
+            }
+        }
     }
 }

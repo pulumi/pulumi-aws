@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Inputs
         /// <summary>
         /// The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don't provide this parameter, Amazon Cognito sends messages in the default format.
         /// </summary>
-        [Input("message")]
+        [PolicyResourceProperty("message", "_mUnknown_Message")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessage;
-
-        public string? Message => _mMessage.GetValue("message");
+        private string? _mValue_Message;
+        private bool _mUnknown_Message;
+        public string? Message
+        {
+            get
+            {
+                if (!_mUnknown_Message) return _mValue_Message;
+                throw new UndeferrableValueException("Value 'UserPoolEmailMfaConfigurationArgs.Message' is not present");
+            }
+        }
 
         /// <summary>
         /// The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
         /// </summary>
-        [Input("subject")]
+        [PolicyResourceProperty("subject", "_mUnknown_Subject")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubject;
-
-        public string? Subject => _mSubject.GetValue("subject");
+        private string? _mValue_Subject;
+        private bool _mUnknown_Subject;
+        public string? Subject
+        {
+            get
+            {
+                if (!_mUnknown_Subject) return _mValue_Subject;
+                throw new UndeferrableValueException("Value 'UserPoolEmailMfaConfigurationArgs.Subject' is not present");
+            }
+        }
     }
 }

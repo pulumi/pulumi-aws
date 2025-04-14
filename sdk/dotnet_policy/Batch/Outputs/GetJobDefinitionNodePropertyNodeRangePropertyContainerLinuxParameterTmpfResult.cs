@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// The absolute file path in the container where the tmpfs volume is mounted.
         /// </summary>
-        [Input("containerPath")]
+        [PolicyResourceProperty("containerPath", "_mUnknown_ContainerPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerPath;
-
-        public string? ContainerPath => _mContainerPath.GetValue("containerPath");
+        private string? _mValue_ContainerPath;
+        private bool _mUnknown_ContainerPath;
+        public string? ContainerPath
+        {
+            get
+            {
+                if (!_mUnknown_ContainerPath) return _mValue_ContainerPath;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfResult.ContainerPath' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of tmpfs volume mount options.
         /// </summary>
-        [Input("mountOptions")]
+        [PolicyResourceProperty("mountOptions", "_mUnknown_MountOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMountOptions;
-
-        public List<string>? MountOptions => _mMountOptions.GetValue("mountOptions");
+        private List<string>? _mValue_MountOptions;
+        private bool _mUnknown_MountOptions;
+        public List<string>? MountOptions
+        {
+            get
+            {
+                if (!_mUnknown_MountOptions) return _mValue_MountOptions;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfResult.MountOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The size (in MiB) of the tmpfs volume.
         /// </summary>
-        [Input("size")]
+        [PolicyResourceProperty("size", "_mUnknown_Size")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSize;
-
-        public int? Size => _mSize.GetValue("size");
+        private int? _mValue_Size;
+        private bool _mUnknown_Size;
+        public int? Size
+        {
+            get
+            {
+                if (!_mUnknown_Size) return _mValue_Size;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfResult.Size' is not present");
+            }
+        }
     }
 }

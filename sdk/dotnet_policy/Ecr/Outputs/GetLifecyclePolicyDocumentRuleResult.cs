@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Ecr.Outputs
         /// <summary>
         /// Specifies the action type.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GetLifecyclePolicyDocumentRuleActionResult> _mAction;
-
-        public Outputs.GetLifecyclePolicyDocumentRuleActionResult? Action => _mAction.GetValue("action");
+        private Outputs.GetLifecyclePolicyDocumentRuleActionResult? _mValue_Action;
+        private bool _mUnknown_Action;
+        public Outputs.GetLifecyclePolicyDocumentRuleActionResult? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'GetLifecyclePolicyDocumentRuleResult.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the purpose of a rule within a lifecycle policy.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GetLifecyclePolicyDocumentRuleResult.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of "any" must have the highest value for `priority` and be evaluated last.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'GetLifecyclePolicyDocumentRuleResult.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// Collects parameters describing the selection criteria for the ECR lifecycle policy:
         /// </summary>
-        [Input("selection")]
+        [PolicyResourceProperty("selection", "_mUnknown_Selection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GetLifecyclePolicyDocumentRuleSelectionResult> _mSelection;
-
-        public Outputs.GetLifecyclePolicyDocumentRuleSelectionResult? Selection => _mSelection.GetValue("selection");
+        private Outputs.GetLifecyclePolicyDocumentRuleSelectionResult? _mValue_Selection;
+        private bool _mUnknown_Selection;
+        public Outputs.GetLifecyclePolicyDocumentRuleSelectionResult? Selection
+        {
+            get
+            {
+                if (!_mUnknown_Selection) return _mValue_Selection;
+                throw new UndeferrableValueException("Value 'GetLifecyclePolicyDocumentRuleResult.Selection' is not present");
+            }
+        }
     }
 }

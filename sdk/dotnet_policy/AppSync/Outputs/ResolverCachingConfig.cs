@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Outputs
         /// <summary>
         /// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
         /// </summary>
-        [Input("cachingKeys")]
+        [PolicyResourceProperty("cachingKeys", "_mUnknown_CachingKeys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCachingKeys;
-
-        public List<string>? CachingKeys => _mCachingKeys.GetValue("cachingKeys");
+        private List<string>? _mValue_CachingKeys;
+        private bool _mUnknown_CachingKeys;
+        public List<string>? CachingKeys
+        {
+            get
+            {
+                if (!_mUnknown_CachingKeys) return _mValue_CachingKeys;
+                throw new UndeferrableValueException("Value 'ResolverCachingConfig.CachingKeys' is not present");
+            }
+        }
 
         /// <summary>
         /// The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
         /// </summary>
-        [Input("ttl")]
+        [PolicyResourceProperty("ttl", "_mUnknown_Ttl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTtl;
-
-        public int? Ttl => _mTtl.GetValue("ttl");
+        private int? _mValue_Ttl;
+        private bool _mUnknown_Ttl;
+        public int? Ttl
+        {
+            get
+            {
+                if (!_mUnknown_Ttl) return _mValue_Ttl;
+                throw new UndeferrableValueException("Value 'ResolverCachingConfig.Ttl' is not present");
+            }
+        }
     }
 }

@@ -16,48 +16,83 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
-
-        public string? Action => _mAction.GetValue("action");
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'EventPermission.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
         /// </summary>
-        [Input("condition")]
+        [PolicyResourceProperty("condition", "_mUnknown_Condition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventPermissionCondition> _mCondition;
-
-        public Outputs.EventPermissionCondition? Condition => _mCondition.GetValue("condition");
+        private Outputs.EventPermissionCondition? _mValue_Condition;
+        private bool _mUnknown_Condition;
+        public Outputs.EventPermissionCondition? Condition
+        {
+            get
+            {
+                if (!_mUnknown_Condition) return _mValue_Condition;
+                throw new UndeferrableValueException("Value 'EventPermission.Condition' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the event bus to set the permissions on.
         /// If you omit this, the permissions are set on the `default` event bus.
         /// </summary>
-        [Input("eventBusName")]
+        [PolicyResourceProperty("eventBusName", "_mUnknown_EventBusName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventBusName;
-
-        public string? EventBusName => _mEventBusName.GetValue("eventBusName");
+        private string? _mValue_EventBusName;
+        private bool _mUnknown_EventBusName;
+        public string? EventBusName
+        {
+            get
+            {
+                if (!_mUnknown_EventBusName) return _mValue_EventBusName;
+                throw new UndeferrableValueException("Value 'EventPermission.EventBusName' is not present");
+            }
+        }
 
         /// <summary>
         /// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
         /// </summary>
-        [Input("principal")]
+        [PolicyResourceProperty("principal", "_mUnknown_Principal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
-
-        public string? Principal => _mPrincipal.GetValue("principal");
+        private string? _mValue_Principal;
+        private bool _mUnknown_Principal;
+        public string? Principal
+        {
+            get
+            {
+                if (!_mUnknown_Principal) return _mValue_Principal;
+                throw new UndeferrableValueException("Value 'EventPermission.Principal' is not present");
+            }
+        }
 
         /// <summary>
         /// An identifier string for the external account that you are granting permissions to.
         /// </summary>
-        [Input("statementId")]
+        [PolicyResourceProperty("statementId", "_mUnknown_StatementId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatementId;
-
-        public string? StatementId => _mStatementId.GetValue("statementId");
+        private string? _mValue_StatementId;
+        private bool _mUnknown_StatementId;
+        public string? StatementId
+        {
+            get
+            {
+                if (!_mUnknown_StatementId) return _mValue_StatementId;
+                throw new UndeferrableValueException("Value 'EventPermission.StatementId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/eventPermission:EventPermission")]
@@ -66,47 +101,82 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
-
-        public string? Action => _mAction.GetValue("action");
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'EventPermissionArgs.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
         /// </summary>
-        [Input("condition")]
+        [PolicyResourceProperty("condition", "_mUnknown_Condition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventPermissionConditionArgs> _mCondition;
-
-        public Inputs.EventPermissionConditionArgs? Condition => _mCondition.GetValue("condition");
+        private Inputs.EventPermissionConditionArgs? _mValue_Condition;
+        private bool _mUnknown_Condition;
+        public Inputs.EventPermissionConditionArgs? Condition
+        {
+            get
+            {
+                if (!_mUnknown_Condition) return _mValue_Condition;
+                throw new UndeferrableValueException("Value 'EventPermissionArgs.Condition' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the event bus to set the permissions on.
         /// If you omit this, the permissions are set on the `default` event bus.
         /// </summary>
-        [Input("eventBusName")]
+        [PolicyResourceProperty("eventBusName", "_mUnknown_EventBusName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventBusName;
-
-        public string? EventBusName => _mEventBusName.GetValue("eventBusName");
+        private string? _mValue_EventBusName;
+        private bool _mUnknown_EventBusName;
+        public string? EventBusName
+        {
+            get
+            {
+                if (!_mUnknown_EventBusName) return _mValue_EventBusName;
+                throw new UndeferrableValueException("Value 'EventPermissionArgs.EventBusName' is not present");
+            }
+        }
 
         /// <summary>
         /// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
         /// </summary>
-        [Input("principal")]
+        [PolicyResourceProperty("principal", "_mUnknown_Principal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
-
-        public string? Principal => _mPrincipal.GetValue("principal");
+        private string? _mValue_Principal;
+        private bool _mUnknown_Principal;
+        public string? Principal
+        {
+            get
+            {
+                if (!_mUnknown_Principal) return _mValue_Principal;
+                throw new UndeferrableValueException("Value 'EventPermissionArgs.Principal' is not present");
+            }
+        }
 
         /// <summary>
         /// An identifier string for the external account that you are granting permissions to.
         /// </summary>
-        [Input("statementId")]
+        [PolicyResourceProperty("statementId", "_mUnknown_StatementId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatementId;
-
-        public string? StatementId => _mStatementId.GetValue("statementId");
+        private string? _mValue_StatementId;
+        private bool _mUnknown_StatementId;
+        public string? StatementId
+        {
+            get
+            {
+                if (!_mUnknown_StatementId) return _mValue_StatementId;
+                throw new UndeferrableValueException("Value 'EventPermissionArgs.StatementId' is not present");
+            }
+        }
     }
 }

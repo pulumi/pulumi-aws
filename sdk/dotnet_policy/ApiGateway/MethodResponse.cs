@@ -16,58 +16,100 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
         /// </summary>
-        [Input("httpMethod")]
+        [PolicyResourceProperty("httpMethod", "_mUnknown_HttpMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
-
-        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
+        private string? _mValue_HttpMethod;
+        private bool _mUnknown_HttpMethod;
+        public string? HttpMethod
+        {
+            get
+            {
+                if (!_mUnknown_HttpMethod) return _mValue_HttpMethod;
+                throw new UndeferrableValueException("Value 'MethodResponse.HttpMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// The Resource identifier for the method resource.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'MethodResponse.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
         /// </summary>
-        [Input("responseModels")]
+        [PolicyResourceProperty("responseModels", "_mUnknown_ResponseModels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseModels;
-
-        public Dictionary<string, string>? ResponseModels => _mResponseModels.GetValue("responseModels");
+        private Dictionary<string, string>? _mValue_ResponseModels;
+        private bool _mUnknown_ResponseModels;
+        public Dictionary<string, string>? ResponseModels
+        {
+            get
+            {
+                if (!_mUnknown_ResponseModels) return _mValue_ResponseModels;
+                throw new UndeferrableValueException("Value 'MethodResponse.ResponseModels' is not present");
+            }
+        }
 
         /// <summary>
         /// A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
         /// 
         /// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
         /// </summary>
-        [Input("responseParameters")]
+        [PolicyResourceProperty("responseParameters", "_mUnknown_ResponseParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, bool>> _mResponseParameters;
-
-        public Dictionary<string, bool>? ResponseParameters => _mResponseParameters.GetValue("responseParameters");
+        private Dictionary<string, bool>? _mValue_ResponseParameters;
+        private bool _mUnknown_ResponseParameters;
+        public Dictionary<string, bool>? ResponseParameters
+        {
+            get
+            {
+                if (!_mUnknown_ResponseParameters) return _mValue_ResponseParameters;
+                throw new UndeferrableValueException("Value 'MethodResponse.ResponseParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The string identifier of the associated REST API.
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'MethodResponse.RestApi' is not present");
+            }
+        }
 
         /// <summary>
         /// The method response's status code.
         /// </summary>
-        [Input("statusCode")]
+        [PolicyResourceProperty("statusCode", "_mUnknown_StatusCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusCode;
-
-        public string? StatusCode => _mStatusCode.GetValue("statusCode");
+        private string? _mValue_StatusCode;
+        private bool _mUnknown_StatusCode;
+        public string? StatusCode
+        {
+            get
+            {
+                if (!_mUnknown_StatusCode) return _mValue_StatusCode;
+                throw new UndeferrableValueException("Value 'MethodResponse.StatusCode' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/methodResponse:MethodResponse")]
@@ -76,57 +118,99 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
         /// </summary>
-        [Input("httpMethod")]
+        [PolicyResourceProperty("httpMethod", "_mUnknown_HttpMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
-
-        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
+        private string? _mValue_HttpMethod;
+        private bool _mUnknown_HttpMethod;
+        public string? HttpMethod
+        {
+            get
+            {
+                if (!_mUnknown_HttpMethod) return _mValue_HttpMethod;
+                throw new UndeferrableValueException("Value 'MethodResponseArgs.HttpMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// The Resource identifier for the method resource.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'MethodResponseArgs.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
         /// </summary>
-        [Input("responseModels")]
+        [PolicyResourceProperty("responseModels", "_mUnknown_ResponseModels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseModels;
-
-        public Dictionary<string, string>? ResponseModels => _mResponseModels.GetValue("responseModels");
+        private Dictionary<string, string>? _mValue_ResponseModels;
+        private bool _mUnknown_ResponseModels;
+        public Dictionary<string, string>? ResponseModels
+        {
+            get
+            {
+                if (!_mUnknown_ResponseModels) return _mValue_ResponseModels;
+                throw new UndeferrableValueException("Value 'MethodResponseArgs.ResponseModels' is not present");
+            }
+        }
 
         /// <summary>
         /// A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
         /// 
         /// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
         /// </summary>
-        [Input("responseParameters")]
+        [PolicyResourceProperty("responseParameters", "_mUnknown_ResponseParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, bool>> _mResponseParameters;
-
-        public Dictionary<string, bool>? ResponseParameters => _mResponseParameters.GetValue("responseParameters");
+        private Dictionary<string, bool>? _mValue_ResponseParameters;
+        private bool _mUnknown_ResponseParameters;
+        public Dictionary<string, bool>? ResponseParameters
+        {
+            get
+            {
+                if (!_mUnknown_ResponseParameters) return _mValue_ResponseParameters;
+                throw new UndeferrableValueException("Value 'MethodResponseArgs.ResponseParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The string identifier of the associated REST API.
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'MethodResponseArgs.RestApi' is not present");
+            }
+        }
 
         /// <summary>
         /// The method response's status code.
         /// </summary>
-        [Input("statusCode")]
+        [PolicyResourceProperty("statusCode", "_mUnknown_StatusCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusCode;
-
-        public string? StatusCode => _mStatusCode.GetValue("statusCode");
+        private string? _mValue_StatusCode;
+        private bool _mUnknown_StatusCode;
+        public string? StatusCode
+        {
+            get
+            {
+                if (!_mUnknown_StatusCode) return _mValue_StatusCode;
+                throw new UndeferrableValueException("Value 'MethodResponseArgs.StatusCode' is not present");
+            }
+        }
     }
 }

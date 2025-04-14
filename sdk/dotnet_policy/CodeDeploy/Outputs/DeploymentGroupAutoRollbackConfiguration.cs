@@ -15,21 +15,35 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy.Outputs
         /// <summary>
         /// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'DeploymentGroupAutoRollbackConfiguration.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
         /// 
         /// _Only one `auto_rollback_configuration` is allowed_.
         /// </summary>
-        [Input("events")]
+        [PolicyResourceProperty("events", "_mUnknown_Events")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEvents;
-
-        public List<string>? Events => _mEvents.GetValue("events");
+        private List<string>? _mValue_Events;
+        private bool _mUnknown_Events;
+        public List<string>? Events
+        {
+            get
+            {
+                if (!_mUnknown_Events) return _mValue_Events;
+                throw new UndeferrableValueException("Value 'DeploymentGroupAutoRollbackConfiguration.Events' is not present");
+            }
+        }
     }
 }

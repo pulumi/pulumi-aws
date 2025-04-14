@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
         /// </summary>
-        [Input("crawlerLineageSettings")]
+        [PolicyResourceProperty("crawlerLineageSettings", "_mUnknown_CrawlerLineageSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCrawlerLineageSettings;
-
-        public string? CrawlerLineageSettings => _mCrawlerLineageSettings.GetValue("crawlerLineageSettings");
+        private string? _mValue_CrawlerLineageSettings;
+        private bool _mUnknown_CrawlerLineageSettings;
+        public string? CrawlerLineageSettings
+        {
+            get
+            {
+                if (!_mUnknown_CrawlerLineageSettings) return _mValue_CrawlerLineageSettings;
+                throw new UndeferrableValueException("Value 'CrawlerLineageConfigurationArgs.CrawlerLineageSettings' is not present");
+            }
+        }
     }
 }

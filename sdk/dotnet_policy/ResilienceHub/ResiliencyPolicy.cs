@@ -16,95 +16,165 @@ namespace Pulumi.PolicyPacks.Aws.ResilienceHub
         /// <summary>
         /// ARN of the Resiliency Policy.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicy.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Data Location Constraint of the Policy.
         /// Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
         /// </summary>
-        [Input("dataLocationConstraint")]
+        [PolicyResourceProperty("dataLocationConstraint", "_mUnknown_DataLocationConstraint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataLocationConstraint;
-
-        public string? DataLocationConstraint => _mDataLocationConstraint.GetValue("dataLocationConstraint");
+        private string? _mValue_DataLocationConstraint;
+        private bool _mUnknown_DataLocationConstraint;
+        public string? DataLocationConstraint
+        {
+            get
+            {
+                if (!_mUnknown_DataLocationConstraint) return _mValue_DataLocationConstraint;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicy.DataLocationConstraint' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of Resiliency Policy.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicy.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Estimated Cost Tier of the Resiliency Policy.
         /// </summary>
-        [Input("estimatedCostTier")]
+        [PolicyResourceProperty("estimatedCostTier", "_mUnknown_EstimatedCostTier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEstimatedCostTier;
-
-        public string? EstimatedCostTier => _mEstimatedCostTier.GetValue("estimatedCostTier");
+        private string? _mValue_EstimatedCostTier;
+        private bool _mUnknown_EstimatedCostTier;
+        public string? EstimatedCostTier
+        {
+            get
+            {
+                if (!_mUnknown_EstimatedCostTier) return _mValue_EstimatedCostTier;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicy.EstimatedCostTier' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of Resiliency Policy.
         /// Must be between 2 and 60 characters long.
         /// Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResiliencyPolicyPolicy> _mPolicy;
-
-        public Outputs.ResiliencyPolicyPolicy? Policy => _mPolicy.GetValue("policy");
+        private Outputs.ResiliencyPolicyPolicy? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public Outputs.ResiliencyPolicyPolicy? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicy.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicy.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicy.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Resiliency Policy Tier.
         /// Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
         /// </summary>
-        [Input("tier")]
+        [PolicyResourceProperty("tier", "_mUnknown_Tier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTier;
+        private string? _mValue_Tier;
+        private bool _mUnknown_Tier;
+        public string? Tier
+        {
+            get
+            {
+                if (!_mUnknown_Tier) return _mValue_Tier;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicy.Tier' is not present");
+            }
+        }
 
-        public string? Tier => _mTier.GetValue("tier");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResiliencyPolicyTimeouts> _mTimeouts;
-
-        public Outputs.ResiliencyPolicyTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.ResiliencyPolicyTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.ResiliencyPolicyTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicy.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy")]
@@ -114,66 +184,115 @@ namespace Pulumi.PolicyPacks.Aws.ResilienceHub
         /// Data Location Constraint of the Policy.
         /// Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
         /// </summary>
-        [Input("dataLocationConstraint")]
+        [PolicyResourceProperty("dataLocationConstraint", "_mUnknown_DataLocationConstraint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataLocationConstraint;
-
-        public string? DataLocationConstraint => _mDataLocationConstraint.GetValue("dataLocationConstraint");
+        private string? _mValue_DataLocationConstraint;
+        private bool _mUnknown_DataLocationConstraint;
+        public string? DataLocationConstraint
+        {
+            get
+            {
+                if (!_mUnknown_DataLocationConstraint) return _mValue_DataLocationConstraint;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicyArgs.DataLocationConstraint' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of Resiliency Policy.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicyArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of Resiliency Policy.
         /// Must be between 2 and 60 characters long.
         /// Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResiliencyPolicyPolicyArgs> _mPolicy;
-
-        public Inputs.ResiliencyPolicyPolicyArgs? Policy => _mPolicy.GetValue("policy");
+        private Inputs.ResiliencyPolicyPolicyArgs? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public Inputs.ResiliencyPolicyPolicyArgs? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicyArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicyArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Resiliency Policy Tier.
         /// Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
         /// </summary>
-        [Input("tier")]
+        [PolicyResourceProperty("tier", "_mUnknown_Tier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTier;
+        private string? _mValue_Tier;
+        private bool _mUnknown_Tier;
+        public string? Tier
+        {
+            get
+            {
+                if (!_mUnknown_Tier) return _mValue_Tier;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicyArgs.Tier' is not present");
+            }
+        }
 
-        public string? Tier => _mTier.GetValue("tier");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResiliencyPolicyTimeoutsArgs> _mTimeouts;
-
-        public Inputs.ResiliencyPolicyTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.ResiliencyPolicyTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.ResiliencyPolicyTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicyArgs.Timeouts' is not present");
+            }
+        }
     }
 }

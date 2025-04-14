@@ -15,57 +15,99 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation.Outputs
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'PermissionsTableWithColumns.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of column names for the table.
         /// </summary>
-        [Input("columnNames")]
+        [PolicyResourceProperty("columnNames", "_mUnknown_ColumnNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mColumnNames;
-
-        public List<string>? ColumnNames => _mColumnNames.GetValue("columnNames");
+        private List<string>? _mValue_ColumnNames;
+        private bool _mUnknown_ColumnNames;
+        public List<string>? ColumnNames
+        {
+            get
+            {
+                if (!_mUnknown_ColumnNames) return _mValue_ColumnNames;
+                throw new UndeferrableValueException("Value 'PermissionsTableWithColumns.ColumnNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the database for the table with columns resource. Unique to the Data Catalog.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'PermissionsTableWithColumns.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
         /// </summary>
-        [Input("excludedColumnNames")]
+        [PolicyResourceProperty("excludedColumnNames", "_mUnknown_ExcludedColumnNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedColumnNames;
-
-        public List<string>? ExcludedColumnNames => _mExcludedColumnNames.GetValue("excludedColumnNames");
+        private List<string>? _mValue_ExcludedColumnNames;
+        private bool _mUnknown_ExcludedColumnNames;
+        public List<string>? ExcludedColumnNames
+        {
+            get
+            {
+                if (!_mUnknown_ExcludedColumnNames) return _mValue_ExcludedColumnNames;
+                throw new UndeferrableValueException("Value 'PermissionsTableWithColumns.ExcludedColumnNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the table resource.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PermissionsTableWithColumns.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("wildcard")]
+        [PolicyResourceProperty("wildcard", "_mUnknown_Wildcard")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWildcard;
-
-        public bool? Wildcard => _mWildcard.GetValue("wildcard");
+        private bool? _mValue_Wildcard;
+        private bool _mUnknown_Wildcard;
+        public bool? Wildcard
+        {
+            get
+            {
+                if (!_mUnknown_Wildcard) return _mValue_Wildcard;
+                throw new UndeferrableValueException("Value 'PermissionsTableWithColumns.Wildcard' is not present");
+            }
+        }
     }
 }

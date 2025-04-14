@@ -15,11 +15,18 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         /// </summary>
-        [Input("acceleratorCount")]
+        [PolicyResourceProperty("acceleratorCount", "_mUnknown_AcceleratorCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs> _mAcceleratorCount;
-
-        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs? AcceleratorCount => _mAcceleratorCount.GetValue("acceleratorCount");
+        private Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs? _mValue_AcceleratorCount;
+        private bool _mUnknown_AcceleratorCount;
+        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs? AcceleratorCount
+        {
+            get
+            {
+                if (!_mUnknown_AcceleratorCount) return _mValue_AcceleratorCount;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.AcceleratorCount' is not present");
+            }
+        }
 
         /// <summary>
         /// List of accelerator manufacturer names. Default is any manufacturer.
@@ -32,11 +39,18 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// * xilinx
         /// ```
         /// </summary>
-        [Input("acceleratorManufacturers")]
+        [PolicyResourceProperty("acceleratorManufacturers", "_mUnknown_AcceleratorManufacturers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAcceleratorManufacturers;
-
-        public List<string>? AcceleratorManufacturers => _mAcceleratorManufacturers.GetValue("acceleratorManufacturers");
+        private List<string>? _mValue_AcceleratorManufacturers;
+        private bool _mUnknown_AcceleratorManufacturers;
+        public List<string>? AcceleratorManufacturers
+        {
+            get
+            {
+                if (!_mUnknown_AcceleratorManufacturers) return _mValue_AcceleratorManufacturers;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.AcceleratorManufacturers' is not present");
+            }
+        }
 
         /// <summary>
         /// List of accelerator names. Default is any acclerator.
@@ -52,20 +66,34 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// * vu9p            - Xilinx VU9P FPGAs
         /// ```
         /// </summary>
-        [Input("acceleratorNames")]
+        [PolicyResourceProperty("acceleratorNames", "_mUnknown_AcceleratorNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAcceleratorNames;
-
-        public List<string>? AcceleratorNames => _mAcceleratorNames.GetValue("acceleratorNames");
+        private List<string>? _mValue_AcceleratorNames;
+        private bool _mUnknown_AcceleratorNames;
+        public List<string>? AcceleratorNames
+        {
+            get
+            {
+                if (!_mUnknown_AcceleratorNames) return _mValue_AcceleratorNames;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.AcceleratorNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         /// </summary>
-        [Input("acceleratorTotalMemoryMib")]
+        [PolicyResourceProperty("acceleratorTotalMemoryMib", "_mUnknown_AcceleratorTotalMemoryMib")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs> _mAcceleratorTotalMemoryMib;
-
-        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs? AcceleratorTotalMemoryMib => _mAcceleratorTotalMemoryMib.GetValue("acceleratorTotalMemoryMib");
+        private Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs? _mValue_AcceleratorTotalMemoryMib;
+        private bool _mUnknown_AcceleratorTotalMemoryMib;
+        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs? AcceleratorTotalMemoryMib
+        {
+            get
+            {
+                if (!_mUnknown_AcceleratorTotalMemoryMib) return _mValue_AcceleratorTotalMemoryMib;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.AcceleratorTotalMemoryMib' is not present");
+            }
+        }
 
         /// <summary>
         /// List of accelerator types. Default is any accelerator type.
@@ -77,49 +105,84 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// * inference
         /// ```
         /// </summary>
-        [Input("acceleratorTypes")]
+        [PolicyResourceProperty("acceleratorTypes", "_mUnknown_AcceleratorTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAcceleratorTypes;
-
-        public List<string>? AcceleratorTypes => _mAcceleratorTypes.GetValue("acceleratorTypes");
+        private List<string>? _mValue_AcceleratorTypes;
+        private bool _mUnknown_AcceleratorTypes;
+        public List<string>? AcceleratorTypes
+        {
+            get
+            {
+                if (!_mUnknown_AcceleratorTypes) return _mValue_AcceleratorTypes;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.AcceleratorTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
         /// 
         /// &gt; **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
         /// </summary>
-        [Input("allowedInstanceTypes")]
+        [PolicyResourceProperty("allowedInstanceTypes", "_mUnknown_AllowedInstanceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedInstanceTypes;
-
-        public List<string>? AllowedInstanceTypes => _mAllowedInstanceTypes.GetValue("allowedInstanceTypes");
+        private List<string>? _mValue_AllowedInstanceTypes;
+        private bool _mUnknown_AllowedInstanceTypes;
+        public List<string>? AllowedInstanceTypes
+        {
+            get
+            {
+                if (!_mUnknown_AllowedInstanceTypes) return _mValue_AllowedInstanceTypes;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.AllowedInstanceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
         /// </summary>
-        [Input("bareMetal")]
+        [PolicyResourceProperty("bareMetal", "_mUnknown_BareMetal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBareMetal;
-
-        public string? BareMetal => _mBareMetal.GetValue("bareMetal");
+        private string? _mValue_BareMetal;
+        private bool _mUnknown_BareMetal;
+        public string? BareMetal
+        {
+            get
+            {
+                if (!_mUnknown_BareMetal) return _mValue_BareMetal;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.BareMetal' is not present");
+            }
+        }
 
         /// <summary>
         /// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         /// </summary>
-        [Input("baselineEbsBandwidthMbps")]
+        [PolicyResourceProperty("baselineEbsBandwidthMbps", "_mUnknown_BaselineEbsBandwidthMbps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs> _mBaselineEbsBandwidthMbps;
-
-        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs? BaselineEbsBandwidthMbps => _mBaselineEbsBandwidthMbps.GetValue("baselineEbsBandwidthMbps");
+        private Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs? _mValue_BaselineEbsBandwidthMbps;
+        private bool _mUnknown_BaselineEbsBandwidthMbps;
+        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs? BaselineEbsBandwidthMbps
+        {
+            get
+            {
+                if (!_mUnknown_BaselineEbsBandwidthMbps) return _mValue_BaselineEbsBandwidthMbps;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.BaselineEbsBandwidthMbps' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         /// </summary>
-        [Input("burstablePerformance")]
+        [PolicyResourceProperty("burstablePerformance", "_mUnknown_BurstablePerformance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBurstablePerformance;
-
-        public string? BurstablePerformance => _mBurstablePerformance.GetValue("burstablePerformance");
+        private string? _mValue_BurstablePerformance;
+        private bool _mUnknown_BurstablePerformance;
+        public string? BurstablePerformance
+        {
+            get
+            {
+                if (!_mUnknown_BurstablePerformance) return _mValue_BurstablePerformance;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.BurstablePerformance' is not present");
+            }
+        }
 
         /// <summary>
         /// List of CPU manufacturer names. Default is any manufacturer.
@@ -133,22 +196,36 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// * intel
         /// ```
         /// </summary>
-        [Input("cpuManufacturers")]
+        [PolicyResourceProperty("cpuManufacturers", "_mUnknown_CpuManufacturers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCpuManufacturers;
-
-        public List<string>? CpuManufacturers => _mCpuManufacturers.GetValue("cpuManufacturers");
+        private List<string>? _mValue_CpuManufacturers;
+        private bool _mUnknown_CpuManufacturers;
+        public List<string>? CpuManufacturers
+        {
+            get
+            {
+                if (!_mUnknown_CpuManufacturers) return _mValue_CpuManufacturers;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.CpuManufacturers' is not present");
+            }
+        }
 
         /// <summary>
         /// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
         /// 
         /// &gt; **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         /// </summary>
-        [Input("excludedInstanceTypes")]
+        [PolicyResourceProperty("excludedInstanceTypes", "_mUnknown_ExcludedInstanceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedInstanceTypes;
-
-        public List<string>? ExcludedInstanceTypes => _mExcludedInstanceTypes.GetValue("excludedInstanceTypes");
+        private List<string>? _mValue_ExcludedInstanceTypes;
+        private bool _mUnknown_ExcludedInstanceTypes;
+        public List<string>? ExcludedInstanceTypes
+        {
+            get
+            {
+                if (!_mUnknown_ExcludedInstanceTypes) return _mValue_ExcludedInstanceTypes;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.ExcludedInstanceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// List of instance generation names. Default is any generation.
@@ -159,20 +236,34 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// * previous - For existing applications optimized for older instance types.
         /// ```
         /// </summary>
-        [Input("instanceGenerations")]
+        [PolicyResourceProperty("instanceGenerations", "_mUnknown_InstanceGenerations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstanceGenerations;
-
-        public List<string>? InstanceGenerations => _mInstanceGenerations.GetValue("instanceGenerations");
+        private List<string>? _mValue_InstanceGenerations;
+        private bool _mUnknown_InstanceGenerations;
+        public List<string>? InstanceGenerations
+        {
+            get
+            {
+                if (!_mUnknown_InstanceGenerations) return _mValue_InstanceGenerations;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.InstanceGenerations' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         /// </summary>
-        [Input("localStorage")]
+        [PolicyResourceProperty("localStorage", "_mUnknown_LocalStorage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalStorage;
-
-        public string? LocalStorage => _mLocalStorage.GetValue("localStorage");
+        private string? _mValue_LocalStorage;
+        private bool _mUnknown_LocalStorage;
+        public string? LocalStorage
+        {
+            get
+            {
+                if (!_mUnknown_LocalStorage) return _mValue_LocalStorage;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.LocalStorage' is not present");
+            }
+        }
 
         /// <summary>
         /// List of local storage type names. Default any storage type.
@@ -183,95 +274,165 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// * ssd - solid state drive
         /// ```
         /// </summary>
-        [Input("localStorageTypes")]
+        [PolicyResourceProperty("localStorageTypes", "_mUnknown_LocalStorageTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLocalStorageTypes;
-
-        public List<string>? LocalStorageTypes => _mLocalStorageTypes.GetValue("localStorageTypes");
+        private List<string>? _mValue_LocalStorageTypes;
+        private bool _mUnknown_LocalStorageTypes;
+        public List<string>? LocalStorageTypes
+        {
+            get
+            {
+                if (!_mUnknown_LocalStorageTypes) return _mValue_LocalStorageTypes;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.LocalStorageTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         /// </summary>
-        [Input("memoryGibPerVcpu")]
+        [PolicyResourceProperty("memoryGibPerVcpu", "_mUnknown_MemoryGibPerVcpu")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs> _mMemoryGibPerVcpu;
-
-        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs? MemoryGibPerVcpu => _mMemoryGibPerVcpu.GetValue("memoryGibPerVcpu");
+        private Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs? _mValue_MemoryGibPerVcpu;
+        private bool _mUnknown_MemoryGibPerVcpu;
+        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs? MemoryGibPerVcpu
+        {
+            get
+            {
+                if (!_mUnknown_MemoryGibPerVcpu) return _mValue_MemoryGibPerVcpu;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.MemoryGibPerVcpu' is not present");
+            }
+        }
 
         /// <summary>
         /// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
         /// </summary>
-        [Input("memoryMib")]
+        [PolicyResourceProperty("memoryMib", "_mUnknown_MemoryMib")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs> _mMemoryMib;
-
-        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs? MemoryMib => _mMemoryMib.GetValue("memoryMib");
+        private Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs? _mValue_MemoryMib;
+        private bool _mUnknown_MemoryMib;
+        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs? MemoryMib
+        {
+            get
+            {
+                if (!_mUnknown_MemoryMib) return _mValue_MemoryMib;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.MemoryMib' is not present");
+            }
+        }
 
         /// <summary>
         /// Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
         /// </summary>
-        [Input("networkBandwidthGbps")]
+        [PolicyResourceProperty("networkBandwidthGbps", "_mUnknown_NetworkBandwidthGbps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs> _mNetworkBandwidthGbps;
-
-        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs? NetworkBandwidthGbps => _mNetworkBandwidthGbps.GetValue("networkBandwidthGbps");
+        private Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs? _mValue_NetworkBandwidthGbps;
+        private bool _mUnknown_NetworkBandwidthGbps;
+        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs? NetworkBandwidthGbps
+        {
+            get
+            {
+                if (!_mUnknown_NetworkBandwidthGbps) return _mValue_NetworkBandwidthGbps;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.NetworkBandwidthGbps' is not present");
+            }
+        }
 
         /// <summary>
         /// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         /// </summary>
-        [Input("networkInterfaceCount")]
+        [PolicyResourceProperty("networkInterfaceCount", "_mUnknown_NetworkInterfaceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs> _mNetworkInterfaceCount;
-
-        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs? NetworkInterfaceCount => _mNetworkInterfaceCount.GetValue("networkInterfaceCount");
+        private Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs? _mValue_NetworkInterfaceCount;
+        private bool _mUnknown_NetworkInterfaceCount;
+        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs? NetworkInterfaceCount
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceCount) return _mValue_NetworkInterfaceCount;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.NetworkInterfaceCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
         /// 
         /// If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         /// </summary>
-        [Input("onDemandMaxPricePercentageOverLowestPrice")]
+        [PolicyResourceProperty("onDemandMaxPricePercentageOverLowestPrice", "_mUnknown_OnDemandMaxPricePercentageOverLowestPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOnDemandMaxPricePercentageOverLowestPrice;
-
-        public int? OnDemandMaxPricePercentageOverLowestPrice => _mOnDemandMaxPricePercentageOverLowestPrice.GetValue("onDemandMaxPricePercentageOverLowestPrice");
+        private int? _mValue_OnDemandMaxPricePercentageOverLowestPrice;
+        private bool _mUnknown_OnDemandMaxPricePercentageOverLowestPrice;
+        public int? OnDemandMaxPricePercentageOverLowestPrice
+        {
+            get
+            {
+                if (!_mUnknown_OnDemandMaxPricePercentageOverLowestPrice) return _mValue_OnDemandMaxPricePercentageOverLowestPrice;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.OnDemandMaxPricePercentageOverLowestPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
         /// </summary>
-        [Input("requireHibernateSupport")]
+        [PolicyResourceProperty("requireHibernateSupport", "_mUnknown_RequireHibernateSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireHibernateSupport;
-
-        public bool? RequireHibernateSupport => _mRequireHibernateSupport.GetValue("requireHibernateSupport");
+        private bool? _mValue_RequireHibernateSupport;
+        private bool _mUnknown_RequireHibernateSupport;
+        public bool? RequireHibernateSupport
+        {
+            get
+            {
+                if (!_mUnknown_RequireHibernateSupport) return _mValue_RequireHibernateSupport;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.RequireHibernateSupport' is not present");
+            }
+        }
 
         /// <summary>
         /// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
         /// 
         /// If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         /// </summary>
-        [Input("spotMaxPricePercentageOverLowestPrice")]
+        [PolicyResourceProperty("spotMaxPricePercentageOverLowestPrice", "_mUnknown_SpotMaxPricePercentageOverLowestPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSpotMaxPricePercentageOverLowestPrice;
-
-        public int? SpotMaxPricePercentageOverLowestPrice => _mSpotMaxPricePercentageOverLowestPrice.GetValue("spotMaxPricePercentageOverLowestPrice");
+        private int? _mValue_SpotMaxPricePercentageOverLowestPrice;
+        private bool _mUnknown_SpotMaxPricePercentageOverLowestPrice;
+        public int? SpotMaxPricePercentageOverLowestPrice
+        {
+            get
+            {
+                if (!_mUnknown_SpotMaxPricePercentageOverLowestPrice) return _mValue_SpotMaxPricePercentageOverLowestPrice;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.SpotMaxPricePercentageOverLowestPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
         /// </summary>
-        [Input("totalLocalStorageGb")]
+        [PolicyResourceProperty("totalLocalStorageGb", "_mUnknown_TotalLocalStorageGb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs> _mTotalLocalStorageGb;
-
-        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs? TotalLocalStorageGb => _mTotalLocalStorageGb.GetValue("totalLocalStorageGb");
+        private Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs? _mValue_TotalLocalStorageGb;
+        private bool _mUnknown_TotalLocalStorageGb;
+        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs? TotalLocalStorageGb
+        {
+            get
+            {
+                if (!_mUnknown_TotalLocalStorageGb) return _mValue_TotalLocalStorageGb;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.TotalLocalStorageGb' is not present");
+            }
+        }
 
         /// <summary>
         /// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
         /// </summary>
-        [Input("vcpuCount")]
+        [PolicyResourceProperty("vcpuCount", "_mUnknown_VcpuCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs> _mVcpuCount;
-
-        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs? VcpuCount => _mVcpuCount.GetValue("vcpuCount");
+        private Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs? _mValue_VcpuCount;
+        private bool _mUnknown_VcpuCount;
+        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs? VcpuCount
+        {
+            get
+            {
+                if (!_mUnknown_VcpuCount) return _mValue_VcpuCount;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs.VcpuCount' is not present");
+            }
+        }
     }
 }

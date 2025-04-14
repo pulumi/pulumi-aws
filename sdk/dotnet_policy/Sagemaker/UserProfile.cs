@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The user profile Amazon Resource Name (ARN).
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'UserProfile.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the associated Domain.
         /// </summary>
-        [Input("domainId")]
+        [PolicyResourceProperty("domainId", "_mUnknown_DomainId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainId;
-
-        public string? DomainId => _mDomainId.GetValue("domainId");
+        private string? _mValue_DomainId;
+        private bool _mUnknown_DomainId;
+        public string? DomainId
+        {
+            get
+            {
+                if (!_mUnknown_DomainId) return _mValue_DomainId;
+                throw new UndeferrableValueException("Value 'UserProfile.DomainId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
         /// </summary>
-        [Input("homeEfsFileSystemUid")]
+        [PolicyResourceProperty("homeEfsFileSystemUid", "_mUnknown_HomeEfsFileSystemUid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHomeEfsFileSystemUid;
-
-        public string? HomeEfsFileSystemUid => _mHomeEfsFileSystemUid.GetValue("homeEfsFileSystemUid");
+        private string? _mValue_HomeEfsFileSystemUid;
+        private bool _mUnknown_HomeEfsFileSystemUid;
+        public string? HomeEfsFileSystemUid
+        {
+            get
+            {
+                if (!_mUnknown_HomeEfsFileSystemUid) return _mValue_HomeEfsFileSystemUid;
+                throw new UndeferrableValueException("Value 'UserProfile.HomeEfsFileSystemUid' is not present");
+            }
+        }
 
         /// <summary>
         /// A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         /// </summary>
-        [Input("singleSignOnUserIdentifier")]
+        [PolicyResourceProperty("singleSignOnUserIdentifier", "_mUnknown_SingleSignOnUserIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSingleSignOnUserIdentifier;
-
-        public string? SingleSignOnUserIdentifier => _mSingleSignOnUserIdentifier.GetValue("singleSignOnUserIdentifier");
+        private string? _mValue_SingleSignOnUserIdentifier;
+        private bool _mUnknown_SingleSignOnUserIdentifier;
+        public string? SingleSignOnUserIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SingleSignOnUserIdentifier) return _mValue_SingleSignOnUserIdentifier;
+                throw new UndeferrableValueException("Value 'UserProfile.SingleSignOnUserIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
         /// </summary>
-        [Input("singleSignOnUserValue")]
+        [PolicyResourceProperty("singleSignOnUserValue", "_mUnknown_SingleSignOnUserValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSingleSignOnUserValue;
-
-        public string? SingleSignOnUserValue => _mSingleSignOnUserValue.GetValue("singleSignOnUserValue");
+        private string? _mValue_SingleSignOnUserValue;
+        private bool _mUnknown_SingleSignOnUserValue;
+        public string? SingleSignOnUserValue
+        {
+            get
+            {
+                if (!_mUnknown_SingleSignOnUserValue) return _mValue_SingleSignOnUserValue;
+                throw new UndeferrableValueException("Value 'UserProfile.SingleSignOnUserValue' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'UserProfile.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'UserProfile.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the User Profile.
         /// </summary>
-        [Input("userProfileName")]
+        [PolicyResourceProperty("userProfileName", "_mUnknown_UserProfileName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserProfileName;
-
-        public string? UserProfileName => _mUserProfileName.GetValue("userProfileName");
+        private string? _mValue_UserProfileName;
+        private bool _mUnknown_UserProfileName;
+        public string? UserProfileName
+        {
+            get
+            {
+                if (!_mUnknown_UserProfileName) return _mValue_UserProfileName;
+                throw new UndeferrableValueException("Value 'UserProfile.UserProfileName' is not present");
+            }
+        }
 
         /// <summary>
         /// The user settings. See User Settings below.
         /// </summary>
-        [Input("userSettings")]
+        [PolicyResourceProperty("userSettings", "_mUnknown_UserSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserProfileUserSettings> _mUserSettings;
-
-        public Outputs.UserProfileUserSettings? UserSettings => _mUserSettings.GetValue("userSettings");
+        private Outputs.UserProfileUserSettings? _mValue_UserSettings;
+        private bool _mUnknown_UserSettings;
+        public Outputs.UserProfileUserSettings? UserSettings
+        {
+            get
+            {
+                if (!_mUnknown_UserSettings) return _mValue_UserSettings;
+                throw new UndeferrableValueException("Value 'UserProfile.UserSettings' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/userProfile:UserProfile")]
@@ -101,55 +164,97 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The ID of the associated Domain.
         /// </summary>
-        [Input("domainId")]
+        [PolicyResourceProperty("domainId", "_mUnknown_DomainId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainId;
-
-        public string? DomainId => _mDomainId.GetValue("domainId");
+        private string? _mValue_DomainId;
+        private bool _mUnknown_DomainId;
+        public string? DomainId
+        {
+            get
+            {
+                if (!_mUnknown_DomainId) return _mValue_DomainId;
+                throw new UndeferrableValueException("Value 'UserProfileArgs.DomainId' is not present");
+            }
+        }
 
         /// <summary>
         /// A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         /// </summary>
-        [Input("singleSignOnUserIdentifier")]
+        [PolicyResourceProperty("singleSignOnUserIdentifier", "_mUnknown_SingleSignOnUserIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSingleSignOnUserIdentifier;
-
-        public string? SingleSignOnUserIdentifier => _mSingleSignOnUserIdentifier.GetValue("singleSignOnUserIdentifier");
+        private string? _mValue_SingleSignOnUserIdentifier;
+        private bool _mUnknown_SingleSignOnUserIdentifier;
+        public string? SingleSignOnUserIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SingleSignOnUserIdentifier) return _mValue_SingleSignOnUserIdentifier;
+                throw new UndeferrableValueException("Value 'UserProfileArgs.SingleSignOnUserIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
         /// </summary>
-        [Input("singleSignOnUserValue")]
+        [PolicyResourceProperty("singleSignOnUserValue", "_mUnknown_SingleSignOnUserValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSingleSignOnUserValue;
-
-        public string? SingleSignOnUserValue => _mSingleSignOnUserValue.GetValue("singleSignOnUserValue");
+        private string? _mValue_SingleSignOnUserValue;
+        private bool _mUnknown_SingleSignOnUserValue;
+        public string? SingleSignOnUserValue
+        {
+            get
+            {
+                if (!_mUnknown_SingleSignOnUserValue) return _mValue_SingleSignOnUserValue;
+                throw new UndeferrableValueException("Value 'UserProfileArgs.SingleSignOnUserValue' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'UserProfileArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the User Profile.
         /// </summary>
-        [Input("userProfileName")]
+        [PolicyResourceProperty("userProfileName", "_mUnknown_UserProfileName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserProfileName;
-
-        public string? UserProfileName => _mUserProfileName.GetValue("userProfileName");
+        private string? _mValue_UserProfileName;
+        private bool _mUnknown_UserProfileName;
+        public string? UserProfileName
+        {
+            get
+            {
+                if (!_mUnknown_UserProfileName) return _mValue_UserProfileName;
+                throw new UndeferrableValueException("Value 'UserProfileArgs.UserProfileName' is not present");
+            }
+        }
 
         /// <summary>
         /// The user settings. See User Settings below.
         /// </summary>
-        [Input("userSettings")]
+        [PolicyResourceProperty("userSettings", "_mUnknown_UserSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserProfileUserSettingsArgs> _mUserSettings;
-
-        public Inputs.UserProfileUserSettingsArgs? UserSettings => _mUserSettings.GetValue("userSettings");
+        private Inputs.UserProfileUserSettingsArgs? _mValue_UserSettings;
+        private bool _mUnknown_UserSettings;
+        public Inputs.UserProfileUserSettingsArgs? UserSettings
+        {
+            get
+            {
+                if (!_mUnknown_UserSettings) return _mValue_UserSettings;
+                throw new UndeferrableValueException("Value 'UserProfileArgs.UserSettings' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
         /// </summary>
-        [Input("textTransformations")]
+        [PolicyResourceProperty("textTransformations", "_mUnknown_TextTransformations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation>> _mTextTransformations;
-
-        public List<Outputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation>? TextTransformations => _mTextTransformations.GetValue("textTransformations");
+        private List<Outputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation>? _mValue_TextTransformations;
+        private bool _mUnknown_TextTransformations;
+        public List<Outputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation>? TextTransformations
+        {
+            get
+            {
+                if (!_mUnknown_TextTransformations) return _mValue_TextTransformations;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyUriPath.TextTransformations' is not present");
+            }
+        }
     }
 }

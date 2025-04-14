@@ -16,75 +16,131 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// <summary>
         /// The ARN of the Association.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ServiceNetworkVpcAssociation.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The account that created the association.
         /// </summary>
-        [Input("createdBy")]
+        [PolicyResourceProperty("createdBy", "_mUnknown_CreatedBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedBy;
-
-        public string? CreatedBy => _mCreatedBy.GetValue("createdBy");
+        private string? _mValue_CreatedBy;
+        private bool _mUnknown_CreatedBy;
+        public string? CreatedBy
+        {
+            get
+            {
+                if (!_mUnknown_CreatedBy) return _mValue_CreatedBy;
+                throw new UndeferrableValueException("Value 'ServiceNetworkVpcAssociation.CreatedBy' is not present");
+            }
+        }
 
         /// <summary>
         /// The IDs of the security groups.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ServiceNetworkVpcAssociation.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
         /// The following arguments are optional:
         /// </summary>
-        [Input("serviceNetworkIdentifier")]
+        [PolicyResourceProperty("serviceNetworkIdentifier", "_mUnknown_ServiceNetworkIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNetworkIdentifier;
-
-        public string? ServiceNetworkIdentifier => _mServiceNetworkIdentifier.GetValue("serviceNetworkIdentifier");
+        private string? _mValue_ServiceNetworkIdentifier;
+        private bool _mUnknown_ServiceNetworkIdentifier;
+        public string? ServiceNetworkIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ServiceNetworkIdentifier) return _mValue_ServiceNetworkIdentifier;
+                throw new UndeferrableValueException("Value 'ServiceNetworkVpcAssociation.ServiceNetworkIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'ServiceNetworkVpcAssociation.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServiceNetworkVpcAssociation.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ServiceNetworkVpcAssociation.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC.
         /// </summary>
-        [Input("vpcIdentifier")]
+        [PolicyResourceProperty("vpcIdentifier", "_mUnknown_VpcIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcIdentifier;
-
-        public string? VpcIdentifier => _mVpcIdentifier.GetValue("vpcIdentifier");
+        private string? _mValue_VpcIdentifier;
+        private bool _mUnknown_VpcIdentifier;
+        public string? VpcIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_VpcIdentifier) return _mValue_VpcIdentifier;
+                throw new UndeferrableValueException("Value 'ServiceNetworkVpcAssociation.VpcIdentifier' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation")]
@@ -93,38 +149,66 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// <summary>
         /// The IDs of the security groups.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ServiceNetworkVpcAssociationArgs.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
         /// The following arguments are optional:
         /// </summary>
-        [Input("serviceNetworkIdentifier")]
+        [PolicyResourceProperty("serviceNetworkIdentifier", "_mUnknown_ServiceNetworkIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNetworkIdentifier;
-
-        public string? ServiceNetworkIdentifier => _mServiceNetworkIdentifier.GetValue("serviceNetworkIdentifier");
+        private string? _mValue_ServiceNetworkIdentifier;
+        private bool _mUnknown_ServiceNetworkIdentifier;
+        public string? ServiceNetworkIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ServiceNetworkIdentifier) return _mValue_ServiceNetworkIdentifier;
+                throw new UndeferrableValueException("Value 'ServiceNetworkVpcAssociationArgs.ServiceNetworkIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServiceNetworkVpcAssociationArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC.
         /// </summary>
-        [Input("vpcIdentifier")]
+        [PolicyResourceProperty("vpcIdentifier", "_mUnknown_VpcIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcIdentifier;
-
-        public string? VpcIdentifier => _mVpcIdentifier.GetValue("vpcIdentifier");
+        private string? _mValue_VpcIdentifier;
+        private bool _mUnknown_VpcIdentifier;
+        public string? VpcIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_VpcIdentifier) return _mValue_VpcIdentifier;
+                throw new UndeferrableValueException("Value 'ServiceNetworkVpcAssociationArgs.VpcIdentifier' is not present");
+            }
+        }
     }
 }

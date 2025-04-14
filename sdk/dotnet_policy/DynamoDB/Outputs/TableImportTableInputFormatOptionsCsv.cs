@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB.Outputs
         /// <summary>
         /// The delimiter used for separating items in the CSV file being imported.
         /// </summary>
-        [Input("delimiter")]
+        [PolicyResourceProperty("delimiter", "_mUnknown_Delimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDelimiter;
-
-        public string? Delimiter => _mDelimiter.GetValue("delimiter");
+        private string? _mValue_Delimiter;
+        private bool _mUnknown_Delimiter;
+        public string? Delimiter
+        {
+            get
+            {
+                if (!_mUnknown_Delimiter) return _mValue_Delimiter;
+                throw new UndeferrableValueException("Value 'TableImportTableInputFormatOptionsCsv.Delimiter' is not present");
+            }
+        }
 
         /// <summary>
         /// List of the headers used to specify a common header for all source CSV files being imported.
         /// </summary>
-        [Input("headerLists")]
+        [PolicyResourceProperty("headerLists", "_mUnknown_HeaderLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mHeaderLists;
-
-        public List<string>? HeaderLists => _mHeaderLists.GetValue("headerLists");
+        private List<string>? _mValue_HeaderLists;
+        private bool _mUnknown_HeaderLists;
+        public List<string>? HeaderLists
+        {
+            get
+            {
+                if (!_mUnknown_HeaderLists) return _mValue_HeaderLists;
+                throw new UndeferrableValueException("Value 'TableImportTableInputFormatOptionsCsv.HeaderLists' is not present");
+            }
+        }
     }
 }

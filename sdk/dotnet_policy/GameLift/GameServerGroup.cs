@@ -16,46 +16,81 @@ namespace Pulumi.PolicyPacks.Aws.GameLift
         /// <summary>
         /// The ARN of the GameLift Game Server Group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'GameServerGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the created EC2 Auto Scaling group.
         /// </summary>
-        [Input("autoScalingGroupArn")]
+        [PolicyResourceProperty("autoScalingGroupArn", "_mUnknown_AutoScalingGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingGroupArn;
+        private string? _mValue_AutoScalingGroupArn;
+        private bool _mUnknown_AutoScalingGroupArn;
+        public string? AutoScalingGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_AutoScalingGroupArn) return _mValue_AutoScalingGroupArn;
+                throw new UndeferrableValueException("Value 'GameServerGroup.AutoScalingGroupArn' is not present");
+            }
+        }
 
-        public string? AutoScalingGroupArn => _mAutoScalingGroupArn.GetValue("autoScalingGroupArn");
-
-        [Input("autoScalingPolicy")]
+        [PolicyResourceProperty("autoScalingPolicy", "_mUnknown_AutoScalingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GameServerGroupAutoScalingPolicy> _mAutoScalingPolicy;
-
-        public Outputs.GameServerGroupAutoScalingPolicy? AutoScalingPolicy => _mAutoScalingPolicy.GetValue("autoScalingPolicy");
+        private Outputs.GameServerGroupAutoScalingPolicy? _mValue_AutoScalingPolicy;
+        private bool _mUnknown_AutoScalingPolicy;
+        public Outputs.GameServerGroupAutoScalingPolicy? AutoScalingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_AutoScalingPolicy) return _mValue_AutoScalingPolicy;
+                throw new UndeferrableValueException("Value 'GameServerGroup.AutoScalingPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
         /// Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
         /// </summary>
-        [Input("balancingStrategy")]
+        [PolicyResourceProperty("balancingStrategy", "_mUnknown_BalancingStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBalancingStrategy;
-
-        public string? BalancingStrategy => _mBalancingStrategy.GetValue("balancingStrategy");
+        private string? _mValue_BalancingStrategy;
+        private bool _mUnknown_BalancingStrategy;
+        public string? BalancingStrategy
+        {
+            get
+            {
+                if (!_mUnknown_BalancingStrategy) return _mValue_BalancingStrategy;
+                throw new UndeferrableValueException("Value 'GameServerGroup.BalancingStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the game server group.
         /// This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
         /// </summary>
-        [Input("gameServerGroupName")]
+        [PolicyResourceProperty("gameServerGroupName", "_mUnknown_GameServerGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGameServerGroupName;
-
-        public string? GameServerGroupName => _mGameServerGroupName.GetValue("gameServerGroupName");
+        private string? _mValue_GameServerGroupName;
+        private bool _mUnknown_GameServerGroupName;
+        public string? GameServerGroupName
+        {
+            get
+            {
+                if (!_mUnknown_GameServerGroupName) return _mValue_GameServerGroupName;
+                throw new UndeferrableValueException("Value 'GameServerGroup.GameServerGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether instances in the game server group are protected from early termination.
@@ -65,107 +100,191 @@ namespace Pulumi.PolicyPacks.Aws.GameLift
         /// of a forced game server group deletion.
         /// Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
         /// </summary>
-        [Input("gameServerProtectionPolicy")]
+        [PolicyResourceProperty("gameServerProtectionPolicy", "_mUnknown_GameServerProtectionPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGameServerProtectionPolicy;
+        private string? _mValue_GameServerProtectionPolicy;
+        private bool _mUnknown_GameServerProtectionPolicy;
+        public string? GameServerProtectionPolicy
+        {
+            get
+            {
+                if (!_mUnknown_GameServerProtectionPolicy) return _mValue_GameServerProtectionPolicy;
+                throw new UndeferrableValueException("Value 'GameServerGroup.GameServerProtectionPolicy' is not present");
+            }
+        }
 
-        public string? GameServerProtectionPolicy => _mGameServerProtectionPolicy.GetValue("gameServerProtectionPolicy");
-
-        [Input("instanceDefinitions")]
+        [PolicyResourceProperty("instanceDefinitions", "_mUnknown_InstanceDefinitions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GameServerGroupInstanceDefinition>> _mInstanceDefinitions;
+        private List<Outputs.GameServerGroupInstanceDefinition>? _mValue_InstanceDefinitions;
+        private bool _mUnknown_InstanceDefinitions;
+        public List<Outputs.GameServerGroupInstanceDefinition>? InstanceDefinitions
+        {
+            get
+            {
+                if (!_mUnknown_InstanceDefinitions) return _mValue_InstanceDefinitions;
+                throw new UndeferrableValueException("Value 'GameServerGroup.InstanceDefinitions' is not present");
+            }
+        }
 
-        public List<Outputs.GameServerGroupInstanceDefinition>? InstanceDefinitions => _mInstanceDefinitions.GetValue("instanceDefinitions");
-
-        [Input("launchTemplate")]
+        [PolicyResourceProperty("launchTemplate", "_mUnknown_LaunchTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GameServerGroupLaunchTemplate> _mLaunchTemplate;
-
-        public Outputs.GameServerGroupLaunchTemplate? LaunchTemplate => _mLaunchTemplate.GetValue("launchTemplate");
+        private Outputs.GameServerGroupLaunchTemplate? _mValue_LaunchTemplate;
+        private bool _mUnknown_LaunchTemplate;
+        public Outputs.GameServerGroupLaunchTemplate? LaunchTemplate
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplate) return _mValue_LaunchTemplate;
+                throw new UndeferrableValueException("Value 'GameServerGroup.LaunchTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of instances allowed in the EC2 Auto Scaling group.
         /// During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
         /// </summary>
-        [Input("maxSize")]
+        [PolicyResourceProperty("maxSize", "_mUnknown_MaxSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSize;
-
-        public int? MaxSize => _mMaxSize.GetValue("maxSize");
+        private int? _mValue_MaxSize;
+        private bool _mUnknown_MaxSize;
+        public int? MaxSize
+        {
+            get
+            {
+                if (!_mUnknown_MaxSize) return _mValue_MaxSize;
+                throw new UndeferrableValueException("Value 'GameServerGroup.MaxSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum number of instances allowed in the EC2 Auto Scaling group.
         /// During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
         /// </summary>
-        [Input("minSize")]
+        [PolicyResourceProperty("minSize", "_mUnknown_MinSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinSize;
-
-        public int? MinSize => _mMinSize.GetValue("minSize");
+        private int? _mValue_MinSize;
+        private bool _mUnknown_MinSize;
+        public int? MinSize
+        {
+            get
+            {
+                if (!_mUnknown_MinSize) return _mValue_MinSize;
+                throw new UndeferrableValueException("Value 'GameServerGroup.MinSize' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'GameServerGroup.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GameServerGroup.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'GameServerGroup.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of VPC subnets to use with instances in the game server group.
         /// By default, all GameLift FleetIQ-supported Availability Zones are used.
         /// </summary>
-        [Input("vpcSubnets")]
+        [PolicyResourceProperty("vpcSubnets", "_mUnknown_VpcSubnets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSubnets;
-
-        public List<string>? VpcSubnets => _mVpcSubnets.GetValue("vpcSubnets");
+        private List<string>? _mValue_VpcSubnets;
+        private bool _mUnknown_VpcSubnets;
+        public List<string>? VpcSubnets
+        {
+            get
+            {
+                if (!_mUnknown_VpcSubnets) return _mValue_VpcSubnets;
+                throw new UndeferrableValueException("Value 'GameServerGroup.VpcSubnets' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:gamelift/gameServerGroup:GameServerGroup")]
     public sealed class GameServerGroupArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("autoScalingPolicy")]
+        [PolicyResourceProperty("autoScalingPolicy", "_mUnknown_AutoScalingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GameServerGroupAutoScalingPolicyArgs> _mAutoScalingPolicy;
-
-        public Inputs.GameServerGroupAutoScalingPolicyArgs? AutoScalingPolicy => _mAutoScalingPolicy.GetValue("autoScalingPolicy");
+        private Inputs.GameServerGroupAutoScalingPolicyArgs? _mValue_AutoScalingPolicy;
+        private bool _mUnknown_AutoScalingPolicy;
+        public Inputs.GameServerGroupAutoScalingPolicyArgs? AutoScalingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_AutoScalingPolicy) return _mValue_AutoScalingPolicy;
+                throw new UndeferrableValueException("Value 'GameServerGroupArgs.AutoScalingPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
         /// Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
         /// </summary>
-        [Input("balancingStrategy")]
+        [PolicyResourceProperty("balancingStrategy", "_mUnknown_BalancingStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBalancingStrategy;
-
-        public string? BalancingStrategy => _mBalancingStrategy.GetValue("balancingStrategy");
+        private string? _mValue_BalancingStrategy;
+        private bool _mUnknown_BalancingStrategy;
+        public string? BalancingStrategy
+        {
+            get
+            {
+                if (!_mUnknown_BalancingStrategy) return _mValue_BalancingStrategy;
+                throw new UndeferrableValueException("Value 'GameServerGroupArgs.BalancingStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the game server group.
         /// This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
         /// </summary>
-        [Input("gameServerGroupName")]
+        [PolicyResourceProperty("gameServerGroupName", "_mUnknown_GameServerGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGameServerGroupName;
-
-        public string? GameServerGroupName => _mGameServerGroupName.GetValue("gameServerGroupName");
+        private string? _mValue_GameServerGroupName;
+        private bool _mUnknown_GameServerGroupName;
+        public string? GameServerGroupName
+        {
+            get
+            {
+                if (!_mUnknown_GameServerGroupName) return _mValue_GameServerGroupName;
+                throw new UndeferrableValueException("Value 'GameServerGroupArgs.GameServerGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether instances in the game server group are protected from early termination.
@@ -175,70 +294,126 @@ namespace Pulumi.PolicyPacks.Aws.GameLift
         /// of a forced game server group deletion.
         /// Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
         /// </summary>
-        [Input("gameServerProtectionPolicy")]
+        [PolicyResourceProperty("gameServerProtectionPolicy", "_mUnknown_GameServerProtectionPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGameServerProtectionPolicy;
+        private string? _mValue_GameServerProtectionPolicy;
+        private bool _mUnknown_GameServerProtectionPolicy;
+        public string? GameServerProtectionPolicy
+        {
+            get
+            {
+                if (!_mUnknown_GameServerProtectionPolicy) return _mValue_GameServerProtectionPolicy;
+                throw new UndeferrableValueException("Value 'GameServerGroupArgs.GameServerProtectionPolicy' is not present");
+            }
+        }
 
-        public string? GameServerProtectionPolicy => _mGameServerProtectionPolicy.GetValue("gameServerProtectionPolicy");
-
-        [Input("instanceDefinitions")]
+        [PolicyResourceProperty("instanceDefinitions", "_mUnknown_InstanceDefinitions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GameServerGroupInstanceDefinitionArgs>> _mInstanceDefinitions;
+        private List<Inputs.GameServerGroupInstanceDefinitionArgs>? _mValue_InstanceDefinitions;
+        private bool _mUnknown_InstanceDefinitions;
+        public List<Inputs.GameServerGroupInstanceDefinitionArgs>? InstanceDefinitions
+        {
+            get
+            {
+                if (!_mUnknown_InstanceDefinitions) return _mValue_InstanceDefinitions;
+                throw new UndeferrableValueException("Value 'GameServerGroupArgs.InstanceDefinitions' is not present");
+            }
+        }
 
-        public List<Inputs.GameServerGroupInstanceDefinitionArgs>? InstanceDefinitions => _mInstanceDefinitions.GetValue("instanceDefinitions");
-
-        [Input("launchTemplate")]
+        [PolicyResourceProperty("launchTemplate", "_mUnknown_LaunchTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GameServerGroupLaunchTemplateArgs> _mLaunchTemplate;
-
-        public Inputs.GameServerGroupLaunchTemplateArgs? LaunchTemplate => _mLaunchTemplate.GetValue("launchTemplate");
+        private Inputs.GameServerGroupLaunchTemplateArgs? _mValue_LaunchTemplate;
+        private bool _mUnknown_LaunchTemplate;
+        public Inputs.GameServerGroupLaunchTemplateArgs? LaunchTemplate
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplate) return _mValue_LaunchTemplate;
+                throw new UndeferrableValueException("Value 'GameServerGroupArgs.LaunchTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of instances allowed in the EC2 Auto Scaling group.
         /// During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
         /// </summary>
-        [Input("maxSize")]
+        [PolicyResourceProperty("maxSize", "_mUnknown_MaxSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSize;
-
-        public int? MaxSize => _mMaxSize.GetValue("maxSize");
+        private int? _mValue_MaxSize;
+        private bool _mUnknown_MaxSize;
+        public int? MaxSize
+        {
+            get
+            {
+                if (!_mUnknown_MaxSize) return _mValue_MaxSize;
+                throw new UndeferrableValueException("Value 'GameServerGroupArgs.MaxSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum number of instances allowed in the EC2 Auto Scaling group.
         /// During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
         /// </summary>
-        [Input("minSize")]
+        [PolicyResourceProperty("minSize", "_mUnknown_MinSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinSize;
-
-        public int? MinSize => _mMinSize.GetValue("minSize");
+        private int? _mValue_MinSize;
+        private bool _mUnknown_MinSize;
+        public int? MinSize
+        {
+            get
+            {
+                if (!_mUnknown_MinSize) return _mValue_MinSize;
+                throw new UndeferrableValueException("Value 'GameServerGroupArgs.MinSize' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'GameServerGroupArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GameServerGroupArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of VPC subnets to use with instances in the game server group.
         /// By default, all GameLift FleetIQ-supported Availability Zones are used.
         /// </summary>
-        [Input("vpcSubnets")]
+        [PolicyResourceProperty("vpcSubnets", "_mUnknown_VpcSubnets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSubnets;
-
-        public List<string>? VpcSubnets => _mVpcSubnets.GetValue("vpcSubnets");
+        private List<string>? _mValue_VpcSubnets;
+        private bool _mUnknown_VpcSubnets;
+        public List<string>? VpcSubnets
+        {
+            get
+            {
+                if (!_mUnknown_VpcSubnets) return _mValue_VpcSubnets;
+                throw new UndeferrableValueException("Value 'GameServerGroupArgs.VpcSubnets' is not present");
+            }
+        }
     }
 }

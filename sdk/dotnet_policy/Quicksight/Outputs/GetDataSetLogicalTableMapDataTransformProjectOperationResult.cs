@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetLogicalTableMapDataTransformProjectOperationResult
     {
-        [Input("projectedColumns")]
+        [PolicyResourceProperty("projectedColumns", "_mUnknown_ProjectedColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mProjectedColumns;
-
-        public List<string>? ProjectedColumns => _mProjectedColumns.GetValue("projectedColumns");
+        private List<string>? _mValue_ProjectedColumns;
+        private bool _mUnknown_ProjectedColumns;
+        public List<string>? ProjectedColumns
+        {
+            get
+            {
+                if (!_mUnknown_ProjectedColumns) return _mValue_ProjectedColumns;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapDataTransformProjectOperationResult.ProjectedColumns' is not present");
+            }
+        }
     }
 }

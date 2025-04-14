@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Signer.Outputs
 {
     public sealed class GetSigningJobSourceResult
     {
-        [Input("s3s")]
+        [PolicyResourceProperty("s3s", "_mUnknown_S3s")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetSigningJobSourceS3Result>> _mS3s;
-
-        public List<Outputs.GetSigningJobSourceS3Result>? S3s => _mS3s.GetValue("s3s");
+        private List<Outputs.GetSigningJobSourceS3Result>? _mValue_S3s;
+        private bool _mUnknown_S3s;
+        public List<Outputs.GetSigningJobSourceS3Result>? S3s
+        {
+            get
+            {
+                if (!_mUnknown_S3s) return _mValue_S3s;
+                throw new UndeferrableValueException("Value 'GetSigningJobSourceResult.S3s' is not present");
+            }
+        }
     }
 }

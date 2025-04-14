@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Synthetics.Outputs
         /// <summary>
         /// The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
         /// </summary>
-        [Input("encryptionMode")]
+        [PolicyResourceProperty("encryptionMode", "_mUnknown_EncryptionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionMode;
-
-        public string? EncryptionMode => _mEncryptionMode.GetValue("encryptionMode");
+        private string? _mValue_EncryptionMode;
+        private bool _mUnknown_EncryptionMode;
+        public string? EncryptionMode
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionMode) return _mValue_EncryptionMode;
+                throw new UndeferrableValueException("Value 'CanaryArtifactConfigS3Encryption.EncryptionMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'CanaryArtifactConfigS3Encryption.KmsKeyArn' is not present");
+            }
+        }
     }
 }

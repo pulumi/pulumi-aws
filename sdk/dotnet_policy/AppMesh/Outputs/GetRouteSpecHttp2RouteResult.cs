@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetRouteSpecHttp2RouteResult
     {
-        [Input("actions")]
+        [PolicyResourceProperty("actions", "_mUnknown_Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetRouteSpecHttp2RouteActionResult>> _mActions;
+        private List<Outputs.GetRouteSpecHttp2RouteActionResult>? _mValue_Actions;
+        private bool _mUnknown_Actions;
+        public List<Outputs.GetRouteSpecHttp2RouteActionResult>? Actions
+        {
+            get
+            {
+                if (!_mUnknown_Actions) return _mValue_Actions;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttp2RouteResult.Actions' is not present");
+            }
+        }
 
-        public List<Outputs.GetRouteSpecHttp2RouteActionResult>? Actions => _mActions.GetValue("actions");
-
-        [Input("matches")]
+        [PolicyResourceProperty("matches", "_mUnknown_Matches")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetRouteSpecHttp2RouteMatchResult>> _mMatches;
+        private List<Outputs.GetRouteSpecHttp2RouteMatchResult>? _mValue_Matches;
+        private bool _mUnknown_Matches;
+        public List<Outputs.GetRouteSpecHttp2RouteMatchResult>? Matches
+        {
+            get
+            {
+                if (!_mUnknown_Matches) return _mValue_Matches;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttp2RouteResult.Matches' is not present");
+            }
+        }
 
-        public List<Outputs.GetRouteSpecHttp2RouteMatchResult>? Matches => _mMatches.GetValue("matches");
-
-        [Input("retryPolicies")]
+        [PolicyResourceProperty("retryPolicies", "_mUnknown_RetryPolicies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetRouteSpecHttp2RouteRetryPolicyResult>> _mRetryPolicies;
+        private List<Outputs.GetRouteSpecHttp2RouteRetryPolicyResult>? _mValue_RetryPolicies;
+        private bool _mUnknown_RetryPolicies;
+        public List<Outputs.GetRouteSpecHttp2RouteRetryPolicyResult>? RetryPolicies
+        {
+            get
+            {
+                if (!_mUnknown_RetryPolicies) return _mValue_RetryPolicies;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttp2RouteResult.RetryPolicies' is not present");
+            }
+        }
 
-        public List<Outputs.GetRouteSpecHttp2RouteRetryPolicyResult>? RetryPolicies => _mRetryPolicies.GetValue("retryPolicies");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetRouteSpecHttp2RouteTimeoutResult>> _mTimeouts;
-
-        public List<Outputs.GetRouteSpecHttp2RouteTimeoutResult>? Timeouts => _mTimeouts.GetValue("timeouts");
+        private List<Outputs.GetRouteSpecHttp2RouteTimeoutResult>? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public List<Outputs.GetRouteSpecHttp2RouteTimeoutResult>? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttp2RouteResult.Timeouts' is not present");
+            }
+        }
     }
 }

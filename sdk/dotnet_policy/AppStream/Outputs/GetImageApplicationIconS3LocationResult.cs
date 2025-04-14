@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppStream.Outputs
         /// <summary>
         /// S3 bucket of the S3 object.
         /// </summary>
-        [Input("s3Bucket")]
+        [PolicyResourceProperty("s3Bucket", "_mUnknown_S3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
-
-        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+        private string? _mValue_S3Bucket;
+        private bool _mUnknown_S3Bucket;
+        public string? S3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_S3Bucket) return _mValue_S3Bucket;
+                throw new UndeferrableValueException("Value 'GetImageApplicationIconS3LocationResult.S3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 key of the S3 object.
         /// </summary>
-        [Input("s3Key")]
+        [PolicyResourceProperty("s3Key", "_mUnknown_S3Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Key;
-
-        public string? S3Key => _mS3Key.GetValue("s3Key");
+        private string? _mValue_S3Key;
+        private bool _mUnknown_S3Key;
+        public string? S3Key
+        {
+            get
+            {
+                if (!_mUnknown_S3Key) return _mValue_S3Key;
+                throw new UndeferrableValueException("Value 'GetImageApplicationIconS3LocationResult.S3Key' is not present");
+            }
+        }
     }
 }

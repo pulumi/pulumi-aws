@@ -12,46 +12,81 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
 {
     public sealed class BucketLoggingV2TargetGrantGrantee
     {
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2TargetGrantGrantee.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
         /// </summary>
-        [Input("emailAddress")]
+        [PolicyResourceProperty("emailAddress", "_mUnknown_EmailAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAddress;
-
-        public string? EmailAddress => _mEmailAddress.GetValue("emailAddress");
+        private string? _mValue_EmailAddress;
+        private bool _mUnknown_EmailAddress;
+        public string? EmailAddress
+        {
+            get
+            {
+                if (!_mUnknown_EmailAddress) return _mValue_EmailAddress;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2TargetGrantGrantee.EmailAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Canonical user ID of the grantee.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2TargetGrantGrantee.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of grantee. Valid values: `CanonicalUser`, `AmazonCustomerByEmail`, `Group`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2TargetGrantGrantee.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// URI of the grantee group.
         /// </summary>
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2TargetGrantGrantee.Uri' is not present");
+            }
+        }
     }
 }

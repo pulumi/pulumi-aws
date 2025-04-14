@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// <summary>
         /// The account takeover risk configuration. See details below.
         /// </summary>
-        [Input("accountTakeoverRiskConfiguration")]
+        [PolicyResourceProperty("accountTakeoverRiskConfiguration", "_mUnknown_AccountTakeoverRiskConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RiskConfigurationAccountTakeoverRiskConfiguration> _mAccountTakeoverRiskConfiguration;
-
-        public Outputs.RiskConfigurationAccountTakeoverRiskConfiguration? AccountTakeoverRiskConfiguration => _mAccountTakeoverRiskConfiguration.GetValue("accountTakeoverRiskConfiguration");
+        private Outputs.RiskConfigurationAccountTakeoverRiskConfiguration? _mValue_AccountTakeoverRiskConfiguration;
+        private bool _mUnknown_AccountTakeoverRiskConfiguration;
+        public Outputs.RiskConfigurationAccountTakeoverRiskConfiguration? AccountTakeoverRiskConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AccountTakeoverRiskConfiguration) return _mValue_AccountTakeoverRiskConfiguration;
+                throw new UndeferrableValueException("Value 'RiskConfiguration.AccountTakeoverRiskConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
         /// </summary>
-        [Input("clientId")]
+        [PolicyResourceProperty("clientId", "_mUnknown_ClientId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
-
-        public string? ClientId => _mClientId.GetValue("clientId");
+        private string? _mValue_ClientId;
+        private bool _mUnknown_ClientId;
+        public string? ClientId
+        {
+            get
+            {
+                if (!_mUnknown_ClientId) return _mValue_ClientId;
+                throw new UndeferrableValueException("Value 'RiskConfiguration.ClientId' is not present");
+            }
+        }
 
         /// <summary>
         /// The compromised credentials risk configuration. See details below.
         /// </summary>
-        [Input("compromisedCredentialsRiskConfiguration")]
+        [PolicyResourceProperty("compromisedCredentialsRiskConfiguration", "_mUnknown_CompromisedCredentialsRiskConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RiskConfigurationCompromisedCredentialsRiskConfiguration> _mCompromisedCredentialsRiskConfiguration;
-
-        public Outputs.RiskConfigurationCompromisedCredentialsRiskConfiguration? CompromisedCredentialsRiskConfiguration => _mCompromisedCredentialsRiskConfiguration.GetValue("compromisedCredentialsRiskConfiguration");
+        private Outputs.RiskConfigurationCompromisedCredentialsRiskConfiguration? _mValue_CompromisedCredentialsRiskConfiguration;
+        private bool _mUnknown_CompromisedCredentialsRiskConfiguration;
+        public Outputs.RiskConfigurationCompromisedCredentialsRiskConfiguration? CompromisedCredentialsRiskConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CompromisedCredentialsRiskConfiguration) return _mValue_CompromisedCredentialsRiskConfiguration;
+                throw new UndeferrableValueException("Value 'RiskConfiguration.CompromisedCredentialsRiskConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration to override the risk decision. See details below.
         /// </summary>
-        [Input("riskExceptionConfiguration")]
+        [PolicyResourceProperty("riskExceptionConfiguration", "_mUnknown_RiskExceptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RiskConfigurationRiskExceptionConfiguration> _mRiskExceptionConfiguration;
-
-        public Outputs.RiskConfigurationRiskExceptionConfiguration? RiskExceptionConfiguration => _mRiskExceptionConfiguration.GetValue("riskExceptionConfiguration");
+        private Outputs.RiskConfigurationRiskExceptionConfiguration? _mValue_RiskExceptionConfiguration;
+        private bool _mUnknown_RiskExceptionConfiguration;
+        public Outputs.RiskConfigurationRiskExceptionConfiguration? RiskExceptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RiskExceptionConfiguration) return _mValue_RiskExceptionConfiguration;
+                throw new UndeferrableValueException("Value 'RiskConfiguration.RiskExceptionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The user pool ID.
         /// </summary>
-        [Input("userPoolId")]
+        [PolicyResourceProperty("userPoolId", "_mUnknown_UserPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
-
-        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+        private string? _mValue_UserPoolId;
+        private bool _mUnknown_UserPoolId;
+        public string? UserPoolId
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolId) return _mValue_UserPoolId;
+                throw new UndeferrableValueException("Value 'RiskConfiguration.UserPoolId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cognito/riskConfiguration:RiskConfiguration")]
@@ -65,46 +100,81 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// <summary>
         /// The account takeover risk configuration. See details below.
         /// </summary>
-        [Input("accountTakeoverRiskConfiguration")]
+        [PolicyResourceProperty("accountTakeoverRiskConfiguration", "_mUnknown_AccountTakeoverRiskConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RiskConfigurationAccountTakeoverRiskConfigurationArgs> _mAccountTakeoverRiskConfiguration;
-
-        public Inputs.RiskConfigurationAccountTakeoverRiskConfigurationArgs? AccountTakeoverRiskConfiguration => _mAccountTakeoverRiskConfiguration.GetValue("accountTakeoverRiskConfiguration");
+        private Inputs.RiskConfigurationAccountTakeoverRiskConfigurationArgs? _mValue_AccountTakeoverRiskConfiguration;
+        private bool _mUnknown_AccountTakeoverRiskConfiguration;
+        public Inputs.RiskConfigurationAccountTakeoverRiskConfigurationArgs? AccountTakeoverRiskConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AccountTakeoverRiskConfiguration) return _mValue_AccountTakeoverRiskConfiguration;
+                throw new UndeferrableValueException("Value 'RiskConfigurationArgs.AccountTakeoverRiskConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
         /// </summary>
-        [Input("clientId")]
+        [PolicyResourceProperty("clientId", "_mUnknown_ClientId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
-
-        public string? ClientId => _mClientId.GetValue("clientId");
+        private string? _mValue_ClientId;
+        private bool _mUnknown_ClientId;
+        public string? ClientId
+        {
+            get
+            {
+                if (!_mUnknown_ClientId) return _mValue_ClientId;
+                throw new UndeferrableValueException("Value 'RiskConfigurationArgs.ClientId' is not present");
+            }
+        }
 
         /// <summary>
         /// The compromised credentials risk configuration. See details below.
         /// </summary>
-        [Input("compromisedCredentialsRiskConfiguration")]
+        [PolicyResourceProperty("compromisedCredentialsRiskConfiguration", "_mUnknown_CompromisedCredentialsRiskConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RiskConfigurationCompromisedCredentialsRiskConfigurationArgs> _mCompromisedCredentialsRiskConfiguration;
-
-        public Inputs.RiskConfigurationCompromisedCredentialsRiskConfigurationArgs? CompromisedCredentialsRiskConfiguration => _mCompromisedCredentialsRiskConfiguration.GetValue("compromisedCredentialsRiskConfiguration");
+        private Inputs.RiskConfigurationCompromisedCredentialsRiskConfigurationArgs? _mValue_CompromisedCredentialsRiskConfiguration;
+        private bool _mUnknown_CompromisedCredentialsRiskConfiguration;
+        public Inputs.RiskConfigurationCompromisedCredentialsRiskConfigurationArgs? CompromisedCredentialsRiskConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CompromisedCredentialsRiskConfiguration) return _mValue_CompromisedCredentialsRiskConfiguration;
+                throw new UndeferrableValueException("Value 'RiskConfigurationArgs.CompromisedCredentialsRiskConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration to override the risk decision. See details below.
         /// </summary>
-        [Input("riskExceptionConfiguration")]
+        [PolicyResourceProperty("riskExceptionConfiguration", "_mUnknown_RiskExceptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RiskConfigurationRiskExceptionConfigurationArgs> _mRiskExceptionConfiguration;
-
-        public Inputs.RiskConfigurationRiskExceptionConfigurationArgs? RiskExceptionConfiguration => _mRiskExceptionConfiguration.GetValue("riskExceptionConfiguration");
+        private Inputs.RiskConfigurationRiskExceptionConfigurationArgs? _mValue_RiskExceptionConfiguration;
+        private bool _mUnknown_RiskExceptionConfiguration;
+        public Inputs.RiskConfigurationRiskExceptionConfigurationArgs? RiskExceptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RiskExceptionConfiguration) return _mValue_RiskExceptionConfiguration;
+                throw new UndeferrableValueException("Value 'RiskConfigurationArgs.RiskExceptionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The user pool ID.
         /// </summary>
-        [Input("userPoolId")]
+        [PolicyResourceProperty("userPoolId", "_mUnknown_UserPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
-
-        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+        private string? _mValue_UserPoolId;
+        private bool _mUnknown_UserPoolId;
+        public string? UserPoolId
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolId) return _mValue_UserPoolId;
+                throw new UndeferrableValueException("Value 'RiskConfigurationArgs.UserPoolId' is not present");
+            }
+        }
     }
 }

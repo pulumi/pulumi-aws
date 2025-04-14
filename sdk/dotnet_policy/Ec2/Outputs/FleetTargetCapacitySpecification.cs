@@ -15,47 +15,82 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// Default target capacity type. Valid values: `on-demand`, `spot`.
         /// </summary>
-        [Input("defaultTargetCapacityType")]
+        [PolicyResourceProperty("defaultTargetCapacityType", "_mUnknown_DefaultTargetCapacityType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultTargetCapacityType;
-
-        public string? DefaultTargetCapacityType => _mDefaultTargetCapacityType.GetValue("defaultTargetCapacityType");
+        private string? _mValue_DefaultTargetCapacityType;
+        private bool _mUnknown_DefaultTargetCapacityType;
+        public string? DefaultTargetCapacityType
+        {
+            get
+            {
+                if (!_mUnknown_DefaultTargetCapacityType) return _mValue_DefaultTargetCapacityType;
+                throw new UndeferrableValueException("Value 'FleetTargetCapacitySpecification.DefaultTargetCapacityType' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of On-Demand units to request.
         /// </summary>
-        [Input("onDemandTargetCapacity")]
+        [PolicyResourceProperty("onDemandTargetCapacity", "_mUnknown_OnDemandTargetCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOnDemandTargetCapacity;
-
-        public int? OnDemandTargetCapacity => _mOnDemandTargetCapacity.GetValue("onDemandTargetCapacity");
+        private int? _mValue_OnDemandTargetCapacity;
+        private bool _mUnknown_OnDemandTargetCapacity;
+        public int? OnDemandTargetCapacity
+        {
+            get
+            {
+                if (!_mUnknown_OnDemandTargetCapacity) return _mValue_OnDemandTargetCapacity;
+                throw new UndeferrableValueException("Value 'FleetTargetCapacitySpecification.OnDemandTargetCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of Spot units to request.
         /// </summary>
-        [Input("spotTargetCapacity")]
+        [PolicyResourceProperty("spotTargetCapacity", "_mUnknown_SpotTargetCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSpotTargetCapacity;
-
-        public int? SpotTargetCapacity => _mSpotTargetCapacity.GetValue("spotTargetCapacity");
+        private int? _mValue_SpotTargetCapacity;
+        private bool _mUnknown_SpotTargetCapacity;
+        public int? SpotTargetCapacity
+        {
+            get
+            {
+                if (!_mUnknown_SpotTargetCapacity) return _mValue_SpotTargetCapacity;
+                throw new UndeferrableValueException("Value 'FleetTargetCapacitySpecification.SpotTargetCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The unit for the target capacity.
         /// If you specify `target_capacity_unit_type`, `instance_requirements` must be specified.
         /// </summary>
-        [Input("targetCapacityUnitType")]
+        [PolicyResourceProperty("targetCapacityUnitType", "_mUnknown_TargetCapacityUnitType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetCapacityUnitType;
-
-        public string? TargetCapacityUnitType => _mTargetCapacityUnitType.GetValue("targetCapacityUnitType");
+        private string? _mValue_TargetCapacityUnitType;
+        private bool _mUnknown_TargetCapacityUnitType;
+        public string? TargetCapacityUnitType
+        {
+            get
+            {
+                if (!_mUnknown_TargetCapacityUnitType) return _mValue_TargetCapacityUnitType;
+                throw new UndeferrableValueException("Value 'FleetTargetCapacitySpecification.TargetCapacityUnitType' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of units to request, filled using `default_target_capacity_type`.
         /// </summary>
-        [Input("totalTargetCapacity")]
+        [PolicyResourceProperty("totalTargetCapacity", "_mUnknown_TotalTargetCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTotalTargetCapacity;
-
-        public int? TotalTargetCapacity => _mTotalTargetCapacity.GetValue("totalTargetCapacity");
+        private int? _mValue_TotalTargetCapacity;
+        private bool _mUnknown_TotalTargetCapacity;
+        public int? TotalTargetCapacity
+        {
+            get
+            {
+                if (!_mUnknown_TotalTargetCapacity) return _mValue_TotalTargetCapacity;
+                throw new UndeferrableValueException("Value 'FleetTargetCapacitySpecification.TotalTargetCapacity' is not present");
+            }
+        }
     }
 }

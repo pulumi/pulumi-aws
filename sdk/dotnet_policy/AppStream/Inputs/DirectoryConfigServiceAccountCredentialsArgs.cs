@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppStream.Inputs
         /// <summary>
         /// User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
         /// </summary>
-        [Input("accountName")]
+        [PolicyResourceProperty("accountName", "_mUnknown_AccountName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountName;
-
-        public string? AccountName => _mAccountName.GetValue("accountName");
+        private string? _mValue_AccountName;
+        private bool _mUnknown_AccountName;
+        public string? AccountName
+        {
+            get
+            {
+                if (!_mUnknown_AccountName) return _mValue_AccountName;
+                throw new UndeferrableValueException("Value 'DirectoryConfigServiceAccountCredentialsArgs.AccountName' is not present");
+            }
+        }
 
         /// <summary>
         /// Password for the account.
         /// </summary>
-        [Input("accountPassword")]
+        [PolicyResourceProperty("accountPassword", "_mUnknown_AccountPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountPassword;
-
-        public string? AccountPassword => _mAccountPassword.GetValue("accountPassword");
+        private string? _mValue_AccountPassword;
+        private bool _mUnknown_AccountPassword;
+        public string? AccountPassword
+        {
+            get
+            {
+                if (!_mUnknown_AccountPassword) return _mValue_AccountPassword;
+                throw new UndeferrableValueException("Value 'DirectoryConfigServiceAccountCredentialsArgs.AccountPassword' is not present");
+            }
+        }
     }
 }

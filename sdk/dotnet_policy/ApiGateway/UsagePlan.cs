@@ -16,80 +16,143 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Associated API stages of the usage plan.
         /// </summary>
-        [Input("apiStages")]
+        [PolicyResourceProperty("apiStages", "_mUnknown_ApiStages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UsagePlanApiStage>> _mApiStages;
-
-        public List<Outputs.UsagePlanApiStage>? ApiStages => _mApiStages.GetValue("apiStages");
+        private List<Outputs.UsagePlanApiStage>? _mValue_ApiStages;
+        private bool _mUnknown_ApiStages;
+        public List<Outputs.UsagePlanApiStage>? ApiStages
+        {
+            get
+            {
+                if (!_mUnknown_ApiStages) return _mValue_ApiStages;
+                throw new UndeferrableValueException("Value 'UsagePlan.ApiStages' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'UsagePlan.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of a usage plan.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'UsagePlan.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the usage plan.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UsagePlan.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         /// </summary>
-        [Input("productCode")]
+        [PolicyResourceProperty("productCode", "_mUnknown_ProductCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProductCode;
-
-        public string? ProductCode => _mProductCode.GetValue("productCode");
+        private string? _mValue_ProductCode;
+        private bool _mUnknown_ProductCode;
+        public string? ProductCode
+        {
+            get
+            {
+                if (!_mUnknown_ProductCode) return _mValue_ProductCode;
+                throw new UndeferrableValueException("Value 'UsagePlan.ProductCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Quota of the usage plan.
         /// </summary>
-        [Input("quotaSettings")]
+        [PolicyResourceProperty("quotaSettings", "_mUnknown_QuotaSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UsagePlanQuotaSettings> _mQuotaSettings;
+        private Outputs.UsagePlanQuotaSettings? _mValue_QuotaSettings;
+        private bool _mUnknown_QuotaSettings;
+        public Outputs.UsagePlanQuotaSettings? QuotaSettings
+        {
+            get
+            {
+                if (!_mUnknown_QuotaSettings) return _mValue_QuotaSettings;
+                throw new UndeferrableValueException("Value 'UsagePlan.QuotaSettings' is not present");
+            }
+        }
 
-        public Outputs.UsagePlanQuotaSettings? QuotaSettings => _mQuotaSettings.GetValue("quotaSettings");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'UsagePlan.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'UsagePlan.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Throttling limits of the usage plan.
         /// </summary>
-        [Input("throttleSettings")]
+        [PolicyResourceProperty("throttleSettings", "_mUnknown_ThrottleSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UsagePlanThrottleSettings> _mThrottleSettings;
-
-        public Outputs.UsagePlanThrottleSettings? ThrottleSettings => _mThrottleSettings.GetValue("throttleSettings");
+        private Outputs.UsagePlanThrottleSettings? _mValue_ThrottleSettings;
+        private bool _mUnknown_ThrottleSettings;
+        public Outputs.UsagePlanThrottleSettings? ThrottleSettings
+        {
+            get
+            {
+                if (!_mUnknown_ThrottleSettings) return _mValue_ThrottleSettings;
+                throw new UndeferrableValueException("Value 'UsagePlan.ThrottleSettings' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/usagePlan:UsagePlan")]
@@ -98,61 +161,110 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Associated API stages of the usage plan.
         /// </summary>
-        [Input("apiStages")]
+        [PolicyResourceProperty("apiStages", "_mUnknown_ApiStages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.UsagePlanApiStageArgs>> _mApiStages;
-
-        public List<Inputs.UsagePlanApiStageArgs>? ApiStages => _mApiStages.GetValue("apiStages");
+        private List<Inputs.UsagePlanApiStageArgs>? _mValue_ApiStages;
+        private bool _mUnknown_ApiStages;
+        public List<Inputs.UsagePlanApiStageArgs>? ApiStages
+        {
+            get
+            {
+                if (!_mUnknown_ApiStages) return _mValue_ApiStages;
+                throw new UndeferrableValueException("Value 'UsagePlanArgs.ApiStages' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of a usage plan.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'UsagePlanArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the usage plan.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UsagePlanArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         /// </summary>
-        [Input("productCode")]
+        [PolicyResourceProperty("productCode", "_mUnknown_ProductCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProductCode;
-
-        public string? ProductCode => _mProductCode.GetValue("productCode");
+        private string? _mValue_ProductCode;
+        private bool _mUnknown_ProductCode;
+        public string? ProductCode
+        {
+            get
+            {
+                if (!_mUnknown_ProductCode) return _mValue_ProductCode;
+                throw new UndeferrableValueException("Value 'UsagePlanArgs.ProductCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Quota of the usage plan.
         /// </summary>
-        [Input("quotaSettings")]
+        [PolicyResourceProperty("quotaSettings", "_mUnknown_QuotaSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UsagePlanQuotaSettingsArgs> _mQuotaSettings;
+        private Inputs.UsagePlanQuotaSettingsArgs? _mValue_QuotaSettings;
+        private bool _mUnknown_QuotaSettings;
+        public Inputs.UsagePlanQuotaSettingsArgs? QuotaSettings
+        {
+            get
+            {
+                if (!_mUnknown_QuotaSettings) return _mValue_QuotaSettings;
+                throw new UndeferrableValueException("Value 'UsagePlanArgs.QuotaSettings' is not present");
+            }
+        }
 
-        public Inputs.UsagePlanQuotaSettingsArgs? QuotaSettings => _mQuotaSettings.GetValue("quotaSettings");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'UsagePlanArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Throttling limits of the usage plan.
         /// </summary>
-        [Input("throttleSettings")]
+        [PolicyResourceProperty("throttleSettings", "_mUnknown_ThrottleSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UsagePlanThrottleSettingsArgs> _mThrottleSettings;
-
-        public Inputs.UsagePlanThrottleSettingsArgs? ThrottleSettings => _mThrottleSettings.GetValue("throttleSettings");
+        private Inputs.UsagePlanThrottleSettingsArgs? _mValue_ThrottleSettings;
+        private bool _mUnknown_ThrottleSettings;
+        public Inputs.UsagePlanThrottleSettingsArgs? ThrottleSettings
+        {
+            get
+            {
+                if (!_mUnknown_ThrottleSettings) return _mValue_ThrottleSettings;
+                throw new UndeferrableValueException("Value 'UsagePlanArgs.ThrottleSettings' is not present");
+            }
+        }
     }
 }

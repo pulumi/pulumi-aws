@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.Macie2
         /// <summary>
         /// Configuration block for a S3 Destination. Defined below
         /// </summary>
-        [Input("s3Destination")]
+        [PolicyResourceProperty("s3Destination", "_mUnknown_S3Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClassificationExportConfigurationS3Destination> _mS3Destination;
-
-        public Outputs.ClassificationExportConfigurationS3Destination? S3Destination => _mS3Destination.GetValue("s3Destination");
+        private Outputs.ClassificationExportConfigurationS3Destination? _mValue_S3Destination;
+        private bool _mUnknown_S3Destination;
+        public Outputs.ClassificationExportConfigurationS3Destination? S3Destination
+        {
+            get
+            {
+                if (!_mUnknown_S3Destination) return _mValue_S3Destination;
+                throw new UndeferrableValueException("Value 'ClassificationExportConfiguration.S3Destination' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.Macie2
         /// <summary>
         /// Configuration block for a S3 Destination. Defined below
         /// </summary>
-        [Input("s3Destination")]
+        [PolicyResourceProperty("s3Destination", "_mUnknown_S3Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassificationExportConfigurationS3DestinationArgs> _mS3Destination;
-
-        public Inputs.ClassificationExportConfigurationS3DestinationArgs? S3Destination => _mS3Destination.GetValue("s3Destination");
+        private Inputs.ClassificationExportConfigurationS3DestinationArgs? _mValue_S3Destination;
+        private bool _mUnknown_S3Destination;
+        public Inputs.ClassificationExportConfigurationS3DestinationArgs? S3Destination
+        {
+            get
+            {
+                if (!_mUnknown_S3Destination) return _mValue_S3Destination;
+                throw new UndeferrableValueException("Value 'ClassificationExportConfigurationArgs.S3Destination' is not present");
+            }
+        }
     }
 }

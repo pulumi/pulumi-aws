@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Inputs
         /// <summary>
         /// Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
         /// </summary>
-        [Input("aggregates")]
+        [PolicyResourceProperty("aggregates", "_mUnknown_Aggregates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAggregates;
-
-        public List<string>? Aggregates => _mAggregates.GetValue("aggregates");
+        private List<string>? _mValue_Aggregates;
+        private bool _mUnknown_Aggregates;
+        public List<string>? Aggregates
+        {
+            get
+            {
+                if (!_mUnknown_Aggregates) return _mValue_Aggregates;
+                throw new UndeferrableValueException("Value 'OntapVolumeAggregateConfigurationArgs.Aggregates' is not present");
+            }
+        }
 
         /// <summary>
         /// Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
         /// </summary>
-        [Input("constituentsPerAggregate")]
+        [PolicyResourceProperty("constituentsPerAggregate", "_mUnknown_ConstituentsPerAggregate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mConstituentsPerAggregate;
-
-        public int? ConstituentsPerAggregate => _mConstituentsPerAggregate.GetValue("constituentsPerAggregate");
+        private int? _mValue_ConstituentsPerAggregate;
+        private bool _mUnknown_ConstituentsPerAggregate;
+        public int? ConstituentsPerAggregate
+        {
+            get
+            {
+                if (!_mUnknown_ConstituentsPerAggregate) return _mValue_ConstituentsPerAggregate;
+                throw new UndeferrableValueException("Value 'OntapVolumeAggregateConfigurationArgs.ConstituentsPerAggregate' is not present");
+            }
+        }
 
         /// <summary>
         /// The total amount of constituents for a `FLEXGROUP` volume. This would equal constituents_per_aggregate x aggregates.
         /// </summary>
-        [Input("totalConstituents")]
+        [PolicyResourceProperty("totalConstituents", "_mUnknown_TotalConstituents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTotalConstituents;
-
-        public int? TotalConstituents => _mTotalConstituents.GetValue("totalConstituents");
+        private int? _mValue_TotalConstituents;
+        private bool _mUnknown_TotalConstituents;
+        public int? TotalConstituents
+        {
+            get
+            {
+                if (!_mUnknown_TotalConstituents) return _mValue_TotalConstituents;
+                throw new UndeferrableValueException("Value 'OntapVolumeAggregateConfigurationArgs.TotalConstituents' is not present");
+            }
+        }
     }
 }

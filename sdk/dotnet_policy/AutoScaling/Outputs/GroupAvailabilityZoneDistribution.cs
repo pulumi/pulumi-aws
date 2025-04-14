@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Outputs
         /// <summary>
         /// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
         /// </summary>
-        [Input("capacityDistributionStrategy")]
+        [PolicyResourceProperty("capacityDistributionStrategy", "_mUnknown_CapacityDistributionStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCapacityDistributionStrategy;
-
-        public string? CapacityDistributionStrategy => _mCapacityDistributionStrategy.GetValue("capacityDistributionStrategy");
+        private string? _mValue_CapacityDistributionStrategy;
+        private bool _mUnknown_CapacityDistributionStrategy;
+        public string? CapacityDistributionStrategy
+        {
+            get
+            {
+                if (!_mUnknown_CapacityDistributionStrategy) return _mValue_CapacityDistributionStrategy;
+                throw new UndeferrableValueException("Value 'GroupAvailabilityZoneDistribution.CapacityDistributionStrategy' is not present");
+            }
+        }
     }
 }

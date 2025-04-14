@@ -15,21 +15,35 @@ namespace Pulumi.PolicyPacks.Aws.Waf.Outputs
         /// <summary>
         /// The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GeoMatchSetGeoMatchConstraint.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// The country that you want AWS WAF to search for.
         /// This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
         /// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'GeoMatchSetGeoMatchConstraint.Value' is not present");
+            }
+        }
     }
 }

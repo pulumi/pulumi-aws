@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer.Outputs
         /// <summary>
         /// Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
         /// </summary>
-        [Input("method")]
+        [PolicyResourceProperty("method", "_mUnknown_Method")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMethod;
-
-        public string? Method => _mMethod.GetValue("method");
+        private string? _mValue_Method;
+        private bool _mUnknown_Method;
+        public string? Method
+        {
+            get
+            {
+                if (!_mUnknown_Method) return _mValue_Method;
+                throw new UndeferrableValueException("Value 'GetCostCategorySplitChargeRuleResult.Method' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetCostCategorySplitChargeRuleParameterResult>> _mParameters;
-
-        public List<Outputs.GetCostCategorySplitChargeRuleParameterResult>? Parameters => _mParameters.GetValue("parameters");
+        private List<Outputs.GetCostCategorySplitChargeRuleParameterResult>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Outputs.GetCostCategorySplitChargeRuleParameterResult>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'GetCostCategorySplitChargeRuleResult.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Cost Category value that you want to split.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
-
-        public string? Source => _mSource.GetValue("source");
+        private string? _mValue_Source;
+        private bool _mUnknown_Source;
+        public string? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'GetCostCategorySplitChargeRuleResult.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// Cost Category values that you want to split costs across. These values can't be used as a source in other split charge rules.
         /// </summary>
-        [Input("targets")]
+        [PolicyResourceProperty("targets", "_mUnknown_Targets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTargets;
-
-        public List<string>? Targets => _mTargets.GetValue("targets");
+        private List<string>? _mValue_Targets;
+        private bool _mUnknown_Targets;
+        public List<string>? Targets
+        {
+            get
+            {
+                if (!_mUnknown_Targets) return _mValue_Targets;
+                throw new UndeferrableValueException("Value 'GetCostCategorySplitChargeRuleResult.Targets' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Inputs
         /// <summary>
         /// A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `reference_sets` in a `rule_group`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
         /// </summary>
-        [Input("referenceSets")]
+        [PolicyResourceProperty("referenceSets", "_mUnknown_ReferenceSets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleGroupReferenceSetsArgs> _mReferenceSets;
-
-        public Inputs.RuleGroupRuleGroupReferenceSetsArgs? ReferenceSets => _mReferenceSets.GetValue("referenceSets");
+        private Inputs.RuleGroupRuleGroupReferenceSetsArgs? _mValue_ReferenceSets;
+        private bool _mUnknown_ReferenceSets;
+        public Inputs.RuleGroupRuleGroupReferenceSetsArgs? ReferenceSets
+        {
+            get
+            {
+                if (!_mUnknown_ReferenceSets) return _mValue_ReferenceSets;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupArgs.ReferenceSets' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
         /// </summary>
-        [Input("ruleVariables")]
+        [PolicyResourceProperty("ruleVariables", "_mUnknown_RuleVariables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleGroupRuleVariablesArgs> _mRuleVariables;
-
-        public Inputs.RuleGroupRuleGroupRuleVariablesArgs? RuleVariables => _mRuleVariables.GetValue("ruleVariables");
+        private Inputs.RuleGroupRuleGroupRuleVariablesArgs? _mValue_RuleVariables;
+        private bool _mUnknown_RuleVariables;
+        public Inputs.RuleGroupRuleGroupRuleVariablesArgs? RuleVariables
+        {
+            get
+            {
+                if (!_mUnknown_RuleVariables) return _mValue_RuleVariables;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupArgs.RuleVariables' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
         /// </summary>
-        [Input("rulesSource")]
+        [PolicyResourceProperty("rulesSource", "_mUnknown_RulesSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleGroupRulesSourceArgs> _mRulesSource;
-
-        public Inputs.RuleGroupRuleGroupRulesSourceArgs? RulesSource => _mRulesSource.GetValue("rulesSource");
+        private Inputs.RuleGroupRuleGroupRulesSourceArgs? _mValue_RulesSource;
+        private bool _mUnknown_RulesSource;
+        public Inputs.RuleGroupRuleGroupRulesSourceArgs? RulesSource
+        {
+            get
+            {
+                if (!_mUnknown_RulesSource) return _mValue_RulesSource;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupArgs.RulesSource' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
         /// </summary>
-        [Input("statefulRuleOptions")]
+        [PolicyResourceProperty("statefulRuleOptions", "_mUnknown_StatefulRuleOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleGroupStatefulRuleOptionsArgs> _mStatefulRuleOptions;
-
-        public Inputs.RuleGroupRuleGroupStatefulRuleOptionsArgs? StatefulRuleOptions => _mStatefulRuleOptions.GetValue("statefulRuleOptions");
+        private Inputs.RuleGroupRuleGroupStatefulRuleOptionsArgs? _mValue_StatefulRuleOptions;
+        private bool _mUnknown_StatefulRuleOptions;
+        public Inputs.RuleGroupRuleGroupStatefulRuleOptionsArgs? StatefulRuleOptions
+        {
+            get
+            {
+                if (!_mUnknown_StatefulRuleOptions) return _mValue_StatefulRuleOptions;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupArgs.StatefulRuleOptions' is not present");
+            }
+        }
     }
 }

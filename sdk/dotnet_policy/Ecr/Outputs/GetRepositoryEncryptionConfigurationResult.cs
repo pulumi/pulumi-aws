@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ecr.Outputs
         /// <summary>
         /// Encryption type to use for the repository, either `AES256` or `KMS`.
         /// </summary>
-        [Input("encryptionType")]
+        [PolicyResourceProperty("encryptionType", "_mUnknown_EncryptionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionType;
-
-        public string? EncryptionType => _mEncryptionType.GetValue("encryptionType");
+        private string? _mValue_EncryptionType;
+        private bool _mUnknown_EncryptionType;
+        public string? EncryptionType
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionType) return _mValue_EncryptionType;
+                throw new UndeferrableValueException("Value 'GetRepositoryEncryptionConfigurationResult.EncryptionType' is not present");
+            }
+        }
 
         /// <summary>
         /// If `encryption_type` is `KMS`, the ARN of the KMS key used.
         /// </summary>
-        [Input("kmsKey")]
+        [PolicyResourceProperty("kmsKey", "_mUnknown_KmsKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKey;
-
-        public string? KmsKey => _mKmsKey.GetValue("kmsKey");
+        private string? _mValue_KmsKey;
+        private bool _mUnknown_KmsKey;
+        public string? KmsKey
+        {
+            get
+            {
+                if (!_mUnknown_KmsKey) return _mValue_KmsKey;
+                throw new UndeferrableValueException("Value 'GetRepositoryEncryptionConfigurationResult.KmsKey' is not present");
+            }
+        }
     }
 }

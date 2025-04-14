@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualGatewaySpecLoggingAccessLogResult
     {
-        [Input("files")]
+        [PolicyResourceProperty("files", "_mUnknown_Files")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualGatewaySpecLoggingAccessLogFileResult>> _mFiles;
-
-        public List<Outputs.GetVirtualGatewaySpecLoggingAccessLogFileResult>? Files => _mFiles.GetValue("files");
+        private List<Outputs.GetVirtualGatewaySpecLoggingAccessLogFileResult>? _mValue_Files;
+        private bool _mUnknown_Files;
+        public List<Outputs.GetVirtualGatewaySpecLoggingAccessLogFileResult>? Files
+        {
+            get
+            {
+                if (!_mUnknown_Files) return _mValue_Files;
+                throw new UndeferrableValueException("Value 'GetVirtualGatewaySpecLoggingAccessLogResult.Files' is not present");
+            }
+        }
     }
 }

@@ -16,102 +16,179 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Hosted Zone.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Zone.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'Zone.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
         /// </summary>
-        [Input("delegationSetId")]
+        [PolicyResourceProperty("delegationSetId", "_mUnknown_DelegationSetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDelegationSetId;
-
-        public string? DelegationSetId => _mDelegationSetId.GetValue("delegationSetId");
+        private string? _mValue_DelegationSetId;
+        private bool _mUnknown_DelegationSetId;
+        public string? DelegationSetId
+        {
+            get
+            {
+                if (!_mUnknown_DelegationSetId) return _mValue_DelegationSetId;
+                throw new UndeferrableValueException("Value 'Zone.DelegationSetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'Zone.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// This is the name of the hosted zone.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Zone.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of name servers in associated (or default) delegation set.
         /// Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
         /// </summary>
-        [Input("nameServers")]
+        [PolicyResourceProperty("nameServers", "_mUnknown_NameServers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNameServers;
-
-        public List<string>? NameServers => _mNameServers.GetValue("nameServers");
+        private List<string>? _mValue_NameServers;
+        private bool _mUnknown_NameServers;
+        public List<string>? NameServers
+        {
+            get
+            {
+                if (!_mUnknown_NameServers) return _mValue_NameServers;
+                throw new UndeferrableValueException("Value 'Zone.NameServers' is not present");
+            }
+        }
 
         /// <summary>
         /// The Route 53 name server that created the SOA record.
         /// </summary>
-        [Input("primaryNameServer")]
+        [PolicyResourceProperty("primaryNameServer", "_mUnknown_PrimaryNameServer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrimaryNameServer;
-
-        public string? PrimaryNameServer => _mPrimaryNameServer.GetValue("primaryNameServer");
+        private string? _mValue_PrimaryNameServer;
+        private bool _mUnknown_PrimaryNameServer;
+        public string? PrimaryNameServer
+        {
+            get
+            {
+                if (!_mUnknown_PrimaryNameServer) return _mValue_PrimaryNameServer;
+                throw new UndeferrableValueException("Value 'Zone.PrimaryNameServer' is not present");
+            }
+        }
 
         /// <summary>
         /// A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Zone.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Zone.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         /// </summary>
-        [Input("vpcs")]
+        [PolicyResourceProperty("vpcs", "_mUnknown_Vpcs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ZoneVpc>> _mVpcs;
-
-        public List<Outputs.ZoneVpc>? Vpcs => _mVpcs.GetValue("vpcs");
+        private List<Outputs.ZoneVpc>? _mValue_Vpcs;
+        private bool _mUnknown_Vpcs;
+        public List<Outputs.ZoneVpc>? Vpcs
+        {
+            get
+            {
+                if (!_mUnknown_Vpcs) return _mValue_Vpcs;
+                throw new UndeferrableValueException("Value 'Zone.Vpcs' is not present");
+            }
+        }
 
         /// <summary>
         /// The Hosted Zone ID. This can be referenced by zone records.
         /// </summary>
-        [Input("zoneId")]
+        [PolicyResourceProperty("zoneId", "_mUnknown_ZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZoneId;
-
-        public string? ZoneId => _mZoneId.GetValue("zoneId");
+        private string? _mValue_ZoneId;
+        private bool _mUnknown_ZoneId;
+        public string? ZoneId
+        {
+            get
+            {
+                if (!_mUnknown_ZoneId) return _mValue_ZoneId;
+                throw new UndeferrableValueException("Value 'Zone.ZoneId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/zone:Zone")]
@@ -120,55 +197,97 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'ZoneArgs.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
         /// </summary>
-        [Input("delegationSetId")]
+        [PolicyResourceProperty("delegationSetId", "_mUnknown_DelegationSetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDelegationSetId;
-
-        public string? DelegationSetId => _mDelegationSetId.GetValue("delegationSetId");
+        private string? _mValue_DelegationSetId;
+        private bool _mUnknown_DelegationSetId;
+        public string? DelegationSetId
+        {
+            get
+            {
+                if (!_mUnknown_DelegationSetId) return _mValue_DelegationSetId;
+                throw new UndeferrableValueException("Value 'ZoneArgs.DelegationSetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'ZoneArgs.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// This is the name of the hosted zone.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ZoneArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ZoneArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         /// </summary>
-        [Input("vpcs")]
+        [PolicyResourceProperty("vpcs", "_mUnknown_Vpcs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ZoneVpcArgs>> _mVpcs;
-
-        public List<Inputs.ZoneVpcArgs>? Vpcs => _mVpcs.GetValue("vpcs");
+        private List<Inputs.ZoneVpcArgs>? _mValue_Vpcs;
+        private bool _mUnknown_Vpcs;
+        public List<Inputs.ZoneVpcArgs>? Vpcs
+        {
+            get
+            {
+                if (!_mUnknown_Vpcs) return _mValue_Vpcs;
+                throw new UndeferrableValueException("Value 'ZoneArgs.Vpcs' is not present");
+            }
+        }
     }
 }

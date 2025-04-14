@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
         /// </summary>
-        [Input("repositoryCredentialsProviderArn")]
+        [PolicyResourceProperty("repositoryCredentialsProviderArn", "_mUnknown_RepositoryCredentialsProviderArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryCredentialsProviderArn;
-
-        public string? RepositoryCredentialsProviderArn => _mRepositoryCredentialsProviderArn.GetValue("repositoryCredentialsProviderArn");
+        private string? _mValue_RepositoryCredentialsProviderArn;
+        private bool _mUnknown_RepositoryCredentialsProviderArn;
+        public string? RepositoryCredentialsProviderArn
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryCredentialsProviderArn) return _mValue_RepositoryCredentialsProviderArn;
+                throw new UndeferrableValueException("Value 'ModelContainerImageConfigRepositoryAuthConfigArgs.RepositoryCredentialsProviderArn' is not present");
+            }
+        }
     }
 }

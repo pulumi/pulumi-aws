@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualGatewaySpecListenerTlCertificateFileResult
     {
-        [Input("certificateChain")]
+        [PolicyResourceProperty("certificateChain", "_mUnknown_CertificateChain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
+        private string? _mValue_CertificateChain;
+        private bool _mUnknown_CertificateChain;
+        public string? CertificateChain
+        {
+            get
+            {
+                if (!_mUnknown_CertificateChain) return _mValue_CertificateChain;
+                throw new UndeferrableValueException("Value 'GetVirtualGatewaySpecListenerTlCertificateFileResult.CertificateChain' is not present");
+            }
+        }
 
-        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
-
-        [Input("privateKey")]
+        [PolicyResourceProperty("privateKey", "_mUnknown_PrivateKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateKey;
-
-        public string? PrivateKey => _mPrivateKey.GetValue("privateKey");
+        private string? _mValue_PrivateKey;
+        private bool _mUnknown_PrivateKey;
+        public string? PrivateKey
+        {
+            get
+            {
+                if (!_mUnknown_PrivateKey) return _mValue_PrivateKey;
+                throw new UndeferrableValueException("Value 'GetVirtualGatewaySpecListenerTlCertificateFileResult.PrivateKey' is not present");
+            }
+        }
     }
 }

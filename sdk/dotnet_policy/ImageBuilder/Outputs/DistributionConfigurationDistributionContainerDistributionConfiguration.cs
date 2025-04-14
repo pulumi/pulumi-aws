@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Set of tags that are attached to the container distribution configuration.
         /// </summary>
-        [Input("containerTags")]
+        [PolicyResourceProperty("containerTags", "_mUnknown_ContainerTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mContainerTags;
-
-        public List<string>? ContainerTags => _mContainerTags.GetValue("containerTags");
+        private List<string>? _mValue_ContainerTags;
+        private bool _mUnknown_ContainerTags;
+        public List<string>? ContainerTags
+        {
+            get
+            {
+                if (!_mUnknown_ContainerTags) return _mValue_ContainerTags;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionContainerDistributionConfiguration.ContainerTags' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the container distribution configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionContainerDistributionConfiguration.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with the destination repository for the container distribution configuration.
         /// </summary>
-        [Input("targetRepository")]
+        [PolicyResourceProperty("targetRepository", "_mUnknown_TargetRepository")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository> _mTargetRepository;
-
-        public Outputs.DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository? TargetRepository => _mTargetRepository.GetValue("targetRepository");
+        private Outputs.DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository? _mValue_TargetRepository;
+        private bool _mUnknown_TargetRepository;
+        public Outputs.DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository? TargetRepository
+        {
+            get
+            {
+                if (!_mUnknown_TargetRepository) return _mValue_TargetRepository;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionContainerDistributionConfiguration.TargetRepository' is not present");
+            }
+        }
     }
 }

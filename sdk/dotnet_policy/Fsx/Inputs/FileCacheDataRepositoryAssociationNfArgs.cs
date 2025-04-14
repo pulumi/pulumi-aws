@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Inputs
         /// <summary>
         /// A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
         /// </summary>
-        [Input("dnsIps")]
+        [PolicyResourceProperty("dnsIps", "_mUnknown_DnsIps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDnsIps;
-
-        public List<string>? DnsIps => _mDnsIps.GetValue("dnsIps");
+        private List<string>? _mValue_DnsIps;
+        private bool _mUnknown_DnsIps;
+        public List<string>? DnsIps
+        {
+            get
+            {
+                if (!_mUnknown_DnsIps) return _mValue_DnsIps;
+                throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociationNfArgs.DnsIps' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociationNfArgs.Version' is not present");
+            }
+        }
     }
 }

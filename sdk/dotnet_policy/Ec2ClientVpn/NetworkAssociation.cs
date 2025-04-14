@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Ec2ClientVpn
         /// <summary>
         /// The unique ID of the target network association.
         /// </summary>
-        [Input("associationId")]
+        [PolicyResourceProperty("associationId", "_mUnknown_AssociationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationId;
-
-        public string? AssociationId => _mAssociationId.GetValue("associationId");
+        private string? _mValue_AssociationId;
+        private bool _mUnknown_AssociationId;
+        public string? AssociationId
+        {
+            get
+            {
+                if (!_mUnknown_AssociationId) return _mValue_AssociationId;
+                throw new UndeferrableValueException("Value 'NetworkAssociation.AssociationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Client VPN endpoint.
         /// </summary>
-        [Input("clientVpnEndpointId")]
+        [PolicyResourceProperty("clientVpnEndpointId", "_mUnknown_ClientVpnEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientVpnEndpointId;
-
-        public string? ClientVpnEndpointId => _mClientVpnEndpointId.GetValue("clientVpnEndpointId");
+        private string? _mValue_ClientVpnEndpointId;
+        private bool _mUnknown_ClientVpnEndpointId;
+        public string? ClientVpnEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_ClientVpnEndpointId) return _mValue_ClientVpnEndpointId;
+                throw new UndeferrableValueException("Value 'NetworkAssociation.ClientVpnEndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the subnet to associate with the Client VPN endpoint.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'NetworkAssociation.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC in which the target subnet is located.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'NetworkAssociation.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2clientvpn/networkAssociation:NetworkAssociation")]
@@ -56,19 +84,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2ClientVpn
         /// <summary>
         /// The ID of the Client VPN endpoint.
         /// </summary>
-        [Input("clientVpnEndpointId")]
+        [PolicyResourceProperty("clientVpnEndpointId", "_mUnknown_ClientVpnEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientVpnEndpointId;
-
-        public string? ClientVpnEndpointId => _mClientVpnEndpointId.GetValue("clientVpnEndpointId");
+        private string? _mValue_ClientVpnEndpointId;
+        private bool _mUnknown_ClientVpnEndpointId;
+        public string? ClientVpnEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_ClientVpnEndpointId) return _mValue_ClientVpnEndpointId;
+                throw new UndeferrableValueException("Value 'NetworkAssociationArgs.ClientVpnEndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the subnet to associate with the Client VPN endpoint.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'NetworkAssociationArgs.SubnetId' is not present");
+            }
+        }
     }
 }

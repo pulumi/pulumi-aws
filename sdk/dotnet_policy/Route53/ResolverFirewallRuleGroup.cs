@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// The ARN (Amazon Resource Name) of the rule group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A name that lets you identify the rule group, to manage and use it.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroup.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroup.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
         /// </summary>
-        [Input("shareStatus")]
+        [PolicyResourceProperty("shareStatus", "_mUnknown_ShareStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShareStatus;
-
-        public string? ShareStatus => _mShareStatus.GetValue("shareStatus");
+        private string? _mValue_ShareStatus;
+        private bool _mUnknown_ShareStatus;
+        public string? ShareStatus
+        {
+            get
+            {
+                if (!_mUnknown_ShareStatus) return _mValue_ShareStatus;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroup.ShareStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroup.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup")]
@@ -74,19 +116,33 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// A name that lets you identify the rule group, to manage and use it.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupArgs.Tags' is not present");
+            }
+        }
     }
 }

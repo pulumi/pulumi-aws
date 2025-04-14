@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Inputs
         /// <summary>
         /// Customized metric. Conflicts with `predefined_metric_specification`.
         /// </summary>
-        [Input("customizedMetricSpecification")]
+        [PolicyResourceProperty("customizedMetricSpecification", "_mUnknown_CustomizedMetricSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs> _mCustomizedMetricSpecification;
-
-        public Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs? CustomizedMetricSpecification => _mCustomizedMetricSpecification.GetValue("customizedMetricSpecification");
+        private Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs? _mValue_CustomizedMetricSpecification;
+        private bool _mUnknown_CustomizedMetricSpecification;
+        public Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs? CustomizedMetricSpecification
+        {
+            get
+            {
+                if (!_mUnknown_CustomizedMetricSpecification) return _mValue_CustomizedMetricSpecification;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationArgs.CustomizedMetricSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether scale in by the target tracking policy is disabled.
         /// </summary>
-        [Input("disableScaleIn")]
+        [PolicyResourceProperty("disableScaleIn", "_mUnknown_DisableScaleIn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableScaleIn;
-
-        public bool? DisableScaleIn => _mDisableScaleIn.GetValue("disableScaleIn");
+        private bool? _mValue_DisableScaleIn;
+        private bool _mUnknown_DisableScaleIn;
+        public bool? DisableScaleIn
+        {
+            get
+            {
+                if (!_mUnknown_DisableScaleIn) return _mValue_DisableScaleIn;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationArgs.DisableScaleIn' is not present");
+            }
+        }
 
         /// <summary>
         /// Predefined metric. Conflicts with `customized_metric_specification`.
         /// </summary>
-        [Input("predefinedMetricSpecification")]
+        [PolicyResourceProperty("predefinedMetricSpecification", "_mUnknown_PredefinedMetricSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs> _mPredefinedMetricSpecification;
-
-        public Inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs? PredefinedMetricSpecification => _mPredefinedMetricSpecification.GetValue("predefinedMetricSpecification");
+        private Inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs? _mValue_PredefinedMetricSpecification;
+        private bool _mUnknown_PredefinedMetricSpecification;
+        public Inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs? PredefinedMetricSpecification
+        {
+            get
+            {
+                if (!_mUnknown_PredefinedMetricSpecification) return _mValue_PredefinedMetricSpecification;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationArgs.PredefinedMetricSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Target value for the metric.
         /// </summary>
-        [Input("targetValue")]
+        [PolicyResourceProperty("targetValue", "_mUnknown_TargetValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mTargetValue;
-
-        public double? TargetValue => _mTargetValue.GetValue("targetValue");
+        private double? _mValue_TargetValue;
+        private bool _mUnknown_TargetValue;
+        public double? TargetValue
+        {
+            get
+            {
+                if (!_mUnknown_TargetValue) return _mValue_TargetValue;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationArgs.TargetValue' is not present");
+            }
+        }
     }
 }

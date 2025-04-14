@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Ses.Outputs
         /// <summary>
         /// The name of the S3 bucket
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'ReceiptRuleS3Action.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
         /// </summary>
-        [Input("iamRoleArn")]
+        [PolicyResourceProperty("iamRoleArn", "_mUnknown_IamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
-
-        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+        private string? _mValue_IamRoleArn;
+        private bool _mUnknown_IamRoleArn;
+        public string? IamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArn) return _mValue_IamRoleArn;
+                throw new UndeferrableValueException("Value 'ReceiptRuleS3Action.IamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the KMS key
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'ReceiptRuleS3Action.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The key prefix of the S3 bucket
         /// </summary>
-        [Input("objectKeyPrefix")]
+        [PolicyResourceProperty("objectKeyPrefix", "_mUnknown_ObjectKeyPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectKeyPrefix;
-
-        public string? ObjectKeyPrefix => _mObjectKeyPrefix.GetValue("objectKeyPrefix");
+        private string? _mValue_ObjectKeyPrefix;
+        private bool _mUnknown_ObjectKeyPrefix;
+        public string? ObjectKeyPrefix
+        {
+            get
+            {
+                if (!_mUnknown_ObjectKeyPrefix) return _mValue_ObjectKeyPrefix;
+                throw new UndeferrableValueException("Value 'ReceiptRuleS3Action.ObjectKeyPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The position of the action in the receipt rule
         /// </summary>
-        [Input("position")]
+        [PolicyResourceProperty("position", "_mUnknown_Position")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPosition;
-
-        public int? Position => _mPosition.GetValue("position");
+        private int? _mValue_Position;
+        private bool _mUnknown_Position;
+        public int? Position
+        {
+            get
+            {
+                if (!_mUnknown_Position) return _mValue_Position;
+                throw new UndeferrableValueException("Value 'ReceiptRuleS3Action.Position' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an SNS topic to notify
         /// </summary>
-        [Input("topicArn")]
+        [PolicyResourceProperty("topicArn", "_mUnknown_TopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopicArn;
-
-        public string? TopicArn => _mTopicArn.GetValue("topicArn");
+        private string? _mValue_TopicArn;
+        private bool _mUnknown_TopicArn;
+        public string? TopicArn
+        {
+            get
+            {
+                if (!_mUnknown_TopicArn) return _mValue_TopicArn;
+                throw new UndeferrableValueException("Value 'ReceiptRuleS3Action.TopicArn' is not present");
+            }
+        }
     }
 }

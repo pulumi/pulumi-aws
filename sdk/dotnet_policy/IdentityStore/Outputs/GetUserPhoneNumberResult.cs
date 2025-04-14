@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.IdentityStore.Outputs
         /// <summary>
         /// When `true`, this is the primary phone number associated with the user.
         /// </summary>
-        [Input("primary")]
+        [PolicyResourceProperty("primary", "_mUnknown_Primary")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPrimary;
-
-        public bool? Primary => _mPrimary.GetValue("primary");
+        private bool? _mValue_Primary;
+        private bool _mUnknown_Primary;
+        public bool? Primary
+        {
+            get
+            {
+                if (!_mUnknown_Primary) return _mValue_Primary;
+                throw new UndeferrableValueException("Value 'GetUserPhoneNumberResult.Primary' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of phone number.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetUserPhoneNumberResult.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's phone number.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'GetUserPhoneNumberResult.Value' is not present");
+            }
+        }
     }
 }

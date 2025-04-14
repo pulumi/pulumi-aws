@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Rekognition.Outputs
         /// <summary>
         /// ID of a collection that contains faces that you want to search for.
         /// </summary>
-        [Input("collectionId")]
+        [PolicyResourceProperty("collectionId", "_mUnknown_CollectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollectionId;
-
-        public string? CollectionId => _mCollectionId.GetValue("collectionId");
+        private string? _mValue_CollectionId;
+        private bool _mUnknown_CollectionId;
+        public string? CollectionId
+        {
+            get
+            {
+                if (!_mUnknown_CollectionId) return _mValue_CollectionId;
+                throw new UndeferrableValueException("Value 'StreamProcessorSettingsFaceSearch.CollectionId' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum face match confidence score that must be met to return a result for a recognized face.
         /// </summary>
-        [Input("faceMatchThreshold")]
+        [PolicyResourceProperty("faceMatchThreshold", "_mUnknown_FaceMatchThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mFaceMatchThreshold;
-
-        public double? FaceMatchThreshold => _mFaceMatchThreshold.GetValue("faceMatchThreshold");
+        private double? _mValue_FaceMatchThreshold;
+        private bool _mUnknown_FaceMatchThreshold;
+        public double? FaceMatchThreshold
+        {
+            get
+            {
+                if (!_mUnknown_FaceMatchThreshold) return _mValue_FaceMatchThreshold;
+                throw new UndeferrableValueException("Value 'StreamProcessorSettingsFaceSearch.FaceMatchThreshold' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// The HTTP header name.
         /// </summary>
-        [Input("header")]
+        [PolicyResourceProperty("header", "_mUnknown_Header")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHeader;
-
-        public string? Header => _mHeader.GetValue("header");
+        private string? _mValue_Header;
+        private bool _mUnknown_Header;
+        public string? Header
+        {
+            get
+            {
+                if (!_mUnknown_Header) return _mValue_Header;
+                throw new UndeferrableValueException("Value 'GetResponseHeadersPolicyCustomHeadersConfigItemResult.Header' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
-        [Input("override")]
+        [PolicyResourceProperty("override", "_mUnknown_Override")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOverride;
-
-        public bool? Override => _mOverride.GetValue("override");
+        private bool? _mValue_Override;
+        private bool _mUnknown_Override;
+        public bool? Override
+        {
+            get
+            {
+                if (!_mUnknown_Override) return _mValue_Override;
+                throw new UndeferrableValueException("Value 'GetResponseHeadersPolicyCustomHeadersConfigItemResult.Override' is not present");
+            }
+        }
 
         /// <summary>
         /// Value for the HTTP response header.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'GetResponseHeadersPolicyCustomHeadersConfigItemResult.Value' is not present");
+            }
+        }
     }
 }

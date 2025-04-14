@@ -12,40 +12,82 @@ namespace Pulumi.PolicyPacks.Aws.DataZone.Outputs
 {
     public sealed class EnvironmentLastDeployment
     {
-        [Input("deploymentId")]
+        [PolicyResourceProperty("deploymentId", "_mUnknown_DeploymentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentId;
+        private string? _mValue_DeploymentId;
+        private bool _mUnknown_DeploymentId;
+        public string? DeploymentId
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentId) return _mValue_DeploymentId;
+                throw new UndeferrableValueException("Value 'EnvironmentLastDeployment.DeploymentId' is not present");
+            }
+        }
 
-        public string? DeploymentId => _mDeploymentId.GetValue("deploymentId");
-
-        [Input("deploymentStatus")]
+        [PolicyResourceProperty("deploymentStatus", "_mUnknown_DeploymentStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentStatus;
+        private string? _mValue_DeploymentStatus;
+        private bool _mUnknown_DeploymentStatus;
+        public string? DeploymentStatus
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentStatus) return _mValue_DeploymentStatus;
+                throw new UndeferrableValueException("Value 'EnvironmentLastDeployment.DeploymentStatus' is not present");
+            }
+        }
 
-        public string? DeploymentStatus => _mDeploymentStatus.GetValue("deploymentStatus");
-
-        [Input("deploymentType")]
+        [PolicyResourceProperty("deploymentType", "_mUnknown_DeploymentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentType;
+        private string? _mValue_DeploymentType;
+        private bool _mUnknown_DeploymentType;
+        public string? DeploymentType
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentType) return _mValue_DeploymentType;
+                throw new UndeferrableValueException("Value 'EnvironmentLastDeployment.DeploymentType' is not present");
+            }
+        }
 
-        public string? DeploymentType => _mDeploymentType.GetValue("deploymentType");
-
-        [Input("failureReasons")]
+        [PolicyResourceProperty("failureReasons", "_mUnknown_FailureReasons")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EnvironmentLastDeploymentFailureReason>> _mFailureReasons;
+        private List<Outputs.EnvironmentLastDeploymentFailureReason>? _mValue_FailureReasons;
+        private bool _mUnknown_FailureReasons;
+        public List<Outputs.EnvironmentLastDeploymentFailureReason>? FailureReasons
+        {
+            get
+            {
+                if (!_mUnknown_FailureReasons) return _mValue_FailureReasons;
+                throw new UndeferrableValueException("Value 'EnvironmentLastDeployment.FailureReasons' is not present");
+            }
+        }
 
-        public List<Outputs.EnvironmentLastDeploymentFailureReason>? FailureReasons => _mFailureReasons.GetValue("failureReasons");
-
-        [Input("isDeploymentComplete")]
+        [PolicyResourceProperty("isDeploymentComplete", "_mUnknown_IsDeploymentComplete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsDeploymentComplete;
+        private bool? _mValue_IsDeploymentComplete;
+        private bool _mUnknown_IsDeploymentComplete;
+        public bool? IsDeploymentComplete
+        {
+            get
+            {
+                if (!_mUnknown_IsDeploymentComplete) return _mValue_IsDeploymentComplete;
+                throw new UndeferrableValueException("Value 'EnvironmentLastDeployment.IsDeploymentComplete' is not present");
+            }
+        }
 
-        public bool? IsDeploymentComplete => _mIsDeploymentComplete.GetValue("isDeploymentComplete");
-
-        [Input("messages")]
+        [PolicyResourceProperty("messages", "_mUnknown_Messages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMessages;
-
-        public List<string>? Messages => _mMessages.GetValue("messages");
+        private List<string>? _mValue_Messages;
+        private bool _mUnknown_Messages;
+        public List<string>? Messages
+        {
+            get
+            {
+                if (!_mUnknown_Messages) return _mValue_Messages;
+                throw new UndeferrableValueException("Value 'EnvironmentLastDeployment.Messages' is not present");
+            }
+        }
     }
 }

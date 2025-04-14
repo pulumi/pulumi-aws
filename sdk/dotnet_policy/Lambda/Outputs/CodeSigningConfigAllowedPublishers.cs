@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
         /// </summary>
-        [Input("signingProfileVersionArns")]
+        [PolicyResourceProperty("signingProfileVersionArns", "_mUnknown_SigningProfileVersionArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSigningProfileVersionArns;
-
-        public List<string>? SigningProfileVersionArns => _mSigningProfileVersionArns.GetValue("signingProfileVersionArns");
+        private List<string>? _mValue_SigningProfileVersionArns;
+        private bool _mUnknown_SigningProfileVersionArns;
+        public List<string>? SigningProfileVersionArns
+        {
+            get
+            {
+                if (!_mUnknown_SigningProfileVersionArns) return _mValue_SigningProfileVersionArns;
+                throw new UndeferrableValueException("Value 'CodeSigningConfigAllowedPublishers.SigningProfileVersionArns' is not present");
+            }
+        }
     }
 }

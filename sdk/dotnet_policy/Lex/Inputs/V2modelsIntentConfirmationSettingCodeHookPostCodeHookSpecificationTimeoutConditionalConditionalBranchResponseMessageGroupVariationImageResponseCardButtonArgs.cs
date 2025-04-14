@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
         /// </summary>
-        [Input("text")]
+        [PolicyResourceProperty("text", "_mUnknown_Text")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mText;
-
-        public string? Text => _mText.GetValue("text");
+        private string? _mValue_Text;
+        private bool _mUnknown_Text;
+        public string? Text
+        {
+            get
+            {
+                if (!_mUnknown_Text) return _mValue_Text;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs.Text' is not present");
+            }
+        }
 
         /// <summary>
         /// Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs.Value' is not present");
+            }
+        }
     }
 }

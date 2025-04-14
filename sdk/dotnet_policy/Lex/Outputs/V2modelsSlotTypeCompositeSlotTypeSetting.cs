@@ -16,10 +16,17 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// Sub slots in the composite slot.
         /// See `sub_slots` argument reference below.
         /// </summary>
-        [Input("subSlots")]
+        [PolicyResourceProperty("subSlots", "_mUnknown_SubSlots")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot>> _mSubSlots;
-
-        public List<Outputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot>? SubSlots => _mSubSlots.GetValue("subSlots");
+        private List<Outputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot>? _mValue_SubSlots;
+        private bool _mUnknown_SubSlots;
+        public List<Outputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot>? SubSlots
+        {
+            get
+            {
+                if (!_mUnknown_SubSlots) return _mValue_SubSlots;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeCompositeSlotTypeSetting.SubSlots' is not present");
+            }
+        }
     }
 }

@@ -16,139 +16,244 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
         /// </summary>
-        [Input("approvalRules")]
+        [PolicyResourceProperty("approvalRules", "_mUnknown_ApprovalRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PatchBaselineApprovalRule>> _mApprovalRules;
-
-        public List<Outputs.PatchBaselineApprovalRule>? ApprovalRules => _mApprovalRules.GetValue("approvalRules");
+        private List<Outputs.PatchBaselineApprovalRule>? _mValue_ApprovalRules;
+        private bool _mUnknown_ApprovalRules;
+        public List<Outputs.PatchBaselineApprovalRule>? ApprovalRules
+        {
+            get
+            {
+                if (!_mUnknown_ApprovalRules) return _mValue_ApprovalRules;
+                throw new UndeferrableValueException("Value 'PatchBaseline.ApprovalRules' is not present");
+            }
+        }
 
         /// <summary>
         /// List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
         /// </summary>
-        [Input("approvedPatches")]
+        [PolicyResourceProperty("approvedPatches", "_mUnknown_ApprovedPatches")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mApprovedPatches;
-
-        public List<string>? ApprovedPatches => _mApprovedPatches.GetValue("approvedPatches");
+        private List<string>? _mValue_ApprovedPatches;
+        private bool _mUnknown_ApprovedPatches;
+        public List<string>? ApprovedPatches
+        {
+            get
+            {
+                if (!_mUnknown_ApprovedPatches) return _mValue_ApprovedPatches;
+                throw new UndeferrableValueException("Value 'PatchBaseline.ApprovedPatches' is not present");
+            }
+        }
 
         /// <summary>
         /// Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         /// </summary>
-        [Input("approvedPatchesComplianceLevel")]
+        [PolicyResourceProperty("approvedPatchesComplianceLevel", "_mUnknown_ApprovedPatchesComplianceLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApprovedPatchesComplianceLevel;
-
-        public string? ApprovedPatchesComplianceLevel => _mApprovedPatchesComplianceLevel.GetValue("approvedPatchesComplianceLevel");
+        private string? _mValue_ApprovedPatchesComplianceLevel;
+        private bool _mUnknown_ApprovedPatchesComplianceLevel;
+        public string? ApprovedPatchesComplianceLevel
+        {
+            get
+            {
+                if (!_mUnknown_ApprovedPatchesComplianceLevel) return _mValue_ApprovedPatchesComplianceLevel;
+                throw new UndeferrableValueException("Value 'PatchBaseline.ApprovedPatchesComplianceLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
         /// </summary>
-        [Input("approvedPatchesEnableNonSecurity")]
+        [PolicyResourceProperty("approvedPatchesEnableNonSecurity", "_mUnknown_ApprovedPatchesEnableNonSecurity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApprovedPatchesEnableNonSecurity;
-
-        public bool? ApprovedPatchesEnableNonSecurity => _mApprovedPatchesEnableNonSecurity.GetValue("approvedPatchesEnableNonSecurity");
+        private bool? _mValue_ApprovedPatchesEnableNonSecurity;
+        private bool _mUnknown_ApprovedPatchesEnableNonSecurity;
+        public bool? ApprovedPatchesEnableNonSecurity
+        {
+            get
+            {
+                if (!_mUnknown_ApprovedPatchesEnableNonSecurity) return _mValue_ApprovedPatchesEnableNonSecurity;
+                throw new UndeferrableValueException("Value 'PatchBaseline.ApprovedPatchesEnableNonSecurity' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the baseline.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'PatchBaseline.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the patch baseline.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'PatchBaseline.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
         /// </summary>
-        [Input("globalFilters")]
+        [PolicyResourceProperty("globalFilters", "_mUnknown_GlobalFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PatchBaselineGlobalFilter>> _mGlobalFilters;
-
-        public List<Outputs.PatchBaselineGlobalFilter>? GlobalFilters => _mGlobalFilters.GetValue("globalFilters");
+        private List<Outputs.PatchBaselineGlobalFilter>? _mValue_GlobalFilters;
+        private bool _mUnknown_GlobalFilters;
+        public List<Outputs.PatchBaselineGlobalFilter>? GlobalFilters
+        {
+            get
+            {
+                if (!_mUnknown_GlobalFilters) return _mValue_GlobalFilters;
+                throw new UndeferrableValueException("Value 'PatchBaseline.GlobalFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON definition of the baseline.
         /// </summary>
-        [Input("json")]
+        [PolicyResourceProperty("json", "_mUnknown_Json")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJson;
-
-        public string? Json => _mJson.GetValue("json");
+        private string? _mValue_Json;
+        private bool _mUnknown_Json;
+        public string? Json
+        {
+            get
+            {
+                if (!_mUnknown_Json) return _mValue_Json;
+                throw new UndeferrableValueException("Value 'PatchBaseline.Json' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the patch baseline.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PatchBaseline.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
         /// </summary>
-        [Input("operatingSystem")]
+        [PolicyResourceProperty("operatingSystem", "_mUnknown_OperatingSystem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOperatingSystem;
-
-        public string? OperatingSystem => _mOperatingSystem.GetValue("operatingSystem");
+        private string? _mValue_OperatingSystem;
+        private bool _mUnknown_OperatingSystem;
+        public string? OperatingSystem
+        {
+            get
+            {
+                if (!_mUnknown_OperatingSystem) return _mValue_OperatingSystem;
+                throw new UndeferrableValueException("Value 'PatchBaseline.OperatingSystem' is not present");
+            }
+        }
 
         /// <summary>
         /// List of rejected patches.
         /// </summary>
-        [Input("rejectedPatches")]
+        [PolicyResourceProperty("rejectedPatches", "_mUnknown_RejectedPatches")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRejectedPatches;
-
-        public List<string>? RejectedPatches => _mRejectedPatches.GetValue("rejectedPatches");
+        private List<string>? _mValue_RejectedPatches;
+        private bool _mUnknown_RejectedPatches;
+        public List<string>? RejectedPatches
+        {
+            get
+            {
+                if (!_mUnknown_RejectedPatches) return _mValue_RejectedPatches;
+                throw new UndeferrableValueException("Value 'PatchBaseline.RejectedPatches' is not present");
+            }
+        }
 
         /// <summary>
         /// Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         /// </summary>
-        [Input("rejectedPatchesAction")]
+        [PolicyResourceProperty("rejectedPatchesAction", "_mUnknown_RejectedPatchesAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRejectedPatchesAction;
-
-        public string? RejectedPatchesAction => _mRejectedPatchesAction.GetValue("rejectedPatchesAction");
+        private string? _mValue_RejectedPatchesAction;
+        private bool _mUnknown_RejectedPatchesAction;
+        public string? RejectedPatchesAction
+        {
+            get
+            {
+                if (!_mUnknown_RejectedPatchesAction) return _mValue_RejectedPatchesAction;
+                throw new UndeferrableValueException("Value 'PatchBaseline.RejectedPatchesAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
         /// </summary>
-        [Input("sources")]
+        [PolicyResourceProperty("sources", "_mUnknown_Sources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PatchBaselineSource>> _mSources;
-
-        public List<Outputs.PatchBaselineSource>? Sources => _mSources.GetValue("sources");
+        private List<Outputs.PatchBaselineSource>? _mValue_Sources;
+        private bool _mUnknown_Sources;
+        public List<Outputs.PatchBaselineSource>? Sources
+        {
+            get
+            {
+                if (!_mUnknown_Sources) return _mValue_Sources;
+                throw new UndeferrableValueException("Value 'PatchBaseline.Sources' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'PatchBaseline.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'PatchBaseline.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssm/patchBaseline:PatchBaseline")]
@@ -157,111 +262,195 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
         /// </summary>
-        [Input("approvalRules")]
+        [PolicyResourceProperty("approvalRules", "_mUnknown_ApprovalRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PatchBaselineApprovalRuleArgs>> _mApprovalRules;
-
-        public List<Inputs.PatchBaselineApprovalRuleArgs>? ApprovalRules => _mApprovalRules.GetValue("approvalRules");
+        private List<Inputs.PatchBaselineApprovalRuleArgs>? _mValue_ApprovalRules;
+        private bool _mUnknown_ApprovalRules;
+        public List<Inputs.PatchBaselineApprovalRuleArgs>? ApprovalRules
+        {
+            get
+            {
+                if (!_mUnknown_ApprovalRules) return _mValue_ApprovalRules;
+                throw new UndeferrableValueException("Value 'PatchBaselineArgs.ApprovalRules' is not present");
+            }
+        }
 
         /// <summary>
         /// List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
         /// </summary>
-        [Input("approvedPatches")]
+        [PolicyResourceProperty("approvedPatches", "_mUnknown_ApprovedPatches")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mApprovedPatches;
-
-        public List<string>? ApprovedPatches => _mApprovedPatches.GetValue("approvedPatches");
+        private List<string>? _mValue_ApprovedPatches;
+        private bool _mUnknown_ApprovedPatches;
+        public List<string>? ApprovedPatches
+        {
+            get
+            {
+                if (!_mUnknown_ApprovedPatches) return _mValue_ApprovedPatches;
+                throw new UndeferrableValueException("Value 'PatchBaselineArgs.ApprovedPatches' is not present");
+            }
+        }
 
         /// <summary>
         /// Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         /// </summary>
-        [Input("approvedPatchesComplianceLevel")]
+        [PolicyResourceProperty("approvedPatchesComplianceLevel", "_mUnknown_ApprovedPatchesComplianceLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApprovedPatchesComplianceLevel;
-
-        public string? ApprovedPatchesComplianceLevel => _mApprovedPatchesComplianceLevel.GetValue("approvedPatchesComplianceLevel");
+        private string? _mValue_ApprovedPatchesComplianceLevel;
+        private bool _mUnknown_ApprovedPatchesComplianceLevel;
+        public string? ApprovedPatchesComplianceLevel
+        {
+            get
+            {
+                if (!_mUnknown_ApprovedPatchesComplianceLevel) return _mValue_ApprovedPatchesComplianceLevel;
+                throw new UndeferrableValueException("Value 'PatchBaselineArgs.ApprovedPatchesComplianceLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
         /// </summary>
-        [Input("approvedPatchesEnableNonSecurity")]
+        [PolicyResourceProperty("approvedPatchesEnableNonSecurity", "_mUnknown_ApprovedPatchesEnableNonSecurity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApprovedPatchesEnableNonSecurity;
-
-        public bool? ApprovedPatchesEnableNonSecurity => _mApprovedPatchesEnableNonSecurity.GetValue("approvedPatchesEnableNonSecurity");
+        private bool? _mValue_ApprovedPatchesEnableNonSecurity;
+        private bool _mUnknown_ApprovedPatchesEnableNonSecurity;
+        public bool? ApprovedPatchesEnableNonSecurity
+        {
+            get
+            {
+                if (!_mUnknown_ApprovedPatchesEnableNonSecurity) return _mValue_ApprovedPatchesEnableNonSecurity;
+                throw new UndeferrableValueException("Value 'PatchBaselineArgs.ApprovedPatchesEnableNonSecurity' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the patch baseline.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'PatchBaselineArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
         /// </summary>
-        [Input("globalFilters")]
+        [PolicyResourceProperty("globalFilters", "_mUnknown_GlobalFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PatchBaselineGlobalFilterArgs>> _mGlobalFilters;
-
-        public List<Inputs.PatchBaselineGlobalFilterArgs>? GlobalFilters => _mGlobalFilters.GetValue("globalFilters");
+        private List<Inputs.PatchBaselineGlobalFilterArgs>? _mValue_GlobalFilters;
+        private bool _mUnknown_GlobalFilters;
+        public List<Inputs.PatchBaselineGlobalFilterArgs>? GlobalFilters
+        {
+            get
+            {
+                if (!_mUnknown_GlobalFilters) return _mValue_GlobalFilters;
+                throw new UndeferrableValueException("Value 'PatchBaselineArgs.GlobalFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the patch baseline.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PatchBaselineArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
         /// </summary>
-        [Input("operatingSystem")]
+        [PolicyResourceProperty("operatingSystem", "_mUnknown_OperatingSystem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOperatingSystem;
-
-        public string? OperatingSystem => _mOperatingSystem.GetValue("operatingSystem");
+        private string? _mValue_OperatingSystem;
+        private bool _mUnknown_OperatingSystem;
+        public string? OperatingSystem
+        {
+            get
+            {
+                if (!_mUnknown_OperatingSystem) return _mValue_OperatingSystem;
+                throw new UndeferrableValueException("Value 'PatchBaselineArgs.OperatingSystem' is not present");
+            }
+        }
 
         /// <summary>
         /// List of rejected patches.
         /// </summary>
-        [Input("rejectedPatches")]
+        [PolicyResourceProperty("rejectedPatches", "_mUnknown_RejectedPatches")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRejectedPatches;
-
-        public List<string>? RejectedPatches => _mRejectedPatches.GetValue("rejectedPatches");
+        private List<string>? _mValue_RejectedPatches;
+        private bool _mUnknown_RejectedPatches;
+        public List<string>? RejectedPatches
+        {
+            get
+            {
+                if (!_mUnknown_RejectedPatches) return _mValue_RejectedPatches;
+                throw new UndeferrableValueException("Value 'PatchBaselineArgs.RejectedPatches' is not present");
+            }
+        }
 
         /// <summary>
         /// Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         /// </summary>
-        [Input("rejectedPatchesAction")]
+        [PolicyResourceProperty("rejectedPatchesAction", "_mUnknown_RejectedPatchesAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRejectedPatchesAction;
-
-        public string? RejectedPatchesAction => _mRejectedPatchesAction.GetValue("rejectedPatchesAction");
+        private string? _mValue_RejectedPatchesAction;
+        private bool _mUnknown_RejectedPatchesAction;
+        public string? RejectedPatchesAction
+        {
+            get
+            {
+                if (!_mUnknown_RejectedPatchesAction) return _mValue_RejectedPatchesAction;
+                throw new UndeferrableValueException("Value 'PatchBaselineArgs.RejectedPatchesAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
         /// </summary>
-        [Input("sources")]
+        [PolicyResourceProperty("sources", "_mUnknown_Sources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PatchBaselineSourceArgs>> _mSources;
-
-        public List<Inputs.PatchBaselineSourceArgs>? Sources => _mSources.GetValue("sources");
+        private List<Inputs.PatchBaselineSourceArgs>? _mValue_Sources;
+        private bool _mUnknown_Sources;
+        public List<Inputs.PatchBaselineSourceArgs>? Sources
+        {
+            get
+            {
+                if (!_mUnknown_Sources) return _mValue_Sources;
+                throw new UndeferrableValueException("Value 'PatchBaselineArgs.Sources' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'PatchBaselineArgs.Tags' is not present");
+            }
+        }
     }
 }

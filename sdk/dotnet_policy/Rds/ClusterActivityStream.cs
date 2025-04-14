@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
         /// </summary>
-        [Input("engineNativeAuditFieldsIncluded")]
+        [PolicyResourceProperty("engineNativeAuditFieldsIncluded", "_mUnknown_EngineNativeAuditFieldsIncluded")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEngineNativeAuditFieldsIncluded;
-
-        public bool? EngineNativeAuditFieldsIncluded => _mEngineNativeAuditFieldsIncluded.GetValue("engineNativeAuditFieldsIncluded");
+        private bool? _mValue_EngineNativeAuditFieldsIncluded;
+        private bool _mUnknown_EngineNativeAuditFieldsIncluded;
+        public bool? EngineNativeAuditFieldsIncluded
+        {
+            get
+            {
+                if (!_mUnknown_EngineNativeAuditFieldsIncluded) return _mValue_EngineNativeAuditFieldsIncluded;
+                throw new UndeferrableValueException("Value 'ClusterActivityStream.EngineNativeAuditFieldsIncluded' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Amazon Kinesis data stream to be used for the database activity stream.
         /// </summary>
-        [Input("kinesisStreamName")]
+        [PolicyResourceProperty("kinesisStreamName", "_mUnknown_KinesisStreamName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKinesisStreamName;
-
-        public string? KinesisStreamName => _mKinesisStreamName.GetValue("kinesisStreamName");
+        private string? _mValue_KinesisStreamName;
+        private bool _mUnknown_KinesisStreamName;
+        public string? KinesisStreamName
+        {
+            get
+            {
+                if (!_mUnknown_KinesisStreamName) return _mValue_KinesisStreamName;
+                throw new UndeferrableValueException("Value 'ClusterActivityStream.KinesisStreamName' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ClusterActivityStream.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
         /// </summary>
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
-
-        public string? Mode => _mMode.GetValue("mode");
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'ClusterActivityStream.Mode' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the DB cluster.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'ClusterActivityStream.ResourceArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:rds/clusterActivityStream:ClusterActivityStream")]
@@ -65,37 +100,65 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
         /// </summary>
-        [Input("engineNativeAuditFieldsIncluded")]
+        [PolicyResourceProperty("engineNativeAuditFieldsIncluded", "_mUnknown_EngineNativeAuditFieldsIncluded")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEngineNativeAuditFieldsIncluded;
-
-        public bool? EngineNativeAuditFieldsIncluded => _mEngineNativeAuditFieldsIncluded.GetValue("engineNativeAuditFieldsIncluded");
+        private bool? _mValue_EngineNativeAuditFieldsIncluded;
+        private bool _mUnknown_EngineNativeAuditFieldsIncluded;
+        public bool? EngineNativeAuditFieldsIncluded
+        {
+            get
+            {
+                if (!_mUnknown_EngineNativeAuditFieldsIncluded) return _mValue_EngineNativeAuditFieldsIncluded;
+                throw new UndeferrableValueException("Value 'ClusterActivityStreamArgs.EngineNativeAuditFieldsIncluded' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ClusterActivityStreamArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
         /// </summary>
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
-
-        public string? Mode => _mMode.GetValue("mode");
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'ClusterActivityStreamArgs.Mode' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the DB cluster.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'ClusterActivityStreamArgs.ResourceArn' is not present");
+            }
+        }
     }
 }

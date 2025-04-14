@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// List of item names, such as cookies, headers, or query strings.
         /// </summary>
-        [Input("items")]
+        [PolicyResourceProperty("items", "_mUnknown_Items")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mItems;
-
-        public List<string>? Items => _mItems.GetValue("items");
+        private List<string>? _mValue_Items;
+        private bool _mUnknown_Items;
+        public List<string>? Items
+        {
+            get
+            {
+                if (!_mUnknown_Items) return _mValue_Items;
+                throw new UndeferrableValueException("Value 'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders.Items' is not present");
+            }
+        }
     }
 }

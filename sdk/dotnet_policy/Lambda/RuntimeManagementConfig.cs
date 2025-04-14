@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// ARN of the function.
         /// </summary>
-        [Input("functionArn")]
+        [PolicyResourceProperty("functionArn", "_mUnknown_FunctionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionArn;
-
-        public string? FunctionArn => _mFunctionArn.GetValue("functionArn");
+        private string? _mValue_FunctionArn;
+        private bool _mUnknown_FunctionArn;
+        public string? FunctionArn
+        {
+            get
+            {
+                if (!_mUnknown_FunctionArn) return _mValue_FunctionArn;
+                throw new UndeferrableValueException("Value 'RuntimeManagementConfig.FunctionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name or ARN of the Lambda function.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("functionName")]
+        [PolicyResourceProperty("functionName", "_mUnknown_FunctionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
-
-        public string? FunctionName => _mFunctionName.GetValue("functionName");
+        private string? _mValue_FunctionName;
+        private bool _mUnknown_FunctionName;
+        public string? FunctionName
+        {
+            get
+            {
+                if (!_mUnknown_FunctionName) return _mValue_FunctionName;
+                throw new UndeferrableValueException("Value 'RuntimeManagementConfig.FunctionName' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
         /// </summary>
-        [Input("qualifier")]
+        [PolicyResourceProperty("qualifier", "_mUnknown_Qualifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
-
-        public string? Qualifier => _mQualifier.GetValue("qualifier");
+        private string? _mValue_Qualifier;
+        private bool _mUnknown_Qualifier;
+        public string? Qualifier
+        {
+            get
+            {
+                if (!_mUnknown_Qualifier) return _mValue_Qualifier;
+                throw new UndeferrableValueException("Value 'RuntimeManagementConfig.Qualifier' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
         /// </summary>
-        [Input("runtimeVersionArn")]
+        [PolicyResourceProperty("runtimeVersionArn", "_mUnknown_RuntimeVersionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuntimeVersionArn;
-
-        public string? RuntimeVersionArn => _mRuntimeVersionArn.GetValue("runtimeVersionArn");
+        private string? _mValue_RuntimeVersionArn;
+        private bool _mUnknown_RuntimeVersionArn;
+        public string? RuntimeVersionArn
+        {
+            get
+            {
+                if (!_mUnknown_RuntimeVersionArn) return _mValue_RuntimeVersionArn;
+                throw new UndeferrableValueException("Value 'RuntimeManagementConfig.RuntimeVersionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
         /// </summary>
-        [Input("updateRuntimeOn")]
+        [PolicyResourceProperty("updateRuntimeOn", "_mUnknown_UpdateRuntimeOn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateRuntimeOn;
-
-        public string? UpdateRuntimeOn => _mUpdateRuntimeOn.GetValue("updateRuntimeOn");
+        private string? _mValue_UpdateRuntimeOn;
+        private bool _mUnknown_UpdateRuntimeOn;
+        public string? UpdateRuntimeOn
+        {
+            get
+            {
+                if (!_mUnknown_UpdateRuntimeOn) return _mValue_UpdateRuntimeOn;
+                throw new UndeferrableValueException("Value 'RuntimeManagementConfig.UpdateRuntimeOn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lambda/runtimeManagementConfig:RuntimeManagementConfig")]
@@ -69,37 +104,65 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("functionName")]
+        [PolicyResourceProperty("functionName", "_mUnknown_FunctionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
-
-        public string? FunctionName => _mFunctionName.GetValue("functionName");
+        private string? _mValue_FunctionName;
+        private bool _mUnknown_FunctionName;
+        public string? FunctionName
+        {
+            get
+            {
+                if (!_mUnknown_FunctionName) return _mValue_FunctionName;
+                throw new UndeferrableValueException("Value 'RuntimeManagementConfigArgs.FunctionName' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
         /// </summary>
-        [Input("qualifier")]
+        [PolicyResourceProperty("qualifier", "_mUnknown_Qualifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
-
-        public string? Qualifier => _mQualifier.GetValue("qualifier");
+        private string? _mValue_Qualifier;
+        private bool _mUnknown_Qualifier;
+        public string? Qualifier
+        {
+            get
+            {
+                if (!_mUnknown_Qualifier) return _mValue_Qualifier;
+                throw new UndeferrableValueException("Value 'RuntimeManagementConfigArgs.Qualifier' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
         /// </summary>
-        [Input("runtimeVersionArn")]
+        [PolicyResourceProperty("runtimeVersionArn", "_mUnknown_RuntimeVersionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuntimeVersionArn;
-
-        public string? RuntimeVersionArn => _mRuntimeVersionArn.GetValue("runtimeVersionArn");
+        private string? _mValue_RuntimeVersionArn;
+        private bool _mUnknown_RuntimeVersionArn;
+        public string? RuntimeVersionArn
+        {
+            get
+            {
+                if (!_mUnknown_RuntimeVersionArn) return _mValue_RuntimeVersionArn;
+                throw new UndeferrableValueException("Value 'RuntimeManagementConfigArgs.RuntimeVersionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
         /// </summary>
-        [Input("updateRuntimeOn")]
+        [PolicyResourceProperty("updateRuntimeOn", "_mUnknown_UpdateRuntimeOn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateRuntimeOn;
-
-        public string? UpdateRuntimeOn => _mUpdateRuntimeOn.GetValue("updateRuntimeOn");
+        private string? _mValue_UpdateRuntimeOn;
+        private bool _mUnknown_UpdateRuntimeOn;
+        public string? UpdateRuntimeOn
+        {
+            get
+            {
+                if (!_mUnknown_UpdateRuntimeOn) return _mValue_UpdateRuntimeOn;
+                throw new UndeferrableValueException("Value 'RuntimeManagementConfigArgs.UpdateRuntimeOn' is not present");
+            }
+        }
     }
 }

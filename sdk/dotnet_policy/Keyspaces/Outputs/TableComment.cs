@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Keyspaces.Outputs
         /// <summary>
         /// A description of the table.
         /// </summary>
-        [Input("message")]
+        [PolicyResourceProperty("message", "_mUnknown_Message")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessage;
-
-        public string? Message => _mMessage.GetValue("message");
+        private string? _mValue_Message;
+        private bool _mUnknown_Message;
+        public string? Message
+        {
+            get
+            {
+                if (!_mUnknown_Message) return _mValue_Message;
+                throw new UndeferrableValueException("Value 'TableComment.Message' is not present");
+            }
+        }
     }
 }

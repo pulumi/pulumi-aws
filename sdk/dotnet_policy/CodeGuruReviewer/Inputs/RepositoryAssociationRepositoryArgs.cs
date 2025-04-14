@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.CodeGuruReviewer.Inputs
 {
     public sealed class RepositoryAssociationRepositoryArgs
     {
-        [Input("bitbucket")]
+        [PolicyResourceProperty("bitbucket", "_mUnknown_Bitbucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RepositoryAssociationRepositoryBitbucketArgs> _mBitbucket;
+        private Inputs.RepositoryAssociationRepositoryBitbucketArgs? _mValue_Bitbucket;
+        private bool _mUnknown_Bitbucket;
+        public Inputs.RepositoryAssociationRepositoryBitbucketArgs? Bitbucket
+        {
+            get
+            {
+                if (!_mUnknown_Bitbucket) return _mValue_Bitbucket;
+                throw new UndeferrableValueException("Value 'RepositoryAssociationRepositoryArgs.Bitbucket' is not present");
+            }
+        }
 
-        public Inputs.RepositoryAssociationRepositoryBitbucketArgs? Bitbucket => _mBitbucket.GetValue("bitbucket");
-
-        [Input("codecommit")]
+        [PolicyResourceProperty("codecommit", "_mUnknown_Codecommit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RepositoryAssociationRepositoryCodecommitArgs> _mCodecommit;
+        private Inputs.RepositoryAssociationRepositoryCodecommitArgs? _mValue_Codecommit;
+        private bool _mUnknown_Codecommit;
+        public Inputs.RepositoryAssociationRepositoryCodecommitArgs? Codecommit
+        {
+            get
+            {
+                if (!_mUnknown_Codecommit) return _mValue_Codecommit;
+                throw new UndeferrableValueException("Value 'RepositoryAssociationRepositoryArgs.Codecommit' is not present");
+            }
+        }
 
-        public Inputs.RepositoryAssociationRepositoryCodecommitArgs? Codecommit => _mCodecommit.GetValue("codecommit");
-
-        [Input("githubEnterpriseServer")]
+        [PolicyResourceProperty("githubEnterpriseServer", "_mUnknown_GithubEnterpriseServer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RepositoryAssociationRepositoryGithubEnterpriseServerArgs> _mGithubEnterpriseServer;
+        private Inputs.RepositoryAssociationRepositoryGithubEnterpriseServerArgs? _mValue_GithubEnterpriseServer;
+        private bool _mUnknown_GithubEnterpriseServer;
+        public Inputs.RepositoryAssociationRepositoryGithubEnterpriseServerArgs? GithubEnterpriseServer
+        {
+            get
+            {
+                if (!_mUnknown_GithubEnterpriseServer) return _mValue_GithubEnterpriseServer;
+                throw new UndeferrableValueException("Value 'RepositoryAssociationRepositoryArgs.GithubEnterpriseServer' is not present");
+            }
+        }
 
-        public Inputs.RepositoryAssociationRepositoryGithubEnterpriseServerArgs? GithubEnterpriseServer => _mGithubEnterpriseServer.GetValue("githubEnterpriseServer");
-
-        [Input("s3Bucket")]
+        [PolicyResourceProperty("s3Bucket", "_mUnknown_S3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RepositoryAssociationRepositoryS3BucketArgs> _mS3Bucket;
-
-        public Inputs.RepositoryAssociationRepositoryS3BucketArgs? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+        private Inputs.RepositoryAssociationRepositoryS3BucketArgs? _mValue_S3Bucket;
+        private bool _mUnknown_S3Bucket;
+        public Inputs.RepositoryAssociationRepositoryS3BucketArgs? S3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_S3Bucket) return _mValue_S3Bucket;
+                throw new UndeferrableValueException("Value 'RepositoryAssociationRepositoryArgs.S3Bucket' is not present");
+            }
+        }
     }
 }

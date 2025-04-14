@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storage_class` values unless `transition_default_minimum_object_size` specifies otherwise.
         /// </summary>
-        [Input("objectSizeGreaterThan")]
+        [PolicyResourceProperty("objectSizeGreaterThan", "_mUnknown_ObjectSizeGreaterThan")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mObjectSizeGreaterThan;
-
-        public int? ObjectSizeGreaterThan => _mObjectSizeGreaterThan.GetValue("objectSizeGreaterThan");
+        private int? _mValue_ObjectSizeGreaterThan;
+        private bool _mUnknown_ObjectSizeGreaterThan;
+        public int? ObjectSizeGreaterThan
+        {
+            get
+            {
+                if (!_mUnknown_ObjectSizeGreaterThan) return _mValue_ObjectSizeGreaterThan;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterAnd.ObjectSizeGreaterThan' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum object size to which the rule applies. Value must be at least `1` if specified.
         /// </summary>
-        [Input("objectSizeLessThan")]
+        [PolicyResourceProperty("objectSizeLessThan", "_mUnknown_ObjectSizeLessThan")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mObjectSizeLessThan;
-
-        public int? ObjectSizeLessThan => _mObjectSizeLessThan.GetValue("objectSizeLessThan");
+        private int? _mValue_ObjectSizeLessThan;
+        private bool _mUnknown_ObjectSizeLessThan;
+        public int? ObjectSizeLessThan
+        {
+            get
+            {
+                if (!_mUnknown_ObjectSizeLessThan) return _mValue_ObjectSizeLessThan;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterAnd.ObjectSizeLessThan' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix identifying one or more objects to which the rule applies.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterAnd.Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterAnd.Tags' is not present");
+            }
+        }
     }
 }

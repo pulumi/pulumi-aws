@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Inputs
         /// <summary>
         /// Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Port below for details.
         /// </summary>
-        [Input("destinationPorts")]
+        [PolicyResourceProperty("destinationPorts", "_mUnknown_DestinationPorts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs>> _mDestinationPorts;
-
-        public List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs>? DestinationPorts => _mDestinationPorts.GetValue("destinationPorts");
+        private List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs>? _mValue_DestinationPorts;
+        private bool _mUnknown_DestinationPorts;
+        public List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs>? DestinationPorts
+        {
+            get
+            {
+                if (!_mUnknown_DestinationPorts) return _mValue_DestinationPorts;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs.DestinationPorts' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
         /// </summary>
-        [Input("destinations")]
+        [PolicyResourceProperty("destinations", "_mUnknown_Destinations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs>> _mDestinations;
-
-        public List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs>? Destinations => _mDestinations.GetValue("destinations");
+        private List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs>? _mValue_Destinations;
+        private bool _mUnknown_Destinations;
+        public List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs>? Destinations
+        {
+            get
+            {
+                if (!_mUnknown_Destinations) return _mValue_Destinations;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs.Destinations' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
         /// </summary>
-        [Input("protocols")]
+        [PolicyResourceProperty("protocols", "_mUnknown_Protocols")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mProtocols;
-
-        public List<int>? Protocols => _mProtocols.GetValue("protocols");
+        private List<int>? _mValue_Protocols;
+        private bool _mUnknown_Protocols;
+        public List<int>? Protocols
+        {
+            get
+            {
+                if (!_mUnknown_Protocols) return _mValue_Protocols;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs.Protocols' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Port below for details.
         /// </summary>
-        [Input("sourcePorts")]
+        [PolicyResourceProperty("sourcePorts", "_mUnknown_SourcePorts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs>> _mSourcePorts;
-
-        public List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs>? SourcePorts => _mSourcePorts.GetValue("sourcePorts");
+        private List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs>? _mValue_SourcePorts;
+        private bool _mUnknown_SourcePorts;
+        public List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs>? SourcePorts
+        {
+            get
+            {
+                if (!_mUnknown_SourcePorts) return _mValue_SourcePorts;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs.SourcePorts' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
         /// </summary>
-        [Input("sources")]
+        [PolicyResourceProperty("sources", "_mUnknown_Sources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs>> _mSources;
-
-        public List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs>? Sources => _mSources.GetValue("sources");
+        private List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs>? _mValue_Sources;
+        private bool _mUnknown_Sources;
+        public List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs>? Sources
+        {
+            get
+            {
+                if (!_mUnknown_Sources) return _mValue_Sources;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs.Sources' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks containing the TCP flags and masks to inspect for. If not specified, this matches with any settings.
         /// </summary>
-        [Input("tcpFlags")]
+        [PolicyResourceProperty("tcpFlags", "_mUnknown_TcpFlags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs>> _mTcpFlags;
-
-        public List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs>? TcpFlags => _mTcpFlags.GetValue("tcpFlags");
+        private List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs>? _mValue_TcpFlags;
+        private bool _mUnknown_TcpFlags;
+        public List<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs>? TcpFlags
+        {
+            get
+            {
+                if (!_mUnknown_TcpFlags) return _mValue_TcpFlags;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs.TcpFlags' is not present");
+            }
+        }
     }
 }

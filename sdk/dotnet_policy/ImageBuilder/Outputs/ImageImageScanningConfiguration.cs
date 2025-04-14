@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Configuration block with ECR configuration. Detailed below.
         /// </summary>
-        [Input("ecrConfiguration")]
+        [PolicyResourceProperty("ecrConfiguration", "_mUnknown_EcrConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ImageImageScanningConfigurationEcrConfiguration> _mEcrConfiguration;
-
-        public Outputs.ImageImageScanningConfigurationEcrConfiguration? EcrConfiguration => _mEcrConfiguration.GetValue("ecrConfiguration");
+        private Outputs.ImageImageScanningConfigurationEcrConfiguration? _mValue_EcrConfiguration;
+        private bool _mUnknown_EcrConfiguration;
+        public Outputs.ImageImageScanningConfigurationEcrConfiguration? EcrConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EcrConfiguration) return _mValue_EcrConfiguration;
+                throw new UndeferrableValueException("Value 'ImageImageScanningConfiguration.EcrConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.
         /// </summary>
-        [Input("imageScanningEnabled")]
+        [PolicyResourceProperty("imageScanningEnabled", "_mUnknown_ImageScanningEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mImageScanningEnabled;
-
-        public bool? ImageScanningEnabled => _mImageScanningEnabled.GetValue("imageScanningEnabled");
+        private bool? _mValue_ImageScanningEnabled;
+        private bool _mUnknown_ImageScanningEnabled;
+        public bool? ImageScanningEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ImageScanningEnabled) return _mValue_ImageScanningEnabled;
+                throw new UndeferrableValueException("Value 'ImageImageScanningConfiguration.ImageScanningEnabled' is not present");
+            }
+        }
     }
 }

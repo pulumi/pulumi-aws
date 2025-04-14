@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Outputs
 {
     public sealed class MultiRegionAccessPointDetailsPublicAccessBlock
     {
-        [Input("blockPublicAcls")]
+        [PolicyResourceProperty("blockPublicAcls", "_mUnknown_BlockPublicAcls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBlockPublicAcls;
+        private bool? _mValue_BlockPublicAcls;
+        private bool _mUnknown_BlockPublicAcls;
+        public bool? BlockPublicAcls
+        {
+            get
+            {
+                if (!_mUnknown_BlockPublicAcls) return _mValue_BlockPublicAcls;
+                throw new UndeferrableValueException("Value 'MultiRegionAccessPointDetailsPublicAccessBlock.BlockPublicAcls' is not present");
+            }
+        }
 
-        public bool? BlockPublicAcls => _mBlockPublicAcls.GetValue("blockPublicAcls");
-
-        [Input("blockPublicPolicy")]
+        [PolicyResourceProperty("blockPublicPolicy", "_mUnknown_BlockPublicPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBlockPublicPolicy;
+        private bool? _mValue_BlockPublicPolicy;
+        private bool _mUnknown_BlockPublicPolicy;
+        public bool? BlockPublicPolicy
+        {
+            get
+            {
+                if (!_mUnknown_BlockPublicPolicy) return _mValue_BlockPublicPolicy;
+                throw new UndeferrableValueException("Value 'MultiRegionAccessPointDetailsPublicAccessBlock.BlockPublicPolicy' is not present");
+            }
+        }
 
-        public bool? BlockPublicPolicy => _mBlockPublicPolicy.GetValue("blockPublicPolicy");
-
-        [Input("ignorePublicAcls")]
+        [PolicyResourceProperty("ignorePublicAcls", "_mUnknown_IgnorePublicAcls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnorePublicAcls;
+        private bool? _mValue_IgnorePublicAcls;
+        private bool _mUnknown_IgnorePublicAcls;
+        public bool? IgnorePublicAcls
+        {
+            get
+            {
+                if (!_mUnknown_IgnorePublicAcls) return _mValue_IgnorePublicAcls;
+                throw new UndeferrableValueException("Value 'MultiRegionAccessPointDetailsPublicAccessBlock.IgnorePublicAcls' is not present");
+            }
+        }
 
-        public bool? IgnorePublicAcls => _mIgnorePublicAcls.GetValue("ignorePublicAcls");
-
-        [Input("restrictPublicBuckets")]
+        [PolicyResourceProperty("restrictPublicBuckets", "_mUnknown_RestrictPublicBuckets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRestrictPublicBuckets;
-
-        public bool? RestrictPublicBuckets => _mRestrictPublicBuckets.GetValue("restrictPublicBuckets");
+        private bool? _mValue_RestrictPublicBuckets;
+        private bool _mUnknown_RestrictPublicBuckets;
+        public bool? RestrictPublicBuckets
+        {
+            get
+            {
+                if (!_mUnknown_RestrictPublicBuckets) return _mValue_RestrictPublicBuckets;
+                throw new UndeferrableValueException("Value 'MultiRegionAccessPointDetailsPublicAccessBlock.RestrictPublicBuckets' is not present");
+            }
+        }
     }
 }

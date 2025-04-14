@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// Header value sent by the client must match the specified value exactly.
         /// </summary>
-        [Input("exact")]
+        [PolicyResourceProperty("exact", "_mUnknown_Exact")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExact;
-
-        public string? Exact => _mExact.GetValue("exact");
+        private string? _mValue_Exact;
+        private bool _mUnknown_Exact;
+        public string? Exact
+        {
+            get
+            {
+                if (!_mUnknown_Exact) return _mValue_Exact;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatchHeaderMatch.Exact' is not present");
+            }
+        }
 
         /// <summary>
         /// Header value sent by the client must begin with the specified characters.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatchHeaderMatch.Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Object that specifies the range of numbers that the header value sent by the client must be included in.
         /// </summary>
-        [Input("range")]
+        [PolicyResourceProperty("range", "_mUnknown_Range")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GatewayRouteSpecHttpRouteMatchHeaderMatchRange> _mRange;
-
-        public Outputs.GatewayRouteSpecHttpRouteMatchHeaderMatchRange? Range => _mRange.GetValue("range");
+        private Outputs.GatewayRouteSpecHttpRouteMatchHeaderMatchRange? _mValue_Range;
+        private bool _mUnknown_Range;
+        public Outputs.GatewayRouteSpecHttpRouteMatchHeaderMatchRange? Range
+        {
+            get
+            {
+                if (!_mUnknown_Range) return _mValue_Range;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatchHeaderMatch.Range' is not present");
+            }
+        }
 
         /// <summary>
         /// Header value sent by the client must include the specified characters.
         /// </summary>
-        [Input("regex")]
+        [PolicyResourceProperty("regex", "_mUnknown_Regex")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegex;
-
-        public string? Regex => _mRegex.GetValue("regex");
+        private string? _mValue_Regex;
+        private bool _mUnknown_Regex;
+        public string? Regex
+        {
+            get
+            {
+                if (!_mUnknown_Regex) return _mValue_Regex;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatchHeaderMatch.Regex' is not present");
+            }
+        }
 
         /// <summary>
         /// Header value sent by the client must end with the specified characters.
         /// </summary>
-        [Input("suffix")]
+        [PolicyResourceProperty("suffix", "_mUnknown_Suffix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSuffix;
-
-        public string? Suffix => _mSuffix.GetValue("suffix");
+        private string? _mValue_Suffix;
+        private bool _mUnknown_Suffix;
+        public string? Suffix
+        {
+            get
+            {
+                if (!_mUnknown_Suffix) return _mValue_Suffix;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatchHeaderMatch.Suffix' is not present");
+            }
+        }
     }
 }

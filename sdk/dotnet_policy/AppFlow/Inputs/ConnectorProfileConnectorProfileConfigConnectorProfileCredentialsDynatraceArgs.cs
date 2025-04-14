@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
         /// <summary>
         /// The API tokens used by Dynatrace API to authenticate various API calls.
         /// </summary>
-        [Input("apiToken")]
+        [PolicyResourceProperty("apiToken", "_mUnknown_ApiToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiToken;
-
-        public string? ApiToken => _mApiToken.GetValue("apiToken");
+        private string? _mValue_ApiToken;
+        private bool _mUnknown_ApiToken;
+        public string? ApiToken
+        {
+            get
+            {
+                if (!_mUnknown_ApiToken) return _mValue_ApiToken;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs.ApiToken' is not present");
+            }
+        }
     }
 }

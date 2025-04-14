@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Inputs
         /// <summary>
         /// An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
         /// </summary>
-        [Input("addressDefinition")]
+        [PolicyResourceProperty("addressDefinition", "_mUnknown_AddressDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddressDefinition;
-
-        public string? AddressDefinition => _mAddressDefinition.GetValue("addressDefinition");
+        private string? _mValue_AddressDefinition;
+        private bool _mUnknown_AddressDefinition;
+        public string? AddressDefinition
+        {
+            get
+            {
+                if (!_mUnknown_AddressDefinition) return _mValue_AddressDefinition;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs.AddressDefinition' is not present");
+            }
+        }
     }
 }

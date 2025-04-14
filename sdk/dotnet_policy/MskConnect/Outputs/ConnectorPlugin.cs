@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect.Outputs
         /// <summary>
         /// Details about a custom plugin. See `custom_plugin` Block for details.
         /// </summary>
-        [Input("customPlugin")]
+        [PolicyResourceProperty("customPlugin", "_mUnknown_CustomPlugin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorPluginCustomPlugin> _mCustomPlugin;
-
-        public Outputs.ConnectorPluginCustomPlugin? CustomPlugin => _mCustomPlugin.GetValue("customPlugin");
+        private Outputs.ConnectorPluginCustomPlugin? _mValue_CustomPlugin;
+        private bool _mUnknown_CustomPlugin;
+        public Outputs.ConnectorPluginCustomPlugin? CustomPlugin
+        {
+            get
+            {
+                if (!_mUnknown_CustomPlugin) return _mValue_CustomPlugin;
+                throw new UndeferrableValueException("Value 'ConnectorPlugin.CustomPlugin' is not present");
+            }
+        }
     }
 }

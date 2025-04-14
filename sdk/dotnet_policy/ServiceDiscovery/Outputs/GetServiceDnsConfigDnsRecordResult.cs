@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ServiceDiscovery.Outputs
         /// <summary>
         /// Amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
         /// </summary>
-        [Input("ttl")]
+        [PolicyResourceProperty("ttl", "_mUnknown_Ttl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTtl;
-
-        public int? Ttl => _mTtl.GetValue("ttl");
+        private int? _mValue_Ttl;
+        private bool _mUnknown_Ttl;
+        public int? Ttl
+        {
+            get
+            {
+                if (!_mUnknown_Ttl) return _mValue_Ttl;
+                throw new UndeferrableValueException("Value 'GetServiceDnsConfigDnsRecordResult.Ttl' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetServiceDnsConfigDnsRecordResult.Type' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// The name of the connection to use to connect to the Delta table target.
         /// </summary>
-        [Input("connectionName")]
+        [PolicyResourceProperty("connectionName", "_mUnknown_ConnectionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionName;
-
-        public string? ConnectionName => _mConnectionName.GetValue("connectionName");
+        private string? _mValue_ConnectionName;
+        private bool _mUnknown_ConnectionName;
+        public string? ConnectionName
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionName) return _mValue_ConnectionName;
+                throw new UndeferrableValueException("Value 'CrawlerDeltaTargetArgs.ConnectionName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
         /// </summary>
-        [Input("createNativeDeltaTable")]
+        [PolicyResourceProperty("createNativeDeltaTable", "_mUnknown_CreateNativeDeltaTable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCreateNativeDeltaTable;
-
-        public bool? CreateNativeDeltaTable => _mCreateNativeDeltaTable.GetValue("createNativeDeltaTable");
+        private bool? _mValue_CreateNativeDeltaTable;
+        private bool _mUnknown_CreateNativeDeltaTable;
+        public bool? CreateNativeDeltaTable
+        {
+            get
+            {
+                if (!_mUnknown_CreateNativeDeltaTable) return _mValue_CreateNativeDeltaTable;
+                throw new UndeferrableValueException("Value 'CrawlerDeltaTargetArgs.CreateNativeDeltaTable' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of the Amazon S3 paths to the Delta tables.
         /// </summary>
-        [Input("deltaTables")]
+        [PolicyResourceProperty("deltaTables", "_mUnknown_DeltaTables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDeltaTables;
-
-        public List<string>? DeltaTables => _mDeltaTables.GetValue("deltaTables");
+        private List<string>? _mValue_DeltaTables;
+        private bool _mUnknown_DeltaTables;
+        public List<string>? DeltaTables
+        {
+            get
+            {
+                if (!_mUnknown_DeltaTables) return _mValue_DeltaTables;
+                throw new UndeferrableValueException("Value 'CrawlerDeltaTargetArgs.DeltaTables' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to write the manifest files to the Delta table path.
         /// </summary>
-        [Input("writeManifest")]
+        [PolicyResourceProperty("writeManifest", "_mUnknown_WriteManifest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWriteManifest;
-
-        public bool? WriteManifest => _mWriteManifest.GetValue("writeManifest");
+        private bool? _mValue_WriteManifest;
+        private bool _mUnknown_WriteManifest;
+        public bool? WriteManifest
+        {
+            get
+            {
+                if (!_mUnknown_WriteManifest) return _mValue_WriteManifest;
+                throw new UndeferrableValueException("Value 'CrawlerDeltaTargetArgs.WriteManifest' is not present");
+            }
+        }
     }
 }

@@ -15,11 +15,18 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Outputs
         /// <summary>
         /// Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
         /// </summary>
-        [Input("identifier")]
+        [PolicyResourceProperty("identifier", "_mUnknown_Identifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
-
-        public string? Identifier => _mIdentifier.GetValue("identifier");
+        private string? _mValue_Identifier;
+        private bool _mUnknown_Identifier;
+        public string? Identifier
+        {
+            get
+            {
+                if (!_mUnknown_Identifier) return _mValue_Identifier;
+                throw new UndeferrableValueException("Value 'GroupTrafficSource.Identifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Provides additional context for the value of Identifier.
@@ -28,10 +35,17 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Outputs
         /// `elbv2` if `identifier` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
         /// `vpc-lattice` if `identifier` is the ARN of a VPC Lattice target group.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GroupTrafficSource.Type' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// Configures CloudWatch Logs as a findings destination.
         /// </summary>
-        [Input("cloudwatchLogs")]
+        [PolicyResourceProperty("cloudwatchLogs", "_mUnknown_CloudwatchLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsInputArgs> _mCloudwatchLogs;
-
-        public Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsInputArgs? CloudwatchLogs => _mCloudwatchLogs.GetValue("cloudwatchLogs");
+        private Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsInputArgs? _mValue_CloudwatchLogs;
+        private bool _mUnknown_CloudwatchLogs;
+        public Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsInputArgs? CloudwatchLogs
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogs) return _mValue_CloudwatchLogs;
+                throw new UndeferrableValueException("Value 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationInputArgs.CloudwatchLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures Kinesis Firehose as a findings destination.
         /// </summary>
-        [Input("firehose")]
+        [PolicyResourceProperty("firehose", "_mUnknown_Firehose")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseInputArgs> _mFirehose;
-
-        public Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseInputArgs? Firehose => _mFirehose.GetValue("firehose");
+        private Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseInputArgs? _mValue_Firehose;
+        private bool _mUnknown_Firehose;
+        public Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseInputArgs? Firehose
+        {
+            get
+            {
+                if (!_mUnknown_Firehose) return _mValue_Firehose;
+                throw new UndeferrableValueException("Value 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationInputArgs.Firehose' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures S3 as a findings destination.
         /// </summary>
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3InputArgs> _mS3;
-
-        public Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3InputArgs? S3 => _mS3.GetValue("s3");
+        private Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3InputArgs? _mValue_S3;
+        private bool _mUnknown_S3;
+        public Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3InputArgs? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationInputArgs.S3' is not present");
+            }
+        }
     }
 }

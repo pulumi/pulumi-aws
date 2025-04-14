@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ElasticSearch.Outputs
         /// <summary>
         /// The CloudWatch Log Group where the logs are published.
         /// </summary>
-        [Input("cloudwatchLogGroupArn")]
+        [PolicyResourceProperty("cloudwatchLogGroupArn", "_mUnknown_CloudwatchLogGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchLogGroupArn;
-
-        public string? CloudwatchLogGroupArn => _mCloudwatchLogGroupArn.GetValue("cloudwatchLogGroupArn");
+        private string? _mValue_CloudwatchLogGroupArn;
+        private bool _mUnknown_CloudwatchLogGroupArn;
+        public string? CloudwatchLogGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogGroupArn) return _mValue_CloudwatchLogGroupArn;
+                throw new UndeferrableValueException("Value 'GetDomainLogPublishingOptionResult.CloudwatchLogGroupArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether node to node encryption is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'GetDomainLogPublishingOptionResult.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of Elasticsearch log being published.
         /// </summary>
-        [Input("logType")]
+        [PolicyResourceProperty("logType", "_mUnknown_LogType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogType;
-
-        public string? LogType => _mLogType.GetValue("logType");
+        private string? _mValue_LogType;
+        private bool _mUnknown_LogType;
+        public string? LogType
+        {
+            get
+            {
+                if (!_mUnknown_LogType) return _mValue_LogType;
+                throw new UndeferrableValueException("Value 'GetDomainLogPublishingOptionResult.LogType' is not present");
+            }
+        }
     }
 }

@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult
     {
-        [Input("defaultTargetHostname")]
+        [PolicyResourceProperty("defaultTargetHostname", "_mUnknown_DefaultTargetHostname")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultTargetHostname;
-
-        public string? DefaultTargetHostname => _mDefaultTargetHostname.GetValue("defaultTargetHostname");
+        private string? _mValue_DefaultTargetHostname;
+        private bool _mUnknown_DefaultTargetHostname;
+        public string? DefaultTargetHostname
+        {
+            get
+            {
+                if (!_mUnknown_DefaultTargetHostname) return _mValue_DefaultTargetHostname;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult.DefaultTargetHostname' is not present");
+            }
+        }
     }
 }

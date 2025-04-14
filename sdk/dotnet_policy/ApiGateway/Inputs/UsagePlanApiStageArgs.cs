@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway.Inputs
         /// <summary>
         /// API Id of the associated API stage in a usage plan.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'UsagePlanApiStageArgs.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// API stage name of the associated API stage in a usage plan.
         /// </summary>
-        [Input("stage")]
+        [PolicyResourceProperty("stage", "_mUnknown_Stage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStage;
-
-        public string? Stage => _mStage.GetValue("stage");
+        private string? _mValue_Stage;
+        private bool _mUnknown_Stage;
+        public string? Stage
+        {
+            get
+            {
+                if (!_mUnknown_Stage) return _mValue_Stage;
+                throw new UndeferrableValueException("Value 'UsagePlanApiStageArgs.Stage' is not present");
+            }
+        }
 
         /// <summary>
         /// The throttling limits of the usage plan.
         /// </summary>
-        [Input("throttles")]
+        [PolicyResourceProperty("throttles", "_mUnknown_Throttles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.UsagePlanApiStageThrottleArgs>> _mThrottles;
-
-        public List<Inputs.UsagePlanApiStageThrottleArgs>? Throttles => _mThrottles.GetValue("throttles");
+        private List<Inputs.UsagePlanApiStageThrottleArgs>? _mValue_Throttles;
+        private bool _mUnknown_Throttles;
+        public List<Inputs.UsagePlanApiStageThrottleArgs>? Throttles
+        {
+            get
+            {
+                if (!_mUnknown_Throttles) return _mValue_Throttles;
+                throw new UndeferrableValueException("Value 'UsagePlanApiStageArgs.Throttles' is not present");
+            }
+        }
     }
 }

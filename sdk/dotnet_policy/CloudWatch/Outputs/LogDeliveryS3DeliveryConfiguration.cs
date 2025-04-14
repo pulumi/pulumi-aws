@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Outputs
         /// <summary>
         /// This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
         /// </summary>
-        [Input("enableHiveCompatiblePath")]
+        [PolicyResourceProperty("enableHiveCompatiblePath", "_mUnknown_EnableHiveCompatiblePath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableHiveCompatiblePath;
-
-        public bool? EnableHiveCompatiblePath => _mEnableHiveCompatiblePath.GetValue("enableHiveCompatiblePath");
+        private bool? _mValue_EnableHiveCompatiblePath;
+        private bool _mUnknown_EnableHiveCompatiblePath;
+        public bool? EnableHiveCompatiblePath
+        {
+            get
+            {
+                if (!_mUnknown_EnableHiveCompatiblePath) return _mValue_EnableHiveCompatiblePath;
+                throw new UndeferrableValueException("Value 'LogDeliveryS3DeliveryConfiguration.EnableHiveCompatiblePath' is not present");
+            }
+        }
 
         /// <summary>
         /// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
         /// </summary>
-        [Input("suffixPath")]
+        [PolicyResourceProperty("suffixPath", "_mUnknown_SuffixPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSuffixPath;
-
-        public string? SuffixPath => _mSuffixPath.GetValue("suffixPath");
+        private string? _mValue_SuffixPath;
+        private bool _mUnknown_SuffixPath;
+        public string? SuffixPath
+        {
+            get
+            {
+                if (!_mUnknown_SuffixPath) return _mValue_SuffixPath;
+                throw new UndeferrableValueException("Value 'LogDeliveryS3DeliveryConfiguration.SuffixPath' is not present");
+            }
+        }
     }
 }

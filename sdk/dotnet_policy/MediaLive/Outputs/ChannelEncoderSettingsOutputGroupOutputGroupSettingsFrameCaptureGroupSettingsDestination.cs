@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Reference ID for the destination.
         /// </summary>
-        [Input("destinationRefId")]
+        [PolicyResourceProperty("destinationRefId", "_mUnknown_DestinationRefId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationRefId;
-
-        public string? DestinationRefId => _mDestinationRefId.GetValue("destinationRefId");
+        private string? _mValue_DestinationRefId;
+        private bool _mUnknown_DestinationRefId;
+        public string? DestinationRefId
+        {
+            get
+            {
+                if (!_mUnknown_DestinationRefId) return _mValue_DestinationRefId;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination.DestinationRefId' is not present");
+            }
+        }
     }
 }

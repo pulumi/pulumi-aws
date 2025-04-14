@@ -15,57 +15,99 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// The ARN of the Kinesis Analytics Application.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationOutputArgs.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesis_stream`.
         /// See Kinesis Firehose below for more details.
         /// </summary>
-        [Input("kinesisFirehose")]
+        [PolicyResourceProperty("kinesisFirehose", "_mUnknown_KinesisFirehose")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsApplicationOutputKinesisFirehoseArgs> _mKinesisFirehose;
-
-        public Inputs.AnalyticsApplicationOutputKinesisFirehoseArgs? KinesisFirehose => _mKinesisFirehose.GetValue("kinesisFirehose");
+        private Inputs.AnalyticsApplicationOutputKinesisFirehoseArgs? _mValue_KinesisFirehose;
+        private bool _mUnknown_KinesisFirehose;
+        public Inputs.AnalyticsApplicationOutputKinesisFirehoseArgs? KinesisFirehose
+        {
+            get
+            {
+                if (!_mUnknown_KinesisFirehose) return _mValue_KinesisFirehose;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationOutputArgs.KinesisFirehose' is not present");
+            }
+        }
 
         /// <summary>
         /// The Kinesis Stream configuration for the destination stream. Conflicts with `kinesis_firehose`.
         /// See Kinesis Stream below for more details.
         /// </summary>
-        [Input("kinesisStream")]
+        [PolicyResourceProperty("kinesisStream", "_mUnknown_KinesisStream")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsApplicationOutputKinesisStreamArgs> _mKinesisStream;
-
-        public Inputs.AnalyticsApplicationOutputKinesisStreamArgs? KinesisStream => _mKinesisStream.GetValue("kinesisStream");
+        private Inputs.AnalyticsApplicationOutputKinesisStreamArgs? _mValue_KinesisStream;
+        private bool _mUnknown_KinesisStream;
+        public Inputs.AnalyticsApplicationOutputKinesisStreamArgs? KinesisStream
+        {
+            get
+            {
+                if (!_mUnknown_KinesisStream) return _mValue_KinesisStream;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationOutputArgs.KinesisStream' is not present");
+            }
+        }
 
         /// <summary>
         /// The Lambda function destination. See Lambda below for more details.
         /// </summary>
-        [Input("lambda")]
+        [PolicyResourceProperty("lambda", "_mUnknown_Lambda")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsApplicationOutputLambdaArgs> _mLambda;
-
-        public Inputs.AnalyticsApplicationOutputLambdaArgs? Lambda => _mLambda.GetValue("lambda");
+        private Inputs.AnalyticsApplicationOutputLambdaArgs? _mValue_Lambda;
+        private bool _mUnknown_Lambda;
+        public Inputs.AnalyticsApplicationOutputLambdaArgs? Lambda
+        {
+            get
+            {
+                if (!_mUnknown_Lambda) return _mValue_Lambda;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationOutputArgs.Lambda' is not present");
+            }
+        }
 
         /// <summary>
         /// The Name of the in-application stream.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationOutputArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Schema format of the data written to the destination. See Destination Schema below for more details.
         /// </summary>
-        [Input("schema")]
+        [PolicyResourceProperty("schema", "_mUnknown_Schema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsApplicationOutputSchemaArgs> _mSchema;
-
-        public Inputs.AnalyticsApplicationOutputSchemaArgs? Schema => _mSchema.GetValue("schema");
+        private Inputs.AnalyticsApplicationOutputSchemaArgs? _mValue_Schema;
+        private bool _mUnknown_Schema;
+        public Inputs.AnalyticsApplicationOutputSchemaArgs? Schema
+        {
+            get
+            {
+                if (!_mUnknown_Schema) return _mValue_Schema;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationOutputArgs.Schema' is not present");
+            }
+        }
     }
 }

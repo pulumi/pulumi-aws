@@ -16,130 +16,228 @@ namespace Pulumi.PolicyPacks.Aws.Grafana
         /// <summary>
         /// The admin role values.
         /// </summary>
-        [Input("adminRoleValues")]
+        [PolicyResourceProperty("adminRoleValues", "_mUnknown_AdminRoleValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdminRoleValues;
-
-        public List<string>? AdminRoleValues => _mAdminRoleValues.GetValue("adminRoleValues");
+        private List<string>? _mValue_AdminRoleValues;
+        private bool _mUnknown_AdminRoleValues;
+        public List<string>? AdminRoleValues
+        {
+            get
+            {
+                if (!_mUnknown_AdminRoleValues) return _mValue_AdminRoleValues;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.AdminRoleValues' is not present");
+            }
+        }
 
         /// <summary>
         /// The allowed organizations.
         /// </summary>
-        [Input("allowedOrganizations")]
+        [PolicyResourceProperty("allowedOrganizations", "_mUnknown_AllowedOrganizations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedOrganizations;
-
-        public List<string>? AllowedOrganizations => _mAllowedOrganizations.GetValue("allowedOrganizations");
+        private List<string>? _mValue_AllowedOrganizations;
+        private bool _mUnknown_AllowedOrganizations;
+        public List<string>? AllowedOrganizations
+        {
+            get
+            {
+                if (!_mUnknown_AllowedOrganizations) return _mValue_AllowedOrganizations;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.AllowedOrganizations' is not present");
+            }
+        }
 
         /// <summary>
         /// The editor role values.
         /// </summary>
-        [Input("editorRoleValues")]
+        [PolicyResourceProperty("editorRoleValues", "_mUnknown_EditorRoleValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEditorRoleValues;
-
-        public List<string>? EditorRoleValues => _mEditorRoleValues.GetValue("editorRoleValues");
+        private List<string>? _mValue_EditorRoleValues;
+        private bool _mUnknown_EditorRoleValues;
+        public List<string>? EditorRoleValues
+        {
+            get
+            {
+                if (!_mUnknown_EditorRoleValues) return _mValue_EditorRoleValues;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.EditorRoleValues' is not present");
+            }
+        }
 
         /// <summary>
         /// The email assertion.
         /// </summary>
-        [Input("emailAssertion")]
+        [PolicyResourceProperty("emailAssertion", "_mUnknown_EmailAssertion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAssertion;
-
-        public string? EmailAssertion => _mEmailAssertion.GetValue("emailAssertion");
+        private string? _mValue_EmailAssertion;
+        private bool _mUnknown_EmailAssertion;
+        public string? EmailAssertion
+        {
+            get
+            {
+                if (!_mUnknown_EmailAssertion) return _mValue_EmailAssertion;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.EmailAssertion' is not present");
+            }
+        }
 
         /// <summary>
         /// The groups assertion.
         /// </summary>
-        [Input("groupsAssertion")]
+        [PolicyResourceProperty("groupsAssertion", "_mUnknown_GroupsAssertion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupsAssertion;
-
-        public string? GroupsAssertion => _mGroupsAssertion.GetValue("groupsAssertion");
+        private string? _mValue_GroupsAssertion;
+        private bool _mUnknown_GroupsAssertion;
+        public string? GroupsAssertion
+        {
+            get
+            {
+                if (!_mUnknown_GroupsAssertion) return _mValue_GroupsAssertion;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.GroupsAssertion' is not present");
+            }
+        }
 
         /// <summary>
         /// The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
         /// </summary>
-        [Input("idpMetadataUrl")]
+        [PolicyResourceProperty("idpMetadataUrl", "_mUnknown_IdpMetadataUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdpMetadataUrl;
-
-        public string? IdpMetadataUrl => _mIdpMetadataUrl.GetValue("idpMetadataUrl");
+        private string? _mValue_IdpMetadataUrl;
+        private bool _mUnknown_IdpMetadataUrl;
+        public string? IdpMetadataUrl
+        {
+            get
+            {
+                if (!_mUnknown_IdpMetadataUrl) return _mValue_IdpMetadataUrl;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.IdpMetadataUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
         /// </summary>
-        [Input("idpMetadataXml")]
+        [PolicyResourceProperty("idpMetadataXml", "_mUnknown_IdpMetadataXml")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdpMetadataXml;
-
-        public string? IdpMetadataXml => _mIdpMetadataXml.GetValue("idpMetadataXml");
+        private string? _mValue_IdpMetadataXml;
+        private bool _mUnknown_IdpMetadataXml;
+        public string? IdpMetadataXml
+        {
+            get
+            {
+                if (!_mUnknown_IdpMetadataXml) return _mValue_IdpMetadataXml;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.IdpMetadataXml' is not present");
+            }
+        }
 
         /// <summary>
         /// The login assertion.
         /// </summary>
-        [Input("loginAssertion")]
+        [PolicyResourceProperty("loginAssertion", "_mUnknown_LoginAssertion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoginAssertion;
-
-        public string? LoginAssertion => _mLoginAssertion.GetValue("loginAssertion");
+        private string? _mValue_LoginAssertion;
+        private bool _mUnknown_LoginAssertion;
+        public string? LoginAssertion
+        {
+            get
+            {
+                if (!_mUnknown_LoginAssertion) return _mValue_LoginAssertion;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.LoginAssertion' is not present");
+            }
+        }
 
         /// <summary>
         /// The login validity duration.
         /// </summary>
-        [Input("loginValidityDuration")]
+        [PolicyResourceProperty("loginValidityDuration", "_mUnknown_LoginValidityDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLoginValidityDuration;
-
-        public int? LoginValidityDuration => _mLoginValidityDuration.GetValue("loginValidityDuration");
+        private int? _mValue_LoginValidityDuration;
+        private bool _mUnknown_LoginValidityDuration;
+        public int? LoginValidityDuration
+        {
+            get
+            {
+                if (!_mUnknown_LoginValidityDuration) return _mValue_LoginValidityDuration;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.LoginValidityDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The name assertion.
         /// </summary>
-        [Input("nameAssertion")]
+        [PolicyResourceProperty("nameAssertion", "_mUnknown_NameAssertion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNameAssertion;
-
-        public string? NameAssertion => _mNameAssertion.GetValue("nameAssertion");
+        private string? _mValue_NameAssertion;
+        private bool _mUnknown_NameAssertion;
+        public string? NameAssertion
+        {
+            get
+            {
+                if (!_mUnknown_NameAssertion) return _mValue_NameAssertion;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.NameAssertion' is not present");
+            }
+        }
 
         /// <summary>
         /// The org assertion.
         /// </summary>
-        [Input("orgAssertion")]
+        [PolicyResourceProperty("orgAssertion", "_mUnknown_OrgAssertion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrgAssertion;
-
-        public string? OrgAssertion => _mOrgAssertion.GetValue("orgAssertion");
+        private string? _mValue_OrgAssertion;
+        private bool _mUnknown_OrgAssertion;
+        public string? OrgAssertion
+        {
+            get
+            {
+                if (!_mUnknown_OrgAssertion) return _mValue_OrgAssertion;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.OrgAssertion' is not present");
+            }
+        }
 
         /// <summary>
         /// The role assertion.
         /// </summary>
-        [Input("roleAssertion")]
+        [PolicyResourceProperty("roleAssertion", "_mUnknown_RoleAssertion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleAssertion;
-
-        public string? RoleAssertion => _mRoleAssertion.GetValue("roleAssertion");
+        private string? _mValue_RoleAssertion;
+        private bool _mUnknown_RoleAssertion;
+        public string? RoleAssertion
+        {
+            get
+            {
+                if (!_mUnknown_RoleAssertion) return _mValue_RoleAssertion;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.RoleAssertion' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the SAML configuration.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The workspace id.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("workspaceId")]
+        [PolicyResourceProperty("workspaceId", "_mUnknown_WorkspaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
-
-        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+        private string? _mValue_WorkspaceId;
+        private bool _mUnknown_WorkspaceId;
+        public string? WorkspaceId
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceId) return _mValue_WorkspaceId;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.WorkspaceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration")]
@@ -148,120 +246,211 @@ namespace Pulumi.PolicyPacks.Aws.Grafana
         /// <summary>
         /// The admin role values.
         /// </summary>
-        [Input("adminRoleValues")]
+        [PolicyResourceProperty("adminRoleValues", "_mUnknown_AdminRoleValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdminRoleValues;
-
-        public List<string>? AdminRoleValues => _mAdminRoleValues.GetValue("adminRoleValues");
+        private List<string>? _mValue_AdminRoleValues;
+        private bool _mUnknown_AdminRoleValues;
+        public List<string>? AdminRoleValues
+        {
+            get
+            {
+                if (!_mUnknown_AdminRoleValues) return _mValue_AdminRoleValues;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfigurationArgs.AdminRoleValues' is not present");
+            }
+        }
 
         /// <summary>
         /// The allowed organizations.
         /// </summary>
-        [Input("allowedOrganizations")]
+        [PolicyResourceProperty("allowedOrganizations", "_mUnknown_AllowedOrganizations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedOrganizations;
-
-        public List<string>? AllowedOrganizations => _mAllowedOrganizations.GetValue("allowedOrganizations");
+        private List<string>? _mValue_AllowedOrganizations;
+        private bool _mUnknown_AllowedOrganizations;
+        public List<string>? AllowedOrganizations
+        {
+            get
+            {
+                if (!_mUnknown_AllowedOrganizations) return _mValue_AllowedOrganizations;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfigurationArgs.AllowedOrganizations' is not present");
+            }
+        }
 
         /// <summary>
         /// The editor role values.
         /// </summary>
-        [Input("editorRoleValues")]
+        [PolicyResourceProperty("editorRoleValues", "_mUnknown_EditorRoleValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEditorRoleValues;
-
-        public List<string>? EditorRoleValues => _mEditorRoleValues.GetValue("editorRoleValues");
+        private List<string>? _mValue_EditorRoleValues;
+        private bool _mUnknown_EditorRoleValues;
+        public List<string>? EditorRoleValues
+        {
+            get
+            {
+                if (!_mUnknown_EditorRoleValues) return _mValue_EditorRoleValues;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfigurationArgs.EditorRoleValues' is not present");
+            }
+        }
 
         /// <summary>
         /// The email assertion.
         /// </summary>
-        [Input("emailAssertion")]
+        [PolicyResourceProperty("emailAssertion", "_mUnknown_EmailAssertion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAssertion;
-
-        public string? EmailAssertion => _mEmailAssertion.GetValue("emailAssertion");
+        private string? _mValue_EmailAssertion;
+        private bool _mUnknown_EmailAssertion;
+        public string? EmailAssertion
+        {
+            get
+            {
+                if (!_mUnknown_EmailAssertion) return _mValue_EmailAssertion;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfigurationArgs.EmailAssertion' is not present");
+            }
+        }
 
         /// <summary>
         /// The groups assertion.
         /// </summary>
-        [Input("groupsAssertion")]
+        [PolicyResourceProperty("groupsAssertion", "_mUnknown_GroupsAssertion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupsAssertion;
-
-        public string? GroupsAssertion => _mGroupsAssertion.GetValue("groupsAssertion");
+        private string? _mValue_GroupsAssertion;
+        private bool _mUnknown_GroupsAssertion;
+        public string? GroupsAssertion
+        {
+            get
+            {
+                if (!_mUnknown_GroupsAssertion) return _mValue_GroupsAssertion;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfigurationArgs.GroupsAssertion' is not present");
+            }
+        }
 
         /// <summary>
         /// The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
         /// </summary>
-        [Input("idpMetadataUrl")]
+        [PolicyResourceProperty("idpMetadataUrl", "_mUnknown_IdpMetadataUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdpMetadataUrl;
-
-        public string? IdpMetadataUrl => _mIdpMetadataUrl.GetValue("idpMetadataUrl");
+        private string? _mValue_IdpMetadataUrl;
+        private bool _mUnknown_IdpMetadataUrl;
+        public string? IdpMetadataUrl
+        {
+            get
+            {
+                if (!_mUnknown_IdpMetadataUrl) return _mValue_IdpMetadataUrl;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfigurationArgs.IdpMetadataUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
         /// </summary>
-        [Input("idpMetadataXml")]
+        [PolicyResourceProperty("idpMetadataXml", "_mUnknown_IdpMetadataXml")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdpMetadataXml;
-
-        public string? IdpMetadataXml => _mIdpMetadataXml.GetValue("idpMetadataXml");
+        private string? _mValue_IdpMetadataXml;
+        private bool _mUnknown_IdpMetadataXml;
+        public string? IdpMetadataXml
+        {
+            get
+            {
+                if (!_mUnknown_IdpMetadataXml) return _mValue_IdpMetadataXml;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfigurationArgs.IdpMetadataXml' is not present");
+            }
+        }
 
         /// <summary>
         /// The login assertion.
         /// </summary>
-        [Input("loginAssertion")]
+        [PolicyResourceProperty("loginAssertion", "_mUnknown_LoginAssertion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoginAssertion;
-
-        public string? LoginAssertion => _mLoginAssertion.GetValue("loginAssertion");
+        private string? _mValue_LoginAssertion;
+        private bool _mUnknown_LoginAssertion;
+        public string? LoginAssertion
+        {
+            get
+            {
+                if (!_mUnknown_LoginAssertion) return _mValue_LoginAssertion;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfigurationArgs.LoginAssertion' is not present");
+            }
+        }
 
         /// <summary>
         /// The login validity duration.
         /// </summary>
-        [Input("loginValidityDuration")]
+        [PolicyResourceProperty("loginValidityDuration", "_mUnknown_LoginValidityDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLoginValidityDuration;
-
-        public int? LoginValidityDuration => _mLoginValidityDuration.GetValue("loginValidityDuration");
+        private int? _mValue_LoginValidityDuration;
+        private bool _mUnknown_LoginValidityDuration;
+        public int? LoginValidityDuration
+        {
+            get
+            {
+                if (!_mUnknown_LoginValidityDuration) return _mValue_LoginValidityDuration;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfigurationArgs.LoginValidityDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The name assertion.
         /// </summary>
-        [Input("nameAssertion")]
+        [PolicyResourceProperty("nameAssertion", "_mUnknown_NameAssertion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNameAssertion;
-
-        public string? NameAssertion => _mNameAssertion.GetValue("nameAssertion");
+        private string? _mValue_NameAssertion;
+        private bool _mUnknown_NameAssertion;
+        public string? NameAssertion
+        {
+            get
+            {
+                if (!_mUnknown_NameAssertion) return _mValue_NameAssertion;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfigurationArgs.NameAssertion' is not present");
+            }
+        }
 
         /// <summary>
         /// The org assertion.
         /// </summary>
-        [Input("orgAssertion")]
+        [PolicyResourceProperty("orgAssertion", "_mUnknown_OrgAssertion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrgAssertion;
-
-        public string? OrgAssertion => _mOrgAssertion.GetValue("orgAssertion");
+        private string? _mValue_OrgAssertion;
+        private bool _mUnknown_OrgAssertion;
+        public string? OrgAssertion
+        {
+            get
+            {
+                if (!_mUnknown_OrgAssertion) return _mValue_OrgAssertion;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfigurationArgs.OrgAssertion' is not present");
+            }
+        }
 
         /// <summary>
         /// The role assertion.
         /// </summary>
-        [Input("roleAssertion")]
+        [PolicyResourceProperty("roleAssertion", "_mUnknown_RoleAssertion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleAssertion;
-
-        public string? RoleAssertion => _mRoleAssertion.GetValue("roleAssertion");
+        private string? _mValue_RoleAssertion;
+        private bool _mUnknown_RoleAssertion;
+        public string? RoleAssertion
+        {
+            get
+            {
+                if (!_mUnknown_RoleAssertion) return _mValue_RoleAssertion;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfigurationArgs.RoleAssertion' is not present");
+            }
+        }
 
         /// <summary>
         /// The workspace id.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("workspaceId")]
+        [PolicyResourceProperty("workspaceId", "_mUnknown_WorkspaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
-
-        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+        private string? _mValue_WorkspaceId;
+        private bool _mUnknown_WorkspaceId;
+        public string? WorkspaceId
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceId) return _mValue_WorkspaceId;
+                throw new UndeferrableValueException("Value 'WorkspaceSamlConfigurationArgs.WorkspaceId' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.S3Outposts.Inputs
         /// <summary>
         /// Identifier of the Elastic Network Interface (ENI).
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'EndpointNetworkInterfaceArgs.NetworkInterfaceId' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.DataSync.Outputs
         /// <summary>
         /// Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemProtocolSmb.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
         /// </summary>
-        [Input("mountOptions")]
+        [PolicyResourceProperty("mountOptions", "_mUnknown_MountOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LocationFsxOntapFileSystemProtocolSmbMountOptions> _mMountOptions;
-
-        public Outputs.LocationFsxOntapFileSystemProtocolSmbMountOptions? MountOptions => _mMountOptions.GetValue("mountOptions");
+        private Outputs.LocationFsxOntapFileSystemProtocolSmbMountOptions? _mValue_MountOptions;
+        private bool _mUnknown_MountOptions;
+        public Outputs.LocationFsxOntapFileSystemProtocolSmbMountOptions? MountOptions
+        {
+            get
+            {
+                if (!_mUnknown_MountOptions) return _mValue_MountOptions;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemProtocolSmb.MountOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Password of a user who has permission to access your SVM.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemProtocolSmb.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
         /// </summary>
-        [Input("user")]
+        [PolicyResourceProperty("user", "_mUnknown_User")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
-
-        public string? User => _mUser.GetValue("user");
+        private string? _mValue_User;
+        private bool _mUnknown_User;
+        public string? User
+        {
+            get
+            {
+                if (!_mUnknown_User) return _mValue_User;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemProtocolSmb.User' is not present");
+            }
+        }
     }
 }

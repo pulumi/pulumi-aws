@@ -15,21 +15,35 @@ namespace Pulumi.PolicyPacks.Aws.Fis.Outputs
         /// <summary>
         /// Attribute path for the filter.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateTargetFilter.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of attribute values for the filter.
         /// 
         /// &gt; **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
         /// </summary>
-        [Input("values")]
+        [PolicyResourceProperty("values", "_mUnknown_Values")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mValues;
-
-        public List<string>? Values => _mValues.GetValue("values");
+        private List<string>? _mValue_Values;
+        private bool _mUnknown_Values;
+        public List<string>? Values
+        {
+            get
+            {
+                if (!_mUnknown_Values) return _mValue_Values;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateTargetFilter.Values' is not present");
+            }
+        }
     }
 }

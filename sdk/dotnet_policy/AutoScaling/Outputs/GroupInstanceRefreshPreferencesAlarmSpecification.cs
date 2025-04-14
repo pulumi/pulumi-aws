@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Outputs
         /// <summary>
         /// List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
         /// </summary>
-        [Input("alarms")]
+        [PolicyResourceProperty("alarms", "_mUnknown_Alarms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAlarms;
-
-        public List<string>? Alarms => _mAlarms.GetValue("alarms");
+        private List<string>? _mValue_Alarms;
+        private bool _mUnknown_Alarms;
+        public List<string>? Alarms
+        {
+            get
+            {
+                if (!_mUnknown_Alarms) return _mValue_Alarms;
+                throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferencesAlarmSpecification.Alarms' is not present");
+            }
+        }
     }
 }

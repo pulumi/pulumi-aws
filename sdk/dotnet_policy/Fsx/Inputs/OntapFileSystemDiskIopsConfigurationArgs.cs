@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Inputs
         /// <summary>
         /// The total number of SSD IOPS provisioned for the file system.
         /// </summary>
-        [Input("iops")]
+        [PolicyResourceProperty("iops", "_mUnknown_Iops")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIops;
-
-        public int? Iops => _mIops.GetValue("iops");
+        private int? _mValue_Iops;
+        private bool _mUnknown_Iops;
+        public int? Iops
+        {
+            get
+            {
+                if (!_mUnknown_Iops) return _mValue_Iops;
+                throw new UndeferrableValueException("Value 'OntapFileSystemDiskIopsConfigurationArgs.Iops' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
         /// </summary>
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
-
-        public string? Mode => _mMode.GetValue("mode");
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'OntapFileSystemDiskIopsConfigurationArgs.Mode' is not present");
+            }
+        }
     }
 }

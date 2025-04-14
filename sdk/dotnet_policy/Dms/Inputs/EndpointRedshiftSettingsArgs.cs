@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Dms.Inputs
         /// <summary>
         /// Custom S3 Bucket Object prefix for intermediate storage.
         /// </summary>
-        [Input("bucketFolder")]
+        [PolicyResourceProperty("bucketFolder", "_mUnknown_BucketFolder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketFolder;
-
-        public string? BucketFolder => _mBucketFolder.GetValue("bucketFolder");
+        private string? _mValue_BucketFolder;
+        private bool _mUnknown_BucketFolder;
+        public string? BucketFolder
+        {
+            get
+            {
+                if (!_mUnknown_BucketFolder) return _mValue_BucketFolder;
+                throw new UndeferrableValueException("Value 'EndpointRedshiftSettingsArgs.BucketFolder' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom S3 Bucket name for intermediate storage.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'EndpointRedshiftSettingsArgs.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
         /// </summary>
-        [Input("encryptionMode")]
+        [PolicyResourceProperty("encryptionMode", "_mUnknown_EncryptionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionMode;
-
-        public string? EncryptionMode => _mEncryptionMode.GetValue("encryptionMode");
+        private string? _mValue_EncryptionMode;
+        private bool _mUnknown_EncryptionMode;
+        public string? EncryptionMode
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionMode) return _mValue_EncryptionMode;
+                throw new UndeferrableValueException("Value 'EndpointRedshiftSettingsArgs.EncryptionMode' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
         /// </summary>
-        [Input("serverSideEncryptionKmsKeyId")]
+        [PolicyResourceProperty("serverSideEncryptionKmsKeyId", "_mUnknown_ServerSideEncryptionKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerSideEncryptionKmsKeyId;
-
-        public string? ServerSideEncryptionKmsKeyId => _mServerSideEncryptionKmsKeyId.GetValue("serverSideEncryptionKmsKeyId");
+        private string? _mValue_ServerSideEncryptionKmsKeyId;
+        private bool _mUnknown_ServerSideEncryptionKmsKeyId;
+        public string? ServerSideEncryptionKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryptionKmsKeyId) return _mValue_ServerSideEncryptionKmsKeyId;
+                throw new UndeferrableValueException("Value 'EndpointRedshiftSettingsArgs.ServerSideEncryptionKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
         /// </summary>
-        [Input("serviceAccessRoleArn")]
+        [PolicyResourceProperty("serviceAccessRoleArn", "_mUnknown_ServiceAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccessRoleArn;
-
-        public string? ServiceAccessRoleArn => _mServiceAccessRoleArn.GetValue("serviceAccessRoleArn");
+        private string? _mValue_ServiceAccessRoleArn;
+        private bool _mUnknown_ServiceAccessRoleArn;
+        public string? ServiceAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccessRoleArn) return _mValue_ServiceAccessRoleArn;
+                throw new UndeferrableValueException("Value 'EndpointRedshiftSettingsArgs.ServiceAccessRoleArn' is not present");
+            }
+        }
     }
 }

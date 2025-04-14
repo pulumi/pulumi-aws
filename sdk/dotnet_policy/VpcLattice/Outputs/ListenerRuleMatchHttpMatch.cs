@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Outputs
         /// <summary>
         /// The header matches. Matches incoming requests with rule based on request header value before applying rule action.
         /// </summary>
-        [Input("headerMatches")]
+        [PolicyResourceProperty("headerMatches", "_mUnknown_HeaderMatches")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ListenerRuleMatchHttpMatchHeaderMatch>> _mHeaderMatches;
-
-        public List<Outputs.ListenerRuleMatchHttpMatchHeaderMatch>? HeaderMatches => _mHeaderMatches.GetValue("headerMatches");
+        private List<Outputs.ListenerRuleMatchHttpMatchHeaderMatch>? _mValue_HeaderMatches;
+        private bool _mUnknown_HeaderMatches;
+        public List<Outputs.ListenerRuleMatchHttpMatchHeaderMatch>? HeaderMatches
+        {
+            get
+            {
+                if (!_mUnknown_HeaderMatches) return _mValue_HeaderMatches;
+                throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatch.HeaderMatches' is not present");
+            }
+        }
 
         /// <summary>
         /// The HTTP method type.
         /// </summary>
-        [Input("method")]
+        [PolicyResourceProperty("method", "_mUnknown_Method")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMethod;
-
-        public string? Method => _mMethod.GetValue("method");
+        private string? _mValue_Method;
+        private bool _mUnknown_Method;
+        public string? Method
+        {
+            get
+            {
+                if (!_mUnknown_Method) return _mValue_Method;
+                throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatch.Method' is not present");
+            }
+        }
 
         /// <summary>
         /// The path match.
         /// </summary>
-        [Input("pathMatch")]
+        [PolicyResourceProperty("pathMatch", "_mUnknown_PathMatch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ListenerRuleMatchHttpMatchPathMatch> _mPathMatch;
-
-        public Outputs.ListenerRuleMatchHttpMatchPathMatch? PathMatch => _mPathMatch.GetValue("pathMatch");
+        private Outputs.ListenerRuleMatchHttpMatchPathMatch? _mValue_PathMatch;
+        private bool _mUnknown_PathMatch;
+        public Outputs.ListenerRuleMatchHttpMatchPathMatch? PathMatch
+        {
+            get
+            {
+                if (!_mUnknown_PathMatch) return _mValue_PathMatch;
+                throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatch.PathMatch' is not present");
+            }
+        }
     }
 }

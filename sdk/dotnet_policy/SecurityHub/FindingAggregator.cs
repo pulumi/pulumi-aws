@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
         /// </summary>
-        [Input("linkingMode")]
+        [PolicyResourceProperty("linkingMode", "_mUnknown_LinkingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLinkingMode;
-
-        public string? LinkingMode => _mLinkingMode.GetValue("linkingMode");
+        private string? _mValue_LinkingMode;
+        private bool _mUnknown_LinkingMode;
+        public string? LinkingMode
+        {
+            get
+            {
+                if (!_mUnknown_LinkingMode) return _mValue_LinkingMode;
+                throw new UndeferrableValueException("Value 'FindingAggregator.LinkingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
         /// </summary>
-        [Input("specifiedRegions")]
+        [PolicyResourceProperty("specifiedRegions", "_mUnknown_SpecifiedRegions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSpecifiedRegions;
-
-        public List<string>? SpecifiedRegions => _mSpecifiedRegions.GetValue("specifiedRegions");
+        private List<string>? _mValue_SpecifiedRegions;
+        private bool _mUnknown_SpecifiedRegions;
+        public List<string>? SpecifiedRegions
+        {
+            get
+            {
+                if (!_mUnknown_SpecifiedRegions) return _mValue_SpecifiedRegions;
+                throw new UndeferrableValueException("Value 'FindingAggregator.SpecifiedRegions' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:securityhub/findingAggregator:FindingAggregator")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
         /// </summary>
-        [Input("linkingMode")]
+        [PolicyResourceProperty("linkingMode", "_mUnknown_LinkingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLinkingMode;
-
-        public string? LinkingMode => _mLinkingMode.GetValue("linkingMode");
+        private string? _mValue_LinkingMode;
+        private bool _mUnknown_LinkingMode;
+        public string? LinkingMode
+        {
+            get
+            {
+                if (!_mUnknown_LinkingMode) return _mValue_LinkingMode;
+                throw new UndeferrableValueException("Value 'FindingAggregatorArgs.LinkingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
         /// </summary>
-        [Input("specifiedRegions")]
+        [PolicyResourceProperty("specifiedRegions", "_mUnknown_SpecifiedRegions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSpecifiedRegions;
-
-        public List<string>? SpecifiedRegions => _mSpecifiedRegions.GetValue("specifiedRegions");
+        private List<string>? _mValue_SpecifiedRegions;
+        private bool _mUnknown_SpecifiedRegions;
+        public List<string>? SpecifiedRegions
+        {
+            get
+            {
+                if (!_mUnknown_SpecifiedRegions) return _mValue_SpecifiedRegions;
+                throw new UndeferrableValueException("Value 'FindingAggregatorArgs.SpecifiedRegions' is not present");
+            }
+        }
     }
 }

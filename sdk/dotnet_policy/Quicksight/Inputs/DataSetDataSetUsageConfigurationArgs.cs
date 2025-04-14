@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// Controls whether a child dataset of a direct query can use this dataset as a source.
         /// </summary>
-        [Input("disableUseAsDirectQuerySource")]
+        [PolicyResourceProperty("disableUseAsDirectQuerySource", "_mUnknown_DisableUseAsDirectQuerySource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableUseAsDirectQuerySource;
-
-        public bool? DisableUseAsDirectQuerySource => _mDisableUseAsDirectQuerySource.GetValue("disableUseAsDirectQuerySource");
+        private bool? _mValue_DisableUseAsDirectQuerySource;
+        private bool _mUnknown_DisableUseAsDirectQuerySource;
+        public bool? DisableUseAsDirectQuerySource
+        {
+            get
+            {
+                if (!_mUnknown_DisableUseAsDirectQuerySource) return _mValue_DisableUseAsDirectQuerySource;
+                throw new UndeferrableValueException("Value 'DataSetDataSetUsageConfigurationArgs.DisableUseAsDirectQuerySource' is not present");
+            }
+        }
 
         /// <summary>
         /// Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
         /// </summary>
-        [Input("disableUseAsImportedSource")]
+        [PolicyResourceProperty("disableUseAsImportedSource", "_mUnknown_DisableUseAsImportedSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableUseAsImportedSource;
-
-        public bool? DisableUseAsImportedSource => _mDisableUseAsImportedSource.GetValue("disableUseAsImportedSource");
+        private bool? _mValue_DisableUseAsImportedSource;
+        private bool _mUnknown_DisableUseAsImportedSource;
+        public bool? DisableUseAsImportedSource
+        {
+            get
+            {
+                if (!_mUnknown_DisableUseAsImportedSource) return _mValue_DisableUseAsImportedSource;
+                throw new UndeferrableValueException("Value 'DataSetDataSetUsageConfigurationArgs.DisableUseAsImportedSource' is not present");
+            }
+        }
     }
 }

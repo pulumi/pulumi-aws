@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Inputs
         /// <summary>
         /// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'FunctionFileSystemConfigArgs.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Path where the function can access the file system, starting with /mnt/.
         /// </summary>
-        [Input("localMountPath")]
+        [PolicyResourceProperty("localMountPath", "_mUnknown_LocalMountPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalMountPath;
-
-        public string? LocalMountPath => _mLocalMountPath.GetValue("localMountPath");
+        private string? _mValue_LocalMountPath;
+        private bool _mUnknown_LocalMountPath;
+        public string? LocalMountPath
+        {
+            get
+            {
+                if (!_mUnknown_LocalMountPath) return _mValue_LocalMountPath;
+                throw new UndeferrableValueException("Value 'FunctionFileSystemConfigArgs.LocalMountPath' is not present");
+            }
+        }
     }
 }

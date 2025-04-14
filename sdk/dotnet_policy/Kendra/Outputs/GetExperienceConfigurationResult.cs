@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// The identifiers of your data sources and FAQs. This is the content you want to use for your Amazon Kendra Experience. Documented below.
         /// </summary>
-        [Input("contentSourceConfigurations")]
+        [PolicyResourceProperty("contentSourceConfigurations", "_mUnknown_ContentSourceConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetExperienceConfigurationContentSourceConfigurationResult>> _mContentSourceConfigurations;
-
-        public List<Outputs.GetExperienceConfigurationContentSourceConfigurationResult>? ContentSourceConfigurations => _mContentSourceConfigurations.GetValue("contentSourceConfigurations");
+        private List<Outputs.GetExperienceConfigurationContentSourceConfigurationResult>? _mValue_ContentSourceConfigurations;
+        private bool _mUnknown_ContentSourceConfigurations;
+        public List<Outputs.GetExperienceConfigurationContentSourceConfigurationResult>? ContentSourceConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_ContentSourceConfigurations) return _mValue_ContentSourceConfigurations;
+                throw new UndeferrableValueException("Value 'GetExperienceConfigurationResult.ContentSourceConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS SSO field name that contains the identifiers of your users, such as their emails. Documented below.
         /// </summary>
-        [Input("userIdentityConfigurations")]
+        [PolicyResourceProperty("userIdentityConfigurations", "_mUnknown_UserIdentityConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetExperienceConfigurationUserIdentityConfigurationResult>> _mUserIdentityConfigurations;
-
-        public List<Outputs.GetExperienceConfigurationUserIdentityConfigurationResult>? UserIdentityConfigurations => _mUserIdentityConfigurations.GetValue("userIdentityConfigurations");
+        private List<Outputs.GetExperienceConfigurationUserIdentityConfigurationResult>? _mValue_UserIdentityConfigurations;
+        private bool _mUnknown_UserIdentityConfigurations;
+        public List<Outputs.GetExperienceConfigurationUserIdentityConfigurationResult>? UserIdentityConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_UserIdentityConfigurations) return _mValue_UserIdentityConfigurations;
+                throw new UndeferrableValueException("Value 'GetExperienceConfigurationResult.UserIdentityConfigurations' is not present");
+            }
+        }
     }
 }

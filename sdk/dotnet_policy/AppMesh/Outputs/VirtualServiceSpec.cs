@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
         /// </summary>
-        [Input("provider")]
+        [PolicyResourceProperty("provider", "_mUnknown_Provider")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualServiceSpecProvider> _mProvider;
-
-        public Outputs.VirtualServiceSpecProvider? Provider => _mProvider.GetValue("provider");
+        private Outputs.VirtualServiceSpecProvider? _mValue_Provider;
+        private bool _mUnknown_Provider;
+        public Outputs.VirtualServiceSpecProvider? Provider
+        {
+            get
+            {
+                if (!_mUnknown_Provider) return _mValue_Provider;
+                throw new UndeferrableValueException("Value 'VirtualServiceSpec.Provider' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
         /// <summary>
         /// List of regular expression patterns indicating the consumer groups that should not be replicated.
         /// </summary>
-        [Input("consumerGroupsToExcludes")]
+        [PolicyResourceProperty("consumerGroupsToExcludes", "_mUnknown_ConsumerGroupsToExcludes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mConsumerGroupsToExcludes;
-
-        public List<string>? ConsumerGroupsToExcludes => _mConsumerGroupsToExcludes.GetValue("consumerGroupsToExcludes");
+        private List<string>? _mValue_ConsumerGroupsToExcludes;
+        private bool _mUnknown_ConsumerGroupsToExcludes;
+        public List<string>? ConsumerGroupsToExcludes
+        {
+            get
+            {
+                if (!_mUnknown_ConsumerGroupsToExcludes) return _mValue_ConsumerGroupsToExcludes;
+                throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListConsumerGroupReplication.ConsumerGroupsToExcludes' is not present");
+            }
+        }
 
         /// <summary>
         /// List of regular expression patterns indicating the consumer groups to copy.
         /// </summary>
-        [Input("consumerGroupsToReplicates")]
+        [PolicyResourceProperty("consumerGroupsToReplicates", "_mUnknown_ConsumerGroupsToReplicates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mConsumerGroupsToReplicates;
-
-        public List<string>? ConsumerGroupsToReplicates => _mConsumerGroupsToReplicates.GetValue("consumerGroupsToReplicates");
+        private List<string>? _mValue_ConsumerGroupsToReplicates;
+        private bool _mUnknown_ConsumerGroupsToReplicates;
+        public List<string>? ConsumerGroupsToReplicates
+        {
+            get
+            {
+                if (!_mUnknown_ConsumerGroupsToReplicates) return _mValue_ConsumerGroupsToReplicates;
+                throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListConsumerGroupReplication.ConsumerGroupsToReplicates' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to periodically check for new consumer groups.
         /// </summary>
-        [Input("detectAndCopyNewConsumerGroups")]
+        [PolicyResourceProperty("detectAndCopyNewConsumerGroups", "_mUnknown_DetectAndCopyNewConsumerGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDetectAndCopyNewConsumerGroups;
-
-        public bool? DetectAndCopyNewConsumerGroups => _mDetectAndCopyNewConsumerGroups.GetValue("detectAndCopyNewConsumerGroups");
+        private bool? _mValue_DetectAndCopyNewConsumerGroups;
+        private bool _mUnknown_DetectAndCopyNewConsumerGroups;
+        public bool? DetectAndCopyNewConsumerGroups
+        {
+            get
+            {
+                if (!_mUnknown_DetectAndCopyNewConsumerGroups) return _mValue_DetectAndCopyNewConsumerGroups;
+                throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListConsumerGroupReplication.DetectAndCopyNewConsumerGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
         /// </summary>
-        [Input("synchroniseConsumerGroupOffsets")]
+        [PolicyResourceProperty("synchroniseConsumerGroupOffsets", "_mUnknown_SynchroniseConsumerGroupOffsets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSynchroniseConsumerGroupOffsets;
-
-        public bool? SynchroniseConsumerGroupOffsets => _mSynchroniseConsumerGroupOffsets.GetValue("synchroniseConsumerGroupOffsets");
+        private bool? _mValue_SynchroniseConsumerGroupOffsets;
+        private bool _mUnknown_SynchroniseConsumerGroupOffsets;
+        public bool? SynchroniseConsumerGroupOffsets
+        {
+            get
+            {
+                if (!_mUnknown_SynchroniseConsumerGroupOffsets) return _mValue_SynchroniseConsumerGroupOffsets;
+                throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListConsumerGroupReplication.SynchroniseConsumerGroupOffsets' is not present");
+            }
+        }
     }
 }

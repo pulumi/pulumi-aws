@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
         /// </summary>
-        [Input("m2tsSettings")]
+        [PolicyResourceProperty("m2tsSettings", "_mUnknown_M2tsSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings> _mM2tsSettings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings? M2tsSettings => _mM2tsSettings.GetValue("m2tsSettings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings? _mValue_M2tsSettings;
+        private bool _mUnknown_M2tsSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings? M2tsSettings
+        {
+            get
+            {
+                if (!_mUnknown_M2tsSettings) return _mValue_M2tsSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings.M2tsSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Raw Settings. This can be set as an empty block.
         /// </summary>
-        [Input("rawSettings")]
+        [PolicyResourceProperty("rawSettings", "_mUnknown_RawSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings> _mRawSettings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings? RawSettings => _mRawSettings.GetValue("rawSettings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings? _mValue_RawSettings;
+        private bool _mUnknown_RawSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings? RawSettings
+        {
+            get
+            {
+                if (!_mUnknown_RawSettings) return _mValue_RawSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings.RawSettings' is not present");
+            }
+        }
     }
 }

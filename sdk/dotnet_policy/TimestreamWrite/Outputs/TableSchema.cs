@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamWrite.Outputs
         /// <summary>
         /// A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
         /// </summary>
-        [Input("compositePartitionKey")]
+        [PolicyResourceProperty("compositePartitionKey", "_mUnknown_CompositePartitionKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableSchemaCompositePartitionKey> _mCompositePartitionKey;
-
-        public Outputs.TableSchemaCompositePartitionKey? CompositePartitionKey => _mCompositePartitionKey.GetValue("compositePartitionKey");
+        private Outputs.TableSchemaCompositePartitionKey? _mValue_CompositePartitionKey;
+        private bool _mUnknown_CompositePartitionKey;
+        public Outputs.TableSchemaCompositePartitionKey? CompositePartitionKey
+        {
+            get
+            {
+                if (!_mUnknown_CompositePartitionKey) return _mValue_CompositePartitionKey;
+                throw new UndeferrableValueException("Value 'TableSchema.CompositePartitionKey' is not present");
+            }
+        }
     }
 }

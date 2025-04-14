@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// <summary>
         /// Additional information about a compute fleet.
         /// </summary>
-        [Input("context")]
+        [PolicyResourceProperty("context", "_mUnknown_Context")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContext;
-
-        public string? Context => _mContext.GetValue("context");
+        private string? _mValue_Context;
+        private bool _mUnknown_Context;
+        public string? Context
+        {
+            get
+            {
+                if (!_mUnknown_Context) return _mValue_Context;
+                throw new UndeferrableValueException("Value 'FleetStatus.Context' is not present");
+            }
+        }
 
         /// <summary>
         /// Message associated with the status of a compute fleet.
         /// </summary>
-        [Input("message")]
+        [PolicyResourceProperty("message", "_mUnknown_Message")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessage;
-
-        public string? Message => _mMessage.GetValue("message");
+        private string? _mValue_Message;
+        private bool _mUnknown_Message;
+        public string? Message
+        {
+            get
+            {
+                if (!_mUnknown_Message) return _mValue_Message;
+                throw new UndeferrableValueException("Value 'FleetStatus.Message' is not present");
+            }
+        }
 
         /// <summary>
         /// Status code of the compute fleet.
         /// </summary>
-        [Input("statusCode")]
+        [PolicyResourceProperty("statusCode", "_mUnknown_StatusCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusCode;
-
-        public string? StatusCode => _mStatusCode.GetValue("statusCode");
+        private string? _mValue_StatusCode;
+        private bool _mUnknown_StatusCode;
+        public string? StatusCode
+        {
+            get
+            {
+                if (!_mUnknown_StatusCode) return _mValue_StatusCode;
+                throw new UndeferrableValueException("Value 'FleetStatus.StatusCode' is not present");
+            }
+        }
     }
 }

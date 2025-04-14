@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Dax
         /// <summary>
         /// A description of the parameter group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ParameterGroup.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the parameter group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ParameterGroup.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters of the parameter group.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ParameterGroupParameter>> _mParameters;
-
-        public List<Outputs.ParameterGroupParameter>? Parameters => _mParameters.GetValue("parameters");
+        private List<Outputs.ParameterGroupParameter>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Outputs.ParameterGroupParameter>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'ParameterGroup.Parameters' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:dax/parameterGroup:ParameterGroup")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Dax
         /// <summary>
         /// A description of the parameter group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ParameterGroupArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the parameter group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ParameterGroupArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters of the parameter group.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ParameterGroupParameterArgs>> _mParameters;
-
-        public List<Inputs.ParameterGroupParameterArgs>? Parameters => _mParameters.GetValue("parameters");
+        private List<Inputs.ParameterGroupParameterArgs>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Inputs.ParameterGroupParameterArgs>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'ParameterGroupArgs.Parameters' is not present");
+            }
+        }
     }
 }

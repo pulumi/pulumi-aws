@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Outputs
         /// <summary>
         /// The ARN of the role.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'CaCertificateRegistrationConfig.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The template body.
         /// </summary>
-        [Input("templateBody")]
+        [PolicyResourceProperty("templateBody", "_mUnknown_TemplateBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateBody;
-
-        public string? TemplateBody => _mTemplateBody.GetValue("templateBody");
+        private string? _mValue_TemplateBody;
+        private bool _mUnknown_TemplateBody;
+        public string? TemplateBody
+        {
+            get
+            {
+                if (!_mUnknown_TemplateBody) return _mValue_TemplateBody;
+                throw new UndeferrableValueException("Value 'CaCertificateRegistrationConfig.TemplateBody' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the provisioning template.
         /// </summary>
-        [Input("templateName")]
+        [PolicyResourceProperty("templateName", "_mUnknown_TemplateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateName;
-
-        public string? TemplateName => _mTemplateName.GetValue("templateName");
+        private string? _mValue_TemplateName;
+        private bool _mUnknown_TemplateName;
+        public string? TemplateName
+        {
+            get
+            {
+                if (!_mUnknown_TemplateName) return _mValue_TemplateName;
+                throw new UndeferrableValueException("Value 'CaCertificateRegistrationConfig.TemplateName' is not present");
+            }
+        }
     }
 }

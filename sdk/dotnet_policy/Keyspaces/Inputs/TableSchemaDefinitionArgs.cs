@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Keyspaces.Inputs
         /// <summary>
         /// The columns that are part of the clustering key of the table.
         /// </summary>
-        [Input("clusteringKeys")]
+        [PolicyResourceProperty("clusteringKeys", "_mUnknown_ClusteringKeys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TableSchemaDefinitionClusteringKeyArgs>> _mClusteringKeys;
-
-        public List<Inputs.TableSchemaDefinitionClusteringKeyArgs>? ClusteringKeys => _mClusteringKeys.GetValue("clusteringKeys");
+        private List<Inputs.TableSchemaDefinitionClusteringKeyArgs>? _mValue_ClusteringKeys;
+        private bool _mUnknown_ClusteringKeys;
+        public List<Inputs.TableSchemaDefinitionClusteringKeyArgs>? ClusteringKeys
+        {
+            get
+            {
+                if (!_mUnknown_ClusteringKeys) return _mValue_ClusteringKeys;
+                throw new UndeferrableValueException("Value 'TableSchemaDefinitionArgs.ClusteringKeys' is not present");
+            }
+        }
 
         /// <summary>
         /// The regular columns of the table.
         /// </summary>
-        [Input("columns")]
+        [PolicyResourceProperty("columns", "_mUnknown_Columns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TableSchemaDefinitionColumnArgs>> _mColumns;
-
-        public List<Inputs.TableSchemaDefinitionColumnArgs>? Columns => _mColumns.GetValue("columns");
+        private List<Inputs.TableSchemaDefinitionColumnArgs>? _mValue_Columns;
+        private bool _mUnknown_Columns;
+        public List<Inputs.TableSchemaDefinitionColumnArgs>? Columns
+        {
+            get
+            {
+                if (!_mUnknown_Columns) return _mValue_Columns;
+                throw new UndeferrableValueException("Value 'TableSchemaDefinitionArgs.Columns' is not present");
+            }
+        }
 
         /// <summary>
         /// The columns that are part of the partition key of the table .
         /// </summary>
-        [Input("partitionKeys")]
+        [PolicyResourceProperty("partitionKeys", "_mUnknown_PartitionKeys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TableSchemaDefinitionPartitionKeyArgs>> _mPartitionKeys;
-
-        public List<Inputs.TableSchemaDefinitionPartitionKeyArgs>? PartitionKeys => _mPartitionKeys.GetValue("partitionKeys");
+        private List<Inputs.TableSchemaDefinitionPartitionKeyArgs>? _mValue_PartitionKeys;
+        private bool _mUnknown_PartitionKeys;
+        public List<Inputs.TableSchemaDefinitionPartitionKeyArgs>? PartitionKeys
+        {
+            get
+            {
+                if (!_mUnknown_PartitionKeys) return _mValue_PartitionKeys;
+                throw new UndeferrableValueException("Value 'TableSchemaDefinitionArgs.PartitionKeys' is not present");
+            }
+        }
 
         /// <summary>
         /// The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
         /// </summary>
-        [Input("staticColumns")]
+        [PolicyResourceProperty("staticColumns", "_mUnknown_StaticColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TableSchemaDefinitionStaticColumnArgs>> _mStaticColumns;
-
-        public List<Inputs.TableSchemaDefinitionStaticColumnArgs>? StaticColumns => _mStaticColumns.GetValue("staticColumns");
+        private List<Inputs.TableSchemaDefinitionStaticColumnArgs>? _mValue_StaticColumns;
+        private bool _mUnknown_StaticColumns;
+        public List<Inputs.TableSchemaDefinitionStaticColumnArgs>? StaticColumns
+        {
+            get
+            {
+                if (!_mUnknown_StaticColumns) return _mValue_StaticColumns;
+                throw new UndeferrableValueException("Value 'TableSchemaDefinitionArgs.StaticColumns' is not present");
+            }
+        }
     }
 }

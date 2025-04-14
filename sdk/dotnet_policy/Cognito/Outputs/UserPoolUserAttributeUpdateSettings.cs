@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `auto_verified_attributes`. Valid values: `email`, `phone_number`.
         /// </summary>
-        [Input("attributesRequireVerificationBeforeUpdates")]
+        [PolicyResourceProperty("attributesRequireVerificationBeforeUpdates", "_mUnknown_AttributesRequireVerificationBeforeUpdates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAttributesRequireVerificationBeforeUpdates;
-
-        public List<string>? AttributesRequireVerificationBeforeUpdates => _mAttributesRequireVerificationBeforeUpdates.GetValue("attributesRequireVerificationBeforeUpdates");
+        private List<string>? _mValue_AttributesRequireVerificationBeforeUpdates;
+        private bool _mUnknown_AttributesRequireVerificationBeforeUpdates;
+        public List<string>? AttributesRequireVerificationBeforeUpdates
+        {
+            get
+            {
+                if (!_mUnknown_AttributesRequireVerificationBeforeUpdates) return _mValue_AttributesRequireVerificationBeforeUpdates;
+                throw new UndeferrableValueException("Value 'UserPoolUserAttributeUpdateSettings.AttributesRequireVerificationBeforeUpdates' is not present");
+            }
+        }
     }
 }

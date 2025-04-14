@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetInstanceTypeNetworkCardResult
     {
-        [Input("baselineBandwidth")]
+        [PolicyResourceProperty("baselineBandwidth", "_mUnknown_BaselineBandwidth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mBaselineBandwidth;
+        private double? _mValue_BaselineBandwidth;
+        private bool _mUnknown_BaselineBandwidth;
+        public double? BaselineBandwidth
+        {
+            get
+            {
+                if (!_mUnknown_BaselineBandwidth) return _mValue_BaselineBandwidth;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeNetworkCardResult.BaselineBandwidth' is not present");
+            }
+        }
 
-        public double? BaselineBandwidth => _mBaselineBandwidth.GetValue("baselineBandwidth");
-
-        [Input("index")]
+        [PolicyResourceProperty("index", "_mUnknown_Index")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIndex;
+        private int? _mValue_Index;
+        private bool _mUnknown_Index;
+        public int? Index
+        {
+            get
+            {
+                if (!_mUnknown_Index) return _mValue_Index;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeNetworkCardResult.Index' is not present");
+            }
+        }
 
-        public int? Index => _mIndex.GetValue("index");
-
-        [Input("maximumInterfaces")]
+        [PolicyResourceProperty("maximumInterfaces", "_mUnknown_MaximumInterfaces")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumInterfaces;
+        private int? _mValue_MaximumInterfaces;
+        private bool _mUnknown_MaximumInterfaces;
+        public int? MaximumInterfaces
+        {
+            get
+            {
+                if (!_mUnknown_MaximumInterfaces) return _mValue_MaximumInterfaces;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeNetworkCardResult.MaximumInterfaces' is not present");
+            }
+        }
 
-        public int? MaximumInterfaces => _mMaximumInterfaces.GetValue("maximumInterfaces");
-
-        [Input("peakBandwidth")]
+        [PolicyResourceProperty("peakBandwidth", "_mUnknown_PeakBandwidth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mPeakBandwidth;
+        private double? _mValue_PeakBandwidth;
+        private bool _mUnknown_PeakBandwidth;
+        public double? PeakBandwidth
+        {
+            get
+            {
+                if (!_mUnknown_PeakBandwidth) return _mValue_PeakBandwidth;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeNetworkCardResult.PeakBandwidth' is not present");
+            }
+        }
 
-        public double? PeakBandwidth => _mPeakBandwidth.GetValue("peakBandwidth");
-
-        [Input("performance")]
+        [PolicyResourceProperty("performance", "_mUnknown_Performance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPerformance;
-
-        public string? Performance => _mPerformance.GetValue("performance");
+        private string? _mValue_Performance;
+        private bool _mUnknown_Performance;
+        public string? Performance
+        {
+            get
+            {
+                if (!_mUnknown_Performance) return _mValue_Performance;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeNetworkCardResult.Performance' is not present");
+            }
+        }
     }
 }

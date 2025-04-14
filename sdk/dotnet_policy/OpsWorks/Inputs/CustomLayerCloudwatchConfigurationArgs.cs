@@ -12,19 +12,33 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks.Inputs
 {
     public sealed class CustomLayerCloudwatchConfigurationArgs
     {
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A block the specifies how an opsworks logs look like. See Log Streams.
         /// </summary>
-        [Input("logStreams")]
+        [PolicyResourceProperty("logStreams", "_mUnknown_LogStreams")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CustomLayerCloudwatchConfigurationLogStreamArgs>> _mLogStreams;
-
-        public List<Inputs.CustomLayerCloudwatchConfigurationLogStreamArgs>? LogStreams => _mLogStreams.GetValue("logStreams");
+        private List<Inputs.CustomLayerCloudwatchConfigurationLogStreamArgs>? _mValue_LogStreams;
+        private bool _mUnknown_LogStreams;
+        public List<Inputs.CustomLayerCloudwatchConfigurationLogStreamArgs>? LogStreams
+        {
+            get
+            {
+                if (!_mUnknown_LogStreams) return _mValue_LogStreams;
+                throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationArgs.LogStreams' is not present");
+            }
+        }
     }
 }

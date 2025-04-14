@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// Nested configuration an argument or property of a node. Defined below.
         /// </summary>
-        [Input("args")]
+        [PolicyResourceProperty("args", "_mUnknown_Args")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetScriptDagNodeArgResult>> _mArgs;
-
-        public List<Outputs.GetScriptDagNodeArgResult>? Args => _mArgs.GetValue("args");
+        private List<Outputs.GetScriptDagNodeArgResult>? _mValue_Args;
+        private bool _mUnknown_Args;
+        public List<Outputs.GetScriptDagNodeArgResult>? Args
+        {
+            get
+            {
+                if (!_mUnknown_Args) return _mValue_Args;
+                throw new UndeferrableValueException("Value 'GetScriptDagNodeResult.Args' is not present");
+            }
+        }
 
         /// <summary>
         /// Node identifier that is unique within the node's graph.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'GetScriptDagNodeResult.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Line number of the node.
         /// </summary>
-        [Input("lineNumber")]
+        [PolicyResourceProperty("lineNumber", "_mUnknown_LineNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLineNumber;
-
-        public int? LineNumber => _mLineNumber.GetValue("lineNumber");
+        private int? _mValue_LineNumber;
+        private bool _mUnknown_LineNumber;
+        public int? LineNumber
+        {
+            get
+            {
+                if (!_mUnknown_LineNumber) return _mValue_LineNumber;
+                throw new UndeferrableValueException("Value 'GetScriptDagNodeResult.LineNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of node this is.
         /// </summary>
-        [Input("nodeType")]
+        [PolicyResourceProperty("nodeType", "_mUnknown_NodeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeType;
-
-        public string? NodeType => _mNodeType.GetValue("nodeType");
+        private string? _mValue_NodeType;
+        private bool _mUnknown_NodeType;
+        public string? NodeType
+        {
+            get
+            {
+                if (!_mUnknown_NodeType) return _mValue_NodeType;
+                throw new UndeferrableValueException("Value 'GetScriptDagNodeResult.NodeType' is not present");
+            }
+        }
     }
 }

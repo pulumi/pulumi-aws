@@ -16,71 +16,127 @@ namespace Pulumi.PolicyPacks.Aws.AppFabric
         /// <summary>
         /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
         /// </summary>
-        [Input("appBundleArn")]
+        [PolicyResourceProperty("appBundleArn", "_mUnknown_AppBundleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppBundleArn;
-
-        public string? AppBundleArn => _mAppBundleArn.GetValue("appBundleArn");
+        private string? _mValue_AppBundleArn;
+        private bool _mUnknown_AppBundleArn;
+        public string? AppBundleArn
+        {
+            get
+            {
+                if (!_mUnknown_AppBundleArn) return _mValue_AppBundleArn;
+                throw new UndeferrableValueException("Value 'IngestionDestination.AppBundleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Ingestion Destination.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'IngestionDestination.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains information about the destination of ingested data.
         /// </summary>
-        [Input("destinationConfiguration")]
+        [PolicyResourceProperty("destinationConfiguration", "_mUnknown_DestinationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IngestionDestinationDestinationConfiguration> _mDestinationConfiguration;
-
-        public Outputs.IngestionDestinationDestinationConfiguration? DestinationConfiguration => _mDestinationConfiguration.GetValue("destinationConfiguration");
+        private Outputs.IngestionDestinationDestinationConfiguration? _mValue_DestinationConfiguration;
+        private bool _mUnknown_DestinationConfiguration;
+        public Outputs.IngestionDestinationDestinationConfiguration? DestinationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DestinationConfiguration) return _mValue_DestinationConfiguration;
+                throw new UndeferrableValueException("Value 'IngestionDestination.DestinationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the ingestion to use for the request.
         /// </summary>
-        [Input("ingestionArn")]
+        [PolicyResourceProperty("ingestionArn", "_mUnknown_IngestionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIngestionArn;
-
-        public string? IngestionArn => _mIngestionArn.GetValue("ingestionArn");
+        private string? _mValue_IngestionArn;
+        private bool _mUnknown_IngestionArn;
+        public string? IngestionArn
+        {
+            get
+            {
+                if (!_mUnknown_IngestionArn) return _mValue_IngestionArn;
+                throw new UndeferrableValueException("Value 'IngestionDestination.IngestionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains information about how ingested data is processed.
         /// </summary>
-        [Input("processingConfiguration")]
+        [PolicyResourceProperty("processingConfiguration", "_mUnknown_ProcessingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IngestionDestinationProcessingConfiguration> _mProcessingConfiguration;
-
-        public Outputs.IngestionDestinationProcessingConfiguration? ProcessingConfiguration => _mProcessingConfiguration.GetValue("processingConfiguration");
+        private Outputs.IngestionDestinationProcessingConfiguration? _mValue_ProcessingConfiguration;
+        private bool _mUnknown_ProcessingConfiguration;
+        public Outputs.IngestionDestinationProcessingConfiguration? ProcessingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ProcessingConfiguration) return _mValue_ProcessingConfiguration;
+                throw new UndeferrableValueException("Value 'IngestionDestination.ProcessingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'IngestionDestination.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'IngestionDestination.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IngestionDestinationTimeouts> _mTimeouts;
-
-        public Outputs.IngestionDestinationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.IngestionDestinationTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.IngestionDestinationTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'IngestionDestination.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appfabric/ingestionDestination:IngestionDestination")]
@@ -89,52 +145,94 @@ namespace Pulumi.PolicyPacks.Aws.AppFabric
         /// <summary>
         /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
         /// </summary>
-        [Input("appBundleArn")]
+        [PolicyResourceProperty("appBundleArn", "_mUnknown_AppBundleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppBundleArn;
-
-        public string? AppBundleArn => _mAppBundleArn.GetValue("appBundleArn");
+        private string? _mValue_AppBundleArn;
+        private bool _mUnknown_AppBundleArn;
+        public string? AppBundleArn
+        {
+            get
+            {
+                if (!_mUnknown_AppBundleArn) return _mValue_AppBundleArn;
+                throw new UndeferrableValueException("Value 'IngestionDestinationArgs.AppBundleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains information about the destination of ingested data.
         /// </summary>
-        [Input("destinationConfiguration")]
+        [PolicyResourceProperty("destinationConfiguration", "_mUnknown_DestinationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IngestionDestinationDestinationConfigurationArgs> _mDestinationConfiguration;
-
-        public Inputs.IngestionDestinationDestinationConfigurationArgs? DestinationConfiguration => _mDestinationConfiguration.GetValue("destinationConfiguration");
+        private Inputs.IngestionDestinationDestinationConfigurationArgs? _mValue_DestinationConfiguration;
+        private bool _mUnknown_DestinationConfiguration;
+        public Inputs.IngestionDestinationDestinationConfigurationArgs? DestinationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DestinationConfiguration) return _mValue_DestinationConfiguration;
+                throw new UndeferrableValueException("Value 'IngestionDestinationArgs.DestinationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the ingestion to use for the request.
         /// </summary>
-        [Input("ingestionArn")]
+        [PolicyResourceProperty("ingestionArn", "_mUnknown_IngestionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIngestionArn;
-
-        public string? IngestionArn => _mIngestionArn.GetValue("ingestionArn");
+        private string? _mValue_IngestionArn;
+        private bool _mUnknown_IngestionArn;
+        public string? IngestionArn
+        {
+            get
+            {
+                if (!_mUnknown_IngestionArn) return _mValue_IngestionArn;
+                throw new UndeferrableValueException("Value 'IngestionDestinationArgs.IngestionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains information about how ingested data is processed.
         /// </summary>
-        [Input("processingConfiguration")]
+        [PolicyResourceProperty("processingConfiguration", "_mUnknown_ProcessingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IngestionDestinationProcessingConfigurationArgs> _mProcessingConfiguration;
-
-        public Inputs.IngestionDestinationProcessingConfigurationArgs? ProcessingConfiguration => _mProcessingConfiguration.GetValue("processingConfiguration");
+        private Inputs.IngestionDestinationProcessingConfigurationArgs? _mValue_ProcessingConfiguration;
+        private bool _mUnknown_ProcessingConfiguration;
+        public Inputs.IngestionDestinationProcessingConfigurationArgs? ProcessingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ProcessingConfiguration) return _mValue_ProcessingConfiguration;
+                throw new UndeferrableValueException("Value 'IngestionDestinationArgs.ProcessingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'IngestionDestinationArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IngestionDestinationTimeoutsArgs> _mTimeouts;
-
-        public Inputs.IngestionDestinationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.IngestionDestinationTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.IngestionDestinationTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'IngestionDestinationArgs.Timeouts' is not present");
+            }
+        }
     }
 }

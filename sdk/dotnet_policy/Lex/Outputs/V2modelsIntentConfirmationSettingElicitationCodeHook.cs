@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Whether a Lambda function should be invoked for the dialog.
         /// </summary>
-        [Input("enableCodeHookInvocation")]
+        [PolicyResourceProperty("enableCodeHookInvocation", "_mUnknown_EnableCodeHookInvocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableCodeHookInvocation;
-
-        public bool? EnableCodeHookInvocation => _mEnableCodeHookInvocation.GetValue("enableCodeHookInvocation");
+        private bool? _mValue_EnableCodeHookInvocation;
+        private bool _mUnknown_EnableCodeHookInvocation;
+        public bool? EnableCodeHookInvocation
+        {
+            get
+            {
+                if (!_mUnknown_EnableCodeHookInvocation) return _mValue_EnableCodeHookInvocation;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingElicitationCodeHook.EnableCodeHookInvocation' is not present");
+            }
+        }
 
         /// <summary>
         /// Label that indicates the dialog step from which the dialog code hook is happening.
         /// </summary>
-        [Input("invocationLabel")]
+        [PolicyResourceProperty("invocationLabel", "_mUnknown_InvocationLabel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInvocationLabel;
-
-        public string? InvocationLabel => _mInvocationLabel.GetValue("invocationLabel");
+        private string? _mValue_InvocationLabel;
+        private bool _mUnknown_InvocationLabel;
+        public string? InvocationLabel
+        {
+            get
+            {
+                if (!_mUnknown_InvocationLabel) return _mValue_InvocationLabel;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingElicitationCodeHook.InvocationLabel' is not present");
+            }
+        }
     }
 }

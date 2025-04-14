@@ -17,10 +17,17 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
         /// The suffix must not be empty and must not include a slash character.
         /// </summary>
-        [Input("suffix")]
+        [PolicyResourceProperty("suffix", "_mUnknown_Suffix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSuffix;
-
-        public string? Suffix => _mSuffix.GetValue("suffix");
+        private string? _mValue_Suffix;
+        private bool _mUnknown_Suffix;
+        public string? Suffix
+        {
+            get
+            {
+                if (!_mUnknown_Suffix) return _mValue_Suffix;
+                throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2IndexDocument.Suffix' is not present");
+            }
+        }
     }
 }

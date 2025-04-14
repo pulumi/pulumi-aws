@@ -16,80 +16,143 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// ARN of the attachment.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'PeeringAttachment.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
         /// </summary>
-        [Input("options")]
+        [PolicyResourceProperty("options", "_mUnknown_Options")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PeeringAttachmentOptions> _mOptions;
-
-        public Outputs.PeeringAttachmentOptions? Options => _mOptions.GetValue("options");
+        private Outputs.PeeringAttachmentOptions? _mValue_Options;
+        private bool _mUnknown_Options;
+        public Outputs.PeeringAttachmentOptions? Options
+        {
+            get
+            {
+                if (!_mUnknown_Options) return _mValue_Options;
+                throw new UndeferrableValueException("Value 'PeeringAttachment.Options' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
         /// </summary>
-        [Input("peerAccountId")]
+        [PolicyResourceProperty("peerAccountId", "_mUnknown_PeerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeerAccountId;
-
-        public string? PeerAccountId => _mPeerAccountId.GetValue("peerAccountId");
+        private string? _mValue_PeerAccountId;
+        private bool _mUnknown_PeerAccountId;
+        public string? PeerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_PeerAccountId) return _mValue_PeerAccountId;
+                throw new UndeferrableValueException("Value 'PeeringAttachment.PeerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Region of EC2 Transit Gateway to peer with.
         /// </summary>
-        [Input("peerRegion")]
+        [PolicyResourceProperty("peerRegion", "_mUnknown_PeerRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeerRegion;
-
-        public string? PeerRegion => _mPeerRegion.GetValue("peerRegion");
+        private string? _mValue_PeerRegion;
+        private bool _mUnknown_PeerRegion;
+        public string? PeerRegion
+        {
+            get
+            {
+                if (!_mUnknown_PeerRegion) return _mValue_PeerRegion;
+                throw new UndeferrableValueException("Value 'PeeringAttachment.PeerRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway to peer with.
         /// </summary>
-        [Input("peerTransitGatewayId")]
+        [PolicyResourceProperty("peerTransitGatewayId", "_mUnknown_PeerTransitGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeerTransitGatewayId;
+        private string? _mValue_PeerTransitGatewayId;
+        private bool _mUnknown_PeerTransitGatewayId;
+        public string? PeerTransitGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_PeerTransitGatewayId) return _mValue_PeerTransitGatewayId;
+                throw new UndeferrableValueException("Value 'PeeringAttachment.PeerTransitGatewayId' is not present");
+            }
+        }
 
-        public string? PeerTransitGatewayId => _mPeerTransitGatewayId.GetValue("peerTransitGatewayId");
-
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'PeeringAttachment.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'PeeringAttachment.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'PeeringAttachment.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway.
         /// </summary>
-        [Input("transitGatewayId")]
+        [PolicyResourceProperty("transitGatewayId", "_mUnknown_TransitGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
-
-        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+        private string? _mValue_TransitGatewayId;
+        private bool _mUnknown_TransitGatewayId;
+        public string? TransitGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayId) return _mValue_TransitGatewayId;
+                throw new UndeferrableValueException("Value 'PeeringAttachment.TransitGatewayId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2transitgateway/peeringAttachment:PeeringAttachment")]
@@ -98,55 +161,97 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
         /// </summary>
-        [Input("options")]
+        [PolicyResourceProperty("options", "_mUnknown_Options")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PeeringAttachmentOptionsArgs> _mOptions;
-
-        public Inputs.PeeringAttachmentOptionsArgs? Options => _mOptions.GetValue("options");
+        private Inputs.PeeringAttachmentOptionsArgs? _mValue_Options;
+        private bool _mUnknown_Options;
+        public Inputs.PeeringAttachmentOptionsArgs? Options
+        {
+            get
+            {
+                if (!_mUnknown_Options) return _mValue_Options;
+                throw new UndeferrableValueException("Value 'PeeringAttachmentArgs.Options' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
         /// </summary>
-        [Input("peerAccountId")]
+        [PolicyResourceProperty("peerAccountId", "_mUnknown_PeerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeerAccountId;
-
-        public string? PeerAccountId => _mPeerAccountId.GetValue("peerAccountId");
+        private string? _mValue_PeerAccountId;
+        private bool _mUnknown_PeerAccountId;
+        public string? PeerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_PeerAccountId) return _mValue_PeerAccountId;
+                throw new UndeferrableValueException("Value 'PeeringAttachmentArgs.PeerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Region of EC2 Transit Gateway to peer with.
         /// </summary>
-        [Input("peerRegion")]
+        [PolicyResourceProperty("peerRegion", "_mUnknown_PeerRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeerRegion;
-
-        public string? PeerRegion => _mPeerRegion.GetValue("peerRegion");
+        private string? _mValue_PeerRegion;
+        private bool _mUnknown_PeerRegion;
+        public string? PeerRegion
+        {
+            get
+            {
+                if (!_mUnknown_PeerRegion) return _mValue_PeerRegion;
+                throw new UndeferrableValueException("Value 'PeeringAttachmentArgs.PeerRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway to peer with.
         /// </summary>
-        [Input("peerTransitGatewayId")]
+        [PolicyResourceProperty("peerTransitGatewayId", "_mUnknown_PeerTransitGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeerTransitGatewayId;
-
-        public string? PeerTransitGatewayId => _mPeerTransitGatewayId.GetValue("peerTransitGatewayId");
+        private string? _mValue_PeerTransitGatewayId;
+        private bool _mUnknown_PeerTransitGatewayId;
+        public string? PeerTransitGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_PeerTransitGatewayId) return _mValue_PeerTransitGatewayId;
+                throw new UndeferrableValueException("Value 'PeeringAttachmentArgs.PeerTransitGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'PeeringAttachmentArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway.
         /// </summary>
-        [Input("transitGatewayId")]
+        [PolicyResourceProperty("transitGatewayId", "_mUnknown_TransitGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
-
-        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+        private string? _mValue_TransitGatewayId;
+        private bool _mUnknown_TransitGatewayId;
+        public string? TransitGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayId) return _mValue_TransitGatewayId;
+                throw new UndeferrableValueException("Value 'PeeringAttachmentArgs.TransitGatewayId' is not present");
+            }
+        }
     }
 }

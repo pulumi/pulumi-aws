@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Fms.Inputs
         /// <summary>
         /// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
         /// </summary>
-        [Input("managedServiceData")]
+        [PolicyResourceProperty("managedServiceData", "_mUnknown_ManagedServiceData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManagedServiceData;
-
-        public string? ManagedServiceData => _mManagedServiceData.GetValue("managedServiceData");
+        private string? _mValue_ManagedServiceData;
+        private bool _mUnknown_ManagedServiceData;
+        public string? ManagedServiceData
+        {
+            get
+            {
+                if (!_mUnknown_ManagedServiceData) return _mValue_ManagedServiceData;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataArgs.ManagedServiceData' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
         /// </summary>
-        [Input("policyOption")]
+        [PolicyResourceProperty("policyOption", "_mUnknown_PolicyOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicySecurityServicePolicyDataPolicyOptionArgs> _mPolicyOption;
-
-        public Inputs.PolicySecurityServicePolicyDataPolicyOptionArgs? PolicyOption => _mPolicyOption.GetValue("policyOption");
+        private Inputs.PolicySecurityServicePolicyDataPolicyOptionArgs? _mValue_PolicyOption;
+        private bool _mUnknown_PolicyOption;
+        public Inputs.PolicySecurityServicePolicyDataPolicyOptionArgs? PolicyOption
+        {
+            get
+            {
+                if (!_mUnknown_PolicyOption) return _mValue_PolicyOption;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataArgs.PolicyOption' is not present");
+            }
+        }
 
         /// <summary>
         /// An integer value containing ICMP type.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataArgs.Type' is not present");
+            }
+        }
     }
 }

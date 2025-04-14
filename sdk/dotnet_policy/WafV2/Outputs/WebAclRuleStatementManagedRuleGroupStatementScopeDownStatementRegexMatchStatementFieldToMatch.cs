@@ -15,118 +15,209 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// Inspect all query arguments.
         /// </summary>
-        [Input("allQueryArguments")]
+        [PolicyResourceProperty("allQueryArguments", "_mUnknown_AllQueryArguments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments> _mAllQueryArguments;
-
-        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments? AllQueryArguments => _mAllQueryArguments.GetValue("allQueryArguments");
+        private Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments? _mValue_AllQueryArguments;
+        private bool _mUnknown_AllQueryArguments;
+        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments? AllQueryArguments
+        {
+            get
+            {
+                if (!_mUnknown_AllQueryArguments) return _mValue_AllQueryArguments;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch.AllQueryArguments' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the request body, which immediately follows the request headers. See `body` below for details.
         /// </summary>
-        [Input("body")]
+        [PolicyResourceProperty("body", "_mUnknown_Body")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchBody> _mBody;
-
-        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchBody? Body => _mBody.GetValue("body");
+        private Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchBody? _mValue_Body;
+        private bool _mUnknown_Body;
+        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchBody? Body
+        {
+            get
+            {
+                if (!_mUnknown_Body) return _mValue_Body;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch.Body' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the cookies in the web request. See `cookies` below for details.
         /// </summary>
-        [Input("cookies")]
+        [PolicyResourceProperty("cookies", "_mUnknown_Cookies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies> _mCookies;
-
-        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies? Cookies => _mCookies.GetValue("cookies");
+        private Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies? _mValue_Cookies;
+        private bool _mUnknown_Cookies;
+        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies? Cookies
+        {
+            get
+            {
+                if (!_mUnknown_Cookies) return _mValue_Cookies;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch.Cookies' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         /// </summary>
-        [Input("headerOrders")]
+        [PolicyResourceProperty("headerOrders", "_mUnknown_HeaderOrders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder>> _mHeaderOrders;
-
-        public List<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder>? HeaderOrders => _mHeaderOrders.GetValue("headerOrders");
+        private List<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder>? _mValue_HeaderOrders;
+        private bool _mUnknown_HeaderOrders;
+        public List<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder>? HeaderOrders
+        {
+            get
+            {
+                if (!_mUnknown_HeaderOrders) return _mValue_HeaderOrders;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch.HeaderOrders' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the request headers. See `headers` below for details.
         /// </summary>
-        [Input("headers")]
+        [PolicyResourceProperty("headers", "_mUnknown_Headers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader>> _mHeaders;
-
-        public List<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader>? Headers => _mHeaders.GetValue("headers");
+        private List<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader>? _mValue_Headers;
+        private bool _mUnknown_Headers;
+        public List<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader>? Headers
+        {
+            get
+            {
+                if (!_mUnknown_Headers) return _mValue_Headers;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch.Headers' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         /// </summary>
-        [Input("ja3Fingerprint")]
+        [PolicyResourceProperty("ja3Fingerprint", "_mUnknown_Ja3Fingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint> _mJa3Fingerprint;
-
-        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint? Ja3Fingerprint => _mJa3Fingerprint.GetValue("ja3Fingerprint");
+        private Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint? _mValue_Ja3Fingerprint;
+        private bool _mUnknown_Ja3Fingerprint;
+        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint? Ja3Fingerprint
+        {
+            get
+            {
+                if (!_mUnknown_Ja3Fingerprint) return _mValue_Ja3Fingerprint;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch.Ja3Fingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         /// </summary>
-        [Input("ja4Fingerprint")]
+        [PolicyResourceProperty("ja4Fingerprint", "_mUnknown_Ja4Fingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint> _mJa4Fingerprint;
-
-        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint? Ja4Fingerprint => _mJa4Fingerprint.GetValue("ja4Fingerprint");
+        private Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint? _mValue_Ja4Fingerprint;
+        private bool _mUnknown_Ja4Fingerprint;
+        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint? Ja4Fingerprint
+        {
+            get
+            {
+                if (!_mUnknown_Ja4Fingerprint) return _mValue_Ja4Fingerprint;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch.Ja4Fingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the request body as JSON. See `json_body` for details.
         /// </summary>
-        [Input("jsonBody")]
+        [PolicyResourceProperty("jsonBody", "_mUnknown_JsonBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody> _mJsonBody;
-
-        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody? JsonBody => _mJsonBody.GetValue("jsonBody");
+        private Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody? _mValue_JsonBody;
+        private bool _mUnknown_JsonBody;
+        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody? JsonBody
+        {
+            get
+            {
+                if (!_mUnknown_JsonBody) return _mValue_JsonBody;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch.JsonBody' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         /// </summary>
-        [Input("method")]
+        [PolicyResourceProperty("method", "_mUnknown_Method")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod> _mMethod;
-
-        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod? Method => _mMethod.GetValue("method");
+        private Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod? _mValue_Method;
+        private bool _mUnknown_Method;
+        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod? Method
+        {
+            get
+            {
+                if (!_mUnknown_Method) return _mValue_Method;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch.Method' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         /// </summary>
-        [Input("queryString")]
+        [PolicyResourceProperty("queryString", "_mUnknown_QueryString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString> _mQueryString;
-
-        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString? QueryString => _mQueryString.GetValue("queryString");
+        private Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString? _mValue_QueryString;
+        private bool _mUnknown_QueryString;
+        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString? QueryString
+        {
+            get
+            {
+                if (!_mUnknown_QueryString) return _mValue_QueryString;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch.QueryString' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect a single header. See `single_header` below for details.
         /// </summary>
-        [Input("singleHeader")]
+        [PolicyResourceProperty("singleHeader", "_mUnknown_SingleHeader")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader> _mSingleHeader;
-
-        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader? SingleHeader => _mSingleHeader.GetValue("singleHeader");
+        private Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader? _mValue_SingleHeader;
+        private bool _mUnknown_SingleHeader;
+        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader? SingleHeader
+        {
+            get
+            {
+                if (!_mUnknown_SingleHeader) return _mValue_SingleHeader;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch.SingleHeader' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect a single query argument. See `single_query_argument` below for details.
         /// </summary>
-        [Input("singleQueryArgument")]
+        [PolicyResourceProperty("singleQueryArgument", "_mUnknown_SingleQueryArgument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument> _mSingleQueryArgument;
-
-        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument? SingleQueryArgument => _mSingleQueryArgument.GetValue("singleQueryArgument");
+        private Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument? _mValue_SingleQueryArgument;
+        private bool _mUnknown_SingleQueryArgument;
+        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument? SingleQueryArgument
+        {
+            get
+            {
+                if (!_mUnknown_SingleQueryArgument) return _mValue_SingleQueryArgument;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch.SingleQueryArgument' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         /// </summary>
-        [Input("uriPath")]
+        [PolicyResourceProperty("uriPath", "_mUnknown_UriPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath> _mUriPath;
-
-        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath? UriPath => _mUriPath.GetValue("uriPath");
+        private Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath? _mValue_UriPath;
+        private bool _mUnknown_UriPath;
+        public Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath? UriPath
+        {
+            get
+            {
+                if (!_mUnknown_UriPath) return _mValue_UriPath;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch.UriPath' is not present");
+            }
+        }
     }
 }

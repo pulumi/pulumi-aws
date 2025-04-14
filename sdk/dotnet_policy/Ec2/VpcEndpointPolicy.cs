@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'VpcEndpointPolicy.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC Endpoint ID.
         /// </summary>
-        [Input("vpcEndpointId")]
+        [PolicyResourceProperty("vpcEndpointId", "_mUnknown_VpcEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
-
-        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+        private string? _mValue_VpcEndpointId;
+        private bool _mUnknown_VpcEndpointId;
+        public string? VpcEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointId) return _mValue_VpcEndpointId;
+                throw new UndeferrableValueException("Value 'VpcEndpointPolicy.VpcEndpointId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'VpcEndpointPolicyArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC Endpoint ID.
         /// </summary>
-        [Input("vpcEndpointId")]
+        [PolicyResourceProperty("vpcEndpointId", "_mUnknown_VpcEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
-
-        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+        private string? _mValue_VpcEndpointId;
+        private bool _mUnknown_VpcEndpointId;
+        public string? VpcEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointId) return _mValue_VpcEndpointId;
+                throw new UndeferrableValueException("Value 'VpcEndpointPolicyArgs.VpcEndpointId' is not present");
+            }
+        }
     }
 }

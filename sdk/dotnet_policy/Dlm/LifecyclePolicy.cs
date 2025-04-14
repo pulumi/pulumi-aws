@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.Dlm
         /// <summary>
         /// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LifecyclePolicy.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the DLM lifecycle policy.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'LifecyclePolicy.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an IAM role that is able to be assumed by the DLM service.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'LifecyclePolicy.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// See the `policy_details` configuration block. Max of 1.
         /// </summary>
-        [Input("policyDetails")]
+        [PolicyResourceProperty("policyDetails", "_mUnknown_PolicyDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LifecyclePolicyPolicyDetails> _mPolicyDetails;
-
-        public Outputs.LifecyclePolicyPolicyDetails? PolicyDetails => _mPolicyDetails.GetValue("policyDetails");
+        private Outputs.LifecyclePolicyPolicyDetails? _mValue_PolicyDetails;
+        private bool _mUnknown_PolicyDetails;
+        public Outputs.LifecyclePolicyPolicyDetails? PolicyDetails
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDetails) return _mValue_PolicyDetails;
+                throw new UndeferrableValueException("Value 'LifecyclePolicy.PolicyDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'LifecyclePolicy.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LifecyclePolicy.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'LifecyclePolicy.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:dlm/lifecyclePolicy:LifecyclePolicy")]
@@ -83,46 +132,81 @@ namespace Pulumi.PolicyPacks.Aws.Dlm
         /// <summary>
         /// A description for the DLM lifecycle policy.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an IAM role that is able to be assumed by the DLM service.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// See the `policy_details` configuration block. Max of 1.
         /// </summary>
-        [Input("policyDetails")]
+        [PolicyResourceProperty("policyDetails", "_mUnknown_PolicyDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LifecyclePolicyPolicyDetailsArgs> _mPolicyDetails;
-
-        public Inputs.LifecyclePolicyPolicyDetailsArgs? PolicyDetails => _mPolicyDetails.GetValue("policyDetails");
+        private Inputs.LifecyclePolicyPolicyDetailsArgs? _mValue_PolicyDetails;
+        private bool _mUnknown_PolicyDetails;
+        public Inputs.LifecyclePolicyPolicyDetailsArgs? PolicyDetails
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDetails) return _mValue_PolicyDetails;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.PolicyDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.Tags' is not present");
+            }
+        }
     }
 }

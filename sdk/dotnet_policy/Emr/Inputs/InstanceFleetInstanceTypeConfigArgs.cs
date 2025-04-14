@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Inputs
         /// <summary>
         /// The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         /// </summary>
-        [Input("bidPrice")]
+        [PolicyResourceProperty("bidPrice", "_mUnknown_BidPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBidPrice;
-
-        public string? BidPrice => _mBidPrice.GetValue("bidPrice");
+        private string? _mValue_BidPrice;
+        private bool _mUnknown_BidPrice;
+        public string? BidPrice
+        {
+            get
+            {
+                if (!_mUnknown_BidPrice) return _mValue_BidPrice;
+                throw new UndeferrableValueException("Value 'InstanceFleetInstanceTypeConfigArgs.BidPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         /// </summary>
-        [Input("bidPriceAsPercentageOfOnDemandPrice")]
+        [PolicyResourceProperty("bidPriceAsPercentageOfOnDemandPrice", "_mUnknown_BidPriceAsPercentageOfOnDemandPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mBidPriceAsPercentageOfOnDemandPrice;
-
-        public double? BidPriceAsPercentageOfOnDemandPrice => _mBidPriceAsPercentageOfOnDemandPrice.GetValue("bidPriceAsPercentageOfOnDemandPrice");
+        private double? _mValue_BidPriceAsPercentageOfOnDemandPrice;
+        private bool _mUnknown_BidPriceAsPercentageOfOnDemandPrice;
+        public double? BidPriceAsPercentageOfOnDemandPrice
+        {
+            get
+            {
+                if (!_mUnknown_BidPriceAsPercentageOfOnDemandPrice) return _mValue_BidPriceAsPercentageOfOnDemandPrice;
+                throw new UndeferrableValueException("Value 'InstanceFleetInstanceTypeConfigArgs.BidPriceAsPercentageOfOnDemandPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         /// </summary>
-        [Input("configurations")]
+        [PolicyResourceProperty("configurations", "_mUnknown_Configurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InstanceFleetInstanceTypeConfigConfigurationArgs>> _mConfigurations;
-
-        public List<Inputs.InstanceFleetInstanceTypeConfigConfigurationArgs>? Configurations => _mConfigurations.GetValue("configurations");
+        private List<Inputs.InstanceFleetInstanceTypeConfigConfigurationArgs>? _mValue_Configurations;
+        private bool _mUnknown_Configurations;
+        public List<Inputs.InstanceFleetInstanceTypeConfigConfigurationArgs>? Configurations
+        {
+            get
+            {
+                if (!_mUnknown_Configurations) return _mValue_Configurations;
+                throw new UndeferrableValueException("Value 'InstanceFleetInstanceTypeConfigArgs.Configurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         /// </summary>
-        [Input("ebsConfigs")]
+        [PolicyResourceProperty("ebsConfigs", "_mUnknown_EbsConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs>> _mEbsConfigs;
-
-        public List<Inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs>? EbsConfigs => _mEbsConfigs.GetValue("ebsConfigs");
+        private List<Inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs>? _mValue_EbsConfigs;
+        private bool _mUnknown_EbsConfigs;
+        public List<Inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs>? EbsConfigs
+        {
+            get
+            {
+                if (!_mUnknown_EbsConfigs) return _mValue_EbsConfigs;
+                throw new UndeferrableValueException("Value 'InstanceFleetInstanceTypeConfigArgs.EbsConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// An EC2 instance type, such as m4.xlarge.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'InstanceFleetInstanceTypeConfigArgs.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `aws.emr.InstanceFleet`.
         /// </summary>
-        [Input("weightedCapacity")]
+        [PolicyResourceProperty("weightedCapacity", "_mUnknown_WeightedCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWeightedCapacity;
-
-        public int? WeightedCapacity => _mWeightedCapacity.GetValue("weightedCapacity");
+        private int? _mValue_WeightedCapacity;
+        private bool _mUnknown_WeightedCapacity;
+        public int? WeightedCapacity
+        {
+            get
+            {
+                if (!_mUnknown_WeightedCapacity) return _mValue_WeightedCapacity;
+                throw new UndeferrableValueException("Value 'InstanceFleetInstanceTypeConfigArgs.WeightedCapacity' is not present");
+            }
+        }
     }
 }

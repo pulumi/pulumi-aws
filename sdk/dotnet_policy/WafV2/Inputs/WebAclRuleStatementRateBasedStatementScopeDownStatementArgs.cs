@@ -15,109 +15,193 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
         /// </summary>
-        [Input("andStatement")]
+        [PolicyResourceProperty("andStatement", "_mUnknown_AndStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs> _mAndStatement;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs? AndStatement => _mAndStatement.GetValue("andStatement");
+        private Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs? _mValue_AndStatement;
+        private bool _mUnknown_AndStatement;
+        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs? AndStatement
+        {
+            get
+            {
+                if (!_mUnknown_AndStatement) return _mValue_AndStatement;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementArgs.AndStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
         /// </summary>
-        [Input("byteMatchStatement")]
+        [PolicyResourceProperty("byteMatchStatement", "_mUnknown_ByteMatchStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs> _mByteMatchStatement;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs? ByteMatchStatement => _mByteMatchStatement.GetValue("byteMatchStatement");
+        private Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs? _mValue_ByteMatchStatement;
+        private bool _mUnknown_ByteMatchStatement;
+        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs? ByteMatchStatement
+        {
+            get
+            {
+                if (!_mUnknown_ByteMatchStatement) return _mValue_ByteMatchStatement;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementArgs.ByteMatchStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
         /// </summary>
-        [Input("geoMatchStatement")]
+        [PolicyResourceProperty("geoMatchStatement", "_mUnknown_GeoMatchStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs> _mGeoMatchStatement;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs? GeoMatchStatement => _mGeoMatchStatement.GetValue("geoMatchStatement");
+        private Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs? _mValue_GeoMatchStatement;
+        private bool _mUnknown_GeoMatchStatement;
+        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs? GeoMatchStatement
+        {
+            get
+            {
+                if (!_mUnknown_GeoMatchStatement) return _mValue_GeoMatchStatement;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementArgs.GeoMatchStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
         /// </summary>
-        [Input("ipSetReferenceStatement")]
+        [PolicyResourceProperty("ipSetReferenceStatement", "_mUnknown_IpSetReferenceStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs> _mIpSetReferenceStatement;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs? IpSetReferenceStatement => _mIpSetReferenceStatement.GetValue("ipSetReferenceStatement");
+        private Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs? _mValue_IpSetReferenceStatement;
+        private bool _mUnknown_IpSetReferenceStatement;
+        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs? IpSetReferenceStatement
+        {
+            get
+            {
+                if (!_mUnknown_IpSetReferenceStatement) return _mValue_IpSetReferenceStatement;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementArgs.IpSetReferenceStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
         /// </summary>
-        [Input("labelMatchStatement")]
+        [PolicyResourceProperty("labelMatchStatement", "_mUnknown_LabelMatchStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs> _mLabelMatchStatement;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs? LabelMatchStatement => _mLabelMatchStatement.GetValue("labelMatchStatement");
+        private Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs? _mValue_LabelMatchStatement;
+        private bool _mUnknown_LabelMatchStatement;
+        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs? LabelMatchStatement
+        {
+            get
+            {
+                if (!_mUnknown_LabelMatchStatement) return _mValue_LabelMatchStatement;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementArgs.LabelMatchStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
         /// </summary>
-        [Input("notStatement")]
+        [PolicyResourceProperty("notStatement", "_mUnknown_NotStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs> _mNotStatement;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs? NotStatement => _mNotStatement.GetValue("notStatement");
+        private Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs? _mValue_NotStatement;
+        private bool _mUnknown_NotStatement;
+        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs? NotStatement
+        {
+            get
+            {
+                if (!_mUnknown_NotStatement) return _mValue_NotStatement;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementArgs.NotStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
         /// </summary>
-        [Input("orStatement")]
+        [PolicyResourceProperty("orStatement", "_mUnknown_OrStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs> _mOrStatement;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs? OrStatement => _mOrStatement.GetValue("orStatement");
+        private Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs? _mValue_OrStatement;
+        private bool _mUnknown_OrStatement;
+        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs? OrStatement
+        {
+            get
+            {
+                if (!_mUnknown_OrStatement) return _mValue_OrStatement;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementArgs.OrStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
         /// </summary>
-        [Input("regexMatchStatement")]
+        [PolicyResourceProperty("regexMatchStatement", "_mUnknown_RegexMatchStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs> _mRegexMatchStatement;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs? RegexMatchStatement => _mRegexMatchStatement.GetValue("regexMatchStatement");
+        private Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs? _mValue_RegexMatchStatement;
+        private bool _mUnknown_RegexMatchStatement;
+        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs? RegexMatchStatement
+        {
+            get
+            {
+                if (!_mUnknown_RegexMatchStatement) return _mValue_RegexMatchStatement;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementArgs.RegexMatchStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
         /// </summary>
-        [Input("regexPatternSetReferenceStatement")]
+        [PolicyResourceProperty("regexPatternSetReferenceStatement", "_mUnknown_RegexPatternSetReferenceStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs> _mRegexPatternSetReferenceStatement;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs? RegexPatternSetReferenceStatement => _mRegexPatternSetReferenceStatement.GetValue("regexPatternSetReferenceStatement");
+        private Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs? _mValue_RegexPatternSetReferenceStatement;
+        private bool _mUnknown_RegexPatternSetReferenceStatement;
+        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs? RegexPatternSetReferenceStatement
+        {
+            get
+            {
+                if (!_mUnknown_RegexPatternSetReferenceStatement) return _mValue_RegexPatternSetReferenceStatement;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementArgs.RegexPatternSetReferenceStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `size_constraint_statement` below for more details.
         /// </summary>
-        [Input("sizeConstraintStatement")]
+        [PolicyResourceProperty("sizeConstraintStatement", "_mUnknown_SizeConstraintStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs> _mSizeConstraintStatement;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs? SizeConstraintStatement => _mSizeConstraintStatement.GetValue("sizeConstraintStatement");
+        private Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs? _mValue_SizeConstraintStatement;
+        private bool _mUnknown_SizeConstraintStatement;
+        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs? SizeConstraintStatement
+        {
+            get
+            {
+                if (!_mUnknown_SizeConstraintStatement) return _mValue_SizeConstraintStatement;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementArgs.SizeConstraintStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
         /// </summary>
-        [Input("sqliMatchStatement")]
+        [PolicyResourceProperty("sqliMatchStatement", "_mUnknown_SqliMatchStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs> _mSqliMatchStatement;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs? SqliMatchStatement => _mSqliMatchStatement.GetValue("sqliMatchStatement");
+        private Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs? _mValue_SqliMatchStatement;
+        private bool _mUnknown_SqliMatchStatement;
+        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs? SqliMatchStatement
+        {
+            get
+            {
+                if (!_mUnknown_SqliMatchStatement) return _mValue_SqliMatchStatement;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementArgs.SqliMatchStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
         /// </summary>
-        [Input("xssMatchStatement")]
+        [PolicyResourceProperty("xssMatchStatement", "_mUnknown_XssMatchStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs> _mXssMatchStatement;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs? XssMatchStatement => _mXssMatchStatement.GetValue("xssMatchStatement");
+        private Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs? _mValue_XssMatchStatement;
+        private bool _mUnknown_XssMatchStatement;
+        public Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs? XssMatchStatement
+        {
+            get
+            {
+                if (!_mUnknown_XssMatchStatement) return _mValue_XssMatchStatement;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementArgs.XssMatchStatement' is not present");
+            }
+        }
     }
 }

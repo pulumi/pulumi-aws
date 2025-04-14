@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Efs.Outputs
         /// <summary>
         /// POSIX owner group ID
         /// </summary>
-        [Input("ownerGid")]
+        [PolicyResourceProperty("ownerGid", "_mUnknown_OwnerGid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOwnerGid;
-
-        public int? OwnerGid => _mOwnerGid.GetValue("ownerGid");
+        private int? _mValue_OwnerGid;
+        private bool _mUnknown_OwnerGid;
+        public int? OwnerGid
+        {
+            get
+            {
+                if (!_mUnknown_OwnerGid) return _mValue_OwnerGid;
+                throw new UndeferrableValueException("Value 'GetAccessPointRootDirectoryCreationInfoResult.OwnerGid' is not present");
+            }
+        }
 
         /// <summary>
         /// POSIX owner user ID
         /// </summary>
-        [Input("ownerUid")]
+        [PolicyResourceProperty("ownerUid", "_mUnknown_OwnerUid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOwnerUid;
-
-        public int? OwnerUid => _mOwnerUid.GetValue("ownerUid");
+        private int? _mValue_OwnerUid;
+        private bool _mUnknown_OwnerUid;
+        public int? OwnerUid
+        {
+            get
+            {
+                if (!_mUnknown_OwnerUid) return _mValue_OwnerUid;
+                throw new UndeferrableValueException("Value 'GetAccessPointRootDirectoryCreationInfoResult.OwnerUid' is not present");
+            }
+        }
 
         /// <summary>
         /// POSIX permissions mode
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissions;
-
-        public string? Permissions => _mPermissions.GetValue("permissions");
+        private string? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public string? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'GetAccessPointRootDirectoryCreationInfoResult.Permissions' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// The hard limit for the ulimit type.
         /// </summary>
-        [Input("hardLimit")]
+        [PolicyResourceProperty("hardLimit", "_mUnknown_HardLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHardLimit;
-
-        public int? HardLimit => _mHardLimit.GetValue("hardLimit");
+        private int? _mValue_HardLimit;
+        private bool _mUnknown_HardLimit;
+        public int? HardLimit
+        {
+            get
+            {
+                if (!_mUnknown_HardLimit) return _mValue_HardLimit;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitResult.HardLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitResult.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The soft limit for the ulimit type.
         /// </summary>
-        [Input("softLimit")]
+        [PolicyResourceProperty("softLimit", "_mUnknown_SoftLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSoftLimit;
-
-        public int? SoftLimit => _mSoftLimit.GetValue("softLimit");
+        private int? _mValue_SoftLimit;
+        private bool _mUnknown_SoftLimit;
+        public int? SoftLimit
+        {
+            get
+            {
+                if (!_mUnknown_SoftLimit) return _mValue_SoftLimit;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitResult.SoftLimit' is not present");
+            }
+        }
     }
 }

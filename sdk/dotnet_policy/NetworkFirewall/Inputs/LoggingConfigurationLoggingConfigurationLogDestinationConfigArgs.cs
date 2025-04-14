@@ -18,28 +18,49 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Inputs
         /// * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
         /// * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
         /// </summary>
-        [Input("logDestination")]
+        [PolicyResourceProperty("logDestination", "_mUnknown_LogDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mLogDestination;
-
-        public Dictionary<string, string>? LogDestination => _mLogDestination.GetValue("logDestination");
+        private Dictionary<string, string>? _mValue_LogDestination;
+        private bool _mUnknown_LogDestination;
+        public Dictionary<string, string>? LogDestination
+        {
+            get
+            {
+                if (!_mUnknown_LogDestination) return _mValue_LogDestination;
+                throw new UndeferrableValueException("Value 'LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.LogDestination' is not present");
+            }
+        }
 
         /// <summary>
         /// The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
         /// </summary>
-        [Input("logDestinationType")]
+        [PolicyResourceProperty("logDestinationType", "_mUnknown_LogDestinationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogDestinationType;
-
-        public string? LogDestinationType => _mLogDestinationType.GetValue("logDestinationType");
+        private string? _mValue_LogDestinationType;
+        private bool _mUnknown_LogDestinationType;
+        public string? LogDestinationType
+        {
+            get
+            {
+                if (!_mUnknown_LogDestinationType) return _mValue_LogDestinationType;
+                throw new UndeferrableValueException("Value 'LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.LogDestinationType' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of log to send. Valid values: `ALERT` or `FLOW` or `TLS`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
         /// </summary>
-        [Input("logType")]
+        [PolicyResourceProperty("logType", "_mUnknown_LogType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogType;
-
-        public string? LogType => _mLogType.GetValue("logType");
+        private string? _mValue_LogType;
+        private bool _mUnknown_LogType;
+        public string? LogType
+        {
+            get
+            {
+                if (!_mUnknown_LogType) return _mValue_LogType;
+                throw new UndeferrableValueException("Value 'LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.LogType' is not present");
+            }
+        }
     }
 }

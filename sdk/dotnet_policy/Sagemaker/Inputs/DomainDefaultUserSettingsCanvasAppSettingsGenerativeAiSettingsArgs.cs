@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
 {
     public sealed class DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs
     {
-        [Input("amazonBedrockRoleArn")]
+        [PolicyResourceProperty("amazonBedrockRoleArn", "_mUnknown_AmazonBedrockRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonBedrockRoleArn;
-
-        public string? AmazonBedrockRoleArn => _mAmazonBedrockRoleArn.GetValue("amazonBedrockRoleArn");
+        private string? _mValue_AmazonBedrockRoleArn;
+        private bool _mUnknown_AmazonBedrockRoleArn;
+        public string? AmazonBedrockRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_AmazonBedrockRoleArn) return _mValue_AmazonBedrockRoleArn;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs.AmazonBedrockRoleArn' is not present");
+            }
+        }
     }
 }

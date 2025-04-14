@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Inputs
         /// <summary>
         /// The description of the thing type.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ThingTypePropertiesArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of searchable thing attribute names.
         /// </summary>
-        [Input("searchableAttributes")]
+        [PolicyResourceProperty("searchableAttributes", "_mUnknown_SearchableAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSearchableAttributes;
-
-        public List<string>? SearchableAttributes => _mSearchableAttributes.GetValue("searchableAttributes");
+        private List<string>? _mValue_SearchableAttributes;
+        private bool _mUnknown_SearchableAttributes;
+        public List<string>? SearchableAttributes
+        {
+            get
+            {
+                if (!_mUnknown_SearchableAttributes) return _mValue_SearchableAttributes;
+                throw new UndeferrableValueException("Value 'ThingTypePropertiesArgs.SearchableAttributes' is not present");
+            }
+        }
     }
 }

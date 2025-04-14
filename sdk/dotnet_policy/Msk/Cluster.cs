@@ -16,254 +16,450 @@ namespace Pulumi.PolicyPacks.Aws.Msk
         /// <summary>
         /// Amazon Resource Name (ARN) of the MSK cluster.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Cluster.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
         /// </summary>
-        [Input("bootstrapBrokers")]
+        [PolicyResourceProperty("bootstrapBrokers", "_mUnknown_BootstrapBrokers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokers;
-
-        public string? BootstrapBrokers => _mBootstrapBrokers.GetValue("bootstrapBrokers");
+        private string? _mValue_BootstrapBrokers;
+        private bool _mUnknown_BootstrapBrokers;
+        public string? BootstrapBrokers
+        {
+            get
+            {
+                if (!_mUnknown_BootstrapBrokers) return _mValue_BootstrapBrokers;
+                throw new UndeferrableValueException("Value 'Cluster.BootstrapBrokers' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
-        [Input("bootstrapBrokersPublicSaslIam")]
+        [PolicyResourceProperty("bootstrapBrokersPublicSaslIam", "_mUnknown_BootstrapBrokersPublicSaslIam")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokersPublicSaslIam;
-
-        public string? BootstrapBrokersPublicSaslIam => _mBootstrapBrokersPublicSaslIam.GetValue("bootstrapBrokersPublicSaslIam");
+        private string? _mValue_BootstrapBrokersPublicSaslIam;
+        private bool _mUnknown_BootstrapBrokersPublicSaslIam;
+        public string? BootstrapBrokersPublicSaslIam
+        {
+            get
+            {
+                if (!_mUnknown_BootstrapBrokersPublicSaslIam) return _mValue_BootstrapBrokersPublicSaslIam;
+                throw new UndeferrableValueException("Value 'Cluster.BootstrapBrokersPublicSaslIam' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
-        [Input("bootstrapBrokersPublicSaslScram")]
+        [PolicyResourceProperty("bootstrapBrokersPublicSaslScram", "_mUnknown_BootstrapBrokersPublicSaslScram")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokersPublicSaslScram;
-
-        public string? BootstrapBrokersPublicSaslScram => _mBootstrapBrokersPublicSaslScram.GetValue("bootstrapBrokersPublicSaslScram");
+        private string? _mValue_BootstrapBrokersPublicSaslScram;
+        private bool _mUnknown_BootstrapBrokersPublicSaslScram;
+        public string? BootstrapBrokersPublicSaslScram
+        {
+            get
+            {
+                if (!_mUnknown_BootstrapBrokersPublicSaslScram) return _mValue_BootstrapBrokersPublicSaslScram;
+                throw new UndeferrableValueException("Value 'Cluster.BootstrapBrokersPublicSaslScram' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
-        [Input("bootstrapBrokersPublicTls")]
+        [PolicyResourceProperty("bootstrapBrokersPublicTls", "_mUnknown_BootstrapBrokersPublicTls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokersPublicTls;
-
-        public string? BootstrapBrokersPublicTls => _mBootstrapBrokersPublicTls.GetValue("bootstrapBrokersPublicTls");
+        private string? _mValue_BootstrapBrokersPublicTls;
+        private bool _mUnknown_BootstrapBrokersPublicTls;
+        public string? BootstrapBrokersPublicTls
+        {
+            get
+            {
+                if (!_mUnknown_BootstrapBrokersPublicTls) return _mValue_BootstrapBrokersPublicTls;
+                throw new UndeferrableValueException("Value 'Cluster.BootstrapBrokersPublicTls' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
-        [Input("bootstrapBrokersSaslIam")]
+        [PolicyResourceProperty("bootstrapBrokersSaslIam", "_mUnknown_BootstrapBrokersSaslIam")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokersSaslIam;
-
-        public string? BootstrapBrokersSaslIam => _mBootstrapBrokersSaslIam.GetValue("bootstrapBrokersSaslIam");
+        private string? _mValue_BootstrapBrokersSaslIam;
+        private bool _mUnknown_BootstrapBrokersSaslIam;
+        public string? BootstrapBrokersSaslIam
+        {
+            get
+            {
+                if (!_mUnknown_BootstrapBrokersSaslIam) return _mValue_BootstrapBrokersSaslIam;
+                throw new UndeferrableValueException("Value 'Cluster.BootstrapBrokersSaslIam' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
-        [Input("bootstrapBrokersSaslScram")]
+        [PolicyResourceProperty("bootstrapBrokersSaslScram", "_mUnknown_BootstrapBrokersSaslScram")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokersSaslScram;
-
-        public string? BootstrapBrokersSaslScram => _mBootstrapBrokersSaslScram.GetValue("bootstrapBrokersSaslScram");
+        private string? _mValue_BootstrapBrokersSaslScram;
+        private bool _mUnknown_BootstrapBrokersSaslScram;
+        public string? BootstrapBrokersSaslScram
+        {
+            get
+            {
+                if (!_mUnknown_BootstrapBrokersSaslScram) return _mValue_BootstrapBrokersSaslScram;
+                throw new UndeferrableValueException("Value 'Cluster.BootstrapBrokersSaslScram' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
-        [Input("bootstrapBrokersTls")]
+        [PolicyResourceProperty("bootstrapBrokersTls", "_mUnknown_BootstrapBrokersTls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokersTls;
-
-        public string? BootstrapBrokersTls => _mBootstrapBrokersTls.GetValue("bootstrapBrokersTls");
+        private string? _mValue_BootstrapBrokersTls;
+        private bool _mUnknown_BootstrapBrokersTls;
+        public string? BootstrapBrokersTls
+        {
+            get
+            {
+                if (!_mUnknown_BootstrapBrokersTls) return _mValue_BootstrapBrokersTls;
+                throw new UndeferrableValueException("Value 'Cluster.BootstrapBrokersTls' is not present");
+            }
+        }
 
         /// <summary>
         /// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
-        [Input("bootstrapBrokersVpcConnectivitySaslIam")]
+        [PolicyResourceProperty("bootstrapBrokersVpcConnectivitySaslIam", "_mUnknown_BootstrapBrokersVpcConnectivitySaslIam")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokersVpcConnectivitySaslIam;
-
-        public string? BootstrapBrokersVpcConnectivitySaslIam => _mBootstrapBrokersVpcConnectivitySaslIam.GetValue("bootstrapBrokersVpcConnectivitySaslIam");
+        private string? _mValue_BootstrapBrokersVpcConnectivitySaslIam;
+        private bool _mUnknown_BootstrapBrokersVpcConnectivitySaslIam;
+        public string? BootstrapBrokersVpcConnectivitySaslIam
+        {
+            get
+            {
+                if (!_mUnknown_BootstrapBrokersVpcConnectivitySaslIam) return _mValue_BootstrapBrokersVpcConnectivitySaslIam;
+                throw new UndeferrableValueException("Value 'Cluster.BootstrapBrokersVpcConnectivitySaslIam' is not present");
+            }
+        }
 
         /// <summary>
         /// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
-        [Input("bootstrapBrokersVpcConnectivitySaslScram")]
+        [PolicyResourceProperty("bootstrapBrokersVpcConnectivitySaslScram", "_mUnknown_BootstrapBrokersVpcConnectivitySaslScram")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokersVpcConnectivitySaslScram;
-
-        public string? BootstrapBrokersVpcConnectivitySaslScram => _mBootstrapBrokersVpcConnectivitySaslScram.GetValue("bootstrapBrokersVpcConnectivitySaslScram");
+        private string? _mValue_BootstrapBrokersVpcConnectivitySaslScram;
+        private bool _mUnknown_BootstrapBrokersVpcConnectivitySaslScram;
+        public string? BootstrapBrokersVpcConnectivitySaslScram
+        {
+            get
+            {
+                if (!_mUnknown_BootstrapBrokersVpcConnectivitySaslScram) return _mValue_BootstrapBrokersVpcConnectivitySaslScram;
+                throw new UndeferrableValueException("Value 'Cluster.BootstrapBrokersVpcConnectivitySaslScram' is not present");
+            }
+        }
 
         /// <summary>
         /// A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
-        [Input("bootstrapBrokersVpcConnectivityTls")]
+        [PolicyResourceProperty("bootstrapBrokersVpcConnectivityTls", "_mUnknown_BootstrapBrokersVpcConnectivityTls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokersVpcConnectivityTls;
-
-        public string? BootstrapBrokersVpcConnectivityTls => _mBootstrapBrokersVpcConnectivityTls.GetValue("bootstrapBrokersVpcConnectivityTls");
+        private string? _mValue_BootstrapBrokersVpcConnectivityTls;
+        private bool _mUnknown_BootstrapBrokersVpcConnectivityTls;
+        public string? BootstrapBrokersVpcConnectivityTls
+        {
+            get
+            {
+                if (!_mUnknown_BootstrapBrokersVpcConnectivityTls) return _mValue_BootstrapBrokersVpcConnectivityTls;
+                throw new UndeferrableValueException("Value 'Cluster.BootstrapBrokersVpcConnectivityTls' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the broker nodes of the Kafka cluster.
         /// </summary>
-        [Input("brokerNodeGroupInfo")]
+        [PolicyResourceProperty("brokerNodeGroupInfo", "_mUnknown_BrokerNodeGroupInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterBrokerNodeGroupInfo> _mBrokerNodeGroupInfo;
-
-        public Outputs.ClusterBrokerNodeGroupInfo? BrokerNodeGroupInfo => _mBrokerNodeGroupInfo.GetValue("brokerNodeGroupInfo");
+        private Outputs.ClusterBrokerNodeGroupInfo? _mValue_BrokerNodeGroupInfo;
+        private bool _mUnknown_BrokerNodeGroupInfo;
+        public Outputs.ClusterBrokerNodeGroupInfo? BrokerNodeGroupInfo
+        {
+            get
+            {
+                if (!_mUnknown_BrokerNodeGroupInfo) return _mValue_BrokerNodeGroupInfo;
+                throw new UndeferrableValueException("Value 'Cluster.BrokerNodeGroupInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for specifying a client authentication. See below.
         /// </summary>
-        [Input("clientAuthentication")]
+        [PolicyResourceProperty("clientAuthentication", "_mUnknown_ClientAuthentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterClientAuthentication> _mClientAuthentication;
-
-        public Outputs.ClusterClientAuthentication? ClientAuthentication => _mClientAuthentication.GetValue("clientAuthentication");
+        private Outputs.ClusterClientAuthentication? _mValue_ClientAuthentication;
+        private bool _mUnknown_ClientAuthentication;
+        public Outputs.ClusterClientAuthentication? ClientAuthentication
+        {
+            get
+            {
+                if (!_mUnknown_ClientAuthentication) return _mValue_ClientAuthentication;
+                throw new UndeferrableValueException("Value 'Cluster.ClientAuthentication' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the MSK cluster.
         /// </summary>
-        [Input("clusterName")]
+        [PolicyResourceProperty("clusterName", "_mUnknown_ClusterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
-
-        public string? ClusterName => _mClusterName.GetValue("clusterName");
+        private string? _mValue_ClusterName;
+        private bool _mUnknown_ClusterName;
+        public string? ClusterName
+        {
+            get
+            {
+                if (!_mUnknown_ClusterName) return _mValue_ClusterName;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterName' is not present");
+            }
+        }
 
         /// <summary>
         /// UUID of the MSK cluster, for use in IAM policies.
         /// </summary>
-        [Input("clusterUuid")]
+        [PolicyResourceProperty("clusterUuid", "_mUnknown_ClusterUuid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterUuid;
-
-        public string? ClusterUuid => _mClusterUuid.GetValue("clusterUuid");
+        private string? _mValue_ClusterUuid;
+        private bool _mUnknown_ClusterUuid;
+        public string? ClusterUuid
+        {
+            get
+            {
+                if (!_mUnknown_ClusterUuid) return _mValue_ClusterUuid;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterUuid' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
         /// </summary>
-        [Input("configurationInfo")]
+        [PolicyResourceProperty("configurationInfo", "_mUnknown_ConfigurationInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterConfigurationInfo> _mConfigurationInfo;
-
-        public Outputs.ClusterConfigurationInfo? ConfigurationInfo => _mConfigurationInfo.GetValue("configurationInfo");
+        private Outputs.ClusterConfigurationInfo? _mValue_ConfigurationInfo;
+        private bool _mUnknown_ConfigurationInfo;
+        public Outputs.ClusterConfigurationInfo? ConfigurationInfo
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationInfo) return _mValue_ConfigurationInfo;
+                throw new UndeferrableValueException("Value 'Cluster.ConfigurationInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
         /// </summary>
-        [Input("currentVersion")]
+        [PolicyResourceProperty("currentVersion", "_mUnknown_CurrentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCurrentVersion;
-
-        public string? CurrentVersion => _mCurrentVersion.GetValue("currentVersion");
+        private string? _mValue_CurrentVersion;
+        private bool _mUnknown_CurrentVersion;
+        public string? CurrentVersion
+        {
+            get
+            {
+                if (!_mUnknown_CurrentVersion) return _mValue_CurrentVersion;
+                throw new UndeferrableValueException("Value 'Cluster.CurrentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for specifying encryption. See below.
         /// </summary>
-        [Input("encryptionInfo")]
+        [PolicyResourceProperty("encryptionInfo", "_mUnknown_EncryptionInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterEncryptionInfo> _mEncryptionInfo;
-
-        public Outputs.ClusterEncryptionInfo? EncryptionInfo => _mEncryptionInfo.GetValue("encryptionInfo");
+        private Outputs.ClusterEncryptionInfo? _mValue_EncryptionInfo;
+        private bool _mUnknown_EncryptionInfo;
+        public Outputs.ClusterEncryptionInfo? EncryptionInfo
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionInfo) return _mValue_EncryptionInfo;
+                throw new UndeferrableValueException("Value 'Cluster.EncryptionInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
         /// </summary>
-        [Input("enhancedMonitoring")]
+        [PolicyResourceProperty("enhancedMonitoring", "_mUnknown_EnhancedMonitoring")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnhancedMonitoring;
-
-        public string? EnhancedMonitoring => _mEnhancedMonitoring.GetValue("enhancedMonitoring");
+        private string? _mValue_EnhancedMonitoring;
+        private bool _mUnknown_EnhancedMonitoring;
+        public string? EnhancedMonitoring
+        {
+            get
+            {
+                if (!_mUnknown_EnhancedMonitoring) return _mValue_EnhancedMonitoring;
+                throw new UndeferrableValueException("Value 'Cluster.EnhancedMonitoring' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify the desired Kafka software version.
         /// </summary>
-        [Input("kafkaVersion")]
+        [PolicyResourceProperty("kafkaVersion", "_mUnknown_KafkaVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKafkaVersion;
-
-        public string? KafkaVersion => _mKafkaVersion.GetValue("kafkaVersion");
+        private string? _mValue_KafkaVersion;
+        private bool _mUnknown_KafkaVersion;
+        public string? KafkaVersion
+        {
+            get
+            {
+                if (!_mUnknown_KafkaVersion) return _mValue_KafkaVersion;
+                throw new UndeferrableValueException("Value 'Cluster.KafkaVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
         /// </summary>
-        [Input("loggingInfo")]
+        [PolicyResourceProperty("loggingInfo", "_mUnknown_LoggingInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterLoggingInfo> _mLoggingInfo;
-
-        public Outputs.ClusterLoggingInfo? LoggingInfo => _mLoggingInfo.GetValue("loggingInfo");
+        private Outputs.ClusterLoggingInfo? _mValue_LoggingInfo;
+        private bool _mUnknown_LoggingInfo;
+        public Outputs.ClusterLoggingInfo? LoggingInfo
+        {
+            get
+            {
+                if (!_mUnknown_LoggingInfo) return _mValue_LoggingInfo;
+                throw new UndeferrableValueException("Value 'Cluster.LoggingInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
         /// </summary>
-        [Input("numberOfBrokerNodes")]
+        [PolicyResourceProperty("numberOfBrokerNodes", "_mUnknown_NumberOfBrokerNodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfBrokerNodes;
-
-        public int? NumberOfBrokerNodes => _mNumberOfBrokerNodes.GetValue("numberOfBrokerNodes");
+        private int? _mValue_NumberOfBrokerNodes;
+        private bool _mUnknown_NumberOfBrokerNodes;
+        public int? NumberOfBrokerNodes
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfBrokerNodes) return _mValue_NumberOfBrokerNodes;
+                throw new UndeferrableValueException("Value 'Cluster.NumberOfBrokerNodes' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
         /// </summary>
-        [Input("openMonitoring")]
+        [PolicyResourceProperty("openMonitoring", "_mUnknown_OpenMonitoring")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterOpenMonitoring> _mOpenMonitoring;
-
-        public Outputs.ClusterOpenMonitoring? OpenMonitoring => _mOpenMonitoring.GetValue("openMonitoring");
+        private Outputs.ClusterOpenMonitoring? _mValue_OpenMonitoring;
+        private bool _mUnknown_OpenMonitoring;
+        public Outputs.ClusterOpenMonitoring? OpenMonitoring
+        {
+            get
+            {
+                if (!_mUnknown_OpenMonitoring) return _mValue_OpenMonitoring;
+                throw new UndeferrableValueException("Value 'Cluster.OpenMonitoring' is not present");
+            }
+        }
 
         /// <summary>
         /// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
         /// </summary>
-        [Input("storageMode")]
+        [PolicyResourceProperty("storageMode", "_mUnknown_StorageMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageMode;
-
-        public string? StorageMode => _mStorageMode.GetValue("storageMode");
+        private string? _mValue_StorageMode;
+        private bool _mUnknown_StorageMode;
+        public string? StorageMode
+        {
+            get
+            {
+                if (!_mUnknown_StorageMode) return _mValue_StorageMode;
+                throw new UndeferrableValueException("Value 'Cluster.StorageMode' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Cluster.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Cluster.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         /// </summary>
-        [Input("zookeeperConnectString")]
+        [PolicyResourceProperty("zookeeperConnectString", "_mUnknown_ZookeeperConnectString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZookeeperConnectString;
-
-        public string? ZookeeperConnectString => _mZookeeperConnectString.GetValue("zookeeperConnectString");
+        private string? _mValue_ZookeeperConnectString;
+        private bool _mUnknown_ZookeeperConnectString;
+        public string? ZookeeperConnectString
+        {
+            get
+            {
+                if (!_mUnknown_ZookeeperConnectString) return _mValue_ZookeeperConnectString;
+                throw new UndeferrableValueException("Value 'Cluster.ZookeeperConnectString' is not present");
+            }
+        }
 
         /// <summary>
         /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         /// </summary>
-        [Input("zookeeperConnectStringTls")]
+        [PolicyResourceProperty("zookeeperConnectStringTls", "_mUnknown_ZookeeperConnectStringTls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZookeeperConnectStringTls;
-
-        public string? ZookeeperConnectStringTls => _mZookeeperConnectStringTls.GetValue("zookeeperConnectStringTls");
+        private string? _mValue_ZookeeperConnectStringTls;
+        private bool _mUnknown_ZookeeperConnectStringTls;
+        public string? ZookeeperConnectStringTls
+        {
+            get
+            {
+                if (!_mUnknown_ZookeeperConnectStringTls) return _mValue_ZookeeperConnectStringTls;
+                throw new UndeferrableValueException("Value 'Cluster.ZookeeperConnectStringTls' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:msk/cluster:Cluster")]
@@ -272,109 +468,193 @@ namespace Pulumi.PolicyPacks.Aws.Msk
         /// <summary>
         /// Configuration block for the broker nodes of the Kafka cluster.
         /// </summary>
-        [Input("brokerNodeGroupInfo")]
+        [PolicyResourceProperty("brokerNodeGroupInfo", "_mUnknown_BrokerNodeGroupInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterBrokerNodeGroupInfoArgs> _mBrokerNodeGroupInfo;
-
-        public Inputs.ClusterBrokerNodeGroupInfoArgs? BrokerNodeGroupInfo => _mBrokerNodeGroupInfo.GetValue("brokerNodeGroupInfo");
+        private Inputs.ClusterBrokerNodeGroupInfoArgs? _mValue_BrokerNodeGroupInfo;
+        private bool _mUnknown_BrokerNodeGroupInfo;
+        public Inputs.ClusterBrokerNodeGroupInfoArgs? BrokerNodeGroupInfo
+        {
+            get
+            {
+                if (!_mUnknown_BrokerNodeGroupInfo) return _mValue_BrokerNodeGroupInfo;
+                throw new UndeferrableValueException("Value 'ClusterArgs.BrokerNodeGroupInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for specifying a client authentication. See below.
         /// </summary>
-        [Input("clientAuthentication")]
+        [PolicyResourceProperty("clientAuthentication", "_mUnknown_ClientAuthentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterClientAuthenticationArgs> _mClientAuthentication;
-
-        public Inputs.ClusterClientAuthenticationArgs? ClientAuthentication => _mClientAuthentication.GetValue("clientAuthentication");
+        private Inputs.ClusterClientAuthenticationArgs? _mValue_ClientAuthentication;
+        private bool _mUnknown_ClientAuthentication;
+        public Inputs.ClusterClientAuthenticationArgs? ClientAuthentication
+        {
+            get
+            {
+                if (!_mUnknown_ClientAuthentication) return _mValue_ClientAuthentication;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ClientAuthentication' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the MSK cluster.
         /// </summary>
-        [Input("clusterName")]
+        [PolicyResourceProperty("clusterName", "_mUnknown_ClusterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
-
-        public string? ClusterName => _mClusterName.GetValue("clusterName");
+        private string? _mValue_ClusterName;
+        private bool _mUnknown_ClusterName;
+        public string? ClusterName
+        {
+            get
+            {
+                if (!_mUnknown_ClusterName) return _mValue_ClusterName;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ClusterName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
         /// </summary>
-        [Input("configurationInfo")]
+        [PolicyResourceProperty("configurationInfo", "_mUnknown_ConfigurationInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterConfigurationInfoArgs> _mConfigurationInfo;
-
-        public Inputs.ClusterConfigurationInfoArgs? ConfigurationInfo => _mConfigurationInfo.GetValue("configurationInfo");
+        private Inputs.ClusterConfigurationInfoArgs? _mValue_ConfigurationInfo;
+        private bool _mUnknown_ConfigurationInfo;
+        public Inputs.ClusterConfigurationInfoArgs? ConfigurationInfo
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationInfo) return _mValue_ConfigurationInfo;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ConfigurationInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for specifying encryption. See below.
         /// </summary>
-        [Input("encryptionInfo")]
+        [PolicyResourceProperty("encryptionInfo", "_mUnknown_EncryptionInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterEncryptionInfoArgs> _mEncryptionInfo;
-
-        public Inputs.ClusterEncryptionInfoArgs? EncryptionInfo => _mEncryptionInfo.GetValue("encryptionInfo");
+        private Inputs.ClusterEncryptionInfoArgs? _mValue_EncryptionInfo;
+        private bool _mUnknown_EncryptionInfo;
+        public Inputs.ClusterEncryptionInfoArgs? EncryptionInfo
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionInfo) return _mValue_EncryptionInfo;
+                throw new UndeferrableValueException("Value 'ClusterArgs.EncryptionInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
         /// </summary>
-        [Input("enhancedMonitoring")]
+        [PolicyResourceProperty("enhancedMonitoring", "_mUnknown_EnhancedMonitoring")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnhancedMonitoring;
-
-        public string? EnhancedMonitoring => _mEnhancedMonitoring.GetValue("enhancedMonitoring");
+        private string? _mValue_EnhancedMonitoring;
+        private bool _mUnknown_EnhancedMonitoring;
+        public string? EnhancedMonitoring
+        {
+            get
+            {
+                if (!_mUnknown_EnhancedMonitoring) return _mValue_EnhancedMonitoring;
+                throw new UndeferrableValueException("Value 'ClusterArgs.EnhancedMonitoring' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify the desired Kafka software version.
         /// </summary>
-        [Input("kafkaVersion")]
+        [PolicyResourceProperty("kafkaVersion", "_mUnknown_KafkaVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKafkaVersion;
-
-        public string? KafkaVersion => _mKafkaVersion.GetValue("kafkaVersion");
+        private string? _mValue_KafkaVersion;
+        private bool _mUnknown_KafkaVersion;
+        public string? KafkaVersion
+        {
+            get
+            {
+                if (!_mUnknown_KafkaVersion) return _mValue_KafkaVersion;
+                throw new UndeferrableValueException("Value 'ClusterArgs.KafkaVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
         /// </summary>
-        [Input("loggingInfo")]
+        [PolicyResourceProperty("loggingInfo", "_mUnknown_LoggingInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterLoggingInfoArgs> _mLoggingInfo;
-
-        public Inputs.ClusterLoggingInfoArgs? LoggingInfo => _mLoggingInfo.GetValue("loggingInfo");
+        private Inputs.ClusterLoggingInfoArgs? _mValue_LoggingInfo;
+        private bool _mUnknown_LoggingInfo;
+        public Inputs.ClusterLoggingInfoArgs? LoggingInfo
+        {
+            get
+            {
+                if (!_mUnknown_LoggingInfo) return _mValue_LoggingInfo;
+                throw new UndeferrableValueException("Value 'ClusterArgs.LoggingInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
         /// </summary>
-        [Input("numberOfBrokerNodes")]
+        [PolicyResourceProperty("numberOfBrokerNodes", "_mUnknown_NumberOfBrokerNodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfBrokerNodes;
-
-        public int? NumberOfBrokerNodes => _mNumberOfBrokerNodes.GetValue("numberOfBrokerNodes");
+        private int? _mValue_NumberOfBrokerNodes;
+        private bool _mUnknown_NumberOfBrokerNodes;
+        public int? NumberOfBrokerNodes
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfBrokerNodes) return _mValue_NumberOfBrokerNodes;
+                throw new UndeferrableValueException("Value 'ClusterArgs.NumberOfBrokerNodes' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
         /// </summary>
-        [Input("openMonitoring")]
+        [PolicyResourceProperty("openMonitoring", "_mUnknown_OpenMonitoring")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterOpenMonitoringArgs> _mOpenMonitoring;
-
-        public Inputs.ClusterOpenMonitoringArgs? OpenMonitoring => _mOpenMonitoring.GetValue("openMonitoring");
+        private Inputs.ClusterOpenMonitoringArgs? _mValue_OpenMonitoring;
+        private bool _mUnknown_OpenMonitoring;
+        public Inputs.ClusterOpenMonitoringArgs? OpenMonitoring
+        {
+            get
+            {
+                if (!_mUnknown_OpenMonitoring) return _mValue_OpenMonitoring;
+                throw new UndeferrableValueException("Value 'ClusterArgs.OpenMonitoring' is not present");
+            }
+        }
 
         /// <summary>
         /// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
         /// </summary>
-        [Input("storageMode")]
+        [PolicyResourceProperty("storageMode", "_mUnknown_StorageMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageMode;
-
-        public string? StorageMode => _mStorageMode.GetValue("storageMode");
+        private string? _mValue_StorageMode;
+        private bool _mUnknown_StorageMode;
+        public string? StorageMode
+        {
+            get
+            {
+                if (!_mUnknown_StorageMode) return _mValue_StorageMode;
+                throw new UndeferrableValueException("Value 'ClusterArgs.StorageMode' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Tags' is not present");
+            }
+        }
     }
 }

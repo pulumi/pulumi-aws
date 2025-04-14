@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamInfluxDB.Inputs
         /// <summary>
         /// Configuration for S3 bucket log delivery.
         /// </summary>
-        [Input("s3Configuration")]
+        [PolicyResourceProperty("s3Configuration", "_mUnknown_S3Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DbInstanceLogDeliveryConfigurationS3ConfigurationArgs> _mS3Configuration;
-
-        public Inputs.DbInstanceLogDeliveryConfigurationS3ConfigurationArgs? S3Configuration => _mS3Configuration.GetValue("s3Configuration");
+        private Inputs.DbInstanceLogDeliveryConfigurationS3ConfigurationArgs? _mValue_S3Configuration;
+        private bool _mUnknown_S3Configuration;
+        public Inputs.DbInstanceLogDeliveryConfigurationS3ConfigurationArgs? S3Configuration
+        {
+            get
+            {
+                if (!_mUnknown_S3Configuration) return _mValue_S3Configuration;
+                throw new UndeferrableValueException("Value 'DbInstanceLogDeliveryConfigurationArgs.S3Configuration' is not present");
+            }
+        }
     }
 }

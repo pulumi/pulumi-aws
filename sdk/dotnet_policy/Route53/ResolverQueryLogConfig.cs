@@ -16,68 +16,117 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ResolverQueryLogConfig.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the resource that you want Route 53 Resolver to send query logs.
         /// You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
         /// </summary>
-        [Input("destinationArn")]
+        [PolicyResourceProperty("destinationArn", "_mUnknown_DestinationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
-
-        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
+        private string? _mValue_DestinationArn;
+        private bool _mUnknown_DestinationArn;
+        public string? DestinationArn
+        {
+            get
+            {
+                if (!_mUnknown_DestinationArn) return _mValue_DestinationArn;
+                throw new UndeferrableValueException("Value 'ResolverQueryLogConfig.DestinationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Route 53 Resolver query logging configuration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResolverQueryLogConfig.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS account ID of the account that created the query logging configuration.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'ResolverQueryLogConfig.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
         /// Sharing is configured through AWS Resource Access Manager (AWS RAM).
         /// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
         /// </summary>
-        [Input("shareStatus")]
+        [PolicyResourceProperty("shareStatus", "_mUnknown_ShareStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShareStatus;
-
-        public string? ShareStatus => _mShareStatus.GetValue("shareStatus");
+        private string? _mValue_ShareStatus;
+        private bool _mUnknown_ShareStatus;
+        public string? ShareStatus
+        {
+            get
+            {
+                if (!_mUnknown_ShareStatus) return _mValue_ShareStatus;
+                throw new UndeferrableValueException("Value 'ResolverQueryLogConfig.ShareStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResolverQueryLogConfig.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ResolverQueryLogConfig.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig")]
@@ -87,28 +136,49 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// The ARN of the resource that you want Route 53 Resolver to send query logs.
         /// You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
         /// </summary>
-        [Input("destinationArn")]
+        [PolicyResourceProperty("destinationArn", "_mUnknown_DestinationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
-
-        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
+        private string? _mValue_DestinationArn;
+        private bool _mUnknown_DestinationArn;
+        public string? DestinationArn
+        {
+            get
+            {
+                if (!_mUnknown_DestinationArn) return _mValue_DestinationArn;
+                throw new UndeferrableValueException("Value 'ResolverQueryLogConfigArgs.DestinationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Route 53 Resolver query logging configuration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResolverQueryLogConfigArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResolverQueryLogConfigArgs.Tags' is not present");
+            }
+        }
     }
 }

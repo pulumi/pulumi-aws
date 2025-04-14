@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The configuration used to run the application image container. See Container Config details below.
         /// </summary>
-        [Input("containerConfig")]
+        [PolicyResourceProperty("containerConfig", "_mUnknown_ContainerConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AppImageConfigJupyterLabImageConfigContainerConfigArgs> _mContainerConfig;
-
-        public Inputs.AppImageConfigJupyterLabImageConfigContainerConfigArgs? ContainerConfig => _mContainerConfig.GetValue("containerConfig");
+        private Inputs.AppImageConfigJupyterLabImageConfigContainerConfigArgs? _mValue_ContainerConfig;
+        private bool _mUnknown_ContainerConfig;
+        public Inputs.AppImageConfigJupyterLabImageConfigContainerConfigArgs? ContainerConfig
+        {
+            get
+            {
+                if (!_mUnknown_ContainerConfig) return _mValue_ContainerConfig;
+                throw new UndeferrableValueException("Value 'AppImageConfigJupyterLabImageConfigArgs.ContainerConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL where the Git repository is located. See File System Config details below.
         /// </summary>
-        [Input("fileSystemConfig")]
+        [PolicyResourceProperty("fileSystemConfig", "_mUnknown_FileSystemConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AppImageConfigJupyterLabImageConfigFileSystemConfigArgs> _mFileSystemConfig;
-
-        public Inputs.AppImageConfigJupyterLabImageConfigFileSystemConfigArgs? FileSystemConfig => _mFileSystemConfig.GetValue("fileSystemConfig");
+        private Inputs.AppImageConfigJupyterLabImageConfigFileSystemConfigArgs? _mValue_FileSystemConfig;
+        private bool _mUnknown_FileSystemConfig;
+        public Inputs.AppImageConfigJupyterLabImageConfigFileSystemConfigArgs? FileSystemConfig
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemConfig) return _mValue_FileSystemConfig;
+                throw new UndeferrableValueException("Value 'AppImageConfigJupyterLabImageConfigArgs.FileSystemConfig' is not present");
+            }
+        }
     }
 }

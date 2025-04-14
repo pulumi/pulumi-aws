@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
         /// </summary>
-        [Input("and")]
+        [PolicyResourceProperty("and", "_mUnknown_And")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketReplicationConfigRuleFilterAnd> _mAnd;
-
-        public Outputs.BucketReplicationConfigRuleFilterAnd? And => _mAnd.GetValue("and");
+        private Outputs.BucketReplicationConfigRuleFilterAnd? _mValue_And;
+        private bool _mUnknown_And;
+        public Outputs.BucketReplicationConfigRuleFilterAnd? And
+        {
+            get
+            {
+                if (!_mUnknown_And) return _mValue_And;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleFilter.And' is not present");
+            }
+        }
 
         /// <summary>
         /// Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleFilter.Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for specifying a tag key and value. See below.
         /// </summary>
-        [Input("tag")]
+        [PolicyResourceProperty("tag", "_mUnknown_Tag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketReplicationConfigRuleFilterTag> _mTag;
-
-        public Outputs.BucketReplicationConfigRuleFilterTag? Tag => _mTag.GetValue("tag");
+        private Outputs.BucketReplicationConfigRuleFilterTag? _mValue_Tag;
+        private bool _mUnknown_Tag;
+        public Outputs.BucketReplicationConfigRuleFilterTag? Tag
+        {
+            get
+            {
+                if (!_mUnknown_Tag) return _mValue_Tag;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleFilter.Tag' is not present");
+            }
+        }
     }
 }

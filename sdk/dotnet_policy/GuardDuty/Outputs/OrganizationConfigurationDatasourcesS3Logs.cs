@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty.Outputs
         /// <summary>
         /// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
         /// </summary>
-        [Input("autoEnable")]
+        [PolicyResourceProperty("autoEnable", "_mUnknown_AutoEnable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnable;
-
-        public bool? AutoEnable => _mAutoEnable.GetValue("autoEnable");
+        private bool? _mValue_AutoEnable;
+        private bool _mUnknown_AutoEnable;
+        public bool? AutoEnable
+        {
+            get
+            {
+                if (!_mUnknown_AutoEnable) return _mValue_AutoEnable;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationDatasourcesS3Logs.AutoEnable' is not present");
+            }
+        }
     }
 }

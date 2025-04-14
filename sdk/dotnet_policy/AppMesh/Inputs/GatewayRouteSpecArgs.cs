@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Specification of a gRPC gateway route.
         /// </summary>
-        [Input("grpcRoute")]
+        [PolicyResourceProperty("grpcRoute", "_mUnknown_GrpcRoute")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GatewayRouteSpecGrpcRouteArgs> _mGrpcRoute;
-
-        public Inputs.GatewayRouteSpecGrpcRouteArgs? GrpcRoute => _mGrpcRoute.GetValue("grpcRoute");
+        private Inputs.GatewayRouteSpecGrpcRouteArgs? _mValue_GrpcRoute;
+        private bool _mUnknown_GrpcRoute;
+        public Inputs.GatewayRouteSpecGrpcRouteArgs? GrpcRoute
+        {
+            get
+            {
+                if (!_mUnknown_GrpcRoute) return _mValue_GrpcRoute;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecArgs.GrpcRoute' is not present");
+            }
+        }
 
         /// <summary>
         /// Specification of an HTTP/2 gateway route.
         /// </summary>
-        [Input("http2Route")]
+        [PolicyResourceProperty("http2Route", "_mUnknown_Http2Route")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GatewayRouteSpecHttp2RouteArgs> _mHttp2Route;
-
-        public Inputs.GatewayRouteSpecHttp2RouteArgs? Http2Route => _mHttp2Route.GetValue("http2Route");
+        private Inputs.GatewayRouteSpecHttp2RouteArgs? _mValue_Http2Route;
+        private bool _mUnknown_Http2Route;
+        public Inputs.GatewayRouteSpecHttp2RouteArgs? Http2Route
+        {
+            get
+            {
+                if (!_mUnknown_Http2Route) return _mValue_Http2Route;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecArgs.Http2Route' is not present");
+            }
+        }
 
         /// <summary>
         /// Specification of an HTTP gateway route.
         /// </summary>
-        [Input("httpRoute")]
+        [PolicyResourceProperty("httpRoute", "_mUnknown_HttpRoute")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GatewayRouteSpecHttpRouteArgs> _mHttpRoute;
-
-        public Inputs.GatewayRouteSpecHttpRouteArgs? HttpRoute => _mHttpRoute.GetValue("httpRoute");
+        private Inputs.GatewayRouteSpecHttpRouteArgs? _mValue_HttpRoute;
+        private bool _mUnknown_HttpRoute;
+        public Inputs.GatewayRouteSpecHttpRouteArgs? HttpRoute
+        {
+            get
+            {
+                if (!_mUnknown_HttpRoute) return _mValue_HttpRoute;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecArgs.HttpRoute' is not present");
+            }
+        }
 
         /// <summary>
         /// Priority for the gateway route, between `0` and `1000`.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecArgs.Priority' is not present");
+            }
+        }
     }
 }

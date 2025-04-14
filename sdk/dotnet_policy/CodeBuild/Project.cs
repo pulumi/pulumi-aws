@@ -16,262 +16,451 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild
         /// <summary>
         /// ARN of the CodeBuild project.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Project.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("artifacts")]
+        [PolicyResourceProperty("artifacts", "_mUnknown_Artifacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectArtifacts> _mArtifacts;
-
-        public Outputs.ProjectArtifacts? Artifacts => _mArtifacts.GetValue("artifacts");
+        private Outputs.ProjectArtifacts? _mValue_Artifacts;
+        private bool _mUnknown_Artifacts;
+        public Outputs.ProjectArtifacts? Artifacts
+        {
+            get
+            {
+                if (!_mUnknown_Artifacts) return _mValue_Artifacts;
+                throw new UndeferrableValueException("Value 'Project.Artifacts' is not present");
+            }
+        }
 
         /// <summary>
         /// Generates a publicly-accessible URL for the projects build badge. Available as
         /// `badge_url` attribute when enabled.
         /// </summary>
-        [Input("badgeEnabled")]
+        [PolicyResourceProperty("badgeEnabled", "_mUnknown_BadgeEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBadgeEnabled;
-
-        public bool? BadgeEnabled => _mBadgeEnabled.GetValue("badgeEnabled");
+        private bool? _mValue_BadgeEnabled;
+        private bool _mUnknown_BadgeEnabled;
+        public bool? BadgeEnabled
+        {
+            get
+            {
+                if (!_mUnknown_BadgeEnabled) return _mValue_BadgeEnabled;
+                throw new UndeferrableValueException("Value 'Project.BadgeEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// URL of the build badge when `badge_enabled` is enabled.
         /// </summary>
-        [Input("badgeUrl")]
+        [PolicyResourceProperty("badgeUrl", "_mUnknown_BadgeUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBadgeUrl;
-
-        public string? BadgeUrl => _mBadgeUrl.GetValue("badgeUrl");
+        private string? _mValue_BadgeUrl;
+        private bool _mUnknown_BadgeUrl;
+        public string? BadgeUrl
+        {
+            get
+            {
+                if (!_mUnknown_BadgeUrl) return _mValue_BadgeUrl;
+                throw new UndeferrableValueException("Value 'Project.BadgeUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the batch build options for the project.
         /// </summary>
-        [Input("buildBatchConfig")]
+        [PolicyResourceProperty("buildBatchConfig", "_mUnknown_BuildBatchConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectBuildBatchConfig> _mBuildBatchConfig;
-
-        public Outputs.ProjectBuildBatchConfig? BuildBatchConfig => _mBuildBatchConfig.GetValue("buildBatchConfig");
+        private Outputs.ProjectBuildBatchConfig? _mValue_BuildBatchConfig;
+        private bool _mUnknown_BuildBatchConfig;
+        public Outputs.ProjectBuildBatchConfig? BuildBatchConfig
+        {
+            get
+            {
+                if (!_mUnknown_BuildBatchConfig) return _mValue_BuildBatchConfig;
+                throw new UndeferrableValueException("Value 'Project.BuildBatchConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
         /// any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is
         /// not available on the `Lambda` compute type.
         /// </summary>
-        [Input("buildTimeout")]
+        [PolicyResourceProperty("buildTimeout", "_mUnknown_BuildTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBuildTimeout;
-
-        public int? BuildTimeout => _mBuildTimeout.GetValue("buildTimeout");
+        private int? _mValue_BuildTimeout;
+        private bool _mUnknown_BuildTimeout;
+        public int? BuildTimeout
+        {
+            get
+            {
+                if (!_mUnknown_BuildTimeout) return _mValue_BuildTimeout;
+                throw new UndeferrableValueException("Value 'Project.BuildTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("cache")]
+        [PolicyResourceProperty("cache", "_mUnknown_Cache")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectCache> _mCache;
-
-        public Outputs.ProjectCache? Cache => _mCache.GetValue("cache");
+        private Outputs.ProjectCache? _mValue_Cache;
+        private bool _mUnknown_Cache;
+        public Outputs.ProjectCache? Cache
+        {
+            get
+            {
+                if (!_mUnknown_Cache) return _mValue_Cache;
+                throw new UndeferrableValueException("Value 'Project.Cache' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify a maximum number of concurrent builds for the project. The value
         /// specified must be greater than 0 and less than the account concurrent running builds limit.
         /// </summary>
-        [Input("concurrentBuildLimit")]
+        [PolicyResourceProperty("concurrentBuildLimit", "_mUnknown_ConcurrentBuildLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mConcurrentBuildLimit;
-
-        public int? ConcurrentBuildLimit => _mConcurrentBuildLimit.GetValue("concurrentBuildLimit");
+        private int? _mValue_ConcurrentBuildLimit;
+        private bool _mUnknown_ConcurrentBuildLimit;
+        public int? ConcurrentBuildLimit
+        {
+            get
+            {
+                if (!_mUnknown_ConcurrentBuildLimit) return _mValue_ConcurrentBuildLimit;
+                throw new UndeferrableValueException("Value 'Project.ConcurrentBuildLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// Short description of the project.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Project.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
         /// the build project's build output artifacts.
         /// </summary>
-        [Input("encryptionKey")]
+        [PolicyResourceProperty("encryptionKey", "_mUnknown_EncryptionKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionKey;
-
-        public string? EncryptionKey => _mEncryptionKey.GetValue("encryptionKey");
+        private string? _mValue_EncryptionKey;
+        private bool _mUnknown_EncryptionKey;
+        public string? EncryptionKey
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionKey) return _mValue_EncryptionKey;
+                throw new UndeferrableValueException("Value 'Project.EncryptionKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("environment")]
+        [PolicyResourceProperty("environment", "_mUnknown_Environment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectEnvironment> _mEnvironment;
-
-        public Outputs.ProjectEnvironment? Environment => _mEnvironment.GetValue("environment");
+        private Outputs.ProjectEnvironment? _mValue_Environment;
+        private bool _mUnknown_Environment;
+        public Outputs.ProjectEnvironment? Environment
+        {
+            get
+            {
+                if (!_mUnknown_Environment) return _mValue_Environment;
+                throw new UndeferrableValueException("Value 'Project.Environment' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of file system locations to mount inside the build. File system locations
         /// are documented below.
         /// </summary>
-        [Input("fileSystemLocations")]
+        [PolicyResourceProperty("fileSystemLocations", "_mUnknown_FileSystemLocations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProjectFileSystemLocation>> _mFileSystemLocations;
-
-        public List<Outputs.ProjectFileSystemLocation>? FileSystemLocations => _mFileSystemLocations.GetValue("fileSystemLocations");
+        private List<Outputs.ProjectFileSystemLocation>? _mValue_FileSystemLocations;
+        private bool _mUnknown_FileSystemLocations;
+        public List<Outputs.ProjectFileSystemLocation>? FileSystemLocations
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemLocations) return _mValue_FileSystemLocations;
+                throw new UndeferrableValueException("Value 'Project.FileSystemLocations' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("logsConfig")]
+        [PolicyResourceProperty("logsConfig", "_mUnknown_LogsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectLogsConfig> _mLogsConfig;
-
-        public Outputs.ProjectLogsConfig? LogsConfig => _mLogsConfig.GetValue("logsConfig");
+        private Outputs.ProjectLogsConfig? _mValue_LogsConfig;
+        private bool _mUnknown_LogsConfig;
+        public Outputs.ProjectLogsConfig? LogsConfig
+        {
+            get
+            {
+                if (!_mUnknown_LogsConfig) return _mValue_LogsConfig;
+                throw new UndeferrableValueException("Value 'Project.LogsConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Project's name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Project.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ`
         /// and `PRIVATE`. Default value is `PRIVATE`.
         /// </summary>
-        [Input("projectVisibility")]
+        [PolicyResourceProperty("projectVisibility", "_mUnknown_ProjectVisibility")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectVisibility;
-
-        public string? ProjectVisibility => _mProjectVisibility.GetValue("projectVisibility");
+        private string? _mValue_ProjectVisibility;
+        private bool _mUnknown_ProjectVisibility;
+        public string? ProjectVisibility
+        {
+            get
+            {
+                if (!_mUnknown_ProjectVisibility) return _mValue_ProjectVisibility;
+                throw new UndeferrableValueException("Value 'Project.ProjectVisibility' is not present");
+            }
+        }
 
         /// <summary>
         /// The project identifier used with the public build APIs.
         /// </summary>
-        [Input("publicProjectAlias")]
+        [PolicyResourceProperty("publicProjectAlias", "_mUnknown_PublicProjectAlias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicProjectAlias;
-
-        public string? PublicProjectAlias => _mPublicProjectAlias.GetValue("publicProjectAlias");
+        private string? _mValue_PublicProjectAlias;
+        private bool _mUnknown_PublicProjectAlias;
+        public string? PublicProjectAlias
+        {
+            get
+            {
+                if (!_mUnknown_PublicProjectAlias) return _mValue_PublicProjectAlias;
+                throw new UndeferrableValueException("Value 'Project.PublicProjectAlias' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
         /// times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
         /// </summary>
-        [Input("queuedTimeout")]
+        [PolicyResourceProperty("queuedTimeout", "_mUnknown_QueuedTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mQueuedTimeout;
-
-        public int? QueuedTimeout => _mQueuedTimeout.GetValue("queuedTimeout");
+        private int? _mValue_QueuedTimeout;
+        private bool _mUnknown_QueuedTimeout;
+        public int? QueuedTimeout
+        {
+            get
+            {
+                if (!_mUnknown_QueuedTimeout) return _mValue_QueuedTimeout;
+                throw new UndeferrableValueException("Value 'Project.QueuedTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
         /// Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
         /// `project_visibility` is `PUBLIC_READ`.
         /// </summary>
-        [Input("resourceAccessRole")]
+        [PolicyResourceProperty("resourceAccessRole", "_mUnknown_ResourceAccessRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceAccessRole;
-
-        public string? ResourceAccessRole => _mResourceAccessRole.GetValue("resourceAccessRole");
+        private string? _mValue_ResourceAccessRole;
+        private bool _mUnknown_ResourceAccessRole;
+        public string? ResourceAccessRole
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAccessRole) return _mValue_ResourceAccessRole;
+                throw new UndeferrableValueException("Value 'Project.ResourceAccessRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("secondaryArtifacts")]
+        [PolicyResourceProperty("secondaryArtifacts", "_mUnknown_SecondaryArtifacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProjectSecondaryArtifact>> _mSecondaryArtifacts;
-
-        public List<Outputs.ProjectSecondaryArtifact>? SecondaryArtifacts => _mSecondaryArtifacts.GetValue("secondaryArtifacts");
+        private List<Outputs.ProjectSecondaryArtifact>? _mValue_SecondaryArtifacts;
+        private bool _mUnknown_SecondaryArtifacts;
+        public List<Outputs.ProjectSecondaryArtifact>? SecondaryArtifacts
+        {
+            get
+            {
+                if (!_mUnknown_SecondaryArtifacts) return _mValue_SecondaryArtifacts;
+                throw new UndeferrableValueException("Value 'Project.SecondaryArtifacts' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("secondarySourceVersions")]
+        [PolicyResourceProperty("secondarySourceVersions", "_mUnknown_SecondarySourceVersions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProjectSecondarySourceVersion>> _mSecondarySourceVersions;
-
-        public List<Outputs.ProjectSecondarySourceVersion>? SecondarySourceVersions => _mSecondarySourceVersions.GetValue("secondarySourceVersions");
+        private List<Outputs.ProjectSecondarySourceVersion>? _mValue_SecondarySourceVersions;
+        private bool _mUnknown_SecondarySourceVersions;
+        public List<Outputs.ProjectSecondarySourceVersion>? SecondarySourceVersions
+        {
+            get
+            {
+                if (!_mUnknown_SecondarySourceVersions) return _mValue_SecondarySourceVersions;
+                throw new UndeferrableValueException("Value 'Project.SecondarySourceVersions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("secondarySources")]
+        [PolicyResourceProperty("secondarySources", "_mUnknown_SecondarySources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProjectSecondarySource>> _mSecondarySources;
-
-        public List<Outputs.ProjectSecondarySource>? SecondarySources => _mSecondarySources.GetValue("secondarySources");
+        private List<Outputs.ProjectSecondarySource>? _mValue_SecondarySources;
+        private bool _mUnknown_SecondarySources;
+        public List<Outputs.ProjectSecondarySource>? SecondarySources
+        {
+            get
+            {
+                if (!_mUnknown_SecondarySources) return _mValue_SecondarySources;
+                throw new UndeferrableValueException("Value 'Project.SecondarySources' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
         /// enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         /// </summary>
-        [Input("serviceRole")]
+        [PolicyResourceProperty("serviceRole", "_mUnknown_ServiceRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRole;
-
-        public string? ServiceRole => _mServiceRole.GetValue("serviceRole");
+        private string? _mValue_ServiceRole;
+        private bool _mUnknown_ServiceRole;
+        public string? ServiceRole
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRole) return _mValue_ServiceRole;
+                throw new UndeferrableValueException("Value 'Project.ServiceRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectSource> _mSource;
-
-        public Outputs.ProjectSource? Source => _mSource.GetValue("source");
+        private Outputs.ProjectSource? _mValue_Source;
+        private bool _mUnknown_Source;
+        public Outputs.ProjectSource? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'Project.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the build input to be built for this project. If not specified, the latest
         /// version is used.
         /// </summary>
-        [Input("sourceVersion")]
+        [PolicyResourceProperty("sourceVersion", "_mUnknown_SourceVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceVersion;
-
-        public string? SourceVersion => _mSourceVersion.GetValue("sourceVersion");
+        private string? _mValue_SourceVersion;
+        private bool _mUnknown_SourceVersion;
+        public string? SourceVersion
+        {
+            get
+            {
+                if (!_mUnknown_SourceVersion) return _mValue_SourceVersion;
+                throw new UndeferrableValueException("Value 'Project.SourceVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider 
         /// `default_tags` configuration block
         /// present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Project.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider 
         /// `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Project.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectVpcConfig> _mVpcConfig;
-
-        public Outputs.ProjectVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Outputs.ProjectVpcConfig? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Outputs.ProjectVpcConfig? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'Project.VpcConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codebuild/project:Project")]
@@ -280,224 +469,385 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("artifacts")]
+        [PolicyResourceProperty("artifacts", "_mUnknown_Artifacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectArtifactsArgs> _mArtifacts;
-
-        public Inputs.ProjectArtifactsArgs? Artifacts => _mArtifacts.GetValue("artifacts");
+        private Inputs.ProjectArtifactsArgs? _mValue_Artifacts;
+        private bool _mUnknown_Artifacts;
+        public Inputs.ProjectArtifactsArgs? Artifacts
+        {
+            get
+            {
+                if (!_mUnknown_Artifacts) return _mValue_Artifacts;
+                throw new UndeferrableValueException("Value 'ProjectArgs.Artifacts' is not present");
+            }
+        }
 
         /// <summary>
         /// Generates a publicly-accessible URL for the projects build badge. Available as
         /// `badge_url` attribute when enabled.
         /// </summary>
-        [Input("badgeEnabled")]
+        [PolicyResourceProperty("badgeEnabled", "_mUnknown_BadgeEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBadgeEnabled;
-
-        public bool? BadgeEnabled => _mBadgeEnabled.GetValue("badgeEnabled");
+        private bool? _mValue_BadgeEnabled;
+        private bool _mUnknown_BadgeEnabled;
+        public bool? BadgeEnabled
+        {
+            get
+            {
+                if (!_mUnknown_BadgeEnabled) return _mValue_BadgeEnabled;
+                throw new UndeferrableValueException("Value 'ProjectArgs.BadgeEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the batch build options for the project.
         /// </summary>
-        [Input("buildBatchConfig")]
+        [PolicyResourceProperty("buildBatchConfig", "_mUnknown_BuildBatchConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectBuildBatchConfigArgs> _mBuildBatchConfig;
-
-        public Inputs.ProjectBuildBatchConfigArgs? BuildBatchConfig => _mBuildBatchConfig.GetValue("buildBatchConfig");
+        private Inputs.ProjectBuildBatchConfigArgs? _mValue_BuildBatchConfig;
+        private bool _mUnknown_BuildBatchConfig;
+        public Inputs.ProjectBuildBatchConfigArgs? BuildBatchConfig
+        {
+            get
+            {
+                if (!_mUnknown_BuildBatchConfig) return _mValue_BuildBatchConfig;
+                throw new UndeferrableValueException("Value 'ProjectArgs.BuildBatchConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
         /// any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is
         /// not available on the `Lambda` compute type.
         /// </summary>
-        [Input("buildTimeout")]
+        [PolicyResourceProperty("buildTimeout", "_mUnknown_BuildTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBuildTimeout;
-
-        public int? BuildTimeout => _mBuildTimeout.GetValue("buildTimeout");
+        private int? _mValue_BuildTimeout;
+        private bool _mUnknown_BuildTimeout;
+        public int? BuildTimeout
+        {
+            get
+            {
+                if (!_mUnknown_BuildTimeout) return _mValue_BuildTimeout;
+                throw new UndeferrableValueException("Value 'ProjectArgs.BuildTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("cache")]
+        [PolicyResourceProperty("cache", "_mUnknown_Cache")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectCacheArgs> _mCache;
-
-        public Inputs.ProjectCacheArgs? Cache => _mCache.GetValue("cache");
+        private Inputs.ProjectCacheArgs? _mValue_Cache;
+        private bool _mUnknown_Cache;
+        public Inputs.ProjectCacheArgs? Cache
+        {
+            get
+            {
+                if (!_mUnknown_Cache) return _mValue_Cache;
+                throw new UndeferrableValueException("Value 'ProjectArgs.Cache' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify a maximum number of concurrent builds for the project. The value
         /// specified must be greater than 0 and less than the account concurrent running builds limit.
         /// </summary>
-        [Input("concurrentBuildLimit")]
+        [PolicyResourceProperty("concurrentBuildLimit", "_mUnknown_ConcurrentBuildLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mConcurrentBuildLimit;
-
-        public int? ConcurrentBuildLimit => _mConcurrentBuildLimit.GetValue("concurrentBuildLimit");
+        private int? _mValue_ConcurrentBuildLimit;
+        private bool _mUnknown_ConcurrentBuildLimit;
+        public int? ConcurrentBuildLimit
+        {
+            get
+            {
+                if (!_mUnknown_ConcurrentBuildLimit) return _mValue_ConcurrentBuildLimit;
+                throw new UndeferrableValueException("Value 'ProjectArgs.ConcurrentBuildLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// Short description of the project.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ProjectArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
         /// the build project's build output artifacts.
         /// </summary>
-        [Input("encryptionKey")]
+        [PolicyResourceProperty("encryptionKey", "_mUnknown_EncryptionKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionKey;
-
-        public string? EncryptionKey => _mEncryptionKey.GetValue("encryptionKey");
+        private string? _mValue_EncryptionKey;
+        private bool _mUnknown_EncryptionKey;
+        public string? EncryptionKey
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionKey) return _mValue_EncryptionKey;
+                throw new UndeferrableValueException("Value 'ProjectArgs.EncryptionKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("environment")]
+        [PolicyResourceProperty("environment", "_mUnknown_Environment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectEnvironmentArgs> _mEnvironment;
-
-        public Inputs.ProjectEnvironmentArgs? Environment => _mEnvironment.GetValue("environment");
+        private Inputs.ProjectEnvironmentArgs? _mValue_Environment;
+        private bool _mUnknown_Environment;
+        public Inputs.ProjectEnvironmentArgs? Environment
+        {
+            get
+            {
+                if (!_mUnknown_Environment) return _mValue_Environment;
+                throw new UndeferrableValueException("Value 'ProjectArgs.Environment' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of file system locations to mount inside the build. File system locations
         /// are documented below.
         /// </summary>
-        [Input("fileSystemLocations")]
+        [PolicyResourceProperty("fileSystemLocations", "_mUnknown_FileSystemLocations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ProjectFileSystemLocationArgs>> _mFileSystemLocations;
-
-        public List<Inputs.ProjectFileSystemLocationArgs>? FileSystemLocations => _mFileSystemLocations.GetValue("fileSystemLocations");
+        private List<Inputs.ProjectFileSystemLocationArgs>? _mValue_FileSystemLocations;
+        private bool _mUnknown_FileSystemLocations;
+        public List<Inputs.ProjectFileSystemLocationArgs>? FileSystemLocations
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemLocations) return _mValue_FileSystemLocations;
+                throw new UndeferrableValueException("Value 'ProjectArgs.FileSystemLocations' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("logsConfig")]
+        [PolicyResourceProperty("logsConfig", "_mUnknown_LogsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectLogsConfigArgs> _mLogsConfig;
-
-        public Inputs.ProjectLogsConfigArgs? LogsConfig => _mLogsConfig.GetValue("logsConfig");
+        private Inputs.ProjectLogsConfigArgs? _mValue_LogsConfig;
+        private bool _mUnknown_LogsConfig;
+        public Inputs.ProjectLogsConfigArgs? LogsConfig
+        {
+            get
+            {
+                if (!_mUnknown_LogsConfig) return _mValue_LogsConfig;
+                throw new UndeferrableValueException("Value 'ProjectArgs.LogsConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Project's name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ProjectArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ`
         /// and `PRIVATE`. Default value is `PRIVATE`.
         /// </summary>
-        [Input("projectVisibility")]
+        [PolicyResourceProperty("projectVisibility", "_mUnknown_ProjectVisibility")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectVisibility;
-
-        public string? ProjectVisibility => _mProjectVisibility.GetValue("projectVisibility");
+        private string? _mValue_ProjectVisibility;
+        private bool _mUnknown_ProjectVisibility;
+        public string? ProjectVisibility
+        {
+            get
+            {
+                if (!_mUnknown_ProjectVisibility) return _mValue_ProjectVisibility;
+                throw new UndeferrableValueException("Value 'ProjectArgs.ProjectVisibility' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
         /// times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
         /// </summary>
-        [Input("queuedTimeout")]
+        [PolicyResourceProperty("queuedTimeout", "_mUnknown_QueuedTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mQueuedTimeout;
-
-        public int? QueuedTimeout => _mQueuedTimeout.GetValue("queuedTimeout");
+        private int? _mValue_QueuedTimeout;
+        private bool _mUnknown_QueuedTimeout;
+        public int? QueuedTimeout
+        {
+            get
+            {
+                if (!_mUnknown_QueuedTimeout) return _mValue_QueuedTimeout;
+                throw new UndeferrableValueException("Value 'ProjectArgs.QueuedTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
         /// Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
         /// `project_visibility` is `PUBLIC_READ`.
         /// </summary>
-        [Input("resourceAccessRole")]
+        [PolicyResourceProperty("resourceAccessRole", "_mUnknown_ResourceAccessRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceAccessRole;
-
-        public string? ResourceAccessRole => _mResourceAccessRole.GetValue("resourceAccessRole");
+        private string? _mValue_ResourceAccessRole;
+        private bool _mUnknown_ResourceAccessRole;
+        public string? ResourceAccessRole
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAccessRole) return _mValue_ResourceAccessRole;
+                throw new UndeferrableValueException("Value 'ProjectArgs.ResourceAccessRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("secondaryArtifacts")]
+        [PolicyResourceProperty("secondaryArtifacts", "_mUnknown_SecondaryArtifacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ProjectSecondaryArtifactArgs>> _mSecondaryArtifacts;
-
-        public List<Inputs.ProjectSecondaryArtifactArgs>? SecondaryArtifacts => _mSecondaryArtifacts.GetValue("secondaryArtifacts");
+        private List<Inputs.ProjectSecondaryArtifactArgs>? _mValue_SecondaryArtifacts;
+        private bool _mUnknown_SecondaryArtifacts;
+        public List<Inputs.ProjectSecondaryArtifactArgs>? SecondaryArtifacts
+        {
+            get
+            {
+                if (!_mUnknown_SecondaryArtifacts) return _mValue_SecondaryArtifacts;
+                throw new UndeferrableValueException("Value 'ProjectArgs.SecondaryArtifacts' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("secondarySourceVersions")]
+        [PolicyResourceProperty("secondarySourceVersions", "_mUnknown_SecondarySourceVersions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ProjectSecondarySourceVersionArgs>> _mSecondarySourceVersions;
-
-        public List<Inputs.ProjectSecondarySourceVersionArgs>? SecondarySourceVersions => _mSecondarySourceVersions.GetValue("secondarySourceVersions");
+        private List<Inputs.ProjectSecondarySourceVersionArgs>? _mValue_SecondarySourceVersions;
+        private bool _mUnknown_SecondarySourceVersions;
+        public List<Inputs.ProjectSecondarySourceVersionArgs>? SecondarySourceVersions
+        {
+            get
+            {
+                if (!_mUnknown_SecondarySourceVersions) return _mValue_SecondarySourceVersions;
+                throw new UndeferrableValueException("Value 'ProjectArgs.SecondarySourceVersions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("secondarySources")]
+        [PolicyResourceProperty("secondarySources", "_mUnknown_SecondarySources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ProjectSecondarySourceArgs>> _mSecondarySources;
-
-        public List<Inputs.ProjectSecondarySourceArgs>? SecondarySources => _mSecondarySources.GetValue("secondarySources");
+        private List<Inputs.ProjectSecondarySourceArgs>? _mValue_SecondarySources;
+        private bool _mUnknown_SecondarySources;
+        public List<Inputs.ProjectSecondarySourceArgs>? SecondarySources
+        {
+            get
+            {
+                if (!_mUnknown_SecondarySources) return _mValue_SecondarySources;
+                throw new UndeferrableValueException("Value 'ProjectArgs.SecondarySources' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
         /// enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         /// </summary>
-        [Input("serviceRole")]
+        [PolicyResourceProperty("serviceRole", "_mUnknown_ServiceRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRole;
-
-        public string? ServiceRole => _mServiceRole.GetValue("serviceRole");
+        private string? _mValue_ServiceRole;
+        private bool _mUnknown_ServiceRole;
+        public string? ServiceRole
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRole) return _mValue_ServiceRole;
+                throw new UndeferrableValueException("Value 'ProjectArgs.ServiceRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectSourceArgs> _mSource;
-
-        public Inputs.ProjectSourceArgs? Source => _mSource.GetValue("source");
+        private Inputs.ProjectSourceArgs? _mValue_Source;
+        private bool _mUnknown_Source;
+        public Inputs.ProjectSourceArgs? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'ProjectArgs.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the build input to be built for this project. If not specified, the latest
         /// version is used.
         /// </summary>
-        [Input("sourceVersion")]
+        [PolicyResourceProperty("sourceVersion", "_mUnknown_SourceVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceVersion;
-
-        public string? SourceVersion => _mSourceVersion.GetValue("sourceVersion");
+        private string? _mValue_SourceVersion;
+        private bool _mUnknown_SourceVersion;
+        public string? SourceVersion
+        {
+            get
+            {
+                if (!_mUnknown_SourceVersion) return _mValue_SourceVersion;
+                throw new UndeferrableValueException("Value 'ProjectArgs.SourceVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider 
         /// `default_tags` configuration block
         /// present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ProjectArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectVpcConfigArgs> _mVpcConfig;
-
-        public Inputs.ProjectVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Inputs.ProjectVpcConfigArgs? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Inputs.ProjectVpcConfigArgs? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'ProjectArgs.VpcConfig' is not present");
+            }
+        }
     }
 }

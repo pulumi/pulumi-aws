@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// Whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
-        [Input("override")]
+        [PolicyResourceProperty("override", "_mUnknown_Override")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOverride;
-
-        public bool? Override => _mOverride.GetValue("override");
+        private bool? _mValue_Override;
+        private bool _mUnknown_Override;
+        public bool? Override
+        {
+            get
+            {
+                if (!_mUnknown_Override) return _mValue_Override;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs.Override' is not present");
+            }
+        }
     }
 }

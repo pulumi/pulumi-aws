@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Scheduler.Outputs
         /// <summary>
         /// A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
         /// </summary>
-        [Input("expression")]
+        [PolicyResourceProperty("expression", "_mUnknown_Expression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpression;
-
-        public string? Expression => _mExpression.GetValue("expression");
+        private string? _mValue_Expression;
+        private bool _mUnknown_Expression;
+        public string? Expression
+        {
+            get
+            {
+                if (!_mUnknown_Expression) return _mValue_Expression;
+                throw new UndeferrableValueException("Value 'ScheduleTargetEcsParametersPlacementConstraint.Expression' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of constraint. One of: `distinctInstance`, `memberOf`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ScheduleTargetEcsParametersPlacementConstraint.Type' is not present");
+            }
+        }
     }
 }

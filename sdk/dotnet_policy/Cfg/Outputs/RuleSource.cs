@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Cfg.Outputs
         /// <summary>
         /// Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
         /// </summary>
-        [Input("customPolicyDetails")]
+        [PolicyResourceProperty("customPolicyDetails", "_mUnknown_CustomPolicyDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleSourceCustomPolicyDetails> _mCustomPolicyDetails;
-
-        public Outputs.RuleSourceCustomPolicyDetails? CustomPolicyDetails => _mCustomPolicyDetails.GetValue("customPolicyDetails");
+        private Outputs.RuleSourceCustomPolicyDetails? _mValue_CustomPolicyDetails;
+        private bool _mUnknown_CustomPolicyDetails;
+        public Outputs.RuleSourceCustomPolicyDetails? CustomPolicyDetails
+        {
+            get
+            {
+                if (!_mUnknown_CustomPolicyDetails) return _mValue_CustomPolicyDetails;
+                throw new UndeferrableValueException("Value 'RuleSource.CustomPolicyDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the `aws.lambda.Permission` resource.
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'RuleSource.Owner' is not present");
+            }
+        }
 
         /// <summary>
         /// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
         /// </summary>
-        [Input("sourceDetails")]
+        [PolicyResourceProperty("sourceDetails", "_mUnknown_SourceDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleSourceSourceDetail>> _mSourceDetails;
-
-        public List<Outputs.RuleSourceSourceDetail>? SourceDetails => _mSourceDetails.GetValue("sourceDetails");
+        private List<Outputs.RuleSourceSourceDetail>? _mValue_SourceDetails;
+        private bool _mUnknown_SourceDetails;
+        public List<Outputs.RuleSourceSourceDetail>? SourceDetails
+        {
+            get
+            {
+                if (!_mUnknown_SourceDetails) return _mValue_SourceDetails;
+                throw new UndeferrableValueException("Value 'RuleSource.SourceDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `aws.lambda.Function` resource.
         /// </summary>
-        [Input("sourceIdentifier")]
+        [PolicyResourceProperty("sourceIdentifier", "_mUnknown_SourceIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceIdentifier;
-
-        public string? SourceIdentifier => _mSourceIdentifier.GetValue("sourceIdentifier");
+        private string? _mValue_SourceIdentifier;
+        private bool _mUnknown_SourceIdentifier;
+        public string? SourceIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SourceIdentifier) return _mValue_SourceIdentifier;
+                throw new UndeferrableValueException("Value 'RuleSource.SourceIdentifier' is not present");
+            }
+        }
     }
 }

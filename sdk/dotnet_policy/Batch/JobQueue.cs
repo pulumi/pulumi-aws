@@ -16,99 +16,176 @@ namespace Pulumi.PolicyPacks.Aws.Batch
         /// <summary>
         /// The Amazon Resource Name of the job queue.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'JobQueue.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
         /// </summary>
-        [Input("computeEnvironmentOrders")]
+        [PolicyResourceProperty("computeEnvironmentOrders", "_mUnknown_ComputeEnvironmentOrders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.JobQueueComputeEnvironmentOrder>> _mComputeEnvironmentOrders;
-
-        public List<Outputs.JobQueueComputeEnvironmentOrder>? ComputeEnvironmentOrders => _mComputeEnvironmentOrders.GetValue("computeEnvironmentOrders");
+        private List<Outputs.JobQueueComputeEnvironmentOrder>? _mValue_ComputeEnvironmentOrders;
+        private bool _mUnknown_ComputeEnvironmentOrders;
+        public List<Outputs.JobQueueComputeEnvironmentOrder>? ComputeEnvironmentOrders
+        {
+            get
+            {
+                if (!_mUnknown_ComputeEnvironmentOrders) return _mValue_ComputeEnvironmentOrders;
+                throw new UndeferrableValueException("Value 'JobQueue.ComputeEnvironmentOrders' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         /// </summary>
-        [Input("computeEnvironments")]
+        [PolicyResourceProperty("computeEnvironments", "_mUnknown_ComputeEnvironments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mComputeEnvironments;
-
-        public List<string>? ComputeEnvironments => _mComputeEnvironments.GetValue("computeEnvironments");
+        private List<string>? _mValue_ComputeEnvironments;
+        private bool _mUnknown_ComputeEnvironments;
+        public List<string>? ComputeEnvironments
+        {
+            get
+            {
+                if (!_mUnknown_ComputeEnvironments) return _mValue_ComputeEnvironments;
+                throw new UndeferrableValueException("Value 'JobQueue.ComputeEnvironments' is not present");
+            }
+        }
 
         /// <summary>
         /// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
         /// </summary>
-        [Input("jobStateTimeLimitActions")]
+        [PolicyResourceProperty("jobStateTimeLimitActions", "_mUnknown_JobStateTimeLimitActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.JobQueueJobStateTimeLimitAction>> _mJobStateTimeLimitActions;
-
-        public List<Outputs.JobQueueJobStateTimeLimitAction>? JobStateTimeLimitActions => _mJobStateTimeLimitActions.GetValue("jobStateTimeLimitActions");
+        private List<Outputs.JobQueueJobStateTimeLimitAction>? _mValue_JobStateTimeLimitActions;
+        private bool _mUnknown_JobStateTimeLimitActions;
+        public List<Outputs.JobQueueJobStateTimeLimitAction>? JobStateTimeLimitActions
+        {
+            get
+            {
+                if (!_mUnknown_JobStateTimeLimitActions) return _mValue_JobStateTimeLimitActions;
+                throw new UndeferrableValueException("Value 'JobQueue.JobStateTimeLimitActions' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the job queue.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'JobQueue.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The priority of the job queue. Job queues with a higher priority
         /// are evaluated first when associated with the same compute environment.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'JobQueue.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
         /// </summary>
-        [Input("schedulingPolicyArn")]
+        [PolicyResourceProperty("schedulingPolicyArn", "_mUnknown_SchedulingPolicyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchedulingPolicyArn;
-
-        public string? SchedulingPolicyArn => _mSchedulingPolicyArn.GetValue("schedulingPolicyArn");
+        private string? _mValue_SchedulingPolicyArn;
+        private bool _mUnknown_SchedulingPolicyArn;
+        public string? SchedulingPolicyArn
+        {
+            get
+            {
+                if (!_mUnknown_SchedulingPolicyArn) return _mValue_SchedulingPolicyArn;
+                throw new UndeferrableValueException("Value 'JobQueue.SchedulingPolicyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'JobQueue.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'JobQueue.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'JobQueue.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JobQueueTimeouts> _mTimeouts;
-
-        public Outputs.JobQueueTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.JobQueueTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.JobQueueTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'JobQueue.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:batch/jobQueue:JobQueue")]
@@ -117,80 +194,143 @@ namespace Pulumi.PolicyPacks.Aws.Batch
         /// <summary>
         /// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
         /// </summary>
-        [Input("computeEnvironmentOrders")]
+        [PolicyResourceProperty("computeEnvironmentOrders", "_mUnknown_ComputeEnvironmentOrders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.JobQueueComputeEnvironmentOrderArgs>> _mComputeEnvironmentOrders;
-
-        public List<Inputs.JobQueueComputeEnvironmentOrderArgs>? ComputeEnvironmentOrders => _mComputeEnvironmentOrders.GetValue("computeEnvironmentOrders");
+        private List<Inputs.JobQueueComputeEnvironmentOrderArgs>? _mValue_ComputeEnvironmentOrders;
+        private bool _mUnknown_ComputeEnvironmentOrders;
+        public List<Inputs.JobQueueComputeEnvironmentOrderArgs>? ComputeEnvironmentOrders
+        {
+            get
+            {
+                if (!_mUnknown_ComputeEnvironmentOrders) return _mValue_ComputeEnvironmentOrders;
+                throw new UndeferrableValueException("Value 'JobQueueArgs.ComputeEnvironmentOrders' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         /// </summary>
-        [Input("computeEnvironments")]
+        [PolicyResourceProperty("computeEnvironments", "_mUnknown_ComputeEnvironments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mComputeEnvironments;
-
-        public List<string>? ComputeEnvironments => _mComputeEnvironments.GetValue("computeEnvironments");
+        private List<string>? _mValue_ComputeEnvironments;
+        private bool _mUnknown_ComputeEnvironments;
+        public List<string>? ComputeEnvironments
+        {
+            get
+            {
+                if (!_mUnknown_ComputeEnvironments) return _mValue_ComputeEnvironments;
+                throw new UndeferrableValueException("Value 'JobQueueArgs.ComputeEnvironments' is not present");
+            }
+        }
 
         /// <summary>
         /// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
         /// </summary>
-        [Input("jobStateTimeLimitActions")]
+        [PolicyResourceProperty("jobStateTimeLimitActions", "_mUnknown_JobStateTimeLimitActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.JobQueueJobStateTimeLimitActionArgs>> _mJobStateTimeLimitActions;
-
-        public List<Inputs.JobQueueJobStateTimeLimitActionArgs>? JobStateTimeLimitActions => _mJobStateTimeLimitActions.GetValue("jobStateTimeLimitActions");
+        private List<Inputs.JobQueueJobStateTimeLimitActionArgs>? _mValue_JobStateTimeLimitActions;
+        private bool _mUnknown_JobStateTimeLimitActions;
+        public List<Inputs.JobQueueJobStateTimeLimitActionArgs>? JobStateTimeLimitActions
+        {
+            get
+            {
+                if (!_mUnknown_JobStateTimeLimitActions) return _mValue_JobStateTimeLimitActions;
+                throw new UndeferrableValueException("Value 'JobQueueArgs.JobStateTimeLimitActions' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the job queue.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'JobQueueArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The priority of the job queue. Job queues with a higher priority
         /// are evaluated first when associated with the same compute environment.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'JobQueueArgs.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
         /// </summary>
-        [Input("schedulingPolicyArn")]
+        [PolicyResourceProperty("schedulingPolicyArn", "_mUnknown_SchedulingPolicyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchedulingPolicyArn;
-
-        public string? SchedulingPolicyArn => _mSchedulingPolicyArn.GetValue("schedulingPolicyArn");
+        private string? _mValue_SchedulingPolicyArn;
+        private bool _mUnknown_SchedulingPolicyArn;
+        public string? SchedulingPolicyArn
+        {
+            get
+            {
+                if (!_mUnknown_SchedulingPolicyArn) return _mValue_SchedulingPolicyArn;
+                throw new UndeferrableValueException("Value 'JobQueueArgs.SchedulingPolicyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'JobQueueArgs.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'JobQueueArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.JobQueueTimeoutsArgs> _mTimeouts;
-
-        public Inputs.JobQueueTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.JobQueueTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.JobQueueTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'JobQueueArgs.Timeouts' is not present");
+            }
+        }
     }
 }

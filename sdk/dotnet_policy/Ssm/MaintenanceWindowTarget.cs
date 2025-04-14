@@ -16,57 +16,99 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// The description of the maintenance window target.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTarget.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the maintenance window target.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTarget.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
         /// </summary>
-        [Input("ownerInformation")]
+        [PolicyResourceProperty("ownerInformation", "_mUnknown_OwnerInformation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerInformation;
-
-        public string? OwnerInformation => _mOwnerInformation.GetValue("ownerInformation");
+        private string? _mValue_OwnerInformation;
+        private bool _mUnknown_OwnerInformation;
+        public string? OwnerInformation
+        {
+            get
+            {
+                if (!_mUnknown_OwnerInformation) return _mValue_OwnerInformation;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTarget.OwnerInformation' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTarget.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
         /// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
         /// </summary>
-        [Input("targets")]
+        [PolicyResourceProperty("targets", "_mUnknown_Targets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MaintenanceWindowTargetTarget>> _mTargets;
-
-        public List<Outputs.MaintenanceWindowTargetTarget>? Targets => _mTargets.GetValue("targets");
+        private List<Outputs.MaintenanceWindowTargetTarget>? _mValue_Targets;
+        private bool _mUnknown_Targets;
+        public List<Outputs.MaintenanceWindowTargetTarget>? Targets
+        {
+            get
+            {
+                if (!_mUnknown_Targets) return _mValue_Targets;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTarget.Targets' is not present");
+            }
+        }
 
         /// <summary>
         /// The Id of the maintenance window to register the target with.
         /// </summary>
-        [Input("windowId")]
+        [PolicyResourceProperty("windowId", "_mUnknown_WindowId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWindowId;
-
-        public string? WindowId => _mWindowId.GetValue("windowId");
+        private string? _mValue_WindowId;
+        private bool _mUnknown_WindowId;
+        public string? WindowId
+        {
+            get
+            {
+                if (!_mUnknown_WindowId) return _mValue_WindowId;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTarget.WindowId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget")]
@@ -75,56 +117,98 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// The description of the maintenance window target.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTargetArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the maintenance window target.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTargetArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
         /// </summary>
-        [Input("ownerInformation")]
+        [PolicyResourceProperty("ownerInformation", "_mUnknown_OwnerInformation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerInformation;
-
-        public string? OwnerInformation => _mOwnerInformation.GetValue("ownerInformation");
+        private string? _mValue_OwnerInformation;
+        private bool _mUnknown_OwnerInformation;
+        public string? OwnerInformation
+        {
+            get
+            {
+                if (!_mUnknown_OwnerInformation) return _mValue_OwnerInformation;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTargetArgs.OwnerInformation' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTargetArgs.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
         /// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
         /// </summary>
-        [Input("targets")]
+        [PolicyResourceProperty("targets", "_mUnknown_Targets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.MaintenanceWindowTargetTargetArgs>> _mTargets;
-
-        public List<Inputs.MaintenanceWindowTargetTargetArgs>? Targets => _mTargets.GetValue("targets");
+        private List<Inputs.MaintenanceWindowTargetTargetArgs>? _mValue_Targets;
+        private bool _mUnknown_Targets;
+        public List<Inputs.MaintenanceWindowTargetTargetArgs>? Targets
+        {
+            get
+            {
+                if (!_mUnknown_Targets) return _mValue_Targets;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTargetArgs.Targets' is not present");
+            }
+        }
 
         /// <summary>
         /// The Id of the maintenance window to register the target with.
         /// </summary>
-        [Input("windowId")]
+        [PolicyResourceProperty("windowId", "_mUnknown_WindowId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWindowId;
-
-        public string? WindowId => _mWindowId.GetValue("windowId");
+        private string? _mValue_WindowId;
+        private bool _mUnknown_WindowId;
+        public string? WindowId
+        {
+            get
+            {
+                if (!_mUnknown_WindowId) return _mValue_WindowId;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTargetArgs.WindowId' is not present");
+            }
+        }
     }
 }

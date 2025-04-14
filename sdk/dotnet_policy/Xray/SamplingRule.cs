@@ -16,137 +16,242 @@ namespace Pulumi.PolicyPacks.Aws.Xray
         /// <summary>
         /// The ARN of the sampling rule.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'SamplingRule.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Matches attributes derived from the request.
         /// </summary>
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
-
-        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
+        private Dictionary<string, string>? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public Dictionary<string, string>? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'SamplingRule.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// The percentage of matching requests to instrument, after the reservoir is exhausted.
         /// </summary>
-        [Input("fixedRate")]
+        [PolicyResourceProperty("fixedRate", "_mUnknown_FixedRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mFixedRate;
-
-        public double? FixedRate => _mFixedRate.GetValue("fixedRate");
+        private double? _mValue_FixedRate;
+        private bool _mUnknown_FixedRate;
+        public double? FixedRate
+        {
+            get
+            {
+                if (!_mUnknown_FixedRate) return _mValue_FixedRate;
+                throw new UndeferrableValueException("Value 'SamplingRule.FixedRate' is not present");
+            }
+        }
 
         /// <summary>
         /// Matches the hostname from a request URL.
         /// </summary>
-        [Input("host")]
+        [PolicyResourceProperty("host", "_mUnknown_Host")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHost;
-
-        public string? Host => _mHost.GetValue("host");
+        private string? _mValue_Host;
+        private bool _mUnknown_Host;
+        public string? Host
+        {
+            get
+            {
+                if (!_mUnknown_Host) return _mValue_Host;
+                throw new UndeferrableValueException("Value 'SamplingRule.Host' is not present");
+            }
+        }
 
         /// <summary>
         /// Matches the HTTP method of a request.
         /// </summary>
-        [Input("httpMethod")]
+        [PolicyResourceProperty("httpMethod", "_mUnknown_HttpMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
-
-        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
+        private string? _mValue_HttpMethod;
+        private bool _mUnknown_HttpMethod;
+        public string? HttpMethod
+        {
+            get
+            {
+                if (!_mUnknown_HttpMethod) return _mValue_HttpMethod;
+                throw new UndeferrableValueException("Value 'SamplingRule.HttpMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// The priority of the sampling rule.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'SamplingRule.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         /// </summary>
-        [Input("reservoirSize")]
+        [PolicyResourceProperty("reservoirSize", "_mUnknown_ReservoirSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mReservoirSize;
-
-        public int? ReservoirSize => _mReservoirSize.GetValue("reservoirSize");
+        private int? _mValue_ReservoirSize;
+        private bool _mUnknown_ReservoirSize;
+        public int? ReservoirSize
+        {
+            get
+            {
+                if (!_mUnknown_ReservoirSize) return _mValue_ReservoirSize;
+                throw new UndeferrableValueException("Value 'SamplingRule.ReservoirSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Matches the ARN of the AWS resource on which the service runs.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'SamplingRule.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the sampling rule.
         /// </summary>
-        [Input("ruleName")]
+        [PolicyResourceProperty("ruleName", "_mUnknown_RuleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
-
-        public string? RuleName => _mRuleName.GetValue("ruleName");
+        private string? _mValue_RuleName;
+        private bool _mUnknown_RuleName;
+        public string? RuleName
+        {
+            get
+            {
+                if (!_mUnknown_RuleName) return _mValue_RuleName;
+                throw new UndeferrableValueException("Value 'SamplingRule.RuleName' is not present");
+            }
+        }
 
         /// <summary>
         /// Matches the `name` that the service uses to identify itself in segments.
         /// </summary>
-        [Input("serviceName")]
+        [PolicyResourceProperty("serviceName", "_mUnknown_ServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
-
-        public string? ServiceName => _mServiceName.GetValue("serviceName");
+        private string? _mValue_ServiceName;
+        private bool _mUnknown_ServiceName;
+        public string? ServiceName
+        {
+            get
+            {
+                if (!_mUnknown_ServiceName) return _mValue_ServiceName;
+                throw new UndeferrableValueException("Value 'SamplingRule.ServiceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Matches the `origin` that the service uses to identify its type in segments.
         /// </summary>
-        [Input("serviceType")]
+        [PolicyResourceProperty("serviceType", "_mUnknown_ServiceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceType;
-
-        public string? ServiceType => _mServiceType.GetValue("serviceType");
+        private string? _mValue_ServiceType;
+        private bool _mUnknown_ServiceType;
+        public string? ServiceType
+        {
+            get
+            {
+                if (!_mUnknown_ServiceType) return _mValue_ServiceType;
+                throw new UndeferrableValueException("Value 'SamplingRule.ServiceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SamplingRule.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'SamplingRule.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Matches the path from a request URL.
         /// </summary>
-        [Input("urlPath")]
+        [PolicyResourceProperty("urlPath", "_mUnknown_UrlPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrlPath;
-
-        public string? UrlPath => _mUrlPath.GetValue("urlPath");
+        private string? _mValue_UrlPath;
+        private bool _mUnknown_UrlPath;
+        public string? UrlPath
+        {
+            get
+            {
+                if (!_mUnknown_UrlPath) return _mValue_UrlPath;
+                throw new UndeferrableValueException("Value 'SamplingRule.UrlPath' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the sampling rule format (`1` )
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
-
-        public int? Version => _mVersion.GetValue("version");
+        private int? _mValue_Version;
+        private bool _mUnknown_Version;
+        public int? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'SamplingRule.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:xray/samplingRule:SamplingRule")]
@@ -155,118 +260,209 @@ namespace Pulumi.PolicyPacks.Aws.Xray
         /// <summary>
         /// Matches attributes derived from the request.
         /// </summary>
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
-
-        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
+        private Dictionary<string, string>? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public Dictionary<string, string>? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'SamplingRuleArgs.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// The percentage of matching requests to instrument, after the reservoir is exhausted.
         /// </summary>
-        [Input("fixedRate")]
+        [PolicyResourceProperty("fixedRate", "_mUnknown_FixedRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mFixedRate;
-
-        public double? FixedRate => _mFixedRate.GetValue("fixedRate");
+        private double? _mValue_FixedRate;
+        private bool _mUnknown_FixedRate;
+        public double? FixedRate
+        {
+            get
+            {
+                if (!_mUnknown_FixedRate) return _mValue_FixedRate;
+                throw new UndeferrableValueException("Value 'SamplingRuleArgs.FixedRate' is not present");
+            }
+        }
 
         /// <summary>
         /// Matches the hostname from a request URL.
         /// </summary>
-        [Input("host")]
+        [PolicyResourceProperty("host", "_mUnknown_Host")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHost;
-
-        public string? Host => _mHost.GetValue("host");
+        private string? _mValue_Host;
+        private bool _mUnknown_Host;
+        public string? Host
+        {
+            get
+            {
+                if (!_mUnknown_Host) return _mValue_Host;
+                throw new UndeferrableValueException("Value 'SamplingRuleArgs.Host' is not present");
+            }
+        }
 
         /// <summary>
         /// Matches the HTTP method of a request.
         /// </summary>
-        [Input("httpMethod")]
+        [PolicyResourceProperty("httpMethod", "_mUnknown_HttpMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
-
-        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
+        private string? _mValue_HttpMethod;
+        private bool _mUnknown_HttpMethod;
+        public string? HttpMethod
+        {
+            get
+            {
+                if (!_mUnknown_HttpMethod) return _mValue_HttpMethod;
+                throw new UndeferrableValueException("Value 'SamplingRuleArgs.HttpMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// The priority of the sampling rule.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'SamplingRuleArgs.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         /// </summary>
-        [Input("reservoirSize")]
+        [PolicyResourceProperty("reservoirSize", "_mUnknown_ReservoirSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mReservoirSize;
-
-        public int? ReservoirSize => _mReservoirSize.GetValue("reservoirSize");
+        private int? _mValue_ReservoirSize;
+        private bool _mUnknown_ReservoirSize;
+        public int? ReservoirSize
+        {
+            get
+            {
+                if (!_mUnknown_ReservoirSize) return _mValue_ReservoirSize;
+                throw new UndeferrableValueException("Value 'SamplingRuleArgs.ReservoirSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Matches the ARN of the AWS resource on which the service runs.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'SamplingRuleArgs.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the sampling rule.
         /// </summary>
-        [Input("ruleName")]
+        [PolicyResourceProperty("ruleName", "_mUnknown_RuleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
-
-        public string? RuleName => _mRuleName.GetValue("ruleName");
+        private string? _mValue_RuleName;
+        private bool _mUnknown_RuleName;
+        public string? RuleName
+        {
+            get
+            {
+                if (!_mUnknown_RuleName) return _mValue_RuleName;
+                throw new UndeferrableValueException("Value 'SamplingRuleArgs.RuleName' is not present");
+            }
+        }
 
         /// <summary>
         /// Matches the `name` that the service uses to identify itself in segments.
         /// </summary>
-        [Input("serviceName")]
+        [PolicyResourceProperty("serviceName", "_mUnknown_ServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
-
-        public string? ServiceName => _mServiceName.GetValue("serviceName");
+        private string? _mValue_ServiceName;
+        private bool _mUnknown_ServiceName;
+        public string? ServiceName
+        {
+            get
+            {
+                if (!_mUnknown_ServiceName) return _mValue_ServiceName;
+                throw new UndeferrableValueException("Value 'SamplingRuleArgs.ServiceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Matches the `origin` that the service uses to identify its type in segments.
         /// </summary>
-        [Input("serviceType")]
+        [PolicyResourceProperty("serviceType", "_mUnknown_ServiceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceType;
-
-        public string? ServiceType => _mServiceType.GetValue("serviceType");
+        private string? _mValue_ServiceType;
+        private bool _mUnknown_ServiceType;
+        public string? ServiceType
+        {
+            get
+            {
+                if (!_mUnknown_ServiceType) return _mValue_ServiceType;
+                throw new UndeferrableValueException("Value 'SamplingRuleArgs.ServiceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SamplingRuleArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Matches the path from a request URL.
         /// </summary>
-        [Input("urlPath")]
+        [PolicyResourceProperty("urlPath", "_mUnknown_UrlPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrlPath;
-
-        public string? UrlPath => _mUrlPath.GetValue("urlPath");
+        private string? _mValue_UrlPath;
+        private bool _mUnknown_UrlPath;
+        public string? UrlPath
+        {
+            get
+            {
+                if (!_mUnknown_UrlPath) return _mValue_UrlPath;
+                throw new UndeferrableValueException("Value 'SamplingRuleArgs.UrlPath' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the sampling rule format (`1` )
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
-
-        public int? Version => _mVersion.GetValue("version");
+        private int? _mValue_Version;
+        private bool _mUnknown_Version;
+        public int? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'SamplingRuleArgs.Version' is not present");
+            }
+        }
     }
 }

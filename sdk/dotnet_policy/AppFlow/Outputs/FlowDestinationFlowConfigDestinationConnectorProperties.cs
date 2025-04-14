@@ -15,115 +15,206 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
         /// <summary>
         /// Properties that are required to query the custom Connector. See Custom Connector Destination Properties for more details.
         /// </summary>
-        [Input("customConnector")]
+        [PolicyResourceProperty("customConnector", "_mUnknown_CustomConnector")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector> _mCustomConnector;
-
-        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector? CustomConnector => _mCustomConnector.GetValue("customConnector");
+        private Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector? _mValue_CustomConnector;
+        private bool _mUnknown_CustomConnector;
+        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector? CustomConnector
+        {
+            get
+            {
+                if (!_mUnknown_CustomConnector) return _mValue_CustomConnector;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.CustomConnector' is not present");
+            }
+        }
 
         /// <summary>
         /// Properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
         /// </summary>
-        [Input("customerProfiles")]
+        [PolicyResourceProperty("customerProfiles", "_mUnknown_CustomerProfiles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles> _mCustomerProfiles;
-
-        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles? CustomerProfiles => _mCustomerProfiles.GetValue("customerProfiles");
+        private Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles? _mValue_CustomerProfiles;
+        private bool _mUnknown_CustomerProfiles;
+        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles? CustomerProfiles
+        {
+            get
+            {
+                if (!_mUnknown_CustomerProfiles) return _mValue_CustomerProfiles;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.CustomerProfiles' is not present");
+            }
+        }
 
         /// <summary>
         /// Properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
         /// </summary>
-        [Input("eventBridge")]
+        [PolicyResourceProperty("eventBridge", "_mUnknown_EventBridge")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge> _mEventBridge;
-
-        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge? EventBridge => _mEventBridge.GetValue("eventBridge");
+        private Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge? _mValue_EventBridge;
+        private bool _mUnknown_EventBridge;
+        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge? EventBridge
+        {
+            get
+            {
+                if (!_mUnknown_EventBridge) return _mValue_EventBridge;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.EventBridge' is not present");
+            }
+        }
 
         /// <summary>
         /// Properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
         /// </summary>
-        [Input("honeycode")]
+        [PolicyResourceProperty("honeycode", "_mUnknown_Honeycode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode> _mHoneycode;
+        private Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode? _mValue_Honeycode;
+        private bool _mUnknown_Honeycode;
+        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode? Honeycode
+        {
+            get
+            {
+                if (!_mUnknown_Honeycode) return _mValue_Honeycode;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.Honeycode' is not present");
+            }
+        }
 
-        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode? Honeycode => _mHoneycode.GetValue("honeycode");
-
-        [Input("lookoutMetrics")]
+        [PolicyResourceProperty("lookoutMetrics", "_mUnknown_LookoutMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics> _mLookoutMetrics;
-
-        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics? LookoutMetrics => _mLookoutMetrics.GetValue("lookoutMetrics");
+        private Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics? _mValue_LookoutMetrics;
+        private bool _mUnknown_LookoutMetrics;
+        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics? LookoutMetrics
+        {
+            get
+            {
+                if (!_mUnknown_LookoutMetrics) return _mValue_LookoutMetrics;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.LookoutMetrics' is not present");
+            }
+        }
 
         /// <summary>
         /// Properties that are required to query Marketo. See Generic Destination Properties for more details.
         /// </summary>
-        [Input("marketo")]
+        [PolicyResourceProperty("marketo", "_mUnknown_Marketo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo> _mMarketo;
-
-        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo? Marketo => _mMarketo.GetValue("marketo");
+        private Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo? _mValue_Marketo;
+        private bool _mUnknown_Marketo;
+        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo? Marketo
+        {
+            get
+            {
+                if (!_mUnknown_Marketo) return _mValue_Marketo;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.Marketo' is not present");
+            }
+        }
 
         /// <summary>
         /// Properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
         /// </summary>
-        [Input("redshift")]
+        [PolicyResourceProperty("redshift", "_mUnknown_Redshift")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift> _mRedshift;
-
-        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift? Redshift => _mRedshift.GetValue("redshift");
+        private Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift? _mValue_Redshift;
+        private bool _mUnknown_Redshift;
+        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift? Redshift
+        {
+            get
+            {
+                if (!_mUnknown_Redshift) return _mValue_Redshift;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.Redshift' is not present");
+            }
+        }
 
         /// <summary>
         /// Properties that are required to query Amazon S3. See S3 Destination Properties for more details.
         /// </summary>
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3> _mS3;
-
-        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3? S3 => _mS3.GetValue("s3");
+        private Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3? _mValue_S3;
+        private bool _mUnknown_S3;
+        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.S3' is not present");
+            }
+        }
 
         /// <summary>
         /// Properties that are required to query Salesforce. See Salesforce Destination Properties for more details.
         /// </summary>
-        [Input("salesforce")]
+        [PolicyResourceProperty("salesforce", "_mUnknown_Salesforce")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce> _mSalesforce;
-
-        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce? Salesforce => _mSalesforce.GetValue("salesforce");
+        private Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce? _mValue_Salesforce;
+        private bool _mUnknown_Salesforce;
+        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce? Salesforce
+        {
+            get
+            {
+                if (!_mUnknown_Salesforce) return _mValue_Salesforce;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.Salesforce' is not present");
+            }
+        }
 
         /// <summary>
         /// Properties that are required to query SAPOData. See SAPOData Destination Properties for more details.
         /// </summary>
-        [Input("sapoData")]
+        [PolicyResourceProperty("sapoData", "_mUnknown_SapoData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData> _mSapoData;
-
-        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData? SapoData => _mSapoData.GetValue("sapoData");
+        private Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData? _mValue_SapoData;
+        private bool _mUnknown_SapoData;
+        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData? SapoData
+        {
+            get
+            {
+                if (!_mUnknown_SapoData) return _mValue_SapoData;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.SapoData' is not present");
+            }
+        }
 
         /// <summary>
         /// Properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
         /// </summary>
-        [Input("snowflake")]
+        [PolicyResourceProperty("snowflake", "_mUnknown_Snowflake")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake> _mSnowflake;
-
-        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake? Snowflake => _mSnowflake.GetValue("snowflake");
+        private Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake? _mValue_Snowflake;
+        private bool _mUnknown_Snowflake;
+        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake? Snowflake
+        {
+            get
+            {
+                if (!_mUnknown_Snowflake) return _mValue_Snowflake;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.Snowflake' is not present");
+            }
+        }
 
         /// <summary>
         /// Properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
         /// </summary>
-        [Input("upsolver")]
+        [PolicyResourceProperty("upsolver", "_mUnknown_Upsolver")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver> _mUpsolver;
-
-        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver? Upsolver => _mUpsolver.GetValue("upsolver");
+        private Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver? _mValue_Upsolver;
+        private bool _mUnknown_Upsolver;
+        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver? Upsolver
+        {
+            get
+            {
+                if (!_mUnknown_Upsolver) return _mValue_Upsolver;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.Upsolver' is not present");
+            }
+        }
 
         /// <summary>
         /// Properties that are required to query Zendesk. See Zendesk Destination Properties for more details.
         /// </summary>
-        [Input("zendesk")]
+        [PolicyResourceProperty("zendesk", "_mUnknown_Zendesk")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk> _mZendesk;
-
-        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk? Zendesk => _mZendesk.GetValue("zendesk");
+        private Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk? _mValue_Zendesk;
+        private bool _mUnknown_Zendesk;
+        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk? Zendesk
+        {
+            get
+            {
+                if (!_mUnknown_Zendesk) return _mValue_Zendesk;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.Zendesk' is not present");
+            }
+        }
     }
 }

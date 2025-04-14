@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
 {
     public sealed class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs
     {
-        [Input("customPayloads")]
+        [PolicyResourceProperty("customPayloads", "_mUnknown_CustomPayloads")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs>> _mCustomPayloads;
+        private List<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs>? _mValue_CustomPayloads;
+        private bool _mUnknown_CustomPayloads;
+        public List<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs>? CustomPayloads
+        {
+            get
+            {
+                if (!_mUnknown_CustomPayloads) return _mValue_CustomPayloads;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs.CustomPayloads' is not present");
+            }
+        }
 
-        public List<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs>? CustomPayloads => _mCustomPayloads.GetValue("customPayloads");
-
-        [Input("imageResponseCard")]
+        [PolicyResourceProperty("imageResponseCard", "_mUnknown_ImageResponseCard")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs> _mImageResponseCard;
+        private Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs? _mValue_ImageResponseCard;
+        private bool _mUnknown_ImageResponseCard;
+        public Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs? ImageResponseCard
+        {
+            get
+            {
+                if (!_mUnknown_ImageResponseCard) return _mValue_ImageResponseCard;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs.ImageResponseCard' is not present");
+            }
+        }
 
-        public Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs? ImageResponseCard => _mImageResponseCard.GetValue("imageResponseCard");
-
-        [Input("plainTextMessage")]
+        [PolicyResourceProperty("plainTextMessage", "_mUnknown_PlainTextMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgs> _mPlainTextMessage;
+        private Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgs? _mValue_PlainTextMessage;
+        private bool _mUnknown_PlainTextMessage;
+        public Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgs? PlainTextMessage
+        {
+            get
+            {
+                if (!_mUnknown_PlainTextMessage) return _mValue_PlainTextMessage;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs.PlainTextMessage' is not present");
+            }
+        }
 
-        public Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgs? PlainTextMessage => _mPlainTextMessage.GetValue("plainTextMessage");
-
-        [Input("ssmlMessage")]
+        [PolicyResourceProperty("ssmlMessage", "_mUnknown_SsmlMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs> _mSsmlMessage;
-
-        public Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs? SsmlMessage => _mSsmlMessage.GetValue("ssmlMessage");
+        private Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs? _mValue_SsmlMessage;
+        private bool _mUnknown_SsmlMessage;
+        public Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs? SsmlMessage
+        {
+            get
+            {
+                if (!_mUnknown_SsmlMessage) return _mValue_SsmlMessage;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs.SsmlMessage' is not present");
+            }
+        }
     }
 }

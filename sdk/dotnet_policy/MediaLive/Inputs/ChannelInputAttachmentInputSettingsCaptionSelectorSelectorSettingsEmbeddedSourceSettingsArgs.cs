@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
         /// </summary>
-        [Input("convert608To708")]
+        [PolicyResourceProperty("convert608To708", "_mUnknown_Convert608To708")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConvert608To708;
-
-        public string? Convert608To708 => _mConvert608To708.GetValue("convert608To708");
+        private string? _mValue_Convert608To708;
+        private bool _mUnknown_Convert608To708;
+        public string? Convert608To708
+        {
+            get
+            {
+                if (!_mUnknown_Convert608To708) return _mValue_Convert608To708;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs.Convert608To708' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
         /// </summary>
-        [Input("scte20Detection")]
+        [PolicyResourceProperty("scte20Detection", "_mUnknown_Scte20Detection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScte20Detection;
-
-        public string? Scte20Detection => _mScte20Detection.GetValue("scte20Detection");
+        private string? _mValue_Scte20Detection;
+        private bool _mUnknown_Scte20Detection;
+        public string? Scte20Detection
+        {
+            get
+            {
+                if (!_mUnknown_Scte20Detection) return _mValue_Scte20Detection;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs.Scte20Detection' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
         /// </summary>
-        [Input("source608ChannelNumber")]
+        [PolicyResourceProperty("source608ChannelNumber", "_mUnknown_Source608ChannelNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSource608ChannelNumber;
-
-        public int? Source608ChannelNumber => _mSource608ChannelNumber.GetValue("source608ChannelNumber");
+        private int? _mValue_Source608ChannelNumber;
+        private bool _mUnknown_Source608ChannelNumber;
+        public int? Source608ChannelNumber
+        {
+            get
+            {
+                if (!_mUnknown_Source608ChannelNumber) return _mValue_Source608ChannelNumber;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs.Source608ChannelNumber' is not present");
+            }
+        }
     }
 }

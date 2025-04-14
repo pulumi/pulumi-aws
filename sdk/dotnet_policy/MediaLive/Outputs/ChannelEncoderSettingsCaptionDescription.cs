@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
         /// </summary>
-        [Input("accessibility")]
+        [PolicyResourceProperty("accessibility", "_mUnknown_Accessibility")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessibility;
-
-        public string? Accessibility => _mAccessibility.GetValue("accessibility");
+        private string? _mValue_Accessibility;
+        private bool _mUnknown_Accessibility;
+        public string? Accessibility
+        {
+            get
+            {
+                if (!_mUnknown_Accessibility) return _mValue_Accessibility;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescription.Accessibility' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
         /// </summary>
-        [Input("captionSelectorName")]
+        [PolicyResourceProperty("captionSelectorName", "_mUnknown_CaptionSelectorName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaptionSelectorName;
-
-        public string? CaptionSelectorName => _mCaptionSelectorName.GetValue("captionSelectorName");
+        private string? _mValue_CaptionSelectorName;
+        private bool _mUnknown_CaptionSelectorName;
+        public string? CaptionSelectorName
+        {
+            get
+            {
+                if (!_mUnknown_CaptionSelectorName) return _mValue_CaptionSelectorName;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescription.CaptionSelectorName' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
         /// </summary>
-        [Input("destinationSettings")]
+        [PolicyResourceProperty("destinationSettings", "_mUnknown_DestinationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettings> _mDestinationSettings;
-
-        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettings? DestinationSettings => _mDestinationSettings.GetValue("destinationSettings");
+        private Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettings? _mValue_DestinationSettings;
+        private bool _mUnknown_DestinationSettings;
+        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettings? DestinationSettings
+        {
+            get
+            {
+                if (!_mUnknown_DestinationSettings) return _mValue_DestinationSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescription.DestinationSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// ISO 639-2 three-digit code.
         /// </summary>
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
-
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescription.LanguageCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Human readable information to indicate captions available for players (eg. English, or Spanish).
         /// </summary>
-        [Input("languageDescription")]
+        [PolicyResourceProperty("languageDescription", "_mUnknown_LanguageDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageDescription;
-
-        public string? LanguageDescription => _mLanguageDescription.GetValue("languageDescription");
+        private string? _mValue_LanguageDescription;
+        private bool _mUnknown_LanguageDescription;
+        public string? LanguageDescription
+        {
+            get
+            {
+                if (!_mUnknown_LanguageDescription) return _mValue_LanguageDescription;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescription.LanguageDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescription.Name' is not present");
+            }
+        }
     }
 }

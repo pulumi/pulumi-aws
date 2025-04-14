@@ -15,118 +15,209 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Inspect all query arguments.
         /// </summary>
-        [Input("allQueryArguments")]
+        [PolicyResourceProperty("allQueryArguments", "_mUnknown_AllQueryArguments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs> _mAllQueryArguments;
-
-        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs? AllQueryArguments => _mAllQueryArguments.GetValue("allQueryArguments");
+        private Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs? _mValue_AllQueryArguments;
+        private bool _mUnknown_AllQueryArguments;
+        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs? AllQueryArguments
+        {
+            get
+            {
+                if (!_mUnknown_AllQueryArguments) return _mValue_AllQueryArguments;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs.AllQueryArguments' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the request body, which immediately follows the request headers.
         /// </summary>
-        [Input("body")]
+        [PolicyResourceProperty("body", "_mUnknown_Body")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBodyArgs> _mBody;
-
-        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBodyArgs? Body => _mBody.GetValue("body");
+        private Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBodyArgs? _mValue_Body;
+        private bool _mUnknown_Body;
+        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBodyArgs? Body
+        {
+            get
+            {
+                if (!_mUnknown_Body) return _mValue_Body;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs.Body' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the cookies in the web request. See Cookies below for details.
         /// </summary>
-        [Input("cookies")]
+        [PolicyResourceProperty("cookies", "_mUnknown_Cookies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs> _mCookies;
-
-        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs? Cookies => _mCookies.GetValue("cookies");
+        private Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs? _mValue_Cookies;
+        private bool _mUnknown_Cookies;
+        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs? Cookies
+        {
+            get
+            {
+                if (!_mUnknown_Cookies) return _mValue_Cookies;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs.Cookies' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the request headers. See Header Order below for details.
         /// </summary>
-        [Input("headerOrders")]
+        [PolicyResourceProperty("headerOrders", "_mUnknown_HeaderOrders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs>> _mHeaderOrders;
-
-        public List<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs>? HeaderOrders => _mHeaderOrders.GetValue("headerOrders");
+        private List<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs>? _mValue_HeaderOrders;
+        private bool _mUnknown_HeaderOrders;
+        public List<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs>? HeaderOrders
+        {
+            get
+            {
+                if (!_mUnknown_HeaderOrders) return _mValue_HeaderOrders;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs.HeaderOrders' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the request headers. See Headers below for details.
         /// </summary>
-        [Input("headers")]
+        [PolicyResourceProperty("headers", "_mUnknown_Headers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs>> _mHeaders;
-
-        public List<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs>? Headers => _mHeaders.GetValue("headers");
+        private List<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs>? _mValue_Headers;
+        private bool _mUnknown_Headers;
+        public List<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs>? Headers
+        {
+            get
+            {
+                if (!_mUnknown_Headers) return _mValue_Headers;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs.Headers' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         /// </summary>
-        [Input("ja3Fingerprint")]
+        [PolicyResourceProperty("ja3Fingerprint", "_mUnknown_Ja3Fingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs> _mJa3Fingerprint;
-
-        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs? Ja3Fingerprint => _mJa3Fingerprint.GetValue("ja3Fingerprint");
+        private Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs? _mValue_Ja3Fingerprint;
+        private bool _mUnknown_Ja3Fingerprint;
+        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs? Ja3Fingerprint
+        {
+            get
+            {
+                if (!_mUnknown_Ja3Fingerprint) return _mValue_Ja3Fingerprint;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs.Ja3Fingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         /// </summary>
-        [Input("ja4Fingerprint")]
+        [PolicyResourceProperty("ja4Fingerprint", "_mUnknown_Ja4Fingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs> _mJa4Fingerprint;
-
-        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs? Ja4Fingerprint => _mJa4Fingerprint.GetValue("ja4Fingerprint");
+        private Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs? _mValue_Ja4Fingerprint;
+        private bool _mUnknown_Ja4Fingerprint;
+        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs? Ja4Fingerprint
+        {
+            get
+            {
+                if (!_mUnknown_Ja4Fingerprint) return _mValue_Ja4Fingerprint;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs.Ja4Fingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the request body as JSON. See JSON Body for details.
         /// </summary>
-        [Input("jsonBody")]
+        [PolicyResourceProperty("jsonBody", "_mUnknown_JsonBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs> _mJsonBody;
-
-        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs? JsonBody => _mJsonBody.GetValue("jsonBody");
+        private Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs? _mValue_JsonBody;
+        private bool _mUnknown_JsonBody;
+        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs? JsonBody
+        {
+            get
+            {
+                if (!_mUnknown_JsonBody) return _mValue_JsonBody;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs.JsonBody' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         /// </summary>
-        [Input("method")]
+        [PolicyResourceProperty("method", "_mUnknown_Method")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethodArgs> _mMethod;
-
-        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethodArgs? Method => _mMethod.GetValue("method");
+        private Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethodArgs? _mValue_Method;
+        private bool _mUnknown_Method;
+        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethodArgs? Method
+        {
+            get
+            {
+                if (!_mUnknown_Method) return _mValue_Method;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs.Method' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         /// </summary>
-        [Input("queryString")]
+        [PolicyResourceProperty("queryString", "_mUnknown_QueryString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryStringArgs> _mQueryString;
-
-        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryStringArgs? QueryString => _mQueryString.GetValue("queryString");
+        private Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryStringArgs? _mValue_QueryString;
+        private bool _mUnknown_QueryString;
+        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryStringArgs? QueryString
+        {
+            get
+            {
+                if (!_mUnknown_QueryString) return _mValue_QueryString;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs.QueryString' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect a single header. See Single Header below for details.
         /// </summary>
-        [Input("singleHeader")]
+        [PolicyResourceProperty("singleHeader", "_mUnknown_SingleHeader")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs> _mSingleHeader;
-
-        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs? SingleHeader => _mSingleHeader.GetValue("singleHeader");
+        private Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs? _mValue_SingleHeader;
+        private bool _mUnknown_SingleHeader;
+        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs? SingleHeader
+        {
+            get
+            {
+                if (!_mUnknown_SingleHeader) return _mValue_SingleHeader;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs.SingleHeader' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect a single query argument. See Single Query Argument below for details.
         /// </summary>
-        [Input("singleQueryArgument")]
+        [PolicyResourceProperty("singleQueryArgument", "_mUnknown_SingleQueryArgument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs> _mSingleQueryArgument;
-
-        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs? SingleQueryArgument => _mSingleQueryArgument.GetValue("singleQueryArgument");
+        private Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs? _mValue_SingleQueryArgument;
+        private bool _mUnknown_SingleQueryArgument;
+        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs? SingleQueryArgument
+        {
+            get
+            {
+                if (!_mUnknown_SingleQueryArgument) return _mValue_SingleQueryArgument;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs.SingleQueryArgument' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         /// </summary>
-        [Input("uriPath")]
+        [PolicyResourceProperty("uriPath", "_mUnknown_UriPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs> _mUriPath;
-
-        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs? UriPath => _mUriPath.GetValue("uriPath");
+        private Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs? _mValue_UriPath;
+        private bool _mUnknown_UriPath;
+        public Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs? UriPath
+        {
+            get
+            {
+                if (!_mUnknown_UriPath) return _mValue_UriPath;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs.UriPath' is not present");
+            }
+        }
     }
 }

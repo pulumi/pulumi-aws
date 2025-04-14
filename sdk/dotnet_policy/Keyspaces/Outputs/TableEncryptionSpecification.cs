@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Keyspaces.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the customer managed KMS key.
         /// </summary>
-        [Input("kmsKeyIdentifier")]
+        [PolicyResourceProperty("kmsKeyIdentifier", "_mUnknown_KmsKeyIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyIdentifier;
-
-        public string? KmsKeyIdentifier => _mKmsKeyIdentifier.GetValue("kmsKeyIdentifier");
+        private string? _mValue_KmsKeyIdentifier;
+        private bool _mUnknown_KmsKeyIdentifier;
+        public string? KmsKeyIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyIdentifier) return _mValue_KmsKeyIdentifier;
+                throw new UndeferrableValueException("Value 'TableEncryptionSpecification.KmsKeyIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'TableEncryptionSpecification.Type' is not present");
+            }
+        }
     }
 }

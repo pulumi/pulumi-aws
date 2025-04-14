@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
         /// </summary>
-        [Input("managedRuleGroupConfigs")]
+        [PolicyResourceProperty("managedRuleGroupConfigs", "_mUnknown_ManagedRuleGroupConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>> _mManagedRuleGroupConfigs;
-
-        public List<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>? ManagedRuleGroupConfigs => _mManagedRuleGroupConfigs.GetValue("managedRuleGroupConfigs");
+        private List<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>? _mValue_ManagedRuleGroupConfigs;
+        private bool _mUnknown_ManagedRuleGroupConfigs;
+        public List<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>? ManagedRuleGroupConfigs
+        {
+            get
+            {
+                if (!_mUnknown_ManagedRuleGroupConfigs) return _mValue_ManagedRuleGroupConfigs;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementArgs.ManagedRuleGroupConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the managed rule group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
         /// </summary>
-        [Input("ruleActionOverrides")]
+        [PolicyResourceProperty("ruleActionOverrides", "_mUnknown_RuleActionOverrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs>> _mRuleActionOverrides;
-
-        public List<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs>? RuleActionOverrides => _mRuleActionOverrides.GetValue("ruleActionOverrides");
+        private List<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs>? _mValue_RuleActionOverrides;
+        private bool _mUnknown_RuleActionOverrides;
+        public List<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs>? RuleActionOverrides
+        {
+            get
+            {
+                if (!_mUnknown_RuleActionOverrides) return _mValue_RuleActionOverrides;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementArgs.RuleActionOverrides' is not present");
+            }
+        }
 
         /// <summary>
         /// Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
         /// </summary>
-        [Input("scopeDownStatement")]
+        [PolicyResourceProperty("scopeDownStatement", "_mUnknown_ScopeDownStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs> _mScopeDownStatement;
-
-        public Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs? ScopeDownStatement => _mScopeDownStatement.GetValue("scopeDownStatement");
+        private Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs? _mValue_ScopeDownStatement;
+        private bool _mUnknown_ScopeDownStatement;
+        public Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs? ScopeDownStatement
+        {
+            get
+            {
+                if (!_mUnknown_ScopeDownStatement) return _mValue_ScopeDownStatement;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementArgs.ScopeDownStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the managed rule group vendor.
         /// </summary>
-        [Input("vendorName")]
+        [PolicyResourceProperty("vendorName", "_mUnknown_VendorName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVendorName;
-
-        public string? VendorName => _mVendorName.GetValue("vendorName");
+        private string? _mValue_VendorName;
+        private bool _mUnknown_VendorName;
+        public string? VendorName
+        {
+            get
+            {
+                if (!_mUnknown_VendorName) return _mValue_VendorName;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementArgs.VendorName' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementArgs.Version' is not present");
+            }
+        }
     }
 }

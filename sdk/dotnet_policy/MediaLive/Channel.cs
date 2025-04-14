@@ -16,145 +16,257 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive
         /// <summary>
         /// ARN of the Channel.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Channel.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specification of CDI inputs for this channel. See CDI Input Specification for more details.
         /// </summary>
-        [Input("cdiInputSpecification")]
+        [PolicyResourceProperty("cdiInputSpecification", "_mUnknown_CdiInputSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelCdiInputSpecification> _mCdiInputSpecification;
-
-        public Outputs.ChannelCdiInputSpecification? CdiInputSpecification => _mCdiInputSpecification.GetValue("cdiInputSpecification");
+        private Outputs.ChannelCdiInputSpecification? _mValue_CdiInputSpecification;
+        private bool _mUnknown_CdiInputSpecification;
+        public Outputs.ChannelCdiInputSpecification? CdiInputSpecification
+        {
+            get
+            {
+                if (!_mUnknown_CdiInputSpecification) return _mValue_CdiInputSpecification;
+                throw new UndeferrableValueException("Value 'Channel.CdiInputSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Concise argument description.
         /// </summary>
-        [Input("channelClass")]
+        [PolicyResourceProperty("channelClass", "_mUnknown_ChannelClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChannelClass;
-
-        public string? ChannelClass => _mChannelClass.GetValue("channelClass");
+        private string? _mValue_ChannelClass;
+        private bool _mUnknown_ChannelClass;
+        public string? ChannelClass
+        {
+            get
+            {
+                if (!_mUnknown_ChannelClass) return _mValue_ChannelClass;
+                throw new UndeferrableValueException("Value 'Channel.ChannelClass' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Channel.
         /// </summary>
-        [Input("channelId")]
+        [PolicyResourceProperty("channelId", "_mUnknown_ChannelId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChannelId;
-
-        public string? ChannelId => _mChannelId.GetValue("channelId");
+        private string? _mValue_ChannelId;
+        private bool _mUnknown_ChannelId;
+        public string? ChannelId
+        {
+            get
+            {
+                if (!_mUnknown_ChannelId) return _mValue_ChannelId;
+                throw new UndeferrableValueException("Value 'Channel.ChannelId' is not present");
+            }
+        }
 
         /// <summary>
         /// Destinations for channel. See Destinations for more details.
         /// </summary>
-        [Input("destinations")]
+        [PolicyResourceProperty("destinations", "_mUnknown_Destinations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ChannelDestination>> _mDestinations;
-
-        public List<Outputs.ChannelDestination>? Destinations => _mDestinations.GetValue("destinations");
+        private List<Outputs.ChannelDestination>? _mValue_Destinations;
+        private bool _mUnknown_Destinations;
+        public List<Outputs.ChannelDestination>? Destinations
+        {
+            get
+            {
+                if (!_mUnknown_Destinations) return _mValue_Destinations;
+                throw new UndeferrableValueException("Value 'Channel.Destinations' is not present");
+            }
+        }
 
         /// <summary>
         /// Encoder settings. See Encoder Settings for more details.
         /// </summary>
-        [Input("encoderSettings")]
+        [PolicyResourceProperty("encoderSettings", "_mUnknown_EncoderSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettings> _mEncoderSettings;
-
-        public Outputs.ChannelEncoderSettings? EncoderSettings => _mEncoderSettings.GetValue("encoderSettings");
+        private Outputs.ChannelEncoderSettings? _mValue_EncoderSettings;
+        private bool _mUnknown_EncoderSettings;
+        public Outputs.ChannelEncoderSettings? EncoderSettings
+        {
+            get
+            {
+                if (!_mUnknown_EncoderSettings) return _mValue_EncoderSettings;
+                throw new UndeferrableValueException("Value 'Channel.EncoderSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Input attachments for the channel. See Input Attachments for more details.
         /// </summary>
-        [Input("inputAttachments")]
+        [PolicyResourceProperty("inputAttachments", "_mUnknown_InputAttachments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ChannelInputAttachment>> _mInputAttachments;
-
-        public List<Outputs.ChannelInputAttachment>? InputAttachments => _mInputAttachments.GetValue("inputAttachments");
+        private List<Outputs.ChannelInputAttachment>? _mValue_InputAttachments;
+        private bool _mUnknown_InputAttachments;
+        public List<Outputs.ChannelInputAttachment>? InputAttachments
+        {
+            get
+            {
+                if (!_mUnknown_InputAttachments) return _mValue_InputAttachments;
+                throw new UndeferrableValueException("Value 'Channel.InputAttachments' is not present");
+            }
+        }
 
         /// <summary>
         /// Specification of network and file inputs for the channel.
         /// </summary>
-        [Input("inputSpecification")]
+        [PolicyResourceProperty("inputSpecification", "_mUnknown_InputSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelInputSpecification> _mInputSpecification;
-
-        public Outputs.ChannelInputSpecification? InputSpecification => _mInputSpecification.GetValue("inputSpecification");
+        private Outputs.ChannelInputSpecification? _mValue_InputSpecification;
+        private bool _mUnknown_InputSpecification;
+        public Outputs.ChannelInputSpecification? InputSpecification
+        {
+            get
+            {
+                if (!_mUnknown_InputSpecification) return _mValue_InputSpecification;
+                throw new UndeferrableValueException("Value 'Channel.InputSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// The log level to write to Cloudwatch logs.
         /// </summary>
-        [Input("logLevel")]
+        [PolicyResourceProperty("logLevel", "_mUnknown_LogLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogLevel;
-
-        public string? LogLevel => _mLogLevel.GetValue("logLevel");
+        private string? _mValue_LogLevel;
+        private bool _mUnknown_LogLevel;
+        public string? LogLevel
+        {
+            get
+            {
+                if (!_mUnknown_LogLevel) return _mValue_LogLevel;
+                throw new UndeferrableValueException("Value 'Channel.LogLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// Maintenance settings for this channel. See Maintenance for more details.
         /// </summary>
-        [Input("maintenance")]
+        [PolicyResourceProperty("maintenance", "_mUnknown_Maintenance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelMaintenance> _mMaintenance;
-
-        public Outputs.ChannelMaintenance? Maintenance => _mMaintenance.GetValue("maintenance");
+        private Outputs.ChannelMaintenance? _mValue_Maintenance;
+        private bool _mUnknown_Maintenance;
+        public Outputs.ChannelMaintenance? Maintenance
+        {
+            get
+            {
+                if (!_mUnknown_Maintenance) return _mValue_Maintenance;
+                throw new UndeferrableValueException("Value 'Channel.Maintenance' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Channel.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Channel.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Concise argument description.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Channel.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to start/stop channel. Default: `false`
         /// </summary>
-        [Input("startChannel")]
+        [PolicyResourceProperty("startChannel", "_mUnknown_StartChannel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStartChannel;
-
-        public bool? StartChannel => _mStartChannel.GetValue("startChannel");
+        private bool? _mValue_StartChannel;
+        private bool _mUnknown_StartChannel;
+        public bool? StartChannel
+        {
+            get
+            {
+                if (!_mUnknown_StartChannel) return _mValue_StartChannel;
+                throw new UndeferrableValueException("Value 'Channel.StartChannel' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Channel.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Channel.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Settings for the VPC outputs. See VPC for more details.
         /// </summary>
-        [Input("vpc")]
+        [PolicyResourceProperty("vpc", "_mUnknown_Vpc")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelVpc> _mVpc;
-
-        public Outputs.ChannelVpc? Vpc => _mVpc.GetValue("vpc");
+        private Outputs.ChannelVpc? _mValue_Vpc;
+        private bool _mUnknown_Vpc;
+        public Outputs.ChannelVpc? Vpc
+        {
+            get
+            {
+                if (!_mUnknown_Vpc) return _mValue_Vpc;
+                throw new UndeferrableValueException("Value 'Channel.Vpc' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:medialive/channel:Channel")]
@@ -163,120 +275,211 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive
         /// <summary>
         /// Specification of CDI inputs for this channel. See CDI Input Specification for more details.
         /// </summary>
-        [Input("cdiInputSpecification")]
+        [PolicyResourceProperty("cdiInputSpecification", "_mUnknown_CdiInputSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelCdiInputSpecificationArgs> _mCdiInputSpecification;
-
-        public Inputs.ChannelCdiInputSpecificationArgs? CdiInputSpecification => _mCdiInputSpecification.GetValue("cdiInputSpecification");
+        private Inputs.ChannelCdiInputSpecificationArgs? _mValue_CdiInputSpecification;
+        private bool _mUnknown_CdiInputSpecification;
+        public Inputs.ChannelCdiInputSpecificationArgs? CdiInputSpecification
+        {
+            get
+            {
+                if (!_mUnknown_CdiInputSpecification) return _mValue_CdiInputSpecification;
+                throw new UndeferrableValueException("Value 'ChannelArgs.CdiInputSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Concise argument description.
         /// </summary>
-        [Input("channelClass")]
+        [PolicyResourceProperty("channelClass", "_mUnknown_ChannelClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChannelClass;
-
-        public string? ChannelClass => _mChannelClass.GetValue("channelClass");
+        private string? _mValue_ChannelClass;
+        private bool _mUnknown_ChannelClass;
+        public string? ChannelClass
+        {
+            get
+            {
+                if (!_mUnknown_ChannelClass) return _mValue_ChannelClass;
+                throw new UndeferrableValueException("Value 'ChannelArgs.ChannelClass' is not present");
+            }
+        }
 
         /// <summary>
         /// Destinations for channel. See Destinations for more details.
         /// </summary>
-        [Input("destinations")]
+        [PolicyResourceProperty("destinations", "_mUnknown_Destinations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ChannelDestinationArgs>> _mDestinations;
-
-        public List<Inputs.ChannelDestinationArgs>? Destinations => _mDestinations.GetValue("destinations");
+        private List<Inputs.ChannelDestinationArgs>? _mValue_Destinations;
+        private bool _mUnknown_Destinations;
+        public List<Inputs.ChannelDestinationArgs>? Destinations
+        {
+            get
+            {
+                if (!_mUnknown_Destinations) return _mValue_Destinations;
+                throw new UndeferrableValueException("Value 'ChannelArgs.Destinations' is not present");
+            }
+        }
 
         /// <summary>
         /// Encoder settings. See Encoder Settings for more details.
         /// </summary>
-        [Input("encoderSettings")]
+        [PolicyResourceProperty("encoderSettings", "_mUnknown_EncoderSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsArgs> _mEncoderSettings;
-
-        public Inputs.ChannelEncoderSettingsArgs? EncoderSettings => _mEncoderSettings.GetValue("encoderSettings");
+        private Inputs.ChannelEncoderSettingsArgs? _mValue_EncoderSettings;
+        private bool _mUnknown_EncoderSettings;
+        public Inputs.ChannelEncoderSettingsArgs? EncoderSettings
+        {
+            get
+            {
+                if (!_mUnknown_EncoderSettings) return _mValue_EncoderSettings;
+                throw new UndeferrableValueException("Value 'ChannelArgs.EncoderSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Input attachments for the channel. See Input Attachments for more details.
         /// </summary>
-        [Input("inputAttachments")]
+        [PolicyResourceProperty("inputAttachments", "_mUnknown_InputAttachments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ChannelInputAttachmentArgs>> _mInputAttachments;
-
-        public List<Inputs.ChannelInputAttachmentArgs>? InputAttachments => _mInputAttachments.GetValue("inputAttachments");
+        private List<Inputs.ChannelInputAttachmentArgs>? _mValue_InputAttachments;
+        private bool _mUnknown_InputAttachments;
+        public List<Inputs.ChannelInputAttachmentArgs>? InputAttachments
+        {
+            get
+            {
+                if (!_mUnknown_InputAttachments) return _mValue_InputAttachments;
+                throw new UndeferrableValueException("Value 'ChannelArgs.InputAttachments' is not present");
+            }
+        }
 
         /// <summary>
         /// Specification of network and file inputs for the channel.
         /// </summary>
-        [Input("inputSpecification")]
+        [PolicyResourceProperty("inputSpecification", "_mUnknown_InputSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelInputSpecificationArgs> _mInputSpecification;
-
-        public Inputs.ChannelInputSpecificationArgs? InputSpecification => _mInputSpecification.GetValue("inputSpecification");
+        private Inputs.ChannelInputSpecificationArgs? _mValue_InputSpecification;
+        private bool _mUnknown_InputSpecification;
+        public Inputs.ChannelInputSpecificationArgs? InputSpecification
+        {
+            get
+            {
+                if (!_mUnknown_InputSpecification) return _mValue_InputSpecification;
+                throw new UndeferrableValueException("Value 'ChannelArgs.InputSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// The log level to write to Cloudwatch logs.
         /// </summary>
-        [Input("logLevel")]
+        [PolicyResourceProperty("logLevel", "_mUnknown_LogLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogLevel;
-
-        public string? LogLevel => _mLogLevel.GetValue("logLevel");
+        private string? _mValue_LogLevel;
+        private bool _mUnknown_LogLevel;
+        public string? LogLevel
+        {
+            get
+            {
+                if (!_mUnknown_LogLevel) return _mValue_LogLevel;
+                throw new UndeferrableValueException("Value 'ChannelArgs.LogLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// Maintenance settings for this channel. See Maintenance for more details.
         /// </summary>
-        [Input("maintenance")]
+        [PolicyResourceProperty("maintenance", "_mUnknown_Maintenance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelMaintenanceArgs> _mMaintenance;
-
-        public Inputs.ChannelMaintenanceArgs? Maintenance => _mMaintenance.GetValue("maintenance");
+        private Inputs.ChannelMaintenanceArgs? _mValue_Maintenance;
+        private bool _mUnknown_Maintenance;
+        public Inputs.ChannelMaintenanceArgs? Maintenance
+        {
+            get
+            {
+                if (!_mUnknown_Maintenance) return _mValue_Maintenance;
+                throw new UndeferrableValueException("Value 'ChannelArgs.Maintenance' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Channel.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ChannelArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Concise argument description.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ChannelArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to start/stop channel. Default: `false`
         /// </summary>
-        [Input("startChannel")]
+        [PolicyResourceProperty("startChannel", "_mUnknown_StartChannel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStartChannel;
-
-        public bool? StartChannel => _mStartChannel.GetValue("startChannel");
+        private bool? _mValue_StartChannel;
+        private bool _mUnknown_StartChannel;
+        public bool? StartChannel
+        {
+            get
+            {
+                if (!_mUnknown_StartChannel) return _mValue_StartChannel;
+                throw new UndeferrableValueException("Value 'ChannelArgs.StartChannel' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ChannelArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Settings for the VPC outputs. See VPC for more details.
         /// </summary>
-        [Input("vpc")]
+        [PolicyResourceProperty("vpc", "_mUnknown_Vpc")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelVpcArgs> _mVpc;
-
-        public Inputs.ChannelVpcArgs? Vpc => _mVpc.GetValue("vpc");
+        private Inputs.ChannelVpcArgs? _mValue_Vpc;
+        private bool _mUnknown_Vpc;
+        public Inputs.ChannelVpcArgs? Vpc
+        {
+            get
+            {
+                if (!_mUnknown_Vpc) return _mValue_Vpc;
+                throw new UndeferrableValueException("Value 'ChannelArgs.Vpc' is not present");
+            }
+        }
     }
 }

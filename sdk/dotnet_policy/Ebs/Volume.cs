@@ -16,139 +16,244 @@ namespace Pulumi.PolicyPacks.Aws.Ebs
         /// <summary>
         /// Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Volume.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Availability zone where the EBS volume will exist.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'Volume.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestamp when volume creation was initiated.
         /// </summary>
-        [Input("createTime")]
+        [PolicyResourceProperty("createTime", "_mUnknown_CreateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
-
-        public string? CreateTime => _mCreateTime.GetValue("createTime");
+        private string? _mValue_CreateTime;
+        private bool _mUnknown_CreateTime;
+        public string? CreateTime
+        {
+            get
+            {
+                if (!_mUnknown_CreateTime) return _mValue_CreateTime;
+                throw new UndeferrableValueException("Value 'Volume.CreateTime' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, the disk will be encrypted.
         /// </summary>
-        [Input("encrypted")]
+        [PolicyResourceProperty("encrypted", "_mUnknown_Encrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypted;
-
-        public bool? Encrypted => _mEncrypted.GetValue("encrypted");
+        private bool? _mValue_Encrypted;
+        private bool _mUnknown_Encrypted;
+        public bool? Encrypted
+        {
+            get
+            {
+                if (!_mUnknown_Encrypted) return _mValue_Encrypted;
+                throw new UndeferrableValueException("Value 'Volume.Encrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
         /// </summary>
-        [Input("finalSnapshot")]
+        [PolicyResourceProperty("finalSnapshot", "_mUnknown_FinalSnapshot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFinalSnapshot;
-
-        public bool? FinalSnapshot => _mFinalSnapshot.GetValue("finalSnapshot");
+        private bool? _mValue_FinalSnapshot;
+        private bool _mUnknown_FinalSnapshot;
+        public bool? FinalSnapshot
+        {
+            get
+            {
+                if (!_mUnknown_FinalSnapshot) return _mValue_FinalSnapshot;
+                throw new UndeferrableValueException("Value 'Volume.FinalSnapshot' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         /// </summary>
-        [Input("iops")]
+        [PolicyResourceProperty("iops", "_mUnknown_Iops")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIops;
-
-        public int? Iops => _mIops.GetValue("iops");
+        private int? _mValue_Iops;
+        private bool _mUnknown_Iops;
+        public int? Iops
+        {
+            get
+            {
+                if (!_mUnknown_Iops) return _mValue_Iops;
+                throw new UndeferrableValueException("Value 'Volume.Iops' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'Volume.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
         /// </summary>
-        [Input("multiAttachEnabled")]
+        [PolicyResourceProperty("multiAttachEnabled", "_mUnknown_MultiAttachEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiAttachEnabled;
-
-        public bool? MultiAttachEnabled => _mMultiAttachEnabled.GetValue("multiAttachEnabled");
+        private bool? _mValue_MultiAttachEnabled;
+        private bool _mUnknown_MultiAttachEnabled;
+        public bool? MultiAttachEnabled
+        {
+            get
+            {
+                if (!_mUnknown_MultiAttachEnabled) return _mValue_MultiAttachEnabled;
+                throw new UndeferrableValueException("Value 'Volume.MultiAttachEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Outpost.
         /// </summary>
-        [Input("outpostArn")]
+        [PolicyResourceProperty("outpostArn", "_mUnknown_OutpostArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostArn;
-
-        public string? OutpostArn => _mOutpostArn.GetValue("outpostArn");
+        private string? _mValue_OutpostArn;
+        private bool _mUnknown_OutpostArn;
+        public string? OutpostArn
+        {
+            get
+            {
+                if (!_mUnknown_OutpostArn) return _mValue_OutpostArn;
+                throw new UndeferrableValueException("Value 'Volume.OutpostArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Size of the drive in GiBs.
         /// </summary>
-        [Input("size")]
+        [PolicyResourceProperty("size", "_mUnknown_Size")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSize;
-
-        public int? Size => _mSize.GetValue("size");
+        private int? _mValue_Size;
+        private bool _mUnknown_Size;
+        public int? Size
+        {
+            get
+            {
+                if (!_mUnknown_Size) return _mValue_Size;
+                throw new UndeferrableValueException("Value 'Volume.Size' is not present");
+            }
+        }
 
         /// <summary>
         /// A snapshot to base the EBS volume off of.
         /// </summary>
-        [Input("snapshotId")]
+        [PolicyResourceProperty("snapshotId", "_mUnknown_SnapshotId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotId;
-
-        public string? SnapshotId => _mSnapshotId.GetValue("snapshotId");
+        private string? _mValue_SnapshotId;
+        private bool _mUnknown_SnapshotId;
+        public string? SnapshotId
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotId) return _mValue_SnapshotId;
+                throw new UndeferrableValueException("Value 'Volume.SnapshotId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Volume.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Volume.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         /// </summary>
-        [Input("throughput")]
+        [PolicyResourceProperty("throughput", "_mUnknown_Throughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThroughput;
-
-        public int? Throughput => _mThroughput.GetValue("throughput");
+        private int? _mValue_Throughput;
+        private bool _mUnknown_Throughput;
+        public int? Throughput
+        {
+            get
+            {
+                if (!_mUnknown_Throughput) return _mValue_Throughput;
+                throw new UndeferrableValueException("Value 'Volume.Throughput' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         /// 
         /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Volume.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ebs/volume:Volume")]
@@ -157,111 +262,195 @@ namespace Pulumi.PolicyPacks.Aws.Ebs
         /// <summary>
         /// Availability zone where the EBS volume will exist.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'VolumeArgs.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, the disk will be encrypted.
         /// </summary>
-        [Input("encrypted")]
+        [PolicyResourceProperty("encrypted", "_mUnknown_Encrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypted;
-
-        public bool? Encrypted => _mEncrypted.GetValue("encrypted");
+        private bool? _mValue_Encrypted;
+        private bool _mUnknown_Encrypted;
+        public bool? Encrypted
+        {
+            get
+            {
+                if (!_mUnknown_Encrypted) return _mValue_Encrypted;
+                throw new UndeferrableValueException("Value 'VolumeArgs.Encrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
         /// </summary>
-        [Input("finalSnapshot")]
+        [PolicyResourceProperty("finalSnapshot", "_mUnknown_FinalSnapshot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFinalSnapshot;
-
-        public bool? FinalSnapshot => _mFinalSnapshot.GetValue("finalSnapshot");
+        private bool? _mValue_FinalSnapshot;
+        private bool _mUnknown_FinalSnapshot;
+        public bool? FinalSnapshot
+        {
+            get
+            {
+                if (!_mUnknown_FinalSnapshot) return _mValue_FinalSnapshot;
+                throw new UndeferrableValueException("Value 'VolumeArgs.FinalSnapshot' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         /// </summary>
-        [Input("iops")]
+        [PolicyResourceProperty("iops", "_mUnknown_Iops")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIops;
-
-        public int? Iops => _mIops.GetValue("iops");
+        private int? _mValue_Iops;
+        private bool _mUnknown_Iops;
+        public int? Iops
+        {
+            get
+            {
+                if (!_mUnknown_Iops) return _mValue_Iops;
+                throw new UndeferrableValueException("Value 'VolumeArgs.Iops' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'VolumeArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
         /// </summary>
-        [Input("multiAttachEnabled")]
+        [PolicyResourceProperty("multiAttachEnabled", "_mUnknown_MultiAttachEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiAttachEnabled;
-
-        public bool? MultiAttachEnabled => _mMultiAttachEnabled.GetValue("multiAttachEnabled");
+        private bool? _mValue_MultiAttachEnabled;
+        private bool _mUnknown_MultiAttachEnabled;
+        public bool? MultiAttachEnabled
+        {
+            get
+            {
+                if (!_mUnknown_MultiAttachEnabled) return _mValue_MultiAttachEnabled;
+                throw new UndeferrableValueException("Value 'VolumeArgs.MultiAttachEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Outpost.
         /// </summary>
-        [Input("outpostArn")]
+        [PolicyResourceProperty("outpostArn", "_mUnknown_OutpostArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostArn;
-
-        public string? OutpostArn => _mOutpostArn.GetValue("outpostArn");
+        private string? _mValue_OutpostArn;
+        private bool _mUnknown_OutpostArn;
+        public string? OutpostArn
+        {
+            get
+            {
+                if (!_mUnknown_OutpostArn) return _mValue_OutpostArn;
+                throw new UndeferrableValueException("Value 'VolumeArgs.OutpostArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Size of the drive in GiBs.
         /// </summary>
-        [Input("size")]
+        [PolicyResourceProperty("size", "_mUnknown_Size")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSize;
-
-        public int? Size => _mSize.GetValue("size");
+        private int? _mValue_Size;
+        private bool _mUnknown_Size;
+        public int? Size
+        {
+            get
+            {
+                if (!_mUnknown_Size) return _mValue_Size;
+                throw new UndeferrableValueException("Value 'VolumeArgs.Size' is not present");
+            }
+        }
 
         /// <summary>
         /// A snapshot to base the EBS volume off of.
         /// </summary>
-        [Input("snapshotId")]
+        [PolicyResourceProperty("snapshotId", "_mUnknown_SnapshotId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotId;
-
-        public string? SnapshotId => _mSnapshotId.GetValue("snapshotId");
+        private string? _mValue_SnapshotId;
+        private bool _mUnknown_SnapshotId;
+        public string? SnapshotId
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotId) return _mValue_SnapshotId;
+                throw new UndeferrableValueException("Value 'VolumeArgs.SnapshotId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VolumeArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         /// </summary>
-        [Input("throughput")]
+        [PolicyResourceProperty("throughput", "_mUnknown_Throughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThroughput;
-
-        public int? Throughput => _mThroughput.GetValue("throughput");
+        private int? _mValue_Throughput;
+        private bool _mUnknown_Throughput;
+        public int? Throughput
+        {
+            get
+            {
+                if (!_mUnknown_Throughput) return _mValue_Throughput;
+                throw new UndeferrableValueException("Value 'VolumeArgs.Throughput' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         /// 
         /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'VolumeArgs.Type' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner.Inputs
         /// <summary>
         /// ARN of the IAM role that grants the App Runner service access to a source repository. Required for ECR image repositories (but not for ECR Public)
         /// </summary>
-        [Input("accessRoleArn")]
+        [PolicyResourceProperty("accessRoleArn", "_mUnknown_AccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessRoleArn;
-
-        public string? AccessRoleArn => _mAccessRoleArn.GetValue("accessRoleArn");
+        private string? _mValue_AccessRoleArn;
+        private bool _mUnknown_AccessRoleArn;
+        public string? AccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_AccessRoleArn) return _mValue_AccessRoleArn;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationAuthenticationConfigurationArgs.AccessRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the App Runner connection that enables the App Runner service to connect to a source repository. Required for GitHub code repositories.
         /// </summary>
-        [Input("connectionArn")]
+        [PolicyResourceProperty("connectionArn", "_mUnknown_ConnectionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionArn;
-
-        public string? ConnectionArn => _mConnectionArn.GetValue("connectionArn");
+        private string? _mValue_ConnectionArn;
+        private bool _mUnknown_ConnectionArn;
+        public string? ConnectionArn
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionArn) return _mValue_ConnectionArn;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationAuthenticationConfigurationArgs.ConnectionArn' is not present");
+            }
+        }
     }
 }

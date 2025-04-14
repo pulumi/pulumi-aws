@@ -18,92 +18,162 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// 
         /// **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         /// </summary>
-        [Input("dbClusterIdentifier")]
+        [PolicyResourceProperty("dbClusterIdentifier", "_mUnknown_DbClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterIdentifier;
-
-        public string? DbClusterIdentifier => _mDbClusterIdentifier.GetValue("dbClusterIdentifier");
+        private string? _mValue_DbClusterIdentifier;
+        private bool _mUnknown_DbClusterIdentifier;
+        public string? DbClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DbClusterIdentifier) return _mValue_DbClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ProxyTarget.DbClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// DB instance identifier.
         /// </summary>
-        [Input("dbInstanceIdentifier")]
+        [PolicyResourceProperty("dbInstanceIdentifier", "_mUnknown_DbInstanceIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbInstanceIdentifier;
-
-        public string? DbInstanceIdentifier => _mDbInstanceIdentifier.GetValue("dbInstanceIdentifier");
+        private string? _mValue_DbInstanceIdentifier;
+        private bool _mUnknown_DbInstanceIdentifier;
+        public string? DbInstanceIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DbInstanceIdentifier) return _mValue_DbInstanceIdentifier;
+                throw new UndeferrableValueException("Value 'ProxyTarget.DbInstanceIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the DB proxy.
         /// </summary>
-        [Input("dbProxyName")]
+        [PolicyResourceProperty("dbProxyName", "_mUnknown_DbProxyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbProxyName;
-
-        public string? DbProxyName => _mDbProxyName.GetValue("dbProxyName");
+        private string? _mValue_DbProxyName;
+        private bool _mUnknown_DbProxyName;
+        public string? DbProxyName
+        {
+            get
+            {
+                if (!_mUnknown_DbProxyName) return _mValue_DbProxyName;
+                throw new UndeferrableValueException("Value 'ProxyTarget.DbProxyName' is not present");
+            }
+        }
 
         /// <summary>
         /// Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'ProxyTarget.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Port for the target RDS DB Instance or Aurora DB Cluster.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'ProxyTarget.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier representing the DB Instance or DB Cluster target.
         /// </summary>
-        [Input("rdsResourceId")]
+        [PolicyResourceProperty("rdsResourceId", "_mUnknown_RdsResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRdsResourceId;
-
-        public string? RdsResourceId => _mRdsResourceId.GetValue("rdsResourceId");
+        private string? _mValue_RdsResourceId;
+        private bool _mUnknown_RdsResourceId;
+        public string? RdsResourceId
+        {
+            get
+            {
+                if (!_mUnknown_RdsResourceId) return _mValue_RdsResourceId;
+                throw new UndeferrableValueException("Value 'ProxyTarget.RdsResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
         /// </summary>
-        [Input("targetArn")]
+        [PolicyResourceProperty("targetArn", "_mUnknown_TargetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetArn;
-
-        public string? TargetArn => _mTargetArn.GetValue("targetArn");
+        private string? _mValue_TargetArn;
+        private bool _mUnknown_TargetArn;
+        public string? TargetArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetArn) return _mValue_TargetArn;
+                throw new UndeferrableValueException("Value 'ProxyTarget.TargetArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the target group.
         /// </summary>
-        [Input("targetGroupName")]
+        [PolicyResourceProperty("targetGroupName", "_mUnknown_TargetGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetGroupName;
-
-        public string? TargetGroupName => _mTargetGroupName.GetValue("targetGroupName");
+        private string? _mValue_TargetGroupName;
+        private bool _mUnknown_TargetGroupName;
+        public string? TargetGroupName
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroupName) return _mValue_TargetGroupName;
+                throw new UndeferrableValueException("Value 'ProxyTarget.TargetGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
         /// </summary>
-        [Input("trackedClusterId")]
+        [PolicyResourceProperty("trackedClusterId", "_mUnknown_TrackedClusterId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrackedClusterId;
-
-        public string? TrackedClusterId => _mTrackedClusterId.GetValue("trackedClusterId");
+        private string? _mValue_TrackedClusterId;
+        private bool _mUnknown_TrackedClusterId;
+        public string? TrackedClusterId
+        {
+            get
+            {
+                if (!_mUnknown_TrackedClusterId) return _mValue_TrackedClusterId;
+                throw new UndeferrableValueException("Value 'ProxyTarget.TrackedClusterId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ProxyTarget.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:rds/proxyTarget:ProxyTarget")]
@@ -114,37 +184,65 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// 
         /// **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         /// </summary>
-        [Input("dbClusterIdentifier")]
+        [PolicyResourceProperty("dbClusterIdentifier", "_mUnknown_DbClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterIdentifier;
-
-        public string? DbClusterIdentifier => _mDbClusterIdentifier.GetValue("dbClusterIdentifier");
+        private string? _mValue_DbClusterIdentifier;
+        private bool _mUnknown_DbClusterIdentifier;
+        public string? DbClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DbClusterIdentifier) return _mValue_DbClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ProxyTargetArgs.DbClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// DB instance identifier.
         /// </summary>
-        [Input("dbInstanceIdentifier")]
+        [PolicyResourceProperty("dbInstanceIdentifier", "_mUnknown_DbInstanceIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbInstanceIdentifier;
-
-        public string? DbInstanceIdentifier => _mDbInstanceIdentifier.GetValue("dbInstanceIdentifier");
+        private string? _mValue_DbInstanceIdentifier;
+        private bool _mUnknown_DbInstanceIdentifier;
+        public string? DbInstanceIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DbInstanceIdentifier) return _mValue_DbInstanceIdentifier;
+                throw new UndeferrableValueException("Value 'ProxyTargetArgs.DbInstanceIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the DB proxy.
         /// </summary>
-        [Input("dbProxyName")]
+        [PolicyResourceProperty("dbProxyName", "_mUnknown_DbProxyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbProxyName;
-
-        public string? DbProxyName => _mDbProxyName.GetValue("dbProxyName");
+        private string? _mValue_DbProxyName;
+        private bool _mUnknown_DbProxyName;
+        public string? DbProxyName
+        {
+            get
+            {
+                if (!_mUnknown_DbProxyName) return _mValue_DbProxyName;
+                throw new UndeferrableValueException("Value 'ProxyTargetArgs.DbProxyName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the target group.
         /// </summary>
-        [Input("targetGroupName")]
+        [PolicyResourceProperty("targetGroupName", "_mUnknown_TargetGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetGroupName;
-
-        public string? TargetGroupName => _mTargetGroupName.GetValue("targetGroupName");
+        private string? _mValue_TargetGroupName;
+        private bool _mUnknown_TargetGroupName;
+        public string? TargetGroupName
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroupName) return _mValue_TargetGroupName;
+                throw new UndeferrableValueException("Value 'ProxyTargetArgs.TargetGroupName' is not present");
+            }
+        }
     }
 }

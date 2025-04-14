@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Mq.Inputs
         /// <summary>
         /// The Configuration ID.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'BrokerConfigurationArgs.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Revision of the Configuration.
         /// </summary>
-        [Input("revision")]
+        [PolicyResourceProperty("revision", "_mUnknown_Revision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRevision;
-
-        public int? Revision => _mRevision.GetValue("revision");
+        private int? _mValue_Revision;
+        private bool _mUnknown_Revision;
+        public int? Revision
+        {
+            get
+            {
+                if (!_mUnknown_Revision) return _mValue_Revision;
+                throw new UndeferrableValueException("Value 'BrokerConfigurationArgs.Revision' is not present");
+            }
+        }
     }
 }

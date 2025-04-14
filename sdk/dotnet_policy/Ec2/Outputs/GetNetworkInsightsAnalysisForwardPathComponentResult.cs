@@ -12,94 +12,199 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetNetworkInsightsAnalysisForwardPathComponentResult
     {
-        [Input("aclRules")]
+        [PolicyResourceProperty("aclRules", "_mUnknown_AclRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult>> _mAclRules;
+        private List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult>? _mValue_AclRules;
+        private bool _mUnknown_AclRules;
+        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult>? AclRules
+        {
+            get
+            {
+                if (!_mUnknown_AclRules) return _mValue_AclRules;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentResult.AclRules' is not present");
+            }
+        }
 
-        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult>? AclRules => _mAclRules.GetValue("aclRules");
-
-        [Input("additionalDetails")]
+        [PolicyResourceProperty("additionalDetails", "_mUnknown_AdditionalDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailResult>> _mAdditionalDetails;
+        private List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailResult>? _mValue_AdditionalDetails;
+        private bool _mUnknown_AdditionalDetails;
+        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailResult>? AdditionalDetails
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalDetails) return _mValue_AdditionalDetails;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentResult.AdditionalDetails' is not present");
+            }
+        }
 
-        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailResult>? AdditionalDetails => _mAdditionalDetails.GetValue("additionalDetails");
-
-        [Input("attachedTos")]
+        [PolicyResourceProperty("attachedTos", "_mUnknown_AttachedTos")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAttachedToResult>> _mAttachedTos;
+        private List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAttachedToResult>? _mValue_AttachedTos;
+        private bool _mUnknown_AttachedTos;
+        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAttachedToResult>? AttachedTos
+        {
+            get
+            {
+                if (!_mUnknown_AttachedTos) return _mValue_AttachedTos;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentResult.AttachedTos' is not present");
+            }
+        }
 
-        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAttachedToResult>? AttachedTos => _mAttachedTos.GetValue("attachedTos");
-
-        [Input("components")]
+        [PolicyResourceProperty("components", "_mUnknown_Components")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentComponentResult>> _mComponents;
+        private List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentComponentResult>? _mValue_Components;
+        private bool _mUnknown_Components;
+        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentComponentResult>? Components
+        {
+            get
+            {
+                if (!_mUnknown_Components) return _mValue_Components;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentResult.Components' is not present");
+            }
+        }
 
-        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentComponentResult>? Components => _mComponents.GetValue("components");
-
-        [Input("destinationVpcs")]
+        [PolicyResourceProperty("destinationVpcs", "_mUnknown_DestinationVpcs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcResult>> _mDestinationVpcs;
+        private List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcResult>? _mValue_DestinationVpcs;
+        private bool _mUnknown_DestinationVpcs;
+        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcResult>? DestinationVpcs
+        {
+            get
+            {
+                if (!_mUnknown_DestinationVpcs) return _mValue_DestinationVpcs;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentResult.DestinationVpcs' is not present");
+            }
+        }
 
-        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcResult>? DestinationVpcs => _mDestinationVpcs.GetValue("destinationVpcs");
-
-        [Input("inboundHeaders")]
+        [PolicyResourceProperty("inboundHeaders", "_mUnknown_InboundHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderResult>> _mInboundHeaders;
+        private List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderResult>? _mValue_InboundHeaders;
+        private bool _mUnknown_InboundHeaders;
+        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderResult>? InboundHeaders
+        {
+            get
+            {
+                if (!_mUnknown_InboundHeaders) return _mValue_InboundHeaders;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentResult.InboundHeaders' is not present");
+            }
+        }
 
-        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderResult>? InboundHeaders => _mInboundHeaders.GetValue("inboundHeaders");
-
-        [Input("outboundHeaders")]
+        [PolicyResourceProperty("outboundHeaders", "_mUnknown_OutboundHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderResult>> _mOutboundHeaders;
+        private List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderResult>? _mValue_OutboundHeaders;
+        private bool _mUnknown_OutboundHeaders;
+        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderResult>? OutboundHeaders
+        {
+            get
+            {
+                if (!_mUnknown_OutboundHeaders) return _mValue_OutboundHeaders;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentResult.OutboundHeaders' is not present");
+            }
+        }
 
-        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderResult>? OutboundHeaders => _mOutboundHeaders.GetValue("outboundHeaders");
-
-        [Input("routeTableRoutes")]
+        [PolicyResourceProperty("routeTableRoutes", "_mUnknown_RouteTableRoutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentRouteTableRouteResult>> _mRouteTableRoutes;
+        private List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentRouteTableRouteResult>? _mValue_RouteTableRoutes;
+        private bool _mUnknown_RouteTableRoutes;
+        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentRouteTableRouteResult>? RouteTableRoutes
+        {
+            get
+            {
+                if (!_mUnknown_RouteTableRoutes) return _mValue_RouteTableRoutes;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentResult.RouteTableRoutes' is not present");
+            }
+        }
 
-        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentRouteTableRouteResult>? RouteTableRoutes => _mRouteTableRoutes.GetValue("routeTableRoutes");
-
-        [Input("securityGroupRules")]
+        [PolicyResourceProperty("securityGroupRules", "_mUnknown_SecurityGroupRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleResult>> _mSecurityGroupRules;
+        private List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleResult>? _mValue_SecurityGroupRules;
+        private bool _mUnknown_SecurityGroupRules;
+        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleResult>? SecurityGroupRules
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupRules) return _mValue_SecurityGroupRules;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentResult.SecurityGroupRules' is not present");
+            }
+        }
 
-        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleResult>? SecurityGroupRules => _mSecurityGroupRules.GetValue("securityGroupRules");
-
-        [Input("sequenceNumber")]
+        [PolicyResourceProperty("sequenceNumber", "_mUnknown_SequenceNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSequenceNumber;
+        private int? _mValue_SequenceNumber;
+        private bool _mUnknown_SequenceNumber;
+        public int? SequenceNumber
+        {
+            get
+            {
+                if (!_mUnknown_SequenceNumber) return _mValue_SequenceNumber;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentResult.SequenceNumber' is not present");
+            }
+        }
 
-        public int? SequenceNumber => _mSequenceNumber.GetValue("sequenceNumber");
-
-        [Input("sourceVpcs")]
+        [PolicyResourceProperty("sourceVpcs", "_mUnknown_SourceVpcs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentSourceVpcResult>> _mSourceVpcs;
+        private List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentSourceVpcResult>? _mValue_SourceVpcs;
+        private bool _mUnknown_SourceVpcs;
+        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentSourceVpcResult>? SourceVpcs
+        {
+            get
+            {
+                if (!_mUnknown_SourceVpcs) return _mValue_SourceVpcs;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentResult.SourceVpcs' is not present");
+            }
+        }
 
-        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentSourceVpcResult>? SourceVpcs => _mSourceVpcs.GetValue("sourceVpcs");
-
-        [Input("subnets")]
+        [PolicyResourceProperty("subnets", "_mUnknown_Subnets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentSubnetResult>> _mSubnets;
+        private List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentSubnetResult>? _mValue_Subnets;
+        private bool _mUnknown_Subnets;
+        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentSubnetResult>? Subnets
+        {
+            get
+            {
+                if (!_mUnknown_Subnets) return _mValue_Subnets;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentResult.Subnets' is not present");
+            }
+        }
 
-        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentSubnetResult>? Subnets => _mSubnets.GetValue("subnets");
-
-        [Input("transitGatewayRouteTableRoutes")]
+        [PolicyResourceProperty("transitGatewayRouteTableRoutes", "_mUnknown_TransitGatewayRouteTableRoutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteResult>> _mTransitGatewayRouteTableRoutes;
+        private List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteResult>? _mValue_TransitGatewayRouteTableRoutes;
+        private bool _mUnknown_TransitGatewayRouteTableRoutes;
+        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteResult>? TransitGatewayRouteTableRoutes
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayRouteTableRoutes) return _mValue_TransitGatewayRouteTableRoutes;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentResult.TransitGatewayRouteTableRoutes' is not present");
+            }
+        }
 
-        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteResult>? TransitGatewayRouteTableRoutes => _mTransitGatewayRouteTableRoutes.GetValue("transitGatewayRouteTableRoutes");
-
-        [Input("transitGateways")]
+        [PolicyResourceProperty("transitGateways", "_mUnknown_TransitGateways")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayResult>> _mTransitGateways;
+        private List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayResult>? _mValue_TransitGateways;
+        private bool _mUnknown_TransitGateways;
+        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayResult>? TransitGateways
+        {
+            get
+            {
+                if (!_mUnknown_TransitGateways) return _mValue_TransitGateways;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentResult.TransitGateways' is not present");
+            }
+        }
 
-        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayResult>? TransitGateways => _mTransitGateways.GetValue("transitGateways");
-
-        [Input("vpcs")]
+        [PolicyResourceProperty("vpcs", "_mUnknown_Vpcs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentVpcResult>> _mVpcs;
-
-        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentVpcResult>? Vpcs => _mVpcs.GetValue("vpcs");
+        private List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentVpcResult>? _mValue_Vpcs;
+        private bool _mUnknown_Vpcs;
+        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentVpcResult>? Vpcs
+        {
+            get
+            {
+                if (!_mUnknown_Vpcs) return _mValue_Vpcs;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentResult.Vpcs' is not present");
+            }
+        }
     }
 }

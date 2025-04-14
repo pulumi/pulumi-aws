@@ -15,48 +15,83 @@ namespace Pulumi.PolicyPacks.Aws.Rds.Outputs
         /// <summary>
         /// The bucket name where your backup is stored
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'InstanceS3Import.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// Can be blank, but is the path to your backup
         /// </summary>
-        [Input("bucketPrefix")]
+        [PolicyResourceProperty("bucketPrefix", "_mUnknown_BucketPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketPrefix;
-
-        public string? BucketPrefix => _mBucketPrefix.GetValue("bucketPrefix");
+        private string? _mValue_BucketPrefix;
+        private bool _mUnknown_BucketPrefix;
+        public string? BucketPrefix
+        {
+            get
+            {
+                if (!_mUnknown_BucketPrefix) return _mValue_BucketPrefix;
+                throw new UndeferrableValueException("Value 'InstanceS3Import.BucketPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Role applied to load the data.
         /// </summary>
-        [Input("ingestionRole")]
+        [PolicyResourceProperty("ingestionRole", "_mUnknown_IngestionRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIngestionRole;
-
-        public string? IngestionRole => _mIngestionRole.GetValue("ingestionRole");
+        private string? _mValue_IngestionRole;
+        private bool _mUnknown_IngestionRole;
+        public string? IngestionRole
+        {
+            get
+            {
+                if (!_mUnknown_IngestionRole) return _mValue_IngestionRole;
+                throw new UndeferrableValueException("Value 'InstanceS3Import.IngestionRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Source engine for the backup
         /// </summary>
-        [Input("sourceEngine")]
+        [PolicyResourceProperty("sourceEngine", "_mUnknown_SourceEngine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceEngine;
-
-        public string? SourceEngine => _mSourceEngine.GetValue("sourceEngine");
+        private string? _mValue_SourceEngine;
+        private bool _mUnknown_SourceEngine;
+        public string? SourceEngine
+        {
+            get
+            {
+                if (!_mUnknown_SourceEngine) return _mValue_SourceEngine;
+                throw new UndeferrableValueException("Value 'InstanceS3Import.SourceEngine' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the source engine used to make the backup
         /// 
         /// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
         /// </summary>
-        [Input("sourceEngineVersion")]
+        [PolicyResourceProperty("sourceEngineVersion", "_mUnknown_SourceEngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceEngineVersion;
-
-        public string? SourceEngineVersion => _mSourceEngineVersion.GetValue("sourceEngineVersion");
+        private string? _mValue_SourceEngineVersion;
+        private bool _mUnknown_SourceEngineVersion;
+        public string? SourceEngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_SourceEngineVersion) return _mValue_SourceEngineVersion;
+                throw new UndeferrableValueException("Value 'InstanceS3Import.SourceEngineVersion' is not present");
+            }
+        }
     }
 }

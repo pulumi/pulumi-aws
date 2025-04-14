@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
         /// <summary>
         /// The OAuth 2.0 properties required for OAuth 2.0 authentication.
         /// </summary>
-        [Input("oauth2Properties")]
+        [PolicyResourceProperty("oauth2Properties", "_mUnknown_Oauth2Properties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties> _mOauth2Properties;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties? Oauth2Properties => _mOauth2Properties.GetValue("oauth2Properties");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties? _mValue_Oauth2Properties;
+        private bool _mUnknown_Oauth2Properties;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties? Oauth2Properties
+        {
+            get
+            {
+                if (!_mUnknown_Oauth2Properties) return _mValue_Oauth2Properties;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector.Oauth2Properties' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of properties that are required to create a profile for the custom connector.
         /// </summary>
-        [Input("profileProperties")]
+        [PolicyResourceProperty("profileProperties", "_mUnknown_ProfileProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mProfileProperties;
-
-        public Dictionary<string, string>? ProfileProperties => _mProfileProperties.GetValue("profileProperties");
+        private Dictionary<string, string>? _mValue_ProfileProperties;
+        private bool _mUnknown_ProfileProperties;
+        public Dictionary<string, string>? ProfileProperties
+        {
+            get
+            {
+                if (!_mUnknown_ProfileProperties) return _mValue_ProfileProperties;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector.ProfileProperties' is not present");
+            }
+        }
     }
 }

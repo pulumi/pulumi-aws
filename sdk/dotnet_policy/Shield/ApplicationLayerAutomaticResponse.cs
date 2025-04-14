@@ -16,26 +16,47 @@ namespace Pulumi.PolicyPacks.Aws.Shield
         /// <summary>
         /// One of `COUNT` or `BLOCK`
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
-
-        public string? Action => _mAction.GetValue("action");
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'ApplicationLayerAutomaticResponse.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'ApplicationLayerAutomaticResponse.ResourceArn' is not present");
+            }
+        }
 
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationLayerAutomaticResponseTimeouts> _mTimeouts;
-
-        public Outputs.ApplicationLayerAutomaticResponseTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.ApplicationLayerAutomaticResponseTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.ApplicationLayerAutomaticResponseTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ApplicationLayerAutomaticResponse.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse")]
@@ -44,25 +65,46 @@ namespace Pulumi.PolicyPacks.Aws.Shield
         /// <summary>
         /// One of `COUNT` or `BLOCK`
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
-
-        public string? Action => _mAction.GetValue("action");
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'ApplicationLayerAutomaticResponseArgs.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'ApplicationLayerAutomaticResponseArgs.ResourceArn' is not present");
+            }
+        }
 
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationLayerAutomaticResponseTimeoutsArgs> _mTimeouts;
-
-        public Inputs.ApplicationLayerAutomaticResponseTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.ApplicationLayerAutomaticResponseTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.ApplicationLayerAutomaticResponseTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ApplicationLayerAutomaticResponseArgs.Timeouts' is not present");
+            }
+        }
     }
 }

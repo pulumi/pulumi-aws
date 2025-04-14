@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// Link Amazon Resource Name (ARN).
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Link.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The upload speed and download speed in Mbps. Documented below.
         /// </summary>
-        [Input("bandwidth")]
+        [PolicyResourceProperty("bandwidth", "_mUnknown_Bandwidth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LinkBandwidth> _mBandwidth;
-
-        public Outputs.LinkBandwidth? Bandwidth => _mBandwidth.GetValue("bandwidth");
+        private Outputs.LinkBandwidth? _mValue_Bandwidth;
+        private bool _mUnknown_Bandwidth;
+        public Outputs.LinkBandwidth? Bandwidth
+        {
+            get
+            {
+                if (!_mUnknown_Bandwidth) return _mValue_Bandwidth;
+                throw new UndeferrableValueException("Value 'Link.Bandwidth' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the link.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Link.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
+        [PolicyResourceProperty("globalNetworkId", "_mUnknown_GlobalNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
-
-        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+        private string? _mValue_GlobalNetworkId;
+        private bool _mUnknown_GlobalNetworkId;
+        public string? GlobalNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_GlobalNetworkId) return _mValue_GlobalNetworkId;
+                throw new UndeferrableValueException("Value 'Link.GlobalNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The provider of the link.
         /// </summary>
-        [Input("providerName")]
+        [PolicyResourceProperty("providerName", "_mUnknown_ProviderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
-
-        public string? ProviderName => _mProviderName.GetValue("providerName");
+        private string? _mValue_ProviderName;
+        private bool _mUnknown_ProviderName;
+        public string? ProviderName
+        {
+            get
+            {
+                if (!_mUnknown_ProviderName) return _mValue_ProviderName;
+                throw new UndeferrableValueException("Value 'Link.ProviderName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the site.
         /// </summary>
-        [Input("siteId")]
+        [PolicyResourceProperty("siteId", "_mUnknown_SiteId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSiteId;
-
-        public string? SiteId => _mSiteId.GetValue("siteId");
+        private string? _mValue_SiteId;
+        private bool _mUnknown_SiteId;
+        public string? SiteId
+        {
+            get
+            {
+                if (!_mUnknown_SiteId) return _mValue_SiteId;
+                throw new UndeferrableValueException("Value 'Link.SiteId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Link.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Link.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the link.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Link.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:networkmanager/link:Link")]
@@ -101,64 +164,113 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// The upload speed and download speed in Mbps. Documented below.
         /// </summary>
-        [Input("bandwidth")]
+        [PolicyResourceProperty("bandwidth", "_mUnknown_Bandwidth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LinkBandwidthArgs> _mBandwidth;
-
-        public Inputs.LinkBandwidthArgs? Bandwidth => _mBandwidth.GetValue("bandwidth");
+        private Inputs.LinkBandwidthArgs? _mValue_Bandwidth;
+        private bool _mUnknown_Bandwidth;
+        public Inputs.LinkBandwidthArgs? Bandwidth
+        {
+            get
+            {
+                if (!_mUnknown_Bandwidth) return _mValue_Bandwidth;
+                throw new UndeferrableValueException("Value 'LinkArgs.Bandwidth' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the link.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'LinkArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
+        [PolicyResourceProperty("globalNetworkId", "_mUnknown_GlobalNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
-
-        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+        private string? _mValue_GlobalNetworkId;
+        private bool _mUnknown_GlobalNetworkId;
+        public string? GlobalNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_GlobalNetworkId) return _mValue_GlobalNetworkId;
+                throw new UndeferrableValueException("Value 'LinkArgs.GlobalNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The provider of the link.
         /// </summary>
-        [Input("providerName")]
+        [PolicyResourceProperty("providerName", "_mUnknown_ProviderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
-
-        public string? ProviderName => _mProviderName.GetValue("providerName");
+        private string? _mValue_ProviderName;
+        private bool _mUnknown_ProviderName;
+        public string? ProviderName
+        {
+            get
+            {
+                if (!_mUnknown_ProviderName) return _mValue_ProviderName;
+                throw new UndeferrableValueException("Value 'LinkArgs.ProviderName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the site.
         /// </summary>
-        [Input("siteId")]
+        [PolicyResourceProperty("siteId", "_mUnknown_SiteId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSiteId;
-
-        public string? SiteId => _mSiteId.GetValue("siteId");
+        private string? _mValue_SiteId;
+        private bool _mUnknown_SiteId;
+        public string? SiteId
+        {
+            get
+            {
+                if (!_mUnknown_SiteId) return _mValue_SiteId;
+                throw new UndeferrableValueException("Value 'LinkArgs.SiteId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LinkArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the link.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'LinkArgs.Type' is not present");
+            }
+        }
     }
 }

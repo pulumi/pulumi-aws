@@ -16,122 +16,213 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'AccessPoint.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Alias of the S3 Access Point.
         /// </summary>
-        [Input("alias")]
+        [PolicyResourceProperty("alias", "_mUnknown_Alias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
-
-        public string? Alias => _mAlias.GetValue("alias");
+        private string? _mValue_Alias;
+        private bool _mUnknown_Alias;
+        public string? Alias
+        {
+            get
+            {
+                if (!_mUnknown_Alias) return _mValue_Alias;
+                throw new UndeferrableValueException("Value 'AccessPoint.Alias' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the S3 Access Point.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'AccessPoint.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'AccessPoint.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID associated with the S3 bucket associated with this access point.
         /// </summary>
-        [Input("bucketAccountId")]
+        [PolicyResourceProperty("bucketAccountId", "_mUnknown_BucketAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketAccountId;
-
-        public string? BucketAccountId => _mBucketAccountId.GetValue("bucketAccountId");
+        private string? _mValue_BucketAccountId;
+        private bool _mUnknown_BucketAccountId;
+        public string? BucketAccountId
+        {
+            get
+            {
+                if (!_mUnknown_BucketAccountId) return _mValue_BucketAccountId;
+                throw new UndeferrableValueException("Value 'AccessPoint.BucketAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
         /// Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'AccessPoint.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC endpoints for the S3 Access Point.
         /// </summary>
-        [Input("endpoints")]
+        [PolicyResourceProperty("endpoints", "_mUnknown_Endpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEndpoints;
-
-        public Dictionary<string, string>? Endpoints => _mEndpoints.GetValue("endpoints");
+        private Dictionary<string, string>? _mValue_Endpoints;
+        private bool _mUnknown_Endpoints;
+        public Dictionary<string, string>? Endpoints
+        {
+            get
+            {
+                if (!_mUnknown_Endpoints) return _mValue_Endpoints;
+                throw new UndeferrableValueException("Value 'AccessPoint.Endpoints' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether this access point currently has a policy that allows public access.
         /// </summary>
-        [Input("hasPublicAccessPolicy")]
+        [PolicyResourceProperty("hasPublicAccessPolicy", "_mUnknown_HasPublicAccessPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mHasPublicAccessPolicy;
-
-        public bool? HasPublicAccessPolicy => _mHasPublicAccessPolicy.GetValue("hasPublicAccessPolicy");
+        private bool? _mValue_HasPublicAccessPolicy;
+        private bool _mUnknown_HasPublicAccessPolicy;
+        public bool? HasPublicAccessPolicy
+        {
+            get
+            {
+                if (!_mUnknown_HasPublicAccessPolicy) return _mValue_HasPublicAccessPolicy;
+                throw new UndeferrableValueException("Value 'AccessPoint.HasPublicAccessPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Name you want to assign to this access point. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-access-points.html?icmpid=docs_amazons3_console#access-points-names) for naming conditions.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AccessPoint.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
         /// </summary>
-        [Input("networkOrigin")]
+        [PolicyResourceProperty("networkOrigin", "_mUnknown_NetworkOrigin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkOrigin;
-
-        public string? NetworkOrigin => _mNetworkOrigin.GetValue("networkOrigin");
+        private string? _mValue_NetworkOrigin;
+        private bool _mUnknown_NetworkOrigin;
+        public string? NetworkOrigin
+        {
+            get
+            {
+                if (!_mUnknown_NetworkOrigin) return _mValue_NetworkOrigin;
+                throw new UndeferrableValueException("Value 'AccessPoint.NetworkOrigin' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'AccessPoint.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
         /// </summary>
-        [Input("publicAccessBlockConfiguration")]
+        [PolicyResourceProperty("publicAccessBlockConfiguration", "_mUnknown_PublicAccessBlockConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AccessPointPublicAccessBlockConfiguration> _mPublicAccessBlockConfiguration;
-
-        public Outputs.AccessPointPublicAccessBlockConfiguration? PublicAccessBlockConfiguration => _mPublicAccessBlockConfiguration.GetValue("publicAccessBlockConfiguration");
+        private Outputs.AccessPointPublicAccessBlockConfiguration? _mValue_PublicAccessBlockConfiguration;
+        private bool _mUnknown_PublicAccessBlockConfiguration;
+        public Outputs.AccessPointPublicAccessBlockConfiguration? PublicAccessBlockConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_PublicAccessBlockConfiguration) return _mValue_PublicAccessBlockConfiguration;
+                throw new UndeferrableValueException("Value 'AccessPoint.PublicAccessBlockConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
         /// </summary>
-        [Input("vpcConfiguration")]
+        [PolicyResourceProperty("vpcConfiguration", "_mUnknown_VpcConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AccessPointVpcConfiguration> _mVpcConfiguration;
-
-        public Outputs.AccessPointVpcConfiguration? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
+        private Outputs.AccessPointVpcConfiguration? _mValue_VpcConfiguration;
+        private bool _mUnknown_VpcConfiguration;
+        public Outputs.AccessPointVpcConfiguration? VpcConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfiguration) return _mValue_VpcConfiguration;
+                throw new UndeferrableValueException("Value 'AccessPoint.VpcConfiguration' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/accessPoint:AccessPoint")]
@@ -140,66 +231,115 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'AccessPointArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'AccessPointArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID associated with the S3 bucket associated with this access point.
         /// </summary>
-        [Input("bucketAccountId")]
+        [PolicyResourceProperty("bucketAccountId", "_mUnknown_BucketAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketAccountId;
-
-        public string? BucketAccountId => _mBucketAccountId.GetValue("bucketAccountId");
+        private string? _mValue_BucketAccountId;
+        private bool _mUnknown_BucketAccountId;
+        public string? BucketAccountId
+        {
+            get
+            {
+                if (!_mUnknown_BucketAccountId) return _mValue_BucketAccountId;
+                throw new UndeferrableValueException("Value 'AccessPointArgs.BucketAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name you want to assign to this access point. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-access-points.html?icmpid=docs_amazons3_console#access-points-names) for naming conditions.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AccessPointArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'AccessPointArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
         /// </summary>
-        [Input("publicAccessBlockConfiguration")]
+        [PolicyResourceProperty("publicAccessBlockConfiguration", "_mUnknown_PublicAccessBlockConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AccessPointPublicAccessBlockConfigurationArgs> _mPublicAccessBlockConfiguration;
-
-        public Inputs.AccessPointPublicAccessBlockConfigurationArgs? PublicAccessBlockConfiguration => _mPublicAccessBlockConfiguration.GetValue("publicAccessBlockConfiguration");
+        private Inputs.AccessPointPublicAccessBlockConfigurationArgs? _mValue_PublicAccessBlockConfiguration;
+        private bool _mUnknown_PublicAccessBlockConfiguration;
+        public Inputs.AccessPointPublicAccessBlockConfigurationArgs? PublicAccessBlockConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_PublicAccessBlockConfiguration) return _mValue_PublicAccessBlockConfiguration;
+                throw new UndeferrableValueException("Value 'AccessPointArgs.PublicAccessBlockConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
         /// </summary>
-        [Input("vpcConfiguration")]
+        [PolicyResourceProperty("vpcConfiguration", "_mUnknown_VpcConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AccessPointVpcConfigurationArgs> _mVpcConfiguration;
-
-        public Inputs.AccessPointVpcConfigurationArgs? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
+        private Inputs.AccessPointVpcConfigurationArgs? _mValue_VpcConfiguration;
+        private bool _mUnknown_VpcConfiguration;
+        public Inputs.AccessPointVpcConfigurationArgs? VpcConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfiguration) return _mValue_VpcConfiguration;
+                throw new UndeferrableValueException("Value 'AccessPointArgs.VpcConfiguration' is not present");
+            }
+        }
     }
 }

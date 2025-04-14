@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Inputs
         /// <summary>
         /// A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
         /// </summary>
-        [Input("enabledStandardArns")]
+        [PolicyResourceProperty("enabledStandardArns", "_mUnknown_EnabledStandardArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledStandardArns;
-
-        public List<string>? EnabledStandardArns => _mEnabledStandardArns.GetValue("enabledStandardArns");
+        private List<string>? _mValue_EnabledStandardArns;
+        private bool _mUnknown_EnabledStandardArns;
+        public List<string>? EnabledStandardArns
+        {
+            get
+            {
+                if (!_mUnknown_EnabledStandardArns) return _mValue_EnabledStandardArns;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicyArgs.EnabledStandardArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
         /// </summary>
-        [Input("securityControlsConfiguration")]
+        [PolicyResourceProperty("securityControlsConfiguration", "_mUnknown_SecurityControlsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs> _mSecurityControlsConfiguration;
-
-        public Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs? SecurityControlsConfiguration => _mSecurityControlsConfiguration.GetValue("securityControlsConfiguration");
+        private Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs? _mValue_SecurityControlsConfiguration;
+        private bool _mUnknown_SecurityControlsConfiguration;
+        public Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs? SecurityControlsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SecurityControlsConfiguration) return _mValue_SecurityControlsConfiguration;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicyArgs.SecurityControlsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether Security Hub is enabled in the policy.
         /// </summary>
-        [Input("serviceEnabled")]
+        [PolicyResourceProperty("serviceEnabled", "_mUnknown_ServiceEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mServiceEnabled;
-
-        public bool? ServiceEnabled => _mServiceEnabled.GetValue("serviceEnabled");
+        private bool? _mValue_ServiceEnabled;
+        private bool _mUnknown_ServiceEnabled;
+        public bool? ServiceEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ServiceEnabled) return _mValue_ServiceEnabled;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicyArgs.ServiceEnabled' is not present");
+            }
+        }
     }
 }

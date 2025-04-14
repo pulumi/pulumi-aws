@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// <summary>
         /// Whether to fetch Git submodules for the AWS CodeBuild build project.
         /// </summary>
-        [Input("fetchSubmodules")]
+        [PolicyResourceProperty("fetchSubmodules", "_mUnknown_FetchSubmodules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFetchSubmodules;
-
-        public bool? FetchSubmodules => _mFetchSubmodules.GetValue("fetchSubmodules");
+        private bool? _mValue_FetchSubmodules;
+        private bool _mUnknown_FetchSubmodules;
+        public bool? FetchSubmodules
+        {
+            get
+            {
+                if (!_mUnknown_FetchSubmodules) return _mValue_FetchSubmodules;
+                throw new UndeferrableValueException("Value 'ProjectSourceGitSubmodulesConfig.FetchSubmodules' is not present");
+            }
+        }
     }
 }

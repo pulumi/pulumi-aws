@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Outputs
         /// <summary>
         /// The name of the network function group to attach to the attachment policy.
         /// </summary>
-        [Input("addToNetworkFunctionGroup")]
+        [PolicyResourceProperty("addToNetworkFunctionGroup", "_mUnknown_AddToNetworkFunctionGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddToNetworkFunctionGroup;
-
-        public string? AddToNetworkFunctionGroup => _mAddToNetworkFunctionGroup.GetValue("addToNetworkFunctionGroup");
+        private string? _mValue_AddToNetworkFunctionGroup;
+        private bool _mUnknown_AddToNetworkFunctionGroup;
+        public string? AddToNetworkFunctionGroup
+        {
+            get
+            {
+                if (!_mUnknown_AddToNetworkFunctionGroup) return _mValue_AddToNetworkFunctionGroup;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult.AddToNetworkFunctionGroup' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
         /// </summary>
-        [Input("associationMethod")]
+        [PolicyResourceProperty("associationMethod", "_mUnknown_AssociationMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationMethod;
-
-        public string? AssociationMethod => _mAssociationMethod.GetValue("associationMethod");
+        private string? _mValue_AssociationMethod;
+        private bool _mUnknown_AssociationMethod;
+        public string? AssociationMethod
+        {
+            get
+            {
+                if (!_mUnknown_AssociationMethod) return _mValue_AssociationMethod;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult.AssociationMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines if this mapping should override the segment value for `require_attachment_acceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `require_attachment_acceptance` set to `false`. If the segment already has the default `require_attachment_acceptance`, you can set this to inherit segment’s acceptance value.
         /// </summary>
-        [Input("requireAcceptance")]
+        [PolicyResourceProperty("requireAcceptance", "_mUnknown_RequireAcceptance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireAcceptance;
-
-        public bool? RequireAcceptance => _mRequireAcceptance.GetValue("requireAcceptance");
+        private bool? _mValue_RequireAcceptance;
+        private bool _mUnknown_RequireAcceptance;
+        public bool? RequireAcceptance
+        {
+            get
+            {
+                if (!_mUnknown_RequireAcceptance) return _mValue_RequireAcceptance;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult.RequireAcceptance' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the `segment` to share as defined in the `segments` section. This is used only when the `association_method` is `constant`.
         /// </summary>
-        [Input("segment")]
+        [PolicyResourceProperty("segment", "_mUnknown_Segment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSegment;
-
-        public string? Segment => _mSegment.GetValue("segment");
+        private string? _mValue_Segment;
+        private bool _mUnknown_Segment;
+        public string? Segment
+        {
+            get
+            {
+                if (!_mUnknown_Segment) return _mValue_Segment;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult.Segment' is not present");
+            }
+        }
 
         /// <summary>
         /// Maps the attachment to the value of a known key. This is used with the `association_method` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
         /// </summary>
-        [Input("tagValueOfKey")]
+        [PolicyResourceProperty("tagValueOfKey", "_mUnknown_TagValueOfKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTagValueOfKey;
-
-        public string? TagValueOfKey => _mTagValueOfKey.GetValue("tagValueOfKey");
+        private string? _mValue_TagValueOfKey;
+        private bool _mUnknown_TagValueOfKey;
+        public string? TagValueOfKey
+        {
+            get
+            {
+                if (!_mUnknown_TagValueOfKey) return _mValue_TagValueOfKey;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult.TagValueOfKey' is not present");
+            }
+        }
     }
 }

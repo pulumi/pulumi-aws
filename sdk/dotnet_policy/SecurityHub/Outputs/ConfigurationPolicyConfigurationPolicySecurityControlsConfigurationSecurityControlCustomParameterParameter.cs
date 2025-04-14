@@ -15,91 +15,161 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Outputs
         /// <summary>
         /// The bool `value` for a Boolean-typed Security Hub Control Parameter.
         /// </summary>
-        [Input("bool")]
+        [PolicyResourceProperty("bool", "_mUnknown_Bool")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool> _mBool;
-
-        public Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool? Bool => _mBool.GetValue("bool");
+        private Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool? _mValue_Bool;
+        private bool _mUnknown_Bool;
+        public Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool? Bool
+        {
+            get
+            {
+                if (!_mUnknown_Bool) return _mValue_Bool;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter.Bool' is not present");
+            }
+        }
 
         /// <summary>
         /// The float `value` for a Double-typed Security Hub Control Parameter.
         /// </summary>
-        [Input("double")]
+        [PolicyResourceProperty("double", "_mUnknown_Double")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble> _mDouble;
-
-        public Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble? Double => _mDouble.GetValue("double");
+        private Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble? _mValue_Double;
+        private bool _mUnknown_Double;
+        public Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble? Double
+        {
+            get
+            {
+                if (!_mUnknown_Double) return _mValue_Double;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter.Double' is not present");
+            }
+        }
 
         /// <summary>
         /// The string `value` for a Enum-typed Security Hub Control Parameter.
         /// </summary>
-        [Input("enum")]
+        [PolicyResourceProperty("enum", "_mUnknown_Enum")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum> _mEnum;
-
-        public Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum? Enum => _mEnum.GetValue("enum");
+        private Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum? _mValue_Enum;
+        private bool _mUnknown_Enum;
+        public Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum? Enum
+        {
+            get
+            {
+                if (!_mUnknown_Enum) return _mValue_Enum;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter.Enum' is not present");
+            }
+        }
 
         /// <summary>
         /// The string list `value` for a EnumList-typed Security Hub Control Parameter.
         /// </summary>
-        [Input("enumList")]
+        [PolicyResourceProperty("enumList", "_mUnknown_EnumList")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList> _mEnumList;
-
-        public Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList? EnumList => _mEnumList.GetValue("enumList");
+        private Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList? _mValue_EnumList;
+        private bool _mUnknown_EnumList;
+        public Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList? EnumList
+        {
+            get
+            {
+                if (!_mUnknown_EnumList) return _mValue_EnumList;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter.EnumList' is not present");
+            }
+        }
 
         /// <summary>
         /// The int `value` for a Int-typed Security Hub Control Parameter.
         /// </summary>
-        [Input("int")]
+        [PolicyResourceProperty("int", "_mUnknown_Int")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt> _mInt;
-
-        public Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt? Int => _mInt.GetValue("int");
+        private Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt? _mValue_Int;
+        private bool _mUnknown_Int;
+        public Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt? Int
+        {
+            get
+            {
+                if (!_mUnknown_Int) return _mValue_Int;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter.Int' is not present");
+            }
+        }
 
         /// <summary>
         /// The int list `value` for a IntList-typed Security Hub Control Parameter.
         /// </summary>
-        [Input("intList")]
+        [PolicyResourceProperty("intList", "_mUnknown_IntList")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList> _mIntList;
-
-        public Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList? IntList => _mIntList.GetValue("intList");
+        private Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList? _mValue_IntList;
+        private bool _mUnknown_IntList;
+        public Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList? IntList
+        {
+            get
+            {
+                if (!_mUnknown_IntList) return _mValue_IntList;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter.IntList' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The string `value` for a String-typed Security Hub Control Parameter.
         /// </summary>
-        [Input("string")]
+        [PolicyResourceProperty("string", "_mUnknown_String")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString> _mString;
-
-        public Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString? String => _mString.GetValue("string");
+        private Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString? _mValue_String;
+        private bool _mUnknown_String;
+        public Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString? String
+        {
+            get
+            {
+                if (!_mUnknown_String) return _mValue_String;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter.String' is not present");
+            }
+        }
 
         /// <summary>
         /// The string list `value` for a StringList-typed Security Hub Control Parameter.
         /// </summary>
-        [Input("stringList")]
+        [PolicyResourceProperty("stringList", "_mUnknown_StringList")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList> _mStringList;
-
-        public Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList? StringList => _mStringList.GetValue("stringList");
+        private Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList? _mValue_StringList;
+        private bool _mUnknown_StringList;
+        public Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList? StringList
+        {
+            get
+            {
+                if (!_mUnknown_StringList) return _mValue_StringList;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter.StringList' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
         /// </summary>
-        [Input("valueType")]
+        [PolicyResourceProperty("valueType", "_mUnknown_ValueType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValueType;
-
-        public string? ValueType => _mValueType.GetValue("valueType");
+        private string? _mValue_ValueType;
+        private bool _mUnknown_ValueType;
+        public string? ValueType
+        {
+            get
+            {
+                if (!_mUnknown_ValueType) return _mValue_ValueType;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter.ValueType' is not present");
+            }
+        }
     }
 }

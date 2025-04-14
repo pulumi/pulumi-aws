@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Whether or not to allow the use of regular expressions in the login page path.
         /// </summary>
-        [Input("enableRegexInPath")]
+        [PolicyResourceProperty("enableRegexInPath", "_mUnknown_EnableRegexInPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableRegexInPath;
-
-        public bool? EnableRegexInPath => _mEnableRegexInPath.GetValue("enableRegexInPath");
+        private bool? _mValue_EnableRegexInPath;
+        private bool _mUnknown_EnableRegexInPath;
+        public bool? EnableRegexInPath
+        {
+            get
+            {
+                if (!_mUnknown_EnableRegexInPath) return _mValue_EnableRegexInPath;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs.EnableRegexInPath' is not present");
+            }
+        }
 
         /// <summary>
         /// The path of the login endpoint for your application.
         /// </summary>
-        [Input("loginPath")]
+        [PolicyResourceProperty("loginPath", "_mUnknown_LoginPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoginPath;
-
-        public string? LoginPath => _mLoginPath.GetValue("loginPath");
+        private string? _mValue_LoginPath;
+        private bool _mUnknown_LoginPath;
+        public string? LoginPath
+        {
+            get
+            {
+                if (!_mUnknown_LoginPath) return _mValue_LoginPath;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs.LoginPath' is not present");
+            }
+        }
 
         /// <summary>
         /// The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `request_inspection` for more details.
         /// </summary>
-        [Input("requestInspection")]
+        [PolicyResourceProperty("requestInspection", "_mUnknown_RequestInspection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs> _mRequestInspection;
-
-        public Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs? RequestInspection => _mRequestInspection.GetValue("requestInspection");
+        private Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs? _mValue_RequestInspection;
+        private bool _mUnknown_RequestInspection;
+        public Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs? RequestInspection
+        {
+            get
+            {
+                if (!_mUnknown_RequestInspection) return _mValue_RequestInspection;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs.RequestInspection' is not present");
+            }
+        }
 
         /// <summary>
         /// The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `response_inspection` for more details.
         /// </summary>
-        [Input("responseInspection")]
+        [PolicyResourceProperty("responseInspection", "_mUnknown_ResponseInspection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs> _mResponseInspection;
-
-        public Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs? ResponseInspection => _mResponseInspection.GetValue("responseInspection");
+        private Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs? _mValue_ResponseInspection;
+        private bool _mUnknown_ResponseInspection;
+        public Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs? ResponseInspection
+        {
+            get
+            {
+                if (!_mUnknown_ResponseInspection) return _mValue_ResponseInspection;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs.ResponseInspection' is not present");
+            }
+        }
     }
 }

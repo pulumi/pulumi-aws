@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Failover condition type-specific settings. See Failover Condition Settings for more details.
         /// </summary>
-        [Input("failoverConditionSettings")]
+        [PolicyResourceProperty("failoverConditionSettings", "_mUnknown_FailoverConditionSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings> _mFailoverConditionSettings;
-
-        public Outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings? FailoverConditionSettings => _mFailoverConditionSettings.GetValue("failoverConditionSettings");
+        private Outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings? _mValue_FailoverConditionSettings;
+        private bool _mUnknown_FailoverConditionSettings;
+        public Outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings? FailoverConditionSettings
+        {
+            get
+            {
+                if (!_mUnknown_FailoverConditionSettings) return _mValue_FailoverConditionSettings;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition.FailoverConditionSettings' is not present");
+            }
+        }
     }
 }

@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Dms.Inputs
         /// <summary>
         /// Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
         /// </summary>
-        [Input("authMechanism")]
+        [PolicyResourceProperty("authMechanism", "_mUnknown_AuthMechanism")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthMechanism;
-
-        public string? AuthMechanism => _mAuthMechanism.GetValue("authMechanism");
+        private string? _mValue_AuthMechanism;
+        private bool _mUnknown_AuthMechanism;
+        public string? AuthMechanism
+        {
+            get
+            {
+                if (!_mUnknown_AuthMechanism) return _mValue_AuthMechanism;
+                throw new UndeferrableValueException("Value 'EndpointMongodbSettingsArgs.AuthMechanism' is not present");
+            }
+        }
 
         /// <summary>
         /// Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
         /// </summary>
-        [Input("authSource")]
+        [PolicyResourceProperty("authSource", "_mUnknown_AuthSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthSource;
-
-        public string? AuthSource => _mAuthSource.GetValue("authSource");
+        private string? _mValue_AuthSource;
+        private bool _mUnknown_AuthSource;
+        public string? AuthSource
+        {
+            get
+            {
+                if (!_mUnknown_AuthSource) return _mValue_AuthSource;
+                throw new UndeferrableValueException("Value 'EndpointMongodbSettingsArgs.AuthSource' is not present");
+            }
+        }
 
         /// <summary>
         /// Authentication type to access the MongoDB source endpoint. Default is `password`.
         /// </summary>
-        [Input("authType")]
+        [PolicyResourceProperty("authType", "_mUnknown_AuthType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthType;
-
-        public string? AuthType => _mAuthType.GetValue("authType");
+        private string? _mValue_AuthType;
+        private bool _mUnknown_AuthType;
+        public string? AuthType
+        {
+            get
+            {
+                if (!_mUnknown_AuthType) return _mValue_AuthType;
+                throw new UndeferrableValueException("Value 'EndpointMongodbSettingsArgs.AuthType' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
         /// </summary>
-        [Input("docsToInvestigate")]
+        [PolicyResourceProperty("docsToInvestigate", "_mUnknown_DocsToInvestigate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocsToInvestigate;
-
-        public string? DocsToInvestigate => _mDocsToInvestigate.GetValue("docsToInvestigate");
+        private string? _mValue_DocsToInvestigate;
+        private bool _mUnknown_DocsToInvestigate;
+        public string? DocsToInvestigate
+        {
+            get
+            {
+                if (!_mUnknown_DocsToInvestigate) return _mValue_DocsToInvestigate;
+                throw new UndeferrableValueException("Value 'EndpointMongodbSettingsArgs.DocsToInvestigate' is not present");
+            }
+        }
 
         /// <summary>
         /// Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
         /// </summary>
-        [Input("extractDocId")]
+        [PolicyResourceProperty("extractDocId", "_mUnknown_ExtractDocId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExtractDocId;
-
-        public string? ExtractDocId => _mExtractDocId.GetValue("extractDocId");
+        private string? _mValue_ExtractDocId;
+        private bool _mUnknown_ExtractDocId;
+        public string? ExtractDocId
+        {
+            get
+            {
+                if (!_mUnknown_ExtractDocId) return _mValue_ExtractDocId;
+                throw new UndeferrableValueException("Value 'EndpointMongodbSettingsArgs.ExtractDocId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
         /// </summary>
-        [Input("nestingLevel")]
+        [PolicyResourceProperty("nestingLevel", "_mUnknown_NestingLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNestingLevel;
-
-        public string? NestingLevel => _mNestingLevel.GetValue("nestingLevel");
+        private string? _mValue_NestingLevel;
+        private bool _mUnknown_NestingLevel;
+        public string? NestingLevel
+        {
+            get
+            {
+                if (!_mUnknown_NestingLevel) return _mValue_NestingLevel;
+                throw new UndeferrableValueException("Value 'EndpointMongodbSettingsArgs.NestingLevel' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.CodeCatalyst.Inputs
 {
     public sealed class GetDevEnvironmentRepositoryArgs
     {
-        [Input("branchName")]
+        [PolicyResourceProperty("branchName", "_mUnknown_BranchName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBranchName;
+        private string? _mValue_BranchName;
+        private bool _mUnknown_BranchName;
+        public string? BranchName
+        {
+            get
+            {
+                if (!_mUnknown_BranchName) return _mValue_BranchName;
+                throw new UndeferrableValueException("Value 'GetDevEnvironmentRepositoryArgs.BranchName' is not present");
+            }
+        }
 
-        public string? BranchName => _mBranchName.GetValue("branchName");
-
-        [Input("repositoryName")]
+        [PolicyResourceProperty("repositoryName", "_mUnknown_RepositoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
-
-        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
+        private string? _mValue_RepositoryName;
+        private bool _mUnknown_RepositoryName;
+        public string? RepositoryName
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryName) return _mValue_RepositoryName;
+                throw new UndeferrableValueException("Value 'GetDevEnvironmentRepositoryArgs.RepositoryName' is not present");
+            }
+        }
     }
 }

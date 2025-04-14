@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.IdentityStore.Outputs
         /// <summary>
         /// Country that this address is in.
         /// </summary>
-        [Input("country")]
+        [PolicyResourceProperty("country", "_mUnknown_Country")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCountry;
-
-        public string? Country => _mCountry.GetValue("country");
+        private string? _mValue_Country;
+        private bool _mUnknown_Country;
+        public string? Country
+        {
+            get
+            {
+                if (!_mUnknown_Country) return _mValue_Country;
+                throw new UndeferrableValueException("Value 'GetUsersUserAddressResult.Country' is not present");
+            }
+        }
 
         /// <summary>
         /// Name that is typically displayed when the name is shown for display.
         /// </summary>
-        [Input("formatted")]
+        [PolicyResourceProperty("formatted", "_mUnknown_Formatted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormatted;
-
-        public string? Formatted => _mFormatted.GetValue("formatted");
+        private string? _mValue_Formatted;
+        private bool _mUnknown_Formatted;
+        public string? Formatted
+        {
+            get
+            {
+                if (!_mUnknown_Formatted) return _mValue_Formatted;
+                throw new UndeferrableValueException("Value 'GetUsersUserAddressResult.Formatted' is not present");
+            }
+        }
 
         /// <summary>
         /// Address locality.
         /// </summary>
-        [Input("locality")]
+        [PolicyResourceProperty("locality", "_mUnknown_Locality")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocality;
-
-        public string? Locality => _mLocality.GetValue("locality");
+        private string? _mValue_Locality;
+        private bool _mUnknown_Locality;
+        public string? Locality
+        {
+            get
+            {
+                if (!_mUnknown_Locality) return _mValue_Locality;
+                throw new UndeferrableValueException("Value 'GetUsersUserAddressResult.Locality' is not present");
+            }
+        }
 
         /// <summary>
         /// Postal code of the address.
         /// </summary>
-        [Input("postalCode")]
+        [PolicyResourceProperty("postalCode", "_mUnknown_PostalCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPostalCode;
-
-        public string? PostalCode => _mPostalCode.GetValue("postalCode");
+        private string? _mValue_PostalCode;
+        private bool _mUnknown_PostalCode;
+        public string? PostalCode
+        {
+            get
+            {
+                if (!_mUnknown_PostalCode) return _mValue_PostalCode;
+                throw new UndeferrableValueException("Value 'GetUsersUserAddressResult.PostalCode' is not present");
+            }
+        }
 
         /// <summary>
         /// When `true`, this is the primary phone number associated with the user.
         /// </summary>
-        [Input("primary")]
+        [PolicyResourceProperty("primary", "_mUnknown_Primary")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPrimary;
-
-        public bool? Primary => _mPrimary.GetValue("primary");
+        private bool? _mValue_Primary;
+        private bool _mUnknown_Primary;
+        public bool? Primary
+        {
+            get
+            {
+                if (!_mUnknown_Primary) return _mValue_Primary;
+                throw new UndeferrableValueException("Value 'GetUsersUserAddressResult.Primary' is not present");
+            }
+        }
 
         /// <summary>
         /// Region of the address.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'GetUsersUserAddressResult.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// Street of the address.
         /// </summary>
-        [Input("streetAddress")]
+        [PolicyResourceProperty("streetAddress", "_mUnknown_StreetAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreetAddress;
-
-        public string? StreetAddress => _mStreetAddress.GetValue("streetAddress");
+        private string? _mValue_StreetAddress;
+        private bool _mUnknown_StreetAddress;
+        public string? StreetAddress
+        {
+            get
+            {
+                if (!_mUnknown_StreetAddress) return _mValue_StreetAddress;
+                throw new UndeferrableValueException("Value 'GetUsersUserAddressResult.StreetAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of phone number.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetUsersUserAddressResult.Type' is not present");
+            }
+        }
     }
 }

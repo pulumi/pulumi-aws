@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
         /// </summary>
-        [Input("template")]
+        [PolicyResourceProperty("template", "_mUnknown_Template")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplate;
-
-        public string? Template => _mTemplate.GetValue("template");
+        private string? _mValue_Template;
+        private bool _mUnknown_Template;
+        public string? Template
+        {
+            get
+            {
+                if (!_mUnknown_Template) return _mValue_Template;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationTemplateConfiguration.Template' is not present");
+            }
+        }
     }
 }

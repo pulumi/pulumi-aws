@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
 {
     public sealed class GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationResult
     {
-        [Input("sasls")]
+        [PolicyResourceProperty("sasls", "_mUnknown_Sasls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslResult>> _mSasls;
+        private List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslResult>? _mValue_Sasls;
+        private bool _mUnknown_Sasls;
+        public List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslResult>? Sasls
+        {
+            get
+            {
+                if (!_mUnknown_Sasls) return _mValue_Sasls;
+                throw new UndeferrableValueException("Value 'GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationResult.Sasls' is not present");
+            }
+        }
 
-        public List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslResult>? Sasls => _mSasls.GetValue("sasls");
-
-        [Input("tls")]
+        [PolicyResourceProperty("tls", "_mUnknown_Tls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTls;
-
-        public bool? Tls => _mTls.GetValue("tls");
+        private bool? _mValue_Tls;
+        private bool _mUnknown_Tls;
+        public bool? Tls
+        {
+            get
+            {
+                if (!_mUnknown_Tls) return _mValue_Tls;
+                throw new UndeferrableValueException("Value 'GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationResult.Tls' is not present");
+            }
+        }
     }
 }

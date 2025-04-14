@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin.Inputs
         /// <summary>
         /// ARN of the application.
         /// </summary>
-        [Input("applicationArn")]
+        [PolicyResourceProperty("applicationArn", "_mUnknown_ApplicationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationArn;
-
-        public string? ApplicationArn => _mApplicationArn.GetValue("applicationArn");
+        private string? _mValue_ApplicationArn;
+        private bool _mUnknown_ApplicationArn;
+        public string? ApplicationArn
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationArn) return _mValue_ApplicationArn;
+                throw new UndeferrableValueException("Value 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgs.ApplicationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// An identifier for an object in IAM Identity Center, such as a user or group.
         /// </summary>
-        [Input("principalId")]
+        [PolicyResourceProperty("principalId", "_mUnknown_PrincipalId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalId;
-
-        public string? PrincipalId => _mPrincipalId.GetValue("principalId");
+        private string? _mValue_PrincipalId;
+        private bool _mUnknown_PrincipalId;
+        public string? PrincipalId
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalId) return _mValue_PrincipalId;
+                throw new UndeferrableValueException("Value 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgs.PrincipalId' is not present");
+            }
+        }
 
         /// <summary>
         /// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
         /// </summary>
-        [Input("principalType")]
+        [PolicyResourceProperty("principalType", "_mUnknown_PrincipalType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalType;
-
-        public string? PrincipalType => _mPrincipalType.GetValue("principalType");
+        private string? _mValue_PrincipalType;
+        private bool _mUnknown_PrincipalType;
+        public string? PrincipalType
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalType) return _mValue_PrincipalType;
+                throw new UndeferrableValueException("Value 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgs.PrincipalType' is not present");
+            }
+        }
     }
 }

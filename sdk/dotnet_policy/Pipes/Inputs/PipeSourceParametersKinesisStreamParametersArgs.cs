@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Inputs
         /// <summary>
         /// The maximum number of records to include in each batch. Maximum value of 10000.
         /// </summary>
-        [Input("batchSize")]
+        [PolicyResourceProperty("batchSize", "_mUnknown_BatchSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBatchSize;
-
-        public int? BatchSize => _mBatchSize.GetValue("batchSize");
+        private int? _mValue_BatchSize;
+        private bool _mUnknown_BatchSize;
+        public int? BatchSize
+        {
+            get
+            {
+                if (!_mUnknown_BatchSize) return _mValue_BatchSize;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersKinesisStreamParametersArgs.BatchSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Define the target queue to send dead-letter queue events to. Detailed below.
         /// </summary>
-        [Input("deadLetterConfig")]
+        [PolicyResourceProperty("deadLetterConfig", "_mUnknown_DeadLetterConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs> _mDeadLetterConfig;
-
-        public Inputs.PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs? DeadLetterConfig => _mDeadLetterConfig.GetValue("deadLetterConfig");
+        private Inputs.PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs? _mValue_DeadLetterConfig;
+        private bool _mUnknown_DeadLetterConfig;
+        public Inputs.PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs? DeadLetterConfig
+        {
+            get
+            {
+                if (!_mUnknown_DeadLetterConfig) return _mValue_DeadLetterConfig;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersKinesisStreamParametersArgs.DeadLetterConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum length of a time to wait for events. Maximum value of 300.
         /// </summary>
-        [Input("maximumBatchingWindowInSeconds")]
+        [PolicyResourceProperty("maximumBatchingWindowInSeconds", "_mUnknown_MaximumBatchingWindowInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumBatchingWindowInSeconds;
-
-        public int? MaximumBatchingWindowInSeconds => _mMaximumBatchingWindowInSeconds.GetValue("maximumBatchingWindowInSeconds");
+        private int? _mValue_MaximumBatchingWindowInSeconds;
+        private bool _mUnknown_MaximumBatchingWindowInSeconds;
+        public int? MaximumBatchingWindowInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaximumBatchingWindowInSeconds) return _mValue_MaximumBatchingWindowInSeconds;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersKinesisStreamParametersArgs.MaximumBatchingWindowInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
         /// </summary>
-        [Input("maximumRecordAgeInSeconds")]
+        [PolicyResourceProperty("maximumRecordAgeInSeconds", "_mUnknown_MaximumRecordAgeInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumRecordAgeInSeconds;
-
-        public int? MaximumRecordAgeInSeconds => _mMaximumRecordAgeInSeconds.GetValue("maximumRecordAgeInSeconds");
+        private int? _mValue_MaximumRecordAgeInSeconds;
+        private bool _mUnknown_MaximumRecordAgeInSeconds;
+        public int? MaximumRecordAgeInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaximumRecordAgeInSeconds) return _mValue_MaximumRecordAgeInSeconds;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersKinesisStreamParametersArgs.MaximumRecordAgeInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
         /// </summary>
-        [Input("maximumRetryAttempts")]
+        [PolicyResourceProperty("maximumRetryAttempts", "_mUnknown_MaximumRetryAttempts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumRetryAttempts;
-
-        public int? MaximumRetryAttempts => _mMaximumRetryAttempts.GetValue("maximumRetryAttempts");
+        private int? _mValue_MaximumRetryAttempts;
+        private bool _mUnknown_MaximumRetryAttempts;
+        public int? MaximumRetryAttempts
+        {
+            get
+            {
+                if (!_mUnknown_MaximumRetryAttempts) return _mValue_MaximumRetryAttempts;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersKinesisStreamParametersArgs.MaximumRetryAttempts' is not present");
+            }
+        }
 
         /// <summary>
         /// Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
         /// </summary>
-        [Input("onPartialBatchItemFailure")]
+        [PolicyResourceProperty("onPartialBatchItemFailure", "_mUnknown_OnPartialBatchItemFailure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOnPartialBatchItemFailure;
-
-        public string? OnPartialBatchItemFailure => _mOnPartialBatchItemFailure.GetValue("onPartialBatchItemFailure");
+        private string? _mValue_OnPartialBatchItemFailure;
+        private bool _mUnknown_OnPartialBatchItemFailure;
+        public string? OnPartialBatchItemFailure
+        {
+            get
+            {
+                if (!_mUnknown_OnPartialBatchItemFailure) return _mValue_OnPartialBatchItemFailure;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersKinesisStreamParametersArgs.OnPartialBatchItemFailure' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
         /// </summary>
-        [Input("parallelizationFactor")]
+        [PolicyResourceProperty("parallelizationFactor", "_mUnknown_ParallelizationFactor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mParallelizationFactor;
-
-        public int? ParallelizationFactor => _mParallelizationFactor.GetValue("parallelizationFactor");
+        private int? _mValue_ParallelizationFactor;
+        private bool _mUnknown_ParallelizationFactor;
+        public int? ParallelizationFactor
+        {
+            get
+            {
+                if (!_mUnknown_ParallelizationFactor) return _mValue_ParallelizationFactor;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersKinesisStreamParametersArgs.ParallelizationFactor' is not present");
+            }
+        }
 
         /// <summary>
         /// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
         /// </summary>
-        [Input("startingPosition")]
+        [PolicyResourceProperty("startingPosition", "_mUnknown_StartingPosition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartingPosition;
-
-        public string? StartingPosition => _mStartingPosition.GetValue("startingPosition");
+        private string? _mValue_StartingPosition;
+        private bool _mUnknown_StartingPosition;
+        public string? StartingPosition
+        {
+            get
+            {
+                if (!_mUnknown_StartingPosition) return _mValue_StartingPosition;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersKinesisStreamParametersArgs.StartingPosition' is not present");
+            }
+        }
 
         /// <summary>
         /// With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
         /// </summary>
-        [Input("startingPositionTimestamp")]
+        [PolicyResourceProperty("startingPositionTimestamp", "_mUnknown_StartingPositionTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartingPositionTimestamp;
-
-        public string? StartingPositionTimestamp => _mStartingPositionTimestamp.GetValue("startingPositionTimestamp");
+        private string? _mValue_StartingPositionTimestamp;
+        private bool _mUnknown_StartingPositionTimestamp;
+        public string? StartingPositionTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_StartingPositionTimestamp) return _mValue_StartingPositionTimestamp;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersKinesisStreamParametersArgs.StartingPositionTimestamp' is not present");
+            }
+        }
     }
 }

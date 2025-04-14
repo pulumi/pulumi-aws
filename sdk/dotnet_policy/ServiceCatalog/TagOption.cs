@@ -16,37 +16,65 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// <summary>
         /// Whether tag option is active. Default is `true`.
         /// </summary>
-        [Input("active")]
+        [PolicyResourceProperty("active", "_mUnknown_Active")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
-
-        public bool? Active => _mActive.GetValue("active");
+        private bool? _mValue_Active;
+        private bool _mUnknown_Active;
+        public bool? Active
+        {
+            get
+            {
+                if (!_mUnknown_Active) return _mValue_Active;
+                throw new UndeferrableValueException("Value 'TagOption.Active' is not present");
+            }
+        }
 
         /// <summary>
         /// Tag option key.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'TagOption.Key' is not present");
+            }
+        }
 
-        public string? Key => _mKey.GetValue("key");
-
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'TagOption.Owner' is not present");
+            }
+        }
 
         /// <summary>
         /// Tag option value.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'TagOption.Value' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:servicecatalog/tagOption:TagOption")]
@@ -55,30 +83,51 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// <summary>
         /// Whether tag option is active. Default is `true`.
         /// </summary>
-        [Input("active")]
+        [PolicyResourceProperty("active", "_mUnknown_Active")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
-
-        public bool? Active => _mActive.GetValue("active");
+        private bool? _mValue_Active;
+        private bool _mUnknown_Active;
+        public bool? Active
+        {
+            get
+            {
+                if (!_mUnknown_Active) return _mValue_Active;
+                throw new UndeferrableValueException("Value 'TagOptionArgs.Active' is not present");
+            }
+        }
 
         /// <summary>
         /// Tag option key.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'TagOptionArgs.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Tag option value.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'TagOptionArgs.Value' is not present");
+            }
+        }
     }
 }

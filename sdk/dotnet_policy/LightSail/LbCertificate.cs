@@ -16,68 +16,124 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The ARN of the lightsail certificate.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LbCertificate.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The timestamp when the instance was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'LbCertificate.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// The domain name (e.g., example.com) for your SSL/TLS certificate.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'LbCertificate.DomainName' is not present");
+            }
+        }
 
-        public string? DomainName => _mDomainName.GetValue("domainName");
-
-        [Input("domainValidationRecords")]
+        [PolicyResourceProperty("domainValidationRecords", "_mUnknown_DomainValidationRecords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LbCertificateDomainValidationRecord>> _mDomainValidationRecords;
-
-        public List<Outputs.LbCertificateDomainValidationRecord>? DomainValidationRecords => _mDomainValidationRecords.GetValue("domainValidationRecords");
+        private List<Outputs.LbCertificateDomainValidationRecord>? _mValue_DomainValidationRecords;
+        private bool _mUnknown_DomainValidationRecords;
+        public List<Outputs.LbCertificateDomainValidationRecord>? DomainValidationRecords
+        {
+            get
+            {
+                if (!_mUnknown_DomainValidationRecords) return _mValue_DomainValidationRecords;
+                throw new UndeferrableValueException("Value 'LbCertificate.DomainValidationRecords' is not present");
+            }
+        }
 
         /// <summary>
         /// The load balancer name where you want to create the SSL/TLS certificate.
         /// </summary>
-        [Input("lbName")]
+        [PolicyResourceProperty("lbName", "_mUnknown_LbName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLbName;
-
-        public string? LbName => _mLbName.GetValue("lbName");
+        private string? _mValue_LbName;
+        private bool _mUnknown_LbName;
+        public string? LbName
+        {
+            get
+            {
+                if (!_mUnknown_LbName) return _mValue_LbName;
+                throw new UndeferrableValueException("Value 'LbCertificate.LbName' is not present");
+            }
+        }
 
         /// <summary>
         /// The SSL/TLS certificate name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LbCertificate.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
         /// </summary>
-        [Input("subjectAlternativeNames")]
+        [PolicyResourceProperty("subjectAlternativeNames", "_mUnknown_SubjectAlternativeNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubjectAlternativeNames;
+        private List<string>? _mValue_SubjectAlternativeNames;
+        private bool _mUnknown_SubjectAlternativeNames;
+        public List<string>? SubjectAlternativeNames
+        {
+            get
+            {
+                if (!_mUnknown_SubjectAlternativeNames) return _mValue_SubjectAlternativeNames;
+                throw new UndeferrableValueException("Value 'LbCertificate.SubjectAlternativeNames' is not present");
+            }
+        }
 
-        public List<string>? SubjectAlternativeNames => _mSubjectAlternativeNames.GetValue("subjectAlternativeNames");
-
-        [Input("supportCode")]
+        [PolicyResourceProperty("supportCode", "_mUnknown_SupportCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSupportCode;
-
-        public string? SupportCode => _mSupportCode.GetValue("supportCode");
+        private string? _mValue_SupportCode;
+        private bool _mUnknown_SupportCode;
+        public string? SupportCode
+        {
+            get
+            {
+                if (!_mUnknown_SupportCode) return _mValue_SupportCode;
+                throw new UndeferrableValueException("Value 'LbCertificate.SupportCode' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lightsail/lbCertificate:LbCertificate")]
@@ -86,37 +142,65 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The domain name (e.g., example.com) for your SSL/TLS certificate.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'LbCertificateArgs.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The load balancer name where you want to create the SSL/TLS certificate.
         /// </summary>
-        [Input("lbName")]
+        [PolicyResourceProperty("lbName", "_mUnknown_LbName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLbName;
-
-        public string? LbName => _mLbName.GetValue("lbName");
+        private string? _mValue_LbName;
+        private bool _mUnknown_LbName;
+        public string? LbName
+        {
+            get
+            {
+                if (!_mUnknown_LbName) return _mValue_LbName;
+                throw new UndeferrableValueException("Value 'LbCertificateArgs.LbName' is not present");
+            }
+        }
 
         /// <summary>
         /// The SSL/TLS certificate name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LbCertificateArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
         /// </summary>
-        [Input("subjectAlternativeNames")]
+        [PolicyResourceProperty("subjectAlternativeNames", "_mUnknown_SubjectAlternativeNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubjectAlternativeNames;
-
-        public List<string>? SubjectAlternativeNames => _mSubjectAlternativeNames.GetValue("subjectAlternativeNames");
+        private List<string>? _mValue_SubjectAlternativeNames;
+        private bool _mUnknown_SubjectAlternativeNames;
+        public List<string>? SubjectAlternativeNames
+        {
+            get
+            {
+                if (!_mUnknown_SubjectAlternativeNames) return _mValue_SubjectAlternativeNames;
+                throw new UndeferrableValueException("Value 'LbCertificateArgs.SubjectAlternativeNames' is not present");
+            }
+        }
     }
 }

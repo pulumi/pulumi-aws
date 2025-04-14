@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Inputs
         /// <summary>
         /// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
         /// </summary>
-        [Input("conditionDocumentAttributeKey")]
+        [PolicyResourceProperty("conditionDocumentAttributeKey", "_mUnknown_ConditionDocumentAttributeKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConditionDocumentAttributeKey;
-
-        public string? ConditionDocumentAttributeKey => _mConditionDocumentAttributeKey.GetValue("conditionDocumentAttributeKey");
+        private string? _mValue_ConditionDocumentAttributeKey;
+        private bool _mUnknown_ConditionDocumentAttributeKey;
+        public string? ConditionDocumentAttributeKey
+        {
+            get
+            {
+                if (!_mUnknown_ConditionDocumentAttributeKey) return _mValue_ConditionDocumentAttributeKey;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs.ConditionDocumentAttributeKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
         /// </summary>
-        [Input("conditionOnValue")]
+        [PolicyResourceProperty("conditionOnValue", "_mUnknown_ConditionOnValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs> _mConditionOnValue;
-
-        public Inputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs? ConditionOnValue => _mConditionOnValue.GetValue("conditionOnValue");
+        private Inputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs? _mValue_ConditionOnValue;
+        private bool _mUnknown_ConditionOnValue;
+        public Inputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs? ConditionOnValue
+        {
+            get
+            {
+                if (!_mUnknown_ConditionOnValue) return _mValue_ConditionOnValue;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs.ConditionOnValue' is not present");
+            }
+        }
 
         /// <summary>
         /// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
         /// </summary>
-        [Input("operator")]
+        [PolicyResourceProperty("operator", "_mUnknown_Operator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOperator;
-
-        public string? Operator => _mOperator.GetValue("operator");
+        private string? _mValue_Operator;
+        private bool _mUnknown_Operator;
+        public string? Operator
+        {
+            get
+            {
+                if (!_mUnknown_Operator) return _mValue_Operator;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs.Operator' is not present");
+            }
+        }
     }
 }

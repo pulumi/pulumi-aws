@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.EmrContainers.Outputs
         /// <summary>
         /// The entry point of job application.
         /// </summary>
-        [Input("entryPoint")]
+        [PolicyResourceProperty("entryPoint", "_mUnknown_EntryPoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEntryPoint;
-
-        public string? EntryPoint => _mEntryPoint.GetValue("entryPoint");
+        private string? _mValue_EntryPoint;
+        private bool _mUnknown_EntryPoint;
+        public string? EntryPoint
+        {
+            get
+            {
+                if (!_mUnknown_EntryPoint) return _mValue_EntryPoint;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver.EntryPoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The arguments for job application.
         /// </summary>
-        [Input("entryPointArguments")]
+        [PolicyResourceProperty("entryPointArguments", "_mUnknown_EntryPointArguments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEntryPointArguments;
-
-        public List<string>? EntryPointArguments => _mEntryPointArguments.GetValue("entryPointArguments");
+        private List<string>? _mValue_EntryPointArguments;
+        private bool _mUnknown_EntryPointArguments;
+        public List<string>? EntryPointArguments
+        {
+            get
+            {
+                if (!_mUnknown_EntryPointArguments) return _mValue_EntryPointArguments;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver.EntryPointArguments' is not present");
+            }
+        }
 
         /// <summary>
         /// The Spark submit parameters that are used for job runs.
         /// </summary>
-        [Input("sparkSubmitParameters")]
+        [PolicyResourceProperty("sparkSubmitParameters", "_mUnknown_SparkSubmitParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSparkSubmitParameters;
-
-        public string? SparkSubmitParameters => _mSparkSubmitParameters.GetValue("sparkSubmitParameters");
+        private string? _mValue_SparkSubmitParameters;
+        private bool _mUnknown_SparkSubmitParameters;
+        public string? SparkSubmitParameters
+        {
+            get
+            {
+                if (!_mUnknown_SparkSubmitParameters) return _mValue_SparkSubmitParameters;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver.SparkSubmitParameters' is not present");
+            }
+        }
     }
 }

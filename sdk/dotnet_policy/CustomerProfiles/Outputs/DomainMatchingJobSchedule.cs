@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CustomerProfiles.Outputs
         /// <summary>
         /// The day when the Identity Resolution Job should run every week.
         /// </summary>
-        [Input("dayOfTheWeek")]
+        [PolicyResourceProperty("dayOfTheWeek", "_mUnknown_DayOfTheWeek")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDayOfTheWeek;
-
-        public string? DayOfTheWeek => _mDayOfTheWeek.GetValue("dayOfTheWeek");
+        private string? _mValue_DayOfTheWeek;
+        private bool _mUnknown_DayOfTheWeek;
+        public string? DayOfTheWeek
+        {
+            get
+            {
+                if (!_mUnknown_DayOfTheWeek) return _mValue_DayOfTheWeek;
+                throw new UndeferrableValueException("Value 'DomainMatchingJobSchedule.DayOfTheWeek' is not present");
+            }
+        }
 
         /// <summary>
         /// The time when the Identity Resolution Job should run every week.
         /// </summary>
-        [Input("time")]
+        [PolicyResourceProperty("time", "_mUnknown_Time")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTime;
-
-        public string? Time => _mTime.GetValue("time");
+        private string? _mValue_Time;
+        private bool _mUnknown_Time;
+        public string? Time
+        {
+            get
+            {
+                if (!_mUnknown_Time) return _mValue_Time;
+                throw new UndeferrableValueException("Value 'DomainMatchingJobSchedule.Time' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ChimeSDKMediaPipelines.Inputs
         /// <summary>
         /// Rule name.
         /// </summary>
-        [Input("ruleName")]
+        [PolicyResourceProperty("ruleName", "_mUnknown_RuleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
-
-        public string? RuleName => _mRuleName.GetValue("ruleName");
+        private string? _mValue_RuleName;
+        private bool _mUnknown_RuleName;
+        public string? RuleName
+        {
+            get
+            {
+                if (!_mUnknown_RuleName) return _mValue_RuleName;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs.RuleName' is not present");
+            }
+        }
 
         /// <summary>
         /// Sentiment type to match.
         /// </summary>
-        [Input("sentimentType")]
+        [PolicyResourceProperty("sentimentType", "_mUnknown_SentimentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSentimentType;
-
-        public string? SentimentType => _mSentimentType.GetValue("sentimentType");
+        private string? _mValue_SentimentType;
+        private bool _mUnknown_SentimentType;
+        public string? SentimentType
+        {
+            get
+            {
+                if (!_mUnknown_SentimentType) return _mValue_SentimentType;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs.SentimentType' is not present");
+            }
+        }
 
         /// <summary>
         /// Analysis interval.
         /// </summary>
-        [Input("timePeriod")]
+        [PolicyResourceProperty("timePeriod", "_mUnknown_TimePeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimePeriod;
-
-        public int? TimePeriod => _mTimePeriod.GetValue("timePeriod");
+        private int? _mValue_TimePeriod;
+        private bool _mUnknown_TimePeriod;
+        public int? TimePeriod
+        {
+            get
+            {
+                if (!_mUnknown_TimePeriod) return _mValue_TimePeriod;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs.TimePeriod' is not present");
+            }
+        }
     }
 }

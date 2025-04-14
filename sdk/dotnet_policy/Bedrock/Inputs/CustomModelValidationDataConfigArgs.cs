@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// Information about the validators.
         /// </summary>
-        [Input("validators")]
+        [PolicyResourceProperty("validators", "_mUnknown_Validators")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CustomModelValidationDataConfigValidatorArgs>> _mValidators;
-
-        public List<Inputs.CustomModelValidationDataConfigValidatorArgs>? Validators => _mValidators.GetValue("validators");
+        private List<Inputs.CustomModelValidationDataConfigValidatorArgs>? _mValue_Validators;
+        private bool _mUnknown_Validators;
+        public List<Inputs.CustomModelValidationDataConfigValidatorArgs>? Validators
+        {
+            get
+            {
+                if (!_mUnknown_Validators) return _mValue_Validators;
+                throw new UndeferrableValueException("Value 'CustomModelValidationDataConfigArgs.Validators' is not present");
+            }
+        }
     }
 }

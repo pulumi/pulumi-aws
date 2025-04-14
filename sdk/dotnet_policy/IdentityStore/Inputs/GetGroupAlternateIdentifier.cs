@@ -15,21 +15,35 @@ namespace Pulumi.PolicyPacks.Aws.IdentityStore.Inputs
         /// <summary>
         /// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
         /// </summary>
-        [Input("externalId")]
+        [PolicyResourceProperty("externalId", "_mUnknown_ExternalId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetGroupAlternateIdentifierExternalIdArgs> _mExternalId;
-
-        public Inputs.GetGroupAlternateIdentifierExternalIdArgs? ExternalId => _mExternalId.GetValue("externalId");
+        private Inputs.GetGroupAlternateIdentifierExternalIdArgs? _mValue_ExternalId;
+        private bool _mUnknown_ExternalId;
+        public Inputs.GetGroupAlternateIdentifierExternalIdArgs? ExternalId
+        {
+            get
+            {
+                if (!_mUnknown_ExternalId) return _mValue_ExternalId;
+                throw new UndeferrableValueException("Value 'GetGroupAlternateIdentifierArgs.ExternalId' is not present");
+            }
+        }
 
         /// <summary>
         /// An entity attribute that's unique to a specific entity. Detailed below.
         /// 
         /// &gt; Exactly one of the above arguments must be provided.
         /// </summary>
-        [Input("uniqueAttribute")]
+        [PolicyResourceProperty("uniqueAttribute", "_mUnknown_UniqueAttribute")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetGroupAlternateIdentifierUniqueAttributeArgs> _mUniqueAttribute;
-
-        public Inputs.GetGroupAlternateIdentifierUniqueAttributeArgs? UniqueAttribute => _mUniqueAttribute.GetValue("uniqueAttribute");
+        private Inputs.GetGroupAlternateIdentifierUniqueAttributeArgs? _mValue_UniqueAttribute;
+        private bool _mUnknown_UniqueAttribute;
+        public Inputs.GetGroupAlternateIdentifierUniqueAttributeArgs? UniqueAttribute
+        {
+            get
+            {
+                if (!_mUnknown_UniqueAttribute) return _mValue_UniqueAttribute;
+                throw new UndeferrableValueException("Value 'GetGroupAlternateIdentifierArgs.UniqueAttribute' is not present");
+            }
+        }
     }
 }

@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// The time at which the inference profile was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'GetInferenceProfilesInferenceProfileSummaryResult.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the inference profile.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GetInferenceProfilesInferenceProfileSummaryResult.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the inference profile.
         /// </summary>
-        [Input("inferenceProfileArn")]
+        [PolicyResourceProperty("inferenceProfileArn", "_mUnknown_InferenceProfileArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInferenceProfileArn;
-
-        public string? InferenceProfileArn => _mInferenceProfileArn.GetValue("inferenceProfileArn");
+        private string? _mValue_InferenceProfileArn;
+        private bool _mUnknown_InferenceProfileArn;
+        public string? InferenceProfileArn
+        {
+            get
+            {
+                if (!_mUnknown_InferenceProfileArn) return _mValue_InferenceProfileArn;
+                throw new UndeferrableValueException("Value 'GetInferenceProfilesInferenceProfileSummaryResult.InferenceProfileArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier of the inference profile.
         /// </summary>
-        [Input("inferenceProfileId")]
+        [PolicyResourceProperty("inferenceProfileId", "_mUnknown_InferenceProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInferenceProfileId;
-
-        public string? InferenceProfileId => _mInferenceProfileId.GetValue("inferenceProfileId");
+        private string? _mValue_InferenceProfileId;
+        private bool _mUnknown_InferenceProfileId;
+        public string? InferenceProfileId
+        {
+            get
+            {
+                if (!_mUnknown_InferenceProfileId) return _mValue_InferenceProfileId;
+                throw new UndeferrableValueException("Value 'GetInferenceProfilesInferenceProfileSummaryResult.InferenceProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the inference profile.
         /// </summary>
-        [Input("inferenceProfileName")]
+        [PolicyResourceProperty("inferenceProfileName", "_mUnknown_InferenceProfileName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInferenceProfileName;
-
-        public string? InferenceProfileName => _mInferenceProfileName.GetValue("inferenceProfileName");
+        private string? _mValue_InferenceProfileName;
+        private bool _mUnknown_InferenceProfileName;
+        public string? InferenceProfileName
+        {
+            get
+            {
+                if (!_mUnknown_InferenceProfileName) return _mValue_InferenceProfileName;
+                throw new UndeferrableValueException("Value 'GetInferenceProfilesInferenceProfileSummaryResult.InferenceProfileName' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of information about each model in the inference profile. See `models`.
         /// </summary>
-        [Input("models")]
+        [PolicyResourceProperty("models", "_mUnknown_Models")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetInferenceProfilesInferenceProfileSummaryModelResult>> _mModels;
-
-        public List<Outputs.GetInferenceProfilesInferenceProfileSummaryModelResult>? Models => _mModels.GetValue("models");
+        private List<Outputs.GetInferenceProfilesInferenceProfileSummaryModelResult>? _mValue_Models;
+        private bool _mUnknown_Models;
+        public List<Outputs.GetInferenceProfilesInferenceProfileSummaryModelResult>? Models
+        {
+            get
+            {
+                if (!_mUnknown_Models) return _mValue_Models;
+                throw new UndeferrableValueException("Value 'GetInferenceProfilesInferenceProfileSummaryResult.Models' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'GetInferenceProfilesInferenceProfileSummaryResult.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetInferenceProfilesInferenceProfileSummaryResult.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// The time at which the inference profile was last updated.
         /// </summary>
-        [Input("updatedAt")]
+        [PolicyResourceProperty("updatedAt", "_mUnknown_UpdatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
-
-        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
+        private string? _mValue_UpdatedAt;
+        private bool _mUnknown_UpdatedAt;
+        public string? UpdatedAt
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedAt) return _mValue_UpdatedAt;
+                throw new UndeferrableValueException("Value 'GetInferenceProfilesInferenceProfileSummaryResult.UpdatedAt' is not present");
+            }
+        }
     }
 }

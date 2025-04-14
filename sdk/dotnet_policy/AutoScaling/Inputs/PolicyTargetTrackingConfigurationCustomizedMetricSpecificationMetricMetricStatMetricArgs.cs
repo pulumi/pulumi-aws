@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Inputs
         /// <summary>
         /// Dimensions of the metric.
         /// </summary>
-        [Input("dimensions")]
+        [PolicyResourceProperty("dimensions", "_mUnknown_Dimensions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs>> _mDimensions;
-
-        public List<Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs>? Dimensions => _mDimensions.GetValue("dimensions");
+        private List<Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs>? _mValue_Dimensions;
+        private bool _mUnknown_Dimensions;
+        public List<Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs>? Dimensions
+        {
+            get
+            {
+                if (!_mUnknown_Dimensions) return _mValue_Dimensions;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs.Dimensions' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the metric.
         /// </summary>
-        [Input("metricName")]
+        [PolicyResourceProperty("metricName", "_mUnknown_MetricName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricName;
-
-        public string? MetricName => _mMetricName.GetValue("metricName");
+        private string? _mValue_MetricName;
+        private bool _mUnknown_MetricName;
+        public string? MetricName
+        {
+            get
+            {
+                if (!_mUnknown_MetricName) return _mValue_MetricName;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs.MetricName' is not present");
+            }
+        }
 
         /// <summary>
         /// Namespace of the metric.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs.Namespace' is not present");
+            }
+        }
     }
 }

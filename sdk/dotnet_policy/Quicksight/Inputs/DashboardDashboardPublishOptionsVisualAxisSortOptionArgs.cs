@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// Availability status. Possibles values: ENABLED, DISABLED.
         /// </summary>
-        [Input("availabilityStatus")]
+        [PolicyResourceProperty("availabilityStatus", "_mUnknown_AvailabilityStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityStatus;
-
-        public string? AvailabilityStatus => _mAvailabilityStatus.GetValue("availabilityStatus");
+        private string? _mValue_AvailabilityStatus;
+        private bool _mUnknown_AvailabilityStatus;
+        public string? AvailabilityStatus
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityStatus) return _mValue_AvailabilityStatus;
+                throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptionsVisualAxisSortOptionArgs.AvailabilityStatus' is not present");
+            }
+        }
     }
 }

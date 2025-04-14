@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AutoScalingPlans.Outputs
         /// <summary>
         /// ARN of a AWS CloudFormation stack.
         /// </summary>
-        [Input("cloudformationStackArn")]
+        [PolicyResourceProperty("cloudformationStackArn", "_mUnknown_CloudformationStackArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudformationStackArn;
-
-        public string? CloudformationStackArn => _mCloudformationStackArn.GetValue("cloudformationStackArn");
+        private string? _mValue_CloudformationStackArn;
+        private bool _mUnknown_CloudformationStackArn;
+        public string? CloudformationStackArn
+        {
+            get
+            {
+                if (!_mUnknown_CloudformationStackArn) return _mValue_CloudformationStackArn;
+                throw new UndeferrableValueException("Value 'ScalingPlanApplicationSource.CloudformationStackArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of tags.
         /// </summary>
-        [Input("tagFilters")]
+        [PolicyResourceProperty("tagFilters", "_mUnknown_TagFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ScalingPlanApplicationSourceTagFilter>> _mTagFilters;
-
-        public List<Outputs.ScalingPlanApplicationSourceTagFilter>? TagFilters => _mTagFilters.GetValue("tagFilters");
+        private List<Outputs.ScalingPlanApplicationSourceTagFilter>? _mValue_TagFilters;
+        private bool _mUnknown_TagFilters;
+        public List<Outputs.ScalingPlanApplicationSourceTagFilter>? TagFilters
+        {
+            get
+            {
+                if (!_mUnknown_TagFilters) return _mValue_TagFilters;
+                throw new UndeferrableValueException("Value 'ScalingPlanApplicationSource.TagFilters' is not present");
+            }
+        }
     }
 }

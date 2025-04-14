@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// The Amazon Web Services account ID that owns the cluster.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'Partner.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The cluster identifier of the cluster that receives data from the partner.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'Partner.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database that receives data from the partner.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'Partner.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the partner that is authorized to send data.
         /// </summary>
-        [Input("partnerName")]
+        [PolicyResourceProperty("partnerName", "_mUnknown_PartnerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPartnerName;
-
-        public string? PartnerName => _mPartnerName.GetValue("partnerName");
+        private string? _mValue_PartnerName;
+        private bool _mUnknown_PartnerName;
+        public string? PartnerName
+        {
+            get
+            {
+                if (!_mUnknown_PartnerName) return _mValue_PartnerName;
+                throw new UndeferrableValueException("Value 'Partner.PartnerName' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) The partner integration status.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Partner.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) The status message provided by the partner.
         /// </summary>
-        [Input("statusMessage")]
+        [PolicyResourceProperty("statusMessage", "_mUnknown_StatusMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusMessage;
-
-        public string? StatusMessage => _mStatusMessage.GetValue("statusMessage");
+        private string? _mValue_StatusMessage;
+        private bool _mUnknown_StatusMessage;
+        public string? StatusMessage
+        {
+            get
+            {
+                if (!_mUnknown_StatusMessage) return _mValue_StatusMessage;
+                throw new UndeferrableValueException("Value 'Partner.StatusMessage' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshift/partner:Partner")]
@@ -74,37 +116,65 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// The Amazon Web Services account ID that owns the cluster.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'PartnerArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The cluster identifier of the cluster that receives data from the partner.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'PartnerArgs.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database that receives data from the partner.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'PartnerArgs.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the partner that is authorized to send data.
         /// </summary>
-        [Input("partnerName")]
+        [PolicyResourceProperty("partnerName", "_mUnknown_PartnerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPartnerName;
-
-        public string? PartnerName => _mPartnerName.GetValue("partnerName");
+        private string? _mValue_PartnerName;
+        private bool _mUnknown_PartnerName;
+        public string? PartnerName
+        {
+            get
+            {
+                if (!_mUnknown_PartnerName) return _mValue_PartnerName;
+                throw new UndeferrableValueException("Value 'PartnerArgs.PartnerName' is not present");
+            }
+        }
     }
 }

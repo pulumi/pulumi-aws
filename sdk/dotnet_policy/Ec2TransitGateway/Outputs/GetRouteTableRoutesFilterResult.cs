@@ -16,19 +16,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway.Outputs
         /// Name of the field to filter by, as defined by
         /// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayRoutes.html).
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetRouteTableRoutesFilterResult.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of values that are accepted for the given field.
         /// </summary>
-        [Input("values")]
+        [PolicyResourceProperty("values", "_mUnknown_Values")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mValues;
-
-        public List<string>? Values => _mValues.GetValue("values");
+        private List<string>? _mValue_Values;
+        private bool _mUnknown_Values;
+        public List<string>? Values
+        {
+            get
+            {
+                if (!_mUnknown_Values) return _mValue_Values;
+                throw new UndeferrableValueException("Value 'GetRouteTableRoutesFilterResult.Values' is not present");
+            }
+        }
     }
 }

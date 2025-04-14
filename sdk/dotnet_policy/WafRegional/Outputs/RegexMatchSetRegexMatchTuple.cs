@@ -15,20 +15,34 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional.Outputs
         /// <summary>
         /// The part of a web request that you want to search, such as a specified header or a query string.
         /// </summary>
-        [Input("fieldToMatch")]
+        [PolicyResourceProperty("fieldToMatch", "_mUnknown_FieldToMatch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RegexMatchSetRegexMatchTupleFieldToMatch> _mFieldToMatch;
-
-        public Outputs.RegexMatchSetRegexMatchTupleFieldToMatch? FieldToMatch => _mFieldToMatch.GetValue("fieldToMatch");
+        private Outputs.RegexMatchSetRegexMatchTupleFieldToMatch? _mValue_FieldToMatch;
+        private bool _mUnknown_FieldToMatch;
+        public Outputs.RegexMatchSetRegexMatchTupleFieldToMatch? FieldToMatch
+        {
+            get
+            {
+                if (!_mUnknown_FieldToMatch) return _mValue_FieldToMatch;
+                throw new UndeferrableValueException("Value 'RegexMatchSetRegexMatchTuple.FieldToMatch' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of a Regex Pattern Set.
         /// </summary>
-        [Input("regexPatternSetId")]
+        [PolicyResourceProperty("regexPatternSetId", "_mUnknown_RegexPatternSetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegexPatternSetId;
-
-        public string? RegexPatternSetId => _mRegexPatternSetId.GetValue("regexPatternSetId");
+        private string? _mValue_RegexPatternSetId;
+        private bool _mUnknown_RegexPatternSetId;
+        public string? RegexPatternSetId
+        {
+            get
+            {
+                if (!_mUnknown_RegexPatternSetId) return _mValue_RegexPatternSetId;
+                throw new UndeferrableValueException("Value 'RegexMatchSetRegexMatchTuple.RegexPatternSetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
@@ -36,10 +50,17 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional.Outputs
         /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
         /// for all supported values.
         /// </summary>
-        [Input("textTransformation")]
+        [PolicyResourceProperty("textTransformation", "_mUnknown_TextTransformation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTextTransformation;
-
-        public string? TextTransformation => _mTextTransformation.GetValue("textTransformation");
+        private string? _mValue_TextTransformation;
+        private bool _mUnknown_TextTransformation;
+        public string? TextTransformation
+        {
+            get
+            {
+                if (!_mUnknown_TextTransformation) return _mValue_TextTransformation;
+                throw new UndeferrableValueException("Value 'RegexMatchSetRegexMatchTuple.TextTransformation' is not present");
+            }
+        }
     }
 }

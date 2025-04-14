@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// The key used to extract the password from EC2 Parameter store.
         /// </summary>
-        [Input("passwordParam")]
+        [PolicyResourceProperty("passwordParam", "_mUnknown_PasswordParam")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPasswordParam;
-
-        public string? PasswordParam => _mPasswordParam.GetValue("passwordParam");
+        private string? _mValue_PasswordParam;
+        private bool _mUnknown_PasswordParam;
+        public string? PasswordParam
+        {
+            get
+            {
+                if (!_mUnknown_PasswordParam) return _mValue_PasswordParam;
+                throw new UndeferrableValueException("Value 'InputSourceArgs.PasswordParam' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL where the stream is pulled from.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'InputSourceArgs.Url' is not present");
+            }
+        }
 
         /// <summary>
         /// The username for the input source.
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'InputSourceArgs.Username' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager.Inputs
         /// <summary>
         /// Configuration block(s) for the controls within the control set. See `controls` Block below for details.
         /// </summary>
-        [Input("controls")]
+        [PolicyResourceProperty("controls", "_mUnknown_Controls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FrameworkControlSetControlArgs>> _mControls;
-
-        public List<Inputs.FrameworkControlSetControlArgs>? Controls => _mControls.GetValue("controls");
+        private List<Inputs.FrameworkControlSetControlArgs>? _mValue_Controls;
+        private bool _mUnknown_Controls;
+        public List<Inputs.FrameworkControlSetControlArgs>? Controls
+        {
+            get
+            {
+                if (!_mUnknown_Controls) return _mValue_Controls;
+                throw new UndeferrableValueException("Value 'FrameworkControlSetArgs.Controls' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the framework.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'FrameworkControlSetArgs.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the control set.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FrameworkControlSetArgs.Name' is not present");
+            }
+        }
     }
 }

@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
         /// </summary>
-        [Input("domainArn")]
+        [PolicyResourceProperty("domainArn", "_mUnknown_DomainArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainArn;
-
-        public string? DomainArn => _mDomainArn.GetValue("domainArn");
+        private string? _mValue_DomainArn;
+        private bool _mUnknown_DomainArn;
+        public string? DomainArn
+        {
+            get
+            {
+                if (!_mUnknown_DomainArn) return _mValue_DomainArn;
+                throw new UndeferrableValueException("Value 'VpcEndpoint.DomainArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The connection endpoint ID for connecting to the domain.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'VpcEndpoint.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Options to specify the subnets and security groups for the endpoint.
         /// </summary>
-        [Input("vpcOptions")]
+        [PolicyResourceProperty("vpcOptions", "_mUnknown_VpcOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VpcEndpointVpcOptions> _mVpcOptions;
-
-        public Outputs.VpcEndpointVpcOptions? VpcOptions => _mVpcOptions.GetValue("vpcOptions");
+        private Outputs.VpcEndpointVpcOptions? _mValue_VpcOptions;
+        private bool _mUnknown_VpcOptions;
+        public Outputs.VpcEndpointVpcOptions? VpcOptions
+        {
+            get
+            {
+                if (!_mUnknown_VpcOptions) return _mValue_VpcOptions;
+                throw new UndeferrableValueException("Value 'VpcEndpoint.VpcOptions' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opensearch/vpcEndpoint:VpcEndpoint")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
         /// </summary>
-        [Input("domainArn")]
+        [PolicyResourceProperty("domainArn", "_mUnknown_DomainArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainArn;
-
-        public string? DomainArn => _mDomainArn.GetValue("domainArn");
+        private string? _mValue_DomainArn;
+        private bool _mUnknown_DomainArn;
+        public string? DomainArn
+        {
+            get
+            {
+                if (!_mUnknown_DomainArn) return _mValue_DomainArn;
+                throw new UndeferrableValueException("Value 'VpcEndpointArgs.DomainArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Options to specify the subnets and security groups for the endpoint.
         /// </summary>
-        [Input("vpcOptions")]
+        [PolicyResourceProperty("vpcOptions", "_mUnknown_VpcOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VpcEndpointVpcOptionsArgs> _mVpcOptions;
-
-        public Inputs.VpcEndpointVpcOptionsArgs? VpcOptions => _mVpcOptions.GetValue("vpcOptions");
+        private Inputs.VpcEndpointVpcOptionsArgs? _mValue_VpcOptions;
+        private bool _mUnknown_VpcOptions;
+        public Inputs.VpcEndpointVpcOptionsArgs? VpcOptions
+        {
+            get
+            {
+                if (!_mUnknown_VpcOptions) return _mValue_VpcOptions;
+                throw new UndeferrableValueException("Value 'VpcEndpointArgs.VpcOptions' is not present");
+            }
+        }
     }
 }

@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this model.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Model.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         /// </summary>
-        [Input("containers")]
+        [PolicyResourceProperty("containers", "_mUnknown_Containers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ModelContainer>> _mContainers;
-
-        public List<Outputs.ModelContainer>? Containers => _mContainers.GetValue("containers");
+        private List<Outputs.ModelContainer>? _mValue_Containers;
+        private bool _mUnknown_Containers;
+        public List<Outputs.ModelContainer>? Containers
+        {
+            get
+            {
+                if (!_mUnknown_Containers) return _mValue_Containers;
+                throw new UndeferrableValueException("Value 'Model.Containers' is not present");
+            }
+        }
 
         /// <summary>
         /// Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
         /// </summary>
-        [Input("enableNetworkIsolation")]
+        [PolicyResourceProperty("enableNetworkIsolation", "_mUnknown_EnableNetworkIsolation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableNetworkIsolation;
-
-        public bool? EnableNetworkIsolation => _mEnableNetworkIsolation.GetValue("enableNetworkIsolation");
+        private bool? _mValue_EnableNetworkIsolation;
+        private bool _mUnknown_EnableNetworkIsolation;
+        public bool? EnableNetworkIsolation
+        {
+            get
+            {
+                if (!_mUnknown_EnableNetworkIsolation) return _mValue_EnableNetworkIsolation;
+                throw new UndeferrableValueException("Value 'Model.EnableNetworkIsolation' is not present");
+            }
+        }
 
         /// <summary>
         /// A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'Model.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
         /// </summary>
-        [Input("inferenceExecutionConfig")]
+        [PolicyResourceProperty("inferenceExecutionConfig", "_mUnknown_InferenceExecutionConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ModelInferenceExecutionConfig> _mInferenceExecutionConfig;
-
-        public Outputs.ModelInferenceExecutionConfig? InferenceExecutionConfig => _mInferenceExecutionConfig.GetValue("inferenceExecutionConfig");
+        private Outputs.ModelInferenceExecutionConfig? _mValue_InferenceExecutionConfig;
+        private bool _mUnknown_InferenceExecutionConfig;
+        public Outputs.ModelInferenceExecutionConfig? InferenceExecutionConfig
+        {
+            get
+            {
+                if (!_mUnknown_InferenceExecutionConfig) return _mValue_InferenceExecutionConfig;
+                throw new UndeferrableValueException("Value 'Model.InferenceExecutionConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Model.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         /// </summary>
-        [Input("primaryContainer")]
+        [PolicyResourceProperty("primaryContainer", "_mUnknown_PrimaryContainer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ModelPrimaryContainer> _mPrimaryContainer;
-
-        public Outputs.ModelPrimaryContainer? PrimaryContainer => _mPrimaryContainer.GetValue("primaryContainer");
+        private Outputs.ModelPrimaryContainer? _mValue_PrimaryContainer;
+        private bool _mUnknown_PrimaryContainer;
+        public Outputs.ModelPrimaryContainer? PrimaryContainer
+        {
+            get
+            {
+                if (!_mUnknown_PrimaryContainer) return _mValue_PrimaryContainer;
+                throw new UndeferrableValueException("Value 'Model.PrimaryContainer' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Model.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Model.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ModelVpcConfig> _mVpcConfig;
-
-        public Outputs.ModelVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Outputs.ModelVpcConfig? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Outputs.ModelVpcConfig? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'Model.VpcConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/model:Model")]
@@ -110,73 +180,129 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         /// </summary>
-        [Input("containers")]
+        [PolicyResourceProperty("containers", "_mUnknown_Containers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ModelContainerArgs>> _mContainers;
-
-        public List<Inputs.ModelContainerArgs>? Containers => _mContainers.GetValue("containers");
+        private List<Inputs.ModelContainerArgs>? _mValue_Containers;
+        private bool _mUnknown_Containers;
+        public List<Inputs.ModelContainerArgs>? Containers
+        {
+            get
+            {
+                if (!_mUnknown_Containers) return _mValue_Containers;
+                throw new UndeferrableValueException("Value 'ModelArgs.Containers' is not present");
+            }
+        }
 
         /// <summary>
         /// Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
         /// </summary>
-        [Input("enableNetworkIsolation")]
+        [PolicyResourceProperty("enableNetworkIsolation", "_mUnknown_EnableNetworkIsolation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableNetworkIsolation;
-
-        public bool? EnableNetworkIsolation => _mEnableNetworkIsolation.GetValue("enableNetworkIsolation");
+        private bool? _mValue_EnableNetworkIsolation;
+        private bool _mUnknown_EnableNetworkIsolation;
+        public bool? EnableNetworkIsolation
+        {
+            get
+            {
+                if (!_mUnknown_EnableNetworkIsolation) return _mValue_EnableNetworkIsolation;
+                throw new UndeferrableValueException("Value 'ModelArgs.EnableNetworkIsolation' is not present");
+            }
+        }
 
         /// <summary>
         /// A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'ModelArgs.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
         /// </summary>
-        [Input("inferenceExecutionConfig")]
+        [PolicyResourceProperty("inferenceExecutionConfig", "_mUnknown_InferenceExecutionConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ModelInferenceExecutionConfigArgs> _mInferenceExecutionConfig;
-
-        public Inputs.ModelInferenceExecutionConfigArgs? InferenceExecutionConfig => _mInferenceExecutionConfig.GetValue("inferenceExecutionConfig");
+        private Inputs.ModelInferenceExecutionConfigArgs? _mValue_InferenceExecutionConfig;
+        private bool _mUnknown_InferenceExecutionConfig;
+        public Inputs.ModelInferenceExecutionConfigArgs? InferenceExecutionConfig
+        {
+            get
+            {
+                if (!_mUnknown_InferenceExecutionConfig) return _mValue_InferenceExecutionConfig;
+                throw new UndeferrableValueException("Value 'ModelArgs.InferenceExecutionConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ModelArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         /// </summary>
-        [Input("primaryContainer")]
+        [PolicyResourceProperty("primaryContainer", "_mUnknown_PrimaryContainer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ModelPrimaryContainerArgs> _mPrimaryContainer;
-
-        public Inputs.ModelPrimaryContainerArgs? PrimaryContainer => _mPrimaryContainer.GetValue("primaryContainer");
+        private Inputs.ModelPrimaryContainerArgs? _mValue_PrimaryContainer;
+        private bool _mUnknown_PrimaryContainer;
+        public Inputs.ModelPrimaryContainerArgs? PrimaryContainer
+        {
+            get
+            {
+                if (!_mUnknown_PrimaryContainer) return _mValue_PrimaryContainer;
+                throw new UndeferrableValueException("Value 'ModelArgs.PrimaryContainer' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ModelArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ModelVpcConfigArgs> _mVpcConfig;
-
-        public Inputs.ModelVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Inputs.ModelVpcConfigArgs? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Inputs.ModelVpcConfigArgs? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'ModelArgs.VpcConfig' is not present");
+            }
+        }
     }
 }

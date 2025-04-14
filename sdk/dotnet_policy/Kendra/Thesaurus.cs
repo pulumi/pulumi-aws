@@ -16,134 +16,246 @@ namespace Pulumi.PolicyPacks.Aws.Kendra
         /// <summary>
         /// ARN of the thesaurus.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Thesaurus.Arn' is not present");
+            }
+        }
 
-        public string? Arn => _mArn.GetValue("arn");
-
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Thesaurus.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the index for a thesaurus.
         /// </summary>
-        [Input("indexId")]
+        [PolicyResourceProperty("indexId", "_mUnknown_IndexId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIndexId;
-
-        public string? IndexId => _mIndexId.GetValue("indexId");
+        private string? _mValue_IndexId;
+        private bool _mUnknown_IndexId;
+        public string? IndexId
+        {
+            get
+            {
+                if (!_mUnknown_IndexId) return _mValue_IndexId;
+                throw new UndeferrableValueException("Value 'Thesaurus.IndexId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the thesaurus.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Thesaurus.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Thesaurus.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 path where your thesaurus file sits in S3. Detailed below.
         /// </summary>
-        [Input("sourceS3Path")]
+        [PolicyResourceProperty("sourceS3Path", "_mUnknown_SourceS3Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ThesaurusSourceS3Path> _mSourceS3Path;
-
-        public Outputs.ThesaurusSourceS3Path? SourceS3Path => _mSourceS3Path.GetValue("sourceS3Path");
+        private Outputs.ThesaurusSourceS3Path? _mValue_SourceS3Path;
+        private bool _mUnknown_SourceS3Path;
+        public Outputs.ThesaurusSourceS3Path? SourceS3Path
+        {
+            get
+            {
+                if (!_mUnknown_SourceS3Path) return _mValue_SourceS3Path;
+                throw new UndeferrableValueException("Value 'Thesaurus.SourceS3Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The current status of the thesaurus.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Thesaurus.Status' is not present");
+            }
+        }
 
-        public string? Status => _mStatus.GetValue("status");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Thesaurus.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Thesaurus.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("thesaurusId")]
+        [PolicyResourceProperty("thesaurusId", "_mUnknown_ThesaurusId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThesaurusId;
-
-        public string? ThesaurusId => _mThesaurusId.GetValue("thesaurusId");
+        private string? _mValue_ThesaurusId;
+        private bool _mUnknown_ThesaurusId;
+        public string? ThesaurusId
+        {
+            get
+            {
+                if (!_mUnknown_ThesaurusId) return _mValue_ThesaurusId;
+                throw new UndeferrableValueException("Value 'Thesaurus.ThesaurusId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:kendra/thesaurus:Thesaurus")]
     public sealed class ThesaurusArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ThesaurusArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the index for a thesaurus.
         /// </summary>
-        [Input("indexId")]
+        [PolicyResourceProperty("indexId", "_mUnknown_IndexId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIndexId;
-
-        public string? IndexId => _mIndexId.GetValue("indexId");
+        private string? _mValue_IndexId;
+        private bool _mUnknown_IndexId;
+        public string? IndexId
+        {
+            get
+            {
+                if (!_mUnknown_IndexId) return _mValue_IndexId;
+                throw new UndeferrableValueException("Value 'ThesaurusArgs.IndexId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the thesaurus.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ThesaurusArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ThesaurusArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 path where your thesaurus file sits in S3. Detailed below.
         /// </summary>
-        [Input("sourceS3Path")]
+        [PolicyResourceProperty("sourceS3Path", "_mUnknown_SourceS3Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ThesaurusSourceS3PathArgs> _mSourceS3Path;
+        private Inputs.ThesaurusSourceS3PathArgs? _mValue_SourceS3Path;
+        private bool _mUnknown_SourceS3Path;
+        public Inputs.ThesaurusSourceS3PathArgs? SourceS3Path
+        {
+            get
+            {
+                if (!_mUnknown_SourceS3Path) return _mValue_SourceS3Path;
+                throw new UndeferrableValueException("Value 'ThesaurusArgs.SourceS3Path' is not present");
+            }
+        }
 
-        public Inputs.ThesaurusSourceS3PathArgs? SourceS3Path => _mSourceS3Path.GetValue("sourceS3Path");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ThesaurusArgs.Tags' is not present");
+            }
+        }
     }
 }

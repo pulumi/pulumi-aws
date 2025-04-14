@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The Amazon S3 bucket prefix for hosting hub content.interface.
         /// </summary>
-        [Input("s3OutputPath")]
+        [PolicyResourceProperty("s3OutputPath", "_mUnknown_S3OutputPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3OutputPath;
-
-        public string? S3OutputPath => _mS3OutputPath.GetValue("s3OutputPath");
+        private string? _mValue_S3OutputPath;
+        private bool _mUnknown_S3OutputPath;
+        public string? S3OutputPath
+        {
+            get
+            {
+                if (!_mUnknown_S3OutputPath) return _mValue_S3OutputPath;
+                throw new UndeferrableValueException("Value 'HubS3StorageConfigArgs.S3OutputPath' is not present");
+            }
+        }
     }
 }

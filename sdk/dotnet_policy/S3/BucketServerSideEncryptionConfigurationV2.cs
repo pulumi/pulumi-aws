@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// ID (name) of the bucket.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketServerSideEncryptionConfigurationV2.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the expected bucket owner.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'BucketServerSideEncryptionConfigurationV2.ExpectedBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketServerSideEncryptionConfigurationV2Rule>> _mRules;
-
-        public List<Outputs.BucketServerSideEncryptionConfigurationV2Rule>? Rules => _mRules.GetValue("rules");
+        private List<Outputs.BucketServerSideEncryptionConfigurationV2Rule>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Outputs.BucketServerSideEncryptionConfigurationV2Rule>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'BucketServerSideEncryptionConfigurationV2.Rules' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// ID (name) of the bucket.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketServerSideEncryptionConfigurationV2Args.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the expected bucket owner.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'BucketServerSideEncryptionConfigurationV2Args.ExpectedBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketServerSideEncryptionConfigurationV2RuleArgs>> _mRules;
-
-        public List<Inputs.BucketServerSideEncryptionConfigurationV2RuleArgs>? Rules => _mRules.GetValue("rules");
+        private List<Inputs.BucketServerSideEncryptionConfigurationV2RuleArgs>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Inputs.BucketServerSideEncryptionConfigurationV2RuleArgs>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'BucketServerSideEncryptionConfigurationV2Args.Rules' is not present");
+            }
+        }
     }
 }

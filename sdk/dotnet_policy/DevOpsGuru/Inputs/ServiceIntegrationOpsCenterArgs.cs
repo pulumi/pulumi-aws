@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.DevOpsGuru.Inputs
         /// <summary>
         /// Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
         /// </summary>
-        [Input("optInStatus")]
+        [PolicyResourceProperty("optInStatus", "_mUnknown_OptInStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOptInStatus;
-
-        public string? OptInStatus => _mOptInStatus.GetValue("optInStatus");
+        private string? _mValue_OptInStatus;
+        private bool _mUnknown_OptInStatus;
+        public string? OptInStatus
+        {
+            get
+            {
+                if (!_mUnknown_OptInStatus) return _mValue_OptInStatus;
+                throw new UndeferrableValueException("Value 'ServiceIntegrationOpsCenterArgs.OptInStatus' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// The number of times to move a job to the RUNNABLE status.
         /// </summary>
-        [Input("attempts")]
+        [PolicyResourceProperty("attempts", "_mUnknown_Attempts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAttempts;
-
-        public int? Attempts => _mAttempts.GetValue("attempts");
+        private int? _mValue_Attempts;
+        private bool _mUnknown_Attempts;
+        public int? Attempts
+        {
+            get
+            {
+                if (!_mUnknown_Attempts) return _mValue_Attempts;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionRetryStrategyResult.Attempts' is not present");
+            }
+        }
 
         /// <summary>
         /// Array of up to 5 objects that specify the conditions where jobs are retried or failed.
         /// </summary>
-        [Input("evaluateOnExits")]
+        [PolicyResourceProperty("evaluateOnExits", "_mUnknown_EvaluateOnExits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionRetryStrategyEvaluateOnExitResult>> _mEvaluateOnExits;
-
-        public List<Outputs.GetJobDefinitionRetryStrategyEvaluateOnExitResult>? EvaluateOnExits => _mEvaluateOnExits.GetValue("evaluateOnExits");
+        private List<Outputs.GetJobDefinitionRetryStrategyEvaluateOnExitResult>? _mValue_EvaluateOnExits;
+        private bool _mUnknown_EvaluateOnExits;
+        public List<Outputs.GetJobDefinitionRetryStrategyEvaluateOnExitResult>? EvaluateOnExits
+        {
+            get
+            {
+                if (!_mUnknown_EvaluateOnExits) return _mValue_EvaluateOnExits;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionRetryStrategyResult.EvaluateOnExits' is not present");
+            }
+        }
     }
 }

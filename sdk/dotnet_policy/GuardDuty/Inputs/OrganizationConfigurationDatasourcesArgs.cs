@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty.Inputs
         /// <summary>
         /// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
         /// </summary>
-        [Input("kubernetes")]
+        [PolicyResourceProperty("kubernetes", "_mUnknown_Kubernetes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OrganizationConfigurationDatasourcesKubernetesArgs> _mKubernetes;
-
-        public Inputs.OrganizationConfigurationDatasourcesKubernetesArgs? Kubernetes => _mKubernetes.GetValue("kubernetes");
+        private Inputs.OrganizationConfigurationDatasourcesKubernetesArgs? _mValue_Kubernetes;
+        private bool _mUnknown_Kubernetes;
+        public Inputs.OrganizationConfigurationDatasourcesKubernetesArgs? Kubernetes
+        {
+            get
+            {
+                if (!_mUnknown_Kubernetes) return _mValue_Kubernetes;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationDatasourcesArgs.Kubernetes' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable Malware Protection automatically for new member accounts.
         /// </summary>
-        [Input("malwareProtection")]
+        [PolicyResourceProperty("malwareProtection", "_mUnknown_MalwareProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OrganizationConfigurationDatasourcesMalwareProtectionArgs> _mMalwareProtection;
-
-        public Inputs.OrganizationConfigurationDatasourcesMalwareProtectionArgs? MalwareProtection => _mMalwareProtection.GetValue("malwareProtection");
+        private Inputs.OrganizationConfigurationDatasourcesMalwareProtectionArgs? _mValue_MalwareProtection;
+        private bool _mUnknown_MalwareProtection;
+        public Inputs.OrganizationConfigurationDatasourcesMalwareProtectionArgs? MalwareProtection
+        {
+            get
+            {
+                if (!_mUnknown_MalwareProtection) return _mValue_MalwareProtection;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationDatasourcesArgs.MalwareProtection' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable S3 Protection automatically for new member accounts.
         /// </summary>
-        [Input("s3Logs")]
+        [PolicyResourceProperty("s3Logs", "_mUnknown_S3Logs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OrganizationConfigurationDatasourcesS3LogsArgs> _mS3Logs;
-
-        public Inputs.OrganizationConfigurationDatasourcesS3LogsArgs? S3Logs => _mS3Logs.GetValue("s3Logs");
+        private Inputs.OrganizationConfigurationDatasourcesS3LogsArgs? _mValue_S3Logs;
+        private bool _mUnknown_S3Logs;
+        public Inputs.OrganizationConfigurationDatasourcesS3LogsArgs? S3Logs
+        {
+            get
+            {
+                if (!_mUnknown_S3Logs) return _mValue_S3Logs;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationDatasourcesArgs.S3Logs' is not present");
+            }
+        }
     }
 }

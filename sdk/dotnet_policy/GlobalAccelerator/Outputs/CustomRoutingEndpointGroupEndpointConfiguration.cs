@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator.Outputs
         /// <summary>
         /// An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
         /// </summary>
-        [Input("endpointId")]
+        [PolicyResourceProperty("endpointId", "_mUnknown_EndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointId;
-
-        public string? EndpointId => _mEndpointId.GetValue("endpointId");
+        private string? _mValue_EndpointId;
+        private bool _mUnknown_EndpointId;
+        public string? EndpointId
+        {
+            get
+            {
+                if (!_mUnknown_EndpointId) return _mValue_EndpointId;
+                throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroupEndpointConfiguration.EndpointId' is not present");
+            }
+        }
     }
 }

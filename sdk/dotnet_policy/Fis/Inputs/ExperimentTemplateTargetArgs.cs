@@ -15,66 +15,115 @@ namespace Pulumi.PolicyPacks.Aws.Fis.Inputs
         /// <summary>
         /// Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
         /// </summary>
-        [Input("filters")]
+        [PolicyResourceProperty("filters", "_mUnknown_Filters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ExperimentTemplateTargetFilterArgs>> _mFilters;
-
-        public List<Inputs.ExperimentTemplateTargetFilterArgs>? Filters => _mFilters.GetValue("filters");
+        private List<Inputs.ExperimentTemplateTargetFilterArgs>? _mValue_Filters;
+        private bool _mUnknown_Filters;
+        public List<Inputs.ExperimentTemplateTargetFilterArgs>? Filters
+        {
+            get
+            {
+                if (!_mUnknown_Filters) return _mValue_Filters;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateTargetArgs.Filters' is not present");
+            }
+        }
 
         /// <summary>
         /// Friendly name given to the target.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateTargetArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The resource type parameters.
         /// 
         /// &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateTargetArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
         /// </summary>
-        [Input("resourceArns")]
+        [PolicyResourceProperty("resourceArns", "_mUnknown_ResourceArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceArns;
-
-        public List<string>? ResourceArns => _mResourceArns.GetValue("resourceArns");
+        private List<string>? _mValue_ResourceArns;
+        private bool _mUnknown_ResourceArns;
+        public List<string>? ResourceArns
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArns) return _mValue_ResourceArns;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateTargetArgs.ResourceArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
         /// </summary>
-        [Input("resourceTags")]
+        [PolicyResourceProperty("resourceTags", "_mUnknown_ResourceTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ExperimentTemplateTargetResourceTagArgs>> _mResourceTags;
-
-        public List<Inputs.ExperimentTemplateTargetResourceTagArgs>? ResourceTags => _mResourceTags.GetValue("resourceTags");
+        private List<Inputs.ExperimentTemplateTargetResourceTagArgs>? _mValue_ResourceTags;
+        private bool _mUnknown_ResourceTags;
+        public List<Inputs.ExperimentTemplateTargetResourceTagArgs>? ResourceTags
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTags) return _mValue_ResourceTags;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateTargetArgs.ResourceTags' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateTargetArgs.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
         /// </summary>
-        [Input("selectionMode")]
+        [PolicyResourceProperty("selectionMode", "_mUnknown_SelectionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSelectionMode;
-
-        public string? SelectionMode => _mSelectionMode.GetValue("selectionMode");
+        private string? _mValue_SelectionMode;
+        private bool _mUnknown_SelectionMode;
+        public string? SelectionMode
+        {
+            get
+            {
+                if (!_mUnknown_SelectionMode) return _mValue_SelectionMode;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateTargetArgs.SelectionMode' is not present");
+            }
+        }
     }
 }

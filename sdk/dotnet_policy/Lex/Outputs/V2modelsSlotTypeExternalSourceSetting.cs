@@ -16,10 +16,17 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// Settings required for a slot type based on a grammar that you provide.
         /// See `grammar_slot_type_setting` argument reference below.
         /// </summary>
-        [Input("grammarSlotTypeSetting")]
+        [PolicyResourceProperty("grammarSlotTypeSetting", "_mUnknown_GrammarSlotTypeSetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting> _mGrammarSlotTypeSetting;
-
-        public Outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting? GrammarSlotTypeSetting => _mGrammarSlotTypeSetting.GetValue("grammarSlotTypeSetting");
+        private Outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting? _mValue_GrammarSlotTypeSetting;
+        private bool _mUnknown_GrammarSlotTypeSetting;
+        public Outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting? GrammarSlotTypeSetting
+        {
+            get
+            {
+                if (!_mUnknown_GrammarSlotTypeSetting) return _mValue_GrammarSlotTypeSetting;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeExternalSourceSetting.GrammarSlotTypeSetting' is not present");
+            }
+        }
     }
 }

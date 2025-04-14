@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty
         /// <summary>
         /// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
         /// </summary>
-        [Input("additionalConfigurations")]
+        [PolicyResourceProperty("additionalConfigurations", "_mUnknown_AdditionalConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DetectorFeatureAdditionalConfiguration>> _mAdditionalConfigurations;
-
-        public List<Outputs.DetectorFeatureAdditionalConfiguration>? AdditionalConfigurations => _mAdditionalConfigurations.GetValue("additionalConfigurations");
+        private List<Outputs.DetectorFeatureAdditionalConfiguration>? _mValue_AdditionalConfigurations;
+        private bool _mUnknown_AdditionalConfigurations;
+        public List<Outputs.DetectorFeatureAdditionalConfiguration>? AdditionalConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalConfigurations) return _mValue_AdditionalConfigurations;
+                throw new UndeferrableValueException("Value 'DetectorFeature.AdditionalConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon GuardDuty detector ID.
         /// </summary>
-        [Input("detectorId")]
+        [PolicyResourceProperty("detectorId", "_mUnknown_DetectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
-
-        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+        private string? _mValue_DetectorId;
+        private bool _mUnknown_DetectorId;
+        public string? DetectorId
+        {
+            get
+            {
+                if (!_mUnknown_DetectorId) return _mValue_DetectorId;
+                throw new UndeferrableValueException("Value 'DetectorFeature.DetectorId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DetectorFeature.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'DetectorFeature.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:guardduty/detectorFeature:DetectorFeature")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty
         /// <summary>
         /// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
         /// </summary>
-        [Input("additionalConfigurations")]
+        [PolicyResourceProperty("additionalConfigurations", "_mUnknown_AdditionalConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DetectorFeatureAdditionalConfigurationArgs>> _mAdditionalConfigurations;
-
-        public List<Inputs.DetectorFeatureAdditionalConfigurationArgs>? AdditionalConfigurations => _mAdditionalConfigurations.GetValue("additionalConfigurations");
+        private List<Inputs.DetectorFeatureAdditionalConfigurationArgs>? _mValue_AdditionalConfigurations;
+        private bool _mUnknown_AdditionalConfigurations;
+        public List<Inputs.DetectorFeatureAdditionalConfigurationArgs>? AdditionalConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalConfigurations) return _mValue_AdditionalConfigurations;
+                throw new UndeferrableValueException("Value 'DetectorFeatureArgs.AdditionalConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon GuardDuty detector ID.
         /// </summary>
-        [Input("detectorId")]
+        [PolicyResourceProperty("detectorId", "_mUnknown_DetectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
-
-        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+        private string? _mValue_DetectorId;
+        private bool _mUnknown_DetectorId;
+        public string? DetectorId
+        {
+            get
+            {
+                if (!_mUnknown_DetectorId) return _mValue_DetectorId;
+                throw new UndeferrableValueException("Value 'DetectorFeatureArgs.DetectorId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DetectorFeatureArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'DetectorFeatureArgs.Status' is not present");
+            }
+        }
     }
 }

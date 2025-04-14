@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
         /// </summary>
-        [Input("assumableRoleArns")]
+        [PolicyResourceProperty("assumableRoleArns", "_mUnknown_AssumableRoleArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAssumableRoleArns;
-
-        public List<string>? AssumableRoleArns => _mAssumableRoleArns.GetValue("assumableRoleArns");
+        private List<string>? _mValue_AssumableRoleArns;
+        private bool _mUnknown_AssumableRoleArns;
+        public List<string>? AssumableRoleArns
+        {
+            get
+            {
+                if (!_mUnknown_AssumableRoleArns) return _mValue_AssumableRoleArns;
+                throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings.AssumableRoleArns' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
         /// </summary>
-        [Input("executionRoleArns")]
+        [PolicyResourceProperty("executionRoleArns", "_mUnknown_ExecutionRoleArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExecutionRoleArns;
-
-        public List<string>? ExecutionRoleArns => _mExecutionRoleArns.GetValue("executionRoleArns");
+        private List<string>? _mValue_ExecutionRoleArns;
+        private bool _mUnknown_ExecutionRoleArns;
+        public List<string>? ExecutionRoleArns
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArns) return _mValue_ExecutionRoleArns;
+                throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings.ExecutionRoleArns' is not present");
+            }
+        }
     }
 }

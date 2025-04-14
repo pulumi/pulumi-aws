@@ -12,40 +12,82 @@ namespace Pulumi.PolicyPacks.Aws.Dlm.Outputs
 {
     public sealed class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule
     {
-        [Input("cmkArn")]
+        [PolicyResourceProperty("cmkArn", "_mUnknown_CmkArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCmkArn;
+        private string? _mValue_CmkArn;
+        private bool _mUnknown_CmkArn;
+        public string? CmkArn
+        {
+            get
+            {
+                if (!_mUnknown_CmkArn) return _mValue_CmkArn;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule.CmkArn' is not present");
+            }
+        }
 
-        public string? CmkArn => _mCmkArn.GetValue("cmkArn");
-
-        [Input("copyTags")]
+        [PolicyResourceProperty("copyTags", "_mUnknown_CopyTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTags;
+        private bool? _mValue_CopyTags;
+        private bool _mUnknown_CopyTags;
+        public bool? CopyTags
+        {
+            get
+            {
+                if (!_mUnknown_CopyTags) return _mValue_CopyTags;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule.CopyTags' is not present");
+            }
+        }
 
-        public bool? CopyTags => _mCopyTags.GetValue("copyTags");
-
-        [Input("deprecateRule")]
+        [PolicyResourceProperty("deprecateRule", "_mUnknown_DeprecateRule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule> _mDeprecateRule;
+        private Outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule? _mValue_DeprecateRule;
+        private bool _mUnknown_DeprecateRule;
+        public Outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule? DeprecateRule
+        {
+            get
+            {
+                if (!_mUnknown_DeprecateRule) return _mValue_DeprecateRule;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule.DeprecateRule' is not present");
+            }
+        }
 
-        public Outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule? DeprecateRule => _mDeprecateRule.GetValue("deprecateRule");
-
-        [Input("encrypted")]
+        [PolicyResourceProperty("encrypted", "_mUnknown_Encrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypted;
+        private bool? _mValue_Encrypted;
+        private bool _mUnknown_Encrypted;
+        public bool? Encrypted
+        {
+            get
+            {
+                if (!_mUnknown_Encrypted) return _mValue_Encrypted;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule.Encrypted' is not present");
+            }
+        }
 
-        public bool? Encrypted => _mEncrypted.GetValue("encrypted");
-
-        [Input("retainRule")]
+        [PolicyResourceProperty("retainRule", "_mUnknown_RetainRule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule> _mRetainRule;
+        private Outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule? _mValue_RetainRule;
+        private bool _mUnknown_RetainRule;
+        public Outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule? RetainRule
+        {
+            get
+            {
+                if (!_mUnknown_RetainRule) return _mValue_RetainRule;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule.RetainRule' is not present");
+            }
+        }
 
-        public Outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule? RetainRule => _mRetainRule.GetValue("retainRule");
-
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
-
-        public string? Target => _mTarget.GetValue("target");
+        private string? _mValue_Target;
+        private bool _mUnknown_Target;
+        public string? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule.Target' is not present");
+            }
+        }
     }
 }

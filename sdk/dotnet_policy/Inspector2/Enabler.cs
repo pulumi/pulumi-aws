@@ -17,22 +17,36 @@ namespace Pulumi.PolicyPacks.Aws.Inspector2
         /// Set of account IDs.
         /// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         /// </summary>
-        [Input("accountIds")]
+        [PolicyResourceProperty("accountIds", "_mUnknown_AccountIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAccountIds;
-
-        public List<string>? AccountIds => _mAccountIds.GetValue("accountIds");
+        private List<string>? _mValue_AccountIds;
+        private bool _mUnknown_AccountIds;
+        public List<string>? AccountIds
+        {
+            get
+            {
+                if (!_mUnknown_AccountIds) return _mValue_AccountIds;
+                throw new UndeferrableValueException("Value 'Enabler.AccountIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of resources to scan.
         /// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
         /// At least one item is required.
         /// </summary>
-        [Input("resourceTypes")]
+        [PolicyResourceProperty("resourceTypes", "_mUnknown_ResourceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceTypes;
-
-        public List<string>? ResourceTypes => _mResourceTypes.GetValue("resourceTypes");
+        private List<string>? _mValue_ResourceTypes;
+        private bool _mUnknown_ResourceTypes;
+        public List<string>? ResourceTypes
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTypes) return _mValue_ResourceTypes;
+                throw new UndeferrableValueException("Value 'Enabler.ResourceTypes' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:inspector2/enabler:Enabler")]
@@ -42,21 +56,35 @@ namespace Pulumi.PolicyPacks.Aws.Inspector2
         /// Set of account IDs.
         /// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         /// </summary>
-        [Input("accountIds")]
+        [PolicyResourceProperty("accountIds", "_mUnknown_AccountIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAccountIds;
-
-        public List<string>? AccountIds => _mAccountIds.GetValue("accountIds");
+        private List<string>? _mValue_AccountIds;
+        private bool _mUnknown_AccountIds;
+        public List<string>? AccountIds
+        {
+            get
+            {
+                if (!_mUnknown_AccountIds) return _mValue_AccountIds;
+                throw new UndeferrableValueException("Value 'EnablerArgs.AccountIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of resources to scan.
         /// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
         /// At least one item is required.
         /// </summary>
-        [Input("resourceTypes")]
+        [PolicyResourceProperty("resourceTypes", "_mUnknown_ResourceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceTypes;
-
-        public List<string>? ResourceTypes => _mResourceTypes.GetValue("resourceTypes");
+        private List<string>? _mValue_ResourceTypes;
+        private bool _mUnknown_ResourceTypes;
+        public List<string>? ResourceTypes
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTypes) return _mValue_ResourceTypes;
+                throw new UndeferrableValueException("Value 'EnablerArgs.ResourceTypes' is not present");
+            }
+        }
     }
 }

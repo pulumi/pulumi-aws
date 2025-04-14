@@ -16,148 +16,260 @@ namespace Pulumi.PolicyPacks.Aws.IdentityStore
         /// <summary>
         /// Details about the user's address. At most 1 address is allowed. Detailed below.
         /// </summary>
-        [Input("addresses")]
+        [PolicyResourceProperty("addresses", "_mUnknown_Addresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserAddresses> _mAddresses;
-
-        public Outputs.UserAddresses? Addresses => _mAddresses.GetValue("addresses");
+        private Outputs.UserAddresses? _mValue_Addresses;
+        private bool _mUnknown_Addresses;
+        public Outputs.UserAddresses? Addresses
+        {
+            get
+            {
+                if (!_mUnknown_Addresses) return _mValue_Addresses;
+                throw new UndeferrableValueException("Value 'User.Addresses' is not present");
+            }
+        }
 
         /// <summary>
         /// The name that is typically displayed when the user is referenced.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'User.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the user's email. At most 1 email is allowed. Detailed below.
         /// </summary>
-        [Input("emails")]
+        [PolicyResourceProperty("emails", "_mUnknown_Emails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserEmails> _mEmails;
-
-        public Outputs.UserEmails? Emails => _mEmails.GetValue("emails");
+        private Outputs.UserEmails? _mValue_Emails;
+        private bool _mUnknown_Emails;
+        public Outputs.UserEmails? Emails
+        {
+            get
+            {
+                if (!_mUnknown_Emails) return _mValue_Emails;
+                throw new UndeferrableValueException("Value 'User.Emails' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of identifiers issued to this resource by an external identity provider.
         /// </summary>
-        [Input("externalIds")]
+        [PolicyResourceProperty("externalIds", "_mUnknown_ExternalIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UserExternalId>> _mExternalIds;
-
-        public List<Outputs.UserExternalId>? ExternalIds => _mExternalIds.GetValue("externalIds");
+        private List<Outputs.UserExternalId>? _mValue_ExternalIds;
+        private bool _mUnknown_ExternalIds;
+        public List<Outputs.UserExternalId>? ExternalIds
+        {
+            get
+            {
+                if (!_mUnknown_ExternalIds) return _mValue_ExternalIds;
+                throw new UndeferrableValueException("Value 'User.ExternalIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The globally unique identifier for the identity store that this user is in.
         /// </summary>
-        [Input("identityStoreId")]
+        [PolicyResourceProperty("identityStoreId", "_mUnknown_IdentityStoreId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityStoreId;
-
-        public string? IdentityStoreId => _mIdentityStoreId.GetValue("identityStoreId");
+        private string? _mValue_IdentityStoreId;
+        private bool _mUnknown_IdentityStoreId;
+        public string? IdentityStoreId
+        {
+            get
+            {
+                if (!_mUnknown_IdentityStoreId) return _mValue_IdentityStoreId;
+                throw new UndeferrableValueException("Value 'User.IdentityStoreId' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's geographical region or location.
         /// </summary>
-        [Input("locale")]
+        [PolicyResourceProperty("locale", "_mUnknown_Locale")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocale;
-
-        public string? Locale => _mLocale.GetValue("locale");
+        private string? _mValue_Locale;
+        private bool _mUnknown_Locale;
+        public string? Locale
+        {
+            get
+            {
+                if (!_mUnknown_Locale) return _mValue_Locale;
+                throw new UndeferrableValueException("Value 'User.Locale' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the user's full name. Detailed below.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserName> _mName;
-
-        public Outputs.UserName? Name => _mName.GetValue("name");
+        private Outputs.UserName? _mValue_Name;
+        private bool _mUnknown_Name;
+        public Outputs.UserName? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'User.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// An alternate name for the user.
         /// </summary>
-        [Input("nickname")]
+        [PolicyResourceProperty("nickname", "_mUnknown_Nickname")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNickname;
-
-        public string? Nickname => _mNickname.GetValue("nickname");
+        private string? _mValue_Nickname;
+        private bool _mUnknown_Nickname;
+        public string? Nickname
+        {
+            get
+            {
+                if (!_mUnknown_Nickname) return _mValue_Nickname;
+                throw new UndeferrableValueException("Value 'User.Nickname' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         /// </summary>
-        [Input("phoneNumbers")]
+        [PolicyResourceProperty("phoneNumbers", "_mUnknown_PhoneNumbers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPhoneNumbers> _mPhoneNumbers;
-
-        public Outputs.UserPhoneNumbers? PhoneNumbers => _mPhoneNumbers.GetValue("phoneNumbers");
+        private Outputs.UserPhoneNumbers? _mValue_PhoneNumbers;
+        private bool _mUnknown_PhoneNumbers;
+        public Outputs.UserPhoneNumbers? PhoneNumbers
+        {
+            get
+            {
+                if (!_mUnknown_PhoneNumbers) return _mValue_PhoneNumbers;
+                throw new UndeferrableValueException("Value 'User.PhoneNumbers' is not present");
+            }
+        }
 
         /// <summary>
         /// The preferred language of the user.
         /// </summary>
-        [Input("preferredLanguage")]
+        [PolicyResourceProperty("preferredLanguage", "_mUnknown_PreferredLanguage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredLanguage;
-
-        public string? PreferredLanguage => _mPreferredLanguage.GetValue("preferredLanguage");
+        private string? _mValue_PreferredLanguage;
+        private bool _mUnknown_PreferredLanguage;
+        public string? PreferredLanguage
+        {
+            get
+            {
+                if (!_mUnknown_PreferredLanguage) return _mValue_PreferredLanguage;
+                throw new UndeferrableValueException("Value 'User.PreferredLanguage' is not present");
+            }
+        }
 
         /// <summary>
         /// An URL that may be associated with the user.
         /// </summary>
-        [Input("profileUrl")]
+        [PolicyResourceProperty("profileUrl", "_mUnknown_ProfileUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProfileUrl;
-
-        public string? ProfileUrl => _mProfileUrl.GetValue("profileUrl");
+        private string? _mValue_ProfileUrl;
+        private bool _mUnknown_ProfileUrl;
+        public string? ProfileUrl
+        {
+            get
+            {
+                if (!_mUnknown_ProfileUrl) return _mValue_ProfileUrl;
+                throw new UndeferrableValueException("Value 'User.ProfileUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's time zone.
         /// </summary>
-        [Input("timezone")]
+        [PolicyResourceProperty("timezone", "_mUnknown_Timezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimezone;
-
-        public string? Timezone => _mTimezone.GetValue("timezone");
+        private string? _mValue_Timezone;
+        private bool _mUnknown_Timezone;
+        public string? Timezone
+        {
+            get
+            {
+                if (!_mUnknown_Timezone) return _mValue_Timezone;
+                throw new UndeferrableValueException("Value 'User.Timezone' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's title.
         /// </summary>
-        [Input("title")]
+        [PolicyResourceProperty("title", "_mUnknown_Title")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTitle;
-
-        public string? Title => _mTitle.GetValue("title");
+        private string? _mValue_Title;
+        private bool _mUnknown_Title;
+        public string? Title
+        {
+            get
+            {
+                if (!_mUnknown_Title) return _mValue_Title;
+                throw new UndeferrableValueException("Value 'User.Title' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for this user in the identity store.
         /// </summary>
-        [Input("userId")]
+        [PolicyResourceProperty("userId", "_mUnknown_UserId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserId;
-
-        public string? UserId => _mUserId.GetValue("userId");
+        private string? _mValue_UserId;
+        private bool _mUnknown_UserId;
+        public string? UserId
+        {
+            get
+            {
+                if (!_mUnknown_UserId) return _mValue_UserId;
+                throw new UndeferrableValueException("Value 'User.UserId' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'User.UserName' is not present");
+            }
+        }
 
         /// <summary>
         /// The user type.
         /// </summary>
-        [Input("userType")]
+        [PolicyResourceProperty("userType", "_mUnknown_UserType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserType;
-
-        public string? UserType => _mUserType.GetValue("userType");
+        private string? _mValue_UserType;
+        private bool _mUnknown_UserType;
+        public string? UserType
+        {
+            get
+            {
+                if (!_mUnknown_UserType) return _mValue_UserType;
+                throw new UndeferrableValueException("Value 'User.UserType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:identitystore/user:User")]
@@ -166,129 +278,227 @@ namespace Pulumi.PolicyPacks.Aws.IdentityStore
         /// <summary>
         /// Details about the user's address. At most 1 address is allowed. Detailed below.
         /// </summary>
-        [Input("addresses")]
+        [PolicyResourceProperty("addresses", "_mUnknown_Addresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserAddressesArgs> _mAddresses;
-
-        public Inputs.UserAddressesArgs? Addresses => _mAddresses.GetValue("addresses");
+        private Inputs.UserAddressesArgs? _mValue_Addresses;
+        private bool _mUnknown_Addresses;
+        public Inputs.UserAddressesArgs? Addresses
+        {
+            get
+            {
+                if (!_mUnknown_Addresses) return _mValue_Addresses;
+                throw new UndeferrableValueException("Value 'UserArgs.Addresses' is not present");
+            }
+        }
 
         /// <summary>
         /// The name that is typically displayed when the user is referenced.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'UserArgs.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the user's email. At most 1 email is allowed. Detailed below.
         /// </summary>
-        [Input("emails")]
+        [PolicyResourceProperty("emails", "_mUnknown_Emails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserEmailsArgs> _mEmails;
-
-        public Inputs.UserEmailsArgs? Emails => _mEmails.GetValue("emails");
+        private Inputs.UserEmailsArgs? _mValue_Emails;
+        private bool _mUnknown_Emails;
+        public Inputs.UserEmailsArgs? Emails
+        {
+            get
+            {
+                if (!_mUnknown_Emails) return _mValue_Emails;
+                throw new UndeferrableValueException("Value 'UserArgs.Emails' is not present");
+            }
+        }
 
         /// <summary>
         /// The globally unique identifier for the identity store that this user is in.
         /// </summary>
-        [Input("identityStoreId")]
+        [PolicyResourceProperty("identityStoreId", "_mUnknown_IdentityStoreId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityStoreId;
-
-        public string? IdentityStoreId => _mIdentityStoreId.GetValue("identityStoreId");
+        private string? _mValue_IdentityStoreId;
+        private bool _mUnknown_IdentityStoreId;
+        public string? IdentityStoreId
+        {
+            get
+            {
+                if (!_mUnknown_IdentityStoreId) return _mValue_IdentityStoreId;
+                throw new UndeferrableValueException("Value 'UserArgs.IdentityStoreId' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's geographical region or location.
         /// </summary>
-        [Input("locale")]
+        [PolicyResourceProperty("locale", "_mUnknown_Locale")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocale;
-
-        public string? Locale => _mLocale.GetValue("locale");
+        private string? _mValue_Locale;
+        private bool _mUnknown_Locale;
+        public string? Locale
+        {
+            get
+            {
+                if (!_mUnknown_Locale) return _mValue_Locale;
+                throw new UndeferrableValueException("Value 'UserArgs.Locale' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the user's full name. Detailed below.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserNameArgs> _mName;
-
-        public Inputs.UserNameArgs? Name => _mName.GetValue("name");
+        private Inputs.UserNameArgs? _mValue_Name;
+        private bool _mUnknown_Name;
+        public Inputs.UserNameArgs? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UserArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// An alternate name for the user.
         /// </summary>
-        [Input("nickname")]
+        [PolicyResourceProperty("nickname", "_mUnknown_Nickname")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNickname;
-
-        public string? Nickname => _mNickname.GetValue("nickname");
+        private string? _mValue_Nickname;
+        private bool _mUnknown_Nickname;
+        public string? Nickname
+        {
+            get
+            {
+                if (!_mUnknown_Nickname) return _mValue_Nickname;
+                throw new UndeferrableValueException("Value 'UserArgs.Nickname' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         /// </summary>
-        [Input("phoneNumbers")]
+        [PolicyResourceProperty("phoneNumbers", "_mUnknown_PhoneNumbers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPhoneNumbersArgs> _mPhoneNumbers;
-
-        public Inputs.UserPhoneNumbersArgs? PhoneNumbers => _mPhoneNumbers.GetValue("phoneNumbers");
+        private Inputs.UserPhoneNumbersArgs? _mValue_PhoneNumbers;
+        private bool _mUnknown_PhoneNumbers;
+        public Inputs.UserPhoneNumbersArgs? PhoneNumbers
+        {
+            get
+            {
+                if (!_mUnknown_PhoneNumbers) return _mValue_PhoneNumbers;
+                throw new UndeferrableValueException("Value 'UserArgs.PhoneNumbers' is not present");
+            }
+        }
 
         /// <summary>
         /// The preferred language of the user.
         /// </summary>
-        [Input("preferredLanguage")]
+        [PolicyResourceProperty("preferredLanguage", "_mUnknown_PreferredLanguage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredLanguage;
-
-        public string? PreferredLanguage => _mPreferredLanguage.GetValue("preferredLanguage");
+        private string? _mValue_PreferredLanguage;
+        private bool _mUnknown_PreferredLanguage;
+        public string? PreferredLanguage
+        {
+            get
+            {
+                if (!_mUnknown_PreferredLanguage) return _mValue_PreferredLanguage;
+                throw new UndeferrableValueException("Value 'UserArgs.PreferredLanguage' is not present");
+            }
+        }
 
         /// <summary>
         /// An URL that may be associated with the user.
         /// </summary>
-        [Input("profileUrl")]
+        [PolicyResourceProperty("profileUrl", "_mUnknown_ProfileUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProfileUrl;
-
-        public string? ProfileUrl => _mProfileUrl.GetValue("profileUrl");
+        private string? _mValue_ProfileUrl;
+        private bool _mUnknown_ProfileUrl;
+        public string? ProfileUrl
+        {
+            get
+            {
+                if (!_mUnknown_ProfileUrl) return _mValue_ProfileUrl;
+                throw new UndeferrableValueException("Value 'UserArgs.ProfileUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's time zone.
         /// </summary>
-        [Input("timezone")]
+        [PolicyResourceProperty("timezone", "_mUnknown_Timezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimezone;
-
-        public string? Timezone => _mTimezone.GetValue("timezone");
+        private string? _mValue_Timezone;
+        private bool _mUnknown_Timezone;
+        public string? Timezone
+        {
+            get
+            {
+                if (!_mUnknown_Timezone) return _mValue_Timezone;
+                throw new UndeferrableValueException("Value 'UserArgs.Timezone' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's title.
         /// </summary>
-        [Input("title")]
+        [PolicyResourceProperty("title", "_mUnknown_Title")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTitle;
-
-        public string? Title => _mTitle.GetValue("title");
+        private string? _mValue_Title;
+        private bool _mUnknown_Title;
+        public string? Title
+        {
+            get
+            {
+                if (!_mUnknown_Title) return _mValue_Title;
+                throw new UndeferrableValueException("Value 'UserArgs.Title' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'UserArgs.UserName' is not present");
+            }
+        }
 
         /// <summary>
         /// The user type.
         /// </summary>
-        [Input("userType")]
+        [PolicyResourceProperty("userType", "_mUnknown_UserType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserType;
-
-        public string? UserType => _mUserType.GetValue("userType");
+        private string? _mValue_UserType;
+        private bool _mUnknown_UserType;
+        public string? UserType
+        {
+            get
+            {
+                if (!_mUnknown_UserType) return _mValue_UserType;
+                throw new UndeferrableValueException("Value 'UserArgs.UserType' is not present");
+            }
+        }
     }
 }

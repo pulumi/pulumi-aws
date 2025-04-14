@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.SsmContacts.Outputs
 {
     public sealed class GetPlanStageTargetChannelTargetInfoResult
     {
-        [Input("contactChannelId")]
+        [PolicyResourceProperty("contactChannelId", "_mUnknown_ContactChannelId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContactChannelId;
+        private string? _mValue_ContactChannelId;
+        private bool _mUnknown_ContactChannelId;
+        public string? ContactChannelId
+        {
+            get
+            {
+                if (!_mUnknown_ContactChannelId) return _mValue_ContactChannelId;
+                throw new UndeferrableValueException("Value 'GetPlanStageTargetChannelTargetInfoResult.ContactChannelId' is not present");
+            }
+        }
 
-        public string? ContactChannelId => _mContactChannelId.GetValue("contactChannelId");
-
-        [Input("retryIntervalInMinutes")]
+        [PolicyResourceProperty("retryIntervalInMinutes", "_mUnknown_RetryIntervalInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetryIntervalInMinutes;
-
-        public int? RetryIntervalInMinutes => _mRetryIntervalInMinutes.GetValue("retryIntervalInMinutes");
+        private int? _mValue_RetryIntervalInMinutes;
+        private bool _mUnknown_RetryIntervalInMinutes;
+        public int? RetryIntervalInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_RetryIntervalInMinutes) return _mValue_RetryIntervalInMinutes;
+                throw new UndeferrableValueException("Value 'GetPlanStageTargetChannelTargetInfoResult.RetryIntervalInMinutes' is not present");
+            }
+        }
     }
 }

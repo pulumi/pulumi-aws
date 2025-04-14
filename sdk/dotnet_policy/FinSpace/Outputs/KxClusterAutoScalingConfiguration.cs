@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace.Outputs
         /// <summary>
         /// Metric your cluster will track in order to scale in and out. For example, CPU_UTILIZATION_PERCENTAGE is the average CPU usage across all nodes in a cluster.
         /// </summary>
-        [Input("autoScalingMetric")]
+        [PolicyResourceProperty("autoScalingMetric", "_mUnknown_AutoScalingMetric")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingMetric;
-
-        public string? AutoScalingMetric => _mAutoScalingMetric.GetValue("autoScalingMetric");
+        private string? _mValue_AutoScalingMetric;
+        private bool _mUnknown_AutoScalingMetric;
+        public string? AutoScalingMetric
+        {
+            get
+            {
+                if (!_mUnknown_AutoScalingMetric) return _mValue_AutoScalingMetric;
+                throw new UndeferrableValueException("Value 'KxClusterAutoScalingConfiguration.AutoScalingMetric' is not present");
+            }
+        }
 
         /// <summary>
         /// Highest number of nodes to scale. Cannot be greater than 5
         /// </summary>
-        [Input("maxNodeCount")]
+        [PolicyResourceProperty("maxNodeCount", "_mUnknown_MaxNodeCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxNodeCount;
-
-        public int? MaxNodeCount => _mMaxNodeCount.GetValue("maxNodeCount");
+        private int? _mValue_MaxNodeCount;
+        private bool _mUnknown_MaxNodeCount;
+        public int? MaxNodeCount
+        {
+            get
+            {
+                if (!_mUnknown_MaxNodeCount) return _mValue_MaxNodeCount;
+                throw new UndeferrableValueException("Value 'KxClusterAutoScalingConfiguration.MaxNodeCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Desired value of chosen `auto_scaling_metric`. When metric drops below this value, cluster will scale in. When metric goes above this value, cluster will scale out. Can be set between 0 and 100 percent.
         /// </summary>
-        [Input("metricTarget")]
+        [PolicyResourceProperty("metricTarget", "_mUnknown_MetricTarget")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mMetricTarget;
-
-        public double? MetricTarget => _mMetricTarget.GetValue("metricTarget");
+        private double? _mValue_MetricTarget;
+        private bool _mUnknown_MetricTarget;
+        public double? MetricTarget
+        {
+            get
+            {
+                if (!_mUnknown_MetricTarget) return _mValue_MetricTarget;
+                throw new UndeferrableValueException("Value 'KxClusterAutoScalingConfiguration.MetricTarget' is not present");
+            }
+        }
 
         /// <summary>
         /// Lowest number of nodes to scale. Must be at least 1 and less than the `max_node_count`. If nodes in cluster belong to multiple availability zones, then `min_node_count` must be at least 3.
         /// </summary>
-        [Input("minNodeCount")]
+        [PolicyResourceProperty("minNodeCount", "_mUnknown_MinNodeCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinNodeCount;
-
-        public int? MinNodeCount => _mMinNodeCount.GetValue("minNodeCount");
+        private int? _mValue_MinNodeCount;
+        private bool _mUnknown_MinNodeCount;
+        public int? MinNodeCount
+        {
+            get
+            {
+                if (!_mUnknown_MinNodeCount) return _mValue_MinNodeCount;
+                throw new UndeferrableValueException("Value 'KxClusterAutoScalingConfiguration.MinNodeCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Duration in seconds that FinSpace will wait after a scale in event before initiating another scaling event.
         /// </summary>
-        [Input("scaleInCooldownSeconds")]
+        [PolicyResourceProperty("scaleInCooldownSeconds", "_mUnknown_ScaleInCooldownSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mScaleInCooldownSeconds;
-
-        public double? ScaleInCooldownSeconds => _mScaleInCooldownSeconds.GetValue("scaleInCooldownSeconds");
+        private double? _mValue_ScaleInCooldownSeconds;
+        private bool _mUnknown_ScaleInCooldownSeconds;
+        public double? ScaleInCooldownSeconds
+        {
+            get
+            {
+                if (!_mUnknown_ScaleInCooldownSeconds) return _mValue_ScaleInCooldownSeconds;
+                throw new UndeferrableValueException("Value 'KxClusterAutoScalingConfiguration.ScaleInCooldownSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Duration in seconds that FinSpace will wait after a scale out event before initiating another scaling event.
         /// </summary>
-        [Input("scaleOutCooldownSeconds")]
+        [PolicyResourceProperty("scaleOutCooldownSeconds", "_mUnknown_ScaleOutCooldownSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mScaleOutCooldownSeconds;
-
-        public double? ScaleOutCooldownSeconds => _mScaleOutCooldownSeconds.GetValue("scaleOutCooldownSeconds");
+        private double? _mValue_ScaleOutCooldownSeconds;
+        private bool _mUnknown_ScaleOutCooldownSeconds;
+        public double? ScaleOutCooldownSeconds
+        {
+            get
+            {
+                if (!_mUnknown_ScaleOutCooldownSeconds) return _mValue_ScaleOutCooldownSeconds;
+                throw new UndeferrableValueException("Value 'KxClusterAutoScalingConfiguration.ScaleOutCooldownSeconds' is not present");
+            }
+        }
     }
 }

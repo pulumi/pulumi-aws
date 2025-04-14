@@ -15,56 +15,98 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
         /// </summary>
-        [Input("configureAtLaunch")]
+        [PolicyResourceProperty("configureAtLaunch", "_mUnknown_ConfigureAtLaunch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mConfigureAtLaunch;
-
-        public bool? ConfigureAtLaunch => _mConfigureAtLaunch.GetValue("configureAtLaunch");
+        private bool? _mValue_ConfigureAtLaunch;
+        private bool _mUnknown_ConfigureAtLaunch;
+        public bool? ConfigureAtLaunch
+        {
+            get
+            {
+                if (!_mUnknown_ConfigureAtLaunch) return _mValue_ConfigureAtLaunch;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionVolumeResult.ConfigureAtLaunch' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to configure a docker volume. Detailed below.
         /// </summary>
-        [Input("dockerVolumeConfigurations")]
+        [PolicyResourceProperty("dockerVolumeConfigurations", "_mUnknown_DockerVolumeConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetTaskDefinitionVolumeDockerVolumeConfigurationResult>> _mDockerVolumeConfigurations;
-
-        public List<Outputs.GetTaskDefinitionVolumeDockerVolumeConfigurationResult>? DockerVolumeConfigurations => _mDockerVolumeConfigurations.GetValue("dockerVolumeConfigurations");
+        private List<Outputs.GetTaskDefinitionVolumeDockerVolumeConfigurationResult>? _mValue_DockerVolumeConfigurations;
+        private bool _mUnknown_DockerVolumeConfigurations;
+        public List<Outputs.GetTaskDefinitionVolumeDockerVolumeConfigurationResult>? DockerVolumeConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_DockerVolumeConfigurations) return _mValue_DockerVolumeConfigurations;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionVolumeResult.DockerVolumeConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for an EFS volume. Detailed below.
         /// </summary>
-        [Input("efsVolumeConfigurations")]
+        [PolicyResourceProperty("efsVolumeConfigurations", "_mUnknown_EfsVolumeConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetTaskDefinitionVolumeEfsVolumeConfigurationResult>> _mEfsVolumeConfigurations;
-
-        public List<Outputs.GetTaskDefinitionVolumeEfsVolumeConfigurationResult>? EfsVolumeConfigurations => _mEfsVolumeConfigurations.GetValue("efsVolumeConfigurations");
+        private List<Outputs.GetTaskDefinitionVolumeEfsVolumeConfigurationResult>? _mValue_EfsVolumeConfigurations;
+        private bool _mUnknown_EfsVolumeConfigurations;
+        public List<Outputs.GetTaskDefinitionVolumeEfsVolumeConfigurationResult>? EfsVolumeConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_EfsVolumeConfigurations) return _mValue_EfsVolumeConfigurations;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionVolumeResult.EfsVolumeConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for an FSX Windows File Server volume. Detailed below.
         /// </summary>
-        [Input("fsxWindowsFileServerVolumeConfigurations")]
+        [PolicyResourceProperty("fsxWindowsFileServerVolumeConfigurations", "_mUnknown_FsxWindowsFileServerVolumeConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationResult>> _mFsxWindowsFileServerVolumeConfigurations;
-
-        public List<Outputs.GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationResult>? FsxWindowsFileServerVolumeConfigurations => _mFsxWindowsFileServerVolumeConfigurations.GetValue("fsxWindowsFileServerVolumeConfigurations");
+        private List<Outputs.GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationResult>? _mValue_FsxWindowsFileServerVolumeConfigurations;
+        private bool _mUnknown_FsxWindowsFileServerVolumeConfigurations;
+        public List<Outputs.GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationResult>? FsxWindowsFileServerVolumeConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_FsxWindowsFileServerVolumeConfigurations) return _mValue_FsxWindowsFileServerVolumeConfigurations;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionVolumeResult.FsxWindowsFileServerVolumeConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
         /// </summary>
-        [Input("hostPath")]
+        [PolicyResourceProperty("hostPath", "_mUnknown_HostPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostPath;
-
-        public string? HostPath => _mHostPath.GetValue("hostPath");
+        private string? _mValue_HostPath;
+        private bool _mUnknown_HostPath;
+        public string? HostPath
+        {
+            get
+            {
+                if (!_mUnknown_HostPath) return _mValue_HostPath;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionVolumeResult.HostPath' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the volume. This name is referenced in the `sourceVolume`
         /// parameter of container definition in the `mountPoints` section.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionVolumeResult.Name' is not present");
+            }
+        }
     }
 }

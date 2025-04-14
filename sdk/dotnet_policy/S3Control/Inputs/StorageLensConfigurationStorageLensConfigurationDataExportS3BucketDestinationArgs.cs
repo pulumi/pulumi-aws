@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Inputs
         /// <summary>
         /// The account ID of the owner of the S3 Storage Lens metrics export bucket.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the bucket.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Encryption of the metrics exports in this bucket. See Encryption below for more details.
         /// </summary>
-        [Input("encryption")]
+        [PolicyResourceProperty("encryption", "_mUnknown_Encryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs> _mEncryption;
-
-        public Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs? Encryption => _mEncryption.GetValue("encryption");
+        private Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs? _mValue_Encryption;
+        private bool _mUnknown_Encryption;
+        public Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs? Encryption
+        {
+            get
+            {
+                if (!_mUnknown_Encryption) return _mValue_Encryption;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.Encryption' is not present");
+            }
+        }
 
         /// <summary>
         /// The export format. Valid values: `CSV`, `Parquet`.
         /// </summary>
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
-
-        public string? Format => _mFormat.GetValue("format");
+        private string? _mValue_Format;
+        private bool _mUnknown_Format;
+        public string? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.Format' is not present");
+            }
+        }
 
         /// <summary>
         /// The schema version of the export file. Valid values: `V_1`.
         /// </summary>
-        [Input("outputSchemaVersion")]
+        [PolicyResourceProperty("outputSchemaVersion", "_mUnknown_OutputSchemaVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputSchemaVersion;
-
-        public string? OutputSchemaVersion => _mOutputSchemaVersion.GetValue("outputSchemaVersion");
+        private string? _mValue_OutputSchemaVersion;
+        private bool _mUnknown_OutputSchemaVersion;
+        public string? OutputSchemaVersion
+        {
+            get
+            {
+                if (!_mUnknown_OutputSchemaVersion) return _mValue_OutputSchemaVersion;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.OutputSchemaVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The prefix of the destination bucket where the metrics export will be delivered.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.Prefix' is not present");
+            }
+        }
     }
 }

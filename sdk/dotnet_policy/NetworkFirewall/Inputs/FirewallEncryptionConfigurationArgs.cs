@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Inputs
         /// <summary>
         /// The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
         /// </summary>
-        [Input("keyId")]
+        [PolicyResourceProperty("keyId", "_mUnknown_KeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
-
-        public string? KeyId => _mKeyId.GetValue("keyId");
+        private string? _mValue_KeyId;
+        private bool _mUnknown_KeyId;
+        public string? KeyId
+        {
+            get
+            {
+                if (!_mUnknown_KeyId) return _mValue_KeyId;
+                throw new UndeferrableValueException("Value 'FirewallEncryptionConfigurationArgs.KeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'FirewallEncryptionConfigurationArgs.Type' is not present");
+            }
+        }
     }
 }

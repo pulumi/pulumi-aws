@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2.Inputs
         /// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
         /// Defaults to `false`. Supported only for WebSocket APIs.
         /// </summary>
-        [Input("dataTraceEnabled")]
+        [PolicyResourceProperty("dataTraceEnabled", "_mUnknown_DataTraceEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDataTraceEnabled;
-
-        public bool? DataTraceEnabled => _mDataTraceEnabled.GetValue("dataTraceEnabled");
+        private bool? _mValue_DataTraceEnabled;
+        private bool _mUnknown_DataTraceEnabled;
+        public bool? DataTraceEnabled
+        {
+            get
+            {
+                if (!_mUnknown_DataTraceEnabled) return _mValue_DataTraceEnabled;
+                throw new UndeferrableValueException("Value 'StageDefaultRouteSettingsArgs.DataTraceEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether detailed metrics are enabled for the default route. Defaults to `false`.
         /// </summary>
-        [Input("detailedMetricsEnabled")]
+        [PolicyResourceProperty("detailedMetricsEnabled", "_mUnknown_DetailedMetricsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDetailedMetricsEnabled;
-
-        public bool? DetailedMetricsEnabled => _mDetailedMetricsEnabled.GetValue("detailedMetricsEnabled");
+        private bool? _mValue_DetailedMetricsEnabled;
+        private bool _mUnknown_DetailedMetricsEnabled;
+        public bool? DetailedMetricsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_DetailedMetricsEnabled) return _mValue_DetailedMetricsEnabled;
+                throw new UndeferrableValueException("Value 'StageDefaultRouteSettingsArgs.DetailedMetricsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
         /// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
-        [Input("loggingLevel")]
+        [PolicyResourceProperty("loggingLevel", "_mUnknown_LoggingLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoggingLevel;
-
-        public string? LoggingLevel => _mLoggingLevel.GetValue("loggingLevel");
+        private string? _mValue_LoggingLevel;
+        private bool _mUnknown_LoggingLevel;
+        public string? LoggingLevel
+        {
+            get
+            {
+                if (!_mUnknown_LoggingLevel) return _mValue_LoggingLevel;
+                throw new UndeferrableValueException("Value 'StageDefaultRouteSettingsArgs.LoggingLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// Throttling burst limit for the default route.
         /// </summary>
-        [Input("throttlingBurstLimit")]
+        [PolicyResourceProperty("throttlingBurstLimit", "_mUnknown_ThrottlingBurstLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThrottlingBurstLimit;
-
-        public int? ThrottlingBurstLimit => _mThrottlingBurstLimit.GetValue("throttlingBurstLimit");
+        private int? _mValue_ThrottlingBurstLimit;
+        private bool _mUnknown_ThrottlingBurstLimit;
+        public int? ThrottlingBurstLimit
+        {
+            get
+            {
+                if (!_mUnknown_ThrottlingBurstLimit) return _mValue_ThrottlingBurstLimit;
+                throw new UndeferrableValueException("Value 'StageDefaultRouteSettingsArgs.ThrottlingBurstLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// Throttling rate limit for the default route.
         /// </summary>
-        [Input("throttlingRateLimit")]
+        [PolicyResourceProperty("throttlingRateLimit", "_mUnknown_ThrottlingRateLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mThrottlingRateLimit;
-
-        public double? ThrottlingRateLimit => _mThrottlingRateLimit.GetValue("throttlingRateLimit");
+        private double? _mValue_ThrottlingRateLimit;
+        private bool _mUnknown_ThrottlingRateLimit;
+        public double? ThrottlingRateLimit
+        {
+            get
+            {
+                if (!_mUnknown_ThrottlingRateLimit) return _mValue_ThrottlingRateLimit;
+                throw new UndeferrableValueException("Value 'StageDefaultRouteSettingsArgs.ThrottlingRateLimit' is not present");
+            }
+        }
     }
 }

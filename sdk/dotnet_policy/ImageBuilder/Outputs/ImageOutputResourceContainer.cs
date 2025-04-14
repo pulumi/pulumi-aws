@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Set of URIs for created containers.
         /// </summary>
-        [Input("imageUris")]
+        [PolicyResourceProperty("imageUris", "_mUnknown_ImageUris")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mImageUris;
-
-        public List<string>? ImageUris => _mImageUris.GetValue("imageUris");
+        private List<string>? _mValue_ImageUris;
+        private bool _mUnknown_ImageUris;
+        public List<string>? ImageUris
+        {
+            get
+            {
+                if (!_mUnknown_ImageUris) return _mValue_ImageUris;
+                throw new UndeferrableValueException("Value 'ImageOutputResourceContainer.ImageUris' is not present");
+            }
+        }
 
         /// <summary>
         /// Region of the container image.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'ImageOutputResourceContainer.Region' is not present");
+            }
+        }
     }
 }

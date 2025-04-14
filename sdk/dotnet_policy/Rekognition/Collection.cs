@@ -16,55 +16,97 @@ namespace Pulumi.PolicyPacks.Aws.Rekognition
         /// <summary>
         /// ARN of the Collection.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Collection.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the collection
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("collectionId")]
+        [PolicyResourceProperty("collectionId", "_mUnknown_CollectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollectionId;
-
-        public string? CollectionId => _mCollectionId.GetValue("collectionId");
+        private string? _mValue_CollectionId;
+        private bool _mUnknown_CollectionId;
+        public string? CollectionId
+        {
+            get
+            {
+                if (!_mUnknown_CollectionId) return _mValue_CollectionId;
+                throw new UndeferrableValueException("Value 'Collection.CollectionId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Face Model Version that the collection was initialized with
         /// </summary>
-        [Input("faceModelVersion")]
+        [PolicyResourceProperty("faceModelVersion", "_mUnknown_FaceModelVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFaceModelVersion;
-
-        public string? FaceModelVersion => _mFaceModelVersion.GetValue("faceModelVersion");
+        private string? _mValue_FaceModelVersion;
+        private bool _mUnknown_FaceModelVersion;
+        public string? FaceModelVersion
+        {
+            get
+            {
+                if (!_mUnknown_FaceModelVersion) return _mValue_FaceModelVersion;
+                throw new UndeferrableValueException("Value 'Collection.FaceModelVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Collection.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Collection.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CollectionTimeouts> _mTimeouts;
-
-        public Outputs.CollectionTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.CollectionTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.CollectionTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'Collection.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:rekognition/collection:Collection")]
@@ -75,25 +117,46 @@ namespace Pulumi.PolicyPacks.Aws.Rekognition
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("collectionId")]
+        [PolicyResourceProperty("collectionId", "_mUnknown_CollectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollectionId;
-
-        public string? CollectionId => _mCollectionId.GetValue("collectionId");
+        private string? _mValue_CollectionId;
+        private bool _mUnknown_CollectionId;
+        public string? CollectionId
+        {
+            get
+            {
+                if (!_mUnknown_CollectionId) return _mValue_CollectionId;
+                throw new UndeferrableValueException("Value 'CollectionArgs.CollectionId' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CollectionArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CollectionTimeoutsArgs> _mTimeouts;
-
-        public Inputs.CollectionTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.CollectionTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.CollectionTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'CollectionArgs.Timeouts' is not present");
+            }
+        }
     }
 }

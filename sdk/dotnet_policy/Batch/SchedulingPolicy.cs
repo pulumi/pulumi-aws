@@ -16,71 +16,127 @@ namespace Pulumi.PolicyPacks.Aws.Batch
         /// <summary>
         /// The Amazon Resource Name of the scheduling policy.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'SchedulingPolicy.Arn' is not present");
+            }
+        }
 
-        public string? Arn => _mArn.GetValue("arn");
-
-        [Input("fairSharePolicy")]
+        [PolicyResourceProperty("fairSharePolicy", "_mUnknown_FairSharePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SchedulingPolicyFairSharePolicy> _mFairSharePolicy;
-
-        public Outputs.SchedulingPolicyFairSharePolicy? FairSharePolicy => _mFairSharePolicy.GetValue("fairSharePolicy");
+        private Outputs.SchedulingPolicyFairSharePolicy? _mValue_FairSharePolicy;
+        private bool _mUnknown_FairSharePolicy;
+        public Outputs.SchedulingPolicyFairSharePolicy? FairSharePolicy
+        {
+            get
+            {
+                if (!_mUnknown_FairSharePolicy) return _mValue_FairSharePolicy;
+                throw new UndeferrableValueException("Value 'SchedulingPolicy.FairSharePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the scheduling policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SchedulingPolicy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SchedulingPolicy.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'SchedulingPolicy.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:batch/schedulingPolicy:SchedulingPolicy")]
     public sealed class SchedulingPolicyArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("fairSharePolicy")]
+        [PolicyResourceProperty("fairSharePolicy", "_mUnknown_FairSharePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SchedulingPolicyFairSharePolicyArgs> _mFairSharePolicy;
-
-        public Inputs.SchedulingPolicyFairSharePolicyArgs? FairSharePolicy => _mFairSharePolicy.GetValue("fairSharePolicy");
+        private Inputs.SchedulingPolicyFairSharePolicyArgs? _mValue_FairSharePolicy;
+        private bool _mUnknown_FairSharePolicy;
+        public Inputs.SchedulingPolicyFairSharePolicyArgs? FairSharePolicy
+        {
+            get
+            {
+                if (!_mUnknown_FairSharePolicy) return _mValue_FairSharePolicy;
+                throw new UndeferrableValueException("Value 'SchedulingPolicyArgs.FairSharePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the scheduling policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SchedulingPolicyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SchedulingPolicyArgs.Tags' is not present");
+            }
+        }
     }
 }

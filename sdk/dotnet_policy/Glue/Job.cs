@@ -16,200 +16,354 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// Amazon Resource Name (ARN) of Glue Job
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Job.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The command of the job. Defined below.
         /// </summary>
-        [Input("command")]
+        [PolicyResourceProperty("command", "_mUnknown_Command")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JobCommand> _mCommand;
-
-        public Outputs.JobCommand? Command => _mCommand.GetValue("command");
+        private Outputs.JobCommand? _mValue_Command;
+        private bool _mUnknown_Command;
+        public Outputs.JobCommand? Command
+        {
+            get
+            {
+                if (!_mUnknown_Command) return _mValue_Command;
+                throw new UndeferrableValueException("Value 'Job.Command' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of connections used for this job.
         /// </summary>
-        [Input("connections")]
+        [PolicyResourceProperty("connections", "_mUnknown_Connections")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mConnections;
-
-        public List<string>? Connections => _mConnections.GetValue("connections");
+        private List<string>? _mValue_Connections;
+        private bool _mUnknown_Connections;
+        public List<string>? Connections
+        {
+            get
+            {
+                if (!_mUnknown_Connections) return _mValue_Connections;
+                throw new UndeferrableValueException("Value 'Job.Connections' is not present");
+            }
+        }
 
         /// <summary>
         /// The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         /// </summary>
-        [Input("defaultArguments")]
+        [PolicyResourceProperty("defaultArguments", "_mUnknown_DefaultArguments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mDefaultArguments;
-
-        public Dictionary<string, string>? DefaultArguments => _mDefaultArguments.GetValue("defaultArguments");
+        private Dictionary<string, string>? _mValue_DefaultArguments;
+        private bool _mUnknown_DefaultArguments;
+        public Dictionary<string, string>? DefaultArguments
+        {
+            get
+            {
+                if (!_mUnknown_DefaultArguments) return _mValue_DefaultArguments;
+                throw new UndeferrableValueException("Value 'Job.DefaultArguments' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the job.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Job.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
         /// </summary>
-        [Input("executionClass")]
+        [PolicyResourceProperty("executionClass", "_mUnknown_ExecutionClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionClass;
-
-        public string? ExecutionClass => _mExecutionClass.GetValue("executionClass");
+        private string? _mValue_ExecutionClass;
+        private bool _mUnknown_ExecutionClass;
+        public string? ExecutionClass
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionClass) return _mValue_ExecutionClass;
+                throw new UndeferrableValueException("Value 'Job.ExecutionClass' is not present");
+            }
+        }
 
         /// <summary>
         /// Execution property of the job. Defined below.
         /// </summary>
-        [Input("executionProperty")]
+        [PolicyResourceProperty("executionProperty", "_mUnknown_ExecutionProperty")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JobExecutionProperty> _mExecutionProperty;
-
-        public Outputs.JobExecutionProperty? ExecutionProperty => _mExecutionProperty.GetValue("executionProperty");
+        private Outputs.JobExecutionProperty? _mValue_ExecutionProperty;
+        private bool _mUnknown_ExecutionProperty;
+        public Outputs.JobExecutionProperty? ExecutionProperty
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionProperty) return _mValue_ExecutionProperty;
+                throw new UndeferrableValueException("Value 'Job.ExecutionProperty' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         /// </summary>
-        [Input("glueVersion")]
+        [PolicyResourceProperty("glueVersion", "_mUnknown_GlueVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlueVersion;
-
-        public string? GlueVersion => _mGlueVersion.GetValue("glueVersion");
+        private string? _mValue_GlueVersion;
+        private bool _mUnknown_GlueVersion;
+        public string? GlueVersion
+        {
+            get
+            {
+                if (!_mUnknown_GlueVersion) return _mValue_GlueVersion;
+                throw new UndeferrableValueException("Value 'Job.GlueVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
         /// </summary>
-        [Input("jobRunQueuingEnabled")]
+        [PolicyResourceProperty("jobRunQueuingEnabled", "_mUnknown_JobRunQueuingEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mJobRunQueuingEnabled;
-
-        public bool? JobRunQueuingEnabled => _mJobRunQueuingEnabled.GetValue("jobRunQueuingEnabled");
+        private bool? _mValue_JobRunQueuingEnabled;
+        private bool _mUnknown_JobRunQueuingEnabled;
+        public bool? JobRunQueuingEnabled
+        {
+            get
+            {
+                if (!_mUnknown_JobRunQueuingEnabled) return _mValue_JobRunQueuingEnabled;
+                throw new UndeferrableValueException("Value 'Job.JobRunQueuingEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the day of the week and hour for the maintenance window for streaming jobs.
         /// </summary>
-        [Input("maintenanceWindow")]
+        [PolicyResourceProperty("maintenanceWindow", "_mUnknown_MaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaintenanceWindow;
-
-        public string? MaintenanceWindow => _mMaintenanceWindow.GetValue("maintenanceWindow");
+        private string? _mValue_MaintenanceWindow;
+        private bool _mUnknown_MaintenanceWindow;
+        public string? MaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceWindow) return _mValue_MaintenanceWindow;
+                throw new UndeferrableValueException("Value 'Job.MaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         /// </summary>
-        [Input("maxCapacity")]
+        [PolicyResourceProperty("maxCapacity", "_mUnknown_MaxCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mMaxCapacity;
-
-        public double? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
+        private double? _mValue_MaxCapacity;
+        private bool _mUnknown_MaxCapacity;
+        public double? MaxCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MaxCapacity) return _mValue_MaxCapacity;
+                throw new UndeferrableValueException("Value 'Job.MaxCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of times to retry this job if it fails.
         /// </summary>
-        [Input("maxRetries")]
+        [PolicyResourceProperty("maxRetries", "_mUnknown_MaxRetries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRetries;
-
-        public int? MaxRetries => _mMaxRetries.GetValue("maxRetries");
+        private int? _mValue_MaxRetries;
+        private bool _mUnknown_MaxRetries;
+        public int? MaxRetries
+        {
+            get
+            {
+                if (!_mUnknown_MaxRetries) return _mValue_MaxRetries;
+                throw new UndeferrableValueException("Value 'Job.MaxRetries' is not present");
+            }
+        }
 
         /// <summary>
         /// The name you assign to this job. It must be unique in your account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Job.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Non-overridable arguments for this job, specified as name-value pairs.
         /// </summary>
-        [Input("nonOverridableArguments")]
+        [PolicyResourceProperty("nonOverridableArguments", "_mUnknown_NonOverridableArguments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mNonOverridableArguments;
-
-        public Dictionary<string, string>? NonOverridableArguments => _mNonOverridableArguments.GetValue("nonOverridableArguments");
+        private Dictionary<string, string>? _mValue_NonOverridableArguments;
+        private bool _mUnknown_NonOverridableArguments;
+        public Dictionary<string, string>? NonOverridableArguments
+        {
+            get
+            {
+                if (!_mUnknown_NonOverridableArguments) return _mValue_NonOverridableArguments;
+                throw new UndeferrableValueException("Value 'Job.NonOverridableArguments' is not present");
+            }
+        }
 
         /// <summary>
         /// Notification property of the job. Defined below.
         /// </summary>
-        [Input("notificationProperty")]
+        [PolicyResourceProperty("notificationProperty", "_mUnknown_NotificationProperty")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JobNotificationProperty> _mNotificationProperty;
-
-        public Outputs.JobNotificationProperty? NotificationProperty => _mNotificationProperty.GetValue("notificationProperty");
+        private Outputs.JobNotificationProperty? _mValue_NotificationProperty;
+        private bool _mUnknown_NotificationProperty;
+        public Outputs.JobNotificationProperty? NotificationProperty
+        {
+            get
+            {
+                if (!_mUnknown_NotificationProperty) return _mValue_NotificationProperty;
+                throw new UndeferrableValueException("Value 'Job.NotificationProperty' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of workers of a defined workerType that are allocated when a job runs.
         /// </summary>
-        [Input("numberOfWorkers")]
+        [PolicyResourceProperty("numberOfWorkers", "_mUnknown_NumberOfWorkers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfWorkers;
-
-        public int? NumberOfWorkers => _mNumberOfWorkers.GetValue("numberOfWorkers");
+        private int? _mValue_NumberOfWorkers;
+        private bool _mUnknown_NumberOfWorkers;
+        public int? NumberOfWorkers
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfWorkers) return _mValue_NumberOfWorkers;
+                throw new UndeferrableValueException("Value 'Job.NumberOfWorkers' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role associated with this job.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Job.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Security Configuration to be associated with the job.
         /// </summary>
-        [Input("securityConfiguration")]
+        [PolicyResourceProperty("securityConfiguration", "_mUnknown_SecurityConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityConfiguration;
-
-        public string? SecurityConfiguration => _mSecurityConfiguration.GetValue("securityConfiguration");
+        private string? _mValue_SecurityConfiguration;
+        private bool _mUnknown_SecurityConfiguration;
+        public string? SecurityConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SecurityConfiguration) return _mValue_SecurityConfiguration;
+                throw new UndeferrableValueException("Value 'Job.SecurityConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
         /// </summary>
-        [Input("sourceControlDetails")]
+        [PolicyResourceProperty("sourceControlDetails", "_mUnknown_SourceControlDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JobSourceControlDetails> _mSourceControlDetails;
-
-        public Outputs.JobSourceControlDetails? SourceControlDetails => _mSourceControlDetails.GetValue("sourceControlDetails");
+        private Outputs.JobSourceControlDetails? _mValue_SourceControlDetails;
+        private bool _mUnknown_SourceControlDetails;
+        public Outputs.JobSourceControlDetails? SourceControlDetails
+        {
+            get
+            {
+                if (!_mUnknown_SourceControlDetails) return _mValue_SourceControlDetails;
+                throw new UndeferrableValueException("Value 'Job.SourceControlDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Job.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Job.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
         /// </summary>
-        [Input("timeout")]
+        [PolicyResourceProperty("timeout", "_mUnknown_Timeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeout;
-
-        public int? Timeout => _mTimeout.GetValue("timeout");
+        private int? _mValue_Timeout;
+        private bool _mUnknown_Timeout;
+        public int? Timeout
+        {
+            get
+            {
+                if (!_mUnknown_Timeout) return _mValue_Timeout;
+                throw new UndeferrableValueException("Value 'Job.Timeout' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
@@ -221,11 +375,18 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// * For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPU, 4GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for low volume streaming jobs. Only available for Glue version 3.0.
         /// * For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPU, 64 GB of m emory, 128 GB disk), and provides up to 8 Ray workers based on the autoscaler.
         /// </summary>
-        [Input("workerType")]
+        [PolicyResourceProperty("workerType", "_mUnknown_WorkerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkerType;
-
-        public string? WorkerType => _mWorkerType.GetValue("workerType");
+        private string? _mValue_WorkerType;
+        private bool _mUnknown_WorkerType;
+        public string? WorkerType
+        {
+            get
+            {
+                if (!_mUnknown_WorkerType) return _mValue_WorkerType;
+                throw new UndeferrableValueException("Value 'Job.WorkerType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:glue/job:Job")]
@@ -234,182 +395,322 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// The command of the job. Defined below.
         /// </summary>
-        [Input("command")]
+        [PolicyResourceProperty("command", "_mUnknown_Command")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.JobCommandArgs> _mCommand;
-
-        public Inputs.JobCommandArgs? Command => _mCommand.GetValue("command");
+        private Inputs.JobCommandArgs? _mValue_Command;
+        private bool _mUnknown_Command;
+        public Inputs.JobCommandArgs? Command
+        {
+            get
+            {
+                if (!_mUnknown_Command) return _mValue_Command;
+                throw new UndeferrableValueException("Value 'JobArgs.Command' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of connections used for this job.
         /// </summary>
-        [Input("connections")]
+        [PolicyResourceProperty("connections", "_mUnknown_Connections")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mConnections;
-
-        public List<string>? Connections => _mConnections.GetValue("connections");
+        private List<string>? _mValue_Connections;
+        private bool _mUnknown_Connections;
+        public List<string>? Connections
+        {
+            get
+            {
+                if (!_mUnknown_Connections) return _mValue_Connections;
+                throw new UndeferrableValueException("Value 'JobArgs.Connections' is not present");
+            }
+        }
 
         /// <summary>
         /// The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         /// </summary>
-        [Input("defaultArguments")]
+        [PolicyResourceProperty("defaultArguments", "_mUnknown_DefaultArguments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mDefaultArguments;
-
-        public Dictionary<string, string>? DefaultArguments => _mDefaultArguments.GetValue("defaultArguments");
+        private Dictionary<string, string>? _mValue_DefaultArguments;
+        private bool _mUnknown_DefaultArguments;
+        public Dictionary<string, string>? DefaultArguments
+        {
+            get
+            {
+                if (!_mUnknown_DefaultArguments) return _mValue_DefaultArguments;
+                throw new UndeferrableValueException("Value 'JobArgs.DefaultArguments' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the job.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'JobArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
         /// </summary>
-        [Input("executionClass")]
+        [PolicyResourceProperty("executionClass", "_mUnknown_ExecutionClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionClass;
-
-        public string? ExecutionClass => _mExecutionClass.GetValue("executionClass");
+        private string? _mValue_ExecutionClass;
+        private bool _mUnknown_ExecutionClass;
+        public string? ExecutionClass
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionClass) return _mValue_ExecutionClass;
+                throw new UndeferrableValueException("Value 'JobArgs.ExecutionClass' is not present");
+            }
+        }
 
         /// <summary>
         /// Execution property of the job. Defined below.
         /// </summary>
-        [Input("executionProperty")]
+        [PolicyResourceProperty("executionProperty", "_mUnknown_ExecutionProperty")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.JobExecutionPropertyArgs> _mExecutionProperty;
-
-        public Inputs.JobExecutionPropertyArgs? ExecutionProperty => _mExecutionProperty.GetValue("executionProperty");
+        private Inputs.JobExecutionPropertyArgs? _mValue_ExecutionProperty;
+        private bool _mUnknown_ExecutionProperty;
+        public Inputs.JobExecutionPropertyArgs? ExecutionProperty
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionProperty) return _mValue_ExecutionProperty;
+                throw new UndeferrableValueException("Value 'JobArgs.ExecutionProperty' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         /// </summary>
-        [Input("glueVersion")]
+        [PolicyResourceProperty("glueVersion", "_mUnknown_GlueVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlueVersion;
-
-        public string? GlueVersion => _mGlueVersion.GetValue("glueVersion");
+        private string? _mValue_GlueVersion;
+        private bool _mUnknown_GlueVersion;
+        public string? GlueVersion
+        {
+            get
+            {
+                if (!_mUnknown_GlueVersion) return _mValue_GlueVersion;
+                throw new UndeferrableValueException("Value 'JobArgs.GlueVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
         /// </summary>
-        [Input("jobRunQueuingEnabled")]
+        [PolicyResourceProperty("jobRunQueuingEnabled", "_mUnknown_JobRunQueuingEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mJobRunQueuingEnabled;
-
-        public bool? JobRunQueuingEnabled => _mJobRunQueuingEnabled.GetValue("jobRunQueuingEnabled");
+        private bool? _mValue_JobRunQueuingEnabled;
+        private bool _mUnknown_JobRunQueuingEnabled;
+        public bool? JobRunQueuingEnabled
+        {
+            get
+            {
+                if (!_mUnknown_JobRunQueuingEnabled) return _mValue_JobRunQueuingEnabled;
+                throw new UndeferrableValueException("Value 'JobArgs.JobRunQueuingEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the day of the week and hour for the maintenance window for streaming jobs.
         /// </summary>
-        [Input("maintenanceWindow")]
+        [PolicyResourceProperty("maintenanceWindow", "_mUnknown_MaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaintenanceWindow;
-
-        public string? MaintenanceWindow => _mMaintenanceWindow.GetValue("maintenanceWindow");
+        private string? _mValue_MaintenanceWindow;
+        private bool _mUnknown_MaintenanceWindow;
+        public string? MaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceWindow) return _mValue_MaintenanceWindow;
+                throw new UndeferrableValueException("Value 'JobArgs.MaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         /// </summary>
-        [Input("maxCapacity")]
+        [PolicyResourceProperty("maxCapacity", "_mUnknown_MaxCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mMaxCapacity;
-
-        public double? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
+        private double? _mValue_MaxCapacity;
+        private bool _mUnknown_MaxCapacity;
+        public double? MaxCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MaxCapacity) return _mValue_MaxCapacity;
+                throw new UndeferrableValueException("Value 'JobArgs.MaxCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of times to retry this job if it fails.
         /// </summary>
-        [Input("maxRetries")]
+        [PolicyResourceProperty("maxRetries", "_mUnknown_MaxRetries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRetries;
-
-        public int? MaxRetries => _mMaxRetries.GetValue("maxRetries");
+        private int? _mValue_MaxRetries;
+        private bool _mUnknown_MaxRetries;
+        public int? MaxRetries
+        {
+            get
+            {
+                if (!_mUnknown_MaxRetries) return _mValue_MaxRetries;
+                throw new UndeferrableValueException("Value 'JobArgs.MaxRetries' is not present");
+            }
+        }
 
         /// <summary>
         /// The name you assign to this job. It must be unique in your account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'JobArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Non-overridable arguments for this job, specified as name-value pairs.
         /// </summary>
-        [Input("nonOverridableArguments")]
+        [PolicyResourceProperty("nonOverridableArguments", "_mUnknown_NonOverridableArguments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mNonOverridableArguments;
-
-        public Dictionary<string, string>? NonOverridableArguments => _mNonOverridableArguments.GetValue("nonOverridableArguments");
+        private Dictionary<string, string>? _mValue_NonOverridableArguments;
+        private bool _mUnknown_NonOverridableArguments;
+        public Dictionary<string, string>? NonOverridableArguments
+        {
+            get
+            {
+                if (!_mUnknown_NonOverridableArguments) return _mValue_NonOverridableArguments;
+                throw new UndeferrableValueException("Value 'JobArgs.NonOverridableArguments' is not present");
+            }
+        }
 
         /// <summary>
         /// Notification property of the job. Defined below.
         /// </summary>
-        [Input("notificationProperty")]
+        [PolicyResourceProperty("notificationProperty", "_mUnknown_NotificationProperty")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.JobNotificationPropertyArgs> _mNotificationProperty;
-
-        public Inputs.JobNotificationPropertyArgs? NotificationProperty => _mNotificationProperty.GetValue("notificationProperty");
+        private Inputs.JobNotificationPropertyArgs? _mValue_NotificationProperty;
+        private bool _mUnknown_NotificationProperty;
+        public Inputs.JobNotificationPropertyArgs? NotificationProperty
+        {
+            get
+            {
+                if (!_mUnknown_NotificationProperty) return _mValue_NotificationProperty;
+                throw new UndeferrableValueException("Value 'JobArgs.NotificationProperty' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of workers of a defined workerType that are allocated when a job runs.
         /// </summary>
-        [Input("numberOfWorkers")]
+        [PolicyResourceProperty("numberOfWorkers", "_mUnknown_NumberOfWorkers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfWorkers;
-
-        public int? NumberOfWorkers => _mNumberOfWorkers.GetValue("numberOfWorkers");
+        private int? _mValue_NumberOfWorkers;
+        private bool _mUnknown_NumberOfWorkers;
+        public int? NumberOfWorkers
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfWorkers) return _mValue_NumberOfWorkers;
+                throw new UndeferrableValueException("Value 'JobArgs.NumberOfWorkers' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role associated with this job.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'JobArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Security Configuration to be associated with the job.
         /// </summary>
-        [Input("securityConfiguration")]
+        [PolicyResourceProperty("securityConfiguration", "_mUnknown_SecurityConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityConfiguration;
-
-        public string? SecurityConfiguration => _mSecurityConfiguration.GetValue("securityConfiguration");
+        private string? _mValue_SecurityConfiguration;
+        private bool _mUnknown_SecurityConfiguration;
+        public string? SecurityConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SecurityConfiguration) return _mValue_SecurityConfiguration;
+                throw new UndeferrableValueException("Value 'JobArgs.SecurityConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
         /// </summary>
-        [Input("sourceControlDetails")]
+        [PolicyResourceProperty("sourceControlDetails", "_mUnknown_SourceControlDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.JobSourceControlDetailsArgs> _mSourceControlDetails;
-
-        public Inputs.JobSourceControlDetailsArgs? SourceControlDetails => _mSourceControlDetails.GetValue("sourceControlDetails");
+        private Inputs.JobSourceControlDetailsArgs? _mValue_SourceControlDetails;
+        private bool _mUnknown_SourceControlDetails;
+        public Inputs.JobSourceControlDetailsArgs? SourceControlDetails
+        {
+            get
+            {
+                if (!_mUnknown_SourceControlDetails) return _mValue_SourceControlDetails;
+                throw new UndeferrableValueException("Value 'JobArgs.SourceControlDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'JobArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
         /// </summary>
-        [Input("timeout")]
+        [PolicyResourceProperty("timeout", "_mUnknown_Timeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeout;
-
-        public int? Timeout => _mTimeout.GetValue("timeout");
+        private int? _mValue_Timeout;
+        private bool _mUnknown_Timeout;
+        public int? Timeout
+        {
+            get
+            {
+                if (!_mUnknown_Timeout) return _mValue_Timeout;
+                throw new UndeferrableValueException("Value 'JobArgs.Timeout' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
@@ -421,10 +722,17 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// * For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPU, 4GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for low volume streaming jobs. Only available for Glue version 3.0.
         /// * For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPU, 64 GB of m emory, 128 GB disk), and provides up to 8 Ray workers based on the autoscaler.
         /// </summary>
-        [Input("workerType")]
+        [PolicyResourceProperty("workerType", "_mUnknown_WorkerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkerType;
-
-        public string? WorkerType => _mWorkerType.GetValue("workerType");
+        private string? _mValue_WorkerType;
+        private bool _mUnknown_WorkerType;
+        public string? WorkerType
+        {
+            get
+            {
+                if (!_mUnknown_WorkerType) return _mValue_WorkerType;
+                throw new UndeferrableValueException("Value 'JobArgs.WorkerType' is not present");
+            }
+        }
     }
 }

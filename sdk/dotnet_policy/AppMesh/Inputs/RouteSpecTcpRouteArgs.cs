@@ -15,25 +15,46 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Action to take if a match is determined.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RouteSpecTcpRouteActionArgs> _mAction;
+        private Inputs.RouteSpecTcpRouteActionArgs? _mValue_Action;
+        private bool _mUnknown_Action;
+        public Inputs.RouteSpecTcpRouteActionArgs? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'RouteSpecTcpRouteArgs.Action' is not present");
+            }
+        }
 
-        public Inputs.RouteSpecTcpRouteActionArgs? Action => _mAction.GetValue("action");
-
-        [Input("match")]
+        [PolicyResourceProperty("match", "_mUnknown_Match")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RouteSpecTcpRouteMatchArgs> _mMatch;
-
-        public Inputs.RouteSpecTcpRouteMatchArgs? Match => _mMatch.GetValue("match");
+        private Inputs.RouteSpecTcpRouteMatchArgs? _mValue_Match;
+        private bool _mUnknown_Match;
+        public Inputs.RouteSpecTcpRouteMatchArgs? Match
+        {
+            get
+            {
+                if (!_mUnknown_Match) return _mValue_Match;
+                throw new UndeferrableValueException("Value 'RouteSpecTcpRouteArgs.Match' is not present");
+            }
+        }
 
         /// <summary>
         /// Types of timeouts.
         /// </summary>
-        [Input("timeout")]
+        [PolicyResourceProperty("timeout", "_mUnknown_Timeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RouteSpecTcpRouteTimeoutArgs> _mTimeout;
-
-        public Inputs.RouteSpecTcpRouteTimeoutArgs? Timeout => _mTimeout.GetValue("timeout");
+        private Inputs.RouteSpecTcpRouteTimeoutArgs? _mValue_Timeout;
+        private bool _mUnknown_Timeout;
+        public Inputs.RouteSpecTcpRouteTimeoutArgs? Timeout
+        {
+            get
+            {
+                if (!_mUnknown_Timeout) return _mValue_Timeout;
+                throw new UndeferrableValueException("Value 'RouteSpecTcpRouteArgs.Timeout' is not present");
+            }
+        }
     }
 }

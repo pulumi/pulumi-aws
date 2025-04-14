@@ -16,155 +16,274 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks
         /// <summary>
         /// SCM configuration of the app as described below.
         /// </summary>
-        [Input("appSources")]
+        [PolicyResourceProperty("appSources", "_mUnknown_AppSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ApplicationAppSource>> _mAppSources;
-
-        public List<Outputs.ApplicationAppSource>? AppSources => _mAppSources.GetValue("appSources");
+        private List<Outputs.ApplicationAppSource>? _mValue_AppSources;
+        private bool _mUnknown_AppSources;
+        public List<Outputs.ApplicationAppSource>? AppSources
+        {
+            get
+            {
+                if (!_mUnknown_AppSources) return _mValue_AppSources;
+                throw new UndeferrableValueException("Value 'Application.AppSources' is not present");
+            }
+        }
 
         /// <summary>
         /// Run bundle install when deploying for application of type `rails`.
         /// </summary>
-        [Input("autoBundleOnDeploy")]
+        [PolicyResourceProperty("autoBundleOnDeploy", "_mUnknown_AutoBundleOnDeploy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoBundleOnDeploy;
-
-        public string? AutoBundleOnDeploy => _mAutoBundleOnDeploy.GetValue("autoBundleOnDeploy");
+        private string? _mValue_AutoBundleOnDeploy;
+        private bool _mUnknown_AutoBundleOnDeploy;
+        public string? AutoBundleOnDeploy
+        {
+            get
+            {
+                if (!_mUnknown_AutoBundleOnDeploy) return _mValue_AutoBundleOnDeploy;
+                throw new UndeferrableValueException("Value 'Application.AutoBundleOnDeploy' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify activity and workflow workers for your app using the aws-flow gem.
         /// </summary>
-        [Input("awsFlowRubySettings")]
+        [PolicyResourceProperty("awsFlowRubySettings", "_mUnknown_AwsFlowRubySettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsFlowRubySettings;
-
-        public string? AwsFlowRubySettings => _mAwsFlowRubySettings.GetValue("awsFlowRubySettings");
+        private string? _mValue_AwsFlowRubySettings;
+        private bool _mUnknown_AwsFlowRubySettings;
+        public string? AwsFlowRubySettings
+        {
+            get
+            {
+                if (!_mUnknown_AwsFlowRubySettings) return _mValue_AwsFlowRubySettings;
+                throw new UndeferrableValueException("Value 'Application.AwsFlowRubySettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The data source's ARN.
         /// </summary>
-        [Input("dataSourceArn")]
+        [PolicyResourceProperty("dataSourceArn", "_mUnknown_DataSourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceArn;
-
-        public string? DataSourceArn => _mDataSourceArn.GetValue("dataSourceArn");
+        private string? _mValue_DataSourceArn;
+        private bool _mUnknown_DataSourceArn;
+        public string? DataSourceArn
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceArn) return _mValue_DataSourceArn;
+                throw new UndeferrableValueException("Value 'Application.DataSourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The database name.
         /// </summary>
-        [Input("dataSourceDatabaseName")]
+        [PolicyResourceProperty("dataSourceDatabaseName", "_mUnknown_DataSourceDatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceDatabaseName;
-
-        public string? DataSourceDatabaseName => _mDataSourceDatabaseName.GetValue("dataSourceDatabaseName");
+        private string? _mValue_DataSourceDatabaseName;
+        private bool _mUnknown_DataSourceDatabaseName;
+        public string? DataSourceDatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceDatabaseName) return _mValue_DataSourceDatabaseName;
+                throw new UndeferrableValueException("Value 'Application.DataSourceDatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
         /// </summary>
-        [Input("dataSourceType")]
+        [PolicyResourceProperty("dataSourceType", "_mUnknown_DataSourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceType;
-
-        public string? DataSourceType => _mDataSourceType.GetValue("dataSourceType");
+        private string? _mValue_DataSourceType;
+        private bool _mUnknown_DataSourceType;
+        public string? DataSourceType
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceType) return _mValue_DataSourceType;
+                throw new UndeferrableValueException("Value 'Application.DataSourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the app.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Application.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Subfolder for the document root for application of type `rails`.
         /// </summary>
-        [Input("documentRoot")]
+        [PolicyResourceProperty("documentRoot", "_mUnknown_DocumentRoot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentRoot;
-
-        public string? DocumentRoot => _mDocumentRoot.GetValue("documentRoot");
+        private string? _mValue_DocumentRoot;
+        private bool _mUnknown_DocumentRoot;
+        public string? DocumentRoot
+        {
+            get
+            {
+                if (!_mUnknown_DocumentRoot) return _mValue_DocumentRoot;
+                throw new UndeferrableValueException("Value 'Application.DocumentRoot' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of virtual host alias.
         /// </summary>
-        [Input("domains")]
+        [PolicyResourceProperty("domains", "_mUnknown_Domains")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDomains;
-
-        public List<string>? Domains => _mDomains.GetValue("domains");
+        private List<string>? _mValue_Domains;
+        private bool _mUnknown_Domains;
+        public List<string>? Domains
+        {
+            get
+            {
+                if (!_mUnknown_Domains) return _mValue_Domains;
+                throw new UndeferrableValueException("Value 'Application.Domains' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
         /// </summary>
-        [Input("enableSsl")]
+        [PolicyResourceProperty("enableSsl", "_mUnknown_EnableSsl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableSsl;
-
-        public bool? EnableSsl => _mEnableSsl.GetValue("enableSsl");
+        private bool? _mValue_EnableSsl;
+        private bool _mUnknown_EnableSsl;
+        public bool? EnableSsl
+        {
+            get
+            {
+                if (!_mUnknown_EnableSsl) return _mValue_EnableSsl;
+                throw new UndeferrableValueException("Value 'Application.EnableSsl' is not present");
+            }
+        }
 
         /// <summary>
         /// Object to define environment variables.  Object is described below.
         /// </summary>
-        [Input("environments")]
+        [PolicyResourceProperty("environments", "_mUnknown_Environments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ApplicationEnvironment>> _mEnvironments;
-
-        public List<Outputs.ApplicationEnvironment>? Environments => _mEnvironments.GetValue("environments");
+        private List<Outputs.ApplicationEnvironment>? _mValue_Environments;
+        private bool _mUnknown_Environments;
+        public List<Outputs.ApplicationEnvironment>? Environments
+        {
+            get
+            {
+                if (!_mUnknown_Environments) return _mValue_Environments;
+                throw new UndeferrableValueException("Value 'Application.Environments' is not present");
+            }
+        }
 
         /// <summary>
         /// A human-readable name for the application.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Application.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Rails environment for application of type `rails`.
         /// </summary>
-        [Input("railsEnv")]
+        [PolicyResourceProperty("railsEnv", "_mUnknown_RailsEnv")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRailsEnv;
-
-        public string? RailsEnv => _mRailsEnv.GetValue("railsEnv");
+        private string? _mValue_RailsEnv;
+        private bool _mUnknown_RailsEnv;
+        public string? RailsEnv
+        {
+            get
+            {
+                if (!_mUnknown_RailsEnv) return _mValue_RailsEnv;
+                throw new UndeferrableValueException("Value 'Application.RailsEnv' is not present");
+            }
+        }
 
         /// <summary>
         /// A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
         /// </summary>
-        [Input("shortName")]
+        [PolicyResourceProperty("shortName", "_mUnknown_ShortName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShortName;
-
-        public string? ShortName => _mShortName.GetValue("shortName");
+        private string? _mValue_ShortName;
+        private bool _mUnknown_ShortName;
+        public string? ShortName
+        {
+            get
+            {
+                if (!_mUnknown_ShortName) return _mValue_ShortName;
+                throw new UndeferrableValueException("Value 'Application.ShortName' is not present");
+            }
+        }
 
         /// <summary>
         /// The SSL configuration of the app. Object is described below.
         /// </summary>
-        [Input("sslConfigurations")]
+        [PolicyResourceProperty("sslConfigurations", "_mUnknown_SslConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ApplicationSslConfiguration>> _mSslConfigurations;
-
-        public List<Outputs.ApplicationSslConfiguration>? SslConfigurations => _mSslConfigurations.GetValue("sslConfigurations");
+        private List<Outputs.ApplicationSslConfiguration>? _mValue_SslConfigurations;
+        private bool _mUnknown_SslConfigurations;
+        public List<Outputs.ApplicationSslConfiguration>? SslConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_SslConfigurations) return _mValue_SslConfigurations;
+                throw new UndeferrableValueException("Value 'Application.SslConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the stack the application will belong to.
         /// </summary>
-        [Input("stackId")]
+        [PolicyResourceProperty("stackId", "_mUnknown_StackId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
-
-        public string? StackId => _mStackId.GetValue("stackId");
+        private string? _mValue_StackId;
+        private bool _mUnknown_StackId;
+        public string? StackId
+        {
+            get
+            {
+                if (!_mUnknown_StackId) return _mValue_StackId;
+                throw new UndeferrableValueException("Value 'Application.StackId' is not present");
+            }
+        }
 
         /// <summary>
         /// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Application.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opsworks/application:Application")]
@@ -173,154 +292,273 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks
         /// <summary>
         /// SCM configuration of the app as described below.
         /// </summary>
-        [Input("appSources")]
+        [PolicyResourceProperty("appSources", "_mUnknown_AppSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ApplicationAppSourceArgs>> _mAppSources;
-
-        public List<Inputs.ApplicationAppSourceArgs>? AppSources => _mAppSources.GetValue("appSources");
+        private List<Inputs.ApplicationAppSourceArgs>? _mValue_AppSources;
+        private bool _mUnknown_AppSources;
+        public List<Inputs.ApplicationAppSourceArgs>? AppSources
+        {
+            get
+            {
+                if (!_mUnknown_AppSources) return _mValue_AppSources;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.AppSources' is not present");
+            }
+        }
 
         /// <summary>
         /// Run bundle install when deploying for application of type `rails`.
         /// </summary>
-        [Input("autoBundleOnDeploy")]
+        [PolicyResourceProperty("autoBundleOnDeploy", "_mUnknown_AutoBundleOnDeploy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoBundleOnDeploy;
-
-        public string? AutoBundleOnDeploy => _mAutoBundleOnDeploy.GetValue("autoBundleOnDeploy");
+        private string? _mValue_AutoBundleOnDeploy;
+        private bool _mUnknown_AutoBundleOnDeploy;
+        public string? AutoBundleOnDeploy
+        {
+            get
+            {
+                if (!_mUnknown_AutoBundleOnDeploy) return _mValue_AutoBundleOnDeploy;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.AutoBundleOnDeploy' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify activity and workflow workers for your app using the aws-flow gem.
         /// </summary>
-        [Input("awsFlowRubySettings")]
+        [PolicyResourceProperty("awsFlowRubySettings", "_mUnknown_AwsFlowRubySettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsFlowRubySettings;
-
-        public string? AwsFlowRubySettings => _mAwsFlowRubySettings.GetValue("awsFlowRubySettings");
+        private string? _mValue_AwsFlowRubySettings;
+        private bool _mUnknown_AwsFlowRubySettings;
+        public string? AwsFlowRubySettings
+        {
+            get
+            {
+                if (!_mUnknown_AwsFlowRubySettings) return _mValue_AwsFlowRubySettings;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.AwsFlowRubySettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The data source's ARN.
         /// </summary>
-        [Input("dataSourceArn")]
+        [PolicyResourceProperty("dataSourceArn", "_mUnknown_DataSourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceArn;
-
-        public string? DataSourceArn => _mDataSourceArn.GetValue("dataSourceArn");
+        private string? _mValue_DataSourceArn;
+        private bool _mUnknown_DataSourceArn;
+        public string? DataSourceArn
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceArn) return _mValue_DataSourceArn;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.DataSourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The database name.
         /// </summary>
-        [Input("dataSourceDatabaseName")]
+        [PolicyResourceProperty("dataSourceDatabaseName", "_mUnknown_DataSourceDatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceDatabaseName;
-
-        public string? DataSourceDatabaseName => _mDataSourceDatabaseName.GetValue("dataSourceDatabaseName");
+        private string? _mValue_DataSourceDatabaseName;
+        private bool _mUnknown_DataSourceDatabaseName;
+        public string? DataSourceDatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceDatabaseName) return _mValue_DataSourceDatabaseName;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.DataSourceDatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
         /// </summary>
-        [Input("dataSourceType")]
+        [PolicyResourceProperty("dataSourceType", "_mUnknown_DataSourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceType;
-
-        public string? DataSourceType => _mDataSourceType.GetValue("dataSourceType");
+        private string? _mValue_DataSourceType;
+        private bool _mUnknown_DataSourceType;
+        public string? DataSourceType
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceType) return _mValue_DataSourceType;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.DataSourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the app.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Subfolder for the document root for application of type `rails`.
         /// </summary>
-        [Input("documentRoot")]
+        [PolicyResourceProperty("documentRoot", "_mUnknown_DocumentRoot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentRoot;
-
-        public string? DocumentRoot => _mDocumentRoot.GetValue("documentRoot");
+        private string? _mValue_DocumentRoot;
+        private bool _mUnknown_DocumentRoot;
+        public string? DocumentRoot
+        {
+            get
+            {
+                if (!_mUnknown_DocumentRoot) return _mValue_DocumentRoot;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.DocumentRoot' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of virtual host alias.
         /// </summary>
-        [Input("domains")]
+        [PolicyResourceProperty("domains", "_mUnknown_Domains")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDomains;
-
-        public List<string>? Domains => _mDomains.GetValue("domains");
+        private List<string>? _mValue_Domains;
+        private bool _mUnknown_Domains;
+        public List<string>? Domains
+        {
+            get
+            {
+                if (!_mUnknown_Domains) return _mValue_Domains;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Domains' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
         /// </summary>
-        [Input("enableSsl")]
+        [PolicyResourceProperty("enableSsl", "_mUnknown_EnableSsl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableSsl;
-
-        public bool? EnableSsl => _mEnableSsl.GetValue("enableSsl");
+        private bool? _mValue_EnableSsl;
+        private bool _mUnknown_EnableSsl;
+        public bool? EnableSsl
+        {
+            get
+            {
+                if (!_mUnknown_EnableSsl) return _mValue_EnableSsl;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.EnableSsl' is not present");
+            }
+        }
 
         /// <summary>
         /// Object to define environment variables.  Object is described below.
         /// </summary>
-        [Input("environments")]
+        [PolicyResourceProperty("environments", "_mUnknown_Environments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ApplicationEnvironmentArgs>> _mEnvironments;
-
-        public List<Inputs.ApplicationEnvironmentArgs>? Environments => _mEnvironments.GetValue("environments");
+        private List<Inputs.ApplicationEnvironmentArgs>? _mValue_Environments;
+        private bool _mUnknown_Environments;
+        public List<Inputs.ApplicationEnvironmentArgs>? Environments
+        {
+            get
+            {
+                if (!_mUnknown_Environments) return _mValue_Environments;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Environments' is not present");
+            }
+        }
 
         /// <summary>
         /// A human-readable name for the application.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Rails environment for application of type `rails`.
         /// </summary>
-        [Input("railsEnv")]
+        [PolicyResourceProperty("railsEnv", "_mUnknown_RailsEnv")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRailsEnv;
-
-        public string? RailsEnv => _mRailsEnv.GetValue("railsEnv");
+        private string? _mValue_RailsEnv;
+        private bool _mUnknown_RailsEnv;
+        public string? RailsEnv
+        {
+            get
+            {
+                if (!_mUnknown_RailsEnv) return _mValue_RailsEnv;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.RailsEnv' is not present");
+            }
+        }
 
         /// <summary>
         /// A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
         /// </summary>
-        [Input("shortName")]
+        [PolicyResourceProperty("shortName", "_mUnknown_ShortName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShortName;
-
-        public string? ShortName => _mShortName.GetValue("shortName");
+        private string? _mValue_ShortName;
+        private bool _mUnknown_ShortName;
+        public string? ShortName
+        {
+            get
+            {
+                if (!_mUnknown_ShortName) return _mValue_ShortName;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.ShortName' is not present");
+            }
+        }
 
         /// <summary>
         /// The SSL configuration of the app. Object is described below.
         /// </summary>
-        [Input("sslConfigurations")]
+        [PolicyResourceProperty("sslConfigurations", "_mUnknown_SslConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ApplicationSslConfigurationArgs>> _mSslConfigurations;
-
-        public List<Inputs.ApplicationSslConfigurationArgs>? SslConfigurations => _mSslConfigurations.GetValue("sslConfigurations");
+        private List<Inputs.ApplicationSslConfigurationArgs>? _mValue_SslConfigurations;
+        private bool _mUnknown_SslConfigurations;
+        public List<Inputs.ApplicationSslConfigurationArgs>? SslConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_SslConfigurations) return _mValue_SslConfigurations;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.SslConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the stack the application will belong to.
         /// </summary>
-        [Input("stackId")]
+        [PolicyResourceProperty("stackId", "_mUnknown_StackId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
-
-        public string? StackId => _mStackId.GetValue("stackId");
+        private string? _mValue_StackId;
+        private bool _mUnknown_StackId;
+        public string? StackId
+        {
+            get
+            {
+                if (!_mUnknown_StackId) return _mValue_StackId;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.StackId' is not present");
+            }
+        }
 
         /// <summary>
         /// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Type' is not present");
+            }
+        }
     }
 }

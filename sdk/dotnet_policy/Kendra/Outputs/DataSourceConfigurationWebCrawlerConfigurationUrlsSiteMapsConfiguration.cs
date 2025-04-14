@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
         /// </summary>
-        [Input("siteMaps")]
+        [PolicyResourceProperty("siteMaps", "_mUnknown_SiteMaps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSiteMaps;
-
-        public List<string>? SiteMaps => _mSiteMaps.GetValue("siteMaps");
+        private List<string>? _mValue_SiteMaps;
+        private bool _mUnknown_SiteMaps;
+        public List<string>? SiteMaps
+        {
+            get
+            {
+                if (!_mUnknown_SiteMaps) return _mValue_SiteMaps;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration.SiteMaps' is not present");
+            }
+        }
     }
 }

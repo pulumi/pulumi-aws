@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Outputs
 {
     public sealed class InternetMonitorInternetMeasurementsLogDeliveryS3Config
     {
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'InternetMonitorInternetMeasurementsLogDeliveryS3Config.BucketName' is not present");
+            }
+        }
 
-        public string? BucketName => _mBucketName.GetValue("bucketName");
-
-        [Input("bucketPrefix")]
+        [PolicyResourceProperty("bucketPrefix", "_mUnknown_BucketPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketPrefix;
+        private string? _mValue_BucketPrefix;
+        private bool _mUnknown_BucketPrefix;
+        public string? BucketPrefix
+        {
+            get
+            {
+                if (!_mUnknown_BucketPrefix) return _mValue_BucketPrefix;
+                throw new UndeferrableValueException("Value 'InternetMonitorInternetMeasurementsLogDeliveryS3Config.BucketPrefix' is not present");
+            }
+        }
 
-        public string? BucketPrefix => _mBucketPrefix.GetValue("bucketPrefix");
-
-        [Input("logDeliveryStatus")]
+        [PolicyResourceProperty("logDeliveryStatus", "_mUnknown_LogDeliveryStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogDeliveryStatus;
-
-        public string? LogDeliveryStatus => _mLogDeliveryStatus.GetValue("logDeliveryStatus");
+        private string? _mValue_LogDeliveryStatus;
+        private bool _mUnknown_LogDeliveryStatus;
+        public string? LogDeliveryStatus
+        {
+            get
+            {
+                if (!_mUnknown_LogDeliveryStatus) return _mValue_LogDeliveryStatus;
+                throw new UndeferrableValueException("Value 'InternetMonitorInternetMeasurementsLogDeliveryS3Config.LogDeliveryStatus' is not present");
+            }
+        }
     }
 }

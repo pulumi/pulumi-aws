@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Outputs
         /// <summary>
         /// Sizing of a node type.
         /// </summary>
-        [Input("nodeConfigs")]
+        [PolicyResourceProperty("nodeConfigs", "_mUnknown_NodeConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDomainClusterConfigNodeOptionNodeConfigResult>> _mNodeConfigs;
-
-        public List<Outputs.GetDomainClusterConfigNodeOptionNodeConfigResult>? NodeConfigs => _mNodeConfigs.GetValue("nodeConfigs");
+        private List<Outputs.GetDomainClusterConfigNodeOptionNodeConfigResult>? _mValue_NodeConfigs;
+        private bool _mUnknown_NodeConfigs;
+        public List<Outputs.GetDomainClusterConfigNodeOptionNodeConfigResult>? NodeConfigs
+        {
+            get
+            {
+                if (!_mUnknown_NodeConfigs) return _mValue_NodeConfigs;
+                throw new UndeferrableValueException("Value 'GetDomainClusterConfigNodeOptionResult.NodeConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of node this configuration describes.
         /// </summary>
-        [Input("nodeType")]
+        [PolicyResourceProperty("nodeType", "_mUnknown_NodeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeType;
-
-        public string? NodeType => _mNodeType.GetValue("nodeType");
+        private string? _mValue_NodeType;
+        private bool _mUnknown_NodeType;
+        public string? NodeType
+        {
+            get
+            {
+                if (!_mUnknown_NodeType) return _mValue_NodeType;
+                throw new UndeferrableValueException("Value 'GetDomainClusterConfigNodeOptionResult.NodeType' is not present");
+            }
+        }
     }
 }

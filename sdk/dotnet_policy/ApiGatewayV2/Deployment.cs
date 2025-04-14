@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// <summary>
         /// API identifier.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'Deployment.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the deployment was automatically released.
         /// </summary>
-        [Input("autoDeployed")]
+        [PolicyResourceProperty("autoDeployed", "_mUnknown_AutoDeployed")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoDeployed;
-
-        public bool? AutoDeployed => _mAutoDeployed.GetValue("autoDeployed");
+        private bool? _mValue_AutoDeployed;
+        private bool _mUnknown_AutoDeployed;
+        public bool? AutoDeployed
+        {
+            get
+            {
+                if (!_mUnknown_AutoDeployed) return _mValue_AutoDeployed;
+                throw new UndeferrableValueException("Value 'Deployment.AutoDeployed' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Deployment.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         /// </summary>
-        [Input("triggers")]
+        [PolicyResourceProperty("triggers", "_mUnknown_Triggers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
-
-        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
+        private Dictionary<string, string>? _mValue_Triggers;
+        private bool _mUnknown_Triggers;
+        public Dictionary<string, string>? Triggers
+        {
+            get
+            {
+                if (!_mUnknown_Triggers) return _mValue_Triggers;
+                throw new UndeferrableValueException("Value 'Deployment.Triggers' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigatewayv2/deployment:Deployment")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// <summary>
         /// API identifier.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         /// </summary>
-        [Input("triggers")]
+        [PolicyResourceProperty("triggers", "_mUnknown_Triggers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
-
-        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
+        private Dictionary<string, string>? _mValue_Triggers;
+        private bool _mUnknown_Triggers;
+        public Dictionary<string, string>? Triggers
+        {
+            get
+            {
+                if (!_mUnknown_Triggers) return _mValue_Triggers;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.Triggers' is not present");
+            }
+        }
     }
 }

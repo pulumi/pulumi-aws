@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
 {
     public sealed class GetOriginRequestPolicyQueryStringsConfigResult
     {
-        [Input("queryStringBehavior")]
+        [PolicyResourceProperty("queryStringBehavior", "_mUnknown_QueryStringBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueryStringBehavior;
+        private string? _mValue_QueryStringBehavior;
+        private bool _mUnknown_QueryStringBehavior;
+        public string? QueryStringBehavior
+        {
+            get
+            {
+                if (!_mUnknown_QueryStringBehavior) return _mValue_QueryStringBehavior;
+                throw new UndeferrableValueException("Value 'GetOriginRequestPolicyQueryStringsConfigResult.QueryStringBehavior' is not present");
+            }
+        }
 
-        public string? QueryStringBehavior => _mQueryStringBehavior.GetValue("queryStringBehavior");
-
-        [Input("queryStrings")]
+        [PolicyResourceProperty("queryStrings", "_mUnknown_QueryStrings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetOriginRequestPolicyQueryStringsConfigQueryStringResult>> _mQueryStrings;
-
-        public List<Outputs.GetOriginRequestPolicyQueryStringsConfigQueryStringResult>? QueryStrings => _mQueryStrings.GetValue("queryStrings");
+        private List<Outputs.GetOriginRequestPolicyQueryStringsConfigQueryStringResult>? _mValue_QueryStrings;
+        private bool _mUnknown_QueryStrings;
+        public List<Outputs.GetOriginRequestPolicyQueryStringsConfigQueryStringResult>? QueryStrings
+        {
+            get
+            {
+                if (!_mUnknown_QueryStrings) return _mValue_QueryStrings;
+                throw new UndeferrableValueException("Value 'GetOriginRequestPolicyQueryStringsConfigResult.QueryStrings' is not present");
+            }
+        }
     }
 }

@@ -16,53 +16,95 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// The current version of the package.
         /// </summary>
-        [Input("availablePackageVersion")]
+        [PolicyResourceProperty("availablePackageVersion", "_mUnknown_AvailablePackageVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailablePackageVersion;
-
-        public string? AvailablePackageVersion => _mAvailablePackageVersion.GetValue("availablePackageVersion");
+        private string? _mValue_AvailablePackageVersion;
+        private bool _mUnknown_AvailablePackageVersion;
+        public string? AvailablePackageVersion
+        {
+            get
+            {
+                if (!_mUnknown_AvailablePackageVersion) return _mValue_AvailablePackageVersion;
+                throw new UndeferrableValueException("Value 'Package.AvailablePackageVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the package.
         /// </summary>
-        [Input("packageDescription")]
+        [PolicyResourceProperty("packageDescription", "_mUnknown_PackageDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPackageDescription;
+        private string? _mValue_PackageDescription;
+        private bool _mUnknown_PackageDescription;
+        public string? PackageDescription
+        {
+            get
+            {
+                if (!_mUnknown_PackageDescription) return _mValue_PackageDescription;
+                throw new UndeferrableValueException("Value 'Package.PackageDescription' is not present");
+            }
+        }
 
-        public string? PackageDescription => _mPackageDescription.GetValue("packageDescription");
-
-        [Input("packageId")]
+        [PolicyResourceProperty("packageId", "_mUnknown_PackageId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPackageId;
-
-        public string? PackageId => _mPackageId.GetValue("packageId");
+        private string? _mValue_PackageId;
+        private bool _mUnknown_PackageId;
+        public string? PackageId
+        {
+            get
+            {
+                if (!_mUnknown_PackageId) return _mValue_PackageId;
+                throw new UndeferrableValueException("Value 'Package.PackageId' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the package.
         /// </summary>
-        [Input("packageName")]
+        [PolicyResourceProperty("packageName", "_mUnknown_PackageName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPackageName;
-
-        public string? PackageName => _mPackageName.GetValue("packageName");
+        private string? _mValue_PackageName;
+        private bool _mUnknown_PackageName;
+        public string? PackageName
+        {
+            get
+            {
+                if (!_mUnknown_PackageName) return _mValue_PackageName;
+                throw new UndeferrableValueException("Value 'Package.PackageName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the package source options.
         /// </summary>
-        [Input("packageSource")]
+        [PolicyResourceProperty("packageSource", "_mUnknown_PackageSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PackagePackageSource> _mPackageSource;
-
-        public Outputs.PackagePackageSource? PackageSource => _mPackageSource.GetValue("packageSource");
+        private Outputs.PackagePackageSource? _mValue_PackageSource;
+        private bool _mUnknown_PackageSource;
+        public Outputs.PackagePackageSource? PackageSource
+        {
+            get
+            {
+                if (!_mUnknown_PackageSource) return _mValue_PackageSource;
+                throw new UndeferrableValueException("Value 'Package.PackageSource' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of package.
         /// </summary>
-        [Input("packageType")]
+        [PolicyResourceProperty("packageType", "_mUnknown_PackageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPackageType;
-
-        public string? PackageType => _mPackageType.GetValue("packageType");
+        private string? _mValue_PackageType;
+        private bool _mUnknown_PackageType;
+        public string? PackageType
+        {
+            get
+            {
+                if (!_mUnknown_PackageType) return _mValue_PackageType;
+                throw new UndeferrableValueException("Value 'Package.PackageType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opensearch/package:Package")]
@@ -71,37 +113,65 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// Description of the package.
         /// </summary>
-        [Input("packageDescription")]
+        [PolicyResourceProperty("packageDescription", "_mUnknown_PackageDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPackageDescription;
-
-        public string? PackageDescription => _mPackageDescription.GetValue("packageDescription");
+        private string? _mValue_PackageDescription;
+        private bool _mUnknown_PackageDescription;
+        public string? PackageDescription
+        {
+            get
+            {
+                if (!_mUnknown_PackageDescription) return _mValue_PackageDescription;
+                throw new UndeferrableValueException("Value 'PackageArgs.PackageDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the package.
         /// </summary>
-        [Input("packageName")]
+        [PolicyResourceProperty("packageName", "_mUnknown_PackageName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPackageName;
-
-        public string? PackageName => _mPackageName.GetValue("packageName");
+        private string? _mValue_PackageName;
+        private bool _mUnknown_PackageName;
+        public string? PackageName
+        {
+            get
+            {
+                if (!_mUnknown_PackageName) return _mValue_PackageName;
+                throw new UndeferrableValueException("Value 'PackageArgs.PackageName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the package source options.
         /// </summary>
-        [Input("packageSource")]
+        [PolicyResourceProperty("packageSource", "_mUnknown_PackageSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PackagePackageSourceArgs> _mPackageSource;
-
-        public Inputs.PackagePackageSourceArgs? PackageSource => _mPackageSource.GetValue("packageSource");
+        private Inputs.PackagePackageSourceArgs? _mValue_PackageSource;
+        private bool _mUnknown_PackageSource;
+        public Inputs.PackagePackageSourceArgs? PackageSource
+        {
+            get
+            {
+                if (!_mUnknown_PackageSource) return _mValue_PackageSource;
+                throw new UndeferrableValueException("Value 'PackageArgs.PackageSource' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of package.
         /// </summary>
-        [Input("packageType")]
+        [PolicyResourceProperty("packageType", "_mUnknown_PackageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPackageType;
-
-        public string? PackageType => _mPackageType.GetValue("packageType");
+        private string? _mValue_PackageType;
+        private bool _mUnknown_PackageType;
+        public string? PackageType
+        {
+            get
+            {
+                if (!_mUnknown_PackageType) return _mValue_PackageType;
+                throw new UndeferrableValueException("Value 'PackageArgs.PackageType' is not present");
+            }
+        }
     }
 }

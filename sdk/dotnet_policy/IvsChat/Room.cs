@@ -16,79 +16,135 @@ namespace Pulumi.PolicyPacks.Aws.IvsChat
         /// <summary>
         /// ARN of the Room.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Room.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of Logging Configuration
         /// ARNs to attach to the room.
         /// </summary>
-        [Input("loggingConfigurationIdentifiers")]
+        [PolicyResourceProperty("loggingConfigurationIdentifiers", "_mUnknown_LoggingConfigurationIdentifiers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLoggingConfigurationIdentifiers;
-
-        public List<string>? LoggingConfigurationIdentifiers => _mLoggingConfigurationIdentifiers.GetValue("loggingConfigurationIdentifiers");
+        private List<string>? _mValue_LoggingConfigurationIdentifiers;
+        private bool _mUnknown_LoggingConfigurationIdentifiers;
+        public List<string>? LoggingConfigurationIdentifiers
+        {
+            get
+            {
+                if (!_mUnknown_LoggingConfigurationIdentifiers) return _mValue_LoggingConfigurationIdentifiers;
+                throw new UndeferrableValueException("Value 'Room.LoggingConfigurationIdentifiers' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of characters in a single
         /// message. Messages are expected to be UTF-8 encoded and this limit applies
         /// specifically to rune/code-point count, not number of bytes.
         /// </summary>
-        [Input("maximumMessageLength")]
+        [PolicyResourceProperty("maximumMessageLength", "_mUnknown_MaximumMessageLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumMessageLength;
-
-        public int? MaximumMessageLength => _mMaximumMessageLength.GetValue("maximumMessageLength");
+        private int? _mValue_MaximumMessageLength;
+        private bool _mUnknown_MaximumMessageLength;
+        public int? MaximumMessageLength
+        {
+            get
+            {
+                if (!_mUnknown_MaximumMessageLength) return _mValue_MaximumMessageLength;
+                throw new UndeferrableValueException("Value 'Room.MaximumMessageLength' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of messages per
         /// second that can be sent to the room (by all clients).
         /// </summary>
-        [Input("maximumMessageRatePerSecond")]
+        [PolicyResourceProperty("maximumMessageRatePerSecond", "_mUnknown_MaximumMessageRatePerSecond")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumMessageRatePerSecond;
-
-        public int? MaximumMessageRatePerSecond => _mMaximumMessageRatePerSecond.GetValue("maximumMessageRatePerSecond");
+        private int? _mValue_MaximumMessageRatePerSecond;
+        private bool _mUnknown_MaximumMessageRatePerSecond;
+        public int? MaximumMessageRatePerSecond
+        {
+            get
+            {
+                if (!_mUnknown_MaximumMessageRatePerSecond) return _mValue_MaximumMessageRatePerSecond;
+                throw new UndeferrableValueException("Value 'Room.MaximumMessageRatePerSecond' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration information for optional
         /// review of messages.
         /// </summary>
-        [Input("messageReviewHandler")]
+        [PolicyResourceProperty("messageReviewHandler", "_mUnknown_MessageReviewHandler")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RoomMessageReviewHandler> _mMessageReviewHandler;
-
-        public Outputs.RoomMessageReviewHandler? MessageReviewHandler => _mMessageReviewHandler.GetValue("messageReviewHandler");
+        private Outputs.RoomMessageReviewHandler? _mValue_MessageReviewHandler;
+        private bool _mUnknown_MessageReviewHandler;
+        public Outputs.RoomMessageReviewHandler? MessageReviewHandler
+        {
+            get
+            {
+                if (!_mUnknown_MessageReviewHandler) return _mValue_MessageReviewHandler;
+                throw new UndeferrableValueException("Value 'Room.MessageReviewHandler' is not present");
+            }
+        }
 
         /// <summary>
         /// Room name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Room.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Room.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Room.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ivschat/room:Room")]
@@ -98,59 +154,101 @@ namespace Pulumi.PolicyPacks.Aws.IvsChat
         /// List of Logging Configuration
         /// ARNs to attach to the room.
         /// </summary>
-        [Input("loggingConfigurationIdentifiers")]
+        [PolicyResourceProperty("loggingConfigurationIdentifiers", "_mUnknown_LoggingConfigurationIdentifiers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLoggingConfigurationIdentifiers;
-
-        public List<string>? LoggingConfigurationIdentifiers => _mLoggingConfigurationIdentifiers.GetValue("loggingConfigurationIdentifiers");
+        private List<string>? _mValue_LoggingConfigurationIdentifiers;
+        private bool _mUnknown_LoggingConfigurationIdentifiers;
+        public List<string>? LoggingConfigurationIdentifiers
+        {
+            get
+            {
+                if (!_mUnknown_LoggingConfigurationIdentifiers) return _mValue_LoggingConfigurationIdentifiers;
+                throw new UndeferrableValueException("Value 'RoomArgs.LoggingConfigurationIdentifiers' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of characters in a single
         /// message. Messages are expected to be UTF-8 encoded and this limit applies
         /// specifically to rune/code-point count, not number of bytes.
         /// </summary>
-        [Input("maximumMessageLength")]
+        [PolicyResourceProperty("maximumMessageLength", "_mUnknown_MaximumMessageLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumMessageLength;
-
-        public int? MaximumMessageLength => _mMaximumMessageLength.GetValue("maximumMessageLength");
+        private int? _mValue_MaximumMessageLength;
+        private bool _mUnknown_MaximumMessageLength;
+        public int? MaximumMessageLength
+        {
+            get
+            {
+                if (!_mUnknown_MaximumMessageLength) return _mValue_MaximumMessageLength;
+                throw new UndeferrableValueException("Value 'RoomArgs.MaximumMessageLength' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of messages per
         /// second that can be sent to the room (by all clients).
         /// </summary>
-        [Input("maximumMessageRatePerSecond")]
+        [PolicyResourceProperty("maximumMessageRatePerSecond", "_mUnknown_MaximumMessageRatePerSecond")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumMessageRatePerSecond;
-
-        public int? MaximumMessageRatePerSecond => _mMaximumMessageRatePerSecond.GetValue("maximumMessageRatePerSecond");
+        private int? _mValue_MaximumMessageRatePerSecond;
+        private bool _mUnknown_MaximumMessageRatePerSecond;
+        public int? MaximumMessageRatePerSecond
+        {
+            get
+            {
+                if (!_mUnknown_MaximumMessageRatePerSecond) return _mValue_MaximumMessageRatePerSecond;
+                throw new UndeferrableValueException("Value 'RoomArgs.MaximumMessageRatePerSecond' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration information for optional
         /// review of messages.
         /// </summary>
-        [Input("messageReviewHandler")]
+        [PolicyResourceProperty("messageReviewHandler", "_mUnknown_MessageReviewHandler")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RoomMessageReviewHandlerArgs> _mMessageReviewHandler;
-
-        public Inputs.RoomMessageReviewHandlerArgs? MessageReviewHandler => _mMessageReviewHandler.GetValue("messageReviewHandler");
+        private Inputs.RoomMessageReviewHandlerArgs? _mValue_MessageReviewHandler;
+        private bool _mUnknown_MessageReviewHandler;
+        public Inputs.RoomMessageReviewHandlerArgs? MessageReviewHandler
+        {
+            get
+            {
+                if (!_mUnknown_MessageReviewHandler) return _mValue_MessageReviewHandler;
+                throw new UndeferrableValueException("Value 'RoomArgs.MessageReviewHandler' is not present");
+            }
+        }
 
         /// <summary>
         /// Room name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RoomArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RoomArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ID of the internet gateway.
         /// </summary>
-        [Input("internetGatewayId")]
+        [PolicyResourceProperty("internetGatewayId", "_mUnknown_InternetGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInternetGatewayId;
-
-        public string? InternetGatewayId => _mInternetGatewayId.GetValue("internetGatewayId");
+        private string? _mValue_InternetGatewayId;
+        private bool _mUnknown_InternetGatewayId;
+        public string? InternetGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_InternetGatewayId) return _mValue_InternetGatewayId;
+                throw new UndeferrableValueException("Value 'InternetGatewayAttachment.InternetGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'InternetGatewayAttachment.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/internetGatewayAttachment:InternetGatewayAttachment")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ID of the internet gateway.
         /// </summary>
-        [Input("internetGatewayId")]
+        [PolicyResourceProperty("internetGatewayId", "_mUnknown_InternetGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInternetGatewayId;
-
-        public string? InternetGatewayId => _mInternetGatewayId.GetValue("internetGatewayId");
+        private string? _mValue_InternetGatewayId;
+        private bool _mUnknown_InternetGatewayId;
+        public string? InternetGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_InternetGatewayId) return _mValue_InternetGatewayId;
+                throw new UndeferrableValueException("Value 'InternetGatewayAttachmentArgs.InternetGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'InternetGatewayAttachmentArgs.VpcId' is not present");
+            }
+        }
     }
 }

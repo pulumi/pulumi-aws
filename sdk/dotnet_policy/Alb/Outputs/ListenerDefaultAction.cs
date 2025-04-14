@@ -15,75 +15,131 @@ namespace Pulumi.PolicyPacks.Aws.Alb.Outputs
         /// <summary>
         /// Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
         /// </summary>
-        [Input("authenticateCognito")]
+        [PolicyResourceProperty("authenticateCognito", "_mUnknown_AuthenticateCognito")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ListenerDefaultActionAuthenticateCognito> _mAuthenticateCognito;
-
-        public Outputs.ListenerDefaultActionAuthenticateCognito? AuthenticateCognito => _mAuthenticateCognito.GetValue("authenticateCognito");
+        private Outputs.ListenerDefaultActionAuthenticateCognito? _mValue_AuthenticateCognito;
+        private bool _mUnknown_AuthenticateCognito;
+        public Outputs.ListenerDefaultActionAuthenticateCognito? AuthenticateCognito
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticateCognito) return _mValue_AuthenticateCognito;
+                throw new UndeferrableValueException("Value 'ListenerDefaultAction.AuthenticateCognito' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
         /// </summary>
-        [Input("authenticateOidc")]
+        [PolicyResourceProperty("authenticateOidc", "_mUnknown_AuthenticateOidc")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ListenerDefaultActionAuthenticateOidc> _mAuthenticateOidc;
-
-        public Outputs.ListenerDefaultActionAuthenticateOidc? AuthenticateOidc => _mAuthenticateOidc.GetValue("authenticateOidc");
+        private Outputs.ListenerDefaultActionAuthenticateOidc? _mValue_AuthenticateOidc;
+        private bool _mUnknown_AuthenticateOidc;
+        public Outputs.ListenerDefaultActionAuthenticateOidc? AuthenticateOidc
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticateOidc) return _mValue_AuthenticateOidc;
+                throw new UndeferrableValueException("Value 'ListenerDefaultAction.AuthenticateOidc' is not present");
+            }
+        }
 
         /// <summary>
         /// Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
         /// </summary>
-        [Input("fixedResponse")]
+        [PolicyResourceProperty("fixedResponse", "_mUnknown_FixedResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ListenerDefaultActionFixedResponse> _mFixedResponse;
-
-        public Outputs.ListenerDefaultActionFixedResponse? FixedResponse => _mFixedResponse.GetValue("fixedResponse");
+        private Outputs.ListenerDefaultActionFixedResponse? _mValue_FixedResponse;
+        private bool _mUnknown_FixedResponse;
+        public Outputs.ListenerDefaultActionFixedResponse? FixedResponse
+        {
+            get
+            {
+                if (!_mUnknown_FixedResponse) return _mValue_FixedResponse;
+                throw new UndeferrableValueException("Value 'ListenerDefaultAction.FixedResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
         /// </summary>
-        [Input("forward")]
+        [PolicyResourceProperty("forward", "_mUnknown_Forward")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ListenerDefaultActionForward> _mForward;
-
-        public Outputs.ListenerDefaultActionForward? Forward => _mForward.GetValue("forward");
+        private Outputs.ListenerDefaultActionForward? _mValue_Forward;
+        private bool _mUnknown_Forward;
+        public Outputs.ListenerDefaultActionForward? Forward
+        {
+            get
+            {
+                if (!_mUnknown_Forward) return _mValue_Forward;
+                throw new UndeferrableValueException("Value 'ListenerDefaultAction.Forward' is not present");
+            }
+        }
 
         /// <summary>
         /// Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
         /// </summary>
-        [Input("order")]
+        [PolicyResourceProperty("order", "_mUnknown_Order")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOrder;
-
-        public int? Order => _mOrder.GetValue("order");
+        private int? _mValue_Order;
+        private bool _mUnknown_Order;
+        public int? Order
+        {
+            get
+            {
+                if (!_mUnknown_Order) return _mValue_Order;
+                throw new UndeferrableValueException("Value 'ListenerDefaultAction.Order' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
         /// </summary>
-        [Input("redirect")]
+        [PolicyResourceProperty("redirect", "_mUnknown_Redirect")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ListenerDefaultActionRedirect> _mRedirect;
-
-        public Outputs.ListenerDefaultActionRedirect? Redirect => _mRedirect.GetValue("redirect");
+        private Outputs.ListenerDefaultActionRedirect? _mValue_Redirect;
+        private bool _mUnknown_Redirect;
+        public Outputs.ListenerDefaultActionRedirect? Redirect
+        {
+            get
+            {
+                if (!_mUnknown_Redirect) return _mValue_Redirect;
+                throw new UndeferrableValueException("Value 'ListenerDefaultAction.Redirect' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
         /// </summary>
-        [Input("targetGroupArn")]
+        [PolicyResourceProperty("targetGroupArn", "_mUnknown_TargetGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetGroupArn;
-
-        public string? TargetGroupArn => _mTargetGroupArn.GetValue("targetGroupArn");
+        private string? _mValue_TargetGroupArn;
+        private bool _mUnknown_TargetGroupArn;
+        public string? TargetGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroupArn) return _mValue_TargetGroupArn;
+                throw new UndeferrableValueException("Value 'ListenerDefaultAction.TargetGroupArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ListenerDefaultAction.Type' is not present");
+            }
+        }
     }
 }

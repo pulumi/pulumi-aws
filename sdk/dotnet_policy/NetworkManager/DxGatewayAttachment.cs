@@ -13,118 +13,209 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
     [PolicyResourceType("aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment")]
     public sealed class DxGatewayAttachment : global::Pulumi.PolicyResourceOutput
     {
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DxGatewayAttachment.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Policy rule number associated with the attachment.
         /// </summary>
-        [Input("attachmentPolicyRuleNumber")]
+        [PolicyResourceProperty("attachmentPolicyRuleNumber", "_mUnknown_AttachmentPolicyRuleNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAttachmentPolicyRuleNumber;
-
-        public int? AttachmentPolicyRuleNumber => _mAttachmentPolicyRuleNumber.GetValue("attachmentPolicyRuleNumber");
+        private int? _mValue_AttachmentPolicyRuleNumber;
+        private bool _mUnknown_AttachmentPolicyRuleNumber;
+        public int? AttachmentPolicyRuleNumber
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentPolicyRuleNumber) return _mValue_AttachmentPolicyRuleNumber;
+                throw new UndeferrableValueException("Value 'DxGatewayAttachment.AttachmentPolicyRuleNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of attachment.
         /// </summary>
-        [Input("attachmentType")]
+        [PolicyResourceProperty("attachmentType", "_mUnknown_AttachmentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentType;
-
-        public string? AttachmentType => _mAttachmentType.GetValue("attachmentType");
+        private string? _mValue_AttachmentType;
+        private bool _mUnknown_AttachmentType;
+        public string? AttachmentType
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentType) return _mValue_AttachmentType;
+                throw new UndeferrableValueException("Value 'DxGatewayAttachment.AttachmentType' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the core network for the attachment.
         /// </summary>
-        [Input("coreNetworkArn")]
+        [PolicyResourceProperty("coreNetworkArn", "_mUnknown_CoreNetworkArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkArn;
-
-        public string? CoreNetworkArn => _mCoreNetworkArn.GetValue("coreNetworkArn");
+        private string? _mValue_CoreNetworkArn;
+        private bool _mUnknown_CoreNetworkArn;
+        public string? CoreNetworkArn
+        {
+            get
+            {
+                if (!_mUnknown_CoreNetworkArn) return _mValue_CoreNetworkArn;
+                throw new UndeferrableValueException("Value 'DxGatewayAttachment.CoreNetworkArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
         /// </summary>
-        [Input("coreNetworkId")]
+        [PolicyResourceProperty("coreNetworkId", "_mUnknown_CoreNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkId;
-
-        public string? CoreNetworkId => _mCoreNetworkId.GetValue("coreNetworkId");
+        private string? _mValue_CoreNetworkId;
+        private bool _mUnknown_CoreNetworkId;
+        public string? CoreNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_CoreNetworkId) return _mValue_CoreNetworkId;
+                throw new UndeferrableValueException("Value 'DxGatewayAttachment.CoreNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Direct Connect gateway attachment.
         /// </summary>
-        [Input("directConnectGatewayArn")]
+        [PolicyResourceProperty("directConnectGatewayArn", "_mUnknown_DirectConnectGatewayArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectConnectGatewayArn;
-
-        public string? DirectConnectGatewayArn => _mDirectConnectGatewayArn.GetValue("directConnectGatewayArn");
+        private string? _mValue_DirectConnectGatewayArn;
+        private bool _mUnknown_DirectConnectGatewayArn;
+        public string? DirectConnectGatewayArn
+        {
+            get
+            {
+                if (!_mUnknown_DirectConnectGatewayArn) return _mValue_DirectConnectGatewayArn;
+                throw new UndeferrableValueException("Value 'DxGatewayAttachment.DirectConnectGatewayArn' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more core network edge locations to associate with the Direct Connect gateway attachment.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("edgeLocations")]
+        [PolicyResourceProperty("edgeLocations", "_mUnknown_EdgeLocations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEdgeLocations;
-
-        public List<string>? EdgeLocations => _mEdgeLocations.GetValue("edgeLocations");
+        private List<string>? _mValue_EdgeLocations;
+        private bool _mUnknown_EdgeLocations;
+        public List<string>? EdgeLocations
+        {
+            get
+            {
+                if (!_mUnknown_EdgeLocations) return _mValue_EdgeLocations;
+                throw new UndeferrableValueException("Value 'DxGatewayAttachment.EdgeLocations' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the attachment account owner.
         /// </summary>
-        [Input("ownerAccountId")]
+        [PolicyResourceProperty("ownerAccountId", "_mUnknown_OwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
-
-        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+        private string? _mValue_OwnerAccountId;
+        private bool _mUnknown_OwnerAccountId;
+        public string? OwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccountId) return _mValue_OwnerAccountId;
+                throw new UndeferrableValueException("Value 'DxGatewayAttachment.OwnerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the segment attachment.
         /// </summary>
-        [Input("segmentName")]
+        [PolicyResourceProperty("segmentName", "_mUnknown_SegmentName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSegmentName;
-
-        public string? SegmentName => _mSegmentName.GetValue("segmentName");
+        private string? _mValue_SegmentName;
+        private bool _mUnknown_SegmentName;
+        public string? SegmentName
+        {
+            get
+            {
+                if (!_mUnknown_SegmentName) return _mValue_SegmentName;
+                throw new UndeferrableValueException("Value 'DxGatewayAttachment.SegmentName' is not present");
+            }
+        }
 
         /// <summary>
         /// State of the attachment.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'DxGatewayAttachment.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DxGatewayAttachment.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DxGatewayAttachment.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DxGatewayAttachmentTimeouts> _mTimeouts;
-
-        public Outputs.DxGatewayAttachmentTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.DxGatewayAttachmentTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.DxGatewayAttachmentTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'DxGatewayAttachment.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment")]
@@ -133,45 +224,80 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
         /// </summary>
-        [Input("coreNetworkId")]
+        [PolicyResourceProperty("coreNetworkId", "_mUnknown_CoreNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkId;
-
-        public string? CoreNetworkId => _mCoreNetworkId.GetValue("coreNetworkId");
+        private string? _mValue_CoreNetworkId;
+        private bool _mUnknown_CoreNetworkId;
+        public string? CoreNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_CoreNetworkId) return _mValue_CoreNetworkId;
+                throw new UndeferrableValueException("Value 'DxGatewayAttachmentArgs.CoreNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Direct Connect gateway attachment.
         /// </summary>
-        [Input("directConnectGatewayArn")]
+        [PolicyResourceProperty("directConnectGatewayArn", "_mUnknown_DirectConnectGatewayArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectConnectGatewayArn;
-
-        public string? DirectConnectGatewayArn => _mDirectConnectGatewayArn.GetValue("directConnectGatewayArn");
+        private string? _mValue_DirectConnectGatewayArn;
+        private bool _mUnknown_DirectConnectGatewayArn;
+        public string? DirectConnectGatewayArn
+        {
+            get
+            {
+                if (!_mUnknown_DirectConnectGatewayArn) return _mValue_DirectConnectGatewayArn;
+                throw new UndeferrableValueException("Value 'DxGatewayAttachmentArgs.DirectConnectGatewayArn' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more core network edge locations to associate with the Direct Connect gateway attachment.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("edgeLocations")]
+        [PolicyResourceProperty("edgeLocations", "_mUnknown_EdgeLocations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEdgeLocations;
-
-        public List<string>? EdgeLocations => _mEdgeLocations.GetValue("edgeLocations");
+        private List<string>? _mValue_EdgeLocations;
+        private bool _mUnknown_EdgeLocations;
+        public List<string>? EdgeLocations
+        {
+            get
+            {
+                if (!_mUnknown_EdgeLocations) return _mValue_EdgeLocations;
+                throw new UndeferrableValueException("Value 'DxGatewayAttachmentArgs.EdgeLocations' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DxGatewayAttachmentArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DxGatewayAttachmentTimeoutsArgs> _mTimeouts;
-
-        public Inputs.DxGatewayAttachmentTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.DxGatewayAttachmentTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.DxGatewayAttachmentTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'DxGatewayAttachmentArgs.Timeouts' is not present");
+            }
+        }
     }
 }

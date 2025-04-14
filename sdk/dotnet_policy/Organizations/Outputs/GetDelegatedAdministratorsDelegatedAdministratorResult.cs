@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.Organizations.Outputs
         /// <summary>
         /// The ARN of the delegated administrator's account.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'GetDelegatedAdministratorsDelegatedAdministratorResult.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The date when the account was made a delegated administrator.
         /// </summary>
-        [Input("delegationEnabledDate")]
+        [PolicyResourceProperty("delegationEnabledDate", "_mUnknown_DelegationEnabledDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDelegationEnabledDate;
-
-        public string? DelegationEnabledDate => _mDelegationEnabledDate.GetValue("delegationEnabledDate");
+        private string? _mValue_DelegationEnabledDate;
+        private bool _mUnknown_DelegationEnabledDate;
+        public string? DelegationEnabledDate
+        {
+            get
+            {
+                if (!_mUnknown_DelegationEnabledDate) return _mValue_DelegationEnabledDate;
+                throw new UndeferrableValueException("Value 'GetDelegatedAdministratorsDelegatedAdministratorResult.DelegationEnabledDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The email address that is associated with the delegated administrator's AWS account.
         /// </summary>
-        [Input("email")]
+        [PolicyResourceProperty("email", "_mUnknown_Email")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
-
-        public string? Email => _mEmail.GetValue("email");
+        private string? _mValue_Email;
+        private bool _mUnknown_Email;
+        public string? Email
+        {
+            get
+            {
+                if (!_mUnknown_Email) return _mValue_Email;
+                throw new UndeferrableValueException("Value 'GetDelegatedAdministratorsDelegatedAdministratorResult.Email' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier (ID) of the delegated administrator's account.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'GetDelegatedAdministratorsDelegatedAdministratorResult.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// The method by which the delegated administrator's account joined the organization.
         /// </summary>
-        [Input("joinedMethod")]
+        [PolicyResourceProperty("joinedMethod", "_mUnknown_JoinedMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJoinedMethod;
-
-        public string? JoinedMethod => _mJoinedMethod.GetValue("joinedMethod");
+        private string? _mValue_JoinedMethod;
+        private bool _mUnknown_JoinedMethod;
+        public string? JoinedMethod
+        {
+            get
+            {
+                if (!_mUnknown_JoinedMethod) return _mValue_JoinedMethod;
+                throw new UndeferrableValueException("Value 'GetDelegatedAdministratorsDelegatedAdministratorResult.JoinedMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// The date when the delegated administrator's account became a part of the organization.
         /// </summary>
-        [Input("joinedTimestamp")]
+        [PolicyResourceProperty("joinedTimestamp", "_mUnknown_JoinedTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJoinedTimestamp;
-
-        public string? JoinedTimestamp => _mJoinedTimestamp.GetValue("joinedTimestamp");
+        private string? _mValue_JoinedTimestamp;
+        private bool _mUnknown_JoinedTimestamp;
+        public string? JoinedTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_JoinedTimestamp) return _mValue_JoinedTimestamp;
+                throw new UndeferrableValueException("Value 'GetDelegatedAdministratorsDelegatedAdministratorResult.JoinedTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// The friendly name of the delegated administrator's account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetDelegatedAdministratorsDelegatedAdministratorResult.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the delegated administrator's account in the organization.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'GetDelegatedAdministratorsDelegatedAdministratorResult.Status' is not present");
+            }
+        }
     }
 }

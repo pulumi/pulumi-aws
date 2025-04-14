@@ -15,21 +15,35 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Outputs
         /// <summary>
         /// Configures the detection of sensitive data.
         /// </summary>
-        [Input("audit")]
+        [PolicyResourceProperty("audit", "_mUnknown_Audit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditResult> _mAudit;
-
-        public Outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditResult? Audit => _mAudit.GetValue("audit");
+        private Outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditResult? _mValue_Audit;
+        private bool _mUnknown_Audit;
+        public Outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditResult? Audit
+        {
+            get
+            {
+                if (!_mUnknown_Audit) return _mValue_Audit;
+                throw new UndeferrableValueException("Value 'GetLogDataProtectionPolicyDocumentStatementOperationResult.Audit' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures the masking of sensitive data.
         /// 
         /// &gt; Every policy statement must specify exactly one operation.
         /// </summary>
-        [Input("deidentify")]
+        [PolicyResourceProperty("deidentify", "_mUnknown_Deidentify")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyResult> _mDeidentify;
-
-        public Outputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyResult? Deidentify => _mDeidentify.GetValue("deidentify");
+        private Outputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyResult? _mValue_Deidentify;
+        private bool _mUnknown_Deidentify;
+        public Outputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyResult? Deidentify
+        {
+            get
+            {
+                if (!_mUnknown_Deidentify) return _mValue_Deidentify;
+                throw new UndeferrableValueException("Value 'GetLogDataProtectionPolicyDocumentStatementOperationResult.Deidentify' is not present");
+            }
+        }
     }
 }

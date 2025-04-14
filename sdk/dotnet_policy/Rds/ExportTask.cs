@@ -16,145 +16,257 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
         /// </summary>
-        [Input("exportOnlies")]
+        [PolicyResourceProperty("exportOnlies", "_mUnknown_ExportOnlies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExportOnlies;
-
-        public List<string>? ExportOnlies => _mExportOnlies.GetValue("exportOnlies");
+        private List<string>? _mValue_ExportOnlies;
+        private bool _mUnknown_ExportOnlies;
+        public List<string>? ExportOnlies
+        {
+            get
+            {
+                if (!_mUnknown_ExportOnlies) return _mValue_ExportOnlies;
+                throw new UndeferrableValueException("Value 'ExportTask.ExportOnlies' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the snapshot export task.
         /// </summary>
-        [Input("exportTaskIdentifier")]
+        [PolicyResourceProperty("exportTaskIdentifier", "_mUnknown_ExportTaskIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExportTaskIdentifier;
-
-        public string? ExportTaskIdentifier => _mExportTaskIdentifier.GetValue("exportTaskIdentifier");
+        private string? _mValue_ExportTaskIdentifier;
+        private bool _mUnknown_ExportTaskIdentifier;
+        public string? ExportTaskIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ExportTaskIdentifier) return _mValue_ExportTaskIdentifier;
+                throw new UndeferrableValueException("Value 'ExportTask.ExportTaskIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Reason the export failed, if it failed.
         /// </summary>
-        [Input("failureCause")]
+        [PolicyResourceProperty("failureCause", "_mUnknown_FailureCause")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFailureCause;
-
-        public string? FailureCause => _mFailureCause.GetValue("failureCause");
+        private string? _mValue_FailureCause;
+        private bool _mUnknown_FailureCause;
+        public string? FailureCause
+        {
+            get
+            {
+                if (!_mUnknown_FailureCause) return _mValue_FailureCause;
+                throw new UndeferrableValueException("Value 'ExportTask.FailureCause' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role to use for writing to the Amazon S3 bucket.
         /// </summary>
-        [Input("iamRoleArn")]
+        [PolicyResourceProperty("iamRoleArn", "_mUnknown_IamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
-
-        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+        private string? _mValue_IamRoleArn;
+        private bool _mUnknown_IamRoleArn;
+        public string? IamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArn) return _mValue_IamRoleArn;
+                throw new UndeferrableValueException("Value 'ExportTask.IamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ExportTask.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Progress of the snapshot export task as a percentage.
         /// </summary>
-        [Input("percentProgress")]
+        [PolicyResourceProperty("percentProgress", "_mUnknown_PercentProgress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPercentProgress;
-
-        public int? PercentProgress => _mPercentProgress.GetValue("percentProgress");
+        private int? _mValue_PercentProgress;
+        private bool _mUnknown_PercentProgress;
+        public int? PercentProgress
+        {
+            get
+            {
+                if (!_mUnknown_PercentProgress) return _mValue_PercentProgress;
+                throw new UndeferrableValueException("Value 'ExportTask.PercentProgress' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Amazon S3 bucket to export the snapshot to.
         /// </summary>
-        [Input("s3BucketName")]
+        [PolicyResourceProperty("s3BucketName", "_mUnknown_S3BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketName;
-
-        public string? S3BucketName => _mS3BucketName.GetValue("s3BucketName");
+        private string? _mValue_S3BucketName;
+        private bool _mUnknown_S3BucketName;
+        public string? S3BucketName
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketName) return _mValue_S3BucketName;
+                throw new UndeferrableValueException("Value 'ExportTask.S3BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         /// </summary>
-        [Input("s3Prefix")]
+        [PolicyResourceProperty("s3Prefix", "_mUnknown_S3Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Prefix;
-
-        public string? S3Prefix => _mS3Prefix.GetValue("s3Prefix");
+        private string? _mValue_S3Prefix;
+        private bool _mUnknown_S3Prefix;
+        public string? S3Prefix
+        {
+            get
+            {
+                if (!_mUnknown_S3Prefix) return _mValue_S3Prefix;
+                throw new UndeferrableValueException("Value 'ExportTask.S3Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Time that the snapshot was created.
         /// </summary>
-        [Input("snapshotTime")]
+        [PolicyResourceProperty("snapshotTime", "_mUnknown_SnapshotTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotTime;
-
-        public string? SnapshotTime => _mSnapshotTime.GetValue("snapshotTime");
+        private string? _mValue_SnapshotTime;
+        private bool _mUnknown_SnapshotTime;
+        public string? SnapshotTime
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotTime) return _mValue_SnapshotTime;
+                throw new UndeferrableValueException("Value 'ExportTask.SnapshotTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the snapshot to export.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("sourceArn")]
+        [PolicyResourceProperty("sourceArn", "_mUnknown_SourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
-
-        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
+        private string? _mValue_SourceArn;
+        private bool _mUnknown_SourceArn;
+        public string? SourceArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceArn) return _mValue_SourceArn;
+                throw new UndeferrableValueException("Value 'ExportTask.SourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of source for the export.
         /// </summary>
-        [Input("sourceType")]
+        [PolicyResourceProperty("sourceType", "_mUnknown_SourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceType;
-
-        public string? SourceType => _mSourceType.GetValue("sourceType");
+        private string? _mValue_SourceType;
+        private bool _mUnknown_SourceType;
+        public string? SourceType
+        {
+            get
+            {
+                if (!_mUnknown_SourceType) return _mValue_SourceType;
+                throw new UndeferrableValueException("Value 'ExportTask.SourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the export task.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'ExportTask.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Time that the snapshot export task completed.
         /// </summary>
-        [Input("taskEndTime")]
+        [PolicyResourceProperty("taskEndTime", "_mUnknown_TaskEndTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskEndTime;
-
-        public string? TaskEndTime => _mTaskEndTime.GetValue("taskEndTime");
+        private string? _mValue_TaskEndTime;
+        private bool _mUnknown_TaskEndTime;
+        public string? TaskEndTime
+        {
+            get
+            {
+                if (!_mUnknown_TaskEndTime) return _mValue_TaskEndTime;
+                throw new UndeferrableValueException("Value 'ExportTask.TaskEndTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Time that the snapshot export task started.
         /// </summary>
-        [Input("taskStartTime")]
+        [PolicyResourceProperty("taskStartTime", "_mUnknown_TaskStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskStartTime;
+        private string? _mValue_TaskStartTime;
+        private bool _mUnknown_TaskStartTime;
+        public string? TaskStartTime
+        {
+            get
+            {
+                if (!_mUnknown_TaskStartTime) return _mValue_TaskStartTime;
+                throw new UndeferrableValueException("Value 'ExportTask.TaskStartTime' is not present");
+            }
+        }
 
-        public string? TaskStartTime => _mTaskStartTime.GetValue("taskStartTime");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ExportTaskTimeouts> _mTimeouts;
-
-        public Outputs.ExportTaskTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.ExportTaskTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.ExportTaskTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ExportTask.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Warning about the snapshot export task, if any.
         /// </summary>
-        [Input("warningMessage")]
+        [PolicyResourceProperty("warningMessage", "_mUnknown_WarningMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWarningMessage;
-
-        public string? WarningMessage => _mWarningMessage.GetValue("warningMessage");
+        private string? _mValue_WarningMessage;
+        private bool _mUnknown_WarningMessage;
+        public string? WarningMessage
+        {
+            get
+            {
+                if (!_mUnknown_WarningMessage) return _mValue_WarningMessage;
+                throw new UndeferrableValueException("Value 'ExportTask.WarningMessage' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:rds/exportTask:ExportTask")]
@@ -163,72 +275,128 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
         /// </summary>
-        [Input("exportOnlies")]
+        [PolicyResourceProperty("exportOnlies", "_mUnknown_ExportOnlies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExportOnlies;
-
-        public List<string>? ExportOnlies => _mExportOnlies.GetValue("exportOnlies");
+        private List<string>? _mValue_ExportOnlies;
+        private bool _mUnknown_ExportOnlies;
+        public List<string>? ExportOnlies
+        {
+            get
+            {
+                if (!_mUnknown_ExportOnlies) return _mValue_ExportOnlies;
+                throw new UndeferrableValueException("Value 'ExportTaskArgs.ExportOnlies' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the snapshot export task.
         /// </summary>
-        [Input("exportTaskIdentifier")]
+        [PolicyResourceProperty("exportTaskIdentifier", "_mUnknown_ExportTaskIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExportTaskIdentifier;
-
-        public string? ExportTaskIdentifier => _mExportTaskIdentifier.GetValue("exportTaskIdentifier");
+        private string? _mValue_ExportTaskIdentifier;
+        private bool _mUnknown_ExportTaskIdentifier;
+        public string? ExportTaskIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ExportTaskIdentifier) return _mValue_ExportTaskIdentifier;
+                throw new UndeferrableValueException("Value 'ExportTaskArgs.ExportTaskIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role to use for writing to the Amazon S3 bucket.
         /// </summary>
-        [Input("iamRoleArn")]
+        [PolicyResourceProperty("iamRoleArn", "_mUnknown_IamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
-
-        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+        private string? _mValue_IamRoleArn;
+        private bool _mUnknown_IamRoleArn;
+        public string? IamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArn) return _mValue_IamRoleArn;
+                throw new UndeferrableValueException("Value 'ExportTaskArgs.IamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ExportTaskArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Amazon S3 bucket to export the snapshot to.
         /// </summary>
-        [Input("s3BucketName")]
+        [PolicyResourceProperty("s3BucketName", "_mUnknown_S3BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketName;
-
-        public string? S3BucketName => _mS3BucketName.GetValue("s3BucketName");
+        private string? _mValue_S3BucketName;
+        private bool _mUnknown_S3BucketName;
+        public string? S3BucketName
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketName) return _mValue_S3BucketName;
+                throw new UndeferrableValueException("Value 'ExportTaskArgs.S3BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         /// </summary>
-        [Input("s3Prefix")]
+        [PolicyResourceProperty("s3Prefix", "_mUnknown_S3Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Prefix;
-
-        public string? S3Prefix => _mS3Prefix.GetValue("s3Prefix");
+        private string? _mValue_S3Prefix;
+        private bool _mUnknown_S3Prefix;
+        public string? S3Prefix
+        {
+            get
+            {
+                if (!_mUnknown_S3Prefix) return _mValue_S3Prefix;
+                throw new UndeferrableValueException("Value 'ExportTaskArgs.S3Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the snapshot to export.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("sourceArn")]
+        [PolicyResourceProperty("sourceArn", "_mUnknown_SourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
+        private string? _mValue_SourceArn;
+        private bool _mUnknown_SourceArn;
+        public string? SourceArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceArn) return _mValue_SourceArn;
+                throw new UndeferrableValueException("Value 'ExportTaskArgs.SourceArn' is not present");
+            }
+        }
 
-        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ExportTaskTimeoutsArgs> _mTimeouts;
-
-        public Inputs.ExportTaskTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.ExportTaskTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.ExportTaskTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ExportTaskArgs.Timeouts' is not present");
+            }
+        }
     }
 }

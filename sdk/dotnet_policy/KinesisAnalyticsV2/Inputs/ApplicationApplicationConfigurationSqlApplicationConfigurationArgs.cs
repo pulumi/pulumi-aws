@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Inputs
         /// <summary>
         /// The input stream used by the application.
         /// </summary>
-        [Input("input")]
+        [PolicyResourceProperty("input", "_mUnknown_Input")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs> _mInput;
-
-        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs? Input => _mInput.GetValue("input");
+        private Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs? _mValue_Input;
+        private bool _mUnknown_Input;
+        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs? Input
+        {
+            get
+            {
+                if (!_mUnknown_Input) return _mValue_Input;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationArgs.Input' is not present");
+            }
+        }
 
         /// <summary>
         /// The destination streams used by the application.
         /// </summary>
-        [Input("outputs")]
+        [PolicyResourceProperty("outputs", "_mUnknown_Outputs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs>> _mOutputs;
-
-        public List<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs>? Outputs => _mOutputs.GetValue("outputs");
+        private List<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs>? _mValue_Outputs;
+        private bool _mUnknown_Outputs;
+        public List<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs>? Outputs
+        {
+            get
+            {
+                if (!_mUnknown_Outputs) return _mValue_Outputs;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationArgs.Outputs' is not present");
+            }
+        }
 
         /// <summary>
         /// The reference data source used by the application.
         /// </summary>
-        [Input("referenceDataSource")]
+        [PolicyResourceProperty("referenceDataSource", "_mUnknown_ReferenceDataSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs> _mReferenceDataSource;
-
-        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs? ReferenceDataSource => _mReferenceDataSource.GetValue("referenceDataSource");
+        private Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs? _mValue_ReferenceDataSource;
+        private bool _mUnknown_ReferenceDataSource;
+        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs? ReferenceDataSource
+        {
+            get
+            {
+                if (!_mUnknown_ReferenceDataSource) return _mValue_ReferenceDataSource;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationArgs.ReferenceDataSource' is not present");
+            }
+        }
     }
 }

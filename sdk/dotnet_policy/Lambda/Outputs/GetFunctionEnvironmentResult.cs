@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Outputs
 {
     public sealed class GetFunctionEnvironmentResult
     {
-        [Input("variables")]
+        [PolicyResourceProperty("variables", "_mUnknown_Variables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mVariables;
-
-        public Dictionary<string, string>? Variables => _mVariables.GetValue("variables");
+        private Dictionary<string, string>? _mValue_Variables;
+        private bool _mUnknown_Variables;
+        public Dictionary<string, string>? Variables
+        {
+            get
+            {
+                if (!_mUnknown_Variables) return _mValue_Variables;
+                throw new UndeferrableValueException("Value 'GetFunctionEnvironmentResult.Variables' is not present");
+            }
+        }
     }
 }

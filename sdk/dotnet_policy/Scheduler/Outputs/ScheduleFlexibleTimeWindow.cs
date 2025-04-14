@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Scheduler.Outputs
         /// <summary>
         /// Maximum time window during which a schedule can be invoked. Ranges from `1` to `1440` minutes.
         /// </summary>
-        [Input("maximumWindowInMinutes")]
+        [PolicyResourceProperty("maximumWindowInMinutes", "_mUnknown_MaximumWindowInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumWindowInMinutes;
-
-        public int? MaximumWindowInMinutes => _mMaximumWindowInMinutes.GetValue("maximumWindowInMinutes");
+        private int? _mValue_MaximumWindowInMinutes;
+        private bool _mUnknown_MaximumWindowInMinutes;
+        public int? MaximumWindowInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_MaximumWindowInMinutes) return _mValue_MaximumWindowInMinutes;
+                throw new UndeferrableValueException("Value 'ScheduleFlexibleTimeWindow.MaximumWindowInMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether the schedule is invoked within a flexible time window. One of: `OFF`, `FLEXIBLE`.
         /// </summary>
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
-
-        public string? Mode => _mMode.GetValue("mode");
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'ScheduleFlexibleTimeWindow.Mode' is not present");
+            }
+        }
     }
 }

@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall
         /// <summary>
         /// The Amazon Resource Name (ARN) that identifies the rule group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'RuleGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         /// </summary>
-        [Input("capacity")]
+        [PolicyResourceProperty("capacity", "_mUnknown_Capacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCapacity;
-
-        public int? Capacity => _mCapacity.GetValue("capacity");
+        private int? _mValue_Capacity;
+        private bool _mUnknown_Capacity;
+        public int? Capacity
+        {
+            get
+            {
+                if (!_mUnknown_Capacity) return _mValue_Capacity;
+                throw new UndeferrableValueException("Value 'RuleGroup.Capacity' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly description of the rule group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'RuleGroup.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// KMS encryption configuration settings. See Encryption Configuration below for details.
         /// </summary>
-        [Input("encryptionConfiguration")]
+        [PolicyResourceProperty("encryptionConfiguration", "_mUnknown_EncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupEncryptionConfiguration> _mEncryptionConfiguration;
-
-        public Outputs.RuleGroupEncryptionConfiguration? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+        private Outputs.RuleGroupEncryptionConfiguration? _mValue_EncryptionConfiguration;
+        private bool _mUnknown_EncryptionConfiguration;
+        public Outputs.RuleGroupEncryptionConfiguration? EncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfiguration) return _mValue_EncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'RuleGroup.EncryptionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly name of the rule group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RuleGroup.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         /// </summary>
-        [Input("ruleGroup")]
+        [PolicyResourceProperty("ruleGroup", "_mUnknown_RuleGroupConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleGroup> _mRuleGroupConfiguration;
-
-        public Outputs.RuleGroupRuleGroup? RuleGroupConfiguration => _mRuleGroupConfiguration.GetValue("ruleGroup");
+        private Outputs.RuleGroupRuleGroup? _mValue_RuleGroupConfiguration;
+        private bool _mUnknown_RuleGroupConfiguration;
+        public Outputs.RuleGroupRuleGroup? RuleGroupConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RuleGroupConfiguration) return _mValue_RuleGroupConfiguration;
+                throw new UndeferrableValueException("Value 'RuleGroup.RuleGroupConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRules;
-
-        public string? Rules => _mRules.GetValue("rules");
+        private string? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public string? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'RuleGroup.Rules' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RuleGroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'RuleGroup.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'RuleGroup.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// A string token used when updating the rule group.
         /// </summary>
-        [Input("updateToken")]
+        [PolicyResourceProperty("updateToken", "_mUnknown_UpdateToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateToken;
-
-        public string? UpdateToken => _mUpdateToken.GetValue("updateToken");
+        private string? _mValue_UpdateToken;
+        private bool _mUnknown_UpdateToken;
+        public string? UpdateToken
+        {
+            get
+            {
+                if (!_mUnknown_UpdateToken) return _mValue_UpdateToken;
+                throw new UndeferrableValueException("Value 'RuleGroup.UpdateToken' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:networkfirewall/ruleGroup:RuleGroup")]
@@ -119,73 +196,129 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall
         /// <summary>
         /// The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         /// </summary>
-        [Input("capacity")]
+        [PolicyResourceProperty("capacity", "_mUnknown_Capacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCapacity;
-
-        public int? Capacity => _mCapacity.GetValue("capacity");
+        private int? _mValue_Capacity;
+        private bool _mUnknown_Capacity;
+        public int? Capacity
+        {
+            get
+            {
+                if (!_mUnknown_Capacity) return _mValue_Capacity;
+                throw new UndeferrableValueException("Value 'RuleGroupArgs.Capacity' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly description of the rule group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'RuleGroupArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// KMS encryption configuration settings. See Encryption Configuration below for details.
         /// </summary>
-        [Input("encryptionConfiguration")]
+        [PolicyResourceProperty("encryptionConfiguration", "_mUnknown_EncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupEncryptionConfigurationArgs> _mEncryptionConfiguration;
-
-        public Inputs.RuleGroupEncryptionConfigurationArgs? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+        private Inputs.RuleGroupEncryptionConfigurationArgs? _mValue_EncryptionConfiguration;
+        private bool _mUnknown_EncryptionConfiguration;
+        public Inputs.RuleGroupEncryptionConfigurationArgs? EncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfiguration) return _mValue_EncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'RuleGroupArgs.EncryptionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly name of the rule group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RuleGroupArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         /// </summary>
-        [Input("ruleGroup")]
+        [PolicyResourceProperty("ruleGroup", "_mUnknown_RuleGroupConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleGroupArgs> _mRuleGroupConfiguration;
-
-        public Inputs.RuleGroupRuleGroupArgs? RuleGroupConfiguration => _mRuleGroupConfiguration.GetValue("ruleGroup");
+        private Inputs.RuleGroupRuleGroupArgs? _mValue_RuleGroupConfiguration;
+        private bool _mUnknown_RuleGroupConfiguration;
+        public Inputs.RuleGroupRuleGroupArgs? RuleGroupConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RuleGroupConfiguration) return _mValue_RuleGroupConfiguration;
+                throw new UndeferrableValueException("Value 'RuleGroupArgs.RuleGroupConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRules;
-
-        public string? Rules => _mRules.GetValue("rules");
+        private string? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public string? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'RuleGroupArgs.Rules' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RuleGroupArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'RuleGroupArgs.Type' is not present");
+            }
+        }
     }
 }

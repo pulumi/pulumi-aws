@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
         /// </summary>
-        [Input("destinationArn")]
+        [PolicyResourceProperty("destinationArn", "_mUnknown_DestinationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
-
-        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
+        private string? _mValue_DestinationArn;
+        private bool _mUnknown_DestinationArn;
+        public string? DestinationArn
+        {
+            get
+            {
+                if (!_mUnknown_DestinationArn) return _mValue_DestinationArn;
+                throw new UndeferrableValueException("Value 'LogSubscriptionFilter.DestinationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
         /// </summary>
-        [Input("distribution")]
+        [PolicyResourceProperty("distribution", "_mUnknown_Distribution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDistribution;
-
-        public string? Distribution => _mDistribution.GetValue("distribution");
+        private string? _mValue_Distribution;
+        private bool _mUnknown_Distribution;
+        public string? Distribution
+        {
+            get
+            {
+                if (!_mUnknown_Distribution) return _mValue_Distribution;
+                throw new UndeferrableValueException("Value 'LogSubscriptionFilter.Distribution' is not present");
+            }
+        }
 
         /// <summary>
         /// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         /// </summary>
-        [Input("filterPattern")]
+        [PolicyResourceProperty("filterPattern", "_mUnknown_FilterPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilterPattern;
-
-        public string? FilterPattern => _mFilterPattern.GetValue("filterPattern");
+        private string? _mValue_FilterPattern;
+        private bool _mUnknown_FilterPattern;
+        public string? FilterPattern
+        {
+            get
+            {
+                if (!_mUnknown_FilterPattern) return _mValue_FilterPattern;
+                throw new UndeferrableValueException("Value 'LogSubscriptionFilter.FilterPattern' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the log group to associate the subscription filter with
         /// </summary>
-        [Input("logGroup")]
+        [PolicyResourceProperty("logGroup", "_mUnknown_LogGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroup;
-
-        public string? LogGroup => _mLogGroup.GetValue("logGroup");
+        private string? _mValue_LogGroup;
+        private bool _mUnknown_LogGroup;
+        public string? LogGroup
+        {
+            get
+            {
+                if (!_mUnknown_LogGroup) return _mValue_LogGroup;
+                throw new UndeferrableValueException("Value 'LogSubscriptionFilter.LogGroup' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the subscription filter
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LogSubscriptionFilter.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'LogSubscriptionFilter.RoleArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter")]
@@ -74,55 +116,97 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
         /// </summary>
-        [Input("destinationArn")]
+        [PolicyResourceProperty("destinationArn", "_mUnknown_DestinationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
-
-        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
+        private string? _mValue_DestinationArn;
+        private bool _mUnknown_DestinationArn;
+        public string? DestinationArn
+        {
+            get
+            {
+                if (!_mUnknown_DestinationArn) return _mValue_DestinationArn;
+                throw new UndeferrableValueException("Value 'LogSubscriptionFilterArgs.DestinationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
         /// </summary>
-        [Input("distribution")]
+        [PolicyResourceProperty("distribution", "_mUnknown_Distribution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDistribution;
-
-        public string? Distribution => _mDistribution.GetValue("distribution");
+        private string? _mValue_Distribution;
+        private bool _mUnknown_Distribution;
+        public string? Distribution
+        {
+            get
+            {
+                if (!_mUnknown_Distribution) return _mValue_Distribution;
+                throw new UndeferrableValueException("Value 'LogSubscriptionFilterArgs.Distribution' is not present");
+            }
+        }
 
         /// <summary>
         /// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         /// </summary>
-        [Input("filterPattern")]
+        [PolicyResourceProperty("filterPattern", "_mUnknown_FilterPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilterPattern;
-
-        public string? FilterPattern => _mFilterPattern.GetValue("filterPattern");
+        private string? _mValue_FilterPattern;
+        private bool _mUnknown_FilterPattern;
+        public string? FilterPattern
+        {
+            get
+            {
+                if (!_mUnknown_FilterPattern) return _mValue_FilterPattern;
+                throw new UndeferrableValueException("Value 'LogSubscriptionFilterArgs.FilterPattern' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the log group to associate the subscription filter with
         /// </summary>
-        [Input("logGroup")]
+        [PolicyResourceProperty("logGroup", "_mUnknown_LogGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroup;
-
-        public string? LogGroup => _mLogGroup.GetValue("logGroup");
+        private string? _mValue_LogGroup;
+        private bool _mUnknown_LogGroup;
+        public string? LogGroup
+        {
+            get
+            {
+                if (!_mUnknown_LogGroup) return _mValue_LogGroup;
+                throw new UndeferrableValueException("Value 'LogSubscriptionFilterArgs.LogGroup' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the subscription filter
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LogSubscriptionFilterArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'LogSubscriptionFilterArgs.RoleArn' is not present");
+            }
+        }
     }
 }

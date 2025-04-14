@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// <summary>
         /// Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
         /// </summary>
-        [Input("remoteNodeNetworks")]
+        [PolicyResourceProperty("remoteNodeNetworks", "_mUnknown_RemoteNodeNetworks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterRemoteNetworkConfigRemoteNodeNetworks> _mRemoteNodeNetworks;
-
-        public Outputs.ClusterRemoteNetworkConfigRemoteNodeNetworks? RemoteNodeNetworks => _mRemoteNodeNetworks.GetValue("remoteNodeNetworks");
+        private Outputs.ClusterRemoteNetworkConfigRemoteNodeNetworks? _mValue_RemoteNodeNetworks;
+        private bool _mUnknown_RemoteNodeNetworks;
+        public Outputs.ClusterRemoteNetworkConfigRemoteNodeNetworks? RemoteNodeNetworks
+        {
+            get
+            {
+                if (!_mUnknown_RemoteNodeNetworks) return _mValue_RemoteNodeNetworks;
+                throw new UndeferrableValueException("Value 'ClusterRemoteNetworkConfig.RemoteNodeNetworks' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
         /// </summary>
-        [Input("remotePodNetworks")]
+        [PolicyResourceProperty("remotePodNetworks", "_mUnknown_RemotePodNetworks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterRemoteNetworkConfigRemotePodNetworks> _mRemotePodNetworks;
-
-        public Outputs.ClusterRemoteNetworkConfigRemotePodNetworks? RemotePodNetworks => _mRemotePodNetworks.GetValue("remotePodNetworks");
+        private Outputs.ClusterRemoteNetworkConfigRemotePodNetworks? _mValue_RemotePodNetworks;
+        private bool _mUnknown_RemotePodNetworks;
+        public Outputs.ClusterRemoteNetworkConfigRemotePodNetworks? RemotePodNetworks
+        {
+            get
+            {
+                if (!_mUnknown_RemotePodNetworks) return _mValue_RemotePodNetworks;
+                throw new UndeferrableValueException("Value 'ClusterRemoteNetworkConfig.RemotePodNetworks' is not present");
+            }
+        }
     }
 }

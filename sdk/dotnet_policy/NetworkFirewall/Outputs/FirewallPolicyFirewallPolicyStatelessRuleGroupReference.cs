@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// An integer setting that indicates the order in which to run the stateless rule groups in a single policy. AWS Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatelessRuleGroupReference.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the stateless rule group.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatelessRuleGroupReference.ResourceArn' is not present");
+            }
+        }
     }
 }

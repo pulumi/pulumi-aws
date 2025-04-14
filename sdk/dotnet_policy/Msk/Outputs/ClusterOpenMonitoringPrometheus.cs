@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
         /// <summary>
         /// Configuration block for JMX Exporter. See below.
         /// </summary>
-        [Input("jmxExporter")]
+        [PolicyResourceProperty("jmxExporter", "_mUnknown_JmxExporter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterOpenMonitoringPrometheusJmxExporter> _mJmxExporter;
-
-        public Outputs.ClusterOpenMonitoringPrometheusJmxExporter? JmxExporter => _mJmxExporter.GetValue("jmxExporter");
+        private Outputs.ClusterOpenMonitoringPrometheusJmxExporter? _mValue_JmxExporter;
+        private bool _mUnknown_JmxExporter;
+        public Outputs.ClusterOpenMonitoringPrometheusJmxExporter? JmxExporter
+        {
+            get
+            {
+                if (!_mUnknown_JmxExporter) return _mValue_JmxExporter;
+                throw new UndeferrableValueException("Value 'ClusterOpenMonitoringPrometheus.JmxExporter' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for Node Exporter. See below.
         /// </summary>
-        [Input("nodeExporter")]
+        [PolicyResourceProperty("nodeExporter", "_mUnknown_NodeExporter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterOpenMonitoringPrometheusNodeExporter> _mNodeExporter;
-
-        public Outputs.ClusterOpenMonitoringPrometheusNodeExporter? NodeExporter => _mNodeExporter.GetValue("nodeExporter");
+        private Outputs.ClusterOpenMonitoringPrometheusNodeExporter? _mValue_NodeExporter;
+        private bool _mUnknown_NodeExporter;
+        public Outputs.ClusterOpenMonitoringPrometheusNodeExporter? NodeExporter
+        {
+            get
+            {
+                if (!_mUnknown_NodeExporter) return _mValue_NodeExporter;
+                throw new UndeferrableValueException("Value 'ClusterOpenMonitoringPrometheus.NodeExporter' is not present");
+            }
+        }
     }
 }

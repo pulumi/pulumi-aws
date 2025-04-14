@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.RedshiftServerless
         /// <summary>
         /// The DNS address of the VPC endpoint.
         /// </summary>
-        [Input("address")]
+        [PolicyResourceProperty("address", "_mUnknown_Address")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddress;
-
-        public string? Address => _mAddress.GetValue("address");
+        private string? _mValue_Address;
+        private bool _mUnknown_Address;
+        public string? Address
+        {
+            get
+            {
+                if (!_mUnknown_Address) return _mValue_Address;
+                throw new UndeferrableValueException("Value 'EndpointAccess.Address' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'EndpointAccess.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the endpoint.
         /// </summary>
-        [Input("endpointName")]
+        [PolicyResourceProperty("endpointName", "_mUnknown_EndpointName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointName;
-
-        public string? EndpointName => _mEndpointName.GetValue("endpointName");
+        private string? _mValue_EndpointName;
+        private bool _mUnknown_EndpointName;
+        public string? EndpointName
+        {
+            get
+            {
+                if (!_mUnknown_EndpointName) return _mValue_EndpointName;
+                throw new UndeferrableValueException("Value 'EndpointAccess.EndpointName' is not present");
+            }
+        }
 
         /// <summary>
         /// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
         /// </summary>
-        [Input("ownerAccount")]
+        [PolicyResourceProperty("ownerAccount", "_mUnknown_OwnerAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccount;
-
-        public string? OwnerAccount => _mOwnerAccount.GetValue("ownerAccount");
+        private string? _mValue_OwnerAccount;
+        private bool _mUnknown_OwnerAccount;
+        public string? OwnerAccount
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccount) return _mValue_OwnerAccount;
+                throw new UndeferrableValueException("Value 'EndpointAccess.OwnerAccount' is not present");
+            }
+        }
 
         /// <summary>
         /// The port that Amazon Redshift Serverless listens on.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'EndpointAccess.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of VPC subnet IDs to associate with the endpoint.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'EndpointAccess.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
         /// </summary>
-        [Input("vpcEndpoints")]
+        [PolicyResourceProperty("vpcEndpoints", "_mUnknown_VpcEndpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EndpointAccessVpcEndpoint>> _mVpcEndpoints;
-
-        public List<Outputs.EndpointAccessVpcEndpoint>? VpcEndpoints => _mVpcEndpoints.GetValue("vpcEndpoints");
+        private List<Outputs.EndpointAccessVpcEndpoint>? _mValue_VpcEndpoints;
+        private bool _mUnknown_VpcEndpoints;
+        public List<Outputs.EndpointAccessVpcEndpoint>? VpcEndpoints
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpoints) return _mValue_VpcEndpoints;
+                throw new UndeferrableValueException("Value 'EndpointAccess.VpcEndpoints' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of security group IDs to associate with the workgroup.
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'EndpointAccess.VpcSecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the workgroup.
         /// </summary>
-        [Input("workgroupName")]
+        [PolicyResourceProperty("workgroupName", "_mUnknown_WorkgroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroupName;
-
-        public string? WorkgroupName => _mWorkgroupName.GetValue("workgroupName");
+        private string? _mValue_WorkgroupName;
+        private bool _mUnknown_WorkgroupName;
+        public string? WorkgroupName
+        {
+            get
+            {
+                if (!_mUnknown_WorkgroupName) return _mValue_WorkgroupName;
+                throw new UndeferrableValueException("Value 'EndpointAccess.WorkgroupName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshiftserverless/endpointAccess:EndpointAccess")]
@@ -101,46 +164,81 @@ namespace Pulumi.PolicyPacks.Aws.RedshiftServerless
         /// <summary>
         /// The name of the endpoint.
         /// </summary>
-        [Input("endpointName")]
+        [PolicyResourceProperty("endpointName", "_mUnknown_EndpointName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointName;
-
-        public string? EndpointName => _mEndpointName.GetValue("endpointName");
+        private string? _mValue_EndpointName;
+        private bool _mUnknown_EndpointName;
+        public string? EndpointName
+        {
+            get
+            {
+                if (!_mUnknown_EndpointName) return _mValue_EndpointName;
+                throw new UndeferrableValueException("Value 'EndpointAccessArgs.EndpointName' is not present");
+            }
+        }
 
         /// <summary>
         /// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
         /// </summary>
-        [Input("ownerAccount")]
+        [PolicyResourceProperty("ownerAccount", "_mUnknown_OwnerAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccount;
-
-        public string? OwnerAccount => _mOwnerAccount.GetValue("ownerAccount");
+        private string? _mValue_OwnerAccount;
+        private bool _mUnknown_OwnerAccount;
+        public string? OwnerAccount
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccount) return _mValue_OwnerAccount;
+                throw new UndeferrableValueException("Value 'EndpointAccessArgs.OwnerAccount' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of VPC subnet IDs to associate with the endpoint.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'EndpointAccessArgs.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of security group IDs to associate with the workgroup.
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'EndpointAccessArgs.VpcSecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the workgroup.
         /// </summary>
-        [Input("workgroupName")]
+        [PolicyResourceProperty("workgroupName", "_mUnknown_WorkgroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroupName;
-
-        public string? WorkgroupName => _mWorkgroupName.GetValue("workgroupName");
+        private string? _mValue_WorkgroupName;
+        private bool _mUnknown_WorkgroupName;
+        public string? WorkgroupName
+        {
+            get
+            {
+                if (!_mUnknown_WorkgroupName) return _mValue_WorkgroupName;
+                throw new UndeferrableValueException("Value 'EndpointAccessArgs.WorkgroupName' is not present");
+            }
+        }
     }
 }

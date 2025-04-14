@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Outputs
         /// <summary>
         /// The name of the secondary Region.
         /// </summary>
-        [Input("route")]
+        [PolicyResourceProperty("route", "_mUnknown_Route")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoute;
-
-        public string? Route => _mRoute.GetValue("route");
+        private string? _mValue_Route;
+        private bool _mUnknown_Route;
+        public string? Route
+        {
+            get
+            {
+                if (!_mUnknown_Route) return _mValue_Route;
+                throw new UndeferrableValueException("Value 'EventEndpointRoutingConfigFailoverConfigSecondary.Route' is not present");
+            }
+        }
     }
 }

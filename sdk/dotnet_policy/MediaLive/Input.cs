@@ -16,145 +16,257 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive
         /// <summary>
         /// ARN of the Input.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Input.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Channels attached to Input.
         /// </summary>
-        [Input("attachedChannels")]
+        [PolicyResourceProperty("attachedChannels", "_mUnknown_AttachedChannels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAttachedChannels;
-
-        public List<string>? AttachedChannels => _mAttachedChannels.GetValue("attachedChannels");
+        private List<string>? _mValue_AttachedChannels;
+        private bool _mUnknown_AttachedChannels;
+        public List<string>? AttachedChannels
+        {
+            get
+            {
+                if (!_mUnknown_AttachedChannels) return _mValue_AttachedChannels;
+                throw new UndeferrableValueException("Value 'Input.AttachedChannels' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination settings for PUSH type inputs. See Destinations for more details.
         /// </summary>
-        [Input("destinations")]
+        [PolicyResourceProperty("destinations", "_mUnknown_Destinations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InputDestination>> _mDestinations;
-
-        public List<Outputs.InputDestination>? Destinations => _mDestinations.GetValue("destinations");
+        private List<Outputs.InputDestination>? _mValue_Destinations;
+        private bool _mUnknown_Destinations;
+        public List<Outputs.InputDestination>? Destinations
+        {
+            get
+            {
+                if (!_mUnknown_Destinations) return _mValue_Destinations;
+                throw new UndeferrableValueException("Value 'Input.Destinations' is not present");
+            }
+        }
 
         /// <summary>
         /// The input class.
         /// </summary>
-        [Input("inputClass")]
+        [PolicyResourceProperty("inputClass", "_mUnknown_InputClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputClass;
-
-        public string? InputClass => _mInputClass.GetValue("inputClass");
+        private string? _mValue_InputClass;
+        private bool _mUnknown_InputClass;
+        public string? InputClass
+        {
+            get
+            {
+                if (!_mUnknown_InputClass) return _mValue_InputClass;
+                throw new UndeferrableValueException("Value 'Input.InputClass' is not present");
+            }
+        }
 
         /// <summary>
         /// Settings for the devices. See Input Devices for more details.
         /// </summary>
-        [Input("inputDevices")]
+        [PolicyResourceProperty("inputDevices", "_mUnknown_InputDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InputInputDevice>> _mInputDevices;
-
-        public List<Outputs.InputInputDevice>? InputDevices => _mInputDevices.GetValue("inputDevices");
+        private List<Outputs.InputInputDevice>? _mValue_InputDevices;
+        private bool _mUnknown_InputDevices;
+        public List<Outputs.InputInputDevice>? InputDevices
+        {
+            get
+            {
+                if (!_mUnknown_InputDevices) return _mValue_InputDevices;
+                throw new UndeferrableValueException("Value 'Input.InputDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IDs for all Inputs which are partners of this one.
         /// </summary>
-        [Input("inputPartnerIds")]
+        [PolicyResourceProperty("inputPartnerIds", "_mUnknown_InputPartnerIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInputPartnerIds;
-
-        public List<string>? InputPartnerIds => _mInputPartnerIds.GetValue("inputPartnerIds");
+        private List<string>? _mValue_InputPartnerIds;
+        private bool _mUnknown_InputPartnerIds;
+        public List<string>? InputPartnerIds
+        {
+            get
+            {
+                if (!_mUnknown_InputPartnerIds) return _mValue_InputPartnerIds;
+                throw new UndeferrableValueException("Value 'Input.InputPartnerIds' is not present");
+            }
+        }
 
         /// <summary>
         /// List of input security groups.
         /// </summary>
-        [Input("inputSecurityGroups")]
+        [PolicyResourceProperty("inputSecurityGroups", "_mUnknown_InputSecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInputSecurityGroups;
-
-        public List<string>? InputSecurityGroups => _mInputSecurityGroups.GetValue("inputSecurityGroups");
+        private List<string>? _mValue_InputSecurityGroups;
+        private bool _mUnknown_InputSecurityGroups;
+        public List<string>? InputSecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_InputSecurityGroups) return _mValue_InputSecurityGroups;
+                throw new UndeferrableValueException("Value 'Input.InputSecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Source type of the input.
         /// </summary>
-        [Input("inputSourceType")]
+        [PolicyResourceProperty("inputSourceType", "_mUnknown_InputSourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputSourceType;
-
-        public string? InputSourceType => _mInputSourceType.GetValue("inputSourceType");
+        private string? _mValue_InputSourceType;
+        private bool _mUnknown_InputSourceType;
+        public string? InputSourceType
+        {
+            get
+            {
+                if (!_mUnknown_InputSourceType) return _mValue_InputSourceType;
+                throw new UndeferrableValueException("Value 'Input.InputSourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of the MediaConnect Flows. See Media Connect Flows for more details.
         /// </summary>
-        [Input("mediaConnectFlows")]
+        [PolicyResourceProperty("mediaConnectFlows", "_mUnknown_MediaConnectFlows")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InputMediaConnectFlow>> _mMediaConnectFlows;
-
-        public List<Outputs.InputMediaConnectFlow>? MediaConnectFlows => _mMediaConnectFlows.GetValue("mediaConnectFlows");
+        private List<Outputs.InputMediaConnectFlow>? _mValue_MediaConnectFlows;
+        private bool _mUnknown_MediaConnectFlows;
+        public List<Outputs.InputMediaConnectFlow>? MediaConnectFlows
+        {
+            get
+            {
+                if (!_mUnknown_MediaConnectFlows) return _mValue_MediaConnectFlows;
+                throw new UndeferrableValueException("Value 'Input.MediaConnectFlows' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the input.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Input.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the role this input assumes during and after creation.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Input.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The source URLs for a PULL-type input. See Sources for more details.
         /// </summary>
-        [Input("sources")]
+        [PolicyResourceProperty("sources", "_mUnknown_Sources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InputSource>> _mSources;
-
-        public List<Outputs.InputSource>? Sources => _mSources.GetValue("sources");
+        private List<Outputs.InputSource>? _mValue_Sources;
+        private bool _mUnknown_Sources;
+        public List<Outputs.InputSource>? Sources
+        {
+            get
+            {
+                if (!_mUnknown_Sources) return _mValue_Sources;
+                throw new UndeferrableValueException("Value 'Input.Sources' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Input.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Input.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The different types of inputs that AWS Elemental MediaLive supports.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Input.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Settings for a private VPC Input. See VPC for more details.
         /// </summary>
-        [Input("vpc")]
+        [PolicyResourceProperty("vpc", "_mUnknown_Vpc")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InputVpc> _mVpc;
-
-        public Outputs.InputVpc? Vpc => _mVpc.GetValue("vpc");
+        private Outputs.InputVpc? _mValue_Vpc;
+        private bool _mUnknown_Vpc;
+        public Outputs.InputVpc? Vpc
+        {
+            get
+            {
+                if (!_mUnknown_Vpc) return _mValue_Vpc;
+                throw new UndeferrableValueException("Value 'Input.Vpc' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:medialive/input:Input")]
@@ -163,93 +275,163 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive
         /// <summary>
         /// Destination settings for PUSH type inputs. See Destinations for more details.
         /// </summary>
-        [Input("destinations")]
+        [PolicyResourceProperty("destinations", "_mUnknown_Destinations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InputDestinationArgs>> _mDestinations;
-
-        public List<Inputs.InputDestinationArgs>? Destinations => _mDestinations.GetValue("destinations");
+        private List<Inputs.InputDestinationArgs>? _mValue_Destinations;
+        private bool _mUnknown_Destinations;
+        public List<Inputs.InputDestinationArgs>? Destinations
+        {
+            get
+            {
+                if (!_mUnknown_Destinations) return _mValue_Destinations;
+                throw new UndeferrableValueException("Value 'InputArgs.Destinations' is not present");
+            }
+        }
 
         /// <summary>
         /// Settings for the devices. See Input Devices for more details.
         /// </summary>
-        [Input("inputDevices")]
+        [PolicyResourceProperty("inputDevices", "_mUnknown_InputDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InputInputDeviceArgs>> _mInputDevices;
-
-        public List<Inputs.InputInputDeviceArgs>? InputDevices => _mInputDevices.GetValue("inputDevices");
+        private List<Inputs.InputInputDeviceArgs>? _mValue_InputDevices;
+        private bool _mUnknown_InputDevices;
+        public List<Inputs.InputInputDeviceArgs>? InputDevices
+        {
+            get
+            {
+                if (!_mUnknown_InputDevices) return _mValue_InputDevices;
+                throw new UndeferrableValueException("Value 'InputArgs.InputDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// List of input security groups.
         /// </summary>
-        [Input("inputSecurityGroups")]
+        [PolicyResourceProperty("inputSecurityGroups", "_mUnknown_InputSecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInputSecurityGroups;
-
-        public List<string>? InputSecurityGroups => _mInputSecurityGroups.GetValue("inputSecurityGroups");
+        private List<string>? _mValue_InputSecurityGroups;
+        private bool _mUnknown_InputSecurityGroups;
+        public List<string>? InputSecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_InputSecurityGroups) return _mValue_InputSecurityGroups;
+                throw new UndeferrableValueException("Value 'InputArgs.InputSecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of the MediaConnect Flows. See Media Connect Flows for more details.
         /// </summary>
-        [Input("mediaConnectFlows")]
+        [PolicyResourceProperty("mediaConnectFlows", "_mUnknown_MediaConnectFlows")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InputMediaConnectFlowArgs>> _mMediaConnectFlows;
-
-        public List<Inputs.InputMediaConnectFlowArgs>? MediaConnectFlows => _mMediaConnectFlows.GetValue("mediaConnectFlows");
+        private List<Inputs.InputMediaConnectFlowArgs>? _mValue_MediaConnectFlows;
+        private bool _mUnknown_MediaConnectFlows;
+        public List<Inputs.InputMediaConnectFlowArgs>? MediaConnectFlows
+        {
+            get
+            {
+                if (!_mUnknown_MediaConnectFlows) return _mValue_MediaConnectFlows;
+                throw new UndeferrableValueException("Value 'InputArgs.MediaConnectFlows' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the input.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'InputArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the role this input assumes during and after creation.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'InputArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The source URLs for a PULL-type input. See Sources for more details.
         /// </summary>
-        [Input("sources")]
+        [PolicyResourceProperty("sources", "_mUnknown_Sources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InputSourceArgs>> _mSources;
-
-        public List<Inputs.InputSourceArgs>? Sources => _mSources.GetValue("sources");
+        private List<Inputs.InputSourceArgs>? _mValue_Sources;
+        private bool _mUnknown_Sources;
+        public List<Inputs.InputSourceArgs>? Sources
+        {
+            get
+            {
+                if (!_mUnknown_Sources) return _mValue_Sources;
+                throw new UndeferrableValueException("Value 'InputArgs.Sources' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'InputArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The different types of inputs that AWS Elemental MediaLive supports.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'InputArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Settings for a private VPC Input. See VPC for more details.
         /// </summary>
-        [Input("vpc")]
+        [PolicyResourceProperty("vpc", "_mUnknown_Vpc")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InputVpcArgs> _mVpc;
-
-        public Inputs.InputVpcArgs? Vpc => _mVpc.GetValue("vpc");
+        private Inputs.InputVpcArgs? _mValue_Vpc;
+        private bool _mUnknown_Vpc;
+        public Inputs.InputVpcArgs? Vpc
+        {
+            get
+            {
+                if (!_mUnknown_Vpc) return _mValue_Vpc;
+                throw new UndeferrableValueException("Value 'InputArgs.Vpc' is not present");
+            }
+        }
     }
 }

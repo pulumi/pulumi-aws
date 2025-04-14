@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
         /// <summary>
         /// Attached elastic network interface of the broker
         /// </summary>
-        [Input("attachedEniId")]
+        [PolicyResourceProperty("attachedEniId", "_mUnknown_AttachedEniId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttachedEniId;
-
-        public string? AttachedEniId => _mAttachedEniId.GetValue("attachedEniId");
+        private string? _mValue_AttachedEniId;
+        private bool _mUnknown_AttachedEniId;
+        public string? AttachedEniId
+        {
+            get
+            {
+                if (!_mUnknown_AttachedEniId) return _mValue_AttachedEniId;
+                throw new UndeferrableValueException("Value 'GetBrokerNodesNodeInfoListResult.AttachedEniId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the broker
         /// </summary>
-        [Input("brokerId")]
+        [PolicyResourceProperty("brokerId", "_mUnknown_BrokerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mBrokerId;
-
-        public double? BrokerId => _mBrokerId.GetValue("brokerId");
+        private double? _mValue_BrokerId;
+        private bool _mUnknown_BrokerId;
+        public double? BrokerId
+        {
+            get
+            {
+                if (!_mUnknown_BrokerId) return _mValue_BrokerId;
+                throw new UndeferrableValueException("Value 'GetBrokerNodesNodeInfoListResult.BrokerId' is not present");
+            }
+        }
 
         /// <summary>
         /// Client subnet to which this broker node belongs
         /// </summary>
-        [Input("clientSubnet")]
+        [PolicyResourceProperty("clientSubnet", "_mUnknown_ClientSubnet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientSubnet;
-
-        public string? ClientSubnet => _mClientSubnet.GetValue("clientSubnet");
+        private string? _mValue_ClientSubnet;
+        private bool _mUnknown_ClientSubnet;
+        public string? ClientSubnet
+        {
+            get
+            {
+                if (!_mUnknown_ClientSubnet) return _mValue_ClientSubnet;
+                throw new UndeferrableValueException("Value 'GetBrokerNodesNodeInfoListResult.ClientSubnet' is not present");
+            }
+        }
 
         /// <summary>
         /// The client virtual private cloud (VPC) IP address
         /// </summary>
-        [Input("clientVpcIpAddress")]
+        [PolicyResourceProperty("clientVpcIpAddress", "_mUnknown_ClientVpcIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientVpcIpAddress;
-
-        public string? ClientVpcIpAddress => _mClientVpcIpAddress.GetValue("clientVpcIpAddress");
+        private string? _mValue_ClientVpcIpAddress;
+        private bool _mUnknown_ClientVpcIpAddress;
+        public string? ClientVpcIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_ClientVpcIpAddress) return _mValue_ClientVpcIpAddress;
+                throw new UndeferrableValueException("Value 'GetBrokerNodesNodeInfoListResult.ClientVpcIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of endpoints for accessing the broker. This does not include ports
         /// </summary>
-        [Input("endpoints")]
+        [PolicyResourceProperty("endpoints", "_mUnknown_Endpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEndpoints;
-
-        public List<string>? Endpoints => _mEndpoints.GetValue("endpoints");
+        private List<string>? _mValue_Endpoints;
+        private bool _mUnknown_Endpoints;
+        public List<string>? Endpoints
+        {
+            get
+            {
+                if (!_mUnknown_Endpoints) return _mValue_Endpoints;
+                throw new UndeferrableValueException("Value 'GetBrokerNodesNodeInfoListResult.Endpoints' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the node
         /// </summary>
-        [Input("nodeArn")]
+        [PolicyResourceProperty("nodeArn", "_mUnknown_NodeArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeArn;
-
-        public string? NodeArn => _mNodeArn.GetValue("nodeArn");
+        private string? _mValue_NodeArn;
+        private bool _mUnknown_NodeArn;
+        public string? NodeArn
+        {
+            get
+            {
+                if (!_mUnknown_NodeArn) return _mValue_NodeArn;
+                throw new UndeferrableValueException("Value 'GetBrokerNodesNodeInfoListResult.NodeArn' is not present");
+            }
+        }
     }
 }

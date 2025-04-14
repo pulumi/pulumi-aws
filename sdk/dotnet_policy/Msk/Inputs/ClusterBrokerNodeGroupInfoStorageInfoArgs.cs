@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Inputs
         /// <summary>
         /// A block that contains EBS volume information. See below.
         /// </summary>
-        [Input("ebsStorageInfo")]
+        [PolicyResourceProperty("ebsStorageInfo", "_mUnknown_EbsStorageInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs> _mEbsStorageInfo;
-
-        public Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs? EbsStorageInfo => _mEbsStorageInfo.GetValue("ebsStorageInfo");
+        private Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs? _mValue_EbsStorageInfo;
+        private bool _mUnknown_EbsStorageInfo;
+        public Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs? EbsStorageInfo
+        {
+            get
+            {
+                if (!_mUnknown_EbsStorageInfo) return _mValue_EbsStorageInfo;
+                throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoStorageInfoArgs.EbsStorageInfo' is not present");
+            }
+        }
     }
 }

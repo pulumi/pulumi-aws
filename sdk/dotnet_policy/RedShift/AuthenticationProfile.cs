@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
         /// </summary>
-        [Input("authenticationProfileContent")]
+        [PolicyResourceProperty("authenticationProfileContent", "_mUnknown_AuthenticationProfileContent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationProfileContent;
-
-        public string? AuthenticationProfileContent => _mAuthenticationProfileContent.GetValue("authenticationProfileContent");
+        private string? _mValue_AuthenticationProfileContent;
+        private bool _mUnknown_AuthenticationProfileContent;
+        public string? AuthenticationProfileContent
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationProfileContent) return _mValue_AuthenticationProfileContent;
+                throw new UndeferrableValueException("Value 'AuthenticationProfile.AuthenticationProfileContent' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the authentication profile.
         /// </summary>
-        [Input("authenticationProfileName")]
+        [PolicyResourceProperty("authenticationProfileName", "_mUnknown_AuthenticationProfileName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationProfileName;
-
-        public string? AuthenticationProfileName => _mAuthenticationProfileName.GetValue("authenticationProfileName");
+        private string? _mValue_AuthenticationProfileName;
+        private bool _mUnknown_AuthenticationProfileName;
+        public string? AuthenticationProfileName
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationProfileName) return _mValue_AuthenticationProfileName;
+                throw new UndeferrableValueException("Value 'AuthenticationProfile.AuthenticationProfileName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshift/authenticationProfile:AuthenticationProfile")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
         /// </summary>
-        [Input("authenticationProfileContent")]
+        [PolicyResourceProperty("authenticationProfileContent", "_mUnknown_AuthenticationProfileContent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationProfileContent;
-
-        public string? AuthenticationProfileContent => _mAuthenticationProfileContent.GetValue("authenticationProfileContent");
+        private string? _mValue_AuthenticationProfileContent;
+        private bool _mUnknown_AuthenticationProfileContent;
+        public string? AuthenticationProfileContent
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationProfileContent) return _mValue_AuthenticationProfileContent;
+                throw new UndeferrableValueException("Value 'AuthenticationProfileArgs.AuthenticationProfileContent' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the authentication profile.
         /// </summary>
-        [Input("authenticationProfileName")]
+        [PolicyResourceProperty("authenticationProfileName", "_mUnknown_AuthenticationProfileName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationProfileName;
-
-        public string? AuthenticationProfileName => _mAuthenticationProfileName.GetValue("authenticationProfileName");
+        private string? _mValue_AuthenticationProfileName;
+        private bool _mUnknown_AuthenticationProfileName;
+        public string? AuthenticationProfileName
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationProfileName) return _mValue_AuthenticationProfileName;
+                throw new UndeferrableValueException("Value 'AuthenticationProfileArgs.AuthenticationProfileName' is not present");
+            }
+        }
     }
 }

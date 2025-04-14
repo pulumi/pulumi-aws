@@ -16,81 +16,137 @@ namespace Pulumi.PolicyPacks.Aws.Dax
         /// <summary>
         /// The ARN of the DAX cluster
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Cluster.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of Availability Zones in which the
         /// nodes will be created
         /// </summary>
-        [Input("availabilityZones")]
+        [PolicyResourceProperty("availabilityZones", "_mUnknown_AvailabilityZones")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
-
-        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
+        private List<string>? _mValue_AvailabilityZones;
+        private bool _mUnknown_AvailabilityZones;
+        public List<string>? AvailabilityZones
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZones) return _mValue_AvailabilityZones;
+                throw new UndeferrableValueException("Value 'Cluster.AvailabilityZones' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS name of the DAX cluster without the port appended
         /// </summary>
-        [Input("clusterAddress")]
+        [PolicyResourceProperty("clusterAddress", "_mUnknown_ClusterAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterAddress;
-
-        public string? ClusterAddress => _mClusterAddress.GetValue("clusterAddress");
+        private string? _mValue_ClusterAddress;
+        private bool _mUnknown_ClusterAddress;
+        public string? ClusterAddress
+        {
+            get
+            {
+                if (!_mUnknown_ClusterAddress) return _mValue_ClusterAddress;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of encryption the
         /// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
         /// Default value is `NONE`.
         /// </summary>
-        [Input("clusterEndpointEncryptionType")]
+        [PolicyResourceProperty("clusterEndpointEncryptionType", "_mUnknown_ClusterEndpointEncryptionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterEndpointEncryptionType;
-
-        public string? ClusterEndpointEncryptionType => _mClusterEndpointEncryptionType.GetValue("clusterEndpointEncryptionType");
+        private string? _mValue_ClusterEndpointEncryptionType;
+        private bool _mUnknown_ClusterEndpointEncryptionType;
+        public string? ClusterEndpointEncryptionType
+        {
+            get
+            {
+                if (!_mUnknown_ClusterEndpointEncryptionType) return _mValue_ClusterEndpointEncryptionType;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterEndpointEncryptionType' is not present");
+            }
+        }
 
         /// <summary>
         /// Group identifier. DAX converts this name to
         /// lowercase
         /// </summary>
-        [Input("clusterName")]
+        [PolicyResourceProperty("clusterName", "_mUnknown_ClusterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
-
-        public string? ClusterName => _mClusterName.GetValue("clusterName");
+        private string? _mValue_ClusterName;
+        private bool _mUnknown_ClusterName;
+        public string? ClusterName
+        {
+            get
+            {
+                if (!_mUnknown_ClusterName) return _mValue_ClusterName;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterName' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration endpoint for this DAX cluster,
         /// consisting of a DNS name and a port number
         /// </summary>
-        [Input("configurationEndpoint")]
+        [PolicyResourceProperty("configurationEndpoint", "_mUnknown_ConfigurationEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationEndpoint;
-
-        public string? ConfigurationEndpoint => _mConfigurationEndpoint.GetValue("configurationEndpoint");
+        private string? _mValue_ConfigurationEndpoint;
+        private bool _mUnknown_ConfigurationEndpoint;
+        public string? ConfigurationEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationEndpoint) return _mValue_ConfigurationEndpoint;
+                throw new UndeferrableValueException("Value 'Cluster.ConfigurationEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for the cluster
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Cluster.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A valid Amazon Resource Name (ARN) that identifies
         /// an IAM role. At runtime, DAX will assume this role and use the role's
         /// permissions to access DynamoDB on your behalf
         /// </summary>
-        [Input("iamRoleArn")]
+        [PolicyResourceProperty("iamRoleArn", "_mUnknown_IamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
-
-        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+        private string? _mValue_IamRoleArn;
+        private bool _mUnknown_IamRoleArn;
+        public string? IamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArn) return _mValue_IamRoleArn;
+                throw new UndeferrableValueException("Value 'Cluster.IamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the weekly time range for when
@@ -98,120 +154,204 @@ namespace Pulumi.PolicyPacks.Aws.Dax
         /// (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
         /// `sun:05:00-sun:09:00`
         /// </summary>
-        [Input("maintenanceWindow")]
+        [PolicyResourceProperty("maintenanceWindow", "_mUnknown_MaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaintenanceWindow;
-
-        public string? MaintenanceWindow => _mMaintenanceWindow.GetValue("maintenanceWindow");
+        private string? _mValue_MaintenanceWindow;
+        private bool _mUnknown_MaintenanceWindow;
+        public string? MaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceWindow) return _mValue_MaintenanceWindow;
+                throw new UndeferrableValueException("Value 'Cluster.MaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// The compute and memory capacity of the nodes. See
         /// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
         /// </summary>
-        [Input("nodeType")]
+        [PolicyResourceProperty("nodeType", "_mUnknown_NodeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeType;
-
-        public string? NodeType => _mNodeType.GetValue("nodeType");
+        private string? _mValue_NodeType;
+        private bool _mUnknown_NodeType;
+        public string? NodeType
+        {
+            get
+            {
+                if (!_mUnknown_NodeType) return _mValue_NodeType;
+                throw new UndeferrableValueException("Value 'Cluster.NodeType' is not present");
+            }
+        }
 
         /// <summary>
         /// List of node objects including `id`, `address`, `port` and
         /// `availability_zone`. Referenceable e.g., as
         /// `${aws_dax_cluster.test.nodes.0.address}`
         /// </summary>
-        [Input("nodes")]
+        [PolicyResourceProperty("nodes", "_mUnknown_Nodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterNode>> _mNodes;
-
-        public List<Outputs.ClusterNode>? Nodes => _mNodes.GetValue("nodes");
+        private List<Outputs.ClusterNode>? _mValue_Nodes;
+        private bool _mUnknown_Nodes;
+        public List<Outputs.ClusterNode>? Nodes
+        {
+            get
+            {
+                if (!_mUnknown_Nodes) return _mValue_Nodes;
+                throw new UndeferrableValueException("Value 'Cluster.Nodes' is not present");
+            }
+        }
 
         /// <summary>
         /// An Amazon Resource Name (ARN) of an
         /// SNS topic to send DAX notifications to. Example:
         /// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         /// </summary>
-        [Input("notificationTopicArn")]
+        [PolicyResourceProperty("notificationTopicArn", "_mUnknown_NotificationTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationTopicArn;
-
-        public string? NotificationTopicArn => _mNotificationTopicArn.GetValue("notificationTopicArn");
+        private string? _mValue_NotificationTopicArn;
+        private bool _mUnknown_NotificationTopicArn;
+        public string? NotificationTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_NotificationTopicArn) return _mValue_NotificationTopicArn;
+                throw new UndeferrableValueException("Value 'Cluster.NotificationTopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the parameter group to associate
         /// with this DAX cluster
         /// </summary>
-        [Input("parameterGroupName")]
+        [PolicyResourceProperty("parameterGroupName", "_mUnknown_ParameterGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameterGroupName;
-
-        public string? ParameterGroupName => _mParameterGroupName.GetValue("parameterGroupName");
+        private string? _mValue_ParameterGroupName;
+        private bool _mUnknown_ParameterGroupName;
+        public string? ParameterGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ParameterGroupName) return _mValue_ParameterGroupName;
+                throw new UndeferrableValueException("Value 'Cluster.ParameterGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The port used by the configuration endpoint
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'Cluster.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of nodes in the DAX cluster. A
         /// replication factor of 1 will create a single-node cluster, without any read
         /// replicas
         /// </summary>
-        [Input("replicationFactor")]
+        [PolicyResourceProperty("replicationFactor", "_mUnknown_ReplicationFactor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mReplicationFactor;
-
-        public int? ReplicationFactor => _mReplicationFactor.GetValue("replicationFactor");
+        private int? _mValue_ReplicationFactor;
+        private bool _mUnknown_ReplicationFactor;
+        public int? ReplicationFactor
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationFactor) return _mValue_ReplicationFactor;
+                throw new UndeferrableValueException("Value 'Cluster.ReplicationFactor' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more VPC security groups associated
         /// with the cluster
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'Cluster.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Encrypt at rest options
         /// </summary>
-        [Input("serverSideEncryption")]
+        [PolicyResourceProperty("serverSideEncryption", "_mUnknown_ServerSideEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterServerSideEncryption> _mServerSideEncryption;
-
-        public Outputs.ClusterServerSideEncryption? ServerSideEncryption => _mServerSideEncryption.GetValue("serverSideEncryption");
+        private Outputs.ClusterServerSideEncryption? _mValue_ServerSideEncryption;
+        private bool _mUnknown_ServerSideEncryption;
+        public Outputs.ClusterServerSideEncryption? ServerSideEncryption
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryption) return _mValue_ServerSideEncryption;
+                throw new UndeferrableValueException("Value 'Cluster.ServerSideEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the subnet group to be used for the
         /// cluster
         /// </summary>
-        [Input("subnetGroupName")]
+        [PolicyResourceProperty("subnetGroupName", "_mUnknown_SubnetGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetGroupName;
-
-        public string? SubnetGroupName => _mSubnetGroupName.GetValue("subnetGroupName");
+        private string? _mValue_SubnetGroupName;
+        private bool _mUnknown_SubnetGroupName;
+        public string? SubnetGroupName
+        {
+            get
+            {
+                if (!_mUnknown_SubnetGroupName) return _mValue_SubnetGroupName;
+                throw new UndeferrableValueException("Value 'Cluster.SubnetGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Cluster.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Cluster.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:dax/cluster:Cluster")]
@@ -221,52 +361,87 @@ namespace Pulumi.PolicyPacks.Aws.Dax
         /// List of Availability Zones in which the
         /// nodes will be created
         /// </summary>
-        [Input("availabilityZones")]
+        [PolicyResourceProperty("availabilityZones", "_mUnknown_AvailabilityZones")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
-
-        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
+        private List<string>? _mValue_AvailabilityZones;
+        private bool _mUnknown_AvailabilityZones;
+        public List<string>? AvailabilityZones
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZones) return _mValue_AvailabilityZones;
+                throw new UndeferrableValueException("Value 'ClusterArgs.AvailabilityZones' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of encryption the
         /// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
         /// Default value is `NONE`.
         /// </summary>
-        [Input("clusterEndpointEncryptionType")]
+        [PolicyResourceProperty("clusterEndpointEncryptionType", "_mUnknown_ClusterEndpointEncryptionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterEndpointEncryptionType;
-
-        public string? ClusterEndpointEncryptionType => _mClusterEndpointEncryptionType.GetValue("clusterEndpointEncryptionType");
+        private string? _mValue_ClusterEndpointEncryptionType;
+        private bool _mUnknown_ClusterEndpointEncryptionType;
+        public string? ClusterEndpointEncryptionType
+        {
+            get
+            {
+                if (!_mUnknown_ClusterEndpointEncryptionType) return _mValue_ClusterEndpointEncryptionType;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ClusterEndpointEncryptionType' is not present");
+            }
+        }
 
         /// <summary>
         /// Group identifier. DAX converts this name to
         /// lowercase
         /// </summary>
-        [Input("clusterName")]
+        [PolicyResourceProperty("clusterName", "_mUnknown_ClusterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
-
-        public string? ClusterName => _mClusterName.GetValue("clusterName");
+        private string? _mValue_ClusterName;
+        private bool _mUnknown_ClusterName;
+        public string? ClusterName
+        {
+            get
+            {
+                if (!_mUnknown_ClusterName) return _mValue_ClusterName;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ClusterName' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for the cluster
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A valid Amazon Resource Name (ARN) that identifies
         /// an IAM role. At runtime, DAX will assume this role and use the role's
         /// permissions to access DynamoDB on your behalf
         /// </summary>
-        [Input("iamRoleArn")]
+        [PolicyResourceProperty("iamRoleArn", "_mUnknown_IamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
-
-        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+        private string? _mValue_IamRoleArn;
+        private bool _mUnknown_IamRoleArn;
+        public string? IamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArn) return _mValue_IamRoleArn;
+                throw new UndeferrableValueException("Value 'ClusterArgs.IamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the weekly time range for when
@@ -274,90 +449,153 @@ namespace Pulumi.PolicyPacks.Aws.Dax
         /// (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
         /// `sun:05:00-sun:09:00`
         /// </summary>
-        [Input("maintenanceWindow")]
+        [PolicyResourceProperty("maintenanceWindow", "_mUnknown_MaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaintenanceWindow;
-
-        public string? MaintenanceWindow => _mMaintenanceWindow.GetValue("maintenanceWindow");
+        private string? _mValue_MaintenanceWindow;
+        private bool _mUnknown_MaintenanceWindow;
+        public string? MaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceWindow) return _mValue_MaintenanceWindow;
+                throw new UndeferrableValueException("Value 'ClusterArgs.MaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// The compute and memory capacity of the nodes. See
         /// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
         /// </summary>
-        [Input("nodeType")]
+        [PolicyResourceProperty("nodeType", "_mUnknown_NodeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeType;
-
-        public string? NodeType => _mNodeType.GetValue("nodeType");
+        private string? _mValue_NodeType;
+        private bool _mUnknown_NodeType;
+        public string? NodeType
+        {
+            get
+            {
+                if (!_mUnknown_NodeType) return _mValue_NodeType;
+                throw new UndeferrableValueException("Value 'ClusterArgs.NodeType' is not present");
+            }
+        }
 
         /// <summary>
         /// An Amazon Resource Name (ARN) of an
         /// SNS topic to send DAX notifications to. Example:
         /// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         /// </summary>
-        [Input("notificationTopicArn")]
+        [PolicyResourceProperty("notificationTopicArn", "_mUnknown_NotificationTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationTopicArn;
-
-        public string? NotificationTopicArn => _mNotificationTopicArn.GetValue("notificationTopicArn");
+        private string? _mValue_NotificationTopicArn;
+        private bool _mUnknown_NotificationTopicArn;
+        public string? NotificationTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_NotificationTopicArn) return _mValue_NotificationTopicArn;
+                throw new UndeferrableValueException("Value 'ClusterArgs.NotificationTopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the parameter group to associate
         /// with this DAX cluster
         /// </summary>
-        [Input("parameterGroupName")]
+        [PolicyResourceProperty("parameterGroupName", "_mUnknown_ParameterGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameterGroupName;
-
-        public string? ParameterGroupName => _mParameterGroupName.GetValue("parameterGroupName");
+        private string? _mValue_ParameterGroupName;
+        private bool _mUnknown_ParameterGroupName;
+        public string? ParameterGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ParameterGroupName) return _mValue_ParameterGroupName;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ParameterGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of nodes in the DAX cluster. A
         /// replication factor of 1 will create a single-node cluster, without any read
         /// replicas
         /// </summary>
-        [Input("replicationFactor")]
+        [PolicyResourceProperty("replicationFactor", "_mUnknown_ReplicationFactor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mReplicationFactor;
-
-        public int? ReplicationFactor => _mReplicationFactor.GetValue("replicationFactor");
+        private int? _mValue_ReplicationFactor;
+        private bool _mUnknown_ReplicationFactor;
+        public int? ReplicationFactor
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationFactor) return _mValue_ReplicationFactor;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ReplicationFactor' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more VPC security groups associated
         /// with the cluster
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ClusterArgs.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Encrypt at rest options
         /// </summary>
-        [Input("serverSideEncryption")]
+        [PolicyResourceProperty("serverSideEncryption", "_mUnknown_ServerSideEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterServerSideEncryptionArgs> _mServerSideEncryption;
-
-        public Inputs.ClusterServerSideEncryptionArgs? ServerSideEncryption => _mServerSideEncryption.GetValue("serverSideEncryption");
+        private Inputs.ClusterServerSideEncryptionArgs? _mValue_ServerSideEncryption;
+        private bool _mUnknown_ServerSideEncryption;
+        public Inputs.ClusterServerSideEncryptionArgs? ServerSideEncryption
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryption) return _mValue_ServerSideEncryption;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ServerSideEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the subnet group to be used for the
         /// cluster
         /// </summary>
-        [Input("subnetGroupName")]
+        [PolicyResourceProperty("subnetGroupName", "_mUnknown_SubnetGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetGroupName;
-
-        public string? SubnetGroupName => _mSubnetGroupName.GetValue("subnetGroupName");
+        private string? _mValue_SubnetGroupName;
+        private bool _mUnknown_SubnetGroupName;
+        public string? SubnetGroupName
+        {
+            get
+            {
+                if (!_mUnknown_SubnetGroupName) return _mValue_SubnetGroupName;
+                throw new UndeferrableValueException("Value 'ClusterArgs.SubnetGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Tags' is not present");
+            }
+        }
     }
 }

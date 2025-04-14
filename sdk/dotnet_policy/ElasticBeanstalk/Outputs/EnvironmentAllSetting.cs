@@ -16,28 +16,56 @@ namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk.Outputs
         /// A unique name for this Environment. This name is used
         /// in the application URL
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EnvironmentAllSetting.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'EnvironmentAllSetting.Namespace' is not present");
+            }
+        }
 
-        public string? Namespace => _mNamespace.GetValue("namespace");
-
-        [Input("resource")]
+        [PolicyResourceProperty("resource", "_mUnknown_Resource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResource;
+        private string? _mValue_Resource;
+        private bool _mUnknown_Resource;
+        public string? Resource
+        {
+            get
+            {
+                if (!_mUnknown_Resource) return _mValue_Resource;
+                throw new UndeferrableValueException("Value 'EnvironmentAllSetting.Resource' is not present");
+            }
+        }
 
-        public string? Resource => _mResource.GetValue("resource");
-
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'EnvironmentAllSetting.Value' is not present");
+            }
+        }
     }
 }

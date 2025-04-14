@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Ebs.Outputs
         /// <summary>
         /// A user-defined comment about the disk upload.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'SnapshotImportClientData.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// The time that the disk upload ends.
         /// </summary>
-        [Input("uploadEnd")]
+        [PolicyResourceProperty("uploadEnd", "_mUnknown_UploadEnd")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUploadEnd;
-
-        public string? UploadEnd => _mUploadEnd.GetValue("uploadEnd");
+        private string? _mValue_UploadEnd;
+        private bool _mUnknown_UploadEnd;
+        public string? UploadEnd
+        {
+            get
+            {
+                if (!_mUnknown_UploadEnd) return _mValue_UploadEnd;
+                throw new UndeferrableValueException("Value 'SnapshotImportClientData.UploadEnd' is not present");
+            }
+        }
 
         /// <summary>
         /// The size of the uploaded disk image, in GiB.
         /// </summary>
-        [Input("uploadSize")]
+        [PolicyResourceProperty("uploadSize", "_mUnknown_UploadSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mUploadSize;
-
-        public double? UploadSize => _mUploadSize.GetValue("uploadSize");
+        private double? _mValue_UploadSize;
+        private bool _mUnknown_UploadSize;
+        public double? UploadSize
+        {
+            get
+            {
+                if (!_mUnknown_UploadSize) return _mValue_UploadSize;
+                throw new UndeferrableValueException("Value 'SnapshotImportClientData.UploadSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The time that the disk upload starts.
         /// </summary>
-        [Input("uploadStart")]
+        [PolicyResourceProperty("uploadStart", "_mUnknown_UploadStart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUploadStart;
-
-        public string? UploadStart => _mUploadStart.GetValue("uploadStart");
+        private string? _mValue_UploadStart;
+        private bool _mUnknown_UploadStart;
+        public string? UploadStart
+        {
+            get
+            {
+                if (!_mUnknown_UploadStart) return _mValue_UploadStart;
+                throw new UndeferrableValueException("Value 'SnapshotImportClientData.UploadStart' is not present");
+            }
+        }
     }
 }

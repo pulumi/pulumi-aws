@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppIntegrations.Outputs
         /// <summary>
         /// The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
         /// </summary>
-        [Input("firstExecutionFrom")]
+        [PolicyResourceProperty("firstExecutionFrom", "_mUnknown_FirstExecutionFrom")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirstExecutionFrom;
-
-        public string? FirstExecutionFrom => _mFirstExecutionFrom.GetValue("firstExecutionFrom");
+        private string? _mValue_FirstExecutionFrom;
+        private bool _mUnknown_FirstExecutionFrom;
+        public string? FirstExecutionFrom
+        {
+            get
+            {
+                if (!_mUnknown_FirstExecutionFrom) return _mValue_FirstExecutionFrom;
+                throw new UndeferrableValueException("Value 'DataIntegrationScheduleConfig.FirstExecutionFrom' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
         /// </summary>
-        [Input("object")]
+        [PolicyResourceProperty("object", "_mUnknown_Object")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObject;
-
-        public string? Object => _mObject.GetValue("object");
+        private string? _mValue_Object;
+        private bool _mUnknown_Object;
+        public string? Object
+        {
+            get
+            {
+                if (!_mUnknown_Object) return _mValue_Object;
+                throw new UndeferrableValueException("Value 'DataIntegrationScheduleConfig.Object' is not present");
+            }
+        }
 
         /// <summary>
         /// How often the data should be pulled from data source. Examples include `rate(1 hour)`, `rate(3 hours)`, `rate(1 day)`.
         /// </summary>
-        [Input("scheduleExpression")]
+        [PolicyResourceProperty("scheduleExpression", "_mUnknown_ScheduleExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpression;
-
-        public string? ScheduleExpression => _mScheduleExpression.GetValue("scheduleExpression");
+        private string? _mValue_ScheduleExpression;
+        private bool _mUnknown_ScheduleExpression;
+        public string? ScheduleExpression
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleExpression) return _mValue_ScheduleExpression;
+                throw new UndeferrableValueException("Value 'DataIntegrationScheduleConfig.ScheduleExpression' is not present");
+            }
+        }
     }
 }

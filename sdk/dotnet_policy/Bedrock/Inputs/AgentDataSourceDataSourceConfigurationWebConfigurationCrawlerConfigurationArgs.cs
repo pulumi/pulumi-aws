@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
         /// </summary>
-        [Input("crawlerLimits")]
+        [PolicyResourceProperty("crawlerLimits", "_mUnknown_CrawlerLimits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs> _mCrawlerLimits;
-
-        public Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs? CrawlerLimits => _mCrawlerLimits.GetValue("crawlerLimits");
+        private Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs? _mValue_CrawlerLimits;
+        private bool _mUnknown_CrawlerLimits;
+        public Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs? CrawlerLimits
+        {
+            get
+            {
+                if (!_mUnknown_CrawlerLimits) return _mValue_CrawlerLimits;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs.CrawlerLimits' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
         /// </summary>
-        [Input("exclusionFilters")]
+        [PolicyResourceProperty("exclusionFilters", "_mUnknown_ExclusionFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExclusionFilters;
-
-        public List<string>? ExclusionFilters => _mExclusionFilters.GetValue("exclusionFilters");
+        private List<string>? _mValue_ExclusionFilters;
+        private bool _mUnknown_ExclusionFilters;
+        public List<string>? ExclusionFilters
+        {
+            get
+            {
+                if (!_mUnknown_ExclusionFilters) return _mValue_ExclusionFilters;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs.ExclusionFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
         /// </summary>
-        [Input("inclusionFilters")]
+        [PolicyResourceProperty("inclusionFilters", "_mUnknown_InclusionFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInclusionFilters;
-
-        public List<string>? InclusionFilters => _mInclusionFilters.GetValue("inclusionFilters");
+        private List<string>? _mValue_InclusionFilters;
+        private bool _mUnknown_InclusionFilters;
+        public List<string>? InclusionFilters
+        {
+            get
+            {
+                if (!_mUnknown_InclusionFilters) return _mValue_InclusionFilters;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs.InclusionFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// Scope of what is crawled for your URLs.
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
-
-        public string? Scope => _mScope.GetValue("scope");
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
         /// </summary>
-        [Input("userAgent")]
+        [PolicyResourceProperty("userAgent", "_mUnknown_UserAgent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserAgent;
-
-        public string? UserAgent => _mUserAgent.GetValue("userAgent");
+        private string? _mValue_UserAgent;
+        private bool _mUnknown_UserAgent;
+        public string? UserAgent
+        {
+            get
+            {
+                if (!_mUnknown_UserAgent) return _mValue_UserAgent;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs.UserAgent' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Inputs
         /// <summary>
         /// ARN of the associated auto scaling group.
         /// </summary>
-        [Input("autoScalingGroupArn")]
+        [PolicyResourceProperty("autoScalingGroupArn", "_mUnknown_AutoScalingGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingGroupArn;
-
-        public string? AutoScalingGroupArn => _mAutoScalingGroupArn.GetValue("autoScalingGroupArn");
+        private string? _mValue_AutoScalingGroupArn;
+        private bool _mUnknown_AutoScalingGroupArn;
+        public string? AutoScalingGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_AutoScalingGroupArn) return _mValue_AutoScalingGroupArn;
+                throw new UndeferrableValueException("Value 'CapacityProviderAutoScalingGroupProviderArgs.AutoScalingGroupArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
         /// </summary>
-        [Input("managedDraining")]
+        [PolicyResourceProperty("managedDraining", "_mUnknown_ManagedDraining")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManagedDraining;
-
-        public string? ManagedDraining => _mManagedDraining.GetValue("managedDraining");
+        private string? _mValue_ManagedDraining;
+        private bool _mUnknown_ManagedDraining;
+        public string? ManagedDraining
+        {
+            get
+            {
+                if (!_mUnknown_ManagedDraining) return _mValue_ManagedDraining;
+                throw new UndeferrableValueException("Value 'CapacityProviderAutoScalingGroupProviderArgs.ManagedDraining' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block defining the parameters of the auto scaling. Detailed below.
         /// </summary>
-        [Input("managedScaling")]
+        [PolicyResourceProperty("managedScaling", "_mUnknown_ManagedScaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs> _mManagedScaling;
-
-        public Inputs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs? ManagedScaling => _mManagedScaling.GetValue("managedScaling");
+        private Inputs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs? _mValue_ManagedScaling;
+        private bool _mUnknown_ManagedScaling;
+        public Inputs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs? ManagedScaling
+        {
+            get
+            {
+                if (!_mUnknown_ManagedScaling) return _mValue_ManagedScaling;
+                throw new UndeferrableValueException("Value 'CapacityProviderAutoScalingGroupProviderArgs.ManagedScaling' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("managedTerminationProtection")]
+        [PolicyResourceProperty("managedTerminationProtection", "_mUnknown_ManagedTerminationProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManagedTerminationProtection;
-
-        public string? ManagedTerminationProtection => _mManagedTerminationProtection.GetValue("managedTerminationProtection");
+        private string? _mValue_ManagedTerminationProtection;
+        private bool _mUnknown_ManagedTerminationProtection;
+        public string? ManagedTerminationProtection
+        {
+            get
+            {
+                if (!_mUnknown_ManagedTerminationProtection) return _mValue_ManagedTerminationProtection;
+                throw new UndeferrableValueException("Value 'CapacityProviderAutoScalingGroupProviderArgs.ManagedTerminationProtection' is not present");
+            }
+        }
     }
 }

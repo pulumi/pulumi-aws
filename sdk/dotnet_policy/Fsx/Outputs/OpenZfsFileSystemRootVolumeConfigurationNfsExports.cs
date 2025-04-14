@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Outputs
         /// <summary>
         /// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block for details.
         /// </summary>
-        [Input("clientConfigurations")]
+        [PolicyResourceProperty("clientConfigurations", "_mUnknown_ClientConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration>> _mClientConfigurations;
-
-        public List<Outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration>? ClientConfigurations => _mClientConfigurations.GetValue("clientConfigurations");
+        private List<Outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration>? _mValue_ClientConfigurations;
+        private bool _mUnknown_ClientConfigurations;
+        public List<Outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration>? ClientConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_ClientConfigurations) return _mValue_ClientConfigurations;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfigurationNfsExports.ClientConfigurations' is not present");
+            }
+        }
     }
 }

@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// Version of the configuration.
         /// </summary>
-        [Input("configVersion")]
+        [PolicyResourceProperty("configVersion", "_mUnknown_ConfigVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigVersion;
-
-        public string? ConfigVersion => _mConfigVersion.GetValue("configVersion");
+        private string? _mValue_ConfigVersion;
+        private bool _mUnknown_ConfigVersion;
+        public string? ConfigVersion
+        {
+            get
+            {
+                if (!_mUnknown_ConfigVersion) return _mValue_ConfigVersion;
+                throw new UndeferrableValueException("Value 'ServerlessSecurityConfig.ConfigVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the security configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ServerlessSecurityConfig.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServerlessSecurityConfig.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for SAML options.
         /// </summary>
-        [Input("samlOptions")]
+        [PolicyResourceProperty("samlOptions", "_mUnknown_SamlOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServerlessSecurityConfigSamlOptions> _mSamlOptions;
-
-        public Outputs.ServerlessSecurityConfigSamlOptions? SamlOptions => _mSamlOptions.GetValue("samlOptions");
+        private Outputs.ServerlessSecurityConfigSamlOptions? _mValue_SamlOptions;
+        private bool _mUnknown_SamlOptions;
+        public Outputs.ServerlessSecurityConfigSamlOptions? SamlOptions
+        {
+            get
+            {
+                if (!_mUnknown_SamlOptions) return _mValue_SamlOptions;
+                throw new UndeferrableValueException("Value 'ServerlessSecurityConfig.SamlOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of configuration. Must be `saml`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ServerlessSecurityConfig.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig")]
@@ -67,39 +102,67 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// Description of the security configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ServerlessSecurityConfigArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServerlessSecurityConfigArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for SAML options.
         /// </summary>
-        [Input("samlOptions")]
+        [PolicyResourceProperty("samlOptions", "_mUnknown_SamlOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServerlessSecurityConfigSamlOptionsArgs> _mSamlOptions;
-
-        public Inputs.ServerlessSecurityConfigSamlOptionsArgs? SamlOptions => _mSamlOptions.GetValue("samlOptions");
+        private Inputs.ServerlessSecurityConfigSamlOptionsArgs? _mValue_SamlOptions;
+        private bool _mUnknown_SamlOptions;
+        public Inputs.ServerlessSecurityConfigSamlOptionsArgs? SamlOptions
+        {
+            get
+            {
+                if (!_mUnknown_SamlOptions) return _mValue_SamlOptions;
+                throw new UndeferrableValueException("Value 'ServerlessSecurityConfigArgs.SamlOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of configuration. Must be `saml`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ServerlessSecurityConfigArgs.Type' is not present");
+            }
+        }
     }
 }

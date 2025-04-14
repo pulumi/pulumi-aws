@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend.Outputs
         /// KMS Key used to encrypt the output documents.
         /// Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'DocumentClassifierOutputDataConfig.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Full path for the output documents.
         /// </summary>
-        [Input("outputS3Uri")]
+        [PolicyResourceProperty("outputS3Uri", "_mUnknown_OutputS3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputS3Uri;
-
-        public string? OutputS3Uri => _mOutputS3Uri.GetValue("outputS3Uri");
+        private string? _mValue_OutputS3Uri;
+        private bool _mUnknown_OutputS3Uri;
+        public string? OutputS3Uri
+        {
+            get
+            {
+                if (!_mUnknown_OutputS3Uri) return _mValue_OutputS3Uri;
+                throw new UndeferrableValueException("Value 'DocumentClassifierOutputDataConfig.OutputS3Uri' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination path for the output documents.
         /// The full path to the output file will be returned in `output_s3_uri`.
         /// </summary>
-        [Input("s3Uri")]
+        [PolicyResourceProperty("s3Uri", "_mUnknown_S3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Uri;
-
-        public string? S3Uri => _mS3Uri.GetValue("s3Uri");
+        private string? _mValue_S3Uri;
+        private bool _mUnknown_S3Uri;
+        public string? S3Uri
+        {
+            get
+            {
+                if (!_mUnknown_S3Uri) return _mValue_S3Uri;
+                throw new UndeferrableValueException("Value 'DocumentClassifierOutputDataConfig.S3Uri' is not present");
+            }
+        }
     }
 }

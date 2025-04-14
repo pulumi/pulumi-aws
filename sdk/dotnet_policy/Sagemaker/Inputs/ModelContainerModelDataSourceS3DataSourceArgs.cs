@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// How the model data is prepared. Allowed values are: `None` and `Gzip`.
         /// </summary>
-        [Input("compressionType")]
+        [PolicyResourceProperty("compressionType", "_mUnknown_CompressionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCompressionType;
-
-        public string? CompressionType => _mCompressionType.GetValue("compressionType");
+        private string? _mValue_CompressionType;
+        private bool _mUnknown_CompressionType;
+        public string? CompressionType
+        {
+            get
+            {
+                if (!_mUnknown_CompressionType) return _mValue_CompressionType;
+                throw new UndeferrableValueException("Value 'ModelContainerModelDataSourceS3DataSourceArgs.CompressionType' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
         /// </summary>
-        [Input("modelAccessConfig")]
+        [PolicyResourceProperty("modelAccessConfig", "_mUnknown_ModelAccessConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs> _mModelAccessConfig;
-
-        public Inputs.ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs? ModelAccessConfig => _mModelAccessConfig.GetValue("modelAccessConfig");
+        private Inputs.ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs? _mValue_ModelAccessConfig;
+        private bool _mUnknown_ModelAccessConfig;
+        public Inputs.ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs? ModelAccessConfig
+        {
+            get
+            {
+                if (!_mUnknown_ModelAccessConfig) return _mValue_ModelAccessConfig;
+                throw new UndeferrableValueException("Value 'ModelContainerModelDataSourceS3DataSourceArgs.ModelAccessConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
         /// </summary>
-        [Input("s3DataType")]
+        [PolicyResourceProperty("s3DataType", "_mUnknown_S3DataType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3DataType;
-
-        public string? S3DataType => _mS3DataType.GetValue("s3DataType");
+        private string? _mValue_S3DataType;
+        private bool _mUnknown_S3DataType;
+        public string? S3DataType
+        {
+            get
+            {
+                if (!_mUnknown_S3DataType) return _mValue_S3DataType;
+                throw new UndeferrableValueException("Value 'ModelContainerModelDataSourceS3DataSourceArgs.S3DataType' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 path of model data to deploy.
         /// </summary>
-        [Input("s3Uri")]
+        [PolicyResourceProperty("s3Uri", "_mUnknown_S3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Uri;
-
-        public string? S3Uri => _mS3Uri.GetValue("s3Uri");
+        private string? _mValue_S3Uri;
+        private bool _mUnknown_S3Uri;
+        public string? S3Uri
+        {
+            get
+            {
+                if (!_mUnknown_S3Uri) return _mValue_S3Uri;
+                throw new UndeferrableValueException("Value 'ModelContainerModelDataSourceS3DataSourceArgs.S3Uri' is not present");
+            }
+        }
     }
 }

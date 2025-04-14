@@ -16,40 +16,68 @@ namespace Pulumi.PolicyPacks.Aws.CodeCatalyst
         /// <summary>
         /// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SourceRepository.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SourceRepository.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the project in the CodeCatalyst space.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("projectName")]
+        [PolicyResourceProperty("projectName", "_mUnknown_ProjectName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectName;
-
-        public string? ProjectName => _mProjectName.GetValue("projectName");
+        private string? _mValue_ProjectName;
+        private bool _mUnknown_ProjectName;
+        public string? ProjectName
+        {
+            get
+            {
+                if (!_mUnknown_ProjectName) return _mValue_ProjectName;
+                throw new UndeferrableValueException("Value 'SourceRepository.ProjectName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the CodeCatalyst space.
         /// </summary>
-        [Input("spaceName")]
+        [PolicyResourceProperty("spaceName", "_mUnknown_SpaceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceName;
-
-        public string? SpaceName => _mSpaceName.GetValue("spaceName");
+        private string? _mValue_SpaceName;
+        private bool _mUnknown_SpaceName;
+        public string? SpaceName
+        {
+            get
+            {
+                if (!_mUnknown_SpaceName) return _mValue_SpaceName;
+                throw new UndeferrableValueException("Value 'SourceRepository.SpaceName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codecatalyst/sourceRepository:SourceRepository")]
@@ -58,39 +86,67 @@ namespace Pulumi.PolicyPacks.Aws.CodeCatalyst
         /// <summary>
         /// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SourceRepositoryArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SourceRepositoryArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the project in the CodeCatalyst space.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("projectName")]
+        [PolicyResourceProperty("projectName", "_mUnknown_ProjectName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectName;
-
-        public string? ProjectName => _mProjectName.GetValue("projectName");
+        private string? _mValue_ProjectName;
+        private bool _mUnknown_ProjectName;
+        public string? ProjectName
+        {
+            get
+            {
+                if (!_mUnknown_ProjectName) return _mValue_ProjectName;
+                throw new UndeferrableValueException("Value 'SourceRepositoryArgs.ProjectName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the CodeCatalyst space.
         /// </summary>
-        [Input("spaceName")]
+        [PolicyResourceProperty("spaceName", "_mUnknown_SpaceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceName;
-
-        public string? SpaceName => _mSpaceName.GetValue("spaceName");
+        private string? _mValue_SpaceName;
+        private bool _mUnknown_SpaceName;
+        public string? SpaceName
+        {
+            get
+            {
+                if (!_mUnknown_SpaceName) return _mValue_SpaceName;
+                throw new UndeferrableValueException("Value 'SourceRepositoryArgs.SpaceName' is not present");
+            }
+        }
     }
 }

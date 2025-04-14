@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult
     {
-        [Input("matches")]
+        [PolicyResourceProperty("matches", "_mUnknown_Matches")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult>> _mMatches;
-
-        public List<Outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult>? Matches => _mMatches.GetValue("matches");
+        private List<Outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult>? _mValue_Matches;
+        private bool _mUnknown_Matches;
+        public List<Outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult>? Matches
+        {
+            get
+            {
+                if (!_mUnknown_Matches) return _mValue_Matches;
+                throw new UndeferrableValueException("Value 'GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult.Matches' is not present");
+            }
+        }
     }
 }

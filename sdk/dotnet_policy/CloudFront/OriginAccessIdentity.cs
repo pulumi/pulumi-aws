@@ -16,72 +16,121 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// The origin access identity ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'OriginAccessIdentity.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Internal value used by CloudFront to allow future
         /// updates to the origin access identity.
         /// </summary>
-        [Input("callerReference")]
+        [PolicyResourceProperty("callerReference", "_mUnknown_CallerReference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCallerReference;
-
-        public string? CallerReference => _mCallerReference.GetValue("callerReference");
+        private string? _mValue_CallerReference;
+        private bool _mUnknown_CallerReference;
+        public string? CallerReference
+        {
+            get
+            {
+                if (!_mUnknown_CallerReference) return _mValue_CallerReference;
+                throw new UndeferrableValueException("Value 'OriginAccessIdentity.CallerReference' is not present");
+            }
+        }
 
         /// <summary>
         /// A shortcut to the full path for the
         /// origin access identity to use in CloudFront, see below.
         /// </summary>
-        [Input("cloudfrontAccessIdentityPath")]
+        [PolicyResourceProperty("cloudfrontAccessIdentityPath", "_mUnknown_CloudfrontAccessIdentityPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudfrontAccessIdentityPath;
-
-        public string? CloudfrontAccessIdentityPath => _mCloudfrontAccessIdentityPath.GetValue("cloudfrontAccessIdentityPath");
+        private string? _mValue_CloudfrontAccessIdentityPath;
+        private bool _mUnknown_CloudfrontAccessIdentityPath;
+        public string? CloudfrontAccessIdentityPath
+        {
+            get
+            {
+                if (!_mUnknown_CloudfrontAccessIdentityPath) return _mValue_CloudfrontAccessIdentityPath;
+                throw new UndeferrableValueException("Value 'OriginAccessIdentity.CloudfrontAccessIdentityPath' is not present");
+            }
+        }
 
         /// <summary>
         /// An optional comment for the origin access identity.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'OriginAccessIdentity.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// The current version of the origin access identity's information.
         /// For example: `E2QWRUHAPOMQZL`.
         /// </summary>
-        [Input("etag")]
+        [PolicyResourceProperty("etag", "_mUnknown_Etag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
-
-        public string? Etag => _mEtag.GetValue("etag");
+        private string? _mValue_Etag;
+        private bool _mUnknown_Etag;
+        public string? Etag
+        {
+            get
+            {
+                if (!_mUnknown_Etag) return _mValue_Etag;
+                throw new UndeferrableValueException("Value 'OriginAccessIdentity.Etag' is not present");
+            }
+        }
 
         /// <summary>
         /// A pre-generated ARN for use in S3 bucket policies (see below).
         /// Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
         /// E2QWRUHAPOMQZL`.
         /// </summary>
-        [Input("iamArn")]
+        [PolicyResourceProperty("iamArn", "_mUnknown_IamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamArn;
-
-        public string? IamArn => _mIamArn.GetValue("iamArn");
+        private string? _mValue_IamArn;
+        private bool _mUnknown_IamArn;
+        public string? IamArn
+        {
+            get
+            {
+                if (!_mUnknown_IamArn) return _mValue_IamArn;
+                throw new UndeferrableValueException("Value 'OriginAccessIdentity.IamArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 canonical user ID for the origin
         /// access identity, which you use when giving the origin access identity read
         /// permission to an object in Amazon S3.
         /// </summary>
-        [Input("s3CanonicalUserId")]
+        [PolicyResourceProperty("s3CanonicalUserId", "_mUnknown_S3CanonicalUserId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3CanonicalUserId;
-
-        public string? S3CanonicalUserId => _mS3CanonicalUserId.GetValue("s3CanonicalUserId");
+        private string? _mValue_S3CanonicalUserId;
+        private bool _mUnknown_S3CanonicalUserId;
+        public string? S3CanonicalUserId
+        {
+            get
+            {
+                if (!_mUnknown_S3CanonicalUserId) return _mValue_S3CanonicalUserId;
+                throw new UndeferrableValueException("Value 'OriginAccessIdentity.S3CanonicalUserId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudfront/originAccessIdentity:OriginAccessIdentity")]
@@ -90,10 +139,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// An optional comment for the origin access identity.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'OriginAccessIdentityArgs.Comment' is not present");
+            }
+        }
     }
 }

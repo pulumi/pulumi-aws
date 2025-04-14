@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables.Inputs
         /// Snapshots older than this will be marked for deletiion.
         /// Must be at least `1`.
         /// </summary>
-        [Input("maxSnapshotAgeHours")]
+        [PolicyResourceProperty("maxSnapshotAgeHours", "_mUnknown_MaxSnapshotAgeHours")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSnapshotAgeHours;
-
-        public int? MaxSnapshotAgeHours => _mMaxSnapshotAgeHours.GetValue("maxSnapshotAgeHours");
+        private int? _mValue_MaxSnapshotAgeHours;
+        private bool _mUnknown_MaxSnapshotAgeHours;
+        public int? MaxSnapshotAgeHours
+        {
+            get
+            {
+                if (!_mUnknown_MaxSnapshotAgeHours) return _mValue_MaxSnapshotAgeHours;
+                throw new UndeferrableValueException("Value 'TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs.MaxSnapshotAgeHours' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum number of snapshots to keep.
         /// Must be at least `1`.
         /// </summary>
-        [Input("minSnapshotsToKeep")]
+        [PolicyResourceProperty("minSnapshotsToKeep", "_mUnknown_MinSnapshotsToKeep")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinSnapshotsToKeep;
-
-        public int? MinSnapshotsToKeep => _mMinSnapshotsToKeep.GetValue("minSnapshotsToKeep");
+        private int? _mValue_MinSnapshotsToKeep;
+        private bool _mUnknown_MinSnapshotsToKeep;
+        public int? MinSnapshotsToKeep
+        {
+            get
+            {
+                if (!_mUnknown_MinSnapshotsToKeep) return _mValue_MinSnapshotsToKeep;
+                throw new UndeferrableValueException("Value 'TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs.MinSnapshotsToKeep' is not present");
+            }
+        }
     }
 }

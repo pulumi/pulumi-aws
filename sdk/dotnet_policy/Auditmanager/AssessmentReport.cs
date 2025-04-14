@@ -18,47 +18,82 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("assessmentId")]
+        [PolicyResourceProperty("assessmentId", "_mUnknown_AssessmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssessmentId;
-
-        public string? AssessmentId => _mAssessmentId.GetValue("assessmentId");
+        private string? _mValue_AssessmentId;
+        private bool _mUnknown_AssessmentId;
+        public string? AssessmentId
+        {
+            get
+            {
+                if (!_mUnknown_AssessmentId) return _mValue_AssessmentId;
+                throw new UndeferrableValueException("Value 'AssessmentReport.AssessmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the user who created the assessment report.
         /// </summary>
-        [Input("author")]
+        [PolicyResourceProperty("author", "_mUnknown_Author")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthor;
-
-        public string? Author => _mAuthor.GetValue("author");
+        private string? _mValue_Author;
+        private bool _mUnknown_Author;
+        public string? Author
+        {
+            get
+            {
+                if (!_mUnknown_Author) return _mValue_Author;
+                throw new UndeferrableValueException("Value 'AssessmentReport.Author' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the assessment report.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AssessmentReport.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the assessment report.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AssessmentReport.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'AssessmentReport.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:auditmanager/assessmentReport:AssessmentReport")]
@@ -69,28 +104,49 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("assessmentId")]
+        [PolicyResourceProperty("assessmentId", "_mUnknown_AssessmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssessmentId;
-
-        public string? AssessmentId => _mAssessmentId.GetValue("assessmentId");
+        private string? _mValue_AssessmentId;
+        private bool _mUnknown_AssessmentId;
+        public string? AssessmentId
+        {
+            get
+            {
+                if (!_mUnknown_AssessmentId) return _mValue_AssessmentId;
+                throw new UndeferrableValueException("Value 'AssessmentReportArgs.AssessmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the assessment report.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AssessmentReportArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the assessment report.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AssessmentReportArgs.Name' is not present");
+            }
+        }
     }
 }

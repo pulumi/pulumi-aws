@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Oam.Outputs
         /// <summary>
         /// Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
         /// </summary>
-        [Input("filter")]
+        [PolicyResourceProperty("filter", "_mUnknown_Filter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilter;
-
-        public string? Filter => _mFilter.GetValue("filter");
+        private string? _mValue_Filter;
+        private bool _mUnknown_Filter;
+        public string? Filter
+        {
+            get
+            {
+                if (!_mUnknown_Filter) return _mValue_Filter;
+                throw new UndeferrableValueException("Value 'GetLinkLinkConfigurationMetricConfigurationResult.Filter' is not present");
+            }
+        }
     }
 }

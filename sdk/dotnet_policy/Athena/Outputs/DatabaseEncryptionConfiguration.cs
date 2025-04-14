@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Athena.Outputs
         /// <summary>
         /// Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
         /// </summary>
-        [Input("encryptionOption")]
+        [PolicyResourceProperty("encryptionOption", "_mUnknown_EncryptionOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionOption;
-
-        public string? EncryptionOption => _mEncryptionOption.GetValue("encryptionOption");
+        private string? _mValue_EncryptionOption;
+        private bool _mUnknown_EncryptionOption;
+        public string? EncryptionOption
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionOption) return _mValue_EncryptionOption;
+                throw new UndeferrableValueException("Value 'DatabaseEncryptionConfiguration.EncryptionOption' is not present");
+            }
+        }
 
         /// <summary>
         /// KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
         /// </summary>
-        [Input("kmsKey")]
+        [PolicyResourceProperty("kmsKey", "_mUnknown_KmsKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKey;
-
-        public string? KmsKey => _mKmsKey.GetValue("kmsKey");
+        private string? _mValue_KmsKey;
+        private bool _mUnknown_KmsKey;
+        public string? KmsKey
+        {
+            get
+            {
+                if (!_mUnknown_KmsKey) return _mValue_KmsKey;
+                throw new UndeferrableValueException("Value 'DatabaseEncryptionConfiguration.KmsKey' is not present");
+            }
+        }
     }
 }

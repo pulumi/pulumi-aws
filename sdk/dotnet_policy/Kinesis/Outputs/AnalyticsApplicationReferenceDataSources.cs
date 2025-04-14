@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// The ARN of the Kinesis Analytics Application.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSources.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 configuration for the reference data source. See S3 Reference below for more details.
         /// </summary>
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalyticsApplicationReferenceDataSourcesS3> _mS3;
-
-        public Outputs.AnalyticsApplicationReferenceDataSourcesS3? S3 => _mS3.GetValue("s3");
+        private Outputs.AnalyticsApplicationReferenceDataSourcesS3? _mValue_S3;
+        private bool _mUnknown_S3;
+        public Outputs.AnalyticsApplicationReferenceDataSourcesS3? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSources.S3' is not present");
+            }
+        }
 
         /// <summary>
         /// The Schema format of the data in the streaming source. See Source Schema below for more details.
         /// </summary>
-        [Input("schema")]
+        [PolicyResourceProperty("schema", "_mUnknown_Schema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalyticsApplicationReferenceDataSourcesSchema> _mSchema;
-
-        public Outputs.AnalyticsApplicationReferenceDataSourcesSchema? Schema => _mSchema.GetValue("schema");
+        private Outputs.AnalyticsApplicationReferenceDataSourcesSchema? _mValue_Schema;
+        private bool _mUnknown_Schema;
+        public Outputs.AnalyticsApplicationReferenceDataSourcesSchema? Schema
+        {
+            get
+            {
+                if (!_mUnknown_Schema) return _mValue_Schema;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSources.Schema' is not present");
+            }
+        }
 
         /// <summary>
         /// The in-application Table Name.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSources.TableName' is not present");
+            }
+        }
     }
 }

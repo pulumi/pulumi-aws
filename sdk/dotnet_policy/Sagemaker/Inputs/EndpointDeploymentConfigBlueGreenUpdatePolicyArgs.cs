@@ -12,28 +12,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
 {
     public sealed class EndpointDeploymentConfigBlueGreenUpdatePolicyArgs
     {
-        [Input("maximumExecutionTimeoutInSeconds")]
+        [PolicyResourceProperty("maximumExecutionTimeoutInSeconds", "_mUnknown_MaximumExecutionTimeoutInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumExecutionTimeoutInSeconds;
-
-        public int? MaximumExecutionTimeoutInSeconds => _mMaximumExecutionTimeoutInSeconds.GetValue("maximumExecutionTimeoutInSeconds");
+        private int? _mValue_MaximumExecutionTimeoutInSeconds;
+        private bool _mUnknown_MaximumExecutionTimeoutInSeconds;
+        public int? MaximumExecutionTimeoutInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaximumExecutionTimeoutInSeconds) return _mValue_MaximumExecutionTimeoutInSeconds;
+                throw new UndeferrableValueException("Value 'EndpointDeploymentConfigBlueGreenUpdatePolicyArgs.MaximumExecutionTimeoutInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
         /// </summary>
-        [Input("terminationWaitInSeconds")]
+        [PolicyResourceProperty("terminationWaitInSeconds", "_mUnknown_TerminationWaitInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTerminationWaitInSeconds;
-
-        public int? TerminationWaitInSeconds => _mTerminationWaitInSeconds.GetValue("terminationWaitInSeconds");
+        private int? _mValue_TerminationWaitInSeconds;
+        private bool _mUnknown_TerminationWaitInSeconds;
+        public int? TerminationWaitInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_TerminationWaitInSeconds) return _mValue_TerminationWaitInSeconds;
+                throw new UndeferrableValueException("Value 'EndpointDeploymentConfigBlueGreenUpdatePolicyArgs.TerminationWaitInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
         /// </summary>
-        [Input("trafficRoutingConfiguration")]
+        [PolicyResourceProperty("trafficRoutingConfiguration", "_mUnknown_TrafficRoutingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs> _mTrafficRoutingConfiguration;
-
-        public Inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs? TrafficRoutingConfiguration => _mTrafficRoutingConfiguration.GetValue("trafficRoutingConfiguration");
+        private Inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs? _mValue_TrafficRoutingConfiguration;
+        private bool _mUnknown_TrafficRoutingConfiguration;
+        public Inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs? TrafficRoutingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_TrafficRoutingConfiguration) return _mValue_TrafficRoutingConfiguration;
+                throw new UndeferrableValueException("Value 'EndpointDeploymentConfigBlueGreenUpdatePolicyArgs.TrafficRoutingConfiguration' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// The absolute file path in the container where the tmpfs volume is mounted.
         /// </summary>
-        [Input("containerPath")]
+        [PolicyResourceProperty("containerPath", "_mUnknown_ContainerPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerPath;
-
-        public string? ContainerPath => _mContainerPath.GetValue("containerPath");
+        private string? _mValue_ContainerPath;
+        private bool _mUnknown_ContainerPath;
+        public string? ContainerPath
+        {
+            get
+            {
+                if (!_mUnknown_ContainerPath) return _mValue_ContainerPath;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceResult.ContainerPath' is not present");
+            }
+        }
 
         /// <summary>
         /// The path for the device on the host container instance.
         /// </summary>
-        [Input("hostPath")]
+        [PolicyResourceProperty("hostPath", "_mUnknown_HostPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostPath;
-
-        public string? HostPath => _mHostPath.GetValue("hostPath");
+        private string? _mValue_HostPath;
+        private bool _mUnknown_HostPath;
+        public string? HostPath
+        {
+            get
+            {
+                if (!_mUnknown_HostPath) return _mValue_HostPath;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceResult.HostPath' is not present");
+            }
+        }
 
         /// <summary>
         /// The explicit permissions to provide to the container for the device.
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPermissions;
-
-        public List<string>? Permissions => _mPermissions.GetValue("permissions");
+        private List<string>? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public List<string>? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceResult.Permissions' is not present");
+            }
+        }
     }
 }

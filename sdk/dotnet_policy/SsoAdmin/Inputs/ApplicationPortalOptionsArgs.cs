@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin.Inputs
         /// <summary>
         /// Sign-in options for the access portal. See `sign_in_options` below.
         /// </summary>
-        [Input("signInOptions")]
+        [PolicyResourceProperty("signInOptions", "_mUnknown_SignInOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationPortalOptionsSignInOptionsArgs> _mSignInOptions;
-
-        public Inputs.ApplicationPortalOptionsSignInOptionsArgs? SignInOptions => _mSignInOptions.GetValue("signInOptions");
+        private Inputs.ApplicationPortalOptionsSignInOptionsArgs? _mValue_SignInOptions;
+        private bool _mUnknown_SignInOptions;
+        public Inputs.ApplicationPortalOptionsSignInOptionsArgs? SignInOptions
+        {
+            get
+            {
+                if (!_mUnknown_SignInOptions) return _mValue_SignInOptions;
+                throw new UndeferrableValueException("Value 'ApplicationPortalOptionsArgs.SignInOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("visibility")]
+        [PolicyResourceProperty("visibility", "_mUnknown_Visibility")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVisibility;
-
-        public string? Visibility => _mVisibility.GetValue("visibility");
+        private string? _mValue_Visibility;
+        private bool _mUnknown_Visibility;
+        public string? Visibility
+        {
+            get
+            {
+                if (!_mUnknown_Visibility) return _mValue_Visibility;
+                throw new UndeferrableValueException("Value 'ApplicationPortalOptionsArgs.Visibility' is not present");
+            }
+        }
     }
 }

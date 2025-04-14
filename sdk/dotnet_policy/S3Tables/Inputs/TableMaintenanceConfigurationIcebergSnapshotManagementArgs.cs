@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables.Inputs
         /// Settings object for snapshot management.
         /// See `iceberg_snapshot_management.settings` below.
         /// </summary>
-        [Input("settings")]
+        [PolicyResourceProperty("settings", "_mUnknown_Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs> _mSettings;
-
-        public Inputs.TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs? Settings => _mSettings.GetValue("settings");
+        private Inputs.TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs? _mValue_Settings;
+        private bool _mUnknown_Settings;
+        public Inputs.TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs? Settings
+        {
+            get
+            {
+                if (!_mUnknown_Settings) return _mValue_Settings;
+                throw new UndeferrableValueException("Value 'TableMaintenanceConfigurationIcebergSnapshotManagementArgs.Settings' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the configuration is enabled.
         /// Valid values are `enabled` and `disabled`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'TableMaintenanceConfigurationIcebergSnapshotManagementArgs.Status' is not present");
+            }
+        }
     }
 }

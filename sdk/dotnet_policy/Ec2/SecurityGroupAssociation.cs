@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
         /// </summary>
-        [Input("replaceDefaultAssociation")]
+        [PolicyResourceProperty("replaceDefaultAssociation", "_mUnknown_ReplaceDefaultAssociation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReplaceDefaultAssociation;
-
-        public bool? ReplaceDefaultAssociation => _mReplaceDefaultAssociation.GetValue("replaceDefaultAssociation");
+        private bool? _mValue_ReplaceDefaultAssociation;
+        private bool _mUnknown_ReplaceDefaultAssociation;
+        public bool? ReplaceDefaultAssociation
+        {
+            get
+            {
+                if (!_mUnknown_ReplaceDefaultAssociation) return _mValue_ReplaceDefaultAssociation;
+                throw new UndeferrableValueException("Value 'SecurityGroupAssociation.ReplaceDefaultAssociation' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the security group to be associated with the VPC endpoint.
         /// </summary>
-        [Input("securityGroupId")]
+        [PolicyResourceProperty("securityGroupId", "_mUnknown_SecurityGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
-
-        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
+        private string? _mValue_SecurityGroupId;
+        private bool _mUnknown_SecurityGroupId;
+        public string? SecurityGroupId
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupId) return _mValue_SecurityGroupId;
+                throw new UndeferrableValueException("Value 'SecurityGroupAssociation.SecurityGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC endpoint with which the security group will be associated.
         /// </summary>
-        [Input("vpcEndpointId")]
+        [PolicyResourceProperty("vpcEndpointId", "_mUnknown_VpcEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
-
-        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+        private string? _mValue_VpcEndpointId;
+        private bool _mUnknown_VpcEndpointId;
+        public string? VpcEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointId) return _mValue_VpcEndpointId;
+                throw new UndeferrableValueException("Value 'SecurityGroupAssociation.VpcEndpointId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/securityGroupAssociation:SecurityGroupAssociation")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
         /// </summary>
-        [Input("replaceDefaultAssociation")]
+        [PolicyResourceProperty("replaceDefaultAssociation", "_mUnknown_ReplaceDefaultAssociation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReplaceDefaultAssociation;
-
-        public bool? ReplaceDefaultAssociation => _mReplaceDefaultAssociation.GetValue("replaceDefaultAssociation");
+        private bool? _mValue_ReplaceDefaultAssociation;
+        private bool _mUnknown_ReplaceDefaultAssociation;
+        public bool? ReplaceDefaultAssociation
+        {
+            get
+            {
+                if (!_mUnknown_ReplaceDefaultAssociation) return _mValue_ReplaceDefaultAssociation;
+                throw new UndeferrableValueException("Value 'SecurityGroupAssociationArgs.ReplaceDefaultAssociation' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the security group to be associated with the VPC endpoint.
         /// </summary>
-        [Input("securityGroupId")]
+        [PolicyResourceProperty("securityGroupId", "_mUnknown_SecurityGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
-
-        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
+        private string? _mValue_SecurityGroupId;
+        private bool _mUnknown_SecurityGroupId;
+        public string? SecurityGroupId
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupId) return _mValue_SecurityGroupId;
+                throw new UndeferrableValueException("Value 'SecurityGroupAssociationArgs.SecurityGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC endpoint with which the security group will be associated.
         /// </summary>
-        [Input("vpcEndpointId")]
+        [PolicyResourceProperty("vpcEndpointId", "_mUnknown_VpcEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
-
-        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+        private string? _mValue_VpcEndpointId;
+        private bool _mUnknown_VpcEndpointId;
+        public string? VpcEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointId) return _mValue_VpcEndpointId;
+                throw new UndeferrableValueException("Value 'SecurityGroupAssociationArgs.VpcEndpointId' is not present");
+            }
+        }
     }
 }

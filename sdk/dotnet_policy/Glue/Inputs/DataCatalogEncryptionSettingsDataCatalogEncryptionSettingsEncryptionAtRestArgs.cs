@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
         /// </summary>
-        [Input("catalogEncryptionMode")]
+        [PolicyResourceProperty("catalogEncryptionMode", "_mUnknown_CatalogEncryptionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogEncryptionMode;
-
-        public string? CatalogEncryptionMode => _mCatalogEncryptionMode.GetValue("catalogEncryptionMode");
+        private string? _mValue_CatalogEncryptionMode;
+        private bool _mUnknown_CatalogEncryptionMode;
+        public string? CatalogEncryptionMode
+        {
+            get
+            {
+                if (!_mUnknown_CatalogEncryptionMode) return _mValue_CatalogEncryptionMode;
+                throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs.CatalogEncryptionMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
         /// </summary>
-        [Input("catalogEncryptionServiceRole")]
+        [PolicyResourceProperty("catalogEncryptionServiceRole", "_mUnknown_CatalogEncryptionServiceRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogEncryptionServiceRole;
-
-        public string? CatalogEncryptionServiceRole => _mCatalogEncryptionServiceRole.GetValue("catalogEncryptionServiceRole");
+        private string? _mValue_CatalogEncryptionServiceRole;
+        private bool _mUnknown_CatalogEncryptionServiceRole;
+        public string? CatalogEncryptionServiceRole
+        {
+            get
+            {
+                if (!_mUnknown_CatalogEncryptionServiceRole) return _mValue_CatalogEncryptionServiceRole;
+                throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs.CatalogEncryptionServiceRole' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the AWS KMS key to use for encryption at rest.
         /// </summary>
-        [Input("sseAwsKmsKeyId")]
+        [PolicyResourceProperty("sseAwsKmsKeyId", "_mUnknown_SseAwsKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSseAwsKmsKeyId;
-
-        public string? SseAwsKmsKeyId => _mSseAwsKmsKeyId.GetValue("sseAwsKmsKeyId");
+        private string? _mValue_SseAwsKmsKeyId;
+        private bool _mUnknown_SseAwsKmsKeyId;
+        public string? SseAwsKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_SseAwsKmsKeyId) return _mValue_SseAwsKmsKeyId;
+                throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs.SseAwsKmsKeyId' is not present");
+            }
+        }
     }
 }

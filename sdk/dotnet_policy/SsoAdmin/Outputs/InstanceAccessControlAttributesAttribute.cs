@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin.Outputs
         /// <summary>
         /// The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'InstanceAccessControlAttributesAttribute.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
         /// </summary>
-        [Input("values")]
+        [PolicyResourceProperty("values", "_mUnknown_Values")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceAccessControlAttributesAttributeValue>> _mValues;
-
-        public List<Outputs.InstanceAccessControlAttributesAttributeValue>? Values => _mValues.GetValue("values");
+        private List<Outputs.InstanceAccessControlAttributesAttributeValue>? _mValue_Values;
+        private bool _mUnknown_Values;
+        public List<Outputs.InstanceAccessControlAttributesAttributeValue>? Values
+        {
+            get
+            {
+                if (!_mUnknown_Values) return _mValue_Values;
+                throw new UndeferrableValueException("Value 'InstanceAccessControlAttributesAttribute.Values' is not present");
+            }
+        }
     }
 }

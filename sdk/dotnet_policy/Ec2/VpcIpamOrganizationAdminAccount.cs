@@ -16,53 +16,95 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The Organizations ARN for the delegate account.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'VpcIpamOrganizationAdminAccount.Arn' is not present");
+            }
+        }
 
-        public string? Arn => _mArn.GetValue("arn");
-
-        [Input("delegatedAdminAccountId")]
+        [PolicyResourceProperty("delegatedAdminAccountId", "_mUnknown_DelegatedAdminAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDelegatedAdminAccountId;
-
-        public string? DelegatedAdminAccountId => _mDelegatedAdminAccountId.GetValue("delegatedAdminAccountId");
+        private string? _mValue_DelegatedAdminAccountId;
+        private bool _mUnknown_DelegatedAdminAccountId;
+        public string? DelegatedAdminAccountId
+        {
+            get
+            {
+                if (!_mUnknown_DelegatedAdminAccountId) return _mValue_DelegatedAdminAccountId;
+                throw new UndeferrableValueException("Value 'VpcIpamOrganizationAdminAccount.DelegatedAdminAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Organizations email for the delegate account.
         /// </summary>
-        [Input("email")]
+        [PolicyResourceProperty("email", "_mUnknown_Email")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
-
-        public string? Email => _mEmail.GetValue("email");
+        private string? _mValue_Email;
+        private bool _mUnknown_Email;
+        public string? Email
+        {
+            get
+            {
+                if (!_mUnknown_Email) return _mValue_Email;
+                throw new UndeferrableValueException("Value 'VpcIpamOrganizationAdminAccount.Email' is not present");
+            }
+        }
 
         /// <summary>
         /// The Organizations name for the delegate account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'VpcIpamOrganizationAdminAccount.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS service principal.
         /// </summary>
-        [Input("servicePrincipal")]
+        [PolicyResourceProperty("servicePrincipal", "_mUnknown_ServicePrincipal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServicePrincipal;
-
-        public string? ServicePrincipal => _mServicePrincipal.GetValue("servicePrincipal");
+        private string? _mValue_ServicePrincipal;
+        private bool _mUnknown_ServicePrincipal;
+        public string? ServicePrincipal
+        {
+            get
+            {
+                if (!_mUnknown_ServicePrincipal) return _mValue_ServicePrincipal;
+                throw new UndeferrableValueException("Value 'VpcIpamOrganizationAdminAccount.ServicePrincipal' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount")]
     public sealed class VpcIpamOrganizationAdminAccountArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("delegatedAdminAccountId")]
+        [PolicyResourceProperty("delegatedAdminAccountId", "_mUnknown_DelegatedAdminAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDelegatedAdminAccountId;
-
-        public string? DelegatedAdminAccountId => _mDelegatedAdminAccountId.GetValue("delegatedAdminAccountId");
+        private string? _mValue_DelegatedAdminAccountId;
+        private bool _mUnknown_DelegatedAdminAccountId;
+        public string? DelegatedAdminAccountId
+        {
+            get
+            {
+                if (!_mUnknown_DelegatedAdminAccountId) return _mValue_DelegatedAdminAccountId;
+                throw new UndeferrableValueException("Value 'VpcIpamOrganizationAdminAccountArgs.DelegatedAdminAccountId' is not present");
+            }
+        }
     }
 }

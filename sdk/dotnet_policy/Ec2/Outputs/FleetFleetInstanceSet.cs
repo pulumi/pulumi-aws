@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// The IDs of the instances.
         /// </summary>
-        [Input("instanceIds")]
+        [PolicyResourceProperty("instanceIds", "_mUnknown_InstanceIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstanceIds;
-
-        public List<string>? InstanceIds => _mInstanceIds.GetValue("instanceIds");
+        private List<string>? _mValue_InstanceIds;
+        private bool _mUnknown_InstanceIds;
+        public List<string>? InstanceIds
+        {
+            get
+            {
+                if (!_mUnknown_InstanceIds) return _mValue_InstanceIds;
+                throw new UndeferrableValueException("Value 'FleetFleetInstanceSet.InstanceIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance type.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'FleetFleetInstanceSet.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
         /// </summary>
-        [Input("lifecycle")]
+        [PolicyResourceProperty("lifecycle", "_mUnknown_Lifecycle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLifecycle;
-
-        public string? Lifecycle => _mLifecycle.GetValue("lifecycle");
+        private string? _mValue_Lifecycle;
+        private bool _mUnknown_Lifecycle;
+        public string? Lifecycle
+        {
+            get
+            {
+                if (!_mUnknown_Lifecycle) return _mValue_Lifecycle;
+                throw new UndeferrableValueException("Value 'FleetFleetInstanceSet.Lifecycle' is not present");
+            }
+        }
 
         /// <summary>
         /// The value is `Windows` for Windows instances. Otherwise, the value is blank.
         /// </summary>
-        [Input("platform")]
+        [PolicyResourceProperty("platform", "_mUnknown_Platform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
-
-        public string? Platform => _mPlatform.GetValue("platform");
+        private string? _mValue_Platform;
+        private bool _mUnknown_Platform;
+        public string? Platform
+        {
+            get
+            {
+                if (!_mUnknown_Platform) return _mValue_Platform;
+                throw new UndeferrableValueException("Value 'FleetFleetInstanceSet.Platform' is not present");
+            }
+        }
     }
 }

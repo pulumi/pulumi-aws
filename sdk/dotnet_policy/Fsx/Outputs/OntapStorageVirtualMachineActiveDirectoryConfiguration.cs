@@ -15,16 +15,30 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Outputs
         /// <summary>
         /// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
         /// </summary>
-        [Input("netbiosName")]
+        [PolicyResourceProperty("netbiosName", "_mUnknown_NetbiosName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetbiosName;
+        private string? _mValue_NetbiosName;
+        private bool _mUnknown_NetbiosName;
+        public string? NetbiosName
+        {
+            get
+            {
+                if (!_mUnknown_NetbiosName) return _mValue_NetbiosName;
+                throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineActiveDirectoryConfiguration.NetbiosName' is not present");
+            }
+        }
 
-        public string? NetbiosName => _mNetbiosName.GetValue("netbiosName");
-
-        [Input("selfManagedActiveDirectoryConfiguration")]
+        [PolicyResourceProperty("selfManagedActiveDirectoryConfiguration", "_mUnknown_SelfManagedActiveDirectoryConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration> _mSelfManagedActiveDirectoryConfiguration;
-
-        public Outputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration? SelfManagedActiveDirectoryConfiguration => _mSelfManagedActiveDirectoryConfiguration.GetValue("selfManagedActiveDirectoryConfiguration");
+        private Outputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration? _mValue_SelfManagedActiveDirectoryConfiguration;
+        private bool _mUnknown_SelfManagedActiveDirectoryConfiguration;
+        public Outputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration? SelfManagedActiveDirectoryConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SelfManagedActiveDirectoryConfiguration) return _mValue_SelfManagedActiveDirectoryConfiguration;
+                throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineActiveDirectoryConfiguration.SelfManagedActiveDirectoryConfiguration' is not present");
+            }
+        }
     }
 }

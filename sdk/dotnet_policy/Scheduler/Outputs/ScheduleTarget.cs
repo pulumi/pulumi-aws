@@ -15,93 +15,163 @@ namespace Pulumi.PolicyPacks.Aws.Scheduler.Outputs
         /// <summary>
         /// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ScheduleTarget.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue. Detailed below.
         /// </summary>
-        [Input("deadLetterConfig")]
+        [PolicyResourceProperty("deadLetterConfig", "_mUnknown_DeadLetterConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduleTargetDeadLetterConfig> _mDeadLetterConfig;
-
-        public Outputs.ScheduleTargetDeadLetterConfig? DeadLetterConfig => _mDeadLetterConfig.GetValue("deadLetterConfig");
+        private Outputs.ScheduleTargetDeadLetterConfig? _mValue_DeadLetterConfig;
+        private bool _mUnknown_DeadLetterConfig;
+        public Outputs.ScheduleTargetDeadLetterConfig? DeadLetterConfig
+        {
+            get
+            {
+                if (!_mUnknown_DeadLetterConfig) return _mValue_DeadLetterConfig;
+                throw new UndeferrableValueException("Value 'ScheduleTarget.DeadLetterConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation. Detailed below.
         /// </summary>
-        [Input("ecsParameters")]
+        [PolicyResourceProperty("ecsParameters", "_mUnknown_EcsParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduleTargetEcsParameters> _mEcsParameters;
-
-        public Outputs.ScheduleTargetEcsParameters? EcsParameters => _mEcsParameters.GetValue("ecsParameters");
+        private Outputs.ScheduleTargetEcsParameters? _mValue_EcsParameters;
+        private bool _mUnknown_EcsParameters;
+        public Outputs.ScheduleTargetEcsParameters? EcsParameters
+        {
+            get
+            {
+                if (!_mUnknown_EcsParameters) return _mValue_EcsParameters;
+                throw new UndeferrableValueException("Value 'ScheduleTarget.EcsParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation. Detailed below.
         /// </summary>
-        [Input("eventbridgeParameters")]
+        [PolicyResourceProperty("eventbridgeParameters", "_mUnknown_EventbridgeParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduleTargetEventbridgeParameters> _mEventbridgeParameters;
-
-        public Outputs.ScheduleTargetEventbridgeParameters? EventbridgeParameters => _mEventbridgeParameters.GetValue("eventbridgeParameters");
+        private Outputs.ScheduleTargetEventbridgeParameters? _mValue_EventbridgeParameters;
+        private bool _mUnknown_EventbridgeParameters;
+        public Outputs.ScheduleTargetEventbridgeParameters? EventbridgeParameters
+        {
+            get
+            {
+                if (!_mUnknown_EventbridgeParameters) return _mValue_EventbridgeParameters;
+                throw new UndeferrableValueException("Value 'ScheduleTarget.EventbridgeParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Text, or well-formed JSON, passed to the target. Read more in [Universal target](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html).
         /// </summary>
-        [Input("input")]
+        [PolicyResourceProperty("input", "_mUnknown_Input")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInput;
-
-        public string? Input => _mInput.GetValue("input");
+        private string? _mValue_Input;
+        private bool _mUnknown_Input;
+        public string? Input
+        {
+            get
+            {
+                if (!_mUnknown_Input) return _mValue_Input;
+                throw new UndeferrableValueException("Value 'ScheduleTarget.Input' is not present");
+            }
+        }
 
         /// <summary>
         /// Templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation. Detailed below.
         /// </summary>
-        [Input("kinesisParameters")]
+        [PolicyResourceProperty("kinesisParameters", "_mUnknown_KinesisParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduleTargetKinesisParameters> _mKinesisParameters;
-
-        public Outputs.ScheduleTargetKinesisParameters? KinesisParameters => _mKinesisParameters.GetValue("kinesisParameters");
+        private Outputs.ScheduleTargetKinesisParameters? _mValue_KinesisParameters;
+        private bool _mUnknown_KinesisParameters;
+        public Outputs.ScheduleTargetKinesisParameters? KinesisParameters
+        {
+            get
+            {
+                if (!_mUnknown_KinesisParameters) return _mValue_KinesisParameters;
+                throw new UndeferrableValueException("Value 'ScheduleTarget.KinesisParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the retry policy settings. Detailed below.
         /// </summary>
-        [Input("retryPolicy")]
+        [PolicyResourceProperty("retryPolicy", "_mUnknown_RetryPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduleTargetRetryPolicy> _mRetryPolicy;
-
-        public Outputs.ScheduleTargetRetryPolicy? RetryPolicy => _mRetryPolicy.GetValue("retryPolicy");
+        private Outputs.ScheduleTargetRetryPolicy? _mValue_RetryPolicy;
+        private bool _mUnknown_RetryPolicy;
+        public Outputs.ScheduleTargetRetryPolicy? RetryPolicy
+        {
+            get
+            {
+                if (!_mUnknown_RetryPolicy) return _mValue_RetryPolicy;
+                throw new UndeferrableValueException("Value 'ScheduleTarget.RetryPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ScheduleTarget.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
         /// </summary>
-        [Input("sagemakerPipelineParameters")]
+        [PolicyResourceProperty("sagemakerPipelineParameters", "_mUnknown_SagemakerPipelineParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduleTargetSagemakerPipelineParameters> _mSagemakerPipelineParameters;
-
-        public Outputs.ScheduleTargetSagemakerPipelineParameters? SagemakerPipelineParameters => _mSagemakerPipelineParameters.GetValue("sagemakerPipelineParameters");
+        private Outputs.ScheduleTargetSagemakerPipelineParameters? _mValue_SagemakerPipelineParameters;
+        private bool _mUnknown_SagemakerPipelineParameters;
+        public Outputs.ScheduleTargetSagemakerPipelineParameters? SagemakerPipelineParameters
+        {
+            get
+            {
+                if (!_mUnknown_SagemakerPipelineParameters) return _mValue_SagemakerPipelineParameters;
+                throw new UndeferrableValueException("Value 'ScheduleTarget.SagemakerPipelineParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Detailed below.
         /// </summary>
-        [Input("sqsParameters")]
+        [PolicyResourceProperty("sqsParameters", "_mUnknown_SqsParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduleTargetSqsParameters> _mSqsParameters;
-
-        public Outputs.ScheduleTargetSqsParameters? SqsParameters => _mSqsParameters.GetValue("sqsParameters");
+        private Outputs.ScheduleTargetSqsParameters? _mValue_SqsParameters;
+        private bool _mUnknown_SqsParameters;
+        public Outputs.ScheduleTargetSqsParameters? SqsParameters
+        {
+            get
+            {
+                if (!_mUnknown_SqsParameters) return _mValue_SqsParameters;
+                throw new UndeferrableValueException("Value 'ScheduleTarget.SqsParameters' is not present");
+            }
+        }
     }
 }

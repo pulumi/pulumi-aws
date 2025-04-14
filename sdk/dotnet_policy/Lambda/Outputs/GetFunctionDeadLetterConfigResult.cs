@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Outputs
 {
     public sealed class GetFunctionDeadLetterConfigResult
     {
-        [Input("targetArn")]
+        [PolicyResourceProperty("targetArn", "_mUnknown_TargetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetArn;
-
-        public string? TargetArn => _mTargetArn.GetValue("targetArn");
+        private string? _mValue_TargetArn;
+        private bool _mUnknown_TargetArn;
+        public string? TargetArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetArn) return _mValue_TargetArn;
+                throw new UndeferrableValueException("Value 'GetFunctionDeadLetterConfigResult.TargetArn' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace.Inputs
         /// <summary>
         /// Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
         /// </summary>
-        [Input("attachmentNetworkAclConfigurations")]
+        [PolicyResourceProperty("attachmentNetworkAclConfigurations", "_mUnknown_AttachmentNetworkAclConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs>> _mAttachmentNetworkAclConfigurations;
-
-        public List<Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs>? AttachmentNetworkAclConfigurations => _mAttachmentNetworkAclConfigurations.GetValue("attachmentNetworkAclConfigurations");
+        private List<Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs>? _mValue_AttachmentNetworkAclConfigurations;
+        private bool _mUnknown_AttachmentNetworkAclConfigurations;
+        public List<Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs>? AttachmentNetworkAclConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentNetworkAclConfigurations) return _mValue_AttachmentNetworkAclConfigurations;
+                throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfigurationArgs.AttachmentNetworkAclConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Routing CIDR on behalf of KX environment. It could be any “/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer’s transit gateway routing table so that the traffics could be routed to KX network.
         /// </summary>
-        [Input("routableCidrSpace")]
+        [PolicyResourceProperty("routableCidrSpace", "_mUnknown_RoutableCidrSpace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutableCidrSpace;
-
-        public string? RoutableCidrSpace => _mRoutableCidrSpace.GetValue("routableCidrSpace");
+        private string? _mValue_RoutableCidrSpace;
+        private bool _mUnknown_RoutableCidrSpace;
+        public string? RoutableCidrSpace
+        {
+            get
+            {
+                if (!_mUnknown_RoutableCidrSpace) return _mValue_RoutableCidrSpace;
+                throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfigurationArgs.RoutableCidrSpace' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the transit gateway created by the customer to connect outbound traffics from KX network to your internal network.
         /// </summary>
-        [Input("transitGatewayId")]
+        [PolicyResourceProperty("transitGatewayId", "_mUnknown_TransitGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
-
-        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+        private string? _mValue_TransitGatewayId;
+        private bool _mUnknown_TransitGatewayId;
+        public string? TransitGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayId) return _mValue_TransitGatewayId;
+                throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfigurationArgs.TransitGatewayId' is not present");
+            }
+        }
     }
 }

@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
         /// <summary>
         /// A block that specifies the configuration options for Verified Access instances. Detailed below.
         /// </summary>
-        [Input("accessLogs")]
+        [PolicyResourceProperty("accessLogs", "_mUnknown_AccessLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceLoggingConfigurationAccessLogs> _mAccessLogs;
-
-        public Outputs.InstanceLoggingConfigurationAccessLogs? AccessLogs => _mAccessLogs.GetValue("accessLogs");
+        private Outputs.InstanceLoggingConfigurationAccessLogs? _mValue_AccessLogs;
+        private bool _mUnknown_AccessLogs;
+        public Outputs.InstanceLoggingConfigurationAccessLogs? AccessLogs
+        {
+            get
+            {
+                if (!_mUnknown_AccessLogs) return _mValue_AccessLogs;
+                throw new UndeferrableValueException("Value 'InstanceLoggingConfiguration.AccessLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Verified Access instance.
         /// </summary>
-        [Input("verifiedaccessInstanceId")]
+        [PolicyResourceProperty("verifiedaccessInstanceId", "_mUnknown_VerifiedaccessInstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessInstanceId;
-
-        public string? VerifiedaccessInstanceId => _mVerifiedaccessInstanceId.GetValue("verifiedaccessInstanceId");
+        private string? _mValue_VerifiedaccessInstanceId;
+        private bool _mUnknown_VerifiedaccessInstanceId;
+        public string? VerifiedaccessInstanceId
+        {
+            get
+            {
+                if (!_mUnknown_VerifiedaccessInstanceId) return _mValue_VerifiedaccessInstanceId;
+                throw new UndeferrableValueException("Value 'InstanceLoggingConfiguration.VerifiedaccessInstanceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
         /// <summary>
         /// A block that specifies the configuration options for Verified Access instances. Detailed below.
         /// </summary>
-        [Input("accessLogs")]
+        [PolicyResourceProperty("accessLogs", "_mUnknown_AccessLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceLoggingConfigurationAccessLogsArgs> _mAccessLogs;
-
-        public Inputs.InstanceLoggingConfigurationAccessLogsArgs? AccessLogs => _mAccessLogs.GetValue("accessLogs");
+        private Inputs.InstanceLoggingConfigurationAccessLogsArgs? _mValue_AccessLogs;
+        private bool _mUnknown_AccessLogs;
+        public Inputs.InstanceLoggingConfigurationAccessLogsArgs? AccessLogs
+        {
+            get
+            {
+                if (!_mUnknown_AccessLogs) return _mValue_AccessLogs;
+                throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationArgs.AccessLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Verified Access instance.
         /// </summary>
-        [Input("verifiedaccessInstanceId")]
+        [PolicyResourceProperty("verifiedaccessInstanceId", "_mUnknown_VerifiedaccessInstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessInstanceId;
-
-        public string? VerifiedaccessInstanceId => _mVerifiedaccessInstanceId.GetValue("verifiedaccessInstanceId");
+        private string? _mValue_VerifiedaccessInstanceId;
+        private bool _mUnknown_VerifiedaccessInstanceId;
+        public string? VerifiedaccessInstanceId
+        {
+            get
+            {
+                if (!_mUnknown_VerifiedaccessInstanceId) return _mValue_VerifiedaccessInstanceId;
+                throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationArgs.VerifiedaccessInstanceId' is not present");
+            }
+        }
     }
 }

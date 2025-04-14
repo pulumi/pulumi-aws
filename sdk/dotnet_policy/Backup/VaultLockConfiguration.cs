@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// The ARN of the vault.
         /// </summary>
-        [Input("backupVaultArn")]
+        [PolicyResourceProperty("backupVaultArn", "_mUnknown_BackupVaultArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupVaultArn;
-
-        public string? BackupVaultArn => _mBackupVaultArn.GetValue("backupVaultArn");
+        private string? _mValue_BackupVaultArn;
+        private bool _mUnknown_BackupVaultArn;
+        public string? BackupVaultArn
+        {
+            get
+            {
+                if (!_mUnknown_BackupVaultArn) return _mValue_BackupVaultArn;
+                throw new UndeferrableValueException("Value 'VaultLockConfiguration.BackupVaultArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the backup vault to add a lock configuration for.
         /// </summary>
-        [Input("backupVaultName")]
+        [PolicyResourceProperty("backupVaultName", "_mUnknown_BackupVaultName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupVaultName;
-
-        public string? BackupVaultName => _mBackupVaultName.GetValue("backupVaultName");
+        private string? _mValue_BackupVaultName;
+        private bool _mUnknown_BackupVaultName;
+        public string? BackupVaultName
+        {
+            get
+            {
+                if (!_mUnknown_BackupVaultName) return _mValue_BackupVaultName;
+                throw new UndeferrableValueException("Value 'VaultLockConfiguration.BackupVaultName' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
         /// </summary>
-        [Input("changeableForDays")]
+        [PolicyResourceProperty("changeableForDays", "_mUnknown_ChangeableForDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mChangeableForDays;
-
-        public int? ChangeableForDays => _mChangeableForDays.GetValue("changeableForDays");
+        private int? _mValue_ChangeableForDays;
+        private bool _mUnknown_ChangeableForDays;
+        public int? ChangeableForDays
+        {
+            get
+            {
+                if (!_mUnknown_ChangeableForDays) return _mValue_ChangeableForDays;
+                throw new UndeferrableValueException("Value 'VaultLockConfiguration.ChangeableForDays' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum retention period that the vault retains its recovery points.
         /// </summary>
-        [Input("maxRetentionDays")]
+        [PolicyResourceProperty("maxRetentionDays", "_mUnknown_MaxRetentionDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRetentionDays;
-
-        public int? MaxRetentionDays => _mMaxRetentionDays.GetValue("maxRetentionDays");
+        private int? _mValue_MaxRetentionDays;
+        private bool _mUnknown_MaxRetentionDays;
+        public int? MaxRetentionDays
+        {
+            get
+            {
+                if (!_mUnknown_MaxRetentionDays) return _mValue_MaxRetentionDays;
+                throw new UndeferrableValueException("Value 'VaultLockConfiguration.MaxRetentionDays' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum retention period that the vault retains its recovery points.
         /// </summary>
-        [Input("minRetentionDays")]
+        [PolicyResourceProperty("minRetentionDays", "_mUnknown_MinRetentionDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinRetentionDays;
-
-        public int? MinRetentionDays => _mMinRetentionDays.GetValue("minRetentionDays");
+        private int? _mValue_MinRetentionDays;
+        private bool _mUnknown_MinRetentionDays;
+        public int? MinRetentionDays
+        {
+            get
+            {
+                if (!_mUnknown_MinRetentionDays) return _mValue_MinRetentionDays;
+                throw new UndeferrableValueException("Value 'VaultLockConfiguration.MinRetentionDays' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:backup/vaultLockConfiguration:VaultLockConfiguration")]
@@ -65,37 +100,65 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// Name of the backup vault to add a lock configuration for.
         /// </summary>
-        [Input("backupVaultName")]
+        [PolicyResourceProperty("backupVaultName", "_mUnknown_BackupVaultName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupVaultName;
-
-        public string? BackupVaultName => _mBackupVaultName.GetValue("backupVaultName");
+        private string? _mValue_BackupVaultName;
+        private bool _mUnknown_BackupVaultName;
+        public string? BackupVaultName
+        {
+            get
+            {
+                if (!_mUnknown_BackupVaultName) return _mValue_BackupVaultName;
+                throw new UndeferrableValueException("Value 'VaultLockConfigurationArgs.BackupVaultName' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
         /// </summary>
-        [Input("changeableForDays")]
+        [PolicyResourceProperty("changeableForDays", "_mUnknown_ChangeableForDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mChangeableForDays;
-
-        public int? ChangeableForDays => _mChangeableForDays.GetValue("changeableForDays");
+        private int? _mValue_ChangeableForDays;
+        private bool _mUnknown_ChangeableForDays;
+        public int? ChangeableForDays
+        {
+            get
+            {
+                if (!_mUnknown_ChangeableForDays) return _mValue_ChangeableForDays;
+                throw new UndeferrableValueException("Value 'VaultLockConfigurationArgs.ChangeableForDays' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum retention period that the vault retains its recovery points.
         /// </summary>
-        [Input("maxRetentionDays")]
+        [PolicyResourceProperty("maxRetentionDays", "_mUnknown_MaxRetentionDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRetentionDays;
-
-        public int? MaxRetentionDays => _mMaxRetentionDays.GetValue("maxRetentionDays");
+        private int? _mValue_MaxRetentionDays;
+        private bool _mUnknown_MaxRetentionDays;
+        public int? MaxRetentionDays
+        {
+            get
+            {
+                if (!_mUnknown_MaxRetentionDays) return _mValue_MaxRetentionDays;
+                throw new UndeferrableValueException("Value 'VaultLockConfigurationArgs.MaxRetentionDays' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum retention period that the vault retains its recovery points.
         /// </summary>
-        [Input("minRetentionDays")]
+        [PolicyResourceProperty("minRetentionDays", "_mUnknown_MinRetentionDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinRetentionDays;
-
-        public int? MinRetentionDays => _mMinRetentionDays.GetValue("minRetentionDays");
+        private int? _mValue_MinRetentionDays;
+        private bool _mUnknown_MinRetentionDays;
+        public int? MinRetentionDays
+        {
+            get
+            {
+                if (!_mUnknown_MinRetentionDays) return _mValue_MinRetentionDays;
+                throw new UndeferrableValueException("Value 'VaultLockConfigurationArgs.MinRetentionDays' is not present");
+            }
+        }
     }
 }

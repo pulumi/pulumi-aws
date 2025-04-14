@@ -15,11 +15,18 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin.Inputs
         /// <summary>
         /// URL that accepts authentication requests for an application.
         /// </summary>
-        [Input("applicationUrl")]
+        [PolicyResourceProperty("applicationUrl", "_mUnknown_ApplicationUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationUrl;
-
-        public string? ApplicationUrl => _mApplicationUrl.GetValue("applicationUrl");
+        private string? _mValue_ApplicationUrl;
+        private bool _mUnknown_ApplicationUrl;
+        public string? ApplicationUrl
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationUrl) return _mValue_ApplicationUrl;
+                throw new UndeferrableValueException("Value 'ApplicationPortalOptionsSignInOptionsArgs.ApplicationUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines how IAM Identity Center navigates the user to the target application.
@@ -27,10 +34,17 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin.Inputs
         /// If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `application_url`.
         /// If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
         /// </summary>
-        [Input("origin")]
+        [PolicyResourceProperty("origin", "_mUnknown_Origin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrigin;
-
-        public string? Origin => _mOrigin.GetValue("origin");
+        private string? _mValue_Origin;
+        private bool _mUnknown_Origin;
+        public string? Origin
+        {
+            get
+            {
+                if (!_mUnknown_Origin) return _mValue_Origin;
+                throw new UndeferrableValueException("Value 'ApplicationPortalOptionsSignInOptionsArgs.Origin' is not present");
+            }
+        }
     }
 }

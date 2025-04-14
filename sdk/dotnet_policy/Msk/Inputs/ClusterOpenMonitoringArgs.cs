@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Inputs
         /// <summary>
         /// Configuration block for Prometheus settings for open monitoring. See below.
         /// </summary>
-        [Input("prometheus")]
+        [PolicyResourceProperty("prometheus", "_mUnknown_Prometheus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterOpenMonitoringPrometheusArgs> _mPrometheus;
-
-        public Inputs.ClusterOpenMonitoringPrometheusArgs? Prometheus => _mPrometheus.GetValue("prometheus");
+        private Inputs.ClusterOpenMonitoringPrometheusArgs? _mValue_Prometheus;
+        private bool _mUnknown_Prometheus;
+        public Inputs.ClusterOpenMonitoringPrometheusArgs? Prometheus
+        {
+            get
+            {
+                if (!_mUnknown_Prometheus) return _mValue_Prometheus;
+                throw new UndeferrableValueException("Value 'ClusterOpenMonitoringArgs.Prometheus' is not present");
+            }
+        }
     }
 }

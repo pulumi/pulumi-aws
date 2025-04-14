@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.DataZone.Outputs
         /// <summary>
         /// Name of the form type. Must be the name of the structure in smithy document.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FormTypeImport.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Revision of the Form Type.
         /// </summary>
-        [Input("revision")]
+        [PolicyResourceProperty("revision", "_mUnknown_Revision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevision;
-
-        public string? Revision => _mRevision.GetValue("revision");
+        private string? _mValue_Revision;
+        private bool _mUnknown_Revision;
+        public string? Revision
+        {
+            get
+            {
+                if (!_mUnknown_Revision) return _mValue_Revision;
+                throw new UndeferrableValueException("Value 'FormTypeImport.Revision' is not present");
+            }
+        }
     }
 }

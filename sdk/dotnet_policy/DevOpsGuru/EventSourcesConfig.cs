@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.DevOpsGuru
         /// <summary>
         /// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
         /// </summary>
-        [Input("eventSources")]
+        [PolicyResourceProperty("eventSources", "_mUnknown_EventSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EventSourcesConfigEventSource>> _mEventSources;
-
-        public List<Outputs.EventSourcesConfigEventSource>? EventSources => _mEventSources.GetValue("eventSources");
+        private List<Outputs.EventSourcesConfigEventSource>? _mValue_EventSources;
+        private bool _mUnknown_EventSources;
+        public List<Outputs.EventSourcesConfigEventSource>? EventSources
+        {
+            get
+            {
+                if (!_mUnknown_EventSources) return _mValue_EventSources;
+                throw new UndeferrableValueException("Value 'EventSourcesConfig.EventSources' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:devopsguru/eventSourcesConfig:EventSourcesConfig")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.DevOpsGuru
         /// <summary>
         /// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
         /// </summary>
-        [Input("eventSources")]
+        [PolicyResourceProperty("eventSources", "_mUnknown_EventSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EventSourcesConfigEventSourceArgs>> _mEventSources;
-
-        public List<Inputs.EventSourcesConfigEventSourceArgs>? EventSources => _mEventSources.GetValue("eventSources");
+        private List<Inputs.EventSourcesConfigEventSourceArgs>? _mValue_EventSources;
+        private bool _mUnknown_EventSources;
+        public List<Inputs.EventSourcesConfigEventSourceArgs>? EventSources
+        {
+            get
+            {
+                if (!_mUnknown_EventSources) return _mValue_EventSources;
+                throw new UndeferrableValueException("Value 'EventSourcesConfigArgs.EventSources' is not present");
+            }
+        }
     }
 }

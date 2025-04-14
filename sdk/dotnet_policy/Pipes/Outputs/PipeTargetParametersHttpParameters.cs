@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Outputs
 {
     public sealed class PipeTargetParametersHttpParameters
     {
-        [Input("headerParameters")]
+        [PolicyResourceProperty("headerParameters", "_mUnknown_HeaderParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mHeaderParameters;
+        private Dictionary<string, string>? _mValue_HeaderParameters;
+        private bool _mUnknown_HeaderParameters;
+        public Dictionary<string, string>? HeaderParameters
+        {
+            get
+            {
+                if (!_mUnknown_HeaderParameters) return _mValue_HeaderParameters;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersHttpParameters.HeaderParameters' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? HeaderParameters => _mHeaderParameters.GetValue("headerParameters");
-
-        [Input("pathParameterValues")]
+        [PolicyResourceProperty("pathParameterValues", "_mUnknown_PathParameterValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPathParameterValues;
+        private string? _mValue_PathParameterValues;
+        private bool _mUnknown_PathParameterValues;
+        public string? PathParameterValues
+        {
+            get
+            {
+                if (!_mUnknown_PathParameterValues) return _mValue_PathParameterValues;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersHttpParameters.PathParameterValues' is not present");
+            }
+        }
 
-        public string? PathParameterValues => _mPathParameterValues.GetValue("pathParameterValues");
-
-        [Input("queryStringParameters")]
+        [PolicyResourceProperty("queryStringParameters", "_mUnknown_QueryStringParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mQueryStringParameters;
-
-        public Dictionary<string, string>? QueryStringParameters => _mQueryStringParameters.GetValue("queryStringParameters");
+        private Dictionary<string, string>? _mValue_QueryStringParameters;
+        private bool _mUnknown_QueryStringParameters;
+        public Dictionary<string, string>? QueryStringParameters
+        {
+            get
+            {
+                if (!_mUnknown_QueryStringParameters) return _mValue_QueryStringParameters;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersHttpParameters.QueryStringParameters' is not present");
+            }
+        }
     }
 }

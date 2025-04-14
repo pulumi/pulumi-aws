@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// This access point will only allow connections from the specified VPC ID.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'AccessPointVpcConfigurationArgs.VpcId' is not present");
+            }
+        }
     }
 }

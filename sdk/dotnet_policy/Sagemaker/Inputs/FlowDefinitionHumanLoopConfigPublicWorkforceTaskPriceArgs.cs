@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
         /// </summary>
-        [Input("amountInUsd")]
+        [PolicyResourceProperty("amountInUsd", "_mUnknown_AmountInUsd")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs> _mAmountInUsd;
-
-        public Inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs? AmountInUsd => _mAmountInUsd.GetValue("amountInUsd");
+        private Inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs? _mValue_AmountInUsd;
+        private bool _mUnknown_AmountInUsd;
+        public Inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs? AmountInUsd
+        {
+            get
+            {
+                if (!_mUnknown_AmountInUsd) return _mValue_AmountInUsd;
+                throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs.AmountInUsd' is not present");
+            }
+        }
     }
 }

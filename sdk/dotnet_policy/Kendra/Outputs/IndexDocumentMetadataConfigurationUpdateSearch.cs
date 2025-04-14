@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// Determines whether the field is returned in the query response. The default is `true`.
         /// </summary>
-        [Input("displayable")]
+        [PolicyResourceProperty("displayable", "_mUnknown_Displayable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisplayable;
-
-        public bool? Displayable => _mDisplayable.GetValue("displayable");
+        private bool? _mValue_Displayable;
+        private bool _mUnknown_Displayable;
+        public bool? Displayable
+        {
+            get
+            {
+                if (!_mUnknown_Displayable) return _mValue_Displayable;
+                throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdateSearch.Displayable' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
         /// </summary>
-        [Input("facetable")]
+        [PolicyResourceProperty("facetable", "_mUnknown_Facetable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFacetable;
-
-        public bool? Facetable => _mFacetable.GetValue("facetable");
+        private bool? _mValue_Facetable;
+        private bool _mUnknown_Facetable;
+        public bool? Facetable
+        {
+            get
+            {
+                if (!_mUnknown_Facetable) return _mValue_Facetable;
+                throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdateSearch.Facetable' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
         /// </summary>
-        [Input("searchable")]
+        [PolicyResourceProperty("searchable", "_mUnknown_Searchable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSearchable;
-
-        public bool? Searchable => _mSearchable.GetValue("searchable");
+        private bool? _mValue_Searchable;
+        private bool _mUnknown_Searchable;
+        public bool? Searchable
+        {
+            get
+            {
+                if (!_mUnknown_Searchable) return _mValue_Searchable;
+                throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdateSearch.Searchable' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
         /// </summary>
-        [Input("sortable")]
+        [PolicyResourceProperty("sortable", "_mUnknown_Sortable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSortable;
-
-        public bool? Sortable => _mSortable.GetValue("sortable");
+        private bool? _mValue_Sortable;
+        private bool _mUnknown_Sortable;
+        public bool? Sortable
+        {
+            get
+            {
+                if (!_mUnknown_Sortable) return _mValue_Sortable;
+                throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdateSearch.Sortable' is not present");
+            }
+        }
     }
 }

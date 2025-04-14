@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Location
         /// <summary>
         /// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
         /// </summary>
-        [Input("consumerArn")]
+        [PolicyResourceProperty("consumerArn", "_mUnknown_ConsumerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerArn;
-
-        public string? ConsumerArn => _mConsumerArn.GetValue("consumerArn");
+        private string? _mValue_ConsumerArn;
+        private bool _mUnknown_ConsumerArn;
+        public string? ConsumerArn
+        {
+            get
+            {
+                if (!_mUnknown_ConsumerArn) return _mValue_ConsumerArn;
+                throw new UndeferrableValueException("Value 'TrackerAssociation.ConsumerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the tracker resource to be associated with a geofence collection.
         /// </summary>
-        [Input("trackerName")]
+        [PolicyResourceProperty("trackerName", "_mUnknown_TrackerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrackerName;
-
-        public string? TrackerName => _mTrackerName.GetValue("trackerName");
+        private string? _mValue_TrackerName;
+        private bool _mUnknown_TrackerName;
+        public string? TrackerName
+        {
+            get
+            {
+                if (!_mUnknown_TrackerName) return _mValue_TrackerName;
+                throw new UndeferrableValueException("Value 'TrackerAssociation.TrackerName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:location/trackerAssociation:TrackerAssociation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Location
         /// <summary>
         /// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
         /// </summary>
-        [Input("consumerArn")]
+        [PolicyResourceProperty("consumerArn", "_mUnknown_ConsumerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerArn;
-
-        public string? ConsumerArn => _mConsumerArn.GetValue("consumerArn");
+        private string? _mValue_ConsumerArn;
+        private bool _mUnknown_ConsumerArn;
+        public string? ConsumerArn
+        {
+            get
+            {
+                if (!_mUnknown_ConsumerArn) return _mValue_ConsumerArn;
+                throw new UndeferrableValueException("Value 'TrackerAssociationArgs.ConsumerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the tracker resource to be associated with a geofence collection.
         /// </summary>
-        [Input("trackerName")]
+        [PolicyResourceProperty("trackerName", "_mUnknown_TrackerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrackerName;
-
-        public string? TrackerName => _mTrackerName.GetValue("trackerName");
+        private string? _mValue_TrackerName;
+        private bool _mUnknown_TrackerName;
+        public string? TrackerName
+        {
+            get
+            {
+                if (!_mUnknown_TrackerName) return _mValue_TrackerName;
+                throw new UndeferrableValueException("Value 'TrackerAssociationArgs.TrackerName' is not present");
+            }
+        }
     }
 }

@@ -16,335 +16,594 @@ namespace Pulumi.PolicyPacks.Aws.Neptune
         /// <summary>
         /// Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
         /// </summary>
-        [Input("allowMajorVersionUpgrade")]
+        [PolicyResourceProperty("allowMajorVersionUpgrade", "_mUnknown_AllowMajorVersionUpgrade")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowMajorVersionUpgrade;
-
-        public bool? AllowMajorVersionUpgrade => _mAllowMajorVersionUpgrade.GetValue("allowMajorVersionUpgrade");
+        private bool? _mValue_AllowMajorVersionUpgrade;
+        private bool _mUnknown_AllowMajorVersionUpgrade;
+        public bool? AllowMajorVersionUpgrade
+        {
+            get
+            {
+                if (!_mUnknown_AllowMajorVersionUpgrade) return _mValue_AllowMajorVersionUpgrade;
+                throw new UndeferrableValueException("Value 'Cluster.AllowMajorVersionUpgrade' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         /// </summary>
-        [Input("applyImmediately")]
+        [PolicyResourceProperty("applyImmediately", "_mUnknown_ApplyImmediately")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
-
-        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+        private bool? _mValue_ApplyImmediately;
+        private bool _mUnknown_ApplyImmediately;
+        public bool? ApplyImmediately
+        {
+            get
+            {
+                if (!_mUnknown_ApplyImmediately) return _mValue_ApplyImmediately;
+                throw new UndeferrableValueException("Value 'Cluster.ApplyImmediately' is not present");
+            }
+        }
 
         /// <summary>
         /// The Neptune Cluster Amazon Resource Name (ARN)
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Cluster.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
         /// </summary>
-        [Input("availabilityZones")]
+        [PolicyResourceProperty("availabilityZones", "_mUnknown_AvailabilityZones")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
-
-        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
+        private List<string>? _mValue_AvailabilityZones;
+        private bool _mUnknown_AvailabilityZones;
+        public List<string>? AvailabilityZones
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZones) return _mValue_AvailabilityZones;
+                throw new UndeferrableValueException("Value 'Cluster.AvailabilityZones' is not present");
+            }
+        }
 
         /// <summary>
         /// The days to retain backups for. Default `1`
         /// </summary>
-        [Input("backupRetentionPeriod")]
+        [PolicyResourceProperty("backupRetentionPeriod", "_mUnknown_BackupRetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBackupRetentionPeriod;
-
-        public int? BackupRetentionPeriod => _mBackupRetentionPeriod.GetValue("backupRetentionPeriod");
+        private int? _mValue_BackupRetentionPeriod;
+        private bool _mUnknown_BackupRetentionPeriod;
+        public int? BackupRetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_BackupRetentionPeriod) return _mValue_BackupRetentionPeriod;
+                throw new UndeferrableValueException("Value 'Cluster.BackupRetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         /// </summary>
-        [Input("clusterIdentifierPrefix")]
+        [PolicyResourceProperty("clusterIdentifierPrefix", "_mUnknown_ClusterIdentifierPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifierPrefix;
-
-        public string? ClusterIdentifierPrefix => _mClusterIdentifierPrefix.GetValue("clusterIdentifierPrefix");
+        private string? _mValue_ClusterIdentifierPrefix;
+        private bool _mUnknown_ClusterIdentifierPrefix;
+        public string? ClusterIdentifierPrefix
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifierPrefix) return _mValue_ClusterIdentifierPrefix;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterIdentifierPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// List of Neptune Instances that are a part of this cluster
         /// </summary>
-        [Input("clusterMembers")]
+        [PolicyResourceProperty("clusterMembers", "_mUnknown_ClusterMembers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClusterMembers;
-
-        public List<string>? ClusterMembers => _mClusterMembers.GetValue("clusterMembers");
+        private List<string>? _mValue_ClusterMembers;
+        private bool _mUnknown_ClusterMembers;
+        public List<string>? ClusterMembers
+        {
+            get
+            {
+                if (!_mUnknown_ClusterMembers) return _mValue_ClusterMembers;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterMembers' is not present");
+            }
+        }
 
         /// <summary>
         /// The Neptune Cluster Resource ID
         /// </summary>
-        [Input("clusterResourceId")]
+        [PolicyResourceProperty("clusterResourceId", "_mUnknown_ClusterResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterResourceId;
-
-        public string? ClusterResourceId => _mClusterResourceId.GetValue("clusterResourceId");
+        private string? _mValue_ClusterResourceId;
+        private bool _mUnknown_ClusterResourceId;
+        public string? ClusterResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ClusterResourceId) return _mValue_ClusterResourceId;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// If set to true, tags are copied to any snapshot of the DB cluster that is created.
         /// </summary>
-        [Input("copyTagsToSnapshot")]
+        [PolicyResourceProperty("copyTagsToSnapshot", "_mUnknown_CopyTagsToSnapshot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToSnapshot;
-
-        public bool? CopyTagsToSnapshot => _mCopyTagsToSnapshot.GetValue("copyTagsToSnapshot");
+        private bool? _mValue_CopyTagsToSnapshot;
+        private bool _mUnknown_CopyTagsToSnapshot;
+        public bool? CopyTagsToSnapshot
+        {
+            get
+            {
+                if (!_mUnknown_CopyTagsToSnapshot) return _mValue_CopyTagsToSnapshot;
+                throw new UndeferrableValueException("Value 'Cluster.CopyTagsToSnapshot' is not present");
+            }
+        }
 
         /// <summary>
         /// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         /// </summary>
-        [Input("deletionProtection")]
+        [PolicyResourceProperty("deletionProtection", "_mUnknown_DeletionProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtection;
-
-        public bool? DeletionProtection => _mDeletionProtection.GetValue("deletionProtection");
+        private bool? _mValue_DeletionProtection;
+        private bool _mUnknown_DeletionProtection;
+        public bool? DeletionProtection
+        {
+            get
+            {
+                if (!_mUnknown_DeletionProtection) return _mValue_DeletionProtection;
+                throw new UndeferrableValueException("Value 'Cluster.DeletionProtection' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
         /// </summary>
-        [Input("enableCloudwatchLogsExports")]
+        [PolicyResourceProperty("enableCloudwatchLogsExports", "_mUnknown_EnableCloudwatchLogsExports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnableCloudwatchLogsExports;
-
-        public List<string>? EnableCloudwatchLogsExports => _mEnableCloudwatchLogsExports.GetValue("enableCloudwatchLogsExports");
+        private List<string>? _mValue_EnableCloudwatchLogsExports;
+        private bool _mUnknown_EnableCloudwatchLogsExports;
+        public List<string>? EnableCloudwatchLogsExports
+        {
+            get
+            {
+                if (!_mUnknown_EnableCloudwatchLogsExports) return _mValue_EnableCloudwatchLogsExports;
+                throw new UndeferrableValueException("Value 'Cluster.EnableCloudwatchLogsExports' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS address of the Neptune instance
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'Cluster.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'Cluster.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// The database engine version.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'Cluster.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
         /// </summary>
-        [Input("finalSnapshotIdentifier")]
+        [PolicyResourceProperty("finalSnapshotIdentifier", "_mUnknown_FinalSnapshotIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFinalSnapshotIdentifier;
-
-        public string? FinalSnapshotIdentifier => _mFinalSnapshotIdentifier.GetValue("finalSnapshotIdentifier");
+        private string? _mValue_FinalSnapshotIdentifier;
+        private bool _mUnknown_FinalSnapshotIdentifier;
+        public string? FinalSnapshotIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_FinalSnapshotIdentifier) return _mValue_FinalSnapshotIdentifier;
+                throw new UndeferrableValueException("Value 'Cluster.FinalSnapshotIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The global cluster identifier specified on `aws.neptune.GlobalCluster`.
         /// </summary>
-        [Input("globalClusterIdentifier")]
+        [PolicyResourceProperty("globalClusterIdentifier", "_mUnknown_GlobalClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalClusterIdentifier;
-
-        public string? GlobalClusterIdentifier => _mGlobalClusterIdentifier.GetValue("globalClusterIdentifier");
+        private string? _mValue_GlobalClusterIdentifier;
+        private bool _mUnknown_GlobalClusterIdentifier;
+        public string? GlobalClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_GlobalClusterIdentifier) return _mValue_GlobalClusterIdentifier;
+                throw new UndeferrableValueException("Value 'Cluster.GlobalClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The Route53 Hosted Zone ID of the endpoint
         /// </summary>
-        [Input("hostedZoneId")]
+        [PolicyResourceProperty("hostedZoneId", "_mUnknown_HostedZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
-
-        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+        private string? _mValue_HostedZoneId;
+        private bool _mUnknown_HostedZoneId;
+        public string? HostedZoneId
+        {
+            get
+            {
+                if (!_mUnknown_HostedZoneId) return _mValue_HostedZoneId;
+                throw new UndeferrableValueException("Value 'Cluster.HostedZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         /// </summary>
-        [Input("iamDatabaseAuthenticationEnabled")]
+        [PolicyResourceProperty("iamDatabaseAuthenticationEnabled", "_mUnknown_IamDatabaseAuthenticationEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIamDatabaseAuthenticationEnabled;
-
-        public bool? IamDatabaseAuthenticationEnabled => _mIamDatabaseAuthenticationEnabled.GetValue("iamDatabaseAuthenticationEnabled");
+        private bool? _mValue_IamDatabaseAuthenticationEnabled;
+        private bool _mUnknown_IamDatabaseAuthenticationEnabled;
+        public bool? IamDatabaseAuthenticationEnabled
+        {
+            get
+            {
+                if (!_mUnknown_IamDatabaseAuthenticationEnabled) return _mValue_IamDatabaseAuthenticationEnabled;
+                throw new UndeferrableValueException("Value 'Cluster.IamDatabaseAuthenticationEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A List of ARNs for the IAM roles to associate to the Neptune Cluster.
         /// </summary>
-        [Input("iamRoles")]
+        [PolicyResourceProperty("iamRoles", "_mUnknown_IamRoles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIamRoles;
-
-        public List<string>? IamRoles => _mIamRoles.GetValue("iamRoles");
+        private List<string>? _mValue_IamRoles;
+        private bool _mUnknown_IamRoles;
+        public List<string>? IamRoles
+        {
+            get
+            {
+                if (!_mUnknown_IamRoles) return _mValue_IamRoles;
+                throw new UndeferrableValueException("Value 'Cluster.IamRoles' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'Cluster.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A cluster parameter group to associate with the cluster.
         /// </summary>
-        [Input("neptuneClusterParameterGroupName")]
+        [PolicyResourceProperty("neptuneClusterParameterGroupName", "_mUnknown_NeptuneClusterParameterGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNeptuneClusterParameterGroupName;
-
-        public string? NeptuneClusterParameterGroupName => _mNeptuneClusterParameterGroupName.GetValue("neptuneClusterParameterGroupName");
+        private string? _mValue_NeptuneClusterParameterGroupName;
+        private bool _mUnknown_NeptuneClusterParameterGroupName;
+        public string? NeptuneClusterParameterGroupName
+        {
+            get
+            {
+                if (!_mUnknown_NeptuneClusterParameterGroupName) return _mValue_NeptuneClusterParameterGroupName;
+                throw new UndeferrableValueException("Value 'Cluster.NeptuneClusterParameterGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the DB parameter group to apply to all instances of the DB cluster.
         /// </summary>
-        [Input("neptuneInstanceParameterGroupName")]
+        [PolicyResourceProperty("neptuneInstanceParameterGroupName", "_mUnknown_NeptuneInstanceParameterGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNeptuneInstanceParameterGroupName;
-
-        public string? NeptuneInstanceParameterGroupName => _mNeptuneInstanceParameterGroupName.GetValue("neptuneInstanceParameterGroupName");
+        private string? _mValue_NeptuneInstanceParameterGroupName;
+        private bool _mUnknown_NeptuneInstanceParameterGroupName;
+        public string? NeptuneInstanceParameterGroupName
+        {
+            get
+            {
+                if (!_mUnknown_NeptuneInstanceParameterGroupName) return _mValue_NeptuneInstanceParameterGroupName;
+                throw new UndeferrableValueException("Value 'Cluster.NeptuneInstanceParameterGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// A Neptune subnet group to associate with this Neptune instance.
         /// </summary>
-        [Input("neptuneSubnetGroupName")]
+        [PolicyResourceProperty("neptuneSubnetGroupName", "_mUnknown_NeptuneSubnetGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNeptuneSubnetGroupName;
-
-        public string? NeptuneSubnetGroupName => _mNeptuneSubnetGroupName.GetValue("neptuneSubnetGroupName");
+        private string? _mValue_NeptuneSubnetGroupName;
+        private bool _mUnknown_NeptuneSubnetGroupName;
+        public string? NeptuneSubnetGroupName
+        {
+            get
+            {
+                if (!_mUnknown_NeptuneSubnetGroupName) return _mValue_NeptuneSubnetGroupName;
+                throw new UndeferrableValueException("Value 'Cluster.NeptuneSubnetGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The port on which the Neptune accepts connections. Default is `8182`.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'Cluster.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
-        [Input("preferredBackupWindow")]
+        [PolicyResourceProperty("preferredBackupWindow", "_mUnknown_PreferredBackupWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredBackupWindow;
-
-        public string? PreferredBackupWindow => _mPreferredBackupWindow.GetValue("preferredBackupWindow");
+        private string? _mValue_PreferredBackupWindow;
+        private bool _mUnknown_PreferredBackupWindow;
+        public string? PreferredBackupWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredBackupWindow) return _mValue_PreferredBackupWindow;
+                throw new UndeferrableValueException("Value 'Cluster.PreferredBackupWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
-        [Input("preferredMaintenanceWindow")]
+        [PolicyResourceProperty("preferredMaintenanceWindow", "_mUnknown_PreferredMaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
-
-        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+        private string? _mValue_PreferredMaintenanceWindow;
+        private bool _mUnknown_PreferredMaintenanceWindow;
+        public string? PreferredMaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredMaintenanceWindow) return _mValue_PreferredMaintenanceWindow;
+                throw new UndeferrableValueException("Value 'Cluster.PreferredMaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
         /// </summary>
-        [Input("readerEndpoint")]
+        [PolicyResourceProperty("readerEndpoint", "_mUnknown_ReaderEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReaderEndpoint;
-
-        public string? ReaderEndpoint => _mReaderEndpoint.GetValue("readerEndpoint");
+        private string? _mValue_ReaderEndpoint;
+        private bool _mUnknown_ReaderEndpoint;
+        public string? ReaderEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_ReaderEndpoint) return _mValue_ReaderEndpoint;
+                throw new UndeferrableValueException("Value 'Cluster.ReaderEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
         /// </summary>
-        [Input("replicationSourceIdentifier")]
+        [PolicyResourceProperty("replicationSourceIdentifier", "_mUnknown_ReplicationSourceIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationSourceIdentifier;
-
-        public string? ReplicationSourceIdentifier => _mReplicationSourceIdentifier.GetValue("replicationSourceIdentifier");
+        private string? _mValue_ReplicationSourceIdentifier;
+        private bool _mUnknown_ReplicationSourceIdentifier;
+        public string? ReplicationSourceIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationSourceIdentifier) return _mValue_ReplicationSourceIdentifier;
+                throw new UndeferrableValueException("Value 'Cluster.ReplicationSourceIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         /// </summary>
-        [Input("serverlessV2ScalingConfiguration")]
+        [PolicyResourceProperty("serverlessV2ScalingConfiguration", "_mUnknown_ServerlessV2ScalingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterServerlessV2ScalingConfiguration> _mServerlessV2ScalingConfiguration;
-
-        public Outputs.ClusterServerlessV2ScalingConfiguration? ServerlessV2ScalingConfiguration => _mServerlessV2ScalingConfiguration.GetValue("serverlessV2ScalingConfiguration");
+        private Outputs.ClusterServerlessV2ScalingConfiguration? _mValue_ServerlessV2ScalingConfiguration;
+        private bool _mUnknown_ServerlessV2ScalingConfiguration;
+        public Outputs.ClusterServerlessV2ScalingConfiguration? ServerlessV2ScalingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ServerlessV2ScalingConfiguration) return _mValue_ServerlessV2ScalingConfiguration;
+                throw new UndeferrableValueException("Value 'Cluster.ServerlessV2ScalingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         /// </summary>
-        [Input("skipFinalSnapshot")]
+        [PolicyResourceProperty("skipFinalSnapshot", "_mUnknown_SkipFinalSnapshot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalSnapshot;
-
-        public bool? SkipFinalSnapshot => _mSkipFinalSnapshot.GetValue("skipFinalSnapshot");
+        private bool? _mValue_SkipFinalSnapshot;
+        private bool _mUnknown_SkipFinalSnapshot;
+        public bool? SkipFinalSnapshot
+        {
+            get
+            {
+                if (!_mUnknown_SkipFinalSnapshot) return _mValue_SkipFinalSnapshot;
+                throw new UndeferrableValueException("Value 'Cluster.SkipFinalSnapshot' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         /// </summary>
-        [Input("snapshotIdentifier")]
+        [PolicyResourceProperty("snapshotIdentifier", "_mUnknown_SnapshotIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotIdentifier;
-
-        public string? SnapshotIdentifier => _mSnapshotIdentifier.GetValue("snapshotIdentifier");
+        private string? _mValue_SnapshotIdentifier;
+        private bool _mUnknown_SnapshotIdentifier;
+        public string? SnapshotIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotIdentifier) return _mValue_SnapshotIdentifier;
+                throw new UndeferrableValueException("Value 'Cluster.SnapshotIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
         /// </summary>
-        [Input("storageEncrypted")]
+        [PolicyResourceProperty("storageEncrypted", "_mUnknown_StorageEncrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEncrypted;
-
-        public bool? StorageEncrypted => _mStorageEncrypted.GetValue("storageEncrypted");
+        private bool? _mValue_StorageEncrypted;
+        private bool _mUnknown_StorageEncrypted;
+        public bool? StorageEncrypted
+        {
+            get
+            {
+                if (!_mUnknown_StorageEncrypted) return _mValue_StorageEncrypted;
+                throw new UndeferrableValueException("Value 'Cluster.StorageEncrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// Storage type associated with the cluster `standard/iopt1`. Default: `standard`
         /// </summary>
-        [Input("storageType")]
+        [PolicyResourceProperty("storageType", "_mUnknown_StorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
-
-        public string? StorageType => _mStorageType.GetValue("storageType");
+        private string? _mValue_StorageType;
+        private bool _mUnknown_StorageType;
+        public string? StorageType
+        {
+            get
+            {
+                if (!_mUnknown_StorageType) return _mValue_StorageType;
+                throw new UndeferrableValueException("Value 'Cluster.StorageType' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Cluster.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Cluster.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// List of VPC security groups to associate with the Cluster
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'Cluster.VpcSecurityGroupIds' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:neptune/cluster:Cluster")]
@@ -353,271 +612,481 @@ namespace Pulumi.PolicyPacks.Aws.Neptune
         /// <summary>
         /// Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
         /// </summary>
-        [Input("allowMajorVersionUpgrade")]
+        [PolicyResourceProperty("allowMajorVersionUpgrade", "_mUnknown_AllowMajorVersionUpgrade")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowMajorVersionUpgrade;
-
-        public bool? AllowMajorVersionUpgrade => _mAllowMajorVersionUpgrade.GetValue("allowMajorVersionUpgrade");
+        private bool? _mValue_AllowMajorVersionUpgrade;
+        private bool _mUnknown_AllowMajorVersionUpgrade;
+        public bool? AllowMajorVersionUpgrade
+        {
+            get
+            {
+                if (!_mUnknown_AllowMajorVersionUpgrade) return _mValue_AllowMajorVersionUpgrade;
+                throw new UndeferrableValueException("Value 'ClusterArgs.AllowMajorVersionUpgrade' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         /// </summary>
-        [Input("applyImmediately")]
+        [PolicyResourceProperty("applyImmediately", "_mUnknown_ApplyImmediately")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
-
-        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+        private bool? _mValue_ApplyImmediately;
+        private bool _mUnknown_ApplyImmediately;
+        public bool? ApplyImmediately
+        {
+            get
+            {
+                if (!_mUnknown_ApplyImmediately) return _mValue_ApplyImmediately;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ApplyImmediately' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
         /// </summary>
-        [Input("availabilityZones")]
+        [PolicyResourceProperty("availabilityZones", "_mUnknown_AvailabilityZones")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
-
-        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
+        private List<string>? _mValue_AvailabilityZones;
+        private bool _mUnknown_AvailabilityZones;
+        public List<string>? AvailabilityZones
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZones) return _mValue_AvailabilityZones;
+                throw new UndeferrableValueException("Value 'ClusterArgs.AvailabilityZones' is not present");
+            }
+        }
 
         /// <summary>
         /// The days to retain backups for. Default `1`
         /// </summary>
-        [Input("backupRetentionPeriod")]
+        [PolicyResourceProperty("backupRetentionPeriod", "_mUnknown_BackupRetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBackupRetentionPeriod;
-
-        public int? BackupRetentionPeriod => _mBackupRetentionPeriod.GetValue("backupRetentionPeriod");
+        private int? _mValue_BackupRetentionPeriod;
+        private bool _mUnknown_BackupRetentionPeriod;
+        public int? BackupRetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_BackupRetentionPeriod) return _mValue_BackupRetentionPeriod;
+                throw new UndeferrableValueException("Value 'ClusterArgs.BackupRetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         /// </summary>
-        [Input("clusterIdentifierPrefix")]
+        [PolicyResourceProperty("clusterIdentifierPrefix", "_mUnknown_ClusterIdentifierPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifierPrefix;
-
-        public string? ClusterIdentifierPrefix => _mClusterIdentifierPrefix.GetValue("clusterIdentifierPrefix");
+        private string? _mValue_ClusterIdentifierPrefix;
+        private bool _mUnknown_ClusterIdentifierPrefix;
+        public string? ClusterIdentifierPrefix
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifierPrefix) return _mValue_ClusterIdentifierPrefix;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ClusterIdentifierPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// If set to true, tags are copied to any snapshot of the DB cluster that is created.
         /// </summary>
-        [Input("copyTagsToSnapshot")]
+        [PolicyResourceProperty("copyTagsToSnapshot", "_mUnknown_CopyTagsToSnapshot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToSnapshot;
-
-        public bool? CopyTagsToSnapshot => _mCopyTagsToSnapshot.GetValue("copyTagsToSnapshot");
+        private bool? _mValue_CopyTagsToSnapshot;
+        private bool _mUnknown_CopyTagsToSnapshot;
+        public bool? CopyTagsToSnapshot
+        {
+            get
+            {
+                if (!_mUnknown_CopyTagsToSnapshot) return _mValue_CopyTagsToSnapshot;
+                throw new UndeferrableValueException("Value 'ClusterArgs.CopyTagsToSnapshot' is not present");
+            }
+        }
 
         /// <summary>
         /// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         /// </summary>
-        [Input("deletionProtection")]
+        [PolicyResourceProperty("deletionProtection", "_mUnknown_DeletionProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtection;
-
-        public bool? DeletionProtection => _mDeletionProtection.GetValue("deletionProtection");
+        private bool? _mValue_DeletionProtection;
+        private bool _mUnknown_DeletionProtection;
+        public bool? DeletionProtection
+        {
+            get
+            {
+                if (!_mUnknown_DeletionProtection) return _mValue_DeletionProtection;
+                throw new UndeferrableValueException("Value 'ClusterArgs.DeletionProtection' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
         /// </summary>
-        [Input("enableCloudwatchLogsExports")]
+        [PolicyResourceProperty("enableCloudwatchLogsExports", "_mUnknown_EnableCloudwatchLogsExports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnableCloudwatchLogsExports;
-
-        public List<string>? EnableCloudwatchLogsExports => _mEnableCloudwatchLogsExports.GetValue("enableCloudwatchLogsExports");
+        private List<string>? _mValue_EnableCloudwatchLogsExports;
+        private bool _mUnknown_EnableCloudwatchLogsExports;
+        public List<string>? EnableCloudwatchLogsExports
+        {
+            get
+            {
+                if (!_mUnknown_EnableCloudwatchLogsExports) return _mValue_EnableCloudwatchLogsExports;
+                throw new UndeferrableValueException("Value 'ClusterArgs.EnableCloudwatchLogsExports' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// The database engine version.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'ClusterArgs.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
         /// </summary>
-        [Input("finalSnapshotIdentifier")]
+        [PolicyResourceProperty("finalSnapshotIdentifier", "_mUnknown_FinalSnapshotIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFinalSnapshotIdentifier;
-
-        public string? FinalSnapshotIdentifier => _mFinalSnapshotIdentifier.GetValue("finalSnapshotIdentifier");
+        private string? _mValue_FinalSnapshotIdentifier;
+        private bool _mUnknown_FinalSnapshotIdentifier;
+        public string? FinalSnapshotIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_FinalSnapshotIdentifier) return _mValue_FinalSnapshotIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterArgs.FinalSnapshotIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The global cluster identifier specified on `aws.neptune.GlobalCluster`.
         /// </summary>
-        [Input("globalClusterIdentifier")]
+        [PolicyResourceProperty("globalClusterIdentifier", "_mUnknown_GlobalClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalClusterIdentifier;
-
-        public string? GlobalClusterIdentifier => _mGlobalClusterIdentifier.GetValue("globalClusterIdentifier");
+        private string? _mValue_GlobalClusterIdentifier;
+        private bool _mUnknown_GlobalClusterIdentifier;
+        public string? GlobalClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_GlobalClusterIdentifier) return _mValue_GlobalClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterArgs.GlobalClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         /// </summary>
-        [Input("iamDatabaseAuthenticationEnabled")]
+        [PolicyResourceProperty("iamDatabaseAuthenticationEnabled", "_mUnknown_IamDatabaseAuthenticationEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIamDatabaseAuthenticationEnabled;
-
-        public bool? IamDatabaseAuthenticationEnabled => _mIamDatabaseAuthenticationEnabled.GetValue("iamDatabaseAuthenticationEnabled");
+        private bool? _mValue_IamDatabaseAuthenticationEnabled;
+        private bool _mUnknown_IamDatabaseAuthenticationEnabled;
+        public bool? IamDatabaseAuthenticationEnabled
+        {
+            get
+            {
+                if (!_mUnknown_IamDatabaseAuthenticationEnabled) return _mValue_IamDatabaseAuthenticationEnabled;
+                throw new UndeferrableValueException("Value 'ClusterArgs.IamDatabaseAuthenticationEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A List of ARNs for the IAM roles to associate to the Neptune Cluster.
         /// </summary>
-        [Input("iamRoles")]
+        [PolicyResourceProperty("iamRoles", "_mUnknown_IamRoles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIamRoles;
-
-        public List<string>? IamRoles => _mIamRoles.GetValue("iamRoles");
+        private List<string>? _mValue_IamRoles;
+        private bool _mUnknown_IamRoles;
+        public List<string>? IamRoles
+        {
+            get
+            {
+                if (!_mUnknown_IamRoles) return _mValue_IamRoles;
+                throw new UndeferrableValueException("Value 'ClusterArgs.IamRoles' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'ClusterArgs.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A cluster parameter group to associate with the cluster.
         /// </summary>
-        [Input("neptuneClusterParameterGroupName")]
+        [PolicyResourceProperty("neptuneClusterParameterGroupName", "_mUnknown_NeptuneClusterParameterGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNeptuneClusterParameterGroupName;
-
-        public string? NeptuneClusterParameterGroupName => _mNeptuneClusterParameterGroupName.GetValue("neptuneClusterParameterGroupName");
+        private string? _mValue_NeptuneClusterParameterGroupName;
+        private bool _mUnknown_NeptuneClusterParameterGroupName;
+        public string? NeptuneClusterParameterGroupName
+        {
+            get
+            {
+                if (!_mUnknown_NeptuneClusterParameterGroupName) return _mValue_NeptuneClusterParameterGroupName;
+                throw new UndeferrableValueException("Value 'ClusterArgs.NeptuneClusterParameterGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the DB parameter group to apply to all instances of the DB cluster.
         /// </summary>
-        [Input("neptuneInstanceParameterGroupName")]
+        [PolicyResourceProperty("neptuneInstanceParameterGroupName", "_mUnknown_NeptuneInstanceParameterGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNeptuneInstanceParameterGroupName;
-
-        public string? NeptuneInstanceParameterGroupName => _mNeptuneInstanceParameterGroupName.GetValue("neptuneInstanceParameterGroupName");
+        private string? _mValue_NeptuneInstanceParameterGroupName;
+        private bool _mUnknown_NeptuneInstanceParameterGroupName;
+        public string? NeptuneInstanceParameterGroupName
+        {
+            get
+            {
+                if (!_mUnknown_NeptuneInstanceParameterGroupName) return _mValue_NeptuneInstanceParameterGroupName;
+                throw new UndeferrableValueException("Value 'ClusterArgs.NeptuneInstanceParameterGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// A Neptune subnet group to associate with this Neptune instance.
         /// </summary>
-        [Input("neptuneSubnetGroupName")]
+        [PolicyResourceProperty("neptuneSubnetGroupName", "_mUnknown_NeptuneSubnetGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNeptuneSubnetGroupName;
-
-        public string? NeptuneSubnetGroupName => _mNeptuneSubnetGroupName.GetValue("neptuneSubnetGroupName");
+        private string? _mValue_NeptuneSubnetGroupName;
+        private bool _mUnknown_NeptuneSubnetGroupName;
+        public string? NeptuneSubnetGroupName
+        {
+            get
+            {
+                if (!_mUnknown_NeptuneSubnetGroupName) return _mValue_NeptuneSubnetGroupName;
+                throw new UndeferrableValueException("Value 'ClusterArgs.NeptuneSubnetGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The port on which the Neptune accepts connections. Default is `8182`.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
-        [Input("preferredBackupWindow")]
+        [PolicyResourceProperty("preferredBackupWindow", "_mUnknown_PreferredBackupWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredBackupWindow;
-
-        public string? PreferredBackupWindow => _mPreferredBackupWindow.GetValue("preferredBackupWindow");
+        private string? _mValue_PreferredBackupWindow;
+        private bool _mUnknown_PreferredBackupWindow;
+        public string? PreferredBackupWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredBackupWindow) return _mValue_PreferredBackupWindow;
+                throw new UndeferrableValueException("Value 'ClusterArgs.PreferredBackupWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
-        [Input("preferredMaintenanceWindow")]
+        [PolicyResourceProperty("preferredMaintenanceWindow", "_mUnknown_PreferredMaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
-
-        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+        private string? _mValue_PreferredMaintenanceWindow;
+        private bool _mUnknown_PreferredMaintenanceWindow;
+        public string? PreferredMaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredMaintenanceWindow) return _mValue_PreferredMaintenanceWindow;
+                throw new UndeferrableValueException("Value 'ClusterArgs.PreferredMaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
         /// </summary>
-        [Input("replicationSourceIdentifier")]
+        [PolicyResourceProperty("replicationSourceIdentifier", "_mUnknown_ReplicationSourceIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationSourceIdentifier;
-
-        public string? ReplicationSourceIdentifier => _mReplicationSourceIdentifier.GetValue("replicationSourceIdentifier");
+        private string? _mValue_ReplicationSourceIdentifier;
+        private bool _mUnknown_ReplicationSourceIdentifier;
+        public string? ReplicationSourceIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationSourceIdentifier) return _mValue_ReplicationSourceIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ReplicationSourceIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         /// </summary>
-        [Input("serverlessV2ScalingConfiguration")]
+        [PolicyResourceProperty("serverlessV2ScalingConfiguration", "_mUnknown_ServerlessV2ScalingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterServerlessV2ScalingConfigurationArgs> _mServerlessV2ScalingConfiguration;
-
-        public Inputs.ClusterServerlessV2ScalingConfigurationArgs? ServerlessV2ScalingConfiguration => _mServerlessV2ScalingConfiguration.GetValue("serverlessV2ScalingConfiguration");
+        private Inputs.ClusterServerlessV2ScalingConfigurationArgs? _mValue_ServerlessV2ScalingConfiguration;
+        private bool _mUnknown_ServerlessV2ScalingConfiguration;
+        public Inputs.ClusterServerlessV2ScalingConfigurationArgs? ServerlessV2ScalingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ServerlessV2ScalingConfiguration) return _mValue_ServerlessV2ScalingConfiguration;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ServerlessV2ScalingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         /// </summary>
-        [Input("skipFinalSnapshot")]
+        [PolicyResourceProperty("skipFinalSnapshot", "_mUnknown_SkipFinalSnapshot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalSnapshot;
-
-        public bool? SkipFinalSnapshot => _mSkipFinalSnapshot.GetValue("skipFinalSnapshot");
+        private bool? _mValue_SkipFinalSnapshot;
+        private bool _mUnknown_SkipFinalSnapshot;
+        public bool? SkipFinalSnapshot
+        {
+            get
+            {
+                if (!_mUnknown_SkipFinalSnapshot) return _mValue_SkipFinalSnapshot;
+                throw new UndeferrableValueException("Value 'ClusterArgs.SkipFinalSnapshot' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         /// </summary>
-        [Input("snapshotIdentifier")]
+        [PolicyResourceProperty("snapshotIdentifier", "_mUnknown_SnapshotIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotIdentifier;
-
-        public string? SnapshotIdentifier => _mSnapshotIdentifier.GetValue("snapshotIdentifier");
+        private string? _mValue_SnapshotIdentifier;
+        private bool _mUnknown_SnapshotIdentifier;
+        public string? SnapshotIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotIdentifier) return _mValue_SnapshotIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterArgs.SnapshotIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
         /// </summary>
-        [Input("storageEncrypted")]
+        [PolicyResourceProperty("storageEncrypted", "_mUnknown_StorageEncrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEncrypted;
-
-        public bool? StorageEncrypted => _mStorageEncrypted.GetValue("storageEncrypted");
+        private bool? _mValue_StorageEncrypted;
+        private bool _mUnknown_StorageEncrypted;
+        public bool? StorageEncrypted
+        {
+            get
+            {
+                if (!_mUnknown_StorageEncrypted) return _mValue_StorageEncrypted;
+                throw new UndeferrableValueException("Value 'ClusterArgs.StorageEncrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// Storage type associated with the cluster `standard/iopt1`. Default: `standard`
         /// </summary>
-        [Input("storageType")]
+        [PolicyResourceProperty("storageType", "_mUnknown_StorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
-
-        public string? StorageType => _mStorageType.GetValue("storageType");
+        private string? _mValue_StorageType;
+        private bool _mUnknown_StorageType;
+        public string? StorageType
+        {
+            get
+            {
+                if (!_mUnknown_StorageType) return _mValue_StorageType;
+                throw new UndeferrableValueException("Value 'ClusterArgs.StorageType' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// List of VPC security groups to associate with the Cluster
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ClusterArgs.VpcSecurityGroupIds' is not present");
+            }
+        }
     }
 }

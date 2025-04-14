@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Rekognition.Inputs
         /// <summary>
         /// Whether you are sharing data with Rekognition to improve model performance.
         /// </summary>
-        [Input("optIn")]
+        [PolicyResourceProperty("optIn", "_mUnknown_OptIn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOptIn;
-
-        public bool? OptIn => _mOptIn.GetValue("optIn");
+        private bool? _mValue_OptIn;
+        private bool _mUnknown_OptIn;
+        public bool? OptIn
+        {
+            get
+            {
+                if (!_mUnknown_OptIn) return _mValue_OptIn;
+                throw new UndeferrableValueException("Value 'StreamProcessorDataSharingPreferenceArgs.OptIn' is not present");
+            }
+        }
     }
 }

@@ -12,28 +12,49 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings
     {
-        [Input("cbetCheckDigitString")]
+        [PolicyResourceProperty("cbetCheckDigitString", "_mUnknown_CbetCheckDigitString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCbetCheckDigitString;
-
-        public string? CbetCheckDigitString => _mCbetCheckDigitString.GetValue("cbetCheckDigitString");
+        private string? _mValue_CbetCheckDigitString;
+        private bool _mUnknown_CbetCheckDigitString;
+        public string? CbetCheckDigitString
+        {
+            get
+            {
+                if (!_mUnknown_CbetCheckDigitString) return _mValue_CbetCheckDigitString;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings.CbetCheckDigitString' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
         /// </summary>
-        [Input("cbetStepaside")]
+        [PolicyResourceProperty("cbetStepaside", "_mUnknown_CbetStepaside")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCbetStepaside;
-
-        public string? CbetStepaside => _mCbetStepaside.GetValue("cbetStepaside");
+        private string? _mValue_CbetStepaside;
+        private bool _mUnknown_CbetStepaside;
+        public string? CbetStepaside
+        {
+            get
+            {
+                if (!_mUnknown_CbetStepaside) return _mValue_CbetStepaside;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings.CbetStepaside' is not present");
+            }
+        }
 
         /// <summary>
         /// CBET source ID to use in the watermark.
         /// </summary>
-        [Input("csid")]
+        [PolicyResourceProperty("csid", "_mUnknown_Csid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCsid;
-
-        public string? Csid => _mCsid.GetValue("csid");
+        private string? _mValue_Csid;
+        private bool _mUnknown_Csid;
+        public string? Csid
+        {
+            get
+            {
+                if (!_mUnknown_Csid) return _mValue_Csid;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings.Csid' is not present");
+            }
+        }
     }
 }

@@ -16,73 +16,129 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         /// </summary>
-        [Input("acceptLanguage")]
+        [PolicyResourceProperty("acceptLanguage", "_mUnknown_AcceptLanguage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
-
-        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
+        private string? _mValue_AcceptLanguage;
+        private bool _mUnknown_AcceptLanguage;
+        public string? AcceptLanguage
+        {
+            get
+            {
+                if (!_mUnknown_AcceptLanguage) return _mValue_AcceptLanguage;
+                throw new UndeferrableValueException("Value 'Constraint.AcceptLanguage' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the constraint.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Constraint.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Owner of the constraint.
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'Constraint.Owner' is not present");
+            }
+        }
 
         /// <summary>
         /// Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameters;
-
-        public string? Parameters => _mParameters.GetValue("parameters");
+        private string? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public string? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'Constraint.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Portfolio identifier.
         /// </summary>
-        [Input("portfolioId")]
+        [PolicyResourceProperty("portfolioId", "_mUnknown_PortfolioId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPortfolioId;
-
-        public string? PortfolioId => _mPortfolioId.GetValue("portfolioId");
+        private string? _mValue_PortfolioId;
+        private bool _mUnknown_PortfolioId;
+        public string? PortfolioId
+        {
+            get
+            {
+                if (!_mUnknown_PortfolioId) return _mValue_PortfolioId;
+                throw new UndeferrableValueException("Value 'Constraint.PortfolioId' is not present");
+            }
+        }
 
         /// <summary>
         /// Product identifier.
         /// </summary>
-        [Input("productId")]
+        [PolicyResourceProperty("productId", "_mUnknown_ProductId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProductId;
+        private string? _mValue_ProductId;
+        private bool _mUnknown_ProductId;
+        public string? ProductId
+        {
+            get
+            {
+                if (!_mUnknown_ProductId) return _mValue_ProductId;
+                throw new UndeferrableValueException("Value 'Constraint.ProductId' is not present");
+            }
+        }
 
-        public string? ProductId => _mProductId.GetValue("productId");
-
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Constraint.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Constraint.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:servicecatalog/constraint:Constraint")]
@@ -91,57 +147,99 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         /// </summary>
-        [Input("acceptLanguage")]
+        [PolicyResourceProperty("acceptLanguage", "_mUnknown_AcceptLanguage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
-
-        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
+        private string? _mValue_AcceptLanguage;
+        private bool _mUnknown_AcceptLanguage;
+        public string? AcceptLanguage
+        {
+            get
+            {
+                if (!_mUnknown_AcceptLanguage) return _mValue_AcceptLanguage;
+                throw new UndeferrableValueException("Value 'ConstraintArgs.AcceptLanguage' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the constraint.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ConstraintArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameters;
-
-        public string? Parameters => _mParameters.GetValue("parameters");
+        private string? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public string? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'ConstraintArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Portfolio identifier.
         /// </summary>
-        [Input("portfolioId")]
+        [PolicyResourceProperty("portfolioId", "_mUnknown_PortfolioId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPortfolioId;
-
-        public string? PortfolioId => _mPortfolioId.GetValue("portfolioId");
+        private string? _mValue_PortfolioId;
+        private bool _mUnknown_PortfolioId;
+        public string? PortfolioId
+        {
+            get
+            {
+                if (!_mUnknown_PortfolioId) return _mValue_PortfolioId;
+                throw new UndeferrableValueException("Value 'ConstraintArgs.PortfolioId' is not present");
+            }
+        }
 
         /// <summary>
         /// Product identifier.
         /// </summary>
-        [Input("productId")]
+        [PolicyResourceProperty("productId", "_mUnknown_ProductId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProductId;
-
-        public string? ProductId => _mProductId.GetValue("productId");
+        private string? _mValue_ProductId;
+        private bool _mUnknown_ProductId;
+        public string? ProductId
+        {
+            get
+            {
+                if (!_mUnknown_ProductId) return _mValue_ProductId;
+                throw new UndeferrableValueException("Value 'ConstraintArgs.ProductId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ConstraintArgs.Type' is not present");
+            }
+        }
     }
 }

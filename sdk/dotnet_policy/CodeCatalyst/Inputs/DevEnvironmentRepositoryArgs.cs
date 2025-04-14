@@ -17,19 +17,33 @@ namespace Pulumi.PolicyPacks.Aws.CodeCatalyst.Inputs
         /// 
         /// persistent storage (` persistent_storage`) supports the following:
         /// </summary>
-        [Input("branchName")]
+        [PolicyResourceProperty("branchName", "_mUnknown_BranchName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBranchName;
-
-        public string? BranchName => _mBranchName.GetValue("branchName");
+        private string? _mValue_BranchName;
+        private bool _mUnknown_BranchName;
+        public string? BranchName
+        {
+            get
+            {
+                if (!_mUnknown_BranchName) return _mValue_BranchName;
+                throw new UndeferrableValueException("Value 'DevEnvironmentRepositoryArgs.BranchName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the source repository.
         /// </summary>
-        [Input("repositoryName")]
+        [PolicyResourceProperty("repositoryName", "_mUnknown_RepositoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
-
-        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
+        private string? _mValue_RepositoryName;
+        private bool _mUnknown_RepositoryName;
+        public string? RepositoryName
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryName) return _mValue_RepositoryName;
+                throw new UndeferrableValueException("Value 'DevEnvironmentRepositoryArgs.RepositoryName' is not present");
+            }
+        }
     }
 }

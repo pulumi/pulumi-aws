@@ -13,303 +13,555 @@ namespace Pulumi.PolicyPacks.Aws.M2
     [PolicyResourceType("aws:m2/environment:Environment")]
     public sealed class Environment : global::Pulumi.PolicyResourceOutput
     {
-        [Input("applyChangesDuringMaintenanceWindow")]
+        [PolicyResourceProperty("applyChangesDuringMaintenanceWindow", "_mUnknown_ApplyChangesDuringMaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyChangesDuringMaintenanceWindow;
-
-        public bool? ApplyChangesDuringMaintenanceWindow => _mApplyChangesDuringMaintenanceWindow.GetValue("applyChangesDuringMaintenanceWindow");
+        private bool? _mValue_ApplyChangesDuringMaintenanceWindow;
+        private bool _mUnknown_ApplyChangesDuringMaintenanceWindow;
+        public bool? ApplyChangesDuringMaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_ApplyChangesDuringMaintenanceWindow) return _mValue_ApplyChangesDuringMaintenanceWindow;
+                throw new UndeferrableValueException("Value 'Environment.ApplyChangesDuringMaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Environment.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Environment.Arn' is not present");
+            }
+        }
 
-        public string? Arn => _mArn.GetValue("arn");
-
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Environment.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Engine type must be `microfocus` or `bluage`.
         /// </summary>
-        [Input("engineType")]
+        [PolicyResourceProperty("engineType", "_mUnknown_EngineType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineType;
-
-        public string? EngineType => _mEngineType.GetValue("engineType");
+        private string? _mValue_EngineType;
+        private bool _mUnknown_EngineType;
+        public string? EngineType
+        {
+            get
+            {
+                if (!_mUnknown_EngineType) return _mValue_EngineType;
+                throw new UndeferrableValueException("Value 'Environment.EngineType' is not present");
+            }
+        }
 
         /// <summary>
         /// The specific version of the engine for the Environment.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'Environment.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The id of the Environment.
         /// </summary>
-        [Input("environmentId")]
+        [PolicyResourceProperty("environmentId", "_mUnknown_EnvironmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
-
-        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+        private string? _mValue_EnvironmentId;
+        private bool _mUnknown_EnvironmentId;
+        public string? EnvironmentId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentId) return _mValue_EnvironmentId;
+                throw new UndeferrableValueException("Value 'Environment.EnvironmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Force update the environment even if applications are running.
         /// </summary>
-        [Input("forceUpdate")]
+        [PolicyResourceProperty("forceUpdate", "_mUnknown_ForceUpdate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceUpdate;
+        private bool? _mValue_ForceUpdate;
+        private bool _mUnknown_ForceUpdate;
+        public bool? ForceUpdate
+        {
+            get
+            {
+                if (!_mUnknown_ForceUpdate) return _mValue_ForceUpdate;
+                throw new UndeferrableValueException("Value 'Environment.ForceUpdate' is not present");
+            }
+        }
 
-        public bool? ForceUpdate => _mForceUpdate.GetValue("forceUpdate");
-
-        [Input("highAvailabilityConfig")]
+        [PolicyResourceProperty("highAvailabilityConfig", "_mUnknown_HighAvailabilityConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EnvironmentHighAvailabilityConfig> _mHighAvailabilityConfig;
-
-        public Outputs.EnvironmentHighAvailabilityConfig? HighAvailabilityConfig => _mHighAvailabilityConfig.GetValue("highAvailabilityConfig");
+        private Outputs.EnvironmentHighAvailabilityConfig? _mValue_HighAvailabilityConfig;
+        private bool _mUnknown_HighAvailabilityConfig;
+        public Outputs.EnvironmentHighAvailabilityConfig? HighAvailabilityConfig
+        {
+            get
+            {
+                if (!_mUnknown_HighAvailabilityConfig) return _mValue_HighAvailabilityConfig;
+                throw new UndeferrableValueException("Value 'Environment.HighAvailabilityConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// M2 Instance Type.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'Environment.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the KMS key to use for the Environment.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'Environment.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the load balancer created by the Environment.
         /// </summary>
-        [Input("loadBalancerArn")]
+        [PolicyResourceProperty("loadBalancerArn", "_mUnknown_LoadBalancerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancerArn;
-
-        public string? LoadBalancerArn => _mLoadBalancerArn.GetValue("loadBalancerArn");
+        private string? _mValue_LoadBalancerArn;
+        private bool _mUnknown_LoadBalancerArn;
+        public string? LoadBalancerArn
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerArn) return _mValue_LoadBalancerArn;
+                throw new UndeferrableValueException("Value 'Environment.LoadBalancerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the runtime environment. Must be unique within the account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Environment.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
         /// </summary>
-        [Input("preferredMaintenanceWindow")]
+        [PolicyResourceProperty("preferredMaintenanceWindow", "_mUnknown_PreferredMaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
-
-        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+        private string? _mValue_PreferredMaintenanceWindow;
+        private bool _mUnknown_PreferredMaintenanceWindow;
+        public string? PreferredMaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredMaintenanceWindow) return _mValue_PreferredMaintenanceWindow;
+                throw new UndeferrableValueException("Value 'Environment.PreferredMaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Allow applications deployed to this environment to be publicly accessible.
         /// </summary>
-        [Input("publiclyAccessible")]
+        [PolicyResourceProperty("publiclyAccessible", "_mUnknown_PubliclyAccessible")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
-
-        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+        private bool? _mValue_PubliclyAccessible;
+        private bool _mUnknown_PubliclyAccessible;
+        public bool? PubliclyAccessible
+        {
+            get
+            {
+                if (!_mUnknown_PubliclyAccessible) return _mValue_PubliclyAccessible;
+                throw new UndeferrableValueException("Value 'Environment.PubliclyAccessible' is not present");
+            }
+        }
 
         /// <summary>
         /// List of security group ids.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'Environment.SecurityGroupIds' is not present");
+            }
+        }
 
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
-
-        [Input("storageConfiguration")]
+        [PolicyResourceProperty("storageConfiguration", "_mUnknown_StorageConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EnvironmentStorageConfiguration> _mStorageConfiguration;
-
-        public Outputs.EnvironmentStorageConfiguration? StorageConfiguration => _mStorageConfiguration.GetValue("storageConfiguration");
+        private Outputs.EnvironmentStorageConfiguration? _mValue_StorageConfiguration;
+        private bool _mUnknown_StorageConfiguration;
+        public Outputs.EnvironmentStorageConfiguration? StorageConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_StorageConfiguration) return _mValue_StorageConfiguration;
+                throw new UndeferrableValueException("Value 'Environment.StorageConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// List of subnet ids to deploy environment to.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'Environment.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Environment.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Environment.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EnvironmentTimeouts> _mTimeouts;
-
-        public Outputs.EnvironmentTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.EnvironmentTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.EnvironmentTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'Environment.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:m2/environment:Environment")]
     public sealed class EnvironmentArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("applyChangesDuringMaintenanceWindow")]
+        [PolicyResourceProperty("applyChangesDuringMaintenanceWindow", "_mUnknown_ApplyChangesDuringMaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyChangesDuringMaintenanceWindow;
+        private bool? _mValue_ApplyChangesDuringMaintenanceWindow;
+        private bool _mUnknown_ApplyChangesDuringMaintenanceWindow;
+        public bool? ApplyChangesDuringMaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_ApplyChangesDuringMaintenanceWindow) return _mValue_ApplyChangesDuringMaintenanceWindow;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.ApplyChangesDuringMaintenanceWindow' is not present");
+            }
+        }
 
-        public bool? ApplyChangesDuringMaintenanceWindow => _mApplyChangesDuringMaintenanceWindow.GetValue("applyChangesDuringMaintenanceWindow");
-
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Engine type must be `microfocus` or `bluage`.
         /// </summary>
-        [Input("engineType")]
+        [PolicyResourceProperty("engineType", "_mUnknown_EngineType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineType;
-
-        public string? EngineType => _mEngineType.GetValue("engineType");
+        private string? _mValue_EngineType;
+        private bool _mUnknown_EngineType;
+        public string? EngineType
+        {
+            get
+            {
+                if (!_mUnknown_EngineType) return _mValue_EngineType;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.EngineType' is not present");
+            }
+        }
 
         /// <summary>
         /// The specific version of the engine for the Environment.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Force update the environment even if applications are running.
         /// </summary>
-        [Input("forceUpdate")]
+        [PolicyResourceProperty("forceUpdate", "_mUnknown_ForceUpdate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceUpdate;
+        private bool? _mValue_ForceUpdate;
+        private bool _mUnknown_ForceUpdate;
+        public bool? ForceUpdate
+        {
+            get
+            {
+                if (!_mUnknown_ForceUpdate) return _mValue_ForceUpdate;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.ForceUpdate' is not present");
+            }
+        }
 
-        public bool? ForceUpdate => _mForceUpdate.GetValue("forceUpdate");
-
-        [Input("highAvailabilityConfig")]
+        [PolicyResourceProperty("highAvailabilityConfig", "_mUnknown_HighAvailabilityConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EnvironmentHighAvailabilityConfigArgs> _mHighAvailabilityConfig;
-
-        public Inputs.EnvironmentHighAvailabilityConfigArgs? HighAvailabilityConfig => _mHighAvailabilityConfig.GetValue("highAvailabilityConfig");
+        private Inputs.EnvironmentHighAvailabilityConfigArgs? _mValue_HighAvailabilityConfig;
+        private bool _mUnknown_HighAvailabilityConfig;
+        public Inputs.EnvironmentHighAvailabilityConfigArgs? HighAvailabilityConfig
+        {
+            get
+            {
+                if (!_mUnknown_HighAvailabilityConfig) return _mValue_HighAvailabilityConfig;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.HighAvailabilityConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// M2 Instance Type.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the KMS key to use for the Environment.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the runtime environment. Must be unique within the account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
         /// </summary>
-        [Input("preferredMaintenanceWindow")]
+        [PolicyResourceProperty("preferredMaintenanceWindow", "_mUnknown_PreferredMaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
-
-        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+        private string? _mValue_PreferredMaintenanceWindow;
+        private bool _mUnknown_PreferredMaintenanceWindow;
+        public string? PreferredMaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredMaintenanceWindow) return _mValue_PreferredMaintenanceWindow;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.PreferredMaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Allow applications deployed to this environment to be publicly accessible.
         /// </summary>
-        [Input("publiclyAccessible")]
+        [PolicyResourceProperty("publiclyAccessible", "_mUnknown_PubliclyAccessible")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
-
-        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+        private bool? _mValue_PubliclyAccessible;
+        private bool _mUnknown_PubliclyAccessible;
+        public bool? PubliclyAccessible
+        {
+            get
+            {
+                if (!_mUnknown_PubliclyAccessible) return _mValue_PubliclyAccessible;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.PubliclyAccessible' is not present");
+            }
+        }
 
         /// <summary>
         /// List of security group ids.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.SecurityGroupIds' is not present");
+            }
+        }
 
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
-
-        [Input("storageConfiguration")]
+        [PolicyResourceProperty("storageConfiguration", "_mUnknown_StorageConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EnvironmentStorageConfigurationArgs> _mStorageConfiguration;
-
-        public Inputs.EnvironmentStorageConfigurationArgs? StorageConfiguration => _mStorageConfiguration.GetValue("storageConfiguration");
+        private Inputs.EnvironmentStorageConfigurationArgs? _mValue_StorageConfiguration;
+        private bool _mUnknown_StorageConfiguration;
+        public Inputs.EnvironmentStorageConfigurationArgs? StorageConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_StorageConfiguration) return _mValue_StorageConfiguration;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.StorageConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// List of subnet ids to deploy environment to.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EnvironmentTimeoutsArgs> _mTimeouts;
-
-        public Inputs.EnvironmentTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.EnvironmentTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.EnvironmentTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.Timeouts' is not present");
+            }
+        }
     }
 }

@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner
         /// <summary>
         /// The Amazon Resource Name (ARN) of the VPC Ingress Connection.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'VpcIngressConnection.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The domain name associated with the VPC Ingress Connection resource.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'VpcIngressConnection.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
         /// </summary>
-        [Input("ingressVpcConfiguration")]
+        [PolicyResourceProperty("ingressVpcConfiguration", "_mUnknown_IngressVpcConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VpcIngressConnectionIngressVpcConfiguration> _mIngressVpcConfiguration;
-
-        public Outputs.VpcIngressConnectionIngressVpcConfiguration? IngressVpcConfiguration => _mIngressVpcConfiguration.GetValue("ingressVpcConfiguration");
+        private Outputs.VpcIngressConnectionIngressVpcConfiguration? _mValue_IngressVpcConfiguration;
+        private bool _mUnknown_IngressVpcConfiguration;
+        public Outputs.VpcIngressConnectionIngressVpcConfiguration? IngressVpcConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_IngressVpcConfiguration) return _mValue_IngressVpcConfiguration;
+                throw new UndeferrableValueException("Value 'VpcIngressConnection.IngressVpcConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'VpcIngressConnection.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
         /// </summary>
-        [Input("serviceArn")]
+        [PolicyResourceProperty("serviceArn", "_mUnknown_ServiceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceArn;
-
-        public string? ServiceArn => _mServiceArn.GetValue("serviceArn");
+        private string? _mValue_ServiceArn;
+        private bool _mUnknown_ServiceArn;
+        public string? ServiceArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceArn) return _mValue_ServiceArn;
+                throw new UndeferrableValueException("Value 'VpcIngressConnection.ServiceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The current status of the VPC Ingress Connection.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'VpcIngressConnection.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcIngressConnection.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'VpcIngressConnection.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apprunner/vpcIngressConnection:VpcIngressConnection")]
@@ -92,37 +148,65 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner
         /// <summary>
         /// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
         /// </summary>
-        [Input("ingressVpcConfiguration")]
+        [PolicyResourceProperty("ingressVpcConfiguration", "_mUnknown_IngressVpcConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VpcIngressConnectionIngressVpcConfigurationArgs> _mIngressVpcConfiguration;
-
-        public Inputs.VpcIngressConnectionIngressVpcConfigurationArgs? IngressVpcConfiguration => _mIngressVpcConfiguration.GetValue("ingressVpcConfiguration");
+        private Inputs.VpcIngressConnectionIngressVpcConfigurationArgs? _mValue_IngressVpcConfiguration;
+        private bool _mUnknown_IngressVpcConfiguration;
+        public Inputs.VpcIngressConnectionIngressVpcConfigurationArgs? IngressVpcConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_IngressVpcConfiguration) return _mValue_IngressVpcConfiguration;
+                throw new UndeferrableValueException("Value 'VpcIngressConnectionArgs.IngressVpcConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'VpcIngressConnectionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
         /// </summary>
-        [Input("serviceArn")]
+        [PolicyResourceProperty("serviceArn", "_mUnknown_ServiceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceArn;
-
-        public string? ServiceArn => _mServiceArn.GetValue("serviceArn");
+        private string? _mValue_ServiceArn;
+        private bool _mUnknown_ServiceArn;
+        public string? ServiceArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceArn) return _mValue_ServiceArn;
+                throw new UndeferrableValueException("Value 'VpcIngressConnectionArgs.ServiceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcIngressConnectionArgs.Tags' is not present");
+            }
+        }
     }
 }

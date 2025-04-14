@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// The name of the Redshift Cluster IAM Roles.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterIamRoles.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         /// </summary>
-        [Input("defaultIamRoleArn")]
+        [PolicyResourceProperty("defaultIamRoleArn", "_mUnknown_DefaultIamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultIamRoleArn;
-
-        public string? DefaultIamRoleArn => _mDefaultIamRoleArn.GetValue("defaultIamRoleArn");
+        private string? _mValue_DefaultIamRoleArn;
+        private bool _mUnknown_DefaultIamRoleArn;
+        public string? DefaultIamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_DefaultIamRoleArn) return _mValue_DefaultIamRoleArn;
+                throw new UndeferrableValueException("Value 'ClusterIamRoles.DefaultIamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         /// </summary>
-        [Input("iamRoleArns")]
+        [PolicyResourceProperty("iamRoleArns", "_mUnknown_IamRoleArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIamRoleArns;
-
-        public List<string>? IamRoleArns => _mIamRoleArns.GetValue("iamRoleArns");
+        private List<string>? _mValue_IamRoleArns;
+        private bool _mUnknown_IamRoleArns;
+        public List<string>? IamRoleArns
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArns) return _mValue_IamRoleArns;
+                throw new UndeferrableValueException("Value 'ClusterIamRoles.IamRoleArns' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshift/clusterIamRoles:ClusterIamRoles")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// The name of the Redshift Cluster IAM Roles.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterIamRolesArgs.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         /// </summary>
-        [Input("defaultIamRoleArn")]
+        [PolicyResourceProperty("defaultIamRoleArn", "_mUnknown_DefaultIamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultIamRoleArn;
-
-        public string? DefaultIamRoleArn => _mDefaultIamRoleArn.GetValue("defaultIamRoleArn");
+        private string? _mValue_DefaultIamRoleArn;
+        private bool _mUnknown_DefaultIamRoleArn;
+        public string? DefaultIamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_DefaultIamRoleArn) return _mValue_DefaultIamRoleArn;
+                throw new UndeferrableValueException("Value 'ClusterIamRolesArgs.DefaultIamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         /// </summary>
-        [Input("iamRoleArns")]
+        [PolicyResourceProperty("iamRoleArns", "_mUnknown_IamRoleArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIamRoleArns;
-
-        public List<string>? IamRoleArns => _mIamRoleArns.GetValue("iamRoleArns");
+        private List<string>? _mValue_IamRoleArns;
+        private bool _mUnknown_IamRoleArns;
+        public List<string>? IamRoleArns
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArns) return _mValue_IamRoleArns;
+                throw new UndeferrableValueException("Value 'ClusterIamRolesArgs.IamRoleArns' is not present");
+            }
+        }
     }
 }

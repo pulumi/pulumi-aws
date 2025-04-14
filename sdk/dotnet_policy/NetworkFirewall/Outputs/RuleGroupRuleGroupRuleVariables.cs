@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// Set of configuration blocks that define IP address information. See IP Sets below for details.
         /// </summary>
-        [Input("ipSets")]
+        [PolicyResourceProperty("ipSets", "_mUnknown_IpSets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleGroupRuleGroupRuleVariablesIpSet>> _mIpSets;
-
-        public List<Outputs.RuleGroupRuleGroupRuleVariablesIpSet>? IpSets => _mIpSets.GetValue("ipSets");
+        private List<Outputs.RuleGroupRuleGroupRuleVariablesIpSet>? _mValue_IpSets;
+        private bool _mUnknown_IpSets;
+        public List<Outputs.RuleGroupRuleGroupRuleVariablesIpSet>? IpSets
+        {
+            get
+            {
+                if (!_mUnknown_IpSets) return _mValue_IpSets;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRuleVariables.IpSets' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks that define port range information. See Port Sets below for details.
         /// </summary>
-        [Input("portSets")]
+        [PolicyResourceProperty("portSets", "_mUnknown_PortSets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleGroupRuleGroupRuleVariablesPortSet>> _mPortSets;
-
-        public List<Outputs.RuleGroupRuleGroupRuleVariablesPortSet>? PortSets => _mPortSets.GetValue("portSets");
+        private List<Outputs.RuleGroupRuleGroupRuleVariablesPortSet>? _mValue_PortSets;
+        private bool _mUnknown_PortSets;
+        public List<Outputs.RuleGroupRuleGroupRuleVariablesPortSet>? PortSets
+        {
+            get
+            {
+                if (!_mUnknown_PortSets) return _mValue_PortSets;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRuleVariables.PortSets' is not present");
+            }
+        }
     }
 }

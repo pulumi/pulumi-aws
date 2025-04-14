@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Inspector
         /// <summary>
         /// The target assessment ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'AssessmentTarget.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the assessment target.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AssessmentTarget.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         /// </summary>
-        [Input("resourceGroupArn")]
+        [PolicyResourceProperty("resourceGroupArn", "_mUnknown_ResourceGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceGroupArn;
-
-        public string? ResourceGroupArn => _mResourceGroupArn.GetValue("resourceGroupArn");
+        private string? _mValue_ResourceGroupArn;
+        private bool _mUnknown_ResourceGroupArn;
+        public string? ResourceGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceGroupArn) return _mValue_ResourceGroupArn;
+                throw new UndeferrableValueException("Value 'AssessmentTarget.ResourceGroupArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:inspector/assessmentTarget:AssessmentTarget")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.Inspector
         /// <summary>
         /// The name of the assessment target.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AssessmentTargetArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         /// </summary>
-        [Input("resourceGroupArn")]
+        [PolicyResourceProperty("resourceGroupArn", "_mUnknown_ResourceGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceGroupArn;
-
-        public string? ResourceGroupArn => _mResourceGroupArn.GetValue("resourceGroupArn");
+        private string? _mValue_ResourceGroupArn;
+        private bool _mUnknown_ResourceGroupArn;
+        public string? ResourceGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceGroupArn) return _mValue_ResourceGroupArn;
+                throw new UndeferrableValueException("Value 'AssessmentTargetArgs.ResourceGroupArn' is not present");
+            }
+        }
     }
 }

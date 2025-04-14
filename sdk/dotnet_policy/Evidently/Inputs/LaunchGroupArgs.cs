@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Evidently.Inputs
         /// <summary>
         /// Specifies the description of the launch group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'LaunchGroupArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the feature that the launch is using.
         /// </summary>
-        [Input("feature")]
+        [PolicyResourceProperty("feature", "_mUnknown_Feature")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFeature;
-
-        public string? Feature => _mFeature.GetValue("feature");
+        private string? _mValue_Feature;
+        private bool _mUnknown_Feature;
+        public string? Feature
+        {
+            get
+            {
+                if (!_mUnknown_Feature) return _mValue_Feature;
+                throw new UndeferrableValueException("Value 'LaunchGroupArgs.Feature' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the lahnch group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LaunchGroupArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the feature variation to use for this launch group.
         /// </summary>
-        [Input("variation")]
+        [PolicyResourceProperty("variation", "_mUnknown_Variation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVariation;
-
-        public string? Variation => _mVariation.GetValue("variation");
+        private string? _mValue_Variation;
+        private bool _mUnknown_Variation;
+        public string? Variation
+        {
+            get
+            {
+                if (!_mUnknown_Variation) return _mValue_Variation;
+                throw new UndeferrableValueException("Value 'LaunchGroupArgs.Variation' is not present");
+            }
+        }
     }
 }

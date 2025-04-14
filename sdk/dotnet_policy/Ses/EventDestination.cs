@@ -16,76 +16,132 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// The SES event destination ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'EventDestination.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// CloudWatch destination for the events
         /// </summary>
-        [Input("cloudwatchDestinations")]
+        [PolicyResourceProperty("cloudwatchDestinations", "_mUnknown_CloudwatchDestinations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EventDestinationCloudwatchDestination>> _mCloudwatchDestinations;
-
-        public List<Outputs.EventDestinationCloudwatchDestination>? CloudwatchDestinations => _mCloudwatchDestinations.GetValue("cloudwatchDestinations");
+        private List<Outputs.EventDestinationCloudwatchDestination>? _mValue_CloudwatchDestinations;
+        private bool _mUnknown_CloudwatchDestinations;
+        public List<Outputs.EventDestinationCloudwatchDestination>? CloudwatchDestinations
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchDestinations) return _mValue_CloudwatchDestinations;
+                throw new UndeferrableValueException("Value 'EventDestination.CloudwatchDestinations' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the configuration set
         /// </summary>
-        [Input("configurationSetName")]
+        [PolicyResourceProperty("configurationSetName", "_mUnknown_ConfigurationSetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSetName;
-
-        public string? ConfigurationSetName => _mConfigurationSetName.GetValue("configurationSetName");
+        private string? _mValue_ConfigurationSetName;
+        private bool _mUnknown_ConfigurationSetName;
+        public string? ConfigurationSetName
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationSetName) return _mValue_ConfigurationSetName;
+                throw new UndeferrableValueException("Value 'EventDestination.ConfigurationSetName' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, the event destination will be enabled
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'EventDestination.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Send the events to a kinesis firehose destination
         /// </summary>
-        [Input("kinesisDestination")]
+        [PolicyResourceProperty("kinesisDestination", "_mUnknown_KinesisDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventDestinationKinesisDestination> _mKinesisDestination;
-
-        public Outputs.EventDestinationKinesisDestination? KinesisDestination => _mKinesisDestination.GetValue("kinesisDestination");
+        private Outputs.EventDestinationKinesisDestination? _mValue_KinesisDestination;
+        private bool _mUnknown_KinesisDestination;
+        public Outputs.EventDestinationKinesisDestination? KinesisDestination
+        {
+            get
+            {
+                if (!_mUnknown_KinesisDestination) return _mValue_KinesisDestination;
+                throw new UndeferrableValueException("Value 'EventDestination.KinesisDestination' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         /// </summary>
-        [Input("matchingTypes")]
+        [PolicyResourceProperty("matchingTypes", "_mUnknown_MatchingTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMatchingTypes;
-
-        public List<string>? MatchingTypes => _mMatchingTypes.GetValue("matchingTypes");
+        private List<string>? _mValue_MatchingTypes;
+        private bool _mUnknown_MatchingTypes;
+        public List<string>? MatchingTypes
+        {
+            get
+            {
+                if (!_mUnknown_MatchingTypes) return _mValue_MatchingTypes;
+                throw new UndeferrableValueException("Value 'EventDestination.MatchingTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the event destination
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EventDestination.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Send the events to an SNS Topic destination
         /// 
         /// &gt; **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         /// </summary>
-        [Input("snsDestination")]
+        [PolicyResourceProperty("snsDestination", "_mUnknown_SnsDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventDestinationSnsDestination> _mSnsDestination;
-
-        public Outputs.EventDestinationSnsDestination? SnsDestination => _mSnsDestination.GetValue("snsDestination");
+        private Outputs.EventDestinationSnsDestination? _mValue_SnsDestination;
+        private bool _mUnknown_SnsDestination;
+        public Outputs.EventDestinationSnsDestination? SnsDestination
+        {
+            get
+            {
+                if (!_mUnknown_SnsDestination) return _mValue_SnsDestination;
+                throw new UndeferrableValueException("Value 'EventDestination.SnsDestination' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ses/eventDestination:EventDestination")]
@@ -94,66 +150,115 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// CloudWatch destination for the events
         /// </summary>
-        [Input("cloudwatchDestinations")]
+        [PolicyResourceProperty("cloudwatchDestinations", "_mUnknown_CloudwatchDestinations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EventDestinationCloudwatchDestinationArgs>> _mCloudwatchDestinations;
-
-        public List<Inputs.EventDestinationCloudwatchDestinationArgs>? CloudwatchDestinations => _mCloudwatchDestinations.GetValue("cloudwatchDestinations");
+        private List<Inputs.EventDestinationCloudwatchDestinationArgs>? _mValue_CloudwatchDestinations;
+        private bool _mUnknown_CloudwatchDestinations;
+        public List<Inputs.EventDestinationCloudwatchDestinationArgs>? CloudwatchDestinations
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchDestinations) return _mValue_CloudwatchDestinations;
+                throw new UndeferrableValueException("Value 'EventDestinationArgs.CloudwatchDestinations' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the configuration set
         /// </summary>
-        [Input("configurationSetName")]
+        [PolicyResourceProperty("configurationSetName", "_mUnknown_ConfigurationSetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSetName;
-
-        public string? ConfigurationSetName => _mConfigurationSetName.GetValue("configurationSetName");
+        private string? _mValue_ConfigurationSetName;
+        private bool _mUnknown_ConfigurationSetName;
+        public string? ConfigurationSetName
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationSetName) return _mValue_ConfigurationSetName;
+                throw new UndeferrableValueException("Value 'EventDestinationArgs.ConfigurationSetName' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, the event destination will be enabled
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'EventDestinationArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Send the events to a kinesis firehose destination
         /// </summary>
-        [Input("kinesisDestination")]
+        [PolicyResourceProperty("kinesisDestination", "_mUnknown_KinesisDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventDestinationKinesisDestinationArgs> _mKinesisDestination;
-
-        public Inputs.EventDestinationKinesisDestinationArgs? KinesisDestination => _mKinesisDestination.GetValue("kinesisDestination");
+        private Inputs.EventDestinationKinesisDestinationArgs? _mValue_KinesisDestination;
+        private bool _mUnknown_KinesisDestination;
+        public Inputs.EventDestinationKinesisDestinationArgs? KinesisDestination
+        {
+            get
+            {
+                if (!_mUnknown_KinesisDestination) return _mValue_KinesisDestination;
+                throw new UndeferrableValueException("Value 'EventDestinationArgs.KinesisDestination' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         /// </summary>
-        [Input("matchingTypes")]
+        [PolicyResourceProperty("matchingTypes", "_mUnknown_MatchingTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMatchingTypes;
-
-        public List<string>? MatchingTypes => _mMatchingTypes.GetValue("matchingTypes");
+        private List<string>? _mValue_MatchingTypes;
+        private bool _mUnknown_MatchingTypes;
+        public List<string>? MatchingTypes
+        {
+            get
+            {
+                if (!_mUnknown_MatchingTypes) return _mValue_MatchingTypes;
+                throw new UndeferrableValueException("Value 'EventDestinationArgs.MatchingTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the event destination
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EventDestinationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Send the events to an SNS Topic destination
         /// 
         /// &gt; **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         /// </summary>
-        [Input("snsDestination")]
+        [PolicyResourceProperty("snsDestination", "_mUnknown_SnsDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventDestinationSnsDestinationArgs> _mSnsDestination;
-
-        public Inputs.EventDestinationSnsDestinationArgs? SnsDestination => _mSnsDestination.GetValue("snsDestination");
+        private Inputs.EventDestinationSnsDestinationArgs? _mValue_SnsDestination;
+        private bool _mUnknown_SnsDestination;
+        public Inputs.EventDestinationSnsDestinationArgs? SnsDestination
+        {
+            get
+            {
+                if (!_mUnknown_SnsDestination) return _mValue_SnsDestination;
+                throw new UndeferrableValueException("Value 'EventDestinationArgs.SnsDestination' is not present");
+            }
+        }
     }
 }

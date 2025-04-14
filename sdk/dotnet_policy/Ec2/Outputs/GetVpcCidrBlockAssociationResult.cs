@@ -15,29 +15,50 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// Association ID for the IPv4 CIDR block.
         /// </summary>
-        [Input("associationId")]
+        [PolicyResourceProperty("associationId", "_mUnknown_AssociationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationId;
-
-        public string? AssociationId => _mAssociationId.GetValue("associationId");
+        private string? _mValue_AssociationId;
+        private bool _mUnknown_AssociationId;
+        public string? AssociationId
+        {
+            get
+            {
+                if (!_mUnknown_AssociationId) return _mValue_AssociationId;
+                throw new UndeferrableValueException("Value 'GetVpcCidrBlockAssociationResult.AssociationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Cidr block of the desired VPC.
         /// </summary>
-        [Input("cidrBlock")]
+        [PolicyResourceProperty("cidrBlock", "_mUnknown_CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
-
-        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
+        private string? _mValue_CidrBlock;
+        private bool _mUnknown_CidrBlock;
+        public string? CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_CidrBlock) return _mValue_CidrBlock;
+                throw new UndeferrableValueException("Value 'GetVpcCidrBlockAssociationResult.CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// Current state of the desired VPC.
         /// Can be either `"pending"` or `"available"`.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'GetVpcCidrBlockAssociationResult.State' is not present");
+            }
+        }
     }
 }

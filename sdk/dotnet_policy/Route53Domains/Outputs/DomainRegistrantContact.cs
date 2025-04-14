@@ -15,127 +15,225 @@ namespace Pulumi.PolicyPacks.Aws.Route53Domains.Outputs
         /// <summary>
         /// First line of the contact's address.
         /// </summary>
-        [Input("addressLine1")]
+        [PolicyResourceProperty("addressLine1", "_mUnknown_AddressLine1")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddressLine1;
-
-        public string? AddressLine1 => _mAddressLine1.GetValue("addressLine1");
+        private string? _mValue_AddressLine1;
+        private bool _mUnknown_AddressLine1;
+        public string? AddressLine1
+        {
+            get
+            {
+                if (!_mUnknown_AddressLine1) return _mValue_AddressLine1;
+                throw new UndeferrableValueException("Value 'DomainRegistrantContact.AddressLine1' is not present");
+            }
+        }
 
         /// <summary>
         /// Second line of contact's address, if any.
         /// </summary>
-        [Input("addressLine2")]
+        [PolicyResourceProperty("addressLine2", "_mUnknown_AddressLine2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddressLine2;
-
-        public string? AddressLine2 => _mAddressLine2.GetValue("addressLine2");
+        private string? _mValue_AddressLine2;
+        private bool _mUnknown_AddressLine2;
+        public string? AddressLine2
+        {
+            get
+            {
+                if (!_mUnknown_AddressLine2) return _mValue_AddressLine2;
+                throw new UndeferrableValueException("Value 'DomainRegistrantContact.AddressLine2' is not present");
+            }
+        }
 
         /// <summary>
         /// The city of the contact's address.
         /// </summary>
-        [Input("city")]
+        [PolicyResourceProperty("city", "_mUnknown_City")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCity;
-
-        public string? City => _mCity.GetValue("city");
+        private string? _mValue_City;
+        private bool _mUnknown_City;
+        public string? City
+        {
+            get
+            {
+                if (!_mUnknown_City) return _mValue_City;
+                throw new UndeferrableValueException("Value 'DomainRegistrantContact.City' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
         /// </summary>
-        [Input("contactType")]
+        [PolicyResourceProperty("contactType", "_mUnknown_ContactType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContactType;
-
-        public string? ContactType => _mContactType.GetValue("contactType");
+        private string? _mValue_ContactType;
+        private bool _mUnknown_ContactType;
+        public string? ContactType
+        {
+            get
+            {
+                if (!_mUnknown_ContactType) return _mValue_ContactType;
+                throw new UndeferrableValueException("Value 'DomainRegistrantContact.ContactType' is not present");
+            }
+        }
 
         /// <summary>
         /// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
         /// </summary>
-        [Input("countryCode")]
+        [PolicyResourceProperty("countryCode", "_mUnknown_CountryCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCountryCode;
-
-        public string? CountryCode => _mCountryCode.GetValue("countryCode");
+        private string? _mValue_CountryCode;
+        private bool _mUnknown_CountryCode;
+        public string? CountryCode
+        {
+            get
+            {
+                if (!_mUnknown_CountryCode) return _mValue_CountryCode;
+                throw new UndeferrableValueException("Value 'DomainRegistrantContact.CountryCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Email address of the contact.
         /// </summary>
-        [Input("email")]
+        [PolicyResourceProperty("email", "_mUnknown_Email")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
-
-        public string? Email => _mEmail.GetValue("email");
+        private string? _mValue_Email;
+        private bool _mUnknown_Email;
+        public string? Email
+        {
+            get
+            {
+                if (!_mUnknown_Email) return _mValue_Email;
+                throw new UndeferrableValueException("Value 'DomainRegistrantContact.Email' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of name-value pairs for parameters required by certain top-level domains.
         /// </summary>
-        [Input("extraParams")]
+        [PolicyResourceProperty("extraParams", "_mUnknown_ExtraParams")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DomainRegistrantContactExtraParam>> _mExtraParams;
-
-        public List<Outputs.DomainRegistrantContactExtraParam>? ExtraParams => _mExtraParams.GetValue("extraParams");
+        private List<Outputs.DomainRegistrantContactExtraParam>? _mValue_ExtraParams;
+        private bool _mUnknown_ExtraParams;
+        public List<Outputs.DomainRegistrantContactExtraParam>? ExtraParams
+        {
+            get
+            {
+                if (!_mUnknown_ExtraParams) return _mValue_ExtraParams;
+                throw new UndeferrableValueException("Value 'DomainRegistrantContact.ExtraParams' is not present");
+            }
+        }
 
         /// <summary>
         /// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
         /// </summary>
-        [Input("fax")]
+        [PolicyResourceProperty("fax", "_mUnknown_Fax")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFax;
-
-        public string? Fax => _mFax.GetValue("fax");
+        private string? _mValue_Fax;
+        private bool _mUnknown_Fax;
+        public string? Fax
+        {
+            get
+            {
+                if (!_mUnknown_Fax) return _mValue_Fax;
+                throw new UndeferrableValueException("Value 'DomainRegistrantContact.Fax' is not present");
+            }
+        }
 
         /// <summary>
         /// First name of contact.
         /// </summary>
-        [Input("firstName")]
+        [PolicyResourceProperty("firstName", "_mUnknown_FirstName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirstName;
-
-        public string? FirstName => _mFirstName.GetValue("firstName");
+        private string? _mValue_FirstName;
+        private bool _mUnknown_FirstName;
+        public string? FirstName
+        {
+            get
+            {
+                if (!_mUnknown_FirstName) return _mValue_FirstName;
+                throw new UndeferrableValueException("Value 'DomainRegistrantContact.FirstName' is not present");
+            }
+        }
 
         /// <summary>
         /// Last name of contact.
         /// </summary>
-        [Input("lastName")]
+        [PolicyResourceProperty("lastName", "_mUnknown_LastName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastName;
-
-        public string? LastName => _mLastName.GetValue("lastName");
+        private string? _mValue_LastName;
+        private bool _mUnknown_LastName;
+        public string? LastName
+        {
+            get
+            {
+                if (!_mUnknown_LastName) return _mValue_LastName;
+                throw new UndeferrableValueException("Value 'DomainRegistrantContact.LastName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the organization for contact types other than `PERSON`.
         /// </summary>
-        [Input("organizationName")]
+        [PolicyResourceProperty("organizationName", "_mUnknown_OrganizationName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationName;
-
-        public string? OrganizationName => _mOrganizationName.GetValue("organizationName");
+        private string? _mValue_OrganizationName;
+        private bool _mUnknown_OrganizationName;
+        public string? OrganizationName
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationName) return _mValue_OrganizationName;
+                throw new UndeferrableValueException("Value 'DomainRegistrantContact.OrganizationName' is not present");
+            }
+        }
 
         /// <summary>
         /// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
         /// </summary>
-        [Input("phoneNumber")]
+        [PolicyResourceProperty("phoneNumber", "_mUnknown_PhoneNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPhoneNumber;
-
-        public string? PhoneNumber => _mPhoneNumber.GetValue("phoneNumber");
+        private string? _mValue_PhoneNumber;
+        private bool _mUnknown_PhoneNumber;
+        public string? PhoneNumber
+        {
+            get
+            {
+                if (!_mUnknown_PhoneNumber) return _mValue_PhoneNumber;
+                throw new UndeferrableValueException("Value 'DomainRegistrantContact.PhoneNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// The state or province of the contact's city.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'DomainRegistrantContact.State' is not present");
+            }
+        }
 
         /// <summary>
         /// The zip or postal code of the contact's address.
         /// </summary>
-        [Input("zipCode")]
+        [PolicyResourceProperty("zipCode", "_mUnknown_ZipCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZipCode;
-
-        public string? ZipCode => _mZipCode.GetValue("zipCode");
+        private string? _mValue_ZipCode;
+        private bool _mUnknown_ZipCode;
+        public string? ZipCode
+        {
+            get
+            {
+                if (!_mUnknown_ZipCode) return _mValue_ZipCode;
+                throw new UndeferrableValueException("Value 'DomainRegistrantContact.ZipCode' is not present");
+            }
+        }
     }
 }

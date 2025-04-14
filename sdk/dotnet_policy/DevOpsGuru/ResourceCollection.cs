@@ -16,31 +16,52 @@ namespace Pulumi.PolicyPacks.Aws.DevOpsGuru
         /// <summary>
         /// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
         /// </summary>
-        [Input("cloudformation")]
+        [PolicyResourceProperty("cloudformation", "_mUnknown_Cloudformation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceCollectionCloudformation> _mCloudformation;
-
-        public Outputs.ResourceCollectionCloudformation? Cloudformation => _mCloudformation.GetValue("cloudformation");
+        private Outputs.ResourceCollectionCloudformation? _mValue_Cloudformation;
+        private bool _mUnknown_Cloudformation;
+        public Outputs.ResourceCollectionCloudformation? Cloudformation
+        {
+            get
+            {
+                if (!_mUnknown_Cloudformation) return _mValue_Cloudformation;
+                throw new UndeferrableValueException("Value 'ResourceCollection.Cloudformation' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceCollectionTags> _mTags;
-
-        public Outputs.ResourceCollectionTags? Tags => _mTags.GetValue("tags");
+        private Outputs.ResourceCollectionTags? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Outputs.ResourceCollectionTags? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResourceCollection.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ResourceCollection.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:devopsguru/resourceCollection:ResourceCollection")]
@@ -49,30 +70,51 @@ namespace Pulumi.PolicyPacks.Aws.DevOpsGuru
         /// <summary>
         /// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
         /// </summary>
-        [Input("cloudformation")]
+        [PolicyResourceProperty("cloudformation", "_mUnknown_Cloudformation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResourceCollectionCloudformationArgs> _mCloudformation;
-
-        public Inputs.ResourceCollectionCloudformationArgs? Cloudformation => _mCloudformation.GetValue("cloudformation");
+        private Inputs.ResourceCollectionCloudformationArgs? _mValue_Cloudformation;
+        private bool _mUnknown_Cloudformation;
+        public Inputs.ResourceCollectionCloudformationArgs? Cloudformation
+        {
+            get
+            {
+                if (!_mUnknown_Cloudformation) return _mValue_Cloudformation;
+                throw new UndeferrableValueException("Value 'ResourceCollectionArgs.Cloudformation' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResourceCollectionTagsArgs> _mTags;
-
-        public Inputs.ResourceCollectionTagsArgs? Tags => _mTags.GetValue("tags");
+        private Inputs.ResourceCollectionTagsArgs? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Inputs.ResourceCollectionTagsArgs? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResourceCollectionArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ResourceCollectionArgs.Type' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// The scope description.
         /// </summary>
-        [Input("scopeDescription")]
+        [PolicyResourceProperty("scopeDescription", "_mUnknown_ScopeDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScopeDescription;
-
-        public string? ScopeDescription => _mScopeDescription.GetValue("scopeDescription");
+        private string? _mValue_ScopeDescription;
+        private bool _mUnknown_ScopeDescription;
+        public string? ScopeDescription
+        {
+            get
+            {
+                if (!_mUnknown_ScopeDescription) return _mValue_ScopeDescription;
+                throw new UndeferrableValueException("Value 'ResourceServerScope.ScopeDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The scope name.
         /// </summary>
-        [Input("scopeName")]
+        [PolicyResourceProperty("scopeName", "_mUnknown_ScopeName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScopeName;
-
-        public string? ScopeName => _mScopeName.GetValue("scopeName");
+        private string? _mValue_ScopeName;
+        private bool _mUnknown_ScopeName;
+        public string? ScopeName
+        {
+            get
+            {
+                if (!_mUnknown_ScopeName) return _mValue_ScopeName;
+                throw new UndeferrableValueException("Value 'ResourceServerScope.ScopeName' is not present");
+            }
+        }
     }
 }

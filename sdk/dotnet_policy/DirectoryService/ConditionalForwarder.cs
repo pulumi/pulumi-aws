@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// <summary>
         /// ID of directory.
         /// </summary>
-        [Input("directoryId")]
+        [PolicyResourceProperty("directoryId", "_mUnknown_DirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
-
-        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+        private string? _mValue_DirectoryId;
+        private bool _mUnknown_DirectoryId;
+        public string? DirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryId) return _mValue_DirectoryId;
+                throw new UndeferrableValueException("Value 'ConditionalForwarder.DirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of forwarder IP addresses.
         /// </summary>
-        [Input("dnsIps")]
+        [PolicyResourceProperty("dnsIps", "_mUnknown_DnsIps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDnsIps;
-
-        public List<string>? DnsIps => _mDnsIps.GetValue("dnsIps");
+        private List<string>? _mValue_DnsIps;
+        private bool _mUnknown_DnsIps;
+        public List<string>? DnsIps
+        {
+            get
+            {
+                if (!_mUnknown_DnsIps) return _mValue_DnsIps;
+                throw new UndeferrableValueException("Value 'ConditionalForwarder.DnsIps' is not present");
+            }
+        }
 
         /// <summary>
         /// The fully qualified domain name of the remote domain for which forwarders will be used.
         /// </summary>
-        [Input("remoteDomainName")]
+        [PolicyResourceProperty("remoteDomainName", "_mUnknown_RemoteDomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRemoteDomainName;
-
-        public string? RemoteDomainName => _mRemoteDomainName.GetValue("remoteDomainName");
+        private string? _mValue_RemoteDomainName;
+        private bool _mUnknown_RemoteDomainName;
+        public string? RemoteDomainName
+        {
+            get
+            {
+                if (!_mUnknown_RemoteDomainName) return _mValue_RemoteDomainName;
+                throw new UndeferrableValueException("Value 'ConditionalForwarder.RemoteDomainName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:directoryservice/conditionalForwarder:ConditionalForwarder")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// <summary>
         /// ID of directory.
         /// </summary>
-        [Input("directoryId")]
+        [PolicyResourceProperty("directoryId", "_mUnknown_DirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
-
-        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+        private string? _mValue_DirectoryId;
+        private bool _mUnknown_DirectoryId;
+        public string? DirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryId) return _mValue_DirectoryId;
+                throw new UndeferrableValueException("Value 'ConditionalForwarderArgs.DirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of forwarder IP addresses.
         /// </summary>
-        [Input("dnsIps")]
+        [PolicyResourceProperty("dnsIps", "_mUnknown_DnsIps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDnsIps;
-
-        public List<string>? DnsIps => _mDnsIps.GetValue("dnsIps");
+        private List<string>? _mValue_DnsIps;
+        private bool _mUnknown_DnsIps;
+        public List<string>? DnsIps
+        {
+            get
+            {
+                if (!_mUnknown_DnsIps) return _mValue_DnsIps;
+                throw new UndeferrableValueException("Value 'ConditionalForwarderArgs.DnsIps' is not present");
+            }
+        }
 
         /// <summary>
         /// The fully qualified domain name of the remote domain for which forwarders will be used.
         /// </summary>
-        [Input("remoteDomainName")]
+        [PolicyResourceProperty("remoteDomainName", "_mUnknown_RemoteDomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRemoteDomainName;
-
-        public string? RemoteDomainName => _mRemoteDomainName.GetValue("remoteDomainName");
+        private string? _mValue_RemoteDomainName;
+        private bool _mUnknown_RemoteDomainName;
+        public string? RemoteDomainName
+        {
+            get
+            {
+                if (!_mUnknown_RemoteDomainName) return _mValue_RemoteDomainName;
+                throw new UndeferrableValueException("Value 'ConditionalForwarderArgs.RemoteDomainName' is not present");
+            }
+        }
     }
 }

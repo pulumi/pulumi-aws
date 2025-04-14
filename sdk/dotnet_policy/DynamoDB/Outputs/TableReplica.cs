@@ -15,11 +15,18 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB.Outputs
         /// <summary>
         /// ARN of the table
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TableReplica.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the CMK that should be used for the AWS KMS encryption.
@@ -27,20 +34,34 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB.Outputs
         /// **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         /// **Note:** Changing this value will recreate the replica.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'TableReplica.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable Point In Time Recovery for the replica. Default is `false`.
         /// </summary>
-        [Input("pointInTimeRecovery")]
+        [PolicyResourceProperty("pointInTimeRecovery", "_mUnknown_PointInTimeRecovery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPointInTimeRecovery;
-
-        public bool? PointInTimeRecovery => _mPointInTimeRecovery.GetValue("pointInTimeRecovery");
+        private bool? _mValue_PointInTimeRecovery;
+        private bool _mUnknown_PointInTimeRecovery;
+        public bool? PointInTimeRecovery
+        {
+            get
+            {
+                if (!_mUnknown_PointInTimeRecovery) return _mValue_PointInTimeRecovery;
+                throw new UndeferrableValueException("Value 'TableReplica.PointInTimeRecovery' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to propagate the global table's tags to a replica.
@@ -50,37 +71,65 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB.Outputs
         /// Tag changes on the global table are propagated to replicas.
         /// Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
         /// </summary>
-        [Input("propagateTags")]
+        [PolicyResourceProperty("propagateTags", "_mUnknown_PropagateTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPropagateTags;
-
-        public bool? PropagateTags => _mPropagateTags.GetValue("propagateTags");
+        private bool? _mValue_PropagateTags;
+        private bool _mUnknown_PropagateTags;
+        public bool? PropagateTags
+        {
+            get
+            {
+                if (!_mUnknown_PropagateTags) return _mValue_PropagateTags;
+                throw new UndeferrableValueException("Value 'TableReplica.PropagateTags' is not present");
+            }
+        }
 
         /// <summary>
         /// Region name of the replica.
         /// </summary>
-        [Input("regionName")]
+        [PolicyResourceProperty("regionName", "_mUnknown_RegionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegionName;
-
-        public string? RegionName => _mRegionName.GetValue("regionName");
+        private string? _mValue_RegionName;
+        private bool _mUnknown_RegionName;
+        public string? RegionName
+        {
+            get
+            {
+                if (!_mUnknown_RegionName) return _mValue_RegionName;
+                throw new UndeferrableValueException("Value 'TableReplica.RegionName' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Table Stream. Only available when `stream_enabled = true`
         /// </summary>
-        [Input("streamArn")]
+        [PolicyResourceProperty("streamArn", "_mUnknown_StreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamArn;
-
-        public string? StreamArn => _mStreamArn.GetValue("streamArn");
+        private string? _mValue_StreamArn;
+        private bool _mUnknown_StreamArn;
+        public string? StreamArn
+        {
+            get
+            {
+                if (!_mUnknown_StreamArn) return _mValue_StreamArn;
+                throw new UndeferrableValueException("Value 'TableReplica.StreamArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         /// </summary>
-        [Input("streamLabel")]
+        [PolicyResourceProperty("streamLabel", "_mUnknown_StreamLabel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamLabel;
-
-        public string? StreamLabel => _mStreamLabel.GetValue("streamLabel");
+        private string? _mValue_StreamLabel;
+        private bool _mUnknown_StreamLabel;
+        public string? StreamLabel
+        {
+            get
+            {
+                if (!_mUnknown_StreamLabel) return _mValue_StreamLabel;
+                throw new UndeferrableValueException("Value 'TableReplica.StreamLabel' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Inputs
         /// <summary>
         /// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResolverRuntimeArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
         /// </summary>
-        [Input("runtimeVersion")]
+        [PolicyResourceProperty("runtimeVersion", "_mUnknown_RuntimeVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuntimeVersion;
-
-        public string? RuntimeVersion => _mRuntimeVersion.GetValue("runtimeVersion");
+        private string? _mValue_RuntimeVersion;
+        private bool _mUnknown_RuntimeVersion;
+        public string? RuntimeVersion
+        {
+            get
+            {
+                if (!_mUnknown_RuntimeVersion) return _mValue_RuntimeVersion;
+                throw new UndeferrableValueException("Value 'ResolverRuntimeArgs.RuntimeVersion' is not present");
+            }
+        }
     }
 }

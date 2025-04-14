@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// Amazon Resource Name (ARN) of the traffic policy instance.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TrafficPolicyInstance.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
         /// </summary>
-        [Input("hostedZoneId")]
+        [PolicyResourceProperty("hostedZoneId", "_mUnknown_HostedZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
-
-        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+        private string? _mValue_HostedZoneId;
+        private bool _mUnknown_HostedZoneId;
+        public string? HostedZoneId
+        {
+            get
+            {
+                if (!_mUnknown_HostedZoneId) return _mValue_HostedZoneId;
+                throw new UndeferrableValueException("Value 'TrafficPolicyInstance.HostedZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TrafficPolicyInstance.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
         /// </summary>
-        [Input("trafficPolicyId")]
+        [PolicyResourceProperty("trafficPolicyId", "_mUnknown_TrafficPolicyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficPolicyId;
-
-        public string? TrafficPolicyId => _mTrafficPolicyId.GetValue("trafficPolicyId");
+        private string? _mValue_TrafficPolicyId;
+        private bool _mUnknown_TrafficPolicyId;
+        public string? TrafficPolicyId
+        {
+            get
+            {
+                if (!_mUnknown_TrafficPolicyId) return _mValue_TrafficPolicyId;
+                throw new UndeferrableValueException("Value 'TrafficPolicyInstance.TrafficPolicyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the traffic policy
         /// </summary>
-        [Input("trafficPolicyVersion")]
+        [PolicyResourceProperty("trafficPolicyVersion", "_mUnknown_TrafficPolicyVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTrafficPolicyVersion;
-
-        public int? TrafficPolicyVersion => _mTrafficPolicyVersion.GetValue("trafficPolicyVersion");
+        private int? _mValue_TrafficPolicyVersion;
+        private bool _mUnknown_TrafficPolicyVersion;
+        public int? TrafficPolicyVersion
+        {
+            get
+            {
+                if (!_mUnknown_TrafficPolicyVersion) return _mValue_TrafficPolicyVersion;
+                throw new UndeferrableValueException("Value 'TrafficPolicyInstance.TrafficPolicyVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
         /// </summary>
-        [Input("ttl")]
+        [PolicyResourceProperty("ttl", "_mUnknown_Ttl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTtl;
-
-        public int? Ttl => _mTtl.GetValue("ttl");
+        private int? _mValue_Ttl;
+        private bool _mUnknown_Ttl;
+        public int? Ttl
+        {
+            get
+            {
+                if (!_mUnknown_Ttl) return _mValue_Ttl;
+                throw new UndeferrableValueException("Value 'TrafficPolicyInstance.Ttl' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/trafficPolicyInstance:TrafficPolicyInstance")]
@@ -74,46 +116,81 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
         /// </summary>
-        [Input("hostedZoneId")]
+        [PolicyResourceProperty("hostedZoneId", "_mUnknown_HostedZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
-
-        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+        private string? _mValue_HostedZoneId;
+        private bool _mUnknown_HostedZoneId;
+        public string? HostedZoneId
+        {
+            get
+            {
+                if (!_mUnknown_HostedZoneId) return _mValue_HostedZoneId;
+                throw new UndeferrableValueException("Value 'TrafficPolicyInstanceArgs.HostedZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TrafficPolicyInstanceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
         /// </summary>
-        [Input("trafficPolicyId")]
+        [PolicyResourceProperty("trafficPolicyId", "_mUnknown_TrafficPolicyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficPolicyId;
-
-        public string? TrafficPolicyId => _mTrafficPolicyId.GetValue("trafficPolicyId");
+        private string? _mValue_TrafficPolicyId;
+        private bool _mUnknown_TrafficPolicyId;
+        public string? TrafficPolicyId
+        {
+            get
+            {
+                if (!_mUnknown_TrafficPolicyId) return _mValue_TrafficPolicyId;
+                throw new UndeferrableValueException("Value 'TrafficPolicyInstanceArgs.TrafficPolicyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the traffic policy
         /// </summary>
-        [Input("trafficPolicyVersion")]
+        [PolicyResourceProperty("trafficPolicyVersion", "_mUnknown_TrafficPolicyVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTrafficPolicyVersion;
-
-        public int? TrafficPolicyVersion => _mTrafficPolicyVersion.GetValue("trafficPolicyVersion");
+        private int? _mValue_TrafficPolicyVersion;
+        private bool _mUnknown_TrafficPolicyVersion;
+        public int? TrafficPolicyVersion
+        {
+            get
+            {
+                if (!_mUnknown_TrafficPolicyVersion) return _mValue_TrafficPolicyVersion;
+                throw new UndeferrableValueException("Value 'TrafficPolicyInstanceArgs.TrafficPolicyVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
         /// </summary>
-        [Input("ttl")]
+        [PolicyResourceProperty("ttl", "_mUnknown_Ttl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTtl;
-
-        public int? Ttl => _mTtl.GetValue("ttl");
+        private int? _mValue_Ttl;
+        private bool _mUnknown_Ttl;
+        public int? Ttl
+        {
+            get
+            {
+                if (!_mUnknown_Ttl) return _mValue_Ttl;
+                throw new UndeferrableValueException("Value 'TrafficPolicyInstanceArgs.Ttl' is not present");
+            }
+        }
     }
 }

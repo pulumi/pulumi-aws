@@ -16,112 +16,196 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline
         /// <summary>
         /// Codepipeline ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Pipeline.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more artifact_store blocks. Artifact stores are documented below.
         /// </summary>
-        [Input("artifactStores")]
+        [PolicyResourceProperty("artifactStores", "_mUnknown_ArtifactStores")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineArtifactStore>> _mArtifactStores;
-
-        public List<Outputs.PipelineArtifactStore>? ArtifactStores => _mArtifactStores.GetValue("artifactStores");
+        private List<Outputs.PipelineArtifactStore>? _mValue_ArtifactStores;
+        private bool _mUnknown_ArtifactStores;
+        public List<Outputs.PipelineArtifactStore>? ArtifactStores
+        {
+            get
+            {
+                if (!_mUnknown_ArtifactStores) return _mValue_ArtifactStores;
+                throw new UndeferrableValueException("Value 'Pipeline.ArtifactStores' is not present");
+            }
+        }
 
         /// <summary>
         /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
         /// 
         /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         /// </summary>
-        [Input("executionMode")]
+        [PolicyResourceProperty("executionMode", "_mUnknown_ExecutionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionMode;
-
-        public string? ExecutionMode => _mExecutionMode.GetValue("executionMode");
+        private string? _mValue_ExecutionMode;
+        private bool _mUnknown_ExecutionMode;
+        public string? ExecutionMode
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionMode) return _mValue_ExecutionMode;
+                throw new UndeferrableValueException("Value 'Pipeline.ExecutionMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the pipeline.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Pipeline.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         /// </summary>
-        [Input("pipelineType")]
+        [PolicyResourceProperty("pipelineType", "_mUnknown_PipelineType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineType;
-
-        public string? PipelineType => _mPipelineType.GetValue("pipelineType");
+        private string? _mValue_PipelineType;
+        private bool _mUnknown_PipelineType;
+        public string? PipelineType
+        {
+            get
+            {
+                if (!_mUnknown_PipelineType) return _mValue_PipelineType;
+                throw new UndeferrableValueException("Value 'Pipeline.PipelineType' is not present");
+            }
+        }
 
         /// <summary>
         /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Pipeline.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A stage block. Stages are documented below.
         /// </summary>
-        [Input("stages")]
+        [PolicyResourceProperty("stages", "_mUnknown_Stages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineStage>> _mStages;
-
-        public List<Outputs.PipelineStage>? Stages => _mStages.GetValue("stages");
+        private List<Outputs.PipelineStage>? _mValue_Stages;
+        private bool _mUnknown_Stages;
+        public List<Outputs.PipelineStage>? Stages
+        {
+            get
+            {
+                if (!_mUnknown_Stages) return _mValue_Stages;
+                throw new UndeferrableValueException("Value 'Pipeline.Stages' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Pipeline.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Pipeline.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
         /// </summary>
-        [Input("triggerAlls")]
+        [PolicyResourceProperty("triggerAlls", "_mUnknown_TriggerAlls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineTriggerAll>> _mTriggerAlls;
-
-        public List<Outputs.PipelineTriggerAll>? TriggerAlls => _mTriggerAlls.GetValue("triggerAlls");
+        private List<Outputs.PipelineTriggerAll>? _mValue_TriggerAlls;
+        private bool _mUnknown_TriggerAlls;
+        public List<Outputs.PipelineTriggerAll>? TriggerAlls
+        {
+            get
+            {
+                if (!_mUnknown_TriggerAlls) return _mValue_TriggerAlls;
+                throw new UndeferrableValueException("Value 'Pipeline.TriggerAlls' is not present");
+            }
+        }
 
         /// <summary>
         /// A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
         /// </summary>
-        [Input("triggers")]
+        [PolicyResourceProperty("triggers", "_mUnknown_Triggers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineTrigger>> _mTriggers;
-
-        public List<Outputs.PipelineTrigger>? Triggers => _mTriggers.GetValue("triggers");
+        private List<Outputs.PipelineTrigger>? _mValue_Triggers;
+        private bool _mUnknown_Triggers;
+        public List<Outputs.PipelineTrigger>? Triggers
+        {
+            get
+            {
+                if (!_mUnknown_Triggers) return _mValue_Triggers;
+                throw new UndeferrableValueException("Value 'Pipeline.Triggers' is not present");
+            }
+        }
 
         /// <summary>
         /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
         /// </summary>
-        [Input("variables")]
+        [PolicyResourceProperty("variables", "_mUnknown_Variables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineVariable>> _mVariables;
-
-        public List<Outputs.PipelineVariable>? Variables => _mVariables.GetValue("variables");
+        private List<Outputs.PipelineVariable>? _mValue_Variables;
+        private bool _mUnknown_Variables;
+        public List<Outputs.PipelineVariable>? Variables
+        {
+            get
+            {
+                if (!_mUnknown_Variables) return _mValue_Variables;
+                throw new UndeferrableValueException("Value 'Pipeline.Variables' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codepipeline/pipeline:Pipeline")]
@@ -130,84 +214,147 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline
         /// <summary>
         /// One or more artifact_store blocks. Artifact stores are documented below.
         /// </summary>
-        [Input("artifactStores")]
+        [PolicyResourceProperty("artifactStores", "_mUnknown_ArtifactStores")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineArtifactStoreArgs>> _mArtifactStores;
-
-        public List<Inputs.PipelineArtifactStoreArgs>? ArtifactStores => _mArtifactStores.GetValue("artifactStores");
+        private List<Inputs.PipelineArtifactStoreArgs>? _mValue_ArtifactStores;
+        private bool _mUnknown_ArtifactStores;
+        public List<Inputs.PipelineArtifactStoreArgs>? ArtifactStores
+        {
+            get
+            {
+                if (!_mUnknown_ArtifactStores) return _mValue_ArtifactStores;
+                throw new UndeferrableValueException("Value 'PipelineArgs.ArtifactStores' is not present");
+            }
+        }
 
         /// <summary>
         /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
         /// 
         /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         /// </summary>
-        [Input("executionMode")]
+        [PolicyResourceProperty("executionMode", "_mUnknown_ExecutionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionMode;
-
-        public string? ExecutionMode => _mExecutionMode.GetValue("executionMode");
+        private string? _mValue_ExecutionMode;
+        private bool _mUnknown_ExecutionMode;
+        public string? ExecutionMode
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionMode) return _mValue_ExecutionMode;
+                throw new UndeferrableValueException("Value 'PipelineArgs.ExecutionMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the pipeline.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PipelineArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         /// </summary>
-        [Input("pipelineType")]
+        [PolicyResourceProperty("pipelineType", "_mUnknown_PipelineType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineType;
-
-        public string? PipelineType => _mPipelineType.GetValue("pipelineType");
+        private string? _mValue_PipelineType;
+        private bool _mUnknown_PipelineType;
+        public string? PipelineType
+        {
+            get
+            {
+                if (!_mUnknown_PipelineType) return _mValue_PipelineType;
+                throw new UndeferrableValueException("Value 'PipelineArgs.PipelineType' is not present");
+            }
+        }
 
         /// <summary>
         /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'PipelineArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A stage block. Stages are documented below.
         /// </summary>
-        [Input("stages")]
+        [PolicyResourceProperty("stages", "_mUnknown_Stages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineStageArgs>> _mStages;
-
-        public List<Inputs.PipelineStageArgs>? Stages => _mStages.GetValue("stages");
+        private List<Inputs.PipelineStageArgs>? _mValue_Stages;
+        private bool _mUnknown_Stages;
+        public List<Inputs.PipelineStageArgs>? Stages
+        {
+            get
+            {
+                if (!_mUnknown_Stages) return _mValue_Stages;
+                throw new UndeferrableValueException("Value 'PipelineArgs.Stages' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'PipelineArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
         /// </summary>
-        [Input("triggers")]
+        [PolicyResourceProperty("triggers", "_mUnknown_Triggers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineTriggerArgs>> _mTriggers;
-
-        public List<Inputs.PipelineTriggerArgs>? Triggers => _mTriggers.GetValue("triggers");
+        private List<Inputs.PipelineTriggerArgs>? _mValue_Triggers;
+        private bool _mUnknown_Triggers;
+        public List<Inputs.PipelineTriggerArgs>? Triggers
+        {
+            get
+            {
+                if (!_mUnknown_Triggers) return _mValue_Triggers;
+                throw new UndeferrableValueException("Value 'PipelineArgs.Triggers' is not present");
+            }
+        }
 
         /// <summary>
         /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
         /// </summary>
-        [Input("variables")]
+        [PolicyResourceProperty("variables", "_mUnknown_Variables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineVariableArgs>> _mVariables;
-
-        public List<Inputs.PipelineVariableArgs>? Variables => _mVariables.GetValue("variables");
+        private List<Inputs.PipelineVariableArgs>? _mValue_Variables;
+        private bool _mUnknown_Variables;
+        public List<Inputs.PipelineVariableArgs>? Variables
+        {
+            get
+            {
+                if (!_mUnknown_Variables) return _mValue_Variables;
+                throw new UndeferrableValueException("Value 'PipelineArgs.Variables' is not present");
+            }
+        }
     }
 }

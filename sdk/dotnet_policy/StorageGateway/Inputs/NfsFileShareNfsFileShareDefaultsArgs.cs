@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.StorageGateway.Inputs
         /// <summary>
         /// The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
         /// </summary>
-        [Input("directoryMode")]
+        [PolicyResourceProperty("directoryMode", "_mUnknown_DirectoryMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryMode;
-
-        public string? DirectoryMode => _mDirectoryMode.GetValue("directoryMode");
+        private string? _mValue_DirectoryMode;
+        private bool _mUnknown_DirectoryMode;
+        public string? DirectoryMode
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryMode) return _mValue_DirectoryMode;
+                throw new UndeferrableValueException("Value 'NfsFileShareNfsFileShareDefaultsArgs.DirectoryMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
         /// </summary>
-        [Input("fileMode")]
+        [PolicyResourceProperty("fileMode", "_mUnknown_FileMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileMode;
-
-        public string? FileMode => _mFileMode.GetValue("fileMode");
+        private string? _mValue_FileMode;
+        private bool _mUnknown_FileMode;
+        public string? FileMode
+        {
+            get
+            {
+                if (!_mUnknown_FileMode) return _mValue_FileMode;
+                throw new UndeferrableValueException("Value 'NfsFileShareNfsFileShareDefaultsArgs.FileMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
         /// </summary>
-        [Input("groupId")]
+        [PolicyResourceProperty("groupId", "_mUnknown_GroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupId;
-
-        public string? GroupId => _mGroupId.GetValue("groupId");
+        private string? _mValue_GroupId;
+        private bool _mUnknown_GroupId;
+        public string? GroupId
+        {
+            get
+            {
+                if (!_mUnknown_GroupId) return _mValue_GroupId;
+                throw new UndeferrableValueException("Value 'NfsFileShareNfsFileShareDefaultsArgs.GroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'NfsFileShareNfsFileShareDefaultsArgs.OwnerId' is not present");
+            }
+        }
     }
 }

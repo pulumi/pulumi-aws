@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner.Inputs
         /// <summary>
         /// Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
         /// </summary>
-        [Input("vendor")]
+        [PolicyResourceProperty("vendor", "_mUnknown_Vendor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVendor;
-
-        public string? Vendor => _mVendor.GetValue("vendor");
+        private string? _mValue_Vendor;
+        private bool _mUnknown_Vendor;
+        public string? Vendor
+        {
+            get
+            {
+                if (!_mUnknown_Vendor) return _mValue_Vendor;
+                throw new UndeferrableValueException("Value 'ObservabilityConfigurationTraceConfigurationArgs.Vendor' is not present");
+            }
+        }
     }
 }

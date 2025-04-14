@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Synthetics.Inputs
         /// <summary>
         /// Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
         /// </summary>
-        [Input("durationInSeconds")]
+        [PolicyResourceProperty("durationInSeconds", "_mUnknown_DurationInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDurationInSeconds;
-
-        public int? DurationInSeconds => _mDurationInSeconds.GetValue("durationInSeconds");
+        private int? _mValue_DurationInSeconds;
+        private bool _mUnknown_DurationInSeconds;
+        public int? DurationInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_DurationInSeconds) return _mValue_DurationInSeconds;
+                throw new UndeferrableValueException("Value 'CanaryScheduleArgs.DurationInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
         /// </summary>
-        [Input("expression")]
+        [PolicyResourceProperty("expression", "_mUnknown_Expression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpression;
-
-        public string? Expression => _mExpression.GetValue("expression");
+        private string? _mValue_Expression;
+        private bool _mUnknown_Expression;
+        public string? Expression
+        {
+            get
+            {
+                if (!_mUnknown_Expression) return _mValue_Expression;
+                throw new UndeferrableValueException("Value 'CanaryScheduleArgs.Expression' is not present");
+            }
+        }
     }
 }

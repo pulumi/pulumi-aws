@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.ServiceDiscovery.Outputs
         /// <summary>
         /// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
         /// </summary>
-        [Input("failureThreshold")]
+        [PolicyResourceProperty("failureThreshold", "_mUnknown_FailureThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFailureThreshold;
-
-        public int? FailureThreshold => _mFailureThreshold.GetValue("failureThreshold");
+        private int? _mValue_FailureThreshold;
+        private bool _mUnknown_FailureThreshold;
+        public int? FailureThreshold
+        {
+            get
+            {
+                if (!_mUnknown_FailureThreshold) return _mValue_FailureThreshold;
+                throw new UndeferrableValueException("Value 'GetServiceHealthCheckCustomConfigResult.FailureThreshold' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings
     {
-        [Input("ocrLanguage")]
+        [PolicyResourceProperty("ocrLanguage", "_mUnknown_OcrLanguage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOcrLanguage;
+        private string? _mValue_OcrLanguage;
+        private bool _mUnknown_OcrLanguage;
+        public string? OcrLanguage
+        {
+            get
+            {
+                if (!_mUnknown_OcrLanguage) return _mValue_OcrLanguage;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings.OcrLanguage' is not present");
+            }
+        }
 
-        public string? OcrLanguage => _mOcrLanguage.GetValue("ocrLanguage");
-
-        [Input("pid")]
+        [PolicyResourceProperty("pid", "_mUnknown_Pid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPid;
-
-        public int? Pid => _mPid.GetValue("pid");
+        private int? _mValue_Pid;
+        private bool _mUnknown_Pid;
+        public int? Pid
+        {
+            get
+            {
+                if (!_mUnknown_Pid) return _mValue_Pid;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings.Pid' is not present");
+            }
+        }
     }
 }

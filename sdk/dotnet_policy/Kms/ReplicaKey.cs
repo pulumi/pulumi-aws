@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.Kms
         /// <summary>
         /// The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ReplicaKey.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A flag to indicate whether to bypass the key policy lockout safety check.
@@ -28,111 +35,195 @@ namespace Pulumi.PolicyPacks.Aws.Kms
         /// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
         /// The default value is `false`.
         /// </summary>
-        [Input("bypassPolicyLockoutSafetyCheck")]
+        [PolicyResourceProperty("bypassPolicyLockoutSafetyCheck", "_mUnknown_BypassPolicyLockoutSafetyCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBypassPolicyLockoutSafetyCheck;
-
-        public bool? BypassPolicyLockoutSafetyCheck => _mBypassPolicyLockoutSafetyCheck.GetValue("bypassPolicyLockoutSafetyCheck");
+        private bool? _mValue_BypassPolicyLockoutSafetyCheck;
+        private bool _mUnknown_BypassPolicyLockoutSafetyCheck;
+        public bool? BypassPolicyLockoutSafetyCheck
+        {
+            get
+            {
+                if (!_mUnknown_BypassPolicyLockoutSafetyCheck) return _mValue_BypassPolicyLockoutSafetyCheck;
+                throw new UndeferrableValueException("Value 'ReplicaKey.BypassPolicyLockoutSafetyCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
         /// If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
         /// </summary>
-        [Input("deletionWindowInDays")]
+        [PolicyResourceProperty("deletionWindowInDays", "_mUnknown_DeletionWindowInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeletionWindowInDays;
-
-        public int? DeletionWindowInDays => _mDeletionWindowInDays.GetValue("deletionWindowInDays");
+        private int? _mValue_DeletionWindowInDays;
+        private bool _mUnknown_DeletionWindowInDays;
+        public int? DeletionWindowInDays
+        {
+            get
+            {
+                if (!_mUnknown_DeletionWindowInDays) return _mValue_DeletionWindowInDays;
+                throw new UndeferrableValueException("Value 'ReplicaKey.DeletionWindowInDays' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the KMS key.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ReplicaKey.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ReplicaKey.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The key ID of the replica key. Related multi-Region keys have the same key ID.
         /// </summary>
-        [Input("keyId")]
+        [PolicyResourceProperty("keyId", "_mUnknown_KeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
-
-        public string? KeyId => _mKeyId.GetValue("keyId");
+        private string? _mValue_KeyId;
+        private bool _mUnknown_KeyId;
+        public string? KeyId
+        {
+            get
+            {
+                if (!_mUnknown_KeyId) return _mValue_KeyId;
+                throw new UndeferrableValueException("Value 'ReplicaKey.KeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// A Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.
         /// </summary>
-        [Input("keyRotationEnabled")]
+        [PolicyResourceProperty("keyRotationEnabled", "_mUnknown_KeyRotationEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mKeyRotationEnabled;
-
-        public bool? KeyRotationEnabled => _mKeyRotationEnabled.GetValue("keyRotationEnabled");
+        private bool? _mValue_KeyRotationEnabled;
+        private bool _mUnknown_KeyRotationEnabled;
+        public bool? KeyRotationEnabled
+        {
+            get
+            {
+                if (!_mUnknown_KeyRotationEnabled) return _mValue_KeyRotationEnabled;
+                throw new UndeferrableValueException("Value 'ReplicaKey.KeyRotationEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of key material in the KMS key. This is a shared property of multi-Region keys.
         /// </summary>
-        [Input("keySpec")]
+        [PolicyResourceProperty("keySpec", "_mUnknown_KeySpec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeySpec;
-
-        public string? KeySpec => _mKeySpec.GetValue("keySpec");
+        private string? _mValue_KeySpec;
+        private bool _mUnknown_KeySpec;
+        public string? KeySpec
+        {
+            get
+            {
+                if (!_mUnknown_KeySpec) return _mValue_KeySpec;
+                throw new UndeferrableValueException("Value 'ReplicaKey.KeySpec' is not present");
+            }
+        }
 
         /// <summary>
         /// The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
         /// </summary>
-        [Input("keyUsage")]
+        [PolicyResourceProperty("keyUsage", "_mUnknown_KeyUsage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyUsage;
-
-        public string? KeyUsage => _mKeyUsage.GetValue("keyUsage");
+        private string? _mValue_KeyUsage;
+        private bool _mUnknown_KeyUsage;
+        public string? KeyUsage
+        {
+            get
+            {
+                if (!_mUnknown_KeyUsage) return _mValue_KeyUsage;
+                throw new UndeferrableValueException("Value 'ReplicaKey.KeyUsage' is not present");
+            }
+        }
 
         /// <summary>
         /// The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ReplicaKey.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
         /// </summary>
-        [Input("primaryKeyArn")]
+        [PolicyResourceProperty("primaryKeyArn", "_mUnknown_PrimaryKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrimaryKeyArn;
-
-        public string? PrimaryKeyArn => _mPrimaryKeyArn.GetValue("primaryKeyArn");
+        private string? _mValue_PrimaryKeyArn;
+        private bool _mUnknown_PrimaryKeyArn;
+        public string? PrimaryKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_PrimaryKeyArn) return _mValue_PrimaryKeyArn;
+                throw new UndeferrableValueException("Value 'ReplicaKey.PrimaryKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReplicaKey.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ReplicaKey.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:kms/replicaKey:ReplicaKey")]
@@ -144,65 +235,114 @@ namespace Pulumi.PolicyPacks.Aws.Kms
         /// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
         /// The default value is `false`.
         /// </summary>
-        [Input("bypassPolicyLockoutSafetyCheck")]
+        [PolicyResourceProperty("bypassPolicyLockoutSafetyCheck", "_mUnknown_BypassPolicyLockoutSafetyCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBypassPolicyLockoutSafetyCheck;
-
-        public bool? BypassPolicyLockoutSafetyCheck => _mBypassPolicyLockoutSafetyCheck.GetValue("bypassPolicyLockoutSafetyCheck");
+        private bool? _mValue_BypassPolicyLockoutSafetyCheck;
+        private bool _mUnknown_BypassPolicyLockoutSafetyCheck;
+        public bool? BypassPolicyLockoutSafetyCheck
+        {
+            get
+            {
+                if (!_mUnknown_BypassPolicyLockoutSafetyCheck) return _mValue_BypassPolicyLockoutSafetyCheck;
+                throw new UndeferrableValueException("Value 'ReplicaKeyArgs.BypassPolicyLockoutSafetyCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
         /// If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
         /// </summary>
-        [Input("deletionWindowInDays")]
+        [PolicyResourceProperty("deletionWindowInDays", "_mUnknown_DeletionWindowInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeletionWindowInDays;
-
-        public int? DeletionWindowInDays => _mDeletionWindowInDays.GetValue("deletionWindowInDays");
+        private int? _mValue_DeletionWindowInDays;
+        private bool _mUnknown_DeletionWindowInDays;
+        public int? DeletionWindowInDays
+        {
+            get
+            {
+                if (!_mUnknown_DeletionWindowInDays) return _mValue_DeletionWindowInDays;
+                throw new UndeferrableValueException("Value 'ReplicaKeyArgs.DeletionWindowInDays' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the KMS key.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ReplicaKeyArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ReplicaKeyArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ReplicaKeyArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
         /// </summary>
-        [Input("primaryKeyArn")]
+        [PolicyResourceProperty("primaryKeyArn", "_mUnknown_PrimaryKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrimaryKeyArn;
-
-        public string? PrimaryKeyArn => _mPrimaryKeyArn.GetValue("primaryKeyArn");
+        private string? _mValue_PrimaryKeyArn;
+        private bool _mUnknown_PrimaryKeyArn;
+        public string? PrimaryKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_PrimaryKeyArn) return _mValue_PrimaryKeyArn;
+                throw new UndeferrableValueException("Value 'ReplicaKeyArgs.PrimaryKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReplicaKeyArgs.Tags' is not present");
+            }
+        }
     }
 }

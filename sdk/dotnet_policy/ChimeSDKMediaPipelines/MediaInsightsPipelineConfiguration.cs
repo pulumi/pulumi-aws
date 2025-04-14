@@ -16,62 +16,111 @@ namespace Pulumi.PolicyPacks.Aws.ChimeSDKMediaPipelines
         /// <summary>
         /// ARN of the Media Insights Pipeline Configuration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfiguration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Collection of processors and sinks to transform media and deliver data.
         /// </summary>
-        [Input("elements")]
+        [PolicyResourceProperty("elements", "_mUnknown_Elements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MediaInsightsPipelineConfigurationElement>> _mElements;
-
-        public List<Outputs.MediaInsightsPipelineConfigurationElement>? Elements => _mElements.GetValue("elements");
+        private List<Outputs.MediaInsightsPipelineConfigurationElement>? _mValue_Elements;
+        private bool _mUnknown_Elements;
+        public List<Outputs.MediaInsightsPipelineConfigurationElement>? Elements
+        {
+            get
+            {
+                if (!_mUnknown_Elements) return _mValue_Elements;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfiguration.Elements' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfiguration.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
         /// </summary>
-        [Input("realTimeAlertConfiguration")]
+        [PolicyResourceProperty("realTimeAlertConfiguration", "_mUnknown_RealTimeAlertConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration> _mRealTimeAlertConfiguration;
-
-        public Outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration? RealTimeAlertConfiguration => _mRealTimeAlertConfiguration.GetValue("realTimeAlertConfiguration");
+        private Outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration? _mValue_RealTimeAlertConfiguration;
+        private bool _mUnknown_RealTimeAlertConfiguration;
+        public Outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration? RealTimeAlertConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RealTimeAlertConfiguration) return _mValue_RealTimeAlertConfiguration;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfiguration.RealTimeAlertConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
         /// </summary>
-        [Input("resourceAccessRoleArn")]
+        [PolicyResourceProperty("resourceAccessRoleArn", "_mUnknown_ResourceAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceAccessRoleArn;
-
-        public string? ResourceAccessRoleArn => _mResourceAccessRoleArn.GetValue("resourceAccessRoleArn");
+        private string? _mValue_ResourceAccessRoleArn;
+        private bool _mUnknown_ResourceAccessRoleArn;
+        public string? ResourceAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAccessRoleArn) return _mValue_ResourceAccessRoleArn;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfiguration.ResourceAccessRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of tags for the resource.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfiguration.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfiguration.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration")]
@@ -80,46 +129,81 @@ namespace Pulumi.PolicyPacks.Aws.ChimeSDKMediaPipelines
         /// <summary>
         /// Collection of processors and sinks to transform media and deliver data.
         /// </summary>
-        [Input("elements")]
+        [PolicyResourceProperty("elements", "_mUnknown_Elements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.MediaInsightsPipelineConfigurationElementArgs>> _mElements;
-
-        public List<Inputs.MediaInsightsPipelineConfigurationElementArgs>? Elements => _mElements.GetValue("elements");
+        private List<Inputs.MediaInsightsPipelineConfigurationElementArgs>? _mValue_Elements;
+        private bool _mUnknown_Elements;
+        public List<Inputs.MediaInsightsPipelineConfigurationElementArgs>? Elements
+        {
+            get
+            {
+                if (!_mUnknown_Elements) return _mValue_Elements;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationArgs.Elements' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
         /// </summary>
-        [Input("realTimeAlertConfiguration")]
+        [PolicyResourceProperty("realTimeAlertConfiguration", "_mUnknown_RealTimeAlertConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs> _mRealTimeAlertConfiguration;
-
-        public Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs? RealTimeAlertConfiguration => _mRealTimeAlertConfiguration.GetValue("realTimeAlertConfiguration");
+        private Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs? _mValue_RealTimeAlertConfiguration;
+        private bool _mUnknown_RealTimeAlertConfiguration;
+        public Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs? RealTimeAlertConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RealTimeAlertConfiguration) return _mValue_RealTimeAlertConfiguration;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationArgs.RealTimeAlertConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
         /// </summary>
-        [Input("resourceAccessRoleArn")]
+        [PolicyResourceProperty("resourceAccessRoleArn", "_mUnknown_ResourceAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceAccessRoleArn;
-
-        public string? ResourceAccessRoleArn => _mResourceAccessRoleArn.GetValue("resourceAccessRoleArn");
+        private string? _mValue_ResourceAccessRoleArn;
+        private bool _mUnknown_ResourceAccessRoleArn;
+        public string? ResourceAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAccessRoleArn) return _mValue_ResourceAccessRoleArn;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationArgs.ResourceAccessRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of tags for the resource.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationArgs.Tags' is not present");
+            }
+        }
     }
 }

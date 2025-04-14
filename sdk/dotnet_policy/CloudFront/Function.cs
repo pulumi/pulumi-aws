@@ -16,94 +16,164 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// Amazon Resource Name (ARN) identifying your CloudFront Function.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Function.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Source code of the function
         /// </summary>
-        [Input("code")]
+        [PolicyResourceProperty("code", "_mUnknown_Code")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCode;
-
-        public string? Code => _mCode.GetValue("code");
+        private string? _mValue_Code;
+        private bool _mUnknown_Code;
+        public string? Code
+        {
+            get
+            {
+                if (!_mUnknown_Code) return _mValue_Code;
+                throw new UndeferrableValueException("Value 'Function.Code' is not present");
+            }
+        }
 
         /// <summary>
         /// Comment.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'Function.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
         /// </summary>
-        [Input("etag")]
+        [PolicyResourceProperty("etag", "_mUnknown_Etag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
-
-        public string? Etag => _mEtag.GetValue("etag");
+        private string? _mValue_Etag;
+        private bool _mUnknown_Etag;
+        public string? Etag
+        {
+            get
+            {
+                if (!_mUnknown_Etag) return _mValue_Etag;
+                throw new UndeferrableValueException("Value 'Function.Etag' is not present");
+            }
+        }
 
         /// <summary>
         /// List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
         /// </summary>
-        [Input("keyValueStoreAssociations")]
+        [PolicyResourceProperty("keyValueStoreAssociations", "_mUnknown_KeyValueStoreAssociations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKeyValueStoreAssociations;
-
-        public List<string>? KeyValueStoreAssociations => _mKeyValueStoreAssociations.GetValue("keyValueStoreAssociations");
+        private List<string>? _mValue_KeyValueStoreAssociations;
+        private bool _mUnknown_KeyValueStoreAssociations;
+        public List<string>? KeyValueStoreAssociations
+        {
+            get
+            {
+                if (!_mUnknown_KeyValueStoreAssociations) return _mValue_KeyValueStoreAssociations;
+                throw new UndeferrableValueException("Value 'Function.KeyValueStoreAssociations' is not present");
+            }
+        }
 
         /// <summary>
         /// ETag hash of any `LIVE` stage of the function.
         /// </summary>
-        [Input("liveStageEtag")]
+        [PolicyResourceProperty("liveStageEtag", "_mUnknown_LiveStageEtag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLiveStageEtag;
-
-        public string? LiveStageEtag => _mLiveStageEtag.GetValue("liveStageEtag");
+        private string? _mValue_LiveStageEtag;
+        private bool _mUnknown_LiveStageEtag;
+        public string? LiveStageEtag
+        {
+            get
+            {
+                if (!_mUnknown_LiveStageEtag) return _mValue_LiveStageEtag;
+                throw new UndeferrableValueException("Value 'Function.LiveStageEtag' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for your CloudFront Function.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Function.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         /// </summary>
-        [Input("publish")]
+        [PolicyResourceProperty("publish", "_mUnknown_Publish")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPublish;
-
-        public bool? Publish => _mPublish.GetValue("publish");
+        private bool? _mValue_Publish;
+        private bool _mUnknown_Publish;
+        public bool? Publish
+        {
+            get
+            {
+                if (!_mUnknown_Publish) return _mValue_Publish;
+                throw new UndeferrableValueException("Value 'Function.Publish' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("runtime")]
+        [PolicyResourceProperty("runtime", "_mUnknown_Runtime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuntime;
-
-        public string? Runtime => _mRuntime.GetValue("runtime");
+        private string? _mValue_Runtime;
+        private bool _mUnknown_Runtime;
+        public string? Runtime
+        {
+            get
+            {
+                if (!_mUnknown_Runtime) return _mValue_Runtime;
+                throw new UndeferrableValueException("Value 'Function.Runtime' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Function.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudfront/function:Function")]
@@ -112,57 +182,99 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// Source code of the function
         /// </summary>
-        [Input("code")]
+        [PolicyResourceProperty("code", "_mUnknown_Code")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCode;
-
-        public string? Code => _mCode.GetValue("code");
+        private string? _mValue_Code;
+        private bool _mUnknown_Code;
+        public string? Code
+        {
+            get
+            {
+                if (!_mUnknown_Code) return _mValue_Code;
+                throw new UndeferrableValueException("Value 'FunctionArgs.Code' is not present");
+            }
+        }
 
         /// <summary>
         /// Comment.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'FunctionArgs.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
         /// </summary>
-        [Input("keyValueStoreAssociations")]
+        [PolicyResourceProperty("keyValueStoreAssociations", "_mUnknown_KeyValueStoreAssociations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKeyValueStoreAssociations;
-
-        public List<string>? KeyValueStoreAssociations => _mKeyValueStoreAssociations.GetValue("keyValueStoreAssociations");
+        private List<string>? _mValue_KeyValueStoreAssociations;
+        private bool _mUnknown_KeyValueStoreAssociations;
+        public List<string>? KeyValueStoreAssociations
+        {
+            get
+            {
+                if (!_mUnknown_KeyValueStoreAssociations) return _mValue_KeyValueStoreAssociations;
+                throw new UndeferrableValueException("Value 'FunctionArgs.KeyValueStoreAssociations' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for your CloudFront Function.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FunctionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         /// </summary>
-        [Input("publish")]
+        [PolicyResourceProperty("publish", "_mUnknown_Publish")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPublish;
-
-        public bool? Publish => _mPublish.GetValue("publish");
+        private bool? _mValue_Publish;
+        private bool _mUnknown_Publish;
+        public bool? Publish
+        {
+            get
+            {
+                if (!_mUnknown_Publish) return _mValue_Publish;
+                throw new UndeferrableValueException("Value 'FunctionArgs.Publish' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("runtime")]
+        [PolicyResourceProperty("runtime", "_mUnknown_Runtime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuntime;
-
-        public string? Runtime => _mRuntime.GetValue("runtime");
+        private string? _mValue_Runtime;
+        private bool _mUnknown_Runtime;
+        public string? Runtime
+        {
+            get
+            {
+                if (!_mUnknown_Runtime) return _mValue_Runtime;
+                throw new UndeferrableValueException("Value 'FunctionArgs.Runtime' is not present");
+            }
+        }
     }
 }

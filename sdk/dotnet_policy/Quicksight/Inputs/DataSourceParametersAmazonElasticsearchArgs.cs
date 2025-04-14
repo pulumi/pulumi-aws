@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// The OpenSearch domain.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'DataSourceParametersAmazonElasticsearchArgs.Domain' is not present");
+            }
+        }
     }
 }

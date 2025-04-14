@@ -16,35 +16,63 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The allocation ID.
         /// </summary>
-        [Input("allocationId")]
+        [PolicyResourceProperty("allocationId", "_mUnknown_AllocationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationId;
-
-        public string? AllocationId => _mAllocationId.GetValue("allocationId");
+        private string? _mValue_AllocationId;
+        private bool _mUnknown_AllocationId;
+        public string? AllocationId
+        {
+            get
+            {
+                if (!_mUnknown_AllocationId) return _mValue_AllocationId;
+                throw new UndeferrableValueException("Value 'EipDomainName.AllocationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The domain name to modify for the IP address.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'EipDomainName.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS pointer (PTR) record for the IP address.
         /// </summary>
-        [Input("ptrRecord")]
+        [PolicyResourceProperty("ptrRecord", "_mUnknown_PtrRecord")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPtrRecord;
+        private string? _mValue_PtrRecord;
+        private bool _mUnknown_PtrRecord;
+        public string? PtrRecord
+        {
+            get
+            {
+                if (!_mUnknown_PtrRecord) return _mValue_PtrRecord;
+                throw new UndeferrableValueException("Value 'EipDomainName.PtrRecord' is not present");
+            }
+        }
 
-        public string? PtrRecord => _mPtrRecord.GetValue("ptrRecord");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EipDomainNameTimeouts> _mTimeouts;
-
-        public Outputs.EipDomainNameTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.EipDomainNameTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.EipDomainNameTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'EipDomainName.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/eipDomainName:EipDomainName")]
@@ -53,25 +81,46 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The allocation ID.
         /// </summary>
-        [Input("allocationId")]
+        [PolicyResourceProperty("allocationId", "_mUnknown_AllocationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationId;
-
-        public string? AllocationId => _mAllocationId.GetValue("allocationId");
+        private string? _mValue_AllocationId;
+        private bool _mUnknown_AllocationId;
+        public string? AllocationId
+        {
+            get
+            {
+                if (!_mUnknown_AllocationId) return _mValue_AllocationId;
+                throw new UndeferrableValueException("Value 'EipDomainNameArgs.AllocationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The domain name to modify for the IP address.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'EipDomainNameArgs.DomainName' is not present");
+            }
+        }
 
-        public string? DomainName => _mDomainName.GetValue("domainName");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EipDomainNameTimeoutsArgs> _mTimeouts;
-
-        public Inputs.EipDomainNameTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.EipDomainNameTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.EipDomainNameTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'EipDomainNameArgs.Timeouts' is not present");
+            }
+        }
     }
 }

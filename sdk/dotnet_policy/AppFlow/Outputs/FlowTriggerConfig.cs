@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
         /// <summary>
         /// Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
         /// </summary>
-        [Input("triggerProperties")]
+        [PolicyResourceProperty("triggerProperties", "_mUnknown_TriggerProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowTriggerConfigTriggerProperties> _mTriggerProperties;
-
-        public Outputs.FlowTriggerConfigTriggerProperties? TriggerProperties => _mTriggerProperties.GetValue("triggerProperties");
+        private Outputs.FlowTriggerConfigTriggerProperties? _mValue_TriggerProperties;
+        private bool _mUnknown_TriggerProperties;
+        public Outputs.FlowTriggerConfigTriggerProperties? TriggerProperties
+        {
+            get
+            {
+                if (!_mUnknown_TriggerProperties) return _mValue_TriggerProperties;
+                throw new UndeferrableValueException("Value 'FlowTriggerConfig.TriggerProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
         /// </summary>
-        [Input("triggerType")]
+        [PolicyResourceProperty("triggerType", "_mUnknown_TriggerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTriggerType;
-
-        public string? TriggerType => _mTriggerType.GetValue("triggerType");
+        private string? _mValue_TriggerType;
+        private bool _mUnknown_TriggerType;
+        public string? TriggerType
+        {
+            get
+            {
+                if (!_mUnknown_TriggerType) return _mValue_TriggerType;
+                throw new UndeferrableValueException("Value 'FlowTriggerConfig.TriggerType' is not present");
+            }
+        }
     }
 }

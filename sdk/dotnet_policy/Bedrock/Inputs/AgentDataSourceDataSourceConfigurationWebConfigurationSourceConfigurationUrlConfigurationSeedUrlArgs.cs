@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// Seed or starting point URL. Must match the pattern `^https?://[A-Za-z0-9][^\s]*$`.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs.Url' is not present");
+            }
+        }
     }
 }

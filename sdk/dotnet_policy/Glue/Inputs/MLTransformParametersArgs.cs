@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// The parameters for the find matches algorithm. see Find Matches Parameters.
         /// </summary>
-        [Input("findMatchesParameters")]
+        [PolicyResourceProperty("findMatchesParameters", "_mUnknown_FindMatchesParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MLTransformParametersFindMatchesParametersArgs> _mFindMatchesParameters;
-
-        public Inputs.MLTransformParametersFindMatchesParametersArgs? FindMatchesParameters => _mFindMatchesParameters.GetValue("findMatchesParameters");
+        private Inputs.MLTransformParametersFindMatchesParametersArgs? _mValue_FindMatchesParameters;
+        private bool _mUnknown_FindMatchesParameters;
+        public Inputs.MLTransformParametersFindMatchesParametersArgs? FindMatchesParameters
+        {
+            get
+            {
+                if (!_mUnknown_FindMatchesParameters) return _mValue_FindMatchesParameters;
+                throw new UndeferrableValueException("Value 'MLTransformParametersArgs.FindMatchesParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
         /// </summary>
-        [Input("transformType")]
+        [PolicyResourceProperty("transformType", "_mUnknown_TransformType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransformType;
-
-        public string? TransformType => _mTransformType.GetValue("transformType");
+        private string? _mValue_TransformType;
+        private bool _mUnknown_TransformType;
+        public string? TransformType
+        {
+            get
+            {
+                if (!_mUnknown_TransformType) return _mValue_TransformType;
+                throw new UndeferrableValueException("Value 'MLTransformParametersArgs.TransformType' is not present");
+            }
+        }
     }
 }

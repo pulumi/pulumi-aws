@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
         /// </summary>
-        [Input("failureConditional")]
+        [PolicyResourceProperty("failureConditional", "_mUnknown_FailureConditional")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditional> _mFailureConditional;
-
-        public Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditional? FailureConditional => _mFailureConditional.GetValue("failureConditional");
+        private Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditional? _mValue_FailureConditional;
+        private bool _mUnknown_FailureConditional;
+        public Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditional? FailureConditional
+        {
+            get
+            {
+                if (!_mUnknown_FailureConditional) return _mValue_FailureConditional;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification.FailureConditional' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed . See `failure_next_step`.
         /// </summary>
-        [Input("failureNextStep")]
+        [PolicyResourceProperty("failureNextStep", "_mUnknown_FailureNextStep")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStep> _mFailureNextStep;
-
-        public Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStep? FailureNextStep => _mFailureNextStep.GetValue("failureNextStep");
+        private Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStep? _mValue_FailureNextStep;
+        private bool _mUnknown_FailureNextStep;
+        public Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStep? FailureNextStep
+        {
+            get
+            {
+                if (!_mUnknown_FailureNextStep) return _mValue_FailureNextStep;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification.FailureNextStep' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
         /// </summary>
-        [Input("failureResponse")]
+        [PolicyResourceProperty("failureResponse", "_mUnknown_FailureResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponse> _mFailureResponse;
-
-        public Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponse? FailureResponse => _mFailureResponse.GetValue("failureResponse");
+        private Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponse? _mValue_FailureResponse;
+        private bool _mUnknown_FailureResponse;
+        public Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponse? FailureResponse
+        {
+            get
+            {
+                if (!_mUnknown_FailureResponse) return _mValue_FailureResponse;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification.FailureResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `success_conditional`.
         /// </summary>
-        [Input("successConditional")]
+        [PolicyResourceProperty("successConditional", "_mUnknown_SuccessConditional")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditional> _mSuccessConditional;
-
-        public Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditional? SuccessConditional => _mSuccessConditional.GetValue("successConditional");
+        private Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditional? _mValue_SuccessConditional;
+        private bool _mUnknown_SuccessConditional;
+        public Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditional? SuccessConditional
+        {
+            get
+            {
+                if (!_mUnknown_SuccessConditional) return _mValue_SuccessConditional;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification.SuccessConditional' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `success_next_step`.
         /// </summary>
-        [Input("successNextStep")]
+        [PolicyResourceProperty("successNextStep", "_mUnknown_SuccessNextStep")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStep> _mSuccessNextStep;
-
-        public Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStep? SuccessNextStep => _mSuccessNextStep.GetValue("successNextStep");
+        private Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStep? _mValue_SuccessNextStep;
+        private bool _mUnknown_SuccessNextStep;
+        public Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStep? SuccessNextStep
+        {
+            get
+            {
+                if (!_mUnknown_SuccessNextStep) return _mValue_SuccessNextStep;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification.SuccessNextStep' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `success_response`.
         /// </summary>
-        [Input("successResponse")]
+        [PolicyResourceProperty("successResponse", "_mUnknown_SuccessResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponse> _mSuccessResponse;
-
-        public Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponse? SuccessResponse => _mSuccessResponse.GetValue("successResponse");
+        private Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponse? _mValue_SuccessResponse;
+        private bool _mUnknown_SuccessResponse;
+        public Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponse? SuccessResponse
+        {
+            get
+            {
+                if (!_mUnknown_SuccessResponse) return _mValue_SuccessResponse;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification.SuccessResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for conditional branches to evaluate if the code hook times out. See `timeout_conditional`.
         /// </summary>
-        [Input("timeoutConditional")]
+        [PolicyResourceProperty("timeoutConditional", "_mUnknown_TimeoutConditional")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditional> _mTimeoutConditional;
-
-        public Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditional? TimeoutConditional => _mTimeoutConditional.GetValue("timeoutConditional");
+        private Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditional? _mValue_TimeoutConditional;
+        private bool _mUnknown_TimeoutConditional;
+        public Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditional? TimeoutConditional
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutConditional) return _mValue_TimeoutConditional;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification.TimeoutConditional' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the next step that the bot runs when the code hook times out. See `timeout_next_step`.
         /// </summary>
-        [Input("timeoutNextStep")]
+        [PolicyResourceProperty("timeoutNextStep", "_mUnknown_TimeoutNextStep")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStep> _mTimeoutNextStep;
-
-        public Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStep? TimeoutNextStep => _mTimeoutNextStep.GetValue("timeoutNextStep");
+        private Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStep? _mValue_TimeoutNextStep;
+        private bool _mUnknown_TimeoutNextStep;
+        public Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStep? TimeoutNextStep
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutNextStep) return _mValue_TimeoutNextStep;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification.TimeoutNextStep' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeout_response`.
         /// </summary>
-        [Input("timeoutResponse")]
+        [PolicyResourceProperty("timeoutResponse", "_mUnknown_TimeoutResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponse> _mTimeoutResponse;
-
-        public Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponse? TimeoutResponse => _mTimeoutResponse.GetValue("timeoutResponse");
+        private Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponse? _mValue_TimeoutResponse;
+        private bool _mUnknown_TimeoutResponse;
+        public Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponse? TimeoutResponse
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutResponse) return _mValue_TimeoutResponse;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification.TimeoutResponse' is not present");
+            }
+        }
     }
 }

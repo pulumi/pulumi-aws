@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Outputs
         /// <summary>
         /// Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
         /// </summary>
-        [Input("allowCredentials")]
+        [PolicyResourceProperty("allowCredentials", "_mUnknown_AllowCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowCredentials;
-
-        public bool? AllowCredentials => _mAllowCredentials.GetValue("allowCredentials");
+        private bool? _mValue_AllowCredentials;
+        private bool _mUnknown_AllowCredentials;
+        public bool? AllowCredentials
+        {
+            get
+            {
+                if (!_mUnknown_AllowCredentials) return _mValue_AllowCredentials;
+                throw new UndeferrableValueException("Value 'FunctionUrlCors.AllowCredentials' is not present");
+            }
+        }
 
         /// <summary>
         /// The HTTP headers that origins can include in requests to the function URL. For example: `["date", "keep-alive", "x-custom-header"]`.
         /// </summary>
-        [Input("allowHeaders")]
+        [PolicyResourceProperty("allowHeaders", "_mUnknown_AllowHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowHeaders;
-
-        public List<string>? AllowHeaders => _mAllowHeaders.GetValue("allowHeaders");
+        private List<string>? _mValue_AllowHeaders;
+        private bool _mUnknown_AllowHeaders;
+        public List<string>? AllowHeaders
+        {
+            get
+            {
+                if (!_mUnknown_AllowHeaders) return _mValue_AllowHeaders;
+                throw new UndeferrableValueException("Value 'FunctionUrlCors.AllowHeaders' is not present");
+            }
+        }
 
         /// <summary>
         /// The HTTP methods that are allowed when calling the function URL. For example: `["GET", "POST", "DELETE"]`, or the wildcard character (`["*"]`).
         /// </summary>
-        [Input("allowMethods")]
+        [PolicyResourceProperty("allowMethods", "_mUnknown_AllowMethods")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowMethods;
-
-        public List<string>? AllowMethods => _mAllowMethods.GetValue("allowMethods");
+        private List<string>? _mValue_AllowMethods;
+        private bool _mUnknown_AllowMethods;
+        public List<string>? AllowMethods
+        {
+            get
+            {
+                if (!_mUnknown_AllowMethods) return _mValue_AllowMethods;
+                throw new UndeferrableValueException("Value 'FunctionUrlCors.AllowMethods' is not present");
+            }
+        }
 
         /// <summary>
         /// The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`"*"`)), separated by a comma. For example: `["https://www.example.com", "http://localhost:60905"]`.
         /// </summary>
-        [Input("allowOrigins")]
+        [PolicyResourceProperty("allowOrigins", "_mUnknown_AllowOrigins")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowOrigins;
-
-        public List<string>? AllowOrigins => _mAllowOrigins.GetValue("allowOrigins");
+        private List<string>? _mValue_AllowOrigins;
+        private bool _mUnknown_AllowOrigins;
+        public List<string>? AllowOrigins
+        {
+            get
+            {
+                if (!_mUnknown_AllowOrigins) return _mValue_AllowOrigins;
+                throw new UndeferrableValueException("Value 'FunctionUrlCors.AllowOrigins' is not present");
+            }
+        }
 
         /// <summary>
         /// The HTTP headers in your function response that you want to expose to origins that call the function URL.
         /// </summary>
-        [Input("exposeHeaders")]
+        [PolicyResourceProperty("exposeHeaders", "_mUnknown_ExposeHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExposeHeaders;
-
-        public List<string>? ExposeHeaders => _mExposeHeaders.GetValue("exposeHeaders");
+        private List<string>? _mValue_ExposeHeaders;
+        private bool _mUnknown_ExposeHeaders;
+        public List<string>? ExposeHeaders
+        {
+            get
+            {
+                if (!_mUnknown_ExposeHeaders) return _mValue_ExposeHeaders;
+                throw new UndeferrableValueException("Value 'FunctionUrlCors.ExposeHeaders' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results. The maximum value is `86400`.
         /// </summary>
-        [Input("maxAge")]
+        [PolicyResourceProperty("maxAge", "_mUnknown_MaxAge")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxAge;
-
-        public int? MaxAge => _mMaxAge.GetValue("maxAge");
+        private int? _mValue_MaxAge;
+        private bool _mUnknown_MaxAge;
+        public int? MaxAge
+        {
+            get
+            {
+                if (!_mUnknown_MaxAge) return _mValue_MaxAge;
+                throw new UndeferrableValueException("Value 'FunctionUrlCors.MaxAge' is not present");
+            }
+        }
     }
 }

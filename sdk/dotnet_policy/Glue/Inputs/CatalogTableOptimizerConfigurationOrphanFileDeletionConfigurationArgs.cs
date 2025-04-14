@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// The configuration for an Iceberg orphan file deletion optimizer.
         /// </summary>
-        [Input("icebergConfiguration")]
+        [PolicyResourceProperty("icebergConfiguration", "_mUnknown_IcebergConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs> _mIcebergConfiguration;
-
-        public Inputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs? IcebergConfiguration => _mIcebergConfiguration.GetValue("icebergConfiguration");
+        private Inputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs? _mValue_IcebergConfiguration;
+        private bool _mUnknown_IcebergConfiguration;
+        public Inputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs? IcebergConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_IcebergConfiguration) return _mValue_IcebergConfiguration;
+                throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs.IcebergConfiguration' is not present");
+            }
+        }
     }
 }

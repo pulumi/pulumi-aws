@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Inputs
         /// <summary>
         /// Configuration block for specifying a client authentication. See below.
         /// </summary>
-        [Input("clientAuthentication")]
+        [PolicyResourceProperty("clientAuthentication", "_mUnknown_ClientAuthentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs> _mClientAuthentication;
-
-        public Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs? ClientAuthentication => _mClientAuthentication.GetValue("clientAuthentication");
+        private Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs? _mValue_ClientAuthentication;
+        private bool _mUnknown_ClientAuthentication;
+        public Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs? ClientAuthentication
+        {
+            get
+            {
+                if (!_mUnknown_ClientAuthentication) return _mValue_ClientAuthentication;
+                throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs.ClientAuthentication' is not present");
+            }
+        }
     }
 }

@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The Amazon S3 location being used to capture the data.
         /// </summary>
-        [Input("dataCapturedDestinationS3Uri")]
+        [PolicyResourceProperty("dataCapturedDestinationS3Uri", "_mUnknown_DataCapturedDestinationS3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataCapturedDestinationS3Uri;
-
-        public string? DataCapturedDestinationS3Uri => _mDataCapturedDestinationS3Uri.GetValue("dataCapturedDestinationS3Uri");
+        private string? _mValue_DataCapturedDestinationS3Uri;
+        private bool _mUnknown_DataCapturedDestinationS3Uri;
+        public string? DataCapturedDestinationS3Uri
+        {
+            get
+            {
+                if (!_mUnknown_DataCapturedDestinationS3Uri) return _mValue_DataCapturedDestinationS3Uri;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs.DataCapturedDestinationS3Uri' is not present");
+            }
+        }
 
         /// <summary>
         /// The dataset format for your batch transform job. Fields are documented below.
         /// </summary>
-        [Input("datasetFormat")]
+        [PolicyResourceProperty("datasetFormat", "_mUnknown_DatasetFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs> _mDatasetFormat;
-
-        public Inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs? DatasetFormat => _mDatasetFormat.GetValue("datasetFormat");
+        private Inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs? _mValue_DatasetFormat;
+        private bool _mUnknown_DatasetFormat;
+        public Inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs? DatasetFormat
+        {
+            get
+            {
+                if (!_mUnknown_DatasetFormat) return _mValue_DatasetFormat;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs.DatasetFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
         /// </summary>
-        [Input("localPath")]
+        [PolicyResourceProperty("localPath", "_mUnknown_LocalPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalPath;
-
-        public string? LocalPath => _mLocalPath.GetValue("localPath");
+        private string? _mValue_LocalPath;
+        private bool _mUnknown_LocalPath;
+        public string? LocalPath
+        {
+            get
+            {
+                if (!_mUnknown_LocalPath) return _mValue_LocalPath;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs.LocalPath' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
         /// </summary>
-        [Input("s3DataDistributionType")]
+        [PolicyResourceProperty("s3DataDistributionType", "_mUnknown_S3DataDistributionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3DataDistributionType;
-
-        public string? S3DataDistributionType => _mS3DataDistributionType.GetValue("s3DataDistributionType");
+        private string? _mValue_S3DataDistributionType;
+        private bool _mUnknown_S3DataDistributionType;
+        public string? S3DataDistributionType
+        {
+            get
+            {
+                if (!_mUnknown_S3DataDistributionType) return _mValue_S3DataDistributionType;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs.S3DataDistributionType' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
         /// </summary>
-        [Input("s3InputMode")]
+        [PolicyResourceProperty("s3InputMode", "_mUnknown_S3InputMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3InputMode;
-
-        public string? S3InputMode => _mS3InputMode.GetValue("s3InputMode");
+        private string? _mValue_S3InputMode;
+        private bool _mUnknown_S3InputMode;
+        public string? S3InputMode
+        {
+            get
+            {
+                if (!_mUnknown_S3InputMode) return _mValue_S3InputMode;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs.S3InputMode' is not present");
+            }
+        }
     }
 }

@@ -15,16 +15,30 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// Display name for the dashboard.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DashboardParametersIntegerParameterArgs.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("values")]
+        [PolicyResourceProperty("values", "_mUnknown_Values")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mValues;
-
-        public List<int>? Values => _mValues.GetValue("values");
+        private List<int>? _mValue_Values;
+        private bool _mUnknown_Values;
+        public List<int>? Values
+        {
+            get
+            {
+                if (!_mUnknown_Values) return _mValue_Values;
+                throw new UndeferrableValueException("Value 'DashboardParametersIntegerParameterArgs.Values' is not present");
+            }
+        }
     }
 }

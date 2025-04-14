@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetAmiProductCodeResult
     {
-        [Input("productCodeId")]
+        [PolicyResourceProperty("productCodeId", "_mUnknown_ProductCodeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProductCodeId;
+        private string? _mValue_ProductCodeId;
+        private bool _mUnknown_ProductCodeId;
+        public string? ProductCodeId
+        {
+            get
+            {
+                if (!_mUnknown_ProductCodeId) return _mValue_ProductCodeId;
+                throw new UndeferrableValueException("Value 'GetAmiProductCodeResult.ProductCodeId' is not present");
+            }
+        }
 
-        public string? ProductCodeId => _mProductCodeId.GetValue("productCodeId");
-
-        [Input("productCodeType")]
+        [PolicyResourceProperty("productCodeType", "_mUnknown_ProductCodeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProductCodeType;
-
-        public string? ProductCodeType => _mProductCodeType.GetValue("productCodeType");
+        private string? _mValue_ProductCodeType;
+        private bool _mUnknown_ProductCodeType;
+        public string? ProductCodeType
+        {
+            get
+            {
+                if (!_mUnknown_ProductCodeType) return _mValue_ProductCodeType;
+                throw new UndeferrableValueException("Value 'GetAmiProductCodeResult.ProductCodeType' is not present");
+            }
+        }
     }
 }

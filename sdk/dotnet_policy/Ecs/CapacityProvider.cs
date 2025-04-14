@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Ecs
         /// <summary>
         /// ARN that identifies the capacity provider.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CapacityProvider.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the provider for the ECS auto scaling group. Detailed below.
         /// </summary>
-        [Input("autoScalingGroupProvider")]
+        [PolicyResourceProperty("autoScalingGroupProvider", "_mUnknown_AutoScalingGroupProvider")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CapacityProviderAutoScalingGroupProvider> _mAutoScalingGroupProvider;
-
-        public Outputs.CapacityProviderAutoScalingGroupProvider? AutoScalingGroupProvider => _mAutoScalingGroupProvider.GetValue("autoScalingGroupProvider");
+        private Outputs.CapacityProviderAutoScalingGroupProvider? _mValue_AutoScalingGroupProvider;
+        private bool _mUnknown_AutoScalingGroupProvider;
+        public Outputs.CapacityProviderAutoScalingGroupProvider? AutoScalingGroupProvider
+        {
+            get
+            {
+                if (!_mUnknown_AutoScalingGroupProvider) return _mValue_AutoScalingGroupProvider;
+                throw new UndeferrableValueException("Value 'CapacityProvider.AutoScalingGroupProvider' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the capacity provider.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CapacityProvider.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CapacityProvider.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'CapacityProvider.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ecs/capacityProvider:CapacityProvider")]
@@ -65,28 +100,49 @@ namespace Pulumi.PolicyPacks.Aws.Ecs
         /// <summary>
         /// Configuration block for the provider for the ECS auto scaling group. Detailed below.
         /// </summary>
-        [Input("autoScalingGroupProvider")]
+        [PolicyResourceProperty("autoScalingGroupProvider", "_mUnknown_AutoScalingGroupProvider")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CapacityProviderAutoScalingGroupProviderArgs> _mAutoScalingGroupProvider;
-
-        public Inputs.CapacityProviderAutoScalingGroupProviderArgs? AutoScalingGroupProvider => _mAutoScalingGroupProvider.GetValue("autoScalingGroupProvider");
+        private Inputs.CapacityProviderAutoScalingGroupProviderArgs? _mValue_AutoScalingGroupProvider;
+        private bool _mUnknown_AutoScalingGroupProvider;
+        public Inputs.CapacityProviderAutoScalingGroupProviderArgs? AutoScalingGroupProvider
+        {
+            get
+            {
+                if (!_mUnknown_AutoScalingGroupProvider) return _mValue_AutoScalingGroupProvider;
+                throw new UndeferrableValueException("Value 'CapacityProviderArgs.AutoScalingGroupProvider' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the capacity provider.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CapacityProviderArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CapacityProviderArgs.Tags' is not present");
+            }
+        }
     }
 }

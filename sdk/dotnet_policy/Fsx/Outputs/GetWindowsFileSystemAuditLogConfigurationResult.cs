@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Outputs
 {
     public sealed class GetWindowsFileSystemAuditLogConfigurationResult
     {
-        [Input("auditLogDestination")]
+        [PolicyResourceProperty("auditLogDestination", "_mUnknown_AuditLogDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuditLogDestination;
+        private string? _mValue_AuditLogDestination;
+        private bool _mUnknown_AuditLogDestination;
+        public string? AuditLogDestination
+        {
+            get
+            {
+                if (!_mUnknown_AuditLogDestination) return _mValue_AuditLogDestination;
+                throw new UndeferrableValueException("Value 'GetWindowsFileSystemAuditLogConfigurationResult.AuditLogDestination' is not present");
+            }
+        }
 
-        public string? AuditLogDestination => _mAuditLogDestination.GetValue("auditLogDestination");
-
-        [Input("fileAccessAuditLogLevel")]
+        [PolicyResourceProperty("fileAccessAuditLogLevel", "_mUnknown_FileAccessAuditLogLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileAccessAuditLogLevel;
+        private string? _mValue_FileAccessAuditLogLevel;
+        private bool _mUnknown_FileAccessAuditLogLevel;
+        public string? FileAccessAuditLogLevel
+        {
+            get
+            {
+                if (!_mUnknown_FileAccessAuditLogLevel) return _mValue_FileAccessAuditLogLevel;
+                throw new UndeferrableValueException("Value 'GetWindowsFileSystemAuditLogConfigurationResult.FileAccessAuditLogLevel' is not present");
+            }
+        }
 
-        public string? FileAccessAuditLogLevel => _mFileAccessAuditLogLevel.GetValue("fileAccessAuditLogLevel");
-
-        [Input("fileShareAccessAuditLogLevel")]
+        [PolicyResourceProperty("fileShareAccessAuditLogLevel", "_mUnknown_FileShareAccessAuditLogLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileShareAccessAuditLogLevel;
-
-        public string? FileShareAccessAuditLogLevel => _mFileShareAccessAuditLogLevel.GetValue("fileShareAccessAuditLogLevel");
+        private string? _mValue_FileShareAccessAuditLogLevel;
+        private bool _mUnknown_FileShareAccessAuditLogLevel;
+        public string? FileShareAccessAuditLogLevel
+        {
+            get
+            {
+                if (!_mUnknown_FileShareAccessAuditLogLevel) return _mValue_FileShareAccessAuditLogLevel;
+                throw new UndeferrableValueException("Value 'GetWindowsFileSystemAuditLogConfigurationResult.FileShareAccessAuditLogLevel' is not present");
+            }
+        }
     }
 }

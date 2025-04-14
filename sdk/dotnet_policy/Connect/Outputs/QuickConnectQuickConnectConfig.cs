@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Connect.Outputs
         /// <summary>
         /// Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
         /// </summary>
-        [Input("phoneConfigs")]
+        [PolicyResourceProperty("phoneConfigs", "_mUnknown_PhoneConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.QuickConnectQuickConnectConfigPhoneConfig>> _mPhoneConfigs;
-
-        public List<Outputs.QuickConnectQuickConnectConfigPhoneConfig>? PhoneConfigs => _mPhoneConfigs.GetValue("phoneConfigs");
+        private List<Outputs.QuickConnectQuickConnectConfigPhoneConfig>? _mValue_PhoneConfigs;
+        private bool _mUnknown_PhoneConfigs;
+        public List<Outputs.QuickConnectQuickConnectConfigPhoneConfig>? PhoneConfigs
+        {
+            get
+            {
+                if (!_mUnknown_PhoneConfigs) return _mValue_PhoneConfigs;
+                throw new UndeferrableValueException("Value 'QuickConnectQuickConnectConfig.PhoneConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
         /// </summary>
-        [Input("queueConfigs")]
+        [PolicyResourceProperty("queueConfigs", "_mUnknown_QueueConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.QuickConnectQuickConnectConfigQueueConfig>> _mQueueConfigs;
-
-        public List<Outputs.QuickConnectQuickConnectConfigQueueConfig>? QueueConfigs => _mQueueConfigs.GetValue("queueConfigs");
+        private List<Outputs.QuickConnectQuickConnectConfigQueueConfig>? _mValue_QueueConfigs;
+        private bool _mUnknown_QueueConfigs;
+        public List<Outputs.QuickConnectQuickConnectConfigQueueConfig>? QueueConfigs
+        {
+            get
+            {
+                if (!_mUnknown_QueueConfigs) return _mValue_QueueConfigs;
+                throw new UndeferrableValueException("Value 'QuickConnectQuickConnectConfig.QueueConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
         /// </summary>
-        [Input("quickConnectType")]
+        [PolicyResourceProperty("quickConnectType", "_mUnknown_QuickConnectType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQuickConnectType;
-
-        public string? QuickConnectType => _mQuickConnectType.GetValue("quickConnectType");
+        private string? _mValue_QuickConnectType;
+        private bool _mUnknown_QuickConnectType;
+        public string? QuickConnectType
+        {
+            get
+            {
+                if (!_mUnknown_QuickConnectType) return _mValue_QuickConnectType;
+                throw new UndeferrableValueException("Value 'QuickConnectQuickConnectConfig.QuickConnectType' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
         /// </summary>
-        [Input("userConfigs")]
+        [PolicyResourceProperty("userConfigs", "_mUnknown_UserConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.QuickConnectQuickConnectConfigUserConfig>> _mUserConfigs;
-
-        public List<Outputs.QuickConnectQuickConnectConfigUserConfig>? UserConfigs => _mUserConfigs.GetValue("userConfigs");
+        private List<Outputs.QuickConnectQuickConnectConfigUserConfig>? _mValue_UserConfigs;
+        private bool _mUnknown_UserConfigs;
+        public List<Outputs.QuickConnectQuickConnectConfigUserConfig>? UserConfigs
+        {
+            get
+            {
+                if (!_mUnknown_UserConfigs) return _mValue_UserConfigs;
+                throw new UndeferrableValueException("Value 'QuickConnectQuickConnectConfig.UserConfigs' is not present");
+            }
+        }
     }
 }

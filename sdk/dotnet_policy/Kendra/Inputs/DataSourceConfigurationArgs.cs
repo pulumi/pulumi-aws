@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Inputs
         /// <summary>
         /// A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
         /// </summary>
-        [Input("s3Configuration")]
+        [PolicyResourceProperty("s3Configuration", "_mUnknown_S3Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceConfigurationS3ConfigurationArgs> _mS3Configuration;
-
-        public Inputs.DataSourceConfigurationS3ConfigurationArgs? S3Configuration => _mS3Configuration.GetValue("s3Configuration");
+        private Inputs.DataSourceConfigurationS3ConfigurationArgs? _mValue_S3Configuration;
+        private bool _mUnknown_S3Configuration;
+        public Inputs.DataSourceConfigurationS3ConfigurationArgs? S3Configuration
+        {
+            get
+            {
+                if (!_mUnknown_S3Configuration) return _mValue_S3Configuration;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationArgs.S3Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
         /// </summary>
-        [Input("templateConfiguration")]
+        [PolicyResourceProperty("templateConfiguration", "_mUnknown_TemplateConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceConfigurationTemplateConfigurationArgs> _mTemplateConfiguration;
-
-        public Inputs.DataSourceConfigurationTemplateConfigurationArgs? TemplateConfiguration => _mTemplateConfiguration.GetValue("templateConfiguration");
+        private Inputs.DataSourceConfigurationTemplateConfigurationArgs? _mValue_TemplateConfiguration;
+        private bool _mUnknown_TemplateConfiguration;
+        public Inputs.DataSourceConfigurationTemplateConfigurationArgs? TemplateConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_TemplateConfiguration) return _mValue_TemplateConfiguration;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationArgs.TemplateConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
         /// </summary>
-        [Input("webCrawlerConfiguration")]
+        [PolicyResourceProperty("webCrawlerConfiguration", "_mUnknown_WebCrawlerConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceConfigurationWebCrawlerConfigurationArgs> _mWebCrawlerConfiguration;
-
-        public Inputs.DataSourceConfigurationWebCrawlerConfigurationArgs? WebCrawlerConfiguration => _mWebCrawlerConfiguration.GetValue("webCrawlerConfiguration");
+        private Inputs.DataSourceConfigurationWebCrawlerConfigurationArgs? _mValue_WebCrawlerConfiguration;
+        private bool _mUnknown_WebCrawlerConfiguration;
+        public Inputs.DataSourceConfigurationWebCrawlerConfigurationArgs? WebCrawlerConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_WebCrawlerConfiguration) return _mValue_WebCrawlerConfiguration;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationArgs.WebCrawlerConfiguration' is not present");
+            }
+        }
     }
 }

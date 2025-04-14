@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// Name of the secret.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationLogConfigurationSecretOption.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
         /// </summary>
-        [Input("valueFrom")]
+        [PolicyResourceProperty("valueFrom", "_mUnknown_ValueFrom")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValueFrom;
-
-        public string? ValueFrom => _mValueFrom.GetValue("valueFrom");
+        private string? _mValue_ValueFrom;
+        private bool _mUnknown_ValueFrom;
+        public string? ValueFrom
+        {
+            get
+            {
+                if (!_mUnknown_ValueFrom) return _mValue_ValueFrom;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationLogConfigurationSecretOption.ValueFrom' is not present");
+            }
+        }
     }
 }

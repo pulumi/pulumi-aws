@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty.Inputs
         /// <summary>
         /// The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
         /// </summary>
-        [Input("autoEnable")]
+        [PolicyResourceProperty("autoEnable", "_mUnknown_AutoEnable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoEnable;
-
-        public string? AutoEnable => _mAutoEnable.GetValue("autoEnable");
+        private string? _mValue_AutoEnable;
+        private bool _mUnknown_AutoEnable;
+        public string? AutoEnable
+        {
+            get
+            {
+                if (!_mUnknown_AutoEnable) return _mValue_AutoEnable;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationFeatureAdditionalConfigurationArgs.AutoEnable' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationFeatureAdditionalConfigurationArgs.Name' is not present");
+            }
+        }
     }
 }

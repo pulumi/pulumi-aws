@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// Configuration block for override values
         /// </summary>
-        [Input("override")]
+        [PolicyResourceProperty("override", "_mUnknown_Override")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> _mOverride;
-
-        public Outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride? Override => _mOverride.GetValue("override");
+        private Outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride? _mValue_Override;
+        private bool _mUnknown_Override;
+        public Outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride? Override
+        {
+            get
+            {
+                if (!_mUnknown_Override) return _mValue_Override;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatefulRuleGroupReference.Override' is not present");
+            }
+        }
 
         /// <summary>
         /// An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatefulRuleGroupReference.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the stateful rule group.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatefulRuleGroupReference.ResourceArn' is not present");
+            }
+        }
     }
 }

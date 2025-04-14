@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
         /// </summary>
-        [Input("marketType")]
+        [PolicyResourceProperty("marketType", "_mUnknown_MarketType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMarketType;
-
-        public string? MarketType => _mMarketType.GetValue("marketType");
+        private string? _mValue_MarketType;
+        private bool _mUnknown_MarketType;
+        public string? MarketType
+        {
+            get
+            {
+                if (!_mUnknown_MarketType) return _mValue_MarketType;
+                throw new UndeferrableValueException("Value 'InstanceInstanceMarketOptionsArgs.MarketType' is not present");
+            }
+        }
 
         /// <summary>
         /// Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
         /// </summary>
-        [Input("spotOptions")]
+        [PolicyResourceProperty("spotOptions", "_mUnknown_SpotOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceInstanceMarketOptionsSpotOptionsArgs> _mSpotOptions;
-
-        public Inputs.InstanceInstanceMarketOptionsSpotOptionsArgs? SpotOptions => _mSpotOptions.GetValue("spotOptions");
+        private Inputs.InstanceInstanceMarketOptionsSpotOptionsArgs? _mValue_SpotOptions;
+        private bool _mUnknown_SpotOptions;
+        public Inputs.InstanceInstanceMarketOptionsSpotOptionsArgs? SpotOptions
+        {
+            get
+            {
+                if (!_mUnknown_SpotOptions) return _mValue_SpotOptions;
+                throw new UndeferrableValueException("Value 'InstanceInstanceMarketOptionsArgs.SpotOptions' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The ID of your Amazon EFS file system.
         /// </summary>
-        [Input("fileSystemId")]
+        [PolicyResourceProperty("fileSystemId", "_mUnknown_FileSystemId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
-
-        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+        private string? _mValue_FileSystemId;
+        private bool _mUnknown_FileSystemId;
+        public string? FileSystemId
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemId) return _mValue_FileSystemId;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs.FileSystemId' is not present");
+            }
+        }
 
         /// <summary>
         /// The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
         /// </summary>
-        [Input("fileSystemPath")]
+        [PolicyResourceProperty("fileSystemPath", "_mUnknown_FileSystemPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemPath;
-
-        public string? FileSystemPath => _mFileSystemPath.GetValue("fileSystemPath");
+        private string? _mValue_FileSystemPath;
+        private bool _mUnknown_FileSystemPath;
+        public string? FileSystemPath
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemPath) return _mValue_FileSystemPath;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs.FileSystemPath' is not present");
+            }
+        }
     }
 }

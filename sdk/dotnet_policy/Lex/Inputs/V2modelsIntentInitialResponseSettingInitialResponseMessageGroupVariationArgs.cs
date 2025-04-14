@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
         /// </summary>
-        [Input("customPayload")]
+        [PolicyResourceProperty("customPayload", "_mUnknown_CustomPayload")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationCustomPayloadArgs> _mCustomPayload;
-
-        public Inputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationCustomPayloadArgs? CustomPayload => _mCustomPayload.GetValue("customPayload");
+        private Inputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationCustomPayloadArgs? _mValue_CustomPayload;
+        private bool _mUnknown_CustomPayload;
+        public Inputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationCustomPayloadArgs? CustomPayload
+        {
+            get
+            {
+                if (!_mUnknown_CustomPayload) return _mValue_CustomPayload;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationArgs.CustomPayload' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
         /// </summary>
-        [Input("imageResponseCard")]
+        [PolicyResourceProperty("imageResponseCard", "_mUnknown_ImageResponseCard")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCardArgs> _mImageResponseCard;
-
-        public Inputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCardArgs? ImageResponseCard => _mImageResponseCard.GetValue("imageResponseCard");
+        private Inputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCardArgs? _mValue_ImageResponseCard;
+        private bool _mUnknown_ImageResponseCard;
+        public Inputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCardArgs? ImageResponseCard
+        {
+            get
+            {
+                if (!_mUnknown_ImageResponseCard) return _mValue_ImageResponseCard;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationArgs.ImageResponseCard' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a message in plain text format. See `plain_text_message`.
         /// </summary>
-        [Input("plainTextMessage")]
+        [PolicyResourceProperty("plainTextMessage", "_mUnknown_PlainTextMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationPlainTextMessageArgs> _mPlainTextMessage;
-
-        public Inputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationPlainTextMessageArgs? PlainTextMessage => _mPlainTextMessage.GetValue("plainTextMessage");
+        private Inputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationPlainTextMessageArgs? _mValue_PlainTextMessage;
+        private bool _mUnknown_PlainTextMessage;
+        public Inputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationPlainTextMessageArgs? PlainTextMessage
+        {
+            get
+            {
+                if (!_mUnknown_PlainTextMessage) return _mValue_PlainTextMessage;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationArgs.PlainTextMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
         /// </summary>
-        [Input("ssmlMessage")]
+        [PolicyResourceProperty("ssmlMessage", "_mUnknown_SsmlMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationSsmlMessageArgs> _mSsmlMessage;
-
-        public Inputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationSsmlMessageArgs? SsmlMessage => _mSsmlMessage.GetValue("ssmlMessage");
+        private Inputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationSsmlMessageArgs? _mValue_SsmlMessage;
+        private bool _mUnknown_SsmlMessage;
+        public Inputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationSsmlMessageArgs? SsmlMessage
+        {
+            get
+            {
+                if (!_mUnknown_SsmlMessage) return _mValue_SsmlMessage;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationArgs.SsmlMessage' is not present");
+            }
+        }
     }
 }

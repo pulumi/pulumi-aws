@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// Definition of topic in topic policy.
         /// </summary>
-        [Input("definition")]
+        [PolicyResourceProperty("definition", "_mUnknown_Definition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefinition;
-
-        public string? Definition => _mDefinition.GetValue("definition");
+        private string? _mValue_Definition;
+        private bool _mUnknown_Definition;
+        public string? Definition
+        {
+            get
+            {
+                if (!_mUnknown_Definition) return _mValue_Definition;
+                throw new UndeferrableValueException("Value 'GuardrailTopicPolicyConfigTopicsConfig.Definition' is not present");
+            }
+        }
 
         /// <summary>
         /// List of text examples.
         /// </summary>
-        [Input("examples")]
+        [PolicyResourceProperty("examples", "_mUnknown_Examples")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExamples;
-
-        public List<string>? Examples => _mExamples.GetValue("examples");
+        private List<string>? _mValue_Examples;
+        private bool _mUnknown_Examples;
+        public List<string>? Examples
+        {
+            get
+            {
+                if (!_mUnknown_Examples) return _mValue_Examples;
+                throw new UndeferrableValueException("Value 'GuardrailTopicPolicyConfigTopicsConfig.Examples' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of topic in topic policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GuardrailTopicPolicyConfigTopicsConfig.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of topic in a policy.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GuardrailTopicPolicyConfigTopicsConfig.Type' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MemoryDb.Outputs
         /// <summary>
         /// Number of passwords belonging to the user if `type` is set to `password`.
         /// </summary>
-        [Input("passwordCount")]
+        [PolicyResourceProperty("passwordCount", "_mUnknown_PasswordCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPasswordCount;
-
-        public int? PasswordCount => _mPasswordCount.GetValue("passwordCount");
+        private int? _mValue_PasswordCount;
+        private bool _mUnknown_PasswordCount;
+        public int? PasswordCount
+        {
+            get
+            {
+                if (!_mUnknown_PasswordCount) return _mValue_PasswordCount;
+                throw new UndeferrableValueException("Value 'GetUserAuthenticationModeResult.PasswordCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of authentication configured.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetUserAuthenticationModeResult.Type' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppStream.Outputs
         /// <summary>
         /// Fully qualified name of the directory (for example, corp.example.com).
         /// </summary>
-        [Input("directoryName")]
+        [PolicyResourceProperty("directoryName", "_mUnknown_DirectoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryName;
-
-        public string? DirectoryName => _mDirectoryName.GetValue("directoryName");
+        private string? _mValue_DirectoryName;
+        private bool _mUnknown_DirectoryName;
+        public string? DirectoryName
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryName) return _mValue_DirectoryName;
+                throw new UndeferrableValueException("Value 'ImageBuilderDomainJoinInfo.DirectoryName' is not present");
+            }
+        }
 
         /// <summary>
         /// Distinguished name of the organizational unit for computer accounts.
         /// </summary>
-        [Input("organizationalUnitDistinguishedName")]
+        [PolicyResourceProperty("organizationalUnitDistinguishedName", "_mUnknown_OrganizationalUnitDistinguishedName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationalUnitDistinguishedName;
-
-        public string? OrganizationalUnitDistinguishedName => _mOrganizationalUnitDistinguishedName.GetValue("organizationalUnitDistinguishedName");
+        private string? _mValue_OrganizationalUnitDistinguishedName;
+        private bool _mUnknown_OrganizationalUnitDistinguishedName;
+        public string? OrganizationalUnitDistinguishedName
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationalUnitDistinguishedName) return _mValue_OrganizationalUnitDistinguishedName;
+                throw new UndeferrableValueException("Value 'ImageBuilderDomainJoinInfo.OrganizationalUnitDistinguishedName' is not present");
+            }
+        }
     }
 }

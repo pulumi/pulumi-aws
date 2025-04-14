@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake.Outputs
         /// <summary>
         /// The attributes of the third-party custom source. See `attributes` Block below.
         /// </summary>
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SubscriberSourceCustomLogSourceResourceAttribute>> _mAttributes;
-
-        public List<Outputs.SubscriberSourceCustomLogSourceResourceAttribute>? Attributes => _mAttributes.GetValue("attributes");
+        private List<Outputs.SubscriberSourceCustomLogSourceResourceAttribute>? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public List<Outputs.SubscriberSourceCustomLogSourceResourceAttribute>? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'SubscriberSourceCustomLogSourceResource.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// The details of the log provider for the third-party custom source. See `provider` Block below.
         /// </summary>
-        [Input("providers")]
+        [PolicyResourceProperty("providers", "_mUnknown_Providers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SubscriberSourceCustomLogSourceResourceProvider>> _mProviders;
-
-        public List<Outputs.SubscriberSourceCustomLogSourceResourceProvider>? Providers => _mProviders.GetValue("providers");
+        private List<Outputs.SubscriberSourceCustomLogSourceResourceProvider>? _mValue_Providers;
+        private bool _mUnknown_Providers;
+        public List<Outputs.SubscriberSourceCustomLogSourceResourceProvider>? Providers
+        {
+            get
+            {
+                if (!_mUnknown_Providers) return _mValue_Providers;
+                throw new UndeferrableValueException("Value 'SubscriberSourceCustomLogSourceResource.Providers' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for a third-party custom source. This must be a Regionally unique value.
         /// </summary>
-        [Input("sourceName")]
+        [PolicyResourceProperty("sourceName", "_mUnknown_SourceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceName;
-
-        public string? SourceName => _mSourceName.GetValue("sourceName");
+        private string? _mValue_SourceName;
+        private bool _mUnknown_SourceName;
+        public string? SourceName
+        {
+            get
+            {
+                if (!_mUnknown_SourceName) return _mValue_SourceName;
+                throw new UndeferrableValueException("Value 'SubscriberSourceCustomLogSourceResource.SourceName' is not present");
+            }
+        }
 
         /// <summary>
         /// The version for a third-party custom source. This must be a Regionally unique value.
         /// </summary>
-        [Input("sourceVersion")]
+        [PolicyResourceProperty("sourceVersion", "_mUnknown_SourceVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceVersion;
-
-        public string? SourceVersion => _mSourceVersion.GetValue("sourceVersion");
+        private string? _mValue_SourceVersion;
+        private bool _mUnknown_SourceVersion;
+        public string? SourceVersion
+        {
+            get
+            {
+                if (!_mUnknown_SourceVersion) return _mValue_SourceVersion;
+                throw new UndeferrableValueException("Value 'SubscriberSourceCustomLogSourceResource.SourceVersion' is not present");
+            }
+        }
     }
 }

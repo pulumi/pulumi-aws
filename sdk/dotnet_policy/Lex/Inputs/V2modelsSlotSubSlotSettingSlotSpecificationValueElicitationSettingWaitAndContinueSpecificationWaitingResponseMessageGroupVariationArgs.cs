@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
 {
     public sealed class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs
     {
-        [Input("customPayload")]
+        [PolicyResourceProperty("customPayload", "_mUnknown_CustomPayload")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs> _mCustomPayload;
+        private Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs? _mValue_CustomPayload;
+        private bool _mUnknown_CustomPayload;
+        public Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs? CustomPayload
+        {
+            get
+            {
+                if (!_mUnknown_CustomPayload) return _mValue_CustomPayload;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs.CustomPayload' is not present");
+            }
+        }
 
-        public Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs? CustomPayload => _mCustomPayload.GetValue("customPayload");
-
-        [Input("imageResponseCard")]
+        [PolicyResourceProperty("imageResponseCard", "_mUnknown_ImageResponseCard")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs> _mImageResponseCard;
+        private Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs? _mValue_ImageResponseCard;
+        private bool _mUnknown_ImageResponseCard;
+        public Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs? ImageResponseCard
+        {
+            get
+            {
+                if (!_mUnknown_ImageResponseCard) return _mValue_ImageResponseCard;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs.ImageResponseCard' is not present");
+            }
+        }
 
-        public Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs? ImageResponseCard => _mImageResponseCard.GetValue("imageResponseCard");
-
-        [Input("plainTextMessage")]
+        [PolicyResourceProperty("plainTextMessage", "_mUnknown_PlainTextMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs> _mPlainTextMessage;
+        private Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs? _mValue_PlainTextMessage;
+        private bool _mUnknown_PlainTextMessage;
+        public Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs? PlainTextMessage
+        {
+            get
+            {
+                if (!_mUnknown_PlainTextMessage) return _mValue_PlainTextMessage;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs.PlainTextMessage' is not present");
+            }
+        }
 
-        public Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs? PlainTextMessage => _mPlainTextMessage.GetValue("plainTextMessage");
-
-        [Input("ssmlMessage")]
+        [PolicyResourceProperty("ssmlMessage", "_mUnknown_SsmlMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs> _mSsmlMessage;
-
-        public Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs? SsmlMessage => _mSsmlMessage.GetValue("ssmlMessage");
+        private Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs? _mValue_SsmlMessage;
+        private bool _mUnknown_SsmlMessage;
+        public Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs? SsmlMessage
+        {
+            get
+            {
+                if (!_mUnknown_SsmlMessage) return _mValue_SsmlMessage;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs.SsmlMessage' is not present");
+            }
+        }
     }
 }

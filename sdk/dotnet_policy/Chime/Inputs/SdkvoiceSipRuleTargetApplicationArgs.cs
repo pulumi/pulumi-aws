@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Chime.Inputs
         /// <summary>
         /// The AWS Region of the target application.
         /// </summary>
-        [Input("awsRegion")]
+        [PolicyResourceProperty("awsRegion", "_mUnknown_AwsRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsRegion;
-
-        public string? AwsRegion => _mAwsRegion.GetValue("awsRegion");
+        private string? _mValue_AwsRegion;
+        private bool _mUnknown_AwsRegion;
+        public string? AwsRegion
+        {
+            get
+            {
+                if (!_mUnknown_AwsRegion) return _mValue_AwsRegion;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipRuleTargetApplicationArgs.AwsRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// Priority of the SIP media application in the target list.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipRuleTargetApplicationArgs.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// The SIP media application ID.
         /// </summary>
-        [Input("sipMediaApplicationId")]
+        [PolicyResourceProperty("sipMediaApplicationId", "_mUnknown_SipMediaApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSipMediaApplicationId;
-
-        public string? SipMediaApplicationId => _mSipMediaApplicationId.GetValue("sipMediaApplicationId");
+        private string? _mValue_SipMediaApplicationId;
+        private bool _mUnknown_SipMediaApplicationId;
+        public string? SipMediaApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_SipMediaApplicationId) return _mValue_SipMediaApplicationId;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipRuleTargetApplicationArgs.SipMediaApplicationId' is not present");
+            }
+        }
     }
 }

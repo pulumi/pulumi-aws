@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Shield
         /// <summary>
         /// Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
         /// </summary>
-        [Input("autoRenew")]
+        [PolicyResourceProperty("autoRenew", "_mUnknown_AutoRenew")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoRenew;
-
-        public string? AutoRenew => _mAutoRenew.GetValue("autoRenew");
+        private string? _mValue_AutoRenew;
+        private bool _mUnknown_AutoRenew;
+        public string? AutoRenew
+        {
+            get
+            {
+                if (!_mUnknown_AutoRenew) return _mValue_AutoRenew;
+                throw new UndeferrableValueException("Value 'Subscription.AutoRenew' is not present");
+            }
+        }
 
         /// <summary>
         /// Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'Subscription.SkipDestroy' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:shield/subscription:Subscription")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Shield
         /// <summary>
         /// Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
         /// </summary>
-        [Input("autoRenew")]
+        [PolicyResourceProperty("autoRenew", "_mUnknown_AutoRenew")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoRenew;
-
-        public string? AutoRenew => _mAutoRenew.GetValue("autoRenew");
+        private string? _mValue_AutoRenew;
+        private bool _mUnknown_AutoRenew;
+        public string? AutoRenew
+        {
+            get
+            {
+                if (!_mUnknown_AutoRenew) return _mValue_AutoRenew;
+                throw new UndeferrableValueException("Value 'SubscriptionArgs.AutoRenew' is not present");
+            }
+        }
 
         /// <summary>
         /// Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'SubscriptionArgs.SkipDestroy' is not present");
+            }
+        }
     }
 }

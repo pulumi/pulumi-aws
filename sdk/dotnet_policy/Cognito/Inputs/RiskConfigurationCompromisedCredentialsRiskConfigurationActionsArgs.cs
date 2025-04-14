@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Inputs
         /// <summary>
         /// The event action. Valid values are `BLOCK` or `NO_ACTION`.
         /// </summary>
-        [Input("eventAction")]
+        [PolicyResourceProperty("eventAction", "_mUnknown_EventAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventAction;
-
-        public string? EventAction => _mEventAction.GetValue("eventAction");
+        private string? _mValue_EventAction;
+        private bool _mUnknown_EventAction;
+        public string? EventAction
+        {
+            get
+            {
+                if (!_mUnknown_EventAction) return _mValue_EventAction;
+                throw new UndeferrableValueException("Value 'RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs.EventAction' is not present");
+            }
+        }
     }
 }

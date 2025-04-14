@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.LB.Outputs
         /// <summary>
         /// Set of `key`-`value` pairs indicating the query string parameters to match.
         /// </summary>
-        [Input("values")]
+        [PolicyResourceProperty("values", "_mUnknown_Values")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetListenerRuleConditionQueryStringValueResult>> _mValues;
-
-        public List<Outputs.GetListenerRuleConditionQueryStringValueResult>? Values => _mValues.GetValue("values");
+        private List<Outputs.GetListenerRuleConditionQueryStringValueResult>? _mValue_Values;
+        private bool _mUnknown_Values;
+        public List<Outputs.GetListenerRuleConditionQueryStringValueResult>? Values
+        {
+            get
+            {
+                if (!_mUnknown_Values) return _mValue_Values;
+                throw new UndeferrableValueException("Value 'GetListenerRuleConditionQueryStringResult.Values' is not present");
+            }
+        }
     }
 }

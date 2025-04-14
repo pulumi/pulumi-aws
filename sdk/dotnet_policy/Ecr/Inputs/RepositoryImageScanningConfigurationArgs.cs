@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Ecr.Inputs
         /// <summary>
         /// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
         /// </summary>
-        [Input("scanOnPush")]
+        [PolicyResourceProperty("scanOnPush", "_mUnknown_ScanOnPush")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mScanOnPush;
-
-        public bool? ScanOnPush => _mScanOnPush.GetValue("scanOnPush");
+        private bool? _mValue_ScanOnPush;
+        private bool _mUnknown_ScanOnPush;
+        public bool? ScanOnPush
+        {
+            get
+            {
+                if (!_mUnknown_ScanOnPush) return _mValue_ScanOnPush;
+                throw new UndeferrableValueException("Value 'RepositoryImageScanningConfigurationArgs.ScanOnPush' is not present");
+            }
+        }
     }
 }

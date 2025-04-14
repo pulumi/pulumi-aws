@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Outputs
         /// <summary>
         /// List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `"64512-65534"`. No other ASN ranges can be used.
         /// </summary>
-        [Input("asnRanges")]
+        [PolicyResourceProperty("asnRanges", "_mUnknown_AsnRanges")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAsnRanges;
-
-        public List<string>? AsnRanges => _mAsnRanges.GetValue("asnRanges");
+        private List<string>? _mValue_AsnRanges;
+        private bool _mUnknown_AsnRanges;
+        public List<string>? AsnRanges
+        {
+            get
+            {
+                if (!_mUnknown_AsnRanges) return _mValue_AsnRanges;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationResult.AsnRanges' is not present");
+            }
+        }
 
         /// <summary>
         /// A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
         /// </summary>
-        [Input("edgeLocations")]
+        [PolicyResourceProperty("edgeLocations", "_mUnknown_EdgeLocations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationResult>> _mEdgeLocations;
-
-        public List<Outputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationResult>? EdgeLocations => _mEdgeLocations.GetValue("edgeLocations");
+        private List<Outputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationResult>? _mValue_EdgeLocations;
+        private bool _mUnknown_EdgeLocations;
+        public List<Outputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationResult>? EdgeLocations
+        {
+            get
+            {
+                if (!_mUnknown_EdgeLocations) return _mValue_EdgeLocations;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationResult.EdgeLocations' is not present");
+            }
+        }
 
         /// <summary>
         /// The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
         /// </summary>
-        [Input("insideCidrBlocks")]
+        [PolicyResourceProperty("insideCidrBlocks", "_mUnknown_InsideCidrBlocks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInsideCidrBlocks;
-
-        public List<string>? InsideCidrBlocks => _mInsideCidrBlocks.GetValue("insideCidrBlocks");
+        private List<string>? _mValue_InsideCidrBlocks;
+        private bool _mUnknown_InsideCidrBlocks;
+        public List<string>? InsideCidrBlocks
+        {
+            get
+            {
+                if (!_mUnknown_InsideCidrBlocks) return _mValue_InsideCidrBlocks;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationResult.InsideCidrBlocks' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
         /// </summary>
-        [Input("vpnEcmpSupport")]
+        [PolicyResourceProperty("vpnEcmpSupport", "_mUnknown_VpnEcmpSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mVpnEcmpSupport;
-
-        public bool? VpnEcmpSupport => _mVpnEcmpSupport.GetValue("vpnEcmpSupport");
+        private bool? _mValue_VpnEcmpSupport;
+        private bool _mUnknown_VpnEcmpSupport;
+        public bool? VpnEcmpSupport
+        {
+            get
+            {
+                if (!_mUnknown_VpnEcmpSupport) return _mValue_VpnEcmpSupport;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationResult.VpnEcmpSupport' is not present");
+            }
+        }
     }
 }

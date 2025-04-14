@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamWrite
         /// <summary>
         /// The ARN that uniquely identifies this table.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Table.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Timestream database.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'Table.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
         /// </summary>
-        [Input("magneticStoreWriteProperties")]
+        [PolicyResourceProperty("magneticStoreWriteProperties", "_mUnknown_MagneticStoreWriteProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableMagneticStoreWriteProperties> _mMagneticStoreWriteProperties;
-
-        public Outputs.TableMagneticStoreWriteProperties? MagneticStoreWriteProperties => _mMagneticStoreWriteProperties.GetValue("magneticStoreWriteProperties");
+        private Outputs.TableMagneticStoreWriteProperties? _mValue_MagneticStoreWriteProperties;
+        private bool _mUnknown_MagneticStoreWriteProperties;
+        public Outputs.TableMagneticStoreWriteProperties? MagneticStoreWriteProperties
+        {
+            get
+            {
+                if (!_mUnknown_MagneticStoreWriteProperties) return _mValue_MagneticStoreWriteProperties;
+                throw new UndeferrableValueException("Value 'Table.MagneticStoreWriteProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
         /// </summary>
-        [Input("retentionProperties")]
+        [PolicyResourceProperty("retentionProperties", "_mUnknown_RetentionProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableRetentionProperties> _mRetentionProperties;
-
-        public Outputs.TableRetentionProperties? RetentionProperties => _mRetentionProperties.GetValue("retentionProperties");
+        private Outputs.TableRetentionProperties? _mValue_RetentionProperties;
+        private bool _mUnknown_RetentionProperties;
+        public Outputs.TableRetentionProperties? RetentionProperties
+        {
+            get
+            {
+                if (!_mUnknown_RetentionProperties) return _mValue_RetentionProperties;
+                throw new UndeferrableValueException("Value 'Table.RetentionProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// The schema of the table. See Schema below for more details.
         /// </summary>
-        [Input("schema")]
+        [PolicyResourceProperty("schema", "_mUnknown_Schema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableSchema> _mSchema;
-
-        public Outputs.TableSchema? Schema => _mSchema.GetValue("schema");
+        private Outputs.TableSchema? _mValue_Schema;
+        private bool _mUnknown_Schema;
+        public Outputs.TableSchema? Schema
+        {
+            get
+            {
+                if (!_mUnknown_Schema) return _mValue_Schema;
+                throw new UndeferrableValueException("Value 'Table.Schema' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Timestream table.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'Table.TableName' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Table.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Table.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:timestreamwrite/table:Table")]
@@ -92,55 +148,97 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamWrite
         /// <summary>
         /// The name of the Timestream database.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'TableArgs.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
         /// </summary>
-        [Input("magneticStoreWriteProperties")]
+        [PolicyResourceProperty("magneticStoreWriteProperties", "_mUnknown_MagneticStoreWriteProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableMagneticStoreWritePropertiesArgs> _mMagneticStoreWriteProperties;
-
-        public Inputs.TableMagneticStoreWritePropertiesArgs? MagneticStoreWriteProperties => _mMagneticStoreWriteProperties.GetValue("magneticStoreWriteProperties");
+        private Inputs.TableMagneticStoreWritePropertiesArgs? _mValue_MagneticStoreWriteProperties;
+        private bool _mUnknown_MagneticStoreWriteProperties;
+        public Inputs.TableMagneticStoreWritePropertiesArgs? MagneticStoreWriteProperties
+        {
+            get
+            {
+                if (!_mUnknown_MagneticStoreWriteProperties) return _mValue_MagneticStoreWriteProperties;
+                throw new UndeferrableValueException("Value 'TableArgs.MagneticStoreWriteProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
         /// </summary>
-        [Input("retentionProperties")]
+        [PolicyResourceProperty("retentionProperties", "_mUnknown_RetentionProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableRetentionPropertiesArgs> _mRetentionProperties;
-
-        public Inputs.TableRetentionPropertiesArgs? RetentionProperties => _mRetentionProperties.GetValue("retentionProperties");
+        private Inputs.TableRetentionPropertiesArgs? _mValue_RetentionProperties;
+        private bool _mUnknown_RetentionProperties;
+        public Inputs.TableRetentionPropertiesArgs? RetentionProperties
+        {
+            get
+            {
+                if (!_mUnknown_RetentionProperties) return _mValue_RetentionProperties;
+                throw new UndeferrableValueException("Value 'TableArgs.RetentionProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// The schema of the table. See Schema below for more details.
         /// </summary>
-        [Input("schema")]
+        [PolicyResourceProperty("schema", "_mUnknown_Schema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableSchemaArgs> _mSchema;
-
-        public Inputs.TableSchemaArgs? Schema => _mSchema.GetValue("schema");
+        private Inputs.TableSchemaArgs? _mValue_Schema;
+        private bool _mUnknown_Schema;
+        public Inputs.TableSchemaArgs? Schema
+        {
+            get
+            {
+                if (!_mUnknown_Schema) return _mValue_Schema;
+                throw new UndeferrableValueException("Value 'TableArgs.Schema' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Timestream table.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'TableArgs.TableName' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TableArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The ARN of the policy you want to apply
         /// </summary>
-        [Input("policyArn")]
+        [PolicyResourceProperty("policyArn", "_mUnknown_PolicyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
-
-        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
+        private string? _mValue_PolicyArn;
+        private bool _mUnknown_PolicyArn;
+        public string? PolicyArn
+        {
+            get
+            {
+                if (!_mUnknown_PolicyArn) return _mValue_PolicyArn;
+                throw new UndeferrableValueException("Value 'UserPolicyAttachment.PolicyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The user the policy should be applied to
         /// </summary>
-        [Input("user")]
+        [PolicyResourceProperty("user", "_mUnknown_User")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
-
-        public string? User => _mUser.GetValue("user");
+        private string? _mValue_User;
+        private bool _mUnknown_User;
+        public string? User
+        {
+            get
+            {
+                if (!_mUnknown_User) return _mValue_User;
+                throw new UndeferrableValueException("Value 'UserPolicyAttachment.User' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/userPolicyAttachment:UserPolicyAttachment")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The ARN of the policy you want to apply
         /// </summary>
-        [Input("policyArn")]
+        [PolicyResourceProperty("policyArn", "_mUnknown_PolicyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
-
-        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
+        private string? _mValue_PolicyArn;
+        private bool _mUnknown_PolicyArn;
+        public string? PolicyArn
+        {
+            get
+            {
+                if (!_mUnknown_PolicyArn) return _mValue_PolicyArn;
+                throw new UndeferrableValueException("Value 'UserPolicyAttachmentArgs.PolicyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The user the policy should be applied to
         /// </summary>
-        [Input("user")]
+        [PolicyResourceProperty("user", "_mUnknown_User")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
-
-        public string? User => _mUser.GetValue("user");
+        private string? _mValue_User;
+        private bool _mUnknown_User;
+        public string? User
+        {
+            get
+            {
+                if (!_mUnknown_User) return _mValue_User;
+                throw new UndeferrableValueException("Value 'UserPolicyAttachmentArgs.User' is not present");
+            }
+        }
     }
 }

@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// The ID of the patch baseline to register the patch group with.
         /// </summary>
-        [Input("baselineId")]
+        [PolicyResourceProperty("baselineId", "_mUnknown_BaselineId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaselineId;
-
-        public string? BaselineId => _mBaselineId.GetValue("baselineId");
+        private string? _mValue_BaselineId;
+        private bool _mUnknown_BaselineId;
+        public string? BaselineId
+        {
+            get
+            {
+                if (!_mUnknown_BaselineId) return _mValue_BaselineId;
+                throw new UndeferrableValueException("Value 'PatchGroup.BaselineId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the patch group that should be registered with the patch baseline.
         /// </summary>
-        [Input("patchGroup")]
+        [PolicyResourceProperty("patchGroup", "_mUnknown_PatchGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPatchGroupName;
-
-        public string? PatchGroupName => _mPatchGroupName.GetValue("patchGroup");
+        private string? _mValue_PatchGroupName;
+        private bool _mUnknown_PatchGroupName;
+        public string? PatchGroupName
+        {
+            get
+            {
+                if (!_mUnknown_PatchGroupName) return _mValue_PatchGroupName;
+                throw new UndeferrableValueException("Value 'PatchGroup.PatchGroupName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssm/patchGroup:PatchGroup")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// The ID of the patch baseline to register the patch group with.
         /// </summary>
-        [Input("baselineId")]
+        [PolicyResourceProperty("baselineId", "_mUnknown_BaselineId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaselineId;
-
-        public string? BaselineId => _mBaselineId.GetValue("baselineId");
+        private string? _mValue_BaselineId;
+        private bool _mUnknown_BaselineId;
+        public string? BaselineId
+        {
+            get
+            {
+                if (!_mUnknown_BaselineId) return _mValue_BaselineId;
+                throw new UndeferrableValueException("Value 'PatchGroupArgs.BaselineId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the patch group that should be registered with the patch baseline.
         /// </summary>
-        [Input("patchGroup")]
+        [PolicyResourceProperty("patchGroup", "_mUnknown_PatchGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPatchGroupName;
-
-        public string? PatchGroupName => _mPatchGroupName.GetValue("patchGroup");
+        private string? _mValue_PatchGroupName;
+        private bool _mUnknown_PatchGroupName;
+        public string? PatchGroupName
+        {
+            get
+            {
+                if (!_mUnknown_PatchGroupName) return _mValue_PatchGroupName;
+                throw new UndeferrableValueException("Value 'PatchGroupArgs.PatchGroupName' is not present");
+            }
+        }
     }
 }

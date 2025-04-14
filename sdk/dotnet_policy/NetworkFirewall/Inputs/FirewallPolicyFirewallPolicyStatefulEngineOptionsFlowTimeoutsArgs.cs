@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Inputs
         /// <summary>
         /// Number of seconds that can pass without any TCP traffic sent through the firewall before the firewall determines that the connection is idle. After the idle timeout passes, data packets are dropped, however, the next TCP SYN packet is considered a new flow and is processed by the firewall. Clients or targets can use TCP keepalive packets to reset the idle timeout. Default value: `350`.
         /// </summary>
-        [Input("tcpIdleTimeoutSeconds")]
+        [PolicyResourceProperty("tcpIdleTimeoutSeconds", "_mUnknown_TcpIdleTimeoutSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTcpIdleTimeoutSeconds;
-
-        public int? TcpIdleTimeoutSeconds => _mTcpIdleTimeoutSeconds.GetValue("tcpIdleTimeoutSeconds");
+        private int? _mValue_TcpIdleTimeoutSeconds;
+        private bool _mUnknown_TcpIdleTimeoutSeconds;
+        public int? TcpIdleTimeoutSeconds
+        {
+            get
+            {
+                if (!_mUnknown_TcpIdleTimeoutSeconds) return _mValue_TcpIdleTimeoutSeconds;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs.TcpIdleTimeoutSeconds' is not present");
+            }
+        }
     }
 }

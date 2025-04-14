@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Inspector2
         /// <summary>
         /// Configuration block for auto enabling. See below.
         /// </summary>
-        [Input("autoEnable")]
+        [PolicyResourceProperty("autoEnable", "_mUnknown_AutoEnable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OrganizationConfigurationAutoEnable> _mAutoEnable;
-
-        public Outputs.OrganizationConfigurationAutoEnable? AutoEnable => _mAutoEnable.GetValue("autoEnable");
+        private Outputs.OrganizationConfigurationAutoEnable? _mValue_AutoEnable;
+        private bool _mUnknown_AutoEnable;
+        public Outputs.OrganizationConfigurationAutoEnable? AutoEnable
+        {
+            get
+            {
+                if (!_mUnknown_AutoEnable) return _mValue_AutoEnable;
+                throw new UndeferrableValueException("Value 'OrganizationConfiguration.AutoEnable' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether your configuration reached the max account limit.
         /// </summary>
-        [Input("maxAccountLimitReached")]
+        [PolicyResourceProperty("maxAccountLimitReached", "_mUnknown_MaxAccountLimitReached")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMaxAccountLimitReached;
-
-        public bool? MaxAccountLimitReached => _mMaxAccountLimitReached.GetValue("maxAccountLimitReached");
+        private bool? _mValue_MaxAccountLimitReached;
+        private bool _mUnknown_MaxAccountLimitReached;
+        public bool? MaxAccountLimitReached
+        {
+            get
+            {
+                if (!_mUnknown_MaxAccountLimitReached) return _mValue_MaxAccountLimitReached;
+                throw new UndeferrableValueException("Value 'OrganizationConfiguration.MaxAccountLimitReached' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:inspector2/organizationConfiguration:OrganizationConfiguration")]
@@ -38,10 +52,17 @@ namespace Pulumi.PolicyPacks.Aws.Inspector2
         /// <summary>
         /// Configuration block for auto enabling. See below.
         /// </summary>
-        [Input("autoEnable")]
+        [PolicyResourceProperty("autoEnable", "_mUnknown_AutoEnable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OrganizationConfigurationAutoEnableArgs> _mAutoEnable;
-
-        public Inputs.OrganizationConfigurationAutoEnableArgs? AutoEnable => _mAutoEnable.GetValue("autoEnable");
+        private Inputs.OrganizationConfigurationAutoEnableArgs? _mValue_AutoEnable;
+        private bool _mUnknown_AutoEnable;
+        public Inputs.OrganizationConfigurationAutoEnableArgs? AutoEnable
+        {
+            get
+            {
+                if (!_mUnknown_AutoEnable) return _mValue_AutoEnable;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationArgs.AutoEnable' is not present");
+            }
+        }
     }
 }

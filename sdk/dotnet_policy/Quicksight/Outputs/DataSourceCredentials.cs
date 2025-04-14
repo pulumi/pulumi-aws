@@ -16,28 +16,49 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
         /// When the value is not null, the `credential_pair` from the data source in the ARN is used.
         /// </summary>
-        [Input("copySourceArn")]
+        [PolicyResourceProperty("copySourceArn", "_mUnknown_CopySourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCopySourceArn;
-
-        public string? CopySourceArn => _mCopySourceArn.GetValue("copySourceArn");
+        private string? _mValue_CopySourceArn;
+        private bool _mUnknown_CopySourceArn;
+        public string? CopySourceArn
+        {
+            get
+            {
+                if (!_mUnknown_CopySourceArn) return _mValue_CopySourceArn;
+                throw new UndeferrableValueException("Value 'DataSourceCredentials.CopySourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Credential pair. See Credential Pair below for more details.
         /// </summary>
-        [Input("credentialPair")]
+        [PolicyResourceProperty("credentialPair", "_mUnknown_CredentialPair")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceCredentialsCredentialPair> _mCredentialPair;
-
-        public Outputs.DataSourceCredentialsCredentialPair? CredentialPair => _mCredentialPair.GetValue("credentialPair");
+        private Outputs.DataSourceCredentialsCredentialPair? _mValue_CredentialPair;
+        private bool _mUnknown_CredentialPair;
+        public Outputs.DataSourceCredentialsCredentialPair? CredentialPair
+        {
+            get
+            {
+                if (!_mUnknown_CredentialPair) return _mValue_CredentialPair;
+                throw new UndeferrableValueException("Value 'DataSourceCredentials.CredentialPair' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
         /// </summary>
-        [Input("secretArn")]
+        [PolicyResourceProperty("secretArn", "_mUnknown_SecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
-
-        public string? SecretArn => _mSecretArn.GetValue("secretArn");
+        private string? _mValue_SecretArn;
+        private bool _mUnknown_SecretArn;
+        public string? SecretArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretArn) return _mValue_SecretArn;
+                throw new UndeferrableValueException("Value 'DataSourceCredentials.SecretArn' is not present");
+            }
+        }
     }
 }

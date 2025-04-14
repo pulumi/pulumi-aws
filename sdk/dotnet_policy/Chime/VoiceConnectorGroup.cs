@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// The Amazon Chime Voice Connectors to route inbound calls to.
         /// </summary>
-        [Input("connectors")]
+        [PolicyResourceProperty("connectors", "_mUnknown_Connectors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VoiceConnectorGroupConnector>> _mConnectors;
-
-        public List<Outputs.VoiceConnectorGroupConnector>? Connectors => _mConnectors.GetValue("connectors");
+        private List<Outputs.VoiceConnectorGroupConnector>? _mValue_Connectors;
+        private bool _mUnknown_Connectors;
+        public List<Outputs.VoiceConnectorGroupConnector>? Connectors
+        {
+            get
+            {
+                if (!_mUnknown_Connectors) return _mValue_Connectors;
+                throw new UndeferrableValueException("Value 'VoiceConnectorGroup.Connectors' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Amazon Chime Voice Connector group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'VoiceConnectorGroup.Name' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:chime/voiceConnectorGroup:VoiceConnectorGroup")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// The Amazon Chime Voice Connectors to route inbound calls to.
         /// </summary>
-        [Input("connectors")]
+        [PolicyResourceProperty("connectors", "_mUnknown_Connectors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.VoiceConnectorGroupConnectorArgs>> _mConnectors;
-
-        public List<Inputs.VoiceConnectorGroupConnectorArgs>? Connectors => _mConnectors.GetValue("connectors");
+        private List<Inputs.VoiceConnectorGroupConnectorArgs>? _mValue_Connectors;
+        private bool _mUnknown_Connectors;
+        public List<Inputs.VoiceConnectorGroupConnectorArgs>? Connectors
+        {
+            get
+            {
+                if (!_mUnknown_Connectors) return _mValue_Connectors;
+                throw new UndeferrableValueException("Value 'VoiceConnectorGroupArgs.Connectors' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Amazon Chime Voice Connector group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'VoiceConnectorGroupArgs.Name' is not present");
+            }
+        }
     }
 }

@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// <summary>
         /// ID of directory.
         /// </summary>
-        [Input("directoryId")]
+        [PolicyResourceProperty("directoryId", "_mUnknown_DirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
-
-        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+        private string? _mValue_DirectoryId;
+        private bool _mUnknown_DirectoryId;
+        public string? DirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryId) return _mValue_DirectoryId;
+                throw new UndeferrableValueException("Value 'LogSubscription.DirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         /// </summary>
-        [Input("logGroupName")]
+        [PolicyResourceProperty("logGroupName", "_mUnknown_LogGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
-
-        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+        private string? _mValue_LogGroupName;
+        private bool _mUnknown_LogGroupName;
+        public string? LogGroupName
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupName) return _mValue_LogGroupName;
+                throw new UndeferrableValueException("Value 'LogSubscription.LogGroupName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:directoryservice/logSubscription:LogSubscription")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// <summary>
         /// ID of directory.
         /// </summary>
-        [Input("directoryId")]
+        [PolicyResourceProperty("directoryId", "_mUnknown_DirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
-
-        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+        private string? _mValue_DirectoryId;
+        private bool _mUnknown_DirectoryId;
+        public string? DirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryId) return _mValue_DirectoryId;
+                throw new UndeferrableValueException("Value 'LogSubscriptionArgs.DirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         /// </summary>
-        [Input("logGroupName")]
+        [PolicyResourceProperty("logGroupName", "_mUnknown_LogGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
-
-        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+        private string? _mValue_LogGroupName;
+        private bool _mUnknown_LogGroupName;
+        public string? LogGroupName
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupName) return _mValue_LogGroupName;
+                throw new UndeferrableValueException("Value 'LogSubscriptionArgs.LogGroupName' is not present");
+            }
+        }
     }
 }

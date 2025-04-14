@@ -13,106 +13,190 @@ namespace Pulumi.PolicyPacks.Aws.Lex
     [PolicyResourceType("aws:lex/v2modelsBot:V2modelsBot")]
     public sealed class V2modelsBot : global::Pulumi.PolicyResourceOutput
     {
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'V2modelsBot.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
         /// </summary>
-        [Input("dataPrivacies")]
+        [PolicyResourceProperty("dataPrivacies", "_mUnknown_DataPrivacies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsBotDataPrivacy>> _mDataPrivacies;
-
-        public List<Outputs.V2modelsBotDataPrivacy>? DataPrivacies => _mDataPrivacies.GetValue("dataPrivacies");
+        private List<Outputs.V2modelsBotDataPrivacy>? _mValue_DataPrivacies;
+        private bool _mUnknown_DataPrivacies;
+        public List<Outputs.V2modelsBotDataPrivacy>? DataPrivacies
+        {
+            get
+            {
+                if (!_mUnknown_DataPrivacies) return _mValue_DataPrivacies;
+                throw new UndeferrableValueException("Value 'V2modelsBot.DataPrivacies' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the bot. It appears in lists to help you identify a particular bot.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'V2modelsBot.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
         /// </summary>
-        [Input("idleSessionTtlInSeconds")]
+        [PolicyResourceProperty("idleSessionTtlInSeconds", "_mUnknown_IdleSessionTtlInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIdleSessionTtlInSeconds;
-
-        public int? IdleSessionTtlInSeconds => _mIdleSessionTtlInSeconds.GetValue("idleSessionTtlInSeconds");
+        private int? _mValue_IdleSessionTtlInSeconds;
+        private bool _mUnknown_IdleSessionTtlInSeconds;
+        public int? IdleSessionTtlInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_IdleSessionTtlInSeconds) return _mValue_IdleSessionTtlInSeconds;
+                throw new UndeferrableValueException("Value 'V2modelsBot.IdleSessionTtlInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// List of bot members in a network to be created. See `bot_members`.
         /// </summary>
-        [Input("members")]
+        [PolicyResourceProperty("members", "_mUnknown_Members")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsBotMember>> _mMembers;
-
-        public List<Outputs.V2modelsBotMember>? Members => _mMembers.GetValue("members");
+        private List<Outputs.V2modelsBotMember>? _mValue_Members;
+        private bool _mUnknown_Members;
+        public List<Outputs.V2modelsBotMember>? Members
+        {
+            get
+            {
+                if (!_mUnknown_Members) return _mValue_Members;
+                throw new UndeferrableValueException("Value 'V2modelsBot.Members' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'V2modelsBot.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an IAM role that has permission to access the bot.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'V2modelsBot.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of tags to add to the bot. You can only add tags when you create a bot.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'V2modelsBot.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'V2modelsBot.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
         /// </summary>
-        [Input("testBotAliasTags")]
+        [PolicyResourceProperty("testBotAliasTags", "_mUnknown_TestBotAliasTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTestBotAliasTags;
+        private Dictionary<string, string>? _mValue_TestBotAliasTags;
+        private bool _mUnknown_TestBotAliasTags;
+        public Dictionary<string, string>? TestBotAliasTags
+        {
+            get
+            {
+                if (!_mUnknown_TestBotAliasTags) return _mValue_TestBotAliasTags;
+                throw new UndeferrableValueException("Value 'V2modelsBot.TestBotAliasTags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TestBotAliasTags => _mTestBotAliasTags.GetValue("testBotAliasTags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsBotTimeouts> _mTimeouts;
-
-        public Outputs.V2modelsBotTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.V2modelsBotTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.V2modelsBotTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'V2modelsBot.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'V2modelsBot.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lex/v2modelsBot:V2modelsBot")]
@@ -121,90 +205,160 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// <summary>
         /// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
         /// </summary>
-        [Input("dataPrivacies")]
+        [PolicyResourceProperty("dataPrivacies", "_mUnknown_DataPrivacies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsBotDataPrivacyArgs>> _mDataPrivacies;
-
-        public List<Inputs.V2modelsBotDataPrivacyArgs>? DataPrivacies => _mDataPrivacies.GetValue("dataPrivacies");
+        private List<Inputs.V2modelsBotDataPrivacyArgs>? _mValue_DataPrivacies;
+        private bool _mUnknown_DataPrivacies;
+        public List<Inputs.V2modelsBotDataPrivacyArgs>? DataPrivacies
+        {
+            get
+            {
+                if (!_mUnknown_DataPrivacies) return _mValue_DataPrivacies;
+                throw new UndeferrableValueException("Value 'V2modelsBotArgs.DataPrivacies' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the bot. It appears in lists to help you identify a particular bot.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'V2modelsBotArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
         /// </summary>
-        [Input("idleSessionTtlInSeconds")]
+        [PolicyResourceProperty("idleSessionTtlInSeconds", "_mUnknown_IdleSessionTtlInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIdleSessionTtlInSeconds;
-
-        public int? IdleSessionTtlInSeconds => _mIdleSessionTtlInSeconds.GetValue("idleSessionTtlInSeconds");
+        private int? _mValue_IdleSessionTtlInSeconds;
+        private bool _mUnknown_IdleSessionTtlInSeconds;
+        public int? IdleSessionTtlInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_IdleSessionTtlInSeconds) return _mValue_IdleSessionTtlInSeconds;
+                throw new UndeferrableValueException("Value 'V2modelsBotArgs.IdleSessionTtlInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// List of bot members in a network to be created. See `bot_members`.
         /// </summary>
-        [Input("members")]
+        [PolicyResourceProperty("members", "_mUnknown_Members")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsBotMemberArgs>> _mMembers;
-
-        public List<Inputs.V2modelsBotMemberArgs>? Members => _mMembers.GetValue("members");
+        private List<Inputs.V2modelsBotMemberArgs>? _mValue_Members;
+        private bool _mUnknown_Members;
+        public List<Inputs.V2modelsBotMemberArgs>? Members
+        {
+            get
+            {
+                if (!_mUnknown_Members) return _mValue_Members;
+                throw new UndeferrableValueException("Value 'V2modelsBotArgs.Members' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'V2modelsBotArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an IAM role that has permission to access the bot.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'V2modelsBotArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of tags to add to the bot. You can only add tags when you create a bot.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'V2modelsBotArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
         /// </summary>
-        [Input("testBotAliasTags")]
+        [PolicyResourceProperty("testBotAliasTags", "_mUnknown_TestBotAliasTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTestBotAliasTags;
+        private Dictionary<string, string>? _mValue_TestBotAliasTags;
+        private bool _mUnknown_TestBotAliasTags;
+        public Dictionary<string, string>? TestBotAliasTags
+        {
+            get
+            {
+                if (!_mUnknown_TestBotAliasTags) return _mValue_TestBotAliasTags;
+                throw new UndeferrableValueException("Value 'V2modelsBotArgs.TestBotAliasTags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TestBotAliasTags => _mTestBotAliasTags.GetValue("testBotAliasTags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsBotTimeoutsArgs> _mTimeouts;
-
-        public Inputs.V2modelsBotTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.V2modelsBotTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.V2modelsBotTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'V2modelsBotArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'V2modelsBotArgs.Type' is not present");
+            }
+        }
     }
 }

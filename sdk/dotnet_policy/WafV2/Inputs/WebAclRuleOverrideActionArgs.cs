@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
         /// </summary>
-        [Input("count")]
+        [PolicyResourceProperty("count", "_mUnknown_Count")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleOverrideActionCountArgs> _mCount;
-
-        public Inputs.WebAclRuleOverrideActionCountArgs? Count => _mCount.GetValue("count");
+        private Inputs.WebAclRuleOverrideActionCountArgs? _mValue_Count;
+        private bool _mUnknown_Count;
+        public Inputs.WebAclRuleOverrideActionCountArgs? Count
+        {
+            get
+            {
+                if (!_mUnknown_Count) return _mValue_Count;
+                throw new UndeferrableValueException("Value 'WebAclRuleOverrideActionArgs.Count' is not present");
+            }
+        }
 
         /// <summary>
         /// Don't override the rule action setting. Configured as an empty block `{}`.
         /// </summary>
-        [Input("none")]
+        [PolicyResourceProperty("none", "_mUnknown_None")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleOverrideActionNoneArgs> _mNone;
-
-        public Inputs.WebAclRuleOverrideActionNoneArgs? None => _mNone.GetValue("none");
+        private Inputs.WebAclRuleOverrideActionNoneArgs? _mValue_None;
+        private bool _mUnknown_None;
+        public Inputs.WebAclRuleOverrideActionNoneArgs? None
+        {
+            get
+            {
+                if (!_mUnknown_None) return _mValue_None;
+                throw new UndeferrableValueException("Value 'WebAclRuleOverrideActionArgs.None' is not present");
+            }
+        }
     }
 }

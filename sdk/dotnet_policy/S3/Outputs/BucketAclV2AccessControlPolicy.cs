@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Set of `grant` configuration blocks. See below.
         /// </summary>
-        [Input("grants")]
+        [PolicyResourceProperty("grants", "_mUnknown_Grants")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketAclV2AccessControlPolicyGrant>> _mGrants;
-
-        public List<Outputs.BucketAclV2AccessControlPolicyGrant>? Grants => _mGrants.GetValue("grants");
+        private List<Outputs.BucketAclV2AccessControlPolicyGrant>? _mValue_Grants;
+        private bool _mUnknown_Grants;
+        public List<Outputs.BucketAclV2AccessControlPolicyGrant>? Grants
+        {
+            get
+            {
+                if (!_mUnknown_Grants) return _mValue_Grants;
+                throw new UndeferrableValueException("Value 'BucketAclV2AccessControlPolicy.Grants' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the bucket owner's display name and ID. See below.
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketAclV2AccessControlPolicyOwner> _mOwner;
-
-        public Outputs.BucketAclV2AccessControlPolicyOwner? Owner => _mOwner.GetValue("owner");
+        private Outputs.BucketAclV2AccessControlPolicyOwner? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public Outputs.BucketAclV2AccessControlPolicyOwner? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'BucketAclV2AccessControlPolicy.Owner' is not present");
+            }
+        }
     }
 }

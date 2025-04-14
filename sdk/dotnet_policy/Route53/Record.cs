@@ -17,157 +17,276 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// An alias block. Conflicts with `ttl` &amp; `records`.
         /// Documented below.
         /// </summary>
-        [Input("aliases")]
+        [PolicyResourceProperty("aliases", "_mUnknown_Aliases")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RecordAlias>> _mAliases;
-
-        public List<Outputs.RecordAlias>? Aliases => _mAliases.GetValue("aliases");
+        private List<Outputs.RecordAlias>? _mValue_Aliases;
+        private bool _mUnknown_Aliases;
+        public List<Outputs.RecordAlias>? Aliases
+        {
+            get
+            {
+                if (!_mUnknown_Aliases) return _mValue_Aliases;
+                throw new UndeferrableValueException("Value 'Record.Aliases' is not present");
+            }
+        }
 
         /// <summary>
         /// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
         /// 
         /// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
         /// </summary>
-        [Input("allowOverwrite")]
+        [PolicyResourceProperty("allowOverwrite", "_mUnknown_AllowOverwrite")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowOverwrite;
-
-        public bool? AllowOverwrite => _mAllowOverwrite.GetValue("allowOverwrite");
+        private bool? _mValue_AllowOverwrite;
+        private bool _mUnknown_AllowOverwrite;
+        public bool? AllowOverwrite
+        {
+            get
+            {
+                if (!_mUnknown_AllowOverwrite) return _mValue_AllowOverwrite;
+                throw new UndeferrableValueException("Value 'Record.AllowOverwrite' is not present");
+            }
+        }
 
         /// <summary>
         /// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        [Input("cidrRoutingPolicy")]
+        [PolicyResourceProperty("cidrRoutingPolicy", "_mUnknown_CidrRoutingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RecordCidrRoutingPolicy> _mCidrRoutingPolicy;
-
-        public Outputs.RecordCidrRoutingPolicy? CidrRoutingPolicy => _mCidrRoutingPolicy.GetValue("cidrRoutingPolicy");
+        private Outputs.RecordCidrRoutingPolicy? _mValue_CidrRoutingPolicy;
+        private bool _mUnknown_CidrRoutingPolicy;
+        public Outputs.RecordCidrRoutingPolicy? CidrRoutingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_CidrRoutingPolicy) return _mValue_CidrRoutingPolicy;
+                throw new UndeferrableValueException("Value 'Record.CidrRoutingPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        [Input("failoverRoutingPolicies")]
+        [PolicyResourceProperty("failoverRoutingPolicies", "_mUnknown_FailoverRoutingPolicies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RecordFailoverRoutingPolicy>> _mFailoverRoutingPolicies;
-
-        public List<Outputs.RecordFailoverRoutingPolicy>? FailoverRoutingPolicies => _mFailoverRoutingPolicies.GetValue("failoverRoutingPolicies");
+        private List<Outputs.RecordFailoverRoutingPolicy>? _mValue_FailoverRoutingPolicies;
+        private bool _mUnknown_FailoverRoutingPolicies;
+        public List<Outputs.RecordFailoverRoutingPolicy>? FailoverRoutingPolicies
+        {
+            get
+            {
+                if (!_mUnknown_FailoverRoutingPolicies) return _mValue_FailoverRoutingPolicies;
+                throw new UndeferrableValueException("Value 'Record.FailoverRoutingPolicies' is not present");
+            }
+        }
 
         /// <summary>
         /// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
         /// </summary>
-        [Input("fqdn")]
+        [PolicyResourceProperty("fqdn", "_mUnknown_Fqdn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFqdn;
-
-        public string? Fqdn => _mFqdn.GetValue("fqdn");
+        private string? _mValue_Fqdn;
+        private bool _mUnknown_Fqdn;
+        public string? Fqdn
+        {
+            get
+            {
+                if (!_mUnknown_Fqdn) return _mValue_Fqdn;
+                throw new UndeferrableValueException("Value 'Record.Fqdn' is not present");
+            }
+        }
 
         /// <summary>
         /// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        [Input("geolocationRoutingPolicies")]
+        [PolicyResourceProperty("geolocationRoutingPolicies", "_mUnknown_GeolocationRoutingPolicies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RecordGeolocationRoutingPolicy>> _mGeolocationRoutingPolicies;
-
-        public List<Outputs.RecordGeolocationRoutingPolicy>? GeolocationRoutingPolicies => _mGeolocationRoutingPolicies.GetValue("geolocationRoutingPolicies");
+        private List<Outputs.RecordGeolocationRoutingPolicy>? _mValue_GeolocationRoutingPolicies;
+        private bool _mUnknown_GeolocationRoutingPolicies;
+        public List<Outputs.RecordGeolocationRoutingPolicy>? GeolocationRoutingPolicies
+        {
+            get
+            {
+                if (!_mUnknown_GeolocationRoutingPolicies) return _mValue_GeolocationRoutingPolicies;
+                throw new UndeferrableValueException("Value 'Record.GeolocationRoutingPolicies' is not present");
+            }
+        }
 
         /// <summary>
         /// A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        [Input("geoproximityRoutingPolicy")]
+        [PolicyResourceProperty("geoproximityRoutingPolicy", "_mUnknown_GeoproximityRoutingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RecordGeoproximityRoutingPolicy> _mGeoproximityRoutingPolicy;
-
-        public Outputs.RecordGeoproximityRoutingPolicy? GeoproximityRoutingPolicy => _mGeoproximityRoutingPolicy.GetValue("geoproximityRoutingPolicy");
+        private Outputs.RecordGeoproximityRoutingPolicy? _mValue_GeoproximityRoutingPolicy;
+        private bool _mUnknown_GeoproximityRoutingPolicy;
+        public Outputs.RecordGeoproximityRoutingPolicy? GeoproximityRoutingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_GeoproximityRoutingPolicy) return _mValue_GeoproximityRoutingPolicy;
+                throw new UndeferrableValueException("Value 'Record.GeoproximityRoutingPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The health check the record should be associated with.
         /// </summary>
-        [Input("healthCheckId")]
+        [PolicyResourceProperty("healthCheckId", "_mUnknown_HealthCheckId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckId;
-
-        public string? HealthCheckId => _mHealthCheckId.GetValue("healthCheckId");
+        private string? _mValue_HealthCheckId;
+        private bool _mUnknown_HealthCheckId;
+        public string? HealthCheckId
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckId) return _mValue_HealthCheckId;
+                throw new UndeferrableValueException("Value 'Record.HealthCheckId' is not present");
+            }
+        }
 
         /// <summary>
         /// A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        [Input("latencyRoutingPolicies")]
+        [PolicyResourceProperty("latencyRoutingPolicies", "_mUnknown_LatencyRoutingPolicies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RecordLatencyRoutingPolicy>> _mLatencyRoutingPolicies;
-
-        public List<Outputs.RecordLatencyRoutingPolicy>? LatencyRoutingPolicies => _mLatencyRoutingPolicies.GetValue("latencyRoutingPolicies");
+        private List<Outputs.RecordLatencyRoutingPolicy>? _mValue_LatencyRoutingPolicies;
+        private bool _mUnknown_LatencyRoutingPolicies;
+        public List<Outputs.RecordLatencyRoutingPolicy>? LatencyRoutingPolicies
+        {
+            get
+            {
+                if (!_mUnknown_LatencyRoutingPolicies) return _mValue_LatencyRoutingPolicies;
+                throw new UndeferrableValueException("Value 'Record.LatencyRoutingPolicies' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
         /// </summary>
-        [Input("multivalueAnswerRoutingPolicy")]
+        [PolicyResourceProperty("multivalueAnswerRoutingPolicy", "_mUnknown_MultivalueAnswerRoutingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMultivalueAnswerRoutingPolicy;
-
-        public bool? MultivalueAnswerRoutingPolicy => _mMultivalueAnswerRoutingPolicy.GetValue("multivalueAnswerRoutingPolicy");
+        private bool? _mValue_MultivalueAnswerRoutingPolicy;
+        private bool _mUnknown_MultivalueAnswerRoutingPolicy;
+        public bool? MultivalueAnswerRoutingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_MultivalueAnswerRoutingPolicy) return _mValue_MultivalueAnswerRoutingPolicy;
+                throw new UndeferrableValueException("Value 'Record.MultivalueAnswerRoutingPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the record.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Record.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
         /// </summary>
-        [Input("records")]
+        [PolicyResourceProperty("records", "_mUnknown_Records")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRecords;
-
-        public List<string>? Records => _mRecords.GetValue("records");
+        private List<string>? _mValue_Records;
+        private bool _mUnknown_Records;
+        public List<string>? Records
+        {
+            get
+            {
+                if (!_mUnknown_Records) return _mValue_Records;
+                throw new UndeferrableValueException("Value 'Record.Records' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
         /// </summary>
-        [Input("setIdentifier")]
+        [PolicyResourceProperty("setIdentifier", "_mUnknown_SetIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSetIdentifier;
-
-        public string? SetIdentifier => _mSetIdentifier.GetValue("setIdentifier");
+        private string? _mValue_SetIdentifier;
+        private bool _mUnknown_SetIdentifier;
+        public string? SetIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SetIdentifier) return _mValue_SetIdentifier;
+                throw new UndeferrableValueException("Value 'Record.SetIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The TTL of the record.
         /// </summary>
-        [Input("ttl")]
+        [PolicyResourceProperty("ttl", "_mUnknown_Ttl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTtl;
-
-        public int? Ttl => _mTtl.GetValue("ttl");
+        private int? _mValue_Ttl;
+        private bool _mUnknown_Ttl;
+        public int? Ttl
+        {
+            get
+            {
+                if (!_mUnknown_Ttl) return _mValue_Ttl;
+                throw new UndeferrableValueException("Value 'Record.Ttl' is not present");
+            }
+        }
 
         /// <summary>
         /// The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Record.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        [Input("weightedRoutingPolicies")]
+        [PolicyResourceProperty("weightedRoutingPolicies", "_mUnknown_WeightedRoutingPolicies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RecordWeightedRoutingPolicy>> _mWeightedRoutingPolicies;
-
-        public List<Outputs.RecordWeightedRoutingPolicy>? WeightedRoutingPolicies => _mWeightedRoutingPolicies.GetValue("weightedRoutingPolicies");
+        private List<Outputs.RecordWeightedRoutingPolicy>? _mValue_WeightedRoutingPolicies;
+        private bool _mUnknown_WeightedRoutingPolicies;
+        public List<Outputs.RecordWeightedRoutingPolicy>? WeightedRoutingPolicies
+        {
+            get
+            {
+                if (!_mUnknown_WeightedRoutingPolicies) return _mValue_WeightedRoutingPolicies;
+                throw new UndeferrableValueException("Value 'Record.WeightedRoutingPolicies' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the hosted zone to contain this record.
         /// </summary>
-        [Input("zoneId")]
+        [PolicyResourceProperty("zoneId", "_mUnknown_ZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZoneId;
-
-        public string? ZoneId => _mZoneId.GetValue("zoneId");
+        private string? _mValue_ZoneId;
+        private bool _mUnknown_ZoneId;
+        public string? ZoneId
+        {
+            get
+            {
+                if (!_mUnknown_ZoneId) return _mValue_ZoneId;
+                throw new UndeferrableValueException("Value 'Record.ZoneId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/record:Record")]
@@ -177,147 +296,259 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// An alias block. Conflicts with `ttl` &amp; `records`.
         /// Documented below.
         /// </summary>
-        [Input("aliases")]
+        [PolicyResourceProperty("aliases", "_mUnknown_Aliases")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RecordAliasArgs>> _mAliases;
-
-        public List<Inputs.RecordAliasArgs>? Aliases => _mAliases.GetValue("aliases");
+        private List<Inputs.RecordAliasArgs>? _mValue_Aliases;
+        private bool _mUnknown_Aliases;
+        public List<Inputs.RecordAliasArgs>? Aliases
+        {
+            get
+            {
+                if (!_mUnknown_Aliases) return _mValue_Aliases;
+                throw new UndeferrableValueException("Value 'RecordArgs.Aliases' is not present");
+            }
+        }
 
         /// <summary>
         /// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
         /// 
         /// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
         /// </summary>
-        [Input("allowOverwrite")]
+        [PolicyResourceProperty("allowOverwrite", "_mUnknown_AllowOverwrite")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowOverwrite;
-
-        public bool? AllowOverwrite => _mAllowOverwrite.GetValue("allowOverwrite");
+        private bool? _mValue_AllowOverwrite;
+        private bool _mUnknown_AllowOverwrite;
+        public bool? AllowOverwrite
+        {
+            get
+            {
+                if (!_mUnknown_AllowOverwrite) return _mValue_AllowOverwrite;
+                throw new UndeferrableValueException("Value 'RecordArgs.AllowOverwrite' is not present");
+            }
+        }
 
         /// <summary>
         /// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        [Input("cidrRoutingPolicy")]
+        [PolicyResourceProperty("cidrRoutingPolicy", "_mUnknown_CidrRoutingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RecordCidrRoutingPolicyArgs> _mCidrRoutingPolicy;
-
-        public Inputs.RecordCidrRoutingPolicyArgs? CidrRoutingPolicy => _mCidrRoutingPolicy.GetValue("cidrRoutingPolicy");
+        private Inputs.RecordCidrRoutingPolicyArgs? _mValue_CidrRoutingPolicy;
+        private bool _mUnknown_CidrRoutingPolicy;
+        public Inputs.RecordCidrRoutingPolicyArgs? CidrRoutingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_CidrRoutingPolicy) return _mValue_CidrRoutingPolicy;
+                throw new UndeferrableValueException("Value 'RecordArgs.CidrRoutingPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        [Input("failoverRoutingPolicies")]
+        [PolicyResourceProperty("failoverRoutingPolicies", "_mUnknown_FailoverRoutingPolicies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RecordFailoverRoutingPolicyArgs>> _mFailoverRoutingPolicies;
-
-        public List<Inputs.RecordFailoverRoutingPolicyArgs>? FailoverRoutingPolicies => _mFailoverRoutingPolicies.GetValue("failoverRoutingPolicies");
+        private List<Inputs.RecordFailoverRoutingPolicyArgs>? _mValue_FailoverRoutingPolicies;
+        private bool _mUnknown_FailoverRoutingPolicies;
+        public List<Inputs.RecordFailoverRoutingPolicyArgs>? FailoverRoutingPolicies
+        {
+            get
+            {
+                if (!_mUnknown_FailoverRoutingPolicies) return _mValue_FailoverRoutingPolicies;
+                throw new UndeferrableValueException("Value 'RecordArgs.FailoverRoutingPolicies' is not present");
+            }
+        }
 
         /// <summary>
         /// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        [Input("geolocationRoutingPolicies")]
+        [PolicyResourceProperty("geolocationRoutingPolicies", "_mUnknown_GeolocationRoutingPolicies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RecordGeolocationRoutingPolicyArgs>> _mGeolocationRoutingPolicies;
-
-        public List<Inputs.RecordGeolocationRoutingPolicyArgs>? GeolocationRoutingPolicies => _mGeolocationRoutingPolicies.GetValue("geolocationRoutingPolicies");
+        private List<Inputs.RecordGeolocationRoutingPolicyArgs>? _mValue_GeolocationRoutingPolicies;
+        private bool _mUnknown_GeolocationRoutingPolicies;
+        public List<Inputs.RecordGeolocationRoutingPolicyArgs>? GeolocationRoutingPolicies
+        {
+            get
+            {
+                if (!_mUnknown_GeolocationRoutingPolicies) return _mValue_GeolocationRoutingPolicies;
+                throw new UndeferrableValueException("Value 'RecordArgs.GeolocationRoutingPolicies' is not present");
+            }
+        }
 
         /// <summary>
         /// A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        [Input("geoproximityRoutingPolicy")]
+        [PolicyResourceProperty("geoproximityRoutingPolicy", "_mUnknown_GeoproximityRoutingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RecordGeoproximityRoutingPolicyArgs> _mGeoproximityRoutingPolicy;
-
-        public Inputs.RecordGeoproximityRoutingPolicyArgs? GeoproximityRoutingPolicy => _mGeoproximityRoutingPolicy.GetValue("geoproximityRoutingPolicy");
+        private Inputs.RecordGeoproximityRoutingPolicyArgs? _mValue_GeoproximityRoutingPolicy;
+        private bool _mUnknown_GeoproximityRoutingPolicy;
+        public Inputs.RecordGeoproximityRoutingPolicyArgs? GeoproximityRoutingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_GeoproximityRoutingPolicy) return _mValue_GeoproximityRoutingPolicy;
+                throw new UndeferrableValueException("Value 'RecordArgs.GeoproximityRoutingPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The health check the record should be associated with.
         /// </summary>
-        [Input("healthCheckId")]
+        [PolicyResourceProperty("healthCheckId", "_mUnknown_HealthCheckId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckId;
-
-        public string? HealthCheckId => _mHealthCheckId.GetValue("healthCheckId");
+        private string? _mValue_HealthCheckId;
+        private bool _mUnknown_HealthCheckId;
+        public string? HealthCheckId
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckId) return _mValue_HealthCheckId;
+                throw new UndeferrableValueException("Value 'RecordArgs.HealthCheckId' is not present");
+            }
+        }
 
         /// <summary>
         /// A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        [Input("latencyRoutingPolicies")]
+        [PolicyResourceProperty("latencyRoutingPolicies", "_mUnknown_LatencyRoutingPolicies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RecordLatencyRoutingPolicyArgs>> _mLatencyRoutingPolicies;
-
-        public List<Inputs.RecordLatencyRoutingPolicyArgs>? LatencyRoutingPolicies => _mLatencyRoutingPolicies.GetValue("latencyRoutingPolicies");
+        private List<Inputs.RecordLatencyRoutingPolicyArgs>? _mValue_LatencyRoutingPolicies;
+        private bool _mUnknown_LatencyRoutingPolicies;
+        public List<Inputs.RecordLatencyRoutingPolicyArgs>? LatencyRoutingPolicies
+        {
+            get
+            {
+                if (!_mUnknown_LatencyRoutingPolicies) return _mValue_LatencyRoutingPolicies;
+                throw new UndeferrableValueException("Value 'RecordArgs.LatencyRoutingPolicies' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
         /// </summary>
-        [Input("multivalueAnswerRoutingPolicy")]
+        [PolicyResourceProperty("multivalueAnswerRoutingPolicy", "_mUnknown_MultivalueAnswerRoutingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMultivalueAnswerRoutingPolicy;
-
-        public bool? MultivalueAnswerRoutingPolicy => _mMultivalueAnswerRoutingPolicy.GetValue("multivalueAnswerRoutingPolicy");
+        private bool? _mValue_MultivalueAnswerRoutingPolicy;
+        private bool _mUnknown_MultivalueAnswerRoutingPolicy;
+        public bool? MultivalueAnswerRoutingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_MultivalueAnswerRoutingPolicy) return _mValue_MultivalueAnswerRoutingPolicy;
+                throw new UndeferrableValueException("Value 'RecordArgs.MultivalueAnswerRoutingPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the record.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RecordArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
         /// </summary>
-        [Input("records")]
+        [PolicyResourceProperty("records", "_mUnknown_Records")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRecords;
-
-        public List<string>? Records => _mRecords.GetValue("records");
+        private List<string>? _mValue_Records;
+        private bool _mUnknown_Records;
+        public List<string>? Records
+        {
+            get
+            {
+                if (!_mUnknown_Records) return _mValue_Records;
+                throw new UndeferrableValueException("Value 'RecordArgs.Records' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
         /// </summary>
-        [Input("setIdentifier")]
+        [PolicyResourceProperty("setIdentifier", "_mUnknown_SetIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSetIdentifier;
-
-        public string? SetIdentifier => _mSetIdentifier.GetValue("setIdentifier");
+        private string? _mValue_SetIdentifier;
+        private bool _mUnknown_SetIdentifier;
+        public string? SetIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SetIdentifier) return _mValue_SetIdentifier;
+                throw new UndeferrableValueException("Value 'RecordArgs.SetIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The TTL of the record.
         /// </summary>
-        [Input("ttl")]
+        [PolicyResourceProperty("ttl", "_mUnknown_Ttl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTtl;
-
-        public int? Ttl => _mTtl.GetValue("ttl");
+        private int? _mValue_Ttl;
+        private bool _mUnknown_Ttl;
+        public int? Ttl
+        {
+            get
+            {
+                if (!_mUnknown_Ttl) return _mValue_Ttl;
+                throw new UndeferrableValueException("Value 'RecordArgs.Ttl' is not present");
+            }
+        }
 
         /// <summary>
         /// The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'RecordArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        [Input("weightedRoutingPolicies")]
+        [PolicyResourceProperty("weightedRoutingPolicies", "_mUnknown_WeightedRoutingPolicies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RecordWeightedRoutingPolicyArgs>> _mWeightedRoutingPolicies;
-
-        public List<Inputs.RecordWeightedRoutingPolicyArgs>? WeightedRoutingPolicies => _mWeightedRoutingPolicies.GetValue("weightedRoutingPolicies");
+        private List<Inputs.RecordWeightedRoutingPolicyArgs>? _mValue_WeightedRoutingPolicies;
+        private bool _mUnknown_WeightedRoutingPolicies;
+        public List<Inputs.RecordWeightedRoutingPolicyArgs>? WeightedRoutingPolicies
+        {
+            get
+            {
+                if (!_mUnknown_WeightedRoutingPolicies) return _mValue_WeightedRoutingPolicies;
+                throw new UndeferrableValueException("Value 'RecordArgs.WeightedRoutingPolicies' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the hosted zone to contain this record.
         /// </summary>
-        [Input("zoneId")]
+        [PolicyResourceProperty("zoneId", "_mUnknown_ZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZoneId;
-
-        public string? ZoneId => _mZoneId.GetValue("zoneId");
+        private string? _mValue_ZoneId;
+        private bool _mUnknown_ZoneId;
+        public string? ZoneId
+        {
+            get
+            {
+                if (!_mUnknown_ZoneId) return _mValue_ZoneId;
+                throw new UndeferrableValueException("Value 'RecordArgs.ZoneId' is not present");
+            }
+        }
     }
 }

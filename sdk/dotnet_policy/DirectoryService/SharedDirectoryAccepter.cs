@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// <summary>
         /// Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
         /// </summary>
-        [Input("method")]
+        [PolicyResourceProperty("method", "_mUnknown_Method")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMethod;
-
-        public string? Method => _mMethod.GetValue("method");
+        private string? _mValue_Method;
+        private bool _mUnknown_Method;
+        public string? Method
+        {
+            get
+            {
+                if (!_mUnknown_Method) return _mValue_Method;
+                throw new UndeferrableValueException("Value 'SharedDirectoryAccepter.Method' is not present");
+            }
+        }
 
         /// <summary>
         /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         /// </summary>
-        [Input("notes")]
+        [PolicyResourceProperty("notes", "_mUnknown_Notes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotes;
-
-        public string? Notes => _mNotes.GetValue("notes");
+        private string? _mValue_Notes;
+        private bool _mUnknown_Notes;
+        public string? Notes
+        {
+            get
+            {
+                if (!_mUnknown_Notes) return _mValue_Notes;
+                throw new UndeferrableValueException("Value 'SharedDirectoryAccepter.Notes' is not present");
+            }
+        }
 
         /// <summary>
         /// Account identifier of the directory owner.
         /// </summary>
-        [Input("ownerAccountId")]
+        [PolicyResourceProperty("ownerAccountId", "_mUnknown_OwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
-
-        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+        private string? _mValue_OwnerAccountId;
+        private bool _mUnknown_OwnerAccountId;
+        public string? OwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccountId) return _mValue_OwnerAccountId;
+                throw new UndeferrableValueException("Value 'SharedDirectoryAccepter.OwnerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
         /// </summary>
-        [Input("ownerDirectoryId")]
+        [PolicyResourceProperty("ownerDirectoryId", "_mUnknown_OwnerDirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerDirectoryId;
-
-        public string? OwnerDirectoryId => _mOwnerDirectoryId.GetValue("ownerDirectoryId");
+        private string? _mValue_OwnerDirectoryId;
+        private bool _mUnknown_OwnerDirectoryId;
+        public string? OwnerDirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerDirectoryId) return _mValue_OwnerDirectoryId;
+                throw new UndeferrableValueException("Value 'SharedDirectoryAccepter.OwnerDirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         /// </summary>
-        [Input("sharedDirectoryId")]
+        [PolicyResourceProperty("sharedDirectoryId", "_mUnknown_SharedDirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSharedDirectoryId;
-
-        public string? SharedDirectoryId => _mSharedDirectoryId.GetValue("sharedDirectoryId");
+        private string? _mValue_SharedDirectoryId;
+        private bool _mUnknown_SharedDirectoryId;
+        public string? SharedDirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_SharedDirectoryId) return _mValue_SharedDirectoryId;
+                throw new UndeferrableValueException("Value 'SharedDirectoryAccepter.SharedDirectoryId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter")]
@@ -65,10 +100,17 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// <summary>
         /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         /// </summary>
-        [Input("sharedDirectoryId")]
+        [PolicyResourceProperty("sharedDirectoryId", "_mUnknown_SharedDirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSharedDirectoryId;
-
-        public string? SharedDirectoryId => _mSharedDirectoryId.GetValue("sharedDirectoryId");
+        private string? _mValue_SharedDirectoryId;
+        private bool _mUnknown_SharedDirectoryId;
+        public string? SharedDirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_SharedDirectoryId) return _mValue_SharedDirectoryId;
+                throw new UndeferrableValueException("Value 'SharedDirectoryAccepterArgs.SharedDirectoryId' is not present");
+            }
+        }
     }
 }

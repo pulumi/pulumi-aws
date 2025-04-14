@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetPhysicalTableMapS3SourceUploadSettingResult
     {
-        [Input("containsHeader")]
+        [PolicyResourceProperty("containsHeader", "_mUnknown_ContainsHeader")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mContainsHeader;
+        private bool? _mValue_ContainsHeader;
+        private bool _mUnknown_ContainsHeader;
+        public bool? ContainsHeader
+        {
+            get
+            {
+                if (!_mUnknown_ContainsHeader) return _mValue_ContainsHeader;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapS3SourceUploadSettingResult.ContainsHeader' is not present");
+            }
+        }
 
-        public bool? ContainsHeader => _mContainsHeader.GetValue("containsHeader");
-
-        [Input("delimiter")]
+        [PolicyResourceProperty("delimiter", "_mUnknown_Delimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDelimiter;
+        private string? _mValue_Delimiter;
+        private bool _mUnknown_Delimiter;
+        public string? Delimiter
+        {
+            get
+            {
+                if (!_mUnknown_Delimiter) return _mValue_Delimiter;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapS3SourceUploadSettingResult.Delimiter' is not present");
+            }
+        }
 
-        public string? Delimiter => _mDelimiter.GetValue("delimiter");
-
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
+        private string? _mValue_Format;
+        private bool _mUnknown_Format;
+        public string? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapS3SourceUploadSettingResult.Format' is not present");
+            }
+        }
 
-        public string? Format => _mFormat.GetValue("format");
-
-        [Input("startFromRow")]
+        [PolicyResourceProperty("startFromRow", "_mUnknown_StartFromRow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStartFromRow;
+        private int? _mValue_StartFromRow;
+        private bool _mUnknown_StartFromRow;
+        public int? StartFromRow
+        {
+            get
+            {
+                if (!_mUnknown_StartFromRow) return _mValue_StartFromRow;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapS3SourceUploadSettingResult.StartFromRow' is not present");
+            }
+        }
 
-        public int? StartFromRow => _mStartFromRow.GetValue("startFromRow");
-
-        [Input("textQualifier")]
+        [PolicyResourceProperty("textQualifier", "_mUnknown_TextQualifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTextQualifier;
-
-        public string? TextQualifier => _mTextQualifier.GetValue("textQualifier");
+        private string? _mValue_TextQualifier;
+        private bool _mUnknown_TextQualifier;
+        public string? TextQualifier
+        {
+            get
+            {
+                if (!_mUnknown_TextQualifier) return _mValue_TextQualifier;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapS3SourceUploadSettingResult.TextQualifier' is not present");
+            }
+        }
     }
 }

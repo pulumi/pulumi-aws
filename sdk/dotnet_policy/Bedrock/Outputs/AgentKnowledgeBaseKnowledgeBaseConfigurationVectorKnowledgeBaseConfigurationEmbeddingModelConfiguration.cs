@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// The vector configuration details on the Bedrock embeddings model.  See `bedrock_embedding_model_configuration` block for details.
         /// </summary>
-        [Input("bedrockEmbeddingModelConfiguration")]
+        [PolicyResourceProperty("bedrockEmbeddingModelConfiguration", "_mUnknown_BedrockEmbeddingModelConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration> _mBedrockEmbeddingModelConfiguration;
-
-        public Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration? BedrockEmbeddingModelConfiguration => _mBedrockEmbeddingModelConfiguration.GetValue("bedrockEmbeddingModelConfiguration");
+        private Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration? _mValue_BedrockEmbeddingModelConfiguration;
+        private bool _mUnknown_BedrockEmbeddingModelConfiguration;
+        public Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration? BedrockEmbeddingModelConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_BedrockEmbeddingModelConfiguration) return _mValue_BedrockEmbeddingModelConfiguration;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration.BedrockEmbeddingModelConfiguration' is not present");
+            }
+        }
     }
 }

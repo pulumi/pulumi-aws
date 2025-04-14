@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// Name of the SerDe.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorSerDeInfo.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of initialization parameters for the SerDe, in key-value form.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorSerDeInfo.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
         /// </summary>
-        [Input("serializationLibrary")]
+        [PolicyResourceProperty("serializationLibrary", "_mUnknown_SerializationLibrary")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSerializationLibrary;
-
-        public string? SerializationLibrary => _mSerializationLibrary.GetValue("serializationLibrary");
+        private string? _mValue_SerializationLibrary;
+        private bool _mUnknown_SerializationLibrary;
+        public string? SerializationLibrary
+        {
+            get
+            {
+                if (!_mUnknown_SerializationLibrary) return _mValue_SerializationLibrary;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorSerDeInfo.SerializationLibrary' is not present");
+            }
+        }
     }
 }

@@ -16,77 +16,140 @@ namespace Pulumi.PolicyPacks.Aws.AppSync
         /// <summary>
         /// ARN of the Source Api Association.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'SourceApiAssociation.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Source Api Association.
         /// </summary>
-        [Input("associationId")]
+        [PolicyResourceProperty("associationId", "_mUnknown_AssociationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationId;
-
-        public string? AssociationId => _mAssociationId.GetValue("associationId");
+        private string? _mValue_AssociationId;
+        private bool _mUnknown_AssociationId;
+        public string? AssociationId
+        {
+            get
+            {
+                if (!_mUnknown_AssociationId) return _mValue_AssociationId;
+                throw new UndeferrableValueException("Value 'SourceApiAssociation.AssociationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the source API being merged.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SourceApiAssociation.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
         /// </summary>
-        [Input("mergedApiArn")]
+        [PolicyResourceProperty("mergedApiArn", "_mUnknown_MergedApiArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMergedApiArn;
-
-        public string? MergedApiArn => _mMergedApiArn.GetValue("mergedApiArn");
+        private string? _mValue_MergedApiArn;
+        private bool _mUnknown_MergedApiArn;
+        public string? MergedApiArn
+        {
+            get
+            {
+                if (!_mUnknown_MergedApiArn) return _mValue_MergedApiArn;
+                throw new UndeferrableValueException("Value 'SourceApiAssociation.MergedApiArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
         /// </summary>
-        [Input("mergedApiId")]
+        [PolicyResourceProperty("mergedApiId", "_mUnknown_MergedApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMergedApiId;
-
-        public string? MergedApiId => _mMergedApiId.GetValue("mergedApiId");
+        private string? _mValue_MergedApiId;
+        private bool _mUnknown_MergedApiId;
+        public string? MergedApiId
+        {
+            get
+            {
+                if (!_mUnknown_MergedApiId) return _mValue_MergedApiId;
+                throw new UndeferrableValueException("Value 'SourceApiAssociation.MergedApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         /// </summary>
-        [Input("sourceApiArn")]
+        [PolicyResourceProperty("sourceApiArn", "_mUnknown_SourceApiArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceApiArn;
+        private string? _mValue_SourceApiArn;
+        private bool _mUnknown_SourceApiArn;
+        public string? SourceApiArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceApiArn) return _mValue_SourceApiArn;
+                throw new UndeferrableValueException("Value 'SourceApiAssociation.SourceApiArn' is not present");
+            }
+        }
 
-        public string? SourceApiArn => _mSourceApiArn.GetValue("sourceApiArn");
-
-        [Input("sourceApiAssociationConfigs")]
+        [PolicyResourceProperty("sourceApiAssociationConfigs", "_mUnknown_SourceApiAssociationConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SourceApiAssociationSourceApiAssociationConfig>> _mSourceApiAssociationConfigs;
-
-        public List<Outputs.SourceApiAssociationSourceApiAssociationConfig>? SourceApiAssociationConfigs => _mSourceApiAssociationConfigs.GetValue("sourceApiAssociationConfigs");
+        private List<Outputs.SourceApiAssociationSourceApiAssociationConfig>? _mValue_SourceApiAssociationConfigs;
+        private bool _mUnknown_SourceApiAssociationConfigs;
+        public List<Outputs.SourceApiAssociationSourceApiAssociationConfig>? SourceApiAssociationConfigs
+        {
+            get
+            {
+                if (!_mUnknown_SourceApiAssociationConfigs) return _mValue_SourceApiAssociationConfigs;
+                throw new UndeferrableValueException("Value 'SourceApiAssociation.SourceApiAssociationConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         /// </summary>
-        [Input("sourceApiId")]
+        [PolicyResourceProperty("sourceApiId", "_mUnknown_SourceApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceApiId;
+        private string? _mValue_SourceApiId;
+        private bool _mUnknown_SourceApiId;
+        public string? SourceApiId
+        {
+            get
+            {
+                if (!_mUnknown_SourceApiId) return _mValue_SourceApiId;
+                throw new UndeferrableValueException("Value 'SourceApiAssociation.SourceApiId' is not present");
+            }
+        }
 
-        public string? SourceApiId => _mSourceApiId.GetValue("sourceApiId");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SourceApiAssociationTimeouts> _mTimeouts;
-
-        public Outputs.SourceApiAssociationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.SourceApiAssociationTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.SourceApiAssociationTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'SourceApiAssociation.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appsync/sourceApiAssociation:SourceApiAssociation")]
@@ -95,58 +158,107 @@ namespace Pulumi.PolicyPacks.Aws.AppSync
         /// <summary>
         /// Description of the source API being merged.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SourceApiAssociationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
         /// </summary>
-        [Input("mergedApiArn")]
+        [PolicyResourceProperty("mergedApiArn", "_mUnknown_MergedApiArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMergedApiArn;
-
-        public string? MergedApiArn => _mMergedApiArn.GetValue("mergedApiArn");
+        private string? _mValue_MergedApiArn;
+        private bool _mUnknown_MergedApiArn;
+        public string? MergedApiArn
+        {
+            get
+            {
+                if (!_mUnknown_MergedApiArn) return _mValue_MergedApiArn;
+                throw new UndeferrableValueException("Value 'SourceApiAssociationArgs.MergedApiArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
         /// </summary>
-        [Input("mergedApiId")]
+        [PolicyResourceProperty("mergedApiId", "_mUnknown_MergedApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMergedApiId;
-
-        public string? MergedApiId => _mMergedApiId.GetValue("mergedApiId");
+        private string? _mValue_MergedApiId;
+        private bool _mUnknown_MergedApiId;
+        public string? MergedApiId
+        {
+            get
+            {
+                if (!_mUnknown_MergedApiId) return _mValue_MergedApiId;
+                throw new UndeferrableValueException("Value 'SourceApiAssociationArgs.MergedApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         /// </summary>
-        [Input("sourceApiArn")]
+        [PolicyResourceProperty("sourceApiArn", "_mUnknown_SourceApiArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceApiArn;
+        private string? _mValue_SourceApiArn;
+        private bool _mUnknown_SourceApiArn;
+        public string? SourceApiArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceApiArn) return _mValue_SourceApiArn;
+                throw new UndeferrableValueException("Value 'SourceApiAssociationArgs.SourceApiArn' is not present");
+            }
+        }
 
-        public string? SourceApiArn => _mSourceApiArn.GetValue("sourceApiArn");
-
-        [Input("sourceApiAssociationConfigs")]
+        [PolicyResourceProperty("sourceApiAssociationConfigs", "_mUnknown_SourceApiAssociationConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SourceApiAssociationSourceApiAssociationConfigArgs>> _mSourceApiAssociationConfigs;
-
-        public List<Inputs.SourceApiAssociationSourceApiAssociationConfigArgs>? SourceApiAssociationConfigs => _mSourceApiAssociationConfigs.GetValue("sourceApiAssociationConfigs");
+        private List<Inputs.SourceApiAssociationSourceApiAssociationConfigArgs>? _mValue_SourceApiAssociationConfigs;
+        private bool _mUnknown_SourceApiAssociationConfigs;
+        public List<Inputs.SourceApiAssociationSourceApiAssociationConfigArgs>? SourceApiAssociationConfigs
+        {
+            get
+            {
+                if (!_mUnknown_SourceApiAssociationConfigs) return _mValue_SourceApiAssociationConfigs;
+                throw new UndeferrableValueException("Value 'SourceApiAssociationArgs.SourceApiAssociationConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         /// </summary>
-        [Input("sourceApiId")]
+        [PolicyResourceProperty("sourceApiId", "_mUnknown_SourceApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceApiId;
+        private string? _mValue_SourceApiId;
+        private bool _mUnknown_SourceApiId;
+        public string? SourceApiId
+        {
+            get
+            {
+                if (!_mUnknown_SourceApiId) return _mValue_SourceApiId;
+                throw new UndeferrableValueException("Value 'SourceApiAssociationArgs.SourceApiId' is not present");
+            }
+        }
 
-        public string? SourceApiId => _mSourceApiId.GetValue("sourceApiId");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SourceApiAssociationTimeoutsArgs> _mTimeouts;
-
-        public Inputs.SourceApiAssociationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.SourceApiAssociationTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.SourceApiAssociationTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'SourceApiAssociationArgs.Timeouts' is not present");
+            }
+        }
     }
 }

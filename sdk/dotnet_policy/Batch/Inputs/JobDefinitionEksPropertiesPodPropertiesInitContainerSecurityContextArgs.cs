@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Inputs
 {
     public sealed class JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs
     {
-        [Input("privileged")]
+        [PolicyResourceProperty("privileged", "_mUnknown_Privileged")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPrivileged;
+        private bool? _mValue_Privileged;
+        private bool _mUnknown_Privileged;
+        public bool? Privileged
+        {
+            get
+            {
+                if (!_mUnknown_Privileged) return _mValue_Privileged;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs.Privileged' is not present");
+            }
+        }
 
-        public bool? Privileged => _mPrivileged.GetValue("privileged");
-
-        [Input("readOnlyRootFileSystem")]
+        [PolicyResourceProperty("readOnlyRootFileSystem", "_mUnknown_ReadOnlyRootFileSystem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReadOnlyRootFileSystem;
+        private bool? _mValue_ReadOnlyRootFileSystem;
+        private bool _mUnknown_ReadOnlyRootFileSystem;
+        public bool? ReadOnlyRootFileSystem
+        {
+            get
+            {
+                if (!_mUnknown_ReadOnlyRootFileSystem) return _mValue_ReadOnlyRootFileSystem;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs.ReadOnlyRootFileSystem' is not present");
+            }
+        }
 
-        public bool? ReadOnlyRootFileSystem => _mReadOnlyRootFileSystem.GetValue("readOnlyRootFileSystem");
-
-        [Input("runAsGroup")]
+        [PolicyResourceProperty("runAsGroup", "_mUnknown_RunAsGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRunAsGroup;
+        private int? _mValue_RunAsGroup;
+        private bool _mUnknown_RunAsGroup;
+        public int? RunAsGroup
+        {
+            get
+            {
+                if (!_mUnknown_RunAsGroup) return _mValue_RunAsGroup;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs.RunAsGroup' is not present");
+            }
+        }
 
-        public int? RunAsGroup => _mRunAsGroup.GetValue("runAsGroup");
-
-        [Input("runAsNonRoot")]
+        [PolicyResourceProperty("runAsNonRoot", "_mUnknown_RunAsNonRoot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRunAsNonRoot;
+        private bool? _mValue_RunAsNonRoot;
+        private bool _mUnknown_RunAsNonRoot;
+        public bool? RunAsNonRoot
+        {
+            get
+            {
+                if (!_mUnknown_RunAsNonRoot) return _mValue_RunAsNonRoot;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs.RunAsNonRoot' is not present");
+            }
+        }
 
-        public bool? RunAsNonRoot => _mRunAsNonRoot.GetValue("runAsNonRoot");
-
-        [Input("runAsUser")]
+        [PolicyResourceProperty("runAsUser", "_mUnknown_RunAsUser")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRunAsUser;
-
-        public int? RunAsUser => _mRunAsUser.GetValue("runAsUser");
+        private int? _mValue_RunAsUser;
+        private bool _mUnknown_RunAsUser;
+        public int? RunAsUser
+        {
+            get
+            {
+                if (!_mUnknown_RunAsUser) return _mValue_RunAsUser;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs.RunAsUser' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// Action to take if a match is determined.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GatewayRouteSpecHttp2RouteAction> _mAction;
-
-        public Outputs.GatewayRouteSpecHttp2RouteAction? Action => _mAction.GetValue("action");
+        private Outputs.GatewayRouteSpecHttp2RouteAction? _mValue_Action;
+        private bool _mUnknown_Action;
+        public Outputs.GatewayRouteSpecHttp2RouteAction? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2Route.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// Criteria for determining a request match.
         /// </summary>
-        [Input("match")]
+        [PolicyResourceProperty("match", "_mUnknown_Match")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GatewayRouteSpecHttp2RouteMatch> _mMatch;
-
-        public Outputs.GatewayRouteSpecHttp2RouteMatch? Match => _mMatch.GetValue("match");
+        private Outputs.GatewayRouteSpecHttp2RouteMatch? _mValue_Match;
+        private bool _mUnknown_Match;
+        public Outputs.GatewayRouteSpecHttp2RouteMatch? Match
+        {
+            get
+            {
+                if (!_mUnknown_Match) return _mValue_Match;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2Route.Match' is not present");
+            }
+        }
     }
 }

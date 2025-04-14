@@ -15,34 +15,62 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
         /// <summary>
         /// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
         /// </summary>
-        [Input("dataTransferApi")]
+        [PolicyResourceProperty("dataTransferApi", "_mUnknown_DataTransferApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataTransferApi;
-
-        public string? DataTransferApi => _mDataTransferApi.GetValue("dataTransferApi");
+        private string? _mValue_DataTransferApi;
+        private bool _mUnknown_DataTransferApi;
+        public string? DataTransferApi
+        {
+            get
+            {
+                if (!_mUnknown_DataTransferApi) return _mValue_DataTransferApi;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesSalesforce.DataTransferApi' is not present");
+            }
+        }
 
         /// <summary>
         /// Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
         /// </summary>
-        [Input("enableDynamicFieldUpdate")]
+        [PolicyResourceProperty("enableDynamicFieldUpdate", "_mUnknown_EnableDynamicFieldUpdate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDynamicFieldUpdate;
-
-        public bool? EnableDynamicFieldUpdate => _mEnableDynamicFieldUpdate.GetValue("enableDynamicFieldUpdate");
+        private bool? _mValue_EnableDynamicFieldUpdate;
+        private bool _mUnknown_EnableDynamicFieldUpdate;
+        public bool? EnableDynamicFieldUpdate
+        {
+            get
+            {
+                if (!_mUnknown_EnableDynamicFieldUpdate) return _mValue_EnableDynamicFieldUpdate;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesSalesforce.EnableDynamicFieldUpdate' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether Amazon AppFlow includes deleted files in the flow run.
         /// </summary>
-        [Input("includeDeletedRecords")]
+        [PolicyResourceProperty("includeDeletedRecords", "_mUnknown_IncludeDeletedRecords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeDeletedRecords;
+        private bool? _mValue_IncludeDeletedRecords;
+        private bool _mUnknown_IncludeDeletedRecords;
+        public bool? IncludeDeletedRecords
+        {
+            get
+            {
+                if (!_mUnknown_IncludeDeletedRecords) return _mValue_IncludeDeletedRecords;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesSalesforce.IncludeDeletedRecords' is not present");
+            }
+        }
 
-        public bool? IncludeDeletedRecords => _mIncludeDeletedRecords.GetValue("includeDeletedRecords");
-
-        [Input("object")]
+        [PolicyResourceProperty("object", "_mUnknown_Object")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObject;
-
-        public string? Object => _mObject.GetValue("object");
+        private string? _mValue_Object;
+        private bool _mUnknown_Object;
+        public string? Object
+        {
+            get
+            {
+                if (!_mUnknown_Object) return _mValue_Object;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesSalesforce.Object' is not present");
+            }
+        }
     }
 }

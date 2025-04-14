@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Outputs
         /// <summary>
         /// A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
         /// </summary>
-        [Input("clients")]
+        [PolicyResourceProperty("clients", "_mUnknown_Clients")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClients;
-
-        public string? Clients => _mClients.GetValue("clients");
+        private string? _mValue_Clients;
+        private bool _mUnknown_Clients;
+        public string? Clients
+        {
+            get
+            {
+                if (!_mUnknown_Clients) return _mValue_Clients;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration.Clients' is not present");
+            }
+        }
 
         /// <summary>
         /// The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
         /// </summary>
-        [Input("options")]
+        [PolicyResourceProperty("options", "_mUnknown_Options")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOptions;
-
-        public List<string>? Options => _mOptions.GetValue("options");
+        private List<string>? _mValue_Options;
+        private bool _mUnknown_Options;
+        public List<string>? Options
+        {
+            get
+            {
+                if (!_mUnknown_Options) return _mValue_Options;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration.Options' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.LB.Outputs
         /// <summary>
         /// Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
         /// </summary>
-        [Input("httpHeaderName")]
+        [PolicyResourceProperty("httpHeaderName", "_mUnknown_HttpHeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpHeaderName;
-
-        public string? HttpHeaderName => _mHttpHeaderName.GetValue("httpHeaderName");
+        private string? _mValue_HttpHeaderName;
+        private bool _mUnknown_HttpHeaderName;
+        public string? HttpHeaderName
+        {
+            get
+            {
+                if (!_mUnknown_HttpHeaderName) return _mValue_HttpHeaderName;
+                throw new UndeferrableValueException("Value 'ListenerRuleConditionHttpHeader.HttpHeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         /// </summary>
-        [Input("values")]
+        [PolicyResourceProperty("values", "_mUnknown_Values")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mValues;
-
-        public List<string>? Values => _mValues.GetValue("values");
+        private List<string>? _mValue_Values;
+        private bool _mUnknown_Values;
+        public List<string>? Values
+        {
+            get
+            {
+                if (!_mUnknown_Values) return _mValue_Values;
+                throw new UndeferrableValueException("Value 'ListenerRuleConditionHttpHeader.Values' is not present");
+            }
+        }
     }
 }

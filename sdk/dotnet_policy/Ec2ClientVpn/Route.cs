@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Ec2ClientVpn
         /// <summary>
         /// The ID of the Client VPN endpoint.
         /// </summary>
-        [Input("clientVpnEndpointId")]
+        [PolicyResourceProperty("clientVpnEndpointId", "_mUnknown_ClientVpnEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientVpnEndpointId;
-
-        public string? ClientVpnEndpointId => _mClientVpnEndpointId.GetValue("clientVpnEndpointId");
+        private string? _mValue_ClientVpnEndpointId;
+        private bool _mUnknown_ClientVpnEndpointId;
+        public string? ClientVpnEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_ClientVpnEndpointId) return _mValue_ClientVpnEndpointId;
+                throw new UndeferrableValueException("Value 'Route.ClientVpnEndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// A brief description of the route.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Route.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 address range, in CIDR notation, of the route destination.
         /// </summary>
-        [Input("destinationCidrBlock")]
+        [PolicyResourceProperty("destinationCidrBlock", "_mUnknown_DestinationCidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
-
-        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+        private string? _mValue_DestinationCidrBlock;
+        private bool _mUnknown_DestinationCidrBlock;
+        public string? DestinationCidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_DestinationCidrBlock) return _mValue_DestinationCidrBlock;
+                throw new UndeferrableValueException("Value 'Route.DestinationCidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
         /// </summary>
-        [Input("origin")]
+        [PolicyResourceProperty("origin", "_mUnknown_Origin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrigin;
-
-        public string? Origin => _mOrigin.GetValue("origin");
+        private string? _mValue_Origin;
+        private bool _mUnknown_Origin;
+        public string? Origin
+        {
+            get
+            {
+                if (!_mUnknown_Origin) return _mValue_Origin;
+                throw new UndeferrableValueException("Value 'Route.Origin' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
         /// </summary>
-        [Input("targetVpcSubnetId")]
+        [PolicyResourceProperty("targetVpcSubnetId", "_mUnknown_TargetVpcSubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetVpcSubnetId;
-
-        public string? TargetVpcSubnetId => _mTargetVpcSubnetId.GetValue("targetVpcSubnetId");
+        private string? _mValue_TargetVpcSubnetId;
+        private bool _mUnknown_TargetVpcSubnetId;
+        public string? TargetVpcSubnetId
+        {
+            get
+            {
+                if (!_mUnknown_TargetVpcSubnetId) return _mValue_TargetVpcSubnetId;
+                throw new UndeferrableValueException("Value 'Route.TargetVpcSubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the route.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Route.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2clientvpn/route:Route")]
@@ -74,37 +116,65 @@ namespace Pulumi.PolicyPacks.Aws.Ec2ClientVpn
         /// <summary>
         /// The ID of the Client VPN endpoint.
         /// </summary>
-        [Input("clientVpnEndpointId")]
+        [PolicyResourceProperty("clientVpnEndpointId", "_mUnknown_ClientVpnEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientVpnEndpointId;
-
-        public string? ClientVpnEndpointId => _mClientVpnEndpointId.GetValue("clientVpnEndpointId");
+        private string? _mValue_ClientVpnEndpointId;
+        private bool _mUnknown_ClientVpnEndpointId;
+        public string? ClientVpnEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_ClientVpnEndpointId) return _mValue_ClientVpnEndpointId;
+                throw new UndeferrableValueException("Value 'RouteArgs.ClientVpnEndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// A brief description of the route.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'RouteArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 address range, in CIDR notation, of the route destination.
         /// </summary>
-        [Input("destinationCidrBlock")]
+        [PolicyResourceProperty("destinationCidrBlock", "_mUnknown_DestinationCidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
-
-        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+        private string? _mValue_DestinationCidrBlock;
+        private bool _mUnknown_DestinationCidrBlock;
+        public string? DestinationCidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_DestinationCidrBlock) return _mValue_DestinationCidrBlock;
+                throw new UndeferrableValueException("Value 'RouteArgs.DestinationCidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
         /// </summary>
-        [Input("targetVpcSubnetId")]
+        [PolicyResourceProperty("targetVpcSubnetId", "_mUnknown_TargetVpcSubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetVpcSubnetId;
-
-        public string? TargetVpcSubnetId => _mTargetVpcSubnetId.GetValue("targetVpcSubnetId");
+        private string? _mValue_TargetVpcSubnetId;
+        private bool _mUnknown_TargetVpcSubnetId;
+        public string? TargetVpcSubnetId
+        {
+            get
+            {
+                if (!_mUnknown_TargetVpcSubnetId) return _mValue_TargetVpcSubnetId;
+                throw new UndeferrableValueException("Value 'RouteArgs.TargetVpcSubnetId' is not present");
+            }
+        }
     }
 }

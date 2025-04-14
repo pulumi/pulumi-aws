@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner.Inputs
         /// <summary>
         /// Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
         /// </summary>
-        [Input("egressConfiguration")]
+        [PolicyResourceProperty("egressConfiguration", "_mUnknown_EgressConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceNetworkConfigurationEgressConfigurationArgs> _mEgressConfiguration;
-
-        public Inputs.ServiceNetworkConfigurationEgressConfigurationArgs? EgressConfiguration => _mEgressConfiguration.GetValue("egressConfiguration");
+        private Inputs.ServiceNetworkConfigurationEgressConfigurationArgs? _mValue_EgressConfiguration;
+        private bool _mUnknown_EgressConfiguration;
+        public Inputs.ServiceNetworkConfigurationEgressConfigurationArgs? EgressConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EgressConfiguration) return _mValue_EgressConfiguration;
+                throw new UndeferrableValueException("Value 'ServiceNetworkConfigurationArgs.EgressConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
         /// </summary>
-        [Input("ingressConfiguration")]
+        [PolicyResourceProperty("ingressConfiguration", "_mUnknown_IngressConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceNetworkConfigurationIngressConfigurationArgs> _mIngressConfiguration;
-
-        public Inputs.ServiceNetworkConfigurationIngressConfigurationArgs? IngressConfiguration => _mIngressConfiguration.GetValue("ingressConfiguration");
+        private Inputs.ServiceNetworkConfigurationIngressConfigurationArgs? _mValue_IngressConfiguration;
+        private bool _mUnknown_IngressConfiguration;
+        public Inputs.ServiceNetworkConfigurationIngressConfigurationArgs? IngressConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_IngressConfiguration) return _mValue_IngressConfiguration;
+                throw new UndeferrableValueException("Value 'ServiceNetworkConfigurationArgs.IngressConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
         /// </summary>
-        [Input("ipAddressType")]
+        [PolicyResourceProperty("ipAddressType", "_mUnknown_IpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
-
-        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+        private string? _mValue_IpAddressType;
+        private bool _mUnknown_IpAddressType;
+        public string? IpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressType) return _mValue_IpAddressType;
+                throw new UndeferrableValueException("Value 'ServiceNetworkConfigurationArgs.IpAddressType' is not present");
+            }
+        }
     }
 }

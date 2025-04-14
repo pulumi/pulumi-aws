@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Inputs
         /// <summary>
         /// Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
         /// </summary>
-        [Input("defaultEmailOption")]
+        [PolicyResourceProperty("defaultEmailOption", "_mUnknown_DefaultEmailOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultEmailOption;
-
-        public string? DefaultEmailOption => _mDefaultEmailOption.GetValue("defaultEmailOption");
+        private string? _mValue_DefaultEmailOption;
+        private bool _mUnknown_DefaultEmailOption;
+        public string? DefaultEmailOption
+        {
+            get
+            {
+                if (!_mUnknown_DefaultEmailOption) return _mValue_DefaultEmailOption;
+                throw new UndeferrableValueException("Value 'UserPoolVerificationMessageTemplateArgs.DefaultEmailOption' is not present");
+            }
+        }
 
         /// <summary>
         /// Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
         /// </summary>
-        [Input("emailMessage")]
+        [PolicyResourceProperty("emailMessage", "_mUnknown_EmailMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailMessage;
-
-        public string? EmailMessage => _mEmailMessage.GetValue("emailMessage");
+        private string? _mValue_EmailMessage;
+        private bool _mUnknown_EmailMessage;
+        public string? EmailMessage
+        {
+            get
+            {
+                if (!_mUnknown_EmailMessage) return _mValue_EmailMessage;
+                throw new UndeferrableValueException("Value 'UserPoolVerificationMessageTemplateArgs.EmailMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
         /// </summary>
-        [Input("emailMessageByLink")]
+        [PolicyResourceProperty("emailMessageByLink", "_mUnknown_EmailMessageByLink")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailMessageByLink;
-
-        public string? EmailMessageByLink => _mEmailMessageByLink.GetValue("emailMessageByLink");
+        private string? _mValue_EmailMessageByLink;
+        private bool _mUnknown_EmailMessageByLink;
+        public string? EmailMessageByLink
+        {
+            get
+            {
+                if (!_mUnknown_EmailMessageByLink) return _mValue_EmailMessageByLink;
+                throw new UndeferrableValueException("Value 'UserPoolVerificationMessageTemplateArgs.EmailMessageByLink' is not present");
+            }
+        }
 
         /// <summary>
         /// Subject line for the email message template. Conflicts with `email_verification_subject` argument.
         /// </summary>
-        [Input("emailSubject")]
+        [PolicyResourceProperty("emailSubject", "_mUnknown_EmailSubject")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailSubject;
-
-        public string? EmailSubject => _mEmailSubject.GetValue("emailSubject");
+        private string? _mValue_EmailSubject;
+        private bool _mUnknown_EmailSubject;
+        public string? EmailSubject
+        {
+            get
+            {
+                if (!_mUnknown_EmailSubject) return _mValue_EmailSubject;
+                throw new UndeferrableValueException("Value 'UserPoolVerificationMessageTemplateArgs.EmailSubject' is not present");
+            }
+        }
 
         /// <summary>
         /// Subject line for the email message template for sending a confirmation link to the user.
         /// </summary>
-        [Input("emailSubjectByLink")]
+        [PolicyResourceProperty("emailSubjectByLink", "_mUnknown_EmailSubjectByLink")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailSubjectByLink;
-
-        public string? EmailSubjectByLink => _mEmailSubjectByLink.GetValue("emailSubjectByLink");
+        private string? _mValue_EmailSubjectByLink;
+        private bool _mUnknown_EmailSubjectByLink;
+        public string? EmailSubjectByLink
+        {
+            get
+            {
+                if (!_mUnknown_EmailSubjectByLink) return _mValue_EmailSubjectByLink;
+                throw new UndeferrableValueException("Value 'UserPoolVerificationMessageTemplateArgs.EmailSubjectByLink' is not present");
+            }
+        }
 
         /// <summary>
         /// SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
         /// </summary>
-        [Input("smsMessage")]
+        [PolicyResourceProperty("smsMessage", "_mUnknown_SmsMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSmsMessage;
-
-        public string? SmsMessage => _mSmsMessage.GetValue("smsMessage");
+        private string? _mValue_SmsMessage;
+        private bool _mUnknown_SmsMessage;
+        public string? SmsMessage
+        {
+            get
+            {
+                if (!_mUnknown_SmsMessage) return _mValue_SmsMessage;
+                throw new UndeferrableValueException("Value 'UserPoolVerificationMessageTemplateArgs.SmsMessage' is not present");
+            }
+        }
     }
 }

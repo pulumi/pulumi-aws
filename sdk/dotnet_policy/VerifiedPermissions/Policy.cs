@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions
         /// <summary>
         /// The date the policy was created.
         /// </summary>
-        [Input("createdDate")]
+        [PolicyResourceProperty("createdDate", "_mUnknown_CreatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
-
-        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
+        private string? _mValue_CreatedDate;
+        private bool _mUnknown_CreatedDate;
+        public string? CreatedDate
+        {
+            get
+            {
+                if (!_mUnknown_CreatedDate) return _mValue_CreatedDate;
+                throw new UndeferrableValueException("Value 'Policy.CreatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The definition of the policy. See Definition below.
         /// </summary>
-        [Input("definition")]
+        [PolicyResourceProperty("definition", "_mUnknown_Definition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyDefinition> _mDefinition;
-
-        public Outputs.PolicyDefinition? Definition => _mDefinition.GetValue("definition");
+        private Outputs.PolicyDefinition? _mValue_Definition;
+        private bool _mUnknown_Definition;
+        public Outputs.PolicyDefinition? Definition
+        {
+            get
+            {
+                if (!_mUnknown_Definition) return _mValue_Definition;
+                throw new UndeferrableValueException("Value 'Policy.Definition' is not present");
+            }
+        }
 
         /// <summary>
         /// The Policy ID of the policy.
         /// </summary>
-        [Input("policyId")]
+        [PolicyResourceProperty("policyId", "_mUnknown_PolicyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyId;
-
-        public string? PolicyId => _mPolicyId.GetValue("policyId");
+        private string? _mValue_PolicyId;
+        private bool _mUnknown_PolicyId;
+        public string? PolicyId
+        {
+            get
+            {
+                if (!_mUnknown_PolicyId) return _mValue_PolicyId;
+                throw new UndeferrableValueException("Value 'Policy.PolicyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Policy Store ID of the policy store.
         /// </summary>
-        [Input("policyStoreId")]
+        [PolicyResourceProperty("policyStoreId", "_mUnknown_PolicyStoreId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyStoreId;
-
-        public string? PolicyStoreId => _mPolicyStoreId.GetValue("policyStoreId");
+        private string? _mValue_PolicyStoreId;
+        private bool _mUnknown_PolicyStoreId;
+        public string? PolicyStoreId
+        {
+            get
+            {
+                if (!_mUnknown_PolicyStoreId) return _mValue_PolicyStoreId;
+                throw new UndeferrableValueException("Value 'Policy.PolicyStoreId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:verifiedpermissions/policy:Policy")]
@@ -56,19 +84,33 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions
         /// <summary>
         /// The definition of the policy. See Definition below.
         /// </summary>
-        [Input("definition")]
+        [PolicyResourceProperty("definition", "_mUnknown_Definition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyDefinitionArgs> _mDefinition;
-
-        public Inputs.PolicyDefinitionArgs? Definition => _mDefinition.GetValue("definition");
+        private Inputs.PolicyDefinitionArgs? _mValue_Definition;
+        private bool _mUnknown_Definition;
+        public Inputs.PolicyDefinitionArgs? Definition
+        {
+            get
+            {
+                if (!_mUnknown_Definition) return _mValue_Definition;
+                throw new UndeferrableValueException("Value 'PolicyArgs.Definition' is not present");
+            }
+        }
 
         /// <summary>
         /// The Policy Store ID of the policy store.
         /// </summary>
-        [Input("policyStoreId")]
+        [PolicyResourceProperty("policyStoreId", "_mUnknown_PolicyStoreId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyStoreId;
-
-        public string? PolicyStoreId => _mPolicyStoreId.GetValue("policyStoreId");
+        private string? _mValue_PolicyStoreId;
+        private bool _mUnknown_PolicyStoreId;
+        public string? PolicyStoreId
+        {
+            get
+            {
+                if (!_mUnknown_PolicyStoreId) return _mValue_PolicyStoreId;
+                throw new UndeferrableValueException("Value 'PolicyArgs.PolicyStoreId' is not present");
+            }
+        }
     }
 }

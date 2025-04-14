@@ -15,181 +15,321 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
         /// </summary>
-        [Input("allowedMethods")]
+        [PolicyResourceProperty("allowedMethods", "_mUnknown_AllowedMethods")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedMethods;
-
-        public List<string>? AllowedMethods => _mAllowedMethods.GetValue("allowedMethods");
+        private List<string>? _mValue_AllowedMethods;
+        private bool _mUnknown_AllowedMethods;
+        public List<string>? AllowedMethods
+        {
+            get
+            {
+                if (!_mUnknown_AllowedMethods) return _mValue_AllowedMethods;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.AllowedMethods' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
         /// </summary>
-        [Input("cachePolicyId")]
+        [PolicyResourceProperty("cachePolicyId", "_mUnknown_CachePolicyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCachePolicyId;
-
-        public string? CachePolicyId => _mCachePolicyId.GetValue("cachePolicyId");
+        private string? _mValue_CachePolicyId;
+        private bool _mUnknown_CachePolicyId;
+        public string? CachePolicyId
+        {
+            get
+            {
+                if (!_mUnknown_CachePolicyId) return _mValue_CachePolicyId;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.CachePolicyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Controls whether CloudFront caches the response to requests using the specified HTTP methods.
         /// </summary>
-        [Input("cachedMethods")]
+        [PolicyResourceProperty("cachedMethods", "_mUnknown_CachedMethods")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCachedMethods;
-
-        public List<string>? CachedMethods => _mCachedMethods.GetValue("cachedMethods");
+        private List<string>? _mValue_CachedMethods;
+        private bool _mUnknown_CachedMethods;
+        public List<string>? CachedMethods
+        {
+            get
+            {
+                if (!_mUnknown_CachedMethods) return _mValue_CachedMethods;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.CachedMethods' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
         /// </summary>
-        [Input("compress")]
+        [PolicyResourceProperty("compress", "_mUnknown_Compress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCompress;
-
-        public bool? Compress => _mCompress.GetValue("compress");
+        private bool? _mValue_Compress;
+        private bool _mUnknown_Compress;
+        public bool? Compress
+        {
+            get
+            {
+                if (!_mUnknown_Compress) return _mValue_Compress;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.Compress' is not present");
+            }
+        }
 
         /// <summary>
         /// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
         /// </summary>
-        [Input("defaultTtl")]
+        [PolicyResourceProperty("defaultTtl", "_mUnknown_DefaultTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultTtl;
-
-        public int? DefaultTtl => _mDefaultTtl.GetValue("defaultTtl");
+        private int? _mValue_DefaultTtl;
+        private bool _mUnknown_DefaultTtl;
+        public int? DefaultTtl
+        {
+            get
+            {
+                if (!_mUnknown_DefaultTtl) return _mValue_DefaultTtl;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.DefaultTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// Field level encryption configuration ID.
         /// </summary>
-        [Input("fieldLevelEncryptionId")]
+        [PolicyResourceProperty("fieldLevelEncryptionId", "_mUnknown_FieldLevelEncryptionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFieldLevelEncryptionId;
-
-        public string? FieldLevelEncryptionId => _mFieldLevelEncryptionId.GetValue("fieldLevelEncryptionId");
+        private string? _mValue_FieldLevelEncryptionId;
+        private bool _mUnknown_FieldLevelEncryptionId;
+        public string? FieldLevelEncryptionId
+        {
+            get
+            {
+                if (!_mUnknown_FieldLevelEncryptionId) return _mValue_FieldLevelEncryptionId;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.FieldLevelEncryptionId' is not present");
+            }
+        }
 
         /// <summary>
         /// The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
         /// </summary>
-        [Input("forwardedValues")]
+        [PolicyResourceProperty("forwardedValues", "_mUnknown_ForwardedValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionDefaultCacheBehaviorForwardedValuesArgs> _mForwardedValues;
-
-        public Inputs.DistributionDefaultCacheBehaviorForwardedValuesArgs? ForwardedValues => _mForwardedValues.GetValue("forwardedValues");
+        private Inputs.DistributionDefaultCacheBehaviorForwardedValuesArgs? _mValue_ForwardedValues;
+        private bool _mUnknown_ForwardedValues;
+        public Inputs.DistributionDefaultCacheBehaviorForwardedValuesArgs? ForwardedValues
+        {
+            get
+            {
+                if (!_mUnknown_ForwardedValues) return _mValue_ForwardedValues;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.ForwardedValues' is not present");
+            }
+        }
 
         /// <summary>
         /// A config block that triggers a cloudfront function with specific actions (maximum 2).
         /// </summary>
-        [Input("functionAssociations")]
+        [PolicyResourceProperty("functionAssociations", "_mUnknown_FunctionAssociations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DistributionDefaultCacheBehaviorFunctionAssociationArgs>> _mFunctionAssociations;
-
-        public List<Inputs.DistributionDefaultCacheBehaviorFunctionAssociationArgs>? FunctionAssociations => _mFunctionAssociations.GetValue("functionAssociations");
+        private List<Inputs.DistributionDefaultCacheBehaviorFunctionAssociationArgs>? _mValue_FunctionAssociations;
+        private bool _mUnknown_FunctionAssociations;
+        public List<Inputs.DistributionDefaultCacheBehaviorFunctionAssociationArgs>? FunctionAssociations
+        {
+            get
+            {
+                if (!_mUnknown_FunctionAssociations) return _mValue_FunctionAssociations;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.FunctionAssociations' is not present");
+            }
+        }
 
         /// <summary>
         /// A config block that sets the grpc config.
         /// </summary>
-        [Input("grpcConfig")]
+        [PolicyResourceProperty("grpcConfig", "_mUnknown_GrpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionDefaultCacheBehaviorGrpcConfigArgs> _mGrpcConfig;
-
-        public Inputs.DistributionDefaultCacheBehaviorGrpcConfigArgs? GrpcConfig => _mGrpcConfig.GetValue("grpcConfig");
+        private Inputs.DistributionDefaultCacheBehaviorGrpcConfigArgs? _mValue_GrpcConfig;
+        private bool _mUnknown_GrpcConfig;
+        public Inputs.DistributionDefaultCacheBehaviorGrpcConfigArgs? GrpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_GrpcConfig) return _mValue_GrpcConfig;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.GrpcConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A config block that triggers a lambda function with specific actions (maximum 4).
         /// </summary>
-        [Input("lambdaFunctionAssociations")]
+        [PolicyResourceProperty("lambdaFunctionAssociations", "_mUnknown_LambdaFunctionAssociations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs>> _mLambdaFunctionAssociations;
-
-        public List<Inputs.DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs>? LambdaFunctionAssociations => _mLambdaFunctionAssociations.GetValue("lambdaFunctionAssociations");
+        private List<Inputs.DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs>? _mValue_LambdaFunctionAssociations;
+        private bool _mUnknown_LambdaFunctionAssociations;
+        public List<Inputs.DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs>? LambdaFunctionAssociations
+        {
+            get
+            {
+                if (!_mUnknown_LambdaFunctionAssociations) return _mValue_LambdaFunctionAssociations;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.LambdaFunctionAssociations' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
         /// </summary>
-        [Input("maxTtl")]
+        [PolicyResourceProperty("maxTtl", "_mUnknown_MaxTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxTtl;
-
-        public int? MaxTtl => _mMaxTtl.GetValue("maxTtl");
+        private int? _mValue_MaxTtl;
+        private bool _mUnknown_MaxTtl;
+        public int? MaxTtl
+        {
+            get
+            {
+                if (!_mUnknown_MaxTtl) return _mValue_MaxTtl;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.MaxTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
         /// </summary>
-        [Input("minTtl")]
+        [PolicyResourceProperty("minTtl", "_mUnknown_MinTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinTtl;
-
-        public int? MinTtl => _mMinTtl.GetValue("minTtl");
+        private int? _mValue_MinTtl;
+        private bool _mUnknown_MinTtl;
+        public int? MinTtl
+        {
+            get
+            {
+                if (!_mUnknown_MinTtl) return _mValue_MinTtl;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.MinTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of the origin request policy that is attached to the behavior.
         /// </summary>
-        [Input("originRequestPolicyId")]
+        [PolicyResourceProperty("originRequestPolicyId", "_mUnknown_OriginRequestPolicyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOriginRequestPolicyId;
-
-        public string? OriginRequestPolicyId => _mOriginRequestPolicyId.GetValue("originRequestPolicyId");
+        private string? _mValue_OriginRequestPolicyId;
+        private bool _mUnknown_OriginRequestPolicyId;
+        public string? OriginRequestPolicyId
+        {
+            get
+            {
+                if (!_mUnknown_OriginRequestPolicyId) return _mValue_OriginRequestPolicyId;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.OriginRequestPolicyId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the real-time log configuration that is attached to this cache behavior.
         /// </summary>
-        [Input("realtimeLogConfigArn")]
+        [PolicyResourceProperty("realtimeLogConfigArn", "_mUnknown_RealtimeLogConfigArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRealtimeLogConfigArn;
-
-        public string? RealtimeLogConfigArn => _mRealtimeLogConfigArn.GetValue("realtimeLogConfigArn");
+        private string? _mValue_RealtimeLogConfigArn;
+        private bool _mUnknown_RealtimeLogConfigArn;
+        public string? RealtimeLogConfigArn
+        {
+            get
+            {
+                if (!_mUnknown_RealtimeLogConfigArn) return _mValue_RealtimeLogConfigArn;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.RealtimeLogConfigArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for a response headers policy.
         /// </summary>
-        [Input("responseHeadersPolicyId")]
+        [PolicyResourceProperty("responseHeadersPolicyId", "_mUnknown_ResponseHeadersPolicyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResponseHeadersPolicyId;
-
-        public string? ResponseHeadersPolicyId => _mResponseHeadersPolicyId.GetValue("responseHeadersPolicyId");
+        private string? _mValue_ResponseHeadersPolicyId;
+        private bool _mUnknown_ResponseHeadersPolicyId;
+        public string? ResponseHeadersPolicyId
+        {
+            get
+            {
+                if (!_mUnknown_ResponseHeadersPolicyId) return _mValue_ResponseHeadersPolicyId;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.ResponseHeadersPolicyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
         /// </summary>
-        [Input("smoothStreaming")]
+        [PolicyResourceProperty("smoothStreaming", "_mUnknown_SmoothStreaming")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSmoothStreaming;
-
-        public bool? SmoothStreaming => _mSmoothStreaming.GetValue("smoothStreaming");
+        private bool? _mValue_SmoothStreaming;
+        private bool _mUnknown_SmoothStreaming;
+        public bool? SmoothStreaming
+        {
+            get
+            {
+                if (!_mUnknown_SmoothStreaming) return _mValue_SmoothStreaming;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.SmoothStreaming' is not present");
+            }
+        }
 
         /// <summary>
         /// Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
         /// </summary>
-        [Input("targetOriginId")]
+        [PolicyResourceProperty("targetOriginId", "_mUnknown_TargetOriginId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetOriginId;
-
-        public string? TargetOriginId => _mTargetOriginId.GetValue("targetOriginId");
+        private string? _mValue_TargetOriginId;
+        private bool _mUnknown_TargetOriginId;
+        public string? TargetOriginId
+        {
+            get
+            {
+                if (!_mUnknown_TargetOriginId) return _mValue_TargetOriginId;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.TargetOriginId' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
         /// </summary>
-        [Input("trustedKeyGroups")]
+        [PolicyResourceProperty("trustedKeyGroups", "_mUnknown_TrustedKeyGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTrustedKeyGroups;
-
-        public List<string>? TrustedKeyGroups => _mTrustedKeyGroups.GetValue("trustedKeyGroups");
+        private List<string>? _mValue_TrustedKeyGroups;
+        private bool _mUnknown_TrustedKeyGroups;
+        public List<string>? TrustedKeyGroups
+        {
+            get
+            {
+                if (!_mUnknown_TrustedKeyGroups) return _mValue_TrustedKeyGroups;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.TrustedKeyGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
         /// </summary>
-        [Input("trustedSigners")]
+        [PolicyResourceProperty("trustedSigners", "_mUnknown_TrustedSigners")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTrustedSigners;
-
-        public List<string>? TrustedSigners => _mTrustedSigners.GetValue("trustedSigners");
+        private List<string>? _mValue_TrustedSigners;
+        private bool _mUnknown_TrustedSigners;
+        public List<string>? TrustedSigners
+        {
+            get
+            {
+                if (!_mUnknown_TrustedSigners) return _mValue_TrustedSigners;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.TrustedSigners' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
         /// </summary>
-        [Input("viewerProtocolPolicy")]
+        [PolicyResourceProperty("viewerProtocolPolicy", "_mUnknown_ViewerProtocolPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mViewerProtocolPolicy;
-
-        public string? ViewerProtocolPolicy => _mViewerProtocolPolicy.GetValue("viewerProtocolPolicy");
+        private string? _mValue_ViewerProtocolPolicy;
+        private bool _mUnknown_ViewerProtocolPolicy;
+        public string? ViewerProtocolPolicy
+        {
+            get
+            {
+                if (!_mUnknown_ViewerProtocolPolicy) return _mValue_ViewerProtocolPolicy;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorArgs.ViewerProtocolPolicy' is not present");
+            }
+        }
     }
 }

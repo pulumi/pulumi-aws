@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ChimeSDKMediaPipelines.Inputs
         /// <summary>
         /// Enable speaker search.
         /// </summary>
-        [Input("speakerSearchStatus")]
+        [PolicyResourceProperty("speakerSearchStatus", "_mUnknown_SpeakerSearchStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpeakerSearchStatus;
-
-        public string? SpeakerSearchStatus => _mSpeakerSearchStatus.GetValue("speakerSearchStatus");
+        private string? _mValue_SpeakerSearchStatus;
+        private bool _mUnknown_SpeakerSearchStatus;
+        public string? SpeakerSearchStatus
+        {
+            get
+            {
+                if (!_mUnknown_SpeakerSearchStatus) return _mValue_SpeakerSearchStatus;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs.SpeakerSearchStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable voice tone analysis.
         /// </summary>
-        [Input("voiceToneAnalysisStatus")]
+        [PolicyResourceProperty("voiceToneAnalysisStatus", "_mUnknown_VoiceToneAnalysisStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceToneAnalysisStatus;
-
-        public string? VoiceToneAnalysisStatus => _mVoiceToneAnalysisStatus.GetValue("voiceToneAnalysisStatus");
+        private string? _mValue_VoiceToneAnalysisStatus;
+        private bool _mUnknown_VoiceToneAnalysisStatus;
+        public string? VoiceToneAnalysisStatus
+        {
+            get
+            {
+                if (!_mUnknown_VoiceToneAnalysisStatus) return _mValue_VoiceToneAnalysisStatus;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs.VoiceToneAnalysisStatus' is not present");
+            }
+        }
     }
 }

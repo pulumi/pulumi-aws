@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess.Outputs
 {
     public sealed class EndpointNetworkInterfaceOptionsPortRange
     {
-        [Input("fromPort")]
+        [PolicyResourceProperty("fromPort", "_mUnknown_FromPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFromPort;
+        private int? _mValue_FromPort;
+        private bool _mUnknown_FromPort;
+        public int? FromPort
+        {
+            get
+            {
+                if (!_mUnknown_FromPort) return _mValue_FromPort;
+                throw new UndeferrableValueException("Value 'EndpointNetworkInterfaceOptionsPortRange.FromPort' is not present");
+            }
+        }
 
-        public int? FromPort => _mFromPort.GetValue("fromPort");
-
-        [Input("toPort")]
+        [PolicyResourceProperty("toPort", "_mUnknown_ToPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mToPort;
-
-        public int? ToPort => _mToPort.GetValue("toPort");
+        private int? _mValue_ToPort;
+        private bool _mUnknown_ToPort;
+        public int? ToPort
+        {
+            get
+            {
+                if (!_mUnknown_ToPort) return _mValue_ToPort;
+                throw new UndeferrableValueException("Value 'EndpointNetworkInterfaceOptionsPortRange.ToPort' is not present");
+            }
+        }
     }
 }

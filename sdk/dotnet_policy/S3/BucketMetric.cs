@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the bucket to put metric configuration.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketMetric.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         /// </summary>
-        [Input("filter")]
+        [PolicyResourceProperty("filter", "_mUnknown_Filter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketMetricFilter> _mFilter;
-
-        public Outputs.BucketMetricFilter? Filter => _mFilter.GetValue("filter");
+        private Outputs.BucketMetricFilter? _mValue_Filter;
+        private bool _mUnknown_Filter;
+        public Outputs.BucketMetricFilter? Filter
+        {
+            get
+            {
+                if (!_mUnknown_Filter) return _mValue_Filter;
+                throw new UndeferrableValueException("Value 'BucketMetric.Filter' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'BucketMetric.Name' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/bucketMetric:BucketMetric")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the bucket to put metric configuration.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketMetricArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         /// </summary>
-        [Input("filter")]
+        [PolicyResourceProperty("filter", "_mUnknown_Filter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketMetricFilterArgs> _mFilter;
-
-        public Inputs.BucketMetricFilterArgs? Filter => _mFilter.GetValue("filter");
+        private Inputs.BucketMetricFilterArgs? _mValue_Filter;
+        private bool _mUnknown_Filter;
+        public Inputs.BucketMetricFilterArgs? Filter
+        {
+            get
+            {
+                if (!_mUnknown_Filter) return _mValue_Filter;
+                throw new UndeferrableValueException("Value 'BucketMetricArgs.Filter' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'BucketMetricArgs.Name' is not present");
+            }
+        }
     }
 }

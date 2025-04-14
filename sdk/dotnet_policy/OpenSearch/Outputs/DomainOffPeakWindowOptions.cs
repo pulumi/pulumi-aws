@@ -15,16 +15,30 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Outputs
         /// <summary>
         /// Enabled disabled toggle for off-peak update window.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'DomainOffPeakWindowOptions.Enabled' is not present");
+            }
+        }
 
-        public bool? Enabled => _mEnabled.GetValue("enabled");
-
-        [Input("offPeakWindow")]
+        [PolicyResourceProperty("offPeakWindow", "_mUnknown_OffPeakWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainOffPeakWindowOptionsOffPeakWindow> _mOffPeakWindow;
-
-        public Outputs.DomainOffPeakWindowOptionsOffPeakWindow? OffPeakWindow => _mOffPeakWindow.GetValue("offPeakWindow");
+        private Outputs.DomainOffPeakWindowOptionsOffPeakWindow? _mValue_OffPeakWindow;
+        private bool _mUnknown_OffPeakWindow;
+        public Outputs.DomainOffPeakWindowOptionsOffPeakWindow? OffPeakWindow
+        {
+            get
+            {
+                if (!_mUnknown_OffPeakWindow) return _mValue_OffPeakWindow;
+                throw new UndeferrableValueException("Value 'DomainOffPeakWindowOptions.OffPeakWindow' is not present");
+            }
+        }
     }
 }

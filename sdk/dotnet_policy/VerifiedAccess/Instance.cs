@@ -16,77 +16,140 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
         /// <summary>
         /// The custom subdomain for the CIDR endpoints.
         /// </summary>
-        [Input("cidrEndpointsCustomSubdomain")]
+        [PolicyResourceProperty("cidrEndpointsCustomSubdomain", "_mUnknown_CidrEndpointsCustomSubdomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidrEndpointsCustomSubdomain;
-
-        public string? CidrEndpointsCustomSubdomain => _mCidrEndpointsCustomSubdomain.GetValue("cidrEndpointsCustomSubdomain");
+        private string? _mValue_CidrEndpointsCustomSubdomain;
+        private bool _mUnknown_CidrEndpointsCustomSubdomain;
+        public string? CidrEndpointsCustomSubdomain
+        {
+            get
+            {
+                if (!_mUnknown_CidrEndpointsCustomSubdomain) return _mValue_CidrEndpointsCustomSubdomain;
+                throw new UndeferrableValueException("Value 'Instance.CidrEndpointsCustomSubdomain' is not present");
+            }
+        }
 
         /// <summary>
         /// The time that the Verified Access Instance was created.
         /// </summary>
-        [Input("creationTime")]
+        [PolicyResourceProperty("creationTime", "_mUnknown_CreationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
-
-        public string? CreationTime => _mCreationTime.GetValue("creationTime");
+        private string? _mValue_CreationTime;
+        private bool _mUnknown_CreationTime;
+        public string? CreationTime
+        {
+            get
+            {
+                if (!_mUnknown_CreationTime) return _mValue_CreationTime;
+                throw new UndeferrableValueException("Value 'Instance.CreationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the AWS Verified Access Instance.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Instance.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         /// </summary>
-        [Input("fipsEnabled")]
+        [PolicyResourceProperty("fipsEnabled", "_mUnknown_FipsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFipsEnabled;
-
-        public bool? FipsEnabled => _mFipsEnabled.GetValue("fipsEnabled");
+        private bool? _mValue_FipsEnabled;
+        private bool _mUnknown_FipsEnabled;
+        public bool? FipsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_FipsEnabled) return _mValue_FipsEnabled;
+                throw new UndeferrableValueException("Value 'Instance.FipsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The time that the Verified Access Instance was last updated.
         /// </summary>
-        [Input("lastUpdatedTime")]
+        [PolicyResourceProperty("lastUpdatedTime", "_mUnknown_LastUpdatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
+        private string? _mValue_LastUpdatedTime;
+        private bool _mUnknown_LastUpdatedTime;
+        public string? LastUpdatedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedTime) return _mValue_LastUpdatedTime;
+                throw new UndeferrableValueException("Value 'Instance.LastUpdatedTime' is not present");
+            }
+        }
 
-        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
-
-        [Input("nameServers")]
+        [PolicyResourceProperty("nameServers", "_mUnknown_NameServers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNameServers;
-
-        public List<string>? NameServers => _mNameServers.GetValue("nameServers");
+        private List<string>? _mValue_NameServers;
+        private bool _mUnknown_NameServers;
+        public List<string>? NameServers
+        {
+            get
+            {
+                if (!_mUnknown_NameServers) return _mValue_NameServers;
+                throw new UndeferrableValueException("Value 'Instance.NameServers' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Instance.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Instance.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
         /// </summary>
-        [Input("verifiedAccessTrustProviders")]
+        [PolicyResourceProperty("verifiedAccessTrustProviders", "_mUnknown_VerifiedAccessTrustProviders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceVerifiedAccessTrustProvider>> _mVerifiedAccessTrustProviders;
-
-        public List<Outputs.InstanceVerifiedAccessTrustProvider>? VerifiedAccessTrustProviders => _mVerifiedAccessTrustProviders.GetValue("verifiedAccessTrustProviders");
+        private List<Outputs.InstanceVerifiedAccessTrustProvider>? _mValue_VerifiedAccessTrustProviders;
+        private bool _mUnknown_VerifiedAccessTrustProviders;
+        public List<Outputs.InstanceVerifiedAccessTrustProvider>? VerifiedAccessTrustProviders
+        {
+            get
+            {
+                if (!_mUnknown_VerifiedAccessTrustProviders) return _mValue_VerifiedAccessTrustProviders;
+                throw new UndeferrableValueException("Value 'Instance.VerifiedAccessTrustProviders' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:verifiedaccess/instance:Instance")]
@@ -95,37 +158,65 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
         /// <summary>
         /// The custom subdomain for the CIDR endpoints.
         /// </summary>
-        [Input("cidrEndpointsCustomSubdomain")]
+        [PolicyResourceProperty("cidrEndpointsCustomSubdomain", "_mUnknown_CidrEndpointsCustomSubdomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidrEndpointsCustomSubdomain;
-
-        public string? CidrEndpointsCustomSubdomain => _mCidrEndpointsCustomSubdomain.GetValue("cidrEndpointsCustomSubdomain");
+        private string? _mValue_CidrEndpointsCustomSubdomain;
+        private bool _mUnknown_CidrEndpointsCustomSubdomain;
+        public string? CidrEndpointsCustomSubdomain
+        {
+            get
+            {
+                if (!_mUnknown_CidrEndpointsCustomSubdomain) return _mValue_CidrEndpointsCustomSubdomain;
+                throw new UndeferrableValueException("Value 'InstanceArgs.CidrEndpointsCustomSubdomain' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the AWS Verified Access Instance.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         /// </summary>
-        [Input("fipsEnabled")]
+        [PolicyResourceProperty("fipsEnabled", "_mUnknown_FipsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFipsEnabled;
-
-        public bool? FipsEnabled => _mFipsEnabled.GetValue("fipsEnabled");
+        private bool? _mValue_FipsEnabled;
+        private bool _mUnknown_FipsEnabled;
+        public bool? FipsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_FipsEnabled) return _mValue_FipsEnabled;
+                throw new UndeferrableValueException("Value 'InstanceArgs.FipsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Tags' is not present");
+            }
+        }
     }
 }

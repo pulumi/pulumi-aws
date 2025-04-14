@@ -15,91 +15,161 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
         /// </summary>
-        [Input("adHocFilteringOption")]
+        [PolicyResourceProperty("adHocFilteringOption", "_mUnknown_AdHocFilteringOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DashboardDashboardPublishOptionsAdHocFilteringOption> _mAdHocFilteringOption;
-
-        public Outputs.DashboardDashboardPublishOptionsAdHocFilteringOption? AdHocFilteringOption => _mAdHocFilteringOption.GetValue("adHocFilteringOption");
+        private Outputs.DashboardDashboardPublishOptionsAdHocFilteringOption? _mValue_AdHocFilteringOption;
+        private bool _mUnknown_AdHocFilteringOption;
+        public Outputs.DashboardDashboardPublishOptionsAdHocFilteringOption? AdHocFilteringOption
+        {
+            get
+            {
+                if (!_mUnknown_AdHocFilteringOption) return _mValue_AdHocFilteringOption;
+                throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.AdHocFilteringOption' is not present");
+            }
+        }
 
         /// <summary>
         /// The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
         /// </summary>
-        [Input("dataPointDrillUpDownOption")]
+        [PolicyResourceProperty("dataPointDrillUpDownOption", "_mUnknown_DataPointDrillUpDownOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DashboardDashboardPublishOptionsDataPointDrillUpDownOption> _mDataPointDrillUpDownOption;
-
-        public Outputs.DashboardDashboardPublishOptionsDataPointDrillUpDownOption? DataPointDrillUpDownOption => _mDataPointDrillUpDownOption.GetValue("dataPointDrillUpDownOption");
+        private Outputs.DashboardDashboardPublishOptionsDataPointDrillUpDownOption? _mValue_DataPointDrillUpDownOption;
+        private bool _mUnknown_DataPointDrillUpDownOption;
+        public Outputs.DashboardDashboardPublishOptionsDataPointDrillUpDownOption? DataPointDrillUpDownOption
+        {
+            get
+            {
+                if (!_mUnknown_DataPointDrillUpDownOption) return _mValue_DataPointDrillUpDownOption;
+                throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.DataPointDrillUpDownOption' is not present");
+            }
+        }
 
         /// <summary>
         /// The data point menu label options of a dashboard. See data_point_menu_label_option.
         /// </summary>
-        [Input("dataPointMenuLabelOption")]
+        [PolicyResourceProperty("dataPointMenuLabelOption", "_mUnknown_DataPointMenuLabelOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DashboardDashboardPublishOptionsDataPointMenuLabelOption> _mDataPointMenuLabelOption;
-
-        public Outputs.DashboardDashboardPublishOptionsDataPointMenuLabelOption? DataPointMenuLabelOption => _mDataPointMenuLabelOption.GetValue("dataPointMenuLabelOption");
+        private Outputs.DashboardDashboardPublishOptionsDataPointMenuLabelOption? _mValue_DataPointMenuLabelOption;
+        private bool _mUnknown_DataPointMenuLabelOption;
+        public Outputs.DashboardDashboardPublishOptionsDataPointMenuLabelOption? DataPointMenuLabelOption
+        {
+            get
+            {
+                if (!_mUnknown_DataPointMenuLabelOption) return _mValue_DataPointMenuLabelOption;
+                throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.DataPointMenuLabelOption' is not present");
+            }
+        }
 
         /// <summary>
         /// The data point tool tip options of a dashboard. See data_point_tooltip_option.
         /// </summary>
-        [Input("dataPointTooltipOption")]
+        [PolicyResourceProperty("dataPointTooltipOption", "_mUnknown_DataPointTooltipOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DashboardDashboardPublishOptionsDataPointTooltipOption> _mDataPointTooltipOption;
-
-        public Outputs.DashboardDashboardPublishOptionsDataPointTooltipOption? DataPointTooltipOption => _mDataPointTooltipOption.GetValue("dataPointTooltipOption");
+        private Outputs.DashboardDashboardPublishOptionsDataPointTooltipOption? _mValue_DataPointTooltipOption;
+        private bool _mUnknown_DataPointTooltipOption;
+        public Outputs.DashboardDashboardPublishOptionsDataPointTooltipOption? DataPointTooltipOption
+        {
+            get
+            {
+                if (!_mUnknown_DataPointTooltipOption) return _mValue_DataPointTooltipOption;
+                throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.DataPointTooltipOption' is not present");
+            }
+        }
 
         /// <summary>
         /// Export to .csv option. See export_to_csv_option.
         /// </summary>
-        [Input("exportToCsvOption")]
+        [PolicyResourceProperty("exportToCsvOption", "_mUnknown_ExportToCsvOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DashboardDashboardPublishOptionsExportToCsvOption> _mExportToCsvOption;
-
-        public Outputs.DashboardDashboardPublishOptionsExportToCsvOption? ExportToCsvOption => _mExportToCsvOption.GetValue("exportToCsvOption");
+        private Outputs.DashboardDashboardPublishOptionsExportToCsvOption? _mValue_ExportToCsvOption;
+        private bool _mUnknown_ExportToCsvOption;
+        public Outputs.DashboardDashboardPublishOptionsExportToCsvOption? ExportToCsvOption
+        {
+            get
+            {
+                if (!_mUnknown_ExportToCsvOption) return _mValue_ExportToCsvOption;
+                throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.ExportToCsvOption' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
         /// </summary>
-        [Input("exportWithHiddenFieldsOption")]
+        [PolicyResourceProperty("exportWithHiddenFieldsOption", "_mUnknown_ExportWithHiddenFieldsOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DashboardDashboardPublishOptionsExportWithHiddenFieldsOption> _mExportWithHiddenFieldsOption;
-
-        public Outputs.DashboardDashboardPublishOptionsExportWithHiddenFieldsOption? ExportWithHiddenFieldsOption => _mExportWithHiddenFieldsOption.GetValue("exportWithHiddenFieldsOption");
+        private Outputs.DashboardDashboardPublishOptionsExportWithHiddenFieldsOption? _mValue_ExportWithHiddenFieldsOption;
+        private bool _mUnknown_ExportWithHiddenFieldsOption;
+        public Outputs.DashboardDashboardPublishOptionsExportWithHiddenFieldsOption? ExportWithHiddenFieldsOption
+        {
+            get
+            {
+                if (!_mUnknown_ExportWithHiddenFieldsOption) return _mValue_ExportWithHiddenFieldsOption;
+                throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.ExportWithHiddenFieldsOption' is not present");
+            }
+        }
 
         /// <summary>
         /// Sheet controls option. See sheet_controls_option.
         /// </summary>
-        [Input("sheetControlsOption")]
+        [PolicyResourceProperty("sheetControlsOption", "_mUnknown_SheetControlsOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DashboardDashboardPublishOptionsSheetControlsOption> _mSheetControlsOption;
-
-        public Outputs.DashboardDashboardPublishOptionsSheetControlsOption? SheetControlsOption => _mSheetControlsOption.GetValue("sheetControlsOption");
+        private Outputs.DashboardDashboardPublishOptionsSheetControlsOption? _mValue_SheetControlsOption;
+        private bool _mUnknown_SheetControlsOption;
+        public Outputs.DashboardDashboardPublishOptionsSheetControlsOption? SheetControlsOption
+        {
+            get
+            {
+                if (!_mUnknown_SheetControlsOption) return _mValue_SheetControlsOption;
+                throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.SheetControlsOption' is not present");
+            }
+        }
 
         /// <summary>
         /// The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
         /// </summary>
-        [Input("sheetLayoutElementMaximizationOption")]
+        [PolicyResourceProperty("sheetLayoutElementMaximizationOption", "_mUnknown_SheetLayoutElementMaximizationOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption> _mSheetLayoutElementMaximizationOption;
-
-        public Outputs.DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption? SheetLayoutElementMaximizationOption => _mSheetLayoutElementMaximizationOption.GetValue("sheetLayoutElementMaximizationOption");
+        private Outputs.DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption? _mValue_SheetLayoutElementMaximizationOption;
+        private bool _mUnknown_SheetLayoutElementMaximizationOption;
+        public Outputs.DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption? SheetLayoutElementMaximizationOption
+        {
+            get
+            {
+                if (!_mUnknown_SheetLayoutElementMaximizationOption) return _mValue_SheetLayoutElementMaximizationOption;
+                throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.SheetLayoutElementMaximizationOption' is not present");
+            }
+        }
 
         /// <summary>
         /// The axis sort options of a dashboard. See visual_axis_sort_option.
         /// </summary>
-        [Input("visualAxisSortOption")]
+        [PolicyResourceProperty("visualAxisSortOption", "_mUnknown_VisualAxisSortOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DashboardDashboardPublishOptionsVisualAxisSortOption> _mVisualAxisSortOption;
-
-        public Outputs.DashboardDashboardPublishOptionsVisualAxisSortOption? VisualAxisSortOption => _mVisualAxisSortOption.GetValue("visualAxisSortOption");
+        private Outputs.DashboardDashboardPublishOptionsVisualAxisSortOption? _mValue_VisualAxisSortOption;
+        private bool _mUnknown_VisualAxisSortOption;
+        public Outputs.DashboardDashboardPublishOptionsVisualAxisSortOption? VisualAxisSortOption
+        {
+            get
+            {
+                if (!_mUnknown_VisualAxisSortOption) return _mValue_VisualAxisSortOption;
+                throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.VisualAxisSortOption' is not present");
+            }
+        }
 
         /// <summary>
         /// The menu options of a visual in a dashboard. See visual_menu_option.
         /// </summary>
-        [Input("visualMenuOption")]
+        [PolicyResourceProperty("visualMenuOption", "_mUnknown_VisualMenuOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DashboardDashboardPublishOptionsVisualMenuOption> _mVisualMenuOption;
-
-        public Outputs.DashboardDashboardPublishOptionsVisualMenuOption? VisualMenuOption => _mVisualMenuOption.GetValue("visualMenuOption");
+        private Outputs.DashboardDashboardPublishOptionsVisualMenuOption? _mValue_VisualMenuOption;
+        private bool _mUnknown_VisualMenuOption;
+        public Outputs.DashboardDashboardPublishOptionsVisualMenuOption? VisualMenuOption
+        {
+            get
+            {
+                if (!_mUnknown_VisualMenuOption) return _mValue_VisualMenuOption;
+                throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.VisualMenuOption' is not present");
+            }
+        }
     }
 }

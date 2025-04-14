@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ecr.Inputs
         /// <summary>
         /// the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
         /// </summary>
-        [Input("destinations")]
+        [PolicyResourceProperty("destinations", "_mUnknown_Destinations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs>> _mDestinations;
-
-        public List<Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs>? Destinations => _mDestinations.GetValue("destinations");
+        private List<Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs>? _mValue_Destinations;
+        private bool _mUnknown_Destinations;
+        public List<Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs>? Destinations
+        {
+            get
+            {
+                if (!_mUnknown_Destinations) return _mValue_Destinations;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationReplicationConfigurationRuleArgs.Destinations' is not present");
+            }
+        }
 
         /// <summary>
         /// filters for a replication rule. See Repository Filter.
         /// </summary>
-        [Input("repositoryFilters")]
+        [PolicyResourceProperty("repositoryFilters", "_mUnknown_RepositoryFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs>> _mRepositoryFilters;
-
-        public List<Inputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs>? RepositoryFilters => _mRepositoryFilters.GetValue("repositoryFilters");
+        private List<Inputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs>? _mValue_RepositoryFilters;
+        private bool _mUnknown_RepositoryFilters;
+        public List<Inputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs>? RepositoryFilters
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryFilters) return _mValue_RepositoryFilters;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationReplicationConfigurationRuleArgs.RepositoryFilters' is not present");
+            }
+        }
     }
 }

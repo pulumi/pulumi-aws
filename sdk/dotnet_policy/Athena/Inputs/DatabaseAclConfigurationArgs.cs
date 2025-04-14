@@ -17,10 +17,17 @@ namespace Pulumi.PolicyPacks.Aws.Athena.Inputs
         /// 
         /// &gt; **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `force_destroy` on the bucket too in order to avoid any problems when destroying the bucket.
         /// </summary>
-        [Input("s3AclOption")]
+        [PolicyResourceProperty("s3AclOption", "_mUnknown_S3AclOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3AclOption;
-
-        public string? S3AclOption => _mS3AclOption.GetValue("s3AclOption");
+        private string? _mValue_S3AclOption;
+        private bool _mUnknown_S3AclOption;
+        public string? S3AclOption
+        {
+            get
+            {
+                if (!_mUnknown_S3AclOption) return _mValue_S3AclOption;
+                throw new UndeferrableValueException("Value 'DatabaseAclConfigurationArgs.S3AclOption' is not present");
+            }
+        }
     }
 }

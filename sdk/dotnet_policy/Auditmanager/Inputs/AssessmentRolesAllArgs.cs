@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager.Inputs
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM role.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'AssessmentRolesAllArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
         /// </summary>
-        [Input("roleType")]
+        [PolicyResourceProperty("roleType", "_mUnknown_RoleType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleType;
-
-        public string? RoleType => _mRoleType.GetValue("roleType");
+        private string? _mValue_RoleType;
+        private bool _mUnknown_RoleType;
+        public string? RoleType
+        {
+            get
+            {
+                if (!_mUnknown_RoleType) return _mValue_RoleType;
+                throw new UndeferrableValueException("Value 'AssessmentRolesAllArgs.RoleType' is not present");
+            }
+        }
     }
 }

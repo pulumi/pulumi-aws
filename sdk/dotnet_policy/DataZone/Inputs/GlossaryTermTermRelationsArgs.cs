@@ -15,16 +15,30 @@ namespace Pulumi.PolicyPacks.Aws.DataZone.Inputs
         /// <summary>
         /// String array that calssifies the term relations.
         /// </summary>
-        [Input("classifies")]
+        [PolicyResourceProperty("classifies", "_mUnknown_Classifies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClassifies;
+        private List<string>? _mValue_Classifies;
+        private bool _mUnknown_Classifies;
+        public List<string>? Classifies
+        {
+            get
+            {
+                if (!_mUnknown_Classifies) return _mValue_Classifies;
+                throw new UndeferrableValueException("Value 'GlossaryTermTermRelationsArgs.Classifies' is not present");
+            }
+        }
 
-        public List<string>? Classifies => _mClassifies.GetValue("classifies");
-
-        [Input("isAs")]
+        [PolicyResourceProperty("isAs", "_mUnknown_IsAs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIsAs;
-
-        public List<string>? IsAs => _mIsAs.GetValue("isAs");
+        private List<string>? _mValue_IsAs;
+        private bool _mUnknown_IsAs;
+        public List<string>? IsAs
+        {
+            get
+            {
+                if (!_mUnknown_IsAs) return _mValue_IsAs;
+                throw new UndeferrableValueException("Value 'GlossaryTermTermRelationsArgs.IsAs' is not present");
+            }
+        }
     }
 }

@@ -16,32 +16,60 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// <summary>
         /// See AccessControlAttribute for more details.
         /// </summary>
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceAccessControlAttributesAttribute>> _mAttributes;
-
-        public List<Outputs.InstanceAccessControlAttributesAttribute>? Attributes => _mAttributes.GetValue("attributes");
+        private List<Outputs.InstanceAccessControlAttributesAttribute>? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public List<Outputs.InstanceAccessControlAttributesAttribute>? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'InstanceAccessControlAttributes.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance.
         /// </summary>
-        [Input("instanceArn")]
+        [PolicyResourceProperty("instanceArn", "_mUnknown_InstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
+        private string? _mValue_InstanceArn;
+        private bool _mUnknown_InstanceArn;
+        public string? InstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_InstanceArn) return _mValue_InstanceArn;
+                throw new UndeferrableValueException("Value 'InstanceAccessControlAttributes.InstanceArn' is not present");
+            }
+        }
 
-        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
-
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'InstanceAccessControlAttributes.Status' is not present");
+            }
+        }
 
-        public string? Status => _mStatus.GetValue("status");
-
-        [Input("statusReason")]
+        [PolicyResourceProperty("statusReason", "_mUnknown_StatusReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusReason;
-
-        public string? StatusReason => _mStatusReason.GetValue("statusReason");
+        private string? _mValue_StatusReason;
+        private bool _mUnknown_StatusReason;
+        public string? StatusReason
+        {
+            get
+            {
+                if (!_mUnknown_StatusReason) return _mValue_StatusReason;
+                throw new UndeferrableValueException("Value 'InstanceAccessControlAttributes.StatusReason' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes")]
@@ -50,19 +78,33 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// <summary>
         /// See AccessControlAttribute for more details.
         /// </summary>
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InstanceAccessControlAttributesAttributeArgs>> _mAttributes;
-
-        public List<Inputs.InstanceAccessControlAttributesAttributeArgs>? Attributes => _mAttributes.GetValue("attributes");
+        private List<Inputs.InstanceAccessControlAttributesAttributeArgs>? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public List<Inputs.InstanceAccessControlAttributesAttributeArgs>? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'InstanceAccessControlAttributesArgs.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance.
         /// </summary>
-        [Input("instanceArn")]
+        [PolicyResourceProperty("instanceArn", "_mUnknown_InstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
-
-        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+        private string? _mValue_InstanceArn;
+        private bool _mUnknown_InstanceArn;
+        public string? InstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_InstanceArn) return _mValue_InstanceArn;
+                throw new UndeferrableValueException("Value 'InstanceAccessControlAttributesArgs.InstanceArn' is not present");
+            }
+        }
     }
 }

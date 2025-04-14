@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Inputs
 {
     public sealed class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs
     {
-        [Input("values")]
+        [PolicyResourceProperty("values", "_mUnknown_Values")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mValues;
-
-        public List<int>? Values => _mValues.GetValue("values");
+        private List<int>? _mValue_Values;
+        private bool _mUnknown_Values;
+        public List<int>? Values
+        {
+            get
+            {
+                if (!_mUnknown_Values) return _mValue_Values;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs.Values' is not present");
+            }
+        }
     }
 }

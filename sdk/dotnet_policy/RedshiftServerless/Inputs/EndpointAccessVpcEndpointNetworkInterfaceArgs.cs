@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.RedshiftServerless.Inputs
         /// <summary>
         /// The availability Zone.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'EndpointAccessVpcEndpointNetworkInterfaceArgs.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier of the network interface.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'EndpointAccessVpcEndpointNetworkInterfaceArgs.NetworkInterfaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 address of the network interface within the subnet.
         /// </summary>
-        [Input("privateIpAddress")]
+        [PolicyResourceProperty("privateIpAddress", "_mUnknown_PrivateIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIpAddress;
-
-        public string? PrivateIpAddress => _mPrivateIpAddress.GetValue("privateIpAddress");
+        private string? _mValue_PrivateIpAddress;
+        private bool _mUnknown_PrivateIpAddress;
+        public string? PrivateIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIpAddress) return _mValue_PrivateIpAddress;
+                throw new UndeferrableValueException("Value 'EndpointAccessVpcEndpointNetworkInterfaceArgs.PrivateIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier of the subnet.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'EndpointAccessVpcEndpointNetworkInterfaceArgs.SubnetId' is not present");
+            }
+        }
     }
 }

@@ -17,28 +17,49 @@ namespace Pulumi.PolicyPacks.Aws.Rds.Inputs
         /// engines can't apply some parameters without a reboot, and you will need to
         /// specify "pending-reboot" here.
         /// </summary>
-        [Input("applyMethod")]
+        [PolicyResourceProperty("applyMethod", "_mUnknown_ApplyMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplyMethod;
-
-        public string? ApplyMethod => _mApplyMethod.GetValue("applyMethod");
+        private string? _mValue_ApplyMethod;
+        private bool _mUnknown_ApplyMethod;
+        public string? ApplyMethod
+        {
+            get
+            {
+                if (!_mUnknown_ApplyMethod) return _mValue_ApplyMethod;
+                throw new UndeferrableValueException("Value 'ParameterGroupParameterArgs.ApplyMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the DB parameter.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ParameterGroupParameterArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The value of the DB parameter.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'ParameterGroupParameterArgs.Value' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
 {
     public sealed class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs
     {
-        [Input("inputChannelLevels")]
+        [PolicyResourceProperty("inputChannelLevels", "_mUnknown_InputChannelLevels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs>> _mInputChannelLevels;
+        private List<Inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs>? _mValue_InputChannelLevels;
+        private bool _mUnknown_InputChannelLevels;
+        public List<Inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs>? InputChannelLevels
+        {
+            get
+            {
+                if (!_mUnknown_InputChannelLevels) return _mValue_InputChannelLevels;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs.InputChannelLevels' is not present");
+            }
+        }
 
-        public List<Inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs>? InputChannelLevels => _mInputChannelLevels.GetValue("inputChannelLevels");
-
-        [Input("outputChannel")]
+        [PolicyResourceProperty("outputChannel", "_mUnknown_OutputChannel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOutputChannel;
-
-        public int? OutputChannel => _mOutputChannel.GetValue("outputChannel");
+        private int? _mValue_OutputChannel;
+        private bool _mUnknown_OutputChannel;
+        public int? OutputChannel
+        {
+            get
+            {
+                if (!_mUnknown_OutputChannel) return _mValue_OutputChannel;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs.OutputChannel' is not present");
+            }
+        }
     }
 }

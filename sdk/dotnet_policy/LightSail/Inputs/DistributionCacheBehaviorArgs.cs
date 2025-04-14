@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.LightSail.Inputs
         /// <summary>
         /// The cache behavior for the specified path.
         /// </summary>
-        [Input("behavior")]
+        [PolicyResourceProperty("behavior", "_mUnknown_Behavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBehavior;
-
-        public string? Behavior => _mBehavior.GetValue("behavior");
+        private string? _mValue_Behavior;
+        private bool _mUnknown_Behavior;
+        public string? Behavior
+        {
+            get
+            {
+                if (!_mUnknown_Behavior) return _mValue_Behavior;
+                throw new UndeferrableValueException("Value 'DistributionCacheBehaviorArgs.Behavior' is not present");
+            }
+        }
 
         /// <summary>
         /// The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/\*), and file types (\*.html, \*jpg, \*js). Directories and file paths are case-sensitive.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'DistributionCacheBehaviorArgs.Path' is not present");
+            }
+        }
     }
 }

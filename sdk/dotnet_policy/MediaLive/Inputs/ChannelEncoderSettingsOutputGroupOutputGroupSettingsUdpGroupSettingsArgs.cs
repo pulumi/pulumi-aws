@@ -15,25 +15,46 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Specifies behavior of last resort when input video os lost.
         /// </summary>
-        [Input("inputLossAction")]
+        [PolicyResourceProperty("inputLossAction", "_mUnknown_InputLossAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputLossAction;
-
-        public string? InputLossAction => _mInputLossAction.GetValue("inputLossAction");
+        private string? _mValue_InputLossAction;
+        private bool _mUnknown_InputLossAction;
+        public string? InputLossAction
+        {
+            get
+            {
+                if (!_mUnknown_InputLossAction) return _mValue_InputLossAction;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs.InputLossAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates ID3 frame that has the timecode.
         /// </summary>
-        [Input("timedMetadataId3Frame")]
+        [PolicyResourceProperty("timedMetadataId3Frame", "_mUnknown_TimedMetadataId3Frame")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimedMetadataId3Frame;
+        private string? _mValue_TimedMetadataId3Frame;
+        private bool _mUnknown_TimedMetadataId3Frame;
+        public string? TimedMetadataId3Frame
+        {
+            get
+            {
+                if (!_mUnknown_TimedMetadataId3Frame) return _mValue_TimedMetadataId3Frame;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs.TimedMetadataId3Frame' is not present");
+            }
+        }
 
-        public string? TimedMetadataId3Frame => _mTimedMetadataId3Frame.GetValue("timedMetadataId3Frame");
-
-        [Input("timedMetadataId3Period")]
+        [PolicyResourceProperty("timedMetadataId3Period", "_mUnknown_TimedMetadataId3Period")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimedMetadataId3Period;
-
-        public int? TimedMetadataId3Period => _mTimedMetadataId3Period.GetValue("timedMetadataId3Period");
+        private int? _mValue_TimedMetadataId3Period;
+        private bool _mUnknown_TimedMetadataId3Period;
+        public int? TimedMetadataId3Period
+        {
+            get
+            {
+                if (!_mUnknown_TimedMetadataId3Period) return _mValue_TimedMetadataId3Period;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs.TimedMetadataId3Period' is not present");
+            }
+        }
     }
 }

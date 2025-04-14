@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryControl
         /// <summary>
         /// ARN of the cluster
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Cluster.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
         /// </summary>
-        [Input("clusterEndpoints")]
+        [PolicyResourceProperty("clusterEndpoints", "_mUnknown_ClusterEndpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterClusterEndpoint>> _mClusterEndpoints;
-
-        public List<Outputs.ClusterClusterEndpoint>? ClusterEndpoints => _mClusterEndpoints.GetValue("clusterEndpoints");
+        private List<Outputs.ClusterClusterEndpoint>? _mValue_ClusterEndpoints;
+        private bool _mUnknown_ClusterEndpoints;
+        public List<Outputs.ClusterClusterEndpoint>? ClusterEndpoints
+        {
+            get
+            {
+                if (!_mUnknown_ClusterEndpoints) return _mValue_ClusterEndpoints;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterEndpoints' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name describing the cluster.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Cluster.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Cluster.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53recoverycontrol/cluster:Cluster")]
@@ -56,10 +84,17 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryControl
         /// <summary>
         /// Unique name describing the cluster.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Name' is not present");
+            }
+        }
     }
 }

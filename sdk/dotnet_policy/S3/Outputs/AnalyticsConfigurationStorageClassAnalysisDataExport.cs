@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Specifies the destination for the exported analytics data (documented below).
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestination> _mDestination;
-
-        public Outputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestination? Destination => _mDestination.GetValue("destination");
+        private Outputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestination? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public Outputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestination? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'AnalyticsConfigurationStorageClassAnalysisDataExport.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
         /// </summary>
-        [Input("outputSchemaVersion")]
+        [PolicyResourceProperty("outputSchemaVersion", "_mUnknown_OutputSchemaVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputSchemaVersion;
-
-        public string? OutputSchemaVersion => _mOutputSchemaVersion.GetValue("outputSchemaVersion");
+        private string? _mValue_OutputSchemaVersion;
+        private bool _mUnknown_OutputSchemaVersion;
+        public string? OutputSchemaVersion
+        {
+            get
+            {
+                if (!_mUnknown_OutputSchemaVersion) return _mValue_OutputSchemaVersion;
+                throw new UndeferrableValueException("Value 'AnalyticsConfigurationStorageClassAnalysisDataExport.OutputSchemaVersion' is not present");
+            }
+        }
     }
 }

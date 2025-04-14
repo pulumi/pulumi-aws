@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Rbin.Inputs
         /// <summary>
         /// The unit of time in which the retention period is measured. Currently, only DAYS is supported.
         /// </summary>
-        [Input("retentionPeriodUnit")]
+        [PolicyResourceProperty("retentionPeriodUnit", "_mUnknown_RetentionPeriodUnit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRetentionPeriodUnit;
-
-        public string? RetentionPeriodUnit => _mRetentionPeriodUnit.GetValue("retentionPeriodUnit");
+        private string? _mValue_RetentionPeriodUnit;
+        private bool _mUnknown_RetentionPeriodUnit;
+        public string? RetentionPeriodUnit
+        {
+            get
+            {
+                if (!_mUnknown_RetentionPeriodUnit) return _mValue_RetentionPeriodUnit;
+                throw new UndeferrableValueException("Value 'RuleRetentionPeriodArgs.RetentionPeriodUnit' is not present");
+            }
+        }
 
         /// <summary>
         /// The period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
         /// </summary>
-        [Input("retentionPeriodValue")]
+        [PolicyResourceProperty("retentionPeriodValue", "_mUnknown_RetentionPeriodValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriodValue;
-
-        public int? RetentionPeriodValue => _mRetentionPeriodValue.GetValue("retentionPeriodValue");
+        private int? _mValue_RetentionPeriodValue;
+        private bool _mUnknown_RetentionPeriodValue;
+        public int? RetentionPeriodValue
+        {
+            get
+            {
+                if (!_mUnknown_RetentionPeriodValue) return _mValue_RetentionPeriodValue;
+                throw new UndeferrableValueException("Value 'RuleRetentionPeriodArgs.RetentionPeriodValue' is not present");
+            }
+        }
     }
 }

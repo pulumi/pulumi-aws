@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.ResourceGroups
         /// <summary>
         /// The ARN assigned by AWS for this resource group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Group.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
         /// </summary>
-        [Input("configurations")]
+        [PolicyResourceProperty("configurations", "_mUnknown_Configurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GroupConfiguration>> _mConfigurations;
-
-        public List<Outputs.GroupConfiguration>? Configurations => _mConfigurations.GetValue("configurations");
+        private List<Outputs.GroupConfiguration>? _mValue_Configurations;
+        private bool _mUnknown_Configurations;
+        public List<Outputs.GroupConfiguration>? Configurations
+        {
+            get
+            {
+                if (!_mUnknown_Configurations) return _mValue_Configurations;
+                throw new UndeferrableValueException("Value 'Group.Configurations' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the resource group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Group.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Group.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A `resource_query` block. Resource queries are documented below.
         /// </summary>
-        [Input("resourceQuery")]
+        [PolicyResourceProperty("resourceQuery", "_mUnknown_ResourceQuery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupResourceQuery> _mResourceQuery;
-
-        public Outputs.GroupResourceQuery? ResourceQuery => _mResourceQuery.GetValue("resourceQuery");
+        private Outputs.GroupResourceQuery? _mValue_ResourceQuery;
+        private bool _mUnknown_ResourceQuery;
+        public Outputs.GroupResourceQuery? ResourceQuery
+        {
+            get
+            {
+                if (!_mUnknown_ResourceQuery) return _mValue_ResourceQuery;
+                throw new UndeferrableValueException("Value 'Group.ResourceQuery' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Group.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Group.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:resourcegroups/group:Group")]
@@ -83,46 +132,81 @@ namespace Pulumi.PolicyPacks.Aws.ResourceGroups
         /// <summary>
         /// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
         /// </summary>
-        [Input("configurations")]
+        [PolicyResourceProperty("configurations", "_mUnknown_Configurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GroupConfigurationArgs>> _mConfigurations;
-
-        public List<Inputs.GroupConfigurationArgs>? Configurations => _mConfigurations.GetValue("configurations");
+        private List<Inputs.GroupConfigurationArgs>? _mValue_Configurations;
+        private bool _mUnknown_Configurations;
+        public List<Inputs.GroupConfigurationArgs>? Configurations
+        {
+            get
+            {
+                if (!_mUnknown_Configurations) return _mValue_Configurations;
+                throw new UndeferrableValueException("Value 'GroupArgs.Configurations' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the resource group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GroupArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GroupArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A `resource_query` block. Resource queries are documented below.
         /// </summary>
-        [Input("resourceQuery")]
+        [PolicyResourceProperty("resourceQuery", "_mUnknown_ResourceQuery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupResourceQueryArgs> _mResourceQuery;
-
-        public Inputs.GroupResourceQueryArgs? ResourceQuery => _mResourceQuery.GetValue("resourceQuery");
+        private Inputs.GroupResourceQueryArgs? _mValue_ResourceQuery;
+        private bool _mUnknown_ResourceQuery;
+        public Inputs.GroupResourceQueryArgs? ResourceQuery
+        {
+            get
+            {
+                if (!_mUnknown_ResourceQuery) return _mValue_ResourceQuery;
+                throw new UndeferrableValueException("Value 'GroupArgs.ResourceQuery' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GroupArgs.Tags' is not present");
+            }
+        }
     }
 }

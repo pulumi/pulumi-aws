@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Cfg
         /// <summary>
         /// The name of the retention configuration object. The object is always named **default**.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RetentionConfiguration.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days AWS Config stores historical information.
         /// </summary>
-        [Input("retentionPeriodInDays")]
+        [PolicyResourceProperty("retentionPeriodInDays", "_mUnknown_RetentionPeriodInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriodInDays;
-
-        public int? RetentionPeriodInDays => _mRetentionPeriodInDays.GetValue("retentionPeriodInDays");
+        private int? _mValue_RetentionPeriodInDays;
+        private bool _mUnknown_RetentionPeriodInDays;
+        public int? RetentionPeriodInDays
+        {
+            get
+            {
+                if (!_mUnknown_RetentionPeriodInDays) return _mValue_RetentionPeriodInDays;
+                throw new UndeferrableValueException("Value 'RetentionConfiguration.RetentionPeriodInDays' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cfg/retentionConfiguration:RetentionConfiguration")]
@@ -38,10 +52,17 @@ namespace Pulumi.PolicyPacks.Aws.Cfg
         /// <summary>
         /// The number of days AWS Config stores historical information.
         /// </summary>
-        [Input("retentionPeriodInDays")]
+        [PolicyResourceProperty("retentionPeriodInDays", "_mUnknown_RetentionPeriodInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriodInDays;
-
-        public int? RetentionPeriodInDays => _mRetentionPeriodInDays.GetValue("retentionPeriodInDays");
+        private int? _mValue_RetentionPeriodInDays;
+        private bool _mUnknown_RetentionPeriodInDays;
+        public int? RetentionPeriodInDays
+        {
+            get
+            {
+                if (!_mUnknown_RetentionPeriodInDays) return _mValue_RetentionPeriodInDays;
+                throw new UndeferrableValueException("Value 'RetentionConfigurationArgs.RetentionPeriodInDays' is not present");
+            }
+        }
     }
 }

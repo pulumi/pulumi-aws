@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
         /// </summary>
-        [Input("deserializer")]
+        [PolicyResourceProperty("deserializer", "_mUnknown_Deserializer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs> _mDeserializer;
-
-        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs? Deserializer => _mDeserializer.GetValue("deserializer");
+        private Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs? _mValue_Deserializer;
+        private bool _mUnknown_Deserializer;
+        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs? Deserializer
+        {
+            get
+            {
+                if (!_mUnknown_Deserializer) return _mValue_Deserializer;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs.Deserializer' is not present");
+            }
+        }
     }
 }

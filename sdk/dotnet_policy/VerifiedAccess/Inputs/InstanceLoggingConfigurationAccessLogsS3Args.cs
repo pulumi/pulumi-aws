@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess.Inputs
         /// <summary>
         /// The name of S3 bucket.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogsS3Args.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the AWS account that owns the Amazon S3 bucket.
         /// </summary>
-        [Input("bucketOwner")]
+        [PolicyResourceProperty("bucketOwner", "_mUnknown_BucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketOwner;
-
-        public string? BucketOwner => _mBucketOwner.GetValue("bucketOwner");
+        private string? _mValue_BucketOwner;
+        private bool _mUnknown_BucketOwner;
+        public string? BucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_BucketOwner) return _mValue_BucketOwner;
+                throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogsS3Args.BucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether logging is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogsS3Args.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The bucket prefix.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogsS3Args.Prefix' is not present");
+            }
+        }
     }
 }

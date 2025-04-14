@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Outputs
         /// <summary>
         /// The maximum number of records to include in each batch. Maximum value of 10000.
         /// </summary>
-        [Input("batchSize")]
+        [PolicyResourceProperty("batchSize", "_mUnknown_BatchSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBatchSize;
-
-        public int? BatchSize => _mBatchSize.GetValue("batchSize");
+        private int? _mValue_BatchSize;
+        private bool _mUnknown_BatchSize;
+        public int? BatchSize
+        {
+            get
+            {
+                if (!_mUnknown_BatchSize) return _mValue_BatchSize;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersRabbitmqBrokerParameters.BatchSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The credentials needed to access the resource. Detailed below.
         /// </summary>
-        [Input("credentials")]
+        [PolicyResourceProperty("credentials", "_mUnknown_Credentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipeSourceParametersRabbitmqBrokerParametersCredentials> _mCredentials;
-
-        public Outputs.PipeSourceParametersRabbitmqBrokerParametersCredentials? Credentials => _mCredentials.GetValue("credentials");
+        private Outputs.PipeSourceParametersRabbitmqBrokerParametersCredentials? _mValue_Credentials;
+        private bool _mUnknown_Credentials;
+        public Outputs.PipeSourceParametersRabbitmqBrokerParametersCredentials? Credentials
+        {
+            get
+            {
+                if (!_mUnknown_Credentials) return _mValue_Credentials;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersRabbitmqBrokerParameters.Credentials' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum length of a time to wait for events. Maximum value of 300.
         /// </summary>
-        [Input("maximumBatchingWindowInSeconds")]
+        [PolicyResourceProperty("maximumBatchingWindowInSeconds", "_mUnknown_MaximumBatchingWindowInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumBatchingWindowInSeconds;
-
-        public int? MaximumBatchingWindowInSeconds => _mMaximumBatchingWindowInSeconds.GetValue("maximumBatchingWindowInSeconds");
+        private int? _mValue_MaximumBatchingWindowInSeconds;
+        private bool _mUnknown_MaximumBatchingWindowInSeconds;
+        public int? MaximumBatchingWindowInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaximumBatchingWindowInSeconds) return _mValue_MaximumBatchingWindowInSeconds;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersRabbitmqBrokerParameters.MaximumBatchingWindowInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the destination queue to consume. Maximum length of 1000.
         /// </summary>
-        [Input("queueName")]
+        [PolicyResourceProperty("queueName", "_mUnknown_QueueName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueueName;
-
-        public string? QueueName => _mQueueName.GetValue("queueName");
+        private string? _mValue_QueueName;
+        private bool _mUnknown_QueueName;
+        public string? QueueName
+        {
+            get
+            {
+                if (!_mUnknown_QueueName) return _mValue_QueueName;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersRabbitmqBrokerParameters.QueueName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the virtual host associated with the source broker. Maximum length of 200.
         /// </summary>
-        [Input("virtualHost")]
+        [PolicyResourceProperty("virtualHost", "_mUnknown_VirtualHost")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualHost;
-
-        public string? VirtualHost => _mVirtualHost.GetValue("virtualHost");
+        private string? _mValue_VirtualHost;
+        private bool _mUnknown_VirtualHost;
+        public string? VirtualHost
+        {
+            get
+            {
+                if (!_mUnknown_VirtualHost) return _mValue_VirtualHost;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersRabbitmqBrokerParameters.VirtualHost' is not present");
+            }
+        }
     }
 }

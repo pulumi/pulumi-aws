@@ -17,11 +17,18 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// The device name to expose to the instance (for
         /// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
         /// </summary>
-        [Input("deviceName")]
+        [PolicyResourceProperty("deviceName", "_mUnknown_DeviceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceName;
-
-        public string? DeviceName => _mDeviceName.GetValue("deviceName");
+        private string? _mValue_DeviceName;
+        private bool _mUnknown_DeviceName;
+        public string? DeviceName
+        {
+            get
+            {
+                if (!_mUnknown_DeviceName) return _mValue_DeviceName;
+                throw new UndeferrableValueException("Value 'VolumeAttachment.DeviceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to `true` if you want to force the
@@ -29,20 +36,34 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// as a last resort, as this can result in **data loss**. See
         /// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
         /// </summary>
-        [Input("forceDetach")]
+        [PolicyResourceProperty("forceDetach", "_mUnknown_ForceDetach")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDetach;
-
-        public bool? ForceDetach => _mForceDetach.GetValue("forceDetach");
+        private bool? _mValue_ForceDetach;
+        private bool _mUnknown_ForceDetach;
+        public bool? ForceDetach
+        {
+            get
+            {
+                if (!_mUnknown_ForceDetach) return _mValue_ForceDetach;
+                throw new UndeferrableValueException("Value 'VolumeAttachment.ForceDetach' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Instance to attach to
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'VolumeAttachment.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Set this to true if you do not wish
@@ -51,30 +72,51 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// useful when destroying an instance which has volumes created by some other
         /// means attached.
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'VolumeAttachment.SkipDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Set this to true to ensure that the target instance is stopped
         /// before trying to detach the volume. Stops the instance, if it is not already stopped.
         /// </summary>
-        [Input("stopInstanceBeforeDetaching")]
+        [PolicyResourceProperty("stopInstanceBeforeDetaching", "_mUnknown_StopInstanceBeforeDetaching")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStopInstanceBeforeDetaching;
-
-        public bool? StopInstanceBeforeDetaching => _mStopInstanceBeforeDetaching.GetValue("stopInstanceBeforeDetaching");
+        private bool? _mValue_StopInstanceBeforeDetaching;
+        private bool _mUnknown_StopInstanceBeforeDetaching;
+        public bool? StopInstanceBeforeDetaching
+        {
+            get
+            {
+                if (!_mUnknown_StopInstanceBeforeDetaching) return _mValue_StopInstanceBeforeDetaching;
+                throw new UndeferrableValueException("Value 'VolumeAttachment.StopInstanceBeforeDetaching' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Volume to be attached
         /// </summary>
-        [Input("volumeId")]
+        [PolicyResourceProperty("volumeId", "_mUnknown_VolumeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeId;
-
-        public string? VolumeId => _mVolumeId.GetValue("volumeId");
+        private string? _mValue_VolumeId;
+        private bool _mUnknown_VolumeId;
+        public string? VolumeId
+        {
+            get
+            {
+                if (!_mUnknown_VolumeId) return _mValue_VolumeId;
+                throw new UndeferrableValueException("Value 'VolumeAttachment.VolumeId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/volumeAttachment:VolumeAttachment")]
@@ -84,11 +126,18 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// The device name to expose to the instance (for
         /// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
         /// </summary>
-        [Input("deviceName")]
+        [PolicyResourceProperty("deviceName", "_mUnknown_DeviceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceName;
-
-        public string? DeviceName => _mDeviceName.GetValue("deviceName");
+        private string? _mValue_DeviceName;
+        private bool _mUnknown_DeviceName;
+        public string? DeviceName
+        {
+            get
+            {
+                if (!_mUnknown_DeviceName) return _mValue_DeviceName;
+                throw new UndeferrableValueException("Value 'VolumeAttachmentArgs.DeviceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to `true` if you want to force the
@@ -96,20 +145,34 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// as a last resort, as this can result in **data loss**. See
         /// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
         /// </summary>
-        [Input("forceDetach")]
+        [PolicyResourceProperty("forceDetach", "_mUnknown_ForceDetach")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDetach;
-
-        public bool? ForceDetach => _mForceDetach.GetValue("forceDetach");
+        private bool? _mValue_ForceDetach;
+        private bool _mUnknown_ForceDetach;
+        public bool? ForceDetach
+        {
+            get
+            {
+                if (!_mUnknown_ForceDetach) return _mValue_ForceDetach;
+                throw new UndeferrableValueException("Value 'VolumeAttachmentArgs.ForceDetach' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Instance to attach to
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'VolumeAttachmentArgs.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Set this to true if you do not wish
@@ -118,29 +181,50 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// useful when destroying an instance which has volumes created by some other
         /// means attached.
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'VolumeAttachmentArgs.SkipDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Set this to true to ensure that the target instance is stopped
         /// before trying to detach the volume. Stops the instance, if it is not already stopped.
         /// </summary>
-        [Input("stopInstanceBeforeDetaching")]
+        [PolicyResourceProperty("stopInstanceBeforeDetaching", "_mUnknown_StopInstanceBeforeDetaching")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStopInstanceBeforeDetaching;
-
-        public bool? StopInstanceBeforeDetaching => _mStopInstanceBeforeDetaching.GetValue("stopInstanceBeforeDetaching");
+        private bool? _mValue_StopInstanceBeforeDetaching;
+        private bool _mUnknown_StopInstanceBeforeDetaching;
+        public bool? StopInstanceBeforeDetaching
+        {
+            get
+            {
+                if (!_mUnknown_StopInstanceBeforeDetaching) return _mValue_StopInstanceBeforeDetaching;
+                throw new UndeferrableValueException("Value 'VolumeAttachmentArgs.StopInstanceBeforeDetaching' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Volume to be attached
         /// </summary>
-        [Input("volumeId")]
+        [PolicyResourceProperty("volumeId", "_mUnknown_VolumeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeId;
-
-        public string? VolumeId => _mVolumeId.GetValue("volumeId");
+        private string? _mValue_VolumeId;
+        private bool _mUnknown_VolumeId;
+        public string? VolumeId
+        {
+            get
+            {
+                if (!_mUnknown_VolumeId) return _mValue_VolumeId;
+                throw new UndeferrableValueException("Value 'VolumeAttachmentArgs.VolumeId' is not present");
+            }
+        }
     }
 }

@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// The name of a connection which allows crawler to access data in S3 within a VPC.
         /// </summary>
-        [Input("connectionName")]
+        [PolicyResourceProperty("connectionName", "_mUnknown_ConnectionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionName;
-
-        public string? ConnectionName => _mConnectionName.GetValue("connectionName");
+        private string? _mValue_ConnectionName;
+        private bool _mUnknown_ConnectionName;
+        public string? ConnectionName
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionName) return _mValue_ConnectionName;
+                throw new UndeferrableValueException("Value 'CrawlerS3TargetArgs.ConnectionName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the dead-letter SQS queue.
         /// </summary>
-        [Input("dlqEventQueueArn")]
+        [PolicyResourceProperty("dlqEventQueueArn", "_mUnknown_DlqEventQueueArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDlqEventQueueArn;
-
-        public string? DlqEventQueueArn => _mDlqEventQueueArn.GetValue("dlqEventQueueArn");
+        private string? _mValue_DlqEventQueueArn;
+        private bool _mUnknown_DlqEventQueueArn;
+        public string? DlqEventQueueArn
+        {
+            get
+            {
+                if (!_mUnknown_DlqEventQueueArn) return _mValue_DlqEventQueueArn;
+                throw new UndeferrableValueException("Value 'CrawlerS3TargetArgs.DlqEventQueueArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SQS queue to receive S3 notifications from.
         /// </summary>
-        [Input("eventQueueArn")]
+        [PolicyResourceProperty("eventQueueArn", "_mUnknown_EventQueueArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventQueueArn;
-
-        public string? EventQueueArn => _mEventQueueArn.GetValue("eventQueueArn");
+        private string? _mValue_EventQueueArn;
+        private bool _mUnknown_EventQueueArn;
+        public string? EventQueueArn
+        {
+            get
+            {
+                if (!_mUnknown_EventQueueArn) return _mValue_EventQueueArn;
+                throw new UndeferrableValueException("Value 'CrawlerS3TargetArgs.EventQueueArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of glob patterns used to exclude from the crawl.
         /// </summary>
-        [Input("exclusions")]
+        [PolicyResourceProperty("exclusions", "_mUnknown_Exclusions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExclusions;
-
-        public List<string>? Exclusions => _mExclusions.GetValue("exclusions");
+        private List<string>? _mValue_Exclusions;
+        private bool _mUnknown_Exclusions;
+        public List<string>? Exclusions
+        {
+            get
+            {
+                if (!_mUnknown_Exclusions) return _mValue_Exclusions;
+                throw new UndeferrableValueException("Value 'CrawlerS3TargetArgs.Exclusions' is not present");
+            }
+        }
 
         /// <summary>
         /// The path to the Amazon S3 target.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'CrawlerS3TargetArgs.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
         /// </summary>
-        [Input("sampleSize")]
+        [PolicyResourceProperty("sampleSize", "_mUnknown_SampleSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSampleSize;
-
-        public int? SampleSize => _mSampleSize.GetValue("sampleSize");
+        private int? _mValue_SampleSize;
+        private bool _mUnknown_SampleSize;
+        public int? SampleSize
+        {
+            get
+            {
+                if (!_mUnknown_SampleSize) return _mValue_SampleSize;
+                throw new UndeferrableValueException("Value 'CrawlerS3TargetArgs.SampleSize' is not present");
+            }
+        }
     }
 }

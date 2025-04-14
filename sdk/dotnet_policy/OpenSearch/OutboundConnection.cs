@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// Accepts the connection.
         /// </summary>
-        [Input("acceptConnection")]
+        [PolicyResourceProperty("acceptConnection", "_mUnknown_AcceptConnection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAcceptConnection;
-
-        public bool? AcceptConnection => _mAcceptConnection.GetValue("acceptConnection");
+        private bool? _mValue_AcceptConnection;
+        private bool _mUnknown_AcceptConnection;
+        public bool? AcceptConnection
+        {
+            get
+            {
+                if (!_mUnknown_AcceptConnection) return _mValue_AcceptConnection;
+                throw new UndeferrableValueException("Value 'OutboundConnection.AcceptConnection' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the connection alias that will be used by the customer for this connection.
         /// </summary>
-        [Input("connectionAlias")]
+        [PolicyResourceProperty("connectionAlias", "_mUnknown_ConnectionAlias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionAlias;
-
-        public string? ConnectionAlias => _mConnectionAlias.GetValue("connectionAlias");
+        private string? _mValue_ConnectionAlias;
+        private bool _mUnknown_ConnectionAlias;
+        public string? ConnectionAlias
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionAlias) return _mValue_ConnectionAlias;
+                throw new UndeferrableValueException("Value 'OutboundConnection.ConnectionAlias' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
         /// </summary>
-        [Input("connectionMode")]
+        [PolicyResourceProperty("connectionMode", "_mUnknown_ConnectionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionMode;
-
-        public string? ConnectionMode => _mConnectionMode.GetValue("connectionMode");
+        private string? _mValue_ConnectionMode;
+        private bool _mUnknown_ConnectionMode;
+        public string? ConnectionMode
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionMode) return _mValue_ConnectionMode;
+                throw new UndeferrableValueException("Value 'OutboundConnection.ConnectionMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the outbound connection.
         /// </summary>
-        [Input("connectionProperties")]
+        [PolicyResourceProperty("connectionProperties", "_mUnknown_ConnectionProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OutboundConnectionConnectionProperties> _mConnectionProperties;
-
-        public Outputs.OutboundConnectionConnectionProperties? ConnectionProperties => _mConnectionProperties.GetValue("connectionProperties");
+        private Outputs.OutboundConnectionConnectionProperties? _mValue_ConnectionProperties;
+        private bool _mUnknown_ConnectionProperties;
+        public Outputs.OutboundConnectionConnectionProperties? ConnectionProperties
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionProperties) return _mValue_ConnectionProperties;
+                throw new UndeferrableValueException("Value 'OutboundConnection.ConnectionProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the connection request.
         /// </summary>
-        [Input("connectionStatus")]
+        [PolicyResourceProperty("connectionStatus", "_mUnknown_ConnectionStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionStatus;
-
-        public string? ConnectionStatus => _mConnectionStatus.GetValue("connectionStatus");
+        private string? _mValue_ConnectionStatus;
+        private bool _mUnknown_ConnectionStatus;
+        public string? ConnectionStatus
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionStatus) return _mValue_ConnectionStatus;
+                throw new UndeferrableValueException("Value 'OutboundConnection.ConnectionStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the local Opensearch domain.
         /// </summary>
-        [Input("localDomainInfo")]
+        [PolicyResourceProperty("localDomainInfo", "_mUnknown_LocalDomainInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OutboundConnectionLocalDomainInfo> _mLocalDomainInfo;
-
-        public Outputs.OutboundConnectionLocalDomainInfo? LocalDomainInfo => _mLocalDomainInfo.GetValue("localDomainInfo");
+        private Outputs.OutboundConnectionLocalDomainInfo? _mValue_LocalDomainInfo;
+        private bool _mUnknown_LocalDomainInfo;
+        public Outputs.OutboundConnectionLocalDomainInfo? LocalDomainInfo
+        {
+            get
+            {
+                if (!_mUnknown_LocalDomainInfo) return _mValue_LocalDomainInfo;
+                throw new UndeferrableValueException("Value 'OutboundConnection.LocalDomainInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the remote Opensearch domain.
         /// </summary>
-        [Input("remoteDomainInfo")]
+        [PolicyResourceProperty("remoteDomainInfo", "_mUnknown_RemoteDomainInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OutboundConnectionRemoteDomainInfo> _mRemoteDomainInfo;
-
-        public Outputs.OutboundConnectionRemoteDomainInfo? RemoteDomainInfo => _mRemoteDomainInfo.GetValue("remoteDomainInfo");
+        private Outputs.OutboundConnectionRemoteDomainInfo? _mValue_RemoteDomainInfo;
+        private bool _mUnknown_RemoteDomainInfo;
+        public Outputs.OutboundConnectionRemoteDomainInfo? RemoteDomainInfo
+        {
+            get
+            {
+                if (!_mUnknown_RemoteDomainInfo) return _mValue_RemoteDomainInfo;
+                throw new UndeferrableValueException("Value 'OutboundConnection.RemoteDomainInfo' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opensearch/outboundConnection:OutboundConnection")]
@@ -83,55 +132,97 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// Accepts the connection.
         /// </summary>
-        [Input("acceptConnection")]
+        [PolicyResourceProperty("acceptConnection", "_mUnknown_AcceptConnection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAcceptConnection;
-
-        public bool? AcceptConnection => _mAcceptConnection.GetValue("acceptConnection");
+        private bool? _mValue_AcceptConnection;
+        private bool _mUnknown_AcceptConnection;
+        public bool? AcceptConnection
+        {
+            get
+            {
+                if (!_mUnknown_AcceptConnection) return _mValue_AcceptConnection;
+                throw new UndeferrableValueException("Value 'OutboundConnectionArgs.AcceptConnection' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the connection alias that will be used by the customer for this connection.
         /// </summary>
-        [Input("connectionAlias")]
+        [PolicyResourceProperty("connectionAlias", "_mUnknown_ConnectionAlias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionAlias;
-
-        public string? ConnectionAlias => _mConnectionAlias.GetValue("connectionAlias");
+        private string? _mValue_ConnectionAlias;
+        private bool _mUnknown_ConnectionAlias;
+        public string? ConnectionAlias
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionAlias) return _mValue_ConnectionAlias;
+                throw new UndeferrableValueException("Value 'OutboundConnectionArgs.ConnectionAlias' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
         /// </summary>
-        [Input("connectionMode")]
+        [PolicyResourceProperty("connectionMode", "_mUnknown_ConnectionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionMode;
-
-        public string? ConnectionMode => _mConnectionMode.GetValue("connectionMode");
+        private string? _mValue_ConnectionMode;
+        private bool _mUnknown_ConnectionMode;
+        public string? ConnectionMode
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionMode) return _mValue_ConnectionMode;
+                throw new UndeferrableValueException("Value 'OutboundConnectionArgs.ConnectionMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the outbound connection.
         /// </summary>
-        [Input("connectionProperties")]
+        [PolicyResourceProperty("connectionProperties", "_mUnknown_ConnectionProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OutboundConnectionConnectionPropertiesArgs> _mConnectionProperties;
-
-        public Inputs.OutboundConnectionConnectionPropertiesArgs? ConnectionProperties => _mConnectionProperties.GetValue("connectionProperties");
+        private Inputs.OutboundConnectionConnectionPropertiesArgs? _mValue_ConnectionProperties;
+        private bool _mUnknown_ConnectionProperties;
+        public Inputs.OutboundConnectionConnectionPropertiesArgs? ConnectionProperties
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionProperties) return _mValue_ConnectionProperties;
+                throw new UndeferrableValueException("Value 'OutboundConnectionArgs.ConnectionProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the local Opensearch domain.
         /// </summary>
-        [Input("localDomainInfo")]
+        [PolicyResourceProperty("localDomainInfo", "_mUnknown_LocalDomainInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OutboundConnectionLocalDomainInfoArgs> _mLocalDomainInfo;
-
-        public Inputs.OutboundConnectionLocalDomainInfoArgs? LocalDomainInfo => _mLocalDomainInfo.GetValue("localDomainInfo");
+        private Inputs.OutboundConnectionLocalDomainInfoArgs? _mValue_LocalDomainInfo;
+        private bool _mUnknown_LocalDomainInfo;
+        public Inputs.OutboundConnectionLocalDomainInfoArgs? LocalDomainInfo
+        {
+            get
+            {
+                if (!_mUnknown_LocalDomainInfo) return _mValue_LocalDomainInfo;
+                throw new UndeferrableValueException("Value 'OutboundConnectionArgs.LocalDomainInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the remote Opensearch domain.
         /// </summary>
-        [Input("remoteDomainInfo")]
+        [PolicyResourceProperty("remoteDomainInfo", "_mUnknown_RemoteDomainInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OutboundConnectionRemoteDomainInfoArgs> _mRemoteDomainInfo;
-
-        public Inputs.OutboundConnectionRemoteDomainInfoArgs? RemoteDomainInfo => _mRemoteDomainInfo.GetValue("remoteDomainInfo");
+        private Inputs.OutboundConnectionRemoteDomainInfoArgs? _mValue_RemoteDomainInfo;
+        private bool _mUnknown_RemoteDomainInfo;
+        public Inputs.OutboundConnectionRemoteDomainInfoArgs? RemoteDomainInfo
+        {
+            get
+            {
+                if (!_mUnknown_RemoteDomainInfo) return _mValue_RemoteDomainInfo;
+                throw new UndeferrableValueException("Value 'OutboundConnectionArgs.RemoteDomainInfo' is not present");
+            }
+        }
     }
 }

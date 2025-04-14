@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Inputs
         /// <summary>
         /// The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'TopicRuleDestinationVpcConfigurationArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The security groups of the VPC destination.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'TopicRuleDestinationVpcConfigurationArgs.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// The subnet IDs of the VPC destination.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'TopicRuleDestinationVpcConfigurationArgs.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'TopicRuleDestinationVpcConfigurationArgs.VpcId' is not present");
+            }
+        }
     }
 }

@@ -12,37 +12,72 @@ namespace Pulumi.PolicyPacks.Aws.RolesAnywhere.Outputs
 {
     public sealed class TrustAnchorNotificationSetting
     {
-        [Input("channel")]
+        [PolicyResourceProperty("channel", "_mUnknown_Channel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChannel;
+        private string? _mValue_Channel;
+        private bool _mUnknown_Channel;
+        public string? Channel
+        {
+            get
+            {
+                if (!_mUnknown_Channel) return _mValue_Channel;
+                throw new UndeferrableValueException("Value 'TrustAnchorNotificationSetting.Channel' is not present");
+            }
+        }
 
-        public string? Channel => _mChannel.GetValue("channel");
-
-        [Input("configuredBy")]
+        [PolicyResourceProperty("configuredBy", "_mUnknown_ConfiguredBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfiguredBy;
-
-        public string? ConfiguredBy => _mConfiguredBy.GetValue("configuredBy");
+        private string? _mValue_ConfiguredBy;
+        private bool _mUnknown_ConfiguredBy;
+        public string? ConfiguredBy
+        {
+            get
+            {
+                if (!_mUnknown_ConfiguredBy) return _mValue_ConfiguredBy;
+                throw new UndeferrableValueException("Value 'TrustAnchorNotificationSetting.ConfiguredBy' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not the Trust Anchor should be enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'TrustAnchorNotificationSetting.Enabled' is not present");
+            }
+        }
 
-        public bool? Enabled => _mEnabled.GetValue("enabled");
-
-        [Input("event")]
+        [PolicyResourceProperty("event", "_mUnknown_Event")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEvent;
+        private string? _mValue_Event;
+        private bool _mUnknown_Event;
+        public string? Event
+        {
+            get
+            {
+                if (!_mUnknown_Event) return _mValue_Event;
+                throw new UndeferrableValueException("Value 'TrustAnchorNotificationSetting.Event' is not present");
+            }
+        }
 
-        public string? Event => _mEvent.GetValue("event");
-
-        [Input("threshold")]
+        [PolicyResourceProperty("threshold", "_mUnknown_Threshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThreshold;
-
-        public int? Threshold => _mThreshold.GetValue("threshold");
+        private int? _mValue_Threshold;
+        private bool _mUnknown_Threshold;
+        public int? Threshold
+        {
+            get
+            {
+                if (!_mUnknown_Threshold) return _mValue_Threshold;
+                throw new UndeferrableValueException("Value 'TrustAnchorNotificationSetting.Threshold' is not present");
+            }
+        }
     }
 }

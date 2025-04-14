@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// Site Amazon Resource Name (ARN)
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Site.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the Site.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Site.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Global Network to create the site in.
         /// </summary>
-        [Input("globalNetworkId")]
+        [PolicyResourceProperty("globalNetworkId", "_mUnknown_GlobalNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
-
-        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+        private string? _mValue_GlobalNetworkId;
+        private bool _mUnknown_GlobalNetworkId;
+        public string? GlobalNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_GlobalNetworkId) return _mValue_GlobalNetworkId;
+                throw new UndeferrableValueException("Value 'Site.GlobalNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The site location as documented below.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SiteLocation> _mLocation;
-
-        public Outputs.SiteLocation? Location => _mLocation.GetValue("location");
+        private Outputs.SiteLocation? _mValue_Location;
+        private bool _mUnknown_Location;
+        public Outputs.SiteLocation? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'Site.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Site.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Site.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:networkmanager/site:Site")]
@@ -74,37 +116,65 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// Description of the Site.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SiteArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Global Network to create the site in.
         /// </summary>
-        [Input("globalNetworkId")]
+        [PolicyResourceProperty("globalNetworkId", "_mUnknown_GlobalNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
-
-        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+        private string? _mValue_GlobalNetworkId;
+        private bool _mUnknown_GlobalNetworkId;
+        public string? GlobalNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_GlobalNetworkId) return _mValue_GlobalNetworkId;
+                throw new UndeferrableValueException("Value 'SiteArgs.GlobalNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The site location as documented below.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SiteLocationArgs> _mLocation;
-
-        public Inputs.SiteLocationArgs? Location => _mLocation.GetValue("location");
+        private Inputs.SiteLocationArgs? _mValue_Location;
+        private bool _mUnknown_Location;
+        public Inputs.SiteLocationArgs? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'SiteArgs.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SiteArgs.Tags' is not present");
+            }
+        }
     }
 }

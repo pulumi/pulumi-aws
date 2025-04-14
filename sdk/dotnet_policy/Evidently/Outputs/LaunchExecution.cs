@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Evidently.Outputs
         /// <summary>
         /// The date and time that the launch ended.
         /// </summary>
-        [Input("endedTime")]
+        [PolicyResourceProperty("endedTime", "_mUnknown_EndedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndedTime;
-
-        public string? EndedTime => _mEndedTime.GetValue("endedTime");
+        private string? _mValue_EndedTime;
+        private bool _mUnknown_EndedTime;
+        public string? EndedTime
+        {
+            get
+            {
+                if (!_mUnknown_EndedTime) return _mValue_EndedTime;
+                throw new UndeferrableValueException("Value 'LaunchExecution.EndedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time that the launch started.
         /// </summary>
-        [Input("startedTime")]
+        [PolicyResourceProperty("startedTime", "_mUnknown_StartedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartedTime;
-
-        public string? StartedTime => _mStartedTime.GetValue("startedTime");
+        private string? _mValue_StartedTime;
+        private bool _mUnknown_StartedTime;
+        public string? StartedTime
+        {
+            get
+            {
+                if (!_mUnknown_StartedTime) return _mValue_StartedTime;
+                throw new UndeferrableValueException("Value 'LaunchExecution.StartedTime' is not present");
+            }
+        }
     }
 }

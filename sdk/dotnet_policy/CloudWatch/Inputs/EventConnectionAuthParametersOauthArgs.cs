@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// The URL to the authorization endpoint.
         /// </summary>
-        [Input("authorizationEndpoint")]
+        [PolicyResourceProperty("authorizationEndpoint", "_mUnknown_AuthorizationEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizationEndpoint;
-
-        public string? AuthorizationEndpoint => _mAuthorizationEndpoint.GetValue("authorizationEndpoint");
+        private string? _mValue_AuthorizationEndpoint;
+        private bool _mUnknown_AuthorizationEndpoint;
+        public string? AuthorizationEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizationEndpoint) return _mValue_AuthorizationEndpoint;
+                throw new UndeferrableValueException("Value 'EventConnectionAuthParametersOauthArgs.AuthorizationEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains the client parameters for OAuth authorization. Contains the following two parameters.
         /// </summary>
-        [Input("clientParameters")]
+        [PolicyResourceProperty("clientParameters", "_mUnknown_ClientParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventConnectionAuthParametersOauthClientParametersArgs> _mClientParameters;
-
-        public Inputs.EventConnectionAuthParametersOauthClientParametersArgs? ClientParameters => _mClientParameters.GetValue("clientParameters");
+        private Inputs.EventConnectionAuthParametersOauthClientParametersArgs? _mValue_ClientParameters;
+        private bool _mUnknown_ClientParameters;
+        public Inputs.EventConnectionAuthParametersOauthClientParametersArgs? ClientParameters
+        {
+            get
+            {
+                if (!_mUnknown_ClientParameters) return _mValue_ClientParameters;
+                throw new UndeferrableValueException("Value 'EventConnectionAuthParametersOauthArgs.ClientParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// A password for the authorization. Created and stored in AWS Secrets Manager.
         /// </summary>
-        [Input("httpMethod")]
+        [PolicyResourceProperty("httpMethod", "_mUnknown_HttpMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
-
-        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
+        private string? _mValue_HttpMethod;
+        private bool _mUnknown_HttpMethod;
+        public string? HttpMethod
+        {
+            get
+            {
+                if (!_mUnknown_HttpMethod) return _mValue_HttpMethod;
+                throw new UndeferrableValueException("Value 'EventConnectionAuthParametersOauthArgs.HttpMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
         /// </summary>
-        [Input("oauthHttpParameters")]
+        [PolicyResourceProperty("oauthHttpParameters", "_mUnknown_OauthHttpParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventConnectionAuthParametersOauthOauthHttpParametersArgs> _mOauthHttpParameters;
-
-        public Inputs.EventConnectionAuthParametersOauthOauthHttpParametersArgs? OauthHttpParameters => _mOauthHttpParameters.GetValue("oauthHttpParameters");
+        private Inputs.EventConnectionAuthParametersOauthOauthHttpParametersArgs? _mValue_OauthHttpParameters;
+        private bool _mUnknown_OauthHttpParameters;
+        public Inputs.EventConnectionAuthParametersOauthOauthHttpParametersArgs? OauthHttpParameters
+        {
+            get
+            {
+                if (!_mUnknown_OauthHttpParameters) return _mValue_OauthHttpParameters;
+                throw new UndeferrableValueException("Value 'EventConnectionAuthParametersOauthArgs.OauthHttpParameters' is not present");
+            }
+        }
     }
 }

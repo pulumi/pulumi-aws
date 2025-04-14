@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Cfg.Outputs
         /// <summary>
         /// The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
         /// </summary>
-        [Input("enableDebugLogDelivery")]
+        [PolicyResourceProperty("enableDebugLogDelivery", "_mUnknown_EnableDebugLogDelivery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDebugLogDelivery;
-
-        public bool? EnableDebugLogDelivery => _mEnableDebugLogDelivery.GetValue("enableDebugLogDelivery");
+        private bool? _mValue_EnableDebugLogDelivery;
+        private bool _mUnknown_EnableDebugLogDelivery;
+        public bool? EnableDebugLogDelivery
+        {
+            get
+            {
+                if (!_mUnknown_EnableDebugLogDelivery) return _mValue_EnableDebugLogDelivery;
+                throw new UndeferrableValueException("Value 'RuleSourceCustomPolicyDetails.EnableDebugLogDelivery' is not present");
+            }
+        }
 
         /// <summary>
         /// The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
         /// </summary>
-        [Input("policyRuntime")]
+        [PolicyResourceProperty("policyRuntime", "_mUnknown_PolicyRuntime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyRuntime;
-
-        public string? PolicyRuntime => _mPolicyRuntime.GetValue("policyRuntime");
+        private string? _mValue_PolicyRuntime;
+        private bool _mUnknown_PolicyRuntime;
+        public string? PolicyRuntime
+        {
+            get
+            {
+                if (!_mUnknown_PolicyRuntime) return _mValue_PolicyRuntime;
+                throw new UndeferrableValueException("Value 'RuleSourceCustomPolicyDetails.PolicyRuntime' is not present");
+            }
+        }
 
         /// <summary>
         /// The policy definition containing the logic for your Config Custom Policy rule.
         /// </summary>
-        [Input("policyText")]
+        [PolicyResourceProperty("policyText", "_mUnknown_PolicyText")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyText;
-
-        public string? PolicyText => _mPolicyText.GetValue("policyText");
+        private string? _mValue_PolicyText;
+        private bool _mUnknown_PolicyText;
+        public string? PolicyText
+        {
+            get
+            {
+                if (!_mUnknown_PolicyText) return _mValue_PolicyText;
+                throw new UndeferrableValueException("Value 'RuleSourceCustomPolicyDetails.PolicyText' is not present");
+            }
+        }
     }
 }

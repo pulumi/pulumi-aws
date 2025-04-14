@@ -17,20 +17,34 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// The name of the event bus to set the permissions on.
         /// If you omit this, the permissions are set on the `default` event bus.
         /// </summary>
-        [Input("eventBusName")]
+        [PolicyResourceProperty("eventBusName", "_mUnknown_EventBusName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventBusName;
-
-        public string? EventBusName => _mEventBusName.GetValue("eventBusName");
+        private string? _mValue_EventBusName;
+        private bool _mUnknown_EventBusName;
+        public string? EventBusName
+        {
+            get
+            {
+                if (!_mUnknown_EventBusName) return _mValue_EventBusName;
+                throw new UndeferrableValueException("Value 'EventBusPolicy.EventBusName' is not present");
+            }
+        }
 
         /// <summary>
         /// The text of the policy.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'EventBusPolicy.Policy' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/eventBusPolicy:EventBusPolicy")]
@@ -40,19 +54,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// The name of the event bus to set the permissions on.
         /// If you omit this, the permissions are set on the `default` event bus.
         /// </summary>
-        [Input("eventBusName")]
+        [PolicyResourceProperty("eventBusName", "_mUnknown_EventBusName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventBusName;
-
-        public string? EventBusName => _mEventBusName.GetValue("eventBusName");
+        private string? _mValue_EventBusName;
+        private bool _mUnknown_EventBusName;
+        public string? EventBusName
+        {
+            get
+            {
+                if (!_mUnknown_EventBusName) return _mValue_EventBusName;
+                throw new UndeferrableValueException("Value 'EventBusPolicyArgs.EventBusName' is not present");
+            }
+        }
 
         /// <summary>
         /// The text of the policy.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'EventBusPolicyArgs.Policy' is not present");
+            }
+        }
     }
 }

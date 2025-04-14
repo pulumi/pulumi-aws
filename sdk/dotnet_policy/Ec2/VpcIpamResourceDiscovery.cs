@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Amazon Resource Name (ARN) of IPAM Resource Discovery
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'VpcIpamResourceDiscovery.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the IPAM Resource Discovery.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'VpcIpamResourceDiscovery.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The home region of the Resource Discovery
         /// </summary>
-        [Input("ipamResourceDiscoveryRegion")]
+        [PolicyResourceProperty("ipamResourceDiscoveryRegion", "_mUnknown_IpamResourceDiscoveryRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpamResourceDiscoveryRegion;
-
-        public string? IpamResourceDiscoveryRegion => _mIpamResourceDiscoveryRegion.GetValue("ipamResourceDiscoveryRegion");
+        private string? _mValue_IpamResourceDiscoveryRegion;
+        private bool _mUnknown_IpamResourceDiscoveryRegion;
+        public string? IpamResourceDiscoveryRegion
+        {
+            get
+            {
+                if (!_mUnknown_IpamResourceDiscoveryRegion) return _mValue_IpamResourceDiscoveryRegion;
+                throw new UndeferrableValueException("Value 'VpcIpamResourceDiscovery.IpamResourceDiscoveryRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean to identify if the Resource Discovery is the accounts default resource discovery
         /// </summary>
-        [Input("isDefault")]
+        [PolicyResourceProperty("isDefault", "_mUnknown_IsDefault")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsDefault;
-
-        public bool? IsDefault => _mIsDefault.GetValue("isDefault");
+        private bool? _mValue_IsDefault;
+        private bool _mUnknown_IsDefault;
+        public bool? IsDefault
+        {
+            get
+            {
+                if (!_mUnknown_IsDefault) return _mValue_IsDefault;
+                throw new UndeferrableValueException("Value 'VpcIpamResourceDiscovery.IsDefault' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
         /// </summary>
-        [Input("operatingRegions")]
+        [PolicyResourceProperty("operatingRegions", "_mUnknown_OperatingRegions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VpcIpamResourceDiscoveryOperatingRegion>> _mOperatingRegions;
-
-        public List<Outputs.VpcIpamResourceDiscoveryOperatingRegion>? OperatingRegions => _mOperatingRegions.GetValue("operatingRegions");
+        private List<Outputs.VpcIpamResourceDiscoveryOperatingRegion>? _mValue_OperatingRegions;
+        private bool _mUnknown_OperatingRegions;
+        public List<Outputs.VpcIpamResourceDiscoveryOperatingRegion>? OperatingRegions
+        {
+            get
+            {
+                if (!_mUnknown_OperatingRegions) return _mValue_OperatingRegions;
+                throw new UndeferrableValueException("Value 'VpcIpamResourceDiscovery.OperatingRegions' is not present");
+            }
+        }
 
         /// <summary>
         /// The account ID for the account that manages the Resource Discovery
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'VpcIpamResourceDiscovery.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcIpamResourceDiscovery.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'VpcIpamResourceDiscovery.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery")]
@@ -92,28 +148,49 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// A description for the IPAM Resource Discovery.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'VpcIpamResourceDiscoveryArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
         /// </summary>
-        [Input("operatingRegions")]
+        [PolicyResourceProperty("operatingRegions", "_mUnknown_OperatingRegions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.VpcIpamResourceDiscoveryOperatingRegionArgs>> _mOperatingRegions;
-
-        public List<Inputs.VpcIpamResourceDiscoveryOperatingRegionArgs>? OperatingRegions => _mOperatingRegions.GetValue("operatingRegions");
+        private List<Inputs.VpcIpamResourceDiscoveryOperatingRegionArgs>? _mValue_OperatingRegions;
+        private bool _mUnknown_OperatingRegions;
+        public List<Inputs.VpcIpamResourceDiscoveryOperatingRegionArgs>? OperatingRegions
+        {
+            get
+            {
+                if (!_mUnknown_OperatingRegions) return _mValue_OperatingRegions;
+                throw new UndeferrableValueException("Value 'VpcIpamResourceDiscoveryArgs.OperatingRegions' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcIpamResourceDiscoveryArgs.Tags' is not present");
+            }
+        }
     }
 }

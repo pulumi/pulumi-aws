@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// ARN of the Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate.ResourceArn' is not present");
+            }
+        }
     }
 }

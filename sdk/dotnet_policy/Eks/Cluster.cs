@@ -16,241 +16,430 @@ namespace Pulumi.PolicyPacks.Aws.Eks
         /// <summary>
         /// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
         /// </summary>
-        [Input("accessConfig")]
+        [PolicyResourceProperty("accessConfig", "_mUnknown_AccessConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterAccessConfig> _mAccessConfig;
-
-        public Outputs.ClusterAccessConfig? AccessConfig => _mAccessConfig.GetValue("accessConfig");
+        private Outputs.ClusterAccessConfig? _mValue_AccessConfig;
+        private bool _mUnknown_AccessConfig;
+        public Outputs.ClusterAccessConfig? AccessConfig
+        {
+            get
+            {
+                if (!_mUnknown_AccessConfig) return _mValue_AccessConfig;
+                throw new UndeferrableValueException("Value 'Cluster.AccessConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the cluster.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Cluster.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
         /// </summary>
-        [Input("bootstrapSelfManagedAddons")]
+        [PolicyResourceProperty("bootstrapSelfManagedAddons", "_mUnknown_BootstrapSelfManagedAddons")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBootstrapSelfManagedAddons;
+        private bool? _mValue_BootstrapSelfManagedAddons;
+        private bool _mUnknown_BootstrapSelfManagedAddons;
+        public bool? BootstrapSelfManagedAddons
+        {
+            get
+            {
+                if (!_mUnknown_BootstrapSelfManagedAddons) return _mValue_BootstrapSelfManagedAddons;
+                throw new UndeferrableValueException("Value 'Cluster.BootstrapSelfManagedAddons' is not present");
+            }
+        }
 
-        public bool? BootstrapSelfManagedAddons => _mBootstrapSelfManagedAddons.GetValue("bootstrapSelfManagedAddons");
-
-        [Input("certificateAuthorities")]
+        [PolicyResourceProperty("certificateAuthorities", "_mUnknown_CertificateAuthorities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterCertificateAuthority>> _mCertificateAuthorities;
-
-        public List<Outputs.ClusterCertificateAuthority>? CertificateAuthorities => _mCertificateAuthorities.GetValue("certificateAuthorities");
+        private List<Outputs.ClusterCertificateAuthority>? _mValue_CertificateAuthorities;
+        private bool _mUnknown_CertificateAuthorities;
+        public List<Outputs.ClusterCertificateAuthority>? CertificateAuthorities
+        {
+            get
+            {
+                if (!_mUnknown_CertificateAuthorities) return _mValue_CertificateAuthorities;
+                throw new UndeferrableValueException("Value 'Cluster.CertificateAuthorities' is not present");
+            }
+        }
 
         /// <summary>
         /// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         /// </summary>
-        [Input("certificateAuthority")]
+        [PolicyResourceProperty("certificateAuthority", "_mUnknown_CertificateAuthority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterCertificateAuthority> _mCertificateAuthority;
-
-        public Outputs.ClusterCertificateAuthority? CertificateAuthority => _mCertificateAuthority.GetValue("certificateAuthority");
+        private Outputs.ClusterCertificateAuthority? _mValue_CertificateAuthority;
+        private bool _mUnknown_CertificateAuthority;
+        public Outputs.ClusterCertificateAuthority? CertificateAuthority
+        {
+            get
+            {
+                if (!_mUnknown_CertificateAuthority) return _mValue_CertificateAuthority;
+                throw new UndeferrableValueException("Value 'Cluster.CertificateAuthority' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         /// </summary>
-        [Input("clusterId")]
+        [PolicyResourceProperty("clusterId", "_mUnknown_ClusterId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
-
-        public string? ClusterId => _mClusterId.GetValue("clusterId");
+        private string? _mValue_ClusterId;
+        private bool _mUnknown_ClusterId;
+        public string? ClusterId
+        {
+            get
+            {
+                if (!_mUnknown_ClusterId) return _mValue_ClusterId;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
         /// </summary>
-        [Input("computeConfig")]
+        [PolicyResourceProperty("computeConfig", "_mUnknown_ComputeConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterComputeConfig> _mComputeConfig;
-
-        public Outputs.ClusterComputeConfig? ComputeConfig => _mComputeConfig.GetValue("computeConfig");
+        private Outputs.ClusterComputeConfig? _mValue_ComputeConfig;
+        private bool _mUnknown_ComputeConfig;
+        public Outputs.ClusterComputeConfig? ComputeConfig
+        {
+            get
+            {
+                if (!_mUnknown_ComputeConfig) return _mValue_ComputeConfig;
+                throw new UndeferrableValueException("Value 'Cluster.ComputeConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Unix epoch timestamp in seconds for when the cluster was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'Cluster.CreatedAt' is not present");
+            }
+        }
 
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
-
-        [Input("defaultAddonsToRemoves")]
+        [PolicyResourceProperty("defaultAddonsToRemoves", "_mUnknown_DefaultAddonsToRemoves")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDefaultAddonsToRemoves;
-
-        public List<string>? DefaultAddonsToRemoves => _mDefaultAddonsToRemoves.GetValue("defaultAddonsToRemoves");
+        private List<string>? _mValue_DefaultAddonsToRemoves;
+        private bool _mUnknown_DefaultAddonsToRemoves;
+        public List<string>? DefaultAddonsToRemoves
+        {
+            get
+            {
+                if (!_mUnknown_DefaultAddonsToRemoves) return _mValue_DefaultAddonsToRemoves;
+                throw new UndeferrableValueException("Value 'Cluster.DefaultAddonsToRemoves' is not present");
+            }
+        }
 
         /// <summary>
         /// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         /// </summary>
-        [Input("enabledClusterLogTypes")]
+        [PolicyResourceProperty("enabledClusterLogTypes", "_mUnknown_EnabledClusterLogTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledClusterLogTypes;
-
-        public List<string>? EnabledClusterLogTypes => _mEnabledClusterLogTypes.GetValue("enabledClusterLogTypes");
+        private List<string>? _mValue_EnabledClusterLogTypes;
+        private bool _mUnknown_EnabledClusterLogTypes;
+        public List<string>? EnabledClusterLogTypes
+        {
+            get
+            {
+                if (!_mUnknown_EnabledClusterLogTypes) return _mValue_EnabledClusterLogTypes;
+                throw new UndeferrableValueException("Value 'Cluster.EnabledClusterLogTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with encryption configuration for the cluster. Detailed below.
         /// </summary>
-        [Input("encryptionConfig")]
+        [PolicyResourceProperty("encryptionConfig", "_mUnknown_EncryptionConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterEncryptionConfig> _mEncryptionConfig;
-
-        public Outputs.ClusterEncryptionConfig? EncryptionConfig => _mEncryptionConfig.GetValue("encryptionConfig");
+        private Outputs.ClusterEncryptionConfig? _mValue_EncryptionConfig;
+        private bool _mUnknown_EncryptionConfig;
+        public Outputs.ClusterEncryptionConfig? EncryptionConfig
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfig) return _mValue_EncryptionConfig;
+                throw new UndeferrableValueException("Value 'Cluster.EncryptionConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Endpoint for your Kubernetes API server.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'Cluster.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
         /// </summary>
-        [Input("identities")]
+        [PolicyResourceProperty("identities", "_mUnknown_Identities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterIdentity>> _mIdentities;
-
-        public List<Outputs.ClusterIdentity>? Identities => _mIdentities.GetValue("identities");
+        private List<Outputs.ClusterIdentity>? _mValue_Identities;
+        private bool _mUnknown_Identities;
+        public List<Outputs.ClusterIdentity>? Identities
+        {
+            get
+            {
+                if (!_mUnknown_Identities) return _mValue_Identities;
+                throw new UndeferrableValueException("Value 'Cluster.Identities' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         /// </summary>
-        [Input("kubernetesNetworkConfig")]
+        [PolicyResourceProperty("kubernetesNetworkConfig", "_mUnknown_KubernetesNetworkConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterKubernetesNetworkConfig> _mKubernetesNetworkConfig;
-
-        public Outputs.ClusterKubernetesNetworkConfig? KubernetesNetworkConfig => _mKubernetesNetworkConfig.GetValue("kubernetesNetworkConfig");
+        private Outputs.ClusterKubernetesNetworkConfig? _mValue_KubernetesNetworkConfig;
+        private bool _mUnknown_KubernetesNetworkConfig;
+        public Outputs.ClusterKubernetesNetworkConfig? KubernetesNetworkConfig
+        {
+            get
+            {
+                if (!_mUnknown_KubernetesNetworkConfig) return _mValue_KubernetesNetworkConfig;
+                throw new UndeferrableValueException("Value 'Cluster.KubernetesNetworkConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Cluster.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
         /// </summary>
-        [Input("outpostConfig")]
+        [PolicyResourceProperty("outpostConfig", "_mUnknown_OutpostConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterOutpostConfig> _mOutpostConfig;
-
-        public Outputs.ClusterOutpostConfig? OutpostConfig => _mOutpostConfig.GetValue("outpostConfig");
+        private Outputs.ClusterOutpostConfig? _mValue_OutpostConfig;
+        private bool _mUnknown_OutpostConfig;
+        public Outputs.ClusterOutpostConfig? OutpostConfig
+        {
+            get
+            {
+                if (!_mUnknown_OutpostConfig) return _mValue_OutpostConfig;
+                throw new UndeferrableValueException("Value 'Cluster.OutpostConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Platform version for the cluster.
         /// </summary>
-        [Input("platformVersion")]
+        [PolicyResourceProperty("platformVersion", "_mUnknown_PlatformVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformVersion;
-
-        public string? PlatformVersion => _mPlatformVersion.GetValue("platformVersion");
+        private string? _mValue_PlatformVersion;
+        private bool _mUnknown_PlatformVersion;
+        public string? PlatformVersion
+        {
+            get
+            {
+                if (!_mUnknown_PlatformVersion) return _mValue_PlatformVersion;
+                throw new UndeferrableValueException("Value 'Cluster.PlatformVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
         /// </summary>
-        [Input("remoteNetworkConfig")]
+        [PolicyResourceProperty("remoteNetworkConfig", "_mUnknown_RemoteNetworkConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterRemoteNetworkConfig> _mRemoteNetworkConfig;
-
-        public Outputs.ClusterRemoteNetworkConfig? RemoteNetworkConfig => _mRemoteNetworkConfig.GetValue("remoteNetworkConfig");
+        private Outputs.ClusterRemoteNetworkConfig? _mValue_RemoteNetworkConfig;
+        private bool _mUnknown_RemoteNetworkConfig;
+        public Outputs.ClusterRemoteNetworkConfig? RemoteNetworkConfig
+        {
+            get
+            {
+                if (!_mUnknown_RemoteNetworkConfig) return _mValue_RemoteNetworkConfig;
+                throw new UndeferrableValueException("Value 'Cluster.RemoteNetworkConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Cluster.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Cluster.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with storage configuration for EKS Auto Mode. Detailed below.
         /// </summary>
-        [Input("storageConfig")]
+        [PolicyResourceProperty("storageConfig", "_mUnknown_StorageConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterStorageConfig> _mStorageConfig;
-
-        public Outputs.ClusterStorageConfig? StorageConfig => _mStorageConfig.GetValue("storageConfig");
+        private Outputs.ClusterStorageConfig? _mValue_StorageConfig;
+        private bool _mUnknown_StorageConfig;
+        public Outputs.ClusterStorageConfig? StorageConfig
+        {
+            get
+            {
+                if (!_mUnknown_StorageConfig) return _mValue_StorageConfig;
+                throw new UndeferrableValueException("Value 'Cluster.StorageConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Cluster.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Cluster.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
         /// </summary>
-        [Input("upgradePolicy")]
+        [PolicyResourceProperty("upgradePolicy", "_mUnknown_UpgradePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterUpgradePolicy> _mUpgradePolicy;
-
-        public Outputs.ClusterUpgradePolicy? UpgradePolicy => _mUpgradePolicy.GetValue("upgradePolicy");
+        private Outputs.ClusterUpgradePolicy? _mValue_UpgradePolicy;
+        private bool _mUnknown_UpgradePolicy;
+        public Outputs.ClusterUpgradePolicy? UpgradePolicy
+        {
+            get
+            {
+                if (!_mUnknown_UpgradePolicy) return _mValue_UpgradePolicy;
+                throw new UndeferrableValueException("Value 'Cluster.UpgradePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'Cluster.Version' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterVpcConfig> _mVpcConfig;
-
-        public Outputs.ClusterVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Outputs.ClusterVpcConfig? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Outputs.ClusterVpcConfig? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'Cluster.VpcConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with zonal shift configuration for the cluster. Detailed below.
         /// </summary>
-        [Input("zonalShiftConfig")]
+        [PolicyResourceProperty("zonalShiftConfig", "_mUnknown_ZonalShiftConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterZonalShiftConfig> _mZonalShiftConfig;
-
-        public Outputs.ClusterZonalShiftConfig? ZonalShiftConfig => _mZonalShiftConfig.GetValue("zonalShiftConfig");
+        private Outputs.ClusterZonalShiftConfig? _mValue_ZonalShiftConfig;
+        private bool _mUnknown_ZonalShiftConfig;
+        public Outputs.ClusterZonalShiftConfig? ZonalShiftConfig
+        {
+            get
+            {
+                if (!_mUnknown_ZonalShiftConfig) return _mValue_ZonalShiftConfig;
+                throw new UndeferrableValueException("Value 'Cluster.ZonalShiftConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:eks/cluster:Cluster")]
@@ -259,153 +448,272 @@ namespace Pulumi.PolicyPacks.Aws.Eks
         /// <summary>
         /// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
         /// </summary>
-        [Input("accessConfig")]
+        [PolicyResourceProperty("accessConfig", "_mUnknown_AccessConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterAccessConfigArgs> _mAccessConfig;
-
-        public Inputs.ClusterAccessConfigArgs? AccessConfig => _mAccessConfig.GetValue("accessConfig");
+        private Inputs.ClusterAccessConfigArgs? _mValue_AccessConfig;
+        private bool _mUnknown_AccessConfig;
+        public Inputs.ClusterAccessConfigArgs? AccessConfig
+        {
+            get
+            {
+                if (!_mUnknown_AccessConfig) return _mValue_AccessConfig;
+                throw new UndeferrableValueException("Value 'ClusterArgs.AccessConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
         /// </summary>
-        [Input("bootstrapSelfManagedAddons")]
+        [PolicyResourceProperty("bootstrapSelfManagedAddons", "_mUnknown_BootstrapSelfManagedAddons")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBootstrapSelfManagedAddons;
-
-        public bool? BootstrapSelfManagedAddons => _mBootstrapSelfManagedAddons.GetValue("bootstrapSelfManagedAddons");
+        private bool? _mValue_BootstrapSelfManagedAddons;
+        private bool _mUnknown_BootstrapSelfManagedAddons;
+        public bool? BootstrapSelfManagedAddons
+        {
+            get
+            {
+                if (!_mUnknown_BootstrapSelfManagedAddons) return _mValue_BootstrapSelfManagedAddons;
+                throw new UndeferrableValueException("Value 'ClusterArgs.BootstrapSelfManagedAddons' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
         /// </summary>
-        [Input("computeConfig")]
+        [PolicyResourceProperty("computeConfig", "_mUnknown_ComputeConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterComputeConfigArgs> _mComputeConfig;
+        private Inputs.ClusterComputeConfigArgs? _mValue_ComputeConfig;
+        private bool _mUnknown_ComputeConfig;
+        public Inputs.ClusterComputeConfigArgs? ComputeConfig
+        {
+            get
+            {
+                if (!_mUnknown_ComputeConfig) return _mValue_ComputeConfig;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ComputeConfig' is not present");
+            }
+        }
 
-        public Inputs.ClusterComputeConfigArgs? ComputeConfig => _mComputeConfig.GetValue("computeConfig");
-
-        [Input("defaultAddonsToRemoves")]
+        [PolicyResourceProperty("defaultAddonsToRemoves", "_mUnknown_DefaultAddonsToRemoves")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDefaultAddonsToRemoves;
-
-        public List<string>? DefaultAddonsToRemoves => _mDefaultAddonsToRemoves.GetValue("defaultAddonsToRemoves");
+        private List<string>? _mValue_DefaultAddonsToRemoves;
+        private bool _mUnknown_DefaultAddonsToRemoves;
+        public List<string>? DefaultAddonsToRemoves
+        {
+            get
+            {
+                if (!_mUnknown_DefaultAddonsToRemoves) return _mValue_DefaultAddonsToRemoves;
+                throw new UndeferrableValueException("Value 'ClusterArgs.DefaultAddonsToRemoves' is not present");
+            }
+        }
 
         /// <summary>
         /// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         /// </summary>
-        [Input("enabledClusterLogTypes")]
+        [PolicyResourceProperty("enabledClusterLogTypes", "_mUnknown_EnabledClusterLogTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledClusterLogTypes;
-
-        public List<string>? EnabledClusterLogTypes => _mEnabledClusterLogTypes.GetValue("enabledClusterLogTypes");
+        private List<string>? _mValue_EnabledClusterLogTypes;
+        private bool _mUnknown_EnabledClusterLogTypes;
+        public List<string>? EnabledClusterLogTypes
+        {
+            get
+            {
+                if (!_mUnknown_EnabledClusterLogTypes) return _mValue_EnabledClusterLogTypes;
+                throw new UndeferrableValueException("Value 'ClusterArgs.EnabledClusterLogTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with encryption configuration for the cluster. Detailed below.
         /// </summary>
-        [Input("encryptionConfig")]
+        [PolicyResourceProperty("encryptionConfig", "_mUnknown_EncryptionConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterEncryptionConfigArgs> _mEncryptionConfig;
-
-        public Inputs.ClusterEncryptionConfigArgs? EncryptionConfig => _mEncryptionConfig.GetValue("encryptionConfig");
+        private Inputs.ClusterEncryptionConfigArgs? _mValue_EncryptionConfig;
+        private bool _mUnknown_EncryptionConfig;
+        public Inputs.ClusterEncryptionConfigArgs? EncryptionConfig
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfig) return _mValue_EncryptionConfig;
+                throw new UndeferrableValueException("Value 'ClusterArgs.EncryptionConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         /// </summary>
-        [Input("kubernetesNetworkConfig")]
+        [PolicyResourceProperty("kubernetesNetworkConfig", "_mUnknown_KubernetesNetworkConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterKubernetesNetworkConfigArgs> _mKubernetesNetworkConfig;
-
-        public Inputs.ClusterKubernetesNetworkConfigArgs? KubernetesNetworkConfig => _mKubernetesNetworkConfig.GetValue("kubernetesNetworkConfig");
+        private Inputs.ClusterKubernetesNetworkConfigArgs? _mValue_KubernetesNetworkConfig;
+        private bool _mUnknown_KubernetesNetworkConfig;
+        public Inputs.ClusterKubernetesNetworkConfigArgs? KubernetesNetworkConfig
+        {
+            get
+            {
+                if (!_mUnknown_KubernetesNetworkConfig) return _mValue_KubernetesNetworkConfig;
+                throw new UndeferrableValueException("Value 'ClusterArgs.KubernetesNetworkConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
         /// </summary>
-        [Input("outpostConfig")]
+        [PolicyResourceProperty("outpostConfig", "_mUnknown_OutpostConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterOutpostConfigArgs> _mOutpostConfig;
-
-        public Inputs.ClusterOutpostConfigArgs? OutpostConfig => _mOutpostConfig.GetValue("outpostConfig");
+        private Inputs.ClusterOutpostConfigArgs? _mValue_OutpostConfig;
+        private bool _mUnknown_OutpostConfig;
+        public Inputs.ClusterOutpostConfigArgs? OutpostConfig
+        {
+            get
+            {
+                if (!_mUnknown_OutpostConfig) return _mValue_OutpostConfig;
+                throw new UndeferrableValueException("Value 'ClusterArgs.OutpostConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
         /// </summary>
-        [Input("remoteNetworkConfig")]
+        [PolicyResourceProperty("remoteNetworkConfig", "_mUnknown_RemoteNetworkConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterRemoteNetworkConfigArgs> _mRemoteNetworkConfig;
-
-        public Inputs.ClusterRemoteNetworkConfigArgs? RemoteNetworkConfig => _mRemoteNetworkConfig.GetValue("remoteNetworkConfig");
+        private Inputs.ClusterRemoteNetworkConfigArgs? _mValue_RemoteNetworkConfig;
+        private bool _mUnknown_RemoteNetworkConfig;
+        public Inputs.ClusterRemoteNetworkConfigArgs? RemoteNetworkConfig
+        {
+            get
+            {
+                if (!_mUnknown_RemoteNetworkConfig) return _mValue_RemoteNetworkConfig;
+                throw new UndeferrableValueException("Value 'ClusterArgs.RemoteNetworkConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ClusterArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with storage configuration for EKS Auto Mode. Detailed below.
         /// </summary>
-        [Input("storageConfig")]
+        [PolicyResourceProperty("storageConfig", "_mUnknown_StorageConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterStorageConfigArgs> _mStorageConfig;
-
-        public Inputs.ClusterStorageConfigArgs? StorageConfig => _mStorageConfig.GetValue("storageConfig");
+        private Inputs.ClusterStorageConfigArgs? _mValue_StorageConfig;
+        private bool _mUnknown_StorageConfig;
+        public Inputs.ClusterStorageConfigArgs? StorageConfig
+        {
+            get
+            {
+                if (!_mUnknown_StorageConfig) return _mValue_StorageConfig;
+                throw new UndeferrableValueException("Value 'ClusterArgs.StorageConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
         /// </summary>
-        [Input("upgradePolicy")]
+        [PolicyResourceProperty("upgradePolicy", "_mUnknown_UpgradePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterUpgradePolicyArgs> _mUpgradePolicy;
-
-        public Inputs.ClusterUpgradePolicyArgs? UpgradePolicy => _mUpgradePolicy.GetValue("upgradePolicy");
+        private Inputs.ClusterUpgradePolicyArgs? _mValue_UpgradePolicy;
+        private bool _mUnknown_UpgradePolicy;
+        public Inputs.ClusterUpgradePolicyArgs? UpgradePolicy
+        {
+            get
+            {
+                if (!_mUnknown_UpgradePolicy) return _mValue_UpgradePolicy;
+                throw new UndeferrableValueException("Value 'ClusterArgs.UpgradePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Version' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterVpcConfigArgs> _mVpcConfig;
-
-        public Inputs.ClusterVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Inputs.ClusterVpcConfigArgs? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Inputs.ClusterVpcConfigArgs? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'ClusterArgs.VpcConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with zonal shift configuration for the cluster. Detailed below.
         /// </summary>
-        [Input("zonalShiftConfig")]
+        [PolicyResourceProperty("zonalShiftConfig", "_mUnknown_ZonalShiftConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterZonalShiftConfigArgs> _mZonalShiftConfig;
-
-        public Inputs.ClusterZonalShiftConfigArgs? ZonalShiftConfig => _mZonalShiftConfig.GetValue("zonalShiftConfig");
+        private Inputs.ClusterZonalShiftConfigArgs? _mValue_ZonalShiftConfig;
+        private bool _mUnknown_ZonalShiftConfig;
+        public Inputs.ClusterZonalShiftConfigArgs? ZonalShiftConfig
+        {
+            get
+            {
+                if (!_mUnknown_ZonalShiftConfig) return _mValue_ZonalShiftConfig;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ZonalShiftConfig' is not present");
+            }
+        }
     }
 }

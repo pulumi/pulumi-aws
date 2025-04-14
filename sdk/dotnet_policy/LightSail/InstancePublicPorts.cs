@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// Name of the Lightsail Instance.
         /// </summary>
-        [Input("instanceName")]
+        [PolicyResourceProperty("instanceName", "_mUnknown_InstanceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceName;
-
-        public string? InstanceName => _mInstanceName.GetValue("instanceName");
+        private string? _mValue_InstanceName;
+        private bool _mUnknown_InstanceName;
+        public string? InstanceName
+        {
+            get
+            {
+                if (!_mUnknown_InstanceName) return _mValue_InstanceName;
+                throw new UndeferrableValueException("Value 'InstancePublicPorts.InstanceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
         /// </summary>
-        [Input("portInfos")]
+        [PolicyResourceProperty("portInfos", "_mUnknown_PortInfos")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstancePublicPortsPortInfo>> _mPortInfos;
-
-        public List<Outputs.InstancePublicPortsPortInfo>? PortInfos => _mPortInfos.GetValue("portInfos");
+        private List<Outputs.InstancePublicPortsPortInfo>? _mValue_PortInfos;
+        private bool _mUnknown_PortInfos;
+        public List<Outputs.InstancePublicPortsPortInfo>? PortInfos
+        {
+            get
+            {
+                if (!_mUnknown_PortInfos) return _mValue_PortInfos;
+                throw new UndeferrableValueException("Value 'InstancePublicPorts.PortInfos' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lightsail/instancePublicPorts:InstancePublicPorts")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// Name of the Lightsail Instance.
         /// </summary>
-        [Input("instanceName")]
+        [PolicyResourceProperty("instanceName", "_mUnknown_InstanceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceName;
-
-        public string? InstanceName => _mInstanceName.GetValue("instanceName");
+        private string? _mValue_InstanceName;
+        private bool _mUnknown_InstanceName;
+        public string? InstanceName
+        {
+            get
+            {
+                if (!_mUnknown_InstanceName) return _mValue_InstanceName;
+                throw new UndeferrableValueException("Value 'InstancePublicPortsArgs.InstanceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
         /// </summary>
-        [Input("portInfos")]
+        [PolicyResourceProperty("portInfos", "_mUnknown_PortInfos")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InstancePublicPortsPortInfoArgs>> _mPortInfos;
-
-        public List<Inputs.InstancePublicPortsPortInfoArgs>? PortInfos => _mPortInfos.GetValue("portInfos");
+        private List<Inputs.InstancePublicPortsPortInfoArgs>? _mValue_PortInfos;
+        private bool _mUnknown_PortInfos;
+        public List<Inputs.InstancePublicPortsPortInfoArgs>? PortInfos
+        {
+            get
+            {
+                if (!_mUnknown_PortInfos) return _mValue_PortInfos;
+                throw new UndeferrableValueException("Value 'InstancePublicPortsArgs.PortInfos' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// Amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
         /// </summary>
-        [Input("idleTimeoutSeconds")]
+        [PolicyResourceProperty("idleTimeoutSeconds", "_mUnknown_IdleTimeoutSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIdleTimeoutSeconds;
-
-        public int? IdleTimeoutSeconds => _mIdleTimeoutSeconds.GetValue("idleTimeoutSeconds");
+        private int? _mValue_IdleTimeoutSeconds;
+        private bool _mUnknown_IdleTimeoutSeconds;
+        public int? IdleTimeoutSeconds
+        {
+            get
+            {
+                if (!_mUnknown_IdleTimeoutSeconds) return _mValue_IdleTimeoutSeconds;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceTimeout.IdleTimeoutSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
         /// </summary>
-        [Input("perRequestTimeoutSeconds")]
+        [PolicyResourceProperty("perRequestTimeoutSeconds", "_mUnknown_PerRequestTimeoutSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPerRequestTimeoutSeconds;
-
-        public int? PerRequestTimeoutSeconds => _mPerRequestTimeoutSeconds.GetValue("perRequestTimeoutSeconds");
+        private int? _mValue_PerRequestTimeoutSeconds;
+        private bool _mUnknown_PerRequestTimeoutSeconds;
+        public int? PerRequestTimeoutSeconds
+        {
+            get
+            {
+                if (!_mUnknown_PerRequestTimeoutSeconds) return _mValue_PerRequestTimeoutSeconds;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceTimeout.PerRequestTimeoutSeconds' is not present");
+            }
+        }
     }
 }

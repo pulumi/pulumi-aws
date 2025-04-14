@@ -15,91 +15,161 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Inputs
         /// <summary>
         /// Whether the volume should be encrypted. Default value is `true`.
         /// </summary>
-        [Input("encrypted")]
+        [PolicyResourceProperty("encrypted", "_mUnknown_Encrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypted;
-
-        public bool? Encrypted => _mEncrypted.GetValue("encrypted");
+        private bool? _mValue_Encrypted;
+        private bool _mUnknown_Encrypted;
+        public bool? Encrypted
+        {
+            get
+            {
+                if (!_mUnknown_Encrypted) return _mValue_Encrypted;
+                throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolumeArgs.Encrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// Linux filesystem type for the volume. For volumes created from a snapshot, same filesystem type must be specified that the volume was using when the snapshot was created. Valid values are `ext3`, `ext4`, `xfs`. Default value is `xfs`.
         /// </summary>
-        [Input("fileSystemType")]
+        [PolicyResourceProperty("fileSystemType", "_mUnknown_FileSystemType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemType;
-
-        public string? FileSystemType => _mFileSystemType.GetValue("fileSystemType");
+        private string? _mValue_FileSystemType;
+        private bool _mUnknown_FileSystemType;
+        public string? FileSystemType
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemType) return _mValue_FileSystemType;
+                throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolumeArgs.FileSystemType' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of I/O operations per second (IOPS).
         /// </summary>
-        [Input("iops")]
+        [PolicyResourceProperty("iops", "_mUnknown_Iops")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIops;
-
-        public int? Iops => _mIops.GetValue("iops");
+        private int? _mValue_Iops;
+        private bool _mUnknown_Iops;
+        public int? Iops
+        {
+            get
+            {
+                if (!_mUnknown_Iops) return _mValue_Iops;
+                throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolumeArgs.Iops' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolumeArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon ECS infrastructure IAM role that is used to manage your Amazon Web Services infrastructure. Recommended using the Amazon ECS-managed `AmazonECSInfrastructureRolePolicyForVolumes` IAM policy with this role.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolumeArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Size of the volume in GiB. You must specify either a `size_in_gb` or a `snapshot_id`. You can optionally specify a volume size greater than or equal to the snapshot size.
         /// </summary>
-        [Input("sizeInGb")]
+        [PolicyResourceProperty("sizeInGb", "_mUnknown_SizeInGb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSizeInGb;
-
-        public int? SizeInGb => _mSizeInGb.GetValue("sizeInGb");
+        private int? _mValue_SizeInGb;
+        private bool _mUnknown_SizeInGb;
+        public int? SizeInGb
+        {
+            get
+            {
+                if (!_mUnknown_SizeInGb) return _mValue_SizeInGb;
+                throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolumeArgs.SizeInGb' is not present");
+            }
+        }
 
         /// <summary>
         /// Snapshot that Amazon ECS uses to create the volume. You must specify either a `size_in_gb` or a `snapshot_id`.
         /// </summary>
-        [Input("snapshotId")]
+        [PolicyResourceProperty("snapshotId", "_mUnknown_SnapshotId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotId;
-
-        public string? SnapshotId => _mSnapshotId.GetValue("snapshotId");
+        private string? _mValue_SnapshotId;
+        private bool _mUnknown_SnapshotId;
+        public string? SnapshotId
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotId) return _mValue_SnapshotId;
+                throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolumeArgs.SnapshotId' is not present");
+            }
+        }
 
         /// <summary>
         /// The tags to apply to the volume. See below.
         /// </summary>
-        [Input("tagSpecifications")]
+        [PolicyResourceProperty("tagSpecifications", "_mUnknown_TagSpecifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs>> _mTagSpecifications;
-
-        public List<Inputs.ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs>? TagSpecifications => _mTagSpecifications.GetValue("tagSpecifications");
+        private List<Inputs.ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs>? _mValue_TagSpecifications;
+        private bool _mUnknown_TagSpecifications;
+        public List<Inputs.ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs>? TagSpecifications
+        {
+            get
+            {
+                if (!_mUnknown_TagSpecifications) return _mValue_TagSpecifications;
+                throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolumeArgs.TagSpecifications' is not present");
+            }
+        }
 
         /// <summary>
         /// Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
         /// </summary>
-        [Input("throughput")]
+        [PolicyResourceProperty("throughput", "_mUnknown_Throughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThroughput;
-
-        public int? Throughput => _mThroughput.GetValue("throughput");
+        private int? _mValue_Throughput;
+        private bool _mUnknown_Throughput;
+        public int? Throughput
+        {
+            get
+            {
+                if (!_mUnknown_Throughput) return _mValue_Throughput;
+                throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolumeArgs.Throughput' is not present");
+            }
+        }
 
         /// <summary>
         /// Volume type.
         /// </summary>
-        [Input("volumeType")]
+        [PolicyResourceProperty("volumeType", "_mUnknown_VolumeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeType;
-
-        public string? VolumeType => _mVolumeType.GetValue("volumeType");
+        private string? _mValue_VolumeType;
+        private bool _mUnknown_VolumeType;
+        public string? VolumeType
+        {
+            get
+            {
+                if (!_mUnknown_VolumeType) return _mValue_VolumeType;
+                throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolumeArgs.VolumeType' is not present");
+            }
+        }
     }
 }

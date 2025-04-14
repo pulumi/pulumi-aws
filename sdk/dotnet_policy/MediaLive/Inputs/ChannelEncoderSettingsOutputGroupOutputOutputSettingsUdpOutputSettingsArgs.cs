@@ -15,34 +15,62 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// UDP output buffering in milliseconds.
         /// </summary>
-        [Input("bufferMsec")]
+        [PolicyResourceProperty("bufferMsec", "_mUnknown_BufferMsec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferMsec;
-
-        public int? BufferMsec => _mBufferMsec.GetValue("bufferMsec");
+        private int? _mValue_BufferMsec;
+        private bool _mUnknown_BufferMsec;
+        public int? BufferMsec
+        {
+            get
+            {
+                if (!_mUnknown_BufferMsec) return _mValue_BufferMsec;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs.BufferMsec' is not present");
+            }
+        }
 
         /// <summary>
         /// UDP container settings. See Container Settings for more details.
         /// </summary>
-        [Input("containerSettings")]
+        [PolicyResourceProperty("containerSettings", "_mUnknown_ContainerSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs> _mContainerSettings;
-
-        public Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs? ContainerSettings => _mContainerSettings.GetValue("containerSettings");
+        private Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs? _mValue_ContainerSettings;
+        private bool _mUnknown_ContainerSettings;
+        public Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs? ContainerSettings
+        {
+            get
+            {
+                if (!_mUnknown_ContainerSettings) return _mValue_ContainerSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs.ContainerSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination address and port number for RTP or UDP packets. See Destination for more details.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs> _mDestination;
+        private Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs.Destination' is not present");
+            }
+        }
 
-        public Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs? Destination => _mDestination.GetValue("destination");
-
-        [Input("fecOutputSettings")]
+        [PolicyResourceProperty("fecOutputSettings", "_mUnknown_FecOutputSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs> _mFecOutputSettings;
-
-        public Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs? FecOutputSettings => _mFecOutputSettings.GetValue("fecOutputSettings");
+        private Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs? _mValue_FecOutputSettings;
+        private bool _mUnknown_FecOutputSettings;
+        public Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs? FecOutputSettings
+        {
+            get
+            {
+                if (!_mUnknown_FecOutputSettings) return _mValue_FecOutputSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs.FecOutputSettings' is not present");
+            }
+        }
     }
 }

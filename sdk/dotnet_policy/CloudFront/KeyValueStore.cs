@@ -16,52 +16,94 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'KeyValueStore.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Comment.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'KeyValueStore.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// ETag hash of the KeyValueStore.
         /// </summary>
-        [Input("etag")]
+        [PolicyResourceProperty("etag", "_mUnknown_Etag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
+        private string? _mValue_Etag;
+        private bool _mUnknown_Etag;
+        public string? Etag
+        {
+            get
+            {
+                if (!_mUnknown_Etag) return _mValue_Etag;
+                throw new UndeferrableValueException("Value 'KeyValueStore.Etag' is not present");
+            }
+        }
 
-        public string? Etag => _mEtag.GetValue("etag");
-
-        [Input("lastModifiedTime")]
+        [PolicyResourceProperty("lastModifiedTime", "_mUnknown_LastModifiedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedTime;
-
-        public string? LastModifiedTime => _mLastModifiedTime.GetValue("lastModifiedTime");
+        private string? _mValue_LastModifiedTime;
+        private bool _mUnknown_LastModifiedTime;
+        public string? LastModifiedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastModifiedTime) return _mValue_LastModifiedTime;
+                throw new UndeferrableValueException("Value 'KeyValueStore.LastModifiedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for your CloudFront KeyValueStore.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'KeyValueStore.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.KeyValueStoreTimeouts> _mTimeouts;
-
-        public Outputs.KeyValueStoreTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.KeyValueStoreTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.KeyValueStoreTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'KeyValueStore.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudfront/keyValueStore:KeyValueStore")]
@@ -70,27 +112,48 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// Comment.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'KeyValueStoreArgs.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for your CloudFront KeyValueStore.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'KeyValueStoreArgs.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.KeyValueStoreTimeoutsArgs> _mTimeouts;
-
-        public Inputs.KeyValueStoreTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.KeyValueStoreTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.KeyValueStoreTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'KeyValueStoreArgs.Timeouts' is not present");
+            }
+        }
     }
 }

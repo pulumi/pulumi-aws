@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The default size of the EBS storage volume for a private space.
         /// </summary>
-        [Input("defaultEbsVolumeSizeInGb")]
+        [PolicyResourceProperty("defaultEbsVolumeSizeInGb", "_mUnknown_DefaultEbsVolumeSizeInGb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultEbsVolumeSizeInGb;
-
-        public int? DefaultEbsVolumeSizeInGb => _mDefaultEbsVolumeSizeInGb.GetValue("defaultEbsVolumeSizeInGb");
+        private int? _mValue_DefaultEbsVolumeSizeInGb;
+        private bool _mUnknown_DefaultEbsVolumeSizeInGb;
+        public int? DefaultEbsVolumeSizeInGb
+        {
+            get
+            {
+                if (!_mUnknown_DefaultEbsVolumeSizeInGb) return _mValue_DefaultEbsVolumeSizeInGb;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs.DefaultEbsVolumeSizeInGb' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum size of the EBS storage volume for a private space.
         /// </summary>
-        [Input("maximumEbsVolumeSizeInGb")]
+        [PolicyResourceProperty("maximumEbsVolumeSizeInGb", "_mUnknown_MaximumEbsVolumeSizeInGb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumEbsVolumeSizeInGb;
-
-        public int? MaximumEbsVolumeSizeInGb => _mMaximumEbsVolumeSizeInGb.GetValue("maximumEbsVolumeSizeInGb");
+        private int? _mValue_MaximumEbsVolumeSizeInGb;
+        private bool _mUnknown_MaximumEbsVolumeSizeInGb;
+        public int? MaximumEbsVolumeSizeInGb
+        {
+            get
+            {
+                if (!_mUnknown_MaximumEbsVolumeSizeInGb) return _mValue_MaximumEbsVolumeSizeInGb;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs.MaximumEbsVolumeSizeInGb' is not present");
+            }
+        }
     }
 }

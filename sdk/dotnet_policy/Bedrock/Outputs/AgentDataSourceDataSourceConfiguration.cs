@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
         /// </summary>
-        [Input("confluenceConfiguration")]
+        [PolicyResourceProperty("confluenceConfiguration", "_mUnknown_ConfluenceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfiguration> _mConfluenceConfiguration;
-
-        public Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfiguration? ConfluenceConfiguration => _mConfluenceConfiguration.GetValue("confluenceConfiguration");
+        private Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfiguration? _mValue_ConfluenceConfiguration;
+        private bool _mUnknown_ConfluenceConfiguration;
+        public Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfiguration? ConfluenceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ConfluenceConfiguration) return _mValue_ConfluenceConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfiguration.ConfluenceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
         /// </summary>
-        [Input("s3Configuration")]
+        [PolicyResourceProperty("s3Configuration", "_mUnknown_S3Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceDataSourceConfigurationS3Configuration> _mS3Configuration;
-
-        public Outputs.AgentDataSourceDataSourceConfigurationS3Configuration? S3Configuration => _mS3Configuration.GetValue("s3Configuration");
+        private Outputs.AgentDataSourceDataSourceConfigurationS3Configuration? _mValue_S3Configuration;
+        private bool _mUnknown_S3Configuration;
+        public Outputs.AgentDataSourceDataSourceConfigurationS3Configuration? S3Configuration
+        {
+            get
+            {
+                if (!_mUnknown_S3Configuration) return _mValue_S3Configuration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfiguration.S3Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
         /// </summary>
-        [Input("salesforceConfiguration")]
+        [PolicyResourceProperty("salesforceConfiguration", "_mUnknown_SalesforceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceDataSourceConfigurationSalesforceConfiguration> _mSalesforceConfiguration;
-
-        public Outputs.AgentDataSourceDataSourceConfigurationSalesforceConfiguration? SalesforceConfiguration => _mSalesforceConfiguration.GetValue("salesforceConfiguration");
+        private Outputs.AgentDataSourceDataSourceConfigurationSalesforceConfiguration? _mValue_SalesforceConfiguration;
+        private bool _mUnknown_SalesforceConfiguration;
+        public Outputs.AgentDataSourceDataSourceConfigurationSalesforceConfiguration? SalesforceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SalesforceConfiguration) return _mValue_SalesforceConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfiguration.SalesforceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
         /// </summary>
-        [Input("sharePointConfiguration")]
+        [PolicyResourceProperty("sharePointConfiguration", "_mUnknown_SharePointConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceDataSourceConfigurationSharePointConfiguration> _mSharePointConfiguration;
-
-        public Outputs.AgentDataSourceDataSourceConfigurationSharePointConfiguration? SharePointConfiguration => _mSharePointConfiguration.GetValue("sharePointConfiguration");
+        private Outputs.AgentDataSourceDataSourceConfigurationSharePointConfiguration? _mValue_SharePointConfiguration;
+        private bool _mUnknown_SharePointConfiguration;
+        public Outputs.AgentDataSourceDataSourceConfigurationSharePointConfiguration? SharePointConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SharePointConfiguration) return _mValue_SharePointConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfiguration.SharePointConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of storage for the data source. Valid values: `S3`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfiguration.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
         /// </summary>
-        [Input("webConfiguration")]
+        [PolicyResourceProperty("webConfiguration", "_mUnknown_WebConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceDataSourceConfigurationWebConfiguration> _mWebConfiguration;
-
-        public Outputs.AgentDataSourceDataSourceConfigurationWebConfiguration? WebConfiguration => _mWebConfiguration.GetValue("webConfiguration");
+        private Outputs.AgentDataSourceDataSourceConfigurationWebConfiguration? _mValue_WebConfiguration;
+        private bool _mUnknown_WebConfiguration;
+        public Outputs.AgentDataSourceDataSourceConfigurationWebConfiguration? WebConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_WebConfiguration) return _mValue_WebConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfiguration.WebConfiguration' is not present");
+            }
+        }
     }
 }

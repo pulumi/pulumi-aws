@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudTrail.Inputs
         /// <summary>
         /// Resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function" and "AWS::DynamoDB::Table".
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'TrailEventSelectorDataResourceArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// List of ARN strings or partial ARN strings to specify selectors for data audit events over data resources. ARN list is specific to single-valued `type`. For example, `arn:aws:s3:::&lt;bucket name&gt;/` for all objects in a bucket, `arn:aws:s3:::&lt;bucket name&gt;/key` for specific objects, `arn:aws:lambda` for all lambda events within an account, `arn:aws:lambda:&lt;region&gt;:&lt;account number&gt;:function:&lt;function name&gt;` for a specific Lambda function, `arn:aws:dynamodb` for all DDB events for all tables within an account, or `arn:aws:dynamodb:&lt;region&gt;:&lt;account number&gt;:table/&lt;table name&gt;` for a specific DynamoDB table.
         /// </summary>
-        [Input("values")]
+        [PolicyResourceProperty("values", "_mUnknown_Values")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mValues;
-
-        public List<string>? Values => _mValues.GetValue("values");
+        private List<string>? _mValue_Values;
+        private bool _mUnknown_Values;
+        public List<string>? Values
+        {
+            get
+            {
+                if (!_mUnknown_Values) return _mValue_Values;
+                throw new UndeferrableValueException("Value 'TrailEventSelectorDataResourceArgs.Values' is not present");
+            }
+        }
     }
 }

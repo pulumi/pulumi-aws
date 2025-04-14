@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// The name of the column.
         /// </summary>
-        [Input("column")]
+        [PolicyResourceProperty("column", "_mUnknown_Column")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColumn;
-
-        public string? Column => _mColumn.GetValue("column");
+        private string? _mValue_Column;
+        private bool _mUnknown_Column;
+        public string? Column
+        {
+            get
+            {
+                if (!_mUnknown_Column) return _mValue_Column;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorSortColumn.Column' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
         /// </summary>
-        [Input("sortOrder")]
+        [PolicyResourceProperty("sortOrder", "_mUnknown_SortOrder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSortOrder;
-
-        public int? SortOrder => _mSortOrder.GetValue("sortOrder");
+        private int? _mValue_SortOrder;
+        private bool _mUnknown_SortOrder;
+        public int? SortOrder
+        {
+            get
+            {
+                if (!_mUnknown_SortOrder) return _mValue_SortOrder;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorSortColumn.SortOrder' is not present");
+            }
+        }
     }
 }

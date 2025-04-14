@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.CodeCommit
         /// <summary>
         /// The name for the approval rule template.
         /// </summary>
-        [Input("approvalRuleTemplateName")]
+        [PolicyResourceProperty("approvalRuleTemplateName", "_mUnknown_ApprovalRuleTemplateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApprovalRuleTemplateName;
-
-        public string? ApprovalRuleTemplateName => _mApprovalRuleTemplateName.GetValue("approvalRuleTemplateName");
+        private string? _mValue_ApprovalRuleTemplateName;
+        private bool _mUnknown_ApprovalRuleTemplateName;
+        public string? ApprovalRuleTemplateName
+        {
+            get
+            {
+                if (!_mUnknown_ApprovalRuleTemplateName) return _mValue_ApprovalRuleTemplateName;
+                throw new UndeferrableValueException("Value 'ApprovalRuleTemplateAssociation.ApprovalRuleTemplateName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the repository that you want to associate with the template.
         /// </summary>
-        [Input("repositoryName")]
+        [PolicyResourceProperty("repositoryName", "_mUnknown_RepositoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
-
-        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
+        private string? _mValue_RepositoryName;
+        private bool _mUnknown_RepositoryName;
+        public string? RepositoryName
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryName) return _mValue_RepositoryName;
+                throw new UndeferrableValueException("Value 'ApprovalRuleTemplateAssociation.RepositoryName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.CodeCommit
         /// <summary>
         /// The name for the approval rule template.
         /// </summary>
-        [Input("approvalRuleTemplateName")]
+        [PolicyResourceProperty("approvalRuleTemplateName", "_mUnknown_ApprovalRuleTemplateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApprovalRuleTemplateName;
-
-        public string? ApprovalRuleTemplateName => _mApprovalRuleTemplateName.GetValue("approvalRuleTemplateName");
+        private string? _mValue_ApprovalRuleTemplateName;
+        private bool _mUnknown_ApprovalRuleTemplateName;
+        public string? ApprovalRuleTemplateName
+        {
+            get
+            {
+                if (!_mUnknown_ApprovalRuleTemplateName) return _mValue_ApprovalRuleTemplateName;
+                throw new UndeferrableValueException("Value 'ApprovalRuleTemplateAssociationArgs.ApprovalRuleTemplateName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the repository that you want to associate with the template.
         /// </summary>
-        [Input("repositoryName")]
+        [PolicyResourceProperty("repositoryName", "_mUnknown_RepositoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
-
-        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
+        private string? _mValue_RepositoryName;
+        private bool _mUnknown_RepositoryName;
+        public string? RepositoryName
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryName) return _mValue_RepositoryName;
+                throw new UndeferrableValueException("Value 'ApprovalRuleTemplateAssociationArgs.RepositoryName' is not present");
+            }
+        }
     }
 }

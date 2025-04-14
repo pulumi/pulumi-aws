@@ -16,93 +16,163 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// ARN of the API Gateway Authorizer
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Authorizer.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
         /// </summary>
-        [Input("authorizerCredentials")]
+        [PolicyResourceProperty("authorizerCredentials", "_mUnknown_AuthorizerCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerCredentials;
-
-        public string? AuthorizerCredentials => _mAuthorizerCredentials.GetValue("authorizerCredentials");
+        private string? _mValue_AuthorizerCredentials;
+        private bool _mUnknown_AuthorizerCredentials;
+        public string? AuthorizerCredentials
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizerCredentials) return _mValue_AuthorizerCredentials;
+                throw new UndeferrableValueException("Value 'Authorizer.AuthorizerCredentials' is not present");
+            }
+        }
 
         /// <summary>
         /// TTL of cached authorizer results in seconds. Defaults to `300`.
         /// </summary>
-        [Input("authorizerResultTtlInSeconds")]
+        [PolicyResourceProperty("authorizerResultTtlInSeconds", "_mUnknown_AuthorizerResultTtlInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAuthorizerResultTtlInSeconds;
-
-        public int? AuthorizerResultTtlInSeconds => _mAuthorizerResultTtlInSeconds.GetValue("authorizerResultTtlInSeconds");
+        private int? _mValue_AuthorizerResultTtlInSeconds;
+        private bool _mUnknown_AuthorizerResultTtlInSeconds;
+        public int? AuthorizerResultTtlInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizerResultTtlInSeconds) return _mValue_AuthorizerResultTtlInSeconds;
+                throw new UndeferrableValueException("Value 'Authorizer.AuthorizerResultTtlInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
         /// e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
         /// </summary>
-        [Input("authorizerUri")]
+        [PolicyResourceProperty("authorizerUri", "_mUnknown_AuthorizerUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerUri;
-
-        public string? AuthorizerUri => _mAuthorizerUri.GetValue("authorizerUri");
+        private string? _mValue_AuthorizerUri;
+        private bool _mUnknown_AuthorizerUri;
+        public string? AuthorizerUri
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizerUri) return _mValue_AuthorizerUri;
+                throw new UndeferrableValueException("Value 'Authorizer.AuthorizerUri' is not present");
+            }
+        }
 
         /// <summary>
         /// Source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
         /// </summary>
-        [Input("identitySource")]
+        [PolicyResourceProperty("identitySource", "_mUnknown_IdentitySource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentitySource;
-
-        public string? IdentitySource => _mIdentitySource.GetValue("identitySource");
+        private string? _mValue_IdentitySource;
+        private bool _mUnknown_IdentitySource;
+        public string? IdentitySource
+        {
+            get
+            {
+                if (!_mUnknown_IdentitySource) return _mValue_IdentitySource;
+                throw new UndeferrableValueException("Value 'Authorizer.IdentitySource' is not present");
+            }
+        }
 
         /// <summary>
         /// Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
         /// </summary>
-        [Input("identityValidationExpression")]
+        [PolicyResourceProperty("identityValidationExpression", "_mUnknown_IdentityValidationExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityValidationExpression;
-
-        public string? IdentityValidationExpression => _mIdentityValidationExpression.GetValue("identityValidationExpression");
+        private string? _mValue_IdentityValidationExpression;
+        private bool _mUnknown_IdentityValidationExpression;
+        public string? IdentityValidationExpression
+        {
+            get
+            {
+                if (!_mUnknown_IdentityValidationExpression) return _mValue_IdentityValidationExpression;
+                throw new UndeferrableValueException("Value 'Authorizer.IdentityValidationExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the authorizer
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Authorizer.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
         /// </summary>
-        [Input("providerArns")]
+        [PolicyResourceProperty("providerArns", "_mUnknown_ProviderArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mProviderArns;
-
-        public List<string>? ProviderArns => _mProviderArns.GetValue("providerArns");
+        private List<string>? _mValue_ProviderArns;
+        private bool _mUnknown_ProviderArns;
+        public List<string>? ProviderArns
+        {
+            get
+            {
+                if (!_mUnknown_ProviderArns) return _mValue_ProviderArns;
+                throw new UndeferrableValueException("Value 'Authorizer.ProviderArns' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the associated REST API
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'Authorizer.RestApi' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Authorizer.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/authorizer:Authorizer")]
@@ -111,83 +181,146 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
         /// </summary>
-        [Input("authorizerCredentials")]
+        [PolicyResourceProperty("authorizerCredentials", "_mUnknown_AuthorizerCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerCredentials;
-
-        public string? AuthorizerCredentials => _mAuthorizerCredentials.GetValue("authorizerCredentials");
+        private string? _mValue_AuthorizerCredentials;
+        private bool _mUnknown_AuthorizerCredentials;
+        public string? AuthorizerCredentials
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizerCredentials) return _mValue_AuthorizerCredentials;
+                throw new UndeferrableValueException("Value 'AuthorizerArgs.AuthorizerCredentials' is not present");
+            }
+        }
 
         /// <summary>
         /// TTL of cached authorizer results in seconds. Defaults to `300`.
         /// </summary>
-        [Input("authorizerResultTtlInSeconds")]
+        [PolicyResourceProperty("authorizerResultTtlInSeconds", "_mUnknown_AuthorizerResultTtlInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAuthorizerResultTtlInSeconds;
-
-        public int? AuthorizerResultTtlInSeconds => _mAuthorizerResultTtlInSeconds.GetValue("authorizerResultTtlInSeconds");
+        private int? _mValue_AuthorizerResultTtlInSeconds;
+        private bool _mUnknown_AuthorizerResultTtlInSeconds;
+        public int? AuthorizerResultTtlInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizerResultTtlInSeconds) return _mValue_AuthorizerResultTtlInSeconds;
+                throw new UndeferrableValueException("Value 'AuthorizerArgs.AuthorizerResultTtlInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
         /// e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
         /// </summary>
-        [Input("authorizerUri")]
+        [PolicyResourceProperty("authorizerUri", "_mUnknown_AuthorizerUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerUri;
-
-        public string? AuthorizerUri => _mAuthorizerUri.GetValue("authorizerUri");
+        private string? _mValue_AuthorizerUri;
+        private bool _mUnknown_AuthorizerUri;
+        public string? AuthorizerUri
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizerUri) return _mValue_AuthorizerUri;
+                throw new UndeferrableValueException("Value 'AuthorizerArgs.AuthorizerUri' is not present");
+            }
+        }
 
         /// <summary>
         /// Source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
         /// </summary>
-        [Input("identitySource")]
+        [PolicyResourceProperty("identitySource", "_mUnknown_IdentitySource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentitySource;
-
-        public string? IdentitySource => _mIdentitySource.GetValue("identitySource");
+        private string? _mValue_IdentitySource;
+        private bool _mUnknown_IdentitySource;
+        public string? IdentitySource
+        {
+            get
+            {
+                if (!_mUnknown_IdentitySource) return _mValue_IdentitySource;
+                throw new UndeferrableValueException("Value 'AuthorizerArgs.IdentitySource' is not present");
+            }
+        }
 
         /// <summary>
         /// Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
         /// </summary>
-        [Input("identityValidationExpression")]
+        [PolicyResourceProperty("identityValidationExpression", "_mUnknown_IdentityValidationExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityValidationExpression;
-
-        public string? IdentityValidationExpression => _mIdentityValidationExpression.GetValue("identityValidationExpression");
+        private string? _mValue_IdentityValidationExpression;
+        private bool _mUnknown_IdentityValidationExpression;
+        public string? IdentityValidationExpression
+        {
+            get
+            {
+                if (!_mUnknown_IdentityValidationExpression) return _mValue_IdentityValidationExpression;
+                throw new UndeferrableValueException("Value 'AuthorizerArgs.IdentityValidationExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the authorizer
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AuthorizerArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
         /// </summary>
-        [Input("providerArns")]
+        [PolicyResourceProperty("providerArns", "_mUnknown_ProviderArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mProviderArns;
-
-        public List<string>? ProviderArns => _mProviderArns.GetValue("providerArns");
+        private List<string>? _mValue_ProviderArns;
+        private bool _mUnknown_ProviderArns;
+        public List<string>? ProviderArns
+        {
+            get
+            {
+                if (!_mUnknown_ProviderArns) return _mValue_ProviderArns;
+                throw new UndeferrableValueException("Value 'AuthorizerArgs.ProviderArns' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the associated REST API
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'AuthorizerArgs.RestApi' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'AuthorizerArgs.Type' is not present");
+            }
+        }
     }
 }

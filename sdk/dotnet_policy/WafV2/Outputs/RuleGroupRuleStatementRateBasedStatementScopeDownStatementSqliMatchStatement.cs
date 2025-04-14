@@ -15,30 +15,51 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         /// </summary>
-        [Input("fieldToMatch")]
+        [PolicyResourceProperty("fieldToMatch", "_mUnknown_FieldToMatch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch> _mFieldToMatch;
-
-        public Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch? FieldToMatch => _mFieldToMatch.GetValue("fieldToMatch");
+        private Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch? _mValue_FieldToMatch;
+        private bool _mUnknown_FieldToMatch;
+        public Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch? FieldToMatch
+        {
+            get
+            {
+                if (!_mUnknown_FieldToMatch) return _mValue_FieldToMatch;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement.FieldToMatch' is not present");
+            }
+        }
 
         /// <summary>
         /// Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
         /// </summary>
-        [Input("sensitivityLevel")]
+        [PolicyResourceProperty("sensitivityLevel", "_mUnknown_SensitivityLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSensitivityLevel;
-
-        public string? SensitivityLevel => _mSensitivityLevel.GetValue("sensitivityLevel");
+        private string? _mValue_SensitivityLevel;
+        private bool _mUnknown_SensitivityLevel;
+        public string? SensitivityLevel
+        {
+            get
+            {
+                if (!_mUnknown_SensitivityLevel) return _mValue_SensitivityLevel;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement.SensitivityLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
         /// At least one required.
         /// See Text Transformation below for details.
         /// </summary>
-        [Input("textTransformations")]
+        [PolicyResourceProperty("textTransformations", "_mUnknown_TextTransformations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation>> _mTextTransformations;
-
-        public List<Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation>? TextTransformations => _mTextTransformations.GetValue("textTransformations");
+        private List<Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation>? _mValue_TextTransformations;
+        private bool _mUnknown_TextTransformations;
+        public List<Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation>? TextTransformations
+        {
+            get
+            {
+                if (!_mUnknown_TextTransformations) return _mValue_TextTransformations;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement.TextTransformations' is not present");
+            }
+        }
     }
 }

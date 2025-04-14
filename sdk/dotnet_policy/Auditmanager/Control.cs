@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// <summary>
         /// Recommended actions to carry out if the control isn't fulfilled.
         /// </summary>
-        [Input("actionPlanInstructions")]
+        [PolicyResourceProperty("actionPlanInstructions", "_mUnknown_ActionPlanInstructions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionPlanInstructions;
-
-        public string? ActionPlanInstructions => _mActionPlanInstructions.GetValue("actionPlanInstructions");
+        private string? _mValue_ActionPlanInstructions;
+        private bool _mUnknown_ActionPlanInstructions;
+        public string? ActionPlanInstructions
+        {
+            get
+            {
+                if (!_mUnknown_ActionPlanInstructions) return _mValue_ActionPlanInstructions;
+                throw new UndeferrableValueException("Value 'Control.ActionPlanInstructions' is not present");
+            }
+        }
 
         /// <summary>
         /// Title of the action plan for remediating the control.
         /// </summary>
-        [Input("actionPlanTitle")]
+        [PolicyResourceProperty("actionPlanTitle", "_mUnknown_ActionPlanTitle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionPlanTitle;
-
-        public string? ActionPlanTitle => _mActionPlanTitle.GetValue("actionPlanTitle");
+        private string? _mValue_ActionPlanTitle;
+        private bool _mUnknown_ActionPlanTitle;
+        public string? ActionPlanTitle
+        {
+            get
+            {
+                if (!_mUnknown_ActionPlanTitle) return _mValue_ActionPlanTitle;
+                throw new UndeferrableValueException("Value 'Control.ActionPlanTitle' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the control.
         /// * `control_mapping_sources.*.source_id` - Unique identifier for the source.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Control.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Data mapping sources. See `control_mapping_sources` below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("controlMappingSources")]
+        [PolicyResourceProperty("controlMappingSources", "_mUnknown_ControlMappingSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ControlControlMappingSource>> _mControlMappingSources;
-
-        public List<Outputs.ControlControlMappingSource>? ControlMappingSources => _mControlMappingSources.GetValue("controlMappingSources");
+        private List<Outputs.ControlControlMappingSource>? _mValue_ControlMappingSources;
+        private bool _mUnknown_ControlMappingSources;
+        public List<Outputs.ControlControlMappingSource>? ControlMappingSources
+        {
+            get
+            {
+                if (!_mUnknown_ControlMappingSources) return _mValue_ControlMappingSources;
+                throw new UndeferrableValueException("Value 'Control.ControlMappingSources' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the control.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Control.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the control.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Control.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Control.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Control.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Steps to follow to determine if the control is satisfied.
         /// </summary>
-        [Input("testingInformation")]
+        [PolicyResourceProperty("testingInformation", "_mUnknown_TestingInformation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTestingInformation;
-
-        public string? TestingInformation => _mTestingInformation.GetValue("testingInformation");
+        private string? _mValue_TestingInformation;
+        private bool _mUnknown_TestingInformation;
+        public string? TestingInformation
+        {
+            get
+            {
+                if (!_mUnknown_TestingInformation) return _mValue_TestingInformation;
+                throw new UndeferrableValueException("Value 'Control.TestingInformation' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of control, such as a custom control or a standard control.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Control.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:auditmanager/control:Control")]
@@ -110,66 +180,115 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// <summary>
         /// Recommended actions to carry out if the control isn't fulfilled.
         /// </summary>
-        [Input("actionPlanInstructions")]
+        [PolicyResourceProperty("actionPlanInstructions", "_mUnknown_ActionPlanInstructions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionPlanInstructions;
-
-        public string? ActionPlanInstructions => _mActionPlanInstructions.GetValue("actionPlanInstructions");
+        private string? _mValue_ActionPlanInstructions;
+        private bool _mUnknown_ActionPlanInstructions;
+        public string? ActionPlanInstructions
+        {
+            get
+            {
+                if (!_mUnknown_ActionPlanInstructions) return _mValue_ActionPlanInstructions;
+                throw new UndeferrableValueException("Value 'ControlArgs.ActionPlanInstructions' is not present");
+            }
+        }
 
         /// <summary>
         /// Title of the action plan for remediating the control.
         /// </summary>
-        [Input("actionPlanTitle")]
+        [PolicyResourceProperty("actionPlanTitle", "_mUnknown_ActionPlanTitle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionPlanTitle;
-
-        public string? ActionPlanTitle => _mActionPlanTitle.GetValue("actionPlanTitle");
+        private string? _mValue_ActionPlanTitle;
+        private bool _mUnknown_ActionPlanTitle;
+        public string? ActionPlanTitle
+        {
+            get
+            {
+                if (!_mUnknown_ActionPlanTitle) return _mValue_ActionPlanTitle;
+                throw new UndeferrableValueException("Value 'ControlArgs.ActionPlanTitle' is not present");
+            }
+        }
 
         /// <summary>
         /// Data mapping sources. See `control_mapping_sources` below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("controlMappingSources")]
+        [PolicyResourceProperty("controlMappingSources", "_mUnknown_ControlMappingSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ControlControlMappingSourceArgs>> _mControlMappingSources;
-
-        public List<Inputs.ControlControlMappingSourceArgs>? ControlMappingSources => _mControlMappingSources.GetValue("controlMappingSources");
+        private List<Inputs.ControlControlMappingSourceArgs>? _mValue_ControlMappingSources;
+        private bool _mUnknown_ControlMappingSources;
+        public List<Inputs.ControlControlMappingSourceArgs>? ControlMappingSources
+        {
+            get
+            {
+                if (!_mUnknown_ControlMappingSources) return _mValue_ControlMappingSources;
+                throw new UndeferrableValueException("Value 'ControlArgs.ControlMappingSources' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the control.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ControlArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the control.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ControlArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ControlArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Steps to follow to determine if the control is satisfied.
         /// </summary>
-        [Input("testingInformation")]
+        [PolicyResourceProperty("testingInformation", "_mUnknown_TestingInformation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTestingInformation;
-
-        public string? TestingInformation => _mTestingInformation.GetValue("testingInformation");
+        private string? _mValue_TestingInformation;
+        private bool _mUnknown_TestingInformation;
+        public string? TestingInformation
+        {
+            get
+            {
+                if (!_mUnknown_TestingInformation) return _mValue_TestingInformation;
+                throw new UndeferrableValueException("Value 'ControlArgs.TestingInformation' is not present");
+            }
+        }
     }
 }

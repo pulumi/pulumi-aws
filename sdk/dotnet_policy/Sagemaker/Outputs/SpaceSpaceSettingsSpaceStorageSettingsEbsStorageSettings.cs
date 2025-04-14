@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The size of an EBS storage volume for a space.
         /// </summary>
-        [Input("ebsVolumeSizeInGb")]
+        [PolicyResourceProperty("ebsVolumeSizeInGb", "_mUnknown_EbsVolumeSizeInGb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mEbsVolumeSizeInGb;
-
-        public int? EbsVolumeSizeInGb => _mEbsVolumeSizeInGb.GetValue("ebsVolumeSizeInGb");
+        private int? _mValue_EbsVolumeSizeInGb;
+        private bool _mUnknown_EbsVolumeSizeInGb;
+        public int? EbsVolumeSizeInGb
+        {
+            get
+            {
+                if (!_mUnknown_EbsVolumeSizeInGb) return _mValue_EbsVolumeSizeInGb;
+                throw new UndeferrableValueException("Value 'SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings.EbsVolumeSizeInGb' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// - Whether a challenge is required on new devices.
         /// </summary>
-        [Input("challengeRequiredOnNewDevice")]
+        [PolicyResourceProperty("challengeRequiredOnNewDevice", "_mUnknown_ChallengeRequiredOnNewDevice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mChallengeRequiredOnNewDevice;
-
-        public bool? ChallengeRequiredOnNewDevice => _mChallengeRequiredOnNewDevice.GetValue("challengeRequiredOnNewDevice");
+        private bool? _mValue_ChallengeRequiredOnNewDevice;
+        private bool _mUnknown_ChallengeRequiredOnNewDevice;
+        public bool? ChallengeRequiredOnNewDevice
+        {
+            get
+            {
+                if (!_mUnknown_ChallengeRequiredOnNewDevice) return _mValue_ChallengeRequiredOnNewDevice;
+                throw new UndeferrableValueException("Value 'GetUserPoolDeviceConfigurationResult.ChallengeRequiredOnNewDevice' is not present");
+            }
+        }
 
         /// <summary>
         /// - Whether devices are only remembered if the user prompts it.
         /// </summary>
-        [Input("deviceOnlyRememberedOnUserPrompt")]
+        [PolicyResourceProperty("deviceOnlyRememberedOnUserPrompt", "_mUnknown_DeviceOnlyRememberedOnUserPrompt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeviceOnlyRememberedOnUserPrompt;
-
-        public bool? DeviceOnlyRememberedOnUserPrompt => _mDeviceOnlyRememberedOnUserPrompt.GetValue("deviceOnlyRememberedOnUserPrompt");
+        private bool? _mValue_DeviceOnlyRememberedOnUserPrompt;
+        private bool _mUnknown_DeviceOnlyRememberedOnUserPrompt;
+        public bool? DeviceOnlyRememberedOnUserPrompt
+        {
+            get
+            {
+                if (!_mUnknown_DeviceOnlyRememberedOnUserPrompt) return _mValue_DeviceOnlyRememberedOnUserPrompt;
+                throw new UndeferrableValueException("Value 'GetUserPoolDeviceConfigurationResult.DeviceOnlyRememberedOnUserPrompt' is not present");
+            }
+        }
     }
 }

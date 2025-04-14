@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Transfer.Outputs
         /// <summary>
         /// List of the public portions of the host keys that are used to identify the servers the connector is connected to.
         /// </summary>
-        [Input("trustedHostKeys")]
+        [PolicyResourceProperty("trustedHostKeys", "_mUnknown_TrustedHostKeys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTrustedHostKeys;
-
-        public List<string>? TrustedHostKeys => _mTrustedHostKeys.GetValue("trustedHostKeys");
+        private List<string>? _mValue_TrustedHostKeys;
+        private bool _mUnknown_TrustedHostKeys;
+        public List<string>? TrustedHostKeys
+        {
+            get
+            {
+                if (!_mUnknown_TrustedHostKeys) return _mValue_TrustedHostKeys;
+                throw new UndeferrableValueException("Value 'GetConnectorSftpConfigResult.TrustedHostKeys' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the secret in AWS Secrets Manager that contains the SFTP user's private key, and/or password.
         /// </summary>
-        [Input("userSecretId")]
+        [PolicyResourceProperty("userSecretId", "_mUnknown_UserSecretId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserSecretId;
-
-        public string? UserSecretId => _mUserSecretId.GetValue("userSecretId");
+        private string? _mValue_UserSecretId;
+        private bool _mUnknown_UserSecretId;
+        public string? UserSecretId
+        {
+            get
+            {
+                if (!_mUnknown_UserSecretId) return _mValue_UserSecretId;
+                throw new UndeferrableValueException("Value 'GetConnectorSftpConfigResult.UserSecretId' is not present");
+            }
+        }
     }
 }

@@ -13,29 +13,50 @@ namespace Pulumi.PolicyPacks.Aws.ServiceQuotas
     [PolicyResourceType("aws:servicequotas/templateAssociation:TemplateAssociation")]
     public sealed class TemplateAssociation : global::Pulumi.PolicyResourceOutput
     {
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'TemplateAssociation.SkipDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'TemplateAssociation.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:servicequotas/templateAssociation:TemplateAssociation")]
     public sealed class TemplateAssociationArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'TemplateAssociationArgs.SkipDestroy' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
         /// </summary>
-        [Input("dolbyEDecode")]
+        [PolicyResourceProperty("dolbyEDecode", "_mUnknown_DolbyEDecode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs> _mDolbyEDecode;
-
-        public Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs? DolbyEDecode => _mDolbyEDecode.GetValue("dolbyEDecode");
+        private Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs? _mValue_DolbyEDecode;
+        private bool _mUnknown_DolbyEDecode;
+        public Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs? DolbyEDecode
+        {
+            get
+            {
+                if (!_mUnknown_DolbyEDecode) return _mValue_DolbyEDecode;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs.DolbyEDecode' is not present");
+            }
+        }
 
         /// <summary>
         /// Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
         /// </summary>
-        [Input("tracks")]
+        [PolicyResourceProperty("tracks", "_mUnknown_Tracks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs>> _mTracks;
-
-        public List<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs>? Tracks => _mTracks.GetValue("tracks");
+        private List<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs>? _mValue_Tracks;
+        private bool _mUnknown_Tracks;
+        public List<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs>? Tracks
+        {
+            get
+            {
+                if (!_mUnknown_Tracks) return _mValue_Tracks;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs.Tracks' is not present");
+            }
+        }
     }
 }

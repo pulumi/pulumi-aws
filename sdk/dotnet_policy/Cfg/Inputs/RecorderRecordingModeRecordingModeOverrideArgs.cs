@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Cfg.Inputs
         /// <summary>
         /// A description you provide of the override.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'RecorderRecordingModeRecordingModeOverrideArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The recording frequency for the resources in the override block. `CONTINUOUS` or `DAILY`.
         /// </summary>
-        [Input("recordingFrequency")]
+        [PolicyResourceProperty("recordingFrequency", "_mUnknown_RecordingFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecordingFrequency;
-
-        public string? RecordingFrequency => _mRecordingFrequency.GetValue("recordingFrequency");
+        private string? _mValue_RecordingFrequency;
+        private bool _mUnknown_RecordingFrequency;
+        public string? RecordingFrequency
+        {
+            get
+            {
+                if (!_mUnknown_RecordingFrequency) return _mValue_RecordingFrequency;
+                throw new UndeferrableValueException("Value 'RecorderRecordingModeRecordingModeOverrideArgs.RecordingFrequency' is not present");
+            }
+        }
 
         /// <summary>
         /// A list that specifies the types of AWS resources for which the override applies to.  See [restrictions in the AWS Docs](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingModeOverride.html)
         /// </summary>
-        [Input("resourceTypes")]
+        [PolicyResourceProperty("resourceTypes", "_mUnknown_ResourceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceTypes;
-
-        public List<string>? ResourceTypes => _mResourceTypes.GetValue("resourceTypes");
+        private List<string>? _mValue_ResourceTypes;
+        private bool _mUnknown_ResourceTypes;
+        public List<string>? ResourceTypes
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTypes) return _mValue_ResourceTypes;
+                throw new UndeferrableValueException("Value 'RecorderRecordingModeRecordingModeOverrideArgs.ResourceTypes' is not present");
+            }
+        }
     }
 }

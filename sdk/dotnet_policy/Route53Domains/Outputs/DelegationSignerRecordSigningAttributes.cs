@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Route53Domains.Outputs
         /// <summary>
         /// Algorithm which was used to generate the digest from the public key.
         /// </summary>
-        [Input("algorithm")]
+        [PolicyResourceProperty("algorithm", "_mUnknown_Algorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAlgorithm;
-
-        public int? Algorithm => _mAlgorithm.GetValue("algorithm");
+        private int? _mValue_Algorithm;
+        private bool _mUnknown_Algorithm;
+        public int? Algorithm
+        {
+            get
+            {
+                if (!_mUnknown_Algorithm) return _mValue_Algorithm;
+                throw new UndeferrableValueException("Value 'DelegationSignerRecordSigningAttributes.Algorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
         /// </summary>
-        [Input("flags")]
+        [PolicyResourceProperty("flags", "_mUnknown_Flags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFlags;
-
-        public int? Flags => _mFlags.GetValue("flags");
+        private int? _mValue_Flags;
+        private bool _mUnknown_Flags;
+        public int? Flags
+        {
+            get
+            {
+                if (!_mUnknown_Flags) return _mValue_Flags;
+                throw new UndeferrableValueException("Value 'DelegationSignerRecordSigningAttributes.Flags' is not present");
+            }
+        }
 
         /// <summary>
         /// The base64-encoded public key part of the key pair that is passed to the registry.
         /// </summary>
-        [Input("publicKey")]
+        [PolicyResourceProperty("publicKey", "_mUnknown_PublicKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
-
-        public string? PublicKey => _mPublicKey.GetValue("publicKey");
+        private string? _mValue_PublicKey;
+        private bool _mUnknown_PublicKey;
+        public string? PublicKey
+        {
+            get
+            {
+                if (!_mUnknown_PublicKey) return _mValue_PublicKey;
+                throw new UndeferrableValueException("Value 'DelegationSignerRecordSigningAttributes.PublicKey' is not present");
+            }
+        }
     }
 }

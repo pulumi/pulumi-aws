@@ -17,16 +17,30 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorArgs.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("selectorSettings")]
+        [PolicyResourceProperty("selectorSettings", "_mUnknown_SelectorSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs> _mSelectorSettings;
-
-        public Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs? SelectorSettings => _mSelectorSettings.GetValue("selectorSettings");
+        private Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs? _mValue_SelectorSettings;
+        private bool _mUnknown_SelectorSettings;
+        public Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs? SelectorSettings
+        {
+            get
+            {
+                if (!_mUnknown_SelectorSettings) return _mValue_SelectorSettings;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorArgs.SelectorSettings' is not present");
+            }
+        }
     }
 }

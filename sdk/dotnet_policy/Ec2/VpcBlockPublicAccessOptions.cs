@@ -16,35 +16,63 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The AWS account id to which these options apply.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'VpcBlockPublicAccessOptions.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS region to which these options apply.
         /// </summary>
-        [Input("awsRegion")]
+        [PolicyResourceProperty("awsRegion", "_mUnknown_AwsRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsRegion;
-
-        public string? AwsRegion => _mAwsRegion.GetValue("awsRegion");
+        private string? _mValue_AwsRegion;
+        private bool _mUnknown_AwsRegion;
+        public string? AwsRegion
+        {
+            get
+            {
+                if (!_mUnknown_AwsRegion) return _mValue_AwsRegion;
+                throw new UndeferrableValueException("Value 'VpcBlockPublicAccessOptions.AwsRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
         /// </summary>
-        [Input("internetGatewayBlockMode")]
+        [PolicyResourceProperty("internetGatewayBlockMode", "_mUnknown_InternetGatewayBlockMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInternetGatewayBlockMode;
+        private string? _mValue_InternetGatewayBlockMode;
+        private bool _mUnknown_InternetGatewayBlockMode;
+        public string? InternetGatewayBlockMode
+        {
+            get
+            {
+                if (!_mUnknown_InternetGatewayBlockMode) return _mValue_InternetGatewayBlockMode;
+                throw new UndeferrableValueException("Value 'VpcBlockPublicAccessOptions.InternetGatewayBlockMode' is not present");
+            }
+        }
 
-        public string? InternetGatewayBlockMode => _mInternetGatewayBlockMode.GetValue("internetGatewayBlockMode");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VpcBlockPublicAccessOptionsTimeouts> _mTimeouts;
-
-        public Outputs.VpcBlockPublicAccessOptionsTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.VpcBlockPublicAccessOptionsTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.VpcBlockPublicAccessOptionsTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'VpcBlockPublicAccessOptions.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions")]
@@ -53,16 +81,30 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
         /// </summary>
-        [Input("internetGatewayBlockMode")]
+        [PolicyResourceProperty("internetGatewayBlockMode", "_mUnknown_InternetGatewayBlockMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInternetGatewayBlockMode;
+        private string? _mValue_InternetGatewayBlockMode;
+        private bool _mUnknown_InternetGatewayBlockMode;
+        public string? InternetGatewayBlockMode
+        {
+            get
+            {
+                if (!_mUnknown_InternetGatewayBlockMode) return _mValue_InternetGatewayBlockMode;
+                throw new UndeferrableValueException("Value 'VpcBlockPublicAccessOptionsArgs.InternetGatewayBlockMode' is not present");
+            }
+        }
 
-        public string? InternetGatewayBlockMode => _mInternetGatewayBlockMode.GetValue("internetGatewayBlockMode");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VpcBlockPublicAccessOptionsTimeoutsArgs> _mTimeouts;
-
-        public Inputs.VpcBlockPublicAccessOptionsTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.VpcBlockPublicAccessOptionsTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.VpcBlockPublicAccessOptionsTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'VpcBlockPublicAccessOptionsArgs.Timeouts' is not present");
+            }
+        }
     }
 }

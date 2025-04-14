@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Inputs
         /// <summary>
         /// The ARN of the Lambda function.
         /// </summary>
-        [Input("functionArn")]
+        [PolicyResourceProperty("functionArn", "_mUnknown_FunctionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionArn;
-
-        public string? FunctionArn => _mFunctionArn.GetValue("functionArn");
+        private string? _mValue_FunctionArn;
+        private bool _mUnknown_FunctionArn;
+        public string? FunctionArn
+        {
+            get
+            {
+                if (!_mUnknown_FunctionArn) return _mValue_FunctionArn;
+                throw new UndeferrableValueException("Value 'TopicRuleLambdaArgs.FunctionArn' is not present");
+            }
+        }
     }
 }

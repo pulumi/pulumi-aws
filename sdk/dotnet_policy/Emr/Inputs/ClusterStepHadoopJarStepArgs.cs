@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Inputs
         /// <summary>
         /// List of command line arguments passed to the JAR file's main function when executed.
         /// </summary>
-        [Input("args")]
+        [PolicyResourceProperty("args", "_mUnknown_Args")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mArgs;
-
-        public List<string>? Args => _mArgs.GetValue("args");
+        private List<string>? _mValue_Args;
+        private bool _mUnknown_Args;
+        public List<string>? Args
+        {
+            get
+            {
+                if (!_mUnknown_Args) return _mValue_Args;
+                throw new UndeferrableValueException("Value 'ClusterStepHadoopJarStepArgs.Args' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to a JAR file run during the step.
         /// </summary>
-        [Input("jar")]
+        [PolicyResourceProperty("jar", "_mUnknown_Jar")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJar;
-
-        public string? Jar => _mJar.GetValue("jar");
+        private string? _mValue_Jar;
+        private bool _mUnknown_Jar;
+        public string? Jar
+        {
+            get
+            {
+                if (!_mUnknown_Jar) return _mValue_Jar;
+                throw new UndeferrableValueException("Value 'ClusterStepHadoopJarStepArgs.Jar' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
         /// </summary>
-        [Input("mainClass")]
+        [PolicyResourceProperty("mainClass", "_mUnknown_MainClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMainClass;
-
-        public string? MainClass => _mMainClass.GetValue("mainClass");
+        private string? _mValue_MainClass;
+        private bool _mUnknown_MainClass;
+        public string? MainClass
+        {
+            get
+            {
+                if (!_mUnknown_MainClass) return _mValue_MainClass;
+                throw new UndeferrableValueException("Value 'ClusterStepHadoopJarStepArgs.MainClass' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
         /// </summary>
-        [Input("properties")]
+        [PolicyResourceProperty("properties", "_mUnknown_Properties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mProperties;
-
-        public Dictionary<string, string>? Properties => _mProperties.GetValue("properties");
+        private Dictionary<string, string>? _mValue_Properties;
+        private bool _mUnknown_Properties;
+        public Dictionary<string, string>? Properties
+        {
+            get
+            {
+                if (!_mUnknown_Properties) return _mValue_Properties;
+                throw new UndeferrableValueException("Value 'ClusterStepHadoopJarStepArgs.Properties' is not present");
+            }
+        }
     }
 }

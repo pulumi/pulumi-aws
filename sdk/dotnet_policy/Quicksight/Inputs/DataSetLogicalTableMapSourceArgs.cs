@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// ARN of the parent data set.
         /// </summary>
-        [Input("dataSetArn")]
+        [PolicyResourceProperty("dataSetArn", "_mUnknown_DataSetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSetArn;
-
-        public string? DataSetArn => _mDataSetArn.GetValue("dataSetArn");
+        private string? _mValue_DataSetArn;
+        private bool _mUnknown_DataSetArn;
+        public string? DataSetArn
+        {
+            get
+            {
+                if (!_mUnknown_DataSetArn) return _mValue_DataSetArn;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceArgs.DataSetArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the result of a join of two logical tables. See join_instruction.
         /// </summary>
-        [Input("joinInstruction")]
+        [PolicyResourceProperty("joinInstruction", "_mUnknown_JoinInstruction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSetLogicalTableMapSourceJoinInstructionArgs> _mJoinInstruction;
-
-        public Inputs.DataSetLogicalTableMapSourceJoinInstructionArgs? JoinInstruction => _mJoinInstruction.GetValue("joinInstruction");
+        private Inputs.DataSetLogicalTableMapSourceJoinInstructionArgs? _mValue_JoinInstruction;
+        private bool _mUnknown_JoinInstruction;
+        public Inputs.DataSetLogicalTableMapSourceJoinInstructionArgs? JoinInstruction
+        {
+            get
+            {
+                if (!_mUnknown_JoinInstruction) return _mValue_JoinInstruction;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceArgs.JoinInstruction' is not present");
+            }
+        }
 
         /// <summary>
         /// Physical table ID.
         /// </summary>
-        [Input("physicalTableId")]
+        [PolicyResourceProperty("physicalTableId", "_mUnknown_PhysicalTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPhysicalTableId;
-
-        public string? PhysicalTableId => _mPhysicalTableId.GetValue("physicalTableId");
+        private string? _mValue_PhysicalTableId;
+        private bool _mUnknown_PhysicalTableId;
+        public string? PhysicalTableId
+        {
+            get
+            {
+                if (!_mUnknown_PhysicalTableId) return _mValue_PhysicalTableId;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceArgs.PhysicalTableId' is not present");
+            }
+        }
     }
 }

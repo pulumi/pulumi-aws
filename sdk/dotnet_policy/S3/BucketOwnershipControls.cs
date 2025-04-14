@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the bucket that you want to associate this access point with.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketOwnershipControls.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) with Ownership Controls rules. Detailed below.
         /// </summary>
-        [Input("rule")]
+        [PolicyResourceProperty("rule", "_mUnknown_Rule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketOwnershipControlsRule> _mRule;
-
-        public Outputs.BucketOwnershipControlsRule? Rule => _mRule.GetValue("rule");
+        private Outputs.BucketOwnershipControlsRule? _mValue_Rule;
+        private bool _mUnknown_Rule;
+        public Outputs.BucketOwnershipControlsRule? Rule
+        {
+            get
+            {
+                if (!_mUnknown_Rule) return _mValue_Rule;
+                throw new UndeferrableValueException("Value 'BucketOwnershipControls.Rule' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/bucketOwnershipControls:BucketOwnershipControls")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the bucket that you want to associate this access point with.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketOwnershipControlsArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) with Ownership Controls rules. Detailed below.
         /// </summary>
-        [Input("rule")]
+        [PolicyResourceProperty("rule", "_mUnknown_Rule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketOwnershipControlsRuleArgs> _mRule;
-
-        public Inputs.BucketOwnershipControlsRuleArgs? Rule => _mRule.GetValue("rule");
+        private Inputs.BucketOwnershipControlsRuleArgs? _mValue_Rule;
+        private bool _mUnknown_Rule;
+        public Inputs.BucketOwnershipControlsRuleArgs? Rule
+        {
+            get
+            {
+                if (!_mUnknown_Rule) return _mValue_Rule;
+                throw new UndeferrableValueException("Value 'BucketOwnershipControlsArgs.Rule' is not present");
+            }
+        }
     }
 }

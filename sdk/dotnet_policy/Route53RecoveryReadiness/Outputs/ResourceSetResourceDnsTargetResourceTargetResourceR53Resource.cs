@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryReadiness.Outputs
         /// <summary>
         /// Domain name that is targeted.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResourceTargetResourceR53Resource.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource record set ID that is targeted.
         /// </summary>
-        [Input("recordSetId")]
+        [PolicyResourceProperty("recordSetId", "_mUnknown_RecordSetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecordSetId;
-
-        public string? RecordSetId => _mRecordSetId.GetValue("recordSetId");
+        private string? _mValue_RecordSetId;
+        private bool _mUnknown_RecordSetId;
+        public string? RecordSetId
+        {
+            get
+            {
+                if (!_mUnknown_RecordSetId) return _mValue_RecordSetId;
+                throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResourceTargetResourceR53Resource.RecordSetId' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
 {
     public sealed class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs
     {
-        [Input("text")]
+        [PolicyResourceProperty("text", "_mUnknown_Text")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mText;
+        private string? _mValue_Text;
+        private bool _mUnknown_Text;
+        public string? Text
+        {
+            get
+            {
+                if (!_mUnknown_Text) return _mValue_Text;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs.Text' is not present");
+            }
+        }
 
-        public string? Text => _mText.GetValue("text");
-
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs.Value' is not present");
+            }
+        }
     }
 }

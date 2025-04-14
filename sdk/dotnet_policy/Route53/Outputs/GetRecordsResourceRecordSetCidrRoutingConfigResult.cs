@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Outputs
         /// <summary>
         /// The CIDR collection ID.
         /// </summary>
-        [Input("collectionId")]
+        [PolicyResourceProperty("collectionId", "_mUnknown_CollectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollectionId;
-
-        public string? CollectionId => _mCollectionId.GetValue("collectionId");
+        private string? _mValue_CollectionId;
+        private bool _mUnknown_CollectionId;
+        public string? CollectionId
+        {
+            get
+            {
+                if (!_mUnknown_CollectionId) return _mValue_CollectionId;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetCidrRoutingConfigResult.CollectionId' is not present");
+            }
+        }
 
         /// <summary>
         /// The CIDR collection location name.
         /// </summary>
-        [Input("locationName")]
+        [PolicyResourceProperty("locationName", "_mUnknown_LocationName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocationName;
-
-        public string? LocationName => _mLocationName.GetValue("locationName");
+        private string? _mValue_LocationName;
+        private bool _mUnknown_LocationName;
+        public string? LocationName
+        {
+            get
+            {
+                if (!_mUnknown_LocationName) return _mValue_LocationName;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetCidrRoutingConfigResult.LocationName' is not present");
+            }
+        }
     }
 }

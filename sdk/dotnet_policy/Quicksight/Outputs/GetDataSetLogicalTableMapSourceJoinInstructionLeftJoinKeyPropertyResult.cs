@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult
     {
-        [Input("uniqueKey")]
+        [PolicyResourceProperty("uniqueKey", "_mUnknown_UniqueKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUniqueKey;
-
-        public bool? UniqueKey => _mUniqueKey.GetValue("uniqueKey");
+        private bool? _mValue_UniqueKey;
+        private bool _mUnknown_UniqueKey;
+        public bool? UniqueKey
+        {
+            get
+            {
+                if (!_mUnknown_UniqueKey) return _mValue_UniqueKey;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult.UniqueKey' is not present");
+            }
+        }
     }
 }

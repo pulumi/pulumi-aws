@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache.Outputs
 {
     public sealed class GetClusterLogDeliveryConfigurationResult
     {
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
+        private string? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public string? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'GetClusterLogDeliveryConfigurationResult.Destination' is not present");
+            }
+        }
 
-        public string? Destination => _mDestination.GetValue("destination");
-
-        [Input("destinationType")]
+        [PolicyResourceProperty("destinationType", "_mUnknown_DestinationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationType;
+        private string? _mValue_DestinationType;
+        private bool _mUnknown_DestinationType;
+        public string? DestinationType
+        {
+            get
+            {
+                if (!_mUnknown_DestinationType) return _mValue_DestinationType;
+                throw new UndeferrableValueException("Value 'GetClusterLogDeliveryConfigurationResult.DestinationType' is not present");
+            }
+        }
 
-        public string? DestinationType => _mDestinationType.GetValue("destinationType");
-
-        [Input("logFormat")]
+        [PolicyResourceProperty("logFormat", "_mUnknown_LogFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogFormat;
+        private string? _mValue_LogFormat;
+        private bool _mUnknown_LogFormat;
+        public string? LogFormat
+        {
+            get
+            {
+                if (!_mUnknown_LogFormat) return _mValue_LogFormat;
+                throw new UndeferrableValueException("Value 'GetClusterLogDeliveryConfigurationResult.LogFormat' is not present");
+            }
+        }
 
-        public string? LogFormat => _mLogFormat.GetValue("logFormat");
-
-        [Input("logType")]
+        [PolicyResourceProperty("logType", "_mUnknown_LogType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogType;
-
-        public string? LogType => _mLogType.GetValue("logType");
+        private string? _mValue_LogType;
+        private bool _mUnknown_LogType;
+        public string? LogType
+        {
+            get
+            {
+                if (!_mUnknown_LogType) return _mValue_LogType;
+                throw new UndeferrableValueException("Value 'GetClusterLogDeliveryConfigurationResult.LogType' is not present");
+            }
+        }
     }
 }

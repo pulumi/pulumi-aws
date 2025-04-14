@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Configuration block with S3 logging settings. Detailed below.
         /// </summary>
-        [Input("s3Logs")]
+        [PolicyResourceProperty("s3Logs", "_mUnknown_S3Logs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InfrastructureConfigurationLoggingS3Logs> _mS3Logs;
-
-        public Outputs.InfrastructureConfigurationLoggingS3Logs? S3Logs => _mS3Logs.GetValue("s3Logs");
+        private Outputs.InfrastructureConfigurationLoggingS3Logs? _mValue_S3Logs;
+        private bool _mUnknown_S3Logs;
+        public Outputs.InfrastructureConfigurationLoggingS3Logs? S3Logs
+        {
+            get
+            {
+                if (!_mUnknown_S3Logs) return _mValue_S3Logs;
+                throw new UndeferrableValueException("Value 'InfrastructureConfigurationLogging.S3Logs' is not present");
+            }
+        }
     }
 }

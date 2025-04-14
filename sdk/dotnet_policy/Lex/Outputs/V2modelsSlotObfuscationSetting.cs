@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Whether Amazon Lex obscures slot values in conversation logs. Valid values are `DefaultObfuscation` and `None`.
         /// </summary>
-        [Input("obfuscationSettingType")]
+        [PolicyResourceProperty("obfuscationSettingType", "_mUnknown_ObfuscationSettingType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObfuscationSettingType;
-
-        public string? ObfuscationSettingType => _mObfuscationSettingType.GetValue("obfuscationSettingType");
+        private string? _mValue_ObfuscationSettingType;
+        private bool _mUnknown_ObfuscationSettingType;
+        public string? ObfuscationSettingType
+        {
+            get
+            {
+                if (!_mUnknown_ObfuscationSettingType) return _mValue_ObfuscationSettingType;
+                throw new UndeferrableValueException("Value 'V2modelsSlotObfuscationSetting.ObfuscationSettingType' is not present");
+            }
+        }
     }
 }

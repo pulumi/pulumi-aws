@@ -16,93 +16,163 @@ namespace Pulumi.PolicyPacks.Aws.Ecr
         /// <summary>
         /// Full ARN of the repository.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Repository.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Encryption configuration for the repository. See below for schema.
         /// </summary>
-        [Input("encryptionConfigurations")]
+        [PolicyResourceProperty("encryptionConfigurations", "_mUnknown_EncryptionConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RepositoryEncryptionConfiguration>> _mEncryptionConfigurations;
-
-        public List<Outputs.RepositoryEncryptionConfiguration>? EncryptionConfigurations => _mEncryptionConfigurations.GetValue("encryptionConfigurations");
+        private List<Outputs.RepositoryEncryptionConfiguration>? _mValue_EncryptionConfigurations;
+        private bool _mUnknown_EncryptionConfigurations;
+        public List<Outputs.RepositoryEncryptionConfiguration>? EncryptionConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfigurations) return _mValue_EncryptionConfigurations;
+                throw new UndeferrableValueException("Value 'Repository.EncryptionConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// If `true`, will delete the repository even if it contains images.
         /// Defaults to `false`.
         /// </summary>
-        [Input("forceDelete")]
+        [PolicyResourceProperty("forceDelete", "_mUnknown_ForceDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
-
-        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+        private bool? _mValue_ForceDelete;
+        private bool _mUnknown_ForceDelete;
+        public bool? ForceDelete
+        {
+            get
+            {
+                if (!_mUnknown_ForceDelete) return _mValue_ForceDelete;
+                throw new UndeferrableValueException("Value 'Repository.ForceDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         /// </summary>
-        [Input("imageScanningConfiguration")]
+        [PolicyResourceProperty("imageScanningConfiguration", "_mUnknown_ImageScanningConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RepositoryImageScanningConfiguration> _mImageScanningConfiguration;
-
-        public Outputs.RepositoryImageScanningConfiguration? ImageScanningConfiguration => _mImageScanningConfiguration.GetValue("imageScanningConfiguration");
+        private Outputs.RepositoryImageScanningConfiguration? _mValue_ImageScanningConfiguration;
+        private bool _mUnknown_ImageScanningConfiguration;
+        public Outputs.RepositoryImageScanningConfiguration? ImageScanningConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ImageScanningConfiguration) return _mValue_ImageScanningConfiguration;
+                throw new UndeferrableValueException("Value 'Repository.ImageScanningConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         /// </summary>
-        [Input("imageTagMutability")]
+        [PolicyResourceProperty("imageTagMutability", "_mUnknown_ImageTagMutability")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageTagMutability;
-
-        public string? ImageTagMutability => _mImageTagMutability.GetValue("imageTagMutability");
+        private string? _mValue_ImageTagMutability;
+        private bool _mUnknown_ImageTagMutability;
+        public string? ImageTagMutability
+        {
+            get
+            {
+                if (!_mUnknown_ImageTagMutability) return _mValue_ImageTagMutability;
+                throw new UndeferrableValueException("Value 'Repository.ImageTagMutability' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the repository.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Repository.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The registry ID where the repository was created.
         /// </summary>
-        [Input("registryId")]
+        [PolicyResourceProperty("registryId", "_mUnknown_RegistryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryId;
-
-        public string? RegistryId => _mRegistryId.GetValue("registryId");
+        private string? _mValue_RegistryId;
+        private bool _mUnknown_RegistryId;
+        public string? RegistryId
+        {
+            get
+            {
+                if (!_mUnknown_RegistryId) return _mValue_RegistryId;
+                throw new UndeferrableValueException("Value 'Repository.RegistryId' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
         /// </summary>
-        [Input("repositoryUrl")]
+        [PolicyResourceProperty("repositoryUrl", "_mUnknown_RepositoryUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryUrl;
-
-        public string? RepositoryUrl => _mRepositoryUrl.GetValue("repositoryUrl");
+        private string? _mValue_RepositoryUrl;
+        private bool _mUnknown_RepositoryUrl;
+        public string? RepositoryUrl
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryUrl) return _mValue_RepositoryUrl;
+                throw new UndeferrableValueException("Value 'Repository.RepositoryUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Repository.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Repository.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ecr/repository:Repository")]
@@ -111,56 +181,98 @@ namespace Pulumi.PolicyPacks.Aws.Ecr
         /// <summary>
         /// Encryption configuration for the repository. See below for schema.
         /// </summary>
-        [Input("encryptionConfigurations")]
+        [PolicyResourceProperty("encryptionConfigurations", "_mUnknown_EncryptionConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RepositoryEncryptionConfigurationArgs>> _mEncryptionConfigurations;
-
-        public List<Inputs.RepositoryEncryptionConfigurationArgs>? EncryptionConfigurations => _mEncryptionConfigurations.GetValue("encryptionConfigurations");
+        private List<Inputs.RepositoryEncryptionConfigurationArgs>? _mValue_EncryptionConfigurations;
+        private bool _mUnknown_EncryptionConfigurations;
+        public List<Inputs.RepositoryEncryptionConfigurationArgs>? EncryptionConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfigurations) return _mValue_EncryptionConfigurations;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.EncryptionConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// If `true`, will delete the repository even if it contains images.
         /// Defaults to `false`.
         /// </summary>
-        [Input("forceDelete")]
+        [PolicyResourceProperty("forceDelete", "_mUnknown_ForceDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
-
-        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+        private bool? _mValue_ForceDelete;
+        private bool _mUnknown_ForceDelete;
+        public bool? ForceDelete
+        {
+            get
+            {
+                if (!_mUnknown_ForceDelete) return _mValue_ForceDelete;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.ForceDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         /// </summary>
-        [Input("imageScanningConfiguration")]
+        [PolicyResourceProperty("imageScanningConfiguration", "_mUnknown_ImageScanningConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RepositoryImageScanningConfigurationArgs> _mImageScanningConfiguration;
-
-        public Inputs.RepositoryImageScanningConfigurationArgs? ImageScanningConfiguration => _mImageScanningConfiguration.GetValue("imageScanningConfiguration");
+        private Inputs.RepositoryImageScanningConfigurationArgs? _mValue_ImageScanningConfiguration;
+        private bool _mUnknown_ImageScanningConfiguration;
+        public Inputs.RepositoryImageScanningConfigurationArgs? ImageScanningConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ImageScanningConfiguration) return _mValue_ImageScanningConfiguration;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.ImageScanningConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         /// </summary>
-        [Input("imageTagMutability")]
+        [PolicyResourceProperty("imageTagMutability", "_mUnknown_ImageTagMutability")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageTagMutability;
-
-        public string? ImageTagMutability => _mImageTagMutability.GetValue("imageTagMutability");
+        private string? _mValue_ImageTagMutability;
+        private bool _mUnknown_ImageTagMutability;
+        public string? ImageTagMutability
+        {
+            get
+            {
+                if (!_mUnknown_ImageTagMutability) return _mValue_ImageTagMutability;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.ImageTagMutability' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the repository.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.M2.Outputs
         /// <summary>
         /// Id of the FSX filesystem to mount.
         /// </summary>
-        [Input("fileSystemId")]
+        [PolicyResourceProperty("fileSystemId", "_mUnknown_FileSystemId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
-
-        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+        private string? _mValue_FileSystemId;
+        private bool _mUnknown_FileSystemId;
+        public string? FileSystemId
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemId) return _mValue_FileSystemId;
+                throw new UndeferrableValueException("Value 'EnvironmentStorageConfigurationFsx.FileSystemId' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to mount the filesystem on, must start with `/m2/mount/`.
         /// </summary>
-        [Input("mountPoint")]
+        [PolicyResourceProperty("mountPoint", "_mUnknown_MountPoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMountPoint;
-
-        public string? MountPoint => _mMountPoint.GetValue("mountPoint");
+        private string? _mValue_MountPoint;
+        private bool _mUnknown_MountPoint;
+        public string? MountPoint
+        {
+            get
+            {
+                if (!_mUnknown_MountPoint) return _mValue_MountPoint;
+                throw new UndeferrableValueException("Value 'EnvironmentStorageConfigurationFsx.MountPoint' is not present");
+            }
+        }
     }
 }

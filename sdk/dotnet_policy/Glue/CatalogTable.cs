@@ -16,148 +16,260 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// The ARN of the Glue Table.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CatalogTable.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'CatalogTable.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         /// 
         /// The follow arguments are optional:
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'CatalogTable.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the table.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'CatalogTable.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the table. For Hive compatibility, this must be entirely lowercase.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CatalogTable.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for open table formats. See `open_table_format_input` below.
         /// </summary>
-        [Input("openTableFormatInput")]
+        [PolicyResourceProperty("openTableFormatInput", "_mUnknown_OpenTableFormatInput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CatalogTableOpenTableFormatInput> _mOpenTableFormatInput;
-
-        public Outputs.CatalogTableOpenTableFormatInput? OpenTableFormatInput => _mOpenTableFormatInput.GetValue("openTableFormatInput");
+        private Outputs.CatalogTableOpenTableFormatInput? _mValue_OpenTableFormatInput;
+        private bool _mUnknown_OpenTableFormatInput;
+        public Outputs.CatalogTableOpenTableFormatInput? OpenTableFormatInput
+        {
+            get
+            {
+                if (!_mUnknown_OpenTableFormatInput) return _mValue_OpenTableFormatInput;
+                throw new UndeferrableValueException("Value 'CatalogTable.OpenTableFormatInput' is not present");
+            }
+        }
 
         /// <summary>
         /// Owner of the table.
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'CatalogTable.Owner' is not present");
+            }
+        }
 
         /// <summary>
         /// Properties associated with this table, as a list of key-value pairs.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'CatalogTable.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         /// </summary>
-        [Input("partitionIndices")]
+        [PolicyResourceProperty("partitionIndices", "_mUnknown_PartitionIndices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CatalogTablePartitionIndex>> _mPartitionIndices;
-
-        public List<Outputs.CatalogTablePartitionIndex>? PartitionIndices => _mPartitionIndices.GetValue("partitionIndices");
+        private List<Outputs.CatalogTablePartitionIndex>? _mValue_PartitionIndices;
+        private bool _mUnknown_PartitionIndices;
+        public List<Outputs.CatalogTablePartitionIndex>? PartitionIndices
+        {
+            get
+            {
+                if (!_mUnknown_PartitionIndices) return _mValue_PartitionIndices;
+                throw new UndeferrableValueException("Value 'CatalogTable.PartitionIndices' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         /// </summary>
-        [Input("partitionKeys")]
+        [PolicyResourceProperty("partitionKeys", "_mUnknown_PartitionKeys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CatalogTablePartitionKey>> _mPartitionKeys;
-
-        public List<Outputs.CatalogTablePartitionKey>? PartitionKeys => _mPartitionKeys.GetValue("partitionKeys");
+        private List<Outputs.CatalogTablePartitionKey>? _mValue_PartitionKeys;
+        private bool _mUnknown_PartitionKeys;
+        public List<Outputs.CatalogTablePartitionKey>? PartitionKeys
+        {
+            get
+            {
+                if (!_mUnknown_PartitionKeys) return _mValue_PartitionKeys;
+                throw new UndeferrableValueException("Value 'CatalogTable.PartitionKeys' is not present");
+            }
+        }
 
         /// <summary>
         /// Retention time for this table.
         /// </summary>
-        [Input("retention")]
+        [PolicyResourceProperty("retention", "_mUnknown_Retention")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetention;
-
-        public int? Retention => _mRetention.GetValue("retention");
+        private int? _mValue_Retention;
+        private bool _mUnknown_Retention;
+        public int? Retention
+        {
+            get
+            {
+                if (!_mUnknown_Retention) return _mValue_Retention;
+                throw new UndeferrableValueException("Value 'CatalogTable.Retention' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         /// </summary>
-        [Input("storageDescriptor")]
+        [PolicyResourceProperty("storageDescriptor", "_mUnknown_StorageDescriptor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CatalogTableStorageDescriptor> _mStorageDescriptor;
-
-        public Outputs.CatalogTableStorageDescriptor? StorageDescriptor => _mStorageDescriptor.GetValue("storageDescriptor");
+        private Outputs.CatalogTableStorageDescriptor? _mValue_StorageDescriptor;
+        private bool _mUnknown_StorageDescriptor;
+        public Outputs.CatalogTableStorageDescriptor? StorageDescriptor
+        {
+            get
+            {
+                if (!_mUnknown_StorageDescriptor) return _mValue_StorageDescriptor;
+                throw new UndeferrableValueException("Value 'CatalogTable.StorageDescriptor' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         /// </summary>
-        [Input("tableType")]
+        [PolicyResourceProperty("tableType", "_mUnknown_TableType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableType;
-
-        public string? TableType => _mTableType.GetValue("tableType");
+        private string? _mValue_TableType;
+        private bool _mUnknown_TableType;
+        public string? TableType
+        {
+            get
+            {
+                if (!_mUnknown_TableType) return _mValue_TableType;
+                throw new UndeferrableValueException("Value 'CatalogTable.TableType' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block of a target table for resource linking. See `target_table` below.
         /// </summary>
-        [Input("targetTable")]
+        [PolicyResourceProperty("targetTable", "_mUnknown_TargetTable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CatalogTableTargetTable> _mTargetTable;
-
-        public Outputs.CatalogTableTargetTable? TargetTable => _mTargetTable.GetValue("targetTable");
+        private Outputs.CatalogTableTargetTable? _mValue_TargetTable;
+        private bool _mUnknown_TargetTable;
+        public Outputs.CatalogTableTargetTable? TargetTable
+        {
+            get
+            {
+                if (!_mUnknown_TargetTable) return _mValue_TargetTable;
+                throw new UndeferrableValueException("Value 'CatalogTable.TargetTable' is not present");
+            }
+        }
 
         /// <summary>
         /// If the table is a view, the expanded text of the view; otherwise null.
         /// </summary>
-        [Input("viewExpandedText")]
+        [PolicyResourceProperty("viewExpandedText", "_mUnknown_ViewExpandedText")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mViewExpandedText;
-
-        public string? ViewExpandedText => _mViewExpandedText.GetValue("viewExpandedText");
+        private string? _mValue_ViewExpandedText;
+        private bool _mUnknown_ViewExpandedText;
+        public string? ViewExpandedText
+        {
+            get
+            {
+                if (!_mUnknown_ViewExpandedText) return _mValue_ViewExpandedText;
+                throw new UndeferrableValueException("Value 'CatalogTable.ViewExpandedText' is not present");
+            }
+        }
 
         /// <summary>
         /// If the table is a view, the original text of the view; otherwise null.
         /// </summary>
-        [Input("viewOriginalText")]
+        [PolicyResourceProperty("viewOriginalText", "_mUnknown_ViewOriginalText")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mViewOriginalText;
-
-        public string? ViewOriginalText => _mViewOriginalText.GetValue("viewOriginalText");
+        private string? _mValue_ViewOriginalText;
+        private bool _mUnknown_ViewOriginalText;
+        public string? ViewOriginalText
+        {
+            get
+            {
+                if (!_mUnknown_ViewOriginalText) return _mValue_ViewOriginalText;
+                throw new UndeferrableValueException("Value 'CatalogTable.ViewOriginalText' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:glue/catalogTable:CatalogTable")]
@@ -166,138 +278,243 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'CatalogTableArgs.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         /// 
         /// The follow arguments are optional:
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'CatalogTableArgs.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the table.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'CatalogTableArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the table. For Hive compatibility, this must be entirely lowercase.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CatalogTableArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for open table formats. See `open_table_format_input` below.
         /// </summary>
-        [Input("openTableFormatInput")]
+        [PolicyResourceProperty("openTableFormatInput", "_mUnknown_OpenTableFormatInput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CatalogTableOpenTableFormatInputArgs> _mOpenTableFormatInput;
-
-        public Inputs.CatalogTableOpenTableFormatInputArgs? OpenTableFormatInput => _mOpenTableFormatInput.GetValue("openTableFormatInput");
+        private Inputs.CatalogTableOpenTableFormatInputArgs? _mValue_OpenTableFormatInput;
+        private bool _mUnknown_OpenTableFormatInput;
+        public Inputs.CatalogTableOpenTableFormatInputArgs? OpenTableFormatInput
+        {
+            get
+            {
+                if (!_mUnknown_OpenTableFormatInput) return _mValue_OpenTableFormatInput;
+                throw new UndeferrableValueException("Value 'CatalogTableArgs.OpenTableFormatInput' is not present");
+            }
+        }
 
         /// <summary>
         /// Owner of the table.
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'CatalogTableArgs.Owner' is not present");
+            }
+        }
 
         /// <summary>
         /// Properties associated with this table, as a list of key-value pairs.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'CatalogTableArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         /// </summary>
-        [Input("partitionIndices")]
+        [PolicyResourceProperty("partitionIndices", "_mUnknown_PartitionIndices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CatalogTablePartitionIndexArgs>> _mPartitionIndices;
-
-        public List<Inputs.CatalogTablePartitionIndexArgs>? PartitionIndices => _mPartitionIndices.GetValue("partitionIndices");
+        private List<Inputs.CatalogTablePartitionIndexArgs>? _mValue_PartitionIndices;
+        private bool _mUnknown_PartitionIndices;
+        public List<Inputs.CatalogTablePartitionIndexArgs>? PartitionIndices
+        {
+            get
+            {
+                if (!_mUnknown_PartitionIndices) return _mValue_PartitionIndices;
+                throw new UndeferrableValueException("Value 'CatalogTableArgs.PartitionIndices' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         /// </summary>
-        [Input("partitionKeys")]
+        [PolicyResourceProperty("partitionKeys", "_mUnknown_PartitionKeys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CatalogTablePartitionKeyArgs>> _mPartitionKeys;
-
-        public List<Inputs.CatalogTablePartitionKeyArgs>? PartitionKeys => _mPartitionKeys.GetValue("partitionKeys");
+        private List<Inputs.CatalogTablePartitionKeyArgs>? _mValue_PartitionKeys;
+        private bool _mUnknown_PartitionKeys;
+        public List<Inputs.CatalogTablePartitionKeyArgs>? PartitionKeys
+        {
+            get
+            {
+                if (!_mUnknown_PartitionKeys) return _mValue_PartitionKeys;
+                throw new UndeferrableValueException("Value 'CatalogTableArgs.PartitionKeys' is not present");
+            }
+        }
 
         /// <summary>
         /// Retention time for this table.
         /// </summary>
-        [Input("retention")]
+        [PolicyResourceProperty("retention", "_mUnknown_Retention")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetention;
-
-        public int? Retention => _mRetention.GetValue("retention");
+        private int? _mValue_Retention;
+        private bool _mUnknown_Retention;
+        public int? Retention
+        {
+            get
+            {
+                if (!_mUnknown_Retention) return _mValue_Retention;
+                throw new UndeferrableValueException("Value 'CatalogTableArgs.Retention' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         /// </summary>
-        [Input("storageDescriptor")]
+        [PolicyResourceProperty("storageDescriptor", "_mUnknown_StorageDescriptor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CatalogTableStorageDescriptorArgs> _mStorageDescriptor;
-
-        public Inputs.CatalogTableStorageDescriptorArgs? StorageDescriptor => _mStorageDescriptor.GetValue("storageDescriptor");
+        private Inputs.CatalogTableStorageDescriptorArgs? _mValue_StorageDescriptor;
+        private bool _mUnknown_StorageDescriptor;
+        public Inputs.CatalogTableStorageDescriptorArgs? StorageDescriptor
+        {
+            get
+            {
+                if (!_mUnknown_StorageDescriptor) return _mValue_StorageDescriptor;
+                throw new UndeferrableValueException("Value 'CatalogTableArgs.StorageDescriptor' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         /// </summary>
-        [Input("tableType")]
+        [PolicyResourceProperty("tableType", "_mUnknown_TableType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableType;
-
-        public string? TableType => _mTableType.GetValue("tableType");
+        private string? _mValue_TableType;
+        private bool _mUnknown_TableType;
+        public string? TableType
+        {
+            get
+            {
+                if (!_mUnknown_TableType) return _mValue_TableType;
+                throw new UndeferrableValueException("Value 'CatalogTableArgs.TableType' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block of a target table for resource linking. See `target_table` below.
         /// </summary>
-        [Input("targetTable")]
+        [PolicyResourceProperty("targetTable", "_mUnknown_TargetTable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CatalogTableTargetTableArgs> _mTargetTable;
-
-        public Inputs.CatalogTableTargetTableArgs? TargetTable => _mTargetTable.GetValue("targetTable");
+        private Inputs.CatalogTableTargetTableArgs? _mValue_TargetTable;
+        private bool _mUnknown_TargetTable;
+        public Inputs.CatalogTableTargetTableArgs? TargetTable
+        {
+            get
+            {
+                if (!_mUnknown_TargetTable) return _mValue_TargetTable;
+                throw new UndeferrableValueException("Value 'CatalogTableArgs.TargetTable' is not present");
+            }
+        }
 
         /// <summary>
         /// If the table is a view, the expanded text of the view; otherwise null.
         /// </summary>
-        [Input("viewExpandedText")]
+        [PolicyResourceProperty("viewExpandedText", "_mUnknown_ViewExpandedText")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mViewExpandedText;
-
-        public string? ViewExpandedText => _mViewExpandedText.GetValue("viewExpandedText");
+        private string? _mValue_ViewExpandedText;
+        private bool _mUnknown_ViewExpandedText;
+        public string? ViewExpandedText
+        {
+            get
+            {
+                if (!_mUnknown_ViewExpandedText) return _mValue_ViewExpandedText;
+                throw new UndeferrableValueException("Value 'CatalogTableArgs.ViewExpandedText' is not present");
+            }
+        }
 
         /// <summary>
         /// If the table is a view, the original text of the view; otherwise null.
         /// </summary>
-        [Input("viewOriginalText")]
+        [PolicyResourceProperty("viewOriginalText", "_mUnknown_ViewOriginalText")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mViewOriginalText;
-
-        public string? ViewOriginalText => _mViewOriginalText.GetValue("viewOriginalText");
+        private string? _mValue_ViewOriginalText;
+        private bool _mUnknown_ViewOriginalText;
+        public string? ViewOriginalText
+        {
+            get
+            {
+                if (!_mUnknown_ViewOriginalText) return _mValue_ViewOriginalText;
+                throw new UndeferrableValueException("Value 'CatalogTableArgs.ViewOriginalText' is not present");
+            }
+        }
     }
 }

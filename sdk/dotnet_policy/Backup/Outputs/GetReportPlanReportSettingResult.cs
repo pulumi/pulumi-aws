@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Backup.Outputs
         /// <summary>
         /// (Optional) Specifies the list of accounts a report covers.
         /// </summary>
-        [Input("accounts")]
+        [PolicyResourceProperty("accounts", "_mUnknown_Accounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAccounts;
-
-        public List<string>? Accounts => _mAccounts.GetValue("accounts");
+        private List<string>? _mValue_Accounts;
+        private bool _mUnknown_Accounts;
+        public List<string>? Accounts
+        {
+            get
+            {
+                if (!_mUnknown_Accounts) return _mValue_Accounts;
+                throw new UndeferrableValueException("Value 'GetReportPlanReportSettingResult.Accounts' is not present");
+            }
+        }
 
         /// <summary>
         /// ARNs of the frameworks a report covers.
         /// </summary>
-        [Input("frameworkArns")]
+        [PolicyResourceProperty("frameworkArns", "_mUnknown_FrameworkArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFrameworkArns;
-
-        public List<string>? FrameworkArns => _mFrameworkArns.GetValue("frameworkArns");
+        private List<string>? _mValue_FrameworkArns;
+        private bool _mUnknown_FrameworkArns;
+        public List<string>? FrameworkArns
+        {
+            get
+            {
+                if (!_mUnknown_FrameworkArns) return _mValue_FrameworkArns;
+                throw new UndeferrableValueException("Value 'GetReportPlanReportSettingResult.FrameworkArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the number of frameworks a report covers.
         /// </summary>
-        [Input("numberOfFrameworks")]
+        [PolicyResourceProperty("numberOfFrameworks", "_mUnknown_NumberOfFrameworks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfFrameworks;
-
-        public int? NumberOfFrameworks => _mNumberOfFrameworks.GetValue("numberOfFrameworks");
+        private int? _mValue_NumberOfFrameworks;
+        private bool _mUnknown_NumberOfFrameworks;
+        public int? NumberOfFrameworks
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfFrameworks) return _mValue_NumberOfFrameworks;
+                throw new UndeferrableValueException("Value 'GetReportPlanReportSettingResult.NumberOfFrameworks' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Specifies the list of Organizational Units a report covers.
         /// </summary>
-        [Input("organizationUnits")]
+        [PolicyResourceProperty("organizationUnits", "_mUnknown_OrganizationUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOrganizationUnits;
-
-        public List<string>? OrganizationUnits => _mOrganizationUnits.GetValue("organizationUnits");
+        private List<string>? _mValue_OrganizationUnits;
+        private bool _mUnknown_OrganizationUnits;
+        public List<string>? OrganizationUnits
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationUnits) return _mValue_OrganizationUnits;
+                throw new UndeferrableValueException("Value 'GetReportPlanReportSettingResult.OrganizationUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Specifies the list of regions a report covers.
         /// </summary>
-        [Input("regions")]
+        [PolicyResourceProperty("regions", "_mUnknown_Regions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegions;
-
-        public List<string>? Regions => _mRegions.GetValue("regions");
+        private List<string>? _mValue_Regions;
+        private bool _mUnknown_Regions;
+        public List<string>? Regions
+        {
+            get
+            {
+                if (!_mUnknown_Regions) return _mValue_Regions;
+                throw new UndeferrableValueException("Value 'GetReportPlanReportSettingResult.Regions' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifies the report template for the report. Reports are built using a report template.
         /// </summary>
-        [Input("reportTemplate")]
+        [PolicyResourceProperty("reportTemplate", "_mUnknown_ReportTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReportTemplate;
-
-        public string? ReportTemplate => _mReportTemplate.GetValue("reportTemplate");
+        private string? _mValue_ReportTemplate;
+        private bool _mUnknown_ReportTemplate;
+        public string? ReportTemplate
+        {
+            get
+            {
+                if (!_mUnknown_ReportTemplate) return _mValue_ReportTemplate;
+                throw new UndeferrableValueException("Value 'GetReportPlanReportSettingResult.ReportTemplate' is not present");
+            }
+        }
     }
 }

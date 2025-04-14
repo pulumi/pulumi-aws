@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer.Inputs
         /// <summary>
         /// Return results that match both `Dimension` objects.
         /// </summary>
-        [Input("ands")]
+        [PolicyResourceProperty("ands", "_mUnknown_Ands")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GetTagsFilterAndArgs>> _mAnds;
-
-        public List<Inputs.GetTagsFilterAndArgs>? Ands => _mAnds.GetValue("ands");
+        private List<Inputs.GetTagsFilterAndArgs>? _mValue_Ands;
+        private bool _mUnknown_Ands;
+        public List<Inputs.GetTagsFilterAndArgs>? Ands
+        {
+            get
+            {
+                if (!_mUnknown_Ands) return _mValue_Ands;
+                throw new UndeferrableValueException("Value 'GetTagsFilterArgs.Ands' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
         /// </summary>
-        [Input("costCategory")]
+        [PolicyResourceProperty("costCategory", "_mUnknown_CostCategory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetTagsFilterCostCategoryArgs> _mCostCategory;
-
-        public Inputs.GetTagsFilterCostCategoryArgs? CostCategory => _mCostCategory.GetValue("costCategory");
+        private Inputs.GetTagsFilterCostCategoryArgs? _mValue_CostCategory;
+        private bool _mUnknown_CostCategory;
+        public Inputs.GetTagsFilterCostCategoryArgs? CostCategory
+        {
+            get
+            {
+                if (!_mUnknown_CostCategory) return _mValue_CostCategory;
+                throw new UndeferrableValueException("Value 'GetTagsFilterArgs.CostCategory' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
         /// </summary>
-        [Input("dimension")]
+        [PolicyResourceProperty("dimension", "_mUnknown_Dimension")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetTagsFilterDimensionArgs> _mDimension;
-
-        public Inputs.GetTagsFilterDimensionArgs? Dimension => _mDimension.GetValue("dimension");
+        private Inputs.GetTagsFilterDimensionArgs? _mValue_Dimension;
+        private bool _mUnknown_Dimension;
+        public Inputs.GetTagsFilterDimensionArgs? Dimension
+        {
+            get
+            {
+                if (!_mUnknown_Dimension) return _mValue_Dimension;
+                throw new UndeferrableValueException("Value 'GetTagsFilterArgs.Dimension' is not present");
+            }
+        }
 
         /// <summary>
         /// Return results that match both `Dimension` object.
         /// </summary>
-        [Input("not")]
+        [PolicyResourceProperty("not", "_mUnknown_Not")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetTagsFilterNotArgs> _mNot;
-
-        public Inputs.GetTagsFilterNotArgs? Not => _mNot.GetValue("not");
+        private Inputs.GetTagsFilterNotArgs? _mValue_Not;
+        private bool _mUnknown_Not;
+        public Inputs.GetTagsFilterNotArgs? Not
+        {
+            get
+            {
+                if (!_mUnknown_Not) return _mValue_Not;
+                throw new UndeferrableValueException("Value 'GetTagsFilterArgs.Not' is not present");
+            }
+        }
 
         /// <summary>
         /// Return results that match both `Dimension` object.
         /// </summary>
-        [Input("ors")]
+        [PolicyResourceProperty("ors", "_mUnknown_Ors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GetTagsFilterOrArgs>> _mOrs;
-
-        public List<Inputs.GetTagsFilterOrArgs>? Ors => _mOrs.GetValue("ors");
+        private List<Inputs.GetTagsFilterOrArgs>? _mValue_Ors;
+        private bool _mUnknown_Ors;
+        public List<Inputs.GetTagsFilterOrArgs>? Ors
+        {
+            get
+            {
+                if (!_mUnknown_Ors) return _mValue_Ors;
+                throw new UndeferrableValueException("Value 'GetTagsFilterArgs.Ors' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags that match your request.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetTagsFilterTagsArgs> _mTags;
-
-        public Inputs.GetTagsFilterTagsArgs? Tags => _mTags.GetValue("tags");
+        private Inputs.GetTagsFilterTagsArgs? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Inputs.GetTagsFilterTagsArgs? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GetTagsFilterArgs.Tags' is not present");
+            }
+        }
     }
 }

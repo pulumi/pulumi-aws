@@ -17,47 +17,82 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend.Inputs
         /// Used if `data_format` is `AUGMENTED_MANIFEST`.
         /// See the `augmented_manifests` Configuration Block section below.
         /// </summary>
-        [Input("augmentedManifests")]
+        [PolicyResourceProperty("augmentedManifests", "_mUnknown_AugmentedManifests")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DocumentClassifierInputDataConfigAugmentedManifestArgs>> _mAugmentedManifests;
-
-        public List<Inputs.DocumentClassifierInputDataConfigAugmentedManifestArgs>? AugmentedManifests => _mAugmentedManifests.GetValue("augmentedManifests");
+        private List<Inputs.DocumentClassifierInputDataConfigAugmentedManifestArgs>? _mValue_AugmentedManifests;
+        private bool _mUnknown_AugmentedManifests;
+        public List<Inputs.DocumentClassifierInputDataConfigAugmentedManifestArgs>? AugmentedManifests
+        {
+            get
+            {
+                if (!_mUnknown_AugmentedManifests) return _mValue_AugmentedManifests;
+                throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfigArgs.AugmentedManifests' is not present");
+            }
+        }
 
         /// <summary>
         /// The format for the training data.
         /// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
         /// </summary>
-        [Input("dataFormat")]
+        [PolicyResourceProperty("dataFormat", "_mUnknown_DataFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataFormat;
-
-        public string? DataFormat => _mDataFormat.GetValue("dataFormat");
+        private string? _mValue_DataFormat;
+        private bool _mUnknown_DataFormat;
+        public string? DataFormat
+        {
+            get
+            {
+                if (!_mUnknown_DataFormat) return _mValue_DataFormat;
+                throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfigArgs.DataFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Delimiter between labels when training a multi-label classifier.
         /// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
         /// Default is `|`.
         /// </summary>
-        [Input("labelDelimiter")]
+        [PolicyResourceProperty("labelDelimiter", "_mUnknown_LabelDelimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLabelDelimiter;
-
-        public string? LabelDelimiter => _mLabelDelimiter.GetValue("labelDelimiter");
+        private string? _mValue_LabelDelimiter;
+        private bool _mUnknown_LabelDelimiter;
+        public string? LabelDelimiter
+        {
+            get
+            {
+                if (!_mUnknown_LabelDelimiter) return _mValue_LabelDelimiter;
+                throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfigArgs.LabelDelimiter' is not present");
+            }
+        }
 
         /// <summary>
         /// Location of training documents.
         /// Used if `data_format` is `COMPREHEND_CSV`.
         /// </summary>
-        [Input("s3Uri")]
+        [PolicyResourceProperty("s3Uri", "_mUnknown_S3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Uri;
+        private string? _mValue_S3Uri;
+        private bool _mUnknown_S3Uri;
+        public string? S3Uri
+        {
+            get
+            {
+                if (!_mUnknown_S3Uri) return _mValue_S3Uri;
+                throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfigArgs.S3Uri' is not present");
+            }
+        }
 
-        public string? S3Uri => _mS3Uri.GetValue("s3Uri");
-
-        [Input("testS3Uri")]
+        [PolicyResourceProperty("testS3Uri", "_mUnknown_TestS3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTestS3Uri;
-
-        public string? TestS3Uri => _mTestS3Uri.GetValue("testS3Uri");
+        private string? _mValue_TestS3Uri;
+        private bool _mUnknown_TestS3Uri;
+        public string? TestS3Uri
+        {
+            get
+            {
+                if (!_mUnknown_TestS3Uri) return _mValue_TestS3Uri;
+                throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfigArgs.TestS3Uri' is not present");
+            }
+        }
     }
 }

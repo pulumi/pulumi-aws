@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Rekognition.Outputs
         /// <summary>
         /// The value of the X coordinate for a point on a Polygon.
         /// </summary>
-        [Input("x")]
+        [PolicyResourceProperty("x", "_mUnknown_X")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mX;
-
-        public double? X => _mX.GetValue("x");
+        private double? _mValue_X;
+        private bool _mUnknown_X;
+        public double? X
+        {
+            get
+            {
+                if (!_mUnknown_X) return _mValue_X;
+                throw new UndeferrableValueException("Value 'StreamProcessorRegionsOfInterestPolygon.X' is not present");
+            }
+        }
 
         /// <summary>
         /// The value of the Y coordinate for a point on a Polygon.
         /// </summary>
-        [Input("y")]
+        [PolicyResourceProperty("y", "_mUnknown_Y")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mY;
-
-        public double? Y => _mY.GetValue("y");
+        private double? _mValue_Y;
+        private bool _mUnknown_Y;
+        public double? Y
+        {
+            get
+            {
+                if (!_mUnknown_Y) return _mValue_Y;
+                throw new UndeferrableValueException("Value 'StreamProcessorRegionsOfInterestPolygon.Y' is not present");
+            }
+        }
     }
 }

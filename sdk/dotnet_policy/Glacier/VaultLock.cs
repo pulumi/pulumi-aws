@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Glacier
         /// <summary>
         /// Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
         /// </summary>
-        [Input("completeLock")]
+        [PolicyResourceProperty("completeLock", "_mUnknown_CompleteLock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCompleteLock;
-
-        public bool? CompleteLock => _mCompleteLock.GetValue("completeLock");
+        private bool? _mValue_CompleteLock;
+        private bool _mUnknown_CompleteLock;
+        public bool? CompleteLock
+        {
+            get
+            {
+                if (!_mUnknown_CompleteLock) return _mValue_CompleteLock;
+                throw new UndeferrableValueException("Value 'VaultLock.CompleteLock' is not present");
+            }
+        }
 
         /// <summary>
         /// Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
         /// </summary>
-        [Input("ignoreDeletionError")]
+        [PolicyResourceProperty("ignoreDeletionError", "_mUnknown_IgnoreDeletionError")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnoreDeletionError;
-
-        public bool? IgnoreDeletionError => _mIgnoreDeletionError.GetValue("ignoreDeletionError");
+        private bool? _mValue_IgnoreDeletionError;
+        private bool _mUnknown_IgnoreDeletionError;
+        public bool? IgnoreDeletionError
+        {
+            get
+            {
+                if (!_mUnknown_IgnoreDeletionError) return _mValue_IgnoreDeletionError;
+                throw new UndeferrableValueException("Value 'VaultLock.IgnoreDeletionError' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'VaultLock.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Glacier Vault.
         /// </summary>
-        [Input("vaultName")]
+        [PolicyResourceProperty("vaultName", "_mUnknown_VaultName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVaultName;
-
-        public string? VaultName => _mVaultName.GetValue("vaultName");
+        private string? _mValue_VaultName;
+        private bool _mUnknown_VaultName;
+        public string? VaultName
+        {
+            get
+            {
+                if (!_mUnknown_VaultName) return _mValue_VaultName;
+                throw new UndeferrableValueException("Value 'VaultLock.VaultName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:glacier/vaultLock:VaultLock")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.Glacier
         /// <summary>
         /// Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
         /// </summary>
-        [Input("completeLock")]
+        [PolicyResourceProperty("completeLock", "_mUnknown_CompleteLock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCompleteLock;
-
-        public bool? CompleteLock => _mCompleteLock.GetValue("completeLock");
+        private bool? _mValue_CompleteLock;
+        private bool _mUnknown_CompleteLock;
+        public bool? CompleteLock
+        {
+            get
+            {
+                if (!_mUnknown_CompleteLock) return _mValue_CompleteLock;
+                throw new UndeferrableValueException("Value 'VaultLockArgs.CompleteLock' is not present");
+            }
+        }
 
         /// <summary>
         /// Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
         /// </summary>
-        [Input("ignoreDeletionError")]
+        [PolicyResourceProperty("ignoreDeletionError", "_mUnknown_IgnoreDeletionError")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnoreDeletionError;
-
-        public bool? IgnoreDeletionError => _mIgnoreDeletionError.GetValue("ignoreDeletionError");
+        private bool? _mValue_IgnoreDeletionError;
+        private bool _mUnknown_IgnoreDeletionError;
+        public bool? IgnoreDeletionError
+        {
+            get
+            {
+                if (!_mUnknown_IgnoreDeletionError) return _mValue_IgnoreDeletionError;
+                throw new UndeferrableValueException("Value 'VaultLockArgs.IgnoreDeletionError' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'VaultLockArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Glacier Vault.
         /// </summary>
-        [Input("vaultName")]
+        [PolicyResourceProperty("vaultName", "_mUnknown_VaultName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVaultName;
-
-        public string? VaultName => _mVaultName.GetValue("vaultName");
+        private string? _mValue_VaultName;
+        private bool _mUnknown_VaultName;
+        public string? VaultName
+        {
+            get
+            {
+                if (!_mUnknown_VaultName) return _mValue_VaultName;
+                throw new UndeferrableValueException("Value 'VaultLockArgs.VaultName' is not present");
+            }
+        }
     }
 }

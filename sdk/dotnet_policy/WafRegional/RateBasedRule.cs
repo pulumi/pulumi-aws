@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional
         /// <summary>
         /// The ARN of the WAF Regional Rate Based Rule.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'RateBasedRule.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or description for the Amazon CloudWatch metric of this rule.
         /// </summary>
-        [Input("metricName")]
+        [PolicyResourceProperty("metricName", "_mUnknown_MetricName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricName;
-
-        public string? MetricName => _mMetricName.GetValue("metricName");
+        private string? _mValue_MetricName;
+        private bool _mUnknown_MetricName;
+        public string? MetricName
+        {
+            get
+            {
+                if (!_mUnknown_MetricName) return _mValue_MetricName;
+                throw new UndeferrableValueException("Value 'RateBasedRule.MetricName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or description of the rule.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RateBasedRule.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The objects to include in a rule (documented below).
         /// </summary>
-        [Input("predicates")]
+        [PolicyResourceProperty("predicates", "_mUnknown_Predicates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RateBasedRulePredicate>> _mPredicates;
-
-        public List<Outputs.RateBasedRulePredicate>? Predicates => _mPredicates.GetValue("predicates");
+        private List<Outputs.RateBasedRulePredicate>? _mValue_Predicates;
+        private bool _mUnknown_Predicates;
+        public List<Outputs.RateBasedRulePredicate>? Predicates
+        {
+            get
+            {
+                if (!_mUnknown_Predicates) return _mValue_Predicates;
+                throw new UndeferrableValueException("Value 'RateBasedRule.Predicates' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid value is IP.
         /// </summary>
-        [Input("rateKey")]
+        [PolicyResourceProperty("rateKey", "_mUnknown_RateKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRateKey;
-
-        public string? RateKey => _mRateKey.GetValue("rateKey");
+        private string? _mValue_RateKey;
+        private bool _mUnknown_RateKey;
+        public string? RateKey
+        {
+            get
+            {
+                if (!_mUnknown_RateKey) return _mValue_RateKey;
+                throw new UndeferrableValueException("Value 'RateBasedRule.RateKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
         /// </summary>
-        [Input("rateLimit")]
+        [PolicyResourceProperty("rateLimit", "_mUnknown_RateLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRateLimit;
-
-        public int? RateLimit => _mRateLimit.GetValue("rateLimit");
+        private int? _mValue_RateLimit;
+        private bool _mUnknown_RateLimit;
+        public int? RateLimit
+        {
+            get
+            {
+                if (!_mUnknown_RateLimit) return _mValue_RateLimit;
+                throw new UndeferrableValueException("Value 'RateBasedRule.RateLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RateBasedRule.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'RateBasedRule.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:wafregional/rateBasedRule:RateBasedRule")]
@@ -92,55 +148,97 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional
         /// <summary>
         /// The name or description for the Amazon CloudWatch metric of this rule.
         /// </summary>
-        [Input("metricName")]
+        [PolicyResourceProperty("metricName", "_mUnknown_MetricName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricName;
-
-        public string? MetricName => _mMetricName.GetValue("metricName");
+        private string? _mValue_MetricName;
+        private bool _mUnknown_MetricName;
+        public string? MetricName
+        {
+            get
+            {
+                if (!_mUnknown_MetricName) return _mValue_MetricName;
+                throw new UndeferrableValueException("Value 'RateBasedRuleArgs.MetricName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or description of the rule.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RateBasedRuleArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The objects to include in a rule (documented below).
         /// </summary>
-        [Input("predicates")]
+        [PolicyResourceProperty("predicates", "_mUnknown_Predicates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RateBasedRulePredicateArgs>> _mPredicates;
-
-        public List<Inputs.RateBasedRulePredicateArgs>? Predicates => _mPredicates.GetValue("predicates");
+        private List<Inputs.RateBasedRulePredicateArgs>? _mValue_Predicates;
+        private bool _mUnknown_Predicates;
+        public List<Inputs.RateBasedRulePredicateArgs>? Predicates
+        {
+            get
+            {
+                if (!_mUnknown_Predicates) return _mValue_Predicates;
+                throw new UndeferrableValueException("Value 'RateBasedRuleArgs.Predicates' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid value is IP.
         /// </summary>
-        [Input("rateKey")]
+        [PolicyResourceProperty("rateKey", "_mUnknown_RateKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRateKey;
-
-        public string? RateKey => _mRateKey.GetValue("rateKey");
+        private string? _mValue_RateKey;
+        private bool _mUnknown_RateKey;
+        public string? RateKey
+        {
+            get
+            {
+                if (!_mUnknown_RateKey) return _mValue_RateKey;
+                throw new UndeferrableValueException("Value 'RateBasedRuleArgs.RateKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
         /// </summary>
-        [Input("rateLimit")]
+        [PolicyResourceProperty("rateLimit", "_mUnknown_RateLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRateLimit;
-
-        public int? RateLimit => _mRateLimit.GetValue("rateLimit");
+        private int? _mValue_RateLimit;
+        private bool _mUnknown_RateLimit;
+        public int? RateLimit
+        {
+            get
+            {
+                if (!_mUnknown_RateLimit) return _mValue_RateLimit;
+                throw new UndeferrableValueException("Value 'RateBasedRuleArgs.RateLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RateBasedRuleArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppFabric.Inputs
         /// <summary>
         /// The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
         /// </summary>
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
-
-        public string? Format => _mFormat.GetValue("format");
+        private string? _mValue_Format;
+        private bool _mUnknown_Format;
+        public string? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'IngestionDestinationProcessingConfigurationAuditLogArgs.Format' is not present");
+            }
+        }
 
         /// <summary>
         /// The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
         /// </summary>
-        [Input("schema")]
+        [PolicyResourceProperty("schema", "_mUnknown_Schema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchema;
-
-        public string? Schema => _mSchema.GetValue("schema");
+        private string? _mValue_Schema;
+        private bool _mUnknown_Schema;
+        public string? Schema
+        {
+            get
+            {
+                if (!_mUnknown_Schema) return _mValue_Schema;
+                throw new UndeferrableValueException("Value 'IngestionDestinationProcessingConfigurationAuditLogArgs.Schema' is not present");
+            }
+        }
     }
 }

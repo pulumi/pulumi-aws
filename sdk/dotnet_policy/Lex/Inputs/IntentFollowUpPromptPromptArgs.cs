@@ -15,32 +15,53 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
         /// </summary>
-        [Input("maxAttempts")]
+        [PolicyResourceProperty("maxAttempts", "_mUnknown_MaxAttempts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxAttempts;
-
-        public int? MaxAttempts => _mMaxAttempts.GetValue("maxAttempts");
+        private int? _mValue_MaxAttempts;
+        private bool _mUnknown_MaxAttempts;
+        public int? MaxAttempts
+        {
+            get
+            {
+                if (!_mUnknown_MaxAttempts) return _mValue_MaxAttempts;
+                throw new UndeferrableValueException("Value 'IntentFollowUpPromptPromptArgs.MaxAttempts' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of messages, each of which provides a message string and its type.
         /// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
         /// Attributes are documented under message. Must contain between 1 and 15 messages.
         /// </summary>
-        [Input("messages")]
+        [PolicyResourceProperty("messages", "_mUnknown_Messages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.IntentFollowUpPromptPromptMessageArgs>> _mMessages;
-
-        public List<Inputs.IntentFollowUpPromptPromptMessageArgs>? Messages => _mMessages.GetValue("messages");
+        private List<Inputs.IntentFollowUpPromptPromptMessageArgs>? _mValue_Messages;
+        private bool _mUnknown_Messages;
+        public List<Inputs.IntentFollowUpPromptPromptMessageArgs>? Messages
+        {
+            get
+            {
+                if (!_mUnknown_Messages) return _mValue_Messages;
+                throw new UndeferrableValueException("Value 'IntentFollowUpPromptPromptArgs.Messages' is not present");
+            }
+        }
 
         /// <summary>
         /// The response card. Amazon Lex will substitute session attributes and
         /// slot values into the response card. For more information, see
         /// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         /// </summary>
-        [Input("responseCard")]
+        [PolicyResourceProperty("responseCard", "_mUnknown_ResponseCard")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResponseCard;
-
-        public string? ResponseCard => _mResponseCard.GetValue("responseCard");
+        private string? _mValue_ResponseCard;
+        private bool _mUnknown_ResponseCard;
+        public string? ResponseCard
+        {
+            get
+            {
+                if (!_mUnknown_ResponseCard) return _mValue_ResponseCard;
+                throw new UndeferrableValueException("Value 'IntentFollowUpPromptPromptArgs.ResponseCard' is not present");
+            }
+        }
     }
 }

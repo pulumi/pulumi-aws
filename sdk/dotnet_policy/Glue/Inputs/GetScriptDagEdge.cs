@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// ID of the node at which the edge starts.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
-
-        public string? Source => _mSource.GetValue("source");
+        private string? _mValue_Source;
+        private bool _mUnknown_Source;
+        public string? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'GetScriptDagEdgeArgs.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the node at which the edge ends.
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
-
-        public string? Target => _mTarget.GetValue("target");
+        private string? _mValue_Target;
+        private bool _mUnknown_Target;
+        public string? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'GetScriptDagEdgeArgs.Target' is not present");
+            }
+        }
 
         /// <summary>
         /// Target of the edge.
         /// </summary>
-        [Input("targetParameter")]
+        [PolicyResourceProperty("targetParameter", "_mUnknown_TargetParameter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetParameter;
-
-        public string? TargetParameter => _mTargetParameter.GetValue("targetParameter");
+        private string? _mValue_TargetParameter;
+        private bool _mUnknown_TargetParameter;
+        public string? TargetParameter
+        {
+            get
+            {
+                if (!_mUnknown_TargetParameter) return _mValue_TargetParameter;
+                throw new UndeferrableValueException("Value 'GetScriptDagEdgeArgs.TargetParameter' is not present");
+            }
+        }
     }
 }

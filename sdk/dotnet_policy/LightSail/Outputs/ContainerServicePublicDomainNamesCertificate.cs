@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.LightSail.Outputs
 {
     public sealed class ContainerServicePublicDomainNamesCertificate
     {
-        [Input("certificateName")]
+        [PolicyResourceProperty("certificateName", "_mUnknown_CertificateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateName;
+        private string? _mValue_CertificateName;
+        private bool _mUnknown_CertificateName;
+        public string? CertificateName
+        {
+            get
+            {
+                if (!_mUnknown_CertificateName) return _mValue_CertificateName;
+                throw new UndeferrableValueException("Value 'ContainerServicePublicDomainNamesCertificate.CertificateName' is not present");
+            }
+        }
 
-        public string? CertificateName => _mCertificateName.GetValue("certificateName");
-
-        [Input("domainNames")]
+        [PolicyResourceProperty("domainNames", "_mUnknown_DomainNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDomainNames;
-
-        public List<string>? DomainNames => _mDomainNames.GetValue("domainNames");
+        private List<string>? _mValue_DomainNames;
+        private bool _mUnknown_DomainNames;
+        public List<string>? DomainNames
+        {
+            get
+            {
+                if (!_mUnknown_DomainNames) return _mValue_DomainNames;
+                throw new UndeferrableValueException("Value 'ContainerServicePublicDomainNamesCertificate.DomainNames' is not present");
+            }
+        }
     }
 }

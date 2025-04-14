@@ -16,116 +16,207 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Availability Zone of the EC2 Instance Connect Endpoint.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS name of the EC2 Instance Connect Endpoint.
         /// </summary>
-        [Input("dnsName")]
+        [PolicyResourceProperty("dnsName", "_mUnknown_DnsName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsName;
-
-        public string? DnsName => _mDnsName.GetValue("dnsName");
+        private string? _mValue_DnsName;
+        private bool _mUnknown_DnsName;
+        public string? DnsName
+        {
+            get
+            {
+                if (!_mUnknown_DnsName) return _mValue_DnsName;
+                throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.DnsName' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS name of the EC2 Instance Connect FIPS Endpoint.
         /// </summary>
-        [Input("fipsDnsName")]
+        [PolicyResourceProperty("fipsDnsName", "_mUnknown_FipsDnsName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFipsDnsName;
-
-        public string? FipsDnsName => _mFipsDnsName.GetValue("fipsDnsName");
+        private string? _mValue_FipsDnsName;
+        private bool _mUnknown_FipsDnsName;
+        public string? FipsDnsName
+        {
+            get
+            {
+                if (!_mUnknown_FipsDnsName) return _mValue_FipsDnsName;
+                throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.FipsDnsName' is not present");
+            }
+        }
 
         /// <summary>
         /// The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
         /// </summary>
-        [Input("networkInterfaceIds")]
+        [PolicyResourceProperty("networkInterfaceIds", "_mUnknown_NetworkInterfaceIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNetworkInterfaceIds;
-
-        public List<string>? NetworkInterfaceIds => _mNetworkInterfaceIds.GetValue("networkInterfaceIds");
+        private List<string>? _mValue_NetworkInterfaceIds;
+        private bool _mUnknown_NetworkInterfaceIds;
+        public List<string>? NetworkInterfaceIds
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceIds) return _mValue_NetworkInterfaceIds;
+                throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.NetworkInterfaceIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the AWS account that created the EC2 Instance Connect Endpoint.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether your client's IP address is preserved as the source. Default: `true`.
         /// </summary>
-        [Input("preserveClientIp")]
+        [PolicyResourceProperty("preserveClientIp", "_mUnknown_PreserveClientIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPreserveClientIp;
-
-        public bool? PreserveClientIp => _mPreserveClientIp.GetValue("preserveClientIp");
+        private bool? _mValue_PreserveClientIp;
+        private bool _mUnknown_PreserveClientIp;
+        public bool? PreserveClientIp
+        {
+            get
+            {
+                if (!_mUnknown_PreserveClientIp) return _mValue_PreserveClientIp;
+                throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.PreserveClientIp' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceConnectEndpointTimeouts> _mTimeouts;
-
-        public Outputs.InstanceConnectEndpointTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.InstanceConnectEndpointTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.InstanceConnectEndpointTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint")]
@@ -134,43 +225,78 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// Indicates whether your client's IP address is preserved as the source. Default: `true`.
         /// </summary>
-        [Input("preserveClientIp")]
+        [PolicyResourceProperty("preserveClientIp", "_mUnknown_PreserveClientIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPreserveClientIp;
-
-        public bool? PreserveClientIp => _mPreserveClientIp.GetValue("preserveClientIp");
+        private bool? _mValue_PreserveClientIp;
+        private bool _mUnknown_PreserveClientIp;
+        public bool? PreserveClientIp
+        {
+            get
+            {
+                if (!_mUnknown_PreserveClientIp) return _mValue_PreserveClientIp;
+                throw new UndeferrableValueException("Value 'InstanceConnectEndpointArgs.PreserveClientIp' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'InstanceConnectEndpointArgs.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'InstanceConnectEndpointArgs.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'InstanceConnectEndpointArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceConnectEndpointTimeoutsArgs> _mTimeouts;
-
-        public Inputs.InstanceConnectEndpointTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.InstanceConnectEndpointTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.InstanceConnectEndpointTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'InstanceConnectEndpointArgs.Timeouts' is not present");
+            }
+        }
     }
 }

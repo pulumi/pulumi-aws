@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'FeatureGroupOfflineStoreConfigS3StorageConfigArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 path where offline records are written.
         /// </summary>
-        [Input("resolvedOutputS3Uri")]
+        [PolicyResourceProperty("resolvedOutputS3Uri", "_mUnknown_ResolvedOutputS3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResolvedOutputS3Uri;
-
-        public string? ResolvedOutputS3Uri => _mResolvedOutputS3Uri.GetValue("resolvedOutputS3Uri");
+        private string? _mValue_ResolvedOutputS3Uri;
+        private bool _mUnknown_ResolvedOutputS3Uri;
+        public string? ResolvedOutputS3Uri
+        {
+            get
+            {
+                if (!_mUnknown_ResolvedOutputS3Uri) return _mValue_ResolvedOutputS3Uri;
+                throw new UndeferrableValueException("Value 'FeatureGroupOfflineStoreConfigS3StorageConfigArgs.ResolvedOutputS3Uri' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 URI, or location in Amazon S3, of OfflineStore.
         /// </summary>
-        [Input("s3Uri")]
+        [PolicyResourceProperty("s3Uri", "_mUnknown_S3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Uri;
-
-        public string? S3Uri => _mS3Uri.GetValue("s3Uri");
+        private string? _mValue_S3Uri;
+        private bool _mUnknown_S3Uri;
+        public string? S3Uri
+        {
+            get
+            {
+                if (!_mUnknown_S3Uri) return _mValue_S3Uri;
+                throw new UndeferrableValueException("Value 'FeatureGroupOfflineStoreConfigS3StorageConfigArgs.S3Uri' is not present");
+            }
+        }
     }
 }

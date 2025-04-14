@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.AppAutoScaling.Outputs
         /// <summary>
         /// Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
         /// </summary>
-        [Input("customizedMetricSpecification")]
+        [PolicyResourceProperty("customizedMetricSpecification", "_mUnknown_CustomizedMetricSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification> _mCustomizedMetricSpecification;
-
-        public Outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification? CustomizedMetricSpecification => _mCustomizedMetricSpecification.GetValue("customizedMetricSpecification");
+        private Outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification? _mValue_CustomizedMetricSpecification;
+        private bool _mUnknown_CustomizedMetricSpecification;
+        public Outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification? CustomizedMetricSpecification
+        {
+            get
+            {
+                if (!_mUnknown_CustomizedMetricSpecification) return _mValue_CustomizedMetricSpecification;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfiguration.CustomizedMetricSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
         /// </summary>
-        [Input("disableScaleIn")]
+        [PolicyResourceProperty("disableScaleIn", "_mUnknown_DisableScaleIn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableScaleIn;
-
-        public bool? DisableScaleIn => _mDisableScaleIn.GetValue("disableScaleIn");
+        private bool? _mValue_DisableScaleIn;
+        private bool _mUnknown_DisableScaleIn;
+        public bool? DisableScaleIn
+        {
+            get
+            {
+                if (!_mUnknown_DisableScaleIn) return _mValue_DisableScaleIn;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfiguration.DisableScaleIn' is not present");
+            }
+        }
 
         /// <summary>
         /// Predefined metric. See supported fields below.
         /// </summary>
-        [Input("predefinedMetricSpecification")]
+        [PolicyResourceProperty("predefinedMetricSpecification", "_mUnknown_PredefinedMetricSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification> _mPredefinedMetricSpecification;
-
-        public Outputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification? PredefinedMetricSpecification => _mPredefinedMetricSpecification.GetValue("predefinedMetricSpecification");
+        private Outputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification? _mValue_PredefinedMetricSpecification;
+        private bool _mUnknown_PredefinedMetricSpecification;
+        public Outputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification? PredefinedMetricSpecification
+        {
+            get
+            {
+                if (!_mUnknown_PredefinedMetricSpecification) return _mValue_PredefinedMetricSpecification;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfiguration.PredefinedMetricSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
         /// </summary>
-        [Input("scaleInCooldown")]
+        [PolicyResourceProperty("scaleInCooldown", "_mUnknown_ScaleInCooldown")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mScaleInCooldown;
-
-        public int? ScaleInCooldown => _mScaleInCooldown.GetValue("scaleInCooldown");
+        private int? _mValue_ScaleInCooldown;
+        private bool _mUnknown_ScaleInCooldown;
+        public int? ScaleInCooldown
+        {
+            get
+            {
+                if (!_mUnknown_ScaleInCooldown) return _mValue_ScaleInCooldown;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfiguration.ScaleInCooldown' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
         /// </summary>
-        [Input("scaleOutCooldown")]
+        [PolicyResourceProperty("scaleOutCooldown", "_mUnknown_ScaleOutCooldown")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mScaleOutCooldown;
-
-        public int? ScaleOutCooldown => _mScaleOutCooldown.GetValue("scaleOutCooldown");
+        private int? _mValue_ScaleOutCooldown;
+        private bool _mUnknown_ScaleOutCooldown;
+        public int? ScaleOutCooldown
+        {
+            get
+            {
+                if (!_mUnknown_ScaleOutCooldown) return _mValue_ScaleOutCooldown;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfiguration.ScaleOutCooldown' is not present");
+            }
+        }
 
         /// <summary>
         /// Target value for the metric.
         /// </summary>
-        [Input("targetValue")]
+        [PolicyResourceProperty("targetValue", "_mUnknown_TargetValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mTargetValue;
-
-        public double? TargetValue => _mTargetValue.GetValue("targetValue");
+        private double? _mValue_TargetValue;
+        private bool _mUnknown_TargetValue;
+        public double? TargetValue
+        {
+            get
+            {
+                if (!_mUnknown_TargetValue) return _mValue_TargetValue;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfiguration.TargetValue' is not present");
+            }
+        }
     }
 }

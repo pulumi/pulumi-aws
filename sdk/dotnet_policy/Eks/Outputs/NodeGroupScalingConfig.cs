@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// <summary>
         /// Desired number of worker nodes.
         /// </summary>
-        [Input("desiredSize")]
+        [PolicyResourceProperty("desiredSize", "_mUnknown_DesiredSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredSize;
-
-        public int? DesiredSize => _mDesiredSize.GetValue("desiredSize");
+        private int? _mValue_DesiredSize;
+        private bool _mUnknown_DesiredSize;
+        public int? DesiredSize
+        {
+            get
+            {
+                if (!_mUnknown_DesiredSize) return _mValue_DesiredSize;
+                throw new UndeferrableValueException("Value 'NodeGroupScalingConfig.DesiredSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of worker nodes.
         /// </summary>
-        [Input("maxSize")]
+        [PolicyResourceProperty("maxSize", "_mUnknown_MaxSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSize;
-
-        public int? MaxSize => _mMaxSize.GetValue("maxSize");
+        private int? _mValue_MaxSize;
+        private bool _mUnknown_MaxSize;
+        public int? MaxSize
+        {
+            get
+            {
+                if (!_mUnknown_MaxSize) return _mValue_MaxSize;
+                throw new UndeferrableValueException("Value 'NodeGroupScalingConfig.MaxSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum number of worker nodes.
         /// </summary>
-        [Input("minSize")]
+        [PolicyResourceProperty("minSize", "_mUnknown_MinSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinSize;
-
-        public int? MinSize => _mMinSize.GetValue("minSize");
+        private int? _mValue_MinSize;
+        private bool _mUnknown_MinSize;
+        public int? MinSize
+        {
+            get
+            {
+                if (!_mUnknown_MinSize) return _mValue_MinSize;
+                throw new UndeferrableValueException("Value 'NodeGroupScalingConfig.MinSize' is not present");
+            }
+        }
     }
 }

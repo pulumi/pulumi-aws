@@ -16,94 +16,164 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder
         /// <summary>
         /// Amazon Resource Name (ARN) of the lifecycle policy.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LifecyclePolicy.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// description for the lifecycle policy.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'LifecyclePolicy.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         /// </summary>
-        [Input("executionRole")]
+        [PolicyResourceProperty("executionRole", "_mUnknown_ExecutionRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRole;
-
-        public string? ExecutionRole => _mExecutionRole.GetValue("executionRole");
+        private string? _mValue_ExecutionRole;
+        private bool _mUnknown_ExecutionRole;
+        public string? ExecutionRole
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRole) return _mValue_ExecutionRole;
+                throw new UndeferrableValueException("Value 'LifecyclePolicy.ExecutionRole' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the lifecycle policy to create.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LifecyclePolicy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with policy details. Detailed below.
         /// </summary>
-        [Input("policyDetails")]
+        [PolicyResourceProperty("policyDetails", "_mUnknown_PolicyDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LifecyclePolicyPolicyDetail>> _mPolicyDetails;
-
-        public List<Outputs.LifecyclePolicyPolicyDetail>? PolicyDetails => _mPolicyDetails.GetValue("policyDetails");
+        private List<Outputs.LifecyclePolicyPolicyDetail>? _mValue_PolicyDetails;
+        private bool _mUnknown_PolicyDetails;
+        public List<Outputs.LifecyclePolicyPolicyDetail>? PolicyDetails
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDetails) return _mValue_PolicyDetails;
+                throw new UndeferrableValueException("Value 'LifecyclePolicy.PolicyDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("resourceSelection")]
+        [PolicyResourceProperty("resourceSelection", "_mUnknown_ResourceSelection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LifecyclePolicyResourceSelection> _mResourceSelection;
-
-        public Outputs.LifecyclePolicyResourceSelection? ResourceSelection => _mResourceSelection.GetValue("resourceSelection");
+        private Outputs.LifecyclePolicyResourceSelection? _mValue_ResourceSelection;
+        private bool _mUnknown_ResourceSelection;
+        public Outputs.LifecyclePolicyResourceSelection? ResourceSelection
+        {
+            get
+            {
+                if (!_mUnknown_ResourceSelection) return _mValue_ResourceSelection;
+                throw new UndeferrableValueException("Value 'LifecyclePolicy.ResourceSelection' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'LifecyclePolicy.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the lifecycle policy.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'LifecyclePolicy.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LifecyclePolicy.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'LifecyclePolicy.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:imagebuilder/lifecyclePolicy:LifecyclePolicy")]
@@ -112,75 +182,131 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder
         /// <summary>
         /// description for the lifecycle policy.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         /// </summary>
-        [Input("executionRole")]
+        [PolicyResourceProperty("executionRole", "_mUnknown_ExecutionRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRole;
-
-        public string? ExecutionRole => _mExecutionRole.GetValue("executionRole");
+        private string? _mValue_ExecutionRole;
+        private bool _mUnknown_ExecutionRole;
+        public string? ExecutionRole
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRole) return _mValue_ExecutionRole;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.ExecutionRole' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the lifecycle policy to create.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with policy details. Detailed below.
         /// </summary>
-        [Input("policyDetails")]
+        [PolicyResourceProperty("policyDetails", "_mUnknown_PolicyDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LifecyclePolicyPolicyDetailArgs>> _mPolicyDetails;
-
-        public List<Inputs.LifecyclePolicyPolicyDetailArgs>? PolicyDetails => _mPolicyDetails.GetValue("policyDetails");
+        private List<Inputs.LifecyclePolicyPolicyDetailArgs>? _mValue_PolicyDetails;
+        private bool _mUnknown_PolicyDetails;
+        public List<Inputs.LifecyclePolicyPolicyDetailArgs>? PolicyDetails
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDetails) return _mValue_PolicyDetails;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.PolicyDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("resourceSelection")]
+        [PolicyResourceProperty("resourceSelection", "_mUnknown_ResourceSelection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LifecyclePolicyResourceSelectionArgs> _mResourceSelection;
-
-        public Inputs.LifecyclePolicyResourceSelectionArgs? ResourceSelection => _mResourceSelection.GetValue("resourceSelection");
+        private Inputs.LifecyclePolicyResourceSelectionArgs? _mValue_ResourceSelection;
+        private bool _mUnknown_ResourceSelection;
+        public Inputs.LifecyclePolicyResourceSelectionArgs? ResourceSelection
+        {
+            get
+            {
+                if (!_mUnknown_ResourceSelection) return _mValue_ResourceSelection;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.ResourceSelection' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the lifecycle policy.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.Tags' is not present");
+            }
+        }
     }
 }

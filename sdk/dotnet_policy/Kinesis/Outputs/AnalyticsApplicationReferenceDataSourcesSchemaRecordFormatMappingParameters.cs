@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// Mapping information when the record format uses delimiters.
         /// See CSV Mapping Parameters below for more details.
         /// </summary>
-        [Input("csv")]
+        [PolicyResourceProperty("csv", "_mUnknown_Csv")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv> _mCsv;
-
-        public Outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv? Csv => _mCsv.GetValue("csv");
+        private Outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv? _mValue_Csv;
+        private bool _mUnknown_Csv;
+        public Outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv? Csv
+        {
+            get
+            {
+                if (!_mUnknown_Csv) return _mValue_Csv;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters.Csv' is not present");
+            }
+        }
 
         /// <summary>
         /// Mapping information when JSON is the record format on the streaming source.
         /// See JSON Mapping Parameters below for more details.
         /// </summary>
-        [Input("json")]
+        [PolicyResourceProperty("json", "_mUnknown_Json")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson> _mJson;
-
-        public Outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson? Json => _mJson.GetValue("json");
+        private Outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson? _mValue_Json;
+        private bool _mUnknown_Json;
+        public Outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson? Json
+        {
+            get
+            {
+                if (!_mUnknown_Json) return _mValue_Json;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters.Json' is not present");
+            }
+        }
     }
 }

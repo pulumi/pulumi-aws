@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Connect
         /// <summary>
         /// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
         /// </summary>
-        [Input("associationId")]
+        [PolicyResourceProperty("associationId", "_mUnknown_AssociationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationId;
-
-        public string? AssociationId => _mAssociationId.GetValue("associationId");
+        private string? _mValue_AssociationId;
+        private bool _mUnknown_AssociationId;
+        public string? AssociationId
+        {
+            get
+            {
+                if (!_mUnknown_AssociationId) return _mValue_AssociationId;
+                throw new UndeferrableValueException("Value 'InstanceStorageConfig.AssociationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'InstanceStorageConfig.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `EMAIL_MESSAGES` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'InstanceStorageConfig.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the storage configuration options for the Connect Instance. Documented below.
         /// </summary>
-        [Input("storageConfig")]
+        [PolicyResourceProperty("storageConfig", "_mUnknown_StorageConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceStorageConfigStorageConfig> _mStorageConfig;
-
-        public Outputs.InstanceStorageConfigStorageConfig? StorageConfig => _mStorageConfig.GetValue("storageConfig");
+        private Outputs.InstanceStorageConfigStorageConfig? _mValue_StorageConfig;
+        private bool _mUnknown_StorageConfig;
+        public Outputs.InstanceStorageConfigStorageConfig? StorageConfig
+        {
+            get
+            {
+                if (!_mUnknown_StorageConfig) return _mValue_StorageConfig;
+                throw new UndeferrableValueException("Value 'InstanceStorageConfig.StorageConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:connect/instanceStorageConfig:InstanceStorageConfig")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.Connect
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'InstanceStorageConfigArgs.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `EMAIL_MESSAGES` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'InstanceStorageConfigArgs.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the storage configuration options for the Connect Instance. Documented below.
         /// </summary>
-        [Input("storageConfig")]
+        [PolicyResourceProperty("storageConfig", "_mUnknown_StorageConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceStorageConfigStorageConfigArgs> _mStorageConfig;
-
-        public Inputs.InstanceStorageConfigStorageConfigArgs? StorageConfig => _mStorageConfig.GetValue("storageConfig");
+        private Inputs.InstanceStorageConfigStorageConfigArgs? _mValue_StorageConfig;
+        private bool _mUnknown_StorageConfig;
+        public Inputs.InstanceStorageConfigStorageConfigArgs? StorageConfig
+        {
+            get
+            {
+                if (!_mUnknown_StorageConfig) return _mValue_StorageConfig;
+                throw new UndeferrableValueException("Value 'InstanceStorageConfigArgs.StorageConfig' is not present");
+            }
+        }
     }
 }

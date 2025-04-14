@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Evidently.Outputs
         /// <summary>
         /// If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
         /// </summary>
-        [Input("boolValue")]
+        [PolicyResourceProperty("boolValue", "_mUnknown_BoolValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBoolValue;
-
-        public string? BoolValue => _mBoolValue.GetValue("boolValue");
+        private string? _mValue_BoolValue;
+        private bool _mUnknown_BoolValue;
+        public string? BoolValue
+        {
+            get
+            {
+                if (!_mUnknown_BoolValue) return _mValue_BoolValue;
+                throw new UndeferrableValueException("Value 'FeatureVariationValue.BoolValue' is not present");
+            }
+        }
 
         /// <summary>
         /// If this feature uses the double integer variation type, this field contains the double integer value of this variation.
         /// </summary>
-        [Input("doubleValue")]
+        [PolicyResourceProperty("doubleValue", "_mUnknown_DoubleValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDoubleValue;
-
-        public string? DoubleValue => _mDoubleValue.GetValue("doubleValue");
+        private string? _mValue_DoubleValue;
+        private bool _mUnknown_DoubleValue;
+        public string? DoubleValue
+        {
+            get
+            {
+                if (!_mUnknown_DoubleValue) return _mValue_DoubleValue;
+                throw new UndeferrableValueException("Value 'FeatureVariationValue.DoubleValue' is not present");
+            }
+        }
 
         /// <summary>
         /// If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
         /// </summary>
-        [Input("longValue")]
+        [PolicyResourceProperty("longValue", "_mUnknown_LongValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLongValue;
-
-        public string? LongValue => _mLongValue.GetValue("longValue");
+        private string? _mValue_LongValue;
+        private bool _mUnknown_LongValue;
+        public string? LongValue
+        {
+            get
+            {
+                if (!_mUnknown_LongValue) return _mValue_LongValue;
+                throw new UndeferrableValueException("Value 'FeatureVariationValue.LongValue' is not present");
+            }
+        }
 
         /// <summary>
         /// If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
         /// </summary>
-        [Input("stringValue")]
+        [PolicyResourceProperty("stringValue", "_mUnknown_StringValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStringValue;
-
-        public string? StringValue => _mStringValue.GetValue("stringValue");
+        private string? _mValue_StringValue;
+        private bool _mUnknown_StringValue;
+        public string? StringValue
+        {
+            get
+            {
+                if (!_mUnknown_StringValue) return _mValue_StringValue;
+                throw new UndeferrableValueException("Value 'FeatureVariationValue.StringValue' is not present");
+            }
+        }
     }
 }

@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.LightSail.Inputs
 {
     public sealed class ContainerServicePublicDomainNamesArgs
     {
-        [Input("certificates")]
+        [PolicyResourceProperty("certificates", "_mUnknown_Certificates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ContainerServicePublicDomainNamesCertificateArgs>> _mCertificates;
-
-        public List<Inputs.ContainerServicePublicDomainNamesCertificateArgs>? Certificates => _mCertificates.GetValue("certificates");
+        private List<Inputs.ContainerServicePublicDomainNamesCertificateArgs>? _mValue_Certificates;
+        private bool _mUnknown_Certificates;
+        public List<Inputs.ContainerServicePublicDomainNamesCertificateArgs>? Certificates
+        {
+            get
+            {
+                if (!_mUnknown_Certificates) return _mValue_Certificates;
+                throw new UndeferrableValueException("Value 'ContainerServicePublicDomainNamesArgs.Certificates' is not present");
+            }
+        }
     }
 }

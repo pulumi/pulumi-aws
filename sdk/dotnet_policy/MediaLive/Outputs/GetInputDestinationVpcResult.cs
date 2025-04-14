@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class GetInputDestinationVpcResult
     {
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'GetInputDestinationVpcResult.AvailabilityZone' is not present");
+            }
+        }
 
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
-
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'GetInputDestinationVpcResult.NetworkInterfaceId' is not present");
+            }
+        }
     }
 }

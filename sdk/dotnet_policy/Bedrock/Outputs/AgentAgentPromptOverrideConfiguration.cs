@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
         /// </summary>
-        [Input("overrideLambda")]
+        [PolicyResourceProperty("overrideLambda", "_mUnknown_OverrideLambda")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOverrideLambda;
-
-        public string? OverrideLambda => _mOverrideLambda.GetValue("overrideLambda");
+        private string? _mValue_OverrideLambda;
+        private bool _mUnknown_OverrideLambda;
+        public string? OverrideLambda
+        {
+            get
+            {
+                if (!_mUnknown_OverrideLambda) return _mValue_OverrideLambda;
+                throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfiguration.OverrideLambda' is not present");
+            }
+        }
 
         /// <summary>
         /// Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
         /// </summary>
-        [Input("promptConfigurations")]
+        [PolicyResourceProperty("promptConfigurations", "_mUnknown_PromptConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AgentAgentPromptOverrideConfigurationPromptConfiguration>> _mPromptConfigurations;
-
-        public List<Outputs.AgentAgentPromptOverrideConfigurationPromptConfiguration>? PromptConfigurations => _mPromptConfigurations.GetValue("promptConfigurations");
+        private List<Outputs.AgentAgentPromptOverrideConfigurationPromptConfiguration>? _mValue_PromptConfigurations;
+        private bool _mUnknown_PromptConfigurations;
+        public List<Outputs.AgentAgentPromptOverrideConfigurationPromptConfiguration>? PromptConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_PromptConfigurations) return _mValue_PromptConfigurations;
+                throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfiguration.PromptConfigurations' is not present");
+            }
+        }
     }
 }

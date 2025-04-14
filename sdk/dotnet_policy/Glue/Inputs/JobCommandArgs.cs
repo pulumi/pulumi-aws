@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'JobCommandArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glue_version` is set to 5.0.
         /// </summary>
-        [Input("pythonVersion")]
+        [PolicyResourceProperty("pythonVersion", "_mUnknown_PythonVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPythonVersion;
-
-        public string? PythonVersion => _mPythonVersion.GetValue("pythonVersion");
+        private string? _mValue_PythonVersion;
+        private bool _mUnknown_PythonVersion;
+        public string? PythonVersion
+        {
+            get
+            {
+                if (!_mUnknown_PythonVersion) return _mValue_PythonVersion;
+                throw new UndeferrableValueException("Value 'JobCommandArgs.PythonVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
         /// </summary>
-        [Input("runtime")]
+        [PolicyResourceProperty("runtime", "_mUnknown_Runtime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuntime;
-
-        public string? Runtime => _mRuntime.GetValue("runtime");
+        private string? _mValue_Runtime;
+        private bool _mUnknown_Runtime;
+        public string? Runtime
+        {
+            get
+            {
+                if (!_mUnknown_Runtime) return _mValue_Runtime;
+                throw new UndeferrableValueException("Value 'JobCommandArgs.Runtime' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the S3 path to a script that executes a job.
         /// </summary>
-        [Input("scriptLocation")]
+        [PolicyResourceProperty("scriptLocation", "_mUnknown_ScriptLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScriptLocation;
-
-        public string? ScriptLocation => _mScriptLocation.GetValue("scriptLocation");
+        private string? _mValue_ScriptLocation;
+        private bool _mUnknown_ScriptLocation;
+        public string? ScriptLocation
+        {
+            get
+            {
+                if (!_mUnknown_ScriptLocation) return _mValue_ScriptLocation;
+                throw new UndeferrableValueException("Value 'JobCommandArgs.ScriptLocation' is not present");
+            }
+        }
     }
 }

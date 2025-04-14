@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// Thing group indexing configuration. See below.
         /// </summary>
-        [Input("thingGroupIndexingConfiguration")]
+        [PolicyResourceProperty("thingGroupIndexingConfiguration", "_mUnknown_ThingGroupIndexingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IndexingConfigurationThingGroupIndexingConfiguration> _mThingGroupIndexingConfiguration;
-
-        public Outputs.IndexingConfigurationThingGroupIndexingConfiguration? ThingGroupIndexingConfiguration => _mThingGroupIndexingConfiguration.GetValue("thingGroupIndexingConfiguration");
+        private Outputs.IndexingConfigurationThingGroupIndexingConfiguration? _mValue_ThingGroupIndexingConfiguration;
+        private bool _mUnknown_ThingGroupIndexingConfiguration;
+        public Outputs.IndexingConfigurationThingGroupIndexingConfiguration? ThingGroupIndexingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ThingGroupIndexingConfiguration) return _mValue_ThingGroupIndexingConfiguration;
+                throw new UndeferrableValueException("Value 'IndexingConfiguration.ThingGroupIndexingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Thing indexing configuration. See below.
         /// </summary>
-        [Input("thingIndexingConfiguration")]
+        [PolicyResourceProperty("thingIndexingConfiguration", "_mUnknown_ThingIndexingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IndexingConfigurationThingIndexingConfiguration> _mThingIndexingConfiguration;
-
-        public Outputs.IndexingConfigurationThingIndexingConfiguration? ThingIndexingConfiguration => _mThingIndexingConfiguration.GetValue("thingIndexingConfiguration");
+        private Outputs.IndexingConfigurationThingIndexingConfiguration? _mValue_ThingIndexingConfiguration;
+        private bool _mUnknown_ThingIndexingConfiguration;
+        public Outputs.IndexingConfigurationThingIndexingConfiguration? ThingIndexingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ThingIndexingConfiguration) return _mValue_ThingIndexingConfiguration;
+                throw new UndeferrableValueException("Value 'IndexingConfiguration.ThingIndexingConfiguration' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iot/indexingConfiguration:IndexingConfiguration")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// Thing group indexing configuration. See below.
         /// </summary>
-        [Input("thingGroupIndexingConfiguration")]
+        [PolicyResourceProperty("thingGroupIndexingConfiguration", "_mUnknown_ThingGroupIndexingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IndexingConfigurationThingGroupIndexingConfigurationArgs> _mThingGroupIndexingConfiguration;
-
-        public Inputs.IndexingConfigurationThingGroupIndexingConfigurationArgs? ThingGroupIndexingConfiguration => _mThingGroupIndexingConfiguration.GetValue("thingGroupIndexingConfiguration");
+        private Inputs.IndexingConfigurationThingGroupIndexingConfigurationArgs? _mValue_ThingGroupIndexingConfiguration;
+        private bool _mUnknown_ThingGroupIndexingConfiguration;
+        public Inputs.IndexingConfigurationThingGroupIndexingConfigurationArgs? ThingGroupIndexingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ThingGroupIndexingConfiguration) return _mValue_ThingGroupIndexingConfiguration;
+                throw new UndeferrableValueException("Value 'IndexingConfigurationArgs.ThingGroupIndexingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Thing indexing configuration. See below.
         /// </summary>
-        [Input("thingIndexingConfiguration")]
+        [PolicyResourceProperty("thingIndexingConfiguration", "_mUnknown_ThingIndexingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IndexingConfigurationThingIndexingConfigurationArgs> _mThingIndexingConfiguration;
-
-        public Inputs.IndexingConfigurationThingIndexingConfigurationArgs? ThingIndexingConfiguration => _mThingIndexingConfiguration.GetValue("thingIndexingConfiguration");
+        private Inputs.IndexingConfigurationThingIndexingConfigurationArgs? _mValue_ThingIndexingConfiguration;
+        private bool _mUnknown_ThingIndexingConfiguration;
+        public Inputs.IndexingConfigurationThingIndexingConfigurationArgs? ThingIndexingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ThingIndexingConfiguration) return _mValue_ThingIndexingConfiguration;
+                throw new UndeferrableValueException("Value 'IndexingConfigurationArgs.ThingIndexingConfiguration' is not present");
+            }
+        }
     }
 }

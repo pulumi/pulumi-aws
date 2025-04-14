@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFormation.Outputs
         /// <summary>
         /// Whether or not auto-deployment is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'StackSetAutoDeployment.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not to retain stacks when the account is removed.
         /// </summary>
-        [Input("retainStacksOnAccountRemoval")]
+        [PolicyResourceProperty("retainStacksOnAccountRemoval", "_mUnknown_RetainStacksOnAccountRemoval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRetainStacksOnAccountRemoval;
-
-        public bool? RetainStacksOnAccountRemoval => _mRetainStacksOnAccountRemoval.GetValue("retainStacksOnAccountRemoval");
+        private bool? _mValue_RetainStacksOnAccountRemoval;
+        private bool _mUnknown_RetainStacksOnAccountRemoval;
+        public bool? RetainStacksOnAccountRemoval
+        {
+            get
+            {
+                if (!_mUnknown_RetainStacksOnAccountRemoval) return _mValue_RetainStacksOnAccountRemoval;
+                throw new UndeferrableValueException("Value 'StackSetAutoDeployment.RetainStacksOnAccountRemoval' is not present");
+            }
+        }
     }
 }

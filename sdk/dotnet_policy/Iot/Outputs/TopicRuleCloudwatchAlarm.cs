@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Outputs
         /// <summary>
         /// The CloudWatch alarm name.
         /// </summary>
-        [Input("alarmName")]
+        [PolicyResourceProperty("alarmName", "_mUnknown_AlarmName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlarmName;
-
-        public string? AlarmName => _mAlarmName.GetValue("alarmName");
+        private string? _mValue_AlarmName;
+        private bool _mUnknown_AlarmName;
+        public string? AlarmName
+        {
+            get
+            {
+                if (!_mUnknown_AlarmName) return _mValue_AlarmName;
+                throw new UndeferrableValueException("Value 'TopicRuleCloudwatchAlarm.AlarmName' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role ARN that allows access to the CloudWatch alarm.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'TopicRuleCloudwatchAlarm.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The reason for the alarm change.
         /// </summary>
-        [Input("stateReason")]
+        [PolicyResourceProperty("stateReason", "_mUnknown_StateReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStateReason;
-
-        public string? StateReason => _mStateReason.GetValue("stateReason");
+        private string? _mValue_StateReason;
+        private bool _mUnknown_StateReason;
+        public string? StateReason
+        {
+            get
+            {
+                if (!_mUnknown_StateReason) return _mValue_StateReason;
+                throw new UndeferrableValueException("Value 'TopicRuleCloudwatchAlarm.StateReason' is not present");
+            }
+        }
 
         /// <summary>
         /// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
         /// </summary>
-        [Input("stateValue")]
+        [PolicyResourceProperty("stateValue", "_mUnknown_StateValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStateValue;
-
-        public string? StateValue => _mStateValue.GetValue("stateValue");
+        private string? _mValue_StateValue;
+        private bool _mUnknown_StateValue;
+        public string? StateValue
+        {
+            get
+            {
+                if (!_mUnknown_StateValue) return _mValue_StateValue;
+                throw new UndeferrableValueException("Value 'TopicRuleCloudwatchAlarm.StateValue' is not present");
+            }
+        }
     }
 }

@@ -13,106 +13,190 @@ namespace Pulumi.PolicyPacks.Aws.NetworkMonitor
     [PolicyResourceType("aws:networkmonitor/probe:Probe")]
     public sealed class Probe : global::Pulumi.PolicyResourceOutput
     {
-        [Input("addressFamily")]
+        [PolicyResourceProperty("addressFamily", "_mUnknown_AddressFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
-
-        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
+        private string? _mValue_AddressFamily;
+        private bool _mUnknown_AddressFamily;
+        public string? AddressFamily
+        {
+            get
+            {
+                if (!_mUnknown_AddressFamily) return _mValue_AddressFamily;
+                throw new UndeferrableValueException("Value 'Probe.AddressFamily' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the attachment.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Probe.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The destination IP address. This must be either IPV4 or IPV6.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
-
-        public string? Destination => _mDestination.GetValue("destination");
+        private string? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public string? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'Probe.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
         /// </summary>
-        [Input("destinationPort")]
+        [PolicyResourceProperty("destinationPort", "_mUnknown_DestinationPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDestinationPort;
-
-        public int? DestinationPort => _mDestinationPort.GetValue("destinationPort");
+        private int? _mValue_DestinationPort;
+        private bool _mUnknown_DestinationPort;
+        public int? DestinationPort
+        {
+            get
+            {
+                if (!_mUnknown_DestinationPort) return _mValue_DestinationPort;
+                throw new UndeferrableValueException("Value 'Probe.DestinationPort' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the monitor.
         /// </summary>
-        [Input("monitorName")]
+        [PolicyResourceProperty("monitorName", "_mUnknown_MonitorName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMonitorName;
-
-        public string? MonitorName => _mMonitorName.GetValue("monitorName");
+        private string? _mValue_MonitorName;
+        private bool _mUnknown_MonitorName;
+        public string? MonitorName
+        {
+            get
+            {
+                if (!_mUnknown_MonitorName) return _mValue_MonitorName;
+                throw new UndeferrableValueException("Value 'Probe.MonitorName' is not present");
+            }
+        }
 
         /// <summary>
         /// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("packetSize")]
+        [PolicyResourceProperty("packetSize", "_mUnknown_PacketSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPacketSize;
+        private int? _mValue_PacketSize;
+        private bool _mUnknown_PacketSize;
+        public int? PacketSize
+        {
+            get
+            {
+                if (!_mUnknown_PacketSize) return _mValue_PacketSize;
+                throw new UndeferrableValueException("Value 'Probe.PacketSize' is not present");
+            }
+        }
 
-        public int? PacketSize => _mPacketSize.GetValue("packetSize");
-
-        [Input("probeId")]
+        [PolicyResourceProperty("probeId", "_mUnknown_ProbeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProbeId;
-
-        public string? ProbeId => _mProbeId.GetValue("probeId");
+        private string? _mValue_ProbeId;
+        private bool _mUnknown_ProbeId;
+        public string? ProbeId
+        {
+            get
+            {
+                if (!_mUnknown_ProbeId) return _mValue_ProbeId;
+                throw new UndeferrableValueException("Value 'Probe.ProbeId' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'Probe.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the subnet.
         /// </summary>
-        [Input("sourceArn")]
+        [PolicyResourceProperty("sourceArn", "_mUnknown_SourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
-
-        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
+        private string? _mValue_SourceArn;
+        private bool _mUnknown_SourceArn;
+        public string? SourceArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceArn) return _mValue_SourceArn;
+                throw new UndeferrableValueException("Value 'Probe.SourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Probe.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Probe.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'Probe.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:networkmonitor/probe:Probe")]
@@ -121,66 +205,115 @@ namespace Pulumi.PolicyPacks.Aws.NetworkMonitor
         /// <summary>
         /// The destination IP address. This must be either IPV4 or IPV6.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
-
-        public string? Destination => _mDestination.GetValue("destination");
+        private string? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public string? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'ProbeArgs.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
         /// </summary>
-        [Input("destinationPort")]
+        [PolicyResourceProperty("destinationPort", "_mUnknown_DestinationPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDestinationPort;
-
-        public int? DestinationPort => _mDestinationPort.GetValue("destinationPort");
+        private int? _mValue_DestinationPort;
+        private bool _mUnknown_DestinationPort;
+        public int? DestinationPort
+        {
+            get
+            {
+                if (!_mUnknown_DestinationPort) return _mValue_DestinationPort;
+                throw new UndeferrableValueException("Value 'ProbeArgs.DestinationPort' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the monitor.
         /// </summary>
-        [Input("monitorName")]
+        [PolicyResourceProperty("monitorName", "_mUnknown_MonitorName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMonitorName;
-
-        public string? MonitorName => _mMonitorName.GetValue("monitorName");
+        private string? _mValue_MonitorName;
+        private bool _mUnknown_MonitorName;
+        public string? MonitorName
+        {
+            get
+            {
+                if (!_mUnknown_MonitorName) return _mValue_MonitorName;
+                throw new UndeferrableValueException("Value 'ProbeArgs.MonitorName' is not present");
+            }
+        }
 
         /// <summary>
         /// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("packetSize")]
+        [PolicyResourceProperty("packetSize", "_mUnknown_PacketSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPacketSize;
-
-        public int? PacketSize => _mPacketSize.GetValue("packetSize");
+        private int? _mValue_PacketSize;
+        private bool _mUnknown_PacketSize;
+        public int? PacketSize
+        {
+            get
+            {
+                if (!_mUnknown_PacketSize) return _mValue_PacketSize;
+                throw new UndeferrableValueException("Value 'ProbeArgs.PacketSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'ProbeArgs.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the subnet.
         /// </summary>
-        [Input("sourceArn")]
+        [PolicyResourceProperty("sourceArn", "_mUnknown_SourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
-
-        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
+        private string? _mValue_SourceArn;
+        private bool _mUnknown_SourceArn;
+        public string? SourceArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceArn) return _mValue_SourceArn;
+                throw new UndeferrableValueException("Value 'ProbeArgs.SourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ProbeArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// Status codes in the response that indicate a failed login attempt.
         /// </summary>
-        [Input("failureCodes")]
+        [PolicyResourceProperty("failureCodes", "_mUnknown_FailureCodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mFailureCodes;
-
-        public List<int>? FailureCodes => _mFailureCodes.GetValue("failureCodes");
+        private List<int>? _mValue_FailureCodes;
+        private bool _mUnknown_FailureCodes;
+        public List<int>? FailureCodes
+        {
+            get
+            {
+                if (!_mUnknown_FailureCodes) return _mValue_FailureCodes;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode.FailureCodes' is not present");
+            }
+        }
 
         /// <summary>
         /// Status codes in the response that indicate a successful login attempt.
         /// </summary>
-        [Input("successCodes")]
+        [PolicyResourceProperty("successCodes", "_mUnknown_SuccessCodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mSuccessCodes;
-
-        public List<int>? SuccessCodes => _mSuccessCodes.GetValue("successCodes");
+        private List<int>? _mValue_SuccessCodes;
+        private bool _mUnknown_SuccessCodes;
+        public List<int>? SuccessCodes
+        {
+            get
+            {
+                if (!_mUnknown_SuccessCodes) return _mValue_SuccessCodes;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode.SuccessCodes' is not present");
+            }
+        }
     }
 }

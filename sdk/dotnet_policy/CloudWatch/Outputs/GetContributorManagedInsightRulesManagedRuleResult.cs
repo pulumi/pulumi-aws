@@ -19,28 +19,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Outputs
         /// 
         /// There are no optional arguments.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'GetContributorManagedInsightRulesManagedRuleResult.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `rule_state reference` below for details.
         /// </summary>
-        [Input("ruleStates")]
+        [PolicyResourceProperty("ruleStates", "_mUnknown_RuleStates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetContributorManagedInsightRulesManagedRuleRuleStateResult>> _mRuleStates;
-
-        public List<Outputs.GetContributorManagedInsightRulesManagedRuleRuleStateResult>? RuleStates => _mRuleStates.GetValue("ruleStates");
+        private List<Outputs.GetContributorManagedInsightRulesManagedRuleRuleStateResult>? _mValue_RuleStates;
+        private bool _mUnknown_RuleStates;
+        public List<Outputs.GetContributorManagedInsightRulesManagedRuleRuleStateResult>? RuleStates
+        {
+            get
+            {
+                if (!_mUnknown_RuleStates) return _mValue_RuleStates;
+                throw new UndeferrableValueException("Value 'GetContributorManagedInsightRulesManagedRuleResult.RuleStates' is not present");
+            }
+        }
 
         /// <summary>
         /// Template name for the managed rule. Used to enable managed rules using `PutManagedInsightRules`.
         /// </summary>
-        [Input("templateName")]
+        [PolicyResourceProperty("templateName", "_mUnknown_TemplateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateName;
-
-        public string? TemplateName => _mTemplateName.GetValue("templateName");
+        private string? _mValue_TemplateName;
+        private bool _mUnknown_TemplateName;
+        public string? TemplateName
+        {
+            get
+            {
+                if (!_mUnknown_TemplateName) return _mValue_TemplateName;
+                throw new UndeferrableValueException("Value 'GetContributorManagedInsightRulesManagedRuleResult.TemplateName' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery.Outputs
         /// <summary>
         /// ARN of the table which is queried with the largest time range.
         /// </summary>
-        [Input("tableArn")]
+        [PolicyResourceProperty("tableArn", "_mUnknown_TableArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableArn;
-
-        public string? TableArn => _mTableArn.GetValue("tableArn");
+        private string? _mValue_TableArn;
+        private bool _mUnknown_TableArn;
+        public string? TableArn
+        {
+            get
+            {
+                if (!_mUnknown_TableArn) return _mValue_TableArn;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxis.TableArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum duration in nanoseconds between the start and end of the query.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mValue;
-
-        public int? Value => _mValue.GetValue("value");
+        private int? _mValue_Value;
+        private bool _mUnknown_Value;
+        public int? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxis.Value' is not present");
+            }
+        }
     }
 }

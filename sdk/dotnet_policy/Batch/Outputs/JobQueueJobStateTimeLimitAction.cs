@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
-
-        public string? Action => _mAction.GetValue("action");
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'JobQueueJobStateTimeLimitAction.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` &amp; `86400`
         /// </summary>
-        [Input("maxTimeSeconds")]
+        [PolicyResourceProperty("maxTimeSeconds", "_mUnknown_MaxTimeSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxTimeSeconds;
-
-        public int? MaxTimeSeconds => _mMaxTimeSeconds.GetValue("maxTimeSeconds");
+        private int? _mValue_MaxTimeSeconds;
+        private bool _mUnknown_MaxTimeSeconds;
+        public int? MaxTimeSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaxTimeSeconds) return _mValue_MaxTimeSeconds;
+                throw new UndeferrableValueException("Value 'JobQueueJobStateTimeLimitAction.MaxTimeSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The reason to log for the action being taken.
         /// </summary>
-        [Input("reason")]
+        [PolicyResourceProperty("reason", "_mUnknown_Reason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReason;
-
-        public string? Reason => _mReason.GetValue("reason");
+        private string? _mValue_Reason;
+        private bool _mUnknown_Reason;
+        public string? Reason
+        {
+            get
+            {
+                if (!_mUnknown_Reason) return _mValue_Reason;
+                throw new UndeferrableValueException("Value 'JobQueueJobStateTimeLimitAction.Reason' is not present");
+            }
+        }
 
         /// <summary>
         /// The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'JobQueueJobStateTimeLimitAction.State' is not present");
+            }
+        }
     }
 }

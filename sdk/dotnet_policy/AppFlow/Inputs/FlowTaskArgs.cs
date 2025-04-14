@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
         /// <summary>
         /// Operation to be performed on the provided source fields. See Connector Operator for details.
         /// </summary>
-        [Input("connectorOperators")]
+        [PolicyResourceProperty("connectorOperators", "_mUnknown_ConnectorOperators")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FlowTaskConnectorOperatorArgs>> _mConnectorOperators;
-
-        public List<Inputs.FlowTaskConnectorOperatorArgs>? ConnectorOperators => _mConnectorOperators.GetValue("connectorOperators");
+        private List<Inputs.FlowTaskConnectorOperatorArgs>? _mValue_ConnectorOperators;
+        private bool _mUnknown_ConnectorOperators;
+        public List<Inputs.FlowTaskConnectorOperatorArgs>? ConnectorOperators
+        {
+            get
+            {
+                if (!_mUnknown_ConnectorOperators) return _mValue_ConnectorOperators;
+                throw new UndeferrableValueException("Value 'FlowTaskArgs.ConnectorOperators' is not present");
+            }
+        }
 
         /// <summary>
         /// Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
         /// </summary>
-        [Input("destinationField")]
+        [PolicyResourceProperty("destinationField", "_mUnknown_DestinationField")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationField;
-
-        public string? DestinationField => _mDestinationField.GetValue("destinationField");
+        private string? _mValue_DestinationField;
+        private bool _mUnknown_DestinationField;
+        public string? DestinationField
+        {
+            get
+            {
+                if (!_mUnknown_DestinationField) return _mValue_DestinationField;
+                throw new UndeferrableValueException("Value 'FlowTaskArgs.DestinationField' is not present");
+            }
+        }
 
         /// <summary>
         /// Source fields to which a particular task is applied.
         /// </summary>
-        [Input("sourceFields")]
+        [PolicyResourceProperty("sourceFields", "_mUnknown_SourceFields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSourceFields;
-
-        public List<string>? SourceFields => _mSourceFields.GetValue("sourceFields");
+        private List<string>? _mValue_SourceFields;
+        private bool _mUnknown_SourceFields;
+        public List<string>? SourceFields
+        {
+            get
+            {
+                if (!_mUnknown_SourceFields) return _mValue_SourceFields;
+                throw new UndeferrableValueException("Value 'FlowTaskArgs.SourceFields' is not present");
+            }
+        }
 
         /// <summary>
         /// Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
         /// </summary>
-        [Input("taskProperties")]
+        [PolicyResourceProperty("taskProperties", "_mUnknown_TaskProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTaskProperties;
-
-        public Dictionary<string, string>? TaskProperties => _mTaskProperties.GetValue("taskProperties");
+        private Dictionary<string, string>? _mValue_TaskProperties;
+        private bool _mUnknown_TaskProperties;
+        public Dictionary<string, string>? TaskProperties
+        {
+            get
+            {
+                if (!_mUnknown_TaskProperties) return _mValue_TaskProperties;
+                throw new UndeferrableValueException("Value 'FlowTaskArgs.TaskProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
         /// </summary>
-        [Input("taskType")]
+        [PolicyResourceProperty("taskType", "_mUnknown_TaskType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskType;
-
-        public string? TaskType => _mTaskType.GetValue("taskType");
+        private string? _mValue_TaskType;
+        private bool _mUnknown_TaskType;
+        public string? TaskType
+        {
+            get
+            {
+                if (!_mUnknown_TaskType) return _mValue_TaskType;
+                throw new UndeferrableValueException("Value 'FlowTaskArgs.TaskType' is not present");
+            }
+        }
     }
 }

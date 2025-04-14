@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         /// </summary>
-        [Input("idleTimeoutInMinutes")]
+        [PolicyResourceProperty("idleTimeoutInMinutes", "_mUnknown_IdleTimeoutInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIdleTimeoutInMinutes;
-
-        public int? IdleTimeoutInMinutes => _mIdleTimeoutInMinutes.GetValue("idleTimeoutInMinutes");
+        private int? _mValue_IdleTimeoutInMinutes;
+        private bool _mUnknown_IdleTimeoutInMinutes;
+        public int? IdleTimeoutInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_IdleTimeoutInMinutes) return _mValue_IdleTimeoutInMinutes;
+                throw new UndeferrableValueException("Value 'SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs.IdleTimeoutInMinutes' is not present");
+            }
+        }
     }
 }

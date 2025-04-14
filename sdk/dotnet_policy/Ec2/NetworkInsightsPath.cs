@@ -16,103 +16,180 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// ARN of the Network Insights Path.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'NetworkInsightsPath.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
-
-        public string? Destination => _mDestination.GetValue("destination");
+        private string? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public string? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'NetworkInsightsPath.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the destination.
         /// </summary>
-        [Input("destinationArn")]
+        [PolicyResourceProperty("destinationArn", "_mUnknown_DestinationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
-
-        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
+        private string? _mValue_DestinationArn;
+        private bool _mUnknown_DestinationArn;
+        public string? DestinationArn
+        {
+            get
+            {
+                if (!_mUnknown_DestinationArn) return _mValue_DestinationArn;
+                throw new UndeferrableValueException("Value 'NetworkInsightsPath.DestinationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// IP address of the destination resource.
         /// </summary>
-        [Input("destinationIp")]
+        [PolicyResourceProperty("destinationIp", "_mUnknown_DestinationIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationIp;
-
-        public string? DestinationIp => _mDestinationIp.GetValue("destinationIp");
+        private string? _mValue_DestinationIp;
+        private bool _mUnknown_DestinationIp;
+        public string? DestinationIp
+        {
+            get
+            {
+                if (!_mUnknown_DestinationIp) return _mValue_DestinationIp;
+                throw new UndeferrableValueException("Value 'NetworkInsightsPath.DestinationIp' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination port to analyze access to.
         /// </summary>
-        [Input("destinationPort")]
+        [PolicyResourceProperty("destinationPort", "_mUnknown_DestinationPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDestinationPort;
-
-        public int? DestinationPort => _mDestinationPort.GetValue("destinationPort");
+        private int? _mValue_DestinationPort;
+        private bool _mUnknown_DestinationPort;
+        public int? DestinationPort
+        {
+            get
+            {
+                if (!_mUnknown_DestinationPort) return _mValue_DestinationPort;
+                throw new UndeferrableValueException("Value 'NetworkInsightsPath.DestinationPort' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol to use for analysis. Valid options are `tcp` or `udp`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'NetworkInsightsPath.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
-
-        public string? Source => _mSource.GetValue("source");
+        private string? _mValue_Source;
+        private bool _mUnknown_Source;
+        public string? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'NetworkInsightsPath.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the source.
         /// </summary>
-        [Input("sourceArn")]
+        [PolicyResourceProperty("sourceArn", "_mUnknown_SourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
-
-        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
+        private string? _mValue_SourceArn;
+        private bool _mUnknown_SourceArn;
+        public string? SourceArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceArn) return _mValue_SourceArn;
+                throw new UndeferrableValueException("Value 'NetworkInsightsPath.SourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// IP address of the source resource.
         /// </summary>
-        [Input("sourceIp")]
+        [PolicyResourceProperty("sourceIp", "_mUnknown_SourceIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceIp;
-
-        public string? SourceIp => _mSourceIp.GetValue("sourceIp");
+        private string? _mValue_SourceIp;
+        private bool _mUnknown_SourceIp;
+        public string? SourceIp
+        {
+            get
+            {
+                if (!_mUnknown_SourceIp) return _mValue_SourceIp;
+                throw new UndeferrableValueException("Value 'NetworkInsightsPath.SourceIp' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NetworkInsightsPath.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'NetworkInsightsPath.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/networkInsightsPath:NetworkInsightsPath")]
@@ -121,66 +198,115 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
-
-        public string? Destination => _mDestination.GetValue("destination");
+        private string? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public string? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'NetworkInsightsPathArgs.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// IP address of the destination resource.
         /// </summary>
-        [Input("destinationIp")]
+        [PolicyResourceProperty("destinationIp", "_mUnknown_DestinationIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationIp;
-
-        public string? DestinationIp => _mDestinationIp.GetValue("destinationIp");
+        private string? _mValue_DestinationIp;
+        private bool _mUnknown_DestinationIp;
+        public string? DestinationIp
+        {
+            get
+            {
+                if (!_mUnknown_DestinationIp) return _mValue_DestinationIp;
+                throw new UndeferrableValueException("Value 'NetworkInsightsPathArgs.DestinationIp' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination port to analyze access to.
         /// </summary>
-        [Input("destinationPort")]
+        [PolicyResourceProperty("destinationPort", "_mUnknown_DestinationPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDestinationPort;
-
-        public int? DestinationPort => _mDestinationPort.GetValue("destinationPort");
+        private int? _mValue_DestinationPort;
+        private bool _mUnknown_DestinationPort;
+        public int? DestinationPort
+        {
+            get
+            {
+                if (!_mUnknown_DestinationPort) return _mValue_DestinationPort;
+                throw new UndeferrableValueException("Value 'NetworkInsightsPathArgs.DestinationPort' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol to use for analysis. Valid options are `tcp` or `udp`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'NetworkInsightsPathArgs.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
-
-        public string? Source => _mSource.GetValue("source");
+        private string? _mValue_Source;
+        private bool _mUnknown_Source;
+        public string? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'NetworkInsightsPathArgs.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// IP address of the source resource.
         /// </summary>
-        [Input("sourceIp")]
+        [PolicyResourceProperty("sourceIp", "_mUnknown_SourceIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceIp;
-
-        public string? SourceIp => _mSourceIp.GetValue("sourceIp");
+        private string? _mValue_SourceIp;
+        private bool _mUnknown_SourceIp;
+        public string? SourceIp
+        {
+            get
+            {
+                if (!_mUnknown_SourceIp) return _mValue_SourceIp;
+                throw new UndeferrableValueException("Value 'NetworkInsightsPathArgs.SourceIp' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NetworkInsightsPathArgs.Tags' is not present");
+            }
+        }
     }
 }

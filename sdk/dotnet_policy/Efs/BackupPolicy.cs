@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Efs
         /// <summary>
         /// A backup_policy object (documented below).
         /// </summary>
-        [Input("backupPolicy")]
+        [PolicyResourceProperty("backupPolicy", "_mUnknown_BackupPolicyDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BackupPolicyBackupPolicy> _mBackupPolicyDetails;
-
-        public Outputs.BackupPolicyBackupPolicy? BackupPolicyDetails => _mBackupPolicyDetails.GetValue("backupPolicy");
+        private Outputs.BackupPolicyBackupPolicy? _mValue_BackupPolicyDetails;
+        private bool _mUnknown_BackupPolicyDetails;
+        public Outputs.BackupPolicyBackupPolicy? BackupPolicyDetails
+        {
+            get
+            {
+                if (!_mUnknown_BackupPolicyDetails) return _mValue_BackupPolicyDetails;
+                throw new UndeferrableValueException("Value 'BackupPolicy.BackupPolicyDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the EFS file system.
         /// </summary>
-        [Input("fileSystemId")]
+        [PolicyResourceProperty("fileSystemId", "_mUnknown_FileSystemId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
-
-        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+        private string? _mValue_FileSystemId;
+        private bool _mUnknown_FileSystemId;
+        public string? FileSystemId
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemId) return _mValue_FileSystemId;
+                throw new UndeferrableValueException("Value 'BackupPolicy.FileSystemId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:efs/backupPolicy:BackupPolicy")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Efs
         /// <summary>
         /// A backup_policy object (documented below).
         /// </summary>
-        [Input("backupPolicy")]
+        [PolicyResourceProperty("backupPolicy", "_mUnknown_BackupPolicyDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BackupPolicyBackupPolicyArgs> _mBackupPolicyDetails;
-
-        public Inputs.BackupPolicyBackupPolicyArgs? BackupPolicyDetails => _mBackupPolicyDetails.GetValue("backupPolicy");
+        private Inputs.BackupPolicyBackupPolicyArgs? _mValue_BackupPolicyDetails;
+        private bool _mUnknown_BackupPolicyDetails;
+        public Inputs.BackupPolicyBackupPolicyArgs? BackupPolicyDetails
+        {
+            get
+            {
+                if (!_mUnknown_BackupPolicyDetails) return _mValue_BackupPolicyDetails;
+                throw new UndeferrableValueException("Value 'BackupPolicyArgs.BackupPolicyDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the EFS file system.
         /// </summary>
-        [Input("fileSystemId")]
+        [PolicyResourceProperty("fileSystemId", "_mUnknown_FileSystemId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
-
-        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+        private string? _mValue_FileSystemId;
+        private bool _mUnknown_FileSystemId;
+        public string? FileSystemId
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemId) return _mValue_FileSystemId;
+                throw new UndeferrableValueException("Value 'BackupPolicyArgs.FileSystemId' is not present");
+            }
+        }
     }
 }

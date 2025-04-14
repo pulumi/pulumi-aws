@@ -16,98 +16,175 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The ARN of the lightsail bucket.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Bucket.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'Bucket.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
         /// </summary>
-        [Input("bundleId")]
+        [PolicyResourceProperty("bundleId", "_mUnknown_BundleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
-
-        public string? BundleId => _mBundleId.GetValue("bundleId");
+        private string? _mValue_BundleId;
+        private bool _mUnknown_BundleId;
+        public string? BundleId
+        {
+            get
+            {
+                if (!_mUnknown_BundleId) return _mValue_BundleId;
+                throw new UndeferrableValueException("Value 'Bucket.BundleId' is not present");
+            }
+        }
 
         /// <summary>
         /// The timestamp when the bucket was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'Bucket.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
         /// </summary>
-        [Input("forceDelete")]
+        [PolicyResourceProperty("forceDelete", "_mUnknown_ForceDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
-
-        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+        private bool? _mValue_ForceDelete;
+        private bool _mUnknown_ForceDelete;
+        public bool? ForceDelete
+        {
+            get
+            {
+                if (!_mUnknown_ForceDelete) return _mValue_ForceDelete;
+                throw new UndeferrableValueException("Value 'Bucket.ForceDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the bucket.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Bucket.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Web Services Region name.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'Bucket.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
-        [Input("supportCode")]
+        [PolicyResourceProperty("supportCode", "_mUnknown_SupportCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSupportCode;
-
-        public string? SupportCode => _mSupportCode.GetValue("supportCode");
+        private string? _mValue_SupportCode;
+        private bool _mUnknown_SupportCode;
+        public string? SupportCode
+        {
+            get
+            {
+                if (!_mUnknown_SupportCode) return _mValue_SupportCode;
+                throw new UndeferrableValueException("Value 'Bucket.SupportCode' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Bucket.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Bucket.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'Bucket.Url' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lightsail/bucket:Bucket")]
@@ -116,37 +193,65 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
         /// </summary>
-        [Input("bundleId")]
+        [PolicyResourceProperty("bundleId", "_mUnknown_BundleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
-
-        public string? BundleId => _mBundleId.GetValue("bundleId");
+        private string? _mValue_BundleId;
+        private bool _mUnknown_BundleId;
+        public string? BundleId
+        {
+            get
+            {
+                if (!_mUnknown_BundleId) return _mValue_BundleId;
+                throw new UndeferrableValueException("Value 'BucketArgs.BundleId' is not present");
+            }
+        }
 
         /// <summary>
         /// Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
         /// </summary>
-        [Input("forceDelete")]
+        [PolicyResourceProperty("forceDelete", "_mUnknown_ForceDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
-
-        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+        private bool? _mValue_ForceDelete;
+        private bool _mUnknown_ForceDelete;
+        public bool? ForceDelete
+        {
+            get
+            {
+                if (!_mUnknown_ForceDelete) return _mValue_ForceDelete;
+                throw new UndeferrableValueException("Value 'BucketArgs.ForceDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the bucket.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'BucketArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'BucketArgs.Tags' is not present");
+            }
+        }
     }
 }

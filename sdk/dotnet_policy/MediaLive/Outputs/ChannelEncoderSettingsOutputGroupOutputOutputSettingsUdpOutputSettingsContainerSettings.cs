@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
         /// </summary>
-        [Input("m2tsSettings")]
+        [PolicyResourceProperty("m2tsSettings", "_mUnknown_M2tsSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings> _mM2tsSettings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings? M2tsSettings => _mM2tsSettings.GetValue("m2tsSettings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings? _mValue_M2tsSettings;
+        private bool _mUnknown_M2tsSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings? M2tsSettings
+        {
+            get
+            {
+                if (!_mUnknown_M2tsSettings) return _mValue_M2tsSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings.M2tsSettings' is not present");
+            }
+        }
     }
 }

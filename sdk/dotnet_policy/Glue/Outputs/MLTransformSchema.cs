@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// The type of data in the column.
         /// </summary>
-        [Input("dataType")]
+        [PolicyResourceProperty("dataType", "_mUnknown_DataType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataType;
-
-        public string? DataType => _mDataType.GetValue("dataType");
+        private string? _mValue_DataType;
+        private bool _mUnknown_DataType;
+        public string? DataType
+        {
+            get
+            {
+                if (!_mUnknown_DataType) return _mValue_DataType;
+                throw new UndeferrableValueException("Value 'MLTransformSchema.DataType' is not present");
+            }
+        }
 
         /// <summary>
         /// The name you assign to this ML Transform. It must be unique in your account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MLTransformSchema.Name' is not present");
+            }
+        }
     }
 }

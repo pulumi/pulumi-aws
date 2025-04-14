@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult
     {
-        [Input("end")]
+        [PolicyResourceProperty("end", "_mUnknown_End")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mEnd;
+        private int? _mValue_End;
+        private bool _mUnknown_End;
+        public int? End
+        {
+            get
+            {
+                if (!_mUnknown_End) return _mValue_End;
+                throw new UndeferrableValueException("Value 'GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult.End' is not present");
+            }
+        }
 
-        public int? End => _mEnd.GetValue("end");
-
-        [Input("start")]
+        [PolicyResourceProperty("start", "_mUnknown_Start")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStart;
-
-        public int? Start => _mStart.GetValue("start");
+        private int? _mValue_Start;
+        private bool _mUnknown_Start;
+        public int? Start
+        {
+            get
+            {
+                if (!_mUnknown_Start) return _mValue_Start;
+                throw new UndeferrableValueException("Value 'GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult.Start' is not present");
+            }
+        }
     }
 }

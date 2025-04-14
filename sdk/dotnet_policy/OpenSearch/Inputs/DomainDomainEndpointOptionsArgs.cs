@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Inputs
         /// <summary>
         /// Fully qualified domain for your custom endpoint.
         /// </summary>
-        [Input("customEndpoint")]
+        [PolicyResourceProperty("customEndpoint", "_mUnknown_CustomEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomEndpoint;
-
-        public string? CustomEndpoint => _mCustomEndpoint.GetValue("customEndpoint");
+        private string? _mValue_CustomEndpoint;
+        private bool _mUnknown_CustomEndpoint;
+        public string? CustomEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_CustomEndpoint) return _mValue_CustomEndpoint;
+                throw new UndeferrableValueException("Value 'DomainDomainEndpointOptionsArgs.CustomEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// ACM certificate ARN for your custom endpoint.
         /// </summary>
-        [Input("customEndpointCertificateArn")]
+        [PolicyResourceProperty("customEndpointCertificateArn", "_mUnknown_CustomEndpointCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomEndpointCertificateArn;
-
-        public string? CustomEndpointCertificateArn => _mCustomEndpointCertificateArn.GetValue("customEndpointCertificateArn");
+        private string? _mValue_CustomEndpointCertificateArn;
+        private bool _mUnknown_CustomEndpointCertificateArn;
+        public string? CustomEndpointCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CustomEndpointCertificateArn) return _mValue_CustomEndpointCertificateArn;
+                throw new UndeferrableValueException("Value 'DomainDomainEndpointOptionsArgs.CustomEndpointCertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable custom endpoint for the OpenSearch domain.
         /// </summary>
-        [Input("customEndpointEnabled")]
+        [PolicyResourceProperty("customEndpointEnabled", "_mUnknown_CustomEndpointEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCustomEndpointEnabled;
-
-        public bool? CustomEndpointEnabled => _mCustomEndpointEnabled.GetValue("customEndpointEnabled");
+        private bool? _mValue_CustomEndpointEnabled;
+        private bool _mUnknown_CustomEndpointEnabled;
+        public bool? CustomEndpointEnabled
+        {
+            get
+            {
+                if (!_mUnknown_CustomEndpointEnabled) return _mValue_CustomEndpointEnabled;
+                throw new UndeferrableValueException("Value 'DomainDomainEndpointOptionsArgs.CustomEndpointEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not to require HTTPS. Defaults to `true`.
         /// </summary>
-        [Input("enforceHttps")]
+        [PolicyResourceProperty("enforceHttps", "_mUnknown_EnforceHttps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnforceHttps;
-
-        public bool? EnforceHttps => _mEnforceHttps.GetValue("enforceHttps");
+        private bool? _mValue_EnforceHttps;
+        private bool _mUnknown_EnforceHttps;
+        public bool? EnforceHttps
+        {
+            get
+            {
+                if (!_mUnknown_EnforceHttps) return _mValue_EnforceHttps;
+                throw new UndeferrableValueException("Value 'DomainDomainEndpointOptionsArgs.EnforceHttps' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
         /// </summary>
-        [Input("tlsSecurityPolicy")]
+        [PolicyResourceProperty("tlsSecurityPolicy", "_mUnknown_TlsSecurityPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTlsSecurityPolicy;
-
-        public string? TlsSecurityPolicy => _mTlsSecurityPolicy.GetValue("tlsSecurityPolicy");
+        private string? _mValue_TlsSecurityPolicy;
+        private bool _mUnknown_TlsSecurityPolicy;
+        public string? TlsSecurityPolicy
+        {
+            get
+            {
+                if (!_mUnknown_TlsSecurityPolicy) return _mValue_TlsSecurityPolicy;
+                throw new UndeferrableValueException("Value 'DomainDomainEndpointOptionsArgs.TlsSecurityPolicy' is not present");
+            }
+        }
     }
 }

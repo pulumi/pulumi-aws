@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
         /// </summary>
-        [Input("replaceExistingAssociation")]
+        [PolicyResourceProperty("replaceExistingAssociation", "_mUnknown_ReplaceExistingAssociation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReplaceExistingAssociation;
-
-        public bool? ReplaceExistingAssociation => _mReplaceExistingAssociation.GetValue("replaceExistingAssociation");
+        private bool? _mValue_ReplaceExistingAssociation;
+        private bool _mUnknown_ReplaceExistingAssociation;
+        public bool? ReplaceExistingAssociation
+        {
+            get
+            {
+                if (!_mUnknown_ReplaceExistingAssociation) return _mValue_ReplaceExistingAssociation;
+                throw new UndeferrableValueException("Value 'RouteTableAssociation.ReplaceExistingAssociation' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the resource
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'RouteTableAssociation.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the resource
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'RouteTableAssociation.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Attachment.
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
+        [PolicyResourceProperty("transitGatewayAttachmentId", "_mUnknown_TransitGatewayAttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
-
-        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+        private string? _mValue_TransitGatewayAttachmentId;
+        private bool _mUnknown_TransitGatewayAttachmentId;
+        public string? TransitGatewayAttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayAttachmentId) return _mValue_TransitGatewayAttachmentId;
+                throw new UndeferrableValueException("Value 'RouteTableAssociation.TransitGatewayAttachmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
         /// </summary>
-        [Input("transitGatewayRouteTableId")]
+        [PolicyResourceProperty("transitGatewayRouteTableId", "_mUnknown_TransitGatewayRouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableId;
-
-        public string? TransitGatewayRouteTableId => _mTransitGatewayRouteTableId.GetValue("transitGatewayRouteTableId");
+        private string? _mValue_TransitGatewayRouteTableId;
+        private bool _mUnknown_TransitGatewayRouteTableId;
+        public string? TransitGatewayRouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayRouteTableId) return _mValue_TransitGatewayRouteTableId;
+                throw new UndeferrableValueException("Value 'RouteTableAssociation.TransitGatewayRouteTableId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation")]
@@ -65,28 +100,49 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
         /// </summary>
-        [Input("replaceExistingAssociation")]
+        [PolicyResourceProperty("replaceExistingAssociation", "_mUnknown_ReplaceExistingAssociation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReplaceExistingAssociation;
-
-        public bool? ReplaceExistingAssociation => _mReplaceExistingAssociation.GetValue("replaceExistingAssociation");
+        private bool? _mValue_ReplaceExistingAssociation;
+        private bool _mUnknown_ReplaceExistingAssociation;
+        public bool? ReplaceExistingAssociation
+        {
+            get
+            {
+                if (!_mUnknown_ReplaceExistingAssociation) return _mValue_ReplaceExistingAssociation;
+                throw new UndeferrableValueException("Value 'RouteTableAssociationArgs.ReplaceExistingAssociation' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Attachment.
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
+        [PolicyResourceProperty("transitGatewayAttachmentId", "_mUnknown_TransitGatewayAttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
-
-        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+        private string? _mValue_TransitGatewayAttachmentId;
+        private bool _mUnknown_TransitGatewayAttachmentId;
+        public string? TransitGatewayAttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayAttachmentId) return _mValue_TransitGatewayAttachmentId;
+                throw new UndeferrableValueException("Value 'RouteTableAssociationArgs.TransitGatewayAttachmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
         /// </summary>
-        [Input("transitGatewayRouteTableId")]
+        [PolicyResourceProperty("transitGatewayRouteTableId", "_mUnknown_TransitGatewayRouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableId;
-
-        public string? TransitGatewayRouteTableId => _mTransitGatewayRouteTableId.GetValue("transitGatewayRouteTableId");
+        private string? _mValue_TransitGatewayRouteTableId;
+        private bool _mUnknown_TransitGatewayRouteTableId;
+        public string? TransitGatewayRouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayRouteTableId) return _mValue_TransitGatewayRouteTableId;
+                throw new UndeferrableValueException("Value 'RouteTableAssociationArgs.TransitGatewayRouteTableId' is not present");
+            }
+        }
     }
 }

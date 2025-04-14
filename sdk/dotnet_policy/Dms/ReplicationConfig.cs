@@ -16,119 +16,210 @@ namespace Pulumi.PolicyPacks.Aws.Dms
         /// <summary>
         /// The Amazon Resource Name (ARN) for the serverless replication config.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ReplicationConfig.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for provisioning an DMS Serverless replication.
         /// </summary>
-        [Input("computeConfig")]
+        [PolicyResourceProperty("computeConfig", "_mUnknown_ComputeConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ReplicationConfigComputeConfig> _mComputeConfig;
-
-        public Outputs.ReplicationConfigComputeConfig? ComputeConfig => _mComputeConfig.GetValue("computeConfig");
+        private Outputs.ReplicationConfigComputeConfig? _mValue_ComputeConfig;
+        private bool _mUnknown_ComputeConfig;
+        public Outputs.ReplicationConfigComputeConfig? ComputeConfig
+        {
+            get
+            {
+                if (!_mUnknown_ComputeConfig) return _mValue_ComputeConfig;
+                throw new UndeferrableValueException("Value 'ReplicationConfig.ComputeConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier that you want to use to create the config.
         /// </summary>
-        [Input("replicationConfigIdentifier")]
+        [PolicyResourceProperty("replicationConfigIdentifier", "_mUnknown_ReplicationConfigIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationConfigIdentifier;
-
-        public string? ReplicationConfigIdentifier => _mReplicationConfigIdentifier.GetValue("replicationConfigIdentifier");
+        private string? _mValue_ReplicationConfigIdentifier;
+        private bool _mUnknown_ReplicationConfigIdentifier;
+        public string? ReplicationConfigIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationConfigIdentifier) return _mValue_ReplicationConfigIdentifier;
+                throw new UndeferrableValueException("Value 'ReplicationConfig.ReplicationConfigIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
         /// </summary>
-        [Input("replicationSettings")]
+        [PolicyResourceProperty("replicationSettings", "_mUnknown_ReplicationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationSettings;
-
-        public string? ReplicationSettings => _mReplicationSettings.GetValue("replicationSettings");
+        private string? _mValue_ReplicationSettings;
+        private bool _mUnknown_ReplicationSettings;
+        public string? ReplicationSettings
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationSettings) return _mValue_ReplicationSettings;
+                throw new UndeferrableValueException("Value 'ReplicationConfig.ReplicationSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
         /// </summary>
-        [Input("replicationType")]
+        [PolicyResourceProperty("replicationType", "_mUnknown_ReplicationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationType;
-
-        public string? ReplicationType => _mReplicationType.GetValue("replicationType");
+        private string? _mValue_ReplicationType;
+        private bool _mUnknown_ReplicationType;
+        public string? ReplicationType
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationType) return _mValue_ReplicationType;
+                throw new UndeferrableValueException("Value 'ReplicationConfig.ReplicationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
         /// </summary>
-        [Input("resourceIdentifier")]
+        [PolicyResourceProperty("resourceIdentifier", "_mUnknown_ResourceIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceIdentifier;
-
-        public string? ResourceIdentifier => _mResourceIdentifier.GetValue("resourceIdentifier");
+        private string? _mValue_ResourceIdentifier;
+        private bool _mUnknown_ResourceIdentifier;
+        public string? ResourceIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ResourceIdentifier) return _mValue_ResourceIdentifier;
+                throw new UndeferrableValueException("Value 'ReplicationConfig.ResourceIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
         /// </summary>
-        [Input("sourceEndpointArn")]
+        [PolicyResourceProperty("sourceEndpointArn", "_mUnknown_SourceEndpointArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceEndpointArn;
-
-        public string? SourceEndpointArn => _mSourceEndpointArn.GetValue("sourceEndpointArn");
+        private string? _mValue_SourceEndpointArn;
+        private bool _mUnknown_SourceEndpointArn;
+        public string? SourceEndpointArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceEndpointArn) return _mValue_SourceEndpointArn;
+                throw new UndeferrableValueException("Value 'ReplicationConfig.SourceEndpointArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to run or stop the serverless replication, default is false.
         /// </summary>
-        [Input("startReplication")]
+        [PolicyResourceProperty("startReplication", "_mUnknown_StartReplication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStartReplication;
-
-        public bool? StartReplication => _mStartReplication.GetValue("startReplication");
+        private bool? _mValue_StartReplication;
+        private bool _mUnknown_StartReplication;
+        public bool? StartReplication
+        {
+            get
+            {
+                if (!_mUnknown_StartReplication) return _mValue_StartReplication;
+                throw new UndeferrableValueException("Value 'ReplicationConfig.StartReplication' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON settings for specifying supplemental data. For more information see [Specifying supplemental data for task settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html)
         /// </summary>
-        [Input("supplementalSettings")]
+        [PolicyResourceProperty("supplementalSettings", "_mUnknown_SupplementalSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSupplementalSettings;
-
-        public string? SupplementalSettings => _mSupplementalSettings.GetValue("supplementalSettings");
+        private string? _mValue_SupplementalSettings;
+        private bool _mUnknown_SupplementalSettings;
+        public string? SupplementalSettings
+        {
+            get
+            {
+                if (!_mUnknown_SupplementalSettings) return _mValue_SupplementalSettings;
+                throw new UndeferrableValueException("Value 'ReplicationConfig.SupplementalSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
         /// </summary>
-        [Input("tableMappings")]
+        [PolicyResourceProperty("tableMappings", "_mUnknown_TableMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableMappings;
-
-        public string? TableMappings => _mTableMappings.GetValue("tableMappings");
+        private string? _mValue_TableMappings;
+        private bool _mUnknown_TableMappings;
+        public string? TableMappings
+        {
+            get
+            {
+                if (!_mUnknown_TableMappings) return _mValue_TableMappings;
+                throw new UndeferrableValueException("Value 'ReplicationConfig.TableMappings' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReplicationConfig.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ReplicationConfig.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
         /// </summary>
-        [Input("targetEndpointArn")]
+        [PolicyResourceProperty("targetEndpointArn", "_mUnknown_TargetEndpointArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetEndpointArn;
-
-        public string? TargetEndpointArn => _mTargetEndpointArn.GetValue("targetEndpointArn");
+        private string? _mValue_TargetEndpointArn;
+        private bool _mUnknown_TargetEndpointArn;
+        public string? TargetEndpointArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetEndpointArn) return _mValue_TargetEndpointArn;
+                throw new UndeferrableValueException("Value 'ReplicationConfig.TargetEndpointArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:dms/replicationConfig:ReplicationConfig")]
@@ -137,100 +228,177 @@ namespace Pulumi.PolicyPacks.Aws.Dms
         /// <summary>
         /// Configuration block for provisioning an DMS Serverless replication.
         /// </summary>
-        [Input("computeConfig")]
+        [PolicyResourceProperty("computeConfig", "_mUnknown_ComputeConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ReplicationConfigComputeConfigArgs> _mComputeConfig;
-
-        public Inputs.ReplicationConfigComputeConfigArgs? ComputeConfig => _mComputeConfig.GetValue("computeConfig");
+        private Inputs.ReplicationConfigComputeConfigArgs? _mValue_ComputeConfig;
+        private bool _mUnknown_ComputeConfig;
+        public Inputs.ReplicationConfigComputeConfigArgs? ComputeConfig
+        {
+            get
+            {
+                if (!_mUnknown_ComputeConfig) return _mValue_ComputeConfig;
+                throw new UndeferrableValueException("Value 'ReplicationConfigArgs.ComputeConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier that you want to use to create the config.
         /// </summary>
-        [Input("replicationConfigIdentifier")]
+        [PolicyResourceProperty("replicationConfigIdentifier", "_mUnknown_ReplicationConfigIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationConfigIdentifier;
-
-        public string? ReplicationConfigIdentifier => _mReplicationConfigIdentifier.GetValue("replicationConfigIdentifier");
+        private string? _mValue_ReplicationConfigIdentifier;
+        private bool _mUnknown_ReplicationConfigIdentifier;
+        public string? ReplicationConfigIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationConfigIdentifier) return _mValue_ReplicationConfigIdentifier;
+                throw new UndeferrableValueException("Value 'ReplicationConfigArgs.ReplicationConfigIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
         /// </summary>
-        [Input("replicationSettings")]
+        [PolicyResourceProperty("replicationSettings", "_mUnknown_ReplicationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationSettings;
-
-        public string? ReplicationSettings => _mReplicationSettings.GetValue("replicationSettings");
+        private string? _mValue_ReplicationSettings;
+        private bool _mUnknown_ReplicationSettings;
+        public string? ReplicationSettings
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationSettings) return _mValue_ReplicationSettings;
+                throw new UndeferrableValueException("Value 'ReplicationConfigArgs.ReplicationSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
         /// </summary>
-        [Input("replicationType")]
+        [PolicyResourceProperty("replicationType", "_mUnknown_ReplicationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationType;
-
-        public string? ReplicationType => _mReplicationType.GetValue("replicationType");
+        private string? _mValue_ReplicationType;
+        private bool _mUnknown_ReplicationType;
+        public string? ReplicationType
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationType) return _mValue_ReplicationType;
+                throw new UndeferrableValueException("Value 'ReplicationConfigArgs.ReplicationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
         /// </summary>
-        [Input("resourceIdentifier")]
+        [PolicyResourceProperty("resourceIdentifier", "_mUnknown_ResourceIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceIdentifier;
-
-        public string? ResourceIdentifier => _mResourceIdentifier.GetValue("resourceIdentifier");
+        private string? _mValue_ResourceIdentifier;
+        private bool _mUnknown_ResourceIdentifier;
+        public string? ResourceIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ResourceIdentifier) return _mValue_ResourceIdentifier;
+                throw new UndeferrableValueException("Value 'ReplicationConfigArgs.ResourceIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
         /// </summary>
-        [Input("sourceEndpointArn")]
+        [PolicyResourceProperty("sourceEndpointArn", "_mUnknown_SourceEndpointArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceEndpointArn;
-
-        public string? SourceEndpointArn => _mSourceEndpointArn.GetValue("sourceEndpointArn");
+        private string? _mValue_SourceEndpointArn;
+        private bool _mUnknown_SourceEndpointArn;
+        public string? SourceEndpointArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceEndpointArn) return _mValue_SourceEndpointArn;
+                throw new UndeferrableValueException("Value 'ReplicationConfigArgs.SourceEndpointArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to run or stop the serverless replication, default is false.
         /// </summary>
-        [Input("startReplication")]
+        [PolicyResourceProperty("startReplication", "_mUnknown_StartReplication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStartReplication;
-
-        public bool? StartReplication => _mStartReplication.GetValue("startReplication");
+        private bool? _mValue_StartReplication;
+        private bool _mUnknown_StartReplication;
+        public bool? StartReplication
+        {
+            get
+            {
+                if (!_mUnknown_StartReplication) return _mValue_StartReplication;
+                throw new UndeferrableValueException("Value 'ReplicationConfigArgs.StartReplication' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON settings for specifying supplemental data. For more information see [Specifying supplemental data for task settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html)
         /// </summary>
-        [Input("supplementalSettings")]
+        [PolicyResourceProperty("supplementalSettings", "_mUnknown_SupplementalSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSupplementalSettings;
-
-        public string? SupplementalSettings => _mSupplementalSettings.GetValue("supplementalSettings");
+        private string? _mValue_SupplementalSettings;
+        private bool _mUnknown_SupplementalSettings;
+        public string? SupplementalSettings
+        {
+            get
+            {
+                if (!_mUnknown_SupplementalSettings) return _mValue_SupplementalSettings;
+                throw new UndeferrableValueException("Value 'ReplicationConfigArgs.SupplementalSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
         /// </summary>
-        [Input("tableMappings")]
+        [PolicyResourceProperty("tableMappings", "_mUnknown_TableMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableMappings;
-
-        public string? TableMappings => _mTableMappings.GetValue("tableMappings");
+        private string? _mValue_TableMappings;
+        private bool _mUnknown_TableMappings;
+        public string? TableMappings
+        {
+            get
+            {
+                if (!_mUnknown_TableMappings) return _mValue_TableMappings;
+                throw new UndeferrableValueException("Value 'ReplicationConfigArgs.TableMappings' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReplicationConfigArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
         /// </summary>
-        [Input("targetEndpointArn")]
+        [PolicyResourceProperty("targetEndpointArn", "_mUnknown_TargetEndpointArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetEndpointArn;
-
-        public string? TargetEndpointArn => _mTargetEndpointArn.GetValue("targetEndpointArn");
+        private string? _mValue_TargetEndpointArn;
+        private bool _mUnknown_TargetEndpointArn;
+        public string? TargetEndpointArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetEndpointArn) return _mValue_TargetEndpointArn;
+                throw new UndeferrableValueException("Value 'ReplicationConfigArgs.TargetEndpointArn' is not present");
+            }
+        }
     }
 }

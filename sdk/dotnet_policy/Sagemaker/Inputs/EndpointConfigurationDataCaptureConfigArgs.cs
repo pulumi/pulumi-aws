@@ -16,55 +16,97 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// The content type headers to capture.
         /// See `capture_content_type_header` below.
         /// </summary>
-        [Input("captureContentTypeHeader")]
+        [PolicyResourceProperty("captureContentTypeHeader", "_mUnknown_CaptureContentTypeHeader")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs> _mCaptureContentTypeHeader;
-
-        public Inputs.EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs? CaptureContentTypeHeader => _mCaptureContentTypeHeader.GetValue("captureContentTypeHeader");
+        private Inputs.EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs? _mValue_CaptureContentTypeHeader;
+        private bool _mUnknown_CaptureContentTypeHeader;
+        public Inputs.EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs? CaptureContentTypeHeader
+        {
+            get
+            {
+                if (!_mUnknown_CaptureContentTypeHeader) return _mValue_CaptureContentTypeHeader;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationDataCaptureConfigArgs.CaptureContentTypeHeader' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies what data to capture. Fields are documented below.
         /// </summary>
-        [Input("captureOptions")]
+        [PolicyResourceProperty("captureOptions", "_mUnknown_CaptureOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EndpointConfigurationDataCaptureConfigCaptureOptionArgs>> _mCaptureOptions;
-
-        public List<Inputs.EndpointConfigurationDataCaptureConfigCaptureOptionArgs>? CaptureOptions => _mCaptureOptions.GetValue("captureOptions");
+        private List<Inputs.EndpointConfigurationDataCaptureConfigCaptureOptionArgs>? _mValue_CaptureOptions;
+        private bool _mUnknown_CaptureOptions;
+        public List<Inputs.EndpointConfigurationDataCaptureConfigCaptureOptionArgs>? CaptureOptions
+        {
+            get
+            {
+                if (!_mUnknown_CaptureOptions) return _mValue_CaptureOptions;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationDataCaptureConfigArgs.CaptureOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL for S3 location where the captured data is stored.
         /// </summary>
-        [Input("destinationS3Uri")]
+        [PolicyResourceProperty("destinationS3Uri", "_mUnknown_DestinationS3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationS3Uri;
-
-        public string? DestinationS3Uri => _mDestinationS3Uri.GetValue("destinationS3Uri");
+        private string? _mValue_DestinationS3Uri;
+        private bool _mUnknown_DestinationS3Uri;
+        public string? DestinationS3Uri
+        {
+            get
+            {
+                if (!_mUnknown_DestinationS3Uri) return _mValue_DestinationS3Uri;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationDataCaptureConfigArgs.DestinationS3Uri' is not present");
+            }
+        }
 
         /// <summary>
         /// Flag to enable data capture. Defaults to `false`.
         /// </summary>
-        [Input("enableCapture")]
+        [PolicyResourceProperty("enableCapture", "_mUnknown_EnableCapture")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableCapture;
-
-        public bool? EnableCapture => _mEnableCapture.GetValue("enableCapture");
+        private bool? _mValue_EnableCapture;
+        private bool _mUnknown_EnableCapture;
+        public bool? EnableCapture
+        {
+            get
+            {
+                if (!_mUnknown_EnableCapture) return _mValue_EnableCapture;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationDataCaptureConfigArgs.EnableCapture' is not present");
+            }
+        }
 
         /// <summary>
         /// Portion of data to capture. Should be between 0 and 100.
         /// </summary>
-        [Input("initialSamplingPercentage")]
+        [PolicyResourceProperty("initialSamplingPercentage", "_mUnknown_InitialSamplingPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInitialSamplingPercentage;
-
-        public int? InitialSamplingPercentage => _mInitialSamplingPercentage.GetValue("initialSamplingPercentage");
+        private int? _mValue_InitialSamplingPercentage;
+        private bool _mUnknown_InitialSamplingPercentage;
+        public int? InitialSamplingPercentage
+        {
+            get
+            {
+                if (!_mUnknown_InitialSamplingPercentage) return _mValue_InitialSamplingPercentage;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationDataCaptureConfigArgs.InitialSamplingPercentage' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationDataCaptureConfigArgs.KmsKeyId' is not present");
+            }
+        }
     }
 }

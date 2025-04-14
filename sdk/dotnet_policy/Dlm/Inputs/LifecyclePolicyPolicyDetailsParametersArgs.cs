@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Dlm.Inputs
         /// <summary>
         /// Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
         /// </summary>
-        [Input("excludeBootVolume")]
+        [PolicyResourceProperty("excludeBootVolume", "_mUnknown_ExcludeBootVolume")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mExcludeBootVolume;
-
-        public bool? ExcludeBootVolume => _mExcludeBootVolume.GetValue("excludeBootVolume");
+        private bool? _mValue_ExcludeBootVolume;
+        private bool _mUnknown_ExcludeBootVolume;
+        public bool? ExcludeBootVolume
+        {
+            get
+            {
+                if (!_mUnknown_ExcludeBootVolume) return _mValue_ExcludeBootVolume;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsParametersArgs.ExcludeBootVolume' is not present");
+            }
+        }
 
         /// <summary>
         /// Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
         /// </summary>
-        [Input("noReboot")]
+        [PolicyResourceProperty("noReboot", "_mUnknown_NoReboot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mNoReboot;
-
-        public bool? NoReboot => _mNoReboot.GetValue("noReboot");
+        private bool? _mValue_NoReboot;
+        private bool _mUnknown_NoReboot;
+        public bool? NoReboot
+        {
+            get
+            {
+                if (!_mUnknown_NoReboot) return _mValue_NoReboot;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsParametersArgs.NoReboot' is not present");
+            }
+        }
     }
 }

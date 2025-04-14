@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
         /// </summary>
-        [Input("subjectAlternativeNames")]
+        [PolicyResourceProperty("subjectAlternativeNames", "_mUnknown_SubjectAlternativeNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs> _mSubjectAlternativeNames;
-
-        public Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs? SubjectAlternativeNames => _mSubjectAlternativeNames.GetValue("subjectAlternativeNames");
+        private Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs? _mValue_SubjectAlternativeNames;
+        private bool _mUnknown_SubjectAlternativeNames;
+        public Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs? SubjectAlternativeNames
+        {
+            get
+            {
+                if (!_mUnknown_SubjectAlternativeNames) return _mValue_SubjectAlternativeNames;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs.SubjectAlternativeNames' is not present");
+            }
+        }
 
         /// <summary>
         /// TLS validation context trust.
         /// </summary>
-        [Input("trust")]
+        [PolicyResourceProperty("trust", "_mUnknown_Trust")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs> _mTrust;
-
-        public Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs? Trust => _mTrust.GetValue("trust");
+        private Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs? _mValue_Trust;
+        private bool _mUnknown_Trust;
+        public Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs? Trust
+        {
+            get
+            {
+                if (!_mUnknown_Trust) return _mValue_Trust;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs.Trust' is not present");
+            }
+        }
     }
 }

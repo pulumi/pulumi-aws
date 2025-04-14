@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Waf
         /// <summary>
         /// Amazon Resource Name (ARN)
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'XssMatchSet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or description of the SizeConstraintSet.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'XssMatchSet.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The parts of web requests that you want to inspect for cross-site scripting attacks.
         /// </summary>
-        [Input("xssMatchTuples")]
+        [PolicyResourceProperty("xssMatchTuples", "_mUnknown_XssMatchTuples")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.XssMatchSetXssMatchTuple>> _mXssMatchTuples;
-
-        public List<Outputs.XssMatchSetXssMatchTuple>? XssMatchTuples => _mXssMatchTuples.GetValue("xssMatchTuples");
+        private List<Outputs.XssMatchSetXssMatchTuple>? _mValue_XssMatchTuples;
+        private bool _mUnknown_XssMatchTuples;
+        public List<Outputs.XssMatchSetXssMatchTuple>? XssMatchTuples
+        {
+            get
+            {
+                if (!_mUnknown_XssMatchTuples) return _mValue_XssMatchTuples;
+                throw new UndeferrableValueException("Value 'XssMatchSet.XssMatchTuples' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:waf/xssMatchSet:XssMatchSet")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.Waf
         /// <summary>
         /// The name or description of the SizeConstraintSet.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'XssMatchSetArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The parts of web requests that you want to inspect for cross-site scripting attacks.
         /// </summary>
-        [Input("xssMatchTuples")]
+        [PolicyResourceProperty("xssMatchTuples", "_mUnknown_XssMatchTuples")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.XssMatchSetXssMatchTupleArgs>> _mXssMatchTuples;
-
-        public List<Inputs.XssMatchSetXssMatchTupleArgs>? XssMatchTuples => _mXssMatchTuples.GetValue("xssMatchTuples");
+        private List<Inputs.XssMatchSetXssMatchTupleArgs>? _mValue_XssMatchTuples;
+        private bool _mUnknown_XssMatchTuples;
+        public List<Inputs.XssMatchSetXssMatchTupleArgs>? XssMatchTuples
+        {
+            get
+            {
+                if (!_mUnknown_XssMatchTuples) return _mValue_XssMatchTuples;
+                throw new UndeferrableValueException("Value 'XssMatchSetArgs.XssMatchTuples' is not present");
+            }
+        }
     }
 }

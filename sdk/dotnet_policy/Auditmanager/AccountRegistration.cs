@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// <summary>
         /// Identifier for the delegated administrator account.
         /// </summary>
-        [Input("delegatedAdminAccount")]
+        [PolicyResourceProperty("delegatedAdminAccount", "_mUnknown_DelegatedAdminAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDelegatedAdminAccount;
-
-        public string? DelegatedAdminAccount => _mDelegatedAdminAccount.GetValue("delegatedAdminAccount");
+        private string? _mValue_DelegatedAdminAccount;
+        private bool _mUnknown_DelegatedAdminAccount;
+        public string? DelegatedAdminAccount
+        {
+            get
+            {
+                if (!_mUnknown_DelegatedAdminAccount) return _mValue_DelegatedAdminAccount;
+                throw new UndeferrableValueException("Value 'AccountRegistration.DelegatedAdminAccount' is not present");
+            }
+        }
 
         /// <summary>
         /// Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
         /// </summary>
-        [Input("deregisterOnDestroy")]
+        [PolicyResourceProperty("deregisterOnDestroy", "_mUnknown_DeregisterOnDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeregisterOnDestroy;
-
-        public bool? DeregisterOnDestroy => _mDeregisterOnDestroy.GetValue("deregisterOnDestroy");
+        private bool? _mValue_DeregisterOnDestroy;
+        private bool _mUnknown_DeregisterOnDestroy;
+        public bool? DeregisterOnDestroy
+        {
+            get
+            {
+                if (!_mUnknown_DeregisterOnDestroy) return _mValue_DeregisterOnDestroy;
+                throw new UndeferrableValueException("Value 'AccountRegistration.DeregisterOnDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// KMS key identifier.
         /// </summary>
-        [Input("kmsKey")]
+        [PolicyResourceProperty("kmsKey", "_mUnknown_KmsKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKey;
-
-        public string? KmsKey => _mKmsKey.GetValue("kmsKey");
+        private string? _mValue_KmsKey;
+        private bool _mUnknown_KmsKey;
+        public string? KmsKey
+        {
+            get
+            {
+                if (!_mUnknown_KmsKey) return _mValue_KmsKey;
+                throw new UndeferrableValueException("Value 'AccountRegistration.KmsKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the account registration request.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'AccountRegistration.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:auditmanager/accountRegistration:AccountRegistration")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// <summary>
         /// Identifier for the delegated administrator account.
         /// </summary>
-        [Input("delegatedAdminAccount")]
+        [PolicyResourceProperty("delegatedAdminAccount", "_mUnknown_DelegatedAdminAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDelegatedAdminAccount;
-
-        public string? DelegatedAdminAccount => _mDelegatedAdminAccount.GetValue("delegatedAdminAccount");
+        private string? _mValue_DelegatedAdminAccount;
+        private bool _mUnknown_DelegatedAdminAccount;
+        public string? DelegatedAdminAccount
+        {
+            get
+            {
+                if (!_mUnknown_DelegatedAdminAccount) return _mValue_DelegatedAdminAccount;
+                throw new UndeferrableValueException("Value 'AccountRegistrationArgs.DelegatedAdminAccount' is not present");
+            }
+        }
 
         /// <summary>
         /// Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
         /// </summary>
-        [Input("deregisterOnDestroy")]
+        [PolicyResourceProperty("deregisterOnDestroy", "_mUnknown_DeregisterOnDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeregisterOnDestroy;
-
-        public bool? DeregisterOnDestroy => _mDeregisterOnDestroy.GetValue("deregisterOnDestroy");
+        private bool? _mValue_DeregisterOnDestroy;
+        private bool _mUnknown_DeregisterOnDestroy;
+        public bool? DeregisterOnDestroy
+        {
+            get
+            {
+                if (!_mUnknown_DeregisterOnDestroy) return _mValue_DeregisterOnDestroy;
+                throw new UndeferrableValueException("Value 'AccountRegistrationArgs.DeregisterOnDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// KMS key identifier.
         /// </summary>
-        [Input("kmsKey")]
+        [PolicyResourceProperty("kmsKey", "_mUnknown_KmsKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKey;
-
-        public string? KmsKey => _mKmsKey.GetValue("kmsKey");
+        private string? _mValue_KmsKey;
+        private bool _mUnknown_KmsKey;
+        public string? KmsKey
+        {
+            get
+            {
+                if (!_mUnknown_KmsKey) return _mValue_KmsKey;
+                throw new UndeferrableValueException("Value 'AccountRegistrationArgs.KmsKey' is not present");
+            }
+        }
     }
 }

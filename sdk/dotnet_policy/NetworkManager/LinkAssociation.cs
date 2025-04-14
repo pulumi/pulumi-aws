@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// The ID of the device.
         /// </summary>
-        [Input("deviceId")]
+        [PolicyResourceProperty("deviceId", "_mUnknown_DeviceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceId;
-
-        public string? DeviceId => _mDeviceId.GetValue("deviceId");
+        private string? _mValue_DeviceId;
+        private bool _mUnknown_DeviceId;
+        public string? DeviceId
+        {
+            get
+            {
+                if (!_mUnknown_DeviceId) return _mValue_DeviceId;
+                throw new UndeferrableValueException("Value 'LinkAssociation.DeviceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
+        [PolicyResourceProperty("globalNetworkId", "_mUnknown_GlobalNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
-
-        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+        private string? _mValue_GlobalNetworkId;
+        private bool _mUnknown_GlobalNetworkId;
+        public string? GlobalNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_GlobalNetworkId) return _mValue_GlobalNetworkId;
+                throw new UndeferrableValueException("Value 'LinkAssociation.GlobalNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the link.
         /// </summary>
-        [Input("linkId")]
+        [PolicyResourceProperty("linkId", "_mUnknown_LinkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLinkId;
-
-        public string? LinkId => _mLinkId.GetValue("linkId");
+        private string? _mValue_LinkId;
+        private bool _mUnknown_LinkId;
+        public string? LinkId
+        {
+            get
+            {
+                if (!_mUnknown_LinkId) return _mValue_LinkId;
+                throw new UndeferrableValueException("Value 'LinkAssociation.LinkId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:networkmanager/linkAssociation:LinkAssociation")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// The ID of the device.
         /// </summary>
-        [Input("deviceId")]
+        [PolicyResourceProperty("deviceId", "_mUnknown_DeviceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceId;
-
-        public string? DeviceId => _mDeviceId.GetValue("deviceId");
+        private string? _mValue_DeviceId;
+        private bool _mUnknown_DeviceId;
+        public string? DeviceId
+        {
+            get
+            {
+                if (!_mUnknown_DeviceId) return _mValue_DeviceId;
+                throw new UndeferrableValueException("Value 'LinkAssociationArgs.DeviceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
+        [PolicyResourceProperty("globalNetworkId", "_mUnknown_GlobalNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
-
-        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+        private string? _mValue_GlobalNetworkId;
+        private bool _mUnknown_GlobalNetworkId;
+        public string? GlobalNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_GlobalNetworkId) return _mValue_GlobalNetworkId;
+                throw new UndeferrableValueException("Value 'LinkAssociationArgs.GlobalNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the link.
         /// </summary>
-        [Input("linkId")]
+        [PolicyResourceProperty("linkId", "_mUnknown_LinkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLinkId;
-
-        public string? LinkId => _mLinkId.GetValue("linkId");
+        private string? _mValue_LinkId;
+        private bool _mUnknown_LinkId;
+        public string? LinkId
+        {
+            get
+            {
+                if (!_mUnknown_LinkId) return _mValue_LinkId;
+                throw new UndeferrableValueException("Value 'LinkAssociationArgs.LinkId' is not present");
+            }
+        }
     }
 }

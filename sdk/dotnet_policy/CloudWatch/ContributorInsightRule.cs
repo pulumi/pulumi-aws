@@ -16,52 +16,94 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// ARN of the Contributor Insight Rule.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'ContributorInsightRule.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
         /// </summary>
-        [Input("ruleDefinition")]
+        [PolicyResourceProperty("ruleDefinition", "_mUnknown_RuleDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleDefinition;
-
-        public string? RuleDefinition => _mRuleDefinition.GetValue("ruleDefinition");
+        private string? _mValue_RuleDefinition;
+        private bool _mUnknown_RuleDefinition;
+        public string? RuleDefinition
+        {
+            get
+            {
+                if (!_mUnknown_RuleDefinition) return _mValue_RuleDefinition;
+                throw new UndeferrableValueException("Value 'ContributorInsightRule.RuleDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name of the rule.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("ruleName")]
+        [PolicyResourceProperty("ruleName", "_mUnknown_RuleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
-
-        public string? RuleName => _mRuleName.GetValue("ruleName");
+        private string? _mValue_RuleName;
+        private bool _mUnknown_RuleName;
+        public string? RuleName
+        {
+            get
+            {
+                if (!_mUnknown_RuleName) return _mValue_RuleName;
+                throw new UndeferrableValueException("Value 'ContributorInsightRule.RuleName' is not present");
+            }
+        }
 
         /// <summary>
         /// State of the rule. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("ruleState")]
+        [PolicyResourceProperty("ruleState", "_mUnknown_RuleState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleState;
+        private string? _mValue_RuleState;
+        private bool _mUnknown_RuleState;
+        public string? RuleState
+        {
+            get
+            {
+                if (!_mUnknown_RuleState) return _mValue_RuleState;
+                throw new UndeferrableValueException("Value 'ContributorInsightRule.RuleState' is not present");
+            }
+        }
 
-        public string? RuleState => _mRuleState.GetValue("ruleState");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ContributorInsightRule.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ContributorInsightRule.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/contributorInsightRule:ContributorInsightRule")]
@@ -70,36 +112,64 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
         /// </summary>
-        [Input("ruleDefinition")]
+        [PolicyResourceProperty("ruleDefinition", "_mUnknown_RuleDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleDefinition;
-
-        public string? RuleDefinition => _mRuleDefinition.GetValue("ruleDefinition");
+        private string? _mValue_RuleDefinition;
+        private bool _mUnknown_RuleDefinition;
+        public string? RuleDefinition
+        {
+            get
+            {
+                if (!_mUnknown_RuleDefinition) return _mValue_RuleDefinition;
+                throw new UndeferrableValueException("Value 'ContributorInsightRuleArgs.RuleDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name of the rule.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("ruleName")]
+        [PolicyResourceProperty("ruleName", "_mUnknown_RuleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
-
-        public string? RuleName => _mRuleName.GetValue("ruleName");
+        private string? _mValue_RuleName;
+        private bool _mUnknown_RuleName;
+        public string? RuleName
+        {
+            get
+            {
+                if (!_mUnknown_RuleName) return _mValue_RuleName;
+                throw new UndeferrableValueException("Value 'ContributorInsightRuleArgs.RuleName' is not present");
+            }
+        }
 
         /// <summary>
         /// State of the rule. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("ruleState")]
+        [PolicyResourceProperty("ruleState", "_mUnknown_RuleState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleState;
+        private string? _mValue_RuleState;
+        private bool _mUnknown_RuleState;
+        public string? RuleState
+        {
+            get
+            {
+                if (!_mUnknown_RuleState) return _mValue_RuleState;
+                throw new UndeferrableValueException("Value 'ContributorInsightRuleArgs.RuleState' is not present");
+            }
+        }
 
-        public string? RuleState => _mRuleState.GetValue("ruleState");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ContributorInsightRuleArgs.Tags' is not present");
+            }
+        }
     }
 }

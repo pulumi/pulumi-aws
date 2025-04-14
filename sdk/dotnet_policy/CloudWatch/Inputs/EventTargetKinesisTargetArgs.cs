@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// The JSON path to be extracted from the event and used as the partition key.
         /// </summary>
-        [Input("partitionKeyPath")]
+        [PolicyResourceProperty("partitionKeyPath", "_mUnknown_PartitionKeyPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPartitionKeyPath;
-
-        public string? PartitionKeyPath => _mPartitionKeyPath.GetValue("partitionKeyPath");
+        private string? _mValue_PartitionKeyPath;
+        private bool _mUnknown_PartitionKeyPath;
+        public string? PartitionKeyPath
+        {
+            get
+            {
+                if (!_mUnknown_PartitionKeyPath) return _mValue_PartitionKeyPath;
+                throw new UndeferrableValueException("Value 'EventTargetKinesisTargetArgs.PartitionKeyPath' is not present");
+            }
+        }
     }
 }

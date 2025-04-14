@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// <summary>
         /// Amazon Resource Name (ARN) identifier of the KX volume.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'KxVolume.Arn' is not present");
+            }
+        }
 
-        public string? Arn => _mArn.GetValue("arn");
-
-        [Input("attachedClusters")]
+        [PolicyResourceProperty("attachedClusters", "_mUnknown_AttachedClusters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.KxVolumeAttachedCluster>> _mAttachedClusters;
-
-        public List<Outputs.KxVolumeAttachedCluster>? AttachedClusters => _mAttachedClusters.GetValue("attachedClusters");
+        private List<Outputs.KxVolumeAttachedCluster>? _mValue_AttachedClusters;
+        private bool _mUnknown_AttachedClusters;
+        public List<Outputs.KxVolumeAttachedCluster>? AttachedClusters
+        {
+            get
+            {
+                if (!_mUnknown_AttachedClusters) return _mValue_AttachedClusters;
+                throw new UndeferrableValueException("Value 'KxVolume.AttachedClusters' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the AWS Availability Zone IDs.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("availabilityZones")]
+        [PolicyResourceProperty("availabilityZones", "_mUnknown_AvailabilityZones")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
-
-        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
+        private List<string>? _mValue_AvailabilityZones;
+        private bool _mUnknown_AvailabilityZones;
+        public List<string>? AvailabilityZones
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZones) return _mValue_AvailabilityZones;
+                throw new UndeferrableValueException("Value 'KxVolume.AvailabilityZones' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
         /// * `SINGLE` - Assigns one availability zone per volume.
         /// </summary>
-        [Input("azMode")]
+        [PolicyResourceProperty("azMode", "_mUnknown_AzMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAzMode;
-
-        public string? AzMode => _mAzMode.GetValue("azMode");
+        private string? _mValue_AzMode;
+        private bool _mUnknown_AzMode;
+        public string? AzMode
+        {
+            get
+            {
+                if (!_mUnknown_AzMode) return _mValue_AzMode;
+                throw new UndeferrableValueException("Value 'KxVolume.AzMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         /// </summary>
-        [Input("createdTimestamp")]
+        [PolicyResourceProperty("createdTimestamp", "_mUnknown_CreatedTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTimestamp;
-
-        public string? CreatedTimestamp => _mCreatedTimestamp.GetValue("createdTimestamp");
+        private string? _mValue_CreatedTimestamp;
+        private bool _mUnknown_CreatedTimestamp;
+        public string? CreatedTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTimestamp) return _mValue_CreatedTimestamp;
+                throw new UndeferrableValueException("Value 'KxVolume.CreatedTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the volume.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'KxVolume.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier for the kdb environment, whose clusters can attach to the volume.
         /// </summary>
-        [Input("environmentId")]
+        [PolicyResourceProperty("environmentId", "_mUnknown_EnvironmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
-
-        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+        private string? _mValue_EnvironmentId;
+        private bool _mUnknown_EnvironmentId;
+        public string? EnvironmentId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentId) return _mValue_EnvironmentId;
+                throw new UndeferrableValueException("Value 'KxVolume.EnvironmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Last timestamp at which the volume was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         /// </summary>
-        [Input("lastModifiedTimestamp")]
+        [PolicyResourceProperty("lastModifiedTimestamp", "_mUnknown_LastModifiedTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedTimestamp;
-
-        public string? LastModifiedTimestamp => _mLastModifiedTimestamp.GetValue("lastModifiedTimestamp");
+        private string? _mValue_LastModifiedTimestamp;
+        private bool _mUnknown_LastModifiedTimestamp;
+        public string? LastModifiedTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_LastModifiedTimestamp) return _mValue_LastModifiedTimestamp;
+                throw new UndeferrableValueException("Value 'KxVolume.LastModifiedTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the volumr that you want to create.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'KxVolume.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
         /// </summary>
-        [Input("nas1Configurations")]
+        [PolicyResourceProperty("nas1Configurations", "_mUnknown_Nas1Configurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.KxVolumeNas1Configuration>> _mNas1Configurations;
-
-        public List<Outputs.KxVolumeNas1Configuration>? Nas1Configurations => _mNas1Configurations.GetValue("nas1Configurations");
+        private List<Outputs.KxVolumeNas1Configuration>? _mValue_Nas1Configurations;
+        private bool _mUnknown_Nas1Configurations;
+        public List<Outputs.KxVolumeNas1Configuration>? Nas1Configurations
+        {
+            get
+            {
+                if (!_mUnknown_Nas1Configurations) return _mValue_Nas1Configurations;
+                throw new UndeferrableValueException("Value 'KxVolume.Nas1Configurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of volume creation.
@@ -115,44 +185,79 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// * `DELETE_FAILED` – The system failed to delete the volume.
         /// * `DELETED` – The volume is successfully deleted.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'KxVolume.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The error message when a failed state occurs.
         /// </summary>
-        [Input("statusReason")]
+        [PolicyResourceProperty("statusReason", "_mUnknown_StatusReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusReason;
-
-        public string? StatusReason => _mStatusReason.GetValue("statusReason");
+        private string? _mValue_StatusReason;
+        private bool _mUnknown_StatusReason;
+        public string? StatusReason
+        {
+            get
+            {
+                if (!_mUnknown_StatusReason) return _mValue_StatusReason;
+                throw new UndeferrableValueException("Value 'KxVolume.StatusReason' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'KxVolume.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'KxVolume.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'KxVolume.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:finspace/kxVolume:KxVolume")]
@@ -163,74 +268,130 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("availabilityZones")]
+        [PolicyResourceProperty("availabilityZones", "_mUnknown_AvailabilityZones")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
-
-        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
+        private List<string>? _mValue_AvailabilityZones;
+        private bool _mUnknown_AvailabilityZones;
+        public List<string>? AvailabilityZones
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZones) return _mValue_AvailabilityZones;
+                throw new UndeferrableValueException("Value 'KxVolumeArgs.AvailabilityZones' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
         /// * `SINGLE` - Assigns one availability zone per volume.
         /// </summary>
-        [Input("azMode")]
+        [PolicyResourceProperty("azMode", "_mUnknown_AzMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAzMode;
-
-        public string? AzMode => _mAzMode.GetValue("azMode");
+        private string? _mValue_AzMode;
+        private bool _mUnknown_AzMode;
+        public string? AzMode
+        {
+            get
+            {
+                if (!_mUnknown_AzMode) return _mValue_AzMode;
+                throw new UndeferrableValueException("Value 'KxVolumeArgs.AzMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the volume.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'KxVolumeArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier for the kdb environment, whose clusters can attach to the volume.
         /// </summary>
-        [Input("environmentId")]
+        [PolicyResourceProperty("environmentId", "_mUnknown_EnvironmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
-
-        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+        private string? _mValue_EnvironmentId;
+        private bool _mUnknown_EnvironmentId;
+        public string? EnvironmentId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentId) return _mValue_EnvironmentId;
+                throw new UndeferrableValueException("Value 'KxVolumeArgs.EnvironmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the volumr that you want to create.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'KxVolumeArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
         /// </summary>
-        [Input("nas1Configurations")]
+        [PolicyResourceProperty("nas1Configurations", "_mUnknown_Nas1Configurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.KxVolumeNas1ConfigurationArgs>> _mNas1Configurations;
-
-        public List<Inputs.KxVolumeNas1ConfigurationArgs>? Nas1Configurations => _mNas1Configurations.GetValue("nas1Configurations");
+        private List<Inputs.KxVolumeNas1ConfigurationArgs>? _mValue_Nas1Configurations;
+        private bool _mUnknown_Nas1Configurations;
+        public List<Inputs.KxVolumeNas1ConfigurationArgs>? Nas1Configurations
+        {
+            get
+            {
+                if (!_mUnknown_Nas1Configurations) return _mValue_Nas1Configurations;
+                throw new UndeferrableValueException("Value 'KxVolumeArgs.Nas1Configurations' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'KxVolumeArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'KxVolumeArgs.Type' is not present");
+            }
+        }
     }
 }

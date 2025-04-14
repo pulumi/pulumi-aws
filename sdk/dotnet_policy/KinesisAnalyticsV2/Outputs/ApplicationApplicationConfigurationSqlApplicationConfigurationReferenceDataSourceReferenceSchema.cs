@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
         /// </summary>
-        [Input("recordColumns")]
+        [PolicyResourceProperty("recordColumns", "_mUnknown_RecordColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn>> _mRecordColumns;
-
-        public List<Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn>? RecordColumns => _mRecordColumns.GetValue("recordColumns");
+        private List<Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn>? _mValue_RecordColumns;
+        private bool _mUnknown_RecordColumns;
+        public List<Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn>? RecordColumns
+        {
+            get
+            {
+                if (!_mUnknown_RecordColumns) return _mValue_RecordColumns;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema.RecordColumns' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
         /// </summary>
-        [Input("recordEncoding")]
+        [PolicyResourceProperty("recordEncoding", "_mUnknown_RecordEncoding")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecordEncoding;
-
-        public string? RecordEncoding => _mRecordEncoding.GetValue("recordEncoding");
+        private string? _mValue_RecordEncoding;
+        private bool _mUnknown_RecordEncoding;
+        public string? RecordEncoding
+        {
+            get
+            {
+                if (!_mUnknown_RecordEncoding) return _mValue_RecordEncoding;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema.RecordEncoding' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the format of the records on the streaming source.
         /// </summary>
-        [Input("recordFormat")]
+        [PolicyResourceProperty("recordFormat", "_mUnknown_RecordFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat> _mRecordFormat;
-
-        public Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat? RecordFormat => _mRecordFormat.GetValue("recordFormat");
+        private Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat? _mValue_RecordFormat;
+        private bool _mUnknown_RecordFormat;
+        public Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat? RecordFormat
+        {
+            get
+            {
+                if (!_mUnknown_RecordFormat) return _mValue_RecordFormat;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema.RecordFormat' is not present");
+            }
+        }
     }
 }

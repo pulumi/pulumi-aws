@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
 {
     public sealed class AgentDataSourceDataSourceConfigurationConfluenceConfiguration
     {
-        [Input("crawlerConfiguration")]
+        [PolicyResourceProperty("crawlerConfiguration", "_mUnknown_CrawlerConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration> _mCrawlerConfiguration;
+        private Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration? _mValue_CrawlerConfiguration;
+        private bool _mUnknown_CrawlerConfiguration;
+        public Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration? CrawlerConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CrawlerConfiguration) return _mValue_CrawlerConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationConfluenceConfiguration.CrawlerConfiguration' is not present");
+            }
+        }
 
-        public Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration? CrawlerConfiguration => _mCrawlerConfiguration.GetValue("crawlerConfiguration");
-
-        [Input("sourceConfiguration")]
+        [PolicyResourceProperty("sourceConfiguration", "_mUnknown_SourceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration> _mSourceConfiguration;
-
-        public Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration? SourceConfiguration => _mSourceConfiguration.GetValue("sourceConfiguration");
+        private Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration? _mValue_SourceConfiguration;
+        private bool _mUnknown_SourceConfiguration;
+        public Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration? SourceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SourceConfiguration) return _mValue_SourceConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationConfluenceConfiguration.SourceConfiguration' is not present");
+            }
+        }
     }
 }

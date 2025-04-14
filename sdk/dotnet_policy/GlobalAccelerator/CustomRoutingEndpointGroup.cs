@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator
         /// <summary>
         /// The Amazon Resource Name (ARN) of the custom routing endpoint group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
         /// </summary>
-        [Input("destinationConfigurations")]
+        [PolicyResourceProperty("destinationConfigurations", "_mUnknown_DestinationConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CustomRoutingEndpointGroupDestinationConfiguration>> _mDestinationConfigurations;
-
-        public List<Outputs.CustomRoutingEndpointGroupDestinationConfiguration>? DestinationConfigurations => _mDestinationConfigurations.GetValue("destinationConfigurations");
+        private List<Outputs.CustomRoutingEndpointGroupDestinationConfiguration>? _mValue_DestinationConfigurations;
+        private bool _mUnknown_DestinationConfigurations;
+        public List<Outputs.CustomRoutingEndpointGroupDestinationConfiguration>? DestinationConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_DestinationConfigurations) return _mValue_DestinationConfigurations;
+                throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroup.DestinationConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of endpoint objects. Fields documented below.
         /// </summary>
-        [Input("endpointConfigurations")]
+        [PolicyResourceProperty("endpointConfigurations", "_mUnknown_EndpointConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CustomRoutingEndpointGroupEndpointConfiguration>> _mEndpointConfigurations;
-
-        public List<Outputs.CustomRoutingEndpointGroupEndpointConfiguration>? EndpointConfigurations => _mEndpointConfigurations.GetValue("endpointConfigurations");
+        private List<Outputs.CustomRoutingEndpointGroupEndpointConfiguration>? _mValue_EndpointConfigurations;
+        private bool _mUnknown_EndpointConfigurations;
+        public List<Outputs.CustomRoutingEndpointGroupEndpointConfiguration>? EndpointConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_EndpointConfigurations) return _mValue_EndpointConfigurations;
+                throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroup.EndpointConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the AWS Region where the custom routing endpoint group is located.
         /// </summary>
-        [Input("endpointGroupRegion")]
+        [PolicyResourceProperty("endpointGroupRegion", "_mUnknown_EndpointGroupRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointGroupRegion;
-
-        public string? EndpointGroupRegion => _mEndpointGroupRegion.GetValue("endpointGroupRegion");
+        private string? _mValue_EndpointGroupRegion;
+        private bool _mUnknown_EndpointGroupRegion;
+        public string? EndpointGroupRegion
+        {
+            get
+            {
+                if (!_mUnknown_EndpointGroupRegion) return _mValue_EndpointGroupRegion;
+                throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroup.EndpointGroupRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the custom routing listener.
         /// </summary>
-        [Input("listenerArn")]
+        [PolicyResourceProperty("listenerArn", "_mUnknown_ListenerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mListenerArn;
-
-        public string? ListenerArn => _mListenerArn.GetValue("listenerArn");
+        private string? _mValue_ListenerArn;
+        private bool _mUnknown_ListenerArn;
+        public string? ListenerArn
+        {
+            get
+            {
+                if (!_mUnknown_ListenerArn) return _mValue_ListenerArn;
+                throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroup.ListenerArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup")]
@@ -65,37 +100,65 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator
         /// <summary>
         /// The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
         /// </summary>
-        [Input("destinationConfigurations")]
+        [PolicyResourceProperty("destinationConfigurations", "_mUnknown_DestinationConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CustomRoutingEndpointGroupDestinationConfigurationArgs>> _mDestinationConfigurations;
-
-        public List<Inputs.CustomRoutingEndpointGroupDestinationConfigurationArgs>? DestinationConfigurations => _mDestinationConfigurations.GetValue("destinationConfigurations");
+        private List<Inputs.CustomRoutingEndpointGroupDestinationConfigurationArgs>? _mValue_DestinationConfigurations;
+        private bool _mUnknown_DestinationConfigurations;
+        public List<Inputs.CustomRoutingEndpointGroupDestinationConfigurationArgs>? DestinationConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_DestinationConfigurations) return _mValue_DestinationConfigurations;
+                throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroupArgs.DestinationConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of endpoint objects. Fields documented below.
         /// </summary>
-        [Input("endpointConfigurations")]
+        [PolicyResourceProperty("endpointConfigurations", "_mUnknown_EndpointConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CustomRoutingEndpointGroupEndpointConfigurationArgs>> _mEndpointConfigurations;
-
-        public List<Inputs.CustomRoutingEndpointGroupEndpointConfigurationArgs>? EndpointConfigurations => _mEndpointConfigurations.GetValue("endpointConfigurations");
+        private List<Inputs.CustomRoutingEndpointGroupEndpointConfigurationArgs>? _mValue_EndpointConfigurations;
+        private bool _mUnknown_EndpointConfigurations;
+        public List<Inputs.CustomRoutingEndpointGroupEndpointConfigurationArgs>? EndpointConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_EndpointConfigurations) return _mValue_EndpointConfigurations;
+                throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroupArgs.EndpointConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the AWS Region where the custom routing endpoint group is located.
         /// </summary>
-        [Input("endpointGroupRegion")]
+        [PolicyResourceProperty("endpointGroupRegion", "_mUnknown_EndpointGroupRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointGroupRegion;
-
-        public string? EndpointGroupRegion => _mEndpointGroupRegion.GetValue("endpointGroupRegion");
+        private string? _mValue_EndpointGroupRegion;
+        private bool _mUnknown_EndpointGroupRegion;
+        public string? EndpointGroupRegion
+        {
+            get
+            {
+                if (!_mUnknown_EndpointGroupRegion) return _mValue_EndpointGroupRegion;
+                throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroupArgs.EndpointGroupRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the custom routing listener.
         /// </summary>
-        [Input("listenerArn")]
+        [PolicyResourceProperty("listenerArn", "_mUnknown_ListenerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mListenerArn;
-
-        public string? ListenerArn => _mListenerArn.GetValue("listenerArn");
+        private string? _mValue_ListenerArn;
+        private bool _mUnknown_ListenerArn;
+        public string? ListenerArn
+        {
+            get
+            {
+                if (!_mUnknown_ListenerArn) return _mValue_ListenerArn;
+                throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroupArgs.ListenerArn' is not present");
+            }
+        }
     }
 }

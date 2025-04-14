@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.DeviceFarm
         /// <summary>
         /// The Amazon Resource Name of this instance profile.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'InstanceProfile.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the instance profile.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'InstanceProfile.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
         /// </summary>
-        [Input("excludeAppPackagesFromCleanups")]
+        [PolicyResourceProperty("excludeAppPackagesFromCleanups", "_mUnknown_ExcludeAppPackagesFromCleanups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludeAppPackagesFromCleanups;
-
-        public List<string>? ExcludeAppPackagesFromCleanups => _mExcludeAppPackagesFromCleanups.GetValue("excludeAppPackagesFromCleanups");
+        private List<string>? _mValue_ExcludeAppPackagesFromCleanups;
+        private bool _mUnknown_ExcludeAppPackagesFromCleanups;
+        public List<string>? ExcludeAppPackagesFromCleanups
+        {
+            get
+            {
+                if (!_mUnknown_ExcludeAppPackagesFromCleanups) return _mValue_ExcludeAppPackagesFromCleanups;
+                throw new UndeferrableValueException("Value 'InstanceProfile.ExcludeAppPackagesFromCleanups' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the instance profile.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'InstanceProfile.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
         /// </summary>
-        [Input("packageCleanup")]
+        [PolicyResourceProperty("packageCleanup", "_mUnknown_PackageCleanup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPackageCleanup;
-
-        public bool? PackageCleanup => _mPackageCleanup.GetValue("packageCleanup");
+        private bool? _mValue_PackageCleanup;
+        private bool _mUnknown_PackageCleanup;
+        public bool? PackageCleanup
+        {
+            get
+            {
+                if (!_mUnknown_PackageCleanup) return _mValue_PackageCleanup;
+                throw new UndeferrableValueException("Value 'InstanceProfile.PackageCleanup' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
         /// </summary>
-        [Input("rebootAfterUse")]
+        [PolicyResourceProperty("rebootAfterUse", "_mUnknown_RebootAfterUse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRebootAfterUse;
-
-        public bool? RebootAfterUse => _mRebootAfterUse.GetValue("rebootAfterUse");
+        private bool? _mValue_RebootAfterUse;
+        private bool _mUnknown_RebootAfterUse;
+        public bool? RebootAfterUse
+        {
+            get
+            {
+                if (!_mUnknown_RebootAfterUse) return _mValue_RebootAfterUse;
+                throw new UndeferrableValueException("Value 'InstanceProfile.RebootAfterUse' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'InstanceProfile.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'InstanceProfile.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:devicefarm/instanceProfile:InstanceProfile")]
@@ -92,55 +148,97 @@ namespace Pulumi.PolicyPacks.Aws.DeviceFarm
         /// <summary>
         /// The description of the instance profile.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'InstanceProfileArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
         /// </summary>
-        [Input("excludeAppPackagesFromCleanups")]
+        [PolicyResourceProperty("excludeAppPackagesFromCleanups", "_mUnknown_ExcludeAppPackagesFromCleanups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludeAppPackagesFromCleanups;
-
-        public List<string>? ExcludeAppPackagesFromCleanups => _mExcludeAppPackagesFromCleanups.GetValue("excludeAppPackagesFromCleanups");
+        private List<string>? _mValue_ExcludeAppPackagesFromCleanups;
+        private bool _mUnknown_ExcludeAppPackagesFromCleanups;
+        public List<string>? ExcludeAppPackagesFromCleanups
+        {
+            get
+            {
+                if (!_mUnknown_ExcludeAppPackagesFromCleanups) return _mValue_ExcludeAppPackagesFromCleanups;
+                throw new UndeferrableValueException("Value 'InstanceProfileArgs.ExcludeAppPackagesFromCleanups' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the instance profile.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'InstanceProfileArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
         /// </summary>
-        [Input("packageCleanup")]
+        [PolicyResourceProperty("packageCleanup", "_mUnknown_PackageCleanup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPackageCleanup;
-
-        public bool? PackageCleanup => _mPackageCleanup.GetValue("packageCleanup");
+        private bool? _mValue_PackageCleanup;
+        private bool _mUnknown_PackageCleanup;
+        public bool? PackageCleanup
+        {
+            get
+            {
+                if (!_mUnknown_PackageCleanup) return _mValue_PackageCleanup;
+                throw new UndeferrableValueException("Value 'InstanceProfileArgs.PackageCleanup' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
         /// </summary>
-        [Input("rebootAfterUse")]
+        [PolicyResourceProperty("rebootAfterUse", "_mUnknown_RebootAfterUse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRebootAfterUse;
-
-        public bool? RebootAfterUse => _mRebootAfterUse.GetValue("rebootAfterUse");
+        private bool? _mValue_RebootAfterUse;
+        private bool _mUnknown_RebootAfterUse;
+        public bool? RebootAfterUse
+        {
+            get
+            {
+                if (!_mUnknown_RebootAfterUse) return _mValue_RebootAfterUse;
+                throw new UndeferrableValueException("Value 'InstanceProfileArgs.RebootAfterUse' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'InstanceProfileArgs.Tags' is not present");
+            }
+        }
     }
 }

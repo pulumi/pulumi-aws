@@ -16,40 +16,68 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the Lambda Function.
         /// </summary>
-        [Input("functionName")]
+        [PolicyResourceProperty("functionName", "_mUnknown_FunctionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
-
-        public string? FunctionName => _mFunctionName.GetValue("functionName");
+        private string? _mValue_FunctionName;
+        private bool _mUnknown_FunctionName;
+        public string? FunctionName
+        {
+            get
+            {
+                if (!_mUnknown_FunctionName) return _mValue_FunctionName;
+                throw new UndeferrableValueException("Value 'ProvisionedConcurrencyConfig.FunctionName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of capacity to allocate. Must be greater than or equal to `1`.
         /// </summary>
-        [Input("provisionedConcurrentExecutions")]
+        [PolicyResourceProperty("provisionedConcurrentExecutions", "_mUnknown_ProvisionedConcurrentExecutions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mProvisionedConcurrentExecutions;
-
-        public int? ProvisionedConcurrentExecutions => _mProvisionedConcurrentExecutions.GetValue("provisionedConcurrentExecutions");
+        private int? _mValue_ProvisionedConcurrentExecutions;
+        private bool _mUnknown_ProvisionedConcurrentExecutions;
+        public int? ProvisionedConcurrentExecutions
+        {
+            get
+            {
+                if (!_mUnknown_ProvisionedConcurrentExecutions) return _mValue_ProvisionedConcurrentExecutions;
+                throw new UndeferrableValueException("Value 'ProvisionedConcurrencyConfig.ProvisionedConcurrentExecutions' is not present");
+            }
+        }
 
         /// <summary>
         /// Lambda Function version or Lambda Alias name.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("qualifier")]
+        [PolicyResourceProperty("qualifier", "_mUnknown_Qualifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
-
-        public string? Qualifier => _mQualifier.GetValue("qualifier");
+        private string? _mValue_Qualifier;
+        private bool _mUnknown_Qualifier;
+        public string? Qualifier
+        {
+            get
+            {
+                if (!_mUnknown_Qualifier) return _mValue_Qualifier;
+                throw new UndeferrableValueException("Value 'ProvisionedConcurrencyConfig.Qualifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'ProvisionedConcurrencyConfig.SkipDestroy' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig")]
@@ -58,39 +86,67 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the Lambda Function.
         /// </summary>
-        [Input("functionName")]
+        [PolicyResourceProperty("functionName", "_mUnknown_FunctionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
-
-        public string? FunctionName => _mFunctionName.GetValue("functionName");
+        private string? _mValue_FunctionName;
+        private bool _mUnknown_FunctionName;
+        public string? FunctionName
+        {
+            get
+            {
+                if (!_mUnknown_FunctionName) return _mValue_FunctionName;
+                throw new UndeferrableValueException("Value 'ProvisionedConcurrencyConfigArgs.FunctionName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of capacity to allocate. Must be greater than or equal to `1`.
         /// </summary>
-        [Input("provisionedConcurrentExecutions")]
+        [PolicyResourceProperty("provisionedConcurrentExecutions", "_mUnknown_ProvisionedConcurrentExecutions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mProvisionedConcurrentExecutions;
-
-        public int? ProvisionedConcurrentExecutions => _mProvisionedConcurrentExecutions.GetValue("provisionedConcurrentExecutions");
+        private int? _mValue_ProvisionedConcurrentExecutions;
+        private bool _mUnknown_ProvisionedConcurrentExecutions;
+        public int? ProvisionedConcurrentExecutions
+        {
+            get
+            {
+                if (!_mUnknown_ProvisionedConcurrentExecutions) return _mValue_ProvisionedConcurrentExecutions;
+                throw new UndeferrableValueException("Value 'ProvisionedConcurrencyConfigArgs.ProvisionedConcurrentExecutions' is not present");
+            }
+        }
 
         /// <summary>
         /// Lambda Function version or Lambda Alias name.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("qualifier")]
+        [PolicyResourceProperty("qualifier", "_mUnknown_Qualifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
-
-        public string? Qualifier => _mQualifier.GetValue("qualifier");
+        private string? _mValue_Qualifier;
+        private bool _mUnknown_Qualifier;
+        public string? Qualifier
+        {
+            get
+            {
+                if (!_mUnknown_Qualifier) return _mValue_Qualifier;
+                throw new UndeferrableValueException("Value 'ProvisionedConcurrencyConfigArgs.Qualifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'ProvisionedConcurrencyConfigArgs.SkipDestroy' is not present");
+            }
+        }
     }
 }

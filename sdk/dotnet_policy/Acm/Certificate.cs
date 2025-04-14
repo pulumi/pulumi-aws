@@ -16,59 +16,101 @@ namespace Pulumi.PolicyPacks.Aws.Acm
         /// <summary>
         /// ARN of the certificate
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Certificate.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an ACM PCA
         /// </summary>
-        [Input("certificateAuthorityArn")]
+        [PolicyResourceProperty("certificateAuthorityArn", "_mUnknown_CertificateAuthorityArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateAuthorityArn;
-
-        public string? CertificateAuthorityArn => _mCertificateAuthorityArn.GetValue("certificateAuthorityArn");
+        private string? _mValue_CertificateAuthorityArn;
+        private bool _mUnknown_CertificateAuthorityArn;
+        public string? CertificateAuthorityArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateAuthorityArn) return _mValue_CertificateAuthorityArn;
+                throw new UndeferrableValueException("Value 'Certificate.CertificateAuthorityArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Certificate's PEM-formatted public key
         /// </summary>
-        [Input("certificateBody")]
+        [PolicyResourceProperty("certificateBody", "_mUnknown_CertificateBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateBody;
-
-        public string? CertificateBody => _mCertificateBody.GetValue("certificateBody");
+        private string? _mValue_CertificateBody;
+        private bool _mUnknown_CertificateBody;
+        public string? CertificateBody
+        {
+            get
+            {
+                if (!_mUnknown_CertificateBody) return _mValue_CertificateBody;
+                throw new UndeferrableValueException("Value 'Certificate.CertificateBody' is not present");
+            }
+        }
 
         /// <summary>
         /// Certificate's PEM-formatted chain
         /// * Creating a private CA issued certificate
         /// </summary>
-        [Input("certificateChain")]
+        [PolicyResourceProperty("certificateChain", "_mUnknown_CertificateChain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
-
-        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
+        private string? _mValue_CertificateChain;
+        private bool _mUnknown_CertificateChain;
+        public string? CertificateChain
+        {
+            get
+            {
+                if (!_mUnknown_CertificateChain) return _mValue_CertificateChain;
+                throw new UndeferrableValueException("Value 'Certificate.CertificateChain' is not present");
+            }
+        }
 
         /// <summary>
         /// Fully qualified domain name (FQDN) in the certificate.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'Certificate.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of domain validation objects which can be used to complete certificate validation.
         /// Can have more than one element, e.g., if SANs are defined.
         /// Only set if `DNS`-validation was used.
         /// </summary>
-        [Input("domainValidationOptions")]
+        [PolicyResourceProperty("domainValidationOptions", "_mUnknown_DomainValidationOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CertificateDomainValidationOption>> _mDomainValidationOptions;
-
-        public List<Outputs.CertificateDomainValidationOption>? DomainValidationOptions => _mDomainValidationOptions.GetValue("domainValidationOptions");
+        private List<Outputs.CertificateDomainValidationOption>? _mValue_DomainValidationOptions;
+        private bool _mUnknown_DomainValidationOptions;
+        public List<Outputs.CertificateDomainValidationOption>? DomainValidationOptions
+        {
+            get
+            {
+                if (!_mUnknown_DomainValidationOptions) return _mValue_DomainValidationOptions;
+                throw new UndeferrableValueException("Value 'Certificate.DomainValidationOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time to start automatic renewal process before expiration.
@@ -77,157 +119,276 @@ namespace Pulumi.PolicyPacks.Aws.Acm
         /// a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
         /// or a string such as `2160h`.
         /// </summary>
-        [Input("earlyRenewalDuration")]
+        [PolicyResourceProperty("earlyRenewalDuration", "_mUnknown_EarlyRenewalDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEarlyRenewalDuration;
-
-        public string? EarlyRenewalDuration => _mEarlyRenewalDuration.GetValue("earlyRenewalDuration");
+        private string? _mValue_EarlyRenewalDuration;
+        private bool _mUnknown_EarlyRenewalDuration;
+        public string? EarlyRenewalDuration
+        {
+            get
+            {
+                if (!_mUnknown_EarlyRenewalDuration) return _mValue_EarlyRenewalDuration;
+                throw new UndeferrableValueException("Value 'Certificate.EarlyRenewalDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
         /// </summary>
-        [Input("keyAlgorithm")]
+        [PolicyResourceProperty("keyAlgorithm", "_mUnknown_KeyAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyAlgorithm;
-
-        public string? KeyAlgorithm => _mKeyAlgorithm.GetValue("keyAlgorithm");
+        private string? _mValue_KeyAlgorithm;
+        private bool _mUnknown_KeyAlgorithm;
+        public string? KeyAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_KeyAlgorithm) return _mValue_KeyAlgorithm;
+                throw new UndeferrableValueException("Value 'Certificate.KeyAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Expiration date and time of the certificate.
         /// </summary>
-        [Input("notAfter")]
+        [PolicyResourceProperty("notAfter", "_mUnknown_NotAfter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotAfter;
-
-        public string? NotAfter => _mNotAfter.GetValue("notAfter");
+        private string? _mValue_NotAfter;
+        private bool _mUnknown_NotAfter;
+        public string? NotAfter
+        {
+            get
+            {
+                if (!_mUnknown_NotAfter) return _mValue_NotAfter;
+                throw new UndeferrableValueException("Value 'Certificate.NotAfter' is not present");
+            }
+        }
 
         /// <summary>
         /// Start of the validity period of the certificate.
         /// </summary>
-        [Input("notBefore")]
+        [PolicyResourceProperty("notBefore", "_mUnknown_NotBefore")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotBefore;
-
-        public string? NotBefore => _mNotBefore.GetValue("notBefore");
+        private string? _mValue_NotBefore;
+        private bool _mUnknown_NotBefore;
+        public string? NotBefore
+        {
+            get
+            {
+                if (!_mUnknown_NotBefore) return _mValue_NotBefore;
+                throw new UndeferrableValueException("Value 'Certificate.NotBefore' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block used to set certificate options. Detailed below.
         /// </summary>
-        [Input("options")]
+        [PolicyResourceProperty("options", "_mUnknown_Options")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CertificateOptions> _mOptions;
-
-        public Outputs.CertificateOptions? Options => _mOptions.GetValue("options");
+        private Outputs.CertificateOptions? _mValue_Options;
+        private bool _mUnknown_Options;
+        public Outputs.CertificateOptions? Options
+        {
+            get
+            {
+                if (!_mUnknown_Options) return _mValue_Options;
+                throw new UndeferrableValueException("Value 'Certificate.Options' is not present");
+            }
+        }
 
         /// <summary>
         /// `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
         /// </summary>
-        [Input("pendingRenewal")]
+        [PolicyResourceProperty("pendingRenewal", "_mUnknown_PendingRenewal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPendingRenewal;
-
-        public bool? PendingRenewal => _mPendingRenewal.GetValue("pendingRenewal");
+        private bool? _mValue_PendingRenewal;
+        private bool _mUnknown_PendingRenewal;
+        public bool? PendingRenewal
+        {
+            get
+            {
+                if (!_mUnknown_PendingRenewal) return _mValue_PendingRenewal;
+                throw new UndeferrableValueException("Value 'Certificate.PendingRenewal' is not present");
+            }
+        }
 
         /// <summary>
         /// Certificate's PEM-formatted private key
         /// </summary>
-        [Input("privateKey")]
+        [PolicyResourceProperty("privateKey", "_mUnknown_PrivateKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateKey;
-
-        public string? PrivateKey => _mPrivateKey.GetValue("privateKey");
+        private string? _mValue_PrivateKey;
+        private bool _mUnknown_PrivateKey;
+        public string? PrivateKey
+        {
+            get
+            {
+                if (!_mUnknown_PrivateKey) return _mValue_PrivateKey;
+                throw new UndeferrableValueException("Value 'Certificate.PrivateKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the certificate is eligible for managed renewal.
         /// </summary>
-        [Input("renewalEligibility")]
+        [PolicyResourceProperty("renewalEligibility", "_mUnknown_RenewalEligibility")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRenewalEligibility;
-
-        public string? RenewalEligibility => _mRenewalEligibility.GetValue("renewalEligibility");
+        private string? _mValue_RenewalEligibility;
+        private bool _mUnknown_RenewalEligibility;
+        public string? RenewalEligibility
+        {
+            get
+            {
+                if (!_mUnknown_RenewalEligibility) return _mValue_RenewalEligibility;
+                throw new UndeferrableValueException("Value 'Certificate.RenewalEligibility' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
         /// </summary>
-        [Input("renewalSummaries")]
+        [PolicyResourceProperty("renewalSummaries", "_mUnknown_RenewalSummaries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CertificateRenewalSummary>> _mRenewalSummaries;
-
-        public List<Outputs.CertificateRenewalSummary>? RenewalSummaries => _mRenewalSummaries.GetValue("renewalSummaries");
+        private List<Outputs.CertificateRenewalSummary>? _mValue_RenewalSummaries;
+        private bool _mUnknown_RenewalSummaries;
+        public List<Outputs.CertificateRenewalSummary>? RenewalSummaries
+        {
+            get
+            {
+                if (!_mUnknown_RenewalSummaries) return _mValue_RenewalSummaries;
+                throw new UndeferrableValueException("Value 'Certificate.RenewalSummaries' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the certificate.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Certificate.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of domains that should be SANs in the issued certificate.
         /// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
         /// </summary>
-        [Input("subjectAlternativeNames")]
+        [PolicyResourceProperty("subjectAlternativeNames", "_mUnknown_SubjectAlternativeNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubjectAlternativeNames;
-
-        public List<string>? SubjectAlternativeNames => _mSubjectAlternativeNames.GetValue("subjectAlternativeNames");
+        private List<string>? _mValue_SubjectAlternativeNames;
+        private bool _mUnknown_SubjectAlternativeNames;
+        public List<string>? SubjectAlternativeNames
+        {
+            get
+            {
+                if (!_mUnknown_SubjectAlternativeNames) return _mValue_SubjectAlternativeNames;
+                throw new UndeferrableValueException("Value 'Certificate.SubjectAlternativeNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Certificate.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Certificate.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Source of the certificate.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Certificate.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
         /// </summary>
-        [Input("validationEmails")]
+        [PolicyResourceProperty("validationEmails", "_mUnknown_ValidationEmails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mValidationEmails;
-
-        public List<string>? ValidationEmails => _mValidationEmails.GetValue("validationEmails");
+        private List<string>? _mValue_ValidationEmails;
+        private bool _mUnknown_ValidationEmails;
+        public List<string>? ValidationEmails
+        {
+            get
+            {
+                if (!_mUnknown_ValidationEmails) return _mValue_ValidationEmails;
+                throw new UndeferrableValueException("Value 'Certificate.ValidationEmails' is not present");
+            }
+        }
 
         /// <summary>
         /// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         /// </summary>
-        [Input("validationMethod")]
+        [PolicyResourceProperty("validationMethod", "_mUnknown_ValidationMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValidationMethod;
-
-        public string? ValidationMethod => _mValidationMethod.GetValue("validationMethod");
+        private string? _mValue_ValidationMethod;
+        private bool _mUnknown_ValidationMethod;
+        public string? ValidationMethod
+        {
+            get
+            {
+                if (!_mUnknown_ValidationMethod) return _mValue_ValidationMethod;
+                throw new UndeferrableValueException("Value 'Certificate.ValidationMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
         /// * Importing an existing certificate
         /// </summary>
-        [Input("validationOptions")]
+        [PolicyResourceProperty("validationOptions", "_mUnknown_ValidationOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CertificateValidationOption>> _mValidationOptions;
-
-        public List<Outputs.CertificateValidationOption>? ValidationOptions => _mValidationOptions.GetValue("validationOptions");
+        private List<Outputs.CertificateValidationOption>? _mValue_ValidationOptions;
+        private bool _mUnknown_ValidationOptions;
+        public List<Outputs.CertificateValidationOption>? ValidationOptions
+        {
+            get
+            {
+                if (!_mUnknown_ValidationOptions) return _mValue_ValidationOptions;
+                throw new UndeferrableValueException("Value 'Certificate.ValidationOptions' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:acm/certificate:Certificate")]
@@ -236,39 +397,67 @@ namespace Pulumi.PolicyPacks.Aws.Acm
         /// <summary>
         /// ARN of an ACM PCA
         /// </summary>
-        [Input("certificateAuthorityArn")]
+        [PolicyResourceProperty("certificateAuthorityArn", "_mUnknown_CertificateAuthorityArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateAuthorityArn;
-
-        public string? CertificateAuthorityArn => _mCertificateAuthorityArn.GetValue("certificateAuthorityArn");
+        private string? _mValue_CertificateAuthorityArn;
+        private bool _mUnknown_CertificateAuthorityArn;
+        public string? CertificateAuthorityArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateAuthorityArn) return _mValue_CertificateAuthorityArn;
+                throw new UndeferrableValueException("Value 'CertificateArgs.CertificateAuthorityArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Certificate's PEM-formatted public key
         /// </summary>
-        [Input("certificateBody")]
+        [PolicyResourceProperty("certificateBody", "_mUnknown_CertificateBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateBody;
-
-        public string? CertificateBody => _mCertificateBody.GetValue("certificateBody");
+        private string? _mValue_CertificateBody;
+        private bool _mUnknown_CertificateBody;
+        public string? CertificateBody
+        {
+            get
+            {
+                if (!_mUnknown_CertificateBody) return _mValue_CertificateBody;
+                throw new UndeferrableValueException("Value 'CertificateArgs.CertificateBody' is not present");
+            }
+        }
 
         /// <summary>
         /// Certificate's PEM-formatted chain
         /// * Creating a private CA issued certificate
         /// </summary>
-        [Input("certificateChain")]
+        [PolicyResourceProperty("certificateChain", "_mUnknown_CertificateChain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
-
-        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
+        private string? _mValue_CertificateChain;
+        private bool _mUnknown_CertificateChain;
+        public string? CertificateChain
+        {
+            get
+            {
+                if (!_mUnknown_CertificateChain) return _mValue_CertificateChain;
+                throw new UndeferrableValueException("Value 'CertificateArgs.CertificateChain' is not present");
+            }
+        }
 
         /// <summary>
         /// Fully qualified domain name (FQDN) in the certificate.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'CertificateArgs.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time to start automatic renewal process before expiration.
@@ -277,75 +466,131 @@ namespace Pulumi.PolicyPacks.Aws.Acm
         /// a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
         /// or a string such as `2160h`.
         /// </summary>
-        [Input("earlyRenewalDuration")]
+        [PolicyResourceProperty("earlyRenewalDuration", "_mUnknown_EarlyRenewalDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEarlyRenewalDuration;
-
-        public string? EarlyRenewalDuration => _mEarlyRenewalDuration.GetValue("earlyRenewalDuration");
+        private string? _mValue_EarlyRenewalDuration;
+        private bool _mUnknown_EarlyRenewalDuration;
+        public string? EarlyRenewalDuration
+        {
+            get
+            {
+                if (!_mUnknown_EarlyRenewalDuration) return _mValue_EarlyRenewalDuration;
+                throw new UndeferrableValueException("Value 'CertificateArgs.EarlyRenewalDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
         /// </summary>
-        [Input("keyAlgorithm")]
+        [PolicyResourceProperty("keyAlgorithm", "_mUnknown_KeyAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyAlgorithm;
-
-        public string? KeyAlgorithm => _mKeyAlgorithm.GetValue("keyAlgorithm");
+        private string? _mValue_KeyAlgorithm;
+        private bool _mUnknown_KeyAlgorithm;
+        public string? KeyAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_KeyAlgorithm) return _mValue_KeyAlgorithm;
+                throw new UndeferrableValueException("Value 'CertificateArgs.KeyAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block used to set certificate options. Detailed below.
         /// </summary>
-        [Input("options")]
+        [PolicyResourceProperty("options", "_mUnknown_Options")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CertificateOptionsArgs> _mOptions;
-
-        public Inputs.CertificateOptionsArgs? Options => _mOptions.GetValue("options");
+        private Inputs.CertificateOptionsArgs? _mValue_Options;
+        private bool _mUnknown_Options;
+        public Inputs.CertificateOptionsArgs? Options
+        {
+            get
+            {
+                if (!_mUnknown_Options) return _mValue_Options;
+                throw new UndeferrableValueException("Value 'CertificateArgs.Options' is not present");
+            }
+        }
 
         /// <summary>
         /// Certificate's PEM-formatted private key
         /// </summary>
-        [Input("privateKey")]
+        [PolicyResourceProperty("privateKey", "_mUnknown_PrivateKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateKey;
-
-        public string? PrivateKey => _mPrivateKey.GetValue("privateKey");
+        private string? _mValue_PrivateKey;
+        private bool _mUnknown_PrivateKey;
+        public string? PrivateKey
+        {
+            get
+            {
+                if (!_mUnknown_PrivateKey) return _mValue_PrivateKey;
+                throw new UndeferrableValueException("Value 'CertificateArgs.PrivateKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of domains that should be SANs in the issued certificate.
         /// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
         /// </summary>
-        [Input("subjectAlternativeNames")]
+        [PolicyResourceProperty("subjectAlternativeNames", "_mUnknown_SubjectAlternativeNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubjectAlternativeNames;
-
-        public List<string>? SubjectAlternativeNames => _mSubjectAlternativeNames.GetValue("subjectAlternativeNames");
+        private List<string>? _mValue_SubjectAlternativeNames;
+        private bool _mUnknown_SubjectAlternativeNames;
+        public List<string>? SubjectAlternativeNames
+        {
+            get
+            {
+                if (!_mUnknown_SubjectAlternativeNames) return _mValue_SubjectAlternativeNames;
+                throw new UndeferrableValueException("Value 'CertificateArgs.SubjectAlternativeNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CertificateArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         /// </summary>
-        [Input("validationMethod")]
+        [PolicyResourceProperty("validationMethod", "_mUnknown_ValidationMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValidationMethod;
-
-        public string? ValidationMethod => _mValidationMethod.GetValue("validationMethod");
+        private string? _mValue_ValidationMethod;
+        private bool _mUnknown_ValidationMethod;
+        public string? ValidationMethod
+        {
+            get
+            {
+                if (!_mUnknown_ValidationMethod) return _mValue_ValidationMethod;
+                throw new UndeferrableValueException("Value 'CertificateArgs.ValidationMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
         /// * Importing an existing certificate
         /// </summary>
-        [Input("validationOptions")]
+        [PolicyResourceProperty("validationOptions", "_mUnknown_ValidationOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CertificateValidationOptionArgs>> _mValidationOptions;
-
-        public List<Inputs.CertificateValidationOptionArgs>? ValidationOptions => _mValidationOptions.GetValue("validationOptions");
+        private List<Inputs.CertificateValidationOptionArgs>? _mValue_ValidationOptions;
+        private bool _mUnknown_ValidationOptions;
+        public List<Inputs.CertificateValidationOptionArgs>? ValidationOptions
+        {
+            get
+            {
+                if (!_mUnknown_ValidationOptions) return _mValue_ValidationOptions;
+                throw new UndeferrableValueException("Value 'CertificateArgs.ValidationOptions' is not present");
+            }
+        }
     }
 }

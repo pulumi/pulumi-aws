@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery.Outputs
         /// <summary>
         /// S3 location for error report.
         /// </summary>
-        [Input("errorReportLocations")]
+        [PolicyResourceProperty("errorReportLocations", "_mUnknown_ErrorReportLocations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ScheduledQueryRecentlyFailedRunErrorReportLocation>> _mErrorReportLocations;
-
-        public List<Outputs.ScheduledQueryRecentlyFailedRunErrorReportLocation>? ErrorReportLocations => _mErrorReportLocations.GetValue("errorReportLocations");
+        private List<Outputs.ScheduledQueryRecentlyFailedRunErrorReportLocation>? _mValue_ErrorReportLocations;
+        private bool _mUnknown_ErrorReportLocations;
+        public List<Outputs.ScheduledQueryRecentlyFailedRunErrorReportLocation>? ErrorReportLocations
+        {
+            get
+            {
+                if (!_mUnknown_ErrorReportLocations) return _mValue_ErrorReportLocations;
+                throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRun.ErrorReportLocations' is not present");
+            }
+        }
 
         /// <summary>
         /// Statistics for a single scheduled query run.
         /// </summary>
-        [Input("executionStats")]
+        [PolicyResourceProperty("executionStats", "_mUnknown_ExecutionStats")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ScheduledQueryRecentlyFailedRunExecutionStat>> _mExecutionStats;
-
-        public List<Outputs.ScheduledQueryRecentlyFailedRunExecutionStat>? ExecutionStats => _mExecutionStats.GetValue("executionStats");
+        private List<Outputs.ScheduledQueryRecentlyFailedRunExecutionStat>? _mValue_ExecutionStats;
+        private bool _mUnknown_ExecutionStats;
+        public List<Outputs.ScheduledQueryRecentlyFailedRunExecutionStat>? ExecutionStats
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionStats) return _mValue_ExecutionStats;
+                throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRun.ExecutionStats' is not present");
+            }
+        }
 
         /// <summary>
         /// Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
         /// </summary>
-        [Input("failureReason")]
+        [PolicyResourceProperty("failureReason", "_mUnknown_FailureReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFailureReason;
-
-        public string? FailureReason => _mFailureReason.GetValue("failureReason");
+        private string? _mValue_FailureReason;
+        private bool _mUnknown_FailureReason;
+        public string? FailureReason
+        {
+            get
+            {
+                if (!_mUnknown_FailureReason) return _mValue_FailureReason;
+                throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRun.FailureReason' is not present");
+            }
+        }
 
         /// <summary>
         /// InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
         /// </summary>
-        [Input("invocationTime")]
+        [PolicyResourceProperty("invocationTime", "_mUnknown_InvocationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInvocationTime;
-
-        public string? InvocationTime => _mInvocationTime.GetValue("invocationTime");
+        private string? _mValue_InvocationTime;
+        private bool _mUnknown_InvocationTime;
+        public string? InvocationTime
+        {
+            get
+            {
+                if (!_mUnknown_InvocationTime) return _mValue_InvocationTime;
+                throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRun.InvocationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Various insights and metrics related to the run summary of the scheduled query.
         /// </summary>
-        [Input("queryInsightsResponses")]
+        [PolicyResourceProperty("queryInsightsResponses", "_mUnknown_QueryInsightsResponses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponse>> _mQueryInsightsResponses;
-
-        public List<Outputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponse>? QueryInsightsResponses => _mQueryInsightsResponses.GetValue("queryInsightsResponses");
+        private List<Outputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponse>? _mValue_QueryInsightsResponses;
+        private bool _mUnknown_QueryInsightsResponses;
+        public List<Outputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponse>? QueryInsightsResponses
+        {
+            get
+            {
+                if (!_mUnknown_QueryInsightsResponses) return _mValue_QueryInsightsResponses;
+                throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRun.QueryInsightsResponses' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
         /// </summary>
-        [Input("runStatus")]
+        [PolicyResourceProperty("runStatus", "_mUnknown_RunStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRunStatus;
-
-        public string? RunStatus => _mRunStatus.GetValue("runStatus");
+        private string? _mValue_RunStatus;
+        private bool _mUnknown_RunStatus;
+        public string? RunStatus
+        {
+            get
+            {
+                if (!_mUnknown_RunStatus) return _mValue_RunStatus;
+                throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRun.RunStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Actual time when the query was run.
         /// </summary>
-        [Input("triggerTime")]
+        [PolicyResourceProperty("triggerTime", "_mUnknown_TriggerTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTriggerTime;
-
-        public string? TriggerTime => _mTriggerTime.GetValue("triggerTime");
+        private string? _mValue_TriggerTime;
+        private bool _mUnknown_TriggerTime;
+        public string? TriggerTime
+        {
+            get
+            {
+                if (!_mUnknown_TriggerTime) return _mValue_TriggerTime;
+                throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRun.TriggerTime' is not present");
+            }
+        }
     }
 }

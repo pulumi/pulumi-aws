@@ -16,51 +16,86 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// <summary>
         /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'ResourceLfTags.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a database resource. See below.
         /// </summary>
-        [Input("database")]
+        [PolicyResourceProperty("database", "_mUnknown_Database")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceLfTagsDatabase> _mDatabase;
-
-        public Outputs.ResourceLfTagsDatabase? Database => _mDatabase.GetValue("database");
+        private Outputs.ResourceLfTagsDatabase? _mValue_Database;
+        private bool _mUnknown_Database;
+        public Outputs.ResourceLfTagsDatabase? Database
+        {
+            get
+            {
+                if (!_mUnknown_Database) return _mValue_Database;
+                throw new UndeferrableValueException("Value 'ResourceLfTags.Database' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of LF-tags to attach to the resource. See below.
         /// 
         /// Exactly one of the following is required:
         /// </summary>
-        [Input("lfTags")]
+        [PolicyResourceProperty("lfTags", "_mUnknown_LfTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ResourceLfTagsLfTag>> _mLfTags;
-
-        public List<Outputs.ResourceLfTagsLfTag>? LfTags => _mLfTags.GetValue("lfTags");
+        private List<Outputs.ResourceLfTagsLfTag>? _mValue_LfTags;
+        private bool _mUnknown_LfTags;
+        public List<Outputs.ResourceLfTagsLfTag>? LfTags
+        {
+            get
+            {
+                if (!_mUnknown_LfTags) return _mValue_LfTags;
+                throw new UndeferrableValueException("Value 'ResourceLfTags.LfTags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a table resource. See below.
         /// </summary>
-        [Input("table")]
+        [PolicyResourceProperty("table", "_mUnknown_Table")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceLfTagsTable> _mTable;
-
-        public Outputs.ResourceLfTagsTable? Table => _mTable.GetValue("table");
+        private Outputs.ResourceLfTagsTable? _mValue_Table;
+        private bool _mUnknown_Table;
+        public Outputs.ResourceLfTagsTable? Table
+        {
+            get
+            {
+                if (!_mUnknown_Table) return _mValue_Table;
+                throw new UndeferrableValueException("Value 'ResourceLfTags.Table' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a table with columns resource. See below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("tableWithColumns")]
+        [PolicyResourceProperty("tableWithColumns", "_mUnknown_TableWithColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceLfTagsTableWithColumns> _mTableWithColumns;
-
-        public Outputs.ResourceLfTagsTableWithColumns? TableWithColumns => _mTableWithColumns.GetValue("tableWithColumns");
+        private Outputs.ResourceLfTagsTableWithColumns? _mValue_TableWithColumns;
+        private bool _mUnknown_TableWithColumns;
+        public Outputs.ResourceLfTagsTableWithColumns? TableWithColumns
+        {
+            get
+            {
+                if (!_mUnknown_TableWithColumns) return _mValue_TableWithColumns;
+                throw new UndeferrableValueException("Value 'ResourceLfTags.TableWithColumns' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lakeformation/resourceLfTags:ResourceLfTags")]
@@ -69,50 +104,85 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// <summary>
         /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'ResourceLfTagsArgs.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a database resource. See below.
         /// </summary>
-        [Input("database")]
+        [PolicyResourceProperty("database", "_mUnknown_Database")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResourceLfTagsDatabaseArgs> _mDatabase;
-
-        public Inputs.ResourceLfTagsDatabaseArgs? Database => _mDatabase.GetValue("database");
+        private Inputs.ResourceLfTagsDatabaseArgs? _mValue_Database;
+        private bool _mUnknown_Database;
+        public Inputs.ResourceLfTagsDatabaseArgs? Database
+        {
+            get
+            {
+                if (!_mUnknown_Database) return _mValue_Database;
+                throw new UndeferrableValueException("Value 'ResourceLfTagsArgs.Database' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of LF-tags to attach to the resource. See below.
         /// 
         /// Exactly one of the following is required:
         /// </summary>
-        [Input("lfTags")]
+        [PolicyResourceProperty("lfTags", "_mUnknown_LfTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ResourceLfTagsLfTagArgs>> _mLfTags;
-
-        public List<Inputs.ResourceLfTagsLfTagArgs>? LfTags => _mLfTags.GetValue("lfTags");
+        private List<Inputs.ResourceLfTagsLfTagArgs>? _mValue_LfTags;
+        private bool _mUnknown_LfTags;
+        public List<Inputs.ResourceLfTagsLfTagArgs>? LfTags
+        {
+            get
+            {
+                if (!_mUnknown_LfTags) return _mValue_LfTags;
+                throw new UndeferrableValueException("Value 'ResourceLfTagsArgs.LfTags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a table resource. See below.
         /// </summary>
-        [Input("table")]
+        [PolicyResourceProperty("table", "_mUnknown_Table")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResourceLfTagsTableArgs> _mTable;
-
-        public Inputs.ResourceLfTagsTableArgs? Table => _mTable.GetValue("table");
+        private Inputs.ResourceLfTagsTableArgs? _mValue_Table;
+        private bool _mUnknown_Table;
+        public Inputs.ResourceLfTagsTableArgs? Table
+        {
+            get
+            {
+                if (!_mUnknown_Table) return _mValue_Table;
+                throw new UndeferrableValueException("Value 'ResourceLfTagsArgs.Table' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a table with columns resource. See below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("tableWithColumns")]
+        [PolicyResourceProperty("tableWithColumns", "_mUnknown_TableWithColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResourceLfTagsTableWithColumnsArgs> _mTableWithColumns;
-
-        public Inputs.ResourceLfTagsTableWithColumnsArgs? TableWithColumns => _mTableWithColumns.GetValue("tableWithColumns");
+        private Inputs.ResourceLfTagsTableWithColumnsArgs? _mValue_TableWithColumns;
+        private bool _mUnknown_TableWithColumns;
+        public Inputs.ResourceLfTagsTableWithColumnsArgs? TableWithColumns
+        {
+            get
+            {
+                if (!_mUnknown_TableWithColumns) return _mValue_TableWithColumns;
+                throw new UndeferrableValueException("Value 'ResourceLfTagsArgs.TableWithColumns' is not present");
+            }
+        }
     }
 }

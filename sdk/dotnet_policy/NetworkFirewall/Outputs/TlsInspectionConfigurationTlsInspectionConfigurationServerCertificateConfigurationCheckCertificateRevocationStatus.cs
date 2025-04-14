@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
 {
     public sealed class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus
     {
-        [Input("revokedStatusAction")]
+        [PolicyResourceProperty("revokedStatusAction", "_mUnknown_RevokedStatusAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevokedStatusAction;
+        private string? _mValue_RevokedStatusAction;
+        private bool _mUnknown_RevokedStatusAction;
+        public string? RevokedStatusAction
+        {
+            get
+            {
+                if (!_mUnknown_RevokedStatusAction) return _mValue_RevokedStatusAction;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus.RevokedStatusAction' is not present");
+            }
+        }
 
-        public string? RevokedStatusAction => _mRevokedStatusAction.GetValue("revokedStatusAction");
-
-        [Input("unknownStatusAction")]
+        [PolicyResourceProperty("unknownStatusAction", "_mUnknown_UnknownStatusAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnknownStatusAction;
-
-        public string? UnknownStatusAction => _mUnknownStatusAction.GetValue("unknownStatusAction");
+        private string? _mValue_UnknownStatusAction;
+        private bool _mUnknown_UnknownStatusAction;
+        public string? UnknownStatusAction
+        {
+            get
+            {
+                if (!_mUnknown_UnknownStatusAction) return _mValue_UnknownStatusAction;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus.UnknownStatusAction' is not present");
+            }
+        }
     }
 }

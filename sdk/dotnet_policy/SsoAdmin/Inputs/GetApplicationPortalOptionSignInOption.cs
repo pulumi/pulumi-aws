@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin.Inputs
 {
     public sealed class GetApplicationPortalOptionSignInOptionArgs
     {
-        [Input("applicationUrl")]
+        [PolicyResourceProperty("applicationUrl", "_mUnknown_ApplicationUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationUrl;
+        private string? _mValue_ApplicationUrl;
+        private bool _mUnknown_ApplicationUrl;
+        public string? ApplicationUrl
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationUrl) return _mValue_ApplicationUrl;
+                throw new UndeferrableValueException("Value 'GetApplicationPortalOptionSignInOptionArgs.ApplicationUrl' is not present");
+            }
+        }
 
-        public string? ApplicationUrl => _mApplicationUrl.GetValue("applicationUrl");
-
-        [Input("origin")]
+        [PolicyResourceProperty("origin", "_mUnknown_Origin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrigin;
-
-        public string? Origin => _mOrigin.GetValue("origin");
+        private string? _mValue_Origin;
+        private bool _mUnknown_Origin;
+        public string? Origin
+        {
+            get
+            {
+                if (!_mUnknown_Origin) return _mValue_Origin;
+                throw new UndeferrableValueException("Value 'GetApplicationPortalOptionSignInOptionArgs.Origin' is not present");
+            }
+        }
     }
 }

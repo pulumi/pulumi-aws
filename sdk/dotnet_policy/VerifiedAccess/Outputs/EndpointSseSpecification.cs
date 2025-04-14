@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess.Outputs
 {
     public sealed class EndpointSseSpecification
     {
-        [Input("customerManagedKeyEnabled")]
+        [PolicyResourceProperty("customerManagedKeyEnabled", "_mUnknown_CustomerManagedKeyEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCustomerManagedKeyEnabled;
+        private bool? _mValue_CustomerManagedKeyEnabled;
+        private bool _mUnknown_CustomerManagedKeyEnabled;
+        public bool? CustomerManagedKeyEnabled
+        {
+            get
+            {
+                if (!_mUnknown_CustomerManagedKeyEnabled) return _mValue_CustomerManagedKeyEnabled;
+                throw new UndeferrableValueException("Value 'EndpointSseSpecification.CustomerManagedKeyEnabled' is not present");
+            }
+        }
 
-        public bool? CustomerManagedKeyEnabled => _mCustomerManagedKeyEnabled.GetValue("customerManagedKeyEnabled");
-
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'EndpointSseSpecification.KmsKeyArn' is not present");
+            }
+        }
     }
 }

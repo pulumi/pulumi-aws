@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// Defines custom handling for the web request. See Custom Request Handling below for details.
         /// </summary>
-        [Input("customRequestHandling")]
+        [PolicyResourceProperty("customRequestHandling", "_mUnknown_CustomRequestHandling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleActionAllowCustomRequestHandling> _mCustomRequestHandling;
-
-        public Outputs.RuleGroupRuleActionAllowCustomRequestHandling? CustomRequestHandling => _mCustomRequestHandling.GetValue("customRequestHandling");
+        private Outputs.RuleGroupRuleActionAllowCustomRequestHandling? _mValue_CustomRequestHandling;
+        private bool _mUnknown_CustomRequestHandling;
+        public Outputs.RuleGroupRuleActionAllowCustomRequestHandling? CustomRequestHandling
+        {
+            get
+            {
+                if (!_mUnknown_CustomRequestHandling) return _mValue_CustomRequestHandling;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleActionAllow.CustomRequestHandling' is not present");
+            }
+        }
     }
 }

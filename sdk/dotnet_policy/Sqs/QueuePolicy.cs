@@ -13,38 +13,66 @@ namespace Pulumi.PolicyPacks.Aws.Sqs
     [PolicyResourceType("aws:sqs/queuePolicy:QueuePolicy")]
     public sealed class QueuePolicy : global::Pulumi.PolicyResourceOutput
     {
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'QueuePolicy.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// URL of the SQS Queue to which to attach the policy.
         /// </summary>
-        [Input("queueUrl")]
+        [PolicyResourceProperty("queueUrl", "_mUnknown_QueueUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueueUrl;
-
-        public string? QueueUrl => _mQueueUrl.GetValue("queueUrl");
+        private string? _mValue_QueueUrl;
+        private bool _mUnknown_QueueUrl;
+        public string? QueueUrl
+        {
+            get
+            {
+                if (!_mUnknown_QueueUrl) return _mValue_QueueUrl;
+                throw new UndeferrableValueException("Value 'QueuePolicy.QueueUrl' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sqs/queuePolicy:QueuePolicy")]
     public sealed class QueuePolicyArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'QueuePolicyArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// URL of the SQS Queue to which to attach the policy.
         /// </summary>
-        [Input("queueUrl")]
+        [PolicyResourceProperty("queueUrl", "_mUnknown_QueueUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueueUrl;
-
-        public string? QueueUrl => _mQueueUrl.GetValue("queueUrl");
+        private string? _mValue_QueueUrl;
+        private bool _mUnknown_QueueUrl;
+        public string? QueueUrl
+        {
+            get
+            {
+                if (!_mUnknown_QueueUrl) return _mValue_QueueUrl;
+                throw new UndeferrableValueException("Value 'QueuePolicyArgs.QueueUrl' is not present");
+            }
+        }
     }
 }

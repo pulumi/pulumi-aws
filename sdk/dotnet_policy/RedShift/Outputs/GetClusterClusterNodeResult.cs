@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.RedShift.Outputs
         /// <summary>
         /// Whether the node is a leader node or a compute node
         /// </summary>
-        [Input("nodeRole")]
+        [PolicyResourceProperty("nodeRole", "_mUnknown_NodeRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeRole;
-
-        public string? NodeRole => _mNodeRole.GetValue("nodeRole");
+        private string? _mValue_NodeRole;
+        private bool _mUnknown_NodeRole;
+        public string? NodeRole
+        {
+            get
+            {
+                if (!_mUnknown_NodeRole) return _mValue_NodeRole;
+                throw new UndeferrableValueException("Value 'GetClusterClusterNodeResult.NodeRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Private IP address of a node within a cluster
         /// </summary>
-        [Input("privateIpAddress")]
+        [PolicyResourceProperty("privateIpAddress", "_mUnknown_PrivateIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIpAddress;
-
-        public string? PrivateIpAddress => _mPrivateIpAddress.GetValue("privateIpAddress");
+        private string? _mValue_PrivateIpAddress;
+        private bool _mUnknown_PrivateIpAddress;
+        public string? PrivateIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIpAddress) return _mValue_PrivateIpAddress;
+                throw new UndeferrableValueException("Value 'GetClusterClusterNodeResult.PrivateIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Public IP address of a node within a cluster
         /// </summary>
-        [Input("publicIpAddress")]
+        [PolicyResourceProperty("publicIpAddress", "_mUnknown_PublicIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIpAddress;
-
-        public string? PublicIpAddress => _mPublicIpAddress.GetValue("publicIpAddress");
+        private string? _mValue_PublicIpAddress;
+        private bool _mUnknown_PublicIpAddress;
+        public string? PublicIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_PublicIpAddress) return _mValue_PublicIpAddress;
+                throw new UndeferrableValueException("Value 'GetClusterClusterNodeResult.PublicIpAddress' is not present");
+            }
+        }
     }
 }

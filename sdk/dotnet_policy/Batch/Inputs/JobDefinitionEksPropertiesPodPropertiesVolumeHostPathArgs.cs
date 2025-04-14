@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Inputs
         /// <summary>
         /// Path of the file or directory on the host to mount into containers on the pod.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs.Path' is not present");
+            }
+        }
     }
 }

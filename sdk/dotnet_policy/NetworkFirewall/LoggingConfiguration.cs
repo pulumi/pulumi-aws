@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Network Firewall firewall.
         /// </summary>
-        [Input("firewallArn")]
+        [PolicyResourceProperty("firewallArn", "_mUnknown_FirewallArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallArn;
-
-        public string? FirewallArn => _mFirewallArn.GetValue("firewallArn");
+        private string? _mValue_FirewallArn;
+        private bool _mUnknown_FirewallArn;
+        public string? FirewallArn
+        {
+            get
+            {
+                if (!_mUnknown_FirewallArn) return _mValue_FirewallArn;
+                throw new UndeferrableValueException("Value 'LoggingConfiguration.FirewallArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
         /// </summary>
-        [Input("loggingConfiguration")]
+        [PolicyResourceProperty("loggingConfiguration", "_mUnknown_LoggingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LoggingConfigurationLoggingConfiguration> _mLoggingConfig;
-
-        public Outputs.LoggingConfigurationLoggingConfiguration? LoggingConfig => _mLoggingConfig.GetValue("loggingConfiguration");
+        private Outputs.LoggingConfigurationLoggingConfiguration? _mValue_LoggingConfig;
+        private bool _mUnknown_LoggingConfig;
+        public Outputs.LoggingConfigurationLoggingConfiguration? LoggingConfig
+        {
+            get
+            {
+                if (!_mUnknown_LoggingConfig) return _mValue_LoggingConfig;
+                throw new UndeferrableValueException("Value 'LoggingConfiguration.LoggingConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:networkfirewall/loggingConfiguration:LoggingConfiguration")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Network Firewall firewall.
         /// </summary>
-        [Input("firewallArn")]
+        [PolicyResourceProperty("firewallArn", "_mUnknown_FirewallArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallArn;
-
-        public string? FirewallArn => _mFirewallArn.GetValue("firewallArn");
+        private string? _mValue_FirewallArn;
+        private bool _mUnknown_FirewallArn;
+        public string? FirewallArn
+        {
+            get
+            {
+                if (!_mUnknown_FirewallArn) return _mValue_FirewallArn;
+                throw new UndeferrableValueException("Value 'LoggingConfigurationArgs.FirewallArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
         /// </summary>
-        [Input("loggingConfiguration")]
+        [PolicyResourceProperty("loggingConfiguration", "_mUnknown_LoggingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LoggingConfigurationLoggingConfigurationArgs> _mLoggingConfig;
-
-        public Inputs.LoggingConfigurationLoggingConfigurationArgs? LoggingConfig => _mLoggingConfig.GetValue("loggingConfiguration");
+        private Inputs.LoggingConfigurationLoggingConfigurationArgs? _mValue_LoggingConfig;
+        private bool _mUnknown_LoggingConfig;
+        public Inputs.LoggingConfigurationLoggingConfigurationArgs? LoggingConfig
+        {
+            get
+            {
+                if (!_mUnknown_LoggingConfig) return _mValue_LoggingConfig;
+                throw new UndeferrableValueException("Value 'LoggingConfigurationArgs.LoggingConfig' is not present");
+            }
+        }
     }
 }

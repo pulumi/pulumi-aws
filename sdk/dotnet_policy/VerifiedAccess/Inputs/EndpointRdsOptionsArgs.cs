@@ -12,46 +12,95 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess.Inputs
 {
     public sealed class EndpointRdsOptionsArgs
     {
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'EndpointRdsOptionsArgs.Port' is not present");
+            }
+        }
 
-        public int? Port => _mPort.GetValue("port");
-
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'EndpointRdsOptionsArgs.Protocol' is not present");
+            }
+        }
 
-        public string? Protocol => _mProtocol.GetValue("protocol");
-
-        [Input("rdsDbClusterArn")]
+        [PolicyResourceProperty("rdsDbClusterArn", "_mUnknown_RdsDbClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRdsDbClusterArn;
+        private string? _mValue_RdsDbClusterArn;
+        private bool _mUnknown_RdsDbClusterArn;
+        public string? RdsDbClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_RdsDbClusterArn) return _mValue_RdsDbClusterArn;
+                throw new UndeferrableValueException("Value 'EndpointRdsOptionsArgs.RdsDbClusterArn' is not present");
+            }
+        }
 
-        public string? RdsDbClusterArn => _mRdsDbClusterArn.GetValue("rdsDbClusterArn");
-
-        [Input("rdsDbInstanceArn")]
+        [PolicyResourceProperty("rdsDbInstanceArn", "_mUnknown_RdsDbInstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRdsDbInstanceArn;
+        private string? _mValue_RdsDbInstanceArn;
+        private bool _mUnknown_RdsDbInstanceArn;
+        public string? RdsDbInstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_RdsDbInstanceArn) return _mValue_RdsDbInstanceArn;
+                throw new UndeferrableValueException("Value 'EndpointRdsOptionsArgs.RdsDbInstanceArn' is not present");
+            }
+        }
 
-        public string? RdsDbInstanceArn => _mRdsDbInstanceArn.GetValue("rdsDbInstanceArn");
-
-        [Input("rdsDbProxyArn")]
+        [PolicyResourceProperty("rdsDbProxyArn", "_mUnknown_RdsDbProxyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRdsDbProxyArn;
+        private string? _mValue_RdsDbProxyArn;
+        private bool _mUnknown_RdsDbProxyArn;
+        public string? RdsDbProxyArn
+        {
+            get
+            {
+                if (!_mUnknown_RdsDbProxyArn) return _mValue_RdsDbProxyArn;
+                throw new UndeferrableValueException("Value 'EndpointRdsOptionsArgs.RdsDbProxyArn' is not present");
+            }
+        }
 
-        public string? RdsDbProxyArn => _mRdsDbProxyArn.GetValue("rdsDbProxyArn");
-
-        [Input("rdsEndpoint")]
+        [PolicyResourceProperty("rdsEndpoint", "_mUnknown_RdsEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRdsEndpoint;
+        private string? _mValue_RdsEndpoint;
+        private bool _mUnknown_RdsEndpoint;
+        public string? RdsEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_RdsEndpoint) return _mValue_RdsEndpoint;
+                throw new UndeferrableValueException("Value 'EndpointRdsOptionsArgs.RdsEndpoint' is not present");
+            }
+        }
 
-        public string? RdsEndpoint => _mRdsEndpoint.GetValue("rdsEndpoint");
-
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'EndpointRdsOptionsArgs.SubnetIds' is not present");
+            }
+        }
     }
 }

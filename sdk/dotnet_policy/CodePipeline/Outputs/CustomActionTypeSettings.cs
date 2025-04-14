@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Outputs
         /// <summary>
         /// The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
         /// </summary>
-        [Input("entityUrlTemplate")]
+        [PolicyResourceProperty("entityUrlTemplate", "_mUnknown_EntityUrlTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEntityUrlTemplate;
-
-        public string? EntityUrlTemplate => _mEntityUrlTemplate.GetValue("entityUrlTemplate");
+        private string? _mValue_EntityUrlTemplate;
+        private bool _mUnknown_EntityUrlTemplate;
+        public string? EntityUrlTemplate
+        {
+            get
+            {
+                if (!_mUnknown_EntityUrlTemplate) return _mValue_EntityUrlTemplate;
+                throw new UndeferrableValueException("Value 'CustomActionTypeSettings.EntityUrlTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
         /// </summary>
-        [Input("executionUrlTemplate")]
+        [PolicyResourceProperty("executionUrlTemplate", "_mUnknown_ExecutionUrlTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionUrlTemplate;
-
-        public string? ExecutionUrlTemplate => _mExecutionUrlTemplate.GetValue("executionUrlTemplate");
+        private string? _mValue_ExecutionUrlTemplate;
+        private bool _mUnknown_ExecutionUrlTemplate;
+        public string? ExecutionUrlTemplate
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionUrlTemplate) return _mValue_ExecutionUrlTemplate;
+                throw new UndeferrableValueException("Value 'CustomActionTypeSettings.ExecutionUrlTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
         /// </summary>
-        [Input("revisionUrlTemplate")]
+        [PolicyResourceProperty("revisionUrlTemplate", "_mUnknown_RevisionUrlTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevisionUrlTemplate;
-
-        public string? RevisionUrlTemplate => _mRevisionUrlTemplate.GetValue("revisionUrlTemplate");
+        private string? _mValue_RevisionUrlTemplate;
+        private bool _mUnknown_RevisionUrlTemplate;
+        public string? RevisionUrlTemplate
+        {
+            get
+            {
+                if (!_mUnknown_RevisionUrlTemplate) return _mValue_RevisionUrlTemplate;
+                throw new UndeferrableValueException("Value 'CustomActionTypeSettings.RevisionUrlTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
         /// </summary>
-        [Input("thirdPartyConfigurationUrl")]
+        [PolicyResourceProperty("thirdPartyConfigurationUrl", "_mUnknown_ThirdPartyConfigurationUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThirdPartyConfigurationUrl;
-
-        public string? ThirdPartyConfigurationUrl => _mThirdPartyConfigurationUrl.GetValue("thirdPartyConfigurationUrl");
+        private string? _mValue_ThirdPartyConfigurationUrl;
+        private bool _mUnknown_ThirdPartyConfigurationUrl;
+        public string? ThirdPartyConfigurationUrl
+        {
+            get
+            {
+                if (!_mUnknown_ThirdPartyConfigurationUrl) return _mValue_ThirdPartyConfigurationUrl;
+                throw new UndeferrableValueException("Value 'CustomActionTypeSettings.ThirdPartyConfigurationUrl' is not present");
+            }
+        }
     }
 }

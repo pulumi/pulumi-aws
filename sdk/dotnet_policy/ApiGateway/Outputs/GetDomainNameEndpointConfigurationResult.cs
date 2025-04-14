@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway.Outputs
         /// <summary>
         /// List of endpoint types.
         /// </summary>
-        [Input("types")]
+        [PolicyResourceProperty("types", "_mUnknown_Types")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTypes;
-
-        public List<string>? Types => _mTypes.GetValue("types");
+        private List<string>? _mValue_Types;
+        private bool _mUnknown_Types;
+        public List<string>? Types
+        {
+            get
+            {
+                if (!_mUnknown_Types) return _mValue_Types;
+                throw new UndeferrableValueException("Value 'GetDomainNameEndpointConfigurationResult.Types' is not present");
+            }
+        }
     }
 }

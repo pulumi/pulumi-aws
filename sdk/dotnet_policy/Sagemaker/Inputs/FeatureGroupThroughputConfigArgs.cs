@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
 {
     public sealed class FeatureGroupThroughputConfigArgs
     {
-        [Input("provisionedReadCapacityUnits")]
+        [PolicyResourceProperty("provisionedReadCapacityUnits", "_mUnknown_ProvisionedReadCapacityUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mProvisionedReadCapacityUnits;
+        private int? _mValue_ProvisionedReadCapacityUnits;
+        private bool _mUnknown_ProvisionedReadCapacityUnits;
+        public int? ProvisionedReadCapacityUnits
+        {
+            get
+            {
+                if (!_mUnknown_ProvisionedReadCapacityUnits) return _mValue_ProvisionedReadCapacityUnits;
+                throw new UndeferrableValueException("Value 'FeatureGroupThroughputConfigArgs.ProvisionedReadCapacityUnits' is not present");
+            }
+        }
 
-        public int? ProvisionedReadCapacityUnits => _mProvisionedReadCapacityUnits.GetValue("provisionedReadCapacityUnits");
-
-        [Input("provisionedWriteCapacityUnits")]
+        [PolicyResourceProperty("provisionedWriteCapacityUnits", "_mUnknown_ProvisionedWriteCapacityUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mProvisionedWriteCapacityUnits;
+        private int? _mValue_ProvisionedWriteCapacityUnits;
+        private bool _mUnknown_ProvisionedWriteCapacityUnits;
+        public int? ProvisionedWriteCapacityUnits
+        {
+            get
+            {
+                if (!_mUnknown_ProvisionedWriteCapacityUnits) return _mValue_ProvisionedWriteCapacityUnits;
+                throw new UndeferrableValueException("Value 'FeatureGroupThroughputConfigArgs.ProvisionedWriteCapacityUnits' is not present");
+            }
+        }
 
-        public int? ProvisionedWriteCapacityUnits => _mProvisionedWriteCapacityUnits.GetValue("provisionedWriteCapacityUnits");
-
-        [Input("throughputMode")]
+        [PolicyResourceProperty("throughputMode", "_mUnknown_ThroughputMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThroughputMode;
-
-        public string? ThroughputMode => _mThroughputMode.GetValue("throughputMode");
+        private string? _mValue_ThroughputMode;
+        private bool _mUnknown_ThroughputMode;
+        public string? ThroughputMode
+        {
+            get
+            {
+                if (!_mUnknown_ThroughputMode) return _mValue_ThroughputMode;
+                throw new UndeferrableValueException("Value 'FeatureGroupThroughputConfigArgs.ThroughputMode' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin.Inputs
         /// <summary>
         /// Description of the application provider.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GetApplicationProvidersApplicationProviderDisplayDataInputArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the application provider.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'GetApplicationProvidersApplicationProviderDisplayDataInputArgs.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// URL that points to an icon that represents the application provider.
         /// </summary>
-        [Input("iconUrl")]
+        [PolicyResourceProperty("iconUrl", "_mUnknown_IconUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIconUrl;
-
-        public string? IconUrl => _mIconUrl.GetValue("iconUrl");
+        private string? _mValue_IconUrl;
+        private bool _mUnknown_IconUrl;
+        public string? IconUrl
+        {
+            get
+            {
+                if (!_mUnknown_IconUrl) return _mValue_IconUrl;
+                throw new UndeferrableValueException("Value 'GetApplicationProvidersApplicationProviderDisplayDataInputArgs.IconUrl' is not present");
+            }
+        }
     }
 }

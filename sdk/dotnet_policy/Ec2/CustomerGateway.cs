@@ -16,84 +16,147 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ARN of the customer gateway.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CustomerGateway.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
         /// </summary>
-        [Input("bgpAsn")]
+        [PolicyResourceProperty("bgpAsn", "_mUnknown_BgpAsn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAsn;
-
-        public string? BgpAsn => _mBgpAsn.GetValue("bgpAsn");
+        private string? _mValue_BgpAsn;
+        private bool _mUnknown_BgpAsn;
+        public string? BgpAsn
+        {
+            get
+            {
+                if (!_mUnknown_BgpAsn) return _mValue_BgpAsn;
+                throw new UndeferrableValueException("Value 'CustomerGateway.BgpAsn' is not present");
+            }
+        }
 
         /// <summary>
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
         /// </summary>
-        [Input("bgpAsnExtended")]
+        [PolicyResourceProperty("bgpAsnExtended", "_mUnknown_BgpAsnExtended")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAsnExtended;
-
-        public string? BgpAsnExtended => _mBgpAsnExtended.GetValue("bgpAsnExtended");
+        private string? _mValue_BgpAsnExtended;
+        private bool _mUnknown_BgpAsnExtended;
+        public string? BgpAsnExtended
+        {
+            get
+            {
+                if (!_mUnknown_BgpAsnExtended) return _mValue_BgpAsnExtended;
+                throw new UndeferrableValueException("Value 'CustomerGateway.BgpAsnExtended' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the customer gateway certificate.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'CustomerGateway.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the customer gateway device.
         /// </summary>
-        [Input("deviceName")]
+        [PolicyResourceProperty("deviceName", "_mUnknown_DeviceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceName;
-
-        public string? DeviceName => _mDeviceName.GetValue("deviceName");
+        private string? _mValue_DeviceName;
+        private bool _mUnknown_DeviceName;
+        public string? DeviceName
+        {
+            get
+            {
+                if (!_mUnknown_DeviceName) return _mValue_DeviceName;
+                throw new UndeferrableValueException("Value 'CustomerGateway.DeviceName' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 address for the customer gateway device's outside interface.
         /// </summary>
-        [Input("ipAddress")]
+        [PolicyResourceProperty("ipAddress", "_mUnknown_IpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
-
-        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
+        private string? _mValue_IpAddress;
+        private bool _mUnknown_IpAddress;
+        public string? IpAddress
+        {
+            get
+            {
+                if (!_mUnknown_IpAddress) return _mValue_IpAddress;
+                throw new UndeferrableValueException("Value 'CustomerGateway.IpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CustomerGateway.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'CustomerGateway.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of customer gateway. The only type AWS
         /// supports at this time is "ipsec.1".
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'CustomerGateway.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/customerGateway:CustomerGateway")]
@@ -102,65 +165,114 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
         /// </summary>
-        [Input("bgpAsn")]
+        [PolicyResourceProperty("bgpAsn", "_mUnknown_BgpAsn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAsn;
-
-        public string? BgpAsn => _mBgpAsn.GetValue("bgpAsn");
+        private string? _mValue_BgpAsn;
+        private bool _mUnknown_BgpAsn;
+        public string? BgpAsn
+        {
+            get
+            {
+                if (!_mUnknown_BgpAsn) return _mValue_BgpAsn;
+                throw new UndeferrableValueException("Value 'CustomerGatewayArgs.BgpAsn' is not present");
+            }
+        }
 
         /// <summary>
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
         /// </summary>
-        [Input("bgpAsnExtended")]
+        [PolicyResourceProperty("bgpAsnExtended", "_mUnknown_BgpAsnExtended")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAsnExtended;
-
-        public string? BgpAsnExtended => _mBgpAsnExtended.GetValue("bgpAsnExtended");
+        private string? _mValue_BgpAsnExtended;
+        private bool _mUnknown_BgpAsnExtended;
+        public string? BgpAsnExtended
+        {
+            get
+            {
+                if (!_mUnknown_BgpAsnExtended) return _mValue_BgpAsnExtended;
+                throw new UndeferrableValueException("Value 'CustomerGatewayArgs.BgpAsnExtended' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the customer gateway certificate.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'CustomerGatewayArgs.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the customer gateway device.
         /// </summary>
-        [Input("deviceName")]
+        [PolicyResourceProperty("deviceName", "_mUnknown_DeviceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceName;
-
-        public string? DeviceName => _mDeviceName.GetValue("deviceName");
+        private string? _mValue_DeviceName;
+        private bool _mUnknown_DeviceName;
+        public string? DeviceName
+        {
+            get
+            {
+                if (!_mUnknown_DeviceName) return _mValue_DeviceName;
+                throw new UndeferrableValueException("Value 'CustomerGatewayArgs.DeviceName' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 address for the customer gateway device's outside interface.
         /// </summary>
-        [Input("ipAddress")]
+        [PolicyResourceProperty("ipAddress", "_mUnknown_IpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
-
-        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
+        private string? _mValue_IpAddress;
+        private bool _mUnknown_IpAddress;
+        public string? IpAddress
+        {
+            get
+            {
+                if (!_mUnknown_IpAddress) return _mValue_IpAddress;
+                throw new UndeferrableValueException("Value 'CustomerGatewayArgs.IpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CustomerGatewayArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of customer gateway. The only type AWS
         /// supports at this time is "ipsec.1".
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'CustomerGatewayArgs.Type' is not present");
+            }
+        }
     }
 }

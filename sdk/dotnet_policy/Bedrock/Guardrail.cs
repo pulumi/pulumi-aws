@@ -16,160 +16,286 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// Message to return when the guardrail blocks a prompt.
         /// </summary>
-        [Input("blockedInputMessaging")]
+        [PolicyResourceProperty("blockedInputMessaging", "_mUnknown_BlockedInputMessaging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlockedInputMessaging;
-
-        public string? BlockedInputMessaging => _mBlockedInputMessaging.GetValue("blockedInputMessaging");
+        private string? _mValue_BlockedInputMessaging;
+        private bool _mUnknown_BlockedInputMessaging;
+        public string? BlockedInputMessaging
+        {
+            get
+            {
+                if (!_mUnknown_BlockedInputMessaging) return _mValue_BlockedInputMessaging;
+                throw new UndeferrableValueException("Value 'Guardrail.BlockedInputMessaging' is not present");
+            }
+        }
 
         /// <summary>
         /// Message to return when the guardrail blocks a model response.
         /// </summary>
-        [Input("blockedOutputsMessaging")]
+        [PolicyResourceProperty("blockedOutputsMessaging", "_mUnknown_BlockedOutputsMessaging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlockedOutputsMessaging;
-
-        public string? BlockedOutputsMessaging => _mBlockedOutputsMessaging.GetValue("blockedOutputsMessaging");
+        private string? _mValue_BlockedOutputsMessaging;
+        private bool _mUnknown_BlockedOutputsMessaging;
+        public string? BlockedOutputsMessaging
+        {
+            get
+            {
+                if (!_mUnknown_BlockedOutputsMessaging) return _mValue_BlockedOutputsMessaging;
+                throw new UndeferrableValueException("Value 'Guardrail.BlockedOutputsMessaging' is not present");
+            }
+        }
 
         /// <summary>
         /// Content policy config for a guardrail. See Content Policy Config for more information.
         /// </summary>
-        [Input("contentPolicyConfig")]
+        [PolicyResourceProperty("contentPolicyConfig", "_mUnknown_ContentPolicyConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GuardrailContentPolicyConfig> _mContentPolicyConfig;
-
-        public Outputs.GuardrailContentPolicyConfig? ContentPolicyConfig => _mContentPolicyConfig.GetValue("contentPolicyConfig");
+        private Outputs.GuardrailContentPolicyConfig? _mValue_ContentPolicyConfig;
+        private bool _mUnknown_ContentPolicyConfig;
+        public Outputs.GuardrailContentPolicyConfig? ContentPolicyConfig
+        {
+            get
+            {
+                if (!_mUnknown_ContentPolicyConfig) return _mValue_ContentPolicyConfig;
+                throw new UndeferrableValueException("Value 'Guardrail.ContentPolicyConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
         /// </summary>
-        [Input("contextualGroundingPolicyConfig")]
+        [PolicyResourceProperty("contextualGroundingPolicyConfig", "_mUnknown_ContextualGroundingPolicyConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GuardrailContextualGroundingPolicyConfig> _mContextualGroundingPolicyConfig;
-
-        public Outputs.GuardrailContextualGroundingPolicyConfig? ContextualGroundingPolicyConfig => _mContextualGroundingPolicyConfig.GetValue("contextualGroundingPolicyConfig");
+        private Outputs.GuardrailContextualGroundingPolicyConfig? _mValue_ContextualGroundingPolicyConfig;
+        private bool _mUnknown_ContextualGroundingPolicyConfig;
+        public Outputs.GuardrailContextualGroundingPolicyConfig? ContextualGroundingPolicyConfig
+        {
+            get
+            {
+                if (!_mUnknown_ContextualGroundingPolicyConfig) return _mValue_ContextualGroundingPolicyConfig;
+                throw new UndeferrableValueException("Value 'Guardrail.ContextualGroundingPolicyConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Unix epoch timestamp in seconds for when the Guardrail was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'Guardrail.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the guardrail or its version.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Guardrail.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Guardrail.
         /// </summary>
-        [Input("guardrailArn")]
+        [PolicyResourceProperty("guardrailArn", "_mUnknown_GuardrailArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGuardrailArn;
-
-        public string? GuardrailArn => _mGuardrailArn.GetValue("guardrailArn");
+        private string? _mValue_GuardrailArn;
+        private bool _mUnknown_GuardrailArn;
+        public string? GuardrailArn
+        {
+            get
+            {
+                if (!_mUnknown_GuardrailArn) return _mValue_GuardrailArn;
+                throw new UndeferrableValueException("Value 'Guardrail.GuardrailArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Guardrail.
         /// </summary>
-        [Input("guardrailId")]
+        [PolicyResourceProperty("guardrailId", "_mUnknown_GuardrailId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGuardrailId;
-
-        public string? GuardrailId => _mGuardrailId.GetValue("guardrailId");
+        private string? _mValue_GuardrailId;
+        private bool _mUnknown_GuardrailId;
+        public string? GuardrailId
+        {
+            get
+            {
+                if (!_mUnknown_GuardrailId) return _mValue_GuardrailId;
+                throw new UndeferrableValueException("Value 'Guardrail.GuardrailId' is not present");
+            }
+        }
 
         /// <summary>
         /// The KMS key with which the guardrail was encrypted at rest.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'Guardrail.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the guardrail.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Guardrail.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
         /// </summary>
-        [Input("sensitiveInformationPolicyConfig")]
+        [PolicyResourceProperty("sensitiveInformationPolicyConfig", "_mUnknown_SensitiveInformationPolicyConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GuardrailSensitiveInformationPolicyConfig> _mSensitiveInformationPolicyConfig;
-
-        public Outputs.GuardrailSensitiveInformationPolicyConfig? SensitiveInformationPolicyConfig => _mSensitiveInformationPolicyConfig.GetValue("sensitiveInformationPolicyConfig");
+        private Outputs.GuardrailSensitiveInformationPolicyConfig? _mValue_SensitiveInformationPolicyConfig;
+        private bool _mUnknown_SensitiveInformationPolicyConfig;
+        public Outputs.GuardrailSensitiveInformationPolicyConfig? SensitiveInformationPolicyConfig
+        {
+            get
+            {
+                if (!_mUnknown_SensitiveInformationPolicyConfig) return _mValue_SensitiveInformationPolicyConfig;
+                throw new UndeferrableValueException("Value 'Guardrail.SensitiveInformationPolicyConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Guardrail.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Guardrail.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Guardrail.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GuardrailTimeouts> _mTimeouts;
-
-        public Outputs.GuardrailTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.GuardrailTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.GuardrailTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'Guardrail.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Topic policy config for a guardrail. See Topic Policy Config for more information.
         /// </summary>
-        [Input("topicPolicyConfig")]
+        [PolicyResourceProperty("topicPolicyConfig", "_mUnknown_TopicPolicyConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GuardrailTopicPolicyConfig> _mTopicPolicyConfig;
-
-        public Outputs.GuardrailTopicPolicyConfig? TopicPolicyConfig => _mTopicPolicyConfig.GetValue("topicPolicyConfig");
+        private Outputs.GuardrailTopicPolicyConfig? _mValue_TopicPolicyConfig;
+        private bool _mUnknown_TopicPolicyConfig;
+        public Outputs.GuardrailTopicPolicyConfig? TopicPolicyConfig
+        {
+            get
+            {
+                if (!_mUnknown_TopicPolicyConfig) return _mValue_TopicPolicyConfig;
+                throw new UndeferrableValueException("Value 'Guardrail.TopicPolicyConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the Guardrail.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'Guardrail.Version' is not present");
+            }
+        }
 
         /// <summary>
         /// Word policy config for a guardrail. See Word Policy Config for more information.
         /// </summary>
-        [Input("wordPolicyConfig")]
+        [PolicyResourceProperty("wordPolicyConfig", "_mUnknown_WordPolicyConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GuardrailWordPolicyConfig> _mWordPolicyConfig;
-
-        public Outputs.GuardrailWordPolicyConfig? WordPolicyConfig => _mWordPolicyConfig.GetValue("wordPolicyConfig");
+        private Outputs.GuardrailWordPolicyConfig? _mValue_WordPolicyConfig;
+        private bool _mUnknown_WordPolicyConfig;
+        public Outputs.GuardrailWordPolicyConfig? WordPolicyConfig
+        {
+            get
+            {
+                if (!_mUnknown_WordPolicyConfig) return _mValue_WordPolicyConfig;
+                throw new UndeferrableValueException("Value 'Guardrail.WordPolicyConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:bedrock/guardrail:Guardrail")]
@@ -178,108 +304,192 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// Message to return when the guardrail blocks a prompt.
         /// </summary>
-        [Input("blockedInputMessaging")]
+        [PolicyResourceProperty("blockedInputMessaging", "_mUnknown_BlockedInputMessaging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlockedInputMessaging;
-
-        public string? BlockedInputMessaging => _mBlockedInputMessaging.GetValue("blockedInputMessaging");
+        private string? _mValue_BlockedInputMessaging;
+        private bool _mUnknown_BlockedInputMessaging;
+        public string? BlockedInputMessaging
+        {
+            get
+            {
+                if (!_mUnknown_BlockedInputMessaging) return _mValue_BlockedInputMessaging;
+                throw new UndeferrableValueException("Value 'GuardrailArgs.BlockedInputMessaging' is not present");
+            }
+        }
 
         /// <summary>
         /// Message to return when the guardrail blocks a model response.
         /// </summary>
-        [Input("blockedOutputsMessaging")]
+        [PolicyResourceProperty("blockedOutputsMessaging", "_mUnknown_BlockedOutputsMessaging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlockedOutputsMessaging;
-
-        public string? BlockedOutputsMessaging => _mBlockedOutputsMessaging.GetValue("blockedOutputsMessaging");
+        private string? _mValue_BlockedOutputsMessaging;
+        private bool _mUnknown_BlockedOutputsMessaging;
+        public string? BlockedOutputsMessaging
+        {
+            get
+            {
+                if (!_mUnknown_BlockedOutputsMessaging) return _mValue_BlockedOutputsMessaging;
+                throw new UndeferrableValueException("Value 'GuardrailArgs.BlockedOutputsMessaging' is not present");
+            }
+        }
 
         /// <summary>
         /// Content policy config for a guardrail. See Content Policy Config for more information.
         /// </summary>
-        [Input("contentPolicyConfig")]
+        [PolicyResourceProperty("contentPolicyConfig", "_mUnknown_ContentPolicyConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GuardrailContentPolicyConfigArgs> _mContentPolicyConfig;
-
-        public Inputs.GuardrailContentPolicyConfigArgs? ContentPolicyConfig => _mContentPolicyConfig.GetValue("contentPolicyConfig");
+        private Inputs.GuardrailContentPolicyConfigArgs? _mValue_ContentPolicyConfig;
+        private bool _mUnknown_ContentPolicyConfig;
+        public Inputs.GuardrailContentPolicyConfigArgs? ContentPolicyConfig
+        {
+            get
+            {
+                if (!_mUnknown_ContentPolicyConfig) return _mValue_ContentPolicyConfig;
+                throw new UndeferrableValueException("Value 'GuardrailArgs.ContentPolicyConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
         /// </summary>
-        [Input("contextualGroundingPolicyConfig")]
+        [PolicyResourceProperty("contextualGroundingPolicyConfig", "_mUnknown_ContextualGroundingPolicyConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GuardrailContextualGroundingPolicyConfigArgs> _mContextualGroundingPolicyConfig;
-
-        public Inputs.GuardrailContextualGroundingPolicyConfigArgs? ContextualGroundingPolicyConfig => _mContextualGroundingPolicyConfig.GetValue("contextualGroundingPolicyConfig");
+        private Inputs.GuardrailContextualGroundingPolicyConfigArgs? _mValue_ContextualGroundingPolicyConfig;
+        private bool _mUnknown_ContextualGroundingPolicyConfig;
+        public Inputs.GuardrailContextualGroundingPolicyConfigArgs? ContextualGroundingPolicyConfig
+        {
+            get
+            {
+                if (!_mUnknown_ContextualGroundingPolicyConfig) return _mValue_ContextualGroundingPolicyConfig;
+                throw new UndeferrableValueException("Value 'GuardrailArgs.ContextualGroundingPolicyConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the guardrail or its version.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GuardrailArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The KMS key with which the guardrail was encrypted at rest.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'GuardrailArgs.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the guardrail.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GuardrailArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
         /// </summary>
-        [Input("sensitiveInformationPolicyConfig")]
+        [PolicyResourceProperty("sensitiveInformationPolicyConfig", "_mUnknown_SensitiveInformationPolicyConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GuardrailSensitiveInformationPolicyConfigArgs> _mSensitiveInformationPolicyConfig;
-
-        public Inputs.GuardrailSensitiveInformationPolicyConfigArgs? SensitiveInformationPolicyConfig => _mSensitiveInformationPolicyConfig.GetValue("sensitiveInformationPolicyConfig");
+        private Inputs.GuardrailSensitiveInformationPolicyConfigArgs? _mValue_SensitiveInformationPolicyConfig;
+        private bool _mUnknown_SensitiveInformationPolicyConfig;
+        public Inputs.GuardrailSensitiveInformationPolicyConfigArgs? SensitiveInformationPolicyConfig
+        {
+            get
+            {
+                if (!_mUnknown_SensitiveInformationPolicyConfig) return _mValue_SensitiveInformationPolicyConfig;
+                throw new UndeferrableValueException("Value 'GuardrailArgs.SensitiveInformationPolicyConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GuardrailArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GuardrailTimeoutsArgs> _mTimeouts;
-
-        public Inputs.GuardrailTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.GuardrailTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.GuardrailTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'GuardrailArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Topic policy config for a guardrail. See Topic Policy Config for more information.
         /// </summary>
-        [Input("topicPolicyConfig")]
+        [PolicyResourceProperty("topicPolicyConfig", "_mUnknown_TopicPolicyConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GuardrailTopicPolicyConfigArgs> _mTopicPolicyConfig;
-
-        public Inputs.GuardrailTopicPolicyConfigArgs? TopicPolicyConfig => _mTopicPolicyConfig.GetValue("topicPolicyConfig");
+        private Inputs.GuardrailTopicPolicyConfigArgs? _mValue_TopicPolicyConfig;
+        private bool _mUnknown_TopicPolicyConfig;
+        public Inputs.GuardrailTopicPolicyConfigArgs? TopicPolicyConfig
+        {
+            get
+            {
+                if (!_mUnknown_TopicPolicyConfig) return _mValue_TopicPolicyConfig;
+                throw new UndeferrableValueException("Value 'GuardrailArgs.TopicPolicyConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Word policy config for a guardrail. See Word Policy Config for more information.
         /// </summary>
-        [Input("wordPolicyConfig")]
+        [PolicyResourceProperty("wordPolicyConfig", "_mUnknown_WordPolicyConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GuardrailWordPolicyConfigArgs> _mWordPolicyConfig;
-
-        public Inputs.GuardrailWordPolicyConfigArgs? WordPolicyConfig => _mWordPolicyConfig.GetValue("wordPolicyConfig");
+        private Inputs.GuardrailWordPolicyConfigArgs? _mValue_WordPolicyConfig;
+        private bool _mUnknown_WordPolicyConfig;
+        public Inputs.GuardrailWordPolicyConfigArgs? WordPolicyConfig
+        {
+            get
+            {
+                if (!_mUnknown_WordPolicyConfig) return _mValue_WordPolicyConfig;
+                throw new UndeferrableValueException("Value 'GuardrailArgs.WordPolicyConfig' is not present");
+            }
+        }
     }
 }

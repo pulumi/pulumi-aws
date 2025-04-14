@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
 {
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs
     {
-        [Input("apiSecretKey")]
+        [PolicyResourceProperty("apiSecretKey", "_mUnknown_ApiSecretKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiSecretKey;
-
-        public string? ApiSecretKey => _mApiSecretKey.GetValue("apiSecretKey");
+        private string? _mValue_ApiSecretKey;
+        private bool _mUnknown_ApiSecretKey;
+        public string? ApiSecretKey
+        {
+            get
+            {
+                if (!_mUnknown_ApiSecretKey) return _mValue_ApiSecretKey;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs.ApiSecretKey' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
         /// </summary>
-        [Input("rulesSourceList")]
+        [PolicyResourceProperty("rulesSourceList", "_mUnknown_RulesSourceList")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleGroupRulesSourceRulesSourceList> _mRulesSourceList;
-
-        public Outputs.RuleGroupRuleGroupRulesSourceRulesSourceList? RulesSourceList => _mRulesSourceList.GetValue("rulesSourceList");
+        private Outputs.RuleGroupRuleGroupRulesSourceRulesSourceList? _mValue_RulesSourceList;
+        private bool _mUnknown_RulesSourceList;
+        public Outputs.RuleGroupRuleGroupRulesSourceRulesSourceList? RulesSourceList
+        {
+            get
+            {
+                if (!_mUnknown_RulesSourceList) return _mValue_RulesSourceList;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSource.RulesSourceList' is not present");
+            }
+        }
 
         /// <summary>
         /// The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
         /// </summary>
-        [Input("rulesString")]
+        [PolicyResourceProperty("rulesString", "_mUnknown_RulesString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRulesString;
-
-        public string? RulesString => _mRulesString.GetValue("rulesString");
+        private string? _mValue_RulesString;
+        private bool _mUnknown_RulesString;
+        public string? RulesString
+        {
+            get
+            {
+                if (!_mUnknown_RulesString) return _mValue_RulesString;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSource.RulesString' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
         /// </summary>
-        [Input("statefulRules")]
+        [PolicyResourceProperty("statefulRules", "_mUnknown_StatefulRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleGroupRuleGroupRulesSourceStatefulRule>> _mStatefulRules;
-
-        public List<Outputs.RuleGroupRuleGroupRulesSourceStatefulRule>? StatefulRules => _mStatefulRules.GetValue("statefulRules");
+        private List<Outputs.RuleGroupRuleGroupRulesSourceStatefulRule>? _mValue_StatefulRules;
+        private bool _mUnknown_StatefulRules;
+        public List<Outputs.RuleGroupRuleGroupRulesSourceStatefulRule>? StatefulRules
+        {
+            get
+            {
+                if (!_mUnknown_StatefulRules) return _mValue_StatefulRules;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSource.StatefulRules' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block containing **stateless** inspection criteria for a stateless rule group. See Stateless Rules and Custom Actions below for details.
         /// </summary>
-        [Input("statelessRulesAndCustomActions")]
+        [PolicyResourceProperty("statelessRulesAndCustomActions", "_mUnknown_StatelessRulesAndCustomActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions> _mStatelessRulesAndCustomActions;
-
-        public Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions? StatelessRulesAndCustomActions => _mStatelessRulesAndCustomActions.GetValue("statelessRulesAndCustomActions");
+        private Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions? _mValue_StatelessRulesAndCustomActions;
+        private bool _mUnknown_StatelessRulesAndCustomActions;
+        public Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions? StatelessRulesAndCustomActions
+        {
+            get
+            {
+                if (!_mUnknown_StatelessRulesAndCustomActions) return _mValue_StatelessRulesAndCustomActions;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSource.StatelessRulesAndCustomActions' is not present");
+            }
+        }
     }
 }

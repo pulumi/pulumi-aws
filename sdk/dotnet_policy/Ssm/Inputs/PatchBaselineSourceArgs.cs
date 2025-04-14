@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Inputs
         /// <summary>
         /// Value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfiguration;
-
-        public string? Configuration => _mConfiguration.GetValue("configuration");
+        private string? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public string? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'PatchBaselineSourceArgs.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name specified to identify the patch source.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PatchBaselineSourceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
         /// </summary>
-        [Input("products")]
+        [PolicyResourceProperty("products", "_mUnknown_Products")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mProducts;
-
-        public List<string>? Products => _mProducts.GetValue("products");
+        private List<string>? _mValue_Products;
+        private bool _mUnknown_Products;
+        public List<string>? Products
+        {
+            get
+            {
+                if (!_mUnknown_Products) return _mValue_Products;
+                throw new UndeferrableValueException("Value 'PatchBaselineSourceArgs.Products' is not present");
+            }
+        }
     }
 }

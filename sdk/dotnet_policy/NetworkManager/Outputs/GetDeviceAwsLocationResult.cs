@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Outputs
         /// <summary>
         /// ARN of the subnet that the device is located in.
         /// </summary>
-        [Input("subnetArn")]
+        [PolicyResourceProperty("subnetArn", "_mUnknown_SubnetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetArn;
-
-        public string? SubnetArn => _mSubnetArn.GetValue("subnetArn");
+        private string? _mValue_SubnetArn;
+        private bool _mUnknown_SubnetArn;
+        public string? SubnetArn
+        {
+            get
+            {
+                if (!_mUnknown_SubnetArn) return _mValue_SubnetArn;
+                throw new UndeferrableValueException("Value 'GetDeviceAwsLocationResult.SubnetArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Zone that the device is located in.
         /// </summary>
-        [Input("zone")]
+        [PolicyResourceProperty("zone", "_mUnknown_Zone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZone;
-
-        public string? Zone => _mZone.GetValue("zone");
+        private string? _mValue_Zone;
+        private bool _mUnknown_Zone;
+        public string? Zone
+        {
+            get
+            {
+                if (!_mUnknown_Zone) return _mValue_Zone;
+                throw new UndeferrableValueException("Value 'GetDeviceAwsLocationResult.Zone' is not present");
+            }
+        }
     }
 }

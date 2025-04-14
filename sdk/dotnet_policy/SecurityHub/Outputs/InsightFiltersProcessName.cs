@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Outputs
 {
     public sealed class InsightFiltersProcessName
     {
-        [Input("comparison")]
+        [PolicyResourceProperty("comparison", "_mUnknown_Comparison")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComparison;
+        private string? _mValue_Comparison;
+        private bool _mUnknown_Comparison;
+        public string? Comparison
+        {
+            get
+            {
+                if (!_mUnknown_Comparison) return _mValue_Comparison;
+                throw new UndeferrableValueException("Value 'InsightFiltersProcessName.Comparison' is not present");
+            }
+        }
 
-        public string? Comparison => _mComparison.GetValue("comparison");
-
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'InsightFiltersProcessName.Value' is not present");
+            }
+        }
     }
 }

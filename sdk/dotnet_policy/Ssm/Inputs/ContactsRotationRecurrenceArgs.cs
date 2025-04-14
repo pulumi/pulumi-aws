@@ -12,55 +12,97 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Inputs
 {
     public sealed class ContactsRotationRecurrenceArgs
     {
-        [Input("dailySettings")]
+        [PolicyResourceProperty("dailySettings", "_mUnknown_DailySettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ContactsRotationRecurrenceDailySettingArgs>> _mDailySettings;
-
-        public List<Inputs.ContactsRotationRecurrenceDailySettingArgs>? DailySettings => _mDailySettings.GetValue("dailySettings");
+        private List<Inputs.ContactsRotationRecurrenceDailySettingArgs>? _mValue_DailySettings;
+        private bool _mUnknown_DailySettings;
+        public List<Inputs.ContactsRotationRecurrenceDailySettingArgs>? DailySettings
+        {
+            get
+            {
+                if (!_mUnknown_DailySettings) return _mValue_DailySettings;
+                throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceArgs.DailySettings' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
         /// </summary>
-        [Input("monthlySettings")]
+        [PolicyResourceProperty("monthlySettings", "_mUnknown_MonthlySettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ContactsRotationRecurrenceMonthlySettingArgs>> _mMonthlySettings;
-
-        public List<Inputs.ContactsRotationRecurrenceMonthlySettingArgs>? MonthlySettings => _mMonthlySettings.GetValue("monthlySettings");
+        private List<Inputs.ContactsRotationRecurrenceMonthlySettingArgs>? _mValue_MonthlySettings;
+        private bool _mUnknown_MonthlySettings;
+        public List<Inputs.ContactsRotationRecurrenceMonthlySettingArgs>? MonthlySettings
+        {
+            get
+            {
+                if (!_mUnknown_MonthlySettings) return _mValue_MonthlySettings;
+                throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceArgs.MonthlySettings' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
         /// </summary>
-        [Input("numberOfOnCalls")]
+        [PolicyResourceProperty("numberOfOnCalls", "_mUnknown_NumberOfOnCalls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfOnCalls;
-
-        public int? NumberOfOnCalls => _mNumberOfOnCalls.GetValue("numberOfOnCalls");
+        private int? _mValue_NumberOfOnCalls;
+        private bool _mUnknown_NumberOfOnCalls;
+        public int? NumberOfOnCalls
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfOnCalls) return _mValue_NumberOfOnCalls;
+                throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceArgs.NumberOfOnCalls' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required) The number of days, weeks, or months a single rotation lasts.
         /// </summary>
-        [Input("recurrenceMultiplier")]
+        [PolicyResourceProperty("recurrenceMultiplier", "_mUnknown_RecurrenceMultiplier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRecurrenceMultiplier;
-
-        public int? RecurrenceMultiplier => _mRecurrenceMultiplier.GetValue("recurrenceMultiplier");
+        private int? _mValue_RecurrenceMultiplier;
+        private bool _mUnknown_RecurrenceMultiplier;
+        public int? RecurrenceMultiplier
+        {
+            get
+            {
+                if (!_mUnknown_RecurrenceMultiplier) return _mValue_RecurrenceMultiplier;
+                throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceArgs.RecurrenceMultiplier' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
         /// </summary>
-        [Input("shiftCoverages")]
+        [PolicyResourceProperty("shiftCoverages", "_mUnknown_ShiftCoverages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ContactsRotationRecurrenceShiftCoverageArgs>> _mShiftCoverages;
-
-        public List<Inputs.ContactsRotationRecurrenceShiftCoverageArgs>? ShiftCoverages => _mShiftCoverages.GetValue("shiftCoverages");
+        private List<Inputs.ContactsRotationRecurrenceShiftCoverageArgs>? _mValue_ShiftCoverages;
+        private bool _mUnknown_ShiftCoverages;
+        public List<Inputs.ContactsRotationRecurrenceShiftCoverageArgs>? ShiftCoverages
+        {
+            get
+            {
+                if (!_mUnknown_ShiftCoverages) return _mValue_ShiftCoverages;
+                throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceArgs.ShiftCoverages' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
         /// </summary>
-        [Input("weeklySettings")]
+        [PolicyResourceProperty("weeklySettings", "_mUnknown_WeeklySettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ContactsRotationRecurrenceWeeklySettingArgs>> _mWeeklySettings;
-
-        public List<Inputs.ContactsRotationRecurrenceWeeklySettingArgs>? WeeklySettings => _mWeeklySettings.GetValue("weeklySettings");
+        private List<Inputs.ContactsRotationRecurrenceWeeklySettingArgs>? _mValue_WeeklySettings;
+        private bool _mUnknown_WeeklySettings;
+        public List<Inputs.ContactsRotationRecurrenceWeeklySettingArgs>? WeeklySettings
+        {
+            get
+            {
+                if (!_mUnknown_WeeklySettings) return _mValue_WeeklySettings;
+                throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceArgs.WeeklySettings' is not present");
+            }
+        }
     }
 }

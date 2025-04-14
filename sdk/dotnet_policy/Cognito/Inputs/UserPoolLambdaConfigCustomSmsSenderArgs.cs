@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Inputs
         /// <summary>
         /// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
         /// </summary>
-        [Input("lambdaArn")]
+        [PolicyResourceProperty("lambdaArn", "_mUnknown_LambdaArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaArn;
-
-        public string? LambdaArn => _mLambdaArn.GetValue("lambdaArn");
+        private string? _mValue_LambdaArn;
+        private bool _mUnknown_LambdaArn;
+        public string? LambdaArn
+        {
+            get
+            {
+                if (!_mUnknown_LambdaArn) return _mValue_LambdaArn;
+                throw new UndeferrableValueException("Value 'UserPoolLambdaConfigCustomSmsSenderArgs.LambdaArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
         /// </summary>
-        [Input("lambdaVersion")]
+        [PolicyResourceProperty("lambdaVersion", "_mUnknown_LambdaVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaVersion;
-
-        public string? LambdaVersion => _mLambdaVersion.GetValue("lambdaVersion");
+        private string? _mValue_LambdaVersion;
+        private bool _mUnknown_LambdaVersion;
+        public string? LambdaVersion
+        {
+            get
+            {
+                if (!_mUnknown_LambdaVersion) return _mValue_LambdaVersion;
+                throw new UndeferrableValueException("Value 'UserPoolLambdaConfigCustomSmsSenderArgs.LambdaVersion' is not present");
+            }
+        }
     }
 }

@@ -15,39 +15,67 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Inputs
         /// <summary>
         /// The name of the container to associate with the load balancer (as it appears in a container definition).
         /// </summary>
-        [Input("containerName")]
+        [PolicyResourceProperty("containerName", "_mUnknown_ContainerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerName;
-
-        public string? ContainerName => _mContainerName.GetValue("containerName");
+        private string? _mValue_ContainerName;
+        private bool _mUnknown_ContainerName;
+        public string? ContainerName
+        {
+            get
+            {
+                if (!_mUnknown_ContainerName) return _mValue_ContainerName;
+                throw new UndeferrableValueException("Value 'TaskSetLoadBalancerArgs.ContainerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The port on the container to associate with the load balancer. Defaults to `0` if not specified.
         /// 
         /// &gt; **Note:** Specifying multiple `load_balancer` configurations is still not supported by AWS for ECS task set.
         /// </summary>
-        [Input("containerPort")]
+        [PolicyResourceProperty("containerPort", "_mUnknown_ContainerPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mContainerPort;
-
-        public int? ContainerPort => _mContainerPort.GetValue("containerPort");
+        private int? _mValue_ContainerPort;
+        private bool _mUnknown_ContainerPort;
+        public int? ContainerPort
+        {
+            get
+            {
+                if (!_mUnknown_ContainerPort) return _mValue_ContainerPort;
+                throw new UndeferrableValueException("Value 'TaskSetLoadBalancerArgs.ContainerPort' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the ELB (Classic) to associate with the service.
         /// </summary>
-        [Input("loadBalancerName")]
+        [PolicyResourceProperty("loadBalancerName", "_mUnknown_LoadBalancerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancerName;
-
-        public string? LoadBalancerName => _mLoadBalancerName.GetValue("loadBalancerName");
+        private string? _mValue_LoadBalancerName;
+        private bool _mUnknown_LoadBalancerName;
+        public string? LoadBalancerName
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerName) return _mValue_LoadBalancerName;
+                throw new UndeferrableValueException("Value 'TaskSetLoadBalancerArgs.LoadBalancerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Load Balancer target group to associate with the service.
         /// </summary>
-        [Input("targetGroupArn")]
+        [PolicyResourceProperty("targetGroupArn", "_mUnknown_TargetGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetGroupArn;
-
-        public string? TargetGroupArn => _mTargetGroupArn.GetValue("targetGroupArn");
+        private string? _mValue_TargetGroupArn;
+        private bool _mUnknown_TargetGroupArn;
+        public string? TargetGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroupArn) return _mValue_TargetGroupArn;
+                throw new UndeferrableValueException("Value 'TaskSetLoadBalancerArgs.TargetGroupArn' is not present");
+            }
+        }
     }
 }

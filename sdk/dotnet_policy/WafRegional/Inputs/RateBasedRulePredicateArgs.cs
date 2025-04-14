@@ -15,11 +15,18 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional.Inputs
         /// <summary>
         /// A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
         /// </summary>
-        [Input("dataId")]
+        [PolicyResourceProperty("dataId", "_mUnknown_DataId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataId;
-
-        public string? DataId => _mDataId.GetValue("dataId");
+        private string? _mValue_DataId;
+        private bool _mUnknown_DataId;
+        public string? DataId
+        {
+            get
+            {
+                if (!_mUnknown_DataId) return _mValue_DataId;
+                throw new UndeferrableValueException("Value 'RateBasedRulePredicateArgs.DataId' is not present");
+            }
+        }
 
         /// <summary>
         /// Set this to `false` if you want to allow, block, or count requests
@@ -27,19 +34,33 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional.Inputs
         /// For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
         /// If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
         /// </summary>
-        [Input("negated")]
+        [PolicyResourceProperty("negated", "_mUnknown_Negated")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mNegated;
-
-        public bool? Negated => _mNegated.GetValue("negated");
+        private bool? _mValue_Negated;
+        private bool _mUnknown_Negated;
+        public bool? Negated
+        {
+            get
+            {
+                if (!_mUnknown_Negated) return _mValue_Negated;
+                throw new UndeferrableValueException("Value 'RateBasedRulePredicateArgs.Negated' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'RateBasedRulePredicateArgs.Type' is not present");
+            }
+        }
     }
 }

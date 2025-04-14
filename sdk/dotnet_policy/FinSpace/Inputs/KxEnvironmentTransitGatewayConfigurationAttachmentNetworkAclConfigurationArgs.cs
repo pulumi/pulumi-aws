@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace.Inputs
         /// <summary>
         /// The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
         /// </summary>
-        [Input("cidrBlock")]
+        [PolicyResourceProperty("cidrBlock", "_mUnknown_CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
-
-        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
+        private string? _mValue_CidrBlock;
+        private bool _mUnknown_CidrBlock;
+        public string? CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_CidrBlock) return _mValue_CidrBlock;
+                throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs.CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
         /// </summary>
-        [Input("icmpTypeCode")]
+        [PolicyResourceProperty("icmpTypeCode", "_mUnknown_IcmpTypeCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs> _mIcmpTypeCode;
-
-        public Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs? IcmpTypeCode => _mIcmpTypeCode.GetValue("icmpTypeCode");
+        private Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs? _mValue_IcmpTypeCode;
+        private bool _mUnknown_IcmpTypeCode;
+        public Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs? IcmpTypeCode
+        {
+            get
+            {
+                if (!_mUnknown_IcmpTypeCode) return _mValue_IcmpTypeCode;
+                throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs.IcmpTypeCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Range of ports the rule applies to. Defined below.
         /// </summary>
-        [Input("portRange")]
+        [PolicyResourceProperty("portRange", "_mUnknown_PortRange")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs> _mPortRange;
-
-        public Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs? PortRange => _mPortRange.GetValue("portRange");
+        private Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs? _mValue_PortRange;
+        private bool _mUnknown_PortRange;
+        public Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs? PortRange
+        {
+            get
+            {
+                if (!_mUnknown_PortRange) return _mValue_PortRange;
+                throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs.PortRange' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol number. A value of `1` means all the protocols.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to `allow` or `deny` the traffic that matches the rule.
         /// </summary>
-        [Input("ruleAction")]
+        [PolicyResourceProperty("ruleAction", "_mUnknown_RuleAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleAction;
-
-        public string? RuleAction => _mRuleAction.GetValue("ruleAction");
+        private string? _mValue_RuleAction;
+        private bool _mUnknown_RuleAction;
+        public string? RuleAction
+        {
+            get
+            {
+                if (!_mUnknown_RuleAction) return _mValue_RuleAction;
+                throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs.RuleAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule number for the entry. All the network ACL entries are processed in ascending order by rule number.
         /// </summary>
-        [Input("ruleNumber")]
+        [PolicyResourceProperty("ruleNumber", "_mUnknown_RuleNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRuleNumber;
-
-        public int? RuleNumber => _mRuleNumber.GetValue("ruleNumber");
+        private int? _mValue_RuleNumber;
+        private bool _mUnknown_RuleNumber;
+        public int? RuleNumber
+        {
+            get
+            {
+                if (!_mUnknown_RuleNumber) return _mValue_RuleNumber;
+                throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs.RuleNumber' is not present");
+            }
+        }
     }
 }

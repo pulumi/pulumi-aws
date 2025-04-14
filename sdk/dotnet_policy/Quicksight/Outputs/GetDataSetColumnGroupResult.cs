@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetColumnGroupResult
     {
-        [Input("geoSpatialColumnGroups")]
+        [PolicyResourceProperty("geoSpatialColumnGroups", "_mUnknown_GeoSpatialColumnGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDataSetColumnGroupGeoSpatialColumnGroupResult>> _mGeoSpatialColumnGroups;
-
-        public List<Outputs.GetDataSetColumnGroupGeoSpatialColumnGroupResult>? GeoSpatialColumnGroups => _mGeoSpatialColumnGroups.GetValue("geoSpatialColumnGroups");
+        private List<Outputs.GetDataSetColumnGroupGeoSpatialColumnGroupResult>? _mValue_GeoSpatialColumnGroups;
+        private bool _mUnknown_GeoSpatialColumnGroups;
+        public List<Outputs.GetDataSetColumnGroupGeoSpatialColumnGroupResult>? GeoSpatialColumnGroups
+        {
+            get
+            {
+                if (!_mUnknown_GeoSpatialColumnGroups) return _mValue_GeoSpatialColumnGroups;
+                throw new UndeferrableValueException("Value 'GetDataSetColumnGroupResult.GeoSpatialColumnGroups' is not present");
+            }
+        }
     }
 }

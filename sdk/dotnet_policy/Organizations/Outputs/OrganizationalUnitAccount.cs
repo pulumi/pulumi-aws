@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Organizations.Outputs
         /// <summary>
         /// ARN of the organizational unit
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'OrganizationalUnitAccount.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Email of the account
         /// </summary>
-        [Input("email")]
+        [PolicyResourceProperty("email", "_mUnknown_Email")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
-
-        public string? Email => _mEmail.GetValue("email");
+        private string? _mValue_Email;
+        private bool _mUnknown_Email;
+        public string? Email
+        {
+            get
+            {
+                if (!_mUnknown_Email) return _mValue_Email;
+                throw new UndeferrableValueException("Value 'OrganizationalUnitAccount.Email' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the organization unit
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'OrganizationalUnitAccount.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the organizational unit
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'OrganizationalUnitAccount.Name' is not present");
+            }
+        }
     }
 }

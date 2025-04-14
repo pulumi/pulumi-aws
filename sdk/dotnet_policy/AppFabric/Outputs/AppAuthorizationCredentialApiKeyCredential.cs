@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppFabric.Outputs
         /// <summary>
         /// Contains API key credential information.
         /// </summary>
-        [Input("apiKey")]
+        [PolicyResourceProperty("apiKey", "_mUnknown_ApiKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiKey;
-
-        public string? ApiKey => _mApiKey.GetValue("apiKey");
+        private string? _mValue_ApiKey;
+        private bool _mUnknown_ApiKey;
+        public string? ApiKey
+        {
+            get
+            {
+                if (!_mUnknown_ApiKey) return _mValue_ApiKey;
+                throw new UndeferrableValueException("Value 'AppAuthorizationCredentialApiKeyCredential.ApiKey' is not present");
+            }
+        }
     }
 }

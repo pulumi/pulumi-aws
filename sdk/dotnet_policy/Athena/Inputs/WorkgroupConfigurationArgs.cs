@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Athena.Inputs
         /// <summary>
         /// Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
         /// </summary>
-        [Input("bytesScannedCutoffPerQuery")]
+        [PolicyResourceProperty("bytesScannedCutoffPerQuery", "_mUnknown_BytesScannedCutoffPerQuery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBytesScannedCutoffPerQuery;
-
-        public int? BytesScannedCutoffPerQuery => _mBytesScannedCutoffPerQuery.GetValue("bytesScannedCutoffPerQuery");
+        private int? _mValue_BytesScannedCutoffPerQuery;
+        private bool _mUnknown_BytesScannedCutoffPerQuery;
+        public int? BytesScannedCutoffPerQuery
+        {
+            get
+            {
+                if (!_mUnknown_BytesScannedCutoffPerQuery) return _mValue_BytesScannedCutoffPerQuery;
+                throw new UndeferrableValueException("Value 'WorkgroupConfigurationArgs.BytesScannedCutoffPerQuery' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
         /// </summary>
-        [Input("enforceWorkgroupConfiguration")]
+        [PolicyResourceProperty("enforceWorkgroupConfiguration", "_mUnknown_EnforceWorkgroupConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnforceWorkgroupConfiguration;
-
-        public bool? EnforceWorkgroupConfiguration => _mEnforceWorkgroupConfiguration.GetValue("enforceWorkgroupConfiguration");
+        private bool? _mValue_EnforceWorkgroupConfiguration;
+        private bool _mUnknown_EnforceWorkgroupConfiguration;
+        public bool? EnforceWorkgroupConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EnforceWorkgroupConfiguration) return _mValue_EnforceWorkgroupConfiguration;
+                throw new UndeferrableValueException("Value 'WorkgroupConfigurationArgs.EnforceWorkgroupConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkgroupConfigurationEngineVersionArgs> _mEngineVersion;
-
-        public Inputs.WorkgroupConfigurationEngineVersionArgs? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private Inputs.WorkgroupConfigurationEngineVersionArgs? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public Inputs.WorkgroupConfigurationEngineVersionArgs? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'WorkgroupConfigurationArgs.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Role used in a notebook session for accessing the user's resources.
         /// </summary>
-        [Input("executionRole")]
+        [PolicyResourceProperty("executionRole", "_mUnknown_ExecutionRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRole;
-
-        public string? ExecutionRole => _mExecutionRole.GetValue("executionRole");
+        private string? _mValue_ExecutionRole;
+        private bool _mUnknown_ExecutionRole;
+        public string? ExecutionRole
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRole) return _mValue_ExecutionRole;
+                throw new UndeferrableValueException("Value 'WorkgroupConfigurationArgs.ExecutionRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
         /// </summary>
-        [Input("publishCloudwatchMetricsEnabled")]
+        [PolicyResourceProperty("publishCloudwatchMetricsEnabled", "_mUnknown_PublishCloudwatchMetricsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPublishCloudwatchMetricsEnabled;
-
-        public bool? PublishCloudwatchMetricsEnabled => _mPublishCloudwatchMetricsEnabled.GetValue("publishCloudwatchMetricsEnabled");
+        private bool? _mValue_PublishCloudwatchMetricsEnabled;
+        private bool _mUnknown_PublishCloudwatchMetricsEnabled;
+        public bool? PublishCloudwatchMetricsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_PublishCloudwatchMetricsEnabled) return _mValue_PublishCloudwatchMetricsEnabled;
+                throw new UndeferrableValueException("Value 'WorkgroupConfigurationArgs.PublishCloudwatchMetricsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
         /// </summary>
-        [Input("requesterPaysEnabled")]
+        [PolicyResourceProperty("requesterPaysEnabled", "_mUnknown_RequesterPaysEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequesterPaysEnabled;
-
-        public bool? RequesterPaysEnabled => _mRequesterPaysEnabled.GetValue("requesterPaysEnabled");
+        private bool? _mValue_RequesterPaysEnabled;
+        private bool _mUnknown_RequesterPaysEnabled;
+        public bool? RequesterPaysEnabled
+        {
+            get
+            {
+                if (!_mUnknown_RequesterPaysEnabled) return _mValue_RequesterPaysEnabled;
+                throw new UndeferrableValueException("Value 'WorkgroupConfigurationArgs.RequesterPaysEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with result settings. See Result Configuration below.
         /// </summary>
-        [Input("resultConfiguration")]
+        [PolicyResourceProperty("resultConfiguration", "_mUnknown_ResultConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkgroupConfigurationResultConfigurationArgs> _mResultConfiguration;
-
-        public Inputs.WorkgroupConfigurationResultConfigurationArgs? ResultConfiguration => _mResultConfiguration.GetValue("resultConfiguration");
+        private Inputs.WorkgroupConfigurationResultConfigurationArgs? _mValue_ResultConfiguration;
+        private bool _mUnknown_ResultConfiguration;
+        public Inputs.WorkgroupConfigurationResultConfigurationArgs? ResultConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ResultConfiguration) return _mValue_ResultConfiguration;
+                throw new UndeferrableValueException("Value 'WorkgroupConfigurationArgs.ResultConfiguration' is not present");
+            }
+        }
     }
 }

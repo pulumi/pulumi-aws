@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway.Inputs
         /// <summary>
         /// List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `put_rest_api_mode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
         /// </summary>
-        [Input("types")]
+        [PolicyResourceProperty("types", "_mUnknown_Types")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTypes;
-
-        public string? Types => _mTypes.GetValue("types");
+        private string? _mValue_Types;
+        private bool _mUnknown_Types;
+        public string? Types
+        {
+            get
+            {
+                if (!_mUnknown_Types) return _mValue_Types;
+                throw new UndeferrableValueException("Value 'RestApiEndpointConfigurationArgs.Types' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
         /// </summary>
-        [Input("vpcEndpointIds")]
+        [PolicyResourceProperty("vpcEndpointIds", "_mUnknown_VpcEndpointIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcEndpointIds;
-
-        public List<string>? VpcEndpointIds => _mVpcEndpointIds.GetValue("vpcEndpointIds");
+        private List<string>? _mValue_VpcEndpointIds;
+        private bool _mUnknown_VpcEndpointIds;
+        public List<string>? VpcEndpointIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointIds) return _mValue_VpcEndpointIds;
+                throw new UndeferrableValueException("Value 'RestApiEndpointConfigurationArgs.VpcEndpointIds' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// <summary>
         /// Contains Elastic Load Balancing configuration for EKS Auto Mode enabled cluster.
         /// </summary>
-        [Input("elasticLoadBalancings")]
+        [PolicyResourceProperty("elasticLoadBalancings", "_mUnknown_ElasticLoadBalancings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetClusterKubernetesNetworkConfigElasticLoadBalancingResult>> _mElasticLoadBalancings;
-
-        public List<Outputs.GetClusterKubernetesNetworkConfigElasticLoadBalancingResult>? ElasticLoadBalancings => _mElasticLoadBalancings.GetValue("elasticLoadBalancings");
+        private List<Outputs.GetClusterKubernetesNetworkConfigElasticLoadBalancingResult>? _mValue_ElasticLoadBalancings;
+        private bool _mUnknown_ElasticLoadBalancings;
+        public List<Outputs.GetClusterKubernetesNetworkConfigElasticLoadBalancingResult>? ElasticLoadBalancings
+        {
+            get
+            {
+                if (!_mUnknown_ElasticLoadBalancings) return _mValue_ElasticLoadBalancings;
+                throw new UndeferrableValueException("Value 'GetClusterKubernetesNetworkConfigResult.ElasticLoadBalancings' is not present");
+            }
+        }
 
         /// <summary>
         /// `ipv4` or `ipv6`.
         /// </summary>
-        [Input("ipFamily")]
+        [PolicyResourceProperty("ipFamily", "_mUnknown_IpFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpFamily;
-
-        public string? IpFamily => _mIpFamily.GetValue("ipFamily");
+        private string? _mValue_IpFamily;
+        private bool _mUnknown_IpFamily;
+        public string? IpFamily
+        {
+            get
+            {
+                if (!_mUnknown_IpFamily) return _mValue_IpFamily;
+                throw new UndeferrableValueException("Value 'GetClusterKubernetesNetworkConfigResult.IpFamily' is not present");
+            }
+        }
 
         /// <summary>
         /// The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv4` was specified when the cluster was created.
         /// </summary>
-        [Input("serviceIpv4Cidr")]
+        [PolicyResourceProperty("serviceIpv4Cidr", "_mUnknown_ServiceIpv4Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceIpv4Cidr;
-
-        public string? ServiceIpv4Cidr => _mServiceIpv4Cidr.GetValue("serviceIpv4Cidr");
+        private string? _mValue_ServiceIpv4Cidr;
+        private bool _mUnknown_ServiceIpv4Cidr;
+        public string? ServiceIpv4Cidr
+        {
+            get
+            {
+                if (!_mUnknown_ServiceIpv4Cidr) return _mValue_ServiceIpv4Cidr;
+                throw new UndeferrableValueException("Value 'GetClusterKubernetesNetworkConfigResult.ServiceIpv4Cidr' is not present");
+            }
+        }
 
         /// <summary>
         /// The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv6` was specified when the cluster was created. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
         /// </summary>
-        [Input("serviceIpv6Cidr")]
+        [PolicyResourceProperty("serviceIpv6Cidr", "_mUnknown_ServiceIpv6Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceIpv6Cidr;
-
-        public string? ServiceIpv6Cidr => _mServiceIpv6Cidr.GetValue("serviceIpv6Cidr");
+        private string? _mValue_ServiceIpv6Cidr;
+        private bool _mUnknown_ServiceIpv6Cidr;
+        public string? ServiceIpv6Cidr
+        {
+            get
+            {
+                if (!_mUnknown_ServiceIpv6Cidr) return _mValue_ServiceIpv6Cidr;
+                throw new UndeferrableValueException("Value 'GetClusterKubernetesNetworkConfigResult.ServiceIpv6Cidr' is not present");
+            }
+        }
     }
 }

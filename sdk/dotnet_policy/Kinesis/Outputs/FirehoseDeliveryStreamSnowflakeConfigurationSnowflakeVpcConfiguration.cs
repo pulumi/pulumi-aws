@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// The VPCE ID for Firehose to privately connect with Snowflake.
         /// </summary>
-        [Input("privateLinkVpceId")]
+        [PolicyResourceProperty("privateLinkVpceId", "_mUnknown_PrivateLinkVpceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateLinkVpceId;
-
-        public string? PrivateLinkVpceId => _mPrivateLinkVpceId.GetValue("privateLinkVpceId");
+        private string? _mValue_PrivateLinkVpceId;
+        private bool _mUnknown_PrivateLinkVpceId;
+        public string? PrivateLinkVpceId
+        {
+            get
+            {
+                if (!_mUnknown_PrivateLinkVpceId) return _mValue_PrivateLinkVpceId;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration.PrivateLinkVpceId' is not present");
+            }
+        }
     }
 }

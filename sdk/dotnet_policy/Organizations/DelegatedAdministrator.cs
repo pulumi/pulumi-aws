@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.Organizations
         /// <summary>
         /// The account ID number of the member account in the organization to register as a delegated administrator.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'DelegatedAdministrator.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the delegated administrator's account.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DelegatedAdministrator.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The date when the account was made a delegated administrator.
         /// </summary>
-        [Input("delegationEnabledDate")]
+        [PolicyResourceProperty("delegationEnabledDate", "_mUnknown_DelegationEnabledDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDelegationEnabledDate;
-
-        public string? DelegationEnabledDate => _mDelegationEnabledDate.GetValue("delegationEnabledDate");
+        private string? _mValue_DelegationEnabledDate;
+        private bool _mUnknown_DelegationEnabledDate;
+        public string? DelegationEnabledDate
+        {
+            get
+            {
+                if (!_mUnknown_DelegationEnabledDate) return _mValue_DelegationEnabledDate;
+                throw new UndeferrableValueException("Value 'DelegatedAdministrator.DelegationEnabledDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The email address that is associated with the delegated administrator's AWS account.
         /// </summary>
-        [Input("email")]
+        [PolicyResourceProperty("email", "_mUnknown_Email")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
-
-        public string? Email => _mEmail.GetValue("email");
+        private string? _mValue_Email;
+        private bool _mUnknown_Email;
+        public string? Email
+        {
+            get
+            {
+                if (!_mUnknown_Email) return _mValue_Email;
+                throw new UndeferrableValueException("Value 'DelegatedAdministrator.Email' is not present");
+            }
+        }
 
         /// <summary>
         /// The method by which the delegated administrator's account joined the organization.
         /// </summary>
-        [Input("joinedMethod")]
+        [PolicyResourceProperty("joinedMethod", "_mUnknown_JoinedMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJoinedMethod;
-
-        public string? JoinedMethod => _mJoinedMethod.GetValue("joinedMethod");
+        private string? _mValue_JoinedMethod;
+        private bool _mUnknown_JoinedMethod;
+        public string? JoinedMethod
+        {
+            get
+            {
+                if (!_mUnknown_JoinedMethod) return _mValue_JoinedMethod;
+                throw new UndeferrableValueException("Value 'DelegatedAdministrator.JoinedMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// The date when the delegated administrator's account became a part of the organization.
         /// </summary>
-        [Input("joinedTimestamp")]
+        [PolicyResourceProperty("joinedTimestamp", "_mUnknown_JoinedTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJoinedTimestamp;
-
-        public string? JoinedTimestamp => _mJoinedTimestamp.GetValue("joinedTimestamp");
+        private string? _mValue_JoinedTimestamp;
+        private bool _mUnknown_JoinedTimestamp;
+        public string? JoinedTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_JoinedTimestamp) return _mValue_JoinedTimestamp;
+                throw new UndeferrableValueException("Value 'DelegatedAdministrator.JoinedTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// The friendly name of the delegated administrator's account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DelegatedAdministrator.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The service principal of the AWS service for which you want to make the member account a delegated administrator.
         /// </summary>
-        [Input("servicePrincipal")]
+        [PolicyResourceProperty("servicePrincipal", "_mUnknown_ServicePrincipal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServicePrincipal;
-
-        public string? ServicePrincipal => _mServicePrincipal.GetValue("servicePrincipal");
+        private string? _mValue_ServicePrincipal;
+        private bool _mUnknown_ServicePrincipal;
+        public string? ServicePrincipal
+        {
+            get
+            {
+                if (!_mUnknown_ServicePrincipal) return _mValue_ServicePrincipal;
+                throw new UndeferrableValueException("Value 'DelegatedAdministrator.ServicePrincipal' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the delegated administrator's account in the organization.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'DelegatedAdministrator.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:organizations/delegatedAdministrator:DelegatedAdministrator")]
@@ -101,19 +164,33 @@ namespace Pulumi.PolicyPacks.Aws.Organizations
         /// <summary>
         /// The account ID number of the member account in the organization to register as a delegated administrator.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'DelegatedAdministratorArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The service principal of the AWS service for which you want to make the member account a delegated administrator.
         /// </summary>
-        [Input("servicePrincipal")]
+        [PolicyResourceProperty("servicePrincipal", "_mUnknown_ServicePrincipal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServicePrincipal;
-
-        public string? ServicePrincipal => _mServicePrincipal.GetValue("servicePrincipal");
+        private string? _mValue_ServicePrincipal;
+        private bool _mUnknown_ServicePrincipal;
+        public string? ServicePrincipal
+        {
+            get
+            {
+                if (!_mUnknown_ServicePrincipal) return _mValue_ServicePrincipal;
+                throw new UndeferrableValueException("Value 'DelegatedAdministratorArgs.ServicePrincipal' is not present");
+            }
+        }
     }
 }

@@ -15,39 +15,67 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Outputs
         /// <summary>
         /// The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
         /// </summary>
-        [Input("onFailure")]
+        [PolicyResourceProperty("onFailure", "_mUnknown_OnFailure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOnFailure;
-
-        public string? OnFailure => _mOnFailure.GetValue("onFailure");
+        private string? _mValue_OnFailure;
+        private bool _mUnknown_OnFailure;
+        public string? OnFailure
+        {
+            get
+            {
+                if (!_mUnknown_OnFailure) return _mValue_OnFailure;
+                throw new UndeferrableValueException("Value 'ImageWorkflow.OnFailure' is not present");
+            }
+        }
 
         /// <summary>
         /// The parallel group in which to run a test Workflow.
         /// </summary>
-        [Input("parallelGroup")]
+        [PolicyResourceProperty("parallelGroup", "_mUnknown_ParallelGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParallelGroup;
-
-        public string? ParallelGroup => _mParallelGroup.GetValue("parallelGroup");
+        private string? _mValue_ParallelGroup;
+        private bool _mUnknown_ParallelGroup;
+        public string? ParallelGroup
+        {
+            get
+            {
+                if (!_mUnknown_ParallelGroup) return _mValue_ParallelGroup;
+                throw new UndeferrableValueException("Value 'ImageWorkflow.ParallelGroup' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the workflow parameters. Detailed below.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ImageWorkflowParameter>> _mParameters;
-
-        public List<Outputs.ImageWorkflowParameter>? Parameters => _mParameters.GetValue("parameters");
+        private List<Outputs.ImageWorkflowParameter>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Outputs.ImageWorkflowParameter>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'ImageWorkflow.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Image Builder Workflow.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("workflowArn")]
+        [PolicyResourceProperty("workflowArn", "_mUnknown_WorkflowArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkflowArn;
-
-        public string? WorkflowArn => _mWorkflowArn.GetValue("workflowArn");
+        private string? _mValue_WorkflowArn;
+        private bool _mUnknown_WorkflowArn;
+        public string? WorkflowArn
+        {
+            get
+            {
+                if (!_mUnknown_WorkflowArn) return _mValue_WorkflowArn;
+                throw new UndeferrableValueException("Value 'ImageWorkflow.WorkflowArn' is not present");
+            }
+        }
     }
 }

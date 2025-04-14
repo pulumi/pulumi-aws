@@ -17,21 +17,35 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Inputs
         /// The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
         /// Can contain a maximum of 200 items.
         /// </summary>
-        [Input("blockedIpRangeLists")]
+        [PolicyResourceProperty("blockedIpRangeLists", "_mUnknown_BlockedIpRangeLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mBlockedIpRangeLists;
-
-        public List<string>? BlockedIpRangeLists => _mBlockedIpRangeLists.GetValue("blockedIpRangeLists");
+        private List<string>? _mValue_BlockedIpRangeLists;
+        private bool _mUnknown_BlockedIpRangeLists;
+        public List<string>? BlockedIpRangeLists
+        {
+            get
+            {
+                if (!_mUnknown_BlockedIpRangeLists) return _mValue_BlockedIpRangeLists;
+                throw new UndeferrableValueException("Value 'RiskConfigurationRiskExceptionConfigurationArgs.BlockedIpRangeLists' is not present");
+            }
+        }
 
         /// <summary>
         /// Risk detection isn't performed on the IP addresses in this range list.
         /// The IP range is in CIDR notation.
         /// Can contain a maximum of 200 items.
         /// </summary>
-        [Input("skippedIpRangeLists")]
+        [PolicyResourceProperty("skippedIpRangeLists", "_mUnknown_SkippedIpRangeLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSkippedIpRangeLists;
-
-        public List<string>? SkippedIpRangeLists => _mSkippedIpRangeLists.GetValue("skippedIpRangeLists");
+        private List<string>? _mValue_SkippedIpRangeLists;
+        private bool _mUnknown_SkippedIpRangeLists;
+        public List<string>? SkippedIpRangeLists
+        {
+            get
+            {
+                if (!_mUnknown_SkippedIpRangeLists) return _mValue_SkippedIpRangeLists;
+                throw new UndeferrableValueException("Value 'RiskConfigurationRiskExceptionConfigurationArgs.SkippedIpRangeLists' is not present");
+            }
+        }
     }
 }

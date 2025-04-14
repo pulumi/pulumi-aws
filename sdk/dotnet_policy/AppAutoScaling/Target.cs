@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.AppAutoScaling
         /// <summary>
         /// The ARN of the scalable target.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Target.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Max capacity of the scalable target.
         /// </summary>
-        [Input("maxCapacity")]
+        [PolicyResourceProperty("maxCapacity", "_mUnknown_MaxCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxCapacity;
-
-        public int? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
+        private int? _mValue_MaxCapacity;
+        private bool _mUnknown_MaxCapacity;
+        public int? MaxCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MaxCapacity) return _mValue_MaxCapacity;
+                throw new UndeferrableValueException("Value 'Target.MaxCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Min capacity of the scalable target.
         /// </summary>
-        [Input("minCapacity")]
+        [PolicyResourceProperty("minCapacity", "_mUnknown_MinCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinCapacity;
-
-        public int? MinCapacity => _mMinCapacity.GetValue("minCapacity");
+        private int? _mValue_MinCapacity;
+        private bool _mUnknown_MinCapacity;
+        public int? MinCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MinCapacity) return _mValue_MinCapacity;
+                throw new UndeferrableValueException("Value 'Target.MinCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'Target.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Target.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         /// </summary>
-        [Input("scalableDimension")]
+        [PolicyResourceProperty("scalableDimension", "_mUnknown_ScalableDimension")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScalableDimension;
-
-        public string? ScalableDimension => _mScalableDimension.GetValue("scalableDimension");
+        private string? _mValue_ScalableDimension;
+        private bool _mUnknown_ScalableDimension;
+        public string? ScalableDimension
+        {
+            get
+            {
+                if (!_mUnknown_ScalableDimension) return _mValue_ScalableDimension;
+                throw new UndeferrableValueException("Value 'Target.ScalableDimension' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         /// </summary>
-        [Input("serviceNamespace")]
+        [PolicyResourceProperty("serviceNamespace", "_mUnknown_ServiceNamespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNamespace;
-
-        public string? ServiceNamespace => _mServiceNamespace.GetValue("serviceNamespace");
+        private string? _mValue_ServiceNamespace;
+        private bool _mUnknown_ServiceNamespace;
+        public string? ServiceNamespace
+        {
+            get
+            {
+                if (!_mUnknown_ServiceNamespace) return _mValue_ServiceNamespace;
+                throw new UndeferrableValueException("Value 'Target.ServiceNamespace' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the scaling activities for a scalable target are in a suspended state.
         /// </summary>
-        [Input("suspendedState")]
+        [PolicyResourceProperty("suspendedState", "_mUnknown_SuspendedState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TargetSuspendedState> _mSuspendedState;
-
-        public Outputs.TargetSuspendedState? SuspendedState => _mSuspendedState.GetValue("suspendedState");
+        private Outputs.TargetSuspendedState? _mValue_SuspendedState;
+        private bool _mUnknown_SuspendedState;
+        public Outputs.TargetSuspendedState? SuspendedState
+        {
+            get
+            {
+                if (!_mUnknown_SuspendedState) return _mValue_SuspendedState;
+                throw new UndeferrableValueException("Value 'Target.SuspendedState' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Target.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Target.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appautoscaling/target:Target")]
@@ -110,73 +180,129 @@ namespace Pulumi.PolicyPacks.Aws.AppAutoScaling
         /// <summary>
         /// Max capacity of the scalable target.
         /// </summary>
-        [Input("maxCapacity")]
+        [PolicyResourceProperty("maxCapacity", "_mUnknown_MaxCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxCapacity;
-
-        public int? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
+        private int? _mValue_MaxCapacity;
+        private bool _mUnknown_MaxCapacity;
+        public int? MaxCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MaxCapacity) return _mValue_MaxCapacity;
+                throw new UndeferrableValueException("Value 'TargetArgs.MaxCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Min capacity of the scalable target.
         /// </summary>
-        [Input("minCapacity")]
+        [PolicyResourceProperty("minCapacity", "_mUnknown_MinCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinCapacity;
-
-        public int? MinCapacity => _mMinCapacity.GetValue("minCapacity");
+        private int? _mValue_MinCapacity;
+        private bool _mUnknown_MinCapacity;
+        public int? MinCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MinCapacity) return _mValue_MinCapacity;
+                throw new UndeferrableValueException("Value 'TargetArgs.MinCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'TargetArgs.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'TargetArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         /// </summary>
-        [Input("scalableDimension")]
+        [PolicyResourceProperty("scalableDimension", "_mUnknown_ScalableDimension")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScalableDimension;
-
-        public string? ScalableDimension => _mScalableDimension.GetValue("scalableDimension");
+        private string? _mValue_ScalableDimension;
+        private bool _mUnknown_ScalableDimension;
+        public string? ScalableDimension
+        {
+            get
+            {
+                if (!_mUnknown_ScalableDimension) return _mValue_ScalableDimension;
+                throw new UndeferrableValueException("Value 'TargetArgs.ScalableDimension' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         /// </summary>
-        [Input("serviceNamespace")]
+        [PolicyResourceProperty("serviceNamespace", "_mUnknown_ServiceNamespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNamespace;
-
-        public string? ServiceNamespace => _mServiceNamespace.GetValue("serviceNamespace");
+        private string? _mValue_ServiceNamespace;
+        private bool _mUnknown_ServiceNamespace;
+        public string? ServiceNamespace
+        {
+            get
+            {
+                if (!_mUnknown_ServiceNamespace) return _mValue_ServiceNamespace;
+                throw new UndeferrableValueException("Value 'TargetArgs.ServiceNamespace' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the scaling activities for a scalable target are in a suspended state.
         /// </summary>
-        [Input("suspendedState")]
+        [PolicyResourceProperty("suspendedState", "_mUnknown_SuspendedState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TargetSuspendedStateArgs> _mSuspendedState;
-
-        public Inputs.TargetSuspendedStateArgs? SuspendedState => _mSuspendedState.GetValue("suspendedState");
+        private Inputs.TargetSuspendedStateArgs? _mValue_SuspendedState;
+        private bool _mUnknown_SuspendedState;
+        public Inputs.TargetSuspendedStateArgs? SuspendedState
+        {
+            get
+            {
+                if (!_mUnknown_SuspendedState) return _mValue_SuspendedState;
+                throw new UndeferrableValueException("Value 'TargetArgs.SuspendedState' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TargetArgs.Tags' is not present");
+            }
+        }
     }
 }

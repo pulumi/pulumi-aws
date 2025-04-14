@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Connect.Outputs
         /// <summary>
         /// Specifies the caller ID name.
         /// </summary>
-        [Input("outboundCallerIdName")]
+        [PolicyResourceProperty("outboundCallerIdName", "_mUnknown_OutboundCallerIdName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutboundCallerIdName;
-
-        public string? OutboundCallerIdName => _mOutboundCallerIdName.GetValue("outboundCallerIdName");
+        private string? _mValue_OutboundCallerIdName;
+        private bool _mUnknown_OutboundCallerIdName;
+        public string? OutboundCallerIdName
+        {
+            get
+            {
+                if (!_mUnknown_OutboundCallerIdName) return _mValue_OutboundCallerIdName;
+                throw new UndeferrableValueException("Value 'QueueOutboundCallerConfig.OutboundCallerIdName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the caller ID number.
         /// </summary>
-        [Input("outboundCallerIdNumberId")]
+        [PolicyResourceProperty("outboundCallerIdNumberId", "_mUnknown_OutboundCallerIdNumberId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutboundCallerIdNumberId;
-
-        public string? OutboundCallerIdNumberId => _mOutboundCallerIdNumberId.GetValue("outboundCallerIdNumberId");
+        private string? _mValue_OutboundCallerIdNumberId;
+        private bool _mUnknown_OutboundCallerIdNumberId;
+        public string? OutboundCallerIdNumberId
+        {
+            get
+            {
+                if (!_mUnknown_OutboundCallerIdNumberId) return _mValue_OutboundCallerIdNumberId;
+                throw new UndeferrableValueException("Value 'QueueOutboundCallerConfig.OutboundCallerIdNumberId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies outbound whisper flow to be used during an outbound call.
         /// </summary>
-        [Input("outboundFlowId")]
+        [PolicyResourceProperty("outboundFlowId", "_mUnknown_OutboundFlowId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutboundFlowId;
-
-        public string? OutboundFlowId => _mOutboundFlowId.GetValue("outboundFlowId");
+        private string? _mValue_OutboundFlowId;
+        private bool _mUnknown_OutboundFlowId;
+        public string? OutboundFlowId
+        {
+            get
+            {
+                if (!_mUnknown_OutboundFlowId) return _mValue_OutboundFlowId;
+                throw new UndeferrableValueException("Value 'QueueOutboundCallerConfig.OutboundFlowId' is not present");
+            }
+        }
     }
 }

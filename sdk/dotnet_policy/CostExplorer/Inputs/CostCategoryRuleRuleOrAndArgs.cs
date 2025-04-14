@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer.Inputs
         /// <summary>
         /// Configuration block for the filter that's based on `CostCategory` values. See below.
         /// </summary>
-        [Input("costCategory")]
+        [PolicyResourceProperty("costCategory", "_mUnknown_CostCategory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CostCategoryRuleRuleOrAndCostCategoryArgs> _mCostCategory;
-
-        public Inputs.CostCategoryRuleRuleOrAndCostCategoryArgs? CostCategory => _mCostCategory.GetValue("costCategory");
+        private Inputs.CostCategoryRuleRuleOrAndCostCategoryArgs? _mValue_CostCategory;
+        private bool _mUnknown_CostCategory;
+        public Inputs.CostCategoryRuleRuleOrAndCostCategoryArgs? CostCategory
+        {
+            get
+            {
+                if (!_mUnknown_CostCategory) return _mValue_CostCategory;
+                throw new UndeferrableValueException("Value 'CostCategoryRuleRuleOrAndArgs.CostCategory' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the specific `Dimension` to use for `Expression`. See below.
         /// </summary>
-        [Input("dimension")]
+        [PolicyResourceProperty("dimension", "_mUnknown_Dimension")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CostCategoryRuleRuleOrAndDimensionArgs> _mDimension;
-
-        public Inputs.CostCategoryRuleRuleOrAndDimensionArgs? Dimension => _mDimension.GetValue("dimension");
+        private Inputs.CostCategoryRuleRuleOrAndDimensionArgs? _mValue_Dimension;
+        private bool _mUnknown_Dimension;
+        public Inputs.CostCategoryRuleRuleOrAndDimensionArgs? Dimension
+        {
+            get
+            {
+                if (!_mUnknown_Dimension) return _mValue_Dimension;
+                throw new UndeferrableValueException("Value 'CostCategoryRuleRuleOrAndArgs.Dimension' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CostCategoryRuleRuleOrAndTagsArgs> _mTags;
-
-        public Inputs.CostCategoryRuleRuleOrAndTagsArgs? Tags => _mTags.GetValue("tags");
+        private Inputs.CostCategoryRuleRuleOrAndTagsArgs? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Inputs.CostCategoryRuleRuleOrAndTagsArgs? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CostCategoryRuleRuleOrAndArgs.Tags' is not present");
+            }
+        }
     }
 }

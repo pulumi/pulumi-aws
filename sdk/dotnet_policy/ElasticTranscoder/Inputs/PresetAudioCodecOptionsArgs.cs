@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.ElasticTranscoder.Inputs
         /// <summary>
         /// The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
         /// </summary>
-        [Input("bitDepth")]
+        [PolicyResourceProperty("bitDepth", "_mUnknown_BitDepth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBitDepth;
-
-        public string? BitDepth => _mBitDepth.GetValue("bitDepth");
+        private string? _mValue_BitDepth;
+        private bool _mUnknown_BitDepth;
+        public string? BitDepth
+        {
+            get
+            {
+                if (!_mUnknown_BitDepth) return _mValue_BitDepth;
+                throw new UndeferrableValueException("Value 'PresetAudioCodecOptionsArgs.BitDepth' is not present");
+            }
+        }
 
         /// <summary>
         /// The order the bits of a PCM sample are stored in. The supported value is LittleEndian. (PCM Only)
         /// </summary>
-        [Input("bitOrder")]
+        [PolicyResourceProperty("bitOrder", "_mUnknown_BitOrder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBitOrder;
-
-        public string? BitOrder => _mBitOrder.GetValue("bitOrder");
+        private string? _mValue_BitOrder;
+        private bool _mUnknown_BitOrder;
+        public string? BitOrder
+        {
+            get
+            {
+                if (!_mUnknown_BitOrder) return _mValue_BitOrder;
+                throw new UndeferrableValueException("Value 'PresetAudioCodecOptionsArgs.BitOrder' is not present");
+            }
+        }
 
         /// <summary>
         /// If you specified AAC for Audio:Codec, choose the AAC profile for the output file.
         /// </summary>
-        [Input("profile")]
+        [PolicyResourceProperty("profile", "_mUnknown_Profile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProfile;
-
-        public string? Profile => _mProfile.GetValue("profile");
+        private string? _mValue_Profile;
+        private bool _mUnknown_Profile;
+        public string? Profile
+        {
+            get
+            {
+                if (!_mUnknown_Profile) return _mValue_Profile;
+                throw new UndeferrableValueException("Value 'PresetAudioCodecOptionsArgs.Profile' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned). The supported value is Signed. (PCM Only)
         /// </summary>
-        [Input("signed")]
+        [PolicyResourceProperty("signed", "_mUnknown_Signed")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSigned;
-
-        public string? Signed => _mSigned.GetValue("signed");
+        private string? _mValue_Signed;
+        private bool _mUnknown_Signed;
+        public string? Signed
+        {
+            get
+            {
+                if (!_mUnknown_Signed) return _mValue_Signed;
+                throw new UndeferrableValueException("Value 'PresetAudioCodecOptionsArgs.Signed' is not present");
+            }
+        }
     }
 }

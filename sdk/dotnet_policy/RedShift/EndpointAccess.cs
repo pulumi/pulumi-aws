@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// The DNS address of the endpoint.
         /// </summary>
-        [Input("address")]
+        [PolicyResourceProperty("address", "_mUnknown_Address")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddress;
-
-        public string? Address => _mAddress.GetValue("address");
+        private string? _mValue_Address;
+        private bool _mUnknown_Address;
+        public string? Address
+        {
+            get
+            {
+                if (!_mUnknown_Address) return _mValue_Address;
+                throw new UndeferrableValueException("Value 'EndpointAccess.Address' is not present");
+            }
+        }
 
         /// <summary>
         /// The cluster identifier of the cluster to access.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'EndpointAccess.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The Redshift-managed VPC endpoint name.
         /// </summary>
-        [Input("endpointName")]
+        [PolicyResourceProperty("endpointName", "_mUnknown_EndpointName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointName;
-
-        public string? EndpointName => _mEndpointName.GetValue("endpointName");
+        private string? _mValue_EndpointName;
+        private bool _mUnknown_EndpointName;
+        public string? EndpointName
+        {
+            get
+            {
+                if (!_mUnknown_EndpointName) return _mValue_EndpointName;
+                throw new UndeferrableValueException("Value 'EndpointAccess.EndpointName' is not present");
+            }
+        }
 
         /// <summary>
         /// The port number on which the cluster accepts incoming connections.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'EndpointAccess.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
         /// </summary>
-        [Input("resourceOwner")]
+        [PolicyResourceProperty("resourceOwner", "_mUnknown_ResourceOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceOwner;
-
-        public string? ResourceOwner => _mResourceOwner.GetValue("resourceOwner");
+        private string? _mValue_ResourceOwner;
+        private bool _mUnknown_ResourceOwner;
+        public string? ResourceOwner
+        {
+            get
+            {
+                if (!_mUnknown_ResourceOwner) return _mValue_ResourceOwner;
+                throw new UndeferrableValueException("Value 'EndpointAccess.ResourceOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
         /// </summary>
-        [Input("subnetGroupName")]
+        [PolicyResourceProperty("subnetGroupName", "_mUnknown_SubnetGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetGroupName;
-
-        public string? SubnetGroupName => _mSubnetGroupName.GetValue("subnetGroupName");
+        private string? _mValue_SubnetGroupName;
+        private bool _mUnknown_SubnetGroupName;
+        public string? SubnetGroupName
+        {
+            get
+            {
+                if (!_mUnknown_SubnetGroupName) return _mValue_SubnetGroupName;
+                throw new UndeferrableValueException("Value 'EndpointAccess.SubnetGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
         /// </summary>
-        [Input("vpcEndpoints")]
+        [PolicyResourceProperty("vpcEndpoints", "_mUnknown_VpcEndpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EndpointAccessVpcEndpoint>> _mVpcEndpoints;
-
-        public List<Outputs.EndpointAccessVpcEndpoint>? VpcEndpoints => _mVpcEndpoints.GetValue("vpcEndpoints");
+        private List<Outputs.EndpointAccessVpcEndpoint>? _mValue_VpcEndpoints;
+        private bool _mUnknown_VpcEndpoints;
+        public List<Outputs.EndpointAccessVpcEndpoint>? VpcEndpoints
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpoints) return _mValue_VpcEndpoints;
+                throw new UndeferrableValueException("Value 'EndpointAccess.VpcEndpoints' is not present");
+            }
+        }
 
         /// <summary>
         /// The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'EndpointAccess.VpcSecurityGroupIds' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshift/endpointAccess:EndpointAccess")]
@@ -92,46 +148,81 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// The cluster identifier of the cluster to access.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'EndpointAccessArgs.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The Redshift-managed VPC endpoint name.
         /// </summary>
-        [Input("endpointName")]
+        [PolicyResourceProperty("endpointName", "_mUnknown_EndpointName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointName;
-
-        public string? EndpointName => _mEndpointName.GetValue("endpointName");
+        private string? _mValue_EndpointName;
+        private bool _mUnknown_EndpointName;
+        public string? EndpointName
+        {
+            get
+            {
+                if (!_mUnknown_EndpointName) return _mValue_EndpointName;
+                throw new UndeferrableValueException("Value 'EndpointAccessArgs.EndpointName' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
         /// </summary>
-        [Input("resourceOwner")]
+        [PolicyResourceProperty("resourceOwner", "_mUnknown_ResourceOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceOwner;
-
-        public string? ResourceOwner => _mResourceOwner.GetValue("resourceOwner");
+        private string? _mValue_ResourceOwner;
+        private bool _mUnknown_ResourceOwner;
+        public string? ResourceOwner
+        {
+            get
+            {
+                if (!_mUnknown_ResourceOwner) return _mValue_ResourceOwner;
+                throw new UndeferrableValueException("Value 'EndpointAccessArgs.ResourceOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
         /// </summary>
-        [Input("subnetGroupName")]
+        [PolicyResourceProperty("subnetGroupName", "_mUnknown_SubnetGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetGroupName;
-
-        public string? SubnetGroupName => _mSubnetGroupName.GetValue("subnetGroupName");
+        private string? _mValue_SubnetGroupName;
+        private bool _mUnknown_SubnetGroupName;
+        public string? SubnetGroupName
+        {
+            get
+            {
+                if (!_mUnknown_SubnetGroupName) return _mValue_SubnetGroupName;
+                throw new UndeferrableValueException("Value 'EndpointAccessArgs.SubnetGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'EndpointAccessArgs.VpcSecurityGroupIds' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Outputs
         /// <summary>
         /// The destination configuration for failed invocations. Detailed below.
         /// </summary>
-        [Input("onFailure")]
+        [PolicyResourceProperty("onFailure", "_mUnknown_OnFailure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingDestinationConfigOnFailure> _mOnFailure;
-
-        public Outputs.EventSourceMappingDestinationConfigOnFailure? OnFailure => _mOnFailure.GetValue("onFailure");
+        private Outputs.EventSourceMappingDestinationConfigOnFailure? _mValue_OnFailure;
+        private bool _mUnknown_OnFailure;
+        public Outputs.EventSourceMappingDestinationConfigOnFailure? OnFailure
+        {
+            get
+            {
+                if (!_mUnknown_OnFailure) return _mValue_OnFailure;
+                throw new UndeferrableValueException("Value 'EventSourceMappingDestinationConfig.OnFailure' is not present");
+            }
+        }
     }
 }

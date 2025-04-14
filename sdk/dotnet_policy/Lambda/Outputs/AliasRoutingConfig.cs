@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Outputs
         /// <summary>
         /// A map that defines the proportion of events that should be sent to different versions of a lambda function.
         /// </summary>
-        [Input("additionalVersionWeights")]
+        [PolicyResourceProperty("additionalVersionWeights", "_mUnknown_AdditionalVersionWeights")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, double>> _mAdditionalVersionWeights;
-
-        public Dictionary<string, double>? AdditionalVersionWeights => _mAdditionalVersionWeights.GetValue("additionalVersionWeights");
+        private Dictionary<string, double>? _mValue_AdditionalVersionWeights;
+        private bool _mUnknown_AdditionalVersionWeights;
+        public Dictionary<string, double>? AdditionalVersionWeights
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalVersionWeights) return _mValue_AdditionalVersionWeights;
+                throw new UndeferrableValueException("Value 'AliasRoutingConfig.AdditionalVersionWeights' is not present");
+            }
+        }
     }
 }

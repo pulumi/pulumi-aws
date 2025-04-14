@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// The name of the data set to which to connect.
         /// </summary>
-        [Input("dataSetName")]
+        [PolicyResourceProperty("dataSetName", "_mUnknown_DataSetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSetName;
-
-        public string? DataSetName => _mDataSetName.GetValue("dataSetName");
+        private string? _mValue_DataSetName;
+        private bool _mUnknown_DataSetName;
+        public string? DataSetName
+        {
+            get
+            {
+                if (!_mUnknown_DataSetName) return _mValue_DataSetName;
+                throw new UndeferrableValueException("Value 'DataSourceParametersAwsIotAnalyticsArgs.DataSetName' is not present");
+            }
+        }
     }
 }

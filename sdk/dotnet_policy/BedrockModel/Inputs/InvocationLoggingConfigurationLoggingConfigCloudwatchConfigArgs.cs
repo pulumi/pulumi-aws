@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.BedrockModel.Inputs
         /// <summary>
         /// S3 configuration for delivering a large amount of data. See `large_data_delivery_s3_config` Block for details.
         /// </summary>
-        [Input("largeDataDeliveryS3Config")]
+        [PolicyResourceProperty("largeDataDeliveryS3Config", "_mUnknown_LargeDataDeliveryS3Config")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs> _mLargeDataDeliveryS3Config;
-
-        public Inputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs? LargeDataDeliveryS3Config => _mLargeDataDeliveryS3Config.GetValue("largeDataDeliveryS3Config");
+        private Inputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs? _mValue_LargeDataDeliveryS3Config;
+        private bool _mUnknown_LargeDataDeliveryS3Config;
+        public Inputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs? LargeDataDeliveryS3Config
+        {
+            get
+            {
+                if (!_mUnknown_LargeDataDeliveryS3Config) return _mValue_LargeDataDeliveryS3Config;
+                throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs.LargeDataDeliveryS3Config' is not present");
+            }
+        }
 
         /// <summary>
         /// Log group name.
         /// </summary>
-        [Input("logGroupName")]
+        [PolicyResourceProperty("logGroupName", "_mUnknown_LogGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
-
-        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+        private string? _mValue_LogGroupName;
+        private bool _mUnknown_LogGroupName;
+        public string? LogGroupName
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupName) return _mValue_LogGroupName;
+                throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs.LogGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The role ARN.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs.RoleArn' is not present");
+            }
+        }
     }
 }

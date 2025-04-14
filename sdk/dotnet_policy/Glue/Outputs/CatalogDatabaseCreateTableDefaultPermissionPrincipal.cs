@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// An identifier for the Lake Formation principal.
         /// </summary>
-        [Input("dataLakePrincipalIdentifier")]
+        [PolicyResourceProperty("dataLakePrincipalIdentifier", "_mUnknown_DataLakePrincipalIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataLakePrincipalIdentifier;
-
-        public string? DataLakePrincipalIdentifier => _mDataLakePrincipalIdentifier.GetValue("dataLakePrincipalIdentifier");
+        private string? _mValue_DataLakePrincipalIdentifier;
+        private bool _mUnknown_DataLakePrincipalIdentifier;
+        public string? DataLakePrincipalIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DataLakePrincipalIdentifier) return _mValue_DataLakePrincipalIdentifier;
+                throw new UndeferrableValueException("Value 'CatalogDatabaseCreateTableDefaultPermissionPrincipal.DataLakePrincipalIdentifier' is not present");
+            }
+        }
     }
 }

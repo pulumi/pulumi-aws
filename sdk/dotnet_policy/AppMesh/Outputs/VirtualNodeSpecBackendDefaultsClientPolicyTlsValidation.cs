@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// SANs for a TLS validation context.
         /// </summary>
-        [Input("subjectAlternativeNames")]
+        [PolicyResourceProperty("subjectAlternativeNames", "_mUnknown_SubjectAlternativeNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames> _mSubjectAlternativeNames;
-
-        public Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames? SubjectAlternativeNames => _mSubjectAlternativeNames.GetValue("subjectAlternativeNames");
+        private Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames? _mValue_SubjectAlternativeNames;
+        private bool _mUnknown_SubjectAlternativeNames;
+        public Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames? SubjectAlternativeNames
+        {
+            get
+            {
+                if (!_mUnknown_SubjectAlternativeNames) return _mValue_SubjectAlternativeNames;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation.SubjectAlternativeNames' is not present");
+            }
+        }
 
         /// <summary>
         /// TLS validation context trust.
         /// </summary>
-        [Input("trust")]
+        [PolicyResourceProperty("trust", "_mUnknown_Trust")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust> _mTrust;
-
-        public Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust? Trust => _mTrust.GetValue("trust");
+        private Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust? _mValue_Trust;
+        private bool _mUnknown_Trust;
+        public Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust? Trust
+        {
+            get
+            {
+                if (!_mUnknown_Trust) return _mValue_Trust;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation.Trust' is not present");
+            }
+        }
     }
 }

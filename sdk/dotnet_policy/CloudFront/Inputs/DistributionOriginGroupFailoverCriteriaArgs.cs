@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// List of HTTP status codes for the origin group.
         /// </summary>
-        [Input("statusCodes")]
+        [PolicyResourceProperty("statusCodes", "_mUnknown_StatusCodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mStatusCodes;
-
-        public List<int>? StatusCodes => _mStatusCodes.GetValue("statusCodes");
+        private List<int>? _mValue_StatusCodes;
+        private bool _mUnknown_StatusCodes;
+        public List<int>? StatusCodes
+        {
+            get
+            {
+                if (!_mUnknown_StatusCodes) return _mValue_StatusCodes;
+                throw new UndeferrableValueException("Value 'DistributionOriginGroupFailoverCriteriaArgs.StatusCodes' is not present");
+            }
+        }
     }
 }

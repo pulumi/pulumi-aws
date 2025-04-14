@@ -16,105 +16,182 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// <summary>
         /// Amazon Resource Name (ARN) identifier of the KX dataview.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'KxDataview.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
         /// </summary>
-        [Input("autoUpdate")]
+        [PolicyResourceProperty("autoUpdate", "_mUnknown_AutoUpdate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoUpdate;
-
-        public bool? AutoUpdate => _mAutoUpdate.GetValue("autoUpdate");
+        private bool? _mValue_AutoUpdate;
+        private bool _mUnknown_AutoUpdate;
+        public bool? AutoUpdate
+        {
+            get
+            {
+                if (!_mUnknown_AutoUpdate) return _mValue_AutoUpdate;
+                throw new UndeferrableValueException("Value 'KxDataview.AutoUpdate' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
         /// </summary>
-        [Input("availabilityZoneId")]
+        [PolicyResourceProperty("availabilityZoneId", "_mUnknown_AvailabilityZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneId;
-
-        public string? AvailabilityZoneId => _mAvailabilityZoneId.GetValue("availabilityZoneId");
+        private string? _mValue_AvailabilityZoneId;
+        private bool _mUnknown_AvailabilityZoneId;
+        public string? AvailabilityZoneId
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZoneId) return _mValue_AvailabilityZoneId;
+                throw new UndeferrableValueException("Value 'KxDataview.AvailabilityZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of availability zones you want to assign per cluster. This can be one of the following:
         /// * `SINGLE` - Assigns one availability zone per cluster.
         /// * `MULTI` - Assigns all the availability zones per cluster.
         /// </summary>
-        [Input("azMode")]
+        [PolicyResourceProperty("azMode", "_mUnknown_AzMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAzMode;
-
-        public string? AzMode => _mAzMode.GetValue("azMode");
+        private string? _mValue_AzMode;
+        private bool _mUnknown_AzMode;
+        public string? AzMode
+        {
+            get
+            {
+                if (!_mUnknown_AzMode) return _mValue_AzMode;
+                throw new UndeferrableValueException("Value 'KxDataview.AzMode' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier of the changeset of the database that you want to use to ingest data.
         /// </summary>
-        [Input("changesetId")]
+        [PolicyResourceProperty("changesetId", "_mUnknown_ChangesetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChangesetId;
-
-        public string? ChangesetId => _mChangesetId.GetValue("changesetId");
+        private string? _mValue_ChangesetId;
+        private bool _mUnknown_ChangesetId;
+        public string? ChangesetId
+        {
+            get
+            {
+                if (!_mUnknown_ChangesetId) return _mValue_ChangesetId;
+                throw new UndeferrableValueException("Value 'KxDataview.ChangesetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestamp at which the dataview was created in FinSpace. Value determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         /// </summary>
-        [Input("createdTimestamp")]
+        [PolicyResourceProperty("createdTimestamp", "_mUnknown_CreatedTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTimestamp;
-
-        public string? CreatedTimestamp => _mCreatedTimestamp.GetValue("createdTimestamp");
+        private string? _mValue_CreatedTimestamp;
+        private bool _mUnknown_CreatedTimestamp;
+        public string? CreatedTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTimestamp) return _mValue_CreatedTimestamp;
+                throw new UndeferrableValueException("Value 'KxDataview.CreatedTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database where you want to create a dataview.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'KxDataview.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the dataview.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'KxDataview.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the KX environment.
         /// </summary>
-        [Input("environmentId")]
+        [PolicyResourceProperty("environmentId", "_mUnknown_EnvironmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
-
-        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+        private string? _mValue_EnvironmentId;
+        private bool _mUnknown_EnvironmentId;
+        public string? EnvironmentId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentId) return _mValue_EnvironmentId;
+                throw new UndeferrableValueException("Value 'KxDataview.EnvironmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// The last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         /// </summary>
-        [Input("lastModifiedTimestamp")]
+        [PolicyResourceProperty("lastModifiedTimestamp", "_mUnknown_LastModifiedTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedTimestamp;
-
-        public string? LastModifiedTimestamp => _mLastModifiedTimestamp.GetValue("lastModifiedTimestamp");
+        private string? _mValue_LastModifiedTimestamp;
+        private bool _mUnknown_LastModifiedTimestamp;
+        public string? LastModifiedTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_LastModifiedTimestamp) return _mValue_LastModifiedTimestamp;
+                throw new UndeferrableValueException("Value 'KxDataview.LastModifiedTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier for the dataview.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'KxDataview.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
@@ -122,44 +199,79 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
         /// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
         /// </summary>
-        [Input("readWrite")]
+        [PolicyResourceProperty("readWrite", "_mUnknown_ReadWrite")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReadWrite;
-
-        public bool? ReadWrite => _mReadWrite.GetValue("readWrite");
+        private bool? _mValue_ReadWrite;
+        private bool _mUnknown_ReadWrite;
+        public bool? ReadWrite
+        {
+            get
+            {
+                if (!_mUnknown_ReadWrite) return _mValue_ReadWrite;
+                throw new UndeferrableValueException("Value 'KxDataview.ReadWrite' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
         /// </summary>
-        [Input("segmentConfigurations")]
+        [PolicyResourceProperty("segmentConfigurations", "_mUnknown_SegmentConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.KxDataviewSegmentConfiguration>> _mSegmentConfigurations;
+        private List<Outputs.KxDataviewSegmentConfiguration>? _mValue_SegmentConfigurations;
+        private bool _mUnknown_SegmentConfigurations;
+        public List<Outputs.KxDataviewSegmentConfiguration>? SegmentConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_SegmentConfigurations) return _mValue_SegmentConfigurations;
+                throw new UndeferrableValueException("Value 'KxDataview.SegmentConfigurations' is not present");
+            }
+        }
 
-        public List<Outputs.KxDataviewSegmentConfiguration>? SegmentConfigurations => _mSegmentConfigurations.GetValue("segmentConfigurations");
-
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'KxDataview.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'KxDataview.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'KxDataview.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:finspace/kxDataview:KxDataview")]
@@ -168,78 +280,134 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// <summary>
         /// The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
         /// </summary>
-        [Input("autoUpdate")]
+        [PolicyResourceProperty("autoUpdate", "_mUnknown_AutoUpdate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoUpdate;
-
-        public bool? AutoUpdate => _mAutoUpdate.GetValue("autoUpdate");
+        private bool? _mValue_AutoUpdate;
+        private bool _mUnknown_AutoUpdate;
+        public bool? AutoUpdate
+        {
+            get
+            {
+                if (!_mUnknown_AutoUpdate) return _mValue_AutoUpdate;
+                throw new UndeferrableValueException("Value 'KxDataviewArgs.AutoUpdate' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
         /// </summary>
-        [Input("availabilityZoneId")]
+        [PolicyResourceProperty("availabilityZoneId", "_mUnknown_AvailabilityZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneId;
-
-        public string? AvailabilityZoneId => _mAvailabilityZoneId.GetValue("availabilityZoneId");
+        private string? _mValue_AvailabilityZoneId;
+        private bool _mUnknown_AvailabilityZoneId;
+        public string? AvailabilityZoneId
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZoneId) return _mValue_AvailabilityZoneId;
+                throw new UndeferrableValueException("Value 'KxDataviewArgs.AvailabilityZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of availability zones you want to assign per cluster. This can be one of the following:
         /// * `SINGLE` - Assigns one availability zone per cluster.
         /// * `MULTI` - Assigns all the availability zones per cluster.
         /// </summary>
-        [Input("azMode")]
+        [PolicyResourceProperty("azMode", "_mUnknown_AzMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAzMode;
-
-        public string? AzMode => _mAzMode.GetValue("azMode");
+        private string? _mValue_AzMode;
+        private bool _mUnknown_AzMode;
+        public string? AzMode
+        {
+            get
+            {
+                if (!_mUnknown_AzMode) return _mValue_AzMode;
+                throw new UndeferrableValueException("Value 'KxDataviewArgs.AzMode' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier of the changeset of the database that you want to use to ingest data.
         /// </summary>
-        [Input("changesetId")]
+        [PolicyResourceProperty("changesetId", "_mUnknown_ChangesetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChangesetId;
-
-        public string? ChangesetId => _mChangesetId.GetValue("changesetId");
+        private string? _mValue_ChangesetId;
+        private bool _mUnknown_ChangesetId;
+        public string? ChangesetId
+        {
+            get
+            {
+                if (!_mUnknown_ChangesetId) return _mValue_ChangesetId;
+                throw new UndeferrableValueException("Value 'KxDataviewArgs.ChangesetId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database where you want to create a dataview.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'KxDataviewArgs.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the dataview.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'KxDataviewArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the KX environment.
         /// </summary>
-        [Input("environmentId")]
+        [PolicyResourceProperty("environmentId", "_mUnknown_EnvironmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
-
-        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+        private string? _mValue_EnvironmentId;
+        private bool _mUnknown_EnvironmentId;
+        public string? EnvironmentId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentId) return _mValue_EnvironmentId;
+                throw new UndeferrableValueException("Value 'KxDataviewArgs.EnvironmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier for the dataview.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'KxDataviewArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
@@ -247,28 +415,49 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
         /// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
         /// </summary>
-        [Input("readWrite")]
+        [PolicyResourceProperty("readWrite", "_mUnknown_ReadWrite")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReadWrite;
-
-        public bool? ReadWrite => _mReadWrite.GetValue("readWrite");
+        private bool? _mValue_ReadWrite;
+        private bool _mUnknown_ReadWrite;
+        public bool? ReadWrite
+        {
+            get
+            {
+                if (!_mUnknown_ReadWrite) return _mValue_ReadWrite;
+                throw new UndeferrableValueException("Value 'KxDataviewArgs.ReadWrite' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
         /// </summary>
-        [Input("segmentConfigurations")]
+        [PolicyResourceProperty("segmentConfigurations", "_mUnknown_SegmentConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.KxDataviewSegmentConfigurationArgs>> _mSegmentConfigurations;
-
-        public List<Inputs.KxDataviewSegmentConfigurationArgs>? SegmentConfigurations => _mSegmentConfigurations.GetValue("segmentConfigurations");
+        private List<Inputs.KxDataviewSegmentConfigurationArgs>? _mValue_SegmentConfigurations;
+        private bool _mUnknown_SegmentConfigurations;
+        public List<Inputs.KxDataviewSegmentConfigurationArgs>? SegmentConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_SegmentConfigurations) return _mValue_SegmentConfigurations;
+                throw new UndeferrableValueException("Value 'KxDataviewArgs.SegmentConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'KxDataviewArgs.Tags' is not present");
+            }
+        }
     }
 }

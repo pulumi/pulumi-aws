@@ -15,39 +15,67 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the parameter.
         /// 
         /// **Note:** The argument name `map_block_key` may seem out of context, but is necessary for backward compatibility reasons in the provider.
         /// </summary>
-        [Input("mapBlockKey")]
+        [PolicyResourceProperty("mapBlockKey", "_mUnknown_MapBlockKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMapBlockKey;
-
-        public string? MapBlockKey => _mMapBlockKey.GetValue("mapBlockKey");
+        private string? _mValue_MapBlockKey;
+        private bool _mUnknown_MapBlockKey;
+        public string? MapBlockKey
+        {
+            get
+            {
+                if (!_mUnknown_MapBlockKey) return _mValue_MapBlockKey;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter.MapBlockKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the parameter is required for the agent to complete the function for action group invocation.
         /// </summary>
-        [Input("required")]
+        [PolicyResourceProperty("required", "_mUnknown_Required")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequired;
-
-        public bool? Required => _mRequired.GetValue("required");
+        private bool? _mValue_Required;
+        private bool _mUnknown_Required;
+        public bool? Required
+        {
+            get
+            {
+                if (!_mUnknown_Required) return _mValue_Required;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter.Required' is not present");
+            }
+        }
 
         /// <summary>
         /// Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter.Type' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache.Inputs
         /// <summary>
         /// The DNS hostname of the cache node.
         /// </summary>
-        [Input("address")]
+        [PolicyResourceProperty("address", "_mUnknown_Address")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddress;
-
-        public string? Address => _mAddress.GetValue("address");
+        private string? _mValue_Address;
+        private bool _mUnknown_Address;
+        public string? Address
+        {
+            get
+            {
+                if (!_mUnknown_Address) return _mValue_Address;
+                throw new UndeferrableValueException("Value 'ServerlessCacheReaderEndpointArgs.Address' is not present");
+            }
+        }
 
         /// <summary>
         /// The port number that the cache engine is listening on. Set as integer.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'ServerlessCacheReaderEndpointArgs.Port' is not present");
+            }
+        }
     }
 }

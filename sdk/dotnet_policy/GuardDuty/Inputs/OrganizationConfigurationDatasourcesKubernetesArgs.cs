@@ -16,10 +16,17 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty.Inputs
         /// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
         /// See Kubernetes Audit Logs below for more details.
         /// </summary>
-        [Input("auditLogs")]
+        [PolicyResourceProperty("auditLogs", "_mUnknown_AuditLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs> _mAuditLogs;
-
-        public Inputs.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs? AuditLogs => _mAuditLogs.GetValue("auditLogs");
+        private Inputs.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs? _mValue_AuditLogs;
+        private bool _mUnknown_AuditLogs;
+        public Inputs.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs? AuditLogs
+        {
+            get
+            {
+                if (!_mUnknown_AuditLogs) return _mValue_AuditLogs;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationDatasourcesKubernetesArgs.AuditLogs' is not present");
+            }
+        }
     }
 }

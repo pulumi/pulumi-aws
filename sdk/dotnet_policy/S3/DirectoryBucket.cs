@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// ARN of the bucket.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DirectoryBucket.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.BucketV2` resource to manage general purpose buckets.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'DirectoryBucket.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
         /// </summary>
-        [Input("dataRedundancy")]
+        [PolicyResourceProperty("dataRedundancy", "_mUnknown_DataRedundancy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataRedundancy;
-
-        public string? DataRedundancy => _mDataRedundancy.GetValue("dataRedundancy");
+        private string? _mValue_DataRedundancy;
+        private bool _mUnknown_DataRedundancy;
+        public string? DataRedundancy
+        {
+            get
+            {
+                if (!_mUnknown_DataRedundancy) return _mValue_DataRedundancy;
+                throw new UndeferrableValueException("Value 'DirectoryBucket.DataRedundancy' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'DirectoryBucket.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Bucket location. See Location below for more details.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DirectoryBucketLocation> _mLocation;
-
-        public Outputs.DirectoryBucketLocation? Location => _mLocation.GetValue("location");
+        private Outputs.DirectoryBucketLocation? _mValue_Location;
+        private bool _mUnknown_Location;
+        public Outputs.DirectoryBucketLocation? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'DirectoryBucket.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// Bucket type. Valid values: `Directory`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'DirectoryBucket.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/directoryBucket:DirectoryBucket")]
@@ -74,46 +116,81 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.BucketV2` resource to manage general purpose buckets.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'DirectoryBucketArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
         /// </summary>
-        [Input("dataRedundancy")]
+        [PolicyResourceProperty("dataRedundancy", "_mUnknown_DataRedundancy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataRedundancy;
-
-        public string? DataRedundancy => _mDataRedundancy.GetValue("dataRedundancy");
+        private string? _mValue_DataRedundancy;
+        private bool _mUnknown_DataRedundancy;
+        public string? DataRedundancy
+        {
+            get
+            {
+                if (!_mUnknown_DataRedundancy) return _mValue_DataRedundancy;
+                throw new UndeferrableValueException("Value 'DirectoryBucketArgs.DataRedundancy' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'DirectoryBucketArgs.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Bucket location. See Location below for more details.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DirectoryBucketLocationArgs> _mLocation;
-
-        public Inputs.DirectoryBucketLocationArgs? Location => _mLocation.GetValue("location");
+        private Inputs.DirectoryBucketLocationArgs? _mValue_Location;
+        private bool _mUnknown_Location;
+        public Inputs.DirectoryBucketLocationArgs? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'DirectoryBucketArgs.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// Bucket type. Valid values: `Directory`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'DirectoryBucketArgs.Type' is not present");
+            }
+        }
     }
 }

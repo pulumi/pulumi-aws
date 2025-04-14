@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ResilienceHub.Outputs
         /// <summary>
         /// Recovery Point Objective (RPO) as a Go duration.
         /// </summary>
-        [Input("rpo")]
+        [PolicyResourceProperty("rpo", "_mUnknown_Rpo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRpo;
-
-        public string? Rpo => _mRpo.GetValue("rpo");
+        private string? _mValue_Rpo;
+        private bool _mUnknown_Rpo;
+        public string? Rpo
+        {
+            get
+            {
+                if (!_mUnknown_Rpo) return _mValue_Rpo;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicyPolicyHardware.Rpo' is not present");
+            }
+        }
 
         /// <summary>
         /// Recovery Time Objective (RTO) as a Go duration.
         /// </summary>
-        [Input("rto")]
+        [PolicyResourceProperty("rto", "_mUnknown_Rto")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRto;
-
-        public string? Rto => _mRto.GetValue("rto");
+        private string? _mValue_Rto;
+        private bool _mUnknown_Rto;
+        public string? Rto
+        {
+            get
+            {
+                if (!_mUnknown_Rto) return _mValue_Rto;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicyPolicyHardware.Rto' is not present");
+            }
+        }
     }
 }

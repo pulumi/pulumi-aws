@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
 {
     public sealed class V2modelsBotVersionLocaleSpecificationArgs
     {
-        [Input("sourceBotVersion")]
+        [PolicyResourceProperty("sourceBotVersion", "_mUnknown_SourceBotVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceBotVersion;
-
-        public string? SourceBotVersion => _mSourceBotVersion.GetValue("sourceBotVersion");
+        private string? _mValue_SourceBotVersion;
+        private bool _mUnknown_SourceBotVersion;
+        public string? SourceBotVersion
+        {
+            get
+            {
+                if (!_mUnknown_SourceBotVersion) return _mValue_SourceBotVersion;
+                throw new UndeferrableValueException("Value 'V2modelsBotVersionLocaleSpecificationArgs.SourceBotVersion' is not present");
+            }
+        }
     }
 }

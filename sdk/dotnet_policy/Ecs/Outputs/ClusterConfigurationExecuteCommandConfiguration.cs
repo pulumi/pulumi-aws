@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// AWS Key Management Service key ID to encrypt the data between the local client and the container.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ClusterConfigurationExecuteCommandConfiguration.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `log_configuration` Block for details.
         /// </summary>
-        [Input("logConfiguration")]
+        [PolicyResourceProperty("logConfiguration", "_mUnknown_LogConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterConfigurationExecuteCommandConfigurationLogConfiguration> _mLogConfiguration;
-
-        public Outputs.ClusterConfigurationExecuteCommandConfigurationLogConfiguration? LogConfiguration => _mLogConfiguration.GetValue("logConfiguration");
+        private Outputs.ClusterConfigurationExecuteCommandConfigurationLogConfiguration? _mValue_LogConfiguration;
+        private bool _mUnknown_LogConfiguration;
+        public Outputs.ClusterConfigurationExecuteCommandConfigurationLogConfiguration? LogConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LogConfiguration) return _mValue_LogConfiguration;
+                throw new UndeferrableValueException("Value 'ClusterConfigurationExecuteCommandConfiguration.LogConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
         /// </summary>
-        [Input("logging")]
+        [PolicyResourceProperty("logging", "_mUnknown_Logging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogging;
-
-        public string? Logging => _mLogging.GetValue("logging");
+        private string? _mValue_Logging;
+        private bool _mUnknown_Logging;
+        public string? Logging
+        {
+            get
+            {
+                if (!_mUnknown_Logging) return _mValue_Logging;
+                throw new UndeferrableValueException("Value 'ClusterConfigurationExecuteCommandConfiguration.Logging' is not present");
+            }
+        }
     }
 }

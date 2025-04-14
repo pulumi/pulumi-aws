@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.Msk
         /// <summary>
         /// Amazon Resource Name (ARN) of the VPC connection.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'VpcConnection.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
         /// </summary>
-        [Input("authentication")]
+        [PolicyResourceProperty("authentication", "_mUnknown_Authentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthentication;
-
-        public string? Authentication => _mAuthentication.GetValue("authentication");
+        private string? _mValue_Authentication;
+        private bool _mUnknown_Authentication;
+        public string? Authentication
+        {
+            get
+            {
+                if (!_mUnknown_Authentication) return _mValue_Authentication;
+                throw new UndeferrableValueException("Value 'VpcConnection.Authentication' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of subnets in the client VPC to connect to.
         /// </summary>
-        [Input("clientSubnets")]
+        [PolicyResourceProperty("clientSubnets", "_mUnknown_ClientSubnets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClientSubnets;
-
-        public List<string>? ClientSubnets => _mClientSubnets.GetValue("clientSubnets");
+        private List<string>? _mValue_ClientSubnets;
+        private bool _mUnknown_ClientSubnets;
+        public List<string>? ClientSubnets
+        {
+            get
+            {
+                if (!_mUnknown_ClientSubnets) return _mValue_ClientSubnets;
+                throw new UndeferrableValueException("Value 'VpcConnection.ClientSubnets' is not present");
+            }
+        }
 
         /// <summary>
         /// The security groups to attach to the ENIs for the broker nodes.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'VpcConnection.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcConnection.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'VpcConnection.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the cluster.
         /// </summary>
-        [Input("targetClusterArn")]
+        [PolicyResourceProperty("targetClusterArn", "_mUnknown_TargetClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetClusterArn;
-
-        public string? TargetClusterArn => _mTargetClusterArn.GetValue("targetClusterArn");
+        private string? _mValue_TargetClusterArn;
+        private bool _mUnknown_TargetClusterArn;
+        public string? TargetClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetClusterArn) return _mValue_TargetClusterArn;
+                throw new UndeferrableValueException("Value 'VpcConnection.TargetClusterArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC ID of the remote client.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'VpcConnection.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:msk/vpcConnection:VpcConnection")]
@@ -92,55 +148,97 @@ namespace Pulumi.PolicyPacks.Aws.Msk
         /// <summary>
         /// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
         /// </summary>
-        [Input("authentication")]
+        [PolicyResourceProperty("authentication", "_mUnknown_Authentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthentication;
-
-        public string? Authentication => _mAuthentication.GetValue("authentication");
+        private string? _mValue_Authentication;
+        private bool _mUnknown_Authentication;
+        public string? Authentication
+        {
+            get
+            {
+                if (!_mUnknown_Authentication) return _mValue_Authentication;
+                throw new UndeferrableValueException("Value 'VpcConnectionArgs.Authentication' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of subnets in the client VPC to connect to.
         /// </summary>
-        [Input("clientSubnets")]
+        [PolicyResourceProperty("clientSubnets", "_mUnknown_ClientSubnets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClientSubnets;
-
-        public List<string>? ClientSubnets => _mClientSubnets.GetValue("clientSubnets");
+        private List<string>? _mValue_ClientSubnets;
+        private bool _mUnknown_ClientSubnets;
+        public List<string>? ClientSubnets
+        {
+            get
+            {
+                if (!_mUnknown_ClientSubnets) return _mValue_ClientSubnets;
+                throw new UndeferrableValueException("Value 'VpcConnectionArgs.ClientSubnets' is not present");
+            }
+        }
 
         /// <summary>
         /// The security groups to attach to the ENIs for the broker nodes.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'VpcConnectionArgs.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcConnectionArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the cluster.
         /// </summary>
-        [Input("targetClusterArn")]
+        [PolicyResourceProperty("targetClusterArn", "_mUnknown_TargetClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetClusterArn;
-
-        public string? TargetClusterArn => _mTargetClusterArn.GetValue("targetClusterArn");
+        private string? _mValue_TargetClusterArn;
+        private bool _mUnknown_TargetClusterArn;
+        public string? TargetClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetClusterArn) return _mValue_TargetClusterArn;
+                throw new UndeferrableValueException("Value 'VpcConnectionArgs.TargetClusterArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC ID of the remote client.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'VpcConnectionArgs.VpcId' is not present");
+            }
+        }
     }
 }

@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// <summary>
         /// ARN of the resource.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'TagOptionResourceAssociation.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Creation time of the resource.
         /// </summary>
-        [Input("resourceCreatedTime")]
+        [PolicyResourceProperty("resourceCreatedTime", "_mUnknown_ResourceCreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceCreatedTime;
-
-        public string? ResourceCreatedTime => _mResourceCreatedTime.GetValue("resourceCreatedTime");
+        private string? _mValue_ResourceCreatedTime;
+        private bool _mUnknown_ResourceCreatedTime;
+        public string? ResourceCreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_ResourceCreatedTime) return _mValue_ResourceCreatedTime;
+                throw new UndeferrableValueException("Value 'TagOptionResourceAssociation.ResourceCreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the resource.
         /// </summary>
-        [Input("resourceDescription")]
+        [PolicyResourceProperty("resourceDescription", "_mUnknown_ResourceDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceDescription;
-
-        public string? ResourceDescription => _mResourceDescription.GetValue("resourceDescription");
+        private string? _mValue_ResourceDescription;
+        private bool _mUnknown_ResourceDescription;
+        public string? ResourceDescription
+        {
+            get
+            {
+                if (!_mUnknown_ResourceDescription) return _mValue_ResourceDescription;
+                throw new UndeferrableValueException("Value 'TagOptionResourceAssociation.ResourceDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource identifier.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'TagOptionResourceAssociation.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the resource.
         /// </summary>
-        [Input("resourceName")]
+        [PolicyResourceProperty("resourceName", "_mUnknown_ResourceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceName;
-
-        public string? ResourceName => _mResourceName.GetValue("resourceName");
+        private string? _mValue_ResourceName;
+        private bool _mUnknown_ResourceName;
+        public string? ResourceName
+        {
+            get
+            {
+                if (!_mUnknown_ResourceName) return _mValue_ResourceName;
+                throw new UndeferrableValueException("Value 'TagOptionResourceAssociation.ResourceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Tag Option identifier.
         /// </summary>
-        [Input("tagOptionId")]
+        [PolicyResourceProperty("tagOptionId", "_mUnknown_TagOptionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTagOptionId;
-
-        public string? TagOptionId => _mTagOptionId.GetValue("tagOptionId");
+        private string? _mValue_TagOptionId;
+        private bool _mUnknown_TagOptionId;
+        public string? TagOptionId
+        {
+            get
+            {
+                if (!_mUnknown_TagOptionId) return _mValue_TagOptionId;
+                throw new UndeferrableValueException("Value 'TagOptionResourceAssociation.TagOptionId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation")]
@@ -74,19 +116,33 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// <summary>
         /// Resource identifier.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'TagOptionResourceAssociationArgs.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Tag Option identifier.
         /// </summary>
-        [Input("tagOptionId")]
+        [PolicyResourceProperty("tagOptionId", "_mUnknown_TagOptionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTagOptionId;
-
-        public string? TagOptionId => _mTagOptionId.GetValue("tagOptionId");
+        private string? _mValue_TagOptionId;
+        private bool _mUnknown_TagOptionId;
+        public string? TagOptionId
+        {
+            get
+            {
+                if (!_mUnknown_TagOptionId) return _mValue_TagOptionId;
+                throw new UndeferrableValueException("Value 'TagOptionResourceAssociationArgs.TagOptionId' is not present");
+            }
+        }
     }
 }

@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// <summary>
         /// ID of the application.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'AppregistryAttributeGroupAssociation.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the attribute group to associate with the application.
         /// </summary>
-        [Input("attributeGroupId")]
+        [PolicyResourceProperty("attributeGroupId", "_mUnknown_AttributeGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttributeGroupId;
-
-        public string? AttributeGroupId => _mAttributeGroupId.GetValue("attributeGroupId");
+        private string? _mValue_AttributeGroupId;
+        private bool _mUnknown_AttributeGroupId;
+        public string? AttributeGroupId
+        {
+            get
+            {
+                if (!_mUnknown_AttributeGroupId) return _mValue_AttributeGroupId;
+                throw new UndeferrableValueException("Value 'AppregistryAttributeGroupAssociation.AttributeGroupId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// <summary>
         /// ID of the application.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'AppregistryAttributeGroupAssociationArgs.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the attribute group to associate with the application.
         /// </summary>
-        [Input("attributeGroupId")]
+        [PolicyResourceProperty("attributeGroupId", "_mUnknown_AttributeGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttributeGroupId;
-
-        public string? AttributeGroupId => _mAttributeGroupId.GetValue("attributeGroupId");
+        private string? _mValue_AttributeGroupId;
+        private bool _mUnknown_AttributeGroupId;
+        public string? AttributeGroupId
+        {
+            get
+            {
+                if (!_mUnknown_AttributeGroupId) return _mValue_AttributeGroupId;
+                throw new UndeferrableValueException("Value 'AppregistryAttributeGroupAssociationArgs.AttributeGroupId' is not present");
+            }
+        }
     }
 }

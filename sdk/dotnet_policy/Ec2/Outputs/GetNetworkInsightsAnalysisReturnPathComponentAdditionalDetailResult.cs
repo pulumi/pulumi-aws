@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailResult
     {
-        [Input("additionalDetailType")]
+        [PolicyResourceProperty("additionalDetailType", "_mUnknown_AdditionalDetailType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdditionalDetailType;
+        private string? _mValue_AdditionalDetailType;
+        private bool _mUnknown_AdditionalDetailType;
+        public string? AdditionalDetailType
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalDetailType) return _mValue_AdditionalDetailType;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailResult.AdditionalDetailType' is not present");
+            }
+        }
 
-        public string? AdditionalDetailType => _mAdditionalDetailType.GetValue("additionalDetailType");
-
-        [Input("components")]
+        [PolicyResourceProperty("components", "_mUnknown_Components")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentResult>> _mComponents;
-
-        public List<Outputs.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentResult>? Components => _mComponents.GetValue("components");
+        private List<Outputs.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentResult>? _mValue_Components;
+        private bool _mUnknown_Components;
+        public List<Outputs.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentResult>? Components
+        {
+            get
+            {
+                if (!_mUnknown_Components) return _mValue_Components;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailResult.Components' is not present");
+            }
+        }
     }
 }

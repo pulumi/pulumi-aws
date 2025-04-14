@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
         /// </summary>
-        [Input("blockSizeBytes")]
+        [PolicyResourceProperty("blockSizeBytes", "_mUnknown_BlockSizeBytes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBlockSizeBytes;
-
-        public int? BlockSizeBytes => _mBlockSizeBytes.GetValue("blockSizeBytes");
+        private int? _mValue_BlockSizeBytes;
+        private bool _mUnknown_BlockSizeBytes;
+        public int? BlockSizeBytes
+        {
+            get
+            {
+                if (!_mUnknown_BlockSizeBytes) return _mValue_BlockSizeBytes;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.BlockSizeBytes' is not present");
+            }
+        }
 
         /// <summary>
         /// The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
         /// </summary>
-        [Input("compression")]
+        [PolicyResourceProperty("compression", "_mUnknown_Compression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCompression;
-
-        public string? Compression => _mCompression.GetValue("compression");
+        private string? _mValue_Compression;
+        private bool _mUnknown_Compression;
+        public string? Compression
+        {
+            get
+            {
+                if (!_mUnknown_Compression) return _mValue_Compression;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.Compression' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to enable dictionary compression.
         /// </summary>
-        [Input("enableDictionaryCompression")]
+        [PolicyResourceProperty("enableDictionaryCompression", "_mUnknown_EnableDictionaryCompression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDictionaryCompression;
-
-        public bool? EnableDictionaryCompression => _mEnableDictionaryCompression.GetValue("enableDictionaryCompression");
+        private bool? _mValue_EnableDictionaryCompression;
+        private bool _mUnknown_EnableDictionaryCompression;
+        public bool? EnableDictionaryCompression
+        {
+            get
+            {
+                if (!_mUnknown_EnableDictionaryCompression) return _mValue_EnableDictionaryCompression;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.EnableDictionaryCompression' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
         /// </summary>
-        [Input("maxPaddingBytes")]
+        [PolicyResourceProperty("maxPaddingBytes", "_mUnknown_MaxPaddingBytes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxPaddingBytes;
-
-        public int? MaxPaddingBytes => _mMaxPaddingBytes.GetValue("maxPaddingBytes");
+        private int? _mValue_MaxPaddingBytes;
+        private bool _mUnknown_MaxPaddingBytes;
+        public int? MaxPaddingBytes
+        {
+            get
+            {
+                if (!_mUnknown_MaxPaddingBytes) return _mValue_MaxPaddingBytes;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.MaxPaddingBytes' is not present");
+            }
+        }
 
         /// <summary>
         /// The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
         /// </summary>
-        [Input("pageSizeBytes")]
+        [PolicyResourceProperty("pageSizeBytes", "_mUnknown_PageSizeBytes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPageSizeBytes;
-
-        public int? PageSizeBytes => _mPageSizeBytes.GetValue("pageSizeBytes");
+        private int? _mValue_PageSizeBytes;
+        private bool _mUnknown_PageSizeBytes;
+        public int? PageSizeBytes
+        {
+            get
+            {
+                if (!_mUnknown_PageSizeBytes) return _mValue_PageSizeBytes;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.PageSizeBytes' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
         /// </summary>
-        [Input("writerVersion")]
+        [PolicyResourceProperty("writerVersion", "_mUnknown_WriterVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWriterVersion;
-
-        public string? WriterVersion => _mWriterVersion.GetValue("writerVersion");
+        private string? _mValue_WriterVersion;
+        private bool _mUnknown_WriterVersion;
+        public string? WriterVersion
+        {
+            get
+            {
+                if (!_mUnknown_WriterVersion) return _mValue_WriterVersion;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.WriterVersion' is not present");
+            }
+        }
     }
 }

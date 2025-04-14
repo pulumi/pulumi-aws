@@ -16,136 +16,241 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// Identifier for the analysis.
         /// </summary>
-        [Input("analysisId")]
+        [PolicyResourceProperty("analysisId", "_mUnknown_AnalysisId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAnalysisId;
-
-        public string? AnalysisId => _mAnalysisId.GetValue("analysisId");
+        private string? _mValue_AnalysisId;
+        private bool _mUnknown_AnalysisId;
+        public string? AnalysisId
+        {
+            get
+            {
+                if (!_mUnknown_AnalysisId) return _mValue_AnalysisId;
+                throw new UndeferrableValueException("Value 'Analysis.AnalysisId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the analysis.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Analysis.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'Analysis.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The time that the analysis was created.
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'Analysis.CreatedTime' is not present");
+            }
+        }
 
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
-
-        [Input("lastPublishedTime")]
+        [PolicyResourceProperty("lastPublishedTime", "_mUnknown_LastPublishedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastPublishedTime;
-
-        public string? LastPublishedTime => _mLastPublishedTime.GetValue("lastPublishedTime");
+        private string? _mValue_LastPublishedTime;
+        private bool _mUnknown_LastPublishedTime;
+        public string? LastPublishedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastPublishedTime) return _mValue_LastPublishedTime;
+                throw new UndeferrableValueException("Value 'Analysis.LastPublishedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The time that the analysis was last updated.
         /// </summary>
-        [Input("lastUpdatedTime")]
+        [PolicyResourceProperty("lastUpdatedTime", "_mUnknown_LastUpdatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
-
-        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
+        private string? _mValue_LastUpdatedTime;
+        private bool _mUnknown_LastUpdatedTime;
+        public string? LastUpdatedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedTime) return _mValue_LastUpdatedTime;
+                throw new UndeferrableValueException("Value 'Analysis.LastUpdatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Display name for the analysis.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Analysis.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalysisParameters> _mParameters;
-
-        public Outputs.AnalysisParameters? Parameters => _mParameters.GetValue("parameters");
+        private Outputs.AnalysisParameters? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Outputs.AnalysisParameters? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'Analysis.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AnalysisPermission>> _mPermissions;
-
-        public List<Outputs.AnalysisPermission>? Permissions => _mPermissions.GetValue("permissions");
+        private List<Outputs.AnalysisPermission>? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public List<Outputs.AnalysisPermission>? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'Analysis.Permissions' is not present");
+            }
+        }
 
         /// <summary>
         /// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
         /// </summary>
-        [Input("recoveryWindowInDays")]
+        [PolicyResourceProperty("recoveryWindowInDays", "_mUnknown_RecoveryWindowInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRecoveryWindowInDays;
-
-        public int? RecoveryWindowInDays => _mRecoveryWindowInDays.GetValue("recoveryWindowInDays");
+        private int? _mValue_RecoveryWindowInDays;
+        private bool _mUnknown_RecoveryWindowInDays;
+        public int? RecoveryWindowInDays
+        {
+            get
+            {
+                if (!_mUnknown_RecoveryWindowInDays) return _mValue_RecoveryWindowInDays;
+                throw new UndeferrableValueException("Value 'Analysis.RecoveryWindowInDays' is not present");
+            }
+        }
 
         /// <summary>
         /// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         /// </summary>
-        [Input("sourceEntity")]
+        [PolicyResourceProperty("sourceEntity", "_mUnknown_SourceEntity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalysisSourceEntity> _mSourceEntity;
-
-        public Outputs.AnalysisSourceEntity? SourceEntity => _mSourceEntity.GetValue("sourceEntity");
+        private Outputs.AnalysisSourceEntity? _mValue_SourceEntity;
+        private bool _mUnknown_SourceEntity;
+        public Outputs.AnalysisSourceEntity? SourceEntity
+        {
+            get
+            {
+                if (!_mUnknown_SourceEntity) return _mValue_SourceEntity;
+                throw new UndeferrableValueException("Value 'Analysis.SourceEntity' is not present");
+            }
+        }
 
         /// <summary>
         /// The analysis creation status.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Analysis.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Analysis.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Analysis.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         /// </summary>
-        [Input("themeArn")]
+        [PolicyResourceProperty("themeArn", "_mUnknown_ThemeArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThemeArn;
-
-        public string? ThemeArn => _mThemeArn.GetValue("themeArn");
+        private string? _mValue_ThemeArn;
+        private bool _mUnknown_ThemeArn;
+        public string? ThemeArn
+        {
+            get
+            {
+                if (!_mUnknown_ThemeArn) return _mValue_ThemeArn;
+                throw new UndeferrableValueException("Value 'Analysis.ThemeArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:quicksight/analysis:Analysis")]
@@ -154,84 +259,147 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// Identifier for the analysis.
         /// </summary>
-        [Input("analysisId")]
+        [PolicyResourceProperty("analysisId", "_mUnknown_AnalysisId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAnalysisId;
-
-        public string? AnalysisId => _mAnalysisId.GetValue("analysisId");
+        private string? _mValue_AnalysisId;
+        private bool _mUnknown_AnalysisId;
+        public string? AnalysisId
+        {
+            get
+            {
+                if (!_mUnknown_AnalysisId) return _mValue_AnalysisId;
+                throw new UndeferrableValueException("Value 'AnalysisArgs.AnalysisId' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'AnalysisArgs.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Display name for the analysis.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AnalysisArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalysisParametersArgs> _mParameters;
-
-        public Inputs.AnalysisParametersArgs? Parameters => _mParameters.GetValue("parameters");
+        private Inputs.AnalysisParametersArgs? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Inputs.AnalysisParametersArgs? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'AnalysisArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AnalysisPermissionArgs>> _mPermissions;
-
-        public List<Inputs.AnalysisPermissionArgs>? Permissions => _mPermissions.GetValue("permissions");
+        private List<Inputs.AnalysisPermissionArgs>? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public List<Inputs.AnalysisPermissionArgs>? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'AnalysisArgs.Permissions' is not present");
+            }
+        }
 
         /// <summary>
         /// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
         /// </summary>
-        [Input("recoveryWindowInDays")]
+        [PolicyResourceProperty("recoveryWindowInDays", "_mUnknown_RecoveryWindowInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRecoveryWindowInDays;
-
-        public int? RecoveryWindowInDays => _mRecoveryWindowInDays.GetValue("recoveryWindowInDays");
+        private int? _mValue_RecoveryWindowInDays;
+        private bool _mUnknown_RecoveryWindowInDays;
+        public int? RecoveryWindowInDays
+        {
+            get
+            {
+                if (!_mUnknown_RecoveryWindowInDays) return _mValue_RecoveryWindowInDays;
+                throw new UndeferrableValueException("Value 'AnalysisArgs.RecoveryWindowInDays' is not present");
+            }
+        }
 
         /// <summary>
         /// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         /// </summary>
-        [Input("sourceEntity")]
+        [PolicyResourceProperty("sourceEntity", "_mUnknown_SourceEntity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalysisSourceEntityArgs> _mSourceEntity;
-
-        public Inputs.AnalysisSourceEntityArgs? SourceEntity => _mSourceEntity.GetValue("sourceEntity");
+        private Inputs.AnalysisSourceEntityArgs? _mValue_SourceEntity;
+        private bool _mUnknown_SourceEntity;
+        public Inputs.AnalysisSourceEntityArgs? SourceEntity
+        {
+            get
+            {
+                if (!_mUnknown_SourceEntity) return _mValue_SourceEntity;
+                throw new UndeferrableValueException("Value 'AnalysisArgs.SourceEntity' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AnalysisArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         /// </summary>
-        [Input("themeArn")]
+        [PolicyResourceProperty("themeArn", "_mUnknown_ThemeArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThemeArn;
-
-        public string? ThemeArn => _mThemeArn.GetValue("themeArn");
+        private string? _mValue_ThemeArn;
+        private bool _mUnknown_ThemeArn;
+        public string? ThemeArn
+        {
+            get
+            {
+                if (!_mUnknown_ThemeArn) return _mValue_ThemeArn;
+                throw new UndeferrableValueException("Value 'AnalysisArgs.ThemeArn' is not present");
+            }
+        }
     }
 }

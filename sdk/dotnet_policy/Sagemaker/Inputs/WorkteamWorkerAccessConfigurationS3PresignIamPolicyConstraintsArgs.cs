@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// When SourceIp is Enabled the worker's IP address when a task is rendered in the worker portal is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. This IP address is checked by Amazon S3 and must match in order for the Amazon S3 resource to be rendered in the worker portal. Valid values are `Enabled` or `Disabled`
         /// </summary>
-        [Input("sourceIp")]
+        [PolicyResourceProperty("sourceIp", "_mUnknown_SourceIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceIp;
-
-        public string? SourceIp => _mSourceIp.GetValue("sourceIp");
+        private string? _mValue_SourceIp;
+        private bool _mUnknown_SourceIp;
+        public string? SourceIp
+        {
+            get
+            {
+                if (!_mUnknown_SourceIp) return _mValue_SourceIp;
+                throw new UndeferrableValueException("Value 'WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs.SourceIp' is not present");
+            }
+        }
 
         /// <summary>
         /// When VpcSourceIp is Enabled the worker's IP address when a task is rendered in private worker portal inside the VPC is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. To render the task successfully Amazon S3 checks that the presigned URL is being accessed over an Amazon S3 VPC Endpoint, and that the worker's IP address matches the IP address in the IAM policy. To learn more about configuring private worker portal, see [Use Amazon VPC mode from a private worker portal](https://docs.aws.amazon.com/sagemaker/latest/dg/samurai-vpc-worker-portal.html). Valid values are `Enabled` or `Disabled`
         /// </summary>
-        [Input("vpcSourceIp")]
+        [PolicyResourceProperty("vpcSourceIp", "_mUnknown_VpcSourceIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcSourceIp;
-
-        public string? VpcSourceIp => _mVpcSourceIp.GetValue("vpcSourceIp");
+        private string? _mValue_VpcSourceIp;
+        private bool _mUnknown_VpcSourceIp;
+        public string? VpcSourceIp
+        {
+            get
+            {
+                if (!_mUnknown_VpcSourceIp) return _mValue_VpcSourceIp;
+                throw new UndeferrableValueException("Value 'WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs.VpcSourceIp' is not present");
+            }
+        }
     }
 }

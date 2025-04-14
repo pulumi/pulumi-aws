@@ -17,10 +17,17 @@ namespace Pulumi.PolicyPacks.Aws.Transfer.Inputs
         /// 
         /// By default, home directory mappings have a `TYPE` of `DIRECTORY`. If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` Type to `FILE` if you want a mapping to have a file target. See [Using logical directories to simplify your Transfer Family directory structures](https://docs.aws.amazon.com/transfer/latest/userguide/logical-dir-mappings.html) for details.
         /// </summary>
-        [Input("directoryListingOptimization")]
+        [PolicyResourceProperty("directoryListingOptimization", "_mUnknown_DirectoryListingOptimization")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryListingOptimization;
-
-        public string? DirectoryListingOptimization => _mDirectoryListingOptimization.GetValue("directoryListingOptimization");
+        private string? _mValue_DirectoryListingOptimization;
+        private bool _mUnknown_DirectoryListingOptimization;
+        public string? DirectoryListingOptimization
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryListingOptimization) return _mValue_DirectoryListingOptimization;
+                throw new UndeferrableValueException("Value 'ServerS3StorageOptionsArgs.DirectoryListingOptimization' is not present");
+            }
+        }
     }
 }

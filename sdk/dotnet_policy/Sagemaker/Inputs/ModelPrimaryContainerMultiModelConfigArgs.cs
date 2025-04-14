@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`. Allowed values are: `Enabled` and `Disabled`.
         /// </summary>
-        [Input("modelCacheSetting")]
+        [PolicyResourceProperty("modelCacheSetting", "_mUnknown_ModelCacheSetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelCacheSetting;
-
-        public string? ModelCacheSetting => _mModelCacheSetting.GetValue("modelCacheSetting");
+        private string? _mValue_ModelCacheSetting;
+        private bool _mUnknown_ModelCacheSetting;
+        public string? ModelCacheSetting
+        {
+            get
+            {
+                if (!_mUnknown_ModelCacheSetting) return _mValue_ModelCacheSetting;
+                throw new UndeferrableValueException("Value 'ModelPrimaryContainerMultiModelConfigArgs.ModelCacheSetting' is not present");
+            }
+        }
     }
 }

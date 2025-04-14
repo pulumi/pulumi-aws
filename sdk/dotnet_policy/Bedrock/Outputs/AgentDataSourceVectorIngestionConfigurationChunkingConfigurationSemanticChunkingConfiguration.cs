@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// The dissimilarity threshold for splitting chunks.
         /// </summary>
-        [Input("breakpointPercentileThreshold")]
+        [PolicyResourceProperty("breakpointPercentileThreshold", "_mUnknown_BreakpointPercentileThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBreakpointPercentileThreshold;
-
-        public int? BreakpointPercentileThreshold => _mBreakpointPercentileThreshold.GetValue("breakpointPercentileThreshold");
+        private int? _mValue_BreakpointPercentileThreshold;
+        private bool _mUnknown_BreakpointPercentileThreshold;
+        public int? BreakpointPercentileThreshold
+        {
+            get
+            {
+                if (!_mUnknown_BreakpointPercentileThreshold) return _mValue_BreakpointPercentileThreshold;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration.BreakpointPercentileThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// The buffer size.
         /// </summary>
-        [Input("bufferSize")]
+        [PolicyResourceProperty("bufferSize", "_mUnknown_BufferSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferSize;
-
-        public int? BufferSize => _mBufferSize.GetValue("bufferSize");
+        private int? _mValue_BufferSize;
+        private bool _mUnknown_BufferSize;
+        public int? BufferSize
+        {
+            get
+            {
+                if (!_mUnknown_BufferSize) return _mValue_BufferSize;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration.BufferSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of tokens a chunk can contain.
         /// </summary>
-        [Input("maxToken")]
+        [PolicyResourceProperty("maxToken", "_mUnknown_MaxToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxToken;
-
-        public int? MaxToken => _mMaxToken.GetValue("maxToken");
+        private int? _mValue_MaxToken;
+        private bool _mUnknown_MaxToken;
+        public int? MaxToken
+        {
+            get
+            {
+                if (!_mUnknown_MaxToken) return _mValue_MaxToken;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration.MaxToken' is not present");
+            }
+        }
     }
 }

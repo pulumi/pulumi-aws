@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// <summary>
         /// The AWS ARN associated with the parameter group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ParameterGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ParameterGroup.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The family of the ElastiCache parameter group.
         /// </summary>
-        [Input("family")]
+        [PolicyResourceProperty("family", "_mUnknown_Family")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFamily;
-
-        public string? Family => _mFamily.GetValue("family");
+        private string? _mValue_Family;
+        private bool _mUnknown_Family;
+        public string? Family
+        {
+            get
+            {
+                if (!_mUnknown_Family) return _mValue_Family;
+                throw new UndeferrableValueException("Value 'ParameterGroup.Family' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the ElastiCache parameter.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ParameterGroup.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of ElastiCache parameters to apply.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ParameterGroupParameter>> _mParameters;
-
-        public List<Outputs.ParameterGroupParameter>? Parameters => _mParameters.GetValue("parameters");
+        private List<Outputs.ParameterGroupParameter>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Outputs.ParameterGroupParameter>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'ParameterGroup.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ParameterGroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ParameterGroup.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:elasticache/parameterGroup:ParameterGroup")]
@@ -83,46 +132,81 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// <summary>
         /// The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ParameterGroupArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The family of the ElastiCache parameter group.
         /// </summary>
-        [Input("family")]
+        [PolicyResourceProperty("family", "_mUnknown_Family")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFamily;
-
-        public string? Family => _mFamily.GetValue("family");
+        private string? _mValue_Family;
+        private bool _mUnknown_Family;
+        public string? Family
+        {
+            get
+            {
+                if (!_mUnknown_Family) return _mValue_Family;
+                throw new UndeferrableValueException("Value 'ParameterGroupArgs.Family' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the ElastiCache parameter.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ParameterGroupArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of ElastiCache parameters to apply.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ParameterGroupParameterArgs>> _mParameters;
-
-        public List<Inputs.ParameterGroupParameterArgs>? Parameters => _mParameters.GetValue("parameters");
+        private List<Inputs.ParameterGroupParameterArgs>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Inputs.ParameterGroupParameterArgs>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'ParameterGroupArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ParameterGroupArgs.Tags' is not present");
+            }
+        }
     }
 }

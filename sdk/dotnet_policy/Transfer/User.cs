@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// <summary>
         /// Amazon Resource Name (ARN) of Transfer User
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'User.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
         /// </summary>
-        [Input("homeDirectory")]
+        [PolicyResourceProperty("homeDirectory", "_mUnknown_HomeDirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHomeDirectory;
-
-        public string? HomeDirectory => _mHomeDirectory.GetValue("homeDirectory");
+        private string? _mValue_HomeDirectory;
+        private bool _mUnknown_HomeDirectory;
+        public string? HomeDirectory
+        {
+            get
+            {
+                if (!_mUnknown_HomeDirectory) return _mValue_HomeDirectory;
+                throw new UndeferrableValueException("Value 'User.HomeDirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
         /// </summary>
-        [Input("homeDirectoryMappings")]
+        [PolicyResourceProperty("homeDirectoryMappings", "_mUnknown_HomeDirectoryMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UserHomeDirectoryMapping>> _mHomeDirectoryMappings;
-
-        public List<Outputs.UserHomeDirectoryMapping>? HomeDirectoryMappings => _mHomeDirectoryMappings.GetValue("homeDirectoryMappings");
+        private List<Outputs.UserHomeDirectoryMapping>? _mValue_HomeDirectoryMappings;
+        private bool _mUnknown_HomeDirectoryMappings;
+        public List<Outputs.UserHomeDirectoryMapping>? HomeDirectoryMappings
+        {
+            get
+            {
+                if (!_mUnknown_HomeDirectoryMappings) return _mValue_HomeDirectoryMappings;
+                throw new UndeferrableValueException("Value 'User.HomeDirectoryMappings' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         /// </summary>
-        [Input("homeDirectoryType")]
+        [PolicyResourceProperty("homeDirectoryType", "_mUnknown_HomeDirectoryType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHomeDirectoryType;
-
-        public string? HomeDirectoryType => _mHomeDirectoryType.GetValue("homeDirectoryType");
+        private string? _mValue_HomeDirectoryType;
+        private bool _mUnknown_HomeDirectoryType;
+        public string? HomeDirectoryType
+        {
+            get
+            {
+                if (!_mUnknown_HomeDirectoryType) return _mValue_HomeDirectoryType;
+                throw new UndeferrableValueException("Value 'User.HomeDirectoryType' is not present");
+            }
+        }
 
         /// <summary>
         /// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'User.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
         /// </summary>
-        [Input("posixProfile")]
+        [PolicyResourceProperty("posixProfile", "_mUnknown_PosixProfile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPosixProfile> _mPosixProfile;
-
-        public Outputs.UserPosixProfile? PosixProfile => _mPosixProfile.GetValue("posixProfile");
+        private Outputs.UserPosixProfile? _mValue_PosixProfile;
+        private bool _mUnknown_PosixProfile;
+        public Outputs.UserPosixProfile? PosixProfile
+        {
+            get
+            {
+                if (!_mUnknown_PosixProfile) return _mValue_PosixProfile;
+                throw new UndeferrableValueException("Value 'User.PosixProfile' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
         /// </summary>
-        [Input("role")]
+        [PolicyResourceProperty("role", "_mUnknown_Role")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
-
-        public string? Role => _mRole.GetValue("role");
+        private string? _mValue_Role;
+        private bool _mUnknown_Role;
+        public string? Role
+        {
+            get
+            {
+                if (!_mUnknown_Role) return _mValue_Role;
+                throw new UndeferrableValueException("Value 'User.Role' is not present");
+            }
+        }
 
         /// <summary>
         /// The Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
-        [Input("serverId")]
+        [PolicyResourceProperty("serverId", "_mUnknown_ServerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerId;
-
-        public string? ServerId => _mServerId.GetValue("serverId");
+        private string? _mValue_ServerId;
+        private bool _mUnknown_ServerId;
+        public string? ServerId
+        {
+            get
+            {
+                if (!_mUnknown_ServerId) return _mValue_ServerId;
+                throw new UndeferrableValueException("Value 'User.ServerId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'User.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'User.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The name used for log in to your SFTP server.
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'User.UserName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:transfer/user:User")]
@@ -119,82 +196,145 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// <summary>
         /// The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
         /// </summary>
-        [Input("homeDirectory")]
+        [PolicyResourceProperty("homeDirectory", "_mUnknown_HomeDirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHomeDirectory;
-
-        public string? HomeDirectory => _mHomeDirectory.GetValue("homeDirectory");
+        private string? _mValue_HomeDirectory;
+        private bool _mUnknown_HomeDirectory;
+        public string? HomeDirectory
+        {
+            get
+            {
+                if (!_mUnknown_HomeDirectory) return _mValue_HomeDirectory;
+                throw new UndeferrableValueException("Value 'UserArgs.HomeDirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
         /// </summary>
-        [Input("homeDirectoryMappings")]
+        [PolicyResourceProperty("homeDirectoryMappings", "_mUnknown_HomeDirectoryMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.UserHomeDirectoryMappingArgs>> _mHomeDirectoryMappings;
-
-        public List<Inputs.UserHomeDirectoryMappingArgs>? HomeDirectoryMappings => _mHomeDirectoryMappings.GetValue("homeDirectoryMappings");
+        private List<Inputs.UserHomeDirectoryMappingArgs>? _mValue_HomeDirectoryMappings;
+        private bool _mUnknown_HomeDirectoryMappings;
+        public List<Inputs.UserHomeDirectoryMappingArgs>? HomeDirectoryMappings
+        {
+            get
+            {
+                if (!_mUnknown_HomeDirectoryMappings) return _mValue_HomeDirectoryMappings;
+                throw new UndeferrableValueException("Value 'UserArgs.HomeDirectoryMappings' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         /// </summary>
-        [Input("homeDirectoryType")]
+        [PolicyResourceProperty("homeDirectoryType", "_mUnknown_HomeDirectoryType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHomeDirectoryType;
-
-        public string? HomeDirectoryType => _mHomeDirectoryType.GetValue("homeDirectoryType");
+        private string? _mValue_HomeDirectoryType;
+        private bool _mUnknown_HomeDirectoryType;
+        public string? HomeDirectoryType
+        {
+            get
+            {
+                if (!_mUnknown_HomeDirectoryType) return _mValue_HomeDirectoryType;
+                throw new UndeferrableValueException("Value 'UserArgs.HomeDirectoryType' is not present");
+            }
+        }
 
         /// <summary>
         /// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'UserArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
         /// </summary>
-        [Input("posixProfile")]
+        [PolicyResourceProperty("posixProfile", "_mUnknown_PosixProfile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPosixProfileArgs> _mPosixProfile;
-
-        public Inputs.UserPosixProfileArgs? PosixProfile => _mPosixProfile.GetValue("posixProfile");
+        private Inputs.UserPosixProfileArgs? _mValue_PosixProfile;
+        private bool _mUnknown_PosixProfile;
+        public Inputs.UserPosixProfileArgs? PosixProfile
+        {
+            get
+            {
+                if (!_mUnknown_PosixProfile) return _mValue_PosixProfile;
+                throw new UndeferrableValueException("Value 'UserArgs.PosixProfile' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
         /// </summary>
-        [Input("role")]
+        [PolicyResourceProperty("role", "_mUnknown_Role")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
-
-        public string? Role => _mRole.GetValue("role");
+        private string? _mValue_Role;
+        private bool _mUnknown_Role;
+        public string? Role
+        {
+            get
+            {
+                if (!_mUnknown_Role) return _mValue_Role;
+                throw new UndeferrableValueException("Value 'UserArgs.Role' is not present");
+            }
+        }
 
         /// <summary>
         /// The Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
-        [Input("serverId")]
+        [PolicyResourceProperty("serverId", "_mUnknown_ServerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerId;
-
-        public string? ServerId => _mServerId.GetValue("serverId");
+        private string? _mValue_ServerId;
+        private bool _mUnknown_ServerId;
+        public string? ServerId
+        {
+            get
+            {
+                if (!_mUnknown_ServerId) return _mValue_ServerId;
+                throw new UndeferrableValueException("Value 'UserArgs.ServerId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'UserArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The name used for log in to your SFTP server.
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'UserArgs.UserName' is not present");
+            }
+        }
     }
 }

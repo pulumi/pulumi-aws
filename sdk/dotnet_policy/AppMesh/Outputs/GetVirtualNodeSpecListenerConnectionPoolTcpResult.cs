@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualNodeSpecListenerConnectionPoolTcpResult
     {
-        [Input("maxConnections")]
+        [PolicyResourceProperty("maxConnections", "_mUnknown_MaxConnections")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxConnections;
-
-        public int? MaxConnections => _mMaxConnections.GetValue("maxConnections");
+        private int? _mValue_MaxConnections;
+        private bool _mUnknown_MaxConnections;
+        public int? MaxConnections
+        {
+            get
+            {
+                if (!_mUnknown_MaxConnections) return _mValue_MaxConnections;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerConnectionPoolTcpResult.MaxConnections' is not present");
+            }
+        }
     }
 }

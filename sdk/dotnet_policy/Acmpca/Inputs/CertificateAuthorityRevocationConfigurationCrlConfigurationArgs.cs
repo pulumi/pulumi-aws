@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Acmpca.Inputs
         /// <summary>
         /// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
         /// </summary>
-        [Input("customCname")]
+        [PolicyResourceProperty("customCname", "_mUnknown_CustomCname")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomCname;
-
-        public string? CustomCname => _mCustomCname.GetValue("customCname");
+        private string? _mValue_CustomCname;
+        private bool _mUnknown_CustomCname;
+        public string? CustomCname
+        {
+            get
+            {
+                if (!_mUnknown_CustomCname) return _mValue_CustomCname;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityRevocationConfigurationCrlConfigurationArgs.CustomCname' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityRevocationConfigurationCrlConfigurationArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days until a certificate expires. Must be between 1 and 5000.
         /// </summary>
-        [Input("expirationInDays")]
+        [PolicyResourceProperty("expirationInDays", "_mUnknown_ExpirationInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mExpirationInDays;
-
-        public int? ExpirationInDays => _mExpirationInDays.GetValue("expirationInDays");
+        private int? _mValue_ExpirationInDays;
+        private bool _mUnknown_ExpirationInDays;
+        public int? ExpirationInDays
+        {
+            get
+            {
+                if (!_mUnknown_ExpirationInDays) return _mValue_ExpirationInDays;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityRevocationConfigurationCrlConfigurationArgs.ExpirationInDays' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
         /// </summary>
-        [Input("s3BucketName")]
+        [PolicyResourceProperty("s3BucketName", "_mUnknown_S3BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketName;
-
-        public string? S3BucketName => _mS3BucketName.GetValue("s3BucketName");
+        private string? _mValue_S3BucketName;
+        private bool _mUnknown_S3BucketName;
+        public string? S3BucketName
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketName) return _mValue_S3BucketName;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityRevocationConfigurationCrlConfigurationArgs.S3BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
         /// </summary>
-        [Input("s3ObjectAcl")]
+        [PolicyResourceProperty("s3ObjectAcl", "_mUnknown_S3ObjectAcl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3ObjectAcl;
-
-        public string? S3ObjectAcl => _mS3ObjectAcl.GetValue("s3ObjectAcl");
+        private string? _mValue_S3ObjectAcl;
+        private bool _mUnknown_S3ObjectAcl;
+        public string? S3ObjectAcl
+        {
+            get
+            {
+                if (!_mUnknown_S3ObjectAcl) return _mValue_S3ObjectAcl;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityRevocationConfigurationCrlConfigurationArgs.S3ObjectAcl' is not present");
+            }
+        }
     }
 }

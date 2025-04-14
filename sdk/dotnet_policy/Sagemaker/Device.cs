@@ -13,38 +13,66 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
     [PolicyResourceType("aws:sagemaker/device:Device")]
     public sealed class Device : global::Pulumi.PolicyResourceOutput
     {
-        [Input("agentVersion")]
+        [PolicyResourceProperty("agentVersion", "_mUnknown_AgentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
-
-        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
+        private string? _mValue_AgentVersion;
+        private bool _mUnknown_AgentVersion;
+        public string? AgentVersion
+        {
+            get
+            {
+                if (!_mUnknown_AgentVersion) return _mValue_AgentVersion;
+                throw new UndeferrableValueException("Value 'Device.AgentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Device.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Device.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The device to register with SageMaker AI Edge Manager. See Device details below.
         /// </summary>
-        [Input("device")]
+        [PolicyResourceProperty("device", "_mUnknown_DeviceDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DeviceDevice> _mDeviceDetails;
-
-        public Outputs.DeviceDevice? DeviceDetails => _mDeviceDetails.GetValue("device");
+        private Outputs.DeviceDevice? _mValue_DeviceDetails;
+        private bool _mUnknown_DeviceDetails;
+        public Outputs.DeviceDevice? DeviceDetails
+        {
+            get
+            {
+                if (!_mUnknown_DeviceDetails) return _mValue_DeviceDetails;
+                throw new UndeferrableValueException("Value 'Device.DeviceDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Device Fleet.
         /// </summary>
-        [Input("deviceFleetName")]
+        [PolicyResourceProperty("deviceFleetName", "_mUnknown_DeviceFleetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceFleetName;
-
-        public string? DeviceFleetName => _mDeviceFleetName.GetValue("deviceFleetName");
+        private string? _mValue_DeviceFleetName;
+        private bool _mUnknown_DeviceFleetName;
+        public string? DeviceFleetName
+        {
+            get
+            {
+                if (!_mUnknown_DeviceFleetName) return _mValue_DeviceFleetName;
+                throw new UndeferrableValueException("Value 'Device.DeviceFleetName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/device:Device")]
@@ -53,19 +81,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The device to register with SageMaker AI Edge Manager. See Device details below.
         /// </summary>
-        [Input("device")]
+        [PolicyResourceProperty("device", "_mUnknown_DeviceDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeviceDeviceArgs> _mDeviceDetails;
-
-        public Inputs.DeviceDeviceArgs? DeviceDetails => _mDeviceDetails.GetValue("device");
+        private Inputs.DeviceDeviceArgs? _mValue_DeviceDetails;
+        private bool _mUnknown_DeviceDetails;
+        public Inputs.DeviceDeviceArgs? DeviceDetails
+        {
+            get
+            {
+                if (!_mUnknown_DeviceDetails) return _mValue_DeviceDetails;
+                throw new UndeferrableValueException("Value 'DeviceArgs.DeviceDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Device Fleet.
         /// </summary>
-        [Input("deviceFleetName")]
+        [PolicyResourceProperty("deviceFleetName", "_mUnknown_DeviceFleetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceFleetName;
-
-        public string? DeviceFleetName => _mDeviceFleetName.GetValue("deviceFleetName");
+        private string? _mValue_DeviceFleetName;
+        private bool _mUnknown_DeviceFleetName;
+        public string? DeviceFleetName
+        {
+            get
+            {
+                if (!_mUnknown_DeviceFleetName) return _mValue_DeviceFleetName;
+                throw new UndeferrableValueException("Value 'DeviceArgs.DeviceFleetName' is not present");
+            }
+        }
     }
 }

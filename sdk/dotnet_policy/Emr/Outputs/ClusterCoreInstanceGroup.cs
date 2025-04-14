@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Outputs
         /// <summary>
         /// String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
         /// </summary>
-        [Input("autoscalingPolicy")]
+        [PolicyResourceProperty("autoscalingPolicy", "_mUnknown_AutoscalingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingPolicy;
-
-        public string? AutoscalingPolicy => _mAutoscalingPolicy.GetValue("autoscalingPolicy");
+        private string? _mValue_AutoscalingPolicy;
+        private bool _mUnknown_AutoscalingPolicy;
+        public string? AutoscalingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingPolicy) return _mValue_AutoscalingPolicy;
+                throw new UndeferrableValueException("Value 'ClusterCoreInstanceGroup.AutoscalingPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         /// </summary>
-        [Input("bidPrice")]
+        [PolicyResourceProperty("bidPrice", "_mUnknown_BidPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBidPrice;
-
-        public string? BidPrice => _mBidPrice.GetValue("bidPrice");
+        private string? _mValue_BidPrice;
+        private bool _mUnknown_BidPrice;
+        public string? BidPrice
+        {
+            get
+            {
+                if (!_mUnknown_BidPrice) return _mValue_BidPrice;
+                throw new UndeferrableValueException("Value 'ClusterCoreInstanceGroup.BidPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         /// </summary>
-        [Input("ebsConfigs")]
+        [PolicyResourceProperty("ebsConfigs", "_mUnknown_EbsConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterCoreInstanceGroupEbsConfig>> _mEbsConfigs;
-
-        public List<Outputs.ClusterCoreInstanceGroupEbsConfig>? EbsConfigs => _mEbsConfigs.GetValue("ebsConfigs");
+        private List<Outputs.ClusterCoreInstanceGroupEbsConfig>? _mValue_EbsConfigs;
+        private bool _mUnknown_EbsConfigs;
+        public List<Outputs.ClusterCoreInstanceGroupEbsConfig>? EbsConfigs
+        {
+            get
+            {
+                if (!_mUnknown_EbsConfigs) return _mValue_EbsConfigs;
+                throw new UndeferrableValueException("Value 'ClusterCoreInstanceGroup.EbsConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// Core node type Instance Group ID, if using Instance Group for this node type.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'ClusterCoreInstanceGroup.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Target number of instances for the instance group. Must be at least 1. Defaults to 1.
         /// </summary>
-        [Input("instanceCount")]
+        [PolicyResourceProperty("instanceCount", "_mUnknown_InstanceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceCount;
-
-        public int? InstanceCount => _mInstanceCount.GetValue("instanceCount");
+        private int? _mValue_InstanceCount;
+        private bool _mUnknown_InstanceCount;
+        public int? InstanceCount
+        {
+            get
+            {
+                if (!_mUnknown_InstanceCount) return _mValue_InstanceCount;
+                throw new UndeferrableValueException("Value 'ClusterCoreInstanceGroup.InstanceCount' is not present");
+            }
+        }
 
         /// <summary>
         /// EC2 instance type for all instances in the instance group.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'ClusterCoreInstanceGroup.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Friendly name given to the instance group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ClusterCoreInstanceGroup.Name' is not present");
+            }
+        }
     }
 }

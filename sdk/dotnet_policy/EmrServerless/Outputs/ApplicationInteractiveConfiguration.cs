@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.EmrServerless.Outputs
         /// <summary>
         /// Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
         /// </summary>
-        [Input("livyEndpointEnabled")]
+        [PolicyResourceProperty("livyEndpointEnabled", "_mUnknown_LivyEndpointEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mLivyEndpointEnabled;
-
-        public bool? LivyEndpointEnabled => _mLivyEndpointEnabled.GetValue("livyEndpointEnabled");
+        private bool? _mValue_LivyEndpointEnabled;
+        private bool _mUnknown_LivyEndpointEnabled;
+        public bool? LivyEndpointEnabled
+        {
+            get
+            {
+                if (!_mUnknown_LivyEndpointEnabled) return _mValue_LivyEndpointEnabled;
+                throw new UndeferrableValueException("Value 'ApplicationInteractiveConfiguration.LivyEndpointEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
         /// </summary>
-        [Input("studioEnabled")]
+        [PolicyResourceProperty("studioEnabled", "_mUnknown_StudioEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStudioEnabled;
-
-        public bool? StudioEnabled => _mStudioEnabled.GetValue("studioEnabled");
+        private bool? _mValue_StudioEnabled;
+        private bool _mUnknown_StudioEnabled;
+        public bool? StudioEnabled
+        {
+            get
+            {
+                if (!_mUnknown_StudioEnabled) return _mValue_StudioEnabled;
+                throw new UndeferrableValueException("Value 'ApplicationInteractiveConfiguration.StudioEnabled' is not present");
+            }
+        }
     }
 }

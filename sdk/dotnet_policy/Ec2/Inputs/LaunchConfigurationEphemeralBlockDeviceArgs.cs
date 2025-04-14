@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
 {
     public sealed class LaunchConfigurationEphemeralBlockDeviceArgs
     {
-        [Input("deviceName")]
+        [PolicyResourceProperty("deviceName", "_mUnknown_DeviceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceName;
+        private string? _mValue_DeviceName;
+        private bool _mUnknown_DeviceName;
+        public string? DeviceName
+        {
+            get
+            {
+                if (!_mUnknown_DeviceName) return _mValue_DeviceName;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationEphemeralBlockDeviceArgs.DeviceName' is not present");
+            }
+        }
 
-        public string? DeviceName => _mDeviceName.GetValue("deviceName");
-
-        [Input("noDevice")]
+        [PolicyResourceProperty("noDevice", "_mUnknown_NoDevice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mNoDevice;
+        private bool? _mValue_NoDevice;
+        private bool _mUnknown_NoDevice;
+        public bool? NoDevice
+        {
+            get
+            {
+                if (!_mUnknown_NoDevice) return _mValue_NoDevice;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationEphemeralBlockDeviceArgs.NoDevice' is not present");
+            }
+        }
 
-        public bool? NoDevice => _mNoDevice.GetValue("noDevice");
-
-        [Input("virtualName")]
+        [PolicyResourceProperty("virtualName", "_mUnknown_VirtualName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualName;
-
-        public string? VirtualName => _mVirtualName.GetValue("virtualName");
+        private string? _mValue_VirtualName;
+        private bool _mUnknown_VirtualName;
+        public string? VirtualName
+        {
+            get
+            {
+                if (!_mUnknown_VirtualName) return _mValue_VirtualName;
+                throw new UndeferrableValueException("Value 'LaunchConfigurationEphemeralBlockDeviceArgs.VirtualName' is not present");
+            }
+        }
     }
 }

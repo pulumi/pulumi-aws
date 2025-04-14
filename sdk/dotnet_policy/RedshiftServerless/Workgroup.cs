@@ -16,139 +16,244 @@ namespace Pulumi.PolicyPacks.Aws.RedshiftServerless
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Workgroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
         /// </summary>
-        [Input("baseCapacity")]
+        [PolicyResourceProperty("baseCapacity", "_mUnknown_BaseCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBaseCapacity;
-
-        public int? BaseCapacity => _mBaseCapacity.GetValue("baseCapacity");
+        private int? _mValue_BaseCapacity;
+        private bool _mUnknown_BaseCapacity;
+        public int? BaseCapacity
+        {
+            get
+            {
+                if (!_mUnknown_BaseCapacity) return _mValue_BaseCapacity;
+                throw new UndeferrableValueException("Value 'Workgroup.BaseCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
         /// </summary>
-        [Input("configParameters")]
+        [PolicyResourceProperty("configParameters", "_mUnknown_ConfigParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WorkgroupConfigParameter>> _mConfigParameters;
-
-        public List<Outputs.WorkgroupConfigParameter>? ConfigParameters => _mConfigParameters.GetValue("configParameters");
+        private List<Outputs.WorkgroupConfigParameter>? _mValue_ConfigParameters;
+        private bool _mUnknown_ConfigParameters;
+        public List<Outputs.WorkgroupConfigParameter>? ConfigParameters
+        {
+            get
+            {
+                if (!_mUnknown_ConfigParameters) return _mValue_ConfigParameters;
+                throw new UndeferrableValueException("Value 'Workgroup.ConfigParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The endpoint that is created from the workgroup. See `Endpoint` below.
         /// </summary>
-        [Input("endpoints")]
+        [PolicyResourceProperty("endpoints", "_mUnknown_Endpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WorkgroupEndpoint>> _mEndpoints;
-
-        public List<Outputs.WorkgroupEndpoint>? Endpoints => _mEndpoints.GetValue("endpoints");
+        private List<Outputs.WorkgroupEndpoint>? _mValue_Endpoints;
+        private bool _mUnknown_Endpoints;
+        public List<Outputs.WorkgroupEndpoint>? Endpoints
+        {
+            get
+            {
+                if (!_mUnknown_Endpoints) return _mValue_Endpoints;
+                throw new UndeferrableValueException("Value 'Workgroup.Endpoints' is not present");
+            }
+        }
 
         /// <summary>
         /// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         /// </summary>
-        [Input("enhancedVpcRouting")]
+        [PolicyResourceProperty("enhancedVpcRouting", "_mUnknown_EnhancedVpcRouting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnhancedVpcRouting;
-
-        public bool? EnhancedVpcRouting => _mEnhancedVpcRouting.GetValue("enhancedVpcRouting");
+        private bool? _mValue_EnhancedVpcRouting;
+        private bool _mUnknown_EnhancedVpcRouting;
+        public bool? EnhancedVpcRouting
+        {
+            get
+            {
+                if (!_mUnknown_EnhancedVpcRouting) return _mValue_EnhancedVpcRouting;
+                throw new UndeferrableValueException("Value 'Workgroup.EnhancedVpcRouting' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         /// </summary>
-        [Input("maxCapacity")]
+        [PolicyResourceProperty("maxCapacity", "_mUnknown_MaxCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxCapacity;
-
-        public int? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
+        private int? _mValue_MaxCapacity;
+        private bool _mUnknown_MaxCapacity;
+        public int? MaxCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MaxCapacity) return _mValue_MaxCapacity;
+                throw new UndeferrableValueException("Value 'Workgroup.MaxCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the namespace.
         /// </summary>
-        [Input("namespaceName")]
+        [PolicyResourceProperty("namespaceName", "_mUnknown_NamespaceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceName;
-
-        public string? NamespaceName => _mNamespaceName.GetValue("namespaceName");
+        private string? _mValue_NamespaceName;
+        private bool _mUnknown_NamespaceName;
+        public string? NamespaceName
+        {
+            get
+            {
+                if (!_mUnknown_NamespaceName) return _mValue_NamespaceName;
+                throw new UndeferrableValueException("Value 'Workgroup.NamespaceName' is not present");
+            }
+        }
 
         /// <summary>
         /// The port number on which the cluster accepts incoming connections.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'Workgroup.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// A value that specifies whether the workgroup can be accessed from a public network.
         /// </summary>
-        [Input("publiclyAccessible")]
+        [PolicyResourceProperty("publiclyAccessible", "_mUnknown_PubliclyAccessible")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
-
-        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+        private bool? _mValue_PubliclyAccessible;
+        private bool _mUnknown_PubliclyAccessible;
+        public bool? PubliclyAccessible
+        {
+            get
+            {
+                if (!_mUnknown_PubliclyAccessible) return _mValue_PubliclyAccessible;
+                throw new UndeferrableValueException("Value 'Workgroup.PubliclyAccessible' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of security group IDs to associate with the workgroup.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'Workgroup.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'Workgroup.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Workgroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Workgroup.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The Redshift Workgroup ID.
         /// </summary>
-        [Input("workgroupId")]
+        [PolicyResourceProperty("workgroupId", "_mUnknown_WorkgroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroupId;
-
-        public string? WorkgroupId => _mWorkgroupId.GetValue("workgroupId");
+        private string? _mValue_WorkgroupId;
+        private bool _mUnknown_WorkgroupId;
+        public string? WorkgroupId
+        {
+            get
+            {
+                if (!_mUnknown_WorkgroupId) return _mValue_WorkgroupId;
+                throw new UndeferrableValueException("Value 'Workgroup.WorkgroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the workgroup.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("workgroupName")]
+        [PolicyResourceProperty("workgroupName", "_mUnknown_WorkgroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroupName;
-
-        public string? WorkgroupName => _mWorkgroupName.GetValue("workgroupName");
+        private string? _mValue_WorkgroupName;
+        private bool _mUnknown_WorkgroupName;
+        public string? WorkgroupName
+        {
+            get
+            {
+                if (!_mUnknown_WorkgroupName) return _mValue_WorkgroupName;
+                throw new UndeferrableValueException("Value 'Workgroup.WorkgroupName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshiftserverless/workgroup:Workgroup")]
@@ -157,102 +262,179 @@ namespace Pulumi.PolicyPacks.Aws.RedshiftServerless
         /// <summary>
         /// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
         /// </summary>
-        [Input("baseCapacity")]
+        [PolicyResourceProperty("baseCapacity", "_mUnknown_BaseCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBaseCapacity;
-
-        public int? BaseCapacity => _mBaseCapacity.GetValue("baseCapacity");
+        private int? _mValue_BaseCapacity;
+        private bool _mUnknown_BaseCapacity;
+        public int? BaseCapacity
+        {
+            get
+            {
+                if (!_mUnknown_BaseCapacity) return _mValue_BaseCapacity;
+                throw new UndeferrableValueException("Value 'WorkgroupArgs.BaseCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
         /// </summary>
-        [Input("configParameters")]
+        [PolicyResourceProperty("configParameters", "_mUnknown_ConfigParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WorkgroupConfigParameterArgs>> _mConfigParameters;
-
-        public List<Inputs.WorkgroupConfigParameterArgs>? ConfigParameters => _mConfigParameters.GetValue("configParameters");
+        private List<Inputs.WorkgroupConfigParameterArgs>? _mValue_ConfigParameters;
+        private bool _mUnknown_ConfigParameters;
+        public List<Inputs.WorkgroupConfigParameterArgs>? ConfigParameters
+        {
+            get
+            {
+                if (!_mUnknown_ConfigParameters) return _mValue_ConfigParameters;
+                throw new UndeferrableValueException("Value 'WorkgroupArgs.ConfigParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         /// </summary>
-        [Input("enhancedVpcRouting")]
+        [PolicyResourceProperty("enhancedVpcRouting", "_mUnknown_EnhancedVpcRouting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnhancedVpcRouting;
-
-        public bool? EnhancedVpcRouting => _mEnhancedVpcRouting.GetValue("enhancedVpcRouting");
+        private bool? _mValue_EnhancedVpcRouting;
+        private bool _mUnknown_EnhancedVpcRouting;
+        public bool? EnhancedVpcRouting
+        {
+            get
+            {
+                if (!_mUnknown_EnhancedVpcRouting) return _mValue_EnhancedVpcRouting;
+                throw new UndeferrableValueException("Value 'WorkgroupArgs.EnhancedVpcRouting' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         /// </summary>
-        [Input("maxCapacity")]
+        [PolicyResourceProperty("maxCapacity", "_mUnknown_MaxCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxCapacity;
-
-        public int? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
+        private int? _mValue_MaxCapacity;
+        private bool _mUnknown_MaxCapacity;
+        public int? MaxCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MaxCapacity) return _mValue_MaxCapacity;
+                throw new UndeferrableValueException("Value 'WorkgroupArgs.MaxCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the namespace.
         /// </summary>
-        [Input("namespaceName")]
+        [PolicyResourceProperty("namespaceName", "_mUnknown_NamespaceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceName;
-
-        public string? NamespaceName => _mNamespaceName.GetValue("namespaceName");
+        private string? _mValue_NamespaceName;
+        private bool _mUnknown_NamespaceName;
+        public string? NamespaceName
+        {
+            get
+            {
+                if (!_mUnknown_NamespaceName) return _mValue_NamespaceName;
+                throw new UndeferrableValueException("Value 'WorkgroupArgs.NamespaceName' is not present");
+            }
+        }
 
         /// <summary>
         /// The port number on which the cluster accepts incoming connections.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'WorkgroupArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// A value that specifies whether the workgroup can be accessed from a public network.
         /// </summary>
-        [Input("publiclyAccessible")]
+        [PolicyResourceProperty("publiclyAccessible", "_mUnknown_PubliclyAccessible")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
-
-        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+        private bool? _mValue_PubliclyAccessible;
+        private bool _mUnknown_PubliclyAccessible;
+        public bool? PubliclyAccessible
+        {
+            get
+            {
+                if (!_mUnknown_PubliclyAccessible) return _mValue_PubliclyAccessible;
+                throw new UndeferrableValueException("Value 'WorkgroupArgs.PubliclyAccessible' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of security group IDs to associate with the workgroup.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'WorkgroupArgs.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'WorkgroupArgs.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'WorkgroupArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the workgroup.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("workgroupName")]
+        [PolicyResourceProperty("workgroupName", "_mUnknown_WorkgroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroupName;
-
-        public string? WorkgroupName => _mWorkgroupName.GetValue("workgroupName");
+        private string? _mValue_WorkgroupName;
+        private bool _mUnknown_WorkgroupName;
+        public string? WorkgroupName
+        {
+            get
+            {
+                if (!_mUnknown_WorkgroupName) return _mValue_WorkgroupName;
+                throw new UndeferrableValueException("Value 'WorkgroupArgs.WorkgroupName' is not present");
+            }
+        }
     }
 }

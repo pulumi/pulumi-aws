@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Outputs
 {
     public sealed class ConnectPeerBgpOptions
     {
-        [Input("peerAsn")]
+        [PolicyResourceProperty("peerAsn", "_mUnknown_PeerAsn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPeerAsn;
-
-        public int? PeerAsn => _mPeerAsn.GetValue("peerAsn");
+        private int? _mValue_PeerAsn;
+        private bool _mUnknown_PeerAsn;
+        public int? PeerAsn
+        {
+            get
+            {
+                if (!_mUnknown_PeerAsn) return _mValue_PeerAsn;
+                throw new UndeferrableValueException("Value 'ConnectPeerBgpOptions.PeerAsn' is not present");
+            }
+        }
     }
 }

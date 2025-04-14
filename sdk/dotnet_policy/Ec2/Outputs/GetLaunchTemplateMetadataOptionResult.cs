@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetLaunchTemplateMetadataOptionResult
     {
-        [Input("httpEndpoint")]
+        [PolicyResourceProperty("httpEndpoint", "_mUnknown_HttpEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpEndpoint;
+        private string? _mValue_HttpEndpoint;
+        private bool _mUnknown_HttpEndpoint;
+        public string? HttpEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_HttpEndpoint) return _mValue_HttpEndpoint;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateMetadataOptionResult.HttpEndpoint' is not present");
+            }
+        }
 
-        public string? HttpEndpoint => _mHttpEndpoint.GetValue("httpEndpoint");
-
-        [Input("httpProtocolIpv6")]
+        [PolicyResourceProperty("httpProtocolIpv6", "_mUnknown_HttpProtocolIpv6")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpProtocolIpv6;
+        private string? _mValue_HttpProtocolIpv6;
+        private bool _mUnknown_HttpProtocolIpv6;
+        public string? HttpProtocolIpv6
+        {
+            get
+            {
+                if (!_mUnknown_HttpProtocolIpv6) return _mValue_HttpProtocolIpv6;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateMetadataOptionResult.HttpProtocolIpv6' is not present");
+            }
+        }
 
-        public string? HttpProtocolIpv6 => _mHttpProtocolIpv6.GetValue("httpProtocolIpv6");
-
-        [Input("httpPutResponseHopLimit")]
+        [PolicyResourceProperty("httpPutResponseHopLimit", "_mUnknown_HttpPutResponseHopLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHttpPutResponseHopLimit;
+        private int? _mValue_HttpPutResponseHopLimit;
+        private bool _mUnknown_HttpPutResponseHopLimit;
+        public int? HttpPutResponseHopLimit
+        {
+            get
+            {
+                if (!_mUnknown_HttpPutResponseHopLimit) return _mValue_HttpPutResponseHopLimit;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateMetadataOptionResult.HttpPutResponseHopLimit' is not present");
+            }
+        }
 
-        public int? HttpPutResponseHopLimit => _mHttpPutResponseHopLimit.GetValue("httpPutResponseHopLimit");
-
-        [Input("httpTokens")]
+        [PolicyResourceProperty("httpTokens", "_mUnknown_HttpTokens")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpTokens;
+        private string? _mValue_HttpTokens;
+        private bool _mUnknown_HttpTokens;
+        public string? HttpTokens
+        {
+            get
+            {
+                if (!_mUnknown_HttpTokens) return _mValue_HttpTokens;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateMetadataOptionResult.HttpTokens' is not present");
+            }
+        }
 
-        public string? HttpTokens => _mHttpTokens.GetValue("httpTokens");
-
-        [Input("instanceMetadataTags")]
+        [PolicyResourceProperty("instanceMetadataTags", "_mUnknown_InstanceMetadataTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceMetadataTags;
-
-        public string? InstanceMetadataTags => _mInstanceMetadataTags.GetValue("instanceMetadataTags");
+        private string? _mValue_InstanceMetadataTags;
+        private bool _mUnknown_InstanceMetadataTags;
+        public string? InstanceMetadataTags
+        {
+            get
+            {
+                if (!_mUnknown_InstanceMetadataTags) return _mValue_InstanceMetadataTags;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateMetadataOptionResult.InstanceMetadataTags' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
         /// </summary>
-        [Input("timestampFormats")]
+        [PolicyResourceProperty("timestampFormats", "_mUnknown_TimestampFormats")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTimestampFormats;
-
-        public List<string>? TimestampFormats => _mTimestampFormats.GetValue("timestampFormats");
+        private List<string>? _mValue_TimestampFormats;
+        private bool _mUnknown_TimestampFormats;
+        public List<string>? TimestampFormats
+        {
+            get
+            {
+                if (!_mUnknown_TimestampFormats) return _mValue_TimestampFormats;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe.TimestampFormats' is not present");
+            }
+        }
     }
 }

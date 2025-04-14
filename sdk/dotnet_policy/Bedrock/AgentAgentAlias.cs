@@ -16,82 +16,145 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// ARN of the alias.
         /// </summary>
-        [Input("agentAliasArn")]
+        [PolicyResourceProperty("agentAliasArn", "_mUnknown_AgentAliasArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentAliasArn;
-
-        public string? AgentAliasArn => _mAgentAliasArn.GetValue("agentAliasArn");
+        private string? _mValue_AgentAliasArn;
+        private bool _mUnknown_AgentAliasArn;
+        public string? AgentAliasArn
+        {
+            get
+            {
+                if (!_mUnknown_AgentAliasArn) return _mValue_AgentAliasArn;
+                throw new UndeferrableValueException("Value 'AgentAgentAlias.AgentAliasArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of the alias.
         /// </summary>
-        [Input("agentAliasId")]
+        [PolicyResourceProperty("agentAliasId", "_mUnknown_AgentAliasId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentAliasId;
-
-        public string? AgentAliasId => _mAgentAliasId.GetValue("agentAliasId");
+        private string? _mValue_AgentAliasId;
+        private bool _mUnknown_AgentAliasId;
+        public string? AgentAliasId
+        {
+            get
+            {
+                if (!_mUnknown_AgentAliasId) return _mValue_AgentAliasId;
+                throw new UndeferrableValueException("Value 'AgentAgentAlias.AgentAliasId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the alias.
         /// </summary>
-        [Input("agentAliasName")]
+        [PolicyResourceProperty("agentAliasName", "_mUnknown_AgentAliasName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentAliasName;
-
-        public string? AgentAliasName => _mAgentAliasName.GetValue("agentAliasName");
+        private string? _mValue_AgentAliasName;
+        private bool _mUnknown_AgentAliasName;
+        public string? AgentAliasName
+        {
+            get
+            {
+                if (!_mUnknown_AgentAliasName) return _mValue_AgentAliasName;
+                throw new UndeferrableValueException("Value 'AgentAgentAlias.AgentAliasName' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the agent to create an alias for.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("agentId")]
+        [PolicyResourceProperty("agentId", "_mUnknown_AgentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentId;
-
-        public string? AgentId => _mAgentId.GetValue("agentId");
+        private string? _mValue_AgentId;
+        private bool _mUnknown_AgentId;
+        public string? AgentId
+        {
+            get
+            {
+                if (!_mUnknown_AgentId) return _mValue_AgentId;
+                throw new UndeferrableValueException("Value 'AgentAgentAlias.AgentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the alias.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AgentAgentAlias.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         /// </summary>
-        [Input("routingConfigurations")]
+        [PolicyResourceProperty("routingConfigurations", "_mUnknown_RoutingConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AgentAgentAliasRoutingConfiguration>> _mRoutingConfigurations;
-
-        public List<Outputs.AgentAgentAliasRoutingConfiguration>? RoutingConfigurations => _mRoutingConfigurations.GetValue("routingConfigurations");
+        private List<Outputs.AgentAgentAliasRoutingConfiguration>? _mValue_RoutingConfigurations;
+        private bool _mUnknown_RoutingConfigurations;
+        public List<Outputs.AgentAgentAliasRoutingConfiguration>? RoutingConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_RoutingConfigurations) return _mValue_RoutingConfigurations;
+                throw new UndeferrableValueException("Value 'AgentAgentAlias.RoutingConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AgentAgentAlias.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'AgentAgentAlias.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentAliasTimeouts> _mTimeouts;
-
-        public Outputs.AgentAgentAliasTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.AgentAgentAliasTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.AgentAgentAliasTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'AgentAgentAlias.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:bedrock/agentAgentAlias:AgentAgentAlias")]
@@ -100,54 +163,96 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// Name of the alias.
         /// </summary>
-        [Input("agentAliasName")]
+        [PolicyResourceProperty("agentAliasName", "_mUnknown_AgentAliasName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentAliasName;
-
-        public string? AgentAliasName => _mAgentAliasName.GetValue("agentAliasName");
+        private string? _mValue_AgentAliasName;
+        private bool _mUnknown_AgentAliasName;
+        public string? AgentAliasName
+        {
+            get
+            {
+                if (!_mUnknown_AgentAliasName) return _mValue_AgentAliasName;
+                throw new UndeferrableValueException("Value 'AgentAgentAliasArgs.AgentAliasName' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the agent to create an alias for.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("agentId")]
+        [PolicyResourceProperty("agentId", "_mUnknown_AgentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentId;
-
-        public string? AgentId => _mAgentId.GetValue("agentId");
+        private string? _mValue_AgentId;
+        private bool _mUnknown_AgentId;
+        public string? AgentId
+        {
+            get
+            {
+                if (!_mUnknown_AgentId) return _mValue_AgentId;
+                throw new UndeferrableValueException("Value 'AgentAgentAliasArgs.AgentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the alias.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AgentAgentAliasArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         /// </summary>
-        [Input("routingConfigurations")]
+        [PolicyResourceProperty("routingConfigurations", "_mUnknown_RoutingConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AgentAgentAliasRoutingConfigurationArgs>> _mRoutingConfigurations;
-
-        public List<Inputs.AgentAgentAliasRoutingConfigurationArgs>? RoutingConfigurations => _mRoutingConfigurations.GetValue("routingConfigurations");
+        private List<Inputs.AgentAgentAliasRoutingConfigurationArgs>? _mValue_RoutingConfigurations;
+        private bool _mUnknown_RoutingConfigurations;
+        public List<Inputs.AgentAgentAliasRoutingConfigurationArgs>? RoutingConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_RoutingConfigurations) return _mValue_RoutingConfigurations;
+                throw new UndeferrableValueException("Value 'AgentAgentAliasArgs.RoutingConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AgentAgentAliasArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentAliasTimeoutsArgs> _mTimeouts;
-
-        public Inputs.AgentAgentAliasTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.AgentAgentAliasTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.AgentAgentAliasTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'AgentAgentAliasArgs.Timeouts' is not present");
+            }
+        }
     }
 }

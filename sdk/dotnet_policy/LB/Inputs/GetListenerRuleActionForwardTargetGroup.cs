@@ -16,19 +16,33 @@ namespace Pulumi.PolicyPacks.Aws.LB.Inputs
         /// ARN of the Listener Rule.
         /// Either `arn` or `listener_arn` must be set.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionForwardTargetGroupArgs.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Weight of the target group.
         /// </summary>
-        [Input("weight")]
+        [PolicyResourceProperty("weight", "_mUnknown_Weight")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWeight;
-
-        public int? Weight => _mWeight.GetValue("weight");
+        private int? _mValue_Weight;
+        private bool _mUnknown_Weight;
+        public int? Weight
+        {
+            get
+            {
+                if (!_mUnknown_Weight) return _mValue_Weight;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionForwardTargetGroupArgs.Weight' is not present");
+            }
+        }
     }
 }

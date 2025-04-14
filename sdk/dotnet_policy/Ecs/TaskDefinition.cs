@@ -16,222 +16,390 @@ namespace Pulumi.PolicyPacks.Aws.Ecs
         /// <summary>
         /// Full ARN of the Task Definition (including both `family` and `revision`).
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TaskDefinition.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
         /// </summary>
-        [Input("arnWithoutRevision")]
+        [PolicyResourceProperty("arnWithoutRevision", "_mUnknown_ArnWithoutRevision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArnWithoutRevision;
-
-        public string? ArnWithoutRevision => _mArnWithoutRevision.GetValue("arnWithoutRevision");
+        private string? _mValue_ArnWithoutRevision;
+        private bool _mUnknown_ArnWithoutRevision;
+        public string? ArnWithoutRevision
+        {
+            get
+            {
+                if (!_mUnknown_ArnWithoutRevision) return _mValue_ArnWithoutRevision;
+                throw new UndeferrableValueException("Value 'TaskDefinition.ArnWithoutRevision' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         /// </summary>
-        [Input("containerDefinitions")]
+        [PolicyResourceProperty("containerDefinitions", "_mUnknown_ContainerDefinitions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerDefinitions;
-
-        public string? ContainerDefinitions => _mContainerDefinitions.GetValue("containerDefinitions");
+        private string? _mValue_ContainerDefinitions;
+        private bool _mUnknown_ContainerDefinitions;
+        public string? ContainerDefinitions
+        {
+            get
+            {
+                if (!_mUnknown_ContainerDefinitions) return _mValue_ContainerDefinitions;
+                throw new UndeferrableValueException("Value 'TaskDefinition.ContainerDefinitions' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         /// </summary>
-        [Input("cpu")]
+        [PolicyResourceProperty("cpu", "_mUnknown_Cpu")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCpu;
-
-        public string? Cpu => _mCpu.GetValue("cpu");
+        private string? _mValue_Cpu;
+        private bool _mUnknown_Cpu;
+        public string? Cpu
+        {
+            get
+            {
+                if (!_mUnknown_Cpu) return _mValue_Cpu;
+                throw new UndeferrableValueException("Value 'TaskDefinition.Cpu' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
         /// 
         /// **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         /// </summary>
-        [Input("enableFaultInjection")]
+        [PolicyResourceProperty("enableFaultInjection", "_mUnknown_EnableFaultInjection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableFaultInjection;
-
-        public bool? EnableFaultInjection => _mEnableFaultInjection.GetValue("enableFaultInjection");
+        private bool? _mValue_EnableFaultInjection;
+        private bool _mUnknown_EnableFaultInjection;
+        public bool? EnableFaultInjection
+        {
+            get
+            {
+                if (!_mUnknown_EnableFaultInjection) return _mValue_EnableFaultInjection;
+                throw new UndeferrableValueException("Value 'TaskDefinition.EnableFaultInjection' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         /// </summary>
-        [Input("ephemeralStorage")]
+        [PolicyResourceProperty("ephemeralStorage", "_mUnknown_EphemeralStorage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskDefinitionEphemeralStorage> _mEphemeralStorage;
-
-        public Outputs.TaskDefinitionEphemeralStorage? EphemeralStorage => _mEphemeralStorage.GetValue("ephemeralStorage");
+        private Outputs.TaskDefinitionEphemeralStorage? _mValue_EphemeralStorage;
+        private bool _mUnknown_EphemeralStorage;
+        public Outputs.TaskDefinitionEphemeralStorage? EphemeralStorage
+        {
+            get
+            {
+                if (!_mUnknown_EphemeralStorage) return _mValue_EphemeralStorage;
+                throw new UndeferrableValueException("Value 'TaskDefinition.EphemeralStorage' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'TaskDefinition.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique name for your task definition.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("family")]
+        [PolicyResourceProperty("family", "_mUnknown_Family")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFamily;
-
-        public string? Family => _mFamily.GetValue("family");
+        private string? _mValue_Family;
+        private bool _mUnknown_Family;
+        public string? Family
+        {
+            get
+            {
+                if (!_mUnknown_Family) return _mValue_Family;
+                throw new UndeferrableValueException("Value 'TaskDefinition.Family' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) with Inference Accelerators settings. Detailed below.
         /// </summary>
-        [Input("inferenceAccelerators")]
+        [PolicyResourceProperty("inferenceAccelerators", "_mUnknown_InferenceAccelerators")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TaskDefinitionInferenceAccelerator>> _mInferenceAccelerators;
-
-        public List<Outputs.TaskDefinitionInferenceAccelerator>? InferenceAccelerators => _mInferenceAccelerators.GetValue("inferenceAccelerators");
+        private List<Outputs.TaskDefinitionInferenceAccelerator>? _mValue_InferenceAccelerators;
+        private bool _mUnknown_InferenceAccelerators;
+        public List<Outputs.TaskDefinitionInferenceAccelerator>? InferenceAccelerators
+        {
+            get
+            {
+                if (!_mUnknown_InferenceAccelerators) return _mValue_InferenceAccelerators;
+                throw new UndeferrableValueException("Value 'TaskDefinition.InferenceAccelerators' is not present");
+            }
+        }
 
         /// <summary>
         /// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         /// </summary>
-        [Input("ipcMode")]
+        [PolicyResourceProperty("ipcMode", "_mUnknown_IpcMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpcMode;
-
-        public string? IpcMode => _mIpcMode.GetValue("ipcMode");
+        private string? _mValue_IpcMode;
+        private bool _mUnknown_IpcMode;
+        public string? IpcMode
+        {
+            get
+            {
+                if (!_mUnknown_IpcMode) return _mValue_IpcMode;
+                throw new UndeferrableValueException("Value 'TaskDefinition.IpcMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         /// </summary>
-        [Input("memory")]
+        [PolicyResourceProperty("memory", "_mUnknown_Memory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMemory;
-
-        public string? Memory => _mMemory.GetValue("memory");
+        private string? _mValue_Memory;
+        private bool _mUnknown_Memory;
+        public string? Memory
+        {
+            get
+            {
+                if (!_mUnknown_Memory) return _mValue_Memory;
+                throw new UndeferrableValueException("Value 'TaskDefinition.Memory' is not present");
+            }
+        }
 
         /// <summary>
         /// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
         /// </summary>
-        [Input("networkMode")]
+        [PolicyResourceProperty("networkMode", "_mUnknown_NetworkMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkMode;
-
-        public string? NetworkMode => _mNetworkMode.GetValue("networkMode");
+        private string? _mValue_NetworkMode;
+        private bool _mUnknown_NetworkMode;
+        public string? NetworkMode
+        {
+            get
+            {
+                if (!_mUnknown_NetworkMode) return _mValue_NetworkMode;
+                throw new UndeferrableValueException("Value 'TaskDefinition.NetworkMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
         /// </summary>
-        [Input("pidMode")]
+        [PolicyResourceProperty("pidMode", "_mUnknown_PidMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPidMode;
-
-        public string? PidMode => _mPidMode.GetValue("pidMode");
+        private string? _mValue_PidMode;
+        private bool _mUnknown_PidMode;
+        public string? PidMode
+        {
+            get
+            {
+                if (!_mUnknown_PidMode) return _mValue_PidMode;
+                throw new UndeferrableValueException("Value 'TaskDefinition.PidMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         /// </summary>
-        [Input("placementConstraints")]
+        [PolicyResourceProperty("placementConstraints", "_mUnknown_PlacementConstraints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TaskDefinitionPlacementConstraint>> _mPlacementConstraints;
-
-        public List<Outputs.TaskDefinitionPlacementConstraint>? PlacementConstraints => _mPlacementConstraints.GetValue("placementConstraints");
+        private List<Outputs.TaskDefinitionPlacementConstraint>? _mValue_PlacementConstraints;
+        private bool _mUnknown_PlacementConstraints;
+        public List<Outputs.TaskDefinitionPlacementConstraint>? PlacementConstraints
+        {
+            get
+            {
+                if (!_mUnknown_PlacementConstraints) return _mValue_PlacementConstraints;
+                throw new UndeferrableValueException("Value 'TaskDefinition.PlacementConstraints' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the App Mesh proxy. Detailed below.
         /// </summary>
-        [Input("proxyConfiguration")]
+        [PolicyResourceProperty("proxyConfiguration", "_mUnknown_ProxyConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskDefinitionProxyConfiguration> _mProxyConfiguration;
-
-        public Outputs.TaskDefinitionProxyConfiguration? ProxyConfiguration => _mProxyConfiguration.GetValue("proxyConfiguration");
+        private Outputs.TaskDefinitionProxyConfiguration? _mValue_ProxyConfiguration;
+        private bool _mUnknown_ProxyConfiguration;
+        public Outputs.TaskDefinitionProxyConfiguration? ProxyConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ProxyConfiguration) return _mValue_ProxyConfiguration;
+                throw new UndeferrableValueException("Value 'TaskDefinition.ProxyConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
         /// </summary>
-        [Input("requiresCompatibilities")]
+        [PolicyResourceProperty("requiresCompatibilities", "_mUnknown_RequiresCompatibilities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRequiresCompatibilities;
-
-        public List<string>? RequiresCompatibilities => _mRequiresCompatibilities.GetValue("requiresCompatibilities");
+        private List<string>? _mValue_RequiresCompatibilities;
+        private bool _mUnknown_RequiresCompatibilities;
+        public List<string>? RequiresCompatibilities
+        {
+            get
+            {
+                if (!_mUnknown_RequiresCompatibilities) return _mValue_RequiresCompatibilities;
+                throw new UndeferrableValueException("Value 'TaskDefinition.RequiresCompatibilities' is not present");
+            }
+        }
 
         /// <summary>
         /// Revision of the task in a particular family.
         /// </summary>
-        [Input("revision")]
+        [PolicyResourceProperty("revision", "_mUnknown_Revision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRevision;
-
-        public int? Revision => _mRevision.GetValue("revision");
+        private int? _mValue_Revision;
+        private bool _mUnknown_Revision;
+        public int? Revision
+        {
+            get
+            {
+                if (!_mUnknown_Revision) return _mValue_Revision;
+                throw new UndeferrableValueException("Value 'TaskDefinition.Revision' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for runtime_platform that containers in your task may use.
         /// </summary>
-        [Input("runtimePlatform")]
+        [PolicyResourceProperty("runtimePlatform", "_mUnknown_RuntimePlatform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskDefinitionRuntimePlatform> _mRuntimePlatform;
-
-        public Outputs.TaskDefinitionRuntimePlatform? RuntimePlatform => _mRuntimePlatform.GetValue("runtimePlatform");
+        private Outputs.TaskDefinitionRuntimePlatform? _mValue_RuntimePlatform;
+        private bool _mUnknown_RuntimePlatform;
+        public Outputs.TaskDefinitionRuntimePlatform? RuntimePlatform
+        {
+            get
+            {
+                if (!_mUnknown_RuntimePlatform) return _mValue_RuntimePlatform;
+                throw new UndeferrableValueException("Value 'TaskDefinition.RuntimePlatform' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'TaskDefinition.SkipDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TaskDefinition.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'TaskDefinition.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         /// </summary>
-        [Input("taskRoleArn")]
+        [PolicyResourceProperty("taskRoleArn", "_mUnknown_TaskRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskRoleArn;
-
-        public string? TaskRoleArn => _mTaskRoleArn.GetValue("taskRoleArn");
+        private string? _mValue_TaskRoleArn;
+        private bool _mUnknown_TaskRoleArn;
+        public string? TaskRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_TaskRoleArn) return _mValue_TaskRoleArn;
+                throw new UndeferrableValueException("Value 'TaskDefinition.TaskRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
         /// </summary>
-        [Input("trackLatest")]
+        [PolicyResourceProperty("trackLatest", "_mUnknown_TrackLatest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTrackLatest;
-
-        public bool? TrackLatest => _mTrackLatest.GetValue("trackLatest");
+        private bool? _mValue_TrackLatest;
+        private bool _mUnknown_TrackLatest;
+        public bool? TrackLatest
+        {
+            get
+            {
+                if (!_mUnknown_TrackLatest) return _mValue_TrackLatest;
+                throw new UndeferrableValueException("Value 'TaskDefinition.TrackLatest' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for volumes that containers in your task may use. Detailed below.
         /// </summary>
-        [Input("volumes")]
+        [PolicyResourceProperty("volumes", "_mUnknown_Volumes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TaskDefinitionVolume>> _mVolumes;
-
-        public List<Outputs.TaskDefinitionVolume>? Volumes => _mVolumes.GetValue("volumes");
+        private List<Outputs.TaskDefinitionVolume>? _mValue_Volumes;
+        private bool _mUnknown_Volumes;
+        public List<Outputs.TaskDefinitionVolume>? Volumes
+        {
+            get
+            {
+                if (!_mUnknown_Volumes) return _mValue_Volumes;
+                throw new UndeferrableValueException("Value 'TaskDefinition.Volumes' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ecs/taskDefinition:TaskDefinition")]
@@ -240,185 +408,325 @@ namespace Pulumi.PolicyPacks.Aws.Ecs
         /// <summary>
         /// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         /// </summary>
-        [Input("containerDefinitions")]
+        [PolicyResourceProperty("containerDefinitions", "_mUnknown_ContainerDefinitions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerDefinitions;
-
-        public string? ContainerDefinitions => _mContainerDefinitions.GetValue("containerDefinitions");
+        private string? _mValue_ContainerDefinitions;
+        private bool _mUnknown_ContainerDefinitions;
+        public string? ContainerDefinitions
+        {
+            get
+            {
+                if (!_mUnknown_ContainerDefinitions) return _mValue_ContainerDefinitions;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.ContainerDefinitions' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         /// </summary>
-        [Input("cpu")]
+        [PolicyResourceProperty("cpu", "_mUnknown_Cpu")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCpu;
-
-        public string? Cpu => _mCpu.GetValue("cpu");
+        private string? _mValue_Cpu;
+        private bool _mUnknown_Cpu;
+        public string? Cpu
+        {
+            get
+            {
+                if (!_mUnknown_Cpu) return _mValue_Cpu;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.Cpu' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
         /// 
         /// **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         /// </summary>
-        [Input("enableFaultInjection")]
+        [PolicyResourceProperty("enableFaultInjection", "_mUnknown_EnableFaultInjection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableFaultInjection;
-
-        public bool? EnableFaultInjection => _mEnableFaultInjection.GetValue("enableFaultInjection");
+        private bool? _mValue_EnableFaultInjection;
+        private bool _mUnknown_EnableFaultInjection;
+        public bool? EnableFaultInjection
+        {
+            get
+            {
+                if (!_mUnknown_EnableFaultInjection) return _mValue_EnableFaultInjection;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.EnableFaultInjection' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         /// </summary>
-        [Input("ephemeralStorage")]
+        [PolicyResourceProperty("ephemeralStorage", "_mUnknown_EphemeralStorage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskDefinitionEphemeralStorageArgs> _mEphemeralStorage;
-
-        public Inputs.TaskDefinitionEphemeralStorageArgs? EphemeralStorage => _mEphemeralStorage.GetValue("ephemeralStorage");
+        private Inputs.TaskDefinitionEphemeralStorageArgs? _mValue_EphemeralStorage;
+        private bool _mUnknown_EphemeralStorage;
+        public Inputs.TaskDefinitionEphemeralStorageArgs? EphemeralStorage
+        {
+            get
+            {
+                if (!_mUnknown_EphemeralStorage) return _mValue_EphemeralStorage;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.EphemeralStorage' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique name for your task definition.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("family")]
+        [PolicyResourceProperty("family", "_mUnknown_Family")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFamily;
-
-        public string? Family => _mFamily.GetValue("family");
+        private string? _mValue_Family;
+        private bool _mUnknown_Family;
+        public string? Family
+        {
+            get
+            {
+                if (!_mUnknown_Family) return _mValue_Family;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.Family' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) with Inference Accelerators settings. Detailed below.
         /// </summary>
-        [Input("inferenceAccelerators")]
+        [PolicyResourceProperty("inferenceAccelerators", "_mUnknown_InferenceAccelerators")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TaskDefinitionInferenceAcceleratorArgs>> _mInferenceAccelerators;
-
-        public List<Inputs.TaskDefinitionInferenceAcceleratorArgs>? InferenceAccelerators => _mInferenceAccelerators.GetValue("inferenceAccelerators");
+        private List<Inputs.TaskDefinitionInferenceAcceleratorArgs>? _mValue_InferenceAccelerators;
+        private bool _mUnknown_InferenceAccelerators;
+        public List<Inputs.TaskDefinitionInferenceAcceleratorArgs>? InferenceAccelerators
+        {
+            get
+            {
+                if (!_mUnknown_InferenceAccelerators) return _mValue_InferenceAccelerators;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.InferenceAccelerators' is not present");
+            }
+        }
 
         /// <summary>
         /// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         /// </summary>
-        [Input("ipcMode")]
+        [PolicyResourceProperty("ipcMode", "_mUnknown_IpcMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpcMode;
-
-        public string? IpcMode => _mIpcMode.GetValue("ipcMode");
+        private string? _mValue_IpcMode;
+        private bool _mUnknown_IpcMode;
+        public string? IpcMode
+        {
+            get
+            {
+                if (!_mUnknown_IpcMode) return _mValue_IpcMode;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.IpcMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         /// </summary>
-        [Input("memory")]
+        [PolicyResourceProperty("memory", "_mUnknown_Memory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMemory;
-
-        public string? Memory => _mMemory.GetValue("memory");
+        private string? _mValue_Memory;
+        private bool _mUnknown_Memory;
+        public string? Memory
+        {
+            get
+            {
+                if (!_mUnknown_Memory) return _mValue_Memory;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.Memory' is not present");
+            }
+        }
 
         /// <summary>
         /// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
         /// </summary>
-        [Input("networkMode")]
+        [PolicyResourceProperty("networkMode", "_mUnknown_NetworkMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkMode;
-
-        public string? NetworkMode => _mNetworkMode.GetValue("networkMode");
+        private string? _mValue_NetworkMode;
+        private bool _mUnknown_NetworkMode;
+        public string? NetworkMode
+        {
+            get
+            {
+                if (!_mUnknown_NetworkMode) return _mValue_NetworkMode;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.NetworkMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
         /// </summary>
-        [Input("pidMode")]
+        [PolicyResourceProperty("pidMode", "_mUnknown_PidMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPidMode;
-
-        public string? PidMode => _mPidMode.GetValue("pidMode");
+        private string? _mValue_PidMode;
+        private bool _mUnknown_PidMode;
+        public string? PidMode
+        {
+            get
+            {
+                if (!_mUnknown_PidMode) return _mValue_PidMode;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.PidMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         /// </summary>
-        [Input("placementConstraints")]
+        [PolicyResourceProperty("placementConstraints", "_mUnknown_PlacementConstraints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TaskDefinitionPlacementConstraintArgs>> _mPlacementConstraints;
-
-        public List<Inputs.TaskDefinitionPlacementConstraintArgs>? PlacementConstraints => _mPlacementConstraints.GetValue("placementConstraints");
+        private List<Inputs.TaskDefinitionPlacementConstraintArgs>? _mValue_PlacementConstraints;
+        private bool _mUnknown_PlacementConstraints;
+        public List<Inputs.TaskDefinitionPlacementConstraintArgs>? PlacementConstraints
+        {
+            get
+            {
+                if (!_mUnknown_PlacementConstraints) return _mValue_PlacementConstraints;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.PlacementConstraints' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the App Mesh proxy. Detailed below.
         /// </summary>
-        [Input("proxyConfiguration")]
+        [PolicyResourceProperty("proxyConfiguration", "_mUnknown_ProxyConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskDefinitionProxyConfigurationArgs> _mProxyConfiguration;
-
-        public Inputs.TaskDefinitionProxyConfigurationArgs? ProxyConfiguration => _mProxyConfiguration.GetValue("proxyConfiguration");
+        private Inputs.TaskDefinitionProxyConfigurationArgs? _mValue_ProxyConfiguration;
+        private bool _mUnknown_ProxyConfiguration;
+        public Inputs.TaskDefinitionProxyConfigurationArgs? ProxyConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ProxyConfiguration) return _mValue_ProxyConfiguration;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.ProxyConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
         /// </summary>
-        [Input("requiresCompatibilities")]
+        [PolicyResourceProperty("requiresCompatibilities", "_mUnknown_RequiresCompatibilities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRequiresCompatibilities;
-
-        public List<string>? RequiresCompatibilities => _mRequiresCompatibilities.GetValue("requiresCompatibilities");
+        private List<string>? _mValue_RequiresCompatibilities;
+        private bool _mUnknown_RequiresCompatibilities;
+        public List<string>? RequiresCompatibilities
+        {
+            get
+            {
+                if (!_mUnknown_RequiresCompatibilities) return _mValue_RequiresCompatibilities;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.RequiresCompatibilities' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for runtime_platform that containers in your task may use.
         /// </summary>
-        [Input("runtimePlatform")]
+        [PolicyResourceProperty("runtimePlatform", "_mUnknown_RuntimePlatform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskDefinitionRuntimePlatformArgs> _mRuntimePlatform;
-
-        public Inputs.TaskDefinitionRuntimePlatformArgs? RuntimePlatform => _mRuntimePlatform.GetValue("runtimePlatform");
+        private Inputs.TaskDefinitionRuntimePlatformArgs? _mValue_RuntimePlatform;
+        private bool _mUnknown_RuntimePlatform;
+        public Inputs.TaskDefinitionRuntimePlatformArgs? RuntimePlatform
+        {
+            get
+            {
+                if (!_mUnknown_RuntimePlatform) return _mValue_RuntimePlatform;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.RuntimePlatform' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.SkipDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         /// </summary>
-        [Input("taskRoleArn")]
+        [PolicyResourceProperty("taskRoleArn", "_mUnknown_TaskRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskRoleArn;
-
-        public string? TaskRoleArn => _mTaskRoleArn.GetValue("taskRoleArn");
+        private string? _mValue_TaskRoleArn;
+        private bool _mUnknown_TaskRoleArn;
+        public string? TaskRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_TaskRoleArn) return _mValue_TaskRoleArn;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.TaskRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
         /// </summary>
-        [Input("trackLatest")]
+        [PolicyResourceProperty("trackLatest", "_mUnknown_TrackLatest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTrackLatest;
-
-        public bool? TrackLatest => _mTrackLatest.GetValue("trackLatest");
+        private bool? _mValue_TrackLatest;
+        private bool _mUnknown_TrackLatest;
+        public bool? TrackLatest
+        {
+            get
+            {
+                if (!_mUnknown_TrackLatest) return _mValue_TrackLatest;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.TrackLatest' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for volumes that containers in your task may use. Detailed below.
         /// </summary>
-        [Input("volumes")]
+        [PolicyResourceProperty("volumes", "_mUnknown_Volumes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TaskDefinitionVolumeArgs>> _mVolumes;
-
-        public List<Inputs.TaskDefinitionVolumeArgs>? Volumes => _mVolumes.GetValue("volumes");
+        private List<Inputs.TaskDefinitionVolumeArgs>? _mValue_Volumes;
+        private bool _mUnknown_Volumes;
+        public List<Inputs.TaskDefinitionVolumeArgs>? Volumes
+        {
+            get
+            {
+                if (!_mUnknown_Volumes) return _mValue_Volumes;
+                throw new UndeferrableValueException("Value 'TaskDefinitionArgs.Volumes' is not present");
+            }
+        }
     }
 }

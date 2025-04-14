@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Inputs
         /// <summary>
         /// Server certificate configurations that are associated with the TLS configuration. Detailed below.
         /// </summary>
-        [Input("serverCertificateConfiguration")]
+        [PolicyResourceProperty("serverCertificateConfiguration", "_mUnknown_ServerCertificateConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs> _mServerCertificateConfiguration;
-
-        public Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs? ServerCertificateConfiguration => _mServerCertificateConfiguration.GetValue("serverCertificateConfiguration");
+        private Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs? _mValue_ServerCertificateConfiguration;
+        private bool _mUnknown_ServerCertificateConfiguration;
+        public Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs? ServerCertificateConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ServerCertificateConfiguration) return _mValue_ServerCertificateConfiguration;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationArgs.ServerCertificateConfiguration' is not present");
+            }
+        }
     }
 }

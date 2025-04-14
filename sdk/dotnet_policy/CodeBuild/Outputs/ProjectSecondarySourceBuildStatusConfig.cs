@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// Specifies the context of the build status CodeBuild sends to the source provider. The usage of
         /// this parameter depends on the source provider.
         /// </summary>
-        [Input("context")]
+        [PolicyResourceProperty("context", "_mUnknown_Context")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContext;
-
-        public string? Context => _mContext.GetValue("context");
+        private string? _mValue_Context;
+        private bool _mUnknown_Context;
+        public string? Context
+        {
+            get
+            {
+                if (!_mUnknown_Context) return _mValue_Context;
+                throw new UndeferrableValueException("Value 'ProjectSecondarySourceBuildStatusConfig.Context' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the target url of the build status CodeBuild sends to the source provider. The
         /// usage of this parameter depends on the source provider.
         /// </summary>
-        [Input("targetUrl")]
+        [PolicyResourceProperty("targetUrl", "_mUnknown_TargetUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetUrl;
-
-        public string? TargetUrl => _mTargetUrl.GetValue("targetUrl");
+        private string? _mValue_TargetUrl;
+        private bool _mUnknown_TargetUrl;
+        public string? TargetUrl
+        {
+            get
+            {
+                if (!_mUnknown_TargetUrl) return _mValue_TargetUrl;
+                throw new UndeferrableValueException("Value 'ProjectSecondarySourceBuildStatusConfig.TargetUrl' is not present");
+            }
+        }
     }
 }

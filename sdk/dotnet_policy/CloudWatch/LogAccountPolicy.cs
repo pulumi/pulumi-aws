@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
         /// </summary>
-        [Input("policyDocument")]
+        [PolicyResourceProperty("policyDocument", "_mUnknown_PolicyDocument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
-
-        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
+        private string? _mValue_PolicyDocument;
+        private bool _mUnknown_PolicyDocument;
+        public string? PolicyDocument
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDocument) return _mValue_PolicyDocument;
+                throw new UndeferrableValueException("Value 'LogAccountPolicy.PolicyDocument' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the account policy.
         /// </summary>
-        [Input("policyName")]
+        [PolicyResourceProperty("policyName", "_mUnknown_PolicyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyName;
-
-        public string? PolicyName => _mPolicyName.GetValue("policyName");
+        private string? _mValue_PolicyName;
+        private bool _mUnknown_PolicyName;
+        public string? PolicyName
+        {
+            get
+            {
+                if (!_mUnknown_PolicyName) return _mValue_PolicyName;
+                throw new UndeferrableValueException("Value 'LogAccountPolicy.PolicyName' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
         /// </summary>
-        [Input("policyType")]
+        [PolicyResourceProperty("policyType", "_mUnknown_PolicyType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyType;
-
-        public string? PolicyType => _mPolicyType.GetValue("policyType");
+        private string? _mValue_PolicyType;
+        private bool _mUnknown_PolicyType;
+        public string? PolicyType
+        {
+            get
+            {
+                if (!_mUnknown_PolicyType) return _mValue_PolicyType;
+                throw new UndeferrableValueException("Value 'LogAccountPolicy.PolicyType' is not present");
+            }
+        }
 
         /// <summary>
         /// Currently defaults to and only accepts the value: `ALL`.
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
-
-        public string? Scope => _mScope.GetValue("scope");
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'LogAccountPolicy.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
         /// </summary>
-        [Input("selectionCriteria")]
+        [PolicyResourceProperty("selectionCriteria", "_mUnknown_SelectionCriteria")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSelectionCriteria;
-
-        public string? SelectionCriteria => _mSelectionCriteria.GetValue("selectionCriteria");
+        private string? _mValue_SelectionCriteria;
+        private bool _mUnknown_SelectionCriteria;
+        public string? SelectionCriteria
+        {
+            get
+            {
+                if (!_mUnknown_SelectionCriteria) return _mValue_SelectionCriteria;
+                throw new UndeferrableValueException("Value 'LogAccountPolicy.SelectionCriteria' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/logAccountPolicy:LogAccountPolicy")]
@@ -65,46 +100,81 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
         /// </summary>
-        [Input("policyDocument")]
+        [PolicyResourceProperty("policyDocument", "_mUnknown_PolicyDocument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
-
-        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
+        private string? _mValue_PolicyDocument;
+        private bool _mUnknown_PolicyDocument;
+        public string? PolicyDocument
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDocument) return _mValue_PolicyDocument;
+                throw new UndeferrableValueException("Value 'LogAccountPolicyArgs.PolicyDocument' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the account policy.
         /// </summary>
-        [Input("policyName")]
+        [PolicyResourceProperty("policyName", "_mUnknown_PolicyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyName;
-
-        public string? PolicyName => _mPolicyName.GetValue("policyName");
+        private string? _mValue_PolicyName;
+        private bool _mUnknown_PolicyName;
+        public string? PolicyName
+        {
+            get
+            {
+                if (!_mUnknown_PolicyName) return _mValue_PolicyName;
+                throw new UndeferrableValueException("Value 'LogAccountPolicyArgs.PolicyName' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
         /// </summary>
-        [Input("policyType")]
+        [PolicyResourceProperty("policyType", "_mUnknown_PolicyType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyType;
-
-        public string? PolicyType => _mPolicyType.GetValue("policyType");
+        private string? _mValue_PolicyType;
+        private bool _mUnknown_PolicyType;
+        public string? PolicyType
+        {
+            get
+            {
+                if (!_mUnknown_PolicyType) return _mValue_PolicyType;
+                throw new UndeferrableValueException("Value 'LogAccountPolicyArgs.PolicyType' is not present");
+            }
+        }
 
         /// <summary>
         /// Currently defaults to and only accepts the value: `ALL`.
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
-
-        public string? Scope => _mScope.GetValue("scope");
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'LogAccountPolicyArgs.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
         /// </summary>
-        [Input("selectionCriteria")]
+        [PolicyResourceProperty("selectionCriteria", "_mUnknown_SelectionCriteria")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSelectionCriteria;
-
-        public string? SelectionCriteria => _mSelectionCriteria.GetValue("selectionCriteria");
+        private string? _mValue_SelectionCriteria;
+        private bool _mUnknown_SelectionCriteria;
+        public string? SelectionCriteria
+        {
+            get
+            {
+                if (!_mUnknown_SelectionCriteria) return _mValue_SelectionCriteria;
+                throw new UndeferrableValueException("Value 'LogAccountPolicyArgs.SelectionCriteria' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// ARN of the model used to create vector embeddings for the knowledge base.
         /// </summary>
-        [Input("embeddingModelArn")]
+        [PolicyResourceProperty("embeddingModelArn", "_mUnknown_EmbeddingModelArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmbeddingModelArn;
-
-        public string? EmbeddingModelArn => _mEmbeddingModelArn.GetValue("embeddingModelArn");
+        private string? _mValue_EmbeddingModelArn;
+        private bool _mUnknown_EmbeddingModelArn;
+        public string? EmbeddingModelArn
+        {
+            get
+            {
+                if (!_mUnknown_EmbeddingModelArn) return _mValue_EmbeddingModelArn;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs.EmbeddingModelArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The embeddings model configuration details for the vector model used in Knowledge Base.  See `embedding_model_configuration` block for details.
         /// </summary>
-        [Input("embeddingModelConfiguration")]
+        [PolicyResourceProperty("embeddingModelConfiguration", "_mUnknown_EmbeddingModelConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs> _mEmbeddingModelConfiguration;
-
-        public Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs? EmbeddingModelConfiguration => _mEmbeddingModelConfiguration.GetValue("embeddingModelConfiguration");
+        private Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs? _mValue_EmbeddingModelConfiguration;
+        private bool _mUnknown_EmbeddingModelConfiguration;
+        public Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs? EmbeddingModelConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EmbeddingModelConfiguration) return _mValue_EmbeddingModelConfiguration;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs.EmbeddingModelConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// supplemental_data_storage_configuration.  See `supplemental_data_storage_configuration` block for details.
         /// </summary>
-        [Input("supplementalDataStorageConfiguration")]
+        [PolicyResourceProperty("supplementalDataStorageConfiguration", "_mUnknown_SupplementalDataStorageConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs> _mSupplementalDataStorageConfiguration;
-
-        public Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs? SupplementalDataStorageConfiguration => _mSupplementalDataStorageConfiguration.GetValue("supplementalDataStorageConfiguration");
+        private Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs? _mValue_SupplementalDataStorageConfiguration;
+        private bool _mUnknown_SupplementalDataStorageConfiguration;
+        public Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs? SupplementalDataStorageConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SupplementalDataStorageConfiguration) return _mValue_SupplementalDataStorageConfiguration;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs.SupplementalDataStorageConfiguration' is not present");
+            }
+        }
     }
 }

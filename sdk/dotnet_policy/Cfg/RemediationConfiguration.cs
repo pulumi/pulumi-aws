@@ -16,103 +16,180 @@ namespace Pulumi.PolicyPacks.Aws.Cfg
         /// <summary>
         /// ARN of the Config Remediation Configuration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'RemediationConfiguration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Remediation is triggered automatically if `true`.
         /// </summary>
-        [Input("automatic")]
+        [PolicyResourceProperty("automatic", "_mUnknown_Automatic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutomatic;
-
-        public bool? Automatic => _mAutomatic.GetValue("automatic");
+        private bool? _mValue_Automatic;
+        private bool _mUnknown_Automatic;
+        public bool? Automatic
+        {
+            get
+            {
+                if (!_mUnknown_Automatic) return _mValue_Automatic;
+                throw new UndeferrableValueException("Value 'RemediationConfiguration.Automatic' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the AWS Config rule.
         /// </summary>
-        [Input("configRuleName")]
+        [PolicyResourceProperty("configRuleName", "_mUnknown_ConfigRuleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigRuleName;
-
-        public string? ConfigRuleName => _mConfigRuleName.GetValue("configRuleName");
+        private string? _mValue_ConfigRuleName;
+        private bool _mUnknown_ConfigRuleName;
+        public string? ConfigRuleName
+        {
+            get
+            {
+                if (!_mUnknown_ConfigRuleName) return _mValue_ConfigRuleName;
+                throw new UndeferrableValueException("Value 'RemediationConfiguration.ConfigRuleName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for execution controls. See below.
         /// </summary>
-        [Input("executionControls")]
+        [PolicyResourceProperty("executionControls", "_mUnknown_ExecutionControls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RemediationConfigurationExecutionControls> _mExecutionControls;
-
-        public Outputs.RemediationConfigurationExecutionControls? ExecutionControls => _mExecutionControls.GetValue("executionControls");
+        private Outputs.RemediationConfigurationExecutionControls? _mValue_ExecutionControls;
+        private bool _mUnknown_ExecutionControls;
+        public Outputs.RemediationConfigurationExecutionControls? ExecutionControls
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionControls) return _mValue_ExecutionControls;
+                throw new UndeferrableValueException("Value 'RemediationConfiguration.ExecutionControls' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
         /// </summary>
-        [Input("maximumAutomaticAttempts")]
+        [PolicyResourceProperty("maximumAutomaticAttempts", "_mUnknown_MaximumAutomaticAttempts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumAutomaticAttempts;
-
-        public int? MaximumAutomaticAttempts => _mMaximumAutomaticAttempts.GetValue("maximumAutomaticAttempts");
+        private int? _mValue_MaximumAutomaticAttempts;
+        private bool _mUnknown_MaximumAutomaticAttempts;
+        public int? MaximumAutomaticAttempts
+        {
+            get
+            {
+                if (!_mUnknown_MaximumAutomaticAttempts) return _mValue_MaximumAutomaticAttempts;
+                throw new UndeferrableValueException("Value 'RemediationConfiguration.MaximumAutomaticAttempts' is not present");
+            }
+        }
 
         /// <summary>
         /// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RemediationConfigurationParameter>> _mParameters;
-
-        public List<Outputs.RemediationConfigurationParameter>? Parameters => _mParameters.GetValue("parameters");
+        private List<Outputs.RemediationConfigurationParameter>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Outputs.RemediationConfigurationParameter>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'RemediationConfiguration.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of resource.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'RemediationConfiguration.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         /// </summary>
-        [Input("retryAttemptSeconds")]
+        [PolicyResourceProperty("retryAttemptSeconds", "_mUnknown_RetryAttemptSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetryAttemptSeconds;
-
-        public int? RetryAttemptSeconds => _mRetryAttemptSeconds.GetValue("retryAttemptSeconds");
+        private int? _mValue_RetryAttemptSeconds;
+        private bool _mUnknown_RetryAttemptSeconds;
+        public int? RetryAttemptSeconds
+        {
+            get
+            {
+                if (!_mUnknown_RetryAttemptSeconds) return _mValue_RetryAttemptSeconds;
+                throw new UndeferrableValueException("Value 'RemediationConfiguration.RetryAttemptSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Target ID is the name of the public document.
         /// </summary>
-        [Input("targetId")]
+        [PolicyResourceProperty("targetId", "_mUnknown_TargetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetId;
-
-        public string? TargetId => _mTargetId.GetValue("targetId");
+        private string? _mValue_TargetId;
+        private bool _mUnknown_TargetId;
+        public string? TargetId
+        {
+            get
+            {
+                if (!_mUnknown_TargetId) return _mValue_TargetId;
+                throw new UndeferrableValueException("Value 'RemediationConfiguration.TargetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the target. Target executes remediation. For example, SSM document.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("targetType")]
+        [PolicyResourceProperty("targetType", "_mUnknown_TargetType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetType;
-
-        public string? TargetType => _mTargetType.GetValue("targetType");
+        private string? _mValue_TargetType;
+        private bool _mUnknown_TargetType;
+        public string? TargetType
+        {
+            get
+            {
+                if (!_mUnknown_TargetType) return _mValue_TargetType;
+                throw new UndeferrableValueException("Value 'RemediationConfiguration.TargetType' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the target. For example, version of the SSM document
         /// </summary>
-        [Input("targetVersion")]
+        [PolicyResourceProperty("targetVersion", "_mUnknown_TargetVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetVersion;
-
-        public string? TargetVersion => _mTargetVersion.GetValue("targetVersion");
+        private string? _mValue_TargetVersion;
+        private bool _mUnknown_TargetVersion;
+        public string? TargetVersion
+        {
+            get
+            {
+                if (!_mUnknown_TargetVersion) return _mValue_TargetVersion;
+                throw new UndeferrableValueException("Value 'RemediationConfiguration.TargetVersion' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cfg/remediationConfiguration:RemediationConfiguration")]
@@ -121,93 +198,163 @@ namespace Pulumi.PolicyPacks.Aws.Cfg
         /// <summary>
         /// Remediation is triggered automatically if `true`.
         /// </summary>
-        [Input("automatic")]
+        [PolicyResourceProperty("automatic", "_mUnknown_Automatic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutomatic;
-
-        public bool? Automatic => _mAutomatic.GetValue("automatic");
+        private bool? _mValue_Automatic;
+        private bool _mUnknown_Automatic;
+        public bool? Automatic
+        {
+            get
+            {
+                if (!_mUnknown_Automatic) return _mValue_Automatic;
+                throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.Automatic' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the AWS Config rule.
         /// </summary>
-        [Input("configRuleName")]
+        [PolicyResourceProperty("configRuleName", "_mUnknown_ConfigRuleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigRuleName;
-
-        public string? ConfigRuleName => _mConfigRuleName.GetValue("configRuleName");
+        private string? _mValue_ConfigRuleName;
+        private bool _mUnknown_ConfigRuleName;
+        public string? ConfigRuleName
+        {
+            get
+            {
+                if (!_mUnknown_ConfigRuleName) return _mValue_ConfigRuleName;
+                throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.ConfigRuleName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for execution controls. See below.
         /// </summary>
-        [Input("executionControls")]
+        [PolicyResourceProperty("executionControls", "_mUnknown_ExecutionControls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RemediationConfigurationExecutionControlsArgs> _mExecutionControls;
-
-        public Inputs.RemediationConfigurationExecutionControlsArgs? ExecutionControls => _mExecutionControls.GetValue("executionControls");
+        private Inputs.RemediationConfigurationExecutionControlsArgs? _mValue_ExecutionControls;
+        private bool _mUnknown_ExecutionControls;
+        public Inputs.RemediationConfigurationExecutionControlsArgs? ExecutionControls
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionControls) return _mValue_ExecutionControls;
+                throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.ExecutionControls' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
         /// </summary>
-        [Input("maximumAutomaticAttempts")]
+        [PolicyResourceProperty("maximumAutomaticAttempts", "_mUnknown_MaximumAutomaticAttempts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumAutomaticAttempts;
-
-        public int? MaximumAutomaticAttempts => _mMaximumAutomaticAttempts.GetValue("maximumAutomaticAttempts");
+        private int? _mValue_MaximumAutomaticAttempts;
+        private bool _mUnknown_MaximumAutomaticAttempts;
+        public int? MaximumAutomaticAttempts
+        {
+            get
+            {
+                if (!_mUnknown_MaximumAutomaticAttempts) return _mValue_MaximumAutomaticAttempts;
+                throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.MaximumAutomaticAttempts' is not present");
+            }
+        }
 
         /// <summary>
         /// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RemediationConfigurationParameterArgs>> _mParameters;
-
-        public List<Inputs.RemediationConfigurationParameterArgs>? Parameters => _mParameters.GetValue("parameters");
+        private List<Inputs.RemediationConfigurationParameterArgs>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Inputs.RemediationConfigurationParameterArgs>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of resource.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         /// </summary>
-        [Input("retryAttemptSeconds")]
+        [PolicyResourceProperty("retryAttemptSeconds", "_mUnknown_RetryAttemptSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetryAttemptSeconds;
-
-        public int? RetryAttemptSeconds => _mRetryAttemptSeconds.GetValue("retryAttemptSeconds");
+        private int? _mValue_RetryAttemptSeconds;
+        private bool _mUnknown_RetryAttemptSeconds;
+        public int? RetryAttemptSeconds
+        {
+            get
+            {
+                if (!_mUnknown_RetryAttemptSeconds) return _mValue_RetryAttemptSeconds;
+                throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.RetryAttemptSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Target ID is the name of the public document.
         /// </summary>
-        [Input("targetId")]
+        [PolicyResourceProperty("targetId", "_mUnknown_TargetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetId;
-
-        public string? TargetId => _mTargetId.GetValue("targetId");
+        private string? _mValue_TargetId;
+        private bool _mUnknown_TargetId;
+        public string? TargetId
+        {
+            get
+            {
+                if (!_mUnknown_TargetId) return _mValue_TargetId;
+                throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.TargetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the target. Target executes remediation. For example, SSM document.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("targetType")]
+        [PolicyResourceProperty("targetType", "_mUnknown_TargetType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetType;
-
-        public string? TargetType => _mTargetType.GetValue("targetType");
+        private string? _mValue_TargetType;
+        private bool _mUnknown_TargetType;
+        public string? TargetType
+        {
+            get
+            {
+                if (!_mUnknown_TargetType) return _mValue_TargetType;
+                throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.TargetType' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the target. For example, version of the SSM document
         /// </summary>
-        [Input("targetVersion")]
+        [PolicyResourceProperty("targetVersion", "_mUnknown_TargetVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetVersion;
-
-        public string? TargetVersion => _mTargetVersion.GetValue("targetVersion");
+        private string? _mValue_TargetVersion;
+        private bool _mUnknown_TargetVersion;
+        public string? TargetVersion
+        {
+            get
+            {
+                if (!_mUnknown_TargetVersion) return _mValue_TargetVersion;
+                throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.TargetVersion' is not present");
+            }
+        }
     }
 }

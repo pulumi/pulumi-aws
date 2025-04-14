@@ -16,107 +16,191 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift event notification subscription
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'EventSubscription.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS customer account associated with the Redshift event notification subscription
         /// </summary>
-        [Input("customerAwsId")]
+        [PolicyResourceProperty("customerAwsId", "_mUnknown_CustomerAwsId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerAwsId;
-
-        public string? CustomerAwsId => _mCustomerAwsId.GetValue("customerAwsId");
+        private string? _mValue_CustomerAwsId;
+        private bool _mUnknown_CustomerAwsId;
+        public string? CustomerAwsId
+        {
+            get
+            {
+                if (!_mUnknown_CustomerAwsId) return _mValue_CustomerAwsId;
+                throw new UndeferrableValueException("Value 'EventSubscription.CustomerAwsId' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean flag to enable/disable the subscription. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'EventSubscription.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
         /// </summary>
-        [Input("eventCategories")]
+        [PolicyResourceProperty("eventCategories", "_mUnknown_EventCategories")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEventCategories;
-
-        public List<string>? EventCategories => _mEventCategories.GetValue("eventCategories");
+        private List<string>? _mValue_EventCategories;
+        private bool _mUnknown_EventCategories;
+        public List<string>? EventCategories
+        {
+            get
+            {
+                if (!_mUnknown_EventCategories) return _mValue_EventCategories;
+                throw new UndeferrableValueException("Value 'EventSubscription.EventCategories' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Redshift event subscription.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EventSubscription.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
         /// </summary>
-        [Input("severity")]
+        [PolicyResourceProperty("severity", "_mUnknown_Severity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSeverity;
-
-        public string? Severity => _mSeverity.GetValue("severity");
+        private string? _mValue_Severity;
+        private bool _mUnknown_Severity;
+        public string? Severity
+        {
+            get
+            {
+                if (!_mUnknown_Severity) return _mValue_Severity;
+                throw new UndeferrableValueException("Value 'EventSubscription.Severity' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SNS topic to send events to.
         /// </summary>
-        [Input("snsTopicArn")]
+        [PolicyResourceProperty("snsTopicArn", "_mUnknown_SnsTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicArn;
-
-        public string? SnsTopicArn => _mSnsTopicArn.GetValue("snsTopicArn");
+        private string? _mValue_SnsTopicArn;
+        private bool _mUnknown_SnsTopicArn;
+        public string? SnsTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_SnsTopicArn) return _mValue_SnsTopicArn;
+                throw new UndeferrableValueException("Value 'EventSubscription.SnsTopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
         /// </summary>
-        [Input("sourceIds")]
+        [PolicyResourceProperty("sourceIds", "_mUnknown_SourceIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSourceIds;
-
-        public List<string>? SourceIds => _mSourceIds.GetValue("sourceIds");
+        private List<string>? _mValue_SourceIds;
+        private bool _mUnknown_SourceIds;
+        public List<string>? SourceIds
+        {
+            get
+            {
+                if (!_mUnknown_SourceIds) return _mValue_SourceIds;
+                throw new UndeferrableValueException("Value 'EventSubscription.SourceIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
         /// </summary>
-        [Input("sourceType")]
+        [PolicyResourceProperty("sourceType", "_mUnknown_SourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceType;
+        private string? _mValue_SourceType;
+        private bool _mUnknown_SourceType;
+        public string? SourceType
+        {
+            get
+            {
+                if (!_mUnknown_SourceType) return _mValue_SourceType;
+                throw new UndeferrableValueException("Value 'EventSubscription.SourceType' is not present");
+            }
+        }
 
-        public string? SourceType => _mSourceType.GetValue("sourceType");
-
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'EventSubscription.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EventSubscription.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'EventSubscription.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshift/eventSubscription:EventSubscription")]
@@ -125,73 +209,129 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// A boolean flag to enable/disable the subscription. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'EventSubscriptionArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
         /// </summary>
-        [Input("eventCategories")]
+        [PolicyResourceProperty("eventCategories", "_mUnknown_EventCategories")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEventCategories;
-
-        public List<string>? EventCategories => _mEventCategories.GetValue("eventCategories");
+        private List<string>? _mValue_EventCategories;
+        private bool _mUnknown_EventCategories;
+        public List<string>? EventCategories
+        {
+            get
+            {
+                if (!_mUnknown_EventCategories) return _mValue_EventCategories;
+                throw new UndeferrableValueException("Value 'EventSubscriptionArgs.EventCategories' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Redshift event subscription.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EventSubscriptionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
         /// </summary>
-        [Input("severity")]
+        [PolicyResourceProperty("severity", "_mUnknown_Severity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSeverity;
-
-        public string? Severity => _mSeverity.GetValue("severity");
+        private string? _mValue_Severity;
+        private bool _mUnknown_Severity;
+        public string? Severity
+        {
+            get
+            {
+                if (!_mUnknown_Severity) return _mValue_Severity;
+                throw new UndeferrableValueException("Value 'EventSubscriptionArgs.Severity' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SNS topic to send events to.
         /// </summary>
-        [Input("snsTopicArn")]
+        [PolicyResourceProperty("snsTopicArn", "_mUnknown_SnsTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicArn;
-
-        public string? SnsTopicArn => _mSnsTopicArn.GetValue("snsTopicArn");
+        private string? _mValue_SnsTopicArn;
+        private bool _mUnknown_SnsTopicArn;
+        public string? SnsTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_SnsTopicArn) return _mValue_SnsTopicArn;
+                throw new UndeferrableValueException("Value 'EventSubscriptionArgs.SnsTopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
         /// </summary>
-        [Input("sourceIds")]
+        [PolicyResourceProperty("sourceIds", "_mUnknown_SourceIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSourceIds;
-
-        public List<string>? SourceIds => _mSourceIds.GetValue("sourceIds");
+        private List<string>? _mValue_SourceIds;
+        private bool _mUnknown_SourceIds;
+        public List<string>? SourceIds
+        {
+            get
+            {
+                if (!_mUnknown_SourceIds) return _mValue_SourceIds;
+                throw new UndeferrableValueException("Value 'EventSubscriptionArgs.SourceIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
         /// </summary>
-        [Input("sourceType")]
+        [PolicyResourceProperty("sourceType", "_mUnknown_SourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceType;
-
-        public string? SourceType => _mSourceType.GetValue("sourceType");
+        private string? _mValue_SourceType;
+        private bool _mUnknown_SourceType;
+        public string? SourceType
+        {
+            get
+            {
+                if (!_mUnknown_SourceType) return _mValue_SourceType;
+                throw new UndeferrableValueException("Value 'EventSubscriptionArgs.SourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EventSubscriptionArgs.Tags' is not present");
+            }
+        }
     }
 }

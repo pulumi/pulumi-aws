@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.AppAutoScaling
         /// <summary>
         /// List of CloudWatch alarm ARNs associated with the scaling policy.
         /// </summary>
-        [Input("alarmArns")]
+        [PolicyResourceProperty("alarmArns", "_mUnknown_AlarmArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAlarmArns;
-
-        public List<string>? AlarmArns => _mAlarmArns.GetValue("alarmArns");
+        private List<string>? _mValue_AlarmArns;
+        private bool _mUnknown_AlarmArns;
+        public List<string>? AlarmArns
+        {
+            get
+            {
+                if (!_mUnknown_AlarmArns) return _mValue_AlarmArns;
+                throw new UndeferrableValueException("Value 'Policy.AlarmArns' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN assigned by AWS to the scaling policy.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Policy.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the policy. Must be between 1 and 255 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Policy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
         /// </summary>
-        [Input("policyType")]
+        [PolicyResourceProperty("policyType", "_mUnknown_PolicyType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyType;
-
-        public string? PolicyType => _mPolicyType.GetValue("policyType");
+        private string? _mValue_PolicyType;
+        private bool _mUnknown_PolicyType;
+        public string? PolicyType
+        {
+            get
+            {
+                if (!_mUnknown_PolicyType) return _mValue_PolicyType;
+                throw new UndeferrableValueException("Value 'Policy.PolicyType' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'Policy.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         /// </summary>
-        [Input("scalableDimension")]
+        [PolicyResourceProperty("scalableDimension", "_mUnknown_ScalableDimension")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScalableDimension;
-
-        public string? ScalableDimension => _mScalableDimension.GetValue("scalableDimension");
+        private string? _mValue_ScalableDimension;
+        private bool _mUnknown_ScalableDimension;
+        public string? ScalableDimension
+        {
+            get
+            {
+                if (!_mUnknown_ScalableDimension) return _mValue_ScalableDimension;
+                throw new UndeferrableValueException("Value 'Policy.ScalableDimension' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         /// </summary>
-        [Input("serviceNamespace")]
+        [PolicyResourceProperty("serviceNamespace", "_mUnknown_ServiceNamespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNamespace;
-
-        public string? ServiceNamespace => _mServiceNamespace.GetValue("serviceNamespace");
+        private string? _mValue_ServiceNamespace;
+        private bool _mUnknown_ServiceNamespace;
+        public string? ServiceNamespace
+        {
+            get
+            {
+                if (!_mUnknown_ServiceNamespace) return _mValue_ServiceNamespace;
+                throw new UndeferrableValueException("Value 'Policy.ServiceNamespace' is not present");
+            }
+        }
 
         /// <summary>
         /// Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
         /// </summary>
-        [Input("stepScalingPolicyConfiguration")]
+        [PolicyResourceProperty("stepScalingPolicyConfiguration", "_mUnknown_StepScalingPolicyConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyStepScalingPolicyConfiguration> _mStepScalingPolicyConfiguration;
-
-        public Outputs.PolicyStepScalingPolicyConfiguration? StepScalingPolicyConfiguration => _mStepScalingPolicyConfiguration.GetValue("stepScalingPolicyConfiguration");
+        private Outputs.PolicyStepScalingPolicyConfiguration? _mValue_StepScalingPolicyConfiguration;
+        private bool _mUnknown_StepScalingPolicyConfiguration;
+        public Outputs.PolicyStepScalingPolicyConfiguration? StepScalingPolicyConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_StepScalingPolicyConfiguration) return _mValue_StepScalingPolicyConfiguration;
+                throw new UndeferrableValueException("Value 'Policy.StepScalingPolicyConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         /// </summary>
-        [Input("targetTrackingScalingPolicyConfiguration")]
+        [PolicyResourceProperty("targetTrackingScalingPolicyConfiguration", "_mUnknown_TargetTrackingScalingPolicyConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyTargetTrackingScalingPolicyConfiguration> _mTargetTrackingScalingPolicyConfiguration;
-
-        public Outputs.PolicyTargetTrackingScalingPolicyConfiguration? TargetTrackingScalingPolicyConfiguration => _mTargetTrackingScalingPolicyConfiguration.GetValue("targetTrackingScalingPolicyConfiguration");
+        private Outputs.PolicyTargetTrackingScalingPolicyConfiguration? _mValue_TargetTrackingScalingPolicyConfiguration;
+        private bool _mUnknown_TargetTrackingScalingPolicyConfiguration;
+        public Outputs.PolicyTargetTrackingScalingPolicyConfiguration? TargetTrackingScalingPolicyConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_TargetTrackingScalingPolicyConfiguration) return _mValue_TargetTrackingScalingPolicyConfiguration;
+                throw new UndeferrableValueException("Value 'Policy.TargetTrackingScalingPolicyConfiguration' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appautoscaling/policy:Policy")]
@@ -101,64 +164,113 @@ namespace Pulumi.PolicyPacks.Aws.AppAutoScaling
         /// <summary>
         /// Name of the policy. Must be between 1 and 255 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PolicyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
         /// </summary>
-        [Input("policyType")]
+        [PolicyResourceProperty("policyType", "_mUnknown_PolicyType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyType;
-
-        public string? PolicyType => _mPolicyType.GetValue("policyType");
+        private string? _mValue_PolicyType;
+        private bool _mUnknown_PolicyType;
+        public string? PolicyType
+        {
+            get
+            {
+                if (!_mUnknown_PolicyType) return _mValue_PolicyType;
+                throw new UndeferrableValueException("Value 'PolicyArgs.PolicyType' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'PolicyArgs.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         /// </summary>
-        [Input("scalableDimension")]
+        [PolicyResourceProperty("scalableDimension", "_mUnknown_ScalableDimension")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScalableDimension;
-
-        public string? ScalableDimension => _mScalableDimension.GetValue("scalableDimension");
+        private string? _mValue_ScalableDimension;
+        private bool _mUnknown_ScalableDimension;
+        public string? ScalableDimension
+        {
+            get
+            {
+                if (!_mUnknown_ScalableDimension) return _mValue_ScalableDimension;
+                throw new UndeferrableValueException("Value 'PolicyArgs.ScalableDimension' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         /// </summary>
-        [Input("serviceNamespace")]
+        [PolicyResourceProperty("serviceNamespace", "_mUnknown_ServiceNamespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNamespace;
-
-        public string? ServiceNamespace => _mServiceNamespace.GetValue("serviceNamespace");
+        private string? _mValue_ServiceNamespace;
+        private bool _mUnknown_ServiceNamespace;
+        public string? ServiceNamespace
+        {
+            get
+            {
+                if (!_mUnknown_ServiceNamespace) return _mValue_ServiceNamespace;
+                throw new UndeferrableValueException("Value 'PolicyArgs.ServiceNamespace' is not present");
+            }
+        }
 
         /// <summary>
         /// Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
         /// </summary>
-        [Input("stepScalingPolicyConfiguration")]
+        [PolicyResourceProperty("stepScalingPolicyConfiguration", "_mUnknown_StepScalingPolicyConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyStepScalingPolicyConfigurationArgs> _mStepScalingPolicyConfiguration;
-
-        public Inputs.PolicyStepScalingPolicyConfigurationArgs? StepScalingPolicyConfiguration => _mStepScalingPolicyConfiguration.GetValue("stepScalingPolicyConfiguration");
+        private Inputs.PolicyStepScalingPolicyConfigurationArgs? _mValue_StepScalingPolicyConfiguration;
+        private bool _mUnknown_StepScalingPolicyConfiguration;
+        public Inputs.PolicyStepScalingPolicyConfigurationArgs? StepScalingPolicyConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_StepScalingPolicyConfiguration) return _mValue_StepScalingPolicyConfiguration;
+                throw new UndeferrableValueException("Value 'PolicyArgs.StepScalingPolicyConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         /// </summary>
-        [Input("targetTrackingScalingPolicyConfiguration")]
+        [PolicyResourceProperty("targetTrackingScalingPolicyConfiguration", "_mUnknown_TargetTrackingScalingPolicyConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs> _mTargetTrackingScalingPolicyConfiguration;
-
-        public Inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs? TargetTrackingScalingPolicyConfiguration => _mTargetTrackingScalingPolicyConfiguration.GetValue("targetTrackingScalingPolicyConfiguration");
+        private Inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs? _mValue_TargetTrackingScalingPolicyConfiguration;
+        private bool _mUnknown_TargetTrackingScalingPolicyConfiguration;
+        public Inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs? TargetTrackingScalingPolicyConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_TargetTrackingScalingPolicyConfiguration) return _mValue_TargetTrackingScalingPolicyConfiguration;
+                throw new UndeferrableValueException("Value 'PolicyArgs.TargetTrackingScalingPolicyConfiguration' is not present");
+            }
+        }
     }
 }

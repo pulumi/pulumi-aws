@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// The ARN of the domain identity.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DomainIdentity.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The domain name to assign to SES
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'DomainIdentity.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
         /// </summary>
-        [Input("verificationToken")]
+        [PolicyResourceProperty("verificationToken", "_mUnknown_VerificationToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerificationToken;
-
-        public string? VerificationToken => _mVerificationToken.GetValue("verificationToken");
+        private string? _mValue_VerificationToken;
+        private bool _mUnknown_VerificationToken;
+        public string? VerificationToken
+        {
+            get
+            {
+                if (!_mUnknown_VerificationToken) return _mValue_VerificationToken;
+                throw new UndeferrableValueException("Value 'DomainIdentity.VerificationToken' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ses/domainIdentity:DomainIdentity")]
@@ -47,10 +68,17 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// The domain name to assign to SES
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'DomainIdentityArgs.Domain' is not present");
+            }
+        }
     }
 }

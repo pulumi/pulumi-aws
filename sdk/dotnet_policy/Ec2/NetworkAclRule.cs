@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
         /// </summary>
-        [Input("cidrBlock")]
+        [PolicyResourceProperty("cidrBlock", "_mUnknown_CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
-
-        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
+        private string? _mValue_CidrBlock;
+        private bool _mUnknown_CidrBlock;
+        public string? CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_CidrBlock) return _mValue_CidrBlock;
+                throw new UndeferrableValueException("Value 'NetworkAclRule.CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
         /// </summary>
-        [Input("egress")]
+        [PolicyResourceProperty("egress", "_mUnknown_Egress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEgress;
-
-        public bool? Egress => _mEgress.GetValue("egress");
+        private bool? _mValue_Egress;
+        private bool _mUnknown_Egress;
+        public bool? Egress
+        {
+            get
+            {
+                if (!_mUnknown_Egress) return _mValue_Egress;
+                throw new UndeferrableValueException("Value 'NetworkAclRule.Egress' is not present");
+            }
+        }
 
         /// <summary>
         /// The from port to match.
         /// </summary>
-        [Input("fromPort")]
+        [PolicyResourceProperty("fromPort", "_mUnknown_FromPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFromPort;
-
-        public int? FromPort => _mFromPort.GetValue("fromPort");
+        private int? _mValue_FromPort;
+        private bool _mUnknown_FromPort;
+        public int? FromPort
+        {
+            get
+            {
+                if (!_mUnknown_FromPort) return _mValue_FromPort;
+                throw new UndeferrableValueException("Value 'NetworkAclRule.FromPort' is not present");
+            }
+        }
 
         /// <summary>
         /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
@@ -49,74 +70,130 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// 
         /// &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         /// </summary>
-        [Input("icmpCode")]
+        [PolicyResourceProperty("icmpCode", "_mUnknown_IcmpCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIcmpCode;
-
-        public int? IcmpCode => _mIcmpCode.GetValue("icmpCode");
+        private int? _mValue_IcmpCode;
+        private bool _mUnknown_IcmpCode;
+        public int? IcmpCode
+        {
+            get
+            {
+                if (!_mUnknown_IcmpCode) return _mValue_IcmpCode;
+                throw new UndeferrableValueException("Value 'NetworkAclRule.IcmpCode' is not present");
+            }
+        }
 
         /// <summary>
         /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         /// </summary>
-        [Input("icmpType")]
+        [PolicyResourceProperty("icmpType", "_mUnknown_IcmpType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIcmpType;
-
-        public int? IcmpType => _mIcmpType.GetValue("icmpType");
+        private int? _mValue_IcmpType;
+        private bool _mUnknown_IcmpType;
+        public int? IcmpType
+        {
+            get
+            {
+                if (!_mUnknown_IcmpType) return _mValue_IcmpType;
+                throw new UndeferrableValueException("Value 'NetworkAclRule.IcmpType' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv6 CIDR block to allow or deny.
         /// </summary>
-        [Input("ipv6CidrBlock")]
+        [PolicyResourceProperty("ipv6CidrBlock", "_mUnknown_Ipv6CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlock;
-
-        public string? Ipv6CidrBlock => _mIpv6CidrBlock.GetValue("ipv6CidrBlock");
+        private string? _mValue_Ipv6CidrBlock;
+        private bool _mUnknown_Ipv6CidrBlock;
+        public string? Ipv6CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6CidrBlock) return _mValue_Ipv6CidrBlock;
+                throw new UndeferrableValueException("Value 'NetworkAclRule.Ipv6CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the network ACL.
         /// </summary>
-        [Input("networkAclId")]
+        [PolicyResourceProperty("networkAclId", "_mUnknown_NetworkAclId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkAclId;
-
-        public string? NetworkAclId => _mNetworkAclId.GetValue("networkAclId");
+        private string? _mValue_NetworkAclId;
+        private bool _mUnknown_NetworkAclId;
+        public string? NetworkAclId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkAclId) return _mValue_NetworkAclId;
+                throw new UndeferrableValueException("Value 'NetworkAclRule.NetworkAclId' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol. A value of -1 means all protocols.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'NetworkAclRule.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
         /// </summary>
-        [Input("ruleAction")]
+        [PolicyResourceProperty("ruleAction", "_mUnknown_RuleAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleAction;
-
-        public string? RuleAction => _mRuleAction.GetValue("ruleAction");
+        private string? _mValue_RuleAction;
+        private bool _mUnknown_RuleAction;
+        public string? RuleAction
+        {
+            get
+            {
+                if (!_mUnknown_RuleAction) return _mValue_RuleAction;
+                throw new UndeferrableValueException("Value 'NetworkAclRule.RuleAction' is not present");
+            }
+        }
 
         /// <summary>
         /// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
         /// </summary>
-        [Input("ruleNumber")]
+        [PolicyResourceProperty("ruleNumber", "_mUnknown_RuleNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRuleNumber;
-
-        public int? RuleNumber => _mRuleNumber.GetValue("ruleNumber");
+        private int? _mValue_RuleNumber;
+        private bool _mUnknown_RuleNumber;
+        public int? RuleNumber
+        {
+            get
+            {
+                if (!_mUnknown_RuleNumber) return _mValue_RuleNumber;
+                throw new UndeferrableValueException("Value 'NetworkAclRule.RuleNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// The to port to match.
         /// </summary>
-        [Input("toPort")]
+        [PolicyResourceProperty("toPort", "_mUnknown_ToPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mToPort;
-
-        public int? ToPort => _mToPort.GetValue("toPort");
+        private int? _mValue_ToPort;
+        private bool _mUnknown_ToPort;
+        public int? ToPort
+        {
+            get
+            {
+                if (!_mUnknown_ToPort) return _mValue_ToPort;
+                throw new UndeferrableValueException("Value 'NetworkAclRule.ToPort' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/networkAclRule:NetworkAclRule")]
@@ -125,29 +202,50 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
         /// </summary>
-        [Input("cidrBlock")]
+        [PolicyResourceProperty("cidrBlock", "_mUnknown_CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
-
-        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
+        private string? _mValue_CidrBlock;
+        private bool _mUnknown_CidrBlock;
+        public string? CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_CidrBlock) return _mValue_CidrBlock;
+                throw new UndeferrableValueException("Value 'NetworkAclRuleArgs.CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
         /// </summary>
-        [Input("egress")]
+        [PolicyResourceProperty("egress", "_mUnknown_Egress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEgress;
-
-        public bool? Egress => _mEgress.GetValue("egress");
+        private bool? _mValue_Egress;
+        private bool _mUnknown_Egress;
+        public bool? Egress
+        {
+            get
+            {
+                if (!_mUnknown_Egress) return _mValue_Egress;
+                throw new UndeferrableValueException("Value 'NetworkAclRuleArgs.Egress' is not present");
+            }
+        }
 
         /// <summary>
         /// The from port to match.
         /// </summary>
-        [Input("fromPort")]
+        [PolicyResourceProperty("fromPort", "_mUnknown_FromPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFromPort;
-
-        public int? FromPort => _mFromPort.GetValue("fromPort");
+        private int? _mValue_FromPort;
+        private bool _mUnknown_FromPort;
+        public int? FromPort
+        {
+            get
+            {
+                if (!_mUnknown_FromPort) return _mValue_FromPort;
+                throw new UndeferrableValueException("Value 'NetworkAclRuleArgs.FromPort' is not present");
+            }
+        }
 
         /// <summary>
         /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
@@ -158,73 +256,129 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// 
         /// &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         /// </summary>
-        [Input("icmpCode")]
+        [PolicyResourceProperty("icmpCode", "_mUnknown_IcmpCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIcmpCode;
-
-        public int? IcmpCode => _mIcmpCode.GetValue("icmpCode");
+        private int? _mValue_IcmpCode;
+        private bool _mUnknown_IcmpCode;
+        public int? IcmpCode
+        {
+            get
+            {
+                if (!_mUnknown_IcmpCode) return _mValue_IcmpCode;
+                throw new UndeferrableValueException("Value 'NetworkAclRuleArgs.IcmpCode' is not present");
+            }
+        }
 
         /// <summary>
         /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         /// </summary>
-        [Input("icmpType")]
+        [PolicyResourceProperty("icmpType", "_mUnknown_IcmpType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIcmpType;
-
-        public int? IcmpType => _mIcmpType.GetValue("icmpType");
+        private int? _mValue_IcmpType;
+        private bool _mUnknown_IcmpType;
+        public int? IcmpType
+        {
+            get
+            {
+                if (!_mUnknown_IcmpType) return _mValue_IcmpType;
+                throw new UndeferrableValueException("Value 'NetworkAclRuleArgs.IcmpType' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv6 CIDR block to allow or deny.
         /// </summary>
-        [Input("ipv6CidrBlock")]
+        [PolicyResourceProperty("ipv6CidrBlock", "_mUnknown_Ipv6CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlock;
-
-        public string? Ipv6CidrBlock => _mIpv6CidrBlock.GetValue("ipv6CidrBlock");
+        private string? _mValue_Ipv6CidrBlock;
+        private bool _mUnknown_Ipv6CidrBlock;
+        public string? Ipv6CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6CidrBlock) return _mValue_Ipv6CidrBlock;
+                throw new UndeferrableValueException("Value 'NetworkAclRuleArgs.Ipv6CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the network ACL.
         /// </summary>
-        [Input("networkAclId")]
+        [PolicyResourceProperty("networkAclId", "_mUnknown_NetworkAclId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkAclId;
-
-        public string? NetworkAclId => _mNetworkAclId.GetValue("networkAclId");
+        private string? _mValue_NetworkAclId;
+        private bool _mUnknown_NetworkAclId;
+        public string? NetworkAclId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkAclId) return _mValue_NetworkAclId;
+                throw new UndeferrableValueException("Value 'NetworkAclRuleArgs.NetworkAclId' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol. A value of -1 means all protocols.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'NetworkAclRuleArgs.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
         /// </summary>
-        [Input("ruleAction")]
+        [PolicyResourceProperty("ruleAction", "_mUnknown_RuleAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleAction;
-
-        public string? RuleAction => _mRuleAction.GetValue("ruleAction");
+        private string? _mValue_RuleAction;
+        private bool _mUnknown_RuleAction;
+        public string? RuleAction
+        {
+            get
+            {
+                if (!_mUnknown_RuleAction) return _mValue_RuleAction;
+                throw new UndeferrableValueException("Value 'NetworkAclRuleArgs.RuleAction' is not present");
+            }
+        }
 
         /// <summary>
         /// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
         /// </summary>
-        [Input("ruleNumber")]
+        [PolicyResourceProperty("ruleNumber", "_mUnknown_RuleNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRuleNumber;
-
-        public int? RuleNumber => _mRuleNumber.GetValue("ruleNumber");
+        private int? _mValue_RuleNumber;
+        private bool _mUnknown_RuleNumber;
+        public int? RuleNumber
+        {
+            get
+            {
+                if (!_mUnknown_RuleNumber) return _mValue_RuleNumber;
+                throw new UndeferrableValueException("Value 'NetworkAclRuleArgs.RuleNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// The to port to match.
         /// </summary>
-        [Input("toPort")]
+        [PolicyResourceProperty("toPort", "_mUnknown_ToPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mToPort;
-
-        public int? ToPort => _mToPort.GetValue("toPort");
+        private int? _mValue_ToPort;
+        private bool _mUnknown_ToPort;
+        public int? ToPort
+        {
+            get
+            {
+                if (!_mUnknown_ToPort) return _mValue_ToPort;
+                throw new UndeferrableValueException("Value 'NetworkAclRuleArgs.ToPort' is not present");
+            }
+        }
     }
 }

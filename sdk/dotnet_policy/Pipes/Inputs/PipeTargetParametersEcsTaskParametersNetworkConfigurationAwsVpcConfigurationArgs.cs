@@ -15,22 +15,43 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Inputs
         /// <summary>
         /// Specifies whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
         /// </summary>
-        [Input("assignPublicIp")]
+        [PolicyResourceProperty("assignPublicIp", "_mUnknown_AssignPublicIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssignPublicIp;
+        private string? _mValue_AssignPublicIp;
+        private bool _mUnknown_AssignPublicIp;
+        public string? AssignPublicIp
+        {
+            get
+            {
+                if (!_mUnknown_AssignPublicIp) return _mValue_AssignPublicIp;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs.AssignPublicIp' is not present");
+            }
+        }
 
-        public string? AssignPublicIp => _mAssignPublicIp.GetValue("assignPublicIp");
-
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs.SecurityGroups' is not present");
+            }
+        }
 
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
-
-        [Input("subnets")]
+        [PolicyResourceProperty("subnets", "_mUnknown_Subnets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnets;
-
-        public List<string>? Subnets => _mSubnets.GetValue("subnets");
+        private List<string>? _mValue_Subnets;
+        private bool _mUnknown_Subnets;
+        public List<string>? Subnets
+        {
+            get
+            {
+                if (!_mUnknown_Subnets) return _mValue_Subnets;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs.Subnets' is not present");
+            }
+        }
     }
 }

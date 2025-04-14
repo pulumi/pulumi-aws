@@ -15,127 +15,225 @@ namespace Pulumi.PolicyPacks.Aws.MemoryDb.Inputs
         /// <summary>
         /// Description for the cluster.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SnapshotClusterConfigurationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The engine that will run on cluster nodes.
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'SnapshotClusterConfigurationArgs.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// Version number of the engine used by the cluster.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'SnapshotClusterConfigurationArgs.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The weekly time range during which maintenance on the cluster is performed.
         /// </summary>
-        [Input("maintenanceWindow")]
+        [PolicyResourceProperty("maintenanceWindow", "_mUnknown_MaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaintenanceWindow;
-
-        public string? MaintenanceWindow => _mMaintenanceWindow.GetValue("maintenanceWindow");
+        private string? _mValue_MaintenanceWindow;
+        private bool _mUnknown_MaintenanceWindow;
+        public string? MaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceWindow) return _mValue_MaintenanceWindow;
+                throw new UndeferrableValueException("Value 'SnapshotClusterConfigurationArgs.MaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SnapshotClusterConfigurationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Compute and memory capacity of the nodes in the cluster.
         /// </summary>
-        [Input("nodeType")]
+        [PolicyResourceProperty("nodeType", "_mUnknown_NodeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeType;
-
-        public string? NodeType => _mNodeType.GetValue("nodeType");
+        private string? _mValue_NodeType;
+        private bool _mUnknown_NodeType;
+        public string? NodeType
+        {
+            get
+            {
+                if (!_mUnknown_NodeType) return _mValue_NodeType;
+                throw new UndeferrableValueException("Value 'SnapshotClusterConfigurationArgs.NodeType' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of shards in the cluster.
         /// </summary>
-        [Input("numShards")]
+        [PolicyResourceProperty("numShards", "_mUnknown_NumShards")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumShards;
-
-        public int? NumShards => _mNumShards.GetValue("numShards");
+        private int? _mValue_NumShards;
+        private bool _mUnknown_NumShards;
+        public int? NumShards
+        {
+            get
+            {
+                if (!_mUnknown_NumShards) return _mValue_NumShards;
+                throw new UndeferrableValueException("Value 'SnapshotClusterConfigurationArgs.NumShards' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the parameter group associated with the cluster.
         /// </summary>
-        [Input("parameterGroupName")]
+        [PolicyResourceProperty("parameterGroupName", "_mUnknown_ParameterGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameterGroupName;
-
-        public string? ParameterGroupName => _mParameterGroupName.GetValue("parameterGroupName");
+        private string? _mValue_ParameterGroupName;
+        private bool _mUnknown_ParameterGroupName;
+        public string? ParameterGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ParameterGroupName) return _mValue_ParameterGroupName;
+                throw new UndeferrableValueException("Value 'SnapshotClusterConfigurationArgs.ParameterGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Port number on which the cluster accepts connections.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'SnapshotClusterConfigurationArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days for which MemoryDB retains automatic snapshots before deleting them.
         /// </summary>
-        [Input("snapshotRetentionLimit")]
+        [PolicyResourceProperty("snapshotRetentionLimit", "_mUnknown_SnapshotRetentionLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSnapshotRetentionLimit;
-
-        public int? SnapshotRetentionLimit => _mSnapshotRetentionLimit.GetValue("snapshotRetentionLimit");
+        private int? _mValue_SnapshotRetentionLimit;
+        private bool _mUnknown_SnapshotRetentionLimit;
+        public int? SnapshotRetentionLimit
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotRetentionLimit) return _mValue_SnapshotRetentionLimit;
+                throw new UndeferrableValueException("Value 'SnapshotClusterConfigurationArgs.SnapshotRetentionLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
         /// </summary>
-        [Input("snapshotWindow")]
+        [PolicyResourceProperty("snapshotWindow", "_mUnknown_SnapshotWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotWindow;
-
-        public string? SnapshotWindow => _mSnapshotWindow.GetValue("snapshotWindow");
+        private string? _mValue_SnapshotWindow;
+        private bool _mUnknown_SnapshotWindow;
+        public string? SnapshotWindow
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotWindow) return _mValue_SnapshotWindow;
+                throw new UndeferrableValueException("Value 'SnapshotClusterConfigurationArgs.SnapshotWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the subnet group used by the cluster.
         /// </summary>
-        [Input("subnetGroupName")]
+        [PolicyResourceProperty("subnetGroupName", "_mUnknown_SubnetGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetGroupName;
-
-        public string? SubnetGroupName => _mSubnetGroupName.GetValue("subnetGroupName");
+        private string? _mValue_SubnetGroupName;
+        private bool _mUnknown_SubnetGroupName;
+        public string? SubnetGroupName
+        {
+            get
+            {
+                if (!_mUnknown_SubnetGroupName) return _mValue_SubnetGroupName;
+                throw new UndeferrableValueException("Value 'SnapshotClusterConfigurationArgs.SubnetGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the SNS topic to which cluster notifications are sent.
         /// </summary>
-        [Input("topicArn")]
+        [PolicyResourceProperty("topicArn", "_mUnknown_TopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopicArn;
-
-        public string? TopicArn => _mTopicArn.GetValue("topicArn");
+        private string? _mValue_TopicArn;
+        private bool _mUnknown_TopicArn;
+        public string? TopicArn
+        {
+            get
+            {
+                if (!_mUnknown_TopicArn) return _mValue_TopicArn;
+                throw new UndeferrableValueException("Value 'SnapshotClusterConfigurationArgs.TopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC in which the cluster exists.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'SnapshotClusterConfigurationArgs.VpcId' is not present");
+            }
+        }
     }
 }

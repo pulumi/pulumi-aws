@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager.Outputs
         /// <summary>
         /// Destination of the assessment report. This value be in the form `s3://{bucket_name}`.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
-
-        public string? Destination => _mDestination.GetValue("destination");
+        private string? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public string? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'AssessmentAssessmentReportsDestination.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination type. Currently, `S3` is the only valid value.
         /// </summary>
-        [Input("destinationType")]
+        [PolicyResourceProperty("destinationType", "_mUnknown_DestinationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationType;
-
-        public string? DestinationType => _mDestinationType.GetValue("destinationType");
+        private string? _mValue_DestinationType;
+        private bool _mUnknown_DestinationType;
+        public string? DestinationType
+        {
+            get
+            {
+                if (!_mUnknown_DestinationType) return _mValue_DestinationType;
+                throw new UndeferrableValueException("Value 'AssessmentAssessmentReportsDestination.DestinationType' is not present");
+            }
+        }
     }
 }

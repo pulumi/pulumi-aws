@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace.Inputs
         /// <summary>
         /// Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
         /// </summary>
-        [Input("cacheConfigurations")]
+        [PolicyResourceProperty("cacheConfigurations", "_mUnknown_CacheConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.KxClusterDatabaseCacheConfigurationArgs>> _mCacheConfigurations;
-
-        public List<Inputs.KxClusterDatabaseCacheConfigurationArgs>? CacheConfigurations => _mCacheConfigurations.GetValue("cacheConfigurations");
+        private List<Inputs.KxClusterDatabaseCacheConfigurationArgs>? _mValue_CacheConfigurations;
+        private bool _mUnknown_CacheConfigurations;
+        public List<Inputs.KxClusterDatabaseCacheConfigurationArgs>? CacheConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_CacheConfigurations) return _mValue_CacheConfigurations;
+                throw new UndeferrableValueException("Value 'KxClusterDatabaseArgs.CacheConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier of the changeset that is associated with the cluster.
         /// </summary>
-        [Input("changesetId")]
+        [PolicyResourceProperty("changesetId", "_mUnknown_ChangesetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChangesetId;
-
-        public string? ChangesetId => _mChangesetId.GetValue("changesetId");
+        private string? _mValue_ChangesetId;
+        private bool _mUnknown_ChangesetId;
+        public string? ChangesetId
+        {
+            get
+            {
+                if (!_mUnknown_ChangesetId) return _mValue_ChangesetId;
+                throw new UndeferrableValueException("Value 'KxClusterDatabaseArgs.ChangesetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the KX database.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'KxClusterDatabaseArgs.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
         /// </summary>
-        [Input("dataviewName")]
+        [PolicyResourceProperty("dataviewName", "_mUnknown_DataviewName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataviewName;
-
-        public string? DataviewName => _mDataviewName.GetValue("dataviewName");
+        private string? _mValue_DataviewName;
+        private bool _mUnknown_DataviewName;
+        public string? DataviewName
+        {
+            get
+            {
+                if (!_mUnknown_DataviewName) return _mValue_DataviewName;
+                throw new UndeferrableValueException("Value 'KxClusterDatabaseArgs.DataviewName' is not present");
+            }
+        }
     }
 }

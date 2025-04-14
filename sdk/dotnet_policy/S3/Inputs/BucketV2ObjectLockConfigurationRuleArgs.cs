@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Default retention period that you want to apply to new objects placed in this bucket (documented below).
         /// </summary>
-        [Input("defaultRetentions")]
+        [PolicyResourceProperty("defaultRetentions", "_mUnknown_DefaultRetentions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs>> _mDefaultRetentions;
-
-        public List<Inputs.BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs>? DefaultRetentions => _mDefaultRetentions.GetValue("defaultRetentions");
+        private List<Inputs.BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs>? _mValue_DefaultRetentions;
+        private bool _mUnknown_DefaultRetentions;
+        public List<Inputs.BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs>? DefaultRetentions
+        {
+            get
+            {
+                if (!_mUnknown_DefaultRetentions) return _mValue_DefaultRetentions;
+                throw new UndeferrableValueException("Value 'BucketV2ObjectLockConfigurationRuleArgs.DefaultRetentions' is not present");
+            }
+        }
     }
 }

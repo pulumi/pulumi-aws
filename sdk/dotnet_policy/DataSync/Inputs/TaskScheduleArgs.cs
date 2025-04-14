@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.DataSync.Inputs
         /// <summary>
         /// Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
         /// </summary>
-        [Input("scheduleExpression")]
+        [PolicyResourceProperty("scheduleExpression", "_mUnknown_ScheduleExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpression;
-
-        public string? ScheduleExpression => _mScheduleExpression.GetValue("scheduleExpression");
+        private string? _mValue_ScheduleExpression;
+        private bool _mUnknown_ScheduleExpression;
+        public string? ScheduleExpression
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleExpression) return _mValue_ScheduleExpression;
+                throw new UndeferrableValueException("Value 'TaskScheduleArgs.ScheduleExpression' is not present");
+            }
+        }
     }
 }

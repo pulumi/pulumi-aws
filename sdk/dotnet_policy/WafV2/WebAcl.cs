@@ -16,170 +16,303 @@ namespace Pulumi.PolicyPacks.Aws.WafV2
         /// <summary>
         /// The URL to use in SDK integrations with managed rule groups.
         /// </summary>
-        [Input("applicationIntegrationUrl")]
+        [PolicyResourceProperty("applicationIntegrationUrl", "_mUnknown_ApplicationIntegrationUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationIntegrationUrl;
-
-        public string? ApplicationIntegrationUrl => _mApplicationIntegrationUrl.GetValue("applicationIntegrationUrl");
+        private string? _mValue_ApplicationIntegrationUrl;
+        private bool _mUnknown_ApplicationIntegrationUrl;
+        public string? ApplicationIntegrationUrl
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationIntegrationUrl) return _mValue_ApplicationIntegrationUrl;
+                throw new UndeferrableValueException("Value 'WebAcl.ApplicationIntegrationUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the WAF WebACL.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'WebAcl.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
         /// </summary>
-        [Input("associationConfig")]
+        [PolicyResourceProperty("associationConfig", "_mUnknown_AssociationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclAssociationConfig> _mAssociationConfig;
-
-        public Outputs.WebAclAssociationConfig? AssociationConfig => _mAssociationConfig.GetValue("associationConfig");
+        private Outputs.WebAclAssociationConfig? _mValue_AssociationConfig;
+        private bool _mUnknown_AssociationConfig;
+        public Outputs.WebAclAssociationConfig? AssociationConfig
+        {
+            get
+            {
+                if (!_mUnknown_AssociationConfig) return _mValue_AssociationConfig;
+                throw new UndeferrableValueException("Value 'WebAcl.AssociationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Web ACL capacity units (WCUs) currently being used by this web ACL.
         /// </summary>
-        [Input("capacity")]
+        [PolicyResourceProperty("capacity", "_mUnknown_Capacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCapacity;
-
-        public int? Capacity => _mCapacity.GetValue("capacity");
+        private int? _mValue_Capacity;
+        private bool _mUnknown_Capacity;
+        public int? Capacity
+        {
+            get
+            {
+                if (!_mUnknown_Capacity) return _mValue_Capacity;
+                throw new UndeferrableValueException("Value 'WebAcl.Capacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
         /// </summary>
-        [Input("captchaConfig")]
+        [PolicyResourceProperty("captchaConfig", "_mUnknown_CaptchaConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclCaptchaConfig> _mCaptchaConfig;
-
-        public Outputs.WebAclCaptchaConfig? CaptchaConfig => _mCaptchaConfig.GetValue("captchaConfig");
+        private Outputs.WebAclCaptchaConfig? _mValue_CaptchaConfig;
+        private bool _mUnknown_CaptchaConfig;
+        public Outputs.WebAclCaptchaConfig? CaptchaConfig
+        {
+            get
+            {
+                if (!_mUnknown_CaptchaConfig) return _mValue_CaptchaConfig;
+                throw new UndeferrableValueException("Value 'WebAcl.CaptchaConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
         /// </summary>
-        [Input("challengeConfig")]
+        [PolicyResourceProperty("challengeConfig", "_mUnknown_ChallengeConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclChallengeConfig> _mChallengeConfig;
-
-        public Outputs.WebAclChallengeConfig? ChallengeConfig => _mChallengeConfig.GetValue("challengeConfig");
+        private Outputs.WebAclChallengeConfig? _mValue_ChallengeConfig;
+        private bool _mUnknown_ChallengeConfig;
+        public Outputs.WebAclChallengeConfig? ChallengeConfig
+        {
+            get
+            {
+                if (!_mUnknown_ChallengeConfig) return _mValue_ChallengeConfig;
+                throw new UndeferrableValueException("Value 'WebAcl.ChallengeConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
         /// </summary>
-        [Input("customResponseBodies")]
+        [PolicyResourceProperty("customResponseBodies", "_mUnknown_CustomResponseBodies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebAclCustomResponseBody>> _mCustomResponseBodies;
-
-        public List<Outputs.WebAclCustomResponseBody>? CustomResponseBodies => _mCustomResponseBodies.GetValue("customResponseBodies");
+        private List<Outputs.WebAclCustomResponseBody>? _mValue_CustomResponseBodies;
+        private bool _mUnknown_CustomResponseBodies;
+        public List<Outputs.WebAclCustomResponseBody>? CustomResponseBodies
+        {
+            get
+            {
+                if (!_mUnknown_CustomResponseBodies) return _mValue_CustomResponseBodies;
+                throw new UndeferrableValueException("Value 'WebAcl.CustomResponseBodies' is not present");
+            }
+        }
 
         /// <summary>
         /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         /// </summary>
-        [Input("defaultAction")]
+        [PolicyResourceProperty("defaultAction", "_mUnknown_DefaultAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclDefaultAction> _mDefaultAction;
-
-        public Outputs.WebAclDefaultAction? DefaultAction => _mDefaultAction.GetValue("defaultAction");
+        private Outputs.WebAclDefaultAction? _mValue_DefaultAction;
+        private bool _mUnknown_DefaultAction;
+        public Outputs.WebAclDefaultAction? DefaultAction
+        {
+            get
+            {
+                if (!_mUnknown_DefaultAction) return _mValue_DefaultAction;
+                throw new UndeferrableValueException("Value 'WebAcl.DefaultAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Friendly description of the WebACL.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'WebAcl.Description' is not present");
+            }
+        }
 
-        public string? Description => _mDescription.GetValue("description");
-
-        [Input("lockToken")]
+        [PolicyResourceProperty("lockToken", "_mUnknown_LockToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLockToken;
-
-        public string? LockToken => _mLockToken.GetValue("lockToken");
+        private string? _mValue_LockToken;
+        private bool _mUnknown_LockToken;
+        public string? LockToken
+        {
+            get
+            {
+                if (!_mUnknown_LockToken) return _mValue_LockToken;
+                throw new UndeferrableValueException("Value 'WebAcl.LockToken' is not present");
+            }
+        }
 
         /// <summary>
         /// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'WebAcl.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'WebAcl.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `rule_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
         /// </summary>
-        [Input("ruleJson")]
+        [PolicyResourceProperty("ruleJson", "_mUnknown_RuleJson")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleJson;
-
-        public string? RuleJson => _mRuleJson.GetValue("ruleJson");
+        private string? _mValue_RuleJson;
+        private bool _mUnknown_RuleJson;
+        public string? RuleJson
+        {
+            get
+            {
+                if (!_mUnknown_RuleJson) return _mValue_RuleJson;
+                throw new UndeferrableValueException("Value 'WebAcl.RuleJson' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebAclRule>> _mRules;
-
-        public List<Outputs.WebAclRule>? Rules => _mRules.GetValue("rules");
+        private List<Outputs.WebAclRule>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Outputs.WebAclRule>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'WebAcl.Rules' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
-
-        public string? Scope => _mScope.GetValue("scope");
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'WebAcl.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'WebAcl.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'WebAcl.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
         /// </summary>
-        [Input("tokenDomains")]
+        [PolicyResourceProperty("tokenDomains", "_mUnknown_TokenDomains")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTokenDomains;
-
-        public List<string>? TokenDomains => _mTokenDomains.GetValue("tokenDomains");
+        private List<string>? _mValue_TokenDomains;
+        private bool _mUnknown_TokenDomains;
+        public List<string>? TokenDomains
+        {
+            get
+            {
+                if (!_mUnknown_TokenDomains) return _mValue_TokenDomains;
+                throw new UndeferrableValueException("Value 'WebAcl.TokenDomains' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         /// </summary>
-        [Input("visibilityConfig")]
+        [PolicyResourceProperty("visibilityConfig", "_mUnknown_VisibilityConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclVisibilityConfig> _mVisibilityConfig;
-
-        public Outputs.WebAclVisibilityConfig? VisibilityConfig => _mVisibilityConfig.GetValue("visibilityConfig");
+        private Outputs.WebAclVisibilityConfig? _mValue_VisibilityConfig;
+        private bool _mUnknown_VisibilityConfig;
+        public Outputs.WebAclVisibilityConfig? VisibilityConfig
+        {
+            get
+            {
+                if (!_mUnknown_VisibilityConfig) return _mValue_VisibilityConfig;
+                throw new UndeferrableValueException("Value 'WebAcl.VisibilityConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:wafv2/webAcl:WebAcl")]
@@ -188,127 +321,225 @@ namespace Pulumi.PolicyPacks.Aws.WafV2
         /// <summary>
         /// Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
         /// </summary>
-        [Input("associationConfig")]
+        [PolicyResourceProperty("associationConfig", "_mUnknown_AssociationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclAssociationConfigArgs> _mAssociationConfig;
-
-        public Inputs.WebAclAssociationConfigArgs? AssociationConfig => _mAssociationConfig.GetValue("associationConfig");
+        private Inputs.WebAclAssociationConfigArgs? _mValue_AssociationConfig;
+        private bool _mUnknown_AssociationConfig;
+        public Inputs.WebAclAssociationConfigArgs? AssociationConfig
+        {
+            get
+            {
+                if (!_mUnknown_AssociationConfig) return _mValue_AssociationConfig;
+                throw new UndeferrableValueException("Value 'WebAclArgs.AssociationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
         /// </summary>
-        [Input("captchaConfig")]
+        [PolicyResourceProperty("captchaConfig", "_mUnknown_CaptchaConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclCaptchaConfigArgs> _mCaptchaConfig;
-
-        public Inputs.WebAclCaptchaConfigArgs? CaptchaConfig => _mCaptchaConfig.GetValue("captchaConfig");
+        private Inputs.WebAclCaptchaConfigArgs? _mValue_CaptchaConfig;
+        private bool _mUnknown_CaptchaConfig;
+        public Inputs.WebAclCaptchaConfigArgs? CaptchaConfig
+        {
+            get
+            {
+                if (!_mUnknown_CaptchaConfig) return _mValue_CaptchaConfig;
+                throw new UndeferrableValueException("Value 'WebAclArgs.CaptchaConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
         /// </summary>
-        [Input("challengeConfig")]
+        [PolicyResourceProperty("challengeConfig", "_mUnknown_ChallengeConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclChallengeConfigArgs> _mChallengeConfig;
-
-        public Inputs.WebAclChallengeConfigArgs? ChallengeConfig => _mChallengeConfig.GetValue("challengeConfig");
+        private Inputs.WebAclChallengeConfigArgs? _mValue_ChallengeConfig;
+        private bool _mUnknown_ChallengeConfig;
+        public Inputs.WebAclChallengeConfigArgs? ChallengeConfig
+        {
+            get
+            {
+                if (!_mUnknown_ChallengeConfig) return _mValue_ChallengeConfig;
+                throw new UndeferrableValueException("Value 'WebAclArgs.ChallengeConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
         /// </summary>
-        [Input("customResponseBodies")]
+        [PolicyResourceProperty("customResponseBodies", "_mUnknown_CustomResponseBodies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclCustomResponseBodyArgs>> _mCustomResponseBodies;
-
-        public List<Inputs.WebAclCustomResponseBodyArgs>? CustomResponseBodies => _mCustomResponseBodies.GetValue("customResponseBodies");
+        private List<Inputs.WebAclCustomResponseBodyArgs>? _mValue_CustomResponseBodies;
+        private bool _mUnknown_CustomResponseBodies;
+        public List<Inputs.WebAclCustomResponseBodyArgs>? CustomResponseBodies
+        {
+            get
+            {
+                if (!_mUnknown_CustomResponseBodies) return _mValue_CustomResponseBodies;
+                throw new UndeferrableValueException("Value 'WebAclArgs.CustomResponseBodies' is not present");
+            }
+        }
 
         /// <summary>
         /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         /// </summary>
-        [Input("defaultAction")]
+        [PolicyResourceProperty("defaultAction", "_mUnknown_DefaultAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclDefaultActionArgs> _mDefaultAction;
-
-        public Inputs.WebAclDefaultActionArgs? DefaultAction => _mDefaultAction.GetValue("defaultAction");
+        private Inputs.WebAclDefaultActionArgs? _mValue_DefaultAction;
+        private bool _mUnknown_DefaultAction;
+        public Inputs.WebAclDefaultActionArgs? DefaultAction
+        {
+            get
+            {
+                if (!_mUnknown_DefaultAction) return _mValue_DefaultAction;
+                throw new UndeferrableValueException("Value 'WebAclArgs.DefaultAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Friendly description of the WebACL.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'WebAclArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'WebAclArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'WebAclArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `rule_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
         /// </summary>
-        [Input("ruleJson")]
+        [PolicyResourceProperty("ruleJson", "_mUnknown_RuleJson")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleJson;
-
-        public string? RuleJson => _mRuleJson.GetValue("ruleJson");
+        private string? _mValue_RuleJson;
+        private bool _mUnknown_RuleJson;
+        public string? RuleJson
+        {
+            get
+            {
+                if (!_mUnknown_RuleJson) return _mValue_RuleJson;
+                throw new UndeferrableValueException("Value 'WebAclArgs.RuleJson' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclRuleArgs>> _mRules;
-
-        public List<Inputs.WebAclRuleArgs>? Rules => _mRules.GetValue("rules");
+        private List<Inputs.WebAclRuleArgs>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Inputs.WebAclRuleArgs>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'WebAclArgs.Rules' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
-
-        public string? Scope => _mScope.GetValue("scope");
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'WebAclArgs.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'WebAclArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
         /// </summary>
-        [Input("tokenDomains")]
+        [PolicyResourceProperty("tokenDomains", "_mUnknown_TokenDomains")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTokenDomains;
-
-        public List<string>? TokenDomains => _mTokenDomains.GetValue("tokenDomains");
+        private List<string>? _mValue_TokenDomains;
+        private bool _mUnknown_TokenDomains;
+        public List<string>? TokenDomains
+        {
+            get
+            {
+                if (!_mUnknown_TokenDomains) return _mValue_TokenDomains;
+                throw new UndeferrableValueException("Value 'WebAclArgs.TokenDomains' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         /// </summary>
-        [Input("visibilityConfig")]
+        [PolicyResourceProperty("visibilityConfig", "_mUnknown_VisibilityConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclVisibilityConfigArgs> _mVisibilityConfig;
-
-        public Inputs.WebAclVisibilityConfigArgs? VisibilityConfig => _mVisibilityConfig.GetValue("visibilityConfig");
+        private Inputs.WebAclVisibilityConfigArgs? _mValue_VisibilityConfig;
+        private bool _mUnknown_VisibilityConfig;
+        public Inputs.WebAclVisibilityConfigArgs? VisibilityConfig
+        {
+            get
+            {
+                if (!_mUnknown_VisibilityConfig) return _mValue_VisibilityConfig;
+                throw new UndeferrableValueException("Value 'WebAclArgs.VisibilityConfig' is not present");
+            }
+        }
     }
 }

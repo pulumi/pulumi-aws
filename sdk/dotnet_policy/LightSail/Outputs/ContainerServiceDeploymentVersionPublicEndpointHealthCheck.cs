@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.LightSail.Outputs
         /// <summary>
         /// The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
         /// </summary>
-        [Input("healthyThreshold")]
+        [PolicyResourceProperty("healthyThreshold", "_mUnknown_HealthyThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHealthyThreshold;
-
-        public int? HealthyThreshold => _mHealthyThreshold.GetValue("healthyThreshold");
+        private int? _mValue_HealthyThreshold;
+        private bool _mUnknown_HealthyThreshold;
+        public int? HealthyThreshold
+        {
+            get
+            {
+                if (!_mUnknown_HealthyThreshold) return _mValue_HealthyThreshold;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionPublicEndpointHealthCheck.HealthyThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
         /// </summary>
-        [Input("intervalSeconds")]
+        [PolicyResourceProperty("intervalSeconds", "_mUnknown_IntervalSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIntervalSeconds;
-
-        public int? IntervalSeconds => _mIntervalSeconds.GetValue("intervalSeconds");
+        private int? _mValue_IntervalSeconds;
+        private bool _mUnknown_IntervalSeconds;
+        public int? IntervalSeconds
+        {
+            get
+            {
+                if (!_mUnknown_IntervalSeconds) return _mValue_IntervalSeconds;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionPublicEndpointHealthCheck.IntervalSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The path on the container on which to perform the health check. Defaults to "/".
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionPublicEndpointHealthCheck.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
         /// </summary>
-        [Input("successCodes")]
+        [PolicyResourceProperty("successCodes", "_mUnknown_SuccessCodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSuccessCodes;
-
-        public string? SuccessCodes => _mSuccessCodes.GetValue("successCodes");
+        private string? _mValue_SuccessCodes;
+        private bool _mUnknown_SuccessCodes;
+        public string? SuccessCodes
+        {
+            get
+            {
+                if (!_mUnknown_SuccessCodes) return _mValue_SuccessCodes;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionPublicEndpointHealthCheck.SuccessCodes' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
         /// </summary>
-        [Input("timeoutSeconds")]
+        [PolicyResourceProperty("timeoutSeconds", "_mUnknown_TimeoutSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutSeconds;
-
-        public int? TimeoutSeconds => _mTimeoutSeconds.GetValue("timeoutSeconds");
+        private int? _mValue_TimeoutSeconds;
+        private bool _mUnknown_TimeoutSeconds;
+        public int? TimeoutSeconds
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutSeconds) return _mValue_TimeoutSeconds;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionPublicEndpointHealthCheck.TimeoutSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
         /// </summary>
-        [Input("unhealthyThreshold")]
+        [PolicyResourceProperty("unhealthyThreshold", "_mUnknown_UnhealthyThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUnhealthyThreshold;
-
-        public int? UnhealthyThreshold => _mUnhealthyThreshold.GetValue("unhealthyThreshold");
+        private int? _mValue_UnhealthyThreshold;
+        private bool _mUnknown_UnhealthyThreshold;
+        public int? UnhealthyThreshold
+        {
+            get
+            {
+                if (!_mUnknown_UnhealthyThreshold) return _mValue_UnhealthyThreshold;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionPublicEndpointHealthCheck.UnhealthyThreshold' is not present");
+            }
+        }
     }
 }

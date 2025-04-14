@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
 {
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageResult
     {
-        [Input("sizeInGib")]
+        [PolicyResourceProperty("sizeInGib", "_mUnknown_SizeInGib")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSizeInGib;
-
-        public int? SizeInGib => _mSizeInGib.GetValue("sizeInGib");
+        private int? _mValue_SizeInGib;
+        private bool _mUnknown_SizeInGib;
+        public int? SizeInGib
+        {
+            get
+            {
+                if (!_mUnknown_SizeInGib) return _mValue_SizeInGib;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageResult.SizeInGib' is not present");
+            }
+        }
     }
 }

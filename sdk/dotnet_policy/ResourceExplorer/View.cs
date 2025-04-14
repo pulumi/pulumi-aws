@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.ResourceExplorer
         /// <summary>
         /// Amazon Resource Name (ARN) of the Resource Explorer view.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'View.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
         /// </summary>
-        [Input("defaultView")]
+        [PolicyResourceProperty("defaultView", "_mUnknown_DefaultView")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDefaultView;
-
-        public bool? DefaultView => _mDefaultView.GetValue("defaultView");
+        private bool? _mValue_DefaultView;
+        private bool _mUnknown_DefaultView;
+        public bool? DefaultView
+        {
+            get
+            {
+                if (!_mUnknown_DefaultView) return _mValue_DefaultView;
+                throw new UndeferrableValueException("Value 'View.DefaultView' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
         /// </summary>
-        [Input("filters")]
+        [PolicyResourceProperty("filters", "_mUnknown_Filters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ViewFilters> _mFilters;
-
-        public Outputs.ViewFilters? Filters => _mFilters.GetValue("filters");
+        private Outputs.ViewFilters? _mValue_Filters;
+        private bool _mUnknown_Filters;
+        public Outputs.ViewFilters? Filters
+        {
+            get
+            {
+                if (!_mUnknown_Filters) return _mValue_Filters;
+                throw new UndeferrableValueException("Value 'View.Filters' is not present");
+            }
+        }
 
         /// <summary>
         /// Optional fields to be included in search results from this view. See Included Properties below for more details.
         /// </summary>
-        [Input("includedProperties")]
+        [PolicyResourceProperty("includedProperties", "_mUnknown_IncludedProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ViewIncludedProperty>> _mIncludedProperties;
-
-        public List<Outputs.ViewIncludedProperty>? IncludedProperties => _mIncludedProperties.GetValue("includedProperties");
+        private List<Outputs.ViewIncludedProperty>? _mValue_IncludedProperties;
+        private bool _mUnknown_IncludedProperties;
+        public List<Outputs.ViewIncludedProperty>? IncludedProperties
+        {
+            get
+            {
+                if (!_mUnknown_IncludedProperties) return _mValue_IncludedProperties;
+                throw new UndeferrableValueException("Value 'View.IncludedProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'View.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
-
-        public string? Scope => _mScope.GetValue("scope");
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'View.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'View.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'View.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:resourceexplorer/view:View")]
@@ -92,55 +148,97 @@ namespace Pulumi.PolicyPacks.Aws.ResourceExplorer
         /// <summary>
         /// Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
         /// </summary>
-        [Input("defaultView")]
+        [PolicyResourceProperty("defaultView", "_mUnknown_DefaultView")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDefaultView;
-
-        public bool? DefaultView => _mDefaultView.GetValue("defaultView");
+        private bool? _mValue_DefaultView;
+        private bool _mUnknown_DefaultView;
+        public bool? DefaultView
+        {
+            get
+            {
+                if (!_mUnknown_DefaultView) return _mValue_DefaultView;
+                throw new UndeferrableValueException("Value 'ViewArgs.DefaultView' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
         /// </summary>
-        [Input("filters")]
+        [PolicyResourceProperty("filters", "_mUnknown_Filters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ViewFiltersArgs> _mFilters;
-
-        public Inputs.ViewFiltersArgs? Filters => _mFilters.GetValue("filters");
+        private Inputs.ViewFiltersArgs? _mValue_Filters;
+        private bool _mUnknown_Filters;
+        public Inputs.ViewFiltersArgs? Filters
+        {
+            get
+            {
+                if (!_mUnknown_Filters) return _mValue_Filters;
+                throw new UndeferrableValueException("Value 'ViewArgs.Filters' is not present");
+            }
+        }
 
         /// <summary>
         /// Optional fields to be included in search results from this view. See Included Properties below for more details.
         /// </summary>
-        [Input("includedProperties")]
+        [PolicyResourceProperty("includedProperties", "_mUnknown_IncludedProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ViewIncludedPropertyArgs>> _mIncludedProperties;
-
-        public List<Inputs.ViewIncludedPropertyArgs>? IncludedProperties => _mIncludedProperties.GetValue("includedProperties");
+        private List<Inputs.ViewIncludedPropertyArgs>? _mValue_IncludedProperties;
+        private bool _mUnknown_IncludedProperties;
+        public List<Inputs.ViewIncludedPropertyArgs>? IncludedProperties
+        {
+            get
+            {
+                if (!_mUnknown_IncludedProperties) return _mValue_IncludedProperties;
+                throw new UndeferrableValueException("Value 'ViewArgs.IncludedProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ViewArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
-
-        public string? Scope => _mScope.GetValue("scope");
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'ViewArgs.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ViewArgs.Tags' is not present");
+            }
+        }
     }
 }

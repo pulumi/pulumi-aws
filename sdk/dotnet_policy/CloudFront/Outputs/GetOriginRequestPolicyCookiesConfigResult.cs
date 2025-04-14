@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
 {
     public sealed class GetOriginRequestPolicyCookiesConfigResult
     {
-        [Input("cookieBehavior")]
+        [PolicyResourceProperty("cookieBehavior", "_mUnknown_CookieBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCookieBehavior;
+        private string? _mValue_CookieBehavior;
+        private bool _mUnknown_CookieBehavior;
+        public string? CookieBehavior
+        {
+            get
+            {
+                if (!_mUnknown_CookieBehavior) return _mValue_CookieBehavior;
+                throw new UndeferrableValueException("Value 'GetOriginRequestPolicyCookiesConfigResult.CookieBehavior' is not present");
+            }
+        }
 
-        public string? CookieBehavior => _mCookieBehavior.GetValue("cookieBehavior");
-
-        [Input("cookies")]
+        [PolicyResourceProperty("cookies", "_mUnknown_Cookies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetOriginRequestPolicyCookiesConfigCookieResult>> _mCookies;
-
-        public List<Outputs.GetOriginRequestPolicyCookiesConfigCookieResult>? Cookies => _mCookies.GetValue("cookies");
+        private List<Outputs.GetOriginRequestPolicyCookiesConfigCookieResult>? _mValue_Cookies;
+        private bool _mUnknown_Cookies;
+        public List<Outputs.GetOriginRequestPolicyCookiesConfigCookieResult>? Cookies
+        {
+            get
+            {
+                if (!_mUnknown_Cookies) return _mValue_Cookies;
+                throw new UndeferrableValueException("Value 'GetOriginRequestPolicyCookiesConfigResult.Cookies' is not present");
+            }
+        }
     }
 }

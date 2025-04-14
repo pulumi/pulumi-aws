@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Backup.Inputs
         /// <summary>
         /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         /// </summary>
-        [Input("create")]
+        [PolicyResourceProperty("create", "_mUnknown_Create")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreate;
-
-        public string? Create => _mCreate.GetValue("create");
+        private string? _mValue_Create;
+        private bool _mUnknown_Create;
+        public string? Create
+        {
+            get
+            {
+                if (!_mUnknown_Create) return _mValue_Create;
+                throw new UndeferrableValueException("Value 'LogicallyAirGappedVaultTimeoutsArgs.Create' is not present");
+            }
+        }
     }
 }

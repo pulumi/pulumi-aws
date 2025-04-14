@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty.Outputs
 {
     public sealed class FilterFindingCriteria
     {
-        [Input("criterions")]
+        [PolicyResourceProperty("criterions", "_mUnknown_Criterions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FilterFindingCriteriaCriterion>> _mCriterions;
-
-        public List<Outputs.FilterFindingCriteriaCriterion>? Criterions => _mCriterions.GetValue("criterions");
+        private List<Outputs.FilterFindingCriteriaCriterion>? _mValue_Criterions;
+        private bool _mUnknown_Criterions;
+        public List<Outputs.FilterFindingCriteriaCriterion>? Criterions
+        {
+            get
+            {
+                if (!_mUnknown_Criterions) return _mValue_Criterions;
+                throw new UndeferrableValueException("Value 'FilterFindingCriteria.Criterions' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Transport Layer Security (TLS) client policy.
         /// </summary>
-        [Input("tls")]
+        [PolicyResourceProperty("tls", "_mUnknown_Tls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs> _mTls;
-
-        public Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs? Tls => _mTls.GetValue("tls");
+        private Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs? _mValue_Tls;
+        private bool _mUnknown_Tls;
+        public Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs? Tls
+        {
+            get
+            {
+                if (!_mUnknown_Tls) return _mValue_Tls;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsClientPolicyArgs.Tls' is not present");
+            }
+        }
     }
 }

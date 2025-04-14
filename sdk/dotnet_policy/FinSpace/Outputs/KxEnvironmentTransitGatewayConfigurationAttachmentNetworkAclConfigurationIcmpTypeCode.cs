@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace.Outputs
         /// <summary>
         /// ICMP code. A value of `-1` means all codes for the specified ICMP type.
         /// </summary>
-        [Input("code")]
+        [PolicyResourceProperty("code", "_mUnknown_Code")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCode;
-
-        public int? Code => _mCode.GetValue("code");
+        private int? _mValue_Code;
+        private bool _mUnknown_Code;
+        public int? Code
+        {
+            get
+            {
+                if (!_mUnknown_Code) return _mValue_Code;
+                throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode.Code' is not present");
+            }
+        }
 
         /// <summary>
         /// ICMP type. A value of `-1` means all types.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mType;
-
-        public int? Type => _mType.GetValue("type");
+        private int? _mValue_Type;
+        private bool _mUnknown_Type;
+        public int? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode.Type' is not present");
+            }
+        }
     }
 }

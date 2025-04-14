@@ -16,76 +16,132 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The ARN assigned by AWS for this user.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'User.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// When destroying this user, destroy even if it
         /// has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
         /// a user with non-provider-managed access keys and login profile will fail to be destroyed.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'User.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'User.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Path in which to create the user.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'User.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the policy that is used to set the permissions boundary for the user.
         /// </summary>
-        [Input("permissionsBoundary")]
+        [PolicyResourceProperty("permissionsBoundary", "_mUnknown_PermissionsBoundary")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionsBoundary;
-
-        public string? PermissionsBoundary => _mPermissionsBoundary.GetValue("permissionsBoundary");
+        private string? _mValue_PermissionsBoundary;
+        private bool _mUnknown_PermissionsBoundary;
+        public string? PermissionsBoundary
+        {
+            get
+            {
+                if (!_mUnknown_PermissionsBoundary) return _mValue_PermissionsBoundary;
+                throw new UndeferrableValueException("Value 'User.PermissionsBoundary' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'User.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'User.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The [unique ID][1] assigned by AWS.
         /// </summary>
-        [Input("uniqueId")]
+        [PolicyResourceProperty("uniqueId", "_mUnknown_UniqueId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUniqueId;
-
-        public string? UniqueId => _mUniqueId.GetValue("uniqueId");
+        private string? _mValue_UniqueId;
+        private bool _mUnknown_UniqueId;
+        public string? UniqueId
+        {
+            get
+            {
+                if (!_mUnknown_UniqueId) return _mValue_UniqueId;
+                throw new UndeferrableValueException("Value 'User.UniqueId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/user:User")]
@@ -96,46 +152,81 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
         /// a user with non-provider-managed access keys and login profile will fail to be destroyed.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'UserArgs.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UserArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Path in which to create the user.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'UserArgs.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the policy that is used to set the permissions boundary for the user.
         /// </summary>
-        [Input("permissionsBoundary")]
+        [PolicyResourceProperty("permissionsBoundary", "_mUnknown_PermissionsBoundary")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionsBoundary;
-
-        public string? PermissionsBoundary => _mPermissionsBoundary.GetValue("permissionsBoundary");
+        private string? _mValue_PermissionsBoundary;
+        private bool _mUnknown_PermissionsBoundary;
+        public string? PermissionsBoundary
+        {
+            get
+            {
+                if (!_mUnknown_PermissionsBoundary) return _mValue_PermissionsBoundary;
+                throw new UndeferrableValueException("Value 'UserArgs.PermissionsBoundary' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'UserArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// ARN of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot.
         /// </summary>
-        [Input("kendraIndex")]
+        [PolicyResourceProperty("kendraIndex", "_mUnknown_KendraIndex")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKendraIndex;
-
-        public string? KendraIndex => _mKendraIndex.GetValue("kendraIndex");
+        private string? _mValue_KendraIndex;
+        private bool _mUnknown_KendraIndex;
+        public string? KendraIndex
+        {
+            get
+            {
+                if (!_mUnknown_KendraIndex) return _mValue_KendraIndex;
+                throw new UndeferrableValueException("Value 'V2modelsIntentKendraConfigurationArgs.KendraIndex' is not present");
+            }
+        }
 
         /// <summary>
         /// Query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html).
         /// </summary>
-        [Input("queryFilterString")]
+        [PolicyResourceProperty("queryFilterString", "_mUnknown_QueryFilterString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueryFilterString;
-
-        public string? QueryFilterString => _mQueryFilterString.GetValue("queryFilterString");
+        private string? _mValue_QueryFilterString;
+        private bool _mUnknown_QueryFilterString;
+        public string? QueryFilterString
+        {
+            get
+            {
+                if (!_mUnknown_QueryFilterString) return _mValue_QueryFilterString;
+                throw new UndeferrableValueException("Value 'V2modelsIntentKendraConfigurationArgs.QueryFilterString' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
         /// </summary>
-        [Input("queryFilterStringEnabled")]
+        [PolicyResourceProperty("queryFilterStringEnabled", "_mUnknown_QueryFilterStringEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mQueryFilterStringEnabled;
-
-        public bool? QueryFilterStringEnabled => _mQueryFilterStringEnabled.GetValue("queryFilterStringEnabled");
+        private bool? _mValue_QueryFilterStringEnabled;
+        private bool _mUnknown_QueryFilterStringEnabled;
+        public bool? QueryFilterStringEnabled
+        {
+            get
+            {
+                if (!_mUnknown_QueryFilterStringEnabled) return _mValue_QueryFilterStringEnabled;
+                throw new UndeferrableValueException("Value 'V2modelsIntentKendraConfigurationArgs.QueryFilterStringEnabled' is not present");
+            }
+        }
     }
 }

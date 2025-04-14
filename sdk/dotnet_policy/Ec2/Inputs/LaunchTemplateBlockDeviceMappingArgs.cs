@@ -15,39 +15,67 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// The name of the device to mount.
         /// </summary>
-        [Input("deviceName")]
+        [PolicyResourceProperty("deviceName", "_mUnknown_DeviceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceName;
-
-        public string? DeviceName => _mDeviceName.GetValue("deviceName");
+        private string? _mValue_DeviceName;
+        private bool _mUnknown_DeviceName;
+        public string? DeviceName
+        {
+            get
+            {
+                if (!_mUnknown_DeviceName) return _mValue_DeviceName;
+                throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingArgs.DeviceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configure EBS volume properties.
         /// </summary>
-        [Input("ebs")]
+        [PolicyResourceProperty("ebs", "_mUnknown_Ebs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateBlockDeviceMappingEbsArgs> _mEbs;
-
-        public Inputs.LaunchTemplateBlockDeviceMappingEbsArgs? Ebs => _mEbs.GetValue("ebs");
+        private Inputs.LaunchTemplateBlockDeviceMappingEbsArgs? _mValue_Ebs;
+        private bool _mUnknown_Ebs;
+        public Inputs.LaunchTemplateBlockDeviceMappingEbsArgs? Ebs
+        {
+            get
+            {
+                if (!_mUnknown_Ebs) return _mValue_Ebs;
+                throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingArgs.Ebs' is not present");
+            }
+        }
 
         /// <summary>
         /// Suppresses the specified device included in the AMI's block device mapping.
         /// </summary>
-        [Input("noDevice")]
+        [PolicyResourceProperty("noDevice", "_mUnknown_NoDevice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNoDevice;
-
-        public string? NoDevice => _mNoDevice.GetValue("noDevice");
+        private string? _mValue_NoDevice;
+        private bool _mUnknown_NoDevice;
+        public string? NoDevice
+        {
+            get
+            {
+                if (!_mUnknown_NoDevice) return _mValue_NoDevice;
+                throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingArgs.NoDevice' is not present");
+            }
+        }
 
         /// <summary>
         /// The [Instance Store Device
         /// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
         /// (e.g., `"ephemeral0"`).
         /// </summary>
-        [Input("virtualName")]
+        [PolicyResourceProperty("virtualName", "_mUnknown_VirtualName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualName;
-
-        public string? VirtualName => _mVirtualName.GetValue("virtualName");
+        private string? _mValue_VirtualName;
+        private bool _mUnknown_VirtualName;
+        public string? VirtualName
+        {
+            get
+            {
+                if (!_mUnknown_VirtualName) return _mValue_VirtualName;
+                throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingArgs.VirtualName' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache.Inputs
 {
     public sealed class GetUserAuthenticationModeInputArgs
     {
-        [Input("passwordCount")]
+        [PolicyResourceProperty("passwordCount", "_mUnknown_PasswordCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPasswordCount;
+        private int? _mValue_PasswordCount;
+        private bool _mUnknown_PasswordCount;
+        public int? PasswordCount
+        {
+            get
+            {
+                if (!_mUnknown_PasswordCount) return _mValue_PasswordCount;
+                throw new UndeferrableValueException("Value 'GetUserAuthenticationModeInputArgs.PasswordCount' is not present");
+            }
+        }
 
-        public int? PasswordCount => _mPasswordCount.GetValue("passwordCount");
-
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetUserAuthenticationModeInputArgs.Type' is not present");
+            }
+        }
     }
 }

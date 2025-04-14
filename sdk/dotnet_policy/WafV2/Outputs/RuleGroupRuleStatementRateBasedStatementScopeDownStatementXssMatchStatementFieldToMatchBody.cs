@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
 {
     public sealed class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody
     {
-        [Input("oversizeHandling")]
+        [PolicyResourceProperty("oversizeHandling", "_mUnknown_OversizeHandling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOversizeHandling;
-
-        public string? OversizeHandling => _mOversizeHandling.GetValue("oversizeHandling");
+        private string? _mValue_OversizeHandling;
+        private bool _mUnknown_OversizeHandling;
+        public string? OversizeHandling
+        {
+            get
+            {
+                if (!_mUnknown_OversizeHandling) return _mValue_OversizeHandling;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody.OversizeHandling' is not present");
+            }
+        }
     }
 }

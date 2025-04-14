@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Cloud9
         /// <summary>
         /// The ID of the environment that contains the environment member you want to add.
         /// </summary>
-        [Input("environmentId")]
+        [PolicyResourceProperty("environmentId", "_mUnknown_EnvironmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
-
-        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+        private string? _mValue_EnvironmentId;
+        private bool _mUnknown_EnvironmentId;
+        public string? EnvironmentId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentId) return _mValue_EnvironmentId;
+                throw new UndeferrableValueException("Value 'EnvironmentMembership.EnvironmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissions;
-
-        public string? Permissions => _mPermissions.GetValue("permissions");
+        private string? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public string? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'EnvironmentMembership.Permissions' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the environment member you want to add.
         /// </summary>
-        [Input("userArn")]
+        [PolicyResourceProperty("userArn", "_mUnknown_UserArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserArn;
-
-        public string? UserArn => _mUserArn.GetValue("userArn");
+        private string? _mValue_UserArn;
+        private bool _mUnknown_UserArn;
+        public string? UserArn
+        {
+            get
+            {
+                if (!_mUnknown_UserArn) return _mValue_UserArn;
+                throw new UndeferrableValueException("Value 'EnvironmentMembership.UserArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
         /// </summary>
-        [Input("userId")]
+        [PolicyResourceProperty("userId", "_mUnknown_UserId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserId;
-
-        public string? UserId => _mUserId.GetValue("userId");
+        private string? _mValue_UserId;
+        private bool _mUnknown_UserId;
+        public string? UserId
+        {
+            get
+            {
+                if (!_mUnknown_UserId) return _mValue_UserId;
+                throw new UndeferrableValueException("Value 'EnvironmentMembership.UserId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloud9/environmentMembership:EnvironmentMembership")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.Cloud9
         /// <summary>
         /// The ID of the environment that contains the environment member you want to add.
         /// </summary>
-        [Input("environmentId")]
+        [PolicyResourceProperty("environmentId", "_mUnknown_EnvironmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
-
-        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+        private string? _mValue_EnvironmentId;
+        private bool _mUnknown_EnvironmentId;
+        public string? EnvironmentId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentId) return _mValue_EnvironmentId;
+                throw new UndeferrableValueException("Value 'EnvironmentMembershipArgs.EnvironmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissions;
-
-        public string? Permissions => _mPermissions.GetValue("permissions");
+        private string? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public string? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'EnvironmentMembershipArgs.Permissions' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the environment member you want to add.
         /// </summary>
-        [Input("userArn")]
+        [PolicyResourceProperty("userArn", "_mUnknown_UserArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserArn;
-
-        public string? UserArn => _mUserArn.GetValue("userArn");
+        private string? _mValue_UserArn;
+        private bool _mUnknown_UserArn;
+        public string? UserArn
+        {
+            get
+            {
+                if (!_mUnknown_UserArn) return _mValue_UserArn;
+                throw new UndeferrableValueException("Value 'EnvironmentMembershipArgs.UserArn' is not present");
+            }
+        }
     }
 }

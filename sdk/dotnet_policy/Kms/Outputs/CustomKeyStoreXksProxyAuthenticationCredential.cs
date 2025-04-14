@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kms.Outputs
         /// <summary>
         /// A unique identifier for the raw secret access key.
         /// </summary>
-        [Input("accessKeyId")]
+        [PolicyResourceProperty("accessKeyId", "_mUnknown_AccessKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessKeyId;
-
-        public string? AccessKeyId => _mAccessKeyId.GetValue("accessKeyId");
+        private string? _mValue_AccessKeyId;
+        private bool _mUnknown_AccessKeyId;
+        public string? AccessKeyId
+        {
+            get
+            {
+                if (!_mUnknown_AccessKeyId) return _mValue_AccessKeyId;
+                throw new UndeferrableValueException("Value 'CustomKeyStoreXksProxyAuthenticationCredential.AccessKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// A secret string of 43-64 characters.
         /// </summary>
-        [Input("rawSecretAccessKey")]
+        [PolicyResourceProperty("rawSecretAccessKey", "_mUnknown_RawSecretAccessKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRawSecretAccessKey;
-
-        public string? RawSecretAccessKey => _mRawSecretAccessKey.GetValue("rawSecretAccessKey");
+        private string? _mValue_RawSecretAccessKey;
+        private bool _mUnknown_RawSecretAccessKey;
+        public string? RawSecretAccessKey
+        {
+            get
+            {
+                if (!_mUnknown_RawSecretAccessKey) return _mValue_RawSecretAccessKey;
+                throw new UndeferrableValueException("Value 'CustomKeyStoreXksProxyAuthenticationCredential.RawSecretAccessKey' is not present");
+            }
+        }
     }
 }

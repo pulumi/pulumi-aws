@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.RedshiftServerless
         /// <summary>
         /// All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
         /// </summary>
-        [Input("accountsWithProvisionedRestoreAccesses")]
+        [PolicyResourceProperty("accountsWithProvisionedRestoreAccesses", "_mUnknown_AccountsWithProvisionedRestoreAccesses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAccountsWithProvisionedRestoreAccesses;
-
-        public List<string>? AccountsWithProvisionedRestoreAccesses => _mAccountsWithProvisionedRestoreAccesses.GetValue("accountsWithProvisionedRestoreAccesses");
+        private List<string>? _mValue_AccountsWithProvisionedRestoreAccesses;
+        private bool _mUnknown_AccountsWithProvisionedRestoreAccesses;
+        public List<string>? AccountsWithProvisionedRestoreAccesses
+        {
+            get
+            {
+                if (!_mUnknown_AccountsWithProvisionedRestoreAccesses) return _mValue_AccountsWithProvisionedRestoreAccesses;
+                throw new UndeferrableValueException("Value 'Snapshot.AccountsWithProvisionedRestoreAccesses' is not present");
+            }
+        }
 
         /// <summary>
         /// All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
         /// </summary>
-        [Input("accountsWithRestoreAccesses")]
+        [PolicyResourceProperty("accountsWithRestoreAccesses", "_mUnknown_AccountsWithRestoreAccesses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAccountsWithRestoreAccesses;
-
-        public List<string>? AccountsWithRestoreAccesses => _mAccountsWithRestoreAccesses.GetValue("accountsWithRestoreAccesses");
+        private List<string>? _mValue_AccountsWithRestoreAccesses;
+        private bool _mUnknown_AccountsWithRestoreAccesses;
+        public List<string>? AccountsWithRestoreAccesses
+        {
+            get
+            {
+                if (!_mUnknown_AccountsWithRestoreAccesses) return _mValue_AccountsWithRestoreAccesses;
+                throw new UndeferrableValueException("Value 'Snapshot.AccountsWithRestoreAccesses' is not present");
+            }
+        }
 
         /// <summary>
         /// The username of the database within a snapshot.
         /// </summary>
-        [Input("adminUsername")]
+        [PolicyResourceProperty("adminUsername", "_mUnknown_AdminUsername")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdminUsername;
-
-        public string? AdminUsername => _mAdminUsername.GetValue("adminUsername");
+        private string? _mValue_AdminUsername;
+        private bool _mUnknown_AdminUsername;
+        public string? AdminUsername
+        {
+            get
+            {
+                if (!_mUnknown_AdminUsername) return _mValue_AdminUsername;
+                throw new UndeferrableValueException("Value 'Snapshot.AdminUsername' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the snapshot.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Snapshot.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier of the KMS key used to encrypt the snapshot.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'Snapshot.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
         /// </summary>
-        [Input("namespaceArn")]
+        [PolicyResourceProperty("namespaceArn", "_mUnknown_NamespaceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceArn;
-
-        public string? NamespaceArn => _mNamespaceArn.GetValue("namespaceArn");
+        private string? _mValue_NamespaceArn;
+        private bool _mUnknown_NamespaceArn;
+        public string? NamespaceArn
+        {
+            get
+            {
+                if (!_mUnknown_NamespaceArn) return _mValue_NamespaceArn;
+                throw new UndeferrableValueException("Value 'Snapshot.NamespaceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The namespace to create a snapshot for.
         /// </summary>
-        [Input("namespaceName")]
+        [PolicyResourceProperty("namespaceName", "_mUnknown_NamespaceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceName;
-
-        public string? NamespaceName => _mNamespaceName.GetValue("namespaceName");
+        private string? _mValue_NamespaceName;
+        private bool _mUnknown_NamespaceName;
+        public string? NamespaceName
+        {
+            get
+            {
+                if (!_mUnknown_NamespaceName) return _mValue_NamespaceName;
+                throw new UndeferrableValueException("Value 'Snapshot.NamespaceName' is not present");
+            }
+        }
 
         /// <summary>
         /// The owner Amazon Web Services; account of the snapshot.
         /// </summary>
-        [Input("ownerAccount")]
+        [PolicyResourceProperty("ownerAccount", "_mUnknown_OwnerAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccount;
-
-        public string? OwnerAccount => _mOwnerAccount.GetValue("ownerAccount");
+        private string? _mValue_OwnerAccount;
+        private bool _mUnknown_OwnerAccount;
+        public string? OwnerAccount
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccount) return _mValue_OwnerAccount;
+                throw new UndeferrableValueException("Value 'Snapshot.OwnerAccount' is not present");
+            }
+        }
 
         /// <summary>
         /// How long to retain the created snapshot. Default value is `-1`.
         /// </summary>
-        [Input("retentionPeriod")]
+        [PolicyResourceProperty("retentionPeriod", "_mUnknown_RetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
-
-        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
+        private int? _mValue_RetentionPeriod;
+        private bool _mUnknown_RetentionPeriod;
+        public int? RetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_RetentionPeriod) return _mValue_RetentionPeriod;
+                throw new UndeferrableValueException("Value 'Snapshot.RetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the snapshot.
         /// </summary>
-        [Input("snapshotName")]
+        [PolicyResourceProperty("snapshotName", "_mUnknown_SnapshotName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotName;
-
-        public string? SnapshotName => _mSnapshotName.GetValue("snapshotName");
+        private string? _mValue_SnapshotName;
+        private bool _mUnknown_SnapshotName;
+        public string? SnapshotName
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotName) return _mValue_SnapshotName;
+                throw new UndeferrableValueException("Value 'Snapshot.SnapshotName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshiftserverless/snapshot:Snapshot")]
@@ -110,28 +180,49 @@ namespace Pulumi.PolicyPacks.Aws.RedshiftServerless
         /// <summary>
         /// The namespace to create a snapshot for.
         /// </summary>
-        [Input("namespaceName")]
+        [PolicyResourceProperty("namespaceName", "_mUnknown_NamespaceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceName;
-
-        public string? NamespaceName => _mNamespaceName.GetValue("namespaceName");
+        private string? _mValue_NamespaceName;
+        private bool _mUnknown_NamespaceName;
+        public string? NamespaceName
+        {
+            get
+            {
+                if (!_mUnknown_NamespaceName) return _mValue_NamespaceName;
+                throw new UndeferrableValueException("Value 'SnapshotArgs.NamespaceName' is not present");
+            }
+        }
 
         /// <summary>
         /// How long to retain the created snapshot. Default value is `-1`.
         /// </summary>
-        [Input("retentionPeriod")]
+        [PolicyResourceProperty("retentionPeriod", "_mUnknown_RetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
-
-        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
+        private int? _mValue_RetentionPeriod;
+        private bool _mUnknown_RetentionPeriod;
+        public int? RetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_RetentionPeriod) return _mValue_RetentionPeriod;
+                throw new UndeferrableValueException("Value 'SnapshotArgs.RetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the snapshot.
         /// </summary>
-        [Input("snapshotName")]
+        [PolicyResourceProperty("snapshotName", "_mUnknown_SnapshotName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotName;
-
-        public string? SnapshotName => _mSnapshotName.GetValue("snapshotName");
+        private string? _mValue_SnapshotName;
+        private bool _mUnknown_SnapshotName;
+        public string? SnapshotName
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotName) return _mValue_SnapshotName;
+                throw new UndeferrableValueException("Value 'SnapshotArgs.SnapshotName' is not present");
+            }
+        }
     }
 }

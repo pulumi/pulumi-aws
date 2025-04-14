@@ -15,100 +15,177 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Outputs
         /// <summary>
         /// CPU architecture.
         /// </summary>
-        [Input("architecture")]
+        [PolicyResourceProperty("architecture", "_mUnknown_Architecture")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArchitecture;
-
-        public string? Architecture => _mArchitecture.GetValue("architecture");
+        private string? _mValue_Architecture;
+        private bool _mUnknown_Architecture;
+        public string? Architecture
+        {
+            get
+            {
+                if (!_mUnknown_Architecture) return _mValue_Architecture;
+                throw new UndeferrableValueException("Value 'GetSupportedInstanceTypesSupportedInstanceTypeResult.Architecture' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the instance type supports Amazon EBS optimization.
         /// </summary>
-        [Input("ebsOptimizedAvailable")]
+        [PolicyResourceProperty("ebsOptimizedAvailable", "_mUnknown_EbsOptimizedAvailable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimizedAvailable;
-
-        public bool? EbsOptimizedAvailable => _mEbsOptimizedAvailable.GetValue("ebsOptimizedAvailable");
+        private bool? _mValue_EbsOptimizedAvailable;
+        private bool _mUnknown_EbsOptimizedAvailable;
+        public bool? EbsOptimizedAvailable
+        {
+            get
+            {
+                if (!_mUnknown_EbsOptimizedAvailable) return _mValue_EbsOptimizedAvailable;
+                throw new UndeferrableValueException("Value 'GetSupportedInstanceTypesSupportedInstanceTypeResult.EbsOptimizedAvailable' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the instance type uses Amazon EBS optimization by default.
         /// </summary>
-        [Input("ebsOptimizedByDefault")]
+        [PolicyResourceProperty("ebsOptimizedByDefault", "_mUnknown_EbsOptimizedByDefault")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimizedByDefault;
-
-        public bool? EbsOptimizedByDefault => _mEbsOptimizedByDefault.GetValue("ebsOptimizedByDefault");
+        private bool? _mValue_EbsOptimizedByDefault;
+        private bool _mUnknown_EbsOptimizedByDefault;
+        public bool? EbsOptimizedByDefault
+        {
+            get
+            {
+                if (!_mUnknown_EbsOptimizedByDefault) return _mValue_EbsOptimizedByDefault;
+                throw new UndeferrableValueException("Value 'GetSupportedInstanceTypesSupportedInstanceTypeResult.EbsOptimizedByDefault' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the instance type only supports Amazon EBS.
         /// </summary>
-        [Input("ebsStorageOnly")]
+        [PolicyResourceProperty("ebsStorageOnly", "_mUnknown_EbsStorageOnly")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsStorageOnly;
-
-        public bool? EbsStorageOnly => _mEbsStorageOnly.GetValue("ebsStorageOnly");
+        private bool? _mValue_EbsStorageOnly;
+        private bool _mUnknown_EbsStorageOnly;
+        public bool? EbsStorageOnly
+        {
+            get
+            {
+                if (!_mUnknown_EbsStorageOnly) return _mValue_EbsStorageOnly;
+                throw new UndeferrableValueException("Value 'GetSupportedInstanceTypesSupportedInstanceTypeResult.EbsStorageOnly' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon EC2 family and generation for the instance type.
         /// </summary>
-        [Input("instanceFamilyId")]
+        [PolicyResourceProperty("instanceFamilyId", "_mUnknown_InstanceFamilyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceFamilyId;
-
-        public string? InstanceFamilyId => _mInstanceFamilyId.GetValue("instanceFamilyId");
+        private string? _mValue_InstanceFamilyId;
+        private bool _mUnknown_InstanceFamilyId;
+        public string? InstanceFamilyId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceFamilyId) return _mValue_InstanceFamilyId;
+                throw new UndeferrableValueException("Value 'GetSupportedInstanceTypesSupportedInstanceTypeResult.InstanceFamilyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the instance type only supports 64-bit architecture.
         /// </summary>
-        [Input("is64BitsOnly")]
+        [PolicyResourceProperty("is64BitsOnly", "_mUnknown_Is64BitsOnly")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIs64BitsOnly;
-
-        public bool? Is64BitsOnly => _mIs64BitsOnly.GetValue("is64BitsOnly");
+        private bool? _mValue_Is64BitsOnly;
+        private bool _mUnknown_Is64BitsOnly;
+        public bool? Is64BitsOnly
+        {
+            get
+            {
+                if (!_mUnknown_Is64BitsOnly) return _mValue_Is64BitsOnly;
+                throw new UndeferrableValueException("Value 'GetSupportedInstanceTypesSupportedInstanceTypeResult.Is64BitsOnly' is not present");
+            }
+        }
 
         /// <summary>
         /// Memory that is available to Amazon EMR from the instance type.
         /// </summary>
-        [Input("memoryGb")]
+        [PolicyResourceProperty("memoryGb", "_mUnknown_MemoryGb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mMemoryGb;
-
-        public double? MemoryGb => _mMemoryGb.GetValue("memoryGb");
+        private double? _mValue_MemoryGb;
+        private bool _mUnknown_MemoryGb;
+        public double? MemoryGb
+        {
+            get
+            {
+                if (!_mUnknown_MemoryGb) return _mValue_MemoryGb;
+                throw new UndeferrableValueException("Value 'GetSupportedInstanceTypesSupportedInstanceTypeResult.MemoryGb' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of disks for the instance type.
         /// </summary>
-        [Input("numberOfDisks")]
+        [PolicyResourceProperty("numberOfDisks", "_mUnknown_NumberOfDisks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfDisks;
-
-        public int? NumberOfDisks => _mNumberOfDisks.GetValue("numberOfDisks");
+        private int? _mValue_NumberOfDisks;
+        private bool _mUnknown_NumberOfDisks;
+        public int? NumberOfDisks
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfDisks) return _mValue_NumberOfDisks;
+                throw new UndeferrableValueException("Value 'GetSupportedInstanceTypesSupportedInstanceTypeResult.NumberOfDisks' is not present");
+            }
+        }
 
         /// <summary>
         /// Storage capacity of the instance type.
         /// </summary>
-        [Input("storageGb")]
+        [PolicyResourceProperty("storageGb", "_mUnknown_StorageGb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStorageGb;
-
-        public int? StorageGb => _mStorageGb.GetValue("storageGb");
+        private int? _mValue_StorageGb;
+        private bool _mUnknown_StorageGb;
+        public int? StorageGb
+        {
+            get
+            {
+                if (!_mUnknown_StorageGb) return _mValue_StorageGb;
+                throw new UndeferrableValueException("Value 'GetSupportedInstanceTypesSupportedInstanceTypeResult.StorageGb' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon EC2 instance type. For example, `m5.xlarge`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetSupportedInstanceTypesSupportedInstanceTypeResult.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of vCPUs available for the instance type.
         /// </summary>
-        [Input("vcpu")]
+        [PolicyResourceProperty("vcpu", "_mUnknown_Vcpu")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVcpu;
-
-        public int? Vcpu => _mVcpu.GetValue("vcpu");
+        private int? _mValue_Vcpu;
+        private bool _mUnknown_Vcpu;
+        public int? Vcpu
+        {
+            get
+            {
+                if (!_mUnknown_Vcpu) return _mValue_Vcpu;
+                throw new UndeferrableValueException("Value 'GetSupportedInstanceTypesSupportedInstanceTypeResult.Vcpu' is not present");
+            }
+        }
     }
 }

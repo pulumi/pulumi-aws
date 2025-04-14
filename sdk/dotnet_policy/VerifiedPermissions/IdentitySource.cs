@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions
         /// <summary>
         /// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IdentitySourceConfiguration> _mConfiguration;
-
-        public Outputs.IdentitySourceConfiguration? Configuration => _mConfiguration.GetValue("configuration");
+        private Outputs.IdentitySourceConfiguration? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Outputs.IdentitySourceConfiguration? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'IdentitySource.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the ID of the policy store in which you want to store this identity source.
         /// </summary>
-        [Input("policyStoreId")]
+        [PolicyResourceProperty("policyStoreId", "_mUnknown_PolicyStoreId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyStoreId;
-
-        public string? PolicyStoreId => _mPolicyStoreId.GetValue("policyStoreId");
+        private string? _mValue_PolicyStoreId;
+        private bool _mUnknown_PolicyStoreId;
+        public string? PolicyStoreId
+        {
+            get
+            {
+                if (!_mUnknown_PolicyStoreId) return _mValue_PolicyStoreId;
+                throw new UndeferrableValueException("Value 'IdentitySource.PolicyStoreId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
         /// </summary>
-        [Input("principalEntityType")]
+        [PolicyResourceProperty("principalEntityType", "_mUnknown_PrincipalEntityType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalEntityType;
-
-        public string? PrincipalEntityType => _mPrincipalEntityType.GetValue("principalEntityType");
+        private string? _mValue_PrincipalEntityType;
+        private bool _mUnknown_PrincipalEntityType;
+        public string? PrincipalEntityType
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalEntityType) return _mValue_PrincipalEntityType;
+                throw new UndeferrableValueException("Value 'IdentitySource.PrincipalEntityType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:verifiedpermissions/identitySource:IdentitySource")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions
         /// <summary>
         /// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IdentitySourceConfigurationArgs> _mConfiguration;
-
-        public Inputs.IdentitySourceConfigurationArgs? Configuration => _mConfiguration.GetValue("configuration");
+        private Inputs.IdentitySourceConfigurationArgs? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Inputs.IdentitySourceConfigurationArgs? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'IdentitySourceArgs.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the ID of the policy store in which you want to store this identity source.
         /// </summary>
-        [Input("policyStoreId")]
+        [PolicyResourceProperty("policyStoreId", "_mUnknown_PolicyStoreId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyStoreId;
-
-        public string? PolicyStoreId => _mPolicyStoreId.GetValue("policyStoreId");
+        private string? _mValue_PolicyStoreId;
+        private bool _mUnknown_PolicyStoreId;
+        public string? PolicyStoreId
+        {
+            get
+            {
+                if (!_mUnknown_PolicyStoreId) return _mValue_PolicyStoreId;
+                throw new UndeferrableValueException("Value 'IdentitySourceArgs.PolicyStoreId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
         /// </summary>
-        [Input("principalEntityType")]
+        [PolicyResourceProperty("principalEntityType", "_mUnknown_PrincipalEntityType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalEntityType;
-
-        public string? PrincipalEntityType => _mPrincipalEntityType.GetValue("principalEntityType");
+        private string? _mValue_PrincipalEntityType;
+        private bool _mUnknown_PrincipalEntityType;
+        public string? PrincipalEntityType
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalEntityType) return _mValue_PrincipalEntityType;
+                throw new UndeferrableValueException("Value 'IdentitySourceArgs.PrincipalEntityType' is not present");
+            }
+        }
     }
 }

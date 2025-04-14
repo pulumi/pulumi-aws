@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// <summary>
         /// Amount of disk space of the instance type included in the fleet.
         /// </summary>
-        [Input("disk")]
+        [PolicyResourceProperty("disk", "_mUnknown_Disk")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDisk;
-
-        public int? Disk => _mDisk.GetValue("disk");
+        private int? _mValue_Disk;
+        private bool _mUnknown_Disk;
+        public int? Disk
+        {
+            get
+            {
+                if (!_mUnknown_Disk) return _mValue_Disk;
+                throw new UndeferrableValueException("Value 'GetFleetComputeConfigurationResult.Disk' is not present");
+            }
+        }
 
         /// <summary>
         /// Machine type of the instance type included in the fleet.
         /// </summary>
-        [Input("machineType")]
+        [PolicyResourceProperty("machineType", "_mUnknown_MachineType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMachineType;
-
-        public string? MachineType => _mMachineType.GetValue("machineType");
+        private string? _mValue_MachineType;
+        private bool _mUnknown_MachineType;
+        public string? MachineType
+        {
+            get
+            {
+                if (!_mUnknown_MachineType) return _mValue_MachineType;
+                throw new UndeferrableValueException("Value 'GetFleetComputeConfigurationResult.MachineType' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of memory of the instance type included in the fleet.
         /// </summary>
-        [Input("memory")]
+        [PolicyResourceProperty("memory", "_mUnknown_Memory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMemory;
-
-        public int? Memory => _mMemory.GetValue("memory");
+        private int? _mValue_Memory;
+        private bool _mUnknown_Memory;
+        public int? Memory
+        {
+            get
+            {
+                if (!_mUnknown_Memory) return _mValue_Memory;
+                throw new UndeferrableValueException("Value 'GetFleetComputeConfigurationResult.Memory' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of vCPUs of the instance type included in the fleet.
         /// </summary>
-        [Input("vcpu")]
+        [PolicyResourceProperty("vcpu", "_mUnknown_Vcpu")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVcpu;
-
-        public int? Vcpu => _mVcpu.GetValue("vcpu");
+        private int? _mValue_Vcpu;
+        private bool _mUnknown_Vcpu;
+        public int? Vcpu
+        {
+            get
+            {
+                if (!_mUnknown_Vcpu) return _mValue_Vcpu;
+                throw new UndeferrableValueException("Value 'GetFleetComputeConfigurationResult.Vcpu' is not present");
+            }
+        }
     }
 }

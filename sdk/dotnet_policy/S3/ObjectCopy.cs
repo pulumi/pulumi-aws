@@ -16,475 +16,846 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
         /// </summary>
-        [Input("acl")]
+        [PolicyResourceProperty("acl", "_mUnknown_Acl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcl;
-
-        public string? Acl => _mAcl.GetValue("acl");
+        private string? _mValue_Acl;
+        private bool _mUnknown_Acl;
+        public string? Acl
+        {
+            get
+            {
+                if (!_mUnknown_Acl) return _mValue_Acl;
+                throw new UndeferrableValueException("Value 'ObjectCopy.Acl' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the object.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ObjectCopy.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the bucket to put the file in.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'ObjectCopy.Bucket' is not present");
+            }
+        }
 
-        public string? Bucket => _mBucket.GetValue("bucket");
-
-        [Input("bucketKeyEnabled")]
+        [PolicyResourceProperty("bucketKeyEnabled", "_mUnknown_BucketKeyEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBucketKeyEnabled;
-
-        public bool? BucketKeyEnabled => _mBucketKeyEnabled.GetValue("bucketKeyEnabled");
+        private bool? _mValue_BucketKeyEnabled;
+        private bool _mUnknown_BucketKeyEnabled;
+        public bool? BucketKeyEnabled
+        {
+            get
+            {
+                if (!_mUnknown_BucketKeyEnabled) return _mValue_BucketKeyEnabled;
+                throw new UndeferrableValueException("Value 'ObjectCopy.BucketKeyEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         /// </summary>
-        [Input("cacheControl")]
+        [PolicyResourceProperty("cacheControl", "_mUnknown_CacheControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCacheControl;
-
-        public string? CacheControl => _mCacheControl.GetValue("cacheControl");
+        private string? _mValue_CacheControl;
+        private bool _mUnknown_CacheControl;
+        public string? CacheControl
+        {
+            get
+            {
+                if (!_mUnknown_CacheControl) return _mValue_CacheControl;
+                throw new UndeferrableValueException("Value 'ObjectCopy.CacheControl' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
         /// </summary>
-        [Input("checksumAlgorithm")]
+        [PolicyResourceProperty("checksumAlgorithm", "_mUnknown_ChecksumAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChecksumAlgorithm;
-
-        public string? ChecksumAlgorithm => _mChecksumAlgorithm.GetValue("checksumAlgorithm");
+        private string? _mValue_ChecksumAlgorithm;
+        private bool _mUnknown_ChecksumAlgorithm;
+        public string? ChecksumAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_ChecksumAlgorithm) return _mValue_ChecksumAlgorithm;
+                throw new UndeferrableValueException("Value 'ObjectCopy.ChecksumAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// The base64-encoded, 32-bit CRC32 checksum of the object.
         /// </summary>
-        [Input("checksumCrc32")]
+        [PolicyResourceProperty("checksumCrc32", "_mUnknown_ChecksumCrc32")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChecksumCrc32;
-
-        public string? ChecksumCrc32 => _mChecksumCrc32.GetValue("checksumCrc32");
+        private string? _mValue_ChecksumCrc32;
+        private bool _mUnknown_ChecksumCrc32;
+        public string? ChecksumCrc32
+        {
+            get
+            {
+                if (!_mUnknown_ChecksumCrc32) return _mValue_ChecksumCrc32;
+                throw new UndeferrableValueException("Value 'ObjectCopy.ChecksumCrc32' is not present");
+            }
+        }
 
         /// <summary>
         /// The base64-encoded, 32-bit CRC32C checksum of the object.
         /// </summary>
-        [Input("checksumCrc32c")]
+        [PolicyResourceProperty("checksumCrc32c", "_mUnknown_ChecksumCrc32c")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChecksumCrc32c;
-
-        public string? ChecksumCrc32c => _mChecksumCrc32c.GetValue("checksumCrc32c");
+        private string? _mValue_ChecksumCrc32c;
+        private bool _mUnknown_ChecksumCrc32c;
+        public string? ChecksumCrc32c
+        {
+            get
+            {
+                if (!_mUnknown_ChecksumCrc32c) return _mValue_ChecksumCrc32c;
+                throw new UndeferrableValueException("Value 'ObjectCopy.ChecksumCrc32c' is not present");
+            }
+        }
 
         /// <summary>
         /// The base64-encoded, 64-bit CRC64NVME checksum of the object.
         /// </summary>
-        [Input("checksumCrc64nvme")]
+        [PolicyResourceProperty("checksumCrc64nvme", "_mUnknown_ChecksumCrc64nvme")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChecksumCrc64nvme;
-
-        public string? ChecksumCrc64nvme => _mChecksumCrc64nvme.GetValue("checksumCrc64nvme");
+        private string? _mValue_ChecksumCrc64nvme;
+        private bool _mUnknown_ChecksumCrc64nvme;
+        public string? ChecksumCrc64nvme
+        {
+            get
+            {
+                if (!_mUnknown_ChecksumCrc64nvme) return _mValue_ChecksumCrc64nvme;
+                throw new UndeferrableValueException("Value 'ObjectCopy.ChecksumCrc64nvme' is not present");
+            }
+        }
 
         /// <summary>
         /// The base64-encoded, 160-bit SHA-1 digest of the object.
         /// </summary>
-        [Input("checksumSha1")]
+        [PolicyResourceProperty("checksumSha1", "_mUnknown_ChecksumSha1")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChecksumSha1;
-
-        public string? ChecksumSha1 => _mChecksumSha1.GetValue("checksumSha1");
+        private string? _mValue_ChecksumSha1;
+        private bool _mUnknown_ChecksumSha1;
+        public string? ChecksumSha1
+        {
+            get
+            {
+                if (!_mUnknown_ChecksumSha1) return _mValue_ChecksumSha1;
+                throw new UndeferrableValueException("Value 'ObjectCopy.ChecksumSha1' is not present");
+            }
+        }
 
         /// <summary>
         /// The base64-encoded, 256-bit SHA-256 digest of the object.
         /// </summary>
-        [Input("checksumSha256")]
+        [PolicyResourceProperty("checksumSha256", "_mUnknown_ChecksumSha256")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChecksumSha256;
-
-        public string? ChecksumSha256 => _mChecksumSha256.GetValue("checksumSha256");
+        private string? _mValue_ChecksumSha256;
+        private bool _mUnknown_ChecksumSha256;
+        public string? ChecksumSha256
+        {
+            get
+            {
+                if (!_mUnknown_ChecksumSha256) return _mValue_ChecksumSha256;
+                throw new UndeferrableValueException("Value 'ObjectCopy.ChecksumSha256' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         /// </summary>
-        [Input("contentDisposition")]
+        [PolicyResourceProperty("contentDisposition", "_mUnknown_ContentDisposition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentDisposition;
-
-        public string? ContentDisposition => _mContentDisposition.GetValue("contentDisposition");
+        private string? _mValue_ContentDisposition;
+        private bool _mUnknown_ContentDisposition;
+        public string? ContentDisposition
+        {
+            get
+            {
+                if (!_mUnknown_ContentDisposition) return _mValue_ContentDisposition;
+                throw new UndeferrableValueException("Value 'ObjectCopy.ContentDisposition' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         /// </summary>
-        [Input("contentEncoding")]
+        [PolicyResourceProperty("contentEncoding", "_mUnknown_ContentEncoding")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentEncoding;
-
-        public string? ContentEncoding => _mContentEncoding.GetValue("contentEncoding");
+        private string? _mValue_ContentEncoding;
+        private bool _mUnknown_ContentEncoding;
+        public string? ContentEncoding
+        {
+            get
+            {
+                if (!_mUnknown_ContentEncoding) return _mValue_ContentEncoding;
+                throw new UndeferrableValueException("Value 'ObjectCopy.ContentEncoding' is not present");
+            }
+        }
 
         /// <summary>
         /// Language the content is in e.g., en-US or en-GB.
         /// </summary>
-        [Input("contentLanguage")]
+        [PolicyResourceProperty("contentLanguage", "_mUnknown_ContentLanguage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentLanguage;
-
-        public string? ContentLanguage => _mContentLanguage.GetValue("contentLanguage");
+        private string? _mValue_ContentLanguage;
+        private bool _mUnknown_ContentLanguage;
+        public string? ContentLanguage
+        {
+            get
+            {
+                if (!_mUnknown_ContentLanguage) return _mValue_ContentLanguage;
+                throw new UndeferrableValueException("Value 'ObjectCopy.ContentLanguage' is not present");
+            }
+        }
 
         /// <summary>
         /// Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         /// </summary>
-        [Input("contentType")]
+        [PolicyResourceProperty("contentType", "_mUnknown_ContentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
-
-        public string? ContentType => _mContentType.GetValue("contentType");
+        private string? _mValue_ContentType;
+        private bool _mUnknown_ContentType;
+        public string? ContentType
+        {
+            get
+            {
+                if (!_mUnknown_ContentType) return _mValue_ContentType;
+                throw new UndeferrableValueException("Value 'ObjectCopy.ContentType' is not present");
+            }
+        }
 
         /// <summary>
         /// Copies the object if its entity tag (ETag) matches the specified tag.
         /// </summary>
-        [Input("copyIfMatch")]
+        [PolicyResourceProperty("copyIfMatch", "_mUnknown_CopyIfMatch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCopyIfMatch;
-
-        public string? CopyIfMatch => _mCopyIfMatch.GetValue("copyIfMatch");
+        private string? _mValue_CopyIfMatch;
+        private bool _mUnknown_CopyIfMatch;
+        public string? CopyIfMatch
+        {
+            get
+            {
+                if (!_mUnknown_CopyIfMatch) return _mValue_CopyIfMatch;
+                throw new UndeferrableValueException("Value 'ObjectCopy.CopyIfMatch' is not present");
+            }
+        }
 
         /// <summary>
         /// Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        [Input("copyIfModifiedSince")]
+        [PolicyResourceProperty("copyIfModifiedSince", "_mUnknown_CopyIfModifiedSince")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCopyIfModifiedSince;
-
-        public string? CopyIfModifiedSince => _mCopyIfModifiedSince.GetValue("copyIfModifiedSince");
+        private string? _mValue_CopyIfModifiedSince;
+        private bool _mUnknown_CopyIfModifiedSince;
+        public string? CopyIfModifiedSince
+        {
+            get
+            {
+                if (!_mUnknown_CopyIfModifiedSince) return _mValue_CopyIfModifiedSince;
+                throw new UndeferrableValueException("Value 'ObjectCopy.CopyIfModifiedSince' is not present");
+            }
+        }
 
         /// <summary>
         /// Copies the object if its entity tag (ETag) is different than the specified ETag.
         /// </summary>
-        [Input("copyIfNoneMatch")]
+        [PolicyResourceProperty("copyIfNoneMatch", "_mUnknown_CopyIfNoneMatch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCopyIfNoneMatch;
-
-        public string? CopyIfNoneMatch => _mCopyIfNoneMatch.GetValue("copyIfNoneMatch");
+        private string? _mValue_CopyIfNoneMatch;
+        private bool _mUnknown_CopyIfNoneMatch;
+        public string? CopyIfNoneMatch
+        {
+            get
+            {
+                if (!_mUnknown_CopyIfNoneMatch) return _mValue_CopyIfNoneMatch;
+                throw new UndeferrableValueException("Value 'ObjectCopy.CopyIfNoneMatch' is not present");
+            }
+        }
 
         /// <summary>
         /// Copies the object if it hasn't been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        [Input("copyIfUnmodifiedSince")]
+        [PolicyResourceProperty("copyIfUnmodifiedSince", "_mUnknown_CopyIfUnmodifiedSince")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCopyIfUnmodifiedSince;
-
-        public string? CopyIfUnmodifiedSince => _mCopyIfUnmodifiedSince.GetValue("copyIfUnmodifiedSince");
+        private string? _mValue_CopyIfUnmodifiedSince;
+        private bool _mUnknown_CopyIfUnmodifiedSince;
+        public string? CopyIfUnmodifiedSince
+        {
+            get
+            {
+                if (!_mUnknown_CopyIfUnmodifiedSince) return _mValue_CopyIfUnmodifiedSince;
+                throw new UndeferrableValueException("Value 'ObjectCopy.CopyIfUnmodifiedSince' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the algorithm to use to when encrypting the object (for example, AES256).
         /// </summary>
-        [Input("customerAlgorithm")]
+        [PolicyResourceProperty("customerAlgorithm", "_mUnknown_CustomerAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerAlgorithm;
-
-        public string? CustomerAlgorithm => _mCustomerAlgorithm.GetValue("customerAlgorithm");
+        private string? _mValue_CustomerAlgorithm;
+        private bool _mUnknown_CustomerAlgorithm;
+        public string? CustomerAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_CustomerAlgorithm) return _mValue_CustomerAlgorithm;
+                throw new UndeferrableValueException("Value 'ObjectCopy.CustomerAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
         /// </summary>
-        [Input("customerKey")]
+        [PolicyResourceProperty("customerKey", "_mUnknown_CustomerKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerKey;
-
-        public string? CustomerKey => _mCustomerKey.GetValue("customerKey");
+        private string? _mValue_CustomerKey;
+        private bool _mUnknown_CustomerKey;
+        public string? CustomerKey
+        {
+            get
+            {
+                if (!_mUnknown_CustomerKey) return _mValue_CustomerKey;
+                throw new UndeferrableValueException("Value 'ObjectCopy.CustomerKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         /// </summary>
-        [Input("customerKeyMd5")]
+        [PolicyResourceProperty("customerKeyMd5", "_mUnknown_CustomerKeyMd5")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerKeyMd5;
-
-        public string? CustomerKeyMd5 => _mCustomerKeyMd5.GetValue("customerKeyMd5");
+        private string? _mValue_CustomerKeyMd5;
+        private bool _mUnknown_CustomerKeyMd5;
+        public string? CustomerKeyMd5
+        {
+            get
+            {
+                if (!_mUnknown_CustomerKeyMd5) return _mValue_CustomerKeyMd5;
+                throw new UndeferrableValueException("Value 'ObjectCopy.CustomerKeyMd5' is not present");
+            }
+        }
 
         /// <summary>
         /// ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
         /// </summary>
-        [Input("etag")]
+        [PolicyResourceProperty("etag", "_mUnknown_Etag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
-
-        public string? Etag => _mEtag.GetValue("etag");
+        private string? _mValue_Etag;
+        private bool _mUnknown_Etag;
+        public string? Etag
+        {
+            get
+            {
+                if (!_mUnknown_Etag) return _mValue_Etag;
+                throw new UndeferrableValueException("Value 'ObjectCopy.Etag' is not present");
+            }
+        }
 
         /// <summary>
         /// Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'ObjectCopy.ExpectedBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </summary>
-        [Input("expectedSourceBucketOwner")]
+        [PolicyResourceProperty("expectedSourceBucketOwner", "_mUnknown_ExpectedSourceBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedSourceBucketOwner;
-
-        public string? ExpectedSourceBucketOwner => _mExpectedSourceBucketOwner.GetValue("expectedSourceBucketOwner");
+        private string? _mValue_ExpectedSourceBucketOwner;
+        private bool _mUnknown_ExpectedSourceBucketOwner;
+        public string? ExpectedSourceBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedSourceBucketOwner) return _mValue_ExpectedSourceBucketOwner;
+                throw new UndeferrableValueException("Value 'ObjectCopy.ExpectedSourceBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// If the object expiration is configured, this attribute will be set.
         /// </summary>
-        [Input("expiration")]
+        [PolicyResourceProperty("expiration", "_mUnknown_Expiration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpiration;
-
-        public string? Expiration => _mExpiration.GetValue("expiration");
+        private string? _mValue_Expiration;
+        private bool _mUnknown_Expiration;
+        public string? Expiration
+        {
+            get
+            {
+                if (!_mUnknown_Expiration) return _mValue_Expiration;
+                throw new UndeferrableValueException("Value 'ObjectCopy.Expiration' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        [Input("expires")]
+        [PolicyResourceProperty("expires", "_mUnknown_Expires")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpires;
-
-        public string? Expires => _mExpires.GetValue("expires");
+        private string? _mValue_Expires;
+        private bool _mUnknown_Expires;
+        public string? Expires
+        {
+            get
+            {
+                if (!_mUnknown_Expires) return _mValue_Expires;
+                throw new UndeferrableValueException("Value 'ObjectCopy.Expires' is not present");
+            }
+        }
 
         /// <summary>
         /// Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'ObjectCopy.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for header grants. Documented below. Conflicts with `acl`.
         /// </summary>
-        [Input("grants")]
+        [PolicyResourceProperty("grants", "_mUnknown_Grants")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ObjectCopyGrant>> _mGrants;
-
-        public List<Outputs.ObjectCopyGrant>? Grants => _mGrants.GetValue("grants");
+        private List<Outputs.ObjectCopyGrant>? _mValue_Grants;
+        private bool _mUnknown_Grants;
+        public List<Outputs.ObjectCopyGrant>? Grants
+        {
+            get
+            {
+                if (!_mUnknown_Grants) return _mValue_Grants;
+                throw new UndeferrableValueException("Value 'ObjectCopy.Grants' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the object once it is in the bucket.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'ObjectCopy.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
         /// </summary>
-        [Input("kmsEncryptionContext")]
+        [PolicyResourceProperty("kmsEncryptionContext", "_mUnknown_KmsEncryptionContext")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsEncryptionContext;
-
-        public string? KmsEncryptionContext => _mKmsEncryptionContext.GetValue("kmsEncryptionContext");
+        private string? _mValue_KmsEncryptionContext;
+        private bool _mUnknown_KmsEncryptionContext;
+        public string? KmsEncryptionContext
+        {
+            get
+            {
+                if (!_mUnknown_KmsEncryptionContext) return _mValue_KmsEncryptionContext;
+                throw new UndeferrableValueException("Value 'ObjectCopy.KmsEncryptionContext' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ObjectCopy.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        [Input("lastModified")]
+        [PolicyResourceProperty("lastModified", "_mUnknown_LastModified")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModified;
-
-        public string? LastModified => _mLastModified.GetValue("lastModified");
+        private string? _mValue_LastModified;
+        private bool _mUnknown_LastModified;
+        public string? LastModified
+        {
+            get
+            {
+                if (!_mUnknown_LastModified) return _mValue_LastModified;
+                throw new UndeferrableValueException("Value 'ObjectCopy.LastModified' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         /// </summary>
-        [Input("metadata")]
+        [PolicyResourceProperty("metadata", "_mUnknown_Metadata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mMetadata;
-
-        public Dictionary<string, string>? Metadata => _mMetadata.GetValue("metadata");
+        private Dictionary<string, string>? _mValue_Metadata;
+        private bool _mUnknown_Metadata;
+        public Dictionary<string, string>? Metadata
+        {
+            get
+            {
+                if (!_mUnknown_Metadata) return _mValue_Metadata;
+                throw new UndeferrableValueException("Value 'ObjectCopy.Metadata' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
         /// </summary>
-        [Input("metadataDirective")]
+        [PolicyResourceProperty("metadataDirective", "_mUnknown_MetadataDirective")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetadataDirective;
-
-        public string? MetadataDirective => _mMetadataDirective.GetValue("metadataDirective");
+        private string? _mValue_MetadataDirective;
+        private bool _mUnknown_MetadataDirective;
+        public string? MetadataDirective
+        {
+            get
+            {
+                if (!_mUnknown_MetadataDirective) return _mValue_MetadataDirective;
+                throw new UndeferrableValueException("Value 'ObjectCopy.MetadataDirective' is not present");
+            }
+        }
 
         /// <summary>
         /// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         /// </summary>
-        [Input("objectLockLegalHoldStatus")]
+        [PolicyResourceProperty("objectLockLegalHoldStatus", "_mUnknown_ObjectLockLegalHoldStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectLockLegalHoldStatus;
-
-        public string? ObjectLockLegalHoldStatus => _mObjectLockLegalHoldStatus.GetValue("objectLockLegalHoldStatus");
+        private string? _mValue_ObjectLockLegalHoldStatus;
+        private bool _mUnknown_ObjectLockLegalHoldStatus;
+        public string? ObjectLockLegalHoldStatus
+        {
+            get
+            {
+                if (!_mUnknown_ObjectLockLegalHoldStatus) return _mValue_ObjectLockLegalHoldStatus;
+                throw new UndeferrableValueException("Value 'ObjectCopy.ObjectLockLegalHoldStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         /// </summary>
-        [Input("objectLockMode")]
+        [PolicyResourceProperty("objectLockMode", "_mUnknown_ObjectLockMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectLockMode;
-
-        public string? ObjectLockMode => _mObjectLockMode.GetValue("objectLockMode");
+        private string? _mValue_ObjectLockMode;
+        private bool _mUnknown_ObjectLockMode;
+        public string? ObjectLockMode
+        {
+            get
+            {
+                if (!_mUnknown_ObjectLockMode) return _mValue_ObjectLockMode;
+                throw new UndeferrableValueException("Value 'ObjectCopy.ObjectLockMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         /// </summary>
-        [Input("objectLockRetainUntilDate")]
+        [PolicyResourceProperty("objectLockRetainUntilDate", "_mUnknown_ObjectLockRetainUntilDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectLockRetainUntilDate;
+        private string? _mValue_ObjectLockRetainUntilDate;
+        private bool _mUnknown_ObjectLockRetainUntilDate;
+        public string? ObjectLockRetainUntilDate
+        {
+            get
+            {
+                if (!_mUnknown_ObjectLockRetainUntilDate) return _mValue_ObjectLockRetainUntilDate;
+                throw new UndeferrableValueException("Value 'ObjectCopy.ObjectLockRetainUntilDate' is not present");
+            }
+        }
 
-        public string? ObjectLockRetainUntilDate => _mObjectLockRetainUntilDate.GetValue("objectLockRetainUntilDate");
-
-        [Input("overrideProvider")]
+        [PolicyResourceProperty("overrideProvider", "_mUnknown_OverrideProvider")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ObjectCopyOverrideProvider> _mOverrideProvider;
-
-        public Outputs.ObjectCopyOverrideProvider? OverrideProvider => _mOverrideProvider.GetValue("overrideProvider");
+        private Outputs.ObjectCopyOverrideProvider? _mValue_OverrideProvider;
+        private bool _mUnknown_OverrideProvider;
+        public Outputs.ObjectCopyOverrideProvider? OverrideProvider
+        {
+            get
+            {
+                if (!_mUnknown_OverrideProvider) return _mValue_OverrideProvider;
+                throw new UndeferrableValueException("Value 'ObjectCopy.OverrideProvider' is not present");
+            }
+        }
 
         /// <summary>
         /// If present, indicates that the requester was successfully charged for the request.
         /// </summary>
-        [Input("requestCharged")]
+        [PolicyResourceProperty("requestCharged", "_mUnknown_RequestCharged")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequestCharged;
-
-        public bool? RequestCharged => _mRequestCharged.GetValue("requestCharged");
+        private bool? _mValue_RequestCharged;
+        private bool _mUnknown_RequestCharged;
+        public bool? RequestCharged
+        {
+            get
+            {
+                if (!_mUnknown_RequestCharged) return _mValue_RequestCharged;
+                throw new UndeferrableValueException("Value 'ObjectCopy.RequestCharged' is not present");
+            }
+        }
 
         /// <summary>
         /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
         /// </summary>
-        [Input("requestPayer")]
+        [PolicyResourceProperty("requestPayer", "_mUnknown_RequestPayer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequestPayer;
-
-        public string? RequestPayer => _mRequestPayer.GetValue("requestPayer");
+        private string? _mValue_RequestPayer;
+        private bool _mUnknown_RequestPayer;
+        public string? RequestPayer
+        {
+            get
+            {
+                if (!_mUnknown_RequestPayer) return _mValue_RequestPayer;
+                throw new UndeferrableValueException("Value 'ObjectCopy.RequestPayer' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
         /// </summary>
-        [Input("serverSideEncryption")]
+        [PolicyResourceProperty("serverSideEncryption", "_mUnknown_ServerSideEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerSideEncryption;
-
-        public string? ServerSideEncryption => _mServerSideEncryption.GetValue("serverSideEncryption");
+        private string? _mValue_ServerSideEncryption;
+        private bool _mUnknown_ServerSideEncryption;
+        public string? ServerSideEncryption
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryption) return _mValue_ServerSideEncryption;
+                throw new UndeferrableValueException("Value 'ObjectCopy.ServerSideEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:&lt;Region&gt;:&lt;account-id&gt;:accesspoint/&lt;access-point-name&gt;/object/&lt;key&gt;`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
-
-        public string? Source => _mSource.GetValue("source");
+        private string? _mValue_Source;
+        private bool _mUnknown_Source;
+        public string? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'ObjectCopy.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the algorithm to use when decrypting the source object (for example, AES256).
         /// </summary>
-        [Input("sourceCustomerAlgorithm")]
+        [PolicyResourceProperty("sourceCustomerAlgorithm", "_mUnknown_SourceCustomerAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceCustomerAlgorithm;
-
-        public string? SourceCustomerAlgorithm => _mSourceCustomerAlgorithm.GetValue("sourceCustomerAlgorithm");
+        private string? _mValue_SourceCustomerAlgorithm;
+        private bool _mUnknown_SourceCustomerAlgorithm;
+        public string? SourceCustomerAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_SourceCustomerAlgorithm) return _mValue_SourceCustomerAlgorithm;
+                throw new UndeferrableValueException("Value 'ObjectCopy.SourceCustomerAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
         /// </summary>
-        [Input("sourceCustomerKey")]
+        [PolicyResourceProperty("sourceCustomerKey", "_mUnknown_SourceCustomerKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceCustomerKey;
-
-        public string? SourceCustomerKey => _mSourceCustomerKey.GetValue("sourceCustomerKey");
+        private string? _mValue_SourceCustomerKey;
+        private bool _mUnknown_SourceCustomerKey;
+        public string? SourceCustomerKey
+        {
+            get
+            {
+                if (!_mUnknown_SourceCustomerKey) return _mValue_SourceCustomerKey;
+                throw new UndeferrableValueException("Value 'ObjectCopy.SourceCustomerKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         /// </summary>
-        [Input("sourceCustomerKeyMd5")]
+        [PolicyResourceProperty("sourceCustomerKeyMd5", "_mUnknown_SourceCustomerKeyMd5")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceCustomerKeyMd5;
-
-        public string? SourceCustomerKeyMd5 => _mSourceCustomerKeyMd5.GetValue("sourceCustomerKeyMd5");
+        private string? _mValue_SourceCustomerKeyMd5;
+        private bool _mUnknown_SourceCustomerKeyMd5;
+        public string? SourceCustomerKeyMd5
+        {
+            get
+            {
+                if (!_mUnknown_SourceCustomerKeyMd5) return _mValue_SourceCustomerKeyMd5;
+                throw new UndeferrableValueException("Value 'ObjectCopy.SourceCustomerKeyMd5' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the copied object in the source bucket.
         /// </summary>
-        [Input("sourceVersionId")]
+        [PolicyResourceProperty("sourceVersionId", "_mUnknown_SourceVersionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceVersionId;
-
-        public string? SourceVersionId => _mSourceVersionId.GetValue("sourceVersionId");
+        private string? _mValue_SourceVersionId;
+        private bool _mUnknown_SourceVersionId;
+        public string? SourceVersionId
+        {
+            get
+            {
+                if (!_mUnknown_SourceVersionId) return _mValue_SourceVersionId;
+                throw new UndeferrableValueException("Value 'ObjectCopy.SourceVersionId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
         /// </summary>
-        [Input("storageClass")]
+        [PolicyResourceProperty("storageClass", "_mUnknown_StorageClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageClass;
-
-        public string? StorageClass => _mStorageClass.GetValue("storageClass");
+        private string? _mValue_StorageClass;
+        private bool _mUnknown_StorageClass;
+        public string? StorageClass
+        {
+            get
+            {
+                if (!_mUnknown_StorageClass) return _mValue_StorageClass;
+                throw new UndeferrableValueException("Value 'ObjectCopy.StorageClass' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
         /// </summary>
-        [Input("taggingDirective")]
+        [PolicyResourceProperty("taggingDirective", "_mUnknown_TaggingDirective")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaggingDirective;
-
-        public string? TaggingDirective => _mTaggingDirective.GetValue("taggingDirective");
+        private string? _mValue_TaggingDirective;
+        private bool _mUnknown_TaggingDirective;
+        public string? TaggingDirective
+        {
+            get
+            {
+                if (!_mUnknown_TaggingDirective) return _mValue_TaggingDirective;
+                throw new UndeferrableValueException("Value 'ObjectCopy.TaggingDirective' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ObjectCopy.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ObjectCopy.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Version ID of the newly created copy.
         /// </summary>
-        [Input("versionId")]
+        [PolicyResourceProperty("versionId", "_mUnknown_VersionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionId;
-
-        public string? VersionId => _mVersionId.GetValue("versionId");
+        private string? _mValue_VersionId;
+        private bool _mUnknown_VersionId;
+        public string? VersionId
+        {
+            get
+            {
+                if (!_mUnknown_VersionId) return _mValue_VersionId;
+                throw new UndeferrableValueException("Value 'ObjectCopy.VersionId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         /// </summary>
-        [Input("websiteRedirect")]
+        [PolicyResourceProperty("websiteRedirect", "_mUnknown_WebsiteRedirect")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebsiteRedirect;
-
-        public string? WebsiteRedirect => _mWebsiteRedirect.GetValue("websiteRedirect");
+        private string? _mValue_WebsiteRedirect;
+        private bool _mUnknown_WebsiteRedirect;
+        public string? WebsiteRedirect
+        {
+            get
+            {
+                if (!_mUnknown_WebsiteRedirect) return _mValue_WebsiteRedirect;
+                throw new UndeferrableValueException("Value 'ObjectCopy.WebsiteRedirect' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/objectCopy:ObjectCopy")]
@@ -493,357 +864,637 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
         /// </summary>
-        [Input("acl")]
+        [PolicyResourceProperty("acl", "_mUnknown_Acl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcl;
-
-        public string? Acl => _mAcl.GetValue("acl");
+        private string? _mValue_Acl;
+        private bool _mUnknown_Acl;
+        public string? Acl
+        {
+            get
+            {
+                if (!_mUnknown_Acl) return _mValue_Acl;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.Acl' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the bucket to put the file in.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.Bucket' is not present");
+            }
+        }
 
-        public string? Bucket => _mBucket.GetValue("bucket");
-
-        [Input("bucketKeyEnabled")]
+        [PolicyResourceProperty("bucketKeyEnabled", "_mUnknown_BucketKeyEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBucketKeyEnabled;
-
-        public bool? BucketKeyEnabled => _mBucketKeyEnabled.GetValue("bucketKeyEnabled");
+        private bool? _mValue_BucketKeyEnabled;
+        private bool _mUnknown_BucketKeyEnabled;
+        public bool? BucketKeyEnabled
+        {
+            get
+            {
+                if (!_mUnknown_BucketKeyEnabled) return _mValue_BucketKeyEnabled;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.BucketKeyEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         /// </summary>
-        [Input("cacheControl")]
+        [PolicyResourceProperty("cacheControl", "_mUnknown_CacheControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCacheControl;
-
-        public string? CacheControl => _mCacheControl.GetValue("cacheControl");
+        private string? _mValue_CacheControl;
+        private bool _mUnknown_CacheControl;
+        public string? CacheControl
+        {
+            get
+            {
+                if (!_mUnknown_CacheControl) return _mValue_CacheControl;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.CacheControl' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
         /// </summary>
-        [Input("checksumAlgorithm")]
+        [PolicyResourceProperty("checksumAlgorithm", "_mUnknown_ChecksumAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChecksumAlgorithm;
-
-        public string? ChecksumAlgorithm => _mChecksumAlgorithm.GetValue("checksumAlgorithm");
+        private string? _mValue_ChecksumAlgorithm;
+        private bool _mUnknown_ChecksumAlgorithm;
+        public string? ChecksumAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_ChecksumAlgorithm) return _mValue_ChecksumAlgorithm;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.ChecksumAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         /// </summary>
-        [Input("contentDisposition")]
+        [PolicyResourceProperty("contentDisposition", "_mUnknown_ContentDisposition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentDisposition;
-
-        public string? ContentDisposition => _mContentDisposition.GetValue("contentDisposition");
+        private string? _mValue_ContentDisposition;
+        private bool _mUnknown_ContentDisposition;
+        public string? ContentDisposition
+        {
+            get
+            {
+                if (!_mUnknown_ContentDisposition) return _mValue_ContentDisposition;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.ContentDisposition' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         /// </summary>
-        [Input("contentEncoding")]
+        [PolicyResourceProperty("contentEncoding", "_mUnknown_ContentEncoding")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentEncoding;
-
-        public string? ContentEncoding => _mContentEncoding.GetValue("contentEncoding");
+        private string? _mValue_ContentEncoding;
+        private bool _mUnknown_ContentEncoding;
+        public string? ContentEncoding
+        {
+            get
+            {
+                if (!_mUnknown_ContentEncoding) return _mValue_ContentEncoding;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.ContentEncoding' is not present");
+            }
+        }
 
         /// <summary>
         /// Language the content is in e.g., en-US or en-GB.
         /// </summary>
-        [Input("contentLanguage")]
+        [PolicyResourceProperty("contentLanguage", "_mUnknown_ContentLanguage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentLanguage;
-
-        public string? ContentLanguage => _mContentLanguage.GetValue("contentLanguage");
+        private string? _mValue_ContentLanguage;
+        private bool _mUnknown_ContentLanguage;
+        public string? ContentLanguage
+        {
+            get
+            {
+                if (!_mUnknown_ContentLanguage) return _mValue_ContentLanguage;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.ContentLanguage' is not present");
+            }
+        }
 
         /// <summary>
         /// Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         /// </summary>
-        [Input("contentType")]
+        [PolicyResourceProperty("contentType", "_mUnknown_ContentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
-
-        public string? ContentType => _mContentType.GetValue("contentType");
+        private string? _mValue_ContentType;
+        private bool _mUnknown_ContentType;
+        public string? ContentType
+        {
+            get
+            {
+                if (!_mUnknown_ContentType) return _mValue_ContentType;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.ContentType' is not present");
+            }
+        }
 
         /// <summary>
         /// Copies the object if its entity tag (ETag) matches the specified tag.
         /// </summary>
-        [Input("copyIfMatch")]
+        [PolicyResourceProperty("copyIfMatch", "_mUnknown_CopyIfMatch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCopyIfMatch;
-
-        public string? CopyIfMatch => _mCopyIfMatch.GetValue("copyIfMatch");
+        private string? _mValue_CopyIfMatch;
+        private bool _mUnknown_CopyIfMatch;
+        public string? CopyIfMatch
+        {
+            get
+            {
+                if (!_mUnknown_CopyIfMatch) return _mValue_CopyIfMatch;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.CopyIfMatch' is not present");
+            }
+        }
 
         /// <summary>
         /// Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        [Input("copyIfModifiedSince")]
+        [PolicyResourceProperty("copyIfModifiedSince", "_mUnknown_CopyIfModifiedSince")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCopyIfModifiedSince;
-
-        public string? CopyIfModifiedSince => _mCopyIfModifiedSince.GetValue("copyIfModifiedSince");
+        private string? _mValue_CopyIfModifiedSince;
+        private bool _mUnknown_CopyIfModifiedSince;
+        public string? CopyIfModifiedSince
+        {
+            get
+            {
+                if (!_mUnknown_CopyIfModifiedSince) return _mValue_CopyIfModifiedSince;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.CopyIfModifiedSince' is not present");
+            }
+        }
 
         /// <summary>
         /// Copies the object if its entity tag (ETag) is different than the specified ETag.
         /// </summary>
-        [Input("copyIfNoneMatch")]
+        [PolicyResourceProperty("copyIfNoneMatch", "_mUnknown_CopyIfNoneMatch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCopyIfNoneMatch;
-
-        public string? CopyIfNoneMatch => _mCopyIfNoneMatch.GetValue("copyIfNoneMatch");
+        private string? _mValue_CopyIfNoneMatch;
+        private bool _mUnknown_CopyIfNoneMatch;
+        public string? CopyIfNoneMatch
+        {
+            get
+            {
+                if (!_mUnknown_CopyIfNoneMatch) return _mValue_CopyIfNoneMatch;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.CopyIfNoneMatch' is not present");
+            }
+        }
 
         /// <summary>
         /// Copies the object if it hasn't been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        [Input("copyIfUnmodifiedSince")]
+        [PolicyResourceProperty("copyIfUnmodifiedSince", "_mUnknown_CopyIfUnmodifiedSince")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCopyIfUnmodifiedSince;
-
-        public string? CopyIfUnmodifiedSince => _mCopyIfUnmodifiedSince.GetValue("copyIfUnmodifiedSince");
+        private string? _mValue_CopyIfUnmodifiedSince;
+        private bool _mUnknown_CopyIfUnmodifiedSince;
+        public string? CopyIfUnmodifiedSince
+        {
+            get
+            {
+                if (!_mUnknown_CopyIfUnmodifiedSince) return _mValue_CopyIfUnmodifiedSince;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.CopyIfUnmodifiedSince' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the algorithm to use to when encrypting the object (for example, AES256).
         /// </summary>
-        [Input("customerAlgorithm")]
+        [PolicyResourceProperty("customerAlgorithm", "_mUnknown_CustomerAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerAlgorithm;
-
-        public string? CustomerAlgorithm => _mCustomerAlgorithm.GetValue("customerAlgorithm");
+        private string? _mValue_CustomerAlgorithm;
+        private bool _mUnknown_CustomerAlgorithm;
+        public string? CustomerAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_CustomerAlgorithm) return _mValue_CustomerAlgorithm;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.CustomerAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
         /// </summary>
-        [Input("customerKey")]
+        [PolicyResourceProperty("customerKey", "_mUnknown_CustomerKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerKey;
-
-        public string? CustomerKey => _mCustomerKey.GetValue("customerKey");
+        private string? _mValue_CustomerKey;
+        private bool _mUnknown_CustomerKey;
+        public string? CustomerKey
+        {
+            get
+            {
+                if (!_mUnknown_CustomerKey) return _mValue_CustomerKey;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.CustomerKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         /// </summary>
-        [Input("customerKeyMd5")]
+        [PolicyResourceProperty("customerKeyMd5", "_mUnknown_CustomerKeyMd5")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerKeyMd5;
-
-        public string? CustomerKeyMd5 => _mCustomerKeyMd5.GetValue("customerKeyMd5");
+        private string? _mValue_CustomerKeyMd5;
+        private bool _mUnknown_CustomerKeyMd5;
+        public string? CustomerKeyMd5
+        {
+            get
+            {
+                if (!_mUnknown_CustomerKeyMd5) return _mValue_CustomerKeyMd5;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.CustomerKeyMd5' is not present");
+            }
+        }
 
         /// <summary>
         /// Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.ExpectedBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </summary>
-        [Input("expectedSourceBucketOwner")]
+        [PolicyResourceProperty("expectedSourceBucketOwner", "_mUnknown_ExpectedSourceBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedSourceBucketOwner;
-
-        public string? ExpectedSourceBucketOwner => _mExpectedSourceBucketOwner.GetValue("expectedSourceBucketOwner");
+        private string? _mValue_ExpectedSourceBucketOwner;
+        private bool _mUnknown_ExpectedSourceBucketOwner;
+        public string? ExpectedSourceBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedSourceBucketOwner) return _mValue_ExpectedSourceBucketOwner;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.ExpectedSourceBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        [Input("expires")]
+        [PolicyResourceProperty("expires", "_mUnknown_Expires")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpires;
-
-        public string? Expires => _mExpires.GetValue("expires");
+        private string? _mValue_Expires;
+        private bool _mUnknown_Expires;
+        public string? Expires
+        {
+            get
+            {
+                if (!_mUnknown_Expires) return _mValue_Expires;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.Expires' is not present");
+            }
+        }
 
         /// <summary>
         /// Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for header grants. Documented below. Conflicts with `acl`.
         /// </summary>
-        [Input("grants")]
+        [PolicyResourceProperty("grants", "_mUnknown_Grants")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ObjectCopyGrantArgs>> _mGrants;
-
-        public List<Inputs.ObjectCopyGrantArgs>? Grants => _mGrants.GetValue("grants");
+        private List<Inputs.ObjectCopyGrantArgs>? _mValue_Grants;
+        private bool _mUnknown_Grants;
+        public List<Inputs.ObjectCopyGrantArgs>? Grants
+        {
+            get
+            {
+                if (!_mUnknown_Grants) return _mValue_Grants;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.Grants' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the object once it is in the bucket.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
         /// </summary>
-        [Input("kmsEncryptionContext")]
+        [PolicyResourceProperty("kmsEncryptionContext", "_mUnknown_KmsEncryptionContext")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsEncryptionContext;
-
-        public string? KmsEncryptionContext => _mKmsEncryptionContext.GetValue("kmsEncryptionContext");
+        private string? _mValue_KmsEncryptionContext;
+        private bool _mUnknown_KmsEncryptionContext;
+        public string? KmsEncryptionContext
+        {
+            get
+            {
+                if (!_mUnknown_KmsEncryptionContext) return _mValue_KmsEncryptionContext;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.KmsEncryptionContext' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         /// </summary>
-        [Input("metadata")]
+        [PolicyResourceProperty("metadata", "_mUnknown_Metadata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mMetadata;
-
-        public Dictionary<string, string>? Metadata => _mMetadata.GetValue("metadata");
+        private Dictionary<string, string>? _mValue_Metadata;
+        private bool _mUnknown_Metadata;
+        public Dictionary<string, string>? Metadata
+        {
+            get
+            {
+                if (!_mUnknown_Metadata) return _mValue_Metadata;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.Metadata' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
         /// </summary>
-        [Input("metadataDirective")]
+        [PolicyResourceProperty("metadataDirective", "_mUnknown_MetadataDirective")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetadataDirective;
-
-        public string? MetadataDirective => _mMetadataDirective.GetValue("metadataDirective");
+        private string? _mValue_MetadataDirective;
+        private bool _mUnknown_MetadataDirective;
+        public string? MetadataDirective
+        {
+            get
+            {
+                if (!_mUnknown_MetadataDirective) return _mValue_MetadataDirective;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.MetadataDirective' is not present");
+            }
+        }
 
         /// <summary>
         /// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         /// </summary>
-        [Input("objectLockLegalHoldStatus")]
+        [PolicyResourceProperty("objectLockLegalHoldStatus", "_mUnknown_ObjectLockLegalHoldStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectLockLegalHoldStatus;
-
-        public string? ObjectLockLegalHoldStatus => _mObjectLockLegalHoldStatus.GetValue("objectLockLegalHoldStatus");
+        private string? _mValue_ObjectLockLegalHoldStatus;
+        private bool _mUnknown_ObjectLockLegalHoldStatus;
+        public string? ObjectLockLegalHoldStatus
+        {
+            get
+            {
+                if (!_mUnknown_ObjectLockLegalHoldStatus) return _mValue_ObjectLockLegalHoldStatus;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.ObjectLockLegalHoldStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         /// </summary>
-        [Input("objectLockMode")]
+        [PolicyResourceProperty("objectLockMode", "_mUnknown_ObjectLockMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectLockMode;
-
-        public string? ObjectLockMode => _mObjectLockMode.GetValue("objectLockMode");
+        private string? _mValue_ObjectLockMode;
+        private bool _mUnknown_ObjectLockMode;
+        public string? ObjectLockMode
+        {
+            get
+            {
+                if (!_mUnknown_ObjectLockMode) return _mValue_ObjectLockMode;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.ObjectLockMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         /// </summary>
-        [Input("objectLockRetainUntilDate")]
+        [PolicyResourceProperty("objectLockRetainUntilDate", "_mUnknown_ObjectLockRetainUntilDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectLockRetainUntilDate;
+        private string? _mValue_ObjectLockRetainUntilDate;
+        private bool _mUnknown_ObjectLockRetainUntilDate;
+        public string? ObjectLockRetainUntilDate
+        {
+            get
+            {
+                if (!_mUnknown_ObjectLockRetainUntilDate) return _mValue_ObjectLockRetainUntilDate;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.ObjectLockRetainUntilDate' is not present");
+            }
+        }
 
-        public string? ObjectLockRetainUntilDate => _mObjectLockRetainUntilDate.GetValue("objectLockRetainUntilDate");
-
-        [Input("overrideProvider")]
+        [PolicyResourceProperty("overrideProvider", "_mUnknown_OverrideProvider")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ObjectCopyOverrideProviderArgs> _mOverrideProvider;
-
-        public Inputs.ObjectCopyOverrideProviderArgs? OverrideProvider => _mOverrideProvider.GetValue("overrideProvider");
+        private Inputs.ObjectCopyOverrideProviderArgs? _mValue_OverrideProvider;
+        private bool _mUnknown_OverrideProvider;
+        public Inputs.ObjectCopyOverrideProviderArgs? OverrideProvider
+        {
+            get
+            {
+                if (!_mUnknown_OverrideProvider) return _mValue_OverrideProvider;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.OverrideProvider' is not present");
+            }
+        }
 
         /// <summary>
         /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
         /// </summary>
-        [Input("requestPayer")]
+        [PolicyResourceProperty("requestPayer", "_mUnknown_RequestPayer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequestPayer;
-
-        public string? RequestPayer => _mRequestPayer.GetValue("requestPayer");
+        private string? _mValue_RequestPayer;
+        private bool _mUnknown_RequestPayer;
+        public string? RequestPayer
+        {
+            get
+            {
+                if (!_mUnknown_RequestPayer) return _mValue_RequestPayer;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.RequestPayer' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
         /// </summary>
-        [Input("serverSideEncryption")]
+        [PolicyResourceProperty("serverSideEncryption", "_mUnknown_ServerSideEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerSideEncryption;
-
-        public string? ServerSideEncryption => _mServerSideEncryption.GetValue("serverSideEncryption");
+        private string? _mValue_ServerSideEncryption;
+        private bool _mUnknown_ServerSideEncryption;
+        public string? ServerSideEncryption
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryption) return _mValue_ServerSideEncryption;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.ServerSideEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:&lt;Region&gt;:&lt;account-id&gt;:accesspoint/&lt;access-point-name&gt;/object/&lt;key&gt;`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
-
-        public string? Source => _mSource.GetValue("source");
+        private string? _mValue_Source;
+        private bool _mUnknown_Source;
+        public string? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the algorithm to use when decrypting the source object (for example, AES256).
         /// </summary>
-        [Input("sourceCustomerAlgorithm")]
+        [PolicyResourceProperty("sourceCustomerAlgorithm", "_mUnknown_SourceCustomerAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceCustomerAlgorithm;
-
-        public string? SourceCustomerAlgorithm => _mSourceCustomerAlgorithm.GetValue("sourceCustomerAlgorithm");
+        private string? _mValue_SourceCustomerAlgorithm;
+        private bool _mUnknown_SourceCustomerAlgorithm;
+        public string? SourceCustomerAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_SourceCustomerAlgorithm) return _mValue_SourceCustomerAlgorithm;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.SourceCustomerAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
         /// </summary>
-        [Input("sourceCustomerKey")]
+        [PolicyResourceProperty("sourceCustomerKey", "_mUnknown_SourceCustomerKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceCustomerKey;
-
-        public string? SourceCustomerKey => _mSourceCustomerKey.GetValue("sourceCustomerKey");
+        private string? _mValue_SourceCustomerKey;
+        private bool _mUnknown_SourceCustomerKey;
+        public string? SourceCustomerKey
+        {
+            get
+            {
+                if (!_mUnknown_SourceCustomerKey) return _mValue_SourceCustomerKey;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.SourceCustomerKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         /// </summary>
-        [Input("sourceCustomerKeyMd5")]
+        [PolicyResourceProperty("sourceCustomerKeyMd5", "_mUnknown_SourceCustomerKeyMd5")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceCustomerKeyMd5;
-
-        public string? SourceCustomerKeyMd5 => _mSourceCustomerKeyMd5.GetValue("sourceCustomerKeyMd5");
+        private string? _mValue_SourceCustomerKeyMd5;
+        private bool _mUnknown_SourceCustomerKeyMd5;
+        public string? SourceCustomerKeyMd5
+        {
+            get
+            {
+                if (!_mUnknown_SourceCustomerKeyMd5) return _mValue_SourceCustomerKeyMd5;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.SourceCustomerKeyMd5' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
         /// </summary>
-        [Input("storageClass")]
+        [PolicyResourceProperty("storageClass", "_mUnknown_StorageClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageClass;
-
-        public string? StorageClass => _mStorageClass.GetValue("storageClass");
+        private string? _mValue_StorageClass;
+        private bool _mUnknown_StorageClass;
+        public string? StorageClass
+        {
+            get
+            {
+                if (!_mUnknown_StorageClass) return _mValue_StorageClass;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.StorageClass' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
         /// </summary>
-        [Input("taggingDirective")]
+        [PolicyResourceProperty("taggingDirective", "_mUnknown_TaggingDirective")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaggingDirective;
-
-        public string? TaggingDirective => _mTaggingDirective.GetValue("taggingDirective");
+        private string? _mValue_TaggingDirective;
+        private bool _mUnknown_TaggingDirective;
+        public string? TaggingDirective
+        {
+            get
+            {
+                if (!_mUnknown_TaggingDirective) return _mValue_TaggingDirective;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.TaggingDirective' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         /// </summary>
-        [Input("websiteRedirect")]
+        [PolicyResourceProperty("websiteRedirect", "_mUnknown_WebsiteRedirect")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebsiteRedirect;
-
-        public string? WebsiteRedirect => _mWebsiteRedirect.GetValue("websiteRedirect");
+        private string? _mValue_WebsiteRedirect;
+        private bool _mUnknown_WebsiteRedirect;
+        public string? WebsiteRedirect
+        {
+            get
+            {
+                if (!_mUnknown_WebsiteRedirect) return _mValue_WebsiteRedirect;
+                throw new UndeferrableValueException("Value 'ObjectCopyArgs.WebsiteRedirect' is not present");
+            }
+        }
     }
 }

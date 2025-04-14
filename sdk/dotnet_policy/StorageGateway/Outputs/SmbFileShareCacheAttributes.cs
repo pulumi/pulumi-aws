@@ -17,10 +17,17 @@ namespace Pulumi.PolicyPacks.Aws.StorageGateway.Outputs
         /// TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
         /// to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
         /// </summary>
-        [Input("cacheStaleTimeoutInSeconds")]
+        [PolicyResourceProperty("cacheStaleTimeoutInSeconds", "_mUnknown_CacheStaleTimeoutInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCacheStaleTimeoutInSeconds;
-
-        public int? CacheStaleTimeoutInSeconds => _mCacheStaleTimeoutInSeconds.GetValue("cacheStaleTimeoutInSeconds");
+        private int? _mValue_CacheStaleTimeoutInSeconds;
+        private bool _mUnknown_CacheStaleTimeoutInSeconds;
+        public int? CacheStaleTimeoutInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_CacheStaleTimeoutInSeconds) return _mValue_CacheStaleTimeoutInSeconds;
+                throw new UndeferrableValueException("Value 'SmbFileShareCacheAttributes.CacheStaleTimeoutInSeconds' is not present");
+            }
+        }
     }
 }

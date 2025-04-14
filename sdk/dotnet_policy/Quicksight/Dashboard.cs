@@ -16,163 +16,289 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// ARN of the dashboard.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Dashboard.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'Dashboard.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The time that the dashboard was created.
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
-
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'Dashboard.CreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the dashboard.
         /// </summary>
-        [Input("dashboardId")]
+        [PolicyResourceProperty("dashboardId", "_mUnknown_DashboardId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDashboardId;
-
-        public string? DashboardId => _mDashboardId.GetValue("dashboardId");
+        private string? _mValue_DashboardId;
+        private bool _mUnknown_DashboardId;
+        public string? DashboardId
+        {
+            get
+            {
+                if (!_mUnknown_DashboardId) return _mValue_DashboardId;
+                throw new UndeferrableValueException("Value 'Dashboard.DashboardId' is not present");
+            }
+        }
 
         /// <summary>
         /// Options for publishing the dashboard. See dashboard_publish_options.
         /// </summary>
-        [Input("dashboardPublishOptions")]
+        [PolicyResourceProperty("dashboardPublishOptions", "_mUnknown_DashboardPublishOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DashboardDashboardPublishOptions> _mDashboardPublishOptions;
+        private Outputs.DashboardDashboardPublishOptions? _mValue_DashboardPublishOptions;
+        private bool _mUnknown_DashboardPublishOptions;
+        public Outputs.DashboardDashboardPublishOptions? DashboardPublishOptions
+        {
+            get
+            {
+                if (!_mUnknown_DashboardPublishOptions) return _mValue_DashboardPublishOptions;
+                throw new UndeferrableValueException("Value 'Dashboard.DashboardPublishOptions' is not present");
+            }
+        }
 
-        public Outputs.DashboardDashboardPublishOptions? DashboardPublishOptions => _mDashboardPublishOptions.GetValue("dashboardPublishOptions");
-
-        [Input("lastPublishedTime")]
+        [PolicyResourceProperty("lastPublishedTime", "_mUnknown_LastPublishedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastPublishedTime;
-
-        public string? LastPublishedTime => _mLastPublishedTime.GetValue("lastPublishedTime");
+        private string? _mValue_LastPublishedTime;
+        private bool _mUnknown_LastPublishedTime;
+        public string? LastPublishedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastPublishedTime) return _mValue_LastPublishedTime;
+                throw new UndeferrableValueException("Value 'Dashboard.LastPublishedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The time that the dashboard was last updated.
         /// </summary>
-        [Input("lastUpdatedTime")]
+        [PolicyResourceProperty("lastUpdatedTime", "_mUnknown_LastUpdatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
-
-        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
+        private string? _mValue_LastUpdatedTime;
+        private bool _mUnknown_LastUpdatedTime;
+        public string? LastUpdatedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedTime) return _mValue_LastUpdatedTime;
+                throw new UndeferrableValueException("Value 'Dashboard.LastUpdatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Display name for the dashboard.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Dashboard.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DashboardParameters> _mParameters;
-
-        public Outputs.DashboardParameters? Parameters => _mParameters.GetValue("parameters");
+        private Outputs.DashboardParameters? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Outputs.DashboardParameters? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'Dashboard.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DashboardPermission>> _mPermissions;
-
-        public List<Outputs.DashboardPermission>? Permissions => _mPermissions.GetValue("permissions");
+        private List<Outputs.DashboardPermission>? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public List<Outputs.DashboardPermission>? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'Dashboard.Permissions' is not present");
+            }
+        }
 
         /// <summary>
         /// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         /// </summary>
-        [Input("sourceEntity")]
+        [PolicyResourceProperty("sourceEntity", "_mUnknown_SourceEntity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DashboardSourceEntity> _mSourceEntity;
-
-        public Outputs.DashboardSourceEntity? SourceEntity => _mSourceEntity.GetValue("sourceEntity");
+        private Outputs.DashboardSourceEntity? _mValue_SourceEntity;
+        private bool _mUnknown_SourceEntity;
+        public Outputs.DashboardSourceEntity? SourceEntity
+        {
+            get
+            {
+                if (!_mUnknown_SourceEntity) return _mValue_SourceEntity;
+                throw new UndeferrableValueException("Value 'Dashboard.SourceEntity' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of a template that was used to create this dashboard.
         /// </summary>
-        [Input("sourceEntityArn")]
+        [PolicyResourceProperty("sourceEntityArn", "_mUnknown_SourceEntityArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceEntityArn;
-
-        public string? SourceEntityArn => _mSourceEntityArn.GetValue("sourceEntityArn");
+        private string? _mValue_SourceEntityArn;
+        private bool _mUnknown_SourceEntityArn;
+        public string? SourceEntityArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceEntityArn) return _mValue_SourceEntityArn;
+                throw new UndeferrableValueException("Value 'Dashboard.SourceEntityArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The dashboard creation status.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Dashboard.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Dashboard.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Dashboard.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         /// </summary>
-        [Input("themeArn")]
+        [PolicyResourceProperty("themeArn", "_mUnknown_ThemeArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThemeArn;
-
-        public string? ThemeArn => _mThemeArn.GetValue("themeArn");
+        private string? _mValue_ThemeArn;
+        private bool _mUnknown_ThemeArn;
+        public string? ThemeArn
+        {
+            get
+            {
+                if (!_mUnknown_ThemeArn) return _mValue_ThemeArn;
+                throw new UndeferrableValueException("Value 'Dashboard.ThemeArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the current dashboard version being created/updated.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("versionDescription")]
+        [PolicyResourceProperty("versionDescription", "_mUnknown_VersionDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionDescription;
-
-        public string? VersionDescription => _mVersionDescription.GetValue("versionDescription");
+        private string? _mValue_VersionDescription;
+        private bool _mUnknown_VersionDescription;
+        public string? VersionDescription
+        {
+            get
+            {
+                if (!_mUnknown_VersionDescription) return _mValue_VersionDescription;
+                throw new UndeferrableValueException("Value 'Dashboard.VersionDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The version number of the dashboard version.
         /// </summary>
-        [Input("versionNumber")]
+        [PolicyResourceProperty("versionNumber", "_mUnknown_VersionNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVersionNumber;
-
-        public int? VersionNumber => _mVersionNumber.GetValue("versionNumber");
+        private int? _mValue_VersionNumber;
+        private bool _mUnknown_VersionNumber;
+        public int? VersionNumber
+        {
+            get
+            {
+                if (!_mUnknown_VersionNumber) return _mValue_VersionNumber;
+                throw new UndeferrableValueException("Value 'Dashboard.VersionNumber' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:quicksight/dashboard:Dashboard")]
@@ -181,93 +307,163 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'DashboardArgs.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the dashboard.
         /// </summary>
-        [Input("dashboardId")]
+        [PolicyResourceProperty("dashboardId", "_mUnknown_DashboardId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDashboardId;
-
-        public string? DashboardId => _mDashboardId.GetValue("dashboardId");
+        private string? _mValue_DashboardId;
+        private bool _mUnknown_DashboardId;
+        public string? DashboardId
+        {
+            get
+            {
+                if (!_mUnknown_DashboardId) return _mValue_DashboardId;
+                throw new UndeferrableValueException("Value 'DashboardArgs.DashboardId' is not present");
+            }
+        }
 
         /// <summary>
         /// Options for publishing the dashboard. See dashboard_publish_options.
         /// </summary>
-        [Input("dashboardPublishOptions")]
+        [PolicyResourceProperty("dashboardPublishOptions", "_mUnknown_DashboardPublishOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DashboardDashboardPublishOptionsArgs> _mDashboardPublishOptions;
-
-        public Inputs.DashboardDashboardPublishOptionsArgs? DashboardPublishOptions => _mDashboardPublishOptions.GetValue("dashboardPublishOptions");
+        private Inputs.DashboardDashboardPublishOptionsArgs? _mValue_DashboardPublishOptions;
+        private bool _mUnknown_DashboardPublishOptions;
+        public Inputs.DashboardDashboardPublishOptionsArgs? DashboardPublishOptions
+        {
+            get
+            {
+                if (!_mUnknown_DashboardPublishOptions) return _mValue_DashboardPublishOptions;
+                throw new UndeferrableValueException("Value 'DashboardArgs.DashboardPublishOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Display name for the dashboard.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DashboardArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DashboardParametersArgs> _mParameters;
-
-        public Inputs.DashboardParametersArgs? Parameters => _mParameters.GetValue("parameters");
+        private Inputs.DashboardParametersArgs? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Inputs.DashboardParametersArgs? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'DashboardArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DashboardPermissionArgs>> _mPermissions;
-
-        public List<Inputs.DashboardPermissionArgs>? Permissions => _mPermissions.GetValue("permissions");
+        private List<Inputs.DashboardPermissionArgs>? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public List<Inputs.DashboardPermissionArgs>? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'DashboardArgs.Permissions' is not present");
+            }
+        }
 
         /// <summary>
         /// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         /// </summary>
-        [Input("sourceEntity")]
+        [PolicyResourceProperty("sourceEntity", "_mUnknown_SourceEntity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DashboardSourceEntityArgs> _mSourceEntity;
-
-        public Inputs.DashboardSourceEntityArgs? SourceEntity => _mSourceEntity.GetValue("sourceEntity");
+        private Inputs.DashboardSourceEntityArgs? _mValue_SourceEntity;
+        private bool _mUnknown_SourceEntity;
+        public Inputs.DashboardSourceEntityArgs? SourceEntity
+        {
+            get
+            {
+                if (!_mUnknown_SourceEntity) return _mValue_SourceEntity;
+                throw new UndeferrableValueException("Value 'DashboardArgs.SourceEntity' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DashboardArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         /// </summary>
-        [Input("themeArn")]
+        [PolicyResourceProperty("themeArn", "_mUnknown_ThemeArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThemeArn;
-
-        public string? ThemeArn => _mThemeArn.GetValue("themeArn");
+        private string? _mValue_ThemeArn;
+        private bool _mUnknown_ThemeArn;
+        public string? ThemeArn
+        {
+            get
+            {
+                if (!_mUnknown_ThemeArn) return _mValue_ThemeArn;
+                throw new UndeferrableValueException("Value 'DashboardArgs.ThemeArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the current dashboard version being created/updated.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("versionDescription")]
+        [PolicyResourceProperty("versionDescription", "_mUnknown_VersionDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionDescription;
-
-        public string? VersionDescription => _mVersionDescription.GetValue("versionDescription");
+        private string? _mValue_VersionDescription;
+        private bool _mUnknown_VersionDescription;
+        public string? VersionDescription
+        {
+            get
+            {
+                if (!_mUnknown_VersionDescription) return _mValue_VersionDescription;
+                throw new UndeferrableValueException("Value 'DashboardArgs.VersionDescription' is not present");
+            }
+        }
     }
 }

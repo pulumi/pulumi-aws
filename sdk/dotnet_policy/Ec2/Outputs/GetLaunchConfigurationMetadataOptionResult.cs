@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// State of the metadata service: `enabled`, `disabled`.
         /// </summary>
-        [Input("httpEndpoint")]
+        [PolicyResourceProperty("httpEndpoint", "_mUnknown_HttpEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpEndpoint;
-
-        public string? HttpEndpoint => _mHttpEndpoint.GetValue("httpEndpoint");
+        private string? _mValue_HttpEndpoint;
+        private bool _mUnknown_HttpEndpoint;
+        public string? HttpEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_HttpEndpoint) return _mValue_HttpEndpoint;
+                throw new UndeferrableValueException("Value 'GetLaunchConfigurationMetadataOptionResult.HttpEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The desired HTTP PUT response hop limit for instance metadata requests.
         /// </summary>
-        [Input("httpPutResponseHopLimit")]
+        [PolicyResourceProperty("httpPutResponseHopLimit", "_mUnknown_HttpPutResponseHopLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHttpPutResponseHopLimit;
-
-        public int? HttpPutResponseHopLimit => _mHttpPutResponseHopLimit.GetValue("httpPutResponseHopLimit");
+        private int? _mValue_HttpPutResponseHopLimit;
+        private bool _mUnknown_HttpPutResponseHopLimit;
+        public int? HttpPutResponseHopLimit
+        {
+            get
+            {
+                if (!_mUnknown_HttpPutResponseHopLimit) return _mValue_HttpPutResponseHopLimit;
+                throw new UndeferrableValueException("Value 'GetLaunchConfigurationMetadataOptionResult.HttpPutResponseHopLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// If session tokens are required: `optional`, `required`.
         /// </summary>
-        [Input("httpTokens")]
+        [PolicyResourceProperty("httpTokens", "_mUnknown_HttpTokens")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpTokens;
-
-        public string? HttpTokens => _mHttpTokens.GetValue("httpTokens");
+        private string? _mValue_HttpTokens;
+        private bool _mUnknown_HttpTokens;
+        public string? HttpTokens
+        {
+            get
+            {
+                if (!_mUnknown_HttpTokens) return _mValue_HttpTokens;
+                throw new UndeferrableValueException("Value 'GetLaunchConfigurationMetadataOptionResult.HttpTokens' is not present");
+            }
+        }
     }
 }

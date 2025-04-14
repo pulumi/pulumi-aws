@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Inputs
         /// <summary>
         /// List of objects containing information about AutoScaling Groups.
         /// </summary>
-        [Input("autoscalingGroups")]
+        [PolicyResourceProperty("autoscalingGroups", "_mUnknown_AutoscalingGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.NodeGroupResourceAutoscalingGroupArgs>> _mAutoscalingGroups;
-
-        public List<Inputs.NodeGroupResourceAutoscalingGroupArgs>? AutoscalingGroups => _mAutoscalingGroups.GetValue("autoscalingGroups");
+        private List<Inputs.NodeGroupResourceAutoscalingGroupArgs>? _mValue_AutoscalingGroups;
+        private bool _mUnknown_AutoscalingGroups;
+        public List<Inputs.NodeGroupResourceAutoscalingGroupArgs>? AutoscalingGroups
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingGroups) return _mValue_AutoscalingGroups;
+                throw new UndeferrableValueException("Value 'NodeGroupResourceArgs.AutoscalingGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the remote access EC2 Security Group.
         /// </summary>
-        [Input("remoteAccessSecurityGroupId")]
+        [PolicyResourceProperty("remoteAccessSecurityGroupId", "_mUnknown_RemoteAccessSecurityGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRemoteAccessSecurityGroupId;
-
-        public string? RemoteAccessSecurityGroupId => _mRemoteAccessSecurityGroupId.GetValue("remoteAccessSecurityGroupId");
+        private string? _mValue_RemoteAccessSecurityGroupId;
+        private bool _mUnknown_RemoteAccessSecurityGroupId;
+        public string? RemoteAccessSecurityGroupId
+        {
+            get
+            {
+                if (!_mUnknown_RemoteAccessSecurityGroupId) return _mValue_RemoteAccessSecurityGroupId;
+                throw new UndeferrableValueException("Value 'NodeGroupResourceArgs.RemoteAccessSecurityGroupId' is not present");
+            }
+        }
     }
 }

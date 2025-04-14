@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions.Inputs
         /// <summary>
         /// Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
         /// </summary>
-        [Input("cognitoUserPoolConfiguration")]
+        [PolicyResourceProperty("cognitoUserPoolConfiguration", "_mUnknown_CognitoUserPoolConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IdentitySourceConfigurationCognitoUserPoolConfigurationArgs> _mCognitoUserPoolConfiguration;
-
-        public Inputs.IdentitySourceConfigurationCognitoUserPoolConfigurationArgs? CognitoUserPoolConfiguration => _mCognitoUserPoolConfiguration.GetValue("cognitoUserPoolConfiguration");
+        private Inputs.IdentitySourceConfigurationCognitoUserPoolConfigurationArgs? _mValue_CognitoUserPoolConfiguration;
+        private bool _mUnknown_CognitoUserPoolConfiguration;
+        public Inputs.IdentitySourceConfigurationCognitoUserPoolConfigurationArgs? CognitoUserPoolConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CognitoUserPoolConfiguration) return _mValue_CognitoUserPoolConfiguration;
+                throw new UndeferrableValueException("Value 'IdentitySourceConfigurationArgs.CognitoUserPoolConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
         /// </summary>
-        [Input("openIdConnectConfiguration")]
+        [PolicyResourceProperty("openIdConnectConfiguration", "_mUnknown_OpenIdConnectConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationArgs> _mOpenIdConnectConfiguration;
-
-        public Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationArgs? OpenIdConnectConfiguration => _mOpenIdConnectConfiguration.GetValue("openIdConnectConfiguration");
+        private Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationArgs? _mValue_OpenIdConnectConfiguration;
+        private bool _mUnknown_OpenIdConnectConfiguration;
+        public Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationArgs? OpenIdConnectConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_OpenIdConnectConfiguration) return _mValue_OpenIdConnectConfiguration;
+                throw new UndeferrableValueException("Value 'IdentitySourceConfigurationArgs.OpenIdConnectConfiguration' is not present");
+            }
+        }
     }
 }

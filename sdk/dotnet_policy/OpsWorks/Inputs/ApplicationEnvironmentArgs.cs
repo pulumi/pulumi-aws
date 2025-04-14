@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks.Inputs
         /// <summary>
         /// Variable name.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'ApplicationEnvironmentArgs.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Set visibility of the variable value to `true` or `false`.
         /// </summary>
-        [Input("secure")]
+        [PolicyResourceProperty("secure", "_mUnknown_Secure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSecure;
-
-        public bool? Secure => _mSecure.GetValue("secure");
+        private bool? _mValue_Secure;
+        private bool _mUnknown_Secure;
+        public bool? Secure
+        {
+            get
+            {
+                if (!_mUnknown_Secure) return _mValue_Secure;
+                throw new UndeferrableValueException("Value 'ApplicationEnvironmentArgs.Secure' is not present");
+            }
+        }
 
         /// <summary>
         /// Variable value.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'ApplicationEnvironmentArgs.Value' is not present");
+            }
+        }
     }
 }

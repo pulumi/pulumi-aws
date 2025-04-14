@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// A description for the device.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DeviceDeviceArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the device.
         /// </summary>
-        [Input("deviceName")]
+        [PolicyResourceProperty("deviceName", "_mUnknown_DeviceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceName;
-
-        public string? DeviceName => _mDeviceName.GetValue("deviceName");
+        private string? _mValue_DeviceName;
+        private bool _mUnknown_DeviceName;
+        public string? DeviceName
+        {
+            get
+            {
+                if (!_mUnknown_DeviceName) return _mValue_DeviceName;
+                throw new UndeferrableValueException("Value 'DeviceDeviceArgs.DeviceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Web Services Internet of Things (IoT) object name.
         /// </summary>
-        [Input("iotThingName")]
+        [PolicyResourceProperty("iotThingName", "_mUnknown_IotThingName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIotThingName;
-
-        public string? IotThingName => _mIotThingName.GetValue("iotThingName");
+        private string? _mValue_IotThingName;
+        private bool _mUnknown_IotThingName;
+        public string? IotThingName
+        {
+            get
+            {
+                if (!_mUnknown_IotThingName) return _mValue_IotThingName;
+                throw new UndeferrableValueException("Value 'DeviceDeviceArgs.IotThingName' is not present");
+            }
+        }
     }
 }

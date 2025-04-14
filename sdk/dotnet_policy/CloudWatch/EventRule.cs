@@ -16,95 +16,165 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The Amazon Resource Name (ARN) of the rule.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'EventRule.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the rule.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'EventRule.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or ARN of the event bus to associate with this rule.
         /// If you omit this, the `default` event bus is used.
         /// </summary>
-        [Input("eventBusName")]
+        [PolicyResourceProperty("eventBusName", "_mUnknown_EventBusName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventBusName;
-
-        public string? EventBusName => _mEventBusName.GetValue("eventBusName");
+        private string? _mValue_EventBusName;
+        private bool _mUnknown_EventBusName;
+        public string? EventBusName
+        {
+            get
+            {
+                if (!_mUnknown_EventBusName) return _mValue_EventBusName;
+                throw new UndeferrableValueException("Value 'EventRule.EventBusName' is not present");
+            }
+        }
 
         /// <summary>
         /// The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
         /// </summary>
-        [Input("eventPattern")]
+        [PolicyResourceProperty("eventPattern", "_mUnknown_EventPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventPattern;
-
-        public string? EventPattern => _mEventPattern.GetValue("eventPattern");
+        private string? _mValue_EventPattern;
+        private bool _mUnknown_EventPattern;
+        public string? EventPattern
+        {
+            get
+            {
+                if (!_mUnknown_EventPattern) return _mValue_EventPattern;
+                throw new UndeferrableValueException("Value 'EventRule.EventPattern' is not present");
+            }
+        }
 
         /// <summary>
         /// Used to delete managed rules created by AWS. Defaults to `false`.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'EventRule.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the rule should be enabled.
         /// Defaults to `true`.
         /// Conflicts with `state`.
         /// </summary>
-        [Input("isEnabled")]
+        [PolicyResourceProperty("isEnabled", "_mUnknown_IsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsEnabled;
-
-        public bool? IsEnabled => _mIsEnabled.GetValue("isEnabled");
+        private bool? _mValue_IsEnabled;
+        private bool _mUnknown_IsEnabled;
+        public bool? IsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_IsEnabled) return _mValue_IsEnabled;
+                throw new UndeferrableValueException("Value 'EventRule.IsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EventRule.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'EventRule.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'EventRule.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
         /// </summary>
-        [Input("scheduleExpression")]
+        [PolicyResourceProperty("scheduleExpression", "_mUnknown_ScheduleExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpression;
-
-        public string? ScheduleExpression => _mScheduleExpression.GetValue("scheduleExpression");
+        private string? _mValue_ScheduleExpression;
+        private bool _mUnknown_ScheduleExpression;
+        public string? ScheduleExpression
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleExpression) return _mValue_ScheduleExpression;
+                throw new UndeferrableValueException("Value 'EventRule.ScheduleExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// State of the rule.
@@ -116,29 +186,50 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// 
         /// **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'EventRule.State' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EventRule.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'EventRule.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/eventRule:EventRule")]
@@ -147,86 +238,149 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The description of the rule.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'EventRuleArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or ARN of the event bus to associate with this rule.
         /// If you omit this, the `default` event bus is used.
         /// </summary>
-        [Input("eventBusName")]
+        [PolicyResourceProperty("eventBusName", "_mUnknown_EventBusName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventBusName;
-
-        public string? EventBusName => _mEventBusName.GetValue("eventBusName");
+        private string? _mValue_EventBusName;
+        private bool _mUnknown_EventBusName;
+        public string? EventBusName
+        {
+            get
+            {
+                if (!_mUnknown_EventBusName) return _mValue_EventBusName;
+                throw new UndeferrableValueException("Value 'EventRuleArgs.EventBusName' is not present");
+            }
+        }
 
         /// <summary>
         /// The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
         /// </summary>
-        [Input("eventPattern")]
+        [PolicyResourceProperty("eventPattern", "_mUnknown_EventPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventPattern;
-
-        public string? EventPattern => _mEventPattern.GetValue("eventPattern");
+        private string? _mValue_EventPattern;
+        private bool _mUnknown_EventPattern;
+        public string? EventPattern
+        {
+            get
+            {
+                if (!_mUnknown_EventPattern) return _mValue_EventPattern;
+                throw new UndeferrableValueException("Value 'EventRuleArgs.EventPattern' is not present");
+            }
+        }
 
         /// <summary>
         /// Used to delete managed rules created by AWS. Defaults to `false`.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'EventRuleArgs.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the rule should be enabled.
         /// Defaults to `true`.
         /// Conflicts with `state`.
         /// </summary>
-        [Input("isEnabled")]
+        [PolicyResourceProperty("isEnabled", "_mUnknown_IsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsEnabled;
-
-        public bool? IsEnabled => _mIsEnabled.GetValue("isEnabled");
+        private bool? _mValue_IsEnabled;
+        private bool _mUnknown_IsEnabled;
+        public bool? IsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_IsEnabled) return _mValue_IsEnabled;
+                throw new UndeferrableValueException("Value 'EventRuleArgs.IsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EventRuleArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'EventRuleArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'EventRuleArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
         /// </summary>
-        [Input("scheduleExpression")]
+        [PolicyResourceProperty("scheduleExpression", "_mUnknown_ScheduleExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpression;
-
-        public string? ScheduleExpression => _mScheduleExpression.GetValue("scheduleExpression");
+        private string? _mValue_ScheduleExpression;
+        private bool _mUnknown_ScheduleExpression;
+        public string? ScheduleExpression
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleExpression) return _mValue_ScheduleExpression;
+                throw new UndeferrableValueException("Value 'EventRuleArgs.ScheduleExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// State of the rule.
@@ -238,19 +392,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// 
         /// **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'EventRuleArgs.State' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EventRuleArgs.Tags' is not present");
+            }
+        }
     }
 }

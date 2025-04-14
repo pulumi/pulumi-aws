@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources.
         /// </summary>
-        [Input("platformVersion")]
+        [PolicyResourceProperty("platformVersion", "_mUnknown_PlatformVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformVersion;
-
-        public string? PlatformVersion => _mPlatformVersion.GetValue("platformVersion");
+        private string? _mValue_PlatformVersion;
+        private bool _mUnknown_PlatformVersion;
+        public string? PlatformVersion
+        {
+            get
+            {
+                if (!_mUnknown_PlatformVersion) return _mValue_PlatformVersion;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationResult.PlatformVersion' is not present");
+            }
+        }
     }
 }

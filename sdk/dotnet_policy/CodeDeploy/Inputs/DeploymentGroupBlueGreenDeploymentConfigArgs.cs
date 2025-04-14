@@ -15,30 +15,51 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy.Inputs
         /// <summary>
         /// Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
         /// </summary>
-        [Input("deploymentReadyOption")]
+        [PolicyResourceProperty("deploymentReadyOption", "_mUnknown_DeploymentReadyOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs> _mDeploymentReadyOption;
-
-        public Inputs.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs? DeploymentReadyOption => _mDeploymentReadyOption.GetValue("deploymentReadyOption");
+        private Inputs.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs? _mValue_DeploymentReadyOption;
+        private bool _mUnknown_DeploymentReadyOption;
+        public Inputs.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs? DeploymentReadyOption
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentReadyOption) return _mValue_DeploymentReadyOption;
+                throw new UndeferrableValueException("Value 'DeploymentGroupBlueGreenDeploymentConfigArgs.DeploymentReadyOption' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
         /// </summary>
-        [Input("greenFleetProvisioningOption")]
+        [PolicyResourceProperty("greenFleetProvisioningOption", "_mUnknown_GreenFleetProvisioningOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs> _mGreenFleetProvisioningOption;
-
-        public Inputs.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs? GreenFleetProvisioningOption => _mGreenFleetProvisioningOption.GetValue("greenFleetProvisioningOption");
+        private Inputs.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs? _mValue_GreenFleetProvisioningOption;
+        private bool _mUnknown_GreenFleetProvisioningOption;
+        public Inputs.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs? GreenFleetProvisioningOption
+        {
+            get
+            {
+                if (!_mUnknown_GreenFleetProvisioningOption) return _mValue_GreenFleetProvisioningOption;
+                throw new UndeferrableValueException("Value 'DeploymentGroupBlueGreenDeploymentConfigArgs.GreenFleetProvisioningOption' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
         /// 
         /// _Only one `blue_green_deployment_config` is allowed_.
         /// </summary>
-        [Input("terminateBlueInstancesOnDeploymentSuccess")]
+        [PolicyResourceProperty("terminateBlueInstancesOnDeploymentSuccess", "_mUnknown_TerminateBlueInstancesOnDeploymentSuccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs> _mTerminateBlueInstancesOnDeploymentSuccess;
-
-        public Inputs.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs? TerminateBlueInstancesOnDeploymentSuccess => _mTerminateBlueInstancesOnDeploymentSuccess.GetValue("terminateBlueInstancesOnDeploymentSuccess");
+        private Inputs.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs? _mValue_TerminateBlueInstancesOnDeploymentSuccess;
+        private bool _mUnknown_TerminateBlueInstancesOnDeploymentSuccess;
+        public Inputs.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs? TerminateBlueInstancesOnDeploymentSuccess
+        {
+            get
+            {
+                if (!_mUnknown_TerminateBlueInstancesOnDeploymentSuccess) return _mValue_TerminateBlueInstancesOnDeploymentSuccess;
+                throw new UndeferrableValueException("Value 'DeploymentGroupBlueGreenDeploymentConfigArgs.TerminateBlueInstancesOnDeploymentSuccess' is not present");
+            }
+        }
     }
 }

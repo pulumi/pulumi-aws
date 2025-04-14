@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ses.Outputs
         /// <summary>
         /// The ARN of the WorkMail organization
         /// </summary>
-        [Input("organizationArn")]
+        [PolicyResourceProperty("organizationArn", "_mUnknown_OrganizationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationArn;
-
-        public string? OrganizationArn => _mOrganizationArn.GetValue("organizationArn");
+        private string? _mValue_OrganizationArn;
+        private bool _mUnknown_OrganizationArn;
+        public string? OrganizationArn
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationArn) return _mValue_OrganizationArn;
+                throw new UndeferrableValueException("Value 'ReceiptRuleWorkmailAction.OrganizationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The position of the action in the receipt rule
         /// </summary>
-        [Input("position")]
+        [PolicyResourceProperty("position", "_mUnknown_Position")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPosition;
-
-        public int? Position => _mPosition.GetValue("position");
+        private int? _mValue_Position;
+        private bool _mUnknown_Position;
+        public int? Position
+        {
+            get
+            {
+                if (!_mUnknown_Position) return _mValue_Position;
+                throw new UndeferrableValueException("Value 'ReceiptRuleWorkmailAction.Position' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an SNS topic to notify
         /// </summary>
-        [Input("topicArn")]
+        [PolicyResourceProperty("topicArn", "_mUnknown_TopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopicArn;
-
-        public string? TopicArn => _mTopicArn.GetValue("topicArn");
+        private string? _mValue_TopicArn;
+        private bool _mUnknown_TopicArn;
+        public string? TopicArn
+        {
+            get
+            {
+                if (!_mUnknown_TopicArn) return _mValue_TopicArn;
+                throw new UndeferrableValueException("Value 'ReceiptRuleWorkmailAction.TopicArn' is not present");
+            }
+        }
     }
 }

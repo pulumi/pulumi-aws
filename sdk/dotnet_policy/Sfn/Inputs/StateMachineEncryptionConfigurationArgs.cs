@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sfn.Inputs
         /// <summary>
         /// Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
         /// </summary>
-        [Input("kmsDataKeyReusePeriodSeconds")]
+        [PolicyResourceProperty("kmsDataKeyReusePeriodSeconds", "_mUnknown_KmsDataKeyReusePeriodSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mKmsDataKeyReusePeriodSeconds;
-
-        public int? KmsDataKeyReusePeriodSeconds => _mKmsDataKeyReusePeriodSeconds.GetValue("kmsDataKeyReusePeriodSeconds");
+        private int? _mValue_KmsDataKeyReusePeriodSeconds;
+        private bool _mUnknown_KmsDataKeyReusePeriodSeconds;
+        public int? KmsDataKeyReusePeriodSeconds
+        {
+            get
+            {
+                if (!_mUnknown_KmsDataKeyReusePeriodSeconds) return _mValue_KmsDataKeyReusePeriodSeconds;
+                throw new UndeferrableValueException("Value 'StateMachineEncryptionConfigurationArgs.KmsDataKeyReusePeriodSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'StateMachineEncryptionConfigurationArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The encryption option specified for the state machine. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'StateMachineEncryptionConfigurationArgs.Type' is not present");
+            }
+        }
     }
 }

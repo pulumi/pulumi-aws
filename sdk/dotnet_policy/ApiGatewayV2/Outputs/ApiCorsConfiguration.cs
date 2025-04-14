@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2.Outputs
         /// <summary>
         /// Whether credentials are included in the CORS request.
         /// </summary>
-        [Input("allowCredentials")]
+        [PolicyResourceProperty("allowCredentials", "_mUnknown_AllowCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowCredentials;
-
-        public bool? AllowCredentials => _mAllowCredentials.GetValue("allowCredentials");
+        private bool? _mValue_AllowCredentials;
+        private bool _mUnknown_AllowCredentials;
+        public bool? AllowCredentials
+        {
+            get
+            {
+                if (!_mUnknown_AllowCredentials) return _mValue_AllowCredentials;
+                throw new UndeferrableValueException("Value 'ApiCorsConfiguration.AllowCredentials' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of allowed HTTP headers.
         /// </summary>
-        [Input("allowHeaders")]
+        [PolicyResourceProperty("allowHeaders", "_mUnknown_AllowHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowHeaders;
-
-        public List<string>? AllowHeaders => _mAllowHeaders.GetValue("allowHeaders");
+        private List<string>? _mValue_AllowHeaders;
+        private bool _mUnknown_AllowHeaders;
+        public List<string>? AllowHeaders
+        {
+            get
+            {
+                if (!_mUnknown_AllowHeaders) return _mValue_AllowHeaders;
+                throw new UndeferrableValueException("Value 'ApiCorsConfiguration.AllowHeaders' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of allowed HTTP methods.
         /// </summary>
-        [Input("allowMethods")]
+        [PolicyResourceProperty("allowMethods", "_mUnknown_AllowMethods")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowMethods;
-
-        public List<string>? AllowMethods => _mAllowMethods.GetValue("allowMethods");
+        private List<string>? _mValue_AllowMethods;
+        private bool _mUnknown_AllowMethods;
+        public List<string>? AllowMethods
+        {
+            get
+            {
+                if (!_mUnknown_AllowMethods) return _mValue_AllowMethods;
+                throw new UndeferrableValueException("Value 'ApiCorsConfiguration.AllowMethods' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of allowed origins.
         /// </summary>
-        [Input("allowOrigins")]
+        [PolicyResourceProperty("allowOrigins", "_mUnknown_AllowOrigins")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowOrigins;
-
-        public List<string>? AllowOrigins => _mAllowOrigins.GetValue("allowOrigins");
+        private List<string>? _mValue_AllowOrigins;
+        private bool _mUnknown_AllowOrigins;
+        public List<string>? AllowOrigins
+        {
+            get
+            {
+                if (!_mUnknown_AllowOrigins) return _mValue_AllowOrigins;
+                throw new UndeferrableValueException("Value 'ApiCorsConfiguration.AllowOrigins' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of exposed HTTP headers.
         /// </summary>
-        [Input("exposeHeaders")]
+        [PolicyResourceProperty("exposeHeaders", "_mUnknown_ExposeHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExposeHeaders;
-
-        public List<string>? ExposeHeaders => _mExposeHeaders.GetValue("exposeHeaders");
+        private List<string>? _mValue_ExposeHeaders;
+        private bool _mUnknown_ExposeHeaders;
+        public List<string>? ExposeHeaders
+        {
+            get
+            {
+                if (!_mUnknown_ExposeHeaders) return _mValue_ExposeHeaders;
+                throw new UndeferrableValueException("Value 'ApiCorsConfiguration.ExposeHeaders' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of seconds that the browser should cache preflight request results.
         /// </summary>
-        [Input("maxAge")]
+        [PolicyResourceProperty("maxAge", "_mUnknown_MaxAge")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxAge;
-
-        public int? MaxAge => _mMaxAge.GetValue("maxAge");
+        private int? _mValue_MaxAge;
+        private bool _mUnknown_MaxAge;
+        public int? MaxAge
+        {
+            get
+            {
+                if (!_mUnknown_MaxAge) return _mValue_MaxAge;
+                throw new UndeferrableValueException("Value 'ApiCorsConfiguration.MaxAge' is not present");
+            }
+        }
     }
 }

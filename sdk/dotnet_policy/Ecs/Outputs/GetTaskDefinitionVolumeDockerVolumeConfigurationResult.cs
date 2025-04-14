@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
         /// </summary>
-        [Input("autoprovision")]
+        [PolicyResourceProperty("autoprovision", "_mUnknown_Autoprovision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoprovision;
-
-        public bool? Autoprovision => _mAutoprovision.GetValue("autoprovision");
+        private bool? _mValue_Autoprovision;
+        private bool _mUnknown_Autoprovision;
+        public bool? Autoprovision
+        {
+            get
+            {
+                if (!_mUnknown_Autoprovision) return _mValue_Autoprovision;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionVolumeDockerVolumeConfigurationResult.Autoprovision' is not present");
+            }
+        }
 
         /// <summary>
         /// Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
         /// </summary>
-        [Input("driver")]
+        [PolicyResourceProperty("driver", "_mUnknown_Driver")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDriver;
-
-        public string? Driver => _mDriver.GetValue("driver");
+        private string? _mValue_Driver;
+        private bool _mUnknown_Driver;
+        public string? Driver
+        {
+            get
+            {
+                if (!_mUnknown_Driver) return _mValue_Driver;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionVolumeDockerVolumeConfigurationResult.Driver' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of Docker driver specific options.
         /// </summary>
-        [Input("driverOpts")]
+        [PolicyResourceProperty("driverOpts", "_mUnknown_DriverOpts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mDriverOpts;
-
-        public Dictionary<string, string>? DriverOpts => _mDriverOpts.GetValue("driverOpts");
+        private Dictionary<string, string>? _mValue_DriverOpts;
+        private bool _mUnknown_DriverOpts;
+        public Dictionary<string, string>? DriverOpts
+        {
+            get
+            {
+                if (!_mUnknown_DriverOpts) return _mValue_DriverOpts;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionVolumeDockerVolumeConfigurationResult.DriverOpts' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of custom metadata to add to your Docker volume.
         /// </summary>
-        [Input("labels")]
+        [PolicyResourceProperty("labels", "_mUnknown_Labels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mLabels;
-
-        public Dictionary<string, string>? Labels => _mLabels.GetValue("labels");
+        private Dictionary<string, string>? _mValue_Labels;
+        private bool _mUnknown_Labels;
+        public Dictionary<string, string>? Labels
+        {
+            get
+            {
+                if (!_mUnknown_Labels) return _mValue_Labels;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionVolumeDockerVolumeConfigurationResult.Labels' is not present");
+            }
+        }
 
         /// <summary>
         /// Scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
-
-        public string? Scope => _mScope.GetValue("scope");
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionVolumeDockerVolumeConfigurationResult.Scope' is not present");
+            }
+        }
     }
 }

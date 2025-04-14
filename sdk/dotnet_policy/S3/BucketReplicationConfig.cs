@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the source S3 bucket you want Amazon S3 to monitor.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfig.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
         /// </summary>
-        [Input("role")]
+        [PolicyResourceProperty("role", "_mUnknown_Role")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
-
-        public string? Role => _mRole.GetValue("role");
+        private string? _mValue_Role;
+        private bool _mUnknown_Role;
+        public string? Role
+        {
+            get
+            {
+                if (!_mUnknown_Role) return _mValue_Role;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfig.Role' is not present");
+            }
+        }
 
         /// <summary>
         /// List of configuration blocks describing the rules managing the replication. See below.
@@ -40,21 +54,35 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// &gt; **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
         /// To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketReplicationConfigRule>> _mRules;
-
-        public List<Outputs.BucketReplicationConfigRule>? Rules => _mRules.GetValue("rules");
+        private List<Outputs.BucketReplicationConfigRule>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Outputs.BucketReplicationConfigRule>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfig.Rules' is not present");
+            }
+        }
 
         /// <summary>
         /// Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
         /// For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
         /// </summary>
-        [Input("token")]
+        [PolicyResourceProperty("token", "_mUnknown_Token")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mToken;
-
-        public string? Token => _mToken.GetValue("token");
+        private string? _mValue_Token;
+        private bool _mUnknown_Token;
+        public string? Token
+        {
+            get
+            {
+                if (!_mUnknown_Token) return _mValue_Token;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfig.Token' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/bucketReplicationConfig:BucketReplicationConfig")]
@@ -63,20 +91,34 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the source S3 bucket you want Amazon S3 to monitor.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
         /// </summary>
-        [Input("role")]
+        [PolicyResourceProperty("role", "_mUnknown_Role")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
-
-        public string? Role => _mRole.GetValue("role");
+        private string? _mValue_Role;
+        private bool _mUnknown_Role;
+        public string? Role
+        {
+            get
+            {
+                if (!_mUnknown_Role) return _mValue_Role;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigArgs.Role' is not present");
+            }
+        }
 
         /// <summary>
         /// List of configuration blocks describing the rules managing the replication. See below.
@@ -87,20 +129,34 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// &gt; **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
         /// To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketReplicationConfigRuleArgs>> _mRules;
-
-        public List<Inputs.BucketReplicationConfigRuleArgs>? Rules => _mRules.GetValue("rules");
+        private List<Inputs.BucketReplicationConfigRuleArgs>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Inputs.BucketReplicationConfigRuleArgs>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigArgs.Rules' is not present");
+            }
+        }
 
         /// <summary>
         /// Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
         /// For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
         /// </summary>
-        [Input("token")]
+        [PolicyResourceProperty("token", "_mUnknown_Token")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mToken;
-
-        public string? Token => _mToken.GetValue("token");
+        private string? _mValue_Token;
+        private bool _mUnknown_Token;
+        public string? Token
+        {
+            get
+            {
+                if (!_mUnknown_Token) return _mValue_Token;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigArgs.Token' is not present");
+            }
+        }
     }
 }

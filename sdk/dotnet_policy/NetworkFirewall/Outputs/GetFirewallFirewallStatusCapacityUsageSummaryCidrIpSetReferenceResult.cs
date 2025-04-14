@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// Total number of CIDR blocks used by the IP set references in a firewall.
         /// </summary>
-        [Input("resolvedCidrCount")]
+        [PolicyResourceProperty("resolvedCidrCount", "_mUnknown_ResolvedCidrCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mResolvedCidrCount;
-
-        public int? ResolvedCidrCount => _mResolvedCidrCount.GetValue("resolvedCidrCount");
+        private int? _mValue_ResolvedCidrCount;
+        private bool _mUnknown_ResolvedCidrCount;
+        public int? ResolvedCidrCount
+        {
+            get
+            {
+                if (!_mUnknown_ResolvedCidrCount) return _mValue_ResolvedCidrCount;
+                throw new UndeferrableValueException("Value 'GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult.ResolvedCidrCount' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
         /// </summary>
-        [Input("groups")]
+        [PolicyResourceProperty("groups", "_mUnknown_Groups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGroups;
-
-        public List<string>? Groups => _mGroups.GetValue("groups");
+        private List<string>? _mValue_Groups;
+        private bool _mUnknown_Groups;
+        public List<string>? Groups
+        {
+            get
+            {
+                if (!_mUnknown_Groups) return _mValue_Groups;
+                throw new UndeferrableValueException("Value 'WorkteamMemberDefinitionOidcMemberDefinition.Groups' is not present");
+            }
+        }
     }
 }

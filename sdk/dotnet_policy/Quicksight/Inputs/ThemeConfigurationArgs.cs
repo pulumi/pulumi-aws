@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// Color properties that apply to chart data colors. See data_color_palette.
         /// </summary>
-        [Input("dataColorPalette")]
+        [PolicyResourceProperty("dataColorPalette", "_mUnknown_DataColorPalette")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ThemeConfigurationDataColorPaletteArgs> _mDataColorPalette;
-
-        public Inputs.ThemeConfigurationDataColorPaletteArgs? DataColorPalette => _mDataColorPalette.GetValue("dataColorPalette");
+        private Inputs.ThemeConfigurationDataColorPaletteArgs? _mValue_DataColorPalette;
+        private bool _mUnknown_DataColorPalette;
+        public Inputs.ThemeConfigurationDataColorPaletteArgs? DataColorPalette
+        {
+            get
+            {
+                if (!_mUnknown_DataColorPalette) return _mValue_DataColorPalette;
+                throw new UndeferrableValueException("Value 'ThemeConfigurationArgs.DataColorPalette' is not present");
+            }
+        }
 
         /// <summary>
         /// Display options related to sheets. See sheet.
         /// </summary>
-        [Input("sheet")]
+        [PolicyResourceProperty("sheet", "_mUnknown_Sheet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ThemeConfigurationSheetArgs> _mSheet;
-
-        public Inputs.ThemeConfigurationSheetArgs? Sheet => _mSheet.GetValue("sheet");
+        private Inputs.ThemeConfigurationSheetArgs? _mValue_Sheet;
+        private bool _mUnknown_Sheet;
+        public Inputs.ThemeConfigurationSheetArgs? Sheet
+        {
+            get
+            {
+                if (!_mUnknown_Sheet) return _mValue_Sheet;
+                throw new UndeferrableValueException("Value 'ThemeConfigurationArgs.Sheet' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the typography options. See typography.
         /// </summary>
-        [Input("typography")]
+        [PolicyResourceProperty("typography", "_mUnknown_Typography")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ThemeConfigurationTypographyArgs> _mTypography;
-
-        public Inputs.ThemeConfigurationTypographyArgs? Typography => _mTypography.GetValue("typography");
+        private Inputs.ThemeConfigurationTypographyArgs? _mValue_Typography;
+        private bool _mUnknown_Typography;
+        public Inputs.ThemeConfigurationTypographyArgs? Typography
+        {
+            get
+            {
+                if (!_mUnknown_Typography) return _mValue_Typography;
+                throw new UndeferrableValueException("Value 'ThemeConfigurationArgs.Typography' is not present");
+            }
+        }
 
         /// <summary>
         /// Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
         /// </summary>
-        [Input("uiColorPalette")]
+        [PolicyResourceProperty("uiColorPalette", "_mUnknown_UiColorPalette")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ThemeConfigurationUiColorPaletteArgs> _mUiColorPalette;
-
-        public Inputs.ThemeConfigurationUiColorPaletteArgs? UiColorPalette => _mUiColorPalette.GetValue("uiColorPalette");
+        private Inputs.ThemeConfigurationUiColorPaletteArgs? _mValue_UiColorPalette;
+        private bool _mUnknown_UiColorPalette;
+        public Inputs.ThemeConfigurationUiColorPaletteArgs? UiColorPalette
+        {
+            get
+            {
+                if (!_mUnknown_UiColorPalette) return _mValue_UiColorPalette;
+                throw new UndeferrableValueException("Value 'ThemeConfigurationArgs.UiColorPalette' is not present");
+            }
+        }
     }
 }

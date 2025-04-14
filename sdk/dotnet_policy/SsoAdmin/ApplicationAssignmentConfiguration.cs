@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// <summary>
         /// ARN of the application.
         /// </summary>
-        [Input("applicationArn")]
+        [PolicyResourceProperty("applicationArn", "_mUnknown_ApplicationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationArn;
-
-        public string? ApplicationArn => _mApplicationArn.GetValue("applicationArn");
+        private string? _mValue_ApplicationArn;
+        private bool _mUnknown_ApplicationArn;
+        public string? ApplicationArn
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationArn) return _mValue_ApplicationArn;
+                throw new UndeferrableValueException("Value 'ApplicationAssignmentConfiguration.ApplicationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
         /// </summary>
-        [Input("assignmentRequired")]
+        [PolicyResourceProperty("assignmentRequired", "_mUnknown_AssignmentRequired")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAssignmentRequired;
-
-        public bool? AssignmentRequired => _mAssignmentRequired.GetValue("assignmentRequired");
+        private bool? _mValue_AssignmentRequired;
+        private bool _mUnknown_AssignmentRequired;
+        public bool? AssignmentRequired
+        {
+            get
+            {
+                if (!_mUnknown_AssignmentRequired) return _mValue_AssignmentRequired;
+                throw new UndeferrableValueException("Value 'ApplicationAssignmentConfiguration.AssignmentRequired' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// <summary>
         /// ARN of the application.
         /// </summary>
-        [Input("applicationArn")]
+        [PolicyResourceProperty("applicationArn", "_mUnknown_ApplicationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationArn;
-
-        public string? ApplicationArn => _mApplicationArn.GetValue("applicationArn");
+        private string? _mValue_ApplicationArn;
+        private bool _mUnknown_ApplicationArn;
+        public string? ApplicationArn
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationArn) return _mValue_ApplicationArn;
+                throw new UndeferrableValueException("Value 'ApplicationAssignmentConfigurationArgs.ApplicationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
         /// </summary>
-        [Input("assignmentRequired")]
+        [PolicyResourceProperty("assignmentRequired", "_mUnknown_AssignmentRequired")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAssignmentRequired;
-
-        public bool? AssignmentRequired => _mAssignmentRequired.GetValue("assignmentRequired");
+        private bool? _mValue_AssignmentRequired;
+        private bool _mUnknown_AssignmentRequired;
+        public bool? AssignmentRequired
+        {
+            get
+            {
+                if (!_mUnknown_AssignmentRequired) return _mValue_AssignmentRequired;
+                throw new UndeferrableValueException("Value 'ApplicationAssignmentConfigurationArgs.AssignmentRequired' is not present");
+            }
+        }
     }
 }

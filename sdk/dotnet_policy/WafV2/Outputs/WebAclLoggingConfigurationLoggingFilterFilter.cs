@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.
         /// </summary>
-        [Input("behavior")]
+        [PolicyResourceProperty("behavior", "_mUnknown_Behavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBehavior;
-
-        public string? Behavior => _mBehavior.GetValue("behavior");
+        private string? _mValue_Behavior;
+        private bool _mUnknown_Behavior;
+        public string? Behavior
+        {
+            get
+            {
+                if (!_mUnknown_Behavior) return _mValue_Behavior;
+                throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationLoggingFilterFilter.Behavior' is not present");
+            }
+        }
 
         /// <summary>
         /// Match condition(s) for the filter. See Condition below for more details.
         /// </summary>
-        [Input("conditions")]
+        [PolicyResourceProperty("conditions", "_mUnknown_Conditions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebAclLoggingConfigurationLoggingFilterFilterCondition>> _mConditions;
-
-        public List<Outputs.WebAclLoggingConfigurationLoggingFilterFilterCondition>? Conditions => _mConditions.GetValue("conditions");
+        private List<Outputs.WebAclLoggingConfigurationLoggingFilterFilterCondition>? _mValue_Conditions;
+        private bool _mUnknown_Conditions;
+        public List<Outputs.WebAclLoggingConfigurationLoggingFilterFilterCondition>? Conditions
+        {
+            get
+            {
+                if (!_mUnknown_Conditions) return _mValue_Conditions;
+                throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationLoggingFilterFilter.Conditions' is not present");
+            }
+        }
 
         /// <summary>
         /// Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
         /// </summary>
-        [Input("requirement")]
+        [PolicyResourceProperty("requirement", "_mUnknown_Requirement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequirement;
-
-        public string? Requirement => _mRequirement.GetValue("requirement");
+        private string? _mValue_Requirement;
+        private bool _mUnknown_Requirement;
+        public string? Requirement
+        {
+            get
+            {
+                if (!_mUnknown_Requirement) return _mValue_Requirement;
+                throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationLoggingFilterFilter.Requirement' is not present");
+            }
+        }
     }
 }

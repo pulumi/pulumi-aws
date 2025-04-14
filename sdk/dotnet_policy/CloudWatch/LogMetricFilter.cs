@@ -16,39 +16,67 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The name of the log group to associate the metric filter with.
         /// </summary>
-        [Input("logGroupName")]
+        [PolicyResourceProperty("logGroupName", "_mUnknown_LogGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
-
-        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+        private string? _mValue_LogGroupName;
+        private bool _mUnknown_LogGroupName;
+        public string? LogGroupName
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupName) return _mValue_LogGroupName;
+                throw new UndeferrableValueException("Value 'LogMetricFilter.LogGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// A block defining collection of information needed to define how metric data gets emitted. See below.
         /// </summary>
-        [Input("metricTransformation")]
+        [PolicyResourceProperty("metricTransformation", "_mUnknown_MetricTransformation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LogMetricFilterMetricTransformation> _mMetricTransformation;
-
-        public Outputs.LogMetricFilterMetricTransformation? MetricTransformation => _mMetricTransformation.GetValue("metricTransformation");
+        private Outputs.LogMetricFilterMetricTransformation? _mValue_MetricTransformation;
+        private bool _mUnknown_MetricTransformation;
+        public Outputs.LogMetricFilterMetricTransformation? MetricTransformation
+        {
+            get
+            {
+                if (!_mUnknown_MetricTransformation) return _mValue_MetricTransformation;
+                throw new UndeferrableValueException("Value 'LogMetricFilter.MetricTransformation' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the metric filter.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LogMetricFilter.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
         /// for extracting metric data out of ingested log events.
         /// </summary>
-        [Input("pattern")]
+        [PolicyResourceProperty("pattern", "_mUnknown_Pattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPattern;
-
-        public string? Pattern => _mPattern.GetValue("pattern");
+        private string? _mValue_Pattern;
+        private bool _mUnknown_Pattern;
+        public string? Pattern
+        {
+            get
+            {
+                if (!_mUnknown_Pattern) return _mValue_Pattern;
+                throw new UndeferrableValueException("Value 'LogMetricFilter.Pattern' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/logMetricFilter:LogMetricFilter")]
@@ -57,38 +85,66 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The name of the log group to associate the metric filter with.
         /// </summary>
-        [Input("logGroupName")]
+        [PolicyResourceProperty("logGroupName", "_mUnknown_LogGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
-
-        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+        private string? _mValue_LogGroupName;
+        private bool _mUnknown_LogGroupName;
+        public string? LogGroupName
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupName) return _mValue_LogGroupName;
+                throw new UndeferrableValueException("Value 'LogMetricFilterArgs.LogGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// A block defining collection of information needed to define how metric data gets emitted. See below.
         /// </summary>
-        [Input("metricTransformation")]
+        [PolicyResourceProperty("metricTransformation", "_mUnknown_MetricTransformation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LogMetricFilterMetricTransformationArgs> _mMetricTransformation;
-
-        public Inputs.LogMetricFilterMetricTransformationArgs? MetricTransformation => _mMetricTransformation.GetValue("metricTransformation");
+        private Inputs.LogMetricFilterMetricTransformationArgs? _mValue_MetricTransformation;
+        private bool _mUnknown_MetricTransformation;
+        public Inputs.LogMetricFilterMetricTransformationArgs? MetricTransformation
+        {
+            get
+            {
+                if (!_mUnknown_MetricTransformation) return _mValue_MetricTransformation;
+                throw new UndeferrableValueException("Value 'LogMetricFilterArgs.MetricTransformation' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the metric filter.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LogMetricFilterArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
         /// for extracting metric data out of ingested log events.
         /// </summary>
-        [Input("pattern")]
+        [PolicyResourceProperty("pattern", "_mUnknown_Pattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPattern;
-
-        public string? Pattern => _mPattern.GetValue("pattern");
+        private string? _mValue_Pattern;
+        private bool _mUnknown_Pattern;
+        public string? Pattern
+        {
+            get
+            {
+                if (!_mUnknown_Pattern) return _mValue_Pattern;
+                throw new UndeferrableValueException("Value 'LogMetricFilterArgs.Pattern' is not present");
+            }
+        }
     }
 }

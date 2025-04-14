@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult
     {
-        [Input("files")]
+        [PolicyResourceProperty("files", "_mUnknown_Files")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult>> _mFiles;
+        private List<Outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult>? _mValue_Files;
+        private bool _mUnknown_Files;
+        public List<Outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult>? Files
+        {
+            get
+            {
+                if (!_mUnknown_Files) return _mValue_Files;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult.Files' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult>? Files => _mFiles.GetValue("files");
-
-        [Input("sds")]
+        [PolicyResourceProperty("sds", "_mUnknown_Sds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult>> _mSds;
-
-        public List<Outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult>? Sds => _mSds.GetValue("sds");
+        private List<Outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult>? _mValue_Sds;
+        private bool _mUnknown_Sds;
+        public List<Outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult>? Sds
+        {
+            get
+            {
+                if (!_mUnknown_Sds) return _mValue_Sds;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult.Sds' is not present");
+            }
+        }
     }
 }

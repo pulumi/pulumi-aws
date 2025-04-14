@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
         /// </summary>
-        [Input("marketType")]
+        [PolicyResourceProperty("marketType", "_mUnknown_MarketType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMarketType;
-
-        public string? MarketType => _mMarketType.GetValue("marketType");
+        private string? _mValue_MarketType;
+        private bool _mUnknown_MarketType;
+        public string? MarketType
+        {
+            get
+            {
+                if (!_mUnknown_MarketType) return _mValue_MarketType;
+                throw new UndeferrableValueException("Value 'InstanceInstanceMarketOptions.MarketType' is not present");
+            }
+        }
 
         /// <summary>
         /// Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
         /// </summary>
-        [Input("spotOptions")]
+        [PolicyResourceProperty("spotOptions", "_mUnknown_SpotOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceInstanceMarketOptionsSpotOptions> _mSpotOptions;
-
-        public Outputs.InstanceInstanceMarketOptionsSpotOptions? SpotOptions => _mSpotOptions.GetValue("spotOptions");
+        private Outputs.InstanceInstanceMarketOptionsSpotOptions? _mValue_SpotOptions;
+        private bool _mUnknown_SpotOptions;
+        public Outputs.InstanceInstanceMarketOptionsSpotOptions? SpotOptions
+        {
+            get
+            {
+                if (!_mUnknown_SpotOptions) return _mValue_SpotOptions;
+                throw new UndeferrableValueException("Value 'InstanceInstanceMarketOptions.SpotOptions' is not present");
+            }
+        }
     }
 }

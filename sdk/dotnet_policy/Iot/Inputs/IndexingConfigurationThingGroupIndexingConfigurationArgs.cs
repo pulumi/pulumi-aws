@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Inputs
         /// <summary>
         /// A list of thing group fields to index. This list cannot contain any managed fields. See below.
         /// </summary>
-        [Input("customFields")]
+        [PolicyResourceProperty("customFields", "_mUnknown_CustomFields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs>> _mCustomFields;
-
-        public List<Inputs.IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs>? CustomFields => _mCustomFields.GetValue("customFields");
+        private List<Inputs.IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs>? _mValue_CustomFields;
+        private bool _mUnknown_CustomFields;
+        public List<Inputs.IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs>? CustomFields
+        {
+            get
+            {
+                if (!_mUnknown_CustomFields) return _mValue_CustomFields;
+                throw new UndeferrableValueException("Value 'IndexingConfigurationThingGroupIndexingConfigurationArgs.CustomFields' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
         /// </summary>
-        [Input("managedFields")]
+        [PolicyResourceProperty("managedFields", "_mUnknown_ManagedFields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs>> _mManagedFields;
-
-        public List<Inputs.IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs>? ManagedFields => _mManagedFields.GetValue("managedFields");
+        private List<Inputs.IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs>? _mValue_ManagedFields;
+        private bool _mUnknown_ManagedFields;
+        public List<Inputs.IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs>? ManagedFields
+        {
+            get
+            {
+                if (!_mUnknown_ManagedFields) return _mValue_ManagedFields;
+                throw new UndeferrableValueException("Value 'IndexingConfigurationThingGroupIndexingConfigurationArgs.ManagedFields' is not present");
+            }
+        }
 
         /// <summary>
         /// Thing group indexing mode. Valid values: `OFF`, `ON`.
         /// </summary>
-        [Input("thingGroupIndexingMode")]
+        [PolicyResourceProperty("thingGroupIndexingMode", "_mUnknown_ThingGroupIndexingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThingGroupIndexingMode;
-
-        public string? ThingGroupIndexingMode => _mThingGroupIndexingMode.GetValue("thingGroupIndexingMode");
+        private string? _mValue_ThingGroupIndexingMode;
+        private bool _mUnknown_ThingGroupIndexingMode;
+        public string? ThingGroupIndexingMode
+        {
+            get
+            {
+                if (!_mUnknown_ThingGroupIndexingMode) return _mValue_ThingGroupIndexingMode;
+                throw new UndeferrableValueException("Value 'IndexingConfigurationThingGroupIndexingConfigurationArgs.ThingGroupIndexingMode' is not present");
+            }
+        }
     }
 }

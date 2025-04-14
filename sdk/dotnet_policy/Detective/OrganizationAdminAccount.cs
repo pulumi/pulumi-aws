@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.Detective
         /// <summary>
         /// AWS account identifier to designate as a delegated administrator for Detective.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'OrganizationAdminAccount.AccountId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:detective/organizationAdminAccount:OrganizationAdminAccount")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.Detective
         /// <summary>
         /// AWS account identifier to designate as a delegated administrator for Detective.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'OrganizationAdminAccountArgs.AccountId' is not present");
+            }
+        }
     }
 }

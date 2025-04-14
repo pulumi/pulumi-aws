@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Athena.Outputs
         /// <summary>
         /// Whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
         /// </summary>
-        [Input("encryptionOption")]
+        [PolicyResourceProperty("encryptionOption", "_mUnknown_EncryptionOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionOption;
-
-        public string? EncryptionOption => _mEncryptionOption.GetValue("encryptionOption");
+        private string? _mValue_EncryptionOption;
+        private bool _mUnknown_EncryptionOption;
+        public string? EncryptionOption
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionOption) return _mValue_EncryptionOption;
+                throw new UndeferrableValueException("Value 'WorkgroupConfigurationResultConfigurationEncryptionConfiguration.EncryptionOption' is not present");
+            }
+        }
 
         /// <summary>
         /// For `SSE_KMS` and `CSE_KMS`, this is the KMS key ARN.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'WorkgroupConfigurationResultConfigurationEncryptionConfiguration.KmsKeyArn' is not present");
+            }
+        }
     }
 }

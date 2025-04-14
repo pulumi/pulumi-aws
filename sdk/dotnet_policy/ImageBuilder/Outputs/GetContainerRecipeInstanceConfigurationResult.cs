@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Set of objects with block device mappings for the instance configuration.
         /// </summary>
-        [Input("blockDeviceMappings")]
+        [PolicyResourceProperty("blockDeviceMappings", "_mUnknown_BlockDeviceMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult>> _mBlockDeviceMappings;
-
-        public List<Outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult>? BlockDeviceMappings => _mBlockDeviceMappings.GetValue("blockDeviceMappings");
+        private List<Outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult>? _mValue_BlockDeviceMappings;
+        private bool _mUnknown_BlockDeviceMappings;
+        public List<Outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult>? BlockDeviceMappings
+        {
+            get
+            {
+                if (!_mUnknown_BlockDeviceMappings) return _mValue_BlockDeviceMappings;
+                throw new UndeferrableValueException("Value 'GetContainerRecipeInstanceConfigurationResult.BlockDeviceMappings' is not present");
+            }
+        }
 
         /// <summary>
         /// AMI ID of the base image for container build and test instance.
         /// </summary>
-        [Input("image")]
+        [PolicyResourceProperty("image", "_mUnknown_Image")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImage;
-
-        public string? Image => _mImage.GetValue("image");
+        private string? _mValue_Image;
+        private bool _mUnknown_Image;
+        public string? Image
+        {
+            get
+            {
+                if (!_mUnknown_Image) return _mValue_Image;
+                throw new UndeferrableValueException("Value 'GetContainerRecipeInstanceConfigurationResult.Image' is not present");
+            }
+        }
     }
 }

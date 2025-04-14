@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
         /// </summary>
-        [Input("clientConfig")]
+        [PolicyResourceProperty("clientConfig", "_mUnknown_ClientConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointConfigurationAsyncInferenceConfigClientConfig> _mClientConfig;
-
-        public Outputs.EndpointConfigurationAsyncInferenceConfigClientConfig? ClientConfig => _mClientConfig.GetValue("clientConfig");
+        private Outputs.EndpointConfigurationAsyncInferenceConfigClientConfig? _mValue_ClientConfig;
+        private bool _mUnknown_ClientConfig;
+        public Outputs.EndpointConfigurationAsyncInferenceConfigClientConfig? ClientConfig
+        {
+            get
+            {
+                if (!_mUnknown_ClientConfig) return _mValue_ClientConfig;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfig.ClientConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the configuration for asynchronous inference invocation outputs.
         /// </summary>
-        [Input("outputConfig")]
+        [PolicyResourceProperty("outputConfig", "_mUnknown_OutputConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointConfigurationAsyncInferenceConfigOutputConfig> _mOutputConfig;
-
-        public Outputs.EndpointConfigurationAsyncInferenceConfigOutputConfig? OutputConfig => _mOutputConfig.GetValue("outputConfig");
+        private Outputs.EndpointConfigurationAsyncInferenceConfigOutputConfig? _mValue_OutputConfig;
+        private bool _mUnknown_OutputConfig;
+        public Outputs.EndpointConfigurationAsyncInferenceConfigOutputConfig? OutputConfig
+        {
+            get
+            {
+                if (!_mUnknown_OutputConfig) return _mValue_OutputConfig;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfig.OutputConfig' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// Name of the field in which Amazon Bedrock stores metadata about the vector store.
         /// </summary>
-        [Input("metadataField")]
+        [PolicyResourceProperty("metadataField", "_mUnknown_MetadataField")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetadataField;
-
-        public string? MetadataField => _mMetadataField.GetValue("metadataField");
+        private string? _mValue_MetadataField;
+        private bool _mUnknown_MetadataField;
+        public string? MetadataField
+        {
+            get
+            {
+                if (!_mUnknown_MetadataField) return _mValue_MetadataField;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs.MetadataField' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         /// </summary>
-        [Input("textField")]
+        [PolicyResourceProperty("textField", "_mUnknown_TextField")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTextField;
-
-        public string? TextField => _mTextField.GetValue("textField");
+        private string? _mValue_TextField;
+        private bool _mUnknown_TextField;
+        public string? TextField
+        {
+            get
+            {
+                if (!_mUnknown_TextField) return _mValue_TextField;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs.TextField' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
         /// </summary>
-        [Input("vectorField")]
+        [PolicyResourceProperty("vectorField", "_mUnknown_VectorField")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVectorField;
-
-        public string? VectorField => _mVectorField.GetValue("vectorField");
+        private string? _mValue_VectorField;
+        private bool _mUnknown_VectorField;
+        public string? VectorField
+        {
+            get
+            {
+                if (!_mUnknown_VectorField) return _mValue_VectorField;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs.VectorField' is not present");
+            }
+        }
     }
 }

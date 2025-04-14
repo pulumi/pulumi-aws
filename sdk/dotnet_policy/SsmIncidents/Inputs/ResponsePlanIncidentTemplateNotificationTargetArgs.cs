@@ -17,10 +17,17 @@ namespace Pulumi.PolicyPacks.Aws.SsmIncidents.Inputs
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("snsTopicArn")]
+        [PolicyResourceProperty("snsTopicArn", "_mUnknown_SnsTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicArn;
-
-        public string? SnsTopicArn => _mSnsTopicArn.GetValue("snsTopicArn");
+        private string? _mValue_SnsTopicArn;
+        private bool _mUnknown_SnsTopicArn;
+        public string? SnsTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_SnsTopicArn) return _mValue_SnsTopicArn;
+                throw new UndeferrableValueException("Value 'ResponsePlanIncidentTemplateNotificationTargetArgs.SnsTopicArn' is not present");
+            }
+        }
     }
 }

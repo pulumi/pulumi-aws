@@ -12,11 +12,18 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace.Inputs
 {
     public sealed class KxClusterCacheStorageConfigurationArgs
     {
-        [Input("size")]
+        [PolicyResourceProperty("size", "_mUnknown_Size")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSize;
-
-        public int? Size => _mSize.GetValue("size");
+        private int? _mValue_Size;
+        private bool _mUnknown_Size;
+        public int? Size
+        {
+            get
+            {
+                if (!_mUnknown_Size) return _mValue_Size;
+                throw new UndeferrableValueException("Value 'KxClusterCacheStorageConfigurationArgs.Size' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of KDB database. The following types are available:
@@ -26,10 +33,17 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace.Inputs
         /// * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
         /// * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'KxClusterCacheStorageConfigurationArgs.Type' is not present");
+            }
+        }
     }
 }

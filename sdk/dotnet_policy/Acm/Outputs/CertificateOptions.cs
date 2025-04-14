@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Acm.Outputs
         /// <summary>
         /// Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
         /// </summary>
-        [Input("certificateTransparencyLoggingPreference")]
+        [PolicyResourceProperty("certificateTransparencyLoggingPreference", "_mUnknown_CertificateTransparencyLoggingPreference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateTransparencyLoggingPreference;
-
-        public string? CertificateTransparencyLoggingPreference => _mCertificateTransparencyLoggingPreference.GetValue("certificateTransparencyLoggingPreference");
+        private string? _mValue_CertificateTransparencyLoggingPreference;
+        private bool _mUnknown_CertificateTransparencyLoggingPreference;
+        public string? CertificateTransparencyLoggingPreference
+        {
+            get
+            {
+                if (!_mUnknown_CertificateTransparencyLoggingPreference) return _mValue_CertificateTransparencyLoggingPreference;
+                throw new UndeferrableValueException("Value 'CertificateOptions.CertificateTransparencyLoggingPreference' is not present");
+            }
+        }
     }
 }

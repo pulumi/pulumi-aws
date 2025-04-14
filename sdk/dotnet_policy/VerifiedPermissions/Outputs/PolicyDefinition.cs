@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions.Outputs
         /// <summary>
         /// The static policy statement. See Static below.
         /// </summary>
-        [Input("static")]
+        [PolicyResourceProperty("static", "_mUnknown_Static")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyDefinitionStatic> _mStatic;
-
-        public Outputs.PolicyDefinitionStatic? Static => _mStatic.GetValue("static");
+        private Outputs.PolicyDefinitionStatic? _mValue_Static;
+        private bool _mUnknown_Static;
+        public Outputs.PolicyDefinitionStatic? Static
+        {
+            get
+            {
+                if (!_mUnknown_Static) return _mValue_Static;
+                throw new UndeferrableValueException("Value 'PolicyDefinition.Static' is not present");
+            }
+        }
 
         /// <summary>
         /// The template linked policy. See Template Linked below.
         /// </summary>
-        [Input("templateLinked")]
+        [PolicyResourceProperty("templateLinked", "_mUnknown_TemplateLinked")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyDefinitionTemplateLinked> _mTemplateLinked;
-
-        public Outputs.PolicyDefinitionTemplateLinked? TemplateLinked => _mTemplateLinked.GetValue("templateLinked");
+        private Outputs.PolicyDefinitionTemplateLinked? _mValue_TemplateLinked;
+        private bool _mUnknown_TemplateLinked;
+        public Outputs.PolicyDefinitionTemplateLinked? TemplateLinked
+        {
+            get
+            {
+                if (!_mUnknown_TemplateLinked) return _mValue_TemplateLinked;
+                throw new UndeferrableValueException("Value 'PolicyDefinition.TemplateLinked' is not present");
+            }
+        }
     }
 }

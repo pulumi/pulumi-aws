@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamWrite.Outputs
         /// <summary>
         /// The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
         /// </summary>
-        [Input("enforcementInRecord")]
+        [PolicyResourceProperty("enforcementInRecord", "_mUnknown_EnforcementInRecord")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnforcementInRecord;
-
-        public string? EnforcementInRecord => _mEnforcementInRecord.GetValue("enforcementInRecord");
+        private string? _mValue_EnforcementInRecord;
+        private bool _mUnknown_EnforcementInRecord;
+        public string? EnforcementInRecord
+        {
+            get
+            {
+                if (!_mUnknown_EnforcementInRecord) return _mValue_EnforcementInRecord;
+                throw new UndeferrableValueException("Value 'TableSchemaCompositePartitionKey.EnforcementInRecord' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the attribute used for a dimension key.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TableSchemaCompositePartitionKey.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'TableSchemaCompositePartitionKey.Type' is not present");
+            }
+        }
     }
 }

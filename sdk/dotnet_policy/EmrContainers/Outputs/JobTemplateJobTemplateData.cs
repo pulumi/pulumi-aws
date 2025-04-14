@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.EmrContainers.Outputs
         /// <summary>
         /// The configuration settings that are used to override defaults configuration.
         /// </summary>
-        [Input("configurationOverrides")]
+        [PolicyResourceProperty("configurationOverrides", "_mUnknown_ConfigurationOverrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JobTemplateJobTemplateDataConfigurationOverrides> _mConfigurationOverrides;
-
-        public Outputs.JobTemplateJobTemplateDataConfigurationOverrides? ConfigurationOverrides => _mConfigurationOverrides.GetValue("configurationOverrides");
+        private Outputs.JobTemplateJobTemplateDataConfigurationOverrides? _mValue_ConfigurationOverrides;
+        private bool _mUnknown_ConfigurationOverrides;
+        public Outputs.JobTemplateJobTemplateDataConfigurationOverrides? ConfigurationOverrides
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationOverrides) return _mValue_ConfigurationOverrides;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateData.ConfigurationOverrides' is not present");
+            }
+        }
 
         /// <summary>
         /// The execution role ARN of the job run.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateData.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
         /// </summary>
-        [Input("jobDriver")]
+        [PolicyResourceProperty("jobDriver", "_mUnknown_JobDriver")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JobTemplateJobTemplateDataJobDriver> _mJobDriver;
-
-        public Outputs.JobTemplateJobTemplateDataJobDriver? JobDriver => _mJobDriver.GetValue("jobDriver");
+        private Outputs.JobTemplateJobTemplateDataJobDriver? _mValue_JobDriver;
+        private bool _mUnknown_JobDriver;
+        public Outputs.JobTemplateJobTemplateDataJobDriver? JobDriver
+        {
+            get
+            {
+                if (!_mUnknown_JobDriver) return _mValue_JobDriver;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateData.JobDriver' is not present");
+            }
+        }
 
         /// <summary>
         /// The tags assigned to jobs started using the job template.
         /// </summary>
-        [Input("jobTags")]
+        [PolicyResourceProperty("jobTags", "_mUnknown_JobTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mJobTags;
-
-        public Dictionary<string, string>? JobTags => _mJobTags.GetValue("jobTags");
+        private Dictionary<string, string>? _mValue_JobTags;
+        private bool _mUnknown_JobTags;
+        public Dictionary<string, string>? JobTags
+        {
+            get
+            {
+                if (!_mUnknown_JobTags) return _mValue_JobTags;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateData.JobTags' is not present");
+            }
+        }
 
         /// <summary>
         /// The release version of Amazon EMR.
         /// </summary>
-        [Input("releaseLabel")]
+        [PolicyResourceProperty("releaseLabel", "_mUnknown_ReleaseLabel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReleaseLabel;
-
-        public string? ReleaseLabel => _mReleaseLabel.GetValue("releaseLabel");
+        private string? _mValue_ReleaseLabel;
+        private bool _mUnknown_ReleaseLabel;
+        public string? ReleaseLabel
+        {
+            get
+            {
+                if (!_mUnknown_ReleaseLabel) return _mValue_ReleaseLabel;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateData.ReleaseLabel' is not present");
+            }
+        }
     }
 }

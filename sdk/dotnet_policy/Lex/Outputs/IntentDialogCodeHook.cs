@@ -17,19 +17,33 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// to invoke your Lambda function. For more information, see
         /// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
         /// </summary>
-        [Input("messageVersion")]
+        [PolicyResourceProperty("messageVersion", "_mUnknown_MessageVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessageVersion;
-
-        public string? MessageVersion => _mMessageVersion.GetValue("messageVersion");
+        private string? _mValue_MessageVersion;
+        private bool _mUnknown_MessageVersion;
+        public string? MessageVersion
+        {
+            get
+            {
+                if (!_mUnknown_MessageVersion) return _mValue_MessageVersion;
+                throw new UndeferrableValueException("Value 'IntentDialogCodeHook.MessageVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Lambda function.
         /// </summary>
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'IntentDialogCodeHook.Uri' is not present");
+            }
+        }
     }
 }

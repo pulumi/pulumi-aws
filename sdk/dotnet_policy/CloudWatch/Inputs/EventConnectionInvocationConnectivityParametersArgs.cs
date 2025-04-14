@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
         /// </summary>
-        [Input("resourceParameters")]
+        [PolicyResourceProperty("resourceParameters", "_mUnknown_ResourceParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventConnectionInvocationConnectivityParametersResourceParametersArgs> _mResourceParameters;
-
-        public Inputs.EventConnectionInvocationConnectivityParametersResourceParametersArgs? ResourceParameters => _mResourceParameters.GetValue("resourceParameters");
+        private Inputs.EventConnectionInvocationConnectivityParametersResourceParametersArgs? _mValue_ResourceParameters;
+        private bool _mUnknown_ResourceParameters;
+        public Inputs.EventConnectionInvocationConnectivityParametersResourceParametersArgs? ResourceParameters
+        {
+            get
+            {
+                if (!_mUnknown_ResourceParameters) return _mValue_ResourceParameters;
+                throw new UndeferrableValueException("Value 'EventConnectionInvocationConnectivityParametersArgs.ResourceParameters' is not present");
+            }
+        }
     }
 }

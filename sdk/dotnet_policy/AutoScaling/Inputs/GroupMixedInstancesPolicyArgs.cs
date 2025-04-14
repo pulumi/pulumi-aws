@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Inputs
         /// <summary>
         /// Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
         /// </summary>
-        [Input("instancesDistribution")]
+        [PolicyResourceProperty("instancesDistribution", "_mUnknown_InstancesDistribution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupMixedInstancesPolicyInstancesDistributionArgs> _mInstancesDistribution;
-
-        public Inputs.GroupMixedInstancesPolicyInstancesDistributionArgs? InstancesDistribution => _mInstancesDistribution.GetValue("instancesDistribution");
+        private Inputs.GroupMixedInstancesPolicyInstancesDistributionArgs? _mValue_InstancesDistribution;
+        private bool _mUnknown_InstancesDistribution;
+        public Inputs.GroupMixedInstancesPolicyInstancesDistributionArgs? InstancesDistribution
+        {
+            get
+            {
+                if (!_mUnknown_InstancesDistribution) return _mValue_InstancesDistribution;
+                throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyArgs.InstancesDistribution' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
         /// </summary>
-        [Input("launchTemplate")]
+        [PolicyResourceProperty("launchTemplate", "_mUnknown_LaunchTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs> _mLaunchTemplate;
-
-        public Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs? LaunchTemplate => _mLaunchTemplate.GetValue("launchTemplate");
+        private Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs? _mValue_LaunchTemplate;
+        private bool _mUnknown_LaunchTemplate;
+        public Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs? LaunchTemplate
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplate) return _mValue_LaunchTemplate;
+                throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyArgs.LaunchTemplate' is not present");
+            }
+        }
     }
 }

@@ -17,65 +17,114 @@ namespace Pulumi.PolicyPacks.Aws.Glacier
         /// The policy document. This is a JSON formatted string.
         /// The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
         /// </summary>
-        [Input("accessPolicy")]
+        [PolicyResourceProperty("accessPolicy", "_mUnknown_AccessPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPolicy;
-
-        public string? AccessPolicy => _mAccessPolicy.GetValue("accessPolicy");
+        private string? _mValue_AccessPolicy;
+        private bool _mUnknown_AccessPolicy;
+        public string? AccessPolicy
+        {
+            get
+            {
+                if (!_mUnknown_AccessPolicy) return _mValue_AccessPolicy;
+                throw new UndeferrableValueException("Value 'Vault.AccessPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the vault.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Vault.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The URI of the vault that was created.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
-
-        public string? Location => _mLocation.GetValue("location");
+        private string? _mValue_Location;
+        private bool _mUnknown_Location;
+        public string? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'Vault.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Vault.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The notifications for the Vault. Fields documented below.
         /// </summary>
-        [Input("notification")]
+        [PolicyResourceProperty("notification", "_mUnknown_Notification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VaultNotification> _mNotification;
-
-        public Outputs.VaultNotification? Notification => _mNotification.GetValue("notification");
+        private Outputs.VaultNotification? _mValue_Notification;
+        private bool _mUnknown_Notification;
+        public Outputs.VaultNotification? Notification
+        {
+            get
+            {
+                if (!_mUnknown_Notification) return _mValue_Notification;
+                throw new UndeferrableValueException("Value 'Vault.Notification' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Vault.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Vault.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:glacier/vault:Vault")]
@@ -85,37 +134,65 @@ namespace Pulumi.PolicyPacks.Aws.Glacier
         /// The policy document. This is a JSON formatted string.
         /// The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
         /// </summary>
-        [Input("accessPolicy")]
+        [PolicyResourceProperty("accessPolicy", "_mUnknown_AccessPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPolicy;
-
-        public string? AccessPolicy => _mAccessPolicy.GetValue("accessPolicy");
+        private string? _mValue_AccessPolicy;
+        private bool _mUnknown_AccessPolicy;
+        public string? AccessPolicy
+        {
+            get
+            {
+                if (!_mUnknown_AccessPolicy) return _mValue_AccessPolicy;
+                throw new UndeferrableValueException("Value 'VaultArgs.AccessPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'VaultArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The notifications for the Vault. Fields documented below.
         /// </summary>
-        [Input("notification")]
+        [PolicyResourceProperty("notification", "_mUnknown_Notification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VaultNotificationArgs> _mNotification;
-
-        public Inputs.VaultNotificationArgs? Notification => _mNotification.GetValue("notification");
+        private Inputs.VaultNotificationArgs? _mValue_Notification;
+        private bool _mUnknown_Notification;
+        public Inputs.VaultNotificationArgs? Notification
+        {
+            get
+            {
+                if (!_mUnknown_Notification) return _mValue_Notification;
+                throw new UndeferrableValueException("Value 'VaultArgs.Notification' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VaultArgs.Tags' is not present");
+            }
+        }
     }
 }

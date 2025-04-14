@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint.Inputs
         /// <summary>
         /// Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
         /// </summary>
-        [Input("lambdaFunctionName")]
+        [PolicyResourceProperty("lambdaFunctionName", "_mUnknown_LambdaFunctionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaFunctionName;
-
-        public string? LambdaFunctionName => _mLambdaFunctionName.GetValue("lambdaFunctionName");
+        private string? _mValue_LambdaFunctionName;
+        private bool _mUnknown_LambdaFunctionName;
+        public string? LambdaFunctionName
+        {
+            get
+            {
+                if (!_mUnknown_LambdaFunctionName) return _mValue_LambdaFunctionName;
+                throw new UndeferrableValueException("Value 'AppCampaignHookArgs.LambdaFunctionName' is not present");
+            }
+        }
 
         /// <summary>
         /// What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
         /// </summary>
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
-
-        public string? Mode => _mMode.GetValue("mode");
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'AppCampaignHookArgs.Mode' is not present");
+            }
+        }
 
         /// <summary>
         /// Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
         /// </summary>
-        [Input("webUrl")]
+        [PolicyResourceProperty("webUrl", "_mUnknown_WebUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebUrl;
-
-        public string? WebUrl => _mWebUrl.GetValue("webUrl");
+        private string? _mValue_WebUrl;
+        private bool _mUnknown_WebUrl;
+        public string? WebUrl
+        {
+            get
+            {
+                if (!_mUnknown_WebUrl) return _mValue_WebUrl;
+                throw new UndeferrableValueException("Value 'AppCampaignHookArgs.WebUrl' is not present");
+            }
+        }
     }
 }

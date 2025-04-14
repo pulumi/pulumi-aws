@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Inputs
         /// <summary>
         /// Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
         /// </summary>
-        [Input("definitions")]
+        [PolicyResourceProperty("definitions", "_mUnknown_Definitions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDefinitions;
-
-        public List<string>? Definitions => _mDefinitions.GetValue("definitions");
+        private List<string>? _mValue_Definitions;
+        private bool _mUnknown_Definitions;
+        public List<string>? Definitions
+        {
+            get
+            {
+                if (!_mUnknown_Definitions) return _mValue_Definitions;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs.Definitions' is not present");
+            }
+        }
     }
 }

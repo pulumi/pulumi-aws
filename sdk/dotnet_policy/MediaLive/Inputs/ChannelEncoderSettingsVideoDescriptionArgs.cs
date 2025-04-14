@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// The video codec settings. See Video Codec Settings for more details.
         /// </summary>
-        [Input("codecSettings")]
+        [PolicyResourceProperty("codecSettings", "_mUnknown_CodecSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs> _mCodecSettings;
-
-        public Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs? CodecSettings => _mCodecSettings.GetValue("codecSettings");
+        private Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs? _mValue_CodecSettings;
+        private bool _mUnknown_CodecSettings;
+        public Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs? CodecSettings
+        {
+            get
+            {
+                if (!_mUnknown_CodecSettings) return _mValue_CodecSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionArgs.CodecSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Output video height in pixels.
         /// </summary>
-        [Input("height")]
+        [PolicyResourceProperty("height", "_mUnknown_Height")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHeight;
-
-        public int? Height => _mHeight.GetValue("height");
+        private int? _mValue_Height;
+        private bool _mUnknown_Height;
+        public int? Height
+        {
+            get
+            {
+                if (!_mUnknown_Height) return _mValue_Height;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionArgs.Height' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the video description.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicate how to respond to the AFD values that might be in the input video.
         /// </summary>
-        [Input("respondToAfd")]
+        [PolicyResourceProperty("respondToAfd", "_mUnknown_RespondToAfd")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRespondToAfd;
-
-        public string? RespondToAfd => _mRespondToAfd.GetValue("respondToAfd");
+        private string? _mValue_RespondToAfd;
+        private bool _mUnknown_RespondToAfd;
+        public string? RespondToAfd
+        {
+            get
+            {
+                if (!_mUnknown_RespondToAfd) return _mValue_RespondToAfd;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionArgs.RespondToAfd' is not present");
+            }
+        }
 
         /// <summary>
         /// Behavior on how to scale.
         /// </summary>
-        [Input("scalingBehavior")]
+        [PolicyResourceProperty("scalingBehavior", "_mUnknown_ScalingBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScalingBehavior;
-
-        public string? ScalingBehavior => _mScalingBehavior.GetValue("scalingBehavior");
+        private string? _mValue_ScalingBehavior;
+        private bool _mUnknown_ScalingBehavior;
+        public string? ScalingBehavior
+        {
+            get
+            {
+                if (!_mUnknown_ScalingBehavior) return _mValue_ScalingBehavior;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionArgs.ScalingBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// Changes the strength of the anti-alias filter used for scaling.
         /// </summary>
-        [Input("sharpness")]
+        [PolicyResourceProperty("sharpness", "_mUnknown_Sharpness")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSharpness;
-
-        public int? Sharpness => _mSharpness.GetValue("sharpness");
+        private int? _mValue_Sharpness;
+        private bool _mUnknown_Sharpness;
+        public int? Sharpness
+        {
+            get
+            {
+                if (!_mUnknown_Sharpness) return _mValue_Sharpness;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionArgs.Sharpness' is not present");
+            }
+        }
 
         /// <summary>
         /// Output video width in pixels.
         /// </summary>
-        [Input("width")]
+        [PolicyResourceProperty("width", "_mUnknown_Width")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWidth;
-
-        public int? Width => _mWidth.GetValue("width");
+        private int? _mValue_Width;
+        private bool _mUnknown_Width;
+        public int? Width
+        {
+            get
+            {
+                if (!_mUnknown_Width) return _mValue_Width;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionArgs.Width' is not present");
+            }
+        }
     }
 }

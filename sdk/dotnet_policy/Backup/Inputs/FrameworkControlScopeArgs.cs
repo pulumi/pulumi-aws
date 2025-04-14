@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Backup.Inputs
         /// <summary>
         /// The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
         /// </summary>
-        [Input("complianceResourceIds")]
+        [PolicyResourceProperty("complianceResourceIds", "_mUnknown_ComplianceResourceIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mComplianceResourceIds;
-
-        public List<string>? ComplianceResourceIds => _mComplianceResourceIds.GetValue("complianceResourceIds");
+        private List<string>? _mValue_ComplianceResourceIds;
+        private bool _mUnknown_ComplianceResourceIds;
+        public List<string>? ComplianceResourceIds
+        {
+            get
+            {
+                if (!_mUnknown_ComplianceResourceIds) return _mValue_ComplianceResourceIds;
+                throw new UndeferrableValueException("Value 'FrameworkControlScopeArgs.ComplianceResourceIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
         /// </summary>
-        [Input("complianceResourceTypes")]
+        [PolicyResourceProperty("complianceResourceTypes", "_mUnknown_ComplianceResourceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mComplianceResourceTypes;
-
-        public List<string>? ComplianceResourceTypes => _mComplianceResourceTypes.GetValue("complianceResourceTypes");
+        private List<string>? _mValue_ComplianceResourceTypes;
+        private bool _mUnknown_ComplianceResourceTypes;
+        public List<string>? ComplianceResourceTypes
+        {
+            get
+            {
+                if (!_mUnknown_ComplianceResourceTypes) return _mValue_ComplianceResourceTypes;
+                throw new UndeferrableValueException("Value 'FrameworkControlScopeArgs.ComplianceResourceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FrameworkControlScopeArgs.Tags' is not present");
+            }
+        }
     }
 }

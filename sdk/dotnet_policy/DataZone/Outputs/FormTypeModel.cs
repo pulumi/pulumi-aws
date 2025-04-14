@@ -17,10 +17,17 @@ namespace Pulumi.PolicyPacks.Aws.DataZone.Outputs
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("smithy")]
+        [PolicyResourceProperty("smithy", "_mUnknown_Smithy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSmithy;
-
-        public string? Smithy => _mSmithy.GetValue("smithy");
+        private string? _mValue_Smithy;
+        private bool _mUnknown_Smithy;
+        public string? Smithy
+        {
+            get
+            {
+                if (!_mUnknown_Smithy) return _mValue_Smithy;
+                throw new UndeferrableValueException("Value 'FormTypeModel.Smithy' is not present");
+            }
+        }
     }
 }

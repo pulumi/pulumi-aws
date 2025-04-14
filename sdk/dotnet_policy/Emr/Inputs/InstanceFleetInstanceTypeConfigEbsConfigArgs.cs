@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Inputs
         /// <summary>
         /// The number of I/O operations per second (IOPS) that the volume supports
         /// </summary>
-        [Input("iops")]
+        [PolicyResourceProperty("iops", "_mUnknown_Iops")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIops;
-
-        public int? Iops => _mIops.GetValue("iops");
+        private int? _mValue_Iops;
+        private bool _mUnknown_Iops;
+        public int? Iops
+        {
+            get
+            {
+                if (!_mUnknown_Iops) return _mValue_Iops;
+                throw new UndeferrableValueException("Value 'InstanceFleetInstanceTypeConfigEbsConfigArgs.Iops' is not present");
+            }
+        }
 
         /// <summary>
         /// The volume size, in gibibytes (GiB).
         /// </summary>
-        [Input("size")]
+        [PolicyResourceProperty("size", "_mUnknown_Size")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSize;
-
-        public int? Size => _mSize.GetValue("size");
+        private int? _mValue_Size;
+        private bool _mUnknown_Size;
+        public int? Size
+        {
+            get
+            {
+                if (!_mUnknown_Size) return _mValue_Size;
+                throw new UndeferrableValueException("Value 'InstanceFleetInstanceTypeConfigEbsConfigArgs.Size' is not present");
+            }
+        }
 
         /// <summary>
         /// The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'InstanceFleetInstanceTypeConfigEbsConfigArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
         /// </summary>
-        [Input("volumesPerInstance")]
+        [PolicyResourceProperty("volumesPerInstance", "_mUnknown_VolumesPerInstance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVolumesPerInstance;
-
-        public int? VolumesPerInstance => _mVolumesPerInstance.GetValue("volumesPerInstance");
+        private int? _mValue_VolumesPerInstance;
+        private bool _mUnknown_VolumesPerInstance;
+        public int? VolumesPerInstance
+        {
+            get
+            {
+                if (!_mUnknown_VolumesPerInstance) return _mValue_VolumesPerInstance;
+                throw new UndeferrableValueException("Value 'InstanceFleetInstanceTypeConfigEbsConfigArgs.VolumesPerInstance' is not present");
+            }
+        }
     }
 }

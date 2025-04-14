@@ -17,46 +17,81 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// 
         /// For more information on how the instance warmup period contributes to managed scale-out behavior, see [Control the instances Amazon ECS terminates](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-termination-protection.html) in the _Amazon Elastic Container Service Developer Guide_.
         /// </summary>
-        [Input("instanceWarmupPeriod")]
+        [PolicyResourceProperty("instanceWarmupPeriod", "_mUnknown_InstanceWarmupPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceWarmupPeriod;
-
-        public int? InstanceWarmupPeriod => _mInstanceWarmupPeriod.GetValue("instanceWarmupPeriod");
+        private int? _mValue_InstanceWarmupPeriod;
+        private bool _mUnknown_InstanceWarmupPeriod;
+        public int? InstanceWarmupPeriod
+        {
+            get
+            {
+                if (!_mUnknown_InstanceWarmupPeriod) return _mValue_InstanceWarmupPeriod;
+                throw new UndeferrableValueException("Value 'CapacityProviderAutoScalingGroupProviderManagedScaling.InstanceWarmupPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum step adjustment size. A number between 1 and 10,000.
         /// </summary>
-        [Input("maximumScalingStepSize")]
+        [PolicyResourceProperty("maximumScalingStepSize", "_mUnknown_MaximumScalingStepSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumScalingStepSize;
-
-        public int? MaximumScalingStepSize => _mMaximumScalingStepSize.GetValue("maximumScalingStepSize");
+        private int? _mValue_MaximumScalingStepSize;
+        private bool _mUnknown_MaximumScalingStepSize;
+        public int? MaximumScalingStepSize
+        {
+            get
+            {
+                if (!_mUnknown_MaximumScalingStepSize) return _mValue_MaximumScalingStepSize;
+                throw new UndeferrableValueException("Value 'CapacityProviderAutoScalingGroupProviderManagedScaling.MaximumScalingStepSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum step adjustment size. A number between 1 and 10,000.
         /// </summary>
-        [Input("minimumScalingStepSize")]
+        [PolicyResourceProperty("minimumScalingStepSize", "_mUnknown_MinimumScalingStepSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinimumScalingStepSize;
-
-        public int? MinimumScalingStepSize => _mMinimumScalingStepSize.GetValue("minimumScalingStepSize");
+        private int? _mValue_MinimumScalingStepSize;
+        private bool _mUnknown_MinimumScalingStepSize;
+        public int? MinimumScalingStepSize
+        {
+            get
+            {
+                if (!_mUnknown_MinimumScalingStepSize) return _mValue_MinimumScalingStepSize;
+                throw new UndeferrableValueException("Value 'CapacityProviderAutoScalingGroupProviderManagedScaling.MinimumScalingStepSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'CapacityProviderAutoScalingGroupProviderManagedScaling.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Target utilization for the capacity provider. A number between 1 and 100.
         /// </summary>
-        [Input("targetCapacity")]
+        [PolicyResourceProperty("targetCapacity", "_mUnknown_TargetCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTargetCapacity;
-
-        public int? TargetCapacity => _mTargetCapacity.GetValue("targetCapacity");
+        private int? _mValue_TargetCapacity;
+        private bool _mUnknown_TargetCapacity;
+        public int? TargetCapacity
+        {
+            get
+            {
+                if (!_mUnknown_TargetCapacity) return _mValue_TargetCapacity;
+                throw new UndeferrableValueException("Value 'CapacityProviderAutoScalingGroupProviderManagedScaling.TargetCapacity' is not present");
+            }
+        }
     }
 }

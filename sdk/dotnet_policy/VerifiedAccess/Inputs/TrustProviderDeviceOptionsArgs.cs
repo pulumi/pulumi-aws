@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess.Inputs
 {
     public sealed class TrustProviderDeviceOptionsArgs
     {
-        [Input("tenantId")]
+        [PolicyResourceProperty("tenantId", "_mUnknown_TenantId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTenantId;
-
-        public string? TenantId => _mTenantId.GetValue("tenantId");
+        private string? _mValue_TenantId;
+        private bool _mUnknown_TenantId;
+        public string? TenantId
+        {
+            get
+            {
+                if (!_mUnknown_TenantId) return _mValue_TenantId;
+                throw new UndeferrableValueException("Value 'TrustProviderDeviceOptionsArgs.TenantId' is not present");
+            }
+        }
     }
 }

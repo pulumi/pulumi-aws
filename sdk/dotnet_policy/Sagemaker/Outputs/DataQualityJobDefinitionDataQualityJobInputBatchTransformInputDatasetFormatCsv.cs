@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// Indicates if the CSV data has a header.
         /// </summary>
-        [Input("header")]
+        [PolicyResourceProperty("header", "_mUnknown_Header")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mHeader;
-
-        public bool? Header => _mHeader.GetValue("header");
+        private bool? _mValue_Header;
+        private bool _mUnknown_Header;
+        public bool? Header
+        {
+            get
+            {
+                if (!_mUnknown_Header) return _mValue_Header;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv.Header' is not present");
+            }
+        }
     }
 }

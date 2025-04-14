@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// The Amazon EFS access point ID to use.
         /// </summary>
-        [Input("accessPointId")]
+        [PolicyResourceProperty("accessPointId", "_mUnknown_AccessPointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPointId;
-
-        public string? AccessPointId => _mAccessPointId.GetValue("accessPointId");
+        private string? _mValue_AccessPointId;
+        private bool _mUnknown_AccessPointId;
+        public string? AccessPointId
+        {
+            get
+            {
+                if (!_mUnknown_AccessPointId) return _mValue_AccessPointId;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigResult.AccessPointId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system.
         /// </summary>
-        [Input("iam")]
+        [PolicyResourceProperty("iam", "_mUnknown_Iam")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIam;
-
-        public string? Iam => _mIam.GetValue("iam");
+        private string? _mValue_Iam;
+        private bool _mUnknown_Iam;
+        public string? Iam
+        {
+            get
+            {
+                if (!_mUnknown_Iam) return _mValue_Iam;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigResult.Iam' is not present");
+            }
+        }
     }
 }

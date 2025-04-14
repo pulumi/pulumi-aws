@@ -12,40 +12,75 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
 {
     public sealed class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs
     {
-        [Input("allow")]
+        [PolicyResourceProperty("allow", "_mUnknown_Allow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgs> _mAllow;
+        private Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgs? _mValue_Allow;
+        private bool _mUnknown_Allow;
+        public Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgs? Allow
+        {
+            get
+            {
+                if (!_mUnknown_Allow) return _mValue_Allow;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs.Allow' is not present");
+            }
+        }
 
-        public Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgs? Allow => _mAllow.GetValue("allow");
-
-        [Input("block")]
+        [PolicyResourceProperty("block", "_mUnknown_Block")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs> _mBlock;
-
-        public Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs? Block => _mBlock.GetValue("block");
+        private Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs? _mValue_Block;
+        private bool _mUnknown_Block;
+        public Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs? Block
+        {
+            get
+            {
+                if (!_mUnknown_Block) return _mValue_Block;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs.Block' is not present");
+            }
+        }
 
         /// <summary>
         /// Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
         /// </summary>
-        [Input("captcha")]
+        [PolicyResourceProperty("captcha", "_mUnknown_Captcha")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs> _mCaptcha;
-
-        public Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs? Captcha => _mCaptcha.GetValue("captcha");
+        private Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs? _mValue_Captcha;
+        private bool _mUnknown_Captcha;
+        public Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs? Captcha
+        {
+            get
+            {
+                if (!_mUnknown_Captcha) return _mValue_Captcha;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs.Captcha' is not present");
+            }
+        }
 
         /// <summary>
         /// Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
         /// </summary>
-        [Input("challenge")]
+        [PolicyResourceProperty("challenge", "_mUnknown_Challenge")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs> _mChallenge;
+        private Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs? _mValue_Challenge;
+        private bool _mUnknown_Challenge;
+        public Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs? Challenge
+        {
+            get
+            {
+                if (!_mUnknown_Challenge) return _mValue_Challenge;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs.Challenge' is not present");
+            }
+        }
 
-        public Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs? Challenge => _mChallenge.GetValue("challenge");
-
-        [Input("count")]
+        [PolicyResourceProperty("count", "_mUnknown_Count")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs> _mCount;
-
-        public Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs? Count => _mCount.GetValue("count");
+        private Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs? _mValue_Count;
+        private bool _mUnknown_Count;
+        public Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs? Count
+        {
+            get
+            {
+                if (!_mUnknown_Count) return _mValue_Count;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs.Count' is not present");
+            }
+        }
     }
 }

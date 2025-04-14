@@ -16,10 +16,17 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables.Outputs
         /// A single Iceberg unreferenced file removal settings object.
         /// See `iceberg_unreferenced_file_removal` below.
         /// </summary>
-        [Input("icebergUnreferencedFileRemoval")]
+        [PolicyResourceProperty("icebergUnreferencedFileRemoval", "_mUnknown_IcebergUnreferencedFileRemoval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval> _mIcebergUnreferencedFileRemoval;
-
-        public Outputs.TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval? IcebergUnreferencedFileRemoval => _mIcebergUnreferencedFileRemoval.GetValue("icebergUnreferencedFileRemoval");
+        private Outputs.TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval? _mValue_IcebergUnreferencedFileRemoval;
+        private bool _mUnknown_IcebergUnreferencedFileRemoval;
+        public Outputs.TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval? IcebergUnreferencedFileRemoval
+        {
+            get
+            {
+                if (!_mUnknown_IcebergUnreferencedFileRemoval) return _mValue_IcebergUnreferencedFileRemoval;
+                throw new UndeferrableValueException("Value 'TableBucketMaintenanceConfiguration.IcebergUnreferencedFileRemoval' is not present");
+            }
+        }
     }
 }

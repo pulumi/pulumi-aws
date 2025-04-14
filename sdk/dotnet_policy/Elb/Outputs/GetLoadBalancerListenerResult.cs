@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.Elb.Outputs
 {
     public sealed class GetLoadBalancerListenerResult
     {
-        [Input("instancePort")]
+        [PolicyResourceProperty("instancePort", "_mUnknown_InstancePort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstancePort;
+        private int? _mValue_InstancePort;
+        private bool _mUnknown_InstancePort;
+        public int? InstancePort
+        {
+            get
+            {
+                if (!_mUnknown_InstancePort) return _mValue_InstancePort;
+                throw new UndeferrableValueException("Value 'GetLoadBalancerListenerResult.InstancePort' is not present");
+            }
+        }
 
-        public int? InstancePort => _mInstancePort.GetValue("instancePort");
-
-        [Input("instanceProtocol")]
+        [PolicyResourceProperty("instanceProtocol", "_mUnknown_InstanceProtocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceProtocol;
+        private string? _mValue_InstanceProtocol;
+        private bool _mUnknown_InstanceProtocol;
+        public string? InstanceProtocol
+        {
+            get
+            {
+                if (!_mUnknown_InstanceProtocol) return _mValue_InstanceProtocol;
+                throw new UndeferrableValueException("Value 'GetLoadBalancerListenerResult.InstanceProtocol' is not present");
+            }
+        }
 
-        public string? InstanceProtocol => _mInstanceProtocol.GetValue("instanceProtocol");
-
-        [Input("lbPort")]
+        [PolicyResourceProperty("lbPort", "_mUnknown_LbPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLbPort;
+        private int? _mValue_LbPort;
+        private bool _mUnknown_LbPort;
+        public int? LbPort
+        {
+            get
+            {
+                if (!_mUnknown_LbPort) return _mValue_LbPort;
+                throw new UndeferrableValueException("Value 'GetLoadBalancerListenerResult.LbPort' is not present");
+            }
+        }
 
-        public int? LbPort => _mLbPort.GetValue("lbPort");
-
-        [Input("lbProtocol")]
+        [PolicyResourceProperty("lbProtocol", "_mUnknown_LbProtocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLbProtocol;
+        private string? _mValue_LbProtocol;
+        private bool _mUnknown_LbProtocol;
+        public string? LbProtocol
+        {
+            get
+            {
+                if (!_mUnknown_LbProtocol) return _mValue_LbProtocol;
+                throw new UndeferrableValueException("Value 'GetLoadBalancerListenerResult.LbProtocol' is not present");
+            }
+        }
 
-        public string? LbProtocol => _mLbProtocol.GetValue("lbProtocol");
-
-        [Input("sslCertificateId")]
+        [PolicyResourceProperty("sslCertificateId", "_mUnknown_SslCertificateId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslCertificateId;
-
-        public string? SslCertificateId => _mSslCertificateId.GetValue("sslCertificateId");
+        private string? _mValue_SslCertificateId;
+        private bool _mUnknown_SslCertificateId;
+        public string? SslCertificateId
+        {
+            get
+            {
+                if (!_mUnknown_SslCertificateId) return _mValue_SslCertificateId;
+                throw new UndeferrableValueException("Value 'GetLoadBalancerListenerResult.SslCertificateId' is not present");
+            }
+        }
     }
 }

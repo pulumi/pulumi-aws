@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings
     {
-        [Input("repInterval")]
+        [PolicyResourceProperty("repInterval", "_mUnknown_RepInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRepInterval;
-
-        public int? RepInterval => _mRepInterval.GetValue("repInterval");
+        private int? _mValue_RepInterval;
+        private bool _mUnknown_RepInterval;
+        public int? RepInterval
+        {
+            get
+            {
+                if (!_mUnknown_RepInterval) return _mValue_RepInterval;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings.RepInterval' is not present");
+            }
+        }
     }
 }

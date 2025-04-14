@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Inputs
         /// <summary>
         /// The conditions that are failure conditions. Defined as a `condition` block below.
         /// </summary>
-        [Input("condition")]
+        [PolicyResourceProperty("condition", "_mUnknown_Condition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineStageOnFailureConditionArgs> _mCondition;
-
-        public Inputs.PipelineStageOnFailureConditionArgs? Condition => _mCondition.GetValue("condition");
+        private Inputs.PipelineStageOnFailureConditionArgs? _mValue_Condition;
+        private bool _mUnknown_Condition;
+        public Inputs.PipelineStageOnFailureConditionArgs? Condition
+        {
+            get
+            {
+                if (!_mUnknown_Condition) return _mValue_Condition;
+                throw new UndeferrableValueException("Value 'PipelineStageOnFailureArgs.Condition' is not present");
+            }
+        }
 
         /// <summary>
         /// The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
         /// </summary>
-        [Input("result")]
+        [PolicyResourceProperty("result", "_mUnknown_Result")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResult;
-
-        public string? Result => _mResult.GetValue("result");
+        private string? _mValue_Result;
+        private bool _mUnknown_Result;
+        public string? Result
+        {
+            get
+            {
+                if (!_mUnknown_Result) return _mValue_Result;
+                throw new UndeferrableValueException("Value 'PipelineStageOnFailureArgs.Result' is not present");
+            }
+        }
 
         /// <summary>
         /// The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retry_configuration` block below.
         /// </summary>
-        [Input("retryConfiguration")]
+        [PolicyResourceProperty("retryConfiguration", "_mUnknown_RetryConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineStageOnFailureRetryConfigurationArgs> _mRetryConfiguration;
-
-        public Inputs.PipelineStageOnFailureRetryConfigurationArgs? RetryConfiguration => _mRetryConfiguration.GetValue("retryConfiguration");
+        private Inputs.PipelineStageOnFailureRetryConfigurationArgs? _mValue_RetryConfiguration;
+        private bool _mUnknown_RetryConfiguration;
+        public Inputs.PipelineStageOnFailureRetryConfigurationArgs? RetryConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RetryConfiguration) return _mValue_RetryConfiguration;
+                throw new UndeferrableValueException("Value 'PipelineStageOnFailureArgs.RetryConfiguration' is not present");
+            }
+        }
     }
 }

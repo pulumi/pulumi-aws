@@ -16,19 +16,33 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2.Inputs
         /// Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
         /// </summary>
-        [Input("mappings")]
+        [PolicyResourceProperty("mappings", "_mUnknown_Mappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mMappings;
-
-        public Dictionary<string, string>? Mappings => _mMappings.GetValue("mappings");
+        private Dictionary<string, string>? _mValue_Mappings;
+        private bool _mUnknown_Mappings;
+        public Dictionary<string, string>? Mappings
+        {
+            get
+            {
+                if (!_mUnknown_Mappings) return _mValue_Mappings;
+                throw new UndeferrableValueException("Value 'IntegrationResponseParameterArgs.Mappings' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP status code in the range 200-599.
         /// </summary>
-        [Input("statusCode")]
+        [PolicyResourceProperty("statusCode", "_mUnknown_StatusCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusCode;
-
-        public string? StatusCode => _mStatusCode.GetValue("statusCode");
+        private string? _mValue_StatusCode;
+        private bool _mUnknown_StatusCode;
+        public string? StatusCode
+        {
+            get
+            {
+                if (!_mUnknown_StatusCode) return _mValue_StatusCode;
+                throw new UndeferrableValueException("Value 'IntegrationResponseParameterArgs.StatusCode' is not present");
+            }
+        }
     }
 }

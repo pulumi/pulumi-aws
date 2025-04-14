@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
         /// </summary>
-        [Input("colors")]
+        [PolicyResourceProperty("colors", "_mUnknown_Colors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mColors;
-
-        public List<string>? Colors => _mColors.GetValue("colors");
+        private List<string>? _mValue_Colors;
+        private bool _mUnknown_Colors;
+        public List<string>? Colors
+        {
+            get
+            {
+                if (!_mUnknown_Colors) return _mValue_Colors;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationDataColorPaletteResult.Colors' is not present");
+            }
+        }
 
         /// <summary>
         /// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
         /// </summary>
-        [Input("emptyFillColor")]
+        [PolicyResourceProperty("emptyFillColor", "_mUnknown_EmptyFillColor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmptyFillColor;
-
-        public string? EmptyFillColor => _mEmptyFillColor.GetValue("emptyFillColor");
+        private string? _mValue_EmptyFillColor;
+        private bool _mUnknown_EmptyFillColor;
+        public string? EmptyFillColor
+        {
+            get
+            {
+                if (!_mUnknown_EmptyFillColor) return _mValue_EmptyFillColor;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationDataColorPaletteResult.EmptyFillColor' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
         /// </summary>
-        [Input("minMaxGradients")]
+        [PolicyResourceProperty("minMaxGradients", "_mUnknown_MinMaxGradients")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMinMaxGradients;
-
-        public List<string>? MinMaxGradients => _mMinMaxGradients.GetValue("minMaxGradients");
+        private List<string>? _mValue_MinMaxGradients;
+        private bool _mUnknown_MinMaxGradients;
+        public List<string>? MinMaxGradients
+        {
+            get
+            {
+                if (!_mUnknown_MinMaxGradients) return _mValue_MinMaxGradients;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationDataColorPaletteResult.MinMaxGradients' is not present");
+            }
+        }
     }
 }

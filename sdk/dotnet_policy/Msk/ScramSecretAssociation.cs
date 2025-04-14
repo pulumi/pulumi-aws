@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Msk
         /// <summary>
         /// Amazon Resource Name (ARN) of the MSK cluster.
         /// </summary>
-        [Input("clusterArn")]
+        [PolicyResourceProperty("clusterArn", "_mUnknown_ClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterArn;
-
-        public string? ClusterArn => _mClusterArn.GetValue("clusterArn");
+        private string? _mValue_ClusterArn;
+        private bool _mUnknown_ClusterArn;
+        public string? ClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_ClusterArn) return _mValue_ClusterArn;
+                throw new UndeferrableValueException("Value 'ScramSecretAssociation.ClusterArn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of AWS Secrets Manager secret ARNs.
         /// </summary>
-        [Input("secretArnLists")]
+        [PolicyResourceProperty("secretArnLists", "_mUnknown_SecretArnLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecretArnLists;
-
-        public List<string>? SecretArnLists => _mSecretArnLists.GetValue("secretArnLists");
+        private List<string>? _mValue_SecretArnLists;
+        private bool _mUnknown_SecretArnLists;
+        public List<string>? SecretArnLists
+        {
+            get
+            {
+                if (!_mUnknown_SecretArnLists) return _mValue_SecretArnLists;
+                throw new UndeferrableValueException("Value 'ScramSecretAssociation.SecretArnLists' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:msk/scramSecretAssociation:ScramSecretAssociation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Msk
         /// <summary>
         /// Amazon Resource Name (ARN) of the MSK cluster.
         /// </summary>
-        [Input("clusterArn")]
+        [PolicyResourceProperty("clusterArn", "_mUnknown_ClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterArn;
-
-        public string? ClusterArn => _mClusterArn.GetValue("clusterArn");
+        private string? _mValue_ClusterArn;
+        private bool _mUnknown_ClusterArn;
+        public string? ClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_ClusterArn) return _mValue_ClusterArn;
+                throw new UndeferrableValueException("Value 'ScramSecretAssociationArgs.ClusterArn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of AWS Secrets Manager secret ARNs.
         /// </summary>
-        [Input("secretArnLists")]
+        [PolicyResourceProperty("secretArnLists", "_mUnknown_SecretArnLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecretArnLists;
-
-        public List<string>? SecretArnLists => _mSecretArnLists.GetValue("secretArnLists");
+        private List<string>? _mValue_SecretArnLists;
+        private bool _mUnknown_SecretArnLists;
+        public List<string>? SecretArnLists
+        {
+            get
+            {
+                if (!_mUnknown_SecretArnLists) return _mValue_SecretArnLists;
+                throw new UndeferrableValueException("Value 'ScramSecretAssociationArgs.SecretArnLists' is not present");
+            }
+        }
     }
 }

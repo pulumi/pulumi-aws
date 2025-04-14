@@ -12,118 +12,251 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Inputs
 {
     public sealed class TopicRuleErrorActionArgs
     {
-        [Input("cloudwatchAlarm")]
+        [PolicyResourceProperty("cloudwatchAlarm", "_mUnknown_CloudwatchAlarm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionCloudwatchAlarmArgs> _mCloudwatchAlarm;
+        private Inputs.TopicRuleErrorActionCloudwatchAlarmArgs? _mValue_CloudwatchAlarm;
+        private bool _mUnknown_CloudwatchAlarm;
+        public Inputs.TopicRuleErrorActionCloudwatchAlarmArgs? CloudwatchAlarm
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchAlarm) return _mValue_CloudwatchAlarm;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.CloudwatchAlarm' is not present");
+            }
+        }
 
-        public Inputs.TopicRuleErrorActionCloudwatchAlarmArgs? CloudwatchAlarm => _mCloudwatchAlarm.GetValue("cloudwatchAlarm");
-
-        [Input("cloudwatchLogs")]
+        [PolicyResourceProperty("cloudwatchLogs", "_mUnknown_CloudwatchLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionCloudwatchLogsArgs> _mCloudwatchLogs;
+        private Inputs.TopicRuleErrorActionCloudwatchLogsArgs? _mValue_CloudwatchLogs;
+        private bool _mUnknown_CloudwatchLogs;
+        public Inputs.TopicRuleErrorActionCloudwatchLogsArgs? CloudwatchLogs
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogs) return _mValue_CloudwatchLogs;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.CloudwatchLogs' is not present");
+            }
+        }
 
-        public Inputs.TopicRuleErrorActionCloudwatchLogsArgs? CloudwatchLogs => _mCloudwatchLogs.GetValue("cloudwatchLogs");
-
-        [Input("cloudwatchMetric")]
+        [PolicyResourceProperty("cloudwatchMetric", "_mUnknown_CloudwatchMetric")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionCloudwatchMetricArgs> _mCloudwatchMetric;
+        private Inputs.TopicRuleErrorActionCloudwatchMetricArgs? _mValue_CloudwatchMetric;
+        private bool _mUnknown_CloudwatchMetric;
+        public Inputs.TopicRuleErrorActionCloudwatchMetricArgs? CloudwatchMetric
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchMetric) return _mValue_CloudwatchMetric;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.CloudwatchMetric' is not present");
+            }
+        }
 
-        public Inputs.TopicRuleErrorActionCloudwatchMetricArgs? CloudwatchMetric => _mCloudwatchMetric.GetValue("cloudwatchMetric");
-
-        [Input("dynamodb")]
+        [PolicyResourceProperty("dynamodb", "_mUnknown_Dynamodb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionDynamodbArgs> _mDynamodb;
+        private Inputs.TopicRuleErrorActionDynamodbArgs? _mValue_Dynamodb;
+        private bool _mUnknown_Dynamodb;
+        public Inputs.TopicRuleErrorActionDynamodbArgs? Dynamodb
+        {
+            get
+            {
+                if (!_mUnknown_Dynamodb) return _mValue_Dynamodb;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.Dynamodb' is not present");
+            }
+        }
 
-        public Inputs.TopicRuleErrorActionDynamodbArgs? Dynamodb => _mDynamodb.GetValue("dynamodb");
-
-        [Input("dynamodbv2")]
+        [PolicyResourceProperty("dynamodbv2", "_mUnknown_Dynamodbv2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionDynamodbv2Args> _mDynamodbv2;
+        private Inputs.TopicRuleErrorActionDynamodbv2Args? _mValue_Dynamodbv2;
+        private bool _mUnknown_Dynamodbv2;
+        public Inputs.TopicRuleErrorActionDynamodbv2Args? Dynamodbv2
+        {
+            get
+            {
+                if (!_mUnknown_Dynamodbv2) return _mValue_Dynamodbv2;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.Dynamodbv2' is not present");
+            }
+        }
 
-        public Inputs.TopicRuleErrorActionDynamodbv2Args? Dynamodbv2 => _mDynamodbv2.GetValue("dynamodbv2");
-
-        [Input("elasticsearch")]
+        [PolicyResourceProperty("elasticsearch", "_mUnknown_Elasticsearch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionElasticsearchArgs> _mElasticsearch;
+        private Inputs.TopicRuleErrorActionElasticsearchArgs? _mValue_Elasticsearch;
+        private bool _mUnknown_Elasticsearch;
+        public Inputs.TopicRuleErrorActionElasticsearchArgs? Elasticsearch
+        {
+            get
+            {
+                if (!_mUnknown_Elasticsearch) return _mValue_Elasticsearch;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.Elasticsearch' is not present");
+            }
+        }
 
-        public Inputs.TopicRuleErrorActionElasticsearchArgs? Elasticsearch => _mElasticsearch.GetValue("elasticsearch");
-
-        [Input("firehose")]
+        [PolicyResourceProperty("firehose", "_mUnknown_Firehose")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionFirehoseArgs> _mFirehose;
+        private Inputs.TopicRuleErrorActionFirehoseArgs? _mValue_Firehose;
+        private bool _mUnknown_Firehose;
+        public Inputs.TopicRuleErrorActionFirehoseArgs? Firehose
+        {
+            get
+            {
+                if (!_mUnknown_Firehose) return _mValue_Firehose;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.Firehose' is not present");
+            }
+        }
 
-        public Inputs.TopicRuleErrorActionFirehoseArgs? Firehose => _mFirehose.GetValue("firehose");
-
-        [Input("http")]
+        [PolicyResourceProperty("http", "_mUnknown_Http")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionHttpArgs> _mHttp;
+        private Inputs.TopicRuleErrorActionHttpArgs? _mValue_Http;
+        private bool _mUnknown_Http;
+        public Inputs.TopicRuleErrorActionHttpArgs? Http
+        {
+            get
+            {
+                if (!_mUnknown_Http) return _mValue_Http;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.Http' is not present");
+            }
+        }
 
-        public Inputs.TopicRuleErrorActionHttpArgs? Http => _mHttp.GetValue("http");
-
-        [Input("iotAnalytics")]
+        [PolicyResourceProperty("iotAnalytics", "_mUnknown_IotAnalytics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionIotAnalyticsArgs> _mIotAnalytics;
+        private Inputs.TopicRuleErrorActionIotAnalyticsArgs? _mValue_IotAnalytics;
+        private bool _mUnknown_IotAnalytics;
+        public Inputs.TopicRuleErrorActionIotAnalyticsArgs? IotAnalytics
+        {
+            get
+            {
+                if (!_mUnknown_IotAnalytics) return _mValue_IotAnalytics;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.IotAnalytics' is not present");
+            }
+        }
 
-        public Inputs.TopicRuleErrorActionIotAnalyticsArgs? IotAnalytics => _mIotAnalytics.GetValue("iotAnalytics");
-
-        [Input("iotEvents")]
+        [PolicyResourceProperty("iotEvents", "_mUnknown_IotEvents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionIotEventsArgs> _mIotEvents;
+        private Inputs.TopicRuleErrorActionIotEventsArgs? _mValue_IotEvents;
+        private bool _mUnknown_IotEvents;
+        public Inputs.TopicRuleErrorActionIotEventsArgs? IotEvents
+        {
+            get
+            {
+                if (!_mUnknown_IotEvents) return _mValue_IotEvents;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.IotEvents' is not present");
+            }
+        }
 
-        public Inputs.TopicRuleErrorActionIotEventsArgs? IotEvents => _mIotEvents.GetValue("iotEvents");
-
-        [Input("kafka")]
+        [PolicyResourceProperty("kafka", "_mUnknown_Kafka")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionKafkaArgs> _mKafka;
+        private Inputs.TopicRuleErrorActionKafkaArgs? _mValue_Kafka;
+        private bool _mUnknown_Kafka;
+        public Inputs.TopicRuleErrorActionKafkaArgs? Kafka
+        {
+            get
+            {
+                if (!_mUnknown_Kafka) return _mValue_Kafka;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.Kafka' is not present");
+            }
+        }
 
-        public Inputs.TopicRuleErrorActionKafkaArgs? Kafka => _mKafka.GetValue("kafka");
-
-        [Input("kinesis")]
+        [PolicyResourceProperty("kinesis", "_mUnknown_Kinesis")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionKinesisArgs> _mKinesis;
+        private Inputs.TopicRuleErrorActionKinesisArgs? _mValue_Kinesis;
+        private bool _mUnknown_Kinesis;
+        public Inputs.TopicRuleErrorActionKinesisArgs? Kinesis
+        {
+            get
+            {
+                if (!_mUnknown_Kinesis) return _mValue_Kinesis;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.Kinesis' is not present");
+            }
+        }
 
-        public Inputs.TopicRuleErrorActionKinesisArgs? Kinesis => _mKinesis.GetValue("kinesis");
-
-        [Input("lambda")]
+        [PolicyResourceProperty("lambda", "_mUnknown_Lambda")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionLambdaArgs> _mLambda;
+        private Inputs.TopicRuleErrorActionLambdaArgs? _mValue_Lambda;
+        private bool _mUnknown_Lambda;
+        public Inputs.TopicRuleErrorActionLambdaArgs? Lambda
+        {
+            get
+            {
+                if (!_mUnknown_Lambda) return _mValue_Lambda;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.Lambda' is not present");
+            }
+        }
 
-        public Inputs.TopicRuleErrorActionLambdaArgs? Lambda => _mLambda.GetValue("lambda");
-
-        [Input("republish")]
+        [PolicyResourceProperty("republish", "_mUnknown_Republish")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionRepublishArgs> _mRepublish;
+        private Inputs.TopicRuleErrorActionRepublishArgs? _mValue_Republish;
+        private bool _mUnknown_Republish;
+        public Inputs.TopicRuleErrorActionRepublishArgs? Republish
+        {
+            get
+            {
+                if (!_mUnknown_Republish) return _mValue_Republish;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.Republish' is not present");
+            }
+        }
 
-        public Inputs.TopicRuleErrorActionRepublishArgs? Republish => _mRepublish.GetValue("republish");
-
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionS3Args> _mS3;
+        private Inputs.TopicRuleErrorActionS3Args? _mValue_S3;
+        private bool _mUnknown_S3;
+        public Inputs.TopicRuleErrorActionS3Args? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.S3' is not present");
+            }
+        }
 
-        public Inputs.TopicRuleErrorActionS3Args? S3 => _mS3.GetValue("s3");
-
-        [Input("sns")]
+        [PolicyResourceProperty("sns", "_mUnknown_Sns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionSnsArgs> _mSns;
+        private Inputs.TopicRuleErrorActionSnsArgs? _mValue_Sns;
+        private bool _mUnknown_Sns;
+        public Inputs.TopicRuleErrorActionSnsArgs? Sns
+        {
+            get
+            {
+                if (!_mUnknown_Sns) return _mValue_Sns;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.Sns' is not present");
+            }
+        }
 
-        public Inputs.TopicRuleErrorActionSnsArgs? Sns => _mSns.GetValue("sns");
-
-        [Input("sqs")]
+        [PolicyResourceProperty("sqs", "_mUnknown_Sqs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionSqsArgs> _mSqs;
+        private Inputs.TopicRuleErrorActionSqsArgs? _mValue_Sqs;
+        private bool _mUnknown_Sqs;
+        public Inputs.TopicRuleErrorActionSqsArgs? Sqs
+        {
+            get
+            {
+                if (!_mUnknown_Sqs) return _mValue_Sqs;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.Sqs' is not present");
+            }
+        }
 
-        public Inputs.TopicRuleErrorActionSqsArgs? Sqs => _mSqs.GetValue("sqs");
-
-        [Input("stepFunctions")]
+        [PolicyResourceProperty("stepFunctions", "_mUnknown_StepFunctions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionStepFunctionsArgs> _mStepFunctions;
+        private Inputs.TopicRuleErrorActionStepFunctionsArgs? _mValue_StepFunctions;
+        private bool _mUnknown_StepFunctions;
+        public Inputs.TopicRuleErrorActionStepFunctionsArgs? StepFunctions
+        {
+            get
+            {
+                if (!_mUnknown_StepFunctions) return _mValue_StepFunctions;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.StepFunctions' is not present");
+            }
+        }
 
-        public Inputs.TopicRuleErrorActionStepFunctionsArgs? StepFunctions => _mStepFunctions.GetValue("stepFunctions");
-
-        [Input("timestream")]
+        [PolicyResourceProperty("timestream", "_mUnknown_Timestream")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionTimestreamArgs> _mTimestream;
-
-        public Inputs.TopicRuleErrorActionTimestreamArgs? Timestream => _mTimestream.GetValue("timestream");
+        private Inputs.TopicRuleErrorActionTimestreamArgs? _mValue_Timestream;
+        private bool _mUnknown_Timestream;
+        public Inputs.TopicRuleErrorActionTimestreamArgs? Timestream
+        {
+            get
+            {
+                if (!_mUnknown_Timestream) return _mValue_Timestream;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionArgs.Timestream' is not present");
+            }
+        }
     }
 }

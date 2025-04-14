@@ -15,109 +15,193 @@ namespace Pulumi.PolicyPacks.Aws.ChimeSDKMediaPipelines.Inputs
         /// <summary>
         /// Labels all personally identifiable information (PII) identified in Transcript events.
         /// </summary>
-        [Input("contentIdentificationType")]
+        [PolicyResourceProperty("contentIdentificationType", "_mUnknown_ContentIdentificationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentIdentificationType;
-
-        public string? ContentIdentificationType => _mContentIdentificationType.GetValue("contentIdentificationType");
+        private string? _mValue_ContentIdentificationType;
+        private bool _mUnknown_ContentIdentificationType;
+        public string? ContentIdentificationType
+        {
+            get
+            {
+                if (!_mUnknown_ContentIdentificationType) return _mValue_ContentIdentificationType;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.ContentIdentificationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Redacts all personally identifiable information (PII) identified in Transcript events.
         /// </summary>
-        [Input("contentRedactionType")]
+        [PolicyResourceProperty("contentRedactionType", "_mUnknown_ContentRedactionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentRedactionType;
-
-        public string? ContentRedactionType => _mContentRedactionType.GetValue("contentRedactionType");
+        private string? _mValue_ContentRedactionType;
+        private bool _mUnknown_ContentRedactionType;
+        public string? ContentRedactionType
+        {
+            get
+            {
+                if (!_mUnknown_ContentRedactionType) return _mValue_ContentRedactionType;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.ContentRedactionType' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables partial result stabilization in Transcript events.
         /// </summary>
-        [Input("enablePartialResultsStabilization")]
+        [PolicyResourceProperty("enablePartialResultsStabilization", "_mUnknown_EnablePartialResultsStabilization")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePartialResultsStabilization;
-
-        public bool? EnablePartialResultsStabilization => _mEnablePartialResultsStabilization.GetValue("enablePartialResultsStabilization");
+        private bool? _mValue_EnablePartialResultsStabilization;
+        private bool _mUnknown_EnablePartialResultsStabilization;
+        public bool? EnablePartialResultsStabilization
+        {
+            get
+            {
+                if (!_mUnknown_EnablePartialResultsStabilization) return _mValue_EnablePartialResultsStabilization;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.EnablePartialResultsStabilization' is not present");
+            }
+        }
 
         /// <summary>
         /// Filters partial Utterance events from delivery to the insights target.
         /// </summary>
-        [Input("filterPartialResults")]
+        [PolicyResourceProperty("filterPartialResults", "_mUnknown_FilterPartialResults")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFilterPartialResults;
-
-        public bool? FilterPartialResults => _mFilterPartialResults.GetValue("filterPartialResults");
+        private bool? _mValue_FilterPartialResults;
+        private bool _mUnknown_FilterPartialResults;
+        public bool? FilterPartialResults
+        {
+            get
+            {
+                if (!_mUnknown_FilterPartialResults) return _mValue_FilterPartialResults;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.FilterPartialResults' is not present");
+            }
+        }
 
         /// <summary>
         /// Language code for the transcription model.
         /// </summary>
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
-
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.LanguageCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of custom language model for transcription.
         /// </summary>
-        [Input("languageModelName")]
+        [PolicyResourceProperty("languageModelName", "_mUnknown_LanguageModelName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageModelName;
-
-        public string? LanguageModelName => _mLanguageModelName.GetValue("languageModelName");
+        private string? _mValue_LanguageModelName;
+        private bool _mUnknown_LanguageModelName;
+        public string? LanguageModelName
+        {
+            get
+            {
+                if (!_mUnknown_LanguageModelName) return _mValue_LanguageModelName;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.LanguageModelName' is not present");
+            }
+        }
 
         /// <summary>
         /// Level of stability to use when partial results stabilization is enabled.
         /// </summary>
-        [Input("partialResultsStability")]
+        [PolicyResourceProperty("partialResultsStability", "_mUnknown_PartialResultsStability")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPartialResultsStability;
-
-        public string? PartialResultsStability => _mPartialResultsStability.GetValue("partialResultsStability");
+        private string? _mValue_PartialResultsStability;
+        private bool _mUnknown_PartialResultsStability;
+        public string? PartialResultsStability
+        {
+            get
+            {
+                if (!_mUnknown_PartialResultsStability) return _mValue_PartialResultsStability;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.PartialResultsStability' is not present");
+            }
+        }
 
         /// <summary>
         /// Types of personally identifiable information (PII) to redact from a Transcript event.
         /// </summary>
-        [Input("piiEntityTypes")]
+        [PolicyResourceProperty("piiEntityTypes", "_mUnknown_PiiEntityTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPiiEntityTypes;
-
-        public string? PiiEntityTypes => _mPiiEntityTypes.GetValue("piiEntityTypes");
+        private string? _mValue_PiiEntityTypes;
+        private bool _mUnknown_PiiEntityTypes;
+        public string? PiiEntityTypes
+        {
+            get
+            {
+                if (!_mUnknown_PiiEntityTypes) return _mValue_PiiEntityTypes;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.PiiEntityTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables speaker partitioning (diarization) in your Transcript events.
         /// </summary>
-        [Input("showSpeakerLabel")]
+        [PolicyResourceProperty("showSpeakerLabel", "_mUnknown_ShowSpeakerLabel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mShowSpeakerLabel;
-
-        public bool? ShowSpeakerLabel => _mShowSpeakerLabel.GetValue("showSpeakerLabel");
+        private bool? _mValue_ShowSpeakerLabel;
+        private bool _mUnknown_ShowSpeakerLabel;
+        public bool? ShowSpeakerLabel
+        {
+            get
+            {
+                if (!_mUnknown_ShowSpeakerLabel) return _mValue_ShowSpeakerLabel;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.ShowSpeakerLabel' is not present");
+            }
+        }
 
         /// <summary>
         /// Method for applying a vocabulary filter to Transcript events.
         /// </summary>
-        [Input("vocabularyFilterMethod")]
+        [PolicyResourceProperty("vocabularyFilterMethod", "_mUnknown_VocabularyFilterMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyFilterMethod;
-
-        public string? VocabularyFilterMethod => _mVocabularyFilterMethod.GetValue("vocabularyFilterMethod");
+        private string? _mValue_VocabularyFilterMethod;
+        private bool _mUnknown_VocabularyFilterMethod;
+        public string? VocabularyFilterMethod
+        {
+            get
+            {
+                if (!_mUnknown_VocabularyFilterMethod) return _mValue_VocabularyFilterMethod;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.VocabularyFilterMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the custom vocabulary filter to use when processing Transcript events.
         /// </summary>
-        [Input("vocabularyFilterName")]
+        [PolicyResourceProperty("vocabularyFilterName", "_mUnknown_VocabularyFilterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyFilterName;
-
-        public string? VocabularyFilterName => _mVocabularyFilterName.GetValue("vocabularyFilterName");
+        private string? _mValue_VocabularyFilterName;
+        private bool _mUnknown_VocabularyFilterName;
+        public string? VocabularyFilterName
+        {
+            get
+            {
+                if (!_mUnknown_VocabularyFilterName) return _mValue_VocabularyFilterName;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.VocabularyFilterName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the custom vocabulary to use when processing Transcript events.
         /// </summary>
-        [Input("vocabularyName")]
+        [PolicyResourceProperty("vocabularyName", "_mUnknown_VocabularyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyName;
-
-        public string? VocabularyName => _mVocabularyName.GetValue("vocabularyName");
+        private string? _mValue_VocabularyName;
+        private bool _mUnknown_VocabularyName;
+        public string? VocabularyName
+        {
+            get
+            {
+                if (!_mUnknown_VocabularyName) return _mValue_VocabularyName;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.VocabularyName' is not present");
+            }
+        }
     }
 }

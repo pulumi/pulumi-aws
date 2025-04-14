@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.ChimeSDKMediaPipelines.Outputs
         /// <summary>
         /// Configuration for Amazon Transcribe Call Analytics processor.
         /// </summary>
-        [Input("amazonTranscribeCallAnalyticsProcessorConfiguration")]
+        [PolicyResourceProperty("amazonTranscribeCallAnalyticsProcessorConfiguration", "_mUnknown_AmazonTranscribeCallAnalyticsProcessorConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration> _mAmazonTranscribeCallAnalyticsProcessorConfiguration;
-
-        public Outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration? AmazonTranscribeCallAnalyticsProcessorConfiguration => _mAmazonTranscribeCallAnalyticsProcessorConfiguration.GetValue("amazonTranscribeCallAnalyticsProcessorConfiguration");
+        private Outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration? _mValue_AmazonTranscribeCallAnalyticsProcessorConfiguration;
+        private bool _mUnknown_AmazonTranscribeCallAnalyticsProcessorConfiguration;
+        public Outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration? AmazonTranscribeCallAnalyticsProcessorConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AmazonTranscribeCallAnalyticsProcessorConfiguration) return _mValue_AmazonTranscribeCallAnalyticsProcessorConfiguration;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElement.AmazonTranscribeCallAnalyticsProcessorConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for Amazon Transcribe processor.
         /// </summary>
-        [Input("amazonTranscribeProcessorConfiguration")]
+        [PolicyResourceProperty("amazonTranscribeProcessorConfiguration", "_mUnknown_AmazonTranscribeProcessorConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration> _mAmazonTranscribeProcessorConfiguration;
-
-        public Outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration? AmazonTranscribeProcessorConfiguration => _mAmazonTranscribeProcessorConfiguration.GetValue("amazonTranscribeProcessorConfiguration");
+        private Outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration? _mValue_AmazonTranscribeProcessorConfiguration;
+        private bool _mUnknown_AmazonTranscribeProcessorConfiguration;
+        public Outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration? AmazonTranscribeProcessorConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AmazonTranscribeProcessorConfiguration) return _mValue_AmazonTranscribeProcessorConfiguration;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElement.AmazonTranscribeProcessorConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for Kinesis Data Stream sink.
         /// </summary>
-        [Input("kinesisDataStreamSinkConfiguration")]
+        [PolicyResourceProperty("kinesisDataStreamSinkConfiguration", "_mUnknown_KinesisDataStreamSinkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration> _mKinesisDataStreamSinkConfiguration;
-
-        public Outputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration? KinesisDataStreamSinkConfiguration => _mKinesisDataStreamSinkConfiguration.GetValue("kinesisDataStreamSinkConfiguration");
+        private Outputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration? _mValue_KinesisDataStreamSinkConfiguration;
+        private bool _mUnknown_KinesisDataStreamSinkConfiguration;
+        public Outputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration? KinesisDataStreamSinkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_KinesisDataStreamSinkConfiguration) return _mValue_KinesisDataStreamSinkConfiguration;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElement.KinesisDataStreamSinkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for Lambda Function sink.
         /// </summary>
-        [Input("lambdaFunctionSinkConfiguration")]
+        [PolicyResourceProperty("lambdaFunctionSinkConfiguration", "_mUnknown_LambdaFunctionSinkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration> _mLambdaFunctionSinkConfiguration;
-
-        public Outputs.MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration? LambdaFunctionSinkConfiguration => _mLambdaFunctionSinkConfiguration.GetValue("lambdaFunctionSinkConfiguration");
+        private Outputs.MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration? _mValue_LambdaFunctionSinkConfiguration;
+        private bool _mUnknown_LambdaFunctionSinkConfiguration;
+        public Outputs.MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration? LambdaFunctionSinkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LambdaFunctionSinkConfiguration) return _mValue_LambdaFunctionSinkConfiguration;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElement.LambdaFunctionSinkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for S3 recording sink.
         /// </summary>
-        [Input("s3RecordingSinkConfiguration")]
+        [PolicyResourceProperty("s3RecordingSinkConfiguration", "_mUnknown_S3RecordingSinkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration> _mS3RecordingSinkConfiguration;
-
-        public Outputs.MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration? S3RecordingSinkConfiguration => _mS3RecordingSinkConfiguration.GetValue("s3RecordingSinkConfiguration");
+        private Outputs.MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration? _mValue_S3RecordingSinkConfiguration;
+        private bool _mUnknown_S3RecordingSinkConfiguration;
+        public Outputs.MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration? S3RecordingSinkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_S3RecordingSinkConfiguration) return _mValue_S3RecordingSinkConfiguration;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElement.S3RecordingSinkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for SNS Topic sink.
         /// </summary>
-        [Input("snsTopicSinkConfiguration")]
+        [PolicyResourceProperty("snsTopicSinkConfiguration", "_mUnknown_SnsTopicSinkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration> _mSnsTopicSinkConfiguration;
-
-        public Outputs.MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration? SnsTopicSinkConfiguration => _mSnsTopicSinkConfiguration.GetValue("snsTopicSinkConfiguration");
+        private Outputs.MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration? _mValue_SnsTopicSinkConfiguration;
+        private bool _mUnknown_SnsTopicSinkConfiguration;
+        public Outputs.MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration? SnsTopicSinkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SnsTopicSinkConfiguration) return _mValue_SnsTopicSinkConfiguration;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElement.SnsTopicSinkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for SQS Queue sink.
         /// </summary>
-        [Input("sqsQueueSinkConfiguration")]
+        [PolicyResourceProperty("sqsQueueSinkConfiguration", "_mUnknown_SqsQueueSinkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration> _mSqsQueueSinkConfiguration;
-
-        public Outputs.MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration? SqsQueueSinkConfiguration => _mSqsQueueSinkConfiguration.GetValue("sqsQueueSinkConfiguration");
+        private Outputs.MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration? _mValue_SqsQueueSinkConfiguration;
+        private bool _mUnknown_SqsQueueSinkConfiguration;
+        public Outputs.MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration? SqsQueueSinkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SqsQueueSinkConfiguration) return _mValue_SqsQueueSinkConfiguration;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElement.SqsQueueSinkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Element type.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElement.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for Voice analytics processor.
         /// </summary>
-        [Input("voiceAnalyticsProcessorConfiguration")]
+        [PolicyResourceProperty("voiceAnalyticsProcessorConfiguration", "_mUnknown_VoiceAnalyticsProcessorConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration> _mVoiceAnalyticsProcessorConfiguration;
-
-        public Outputs.MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration? VoiceAnalyticsProcessorConfiguration => _mVoiceAnalyticsProcessorConfiguration.GetValue("voiceAnalyticsProcessorConfiguration");
+        private Outputs.MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration? _mValue_VoiceAnalyticsProcessorConfiguration;
+        private bool _mUnknown_VoiceAnalyticsProcessorConfiguration;
+        public Outputs.MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration? VoiceAnalyticsProcessorConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VoiceAnalyticsProcessorConfiguration) return _mValue_VoiceAnalyticsProcessorConfiguration;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElement.VoiceAnalyticsProcessorConfiguration' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         /// </summary>
-        [Input("matchPatterns")]
+        [PolicyResourceProperty("matchPatterns", "_mUnknown_MatchPatterns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern>> _mMatchPatterns;
-
-        public List<Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern>? MatchPatterns => _mMatchPatterns.GetValue("matchPatterns");
+        private List<Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern>? _mValue_MatchPatterns;
+        private bool _mUnknown_MatchPatterns;
+        public List<Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern>? MatchPatterns
+        {
+            get
+            {
+                if (!_mUnknown_MatchPatterns) return _mValue_MatchPatterns;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies.MatchPatterns' is not present");
+            }
+        }
 
         /// <summary>
         /// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         /// </summary>
-        [Input("matchScope")]
+        [PolicyResourceProperty("matchScope", "_mUnknown_MatchScope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMatchScope;
-
-        public string? MatchScope => _mMatchScope.GetValue("matchScope");
+        private string? _mValue_MatchScope;
+        private bool _mUnknown_MatchScope;
+        public string? MatchScope
+        {
+            get
+            {
+                if (!_mUnknown_MatchScope) return _mValue_MatchScope;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies.MatchScope' is not present");
+            }
+        }
 
         /// <summary>
         /// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         /// </summary>
-        [Input("oversizeHandling")]
+        [PolicyResourceProperty("oversizeHandling", "_mUnknown_OversizeHandling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOversizeHandling;
-
-        public string? OversizeHandling => _mOversizeHandling.GetValue("oversizeHandling");
+        private string? _mValue_OversizeHandling;
+        private bool _mUnknown_OversizeHandling;
+        public string? OversizeHandling
+        {
+            get
+            {
+                if (!_mUnknown_OversizeHandling) return _mValue_OversizeHandling;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies.OversizeHandling' is not present");
+            }
+        }
     }
 }

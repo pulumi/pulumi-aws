@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// The value that is selected when tuning your transform for a balance between accuracy and cost.
         /// </summary>
-        [Input("accuracyCostTradeOff")]
+        [PolicyResourceProperty("accuracyCostTradeOff", "_mUnknown_AccuracyCostTradeOff")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mAccuracyCostTradeOff;
-
-        public double? AccuracyCostTradeOff => _mAccuracyCostTradeOff.GetValue("accuracyCostTradeOff");
+        private double? _mValue_AccuracyCostTradeOff;
+        private bool _mUnknown_AccuracyCostTradeOff;
+        public double? AccuracyCostTradeOff
+        {
+            get
+            {
+                if (!_mUnknown_AccuracyCostTradeOff) return _mValue_AccuracyCostTradeOff;
+                throw new UndeferrableValueException("Value 'MLTransformParametersFindMatchesParametersArgs.AccuracyCostTradeOff' is not present");
+            }
+        }
 
         /// <summary>
         /// The value to switch on or off to force the output to match the provided labels from users.
         /// </summary>
-        [Input("enforceProvidedLabels")]
+        [PolicyResourceProperty("enforceProvidedLabels", "_mUnknown_EnforceProvidedLabels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnforceProvidedLabels;
-
-        public bool? EnforceProvidedLabels => _mEnforceProvidedLabels.GetValue("enforceProvidedLabels");
+        private bool? _mValue_EnforceProvidedLabels;
+        private bool _mUnknown_EnforceProvidedLabels;
+        public bool? EnforceProvidedLabels
+        {
+            get
+            {
+                if (!_mUnknown_EnforceProvidedLabels) return _mValue_EnforceProvidedLabels;
+                throw new UndeferrableValueException("Value 'MLTransformParametersFindMatchesParametersArgs.EnforceProvidedLabels' is not present");
+            }
+        }
 
         /// <summary>
         /// The value selected when tuning your transform for a balance between precision and recall.
         /// </summary>
-        [Input("precisionRecallTradeOff")]
+        [PolicyResourceProperty("precisionRecallTradeOff", "_mUnknown_PrecisionRecallTradeOff")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mPrecisionRecallTradeOff;
-
-        public double? PrecisionRecallTradeOff => _mPrecisionRecallTradeOff.GetValue("precisionRecallTradeOff");
+        private double? _mValue_PrecisionRecallTradeOff;
+        private bool _mUnknown_PrecisionRecallTradeOff;
+        public double? PrecisionRecallTradeOff
+        {
+            get
+            {
+                if (!_mUnknown_PrecisionRecallTradeOff) return _mValue_PrecisionRecallTradeOff;
+                throw new UndeferrableValueException("Value 'MLTransformParametersFindMatchesParametersArgs.PrecisionRecallTradeOff' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of a column that uniquely identifies rows in the source table.
         /// </summary>
-        [Input("primaryKeyColumnName")]
+        [PolicyResourceProperty("primaryKeyColumnName", "_mUnknown_PrimaryKeyColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrimaryKeyColumnName;
-
-        public string? PrimaryKeyColumnName => _mPrimaryKeyColumnName.GetValue("primaryKeyColumnName");
+        private string? _mValue_PrimaryKeyColumnName;
+        private bool _mUnknown_PrimaryKeyColumnName;
+        public string? PrimaryKeyColumnName
+        {
+            get
+            {
+                if (!_mUnknown_PrimaryKeyColumnName) return _mValue_PrimaryKeyColumnName;
+                throw new UndeferrableValueException("Value 'MLTransformParametersFindMatchesParametersArgs.PrimaryKeyColumnName' is not present");
+            }
+        }
     }
 }

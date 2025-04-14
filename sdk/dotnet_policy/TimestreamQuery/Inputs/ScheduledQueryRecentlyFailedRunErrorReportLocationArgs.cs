@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery.Inputs
         /// <summary>
         /// S3 location where error reports are written.
         /// </summary>
-        [Input("s3ReportLocations")]
+        [PolicyResourceProperty("s3ReportLocations", "_mUnknown_S3ReportLocations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs>> _mS3ReportLocations;
-
-        public List<Inputs.ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs>? S3ReportLocations => _mS3ReportLocations.GetValue("s3ReportLocations");
+        private List<Inputs.ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs>? _mValue_S3ReportLocations;
+        private bool _mUnknown_S3ReportLocations;
+        public List<Inputs.ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs>? S3ReportLocations
+        {
+            get
+            {
+                if (!_mUnknown_S3ReportLocations) return _mValue_S3ReportLocations;
+                throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRunErrorReportLocationArgs.S3ReportLocations' is not present");
+            }
+        }
     }
 }

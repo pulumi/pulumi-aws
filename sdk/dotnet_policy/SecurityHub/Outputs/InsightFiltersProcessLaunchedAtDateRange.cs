@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Outputs
         /// <summary>
         /// A date range unit for the date filter. Valid values: `DAYS`.
         /// </summary>
-        [Input("unit")]
+        [PolicyResourceProperty("unit", "_mUnknown_Unit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnit;
-
-        public string? Unit => _mUnit.GetValue("unit");
+        private string? _mValue_Unit;
+        private bool _mUnknown_Unit;
+        public string? Unit
+        {
+            get
+            {
+                if (!_mUnknown_Unit) return _mValue_Unit;
+                throw new UndeferrableValueException("Value 'InsightFiltersProcessLaunchedAtDateRange.Unit' is not present");
+            }
+        }
 
         /// <summary>
         /// A date range value for the date filter, provided as an Integer.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mValue;
-
-        public int? Value => _mValue.GetValue("value");
+        private int? _mValue_Value;
+        private bool _mUnknown_Value;
+        public int? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'InsightFiltersProcessLaunchedAtDateRange.Value' is not present");
+            }
+        }
     }
 }

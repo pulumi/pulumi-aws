@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Inputs
 {
     public sealed class JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs
     {
-        [Input("limits")]
+        [PolicyResourceProperty("limits", "_mUnknown_Limits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mLimits;
+        private Dictionary<string, string>? _mValue_Limits;
+        private bool _mUnknown_Limits;
+        public Dictionary<string, string>? Limits
+        {
+            get
+            {
+                if (!_mUnknown_Limits) return _mValue_Limits;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs.Limits' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Limits => _mLimits.GetValue("limits");
-
-        [Input("requests")]
+        [PolicyResourceProperty("requests", "_mUnknown_Requests")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRequests;
-
-        public Dictionary<string, string>? Requests => _mRequests.GetValue("requests");
+        private Dictionary<string, string>? _mValue_Requests;
+        private bool _mUnknown_Requests;
+        public Dictionary<string, string>? Requests
+        {
+            get
+            {
+                if (!_mUnknown_Requests) return _mValue_Requests;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs.Requests' is not present");
+            }
+        }
     }
 }

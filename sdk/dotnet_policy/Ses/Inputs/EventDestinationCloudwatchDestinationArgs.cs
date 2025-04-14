@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ses.Inputs
         /// <summary>
         /// The default value for the event
         /// </summary>
-        [Input("defaultValue")]
+        [PolicyResourceProperty("defaultValue", "_mUnknown_DefaultValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultValue;
-
-        public string? DefaultValue => _mDefaultValue.GetValue("defaultValue");
+        private string? _mValue_DefaultValue;
+        private bool _mUnknown_DefaultValue;
+        public string? DefaultValue
+        {
+            get
+            {
+                if (!_mUnknown_DefaultValue) return _mValue_DefaultValue;
+                throw new UndeferrableValueException("Value 'EventDestinationCloudwatchDestinationArgs.DefaultValue' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the dimension
         /// </summary>
-        [Input("dimensionName")]
+        [PolicyResourceProperty("dimensionName", "_mUnknown_DimensionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDimensionName;
-
-        public string? DimensionName => _mDimensionName.GetValue("dimensionName");
+        private string? _mValue_DimensionName;
+        private bool _mUnknown_DimensionName;
+        public string? DimensionName
+        {
+            get
+            {
+                if (!_mUnknown_DimensionName) return _mValue_DimensionName;
+                throw new UndeferrableValueException("Value 'EventDestinationCloudwatchDestinationArgs.DimensionName' is not present");
+            }
+        }
 
         /// <summary>
         /// The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
         /// </summary>
-        [Input("valueSource")]
+        [PolicyResourceProperty("valueSource", "_mUnknown_ValueSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValueSource;
-
-        public string? ValueSource => _mValueSource.GetValue("valueSource");
+        private string? _mValue_ValueSource;
+        private bool _mUnknown_ValueSource;
+        public string? ValueSource
+        {
+            get
+            {
+                if (!_mUnknown_ValueSource) return _mValue_ValueSource;
+                throw new UndeferrableValueException("Value 'EventDestinationCloudwatchDestinationArgs.ValueSource' is not present");
+            }
+        }
     }
 }

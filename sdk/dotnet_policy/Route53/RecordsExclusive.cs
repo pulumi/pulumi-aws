@@ -17,28 +17,49 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// A list of all resource record sets associated with the hosted zone.
         /// See `resource_record_set` below.
         /// </summary>
-        [Input("resourceRecordSets")]
+        [PolicyResourceProperty("resourceRecordSets", "_mUnknown_ResourceRecordSets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RecordsExclusiveResourceRecordSet>> _mResourceRecordSets;
+        private List<Outputs.RecordsExclusiveResourceRecordSet>? _mValue_ResourceRecordSets;
+        private bool _mUnknown_ResourceRecordSets;
+        public List<Outputs.RecordsExclusiveResourceRecordSet>? ResourceRecordSets
+        {
+            get
+            {
+                if (!_mUnknown_ResourceRecordSets) return _mValue_ResourceRecordSets;
+                throw new UndeferrableValueException("Value 'RecordsExclusive.ResourceRecordSets' is not present");
+            }
+        }
 
-        public List<Outputs.RecordsExclusiveResourceRecordSet>? ResourceRecordSets => _mResourceRecordSets.GetValue("resourceRecordSets");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RecordsExclusiveTimeouts> _mTimeouts;
-
-        public Outputs.RecordsExclusiveTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.RecordsExclusiveTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.RecordsExclusiveTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'RecordsExclusive.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the hosted zone containing the resource record sets.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("zoneId")]
+        [PolicyResourceProperty("zoneId", "_mUnknown_ZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZoneId;
-
-        public string? ZoneId => _mZoneId.GetValue("zoneId");
+        private string? _mValue_ZoneId;
+        private bool _mUnknown_ZoneId;
+        public string? ZoneId
+        {
+            get
+            {
+                if (!_mUnknown_ZoneId) return _mValue_ZoneId;
+                throw new UndeferrableValueException("Value 'RecordsExclusive.ZoneId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/recordsExclusive:RecordsExclusive")]
@@ -48,27 +69,48 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// A list of all resource record sets associated with the hosted zone.
         /// See `resource_record_set` below.
         /// </summary>
-        [Input("resourceRecordSets")]
+        [PolicyResourceProperty("resourceRecordSets", "_mUnknown_ResourceRecordSets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RecordsExclusiveResourceRecordSetArgs>> _mResourceRecordSets;
+        private List<Inputs.RecordsExclusiveResourceRecordSetArgs>? _mValue_ResourceRecordSets;
+        private bool _mUnknown_ResourceRecordSets;
+        public List<Inputs.RecordsExclusiveResourceRecordSetArgs>? ResourceRecordSets
+        {
+            get
+            {
+                if (!_mUnknown_ResourceRecordSets) return _mValue_ResourceRecordSets;
+                throw new UndeferrableValueException("Value 'RecordsExclusiveArgs.ResourceRecordSets' is not present");
+            }
+        }
 
-        public List<Inputs.RecordsExclusiveResourceRecordSetArgs>? ResourceRecordSets => _mResourceRecordSets.GetValue("resourceRecordSets");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RecordsExclusiveTimeoutsArgs> _mTimeouts;
-
-        public Inputs.RecordsExclusiveTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.RecordsExclusiveTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.RecordsExclusiveTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'RecordsExclusiveArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the hosted zone containing the resource record sets.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("zoneId")]
+        [PolicyResourceProperty("zoneId", "_mUnknown_ZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZoneId;
-
-        public string? ZoneId => _mZoneId.GetValue("zoneId");
+        private string? _mValue_ZoneId;
+        private bool _mUnknown_ZoneId;
+        public string? ZoneId
+        {
+            get
+            {
+                if (!_mUnknown_ZoneId) return _mValue_ZoneId;
+                throw new UndeferrableValueException("Value 'RecordsExclusiveArgs.ZoneId' is not present");
+            }
+        }
     }
 }

@@ -16,85 +16,148 @@ namespace Pulumi.PolicyPacks.Aws.Kendra
         /// <summary>
         /// ARN of the Experience.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Experience.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ExperienceConfiguration> _mConfiguration;
-
-        public Outputs.ExperienceConfiguration? Configuration => _mConfiguration.GetValue("configuration");
+        private Outputs.ExperienceConfiguration? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Outputs.ExperienceConfiguration? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'Experience.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for your Amazon Kendra experience.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Experience.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
         /// </summary>
-        [Input("endpoints")]
+        [PolicyResourceProperty("endpoints", "_mUnknown_Endpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ExperienceEndpoint>> _mEndpoints;
-
-        public List<Outputs.ExperienceEndpoint>? Endpoints => _mEndpoints.GetValue("endpoints");
+        private List<Outputs.ExperienceEndpoint>? _mValue_Endpoints;
+        private bool _mUnknown_Endpoints;
+        public List<Outputs.ExperienceEndpoint>? Endpoints
+        {
+            get
+            {
+                if (!_mUnknown_Endpoints) return _mValue_Endpoints;
+                throw new UndeferrableValueException("Value 'Experience.Endpoints' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier of the experience.
         /// </summary>
-        [Input("experienceId")]
+        [PolicyResourceProperty("experienceId", "_mUnknown_ExperienceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExperienceId;
-
-        public string? ExperienceId => _mExperienceId.GetValue("experienceId");
+        private string? _mValue_ExperienceId;
+        private bool _mUnknown_ExperienceId;
+        public string? ExperienceId
+        {
+            get
+            {
+                if (!_mUnknown_ExperienceId) return _mValue_ExperienceId;
+                throw new UndeferrableValueException("Value 'Experience.ExperienceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the index for your Amazon Kendra experience.
         /// </summary>
-        [Input("indexId")]
+        [PolicyResourceProperty("indexId", "_mUnknown_IndexId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIndexId;
-
-        public string? IndexId => _mIndexId.GetValue("indexId");
+        private string? _mValue_IndexId;
+        private bool _mUnknown_IndexId;
+        public string? IndexId
+        {
+            get
+            {
+                if (!_mUnknown_IndexId) return _mValue_IndexId;
+                throw new UndeferrableValueException("Value 'Experience.IndexId' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for your Amazon Kendra experience.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Experience.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Experience.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The current processing status of your Amazon Kendra experience.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Experience.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:kendra/experience:Experience")]
@@ -103,48 +166,83 @@ namespace Pulumi.PolicyPacks.Aws.Kendra
         /// <summary>
         /// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ExperienceConfigurationArgs> _mConfiguration;
-
-        public Inputs.ExperienceConfigurationArgs? Configuration => _mConfiguration.GetValue("configuration");
+        private Inputs.ExperienceConfigurationArgs? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Inputs.ExperienceConfigurationArgs? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'ExperienceArgs.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for your Amazon Kendra experience.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ExperienceArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the index for your Amazon Kendra experience.
         /// </summary>
-        [Input("indexId")]
+        [PolicyResourceProperty("indexId", "_mUnknown_IndexId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIndexId;
-
-        public string? IndexId => _mIndexId.GetValue("indexId");
+        private string? _mValue_IndexId;
+        private bool _mUnknown_IndexId;
+        public string? IndexId
+        {
+            get
+            {
+                if (!_mUnknown_IndexId) return _mValue_IndexId;
+                throw new UndeferrableValueException("Value 'ExperienceArgs.IndexId' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for your Amazon Kendra experience.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ExperienceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ExperienceArgs.RoleArn' is not present");
+            }
+        }
     }
 }

@@ -15,55 +15,104 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Aac Settings. See AAC Settings for more details.
         /// </summary>
-        [Input("aacSettings")]
+        [PolicyResourceProperty("aacSettings", "_mUnknown_AacSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs> _mAacSettings;
-
-        public Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs? AacSettings => _mAacSettings.GetValue("aacSettings");
+        private Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs? _mValue_AacSettings;
+        private bool _mUnknown_AacSettings;
+        public Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs? AacSettings
+        {
+            get
+            {
+                if (!_mUnknown_AacSettings) return _mValue_AacSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.AacSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Ac3 Settings. See AC3 Settings for more details.
         /// </summary>
-        [Input("ac3Settings")]
+        [PolicyResourceProperty("ac3Settings", "_mUnknown_Ac3Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs> _mAc3Settings;
-
-        public Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs? Ac3Settings => _mAc3Settings.GetValue("ac3Settings");
+        private Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs? _mValue_Ac3Settings;
+        private bool _mUnknown_Ac3Settings;
+        public Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs? Ac3Settings
+        {
+            get
+            {
+                if (!_mUnknown_Ac3Settings) return _mValue_Ac3Settings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.Ac3Settings' is not present");
+            }
+        }
 
         /// <summary>
         /// Eac3 Atmos Settings. See EAC3 Atmos Settings
         /// </summary>
-        [Input("eac3AtmosSettings")]
+        [PolicyResourceProperty("eac3AtmosSettings", "_mUnknown_Eac3AtmosSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs> _mEac3AtmosSettings;
-
-        public Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs? Eac3AtmosSettings => _mEac3AtmosSettings.GetValue("eac3AtmosSettings");
+        private Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs? _mValue_Eac3AtmosSettings;
+        private bool _mUnknown_Eac3AtmosSettings;
+        public Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs? Eac3AtmosSettings
+        {
+            get
+            {
+                if (!_mUnknown_Eac3AtmosSettings) return _mValue_Eac3AtmosSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.Eac3AtmosSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Eac3 Settings. See EAC3 Settings
         /// </summary>
-        [Input("eac3Settings")]
+        [PolicyResourceProperty("eac3Settings", "_mUnknown_Eac3Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs> _mEac3Settings;
+        private Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs? _mValue_Eac3Settings;
+        private bool _mUnknown_Eac3Settings;
+        public Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs? Eac3Settings
+        {
+            get
+            {
+                if (!_mUnknown_Eac3Settings) return _mValue_Eac3Settings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.Eac3Settings' is not present");
+            }
+        }
 
-        public Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs? Eac3Settings => _mEac3Settings.GetValue("eac3Settings");
-
-        [Input("mp2Settings")]
+        [PolicyResourceProperty("mp2Settings", "_mUnknown_Mp2Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs> _mMp2Settings;
+        private Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs? _mValue_Mp2Settings;
+        private bool _mUnknown_Mp2Settings;
+        public Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs? Mp2Settings
+        {
+            get
+            {
+                if (!_mUnknown_Mp2Settings) return _mValue_Mp2Settings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.Mp2Settings' is not present");
+            }
+        }
 
-        public Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs? Mp2Settings => _mMp2Settings.GetValue("mp2Settings");
-
-        [Input("passThroughSettings")]
+        [PolicyResourceProperty("passThroughSettings", "_mUnknown_PassThroughSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs> _mPassThroughSettings;
+        private Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs? _mValue_PassThroughSettings;
+        private bool _mUnknown_PassThroughSettings;
+        public Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs? PassThroughSettings
+        {
+            get
+            {
+                if (!_mUnknown_PassThroughSettings) return _mValue_PassThroughSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.PassThroughSettings' is not present");
+            }
+        }
 
-        public Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs? PassThroughSettings => _mPassThroughSettings.GetValue("passThroughSettings");
-
-        [Input("wavSettings")]
+        [PolicyResourceProperty("wavSettings", "_mUnknown_WavSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs> _mWavSettings;
-
-        public Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs? WavSettings => _mWavSettings.GetValue("wavSettings");
+        private Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs? _mValue_WavSettings;
+        private bool _mUnknown_WavSettings;
+        public Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs? WavSettings
+        {
+            get
+            {
+                if (!_mUnknown_WavSettings) return _mValue_WavSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.WavSettings' is not present");
+            }
+        }
     }
 }

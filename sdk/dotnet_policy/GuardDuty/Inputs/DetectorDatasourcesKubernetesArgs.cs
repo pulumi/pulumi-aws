@@ -16,10 +16,17 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty.Inputs
         /// Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
         /// See Kubernetes Audit Logs below for more details.
         /// </summary>
-        [Input("auditLogs")]
+        [PolicyResourceProperty("auditLogs", "_mUnknown_AuditLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DetectorDatasourcesKubernetesAuditLogsArgs> _mAuditLogs;
-
-        public Inputs.DetectorDatasourcesKubernetesAuditLogsArgs? AuditLogs => _mAuditLogs.GetValue("auditLogs");
+        private Inputs.DetectorDatasourcesKubernetesAuditLogsArgs? _mValue_AuditLogs;
+        private bool _mUnknown_AuditLogs;
+        public Inputs.DetectorDatasourcesKubernetesAuditLogsArgs? AuditLogs
+        {
+            get
+            {
+                if (!_mUnknown_AuditLogs) return _mValue_AuditLogs;
+                throw new UndeferrableValueException("Value 'DetectorDatasourcesKubernetesArgs.AuditLogs' is not present");
+            }
+        }
     }
 }

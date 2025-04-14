@@ -16,184 +16,324 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder
         /// <summary>
         /// (Required) Amazon Resource Name (ARN) of the container recipe.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Ordered configuration block(s) with components for the container recipe. Detailed below.
         /// </summary>
-        [Input("components")]
+        [PolicyResourceProperty("components", "_mUnknown_Components")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ContainerRecipeComponent>> _mComponents;
-
-        public List<Outputs.ContainerRecipeComponent>? Components => _mComponents.GetValue("components");
+        private List<Outputs.ContainerRecipeComponent>? _mValue_Components;
+        private bool _mUnknown_Components;
+        public List<Outputs.ContainerRecipeComponent>? Components
+        {
+            get
+            {
+                if (!_mUnknown_Components) return _mValue_Components;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.Components' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the container to create. Valid values: `DOCKER`.
         /// </summary>
-        [Input("containerType")]
+        [PolicyResourceProperty("containerType", "_mUnknown_ContainerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerType;
-
-        public string? ContainerType => _mContainerType.GetValue("containerType");
+        private string? _mValue_ContainerType;
+        private bool _mUnknown_ContainerType;
+        public string? ContainerType
+        {
+            get
+            {
+                if (!_mUnknown_ContainerType) return _mValue_ContainerType;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.ContainerType' is not present");
+            }
+        }
 
         /// <summary>
         /// Date the container recipe was created.
         /// </summary>
-        [Input("dateCreated")]
+        [PolicyResourceProperty("dateCreated", "_mUnknown_DateCreated")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDateCreated;
-
-        public string? DateCreated => _mDateCreated.GetValue("dateCreated");
+        private string? _mValue_DateCreated;
+        private bool _mUnknown_DateCreated;
+        public string? DateCreated
+        {
+            get
+            {
+                if (!_mUnknown_DateCreated) return _mValue_DateCreated;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.DateCreated' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the container recipe.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The Dockerfile template used to build the image as an inline data blob.
         /// </summary>
-        [Input("dockerfileTemplateData")]
+        [PolicyResourceProperty("dockerfileTemplateData", "_mUnknown_DockerfileTemplateData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDockerfileTemplateData;
-
-        public string? DockerfileTemplateData => _mDockerfileTemplateData.GetValue("dockerfileTemplateData");
+        private string? _mValue_DockerfileTemplateData;
+        private bool _mUnknown_DockerfileTemplateData;
+        public string? DockerfileTemplateData
+        {
+            get
+            {
+                if (!_mUnknown_DockerfileTemplateData) return _mValue_DockerfileTemplateData;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.DockerfileTemplateData' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
         /// </summary>
-        [Input("dockerfileTemplateUri")]
+        [PolicyResourceProperty("dockerfileTemplateUri", "_mUnknown_DockerfileTemplateUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDockerfileTemplateUri;
-
-        public string? DockerfileTemplateUri => _mDockerfileTemplateUri.GetValue("dockerfileTemplateUri");
+        private string? _mValue_DockerfileTemplateUri;
+        private bool _mUnknown_DockerfileTemplateUri;
+        public string? DockerfileTemplateUri
+        {
+            get
+            {
+                if (!_mUnknown_DockerfileTemplateUri) return _mValue_DockerfileTemplateUri;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.DockerfileTemplateUri' is not present");
+            }
+        }
 
         /// <summary>
         /// A flag that indicates if the target container is encrypted.
         /// </summary>
-        [Input("encrypted")]
+        [PolicyResourceProperty("encrypted", "_mUnknown_Encrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypted;
-
-        public bool? Encrypted => _mEncrypted.GetValue("encrypted");
+        private bool? _mValue_Encrypted;
+        private bool _mUnknown_Encrypted;
+        public bool? Encrypted
+        {
+            get
+            {
+                if (!_mUnknown_Encrypted) return _mValue_Encrypted;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.Encrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block used to configure an instance for building and testing container images. Detailed below.
         /// </summary>
-        [Input("instanceConfiguration")]
+        [PolicyResourceProperty("instanceConfiguration", "_mUnknown_InstanceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ContainerRecipeInstanceConfiguration> _mInstanceConfiguration;
-
-        public Outputs.ContainerRecipeInstanceConfiguration? InstanceConfiguration => _mInstanceConfiguration.GetValue("instanceConfiguration");
+        private Outputs.ContainerRecipeInstanceConfiguration? _mValue_InstanceConfiguration;
+        private bool _mUnknown_InstanceConfiguration;
+        public Outputs.ContainerRecipeInstanceConfiguration? InstanceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_InstanceConfiguration) return _mValue_InstanceConfiguration;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.InstanceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The KMS key used to encrypt the container image.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the container recipe.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Owner of the container recipe.
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.Owner' is not present");
+            }
+        }
 
         /// <summary>
         /// The base image for the container recipe.
         /// </summary>
-        [Input("parentImage")]
+        [PolicyResourceProperty("parentImage", "_mUnknown_ParentImage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentImage;
-
-        public string? ParentImage => _mParentImage.GetValue("parentImage");
+        private string? _mValue_ParentImage;
+        private bool _mUnknown_ParentImage;
+        public string? ParentImage
+        {
+            get
+            {
+                if (!_mUnknown_ParentImage) return _mValue_ParentImage;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.ParentImage' is not present");
+            }
+        }
 
         /// <summary>
         /// Platform of the container recipe.
         /// </summary>
-        [Input("platform")]
+        [PolicyResourceProperty("platform", "_mUnknown_Platform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
-
-        public string? Platform => _mPlatform.GetValue("platform");
+        private string? _mValue_Platform;
+        private bool _mUnknown_Platform;
+        public string? Platform
+        {
+            get
+            {
+                if (!_mUnknown_Platform) return _mValue_Platform;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.Platform' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the operating system platform when you use a custom base image.
         /// </summary>
-        [Input("platformOverride")]
+        [PolicyResourceProperty("platformOverride", "_mUnknown_PlatformOverride")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformOverride;
-
-        public string? PlatformOverride => _mPlatformOverride.GetValue("platformOverride");
+        private string? _mValue_PlatformOverride;
+        private bool _mUnknown_PlatformOverride;
+        public string? PlatformOverride
+        {
+            get
+            {
+                if (!_mUnknown_PlatformOverride) return _mValue_PlatformOverride;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.PlatformOverride' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The destination repository for the container image. Detailed below.
         /// </summary>
-        [Input("targetRepository")]
+        [PolicyResourceProperty("targetRepository", "_mUnknown_TargetRepository")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ContainerRecipeTargetRepository> _mTargetRepository;
-
-        public Outputs.ContainerRecipeTargetRepository? TargetRepository => _mTargetRepository.GetValue("targetRepository");
+        private Outputs.ContainerRecipeTargetRepository? _mValue_TargetRepository;
+        private bool _mUnknown_TargetRepository;
+        public Outputs.ContainerRecipeTargetRepository? TargetRepository
+        {
+            get
+            {
+                if (!_mUnknown_TargetRepository) return _mValue_TargetRepository;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.TargetRepository' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the container recipe.
         /// 
         /// The following attributes are optional:
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.Version' is not present");
+            }
+        }
 
         /// <summary>
         /// The working directory to be used during build and test workflows.
         /// </summary>
-        [Input("workingDirectory")]
+        [PolicyResourceProperty("workingDirectory", "_mUnknown_WorkingDirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkingDirectory;
-
-        public string? WorkingDirectory => _mWorkingDirectory.GetValue("workingDirectory");
+        private string? _mValue_WorkingDirectory;
+        private bool _mUnknown_WorkingDirectory;
+        public string? WorkingDirectory
+        {
+            get
+            {
+                if (!_mUnknown_WorkingDirectory) return _mValue_WorkingDirectory;
+                throw new UndeferrableValueException("Value 'ContainerRecipe.WorkingDirectory' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:imagebuilder/containerRecipe:ContainerRecipe")]
@@ -202,129 +342,227 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder
         /// <summary>
         /// Ordered configuration block(s) with components for the container recipe. Detailed below.
         /// </summary>
-        [Input("components")]
+        [PolicyResourceProperty("components", "_mUnknown_Components")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ContainerRecipeComponentArgs>> _mComponents;
-
-        public List<Inputs.ContainerRecipeComponentArgs>? Components => _mComponents.GetValue("components");
+        private List<Inputs.ContainerRecipeComponentArgs>? _mValue_Components;
+        private bool _mUnknown_Components;
+        public List<Inputs.ContainerRecipeComponentArgs>? Components
+        {
+            get
+            {
+                if (!_mUnknown_Components) return _mValue_Components;
+                throw new UndeferrableValueException("Value 'ContainerRecipeArgs.Components' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the container to create. Valid values: `DOCKER`.
         /// </summary>
-        [Input("containerType")]
+        [PolicyResourceProperty("containerType", "_mUnknown_ContainerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerType;
-
-        public string? ContainerType => _mContainerType.GetValue("containerType");
+        private string? _mValue_ContainerType;
+        private bool _mUnknown_ContainerType;
+        public string? ContainerType
+        {
+            get
+            {
+                if (!_mUnknown_ContainerType) return _mValue_ContainerType;
+                throw new UndeferrableValueException("Value 'ContainerRecipeArgs.ContainerType' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the container recipe.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ContainerRecipeArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The Dockerfile template used to build the image as an inline data blob.
         /// </summary>
-        [Input("dockerfileTemplateData")]
+        [PolicyResourceProperty("dockerfileTemplateData", "_mUnknown_DockerfileTemplateData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDockerfileTemplateData;
-
-        public string? DockerfileTemplateData => _mDockerfileTemplateData.GetValue("dockerfileTemplateData");
+        private string? _mValue_DockerfileTemplateData;
+        private bool _mUnknown_DockerfileTemplateData;
+        public string? DockerfileTemplateData
+        {
+            get
+            {
+                if (!_mUnknown_DockerfileTemplateData) return _mValue_DockerfileTemplateData;
+                throw new UndeferrableValueException("Value 'ContainerRecipeArgs.DockerfileTemplateData' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
         /// </summary>
-        [Input("dockerfileTemplateUri")]
+        [PolicyResourceProperty("dockerfileTemplateUri", "_mUnknown_DockerfileTemplateUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDockerfileTemplateUri;
-
-        public string? DockerfileTemplateUri => _mDockerfileTemplateUri.GetValue("dockerfileTemplateUri");
+        private string? _mValue_DockerfileTemplateUri;
+        private bool _mUnknown_DockerfileTemplateUri;
+        public string? DockerfileTemplateUri
+        {
+            get
+            {
+                if (!_mUnknown_DockerfileTemplateUri) return _mValue_DockerfileTemplateUri;
+                throw new UndeferrableValueException("Value 'ContainerRecipeArgs.DockerfileTemplateUri' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block used to configure an instance for building and testing container images. Detailed below.
         /// </summary>
-        [Input("instanceConfiguration")]
+        [PolicyResourceProperty("instanceConfiguration", "_mUnknown_InstanceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ContainerRecipeInstanceConfigurationArgs> _mInstanceConfiguration;
-
-        public Inputs.ContainerRecipeInstanceConfigurationArgs? InstanceConfiguration => _mInstanceConfiguration.GetValue("instanceConfiguration");
+        private Inputs.ContainerRecipeInstanceConfigurationArgs? _mValue_InstanceConfiguration;
+        private bool _mUnknown_InstanceConfiguration;
+        public Inputs.ContainerRecipeInstanceConfigurationArgs? InstanceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_InstanceConfiguration) return _mValue_InstanceConfiguration;
+                throw new UndeferrableValueException("Value 'ContainerRecipeArgs.InstanceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The KMS key used to encrypt the container image.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ContainerRecipeArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the container recipe.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ContainerRecipeArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The base image for the container recipe.
         /// </summary>
-        [Input("parentImage")]
+        [PolicyResourceProperty("parentImage", "_mUnknown_ParentImage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentImage;
-
-        public string? ParentImage => _mParentImage.GetValue("parentImage");
+        private string? _mValue_ParentImage;
+        private bool _mUnknown_ParentImage;
+        public string? ParentImage
+        {
+            get
+            {
+                if (!_mUnknown_ParentImage) return _mValue_ParentImage;
+                throw new UndeferrableValueException("Value 'ContainerRecipeArgs.ParentImage' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the operating system platform when you use a custom base image.
         /// </summary>
-        [Input("platformOverride")]
+        [PolicyResourceProperty("platformOverride", "_mUnknown_PlatformOverride")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformOverride;
-
-        public string? PlatformOverride => _mPlatformOverride.GetValue("platformOverride");
+        private string? _mValue_PlatformOverride;
+        private bool _mUnknown_PlatformOverride;
+        public string? PlatformOverride
+        {
+            get
+            {
+                if (!_mUnknown_PlatformOverride) return _mValue_PlatformOverride;
+                throw new UndeferrableValueException("Value 'ContainerRecipeArgs.PlatformOverride' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ContainerRecipeArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The destination repository for the container image. Detailed below.
         /// </summary>
-        [Input("targetRepository")]
+        [PolicyResourceProperty("targetRepository", "_mUnknown_TargetRepository")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ContainerRecipeTargetRepositoryArgs> _mTargetRepository;
-
-        public Inputs.ContainerRecipeTargetRepositoryArgs? TargetRepository => _mTargetRepository.GetValue("targetRepository");
+        private Inputs.ContainerRecipeTargetRepositoryArgs? _mValue_TargetRepository;
+        private bool _mUnknown_TargetRepository;
+        public Inputs.ContainerRecipeTargetRepositoryArgs? TargetRepository
+        {
+            get
+            {
+                if (!_mUnknown_TargetRepository) return _mValue_TargetRepository;
+                throw new UndeferrableValueException("Value 'ContainerRecipeArgs.TargetRepository' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the container recipe.
         /// 
         /// The following attributes are optional:
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'ContainerRecipeArgs.Version' is not present");
+            }
+        }
 
         /// <summary>
         /// The working directory to be used during build and test workflows.
         /// </summary>
-        [Input("workingDirectory")]
+        [PolicyResourceProperty("workingDirectory", "_mUnknown_WorkingDirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkingDirectory;
-
-        public string? WorkingDirectory => _mWorkingDirectory.GetValue("workingDirectory");
+        private string? _mValue_WorkingDirectory;
+        private bool _mUnknown_WorkingDirectory;
+        public string? WorkingDirectory
+        {
+            get
+            {
+                if (!_mUnknown_WorkingDirectory) return _mValue_WorkingDirectory;
+                throw new UndeferrableValueException("Value 'ContainerRecipeArgs.WorkingDirectory' is not present");
+            }
+        }
     }
 }

@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Host name to use in the redirect request.
         /// </summary>
-        [Input("hostName")]
+        [PolicyResourceProperty("hostName", "_mUnknown_HostName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostName;
-
-        public string? HostName => _mHostName.GetValue("hostName");
+        private string? _mValue_HostName;
+        private bool _mUnknown_HostName;
+        public string? HostName
+        {
+            get
+            {
+                if (!_mUnknown_HostName) return _mValue_HostName;
+                throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.HostName' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP redirect code to use on the response.
         /// </summary>
-        [Input("httpRedirectCode")]
+        [PolicyResourceProperty("httpRedirectCode", "_mUnknown_HttpRedirectCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpRedirectCode;
-
-        public string? HttpRedirectCode => _mHttpRedirectCode.GetValue("httpRedirectCode");
+        private string? _mValue_HttpRedirectCode;
+        private bool _mUnknown_HttpRedirectCode;
+        public string? HttpRedirectCode
+        {
+            get
+            {
+                if (!_mUnknown_HttpRedirectCode) return _mValue_HttpRedirectCode;
+                throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.HttpRedirectCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
         /// </summary>
-        [Input("replaceKeyPrefixWith")]
+        [PolicyResourceProperty("replaceKeyPrefixWith", "_mUnknown_ReplaceKeyPrefixWith")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplaceKeyPrefixWith;
-
-        public string? ReplaceKeyPrefixWith => _mReplaceKeyPrefixWith.GetValue("replaceKeyPrefixWith");
+        private string? _mValue_ReplaceKeyPrefixWith;
+        private bool _mUnknown_ReplaceKeyPrefixWith;
+        public string? ReplaceKeyPrefixWith
+        {
+            get
+            {
+                if (!_mUnknown_ReplaceKeyPrefixWith) return _mValue_ReplaceKeyPrefixWith;
+                throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.ReplaceKeyPrefixWith' is not present");
+            }
+        }
 
         /// <summary>
         /// Specific object key to use in the redirect request. For example, redirect request to `error.html`.
         /// </summary>
-        [Input("replaceKeyWith")]
+        [PolicyResourceProperty("replaceKeyWith", "_mUnknown_ReplaceKeyWith")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplaceKeyWith;
-
-        public string? ReplaceKeyWith => _mReplaceKeyWith.GetValue("replaceKeyWith");
+        private string? _mValue_ReplaceKeyWith;
+        private bool _mUnknown_ReplaceKeyWith;
+        public string? ReplaceKeyWith
+        {
+            get
+            {
+                if (!_mUnknown_ReplaceKeyWith) return _mValue_ReplaceKeyWith;
+                throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.ReplaceKeyWith' is not present");
+            }
+        }
     }
 }

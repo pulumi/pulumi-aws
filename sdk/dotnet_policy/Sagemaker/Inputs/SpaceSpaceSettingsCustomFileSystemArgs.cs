@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// A custom file system in Amazon EFS. See `efs_file_system` Block below.
         /// </summary>
-        [Input("efsFileSystem")]
+        [PolicyResourceProperty("efsFileSystem", "_mUnknown_EfsFileSystem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs> _mEfsFileSystem;
-
-        public Inputs.SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs? EfsFileSystem => _mEfsFileSystem.GetValue("efsFileSystem");
+        private Inputs.SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs? _mValue_EfsFileSystem;
+        private bool _mUnknown_EfsFileSystem;
+        public Inputs.SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs? EfsFileSystem
+        {
+            get
+            {
+                if (!_mUnknown_EfsFileSystem) return _mValue_EfsFileSystem;
+                throw new UndeferrableValueException("Value 'SpaceSpaceSettingsCustomFileSystemArgs.EfsFileSystem' is not present");
+            }
+        }
     }
 }

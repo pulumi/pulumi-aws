@@ -16,155 +16,274 @@ namespace Pulumi.PolicyPacks.Aws.Workspaces
         /// <summary>
         /// The directory alias.
         /// </summary>
-        [Input("alias")]
+        [PolicyResourceProperty("alias", "_mUnknown_Alias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
-
-        public string? Alias => _mAlias.GetValue("alias");
+        private string? _mValue_Alias;
+        private bool _mUnknown_Alias;
+        public string? Alias
+        {
+            get
+            {
+                if (!_mUnknown_Alias) return _mValue_Alias;
+                throw new UndeferrableValueException("Value 'Directory.Alias' is not present");
+            }
+        }
 
         /// <summary>
         /// The user name for the service account.
         /// </summary>
-        [Input("customerUserName")]
+        [PolicyResourceProperty("customerUserName", "_mUnknown_CustomerUserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerUserName;
-
-        public string? CustomerUserName => _mCustomerUserName.GetValue("customerUserName");
+        private string? _mValue_CustomerUserName;
+        private bool _mUnknown_CustomerUserName;
+        public string? CustomerUserName
+        {
+            get
+            {
+                if (!_mUnknown_CustomerUserName) return _mValue_CustomerUserName;
+                throw new UndeferrableValueException("Value 'Directory.CustomerUserName' is not present");
+            }
+        }
 
         /// <summary>
         /// The directory identifier for registration in WorkSpaces service.
         /// </summary>
-        [Input("directoryId")]
+        [PolicyResourceProperty("directoryId", "_mUnknown_DirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
-
-        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+        private string? _mValue_DirectoryId;
+        private bool _mUnknown_DirectoryId;
+        public string? DirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryId) return _mValue_DirectoryId;
+                throw new UndeferrableValueException("Value 'Directory.DirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the directory.
         /// </summary>
-        [Input("directoryName")]
+        [PolicyResourceProperty("directoryName", "_mUnknown_DirectoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryName;
-
-        public string? DirectoryName => _mDirectoryName.GetValue("directoryName");
+        private string? _mValue_DirectoryName;
+        private bool _mUnknown_DirectoryName;
+        public string? DirectoryName
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryName) return _mValue_DirectoryName;
+                throw new UndeferrableValueException("Value 'Directory.DirectoryName' is not present");
+            }
+        }
 
         /// <summary>
         /// The directory type.
         /// </summary>
-        [Input("directoryType")]
+        [PolicyResourceProperty("directoryType", "_mUnknown_DirectoryType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryType;
-
-        public string? DirectoryType => _mDirectoryType.GetValue("directoryType");
+        private string? _mValue_DirectoryType;
+        private bool _mUnknown_DirectoryType;
+        public string? DirectoryType
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryType) return _mValue_DirectoryType;
+                throw new UndeferrableValueException("Value 'Directory.DirectoryType' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP addresses of the DNS servers for the directory.
         /// </summary>
-        [Input("dnsIpAddresses")]
+        [PolicyResourceProperty("dnsIpAddresses", "_mUnknown_DnsIpAddresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDnsIpAddresses;
-
-        public List<string>? DnsIpAddresses => _mDnsIpAddresses.GetValue("dnsIpAddresses");
+        private List<string>? _mValue_DnsIpAddresses;
+        private bool _mUnknown_DnsIpAddresses;
+        public List<string>? DnsIpAddresses
+        {
+            get
+            {
+                if (!_mUnknown_DnsIpAddresses) return _mValue_DnsIpAddresses;
+                throw new UndeferrableValueException("Value 'Directory.DnsIpAddresses' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
         /// </summary>
-        [Input("iamRoleId")]
+        [PolicyResourceProperty("iamRoleId", "_mUnknown_IamRoleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleId;
-
-        public string? IamRoleId => _mIamRoleId.GetValue("iamRoleId");
+        private string? _mValue_IamRoleId;
+        private bool _mUnknown_IamRoleId;
+        public string? IamRoleId
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleId) return _mValue_IamRoleId;
+                throw new UndeferrableValueException("Value 'Directory.IamRoleId' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifiers of the IP access control groups associated with the directory.
         /// </summary>
-        [Input("ipGroupIds")]
+        [PolicyResourceProperty("ipGroupIds", "_mUnknown_IpGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpGroupIds;
-
-        public List<string>? IpGroupIds => _mIpGroupIds.GetValue("ipGroupIds");
+        private List<string>? _mValue_IpGroupIds;
+        private bool _mUnknown_IpGroupIds;
+        public List<string>? IpGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_IpGroupIds) return _mValue_IpGroupIds;
+                throw new UndeferrableValueException("Value 'Directory.IpGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         /// </summary>
-        [Input("registrationCode")]
+        [PolicyResourceProperty("registrationCode", "_mUnknown_RegistrationCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegistrationCode;
-
-        public string? RegistrationCode => _mRegistrationCode.GetValue("registrationCode");
+        private string? _mValue_RegistrationCode;
+        private bool _mUnknown_RegistrationCode;
+        public string? RegistrationCode
+        {
+            get
+            {
+                if (!_mUnknown_RegistrationCode) return _mValue_RegistrationCode;
+                throw new UndeferrableValueException("Value 'Directory.RegistrationCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of SAML authentication integration. Defined below.
         /// </summary>
-        [Input("samlProperties")]
+        [PolicyResourceProperty("samlProperties", "_mUnknown_SamlProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DirectorySamlProperties> _mSamlProperties;
-
-        public Outputs.DirectorySamlProperties? SamlProperties => _mSamlProperties.GetValue("samlProperties");
+        private Outputs.DirectorySamlProperties? _mValue_SamlProperties;
+        private bool _mUnknown_SamlProperties;
+        public Outputs.DirectorySamlProperties? SamlProperties
+        {
+            get
+            {
+                if (!_mUnknown_SamlProperties) return _mValue_SamlProperties;
+                throw new UndeferrableValueException("Value 'Directory.SamlProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Permissions to enable or disable self-service capabilities. Defined below.
         /// </summary>
-        [Input("selfServicePermissions")]
+        [PolicyResourceProperty("selfServicePermissions", "_mUnknown_SelfServicePermissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DirectorySelfServicePermissions> _mSelfServicePermissions;
-
-        public Outputs.DirectorySelfServicePermissions? SelfServicePermissions => _mSelfServicePermissions.GetValue("selfServicePermissions");
+        private Outputs.DirectorySelfServicePermissions? _mValue_SelfServicePermissions;
+        private bool _mUnknown_SelfServicePermissions;
+        public Outputs.DirectorySelfServicePermissions? SelfServicePermissions
+        {
+            get
+            {
+                if (!_mUnknown_SelfServicePermissions) return _mValue_SelfServicePermissions;
+                throw new UndeferrableValueException("Value 'Directory.SelfServicePermissions' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifiers of the subnets where the directory resides.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'Directory.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Directory.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Directory.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         /// </summary>
-        [Input("workspaceAccessProperties")]
+        [PolicyResourceProperty("workspaceAccessProperties", "_mUnknown_WorkspaceAccessProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DirectoryWorkspaceAccessProperties> _mWorkspaceAccessProperties;
-
-        public Outputs.DirectoryWorkspaceAccessProperties? WorkspaceAccessProperties => _mWorkspaceAccessProperties.GetValue("workspaceAccessProperties");
+        private Outputs.DirectoryWorkspaceAccessProperties? _mValue_WorkspaceAccessProperties;
+        private bool _mUnknown_WorkspaceAccessProperties;
+        public Outputs.DirectoryWorkspaceAccessProperties? WorkspaceAccessProperties
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceAccessProperties) return _mValue_WorkspaceAccessProperties;
+                throw new UndeferrableValueException("Value 'Directory.WorkspaceAccessProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Default properties that are used for creating WorkSpaces. Defined below.
         /// </summary>
-        [Input("workspaceCreationProperties")]
+        [PolicyResourceProperty("workspaceCreationProperties", "_mUnknown_WorkspaceCreationProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DirectoryWorkspaceCreationProperties> _mWorkspaceCreationProperties;
-
-        public Outputs.DirectoryWorkspaceCreationProperties? WorkspaceCreationProperties => _mWorkspaceCreationProperties.GetValue("workspaceCreationProperties");
+        private Outputs.DirectoryWorkspaceCreationProperties? _mValue_WorkspaceCreationProperties;
+        private bool _mUnknown_WorkspaceCreationProperties;
+        public Outputs.DirectoryWorkspaceCreationProperties? WorkspaceCreationProperties
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceCreationProperties) return _mValue_WorkspaceCreationProperties;
+                throw new UndeferrableValueException("Value 'Directory.WorkspaceCreationProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the security group that is assigned to new WorkSpaces.
         /// </summary>
-        [Input("workspaceSecurityGroupId")]
+        [PolicyResourceProperty("workspaceSecurityGroupId", "_mUnknown_WorkspaceSecurityGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceSecurityGroupId;
-
-        public string? WorkspaceSecurityGroupId => _mWorkspaceSecurityGroupId.GetValue("workspaceSecurityGroupId");
+        private string? _mValue_WorkspaceSecurityGroupId;
+        private bool _mUnknown_WorkspaceSecurityGroupId;
+        public string? WorkspaceSecurityGroupId
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceSecurityGroupId) return _mValue_WorkspaceSecurityGroupId;
+                throw new UndeferrableValueException("Value 'Directory.WorkspaceSecurityGroupId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:workspaces/directory:Directory")]
@@ -173,73 +292,129 @@ namespace Pulumi.PolicyPacks.Aws.Workspaces
         /// <summary>
         /// The directory identifier for registration in WorkSpaces service.
         /// </summary>
-        [Input("directoryId")]
+        [PolicyResourceProperty("directoryId", "_mUnknown_DirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
-
-        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+        private string? _mValue_DirectoryId;
+        private bool _mUnknown_DirectoryId;
+        public string? DirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryId) return _mValue_DirectoryId;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.DirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifiers of the IP access control groups associated with the directory.
         /// </summary>
-        [Input("ipGroupIds")]
+        [PolicyResourceProperty("ipGroupIds", "_mUnknown_IpGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpGroupIds;
-
-        public List<string>? IpGroupIds => _mIpGroupIds.GetValue("ipGroupIds");
+        private List<string>? _mValue_IpGroupIds;
+        private bool _mUnknown_IpGroupIds;
+        public List<string>? IpGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_IpGroupIds) return _mValue_IpGroupIds;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.IpGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of SAML authentication integration. Defined below.
         /// </summary>
-        [Input("samlProperties")]
+        [PolicyResourceProperty("samlProperties", "_mUnknown_SamlProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DirectorySamlPropertiesArgs> _mSamlProperties;
-
-        public Inputs.DirectorySamlPropertiesArgs? SamlProperties => _mSamlProperties.GetValue("samlProperties");
+        private Inputs.DirectorySamlPropertiesArgs? _mValue_SamlProperties;
+        private bool _mUnknown_SamlProperties;
+        public Inputs.DirectorySamlPropertiesArgs? SamlProperties
+        {
+            get
+            {
+                if (!_mUnknown_SamlProperties) return _mValue_SamlProperties;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.SamlProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Permissions to enable or disable self-service capabilities. Defined below.
         /// </summary>
-        [Input("selfServicePermissions")]
+        [PolicyResourceProperty("selfServicePermissions", "_mUnknown_SelfServicePermissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DirectorySelfServicePermissionsArgs> _mSelfServicePermissions;
-
-        public Inputs.DirectorySelfServicePermissionsArgs? SelfServicePermissions => _mSelfServicePermissions.GetValue("selfServicePermissions");
+        private Inputs.DirectorySelfServicePermissionsArgs? _mValue_SelfServicePermissions;
+        private bool _mUnknown_SelfServicePermissions;
+        public Inputs.DirectorySelfServicePermissionsArgs? SelfServicePermissions
+        {
+            get
+            {
+                if (!_mUnknown_SelfServicePermissions) return _mValue_SelfServicePermissions;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.SelfServicePermissions' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifiers of the subnets where the directory resides.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         /// </summary>
-        [Input("workspaceAccessProperties")]
+        [PolicyResourceProperty("workspaceAccessProperties", "_mUnknown_WorkspaceAccessProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DirectoryWorkspaceAccessPropertiesArgs> _mWorkspaceAccessProperties;
-
-        public Inputs.DirectoryWorkspaceAccessPropertiesArgs? WorkspaceAccessProperties => _mWorkspaceAccessProperties.GetValue("workspaceAccessProperties");
+        private Inputs.DirectoryWorkspaceAccessPropertiesArgs? _mValue_WorkspaceAccessProperties;
+        private bool _mUnknown_WorkspaceAccessProperties;
+        public Inputs.DirectoryWorkspaceAccessPropertiesArgs? WorkspaceAccessProperties
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceAccessProperties) return _mValue_WorkspaceAccessProperties;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.WorkspaceAccessProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Default properties that are used for creating WorkSpaces. Defined below.
         /// </summary>
-        [Input("workspaceCreationProperties")]
+        [PolicyResourceProperty("workspaceCreationProperties", "_mUnknown_WorkspaceCreationProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DirectoryWorkspaceCreationPropertiesArgs> _mWorkspaceCreationProperties;
-
-        public Inputs.DirectoryWorkspaceCreationPropertiesArgs? WorkspaceCreationProperties => _mWorkspaceCreationProperties.GetValue("workspaceCreationProperties");
+        private Inputs.DirectoryWorkspaceCreationPropertiesArgs? _mValue_WorkspaceCreationProperties;
+        private bool _mUnknown_WorkspaceCreationProperties;
+        public Inputs.DirectoryWorkspaceCreationPropertiesArgs? WorkspaceCreationProperties
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceCreationProperties) return _mValue_WorkspaceCreationProperties;
+                throw new UndeferrableValueException("Value 'DirectoryArgs.WorkspaceCreationProperties' is not present");
+            }
+        }
     }
 }

@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// The ARN of the backup framework.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Framework.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
         /// </summary>
-        [Input("controls")]
+        [PolicyResourceProperty("controls", "_mUnknown_Controls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FrameworkControl>> _mControls;
-
-        public List<Outputs.FrameworkControl>? Controls => _mControls.GetValue("controls");
+        private List<Outputs.FrameworkControl>? _mValue_Controls;
+        private bool _mUnknown_Controls;
+        public List<Outputs.FrameworkControl>? Controls
+        {
+            get
+            {
+                if (!_mUnknown_Controls) return _mValue_Controls;
+                throw new UndeferrableValueException("Value 'Framework.Controls' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
         /// </summary>
-        [Input("creationTime")]
+        [PolicyResourceProperty("creationTime", "_mUnknown_CreationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
-
-        public string? CreationTime => _mCreationTime.GetValue("creationTime");
+        private string? _mValue_CreationTime;
+        private bool _mUnknown_CreationTime;
+        public string? CreationTime
+        {
+            get
+            {
+                if (!_mUnknown_CreationTime) return _mValue_CreationTime;
+                throw new UndeferrableValueException("Value 'Framework.CreationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
         /// </summary>
-        [Input("deploymentStatus")]
+        [PolicyResourceProperty("deploymentStatus", "_mUnknown_DeploymentStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentStatus;
-
-        public string? DeploymentStatus => _mDeploymentStatus.GetValue("deploymentStatus");
+        private string? _mValue_DeploymentStatus;
+        private bool _mUnknown_DeploymentStatus;
+        public string? DeploymentStatus
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentStatus) return _mValue_DeploymentStatus;
+                throw new UndeferrableValueException("Value 'Framework.DeploymentStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the framework with a maximum of 1,024 characters
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Framework.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Framework.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Framework.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Framework.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Framework.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:backup/framework:Framework")]
@@ -101,37 +164,65 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
         /// </summary>
-        [Input("controls")]
+        [PolicyResourceProperty("controls", "_mUnknown_Controls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FrameworkControlArgs>> _mControls;
-
-        public List<Inputs.FrameworkControlArgs>? Controls => _mControls.GetValue("controls");
+        private List<Inputs.FrameworkControlArgs>? _mValue_Controls;
+        private bool _mUnknown_Controls;
+        public List<Inputs.FrameworkControlArgs>? Controls
+        {
+            get
+            {
+                if (!_mUnknown_Controls) return _mValue_Controls;
+                throw new UndeferrableValueException("Value 'FrameworkArgs.Controls' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the framework with a maximum of 1,024 characters
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'FrameworkArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FrameworkArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FrameworkArgs.Tags' is not present");
+            }
+        }
     }
 }

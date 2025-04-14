@@ -12,19 +12,33 @@ namespace Pulumi.PolicyPacks.Aws.AppFabric.Outputs
 {
     public sealed class IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket
     {
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// The object key to use.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket.Prefix' is not present");
+            }
+        }
     }
 }

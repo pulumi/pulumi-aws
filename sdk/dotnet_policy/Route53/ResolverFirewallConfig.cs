@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("firewallFailOpen")]
+        [PolicyResourceProperty("firewallFailOpen", "_mUnknown_FirewallFailOpen")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallFailOpen;
-
-        public string? FirewallFailOpen => _mFirewallFailOpen.GetValue("firewallFailOpen");
+        private string? _mValue_FirewallFailOpen;
+        private bool _mUnknown_FirewallFailOpen;
+        public string? FirewallFailOpen
+        {
+            get
+            {
+                if (!_mUnknown_FirewallFailOpen) return _mValue_FirewallFailOpen;
+                throw new UndeferrableValueException("Value 'ResolverFirewallConfig.FirewallFailOpen' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS account ID of the owner of the VPC that this firewall configuration applies to.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'ResolverFirewallConfig.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC that the configuration is for.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'ResolverFirewallConfig.ResourceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/resolverFirewallConfig:ResolverFirewallConfig")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("firewallFailOpen")]
+        [PolicyResourceProperty("firewallFailOpen", "_mUnknown_FirewallFailOpen")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallFailOpen;
-
-        public string? FirewallFailOpen => _mFirewallFailOpen.GetValue("firewallFailOpen");
+        private string? _mValue_FirewallFailOpen;
+        private bool _mUnknown_FirewallFailOpen;
+        public string? FirewallFailOpen
+        {
+            get
+            {
+                if (!_mUnknown_FirewallFailOpen) return _mValue_FirewallFailOpen;
+                throw new UndeferrableValueException("Value 'ResolverFirewallConfigArgs.FirewallFailOpen' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC that the configuration is for.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'ResolverFirewallConfigArgs.ResourceId' is not present");
+            }
+        }
     }
 }

@@ -16,85 +16,148 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
         /// </summary>
-        [Input("addressFamily")]
+        [PolicyResourceProperty("addressFamily", "_mUnknown_AddressFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
-
-        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
+        private string? _mValue_AddressFamily;
+        private bool _mUnknown_AddressFamily;
+        public string? AddressFamily
+        {
+            get
+            {
+                if (!_mUnknown_AddressFamily) return _mValue_AddressFamily;
+                throw new UndeferrableValueException("Value 'BgpPeer.AddressFamily' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 CIDR address to use to send traffic to Amazon.
         /// Required for IPv4 BGP peers on public virtual interfaces.
         /// </summary>
-        [Input("amazonAddress")]
+        [PolicyResourceProperty("amazonAddress", "_mUnknown_AmazonAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonAddress;
-
-        public string? AmazonAddress => _mAmazonAddress.GetValue("amazonAddress");
+        private string? _mValue_AmazonAddress;
+        private bool _mUnknown_AmazonAddress;
+        public string? AmazonAddress
+        {
+            get
+            {
+                if (!_mUnknown_AmazonAddress) return _mValue_AmazonAddress;
+                throw new UndeferrableValueException("Value 'BgpPeer.AmazonAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The Direct Connect endpoint on which the BGP peer terminates.
         /// </summary>
-        [Input("awsDevice")]
+        [PolicyResourceProperty("awsDevice", "_mUnknown_AwsDevice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsDevice;
-
-        public string? AwsDevice => _mAwsDevice.GetValue("awsDevice");
+        private string? _mValue_AwsDevice;
+        private bool _mUnknown_AwsDevice;
+        public string? AwsDevice
+        {
+            get
+            {
+                if (!_mUnknown_AwsDevice) return _mValue_AwsDevice;
+                throw new UndeferrableValueException("Value 'BgpPeer.AwsDevice' is not present");
+            }
+        }
 
         /// <summary>
         /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         /// </summary>
-        [Input("bgpAsn")]
+        [PolicyResourceProperty("bgpAsn", "_mUnknown_BgpAsn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBgpAsn;
-
-        public int? BgpAsn => _mBgpAsn.GetValue("bgpAsn");
+        private int? _mValue_BgpAsn;
+        private bool _mUnknown_BgpAsn;
+        public int? BgpAsn
+        {
+            get
+            {
+                if (!_mUnknown_BgpAsn) return _mValue_BgpAsn;
+                throw new UndeferrableValueException("Value 'BgpPeer.BgpAsn' is not present");
+            }
+        }
 
         /// <summary>
         /// The authentication key for BGP configuration.
         /// </summary>
-        [Input("bgpAuthKey")]
+        [PolicyResourceProperty("bgpAuthKey", "_mUnknown_BgpAuthKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAuthKey;
-
-        public string? BgpAuthKey => _mBgpAuthKey.GetValue("bgpAuthKey");
+        private string? _mValue_BgpAuthKey;
+        private bool _mUnknown_BgpAuthKey;
+        public string? BgpAuthKey
+        {
+            get
+            {
+                if (!_mUnknown_BgpAuthKey) return _mValue_BgpAuthKey;
+                throw new UndeferrableValueException("Value 'BgpPeer.BgpAuthKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the BGP peer.
         /// </summary>
-        [Input("bgpPeerId")]
+        [PolicyResourceProperty("bgpPeerId", "_mUnknown_BgpPeerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBgpPeerId;
-
-        public string? BgpPeerId => _mBgpPeerId.GetValue("bgpPeerId");
+        private string? _mValue_BgpPeerId;
+        private bool _mUnknown_BgpPeerId;
+        public string? BgpPeerId
+        {
+            get
+            {
+                if (!_mUnknown_BgpPeerId) return _mValue_BgpPeerId;
+                throw new UndeferrableValueException("Value 'BgpPeer.BgpPeerId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Up/Down state of the BGP peer.
         /// </summary>
-        [Input("bgpStatus")]
+        [PolicyResourceProperty("bgpStatus", "_mUnknown_BgpStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBgpStatus;
-
-        public string? BgpStatus => _mBgpStatus.GetValue("bgpStatus");
+        private string? _mValue_BgpStatus;
+        private bool _mUnknown_BgpStatus;
+        public string? BgpStatus
+        {
+            get
+            {
+                if (!_mUnknown_BgpStatus) return _mValue_BgpStatus;
+                throw new UndeferrableValueException("Value 'BgpPeer.BgpStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 CIDR destination address to which Amazon should send traffic.
         /// Required for IPv4 BGP peers on public virtual interfaces.
         /// </summary>
-        [Input("customerAddress")]
+        [PolicyResourceProperty("customerAddress", "_mUnknown_CustomerAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerAddress;
-
-        public string? CustomerAddress => _mCustomerAddress.GetValue("customerAddress");
+        private string? _mValue_CustomerAddress;
+        private bool _mUnknown_CustomerAddress;
+        public string? CustomerAddress
+        {
+            get
+            {
+                if (!_mUnknown_CustomerAddress) return _mValue_CustomerAddress;
+                throw new UndeferrableValueException("Value 'BgpPeer.CustomerAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Direct Connect virtual interface on which to create the BGP peer.
         /// </summary>
-        [Input("virtualInterfaceId")]
+        [PolicyResourceProperty("virtualInterfaceId", "_mUnknown_VirtualInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualInterfaceId;
-
-        public string? VirtualInterfaceId => _mVirtualInterfaceId.GetValue("virtualInterfaceId");
+        private string? _mValue_VirtualInterfaceId;
+        private bool _mUnknown_VirtualInterfaceId;
+        public string? VirtualInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_VirtualInterfaceId) return _mValue_VirtualInterfaceId;
+                throw new UndeferrableValueException("Value 'BgpPeer.VirtualInterfaceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:directconnect/bgpPeer:BgpPeer")]
@@ -103,57 +166,99 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
         /// </summary>
-        [Input("addressFamily")]
+        [PolicyResourceProperty("addressFamily", "_mUnknown_AddressFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
-
-        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
+        private string? _mValue_AddressFamily;
+        private bool _mUnknown_AddressFamily;
+        public string? AddressFamily
+        {
+            get
+            {
+                if (!_mUnknown_AddressFamily) return _mValue_AddressFamily;
+                throw new UndeferrableValueException("Value 'BgpPeerArgs.AddressFamily' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 CIDR address to use to send traffic to Amazon.
         /// Required for IPv4 BGP peers on public virtual interfaces.
         /// </summary>
-        [Input("amazonAddress")]
+        [PolicyResourceProperty("amazonAddress", "_mUnknown_AmazonAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonAddress;
-
-        public string? AmazonAddress => _mAmazonAddress.GetValue("amazonAddress");
+        private string? _mValue_AmazonAddress;
+        private bool _mUnknown_AmazonAddress;
+        public string? AmazonAddress
+        {
+            get
+            {
+                if (!_mUnknown_AmazonAddress) return _mValue_AmazonAddress;
+                throw new UndeferrableValueException("Value 'BgpPeerArgs.AmazonAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         /// </summary>
-        [Input("bgpAsn")]
+        [PolicyResourceProperty("bgpAsn", "_mUnknown_BgpAsn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBgpAsn;
-
-        public int? BgpAsn => _mBgpAsn.GetValue("bgpAsn");
+        private int? _mValue_BgpAsn;
+        private bool _mUnknown_BgpAsn;
+        public int? BgpAsn
+        {
+            get
+            {
+                if (!_mUnknown_BgpAsn) return _mValue_BgpAsn;
+                throw new UndeferrableValueException("Value 'BgpPeerArgs.BgpAsn' is not present");
+            }
+        }
 
         /// <summary>
         /// The authentication key for BGP configuration.
         /// </summary>
-        [Input("bgpAuthKey")]
+        [PolicyResourceProperty("bgpAuthKey", "_mUnknown_BgpAuthKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAuthKey;
-
-        public string? BgpAuthKey => _mBgpAuthKey.GetValue("bgpAuthKey");
+        private string? _mValue_BgpAuthKey;
+        private bool _mUnknown_BgpAuthKey;
+        public string? BgpAuthKey
+        {
+            get
+            {
+                if (!_mUnknown_BgpAuthKey) return _mValue_BgpAuthKey;
+                throw new UndeferrableValueException("Value 'BgpPeerArgs.BgpAuthKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 CIDR destination address to which Amazon should send traffic.
         /// Required for IPv4 BGP peers on public virtual interfaces.
         /// </summary>
-        [Input("customerAddress")]
+        [PolicyResourceProperty("customerAddress", "_mUnknown_CustomerAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerAddress;
-
-        public string? CustomerAddress => _mCustomerAddress.GetValue("customerAddress");
+        private string? _mValue_CustomerAddress;
+        private bool _mUnknown_CustomerAddress;
+        public string? CustomerAddress
+        {
+            get
+            {
+                if (!_mUnknown_CustomerAddress) return _mValue_CustomerAddress;
+                throw new UndeferrableValueException("Value 'BgpPeerArgs.CustomerAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Direct Connect virtual interface on which to create the BGP peer.
         /// </summary>
-        [Input("virtualInterfaceId")]
+        [PolicyResourceProperty("virtualInterfaceId", "_mUnknown_VirtualInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualInterfaceId;
-
-        public string? VirtualInterfaceId => _mVirtualInterfaceId.GetValue("virtualInterfaceId");
+        private string? _mValue_VirtualInterfaceId;
+        private bool _mUnknown_VirtualInterfaceId;
+        public string? VirtualInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_VirtualInterfaceId) return _mValue_VirtualInterfaceId;
+                throw new UndeferrableValueException("Value 'BgpPeerArgs.VirtualInterfaceId' is not present");
+            }
+        }
     }
 }

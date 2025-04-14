@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
 {
     public sealed class GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslResult
     {
-        [Input("iam")]
+        [PolicyResourceProperty("iam", "_mUnknown_Iam")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIam;
+        private bool? _mValue_Iam;
+        private bool _mUnknown_Iam;
+        public bool? Iam
+        {
+            get
+            {
+                if (!_mUnknown_Iam) return _mValue_Iam;
+                throw new UndeferrableValueException("Value 'GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslResult.Iam' is not present");
+            }
+        }
 
-        public bool? Iam => _mIam.GetValue("iam");
-
-        [Input("scram")]
+        [PolicyResourceProperty("scram", "_mUnknown_Scram")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mScram;
-
-        public bool? Scram => _mScram.GetValue("scram");
+        private bool? _mValue_Scram;
+        private bool _mUnknown_Scram;
+        public bool? Scram
+        {
+            get
+            {
+                if (!_mUnknown_Scram) return _mValue_Scram;
+                throw new UndeferrableValueException("Value 'GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslResult.Scram' is not present");
+            }
+        }
     }
 }

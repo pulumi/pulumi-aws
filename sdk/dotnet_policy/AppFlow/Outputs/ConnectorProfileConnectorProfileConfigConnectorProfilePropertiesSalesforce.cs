@@ -12,28 +12,49 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
 {
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce
     {
-        [Input("instanceUrl")]
+        [PolicyResourceProperty("instanceUrl", "_mUnknown_InstanceUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceUrl;
-
-        public string? InstanceUrl => _mInstanceUrl.GetValue("instanceUrl");
+        private string? _mValue_InstanceUrl;
+        private bool _mUnknown_InstanceUrl;
+        public string? InstanceUrl
+        {
+            get
+            {
+                if (!_mUnknown_InstanceUrl) return _mValue_InstanceUrl;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce.InstanceUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the connector profile applies to a sandbox or production environment.
         /// </summary>
-        [Input("isSandboxEnvironment")]
+        [PolicyResourceProperty("isSandboxEnvironment", "_mUnknown_IsSandboxEnvironment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsSandboxEnvironment;
-
-        public bool? IsSandboxEnvironment => _mIsSandboxEnvironment.GetValue("isSandboxEnvironment");
+        private bool? _mValue_IsSandboxEnvironment;
+        private bool _mUnknown_IsSandboxEnvironment;
+        public bool? IsSandboxEnvironment
+        {
+            get
+            {
+                if (!_mUnknown_IsSandboxEnvironment) return _mValue_IsSandboxEnvironment;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce.IsSandboxEnvironment' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
         /// </summary>
-        [Input("usePrivatelinkForMetadataAndAuthorization")]
+        [PolicyResourceProperty("usePrivatelinkForMetadataAndAuthorization", "_mUnknown_UsePrivatelinkForMetadataAndAuthorization")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUsePrivatelinkForMetadataAndAuthorization;
-
-        public bool? UsePrivatelinkForMetadataAndAuthorization => _mUsePrivatelinkForMetadataAndAuthorization.GetValue("usePrivatelinkForMetadataAndAuthorization");
+        private bool? _mValue_UsePrivatelinkForMetadataAndAuthorization;
+        private bool _mUnknown_UsePrivatelinkForMetadataAndAuthorization;
+        public bool? UsePrivatelinkForMetadataAndAuthorization
+        {
+            get
+            {
+                if (!_mUnknown_UsePrivatelinkForMetadataAndAuthorization) return _mValue_UsePrivatelinkForMetadataAndAuthorization;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce.UsePrivatelinkForMetadataAndAuthorization' is not present");
+            }
+        }
     }
 }

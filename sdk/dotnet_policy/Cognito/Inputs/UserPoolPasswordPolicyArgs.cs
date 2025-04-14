@@ -15,66 +15,115 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Inputs
         /// <summary>
         /// Minimum length of the password policy that you have set.
         /// </summary>
-        [Input("minimumLength")]
+        [PolicyResourceProperty("minimumLength", "_mUnknown_MinimumLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinimumLength;
-
-        public int? MinimumLength => _mMinimumLength.GetValue("minimumLength");
+        private int? _mValue_MinimumLength;
+        private bool _mUnknown_MinimumLength;
+        public int? MinimumLength
+        {
+            get
+            {
+                if (!_mUnknown_MinimumLength) return _mValue_MinimumLength;
+                throw new UndeferrableValueException("Value 'UserPoolPasswordPolicyArgs.MinimumLength' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
         /// 
         /// **Note:** This argument requires advanced security features to be active in the user pool.
         /// </summary>
-        [Input("passwordHistorySize")]
+        [PolicyResourceProperty("passwordHistorySize", "_mUnknown_PasswordHistorySize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPasswordHistorySize;
-
-        public int? PasswordHistorySize => _mPasswordHistorySize.GetValue("passwordHistorySize");
+        private int? _mValue_PasswordHistorySize;
+        private bool _mUnknown_PasswordHistorySize;
+        public int? PasswordHistorySize
+        {
+            get
+            {
+                if (!_mUnknown_PasswordHistorySize) return _mValue_PasswordHistorySize;
+                throw new UndeferrableValueException("Value 'UserPoolPasswordPolicyArgs.PasswordHistorySize' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether you have required users to use at least one lowercase letter in their password.
         /// </summary>
-        [Input("requireLowercase")]
+        [PolicyResourceProperty("requireLowercase", "_mUnknown_RequireLowercase")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireLowercase;
-
-        public bool? RequireLowercase => _mRequireLowercase.GetValue("requireLowercase");
+        private bool? _mValue_RequireLowercase;
+        private bool _mUnknown_RequireLowercase;
+        public bool? RequireLowercase
+        {
+            get
+            {
+                if (!_mUnknown_RequireLowercase) return _mValue_RequireLowercase;
+                throw new UndeferrableValueException("Value 'UserPoolPasswordPolicyArgs.RequireLowercase' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether you have required users to use at least one number in their password.
         /// </summary>
-        [Input("requireNumbers")]
+        [PolicyResourceProperty("requireNumbers", "_mUnknown_RequireNumbers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireNumbers;
-
-        public bool? RequireNumbers => _mRequireNumbers.GetValue("requireNumbers");
+        private bool? _mValue_RequireNumbers;
+        private bool _mUnknown_RequireNumbers;
+        public bool? RequireNumbers
+        {
+            get
+            {
+                if (!_mUnknown_RequireNumbers) return _mValue_RequireNumbers;
+                throw new UndeferrableValueException("Value 'UserPoolPasswordPolicyArgs.RequireNumbers' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether you have required users to use at least one symbol in their password.
         /// </summary>
-        [Input("requireSymbols")]
+        [PolicyResourceProperty("requireSymbols", "_mUnknown_RequireSymbols")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireSymbols;
-
-        public bool? RequireSymbols => _mRequireSymbols.GetValue("requireSymbols");
+        private bool? _mValue_RequireSymbols;
+        private bool _mUnknown_RequireSymbols;
+        public bool? RequireSymbols
+        {
+            get
+            {
+                if (!_mUnknown_RequireSymbols) return _mValue_RequireSymbols;
+                throw new UndeferrableValueException("Value 'UserPoolPasswordPolicyArgs.RequireSymbols' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether you have required users to use at least one uppercase letter in their password.
         /// </summary>
-        [Input("requireUppercase")]
+        [PolicyResourceProperty("requireUppercase", "_mUnknown_RequireUppercase")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireUppercase;
-
-        public bool? RequireUppercase => _mRequireUppercase.GetValue("requireUppercase");
+        private bool? _mValue_RequireUppercase;
+        private bool _mUnknown_RequireUppercase;
+        public bool? RequireUppercase
+        {
+            get
+            {
+                if (!_mUnknown_RequireUppercase) return _mValue_RequireUppercase;
+                throw new UndeferrableValueException("Value 'UserPoolPasswordPolicyArgs.RequireUppercase' is not present");
+            }
+        }
 
         /// <summary>
         /// In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
         /// </summary>
-        [Input("temporaryPasswordValidityDays")]
+        [PolicyResourceProperty("temporaryPasswordValidityDays", "_mUnknown_TemporaryPasswordValidityDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTemporaryPasswordValidityDays;
-
-        public int? TemporaryPasswordValidityDays => _mTemporaryPasswordValidityDays.GetValue("temporaryPasswordValidityDays");
+        private int? _mValue_TemporaryPasswordValidityDays;
+        private bool _mUnknown_TemporaryPasswordValidityDays;
+        public int? TemporaryPasswordValidityDays
+        {
+            get
+            {
+                if (!_mUnknown_TemporaryPasswordValidityDays) return _mValue_TemporaryPasswordValidityDays;
+                throw new UndeferrableValueException("Value 'UserPoolPasswordPolicyArgs.TemporaryPasswordValidityDays' is not present");
+            }
+        }
     }
 }

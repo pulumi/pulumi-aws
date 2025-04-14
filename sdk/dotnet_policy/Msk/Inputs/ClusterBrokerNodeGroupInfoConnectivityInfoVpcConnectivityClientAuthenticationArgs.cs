@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Inputs
         /// <summary>
         /// Configuration block for specifying SASL client authentication. See below.
         /// </summary>
-        [Input("sasl")]
+        [PolicyResourceProperty("sasl", "_mUnknown_Sasl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs> _mSasl;
-
-        public Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs? Sasl => _mSasl.GetValue("sasl");
+        private Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs? _mValue_Sasl;
+        private bool _mUnknown_Sasl;
+        public Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs? Sasl
+        {
+            get
+            {
+                if (!_mUnknown_Sasl) return _mValue_Sasl;
+                throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs.Sasl' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for specifying TLS client authentication. See below.
         /// </summary>
-        [Input("tls")]
+        [PolicyResourceProperty("tls", "_mUnknown_Tls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTls;
-
-        public bool? Tls => _mTls.GetValue("tls");
+        private bool? _mValue_Tls;
+        private bool _mUnknown_Tls;
+        public bool? Tls
+        {
+            get
+            {
+                if (!_mUnknown_Tls) return _mValue_Tls;
+                throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs.Tls' is not present");
+            }
+        }
     }
 }

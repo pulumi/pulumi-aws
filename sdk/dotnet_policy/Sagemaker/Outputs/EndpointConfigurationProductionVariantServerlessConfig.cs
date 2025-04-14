@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
         /// </summary>
-        [Input("maxConcurrency")]
+        [PolicyResourceProperty("maxConcurrency", "_mUnknown_MaxConcurrency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxConcurrency;
-
-        public int? MaxConcurrency => _mMaxConcurrency.GetValue("maxConcurrency");
+        private int? _mValue_MaxConcurrency;
+        private bool _mUnknown_MaxConcurrency;
+        public int? MaxConcurrency
+        {
+            get
+            {
+                if (!_mUnknown_MaxConcurrency) return _mValue_MaxConcurrency;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationProductionVariantServerlessConfig.MaxConcurrency' is not present");
+            }
+        }
 
         /// <summary>
         /// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
         /// </summary>
-        [Input("memorySizeInMb")]
+        [PolicyResourceProperty("memorySizeInMb", "_mUnknown_MemorySizeInMb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMemorySizeInMb;
-
-        public int? MemorySizeInMb => _mMemorySizeInMb.GetValue("memorySizeInMb");
+        private int? _mValue_MemorySizeInMb;
+        private bool _mUnknown_MemorySizeInMb;
+        public int? MemorySizeInMb
+        {
+            get
+            {
+                if (!_mUnknown_MemorySizeInMb) return _mValue_MemorySizeInMb;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationProductionVariantServerlessConfig.MemorySizeInMb' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
         /// </summary>
-        [Input("provisionedConcurrency")]
+        [PolicyResourceProperty("provisionedConcurrency", "_mUnknown_ProvisionedConcurrency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mProvisionedConcurrency;
-
-        public int? ProvisionedConcurrency => _mProvisionedConcurrency.GetValue("provisionedConcurrency");
+        private int? _mValue_ProvisionedConcurrency;
+        private bool _mUnknown_ProvisionedConcurrency;
+        public int? ProvisionedConcurrency
+        {
+            get
+            {
+                if (!_mUnknown_ProvisionedConcurrency) return _mValue_ProvisionedConcurrency;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationProductionVariantServerlessConfig.ProvisionedConcurrency' is not present");
+            }
+        }
     }
 }

@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// The retention period, in hours, for the Amazon Kinesis data.
         /// </summary>
-        [Input("dataRetention")]
+        [PolicyResourceProperty("dataRetention", "_mUnknown_DataRetention")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDataRetention;
-
-        public int? DataRetention => _mDataRetention.GetValue("dataRetention");
+        private int? _mValue_DataRetention;
+        private bool _mUnknown_DataRetention;
+        public int? DataRetention
+        {
+            get
+            {
+                if (!_mUnknown_DataRetention) return _mValue_DataRetention;
+                throw new UndeferrableValueException("Value 'VoiceConnectorStreaming.DataRetention' is not present");
+            }
+        }
 
         /// <summary>
         /// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
         /// </summary>
-        [Input("disabled")]
+        [PolicyResourceProperty("disabled", "_mUnknown_Disabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisabled;
-
-        public bool? Disabled => _mDisabled.GetValue("disabled");
+        private bool? _mValue_Disabled;
+        private bool _mUnknown_Disabled;
+        public bool? Disabled
+        {
+            get
+            {
+                if (!_mUnknown_Disabled) return _mValue_Disabled;
+                throw new UndeferrableValueException("Value 'VoiceConnectorStreaming.Disabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The media insights configuration. See `media_insights_configuration`.
         /// </summary>
-        [Input("mediaInsightsConfiguration")]
+        [PolicyResourceProperty("mediaInsightsConfiguration", "_mUnknown_MediaInsightsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VoiceConnectorStreamingMediaInsightsConfiguration> _mMediaInsightsConfiguration;
-
-        public Outputs.VoiceConnectorStreamingMediaInsightsConfiguration? MediaInsightsConfiguration => _mMediaInsightsConfiguration.GetValue("mediaInsightsConfiguration");
+        private Outputs.VoiceConnectorStreamingMediaInsightsConfiguration? _mValue_MediaInsightsConfiguration;
+        private bool _mUnknown_MediaInsightsConfiguration;
+        public Outputs.VoiceConnectorStreamingMediaInsightsConfiguration? MediaInsightsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_MediaInsightsConfiguration) return _mValue_MediaInsightsConfiguration;
+                throw new UndeferrableValueException("Value 'VoiceConnectorStreaming.MediaInsightsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
         /// </summary>
-        [Input("streamingNotificationTargets")]
+        [PolicyResourceProperty("streamingNotificationTargets", "_mUnknown_StreamingNotificationTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStreamingNotificationTargets;
-
-        public List<string>? StreamingNotificationTargets => _mStreamingNotificationTargets.GetValue("streamingNotificationTargets");
+        private List<string>? _mValue_StreamingNotificationTargets;
+        private bool _mUnknown_StreamingNotificationTargets;
+        public List<string>? StreamingNotificationTargets
+        {
+            get
+            {
+                if (!_mUnknown_StreamingNotificationTargets) return _mValue_StreamingNotificationTargets;
+                throw new UndeferrableValueException("Value 'VoiceConnectorStreaming.StreamingNotificationTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Chime Voice Connector ID.
         /// </summary>
-        [Input("voiceConnectorId")]
+        [PolicyResourceProperty("voiceConnectorId", "_mUnknown_VoiceConnectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceConnectorId;
-
-        public string? VoiceConnectorId => _mVoiceConnectorId.GetValue("voiceConnectorId");
+        private string? _mValue_VoiceConnectorId;
+        private bool _mUnknown_VoiceConnectorId;
+        public string? VoiceConnectorId
+        {
+            get
+            {
+                if (!_mUnknown_VoiceConnectorId) return _mValue_VoiceConnectorId;
+                throw new UndeferrableValueException("Value 'VoiceConnectorStreaming.VoiceConnectorId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming")]
@@ -65,46 +100,81 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// The retention period, in hours, for the Amazon Kinesis data.
         /// </summary>
-        [Input("dataRetention")]
+        [PolicyResourceProperty("dataRetention", "_mUnknown_DataRetention")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDataRetention;
-
-        public int? DataRetention => _mDataRetention.GetValue("dataRetention");
+        private int? _mValue_DataRetention;
+        private bool _mUnknown_DataRetention;
+        public int? DataRetention
+        {
+            get
+            {
+                if (!_mUnknown_DataRetention) return _mValue_DataRetention;
+                throw new UndeferrableValueException("Value 'VoiceConnectorStreamingArgs.DataRetention' is not present");
+            }
+        }
 
         /// <summary>
         /// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
         /// </summary>
-        [Input("disabled")]
+        [PolicyResourceProperty("disabled", "_mUnknown_Disabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisabled;
-
-        public bool? Disabled => _mDisabled.GetValue("disabled");
+        private bool? _mValue_Disabled;
+        private bool _mUnknown_Disabled;
+        public bool? Disabled
+        {
+            get
+            {
+                if (!_mUnknown_Disabled) return _mValue_Disabled;
+                throw new UndeferrableValueException("Value 'VoiceConnectorStreamingArgs.Disabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The media insights configuration. See `media_insights_configuration`.
         /// </summary>
-        [Input("mediaInsightsConfiguration")]
+        [PolicyResourceProperty("mediaInsightsConfiguration", "_mUnknown_MediaInsightsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VoiceConnectorStreamingMediaInsightsConfigurationArgs> _mMediaInsightsConfiguration;
-
-        public Inputs.VoiceConnectorStreamingMediaInsightsConfigurationArgs? MediaInsightsConfiguration => _mMediaInsightsConfiguration.GetValue("mediaInsightsConfiguration");
+        private Inputs.VoiceConnectorStreamingMediaInsightsConfigurationArgs? _mValue_MediaInsightsConfiguration;
+        private bool _mUnknown_MediaInsightsConfiguration;
+        public Inputs.VoiceConnectorStreamingMediaInsightsConfigurationArgs? MediaInsightsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_MediaInsightsConfiguration) return _mValue_MediaInsightsConfiguration;
+                throw new UndeferrableValueException("Value 'VoiceConnectorStreamingArgs.MediaInsightsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
         /// </summary>
-        [Input("streamingNotificationTargets")]
+        [PolicyResourceProperty("streamingNotificationTargets", "_mUnknown_StreamingNotificationTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStreamingNotificationTargets;
-
-        public List<string>? StreamingNotificationTargets => _mStreamingNotificationTargets.GetValue("streamingNotificationTargets");
+        private List<string>? _mValue_StreamingNotificationTargets;
+        private bool _mUnknown_StreamingNotificationTargets;
+        public List<string>? StreamingNotificationTargets
+        {
+            get
+            {
+                if (!_mUnknown_StreamingNotificationTargets) return _mValue_StreamingNotificationTargets;
+                throw new UndeferrableValueException("Value 'VoiceConnectorStreamingArgs.StreamingNotificationTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Chime Voice Connector ID.
         /// </summary>
-        [Input("voiceConnectorId")]
+        [PolicyResourceProperty("voiceConnectorId", "_mUnknown_VoiceConnectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceConnectorId;
-
-        public string? VoiceConnectorId => _mVoiceConnectorId.GetValue("voiceConnectorId");
+        private string? _mValue_VoiceConnectorId;
+        private bool _mUnknown_VoiceConnectorId;
+        public string? VoiceConnectorId
+        {
+            get
+            {
+                if (!_mUnknown_VoiceConnectorId) return _mValue_VoiceConnectorId;
+                throw new UndeferrableValueException("Value 'VoiceConnectorStreamingArgs.VoiceConnectorId' is not present");
+            }
+        }
     }
 }

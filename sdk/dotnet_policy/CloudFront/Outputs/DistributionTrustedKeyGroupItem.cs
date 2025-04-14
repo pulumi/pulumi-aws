@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// ID of the key group that contains the public keys.
         /// </summary>
-        [Input("keyGroupId")]
+        [PolicyResourceProperty("keyGroupId", "_mUnknown_KeyGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyGroupId;
-
-        public string? KeyGroupId => _mKeyGroupId.GetValue("keyGroupId");
+        private string? _mValue_KeyGroupId;
+        private bool _mUnknown_KeyGroupId;
+        public string? KeyGroupId
+        {
+            get
+            {
+                if (!_mUnknown_KeyGroupId) return _mValue_KeyGroupId;
+                throw new UndeferrableValueException("Value 'DistributionTrustedKeyGroupItem.KeyGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of active CloudFront key pairs associated with the signer account
         /// </summary>
-        [Input("keyPairIds")]
+        [PolicyResourceProperty("keyPairIds", "_mUnknown_KeyPairIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKeyPairIds;
-
-        public List<string>? KeyPairIds => _mKeyPairIds.GetValue("keyPairIds");
+        private List<string>? _mValue_KeyPairIds;
+        private bool _mUnknown_KeyPairIds;
+        public List<string>? KeyPairIds
+        {
+            get
+            {
+                if (!_mUnknown_KeyPairIds) return _mValue_KeyPairIds;
+                throw new UndeferrableValueException("Value 'DistributionTrustedKeyGroupItem.KeyPairIds' is not present");
+            }
+        }
     }
 }

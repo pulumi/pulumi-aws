@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// Egress filter rules for the service mesh.
         /// </summary>
-        [Input("egressFilter")]
+        [PolicyResourceProperty("egressFilter", "_mUnknown_EgressFilter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MeshSpecEgressFilter> _mEgressFilter;
-
-        public Outputs.MeshSpecEgressFilter? EgressFilter => _mEgressFilter.GetValue("egressFilter");
+        private Outputs.MeshSpecEgressFilter? _mValue_EgressFilter;
+        private bool _mUnknown_EgressFilter;
+        public Outputs.MeshSpecEgressFilter? EgressFilter
+        {
+            get
+            {
+                if (!_mUnknown_EgressFilter) return _mValue_EgressFilter;
+                throw new UndeferrableValueException("Value 'MeshSpec.EgressFilter' is not present");
+            }
+        }
 
         /// <summary>
         /// The service discovery information for the service mesh.
         /// </summary>
-        [Input("serviceDiscovery")]
+        [PolicyResourceProperty("serviceDiscovery", "_mUnknown_ServiceDiscovery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MeshSpecServiceDiscovery> _mServiceDiscovery;
-
-        public Outputs.MeshSpecServiceDiscovery? ServiceDiscovery => _mServiceDiscovery.GetValue("serviceDiscovery");
+        private Outputs.MeshSpecServiceDiscovery? _mValue_ServiceDiscovery;
+        private bool _mUnknown_ServiceDiscovery;
+        public Outputs.MeshSpecServiceDiscovery? ServiceDiscovery
+        {
+            get
+            {
+                if (!_mUnknown_ServiceDiscovery) return _mValue_ServiceDiscovery;
+                throw new UndeferrableValueException("Value 'MeshSpec.ServiceDiscovery' is not present");
+            }
+        }
     }
 }

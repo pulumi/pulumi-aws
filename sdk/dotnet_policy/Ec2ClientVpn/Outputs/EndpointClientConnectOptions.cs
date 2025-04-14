@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2ClientVpn.Outputs
         /// <summary>
         /// Indicates whether client connect options are enabled. The default is `false` (not enabled).
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'EndpointClientConnectOptions.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
         /// </summary>
-        [Input("lambdaFunctionArn")]
+        [PolicyResourceProperty("lambdaFunctionArn", "_mUnknown_LambdaFunctionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaFunctionArn;
-
-        public string? LambdaFunctionArn => _mLambdaFunctionArn.GetValue("lambdaFunctionArn");
+        private string? _mValue_LambdaFunctionArn;
+        private bool _mUnknown_LambdaFunctionArn;
+        public string? LambdaFunctionArn
+        {
+            get
+            {
+                if (!_mUnknown_LambdaFunctionArn) return _mValue_LambdaFunctionArn;
+                throw new UndeferrableValueException("Value 'EndpointClientConnectOptions.LambdaFunctionArn' is not present");
+            }
+        }
     }
 }

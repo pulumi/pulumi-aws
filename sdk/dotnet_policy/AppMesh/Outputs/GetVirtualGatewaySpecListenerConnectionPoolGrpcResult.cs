@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualGatewaySpecListenerConnectionPoolGrpcResult
     {
-        [Input("maxRequests")]
+        [PolicyResourceProperty("maxRequests", "_mUnknown_MaxRequests")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRequests;
-
-        public int? MaxRequests => _mMaxRequests.GetValue("maxRequests");
+        private int? _mValue_MaxRequests;
+        private bool _mUnknown_MaxRequests;
+        public int? MaxRequests
+        {
+            get
+            {
+                if (!_mUnknown_MaxRequests) return _mValue_MaxRequests;
+                throw new UndeferrableValueException("Value 'GetVirtualGatewaySpecListenerConnectionPoolGrpcResult.MaxRequests' is not present");
+            }
+        }
     }
 }

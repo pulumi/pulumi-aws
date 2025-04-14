@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Inputs
         /// <summary>
         /// Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
         /// </summary>
-        [Input("keyPrefixes")]
+        [PolicyResourceProperty("keyPrefixes", "_mUnknown_KeyPrefixes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKeyPrefixes;
-
-        public List<string>? KeyPrefixes => _mKeyPrefixes.GetValue("keyPrefixes");
+        private List<string>? _mValue_KeyPrefixes;
+        private bool _mUnknown_KeyPrefixes;
+        public List<string>? KeyPrefixes
+        {
+            get
+            {
+                if (!_mUnknown_KeyPrefixes) return _mValue_KeyPrefixes;
+                throw new UndeferrableValueException("Value 'ProviderIgnoreTagsArgs.KeyPrefixes' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
         /// </summary>
-        [Input("keys")]
+        [PolicyResourceProperty("keys", "_mUnknown_Keys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKeys;
-
-        public List<string>? Keys => _mKeys.GetValue("keys");
+        private List<string>? _mValue_Keys;
+        private bool _mUnknown_Keys;
+        public List<string>? Keys
+        {
+            get
+            {
+                if (!_mUnknown_Keys) return _mValue_Keys;
+                throw new UndeferrableValueException("Value 'ProviderIgnoreTagsArgs.Keys' is not present");
+            }
+        }
     }
 }

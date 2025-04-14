@@ -16,67 +16,116 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// SES configuration set ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ConfigurationSet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether messages that use the configuration set are required to use TLS. See below.
         /// </summary>
-        [Input("deliveryOptions")]
+        [PolicyResourceProperty("deliveryOptions", "_mUnknown_DeliveryOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationSetDeliveryOptions> _mDeliveryOptions;
-
-        public Outputs.ConfigurationSetDeliveryOptions? DeliveryOptions => _mDeliveryOptions.GetValue("deliveryOptions");
+        private Outputs.ConfigurationSetDeliveryOptions? _mValue_DeliveryOptions;
+        private bool _mUnknown_DeliveryOptions;
+        public Outputs.ConfigurationSetDeliveryOptions? DeliveryOptions
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryOptions) return _mValue_DeliveryOptions;
+                throw new UndeferrableValueException("Value 'ConfigurationSet.DeliveryOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
         /// </summary>
-        [Input("lastFreshStart")]
+        [PolicyResourceProperty("lastFreshStart", "_mUnknown_LastFreshStart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastFreshStart;
-
-        public string? LastFreshStart => _mLastFreshStart.GetValue("lastFreshStart");
+        private string? _mValue_LastFreshStart;
+        private bool _mUnknown_LastFreshStart;
+        public string? LastFreshStart
+        {
+            get
+            {
+                if (!_mUnknown_LastFreshStart) return _mValue_LastFreshStart;
+                throw new UndeferrableValueException("Value 'ConfigurationSet.LastFreshStart' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the configuration set.
         /// 
         /// The following argument is optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConfigurationSet.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
         /// </summary>
-        [Input("reputationMetricsEnabled")]
+        [PolicyResourceProperty("reputationMetricsEnabled", "_mUnknown_ReputationMetricsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReputationMetricsEnabled;
-
-        public bool? ReputationMetricsEnabled => _mReputationMetricsEnabled.GetValue("reputationMetricsEnabled");
+        private bool? _mValue_ReputationMetricsEnabled;
+        private bool _mUnknown_ReputationMetricsEnabled;
+        public bool? ReputationMetricsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ReputationMetricsEnabled) return _mValue_ReputationMetricsEnabled;
+                throw new UndeferrableValueException("Value 'ConfigurationSet.ReputationMetricsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         /// </summary>
-        [Input("sendingEnabled")]
+        [PolicyResourceProperty("sendingEnabled", "_mUnknown_SendingEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSendingEnabled;
-
-        public bool? SendingEnabled => _mSendingEnabled.GetValue("sendingEnabled");
+        private bool? _mValue_SendingEnabled;
+        private bool _mUnknown_SendingEnabled;
+        public bool? SendingEnabled
+        {
+            get
+            {
+                if (!_mUnknown_SendingEnabled) return _mValue_SendingEnabled;
+                throw new UndeferrableValueException("Value 'ConfigurationSet.SendingEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
         /// </summary>
-        [Input("trackingOptions")]
+        [PolicyResourceProperty("trackingOptions", "_mUnknown_TrackingOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationSetTrackingOptions> _mTrackingOptions;
-
-        public Outputs.ConfigurationSetTrackingOptions? TrackingOptions => _mTrackingOptions.GetValue("trackingOptions");
+        private Outputs.ConfigurationSetTrackingOptions? _mValue_TrackingOptions;
+        private bool _mUnknown_TrackingOptions;
+        public Outputs.ConfigurationSetTrackingOptions? TrackingOptions
+        {
+            get
+            {
+                if (!_mUnknown_TrackingOptions) return _mValue_TrackingOptions;
+                throw new UndeferrableValueException("Value 'ConfigurationSet.TrackingOptions' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ses/configurationSet:ConfigurationSet")]
@@ -85,48 +134,83 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// Whether messages that use the configuration set are required to use TLS. See below.
         /// </summary>
-        [Input("deliveryOptions")]
+        [PolicyResourceProperty("deliveryOptions", "_mUnknown_DeliveryOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationSetDeliveryOptionsArgs> _mDeliveryOptions;
-
-        public Inputs.ConfigurationSetDeliveryOptionsArgs? DeliveryOptions => _mDeliveryOptions.GetValue("deliveryOptions");
+        private Inputs.ConfigurationSetDeliveryOptionsArgs? _mValue_DeliveryOptions;
+        private bool _mUnknown_DeliveryOptions;
+        public Inputs.ConfigurationSetDeliveryOptionsArgs? DeliveryOptions
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryOptions) return _mValue_DeliveryOptions;
+                throw new UndeferrableValueException("Value 'ConfigurationSetArgs.DeliveryOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the configuration set.
         /// 
         /// The following argument is optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConfigurationSetArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
         /// </summary>
-        [Input("reputationMetricsEnabled")]
+        [PolicyResourceProperty("reputationMetricsEnabled", "_mUnknown_ReputationMetricsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReputationMetricsEnabled;
-
-        public bool? ReputationMetricsEnabled => _mReputationMetricsEnabled.GetValue("reputationMetricsEnabled");
+        private bool? _mValue_ReputationMetricsEnabled;
+        private bool _mUnknown_ReputationMetricsEnabled;
+        public bool? ReputationMetricsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ReputationMetricsEnabled) return _mValue_ReputationMetricsEnabled;
+                throw new UndeferrableValueException("Value 'ConfigurationSetArgs.ReputationMetricsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         /// </summary>
-        [Input("sendingEnabled")]
+        [PolicyResourceProperty("sendingEnabled", "_mUnknown_SendingEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSendingEnabled;
-
-        public bool? SendingEnabled => _mSendingEnabled.GetValue("sendingEnabled");
+        private bool? _mValue_SendingEnabled;
+        private bool _mUnknown_SendingEnabled;
+        public bool? SendingEnabled
+        {
+            get
+            {
+                if (!_mUnknown_SendingEnabled) return _mValue_SendingEnabled;
+                throw new UndeferrableValueException("Value 'ConfigurationSetArgs.SendingEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
         /// </summary>
-        [Input("trackingOptions")]
+        [PolicyResourceProperty("trackingOptions", "_mUnknown_TrackingOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationSetTrackingOptionsArgs> _mTrackingOptions;
-
-        public Inputs.ConfigurationSetTrackingOptionsArgs? TrackingOptions => _mTrackingOptions.GetValue("trackingOptions");
+        private Inputs.ConfigurationSetTrackingOptionsArgs? _mValue_TrackingOptions;
+        private bool _mUnknown_TrackingOptions;
+        public Inputs.ConfigurationSetTrackingOptionsArgs? TrackingOptions
+        {
+            get
+            {
+                if (!_mUnknown_TrackingOptions) return _mValue_TrackingOptions;
+                throw new UndeferrableValueException("Value 'ConfigurationSetArgs.TrackingOptions' is not present");
+            }
+        }
     }
 }

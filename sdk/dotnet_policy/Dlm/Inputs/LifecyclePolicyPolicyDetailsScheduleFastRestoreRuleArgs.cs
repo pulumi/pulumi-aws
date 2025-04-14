@@ -15,28 +15,56 @@ namespace Pulumi.PolicyPacks.Aws.Dlm.Inputs
         /// <summary>
         /// The Availability Zones in which to enable fast snapshot restore.
         /// </summary>
-        [Input("availabilityZones")]
+        [PolicyResourceProperty("availabilityZones", "_mUnknown_AvailabilityZones")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
+        private List<string>? _mValue_AvailabilityZones;
+        private bool _mUnknown_AvailabilityZones;
+        public List<string>? AvailabilityZones
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZones) return _mValue_AvailabilityZones;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs.AvailabilityZones' is not present");
+            }
+        }
 
-        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
-
-        [Input("count")]
+        [PolicyResourceProperty("count", "_mUnknown_Count")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCount;
+        private int? _mValue_Count;
+        private bool _mUnknown_Count;
+        public int? Count
+        {
+            get
+            {
+                if (!_mUnknown_Count) return _mValue_Count;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs.Count' is not present");
+            }
+        }
 
-        public int? Count => _mCount.GetValue("count");
-
-        [Input("interval")]
+        [PolicyResourceProperty("interval", "_mUnknown_Interval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInterval;
+        private int? _mValue_Interval;
+        private bool _mUnknown_Interval;
+        public int? Interval
+        {
+            get
+            {
+                if (!_mUnknown_Interval) return _mValue_Interval;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs.Interval' is not present");
+            }
+        }
 
-        public int? Interval => _mInterval.GetValue("interval");
-
-        [Input("intervalUnit")]
+        [PolicyResourceProperty("intervalUnit", "_mUnknown_IntervalUnit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIntervalUnit;
-
-        public string? IntervalUnit => _mIntervalUnit.GetValue("intervalUnit");
+        private string? _mValue_IntervalUnit;
+        private bool _mUnknown_IntervalUnit;
+        public string? IntervalUnit
+        {
+            get
+            {
+                if (!_mUnknown_IntervalUnit) return _mValue_IntervalUnit;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs.IntervalUnit' is not present");
+            }
+        }
     }
 }

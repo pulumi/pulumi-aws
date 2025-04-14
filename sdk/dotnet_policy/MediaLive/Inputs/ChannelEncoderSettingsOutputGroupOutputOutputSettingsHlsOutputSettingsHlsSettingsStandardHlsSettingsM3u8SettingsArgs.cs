@@ -12,109 +12,228 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
 {
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs
     {
-        [Input("audioFramesPerPes")]
+        [PolicyResourceProperty("audioFramesPerPes", "_mUnknown_AudioFramesPerPes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAudioFramesPerPes;
+        private int? _mValue_AudioFramesPerPes;
+        private bool _mUnknown_AudioFramesPerPes;
+        public int? AudioFramesPerPes
+        {
+            get
+            {
+                if (!_mUnknown_AudioFramesPerPes) return _mValue_AudioFramesPerPes;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.AudioFramesPerPes' is not present");
+            }
+        }
 
-        public int? AudioFramesPerPes => _mAudioFramesPerPes.GetValue("audioFramesPerPes");
-
-        [Input("audioPids")]
+        [PolicyResourceProperty("audioPids", "_mUnknown_AudioPids")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAudioPids;
+        private string? _mValue_AudioPids;
+        private bool _mUnknown_AudioPids;
+        public string? AudioPids
+        {
+            get
+            {
+                if (!_mUnknown_AudioPids) return _mValue_AudioPids;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.AudioPids' is not present");
+            }
+        }
 
-        public string? AudioPids => _mAudioPids.GetValue("audioPids");
-
-        [Input("ecmPid")]
+        [PolicyResourceProperty("ecmPid", "_mUnknown_EcmPid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEcmPid;
+        private string? _mValue_EcmPid;
+        private bool _mUnknown_EcmPid;
+        public string? EcmPid
+        {
+            get
+            {
+                if (!_mUnknown_EcmPid) return _mValue_EcmPid;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.EcmPid' is not present");
+            }
+        }
 
-        public string? EcmPid => _mEcmPid.GetValue("ecmPid");
-
-        [Input("nielsenId3Behavior")]
+        [PolicyResourceProperty("nielsenId3Behavior", "_mUnknown_NielsenId3Behavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNielsenId3Behavior;
+        private string? _mValue_NielsenId3Behavior;
+        private bool _mUnknown_NielsenId3Behavior;
+        public string? NielsenId3Behavior
+        {
+            get
+            {
+                if (!_mUnknown_NielsenId3Behavior) return _mValue_NielsenId3Behavior;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.NielsenId3Behavior' is not present");
+            }
+        }
 
-        public string? NielsenId3Behavior => _mNielsenId3Behavior.GetValue("nielsenId3Behavior");
-
-        [Input("patInterval")]
+        [PolicyResourceProperty("patInterval", "_mUnknown_PatInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPatInterval;
+        private int? _mValue_PatInterval;
+        private bool _mUnknown_PatInterval;
+        public int? PatInterval
+        {
+            get
+            {
+                if (!_mUnknown_PatInterval) return _mValue_PatInterval;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.PatInterval' is not present");
+            }
+        }
 
-        public int? PatInterval => _mPatInterval.GetValue("patInterval");
-
-        [Input("pcrControl")]
+        [PolicyResourceProperty("pcrControl", "_mUnknown_PcrControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPcrControl;
+        private string? _mValue_PcrControl;
+        private bool _mUnknown_PcrControl;
+        public string? PcrControl
+        {
+            get
+            {
+                if (!_mUnknown_PcrControl) return _mValue_PcrControl;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.PcrControl' is not present");
+            }
+        }
 
-        public string? PcrControl => _mPcrControl.GetValue("pcrControl");
-
-        [Input("pcrPeriod")]
+        [PolicyResourceProperty("pcrPeriod", "_mUnknown_PcrPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPcrPeriod;
+        private int? _mValue_PcrPeriod;
+        private bool _mUnknown_PcrPeriod;
+        public int? PcrPeriod
+        {
+            get
+            {
+                if (!_mUnknown_PcrPeriod) return _mValue_PcrPeriod;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.PcrPeriod' is not present");
+            }
+        }
 
-        public int? PcrPeriod => _mPcrPeriod.GetValue("pcrPeriod");
-
-        [Input("pcrPid")]
+        [PolicyResourceProperty("pcrPid", "_mUnknown_PcrPid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPcrPid;
+        private string? _mValue_PcrPid;
+        private bool _mUnknown_PcrPid;
+        public string? PcrPid
+        {
+            get
+            {
+                if (!_mUnknown_PcrPid) return _mValue_PcrPid;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.PcrPid' is not present");
+            }
+        }
 
-        public string? PcrPid => _mPcrPid.GetValue("pcrPid");
-
-        [Input("pmtInterval")]
+        [PolicyResourceProperty("pmtInterval", "_mUnknown_PmtInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPmtInterval;
+        private int? _mValue_PmtInterval;
+        private bool _mUnknown_PmtInterval;
+        public int? PmtInterval
+        {
+            get
+            {
+                if (!_mUnknown_PmtInterval) return _mValue_PmtInterval;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.PmtInterval' is not present");
+            }
+        }
 
-        public int? PmtInterval => _mPmtInterval.GetValue("pmtInterval");
-
-        [Input("pmtPid")]
+        [PolicyResourceProperty("pmtPid", "_mUnknown_PmtPid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPmtPid;
+        private string? _mValue_PmtPid;
+        private bool _mUnknown_PmtPid;
+        public string? PmtPid
+        {
+            get
+            {
+                if (!_mUnknown_PmtPid) return _mValue_PmtPid;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.PmtPid' is not present");
+            }
+        }
 
-        public string? PmtPid => _mPmtPid.GetValue("pmtPid");
-
-        [Input("programNum")]
+        [PolicyResourceProperty("programNum", "_mUnknown_ProgramNum")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mProgramNum;
+        private int? _mValue_ProgramNum;
+        private bool _mUnknown_ProgramNum;
+        public int? ProgramNum
+        {
+            get
+            {
+                if (!_mUnknown_ProgramNum) return _mValue_ProgramNum;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.ProgramNum' is not present");
+            }
+        }
 
-        public int? ProgramNum => _mProgramNum.GetValue("programNum");
-
-        [Input("scte35Behavior")]
+        [PolicyResourceProperty("scte35Behavior", "_mUnknown_Scte35Behavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScte35Behavior;
-
-        public string? Scte35Behavior => _mScte35Behavior.GetValue("scte35Behavior");
+        private string? _mValue_Scte35Behavior;
+        private bool _mUnknown_Scte35Behavior;
+        public string? Scte35Behavior
+        {
+            get
+            {
+                if (!_mUnknown_Scte35Behavior) return _mValue_Scte35Behavior;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.Scte35Behavior' is not present");
+            }
+        }
 
         /// <summary>
         /// PID from which to read SCTE-35 messages.
         /// </summary>
-        [Input("scte35Pid")]
+        [PolicyResourceProperty("scte35Pid", "_mUnknown_Scte35Pid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScte35Pid;
+        private string? _mValue_Scte35Pid;
+        private bool _mUnknown_Scte35Pid;
+        public string? Scte35Pid
+        {
+            get
+            {
+                if (!_mUnknown_Scte35Pid) return _mValue_Scte35Pid;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.Scte35Pid' is not present");
+            }
+        }
 
-        public string? Scte35Pid => _mScte35Pid.GetValue("scte35Pid");
-
-        [Input("timedMetadataBehavior")]
+        [PolicyResourceProperty("timedMetadataBehavior", "_mUnknown_TimedMetadataBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimedMetadataBehavior;
+        private string? _mValue_TimedMetadataBehavior;
+        private bool _mUnknown_TimedMetadataBehavior;
+        public string? TimedMetadataBehavior
+        {
+            get
+            {
+                if (!_mUnknown_TimedMetadataBehavior) return _mValue_TimedMetadataBehavior;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.TimedMetadataBehavior' is not present");
+            }
+        }
 
-        public string? TimedMetadataBehavior => _mTimedMetadataBehavior.GetValue("timedMetadataBehavior");
-
-        [Input("timedMetadataPid")]
+        [PolicyResourceProperty("timedMetadataPid", "_mUnknown_TimedMetadataPid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimedMetadataPid;
+        private string? _mValue_TimedMetadataPid;
+        private bool _mUnknown_TimedMetadataPid;
+        public string? TimedMetadataPid
+        {
+            get
+            {
+                if (!_mUnknown_TimedMetadataPid) return _mValue_TimedMetadataPid;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.TimedMetadataPid' is not present");
+            }
+        }
 
-        public string? TimedMetadataPid => _mTimedMetadataPid.GetValue("timedMetadataPid");
-
-        [Input("transportStreamId")]
+        [PolicyResourceProperty("transportStreamId", "_mUnknown_TransportStreamId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTransportStreamId;
+        private int? _mValue_TransportStreamId;
+        private bool _mUnknown_TransportStreamId;
+        public int? TransportStreamId
+        {
+            get
+            {
+                if (!_mUnknown_TransportStreamId) return _mValue_TransportStreamId;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.TransportStreamId' is not present");
+            }
+        }
 
-        public int? TransportStreamId => _mTransportStreamId.GetValue("transportStreamId");
-
-        [Input("videoPid")]
+        [PolicyResourceProperty("videoPid", "_mUnknown_VideoPid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVideoPid;
-
-        public string? VideoPid => _mVideoPid.GetValue("videoPid");
+        private string? _mValue_VideoPid;
+        private bool _mUnknown_VideoPid;
+        public string? VideoPid
+        {
+            get
+            {
+                if (!_mUnknown_VideoPid) return _mValue_VideoPid;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.VideoPid' is not present");
+            }
+        }
     }
 }

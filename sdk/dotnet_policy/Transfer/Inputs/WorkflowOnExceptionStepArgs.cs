@@ -15,52 +15,94 @@ namespace Pulumi.PolicyPacks.Aws.Transfer.Inputs
         /// <summary>
         /// Details for a step that performs a file copy. See Copy Step Details below.
         /// </summary>
-        [Input("copyStepDetails")]
+        [PolicyResourceProperty("copyStepDetails", "_mUnknown_CopyStepDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkflowOnExceptionStepCopyStepDetailsArgs> _mCopyStepDetails;
-
-        public Inputs.WorkflowOnExceptionStepCopyStepDetailsArgs? CopyStepDetails => _mCopyStepDetails.GetValue("copyStepDetails");
+        private Inputs.WorkflowOnExceptionStepCopyStepDetailsArgs? _mValue_CopyStepDetails;
+        private bool _mUnknown_CopyStepDetails;
+        public Inputs.WorkflowOnExceptionStepCopyStepDetailsArgs? CopyStepDetails
+        {
+            get
+            {
+                if (!_mUnknown_CopyStepDetails) return _mValue_CopyStepDetails;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepArgs.CopyStepDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Details for a step that invokes a lambda function.
         /// </summary>
-        [Input("customStepDetails")]
+        [PolicyResourceProperty("customStepDetails", "_mUnknown_CustomStepDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkflowOnExceptionStepCustomStepDetailsArgs> _mCustomStepDetails;
-
-        public Inputs.WorkflowOnExceptionStepCustomStepDetailsArgs? CustomStepDetails => _mCustomStepDetails.GetValue("customStepDetails");
+        private Inputs.WorkflowOnExceptionStepCustomStepDetailsArgs? _mValue_CustomStepDetails;
+        private bool _mUnknown_CustomStepDetails;
+        public Inputs.WorkflowOnExceptionStepCustomStepDetailsArgs? CustomStepDetails
+        {
+            get
+            {
+                if (!_mUnknown_CustomStepDetails) return _mValue_CustomStepDetails;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepArgs.CustomStepDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Details for a step that decrypts the file.
         /// </summary>
-        [Input("decryptStepDetails")]
+        [PolicyResourceProperty("decryptStepDetails", "_mUnknown_DecryptStepDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkflowOnExceptionStepDecryptStepDetailsArgs> _mDecryptStepDetails;
-
-        public Inputs.WorkflowOnExceptionStepDecryptStepDetailsArgs? DecryptStepDetails => _mDecryptStepDetails.GetValue("decryptStepDetails");
+        private Inputs.WorkflowOnExceptionStepDecryptStepDetailsArgs? _mValue_DecryptStepDetails;
+        private bool _mUnknown_DecryptStepDetails;
+        public Inputs.WorkflowOnExceptionStepDecryptStepDetailsArgs? DecryptStepDetails
+        {
+            get
+            {
+                if (!_mUnknown_DecryptStepDetails) return _mValue_DecryptStepDetails;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepArgs.DecryptStepDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Details for a step that deletes the file.
         /// </summary>
-        [Input("deleteStepDetails")]
+        [PolicyResourceProperty("deleteStepDetails", "_mUnknown_DeleteStepDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkflowOnExceptionStepDeleteStepDetailsArgs> _mDeleteStepDetails;
-
-        public Inputs.WorkflowOnExceptionStepDeleteStepDetailsArgs? DeleteStepDetails => _mDeleteStepDetails.GetValue("deleteStepDetails");
+        private Inputs.WorkflowOnExceptionStepDeleteStepDetailsArgs? _mValue_DeleteStepDetails;
+        private bool _mUnknown_DeleteStepDetails;
+        public Inputs.WorkflowOnExceptionStepDeleteStepDetailsArgs? DeleteStepDetails
+        {
+            get
+            {
+                if (!_mUnknown_DeleteStepDetails) return _mValue_DeleteStepDetails;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepArgs.DeleteStepDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Details for a step that creates one or more tags.
         /// </summary>
-        [Input("tagStepDetails")]
+        [PolicyResourceProperty("tagStepDetails", "_mUnknown_TagStepDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkflowOnExceptionStepTagStepDetailsArgs> _mTagStepDetails;
+        private Inputs.WorkflowOnExceptionStepTagStepDetailsArgs? _mValue_TagStepDetails;
+        private bool _mUnknown_TagStepDetails;
+        public Inputs.WorkflowOnExceptionStepTagStepDetailsArgs? TagStepDetails
+        {
+            get
+            {
+                if (!_mUnknown_TagStepDetails) return _mValue_TagStepDetails;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepArgs.TagStepDetails' is not present");
+            }
+        }
 
-        public Inputs.WorkflowOnExceptionStepTagStepDetailsArgs? TagStepDetails => _mTagStepDetails.GetValue("tagStepDetails");
-
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepArgs.Type' is not present");
+            }
+        }
     }
 }

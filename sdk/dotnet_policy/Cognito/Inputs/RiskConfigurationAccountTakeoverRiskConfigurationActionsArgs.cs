@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Inputs
         /// <summary>
         /// Action to take for a high risk. See action block below.
         /// </summary>
-        [Input("highAction")]
+        [PolicyResourceProperty("highAction", "_mUnknown_HighAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs> _mHighAction;
-
-        public Inputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs? HighAction => _mHighAction.GetValue("highAction");
+        private Inputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs? _mValue_HighAction;
+        private bool _mUnknown_HighAction;
+        public Inputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs? HighAction
+        {
+            get
+            {
+                if (!_mUnknown_HighAction) return _mValue_HighAction;
+                throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs.HighAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Action to take for a low risk. See action block below.
         /// </summary>
-        [Input("lowAction")]
+        [PolicyResourceProperty("lowAction", "_mUnknown_LowAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs> _mLowAction;
-
-        public Inputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs? LowAction => _mLowAction.GetValue("lowAction");
+        private Inputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs? _mValue_LowAction;
+        private bool _mUnknown_LowAction;
+        public Inputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs? LowAction
+        {
+            get
+            {
+                if (!_mUnknown_LowAction) return _mValue_LowAction;
+                throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs.LowAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Action to take for a medium risk. See action block below.
         /// </summary>
-        [Input("mediumAction")]
+        [PolicyResourceProperty("mediumAction", "_mUnknown_MediumAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs> _mMediumAction;
-
-        public Inputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs? MediumAction => _mMediumAction.GetValue("mediumAction");
+        private Inputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs? _mValue_MediumAction;
+        private bool _mUnknown_MediumAction;
+        public Inputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs? MediumAction
+        {
+            get
+            {
+                if (!_mUnknown_MediumAction) return _mValue_MediumAction;
+                throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs.MediumAction' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.LicenseManager.Outputs
         /// <summary>
         /// A list of allowed operations.
         /// </summary>
-        [Input("allowedOperations")]
+        [PolicyResourceProperty("allowedOperations", "_mUnknown_AllowedOperations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedOperations;
-
-        public List<string>? AllowedOperations => _mAllowedOperations.GetValue("allowedOperations");
+        private List<string>? _mValue_AllowedOperations;
+        private bool _mUnknown_AllowedOperations;
+        public List<string>? AllowedOperations
+        {
+            get
+            {
+                if (!_mUnknown_AllowedOperations) return _mValue_AllowedOperations;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseReceivedMetadataResult.AllowedOperations' is not present");
+            }
+        }
 
         /// <summary>
         /// Received status.
         /// </summary>
-        [Input("receivedStatus")]
+        [PolicyResourceProperty("receivedStatus", "_mUnknown_ReceivedStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReceivedStatus;
-
-        public string? ReceivedStatus => _mReceivedStatus.GetValue("receivedStatus");
+        private string? _mValue_ReceivedStatus;
+        private bool _mUnknown_ReceivedStatus;
+        public string? ReceivedStatus
+        {
+            get
+            {
+                if (!_mUnknown_ReceivedStatus) return _mValue_ReceivedStatus;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseReceivedMetadataResult.ReceivedStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Received status reason.
         /// </summary>
-        [Input("receivedStatusReason")]
+        [PolicyResourceProperty("receivedStatusReason", "_mUnknown_ReceivedStatusReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReceivedStatusReason;
-
-        public string? ReceivedStatusReason => _mReceivedStatusReason.GetValue("receivedStatusReason");
+        private string? _mValue_ReceivedStatusReason;
+        private bool _mUnknown_ReceivedStatusReason;
+        public string? ReceivedStatusReason
+        {
+            get
+            {
+                if (!_mUnknown_ReceivedStatusReason) return _mValue_ReceivedStatusReason;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseReceivedMetadataResult.ReceivedStatusReason' is not present");
+            }
+        }
     }
 }

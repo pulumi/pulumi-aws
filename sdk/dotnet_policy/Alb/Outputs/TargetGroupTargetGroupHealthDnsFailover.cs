@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Alb.Outputs
         /// <summary>
         /// The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to the maximum number of targets. The default is `off`.
         /// </summary>
-        [Input("minimumHealthyTargetsCount")]
+        [PolicyResourceProperty("minimumHealthyTargetsCount", "_mUnknown_MinimumHealthyTargetsCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMinimumHealthyTargetsCount;
-
-        public string? MinimumHealthyTargetsCount => _mMinimumHealthyTargetsCount.GetValue("minimumHealthyTargetsCount");
+        private string? _mValue_MinimumHealthyTargetsCount;
+        private bool _mUnknown_MinimumHealthyTargetsCount;
+        public string? MinimumHealthyTargetsCount
+        {
+            get
+            {
+                if (!_mUnknown_MinimumHealthyTargetsCount) return _mValue_MinimumHealthyTargetsCount;
+                throw new UndeferrableValueException("Value 'TargetGroupTargetGroupHealthDnsFailover.MinimumHealthyTargetsCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
         /// </summary>
-        [Input("minimumHealthyTargetsPercentage")]
+        [PolicyResourceProperty("minimumHealthyTargetsPercentage", "_mUnknown_MinimumHealthyTargetsPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMinimumHealthyTargetsPercentage;
-
-        public string? MinimumHealthyTargetsPercentage => _mMinimumHealthyTargetsPercentage.GetValue("minimumHealthyTargetsPercentage");
+        private string? _mValue_MinimumHealthyTargetsPercentage;
+        private bool _mUnknown_MinimumHealthyTargetsPercentage;
+        public string? MinimumHealthyTargetsPercentage
+        {
+            get
+            {
+                if (!_mUnknown_MinimumHealthyTargetsPercentage) return _mValue_MinimumHealthyTargetsPercentage;
+                throw new UndeferrableValueException("Value 'TargetGroupTargetGroupHealthDnsFailover.MinimumHealthyTargetsPercentage' is not present");
+            }
+        }
     }
 }

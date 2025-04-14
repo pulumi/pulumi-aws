@@ -15,21 +15,35 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy.Outputs
         /// <summary>
         /// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
         /// </summary>
-        [Input("deploymentOption")]
+        [PolicyResourceProperty("deploymentOption", "_mUnknown_DeploymentOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentOption;
-
-        public string? DeploymentOption => _mDeploymentOption.GetValue("deploymentOption");
+        private string? _mValue_DeploymentOption;
+        private bool _mUnknown_DeploymentOption;
+        public string? DeploymentOption
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentOption) return _mValue_DeploymentOption;
+                throw new UndeferrableValueException("Value 'DeploymentGroupDeploymentStyle.DeploymentOption' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
         /// 
         /// _Only one `deployment_style` is allowed_.
         /// </summary>
-        [Input("deploymentType")]
+        [PolicyResourceProperty("deploymentType", "_mUnknown_DeploymentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentType;
-
-        public string? DeploymentType => _mDeploymentType.GetValue("deploymentType");
+        private string? _mValue_DeploymentType;
+        private bool _mUnknown_DeploymentType;
+        public string? DeploymentType
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentType) return _mValue_DeploymentType;
+                throw new UndeferrableValueException("Value 'DeploymentGroupDeploymentStyle.DeploymentType' is not present");
+            }
+        }
     }
 }

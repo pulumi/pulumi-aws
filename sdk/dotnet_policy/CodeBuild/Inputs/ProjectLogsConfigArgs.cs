@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Inputs
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("cloudwatchLogs")]
+        [PolicyResourceProperty("cloudwatchLogs", "_mUnknown_CloudwatchLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectLogsConfigCloudwatchLogsArgs> _mCloudwatchLogs;
-
-        public Inputs.ProjectLogsConfigCloudwatchLogsArgs? CloudwatchLogs => _mCloudwatchLogs.GetValue("cloudwatchLogs");
+        private Inputs.ProjectLogsConfigCloudwatchLogsArgs? _mValue_CloudwatchLogs;
+        private bool _mUnknown_CloudwatchLogs;
+        public Inputs.ProjectLogsConfigCloudwatchLogsArgs? CloudwatchLogs
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogs) return _mValue_CloudwatchLogs;
+                throw new UndeferrableValueException("Value 'ProjectLogsConfigArgs.CloudwatchLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("s3Logs")]
+        [PolicyResourceProperty("s3Logs", "_mUnknown_S3Logs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectLogsConfigS3LogsArgs> _mS3Logs;
-
-        public Inputs.ProjectLogsConfigS3LogsArgs? S3Logs => _mS3Logs.GetValue("s3Logs");
+        private Inputs.ProjectLogsConfigS3LogsArgs? _mValue_S3Logs;
+        private bool _mUnknown_S3Logs;
+        public Inputs.ProjectLogsConfigS3LogsArgs? S3Logs
+        {
+            get
+            {
+                if (!_mUnknown_S3Logs) return _mValue_S3Logs;
+                throw new UndeferrableValueException("Value 'ProjectLogsConfigArgs.S3Logs' is not present");
+            }
+        }
     }
 }

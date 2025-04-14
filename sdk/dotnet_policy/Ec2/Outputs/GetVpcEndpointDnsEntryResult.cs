@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// DNS name.
         /// </summary>
-        [Input("dnsName")]
+        [PolicyResourceProperty("dnsName", "_mUnknown_DnsName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsName;
-
-        public string? DnsName => _mDnsName.GetValue("dnsName");
+        private string? _mValue_DnsName;
+        private bool _mUnknown_DnsName;
+        public string? DnsName
+        {
+            get
+            {
+                if (!_mUnknown_DnsName) return _mValue_DnsName;
+                throw new UndeferrableValueException("Value 'GetVpcEndpointDnsEntryResult.DnsName' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the private hosted zone.
         /// </summary>
-        [Input("hostedZoneId")]
+        [PolicyResourceProperty("hostedZoneId", "_mUnknown_HostedZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
-
-        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+        private string? _mValue_HostedZoneId;
+        private bool _mUnknown_HostedZoneId;
+        public string? HostedZoneId
+        {
+            get
+            {
+                if (!_mUnknown_HostedZoneId) return _mValue_HostedZoneId;
+                throw new UndeferrableValueException("Value 'GetVpcEndpointDnsEntryResult.HostedZoneId' is not present");
+            }
+        }
     }
 }

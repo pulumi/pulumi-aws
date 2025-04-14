@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Inputs
         /// <summary>
         /// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
         /// </summary>
-        [Input("commands")]
+        [PolicyResourceProperty("commands", "_mUnknown_Commands")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCommands;
-
-        public List<string>? Commands => _mCommands.GetValue("commands");
+        private List<string>? _mValue_Commands;
+        private bool _mUnknown_Commands;
+        public List<string>? Commands
+        {
+            get
+            {
+                if (!_mUnknown_Commands) return _mValue_Commands;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersContainerOverridesArgs.Commands' is not present");
+            }
+        }
 
         /// <summary>
         /// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
         /// </summary>
-        [Input("environments")]
+        [PolicyResourceProperty("environments", "_mUnknown_Environments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs>> _mEnvironments;
-
-        public List<Inputs.PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs>? Environments => _mEnvironments.GetValue("environments");
+        private List<Inputs.PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs>? _mValue_Environments;
+        private bool _mUnknown_Environments;
+        public List<Inputs.PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs>? Environments
+        {
+            get
+            {
+                if (!_mUnknown_Environments) return _mValue_Environments;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersContainerOverridesArgs.Environments' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersContainerOverridesArgs.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
         /// </summary>
-        [Input("resourceRequirements")]
+        [PolicyResourceProperty("resourceRequirements", "_mUnknown_ResourceRequirements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs>> _mResourceRequirements;
-
-        public List<Inputs.PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs>? ResourceRequirements => _mResourceRequirements.GetValue("resourceRequirements");
+        private List<Inputs.PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs>? _mValue_ResourceRequirements;
+        private bool _mUnknown_ResourceRequirements;
+        public List<Inputs.PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs>? ResourceRequirements
+        {
+            get
+            {
+                if (!_mUnknown_ResourceRequirements) return _mValue_ResourceRequirements;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersContainerOverridesArgs.ResourceRequirements' is not present");
+            }
+        }
     }
 }

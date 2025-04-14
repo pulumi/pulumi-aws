@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner.Inputs
         /// <summary>
         /// Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
         /// </summary>
-        [Input("authenticationConfiguration")]
+        [PolicyResourceProperty("authenticationConfiguration", "_mUnknown_AuthenticationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceSourceConfigurationAuthenticationConfigurationArgs> _mAuthenticationConfiguration;
-
-        public Inputs.ServiceSourceConfigurationAuthenticationConfigurationArgs? AuthenticationConfiguration => _mAuthenticationConfiguration.GetValue("authenticationConfiguration");
+        private Inputs.ServiceSourceConfigurationAuthenticationConfigurationArgs? _mValue_AuthenticationConfiguration;
+        private bool _mUnknown_AuthenticationConfiguration;
+        public Inputs.ServiceSourceConfigurationAuthenticationConfigurationArgs? AuthenticationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationConfiguration) return _mValue_AuthenticationConfiguration;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationArgs.AuthenticationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
         /// </summary>
-        [Input("autoDeploymentsEnabled")]
+        [PolicyResourceProperty("autoDeploymentsEnabled", "_mUnknown_AutoDeploymentsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoDeploymentsEnabled;
-
-        public bool? AutoDeploymentsEnabled => _mAutoDeploymentsEnabled.GetValue("autoDeploymentsEnabled");
+        private bool? _mValue_AutoDeploymentsEnabled;
+        private bool _mUnknown_AutoDeploymentsEnabled;
+        public bool? AutoDeploymentsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_AutoDeploymentsEnabled) return _mValue_AutoDeploymentsEnabled;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationArgs.AutoDeploymentsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of a source code repository. See Code Repository below for more details.
         /// </summary>
-        [Input("codeRepository")]
+        [PolicyResourceProperty("codeRepository", "_mUnknown_CodeRepository")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceSourceConfigurationCodeRepositoryArgs> _mCodeRepository;
-
-        public Inputs.ServiceSourceConfigurationCodeRepositoryArgs? CodeRepository => _mCodeRepository.GetValue("codeRepository");
+        private Inputs.ServiceSourceConfigurationCodeRepositoryArgs? _mValue_CodeRepository;
+        private bool _mUnknown_CodeRepository;
+        public Inputs.ServiceSourceConfigurationCodeRepositoryArgs? CodeRepository
+        {
+            get
+            {
+                if (!_mUnknown_CodeRepository) return _mValue_CodeRepository;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationArgs.CodeRepository' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of a source image repository. See Image Repository below for more details.
         /// </summary>
-        [Input("imageRepository")]
+        [PolicyResourceProperty("imageRepository", "_mUnknown_ImageRepository")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceSourceConfigurationImageRepositoryArgs> _mImageRepository;
-
-        public Inputs.ServiceSourceConfigurationImageRepositoryArgs? ImageRepository => _mImageRepository.GetValue("imageRepository");
+        private Inputs.ServiceSourceConfigurationImageRepositoryArgs? _mValue_ImageRepository;
+        private bool _mUnknown_ImageRepository;
+        public Inputs.ServiceSourceConfigurationImageRepositoryArgs? ImageRepository
+        {
+            get
+            {
+                if (!_mUnknown_ImageRepository) return _mValue_ImageRepository;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationArgs.ImageRepository' is not present");
+            }
+        }
     }
 }

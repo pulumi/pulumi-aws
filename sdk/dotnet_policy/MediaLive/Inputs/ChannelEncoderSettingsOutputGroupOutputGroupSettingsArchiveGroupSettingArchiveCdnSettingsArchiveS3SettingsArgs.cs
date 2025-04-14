@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Specify the canned ACL to apply to each S3 request.
         /// </summary>
-        [Input("cannedAcl")]
+        [PolicyResourceProperty("cannedAcl", "_mUnknown_CannedAcl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCannedAcl;
-
-        public string? CannedAcl => _mCannedAcl.GetValue("cannedAcl");
+        private string? _mValue_CannedAcl;
+        private bool _mUnknown_CannedAcl;
+        public string? CannedAcl
+        {
+            get
+            {
+                if (!_mUnknown_CannedAcl) return _mValue_CannedAcl;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs.CannedAcl' is not present");
+            }
+        }
     }
 }

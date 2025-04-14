@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearch_serverless_configuration` block for details.
         /// </summary>
-        [Input("opensearchServerlessConfiguration")]
+        [PolicyResourceProperty("opensearchServerlessConfiguration", "_mUnknown_OpensearchServerlessConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration> _mOpensearchServerlessConfiguration;
-
-        public Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration? OpensearchServerlessConfiguration => _mOpensearchServerlessConfiguration.GetValue("opensearchServerlessConfiguration");
+        private Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration? _mValue_OpensearchServerlessConfiguration;
+        private bool _mUnknown_OpensearchServerlessConfiguration;
+        public Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration? OpensearchServerlessConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_OpensearchServerlessConfiguration) return _mValue_OpensearchServerlessConfiguration;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfiguration.OpensearchServerlessConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` block for details.
         /// </summary>
-        [Input("pineconeConfiguration")]
+        [PolicyResourceProperty("pineconeConfiguration", "_mUnknown_PineconeConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfiguration> _mPineconeConfiguration;
-
-        public Outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfiguration? PineconeConfiguration => _mPineconeConfiguration.GetValue("pineconeConfiguration");
+        private Outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfiguration? _mValue_PineconeConfiguration;
+        private bool _mUnknown_PineconeConfiguration;
+        public Outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfiguration? PineconeConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_PineconeConfiguration) return _mValue_PineconeConfiguration;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfiguration.PineconeConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` block for details.
         /// </summary>
-        [Input("rdsConfiguration")]
+        [PolicyResourceProperty("rdsConfiguration", "_mUnknown_RdsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentKnowledgeBaseStorageConfigurationRdsConfiguration> _mRdsConfiguration;
-
-        public Outputs.AgentKnowledgeBaseStorageConfigurationRdsConfiguration? RdsConfiguration => _mRdsConfiguration.GetValue("rdsConfiguration");
+        private Outputs.AgentKnowledgeBaseStorageConfigurationRdsConfiguration? _mValue_RdsConfiguration;
+        private bool _mUnknown_RdsConfiguration;
+        public Outputs.AgentKnowledgeBaseStorageConfigurationRdsConfiguration? RdsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RdsConfiguration) return _mValue_RdsConfiguration;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfiguration.RdsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
         /// </summary>
-        [Input("redisEnterpriseCloudConfiguration")]
+        [PolicyResourceProperty("redisEnterpriseCloudConfiguration", "_mUnknown_RedisEnterpriseCloudConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration> _mRedisEnterpriseCloudConfiguration;
-
-        public Outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration? RedisEnterpriseCloudConfiguration => _mRedisEnterpriseCloudConfiguration.GetValue("redisEnterpriseCloudConfiguration");
+        private Outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration? _mValue_RedisEnterpriseCloudConfiguration;
+        private bool _mUnknown_RedisEnterpriseCloudConfiguration;
+        public Outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration? RedisEnterpriseCloudConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RedisEnterpriseCloudConfiguration) return _mValue_RedisEnterpriseCloudConfiguration;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfiguration.RedisEnterpriseCloudConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfiguration.Type' is not present");
+            }
+        }
     }
 }

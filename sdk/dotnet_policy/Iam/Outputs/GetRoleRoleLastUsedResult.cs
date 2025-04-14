@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Iam.Outputs
         /// <summary>
         /// The date and time, in RFC 3339 format, that the role was last used.
         /// </summary>
-        [Input("lastUsedDate")]
+        [PolicyResourceProperty("lastUsedDate", "_mUnknown_LastUsedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUsedDate;
-
-        public string? LastUsedDate => _mLastUsedDate.GetValue("lastUsedDate");
+        private string? _mValue_LastUsedDate;
+        private bool _mUnknown_LastUsedDate;
+        public string? LastUsedDate
+        {
+            get
+            {
+                if (!_mUnknown_LastUsedDate) return _mValue_LastUsedDate;
+                throw new UndeferrableValueException("Value 'GetRoleRoleLastUsedResult.LastUsedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the AWS Region in which the role was last used.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'GetRoleRoleLastUsedResult.Region' is not present");
+            }
+        }
     }
 }

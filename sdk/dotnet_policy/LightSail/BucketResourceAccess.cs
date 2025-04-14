@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The name of the bucket to grant access to.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'BucketResourceAccess.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the resource to be granted bucket access.
         /// </summary>
-        [Input("resourceName")]
+        [PolicyResourceProperty("resourceName", "_mUnknown_ResourceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceName;
-
-        public string? ResourceName => _mResourceName.GetValue("resourceName");
+        private string? _mValue_ResourceName;
+        private bool _mUnknown_ResourceName;
+        public string? ResourceName
+        {
+            get
+            {
+                if (!_mUnknown_ResourceName) return _mValue_ResourceName;
+                throw new UndeferrableValueException("Value 'BucketResourceAccess.ResourceName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lightsail/bucketResourceAccess:BucketResourceAccess")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The name of the bucket to grant access to.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'BucketResourceAccessArgs.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the resource to be granted bucket access.
         /// </summary>
-        [Input("resourceName")]
+        [PolicyResourceProperty("resourceName", "_mUnknown_ResourceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceName;
-
-        public string? ResourceName => _mResourceName.GetValue("resourceName");
+        private string? _mValue_ResourceName;
+        private bool _mUnknown_ResourceName;
+        public string? ResourceName
+        {
+            get
+            {
+                if (!_mUnknown_ResourceName) return _mValue_ResourceName;
+                throw new UndeferrableValueException("Value 'BucketResourceAccessArgs.ResourceName' is not present");
+            }
+        }
     }
 }

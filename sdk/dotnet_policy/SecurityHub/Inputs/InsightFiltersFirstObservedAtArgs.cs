@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Inputs
         /// <summary>
         /// A configuration block of the date range for the date filter. See date_range below for more details.
         /// </summary>
-        [Input("dateRange")]
+        [PolicyResourceProperty("dateRange", "_mUnknown_DateRange")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InsightFiltersFirstObservedAtDateRangeArgs> _mDateRange;
-
-        public Inputs.InsightFiltersFirstObservedAtDateRangeArgs? DateRange => _mDateRange.GetValue("dateRange");
+        private Inputs.InsightFiltersFirstObservedAtDateRangeArgs? _mValue_DateRange;
+        private bool _mUnknown_DateRange;
+        public Inputs.InsightFiltersFirstObservedAtDateRangeArgs? DateRange
+        {
+            get
+            {
+                if (!_mUnknown_DateRange) return _mValue_DateRange;
+                throw new UndeferrableValueException("Value 'InsightFiltersFirstObservedAtArgs.DateRange' is not present");
+            }
+        }
 
         /// <summary>
         /// An end date for the date filter. Required with `start` if `date_range` is not specified.
         /// </summary>
-        [Input("end")]
+        [PolicyResourceProperty("end", "_mUnknown_End")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnd;
-
-        public string? End => _mEnd.GetValue("end");
+        private string? _mValue_End;
+        private bool _mUnknown_End;
+        public string? End
+        {
+            get
+            {
+                if (!_mUnknown_End) return _mValue_End;
+                throw new UndeferrableValueException("Value 'InsightFiltersFirstObservedAtArgs.End' is not present");
+            }
+        }
 
         /// <summary>
         /// A start date for the date filter. Required with `end` if `date_range` is not specified.
         /// </summary>
-        [Input("start")]
+        [PolicyResourceProperty("start", "_mUnknown_Start")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStart;
-
-        public string? Start => _mStart.GetValue("start");
+        private string? _mValue_Start;
+        private bool _mUnknown_Start;
+        public string? Start
+        {
+            get
+            {
+                if (!_mUnknown_Start) return _mValue_Start;
+                throw new UndeferrableValueException("Value 'InsightFiltersFirstObservedAtArgs.Start' is not present");
+            }
+        }
     }
 }

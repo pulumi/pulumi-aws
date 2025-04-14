@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
 {
     public sealed class OriginRequestPolicyHeadersConfig
     {
-        [Input("headerBehavior")]
+        [PolicyResourceProperty("headerBehavior", "_mUnknown_HeaderBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHeaderBehavior;
+        private string? _mValue_HeaderBehavior;
+        private bool _mUnknown_HeaderBehavior;
+        public string? HeaderBehavior
+        {
+            get
+            {
+                if (!_mUnknown_HeaderBehavior) return _mValue_HeaderBehavior;
+                throw new UndeferrableValueException("Value 'OriginRequestPolicyHeadersConfig.HeaderBehavior' is not present");
+            }
+        }
 
-        public string? HeaderBehavior => _mHeaderBehavior.GetValue("headerBehavior");
-
-        [Input("headers")]
+        [PolicyResourceProperty("headers", "_mUnknown_Headers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OriginRequestPolicyHeadersConfigHeaders> _mHeaders;
-
-        public Outputs.OriginRequestPolicyHeadersConfigHeaders? Headers => _mHeaders.GetValue("headers");
+        private Outputs.OriginRequestPolicyHeadersConfigHeaders? _mValue_Headers;
+        private bool _mUnknown_Headers;
+        public Outputs.OriginRequestPolicyHeadersConfigHeaders? Headers
+        {
+            get
+            {
+                if (!_mUnknown_Headers) return _mValue_Headers;
+                throw new UndeferrableValueException("Value 'OriginRequestPolicyHeadersConfig.Headers' is not present");
+            }
+        }
     }
 }

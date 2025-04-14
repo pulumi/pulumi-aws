@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Workspaces.Outputs
         /// <summary>
         /// Size of the user storage.
         /// </summary>
-        [Input("capacity")]
+        [PolicyResourceProperty("capacity", "_mUnknown_Capacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCapacity;
-
-        public string? Capacity => _mCapacity.GetValue("capacity");
+        private string? _mValue_Capacity;
+        private bool _mUnknown_Capacity;
+        public string? Capacity
+        {
+            get
+            {
+                if (!_mUnknown_Capacity) return _mValue_Capacity;
+                throw new UndeferrableValueException("Value 'GetBundleRootStorageResult.Capacity' is not present");
+            }
+        }
     }
 }

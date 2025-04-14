@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Outputs
         /// <summary>
         /// Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
         /// </summary>
-        [Input("awsVpcConfiguration")]
+        [PolicyResourceProperty("awsVpcConfiguration", "_mUnknown_AwsVpcConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration> _mAwsVpcConfiguration;
-
-        public Outputs.PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration? AwsVpcConfiguration => _mAwsVpcConfiguration.GetValue("awsVpcConfiguration");
+        private Outputs.PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration? _mValue_AwsVpcConfiguration;
+        private bool _mUnknown_AwsVpcConfiguration;
+        public Outputs.PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration? AwsVpcConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AwsVpcConfiguration) return _mValue_AwsVpcConfiguration;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersNetworkConfiguration.AwsVpcConfiguration' is not present");
+            }
+        }
     }
 }

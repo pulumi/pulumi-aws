@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
         /// </summary>
-        [Input("preferredChannelPipeline")]
+        [PolicyResourceProperty("preferredChannelPipeline", "_mUnknown_PreferredChannelPipeline")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredChannelPipeline;
-
-        public string? PreferredChannelPipeline => _mPreferredChannelPipeline.GetValue("preferredChannelPipeline");
+        private string? _mValue_PreferredChannelPipeline;
+        private bool _mUnknown_PreferredChannelPipeline;
+        public string? PreferredChannelPipeline
+        {
+            get
+            {
+                if (!_mUnknown_PreferredChannelPipeline) return _mValue_PreferredChannelPipeline;
+                throw new UndeferrableValueException("Value 'MultiplexProgramMultiplexProgramSettings.PreferredChannelPipeline' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique program number.
         /// </summary>
-        [Input("programNumber")]
+        [PolicyResourceProperty("programNumber", "_mUnknown_ProgramNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mProgramNumber;
-
-        public int? ProgramNumber => _mProgramNumber.GetValue("programNumber");
+        private int? _mValue_ProgramNumber;
+        private bool _mUnknown_ProgramNumber;
+        public int? ProgramNumber
+        {
+            get
+            {
+                if (!_mUnknown_ProgramNumber) return _mValue_ProgramNumber;
+                throw new UndeferrableValueException("Value 'MultiplexProgramMultiplexProgramSettings.ProgramNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// Service Descriptor. See Service Descriptor for more details.
         /// </summary>
-        [Input("serviceDescriptor")]
+        [PolicyResourceProperty("serviceDescriptor", "_mUnknown_ServiceDescriptor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptor> _mServiceDescriptor;
-
-        public Outputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptor? ServiceDescriptor => _mServiceDescriptor.GetValue("serviceDescriptor");
+        private Outputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptor? _mValue_ServiceDescriptor;
+        private bool _mUnknown_ServiceDescriptor;
+        public Outputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptor? ServiceDescriptor
+        {
+            get
+            {
+                if (!_mUnknown_ServiceDescriptor) return _mValue_ServiceDescriptor;
+                throw new UndeferrableValueException("Value 'MultiplexProgramMultiplexProgramSettings.ServiceDescriptor' is not present");
+            }
+        }
 
         /// <summary>
         /// Video settings. See Video Settings for more details.
         /// </summary>
-        [Input("videoSettings")]
+        [PolicyResourceProperty("videoSettings", "_mUnknown_VideoSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MultiplexProgramMultiplexProgramSettingsVideoSettings> _mVideoSettings;
-
-        public Outputs.MultiplexProgramMultiplexProgramSettingsVideoSettings? VideoSettings => _mVideoSettings.GetValue("videoSettings");
+        private Outputs.MultiplexProgramMultiplexProgramSettingsVideoSettings? _mValue_VideoSettings;
+        private bool _mUnknown_VideoSettings;
+        public Outputs.MultiplexProgramMultiplexProgramSettingsVideoSettings? VideoSettings
+        {
+            get
+            {
+                if (!_mUnknown_VideoSettings) return _mValue_VideoSettings;
+                throw new UndeferrableValueException("Value 'MultiplexProgramMultiplexProgramSettings.VideoSettings' is not present");
+            }
+        }
     }
 }

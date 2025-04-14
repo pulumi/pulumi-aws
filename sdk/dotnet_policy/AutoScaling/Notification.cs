@@ -16,30 +16,51 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// <summary>
         /// List of AutoScaling Group Names
         /// </summary>
-        [Input("groupNames")]
+        [PolicyResourceProperty("groupNames", "_mUnknown_GroupNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGroupNames;
-
-        public List<string>? GroupNames => _mGroupNames.GetValue("groupNames");
+        private List<string>? _mValue_GroupNames;
+        private bool _mUnknown_GroupNames;
+        public List<string>? GroupNames
+        {
+            get
+            {
+                if (!_mUnknown_GroupNames) return _mValue_GroupNames;
+                throw new UndeferrableValueException("Value 'Notification.GroupNames' is not present");
+            }
+        }
 
         /// <summary>
         /// List of Notification Types that trigger
         /// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         /// </summary>
-        [Input("notifications")]
+        [PolicyResourceProperty("notifications", "_mUnknown_Notifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotifications;
-
-        public List<string>? Notifications => _mNotifications.GetValue("notifications");
+        private List<string>? _mValue_Notifications;
+        private bool _mUnknown_Notifications;
+        public List<string>? Notifications
+        {
+            get
+            {
+                if (!_mUnknown_Notifications) return _mValue_Notifications;
+                throw new UndeferrableValueException("Value 'Notification.Notifications' is not present");
+            }
+        }
 
         /// <summary>
         /// Topic ARN for notifications to be sent through
         /// </summary>
-        [Input("topicArn")]
+        [PolicyResourceProperty("topicArn", "_mUnknown_TopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopicArn;
-
-        public string? TopicArn => _mTopicArn.GetValue("topicArn");
+        private string? _mValue_TopicArn;
+        private bool _mUnknown_TopicArn;
+        public string? TopicArn
+        {
+            get
+            {
+                if (!_mUnknown_TopicArn) return _mValue_TopicArn;
+                throw new UndeferrableValueException("Value 'Notification.TopicArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:autoscaling/notification:Notification")]
@@ -48,29 +69,50 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// <summary>
         /// List of AutoScaling Group Names
         /// </summary>
-        [Input("groupNames")]
+        [PolicyResourceProperty("groupNames", "_mUnknown_GroupNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGroupNames;
-
-        public List<string>? GroupNames => _mGroupNames.GetValue("groupNames");
+        private List<string>? _mValue_GroupNames;
+        private bool _mUnknown_GroupNames;
+        public List<string>? GroupNames
+        {
+            get
+            {
+                if (!_mUnknown_GroupNames) return _mValue_GroupNames;
+                throw new UndeferrableValueException("Value 'NotificationArgs.GroupNames' is not present");
+            }
+        }
 
         /// <summary>
         /// List of Notification Types that trigger
         /// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         /// </summary>
-        [Input("notifications")]
+        [PolicyResourceProperty("notifications", "_mUnknown_Notifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotifications;
-
-        public List<string>? Notifications => _mNotifications.GetValue("notifications");
+        private List<string>? _mValue_Notifications;
+        private bool _mUnknown_Notifications;
+        public List<string>? Notifications
+        {
+            get
+            {
+                if (!_mUnknown_Notifications) return _mValue_Notifications;
+                throw new UndeferrableValueException("Value 'NotificationArgs.Notifications' is not present");
+            }
+        }
 
         /// <summary>
         /// Topic ARN for notifications to be sent through
         /// </summary>
-        [Input("topicArn")]
+        [PolicyResourceProperty("topicArn", "_mUnknown_TopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopicArn;
-
-        public string? TopicArn => _mTopicArn.GetValue("topicArn");
+        private string? _mValue_TopicArn;
+        private bool _mUnknown_TopicArn;
+        public string? TopicArn
+        {
+            get
+            {
+                if (!_mUnknown_TopicArn) return _mValue_TopicArn;
+                throw new UndeferrableValueException("Value 'NotificationArgs.TopicArn' is not present");
+            }
+        }
     }
 }

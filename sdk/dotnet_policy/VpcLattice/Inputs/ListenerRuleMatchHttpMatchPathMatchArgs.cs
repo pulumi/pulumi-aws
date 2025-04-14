@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Inputs
         /// <summary>
         /// Indicates whether the match is case sensitive. Defaults to false.
         /// </summary>
-        [Input("caseSensitive")]
+        [PolicyResourceProperty("caseSensitive", "_mUnknown_CaseSensitive")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCaseSensitive;
-
-        public bool? CaseSensitive => _mCaseSensitive.GetValue("caseSensitive");
+        private bool? _mValue_CaseSensitive;
+        private bool _mUnknown_CaseSensitive;
+        public bool? CaseSensitive
+        {
+            get
+            {
+                if (!_mUnknown_CaseSensitive) return _mValue_CaseSensitive;
+                throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchPathMatchArgs.CaseSensitive' is not present");
+            }
+        }
 
         /// <summary>
         /// The header match type.
         /// </summary>
-        [Input("match")]
+        [PolicyResourceProperty("match", "_mUnknown_Match")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ListenerRuleMatchHttpMatchPathMatchMatchArgs> _mMatch;
-
-        public Inputs.ListenerRuleMatchHttpMatchPathMatchMatchArgs? Match => _mMatch.GetValue("match");
+        private Inputs.ListenerRuleMatchHttpMatchPathMatchMatchArgs? _mValue_Match;
+        private bool _mUnknown_Match;
+        public Inputs.ListenerRuleMatchHttpMatchPathMatchMatchArgs? Match
+        {
+            get
+            {
+                if (!_mUnknown_Match) return _mValue_Match;
+                throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchPathMatchArgs.Match' is not present");
+            }
+        }
     }
 }

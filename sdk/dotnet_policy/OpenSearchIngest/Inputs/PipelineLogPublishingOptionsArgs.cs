@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearchIngest.Inputs
         /// <summary>
         /// The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatch_log_destination` below.
         /// </summary>
-        [Input("cloudwatchLogDestination")]
+        [PolicyResourceProperty("cloudwatchLogDestination", "_mUnknown_CloudwatchLogDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineLogPublishingOptionsCloudwatchLogDestinationArgs> _mCloudwatchLogDestination;
-
-        public Inputs.PipelineLogPublishingOptionsCloudwatchLogDestinationArgs? CloudwatchLogDestination => _mCloudwatchLogDestination.GetValue("cloudwatchLogDestination");
+        private Inputs.PipelineLogPublishingOptionsCloudwatchLogDestinationArgs? _mValue_CloudwatchLogDestination;
+        private bool _mUnknown_CloudwatchLogDestination;
+        public Inputs.PipelineLogPublishingOptionsCloudwatchLogDestinationArgs? CloudwatchLogDestination
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogDestination) return _mValue_CloudwatchLogDestination;
+                throw new UndeferrableValueException("Value 'PipelineLogPublishingOptionsArgs.CloudwatchLogDestination' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether logs should be published.
         /// </summary>
-        [Input("isLoggingEnabled")]
+        [PolicyResourceProperty("isLoggingEnabled", "_mUnknown_IsLoggingEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsLoggingEnabled;
-
-        public bool? IsLoggingEnabled => _mIsLoggingEnabled.GetValue("isLoggingEnabled");
+        private bool? _mValue_IsLoggingEnabled;
+        private bool _mUnknown_IsLoggingEnabled;
+        public bool? IsLoggingEnabled
+        {
+            get
+            {
+                if (!_mUnknown_IsLoggingEnabled) return _mValue_IsLoggingEnabled;
+                throw new UndeferrableValueException("Value 'PipelineLogPublishingOptionsArgs.IsLoggingEnabled' is not present");
+            }
+        }
     }
 }

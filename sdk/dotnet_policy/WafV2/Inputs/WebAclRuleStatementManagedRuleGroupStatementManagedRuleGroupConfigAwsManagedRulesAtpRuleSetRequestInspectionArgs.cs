@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Details about your login page password field. See `password_field` for more details.
         /// </summary>
-        [Input("passwordField")]
+        [PolicyResourceProperty("passwordField", "_mUnknown_PasswordField")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs> _mPasswordField;
-
-        public Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs? PasswordField => _mPasswordField.GetValue("passwordField");
+        private Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs? _mValue_PasswordField;
+        private bool _mUnknown_PasswordField;
+        public Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs? PasswordField
+        {
+            get
+            {
+                if (!_mUnknown_PasswordField) return _mValue_PasswordField;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs.PasswordField' is not present");
+            }
+        }
 
         /// <summary>
         /// The payload type for your login endpoint, either JSON or form encoded.
         /// </summary>
-        [Input("payloadType")]
+        [PolicyResourceProperty("payloadType", "_mUnknown_PayloadType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPayloadType;
-
-        public string? PayloadType => _mPayloadType.GetValue("payloadType");
+        private string? _mValue_PayloadType;
+        private bool _mUnknown_PayloadType;
+        public string? PayloadType
+        {
+            get
+            {
+                if (!_mUnknown_PayloadType) return _mValue_PayloadType;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs.PayloadType' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about your login page username field. See `username_field` for more details.
         /// </summary>
-        [Input("usernameField")]
+        [PolicyResourceProperty("usernameField", "_mUnknown_UsernameField")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs> _mUsernameField;
-
-        public Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs? UsernameField => _mUsernameField.GetValue("usernameField");
+        private Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs? _mValue_UsernameField;
+        private bool _mUnknown_UsernameField;
+        public Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs? UsernameField
+        {
+            get
+            {
+                if (!_mUnknown_UsernameField) return _mValue_UsernameField;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs.UsernameField' is not present");
+            }
+        }
     }
 }

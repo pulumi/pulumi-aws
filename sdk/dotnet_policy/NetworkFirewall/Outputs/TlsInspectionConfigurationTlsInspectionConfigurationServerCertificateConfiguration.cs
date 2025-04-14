@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// ARN of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) for limitations on CA certificates.
         /// </summary>
-        [Input("certificateAuthorityArn")]
+        [PolicyResourceProperty("certificateAuthorityArn", "_mUnknown_CertificateAuthorityArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateAuthorityArn;
-
-        public string? CertificateAuthorityArn => _mCertificateAuthorityArn.GetValue("certificateAuthorityArn");
+        private string? _mValue_CertificateAuthorityArn;
+        private bool _mUnknown_CertificateAuthorityArn;
+        public string? CertificateAuthorityArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateAuthorityArn) return _mValue_CertificateAuthorityArn;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration.CertificateAuthorityArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Check Certificate Revocation Status block. Detailed below.
         /// </summary>
-        [Input("checkCertificateRevocationStatus")]
+        [PolicyResourceProperty("checkCertificateRevocationStatus", "_mUnknown_CheckCertificateRevocationStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus> _mCheckCertificateRevocationStatus;
-
-        public Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus? CheckCertificateRevocationStatus => _mCheckCertificateRevocationStatus.GetValue("checkCertificateRevocationStatus");
+        private Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus? _mValue_CheckCertificateRevocationStatus;
+        private bool _mUnknown_CheckCertificateRevocationStatus;
+        public Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus? CheckCertificateRevocationStatus
+        {
+            get
+            {
+                if (!_mUnknown_CheckCertificateRevocationStatus) return _mValue_CheckCertificateRevocationStatus;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration.CheckCertificateRevocationStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Scope block. Detailed below.
         /// </summary>
-        [Input("scopes")]
+        [PolicyResourceProperty("scopes", "_mUnknown_Scopes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope>> _mScopes;
-
-        public List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope>? Scopes => _mScopes.GetValue("scopes");
+        private List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope>? _mValue_Scopes;
+        private bool _mUnknown_Scopes;
+        public List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope>? Scopes
+        {
+            get
+            {
+                if (!_mUnknown_Scopes) return _mValue_Scopes;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration.Scopes' is not present");
+            }
+        }
 
         /// <summary>
         /// Server certificates to use for inbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html).
         /// </summary>
-        [Input("serverCertificates")]
+        [PolicyResourceProperty("serverCertificates", "_mUnknown_ServerCertificates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate>> _mServerCertificates;
-
-        public List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate>? ServerCertificates => _mServerCertificates.GetValue("serverCertificates");
+        private List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate>? _mValue_ServerCertificates;
+        private bool _mUnknown_ServerCertificates;
+        public List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate>? ServerCertificates
+        {
+            get
+            {
+                if (!_mUnknown_ServerCertificates) return _mValue_ServerCertificates;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration.ServerCertificates' is not present");
+            }
+        }
     }
 }

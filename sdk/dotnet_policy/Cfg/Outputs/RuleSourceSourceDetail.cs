@@ -15,20 +15,34 @@ namespace Pulumi.PolicyPacks.Aws.Cfg.Outputs
         /// <summary>
         /// The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
         /// </summary>
-        [Input("eventSource")]
+        [PolicyResourceProperty("eventSource", "_mUnknown_EventSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventSource;
-
-        public string? EventSource => _mEventSource.GetValue("eventSource");
+        private string? _mValue_EventSource;
+        private bool _mUnknown_EventSource;
+        public string? EventSource
+        {
+            get
+            {
+                if (!_mUnknown_EventSource) return _mValue_EventSource;
+                throw new UndeferrableValueException("Value 'RuleSourceSourceDetail.EventSource' is not present");
+            }
+        }
 
         /// <summary>
         /// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
         /// </summary>
-        [Input("maximumExecutionFrequency")]
+        [PolicyResourceProperty("maximumExecutionFrequency", "_mUnknown_MaximumExecutionFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaximumExecutionFrequency;
-
-        public string? MaximumExecutionFrequency => _mMaximumExecutionFrequency.GetValue("maximumExecutionFrequency");
+        private string? _mValue_MaximumExecutionFrequency;
+        private bool _mUnknown_MaximumExecutionFrequency;
+        public string? MaximumExecutionFrequency
+        {
+            get
+            {
+                if (!_mUnknown_MaximumExecutionFrequency) return _mValue_MaximumExecutionFrequency;
+                throw new UndeferrableValueException("Value 'RuleSourceSourceDetail.MaximumExecutionFrequency' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
@@ -37,10 +51,17 @@ namespace Pulumi.PolicyPacks.Aws.Cfg.Outputs
         /// * `ScheduledNotification` - Triggers a periodic evaluation at the frequency specified for `maximum_execution_frequency`.
         /// * `ConfigurationSnapshotDeliveryCompleted` - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
         /// </summary>
-        [Input("messageType")]
+        [PolicyResourceProperty("messageType", "_mUnknown_MessageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessageType;
-
-        public string? MessageType => _mMessageType.GetValue("messageType");
+        private string? _mValue_MessageType;
+        private bool _mUnknown_MessageType;
+        public string? MessageType
+        {
+            get
+            {
+                if (!_mUnknown_MessageType) return _mValue_MessageType;
+                throw new UndeferrableValueException("Value 'RuleSourceSourceDetail.MessageType' is not present");
+            }
+        }
     }
 }

@@ -15,11 +15,18 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner.Outputs
         /// <summary>
         /// Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
         /// </summary>
-        [Input("codeConfigurationValues")]
+        [PolicyResourceProperty("codeConfigurationValues", "_mUnknown_CodeConfigurationValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues> _mCodeConfigurationValues;
-
-        public Outputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues? CodeConfigurationValues => _mCodeConfigurationValues.GetValue("codeConfigurationValues");
+        private Outputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues? _mValue_CodeConfigurationValues;
+        private bool _mUnknown_CodeConfigurationValues;
+        public Outputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues? CodeConfigurationValues
+        {
+            get
+            {
+                if (!_mUnknown_CodeConfigurationValues) return _mValue_CodeConfigurationValues;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepositoryCodeConfiguration.CodeConfigurationValues' is not present");
+            }
+        }
 
         /// <summary>
         /// Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
@@ -28,10 +35,17 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner.Outputs
         /// * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
         /// parameter and ignores the apprunner.yaml file in the source code repository.
         /// </summary>
-        [Input("configurationSource")]
+        [PolicyResourceProperty("configurationSource", "_mUnknown_ConfigurationSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSource;
-
-        public string? ConfigurationSource => _mConfigurationSource.GetValue("configurationSource");
+        private string? _mValue_ConfigurationSource;
+        private bool _mUnknown_ConfigurationSource;
+        public string? ConfigurationSource
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationSource) return _mValue_ConfigurationSource;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepositoryCodeConfiguration.ConfigurationSource' is not present");
+            }
+        }
     }
 }

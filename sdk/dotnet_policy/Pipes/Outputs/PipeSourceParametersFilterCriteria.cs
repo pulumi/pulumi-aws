@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Outputs
         /// <summary>
         /// An array of up to 5 event patterns. Detailed below.
         /// </summary>
-        [Input("filters")]
+        [PolicyResourceProperty("filters", "_mUnknown_Filters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipeSourceParametersFilterCriteriaFilter>> _mFilters;
-
-        public List<Outputs.PipeSourceParametersFilterCriteriaFilter>? Filters => _mFilters.GetValue("filters");
+        private List<Outputs.PipeSourceParametersFilterCriteriaFilter>? _mValue_Filters;
+        private bool _mUnknown_Filters;
+        public List<Outputs.PipeSourceParametersFilterCriteriaFilter>? Filters
+        {
+            get
+            {
+                if (!_mUnknown_Filters) return _mValue_Filters;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersFilterCriteria.Filters' is not present");
+            }
+        }
     }
 }

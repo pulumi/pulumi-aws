@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Kms.Outputs
         /// <summary>
         /// The globally unique identifier for the key
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'GetKeyXksKeyConfigurationResult.Id' is not present");
+            }
+        }
     }
 }

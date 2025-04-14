@@ -16,110 +16,194 @@ namespace Pulumi.PolicyPacks.Aws.AppConfig
         /// <summary>
         /// Application ID. Must be between 4 and 7 characters in length.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'ConfigurationProfile.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the AppConfig Configuration Profile.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ConfigurationProfile.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration profile ID.
         /// </summary>
-        [Input("configurationProfileId")]
+        [PolicyResourceProperty("configurationProfileId", "_mUnknown_ConfigurationProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationProfileId;
-
-        public string? ConfigurationProfileId => _mConfigurationProfileId.GetValue("configurationProfileId");
+        private string? _mValue_ConfigurationProfileId;
+        private bool _mUnknown_ConfigurationProfileId;
+        public string? ConfigurationProfileId
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationProfileId) return _mValue_ConfigurationProfileId;
+                throw new UndeferrableValueException("Value 'ConfigurationProfile.ConfigurationProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the configuration profile. Can be at most 1024 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ConfigurationProfile.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
         /// </summary>
-        [Input("kmsKeyIdentifier")]
+        [PolicyResourceProperty("kmsKeyIdentifier", "_mUnknown_KmsKeyIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyIdentifier;
-
-        public string? KmsKeyIdentifier => _mKmsKeyIdentifier.GetValue("kmsKeyIdentifier");
+        private string? _mValue_KmsKeyIdentifier;
+        private bool _mUnknown_KmsKeyIdentifier;
+        public string? KmsKeyIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyIdentifier) return _mValue_KmsKeyIdentifier;
+                throw new UndeferrableValueException("Value 'ConfigurationProfile.KmsKeyIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://&lt;Document_name&gt;` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://&lt;Parameter_name&gt;` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://&lt;bucket&gt;/&lt;objectKey&gt;`.
         /// </summary>
-        [Input("locationUri")]
+        [PolicyResourceProperty("locationUri", "_mUnknown_LocationUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocationUri;
-
-        public string? LocationUri => _mLocationUri.GetValue("locationUri");
+        private string? _mValue_LocationUri;
+        private bool _mUnknown_LocationUri;
+        public string? LocationUri
+        {
+            get
+            {
+                if (!_mUnknown_LocationUri) return _mValue_LocationUri;
+                throw new UndeferrableValueException("Value 'ConfigurationProfile.LocationUri' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the configuration profile. Must be between 1 and 128 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConfigurationProfile.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
         /// </summary>
-        [Input("retrievalRoleArn")]
+        [PolicyResourceProperty("retrievalRoleArn", "_mUnknown_RetrievalRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRetrievalRoleArn;
-
-        public string? RetrievalRoleArn => _mRetrievalRoleArn.GetValue("retrievalRoleArn");
+        private string? _mValue_RetrievalRoleArn;
+        private bool _mUnknown_RetrievalRoleArn;
+        public string? RetrievalRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RetrievalRoleArn) return _mValue_RetrievalRoleArn;
+                throw new UndeferrableValueException("Value 'ConfigurationProfile.RetrievalRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ConfigurationProfile.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ConfigurationProfile.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ConfigurationProfile.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
         /// </summary>
-        [Input("validators")]
+        [PolicyResourceProperty("validators", "_mUnknown_Validators")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ConfigurationProfileValidator>> _mValidators;
-
-        public List<Outputs.ConfigurationProfileValidator>? Validators => _mValidators.GetValue("validators");
+        private List<Outputs.ConfigurationProfileValidator>? _mValue_Validators;
+        private bool _mUnknown_Validators;
+        public List<Outputs.ConfigurationProfileValidator>? Validators
+        {
+            get
+            {
+                if (!_mUnknown_Validators) return _mValue_Validators;
+                throw new UndeferrableValueException("Value 'ConfigurationProfile.Validators' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appconfig/configurationProfile:ConfigurationProfile")]
@@ -128,82 +212,145 @@ namespace Pulumi.PolicyPacks.Aws.AppConfig
         /// <summary>
         /// Application ID. Must be between 4 and 7 characters in length.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'ConfigurationProfileArgs.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the configuration profile. Can be at most 1024 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ConfigurationProfileArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
         /// </summary>
-        [Input("kmsKeyIdentifier")]
+        [PolicyResourceProperty("kmsKeyIdentifier", "_mUnknown_KmsKeyIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyIdentifier;
-
-        public string? KmsKeyIdentifier => _mKmsKeyIdentifier.GetValue("kmsKeyIdentifier");
+        private string? _mValue_KmsKeyIdentifier;
+        private bool _mUnknown_KmsKeyIdentifier;
+        public string? KmsKeyIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyIdentifier) return _mValue_KmsKeyIdentifier;
+                throw new UndeferrableValueException("Value 'ConfigurationProfileArgs.KmsKeyIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://&lt;Document_name&gt;` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://&lt;Parameter_name&gt;` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://&lt;bucket&gt;/&lt;objectKey&gt;`.
         /// </summary>
-        [Input("locationUri")]
+        [PolicyResourceProperty("locationUri", "_mUnknown_LocationUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocationUri;
-
-        public string? LocationUri => _mLocationUri.GetValue("locationUri");
+        private string? _mValue_LocationUri;
+        private bool _mUnknown_LocationUri;
+        public string? LocationUri
+        {
+            get
+            {
+                if (!_mUnknown_LocationUri) return _mValue_LocationUri;
+                throw new UndeferrableValueException("Value 'ConfigurationProfileArgs.LocationUri' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the configuration profile. Must be between 1 and 128 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConfigurationProfileArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
         /// </summary>
-        [Input("retrievalRoleArn")]
+        [PolicyResourceProperty("retrievalRoleArn", "_mUnknown_RetrievalRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRetrievalRoleArn;
-
-        public string? RetrievalRoleArn => _mRetrievalRoleArn.GetValue("retrievalRoleArn");
+        private string? _mValue_RetrievalRoleArn;
+        private bool _mUnknown_RetrievalRoleArn;
+        public string? RetrievalRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RetrievalRoleArn) return _mValue_RetrievalRoleArn;
+                throw new UndeferrableValueException("Value 'ConfigurationProfileArgs.RetrievalRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ConfigurationProfileArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ConfigurationProfileArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
         /// </summary>
-        [Input("validators")]
+        [PolicyResourceProperty("validators", "_mUnknown_Validators")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ConfigurationProfileValidatorArgs>> _mValidators;
-
-        public List<Inputs.ConfigurationProfileValidatorArgs>? Validators => _mValidators.GetValue("validators");
+        private List<Inputs.ConfigurationProfileValidatorArgs>? _mValue_Validators;
+        private bool _mUnknown_Validators;
+        public List<Inputs.ConfigurationProfileValidatorArgs>? Validators
+        {
+            get
+            {
+                if (!_mUnknown_Validators) return _mValue_Validators;
+                throw new UndeferrableValueException("Value 'ConfigurationProfileArgs.Validators' is not present");
+            }
+        }
     }
 }

@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// Maximum number of tokens to allow in the generated response.
         /// </summary>
-        [Input("maxLength")]
+        [PolicyResourceProperty("maxLength", "_mUnknown_MaxLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxLength;
-
-        public int? MaxLength => _mMaxLength.GetValue("maxLength");
+        private int? _mValue_MaxLength;
+        private bool _mUnknown_MaxLength;
+        public int? MaxLength
+        {
+            get
+            {
+                if (!_mUnknown_MaxLength) return _mValue_MaxLength;
+                throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration.MaxLength' is not present");
+            }
+        }
 
         /// <summary>
         /// List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
         /// </summary>
-        [Input("stopSequences")]
+        [PolicyResourceProperty("stopSequences", "_mUnknown_StopSequences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStopSequences;
-
-        public List<string>? StopSequences => _mStopSequences.GetValue("stopSequences");
+        private List<string>? _mValue_StopSequences;
+        private bool _mUnknown_StopSequences;
+        public List<string>? StopSequences
+        {
+            get
+            {
+                if (!_mUnknown_StopSequences) return _mValue_StopSequences;
+                throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration.StopSequences' is not present");
+            }
+        }
 
         /// <summary>
         /// Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
         /// </summary>
-        [Input("temperature")]
+        [PolicyResourceProperty("temperature", "_mUnknown_Temperature")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mTemperature;
-
-        public double? Temperature => _mTemperature.GetValue("temperature");
+        private double? _mValue_Temperature;
+        private bool _mUnknown_Temperature;
+        public double? Temperature
+        {
+            get
+            {
+                if (!_mUnknown_Temperature) return _mValue_Temperature;
+                throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration.Temperature' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
         /// </summary>
-        [Input("topK")]
+        [PolicyResourceProperty("topK", "_mUnknown_TopK")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTopK;
-
-        public int? TopK => _mTopK.GetValue("topK");
+        private int? _mValue_TopK;
+        private bool _mUnknown_TopK;
+        public int? TopK
+        {
+            get
+            {
+                if (!_mUnknown_TopK) return _mValue_TopK;
+                throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration.TopK' is not present");
+            }
+        }
 
         /// <summary>
         /// Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
         /// </summary>
-        [Input("topP")]
+        [PolicyResourceProperty("topP", "_mUnknown_TopP")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mTopP;
-
-        public double? TopP => _mTopP.GetValue("topP");
+        private double? _mValue_TopP;
+        private bool _mUnknown_TopP;
+        public double? TopP
+        {
+            get
+            {
+                if (!_mUnknown_TopP) return _mValue_TopP;
+                throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration.TopP' is not present");
+            }
+        }
     }
 }

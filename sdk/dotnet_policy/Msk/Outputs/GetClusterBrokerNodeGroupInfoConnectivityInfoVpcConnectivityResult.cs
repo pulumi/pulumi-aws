@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
 {
     public sealed class GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityResult
     {
-        [Input("clientAuthentications")]
+        [PolicyResourceProperty("clientAuthentications", "_mUnknown_ClientAuthentications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationResult>> _mClientAuthentications;
-
-        public List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationResult>? ClientAuthentications => _mClientAuthentications.GetValue("clientAuthentications");
+        private List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationResult>? _mValue_ClientAuthentications;
+        private bool _mUnknown_ClientAuthentications;
+        public List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationResult>? ClientAuthentications
+        {
+            get
+            {
+                if (!_mUnknown_ClientAuthentications) return _mValue_ClientAuthentications;
+                throw new UndeferrableValueException("Value 'GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityResult.ClientAuthentications' is not present");
+            }
+        }
     }
 }

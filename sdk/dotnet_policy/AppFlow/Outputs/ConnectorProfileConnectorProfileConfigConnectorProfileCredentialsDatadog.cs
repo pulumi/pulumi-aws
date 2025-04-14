@@ -12,19 +12,33 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
 {
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog
     {
-        [Input("apiKey")]
+        [PolicyResourceProperty("apiKey", "_mUnknown_ApiKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiKey;
-
-        public string? ApiKey => _mApiKey.GetValue("apiKey");
+        private string? _mValue_ApiKey;
+        private bool _mUnknown_ApiKey;
+        public string? ApiKey
+        {
+            get
+            {
+                if (!_mUnknown_ApiKey) return _mValue_ApiKey;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog.ApiKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
         /// </summary>
-        [Input("applicationKey")]
+        [PolicyResourceProperty("applicationKey", "_mUnknown_ApplicationKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationKey;
-
-        public string? ApplicationKey => _mApplicationKey.GetValue("applicationKey");
+        private string? _mValue_ApplicationKey;
+        private bool _mUnknown_ApplicationKey;
+        public string? ApplicationKey
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationKey) return _mValue_ApplicationKey;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog.ApplicationKey' is not present");
+            }
+        }
     }
 }

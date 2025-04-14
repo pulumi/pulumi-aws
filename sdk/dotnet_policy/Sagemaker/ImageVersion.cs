@@ -16,53 +16,95 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ImageVersion.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The registry path of the container image on which this image version is based.
         /// </summary>
-        [Input("baseImage")]
+        [PolicyResourceProperty("baseImage", "_mUnknown_BaseImage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaseImage;
-
-        public string? BaseImage => _mBaseImage.GetValue("baseImage");
+        private string? _mValue_BaseImage;
+        private bool _mUnknown_BaseImage;
+        public string? BaseImage
+        {
+            get
+            {
+                if (!_mUnknown_BaseImage) return _mValue_BaseImage;
+                throw new UndeferrableValueException("Value 'ImageVersion.BaseImage' is not present");
+            }
+        }
 
         /// <summary>
         /// The registry path of the container image that contains this image version.
         /// </summary>
-        [Input("containerImage")]
+        [PolicyResourceProperty("containerImage", "_mUnknown_ContainerImage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerImage;
-
-        public string? ContainerImage => _mContainerImage.GetValue("containerImage");
+        private string? _mValue_ContainerImage;
+        private bool _mUnknown_ContainerImage;
+        public string? ContainerImage
+        {
+            get
+            {
+                if (!_mUnknown_ContainerImage) return _mValue_ContainerImage;
+                throw new UndeferrableValueException("Value 'ImageVersion.ContainerImage' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the image the version is based on.
         /// </summary>
-        [Input("imageArn")]
+        [PolicyResourceProperty("imageArn", "_mUnknown_ImageArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageArn;
-
-        public string? ImageArn => _mImageArn.GetValue("imageArn");
+        private string? _mValue_ImageArn;
+        private bool _mUnknown_ImageArn;
+        public string? ImageArn
+        {
+            get
+            {
+                if (!_mUnknown_ImageArn) return _mValue_ImageArn;
+                throw new UndeferrableValueException("Value 'ImageVersion.ImageArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the image. Must be unique to your account.
         /// </summary>
-        [Input("imageName")]
+        [PolicyResourceProperty("imageName", "_mUnknown_ImageName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageName;
+        private string? _mValue_ImageName;
+        private bool _mUnknown_ImageName;
+        public string? ImageName
+        {
+            get
+            {
+                if (!_mUnknown_ImageName) return _mValue_ImageName;
+                throw new UndeferrableValueException("Value 'ImageVersion.ImageName' is not present");
+            }
+        }
 
-        public string? ImageName => _mImageName.GetValue("imageName");
-
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
-
-        public int? Version => _mVersion.GetValue("version");
+        private int? _mValue_Version;
+        private bool _mUnknown_Version;
+        public int? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'ImageVersion.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/imageVersion:ImageVersion")]
@@ -71,19 +113,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The registry path of the container image on which this image version is based.
         /// </summary>
-        [Input("baseImage")]
+        [PolicyResourceProperty("baseImage", "_mUnknown_BaseImage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaseImage;
-
-        public string? BaseImage => _mBaseImage.GetValue("baseImage");
+        private string? _mValue_BaseImage;
+        private bool _mUnknown_BaseImage;
+        public string? BaseImage
+        {
+            get
+            {
+                if (!_mUnknown_BaseImage) return _mValue_BaseImage;
+                throw new UndeferrableValueException("Value 'ImageVersionArgs.BaseImage' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the image. Must be unique to your account.
         /// </summary>
-        [Input("imageName")]
+        [PolicyResourceProperty("imageName", "_mUnknown_ImageName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageName;
-
-        public string? ImageName => _mImageName.GetValue("imageName");
+        private string? _mValue_ImageName;
+        private bool _mUnknown_ImageName;
+        public string? ImageName
+        {
+            get
+            {
+                if (!_mUnknown_ImageName) return _mValue_ImageName;
+                throw new UndeferrableValueException("Value 'ImageVersionArgs.ImageName' is not present");
+            }
+        }
     }
 }

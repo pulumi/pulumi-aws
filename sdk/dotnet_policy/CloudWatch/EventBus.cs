@@ -16,67 +16,116 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// ARN of the event bus.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'EventBus.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Event bus description.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'EventBus.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Partner event source that the new event bus will be matched with. Must match `name`.
         /// </summary>
-        [Input("eventSourceName")]
+        [PolicyResourceProperty("eventSourceName", "_mUnknown_EventSourceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventSourceName;
-
-        public string? EventSourceName => _mEventSourceName.GetValue("eventSourceName");
+        private string? _mValue_EventSourceName;
+        private bool _mUnknown_EventSourceName;
+        public string? EventSourceName
+        {
+            get
+            {
+                if (!_mUnknown_EventSourceName) return _mValue_EventSourceName;
+                throw new UndeferrableValueException("Value 'EventBus.EventSourceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
         /// </summary>
-        [Input("kmsKeyIdentifier")]
+        [PolicyResourceProperty("kmsKeyIdentifier", "_mUnknown_KmsKeyIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyIdentifier;
-
-        public string? KmsKeyIdentifier => _mKmsKeyIdentifier.GetValue("kmsKeyIdentifier");
+        private string? _mValue_KmsKeyIdentifier;
+        private bool _mUnknown_KmsKeyIdentifier;
+        public string? KmsKeyIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyIdentifier) return _mValue_KmsKeyIdentifier;
+                throw new UndeferrableValueException("Value 'EventBus.KmsKeyIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EventBus.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EventBus.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'EventBus.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/eventBus:EventBus")]
@@ -85,48 +134,83 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// Event bus description.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'EventBusArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Partner event source that the new event bus will be matched with. Must match `name`.
         /// </summary>
-        [Input("eventSourceName")]
+        [PolicyResourceProperty("eventSourceName", "_mUnknown_EventSourceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventSourceName;
-
-        public string? EventSourceName => _mEventSourceName.GetValue("eventSourceName");
+        private string? _mValue_EventSourceName;
+        private bool _mUnknown_EventSourceName;
+        public string? EventSourceName
+        {
+            get
+            {
+                if (!_mUnknown_EventSourceName) return _mValue_EventSourceName;
+                throw new UndeferrableValueException("Value 'EventBusArgs.EventSourceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
         /// </summary>
-        [Input("kmsKeyIdentifier")]
+        [PolicyResourceProperty("kmsKeyIdentifier", "_mUnknown_KmsKeyIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyIdentifier;
-
-        public string? KmsKeyIdentifier => _mKmsKeyIdentifier.GetValue("kmsKeyIdentifier");
+        private string? _mValue_KmsKeyIdentifier;
+        private bool _mUnknown_KmsKeyIdentifier;
+        public string? KmsKeyIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyIdentifier) return _mValue_KmsKeyIdentifier;
+                throw new UndeferrableValueException("Value 'EventBusArgs.KmsKeyIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EventBusArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EventBusArgs.Tags' is not present");
+            }
+        }
     }
 }

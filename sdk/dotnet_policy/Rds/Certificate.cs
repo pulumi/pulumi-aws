@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// Certificate identifier. For example, `rds-ca-rsa4096-g1`. Refer to [AWS RDS (Relational Database) Certificate Identifier](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.CertificateIdentifier) for more information.
         /// </summary>
-        [Input("certificateIdentifier")]
+        [PolicyResourceProperty("certificateIdentifier", "_mUnknown_CertificateIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateIdentifier;
-
-        public string? CertificateIdentifier => _mCertificateIdentifier.GetValue("certificateIdentifier");
+        private string? _mValue_CertificateIdentifier;
+        private bool _mUnknown_CertificateIdentifier;
+        public string? CertificateIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_CertificateIdentifier) return _mValue_CertificateIdentifier;
+                throw new UndeferrableValueException("Value 'Certificate.CertificateIdentifier' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:rds/certificate:Certificate")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// Certificate identifier. For example, `rds-ca-rsa4096-g1`. Refer to [AWS RDS (Relational Database) Certificate Identifier](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.CertificateIdentifier) for more information.
         /// </summary>
-        [Input("certificateIdentifier")]
+        [PolicyResourceProperty("certificateIdentifier", "_mUnknown_CertificateIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateIdentifier;
-
-        public string? CertificateIdentifier => _mCertificateIdentifier.GetValue("certificateIdentifier");
+        private string? _mValue_CertificateIdentifier;
+        private bool _mUnknown_CertificateIdentifier;
+        public string? CertificateIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_CertificateIdentifier) return _mValue_CertificateIdentifier;
+                throw new UndeferrableValueException("Value 'CertificateArgs.CertificateIdentifier' is not present");
+            }
+        }
     }
 }

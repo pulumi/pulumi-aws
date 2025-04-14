@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Transfer.Inputs
         /// <summary>
         /// Specifies the S3 bucket for the customer input file.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs.Key' is not present");
+            }
+        }
     }
 }

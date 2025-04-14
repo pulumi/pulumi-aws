@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Outputs
         /// <summary>
         /// The conditions that are success conditions. Defined as a `condition` block below.
         /// </summary>
-        [Input("condition")]
+        [PolicyResourceProperty("condition", "_mUnknown_Condition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineStageOnSuccessCondition> _mCondition;
-
-        public Outputs.PipelineStageOnSuccessCondition? Condition => _mCondition.GetValue("condition");
+        private Outputs.PipelineStageOnSuccessCondition? _mValue_Condition;
+        private bool _mUnknown_Condition;
+        public Outputs.PipelineStageOnSuccessCondition? Condition
+        {
+            get
+            {
+                if (!_mUnknown_Condition) return _mValue_Condition;
+                throw new UndeferrableValueException("Value 'PipelineStageOnSuccess.Condition' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class NetworkInsightsAnalysisExplanationClassicLoadBalancerListener
     {
-        [Input("instancePort")]
+        [PolicyResourceProperty("instancePort", "_mUnknown_InstancePort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstancePort;
+        private int? _mValue_InstancePort;
+        private bool _mUnknown_InstancePort;
+        public int? InstancePort
+        {
+            get
+            {
+                if (!_mUnknown_InstancePort) return _mValue_InstancePort;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationClassicLoadBalancerListener.InstancePort' is not present");
+            }
+        }
 
-        public int? InstancePort => _mInstancePort.GetValue("instancePort");
-
-        [Input("loadBalancerPort")]
+        [PolicyResourceProperty("loadBalancerPort", "_mUnknown_LoadBalancerPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLoadBalancerPort;
-
-        public int? LoadBalancerPort => _mLoadBalancerPort.GetValue("loadBalancerPort");
+        private int? _mValue_LoadBalancerPort;
+        private bool _mUnknown_LoadBalancerPort;
+        public int? LoadBalancerPort
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerPort) return _mValue_LoadBalancerPort;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationClassicLoadBalancerListener.LoadBalancerPort' is not present");
+            }
+        }
     }
 }

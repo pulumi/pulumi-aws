@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Configuration block for the person being granted permissions. See below.
         /// </summary>
-        [Input("grantee")]
+        [PolicyResourceProperty("grantee", "_mUnknown_Grantee")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketLoggingV2TargetGrantGranteeArgs> _mGrantee;
-
-        public Inputs.BucketLoggingV2TargetGrantGranteeArgs? Grantee => _mGrantee.GetValue("grantee");
+        private Inputs.BucketLoggingV2TargetGrantGranteeArgs? _mValue_Grantee;
+        private bool _mUnknown_Grantee;
+        public Inputs.BucketLoggingV2TargetGrantGranteeArgs? Grantee
+        {
+            get
+            {
+                if (!_mUnknown_Grantee) return _mValue_Grantee;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2TargetGrantArgs.Grantee' is not present");
+            }
+        }
 
         /// <summary>
         /// Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `READ`, `WRITE`.
         /// </summary>
-        [Input("permission")]
+        [PolicyResourceProperty("permission", "_mUnknown_Permission")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermission;
-
-        public string? Permission => _mPermission.GetValue("permission");
+        private string? _mValue_Permission;
+        private bool _mUnknown_Permission;
+        public string? Permission
+        {
+            get
+            {
+                if (!_mUnknown_Permission) return _mValue_Permission;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2TargetGrantArgs.Permission' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Evidently.Inputs
         /// <summary>
         /// Specifies a number indicating the order to use to evaluate segment overrides, if there are more than one. Segment overrides with lower numbers are evaluated first.
         /// </summary>
-        [Input("evaluationOrder")]
+        [PolicyResourceProperty("evaluationOrder", "_mUnknown_EvaluationOrder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mEvaluationOrder;
-
-        public int? EvaluationOrder => _mEvaluationOrder.GetValue("evaluationOrder");
+        private int? _mValue_EvaluationOrder;
+        private bool _mUnknown_EvaluationOrder;
+        public int? EvaluationOrder
+        {
+            get
+            {
+                if (!_mUnknown_EvaluationOrder) return _mValue_EvaluationOrder;
+                throw new UndeferrableValueException("Value 'LaunchScheduledSplitsConfigStepSegmentOverrideArgs.EvaluationOrder' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or ARN of the segment to use.
         /// </summary>
-        [Input("segment")]
+        [PolicyResourceProperty("segment", "_mUnknown_Segment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSegment;
-
-        public string? Segment => _mSegment.GetValue("segment");
+        private string? _mValue_Segment;
+        private bool _mUnknown_Segment;
+        public string? Segment
+        {
+            get
+            {
+                if (!_mUnknown_Segment) return _mValue_Segment;
+                throw new UndeferrableValueException("Value 'LaunchScheduledSplitsConfigStepSegmentOverrideArgs.Segment' is not present");
+            }
+        }
 
         /// <summary>
         /// The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
         /// </summary>
-        [Input("weights")]
+        [PolicyResourceProperty("weights", "_mUnknown_Weights")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, int>> _mWeights;
-
-        public Dictionary<string, int>? Weights => _mWeights.GetValue("weights");
+        private Dictionary<string, int>? _mValue_Weights;
+        private bool _mUnknown_Weights;
+        public Dictionary<string, int>? Weights
+        {
+            get
+            {
+                if (!_mUnknown_Weights) return _mValue_Weights;
+                throw new UndeferrableValueException("Value 'LaunchScheduledSplitsConfigStepSegmentOverrideArgs.Weights' is not present");
+            }
+        }
     }
 }

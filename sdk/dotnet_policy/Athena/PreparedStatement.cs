@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Athena
         /// <summary>
         /// Brief explanation of prepared statement. Maximum length of 1024.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'PreparedStatement.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the prepared statement. Maximum length of 256.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PreparedStatement.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The query string for the prepared statement.
         /// </summary>
-        [Input("queryStatement")]
+        [PolicyResourceProperty("queryStatement", "_mUnknown_QueryStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueryStatement;
-
-        public string? QueryStatement => _mQueryStatement.GetValue("queryStatement");
+        private string? _mValue_QueryStatement;
+        private bool _mUnknown_QueryStatement;
+        public string? QueryStatement
+        {
+            get
+            {
+                if (!_mUnknown_QueryStatement) return _mValue_QueryStatement;
+                throw new UndeferrableValueException("Value 'PreparedStatement.QueryStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the workgroup to which the prepared statement belongs.
         /// </summary>
-        [Input("workgroup")]
+        [PolicyResourceProperty("workgroup", "_mUnknown_Workgroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroup;
-
-        public string? Workgroup => _mWorkgroup.GetValue("workgroup");
+        private string? _mValue_Workgroup;
+        private bool _mUnknown_Workgroup;
+        public string? Workgroup
+        {
+            get
+            {
+                if (!_mUnknown_Workgroup) return _mValue_Workgroup;
+                throw new UndeferrableValueException("Value 'PreparedStatement.Workgroup' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:athena/preparedStatement:PreparedStatement")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.Athena
         /// <summary>
         /// Brief explanation of prepared statement. Maximum length of 1024.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'PreparedStatementArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the prepared statement. Maximum length of 256.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PreparedStatementArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The query string for the prepared statement.
         /// </summary>
-        [Input("queryStatement")]
+        [PolicyResourceProperty("queryStatement", "_mUnknown_QueryStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueryStatement;
-
-        public string? QueryStatement => _mQueryStatement.GetValue("queryStatement");
+        private string? _mValue_QueryStatement;
+        private bool _mUnknown_QueryStatement;
+        public string? QueryStatement
+        {
+            get
+            {
+                if (!_mUnknown_QueryStatement) return _mValue_QueryStatement;
+                throw new UndeferrableValueException("Value 'PreparedStatementArgs.QueryStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the workgroup to which the prepared statement belongs.
         /// </summary>
-        [Input("workgroup")]
+        [PolicyResourceProperty("workgroup", "_mUnknown_Workgroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroup;
-
-        public string? Workgroup => _mWorkgroup.GetValue("workgroup");
+        private string? _mValue_Workgroup;
+        private bool _mUnknown_Workgroup;
+        public string? Workgroup
+        {
+            get
+            {
+                if (!_mUnknown_Workgroup) return _mValue_Workgroup;
+                throw new UndeferrableValueException("Value 'PreparedStatementArgs.Workgroup' is not present");
+            }
+        }
     }
 }

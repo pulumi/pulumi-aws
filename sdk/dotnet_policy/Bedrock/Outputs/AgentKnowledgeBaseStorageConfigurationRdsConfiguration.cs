@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
         /// </summary>
-        [Input("credentialsSecretArn")]
+        [PolicyResourceProperty("credentialsSecretArn", "_mUnknown_CredentialsSecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCredentialsSecretArn;
-
-        public string? CredentialsSecretArn => _mCredentialsSecretArn.GetValue("credentialsSecretArn");
+        private string? _mValue_CredentialsSecretArn;
+        private bool _mUnknown_CredentialsSecretArn;
+        public string? CredentialsSecretArn
+        {
+            get
+            {
+                if (!_mUnknown_CredentialsSecretArn) return _mValue_CredentialsSecretArn;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRdsConfiguration.CredentialsSecretArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of your Amazon RDS database.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRdsConfiguration.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// Names of the fields to which to map information about the vector store. This block supports the following arguments:
         /// </summary>
-        [Input("fieldMapping")]
+        [PolicyResourceProperty("fieldMapping", "_mUnknown_FieldMapping")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping> _mFieldMapping;
-
-        public Outputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping? FieldMapping => _mFieldMapping.GetValue("fieldMapping");
+        private Outputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping? _mValue_FieldMapping;
+        private bool _mUnknown_FieldMapping;
+        public Outputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping? FieldMapping
+        {
+            get
+            {
+                if (!_mUnknown_FieldMapping) return _mValue_FieldMapping;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRdsConfiguration.FieldMapping' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the vector store.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRdsConfiguration.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the table in the database.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRdsConfiguration.TableName' is not present");
+            }
+        }
     }
 }

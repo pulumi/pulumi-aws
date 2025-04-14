@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Content type of the model
         /// </summary>
-        [Input("contentType")]
+        [PolicyResourceProperty("contentType", "_mUnknown_ContentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
-
-        public string? ContentType => _mContentType.GetValue("contentType");
+        private string? _mValue_ContentType;
+        private bool _mUnknown_ContentType;
+        public string? ContentType
+        {
+            get
+            {
+                if (!_mUnknown_ContentType) return _mValue_ContentType;
+                throw new UndeferrableValueException("Value 'Model.ContentType' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the model
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Model.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the model
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Model.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the associated REST API
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'Model.RestApi' is not present");
+            }
+        }
 
         /// <summary>
         /// Schema of the model in a JSON form
         /// </summary>
-        [Input("schema")]
+        [PolicyResourceProperty("schema", "_mUnknown_Schema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchema;
-
-        public string? Schema => _mSchema.GetValue("schema");
+        private string? _mValue_Schema;
+        private bool _mUnknown_Schema;
+        public string? Schema
+        {
+            get
+            {
+                if (!_mUnknown_Schema) return _mValue_Schema;
+                throw new UndeferrableValueException("Value 'Model.Schema' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/model:Model")]
@@ -65,46 +100,81 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Content type of the model
         /// </summary>
-        [Input("contentType")]
+        [PolicyResourceProperty("contentType", "_mUnknown_ContentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
-
-        public string? ContentType => _mContentType.GetValue("contentType");
+        private string? _mValue_ContentType;
+        private bool _mUnknown_ContentType;
+        public string? ContentType
+        {
+            get
+            {
+                if (!_mUnknown_ContentType) return _mValue_ContentType;
+                throw new UndeferrableValueException("Value 'ModelArgs.ContentType' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the model
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ModelArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the model
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ModelArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the associated REST API
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'ModelArgs.RestApi' is not present");
+            }
+        }
 
         /// <summary>
         /// Schema of the model in a JSON form
         /// </summary>
-        [Input("schema")]
+        [PolicyResourceProperty("schema", "_mUnknown_Schema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchema;
-
-        public string? Schema => _mSchema.GetValue("schema");
+        private string? _mValue_Schema;
+        private bool _mUnknown_Schema;
+        public string? Schema
+        {
+            get
+            {
+                if (!_mUnknown_Schema) return _mValue_Schema;
+                throw new UndeferrableValueException("Value 'ModelArgs.Schema' is not present");
+            }
+        }
     }
 }

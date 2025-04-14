@@ -15,21 +15,35 @@ namespace Pulumi.PolicyPacks.Aws.IdentityStore.Inputs
         /// <summary>
         /// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
         /// </summary>
-        [Input("externalId")]
+        [PolicyResourceProperty("externalId", "_mUnknown_ExternalId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetUserAlternateIdentifierExternalIdArgs> _mExternalId;
-
-        public Inputs.GetUserAlternateIdentifierExternalIdArgs? ExternalId => _mExternalId.GetValue("externalId");
+        private Inputs.GetUserAlternateIdentifierExternalIdArgs? _mValue_ExternalId;
+        private bool _mUnknown_ExternalId;
+        public Inputs.GetUserAlternateIdentifierExternalIdArgs? ExternalId
+        {
+            get
+            {
+                if (!_mUnknown_ExternalId) return _mValue_ExternalId;
+                throw new UndeferrableValueException("Value 'GetUserAlternateIdentifierArgs.ExternalId' is not present");
+            }
+        }
 
         /// <summary>
         /// An entity attribute that's unique to a specific entity. Detailed below.
         /// 
         /// &gt; Exactly one of the above arguments must be provided.
         /// </summary>
-        [Input("uniqueAttribute")]
+        [PolicyResourceProperty("uniqueAttribute", "_mUnknown_UniqueAttribute")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetUserAlternateIdentifierUniqueAttributeArgs> _mUniqueAttribute;
-
-        public Inputs.GetUserAlternateIdentifierUniqueAttributeArgs? UniqueAttribute => _mUniqueAttribute.GetValue("uniqueAttribute");
+        private Inputs.GetUserAlternateIdentifierUniqueAttributeArgs? _mValue_UniqueAttribute;
+        private bool _mUnknown_UniqueAttribute;
+        public Inputs.GetUserAlternateIdentifierUniqueAttributeArgs? UniqueAttribute
+        {
+            get
+            {
+                if (!_mUnknown_UniqueAttribute) return _mValue_UniqueAttribute;
+                throw new UndeferrableValueException("Value 'GetUserAlternateIdentifierArgs.UniqueAttribute' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
         /// </summary>
-        [Input("nielsenCbetSettings")]
+        [PolicyResourceProperty("nielsenCbetSettings", "_mUnknown_NielsenCbetSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings> _mNielsenCbetSettings;
-
-        public Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings? NielsenCbetSettings => _mNielsenCbetSettings.GetValue("nielsenCbetSettings");
+        private Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings? _mValue_NielsenCbetSettings;
+        private bool _mUnknown_NielsenCbetSettings;
+        public Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings? NielsenCbetSettings
+        {
+            get
+            {
+                if (!_mUnknown_NielsenCbetSettings) return _mValue_NielsenCbetSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings.NielsenCbetSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
         /// </summary>
-        [Input("nielsenDistributionType")]
+        [PolicyResourceProperty("nielsenDistributionType", "_mUnknown_NielsenDistributionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNielsenDistributionType;
-
-        public string? NielsenDistributionType => _mNielsenDistributionType.GetValue("nielsenDistributionType");
+        private string? _mValue_NielsenDistributionType;
+        private bool _mUnknown_NielsenDistributionType;
+        public string? NielsenDistributionType
+        {
+            get
+            {
+                if (!_mUnknown_NielsenDistributionType) return _mValue_NielsenDistributionType;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings.NielsenDistributionType' is not present");
+            }
+        }
 
         /// <summary>
         /// Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
         /// </summary>
-        [Input("nielsenNaesIiNwSettings")]
+        [PolicyResourceProperty("nielsenNaesIiNwSettings", "_mUnknown_NielsenNaesIiNwSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting>> _mNielsenNaesIiNwSettings;
-
-        public List<Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting>? NielsenNaesIiNwSettings => _mNielsenNaesIiNwSettings.GetValue("nielsenNaesIiNwSettings");
+        private List<Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting>? _mValue_NielsenNaesIiNwSettings;
+        private bool _mUnknown_NielsenNaesIiNwSettings;
+        public List<Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting>? NielsenNaesIiNwSettings
+        {
+            get
+            {
+                if (!_mUnknown_NielsenNaesIiNwSettings) return _mValue_NielsenNaesIiNwSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings.NielsenNaesIiNwSettings' is not present");
+            }
+        }
     }
 }

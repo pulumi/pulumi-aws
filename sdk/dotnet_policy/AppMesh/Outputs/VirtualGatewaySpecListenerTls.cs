@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// Listener's TLS certificate.
         /// </summary>
-        [Input("certificate")]
+        [PolicyResourceProperty("certificate", "_mUnknown_Certificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualGatewaySpecListenerTlsCertificate> _mCertificate;
-
-        public Outputs.VirtualGatewaySpecListenerTlsCertificate? Certificate => _mCertificate.GetValue("certificate");
+        private Outputs.VirtualGatewaySpecListenerTlsCertificate? _mValue_Certificate;
+        private bool _mUnknown_Certificate;
+        public Outputs.VirtualGatewaySpecListenerTlsCertificate? Certificate
+        {
+            get
+            {
+                if (!_mUnknown_Certificate) return _mValue_Certificate;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTls.Certificate' is not present");
+            }
+        }
 
         /// <summary>
         /// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
         /// </summary>
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
-
-        public string? Mode => _mMode.GetValue("mode");
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTls.Mode' is not present");
+            }
+        }
 
         /// <summary>
         /// Listener's Transport Layer Security (TLS) validation context.
         /// </summary>
-        [Input("validation")]
+        [PolicyResourceProperty("validation", "_mUnknown_Validation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualGatewaySpecListenerTlsValidation> _mValidation;
-
-        public Outputs.VirtualGatewaySpecListenerTlsValidation? Validation => _mValidation.GetValue("validation");
+        private Outputs.VirtualGatewaySpecListenerTlsValidation? _mValue_Validation;
+        private bool _mUnknown_Validation;
+        public Outputs.VirtualGatewaySpecListenerTlsValidation? Validation
+        {
+            get
+            {
+                if (!_mUnknown_Validation) return _mValue_Validation;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTls.Validation' is not present");
+            }
+        }
     }
 }

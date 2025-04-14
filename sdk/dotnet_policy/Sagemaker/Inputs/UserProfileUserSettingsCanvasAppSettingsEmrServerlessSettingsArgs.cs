@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker AI Canvas application. Valid values are: `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs.Status' is not present");
+            }
+        }
     }
 }

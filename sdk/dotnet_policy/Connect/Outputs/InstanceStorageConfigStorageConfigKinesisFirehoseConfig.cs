@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Connect.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the delivery stream.
         /// </summary>
-        [Input("firehoseArn")]
+        [PolicyResourceProperty("firehoseArn", "_mUnknown_FirehoseArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirehoseArn;
-
-        public string? FirehoseArn => _mFirehoseArn.GetValue("firehoseArn");
+        private string? _mValue_FirehoseArn;
+        private bool _mUnknown_FirehoseArn;
+        public string? FirehoseArn
+        {
+            get
+            {
+                if (!_mUnknown_FirehoseArn) return _mValue_FirehoseArn;
+                throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigKinesisFirehoseConfig.FirehoseArn' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ServiceDiscovery.Inputs
         /// <summary>
         /// An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
         /// </summary>
-        [Input("dnsRecords")]
+        [PolicyResourceProperty("dnsRecords", "_mUnknown_DnsRecords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ServiceDnsConfigDnsRecordArgs>> _mDnsRecords;
-
-        public List<Inputs.ServiceDnsConfigDnsRecordArgs>? DnsRecords => _mDnsRecords.GetValue("dnsRecords");
+        private List<Inputs.ServiceDnsConfigDnsRecordArgs>? _mValue_DnsRecords;
+        private bool _mUnknown_DnsRecords;
+        public List<Inputs.ServiceDnsConfigDnsRecordArgs>? DnsRecords
+        {
+            get
+            {
+                if (!_mUnknown_DnsRecords) return _mValue_DnsRecords;
+                throw new UndeferrableValueException("Value 'ServiceDnsConfigArgs.DnsRecords' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the namespace to use for DNS configuration.
         /// </summary>
-        [Input("namespaceId")]
+        [PolicyResourceProperty("namespaceId", "_mUnknown_NamespaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceId;
-
-        public string? NamespaceId => _mNamespaceId.GetValue("namespaceId");
+        private string? _mValue_NamespaceId;
+        private bool _mUnknown_NamespaceId;
+        public string? NamespaceId
+        {
+            get
+            {
+                if (!_mUnknown_NamespaceId) return _mValue_NamespaceId;
+                throw new UndeferrableValueException("Value 'ServiceDnsConfigArgs.NamespaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
         /// </summary>
-        [Input("routingPolicy")]
+        [PolicyResourceProperty("routingPolicy", "_mUnknown_RoutingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingPolicy;
-
-        public string? RoutingPolicy => _mRoutingPolicy.GetValue("routingPolicy");
+        private string? _mValue_RoutingPolicy;
+        private bool _mUnknown_RoutingPolicy;
+        public string? RoutingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_RoutingPolicy) return _mValue_RoutingPolicy;
+                throw new UndeferrableValueException("Value 'ServiceDnsConfigArgs.RoutingPolicy' is not present");
+            }
+        }
     }
 }

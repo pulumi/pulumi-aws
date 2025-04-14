@@ -16,121 +16,212 @@ namespace Pulumi.PolicyPacks.Aws.Scheduler
         /// <summary>
         /// ARN of the schedule.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Schedule.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Brief description of the schedule.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Schedule.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
         /// </summary>
-        [Input("endDate")]
+        [PolicyResourceProperty("endDate", "_mUnknown_EndDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndDate;
-
-        public string? EndDate => _mEndDate.GetValue("endDate");
+        private string? _mValue_EndDate;
+        private bool _mUnknown_EndDate;
+        public string? EndDate
+        {
+            get
+            {
+                if (!_mUnknown_EndDate) return _mValue_EndDate;
+                throw new UndeferrableValueException("Value 'Schedule.EndDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
         /// </summary>
-        [Input("flexibleTimeWindow")]
+        [PolicyResourceProperty("flexibleTimeWindow", "_mUnknown_FlexibleTimeWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduleFlexibleTimeWindow> _mFlexibleTimeWindow;
-
-        public Outputs.ScheduleFlexibleTimeWindow? FlexibleTimeWindow => _mFlexibleTimeWindow.GetValue("flexibleTimeWindow");
+        private Outputs.ScheduleFlexibleTimeWindow? _mValue_FlexibleTimeWindow;
+        private bool _mUnknown_FlexibleTimeWindow;
+        public Outputs.ScheduleFlexibleTimeWindow? FlexibleTimeWindow
+        {
+            get
+            {
+                if (!_mUnknown_FlexibleTimeWindow) return _mValue_FlexibleTimeWindow;
+                throw new UndeferrableValueException("Value 'Schedule.FlexibleTimeWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
         /// </summary>
-        [Input("groupName")]
+        [PolicyResourceProperty("groupName", "_mUnknown_GroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
-
-        public string? GroupName => _mGroupName.GetValue("groupName");
+        private string? _mValue_GroupName;
+        private bool _mUnknown_GroupName;
+        public string? GroupName
+        {
+            get
+            {
+                if (!_mUnknown_GroupName) return _mValue_GroupName;
+                throw new UndeferrableValueException("Value 'Schedule.GroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'Schedule.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Schedule.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'Schedule.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
         /// </summary>
-        [Input("scheduleExpression")]
+        [PolicyResourceProperty("scheduleExpression", "_mUnknown_ScheduleExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpression;
-
-        public string? ScheduleExpression => _mScheduleExpression.GetValue("scheduleExpression");
+        private string? _mValue_ScheduleExpression;
+        private bool _mUnknown_ScheduleExpression;
+        public string? ScheduleExpression
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleExpression) return _mValue_ScheduleExpression;
+                throw new UndeferrableValueException("Value 'Schedule.ScheduleExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
         /// </summary>
-        [Input("scheduleExpressionTimezone")]
+        [PolicyResourceProperty("scheduleExpressionTimezone", "_mUnknown_ScheduleExpressionTimezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpressionTimezone;
-
-        public string? ScheduleExpressionTimezone => _mScheduleExpressionTimezone.GetValue("scheduleExpressionTimezone");
+        private string? _mValue_ScheduleExpressionTimezone;
+        private bool _mUnknown_ScheduleExpressionTimezone;
+        public string? ScheduleExpressionTimezone
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleExpressionTimezone) return _mValue_ScheduleExpressionTimezone;
+                throw new UndeferrableValueException("Value 'Schedule.ScheduleExpressionTimezone' is not present");
+            }
+        }
 
         /// <summary>
         /// The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
         /// </summary>
-        [Input("startDate")]
+        [PolicyResourceProperty("startDate", "_mUnknown_StartDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartDate;
-
-        public string? StartDate => _mStartDate.GetValue("startDate");
+        private string? _mValue_StartDate;
+        private bool _mUnknown_StartDate;
+        public string? StartDate
+        {
+            get
+            {
+                if (!_mUnknown_StartDate) return _mValue_StartDate;
+                throw new UndeferrableValueException("Value 'Schedule.StartDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'Schedule.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures the target of the schedule. Detailed below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduleTarget> _mTarget;
-
-        public Outputs.ScheduleTarget? Target => _mTarget.GetValue("target");
+        private Outputs.ScheduleTarget? _mValue_Target;
+        private bool _mUnknown_Target;
+        public Outputs.ScheduleTarget? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'Schedule.Target' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:scheduler/schedule:Schedule")]
@@ -139,111 +230,195 @@ namespace Pulumi.PolicyPacks.Aws.Scheduler
         /// <summary>
         /// Brief description of the schedule.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
         /// </summary>
-        [Input("endDate")]
+        [PolicyResourceProperty("endDate", "_mUnknown_EndDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndDate;
-
-        public string? EndDate => _mEndDate.GetValue("endDate");
+        private string? _mValue_EndDate;
+        private bool _mUnknown_EndDate;
+        public string? EndDate
+        {
+            get
+            {
+                if (!_mUnknown_EndDate) return _mValue_EndDate;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.EndDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
         /// </summary>
-        [Input("flexibleTimeWindow")]
+        [PolicyResourceProperty("flexibleTimeWindow", "_mUnknown_FlexibleTimeWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScheduleFlexibleTimeWindowArgs> _mFlexibleTimeWindow;
-
-        public Inputs.ScheduleFlexibleTimeWindowArgs? FlexibleTimeWindow => _mFlexibleTimeWindow.GetValue("flexibleTimeWindow");
+        private Inputs.ScheduleFlexibleTimeWindowArgs? _mValue_FlexibleTimeWindow;
+        private bool _mUnknown_FlexibleTimeWindow;
+        public Inputs.ScheduleFlexibleTimeWindowArgs? FlexibleTimeWindow
+        {
+            get
+            {
+                if (!_mUnknown_FlexibleTimeWindow) return _mValue_FlexibleTimeWindow;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.FlexibleTimeWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
         /// </summary>
-        [Input("groupName")]
+        [PolicyResourceProperty("groupName", "_mUnknown_GroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
-
-        public string? GroupName => _mGroupName.GetValue("groupName");
+        private string? _mValue_GroupName;
+        private bool _mUnknown_GroupName;
+        public string? GroupName
+        {
+            get
+            {
+                if (!_mUnknown_GroupName) return _mValue_GroupName;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.GroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
         /// </summary>
-        [Input("scheduleExpression")]
+        [PolicyResourceProperty("scheduleExpression", "_mUnknown_ScheduleExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpression;
-
-        public string? ScheduleExpression => _mScheduleExpression.GetValue("scheduleExpression");
+        private string? _mValue_ScheduleExpression;
+        private bool _mUnknown_ScheduleExpression;
+        public string? ScheduleExpression
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleExpression) return _mValue_ScheduleExpression;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.ScheduleExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
         /// </summary>
-        [Input("scheduleExpressionTimezone")]
+        [PolicyResourceProperty("scheduleExpressionTimezone", "_mUnknown_ScheduleExpressionTimezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpressionTimezone;
-
-        public string? ScheduleExpressionTimezone => _mScheduleExpressionTimezone.GetValue("scheduleExpressionTimezone");
+        private string? _mValue_ScheduleExpressionTimezone;
+        private bool _mUnknown_ScheduleExpressionTimezone;
+        public string? ScheduleExpressionTimezone
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleExpressionTimezone) return _mValue_ScheduleExpressionTimezone;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.ScheduleExpressionTimezone' is not present");
+            }
+        }
 
         /// <summary>
         /// The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
         /// </summary>
-        [Input("startDate")]
+        [PolicyResourceProperty("startDate", "_mUnknown_StartDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartDate;
-
-        public string? StartDate => _mStartDate.GetValue("startDate");
+        private string? _mValue_StartDate;
+        private bool _mUnknown_StartDate;
+        public string? StartDate
+        {
+            get
+            {
+                if (!_mUnknown_StartDate) return _mValue_StartDate;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.StartDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures the target of the schedule. Detailed below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScheduleTargetArgs> _mTarget;
-
-        public Inputs.ScheduleTargetArgs? Target => _mTarget.GetValue("target");
+        private Inputs.ScheduleTargetArgs? _mValue_Target;
+        private bool _mUnknown_Target;
+        public Inputs.ScheduleTargetArgs? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.Target' is not present");
+            }
+        }
     }
 }

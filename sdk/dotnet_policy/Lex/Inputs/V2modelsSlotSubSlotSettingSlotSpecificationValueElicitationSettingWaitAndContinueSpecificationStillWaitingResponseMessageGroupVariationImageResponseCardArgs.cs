@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
 {
     public sealed class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs
     {
-        [Input("buttons")]
+        [PolicyResourceProperty("buttons", "_mUnknown_Buttons")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs>> _mButtons;
+        private List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs>? _mValue_Buttons;
+        private bool _mUnknown_Buttons;
+        public List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs>? Buttons
+        {
+            get
+            {
+                if (!_mUnknown_Buttons) return _mValue_Buttons;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs.Buttons' is not present");
+            }
+        }
 
-        public List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs>? Buttons => _mButtons.GetValue("buttons");
-
-        [Input("imageUrl")]
+        [PolicyResourceProperty("imageUrl", "_mUnknown_ImageUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageUrl;
+        private string? _mValue_ImageUrl;
+        private bool _mUnknown_ImageUrl;
+        public string? ImageUrl
+        {
+            get
+            {
+                if (!_mUnknown_ImageUrl) return _mValue_ImageUrl;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs.ImageUrl' is not present");
+            }
+        }
 
-        public string? ImageUrl => _mImageUrl.GetValue("imageUrl");
-
-        [Input("subtitle")]
+        [PolicyResourceProperty("subtitle", "_mUnknown_Subtitle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubtitle;
+        private string? _mValue_Subtitle;
+        private bool _mUnknown_Subtitle;
+        public string? Subtitle
+        {
+            get
+            {
+                if (!_mUnknown_Subtitle) return _mValue_Subtitle;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs.Subtitle' is not present");
+            }
+        }
 
-        public string? Subtitle => _mSubtitle.GetValue("subtitle");
-
-        [Input("title")]
+        [PolicyResourceProperty("title", "_mUnknown_Title")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTitle;
-
-        public string? Title => _mTitle.GetValue("title");
+        private string? _mValue_Title;
+        private bool _mUnknown_Title;
+        public string? Title
+        {
+            get
+            {
+                if (!_mUnknown_Title) return _mValue_Title;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs.Title' is not present");
+            }
+        }
     }
 }

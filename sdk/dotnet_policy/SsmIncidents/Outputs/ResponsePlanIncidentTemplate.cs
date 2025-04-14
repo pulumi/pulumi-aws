@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.SsmIncidents.Outputs
         /// <summary>
         /// A string used to stop Incident Manager from creating multiple incident records for the same incident.
         /// </summary>
-        [Input("dedupeString")]
+        [PolicyResourceProperty("dedupeString", "_mUnknown_DedupeString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDedupeString;
-
-        public string? DedupeString => _mDedupeString.GetValue("dedupeString");
+        private string? _mValue_DedupeString;
+        private bool _mUnknown_DedupeString;
+        public string? DedupeString
+        {
+            get
+            {
+                if (!_mUnknown_DedupeString) return _mValue_DedupeString;
+                throw new UndeferrableValueException("Value 'ResponsePlanIncidentTemplate.DedupeString' is not present");
+            }
+        }
 
         /// <summary>
         /// The impact value of a generated incident. The following values are supported:
         /// </summary>
-        [Input("impact")]
+        [PolicyResourceProperty("impact", "_mUnknown_Impact")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mImpact;
-
-        public int? Impact => _mImpact.GetValue("impact");
+        private int? _mValue_Impact;
+        private bool _mUnknown_Impact;
+        public int? Impact
+        {
+            get
+            {
+                if (!_mUnknown_Impact) return _mValue_Impact;
+                throw new UndeferrableValueException("Value 'ResponsePlanIncidentTemplate.Impact' is not present");
+            }
+        }
 
         /// <summary>
         /// The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
         /// </summary>
-        [Input("incidentTags")]
+        [PolicyResourceProperty("incidentTags", "_mUnknown_IncidentTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mIncidentTags;
-
-        public Dictionary<string, string>? IncidentTags => _mIncidentTags.GetValue("incidentTags");
+        private Dictionary<string, string>? _mValue_IncidentTags;
+        private bool _mUnknown_IncidentTags;
+        public Dictionary<string, string>? IncidentTags
+        {
+            get
+            {
+                if (!_mUnknown_IncidentTags) return _mValue_IncidentTags;
+                throw new UndeferrableValueException("Value 'ResponsePlanIncidentTemplate.IncidentTags' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
         /// </summary>
-        [Input("notificationTargets")]
+        [PolicyResourceProperty("notificationTargets", "_mUnknown_NotificationTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ResponsePlanIncidentTemplateNotificationTarget>> _mNotificationTargets;
-
-        public List<Outputs.ResponsePlanIncidentTemplateNotificationTarget>? NotificationTargets => _mNotificationTargets.GetValue("notificationTargets");
+        private List<Outputs.ResponsePlanIncidentTemplateNotificationTarget>? _mValue_NotificationTargets;
+        private bool _mUnknown_NotificationTargets;
+        public List<Outputs.ResponsePlanIncidentTemplateNotificationTarget>? NotificationTargets
+        {
+            get
+            {
+                if (!_mUnknown_NotificationTargets) return _mValue_NotificationTargets;
+                throw new UndeferrableValueException("Value 'ResponsePlanIncidentTemplate.NotificationTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// The summary of an incident.
         /// </summary>
-        [Input("summary")]
+        [PolicyResourceProperty("summary", "_mUnknown_Summary")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSummary;
-
-        public string? Summary => _mSummary.GetValue("summary");
+        private string? _mValue_Summary;
+        private bool _mUnknown_Summary;
+        public string? Summary
+        {
+            get
+            {
+                if (!_mUnknown_Summary) return _mValue_Summary;
+                throw new UndeferrableValueException("Value 'ResponsePlanIncidentTemplate.Summary' is not present");
+            }
+        }
 
         /// <summary>
         /// The title of a generated incident.
         /// </summary>
-        [Input("title")]
+        [PolicyResourceProperty("title", "_mUnknown_Title")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTitle;
-
-        public string? Title => _mTitle.GetValue("title");
+        private string? _mValue_Title;
+        private bool _mUnknown_Title;
+        public string? Title
+        {
+            get
+            {
+                if (!_mUnknown_Title) return _mValue_Title;
+                throw new UndeferrableValueException("Value 'ResponsePlanIncidentTemplate.Title' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.LB.Outputs
 {
     public sealed class GetListenerDefaultActionForwardStickinessResult
     {
-        [Input("duration")]
+        [PolicyResourceProperty("duration", "_mUnknown_Duration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDuration;
+        private int? _mValue_Duration;
+        private bool _mUnknown_Duration;
+        public int? Duration
+        {
+            get
+            {
+                if (!_mUnknown_Duration) return _mValue_Duration;
+                throw new UndeferrableValueException("Value 'GetListenerDefaultActionForwardStickinessResult.Duration' is not present");
+            }
+        }
 
-        public int? Duration => _mDuration.GetValue("duration");
-
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'GetListenerDefaultActionForwardStickinessResult.Enabled' is not present");
+            }
+        }
     }
 }

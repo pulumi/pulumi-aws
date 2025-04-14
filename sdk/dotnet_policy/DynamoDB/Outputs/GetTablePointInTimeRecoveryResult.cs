@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB.Outputs
 {
     public sealed class GetTablePointInTimeRecoveryResult
     {
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'GetTablePointInTimeRecoveryResult.Enabled' is not present");
+            }
+        }
     }
 }

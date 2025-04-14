@@ -16,67 +16,116 @@ namespace Pulumi.PolicyPacks.Aws.Ecs
         /// <summary>
         /// ARN that identifies the cluster.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Cluster.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Execute command configuration for the cluster. See `configuration` Block for details.
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterConfiguration> _mConfiguration;
-
-        public Outputs.ClusterConfiguration? Configuration => _mConfiguration.GetValue("configuration");
+        private Outputs.ClusterConfiguration? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Outputs.ClusterConfiguration? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'Cluster.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Cluster.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Default Service Connect namespace. See `service_connect_defaults` Block for details.
         /// </summary>
-        [Input("serviceConnectDefaults")]
+        [PolicyResourceProperty("serviceConnectDefaults", "_mUnknown_ServiceConnectDefaults")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterServiceConnectDefaults> _mServiceConnectDefaults;
-
-        public Outputs.ClusterServiceConnectDefaults? ServiceConnectDefaults => _mServiceConnectDefaults.GetValue("serviceConnectDefaults");
+        private Outputs.ClusterServiceConnectDefaults? _mValue_ServiceConnectDefaults;
+        private bool _mUnknown_ServiceConnectDefaults;
+        public Outputs.ClusterServiceConnectDefaults? ServiceConnectDefaults
+        {
+            get
+            {
+                if (!_mUnknown_ServiceConnectDefaults) return _mValue_ServiceConnectDefaults;
+                throw new UndeferrableValueException("Value 'Cluster.ServiceConnectDefaults' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
         /// </summary>
-        [Input("settings")]
+        [PolicyResourceProperty("settings", "_mUnknown_Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterSetting>> _mSettings;
-
-        public List<Outputs.ClusterSetting>? Settings => _mSettings.GetValue("settings");
+        private List<Outputs.ClusterSetting>? _mValue_Settings;
+        private bool _mUnknown_Settings;
+        public List<Outputs.ClusterSetting>? Settings
+        {
+            get
+            {
+                if (!_mUnknown_Settings) return _mValue_Settings;
+                throw new UndeferrableValueException("Value 'Cluster.Settings' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Cluster.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Cluster.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ecs/cluster:Cluster")]
@@ -85,48 +134,83 @@ namespace Pulumi.PolicyPacks.Aws.Ecs
         /// <summary>
         /// Execute command configuration for the cluster. See `configuration` Block for details.
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterConfigurationArgs> _mConfiguration;
-
-        public Inputs.ClusterConfigurationArgs? Configuration => _mConfiguration.GetValue("configuration");
+        private Inputs.ClusterConfigurationArgs? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Inputs.ClusterConfigurationArgs? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Default Service Connect namespace. See `service_connect_defaults` Block for details.
         /// </summary>
-        [Input("serviceConnectDefaults")]
+        [PolicyResourceProperty("serviceConnectDefaults", "_mUnknown_ServiceConnectDefaults")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterServiceConnectDefaultsArgs> _mServiceConnectDefaults;
-
-        public Inputs.ClusterServiceConnectDefaultsArgs? ServiceConnectDefaults => _mServiceConnectDefaults.GetValue("serviceConnectDefaults");
+        private Inputs.ClusterServiceConnectDefaultsArgs? _mValue_ServiceConnectDefaults;
+        private bool _mUnknown_ServiceConnectDefaults;
+        public Inputs.ClusterServiceConnectDefaultsArgs? ServiceConnectDefaults
+        {
+            get
+            {
+                if (!_mUnknown_ServiceConnectDefaults) return _mValue_ServiceConnectDefaults;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ServiceConnectDefaults' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
         /// </summary>
-        [Input("settings")]
+        [PolicyResourceProperty("settings", "_mUnknown_Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ClusterSettingArgs>> _mSettings;
-
-        public List<Inputs.ClusterSettingArgs>? Settings => _mSettings.GetValue("settings");
+        private List<Inputs.ClusterSettingArgs>? _mValue_Settings;
+        private bool _mUnknown_Settings;
+        public List<Inputs.ClusterSettingArgs>? Settings
+        {
+            get
+            {
+                if (!_mUnknown_Settings) return _mValue_Settings;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Settings' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Tags' is not present");
+            }
+        }
     }
 }

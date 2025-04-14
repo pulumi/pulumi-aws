@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// <summary>
         /// The target.
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TargetGroupAttachmentTarget> _mTarget;
-
-        public Outputs.TargetGroupAttachmentTarget? Target => _mTarget.GetValue("target");
+        private Outputs.TargetGroupAttachmentTarget? _mValue_Target;
+        private bool _mUnknown_Target;
+        public Outputs.TargetGroupAttachmentTarget? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'TargetGroupAttachment.Target' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID or Amazon Resource Name (ARN) of the target group.
         /// </summary>
-        [Input("targetGroupIdentifier")]
+        [PolicyResourceProperty("targetGroupIdentifier", "_mUnknown_TargetGroupIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetGroupIdentifier;
-
-        public string? TargetGroupIdentifier => _mTargetGroupIdentifier.GetValue("targetGroupIdentifier");
+        private string? _mValue_TargetGroupIdentifier;
+        private bool _mUnknown_TargetGroupIdentifier;
+        public string? TargetGroupIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroupIdentifier) return _mValue_TargetGroupIdentifier;
+                throw new UndeferrableValueException("Value 'TargetGroupAttachment.TargetGroupIdentifier' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:vpclattice/targetGroupAttachment:TargetGroupAttachment")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// <summary>
         /// The target.
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TargetGroupAttachmentTargetArgs> _mTarget;
-
-        public Inputs.TargetGroupAttachmentTargetArgs? Target => _mTarget.GetValue("target");
+        private Inputs.TargetGroupAttachmentTargetArgs? _mValue_Target;
+        private bool _mUnknown_Target;
+        public Inputs.TargetGroupAttachmentTargetArgs? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'TargetGroupAttachmentArgs.Target' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID or Amazon Resource Name (ARN) of the target group.
         /// </summary>
-        [Input("targetGroupIdentifier")]
+        [PolicyResourceProperty("targetGroupIdentifier", "_mUnknown_TargetGroupIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetGroupIdentifier;
-
-        public string? TargetGroupIdentifier => _mTargetGroupIdentifier.GetValue("targetGroupIdentifier");
+        private string? _mValue_TargetGroupIdentifier;
+        private bool _mUnknown_TargetGroupIdentifier;
+        public string? TargetGroupIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroupIdentifier) return _mValue_TargetGroupIdentifier;
+                throw new UndeferrableValueException("Value 'TargetGroupAttachmentArgs.TargetGroupIdentifier' is not present");
+            }
+        }
     }
 }

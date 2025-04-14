@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Outputs
         /// <summary>
         /// An empty object that configures masking.
         /// </summary>
-        [Input("maskConfig")]
+        [PolicyResourceProperty("maskConfig", "_mUnknown_MaskConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigResult> _mMaskConfig;
-
-        public Outputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigResult? MaskConfig => _mMaskConfig.GetValue("maskConfig");
+        private Outputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigResult? _mValue_MaskConfig;
+        private bool _mUnknown_MaskConfig;
+        public Outputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigResult? MaskConfig
+        {
+            get
+            {
+                if (!_mUnknown_MaskConfig) return _mValue_MaskConfig;
+                throw new UndeferrableValueException("Value 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyResult.MaskConfig' is not present");
+            }
+        }
     }
 }

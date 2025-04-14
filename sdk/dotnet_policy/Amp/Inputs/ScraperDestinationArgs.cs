@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Amp.Inputs
         /// <summary>
         /// Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
         /// </summary>
-        [Input("amp")]
+        [PolicyResourceProperty("amp", "_mUnknown_Amp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScraperDestinationAmpArgs> _mAmp;
-
-        public Inputs.ScraperDestinationAmpArgs? Amp => _mAmp.GetValue("amp");
+        private Inputs.ScraperDestinationAmpArgs? _mValue_Amp;
+        private bool _mUnknown_Amp;
+        public Inputs.ScraperDestinationAmpArgs? Amp
+        {
+            get
+            {
+                if (!_mUnknown_Amp) return _mValue_Amp;
+                throw new UndeferrableValueException("Value 'ScraperDestinationArgs.Amp' is not present");
+            }
+        }
     }
 }

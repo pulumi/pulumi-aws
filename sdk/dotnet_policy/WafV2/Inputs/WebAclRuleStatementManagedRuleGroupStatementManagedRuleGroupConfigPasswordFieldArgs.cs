@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// The name of the password field.
         /// </summary>
-        [Input("identifier")]
+        [PolicyResourceProperty("identifier", "_mUnknown_Identifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
-
-        public string? Identifier => _mIdentifier.GetValue("identifier");
+        private string? _mValue_Identifier;
+        private bool _mUnknown_Identifier;
+        public string? Identifier
+        {
+            get
+            {
+                if (!_mUnknown_Identifier) return _mValue_Identifier;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs.Identifier' is not present");
+            }
+        }
     }
 }

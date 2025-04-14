@@ -15,30 +15,51 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Inputs
         /// <summary>
         /// Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
         /// </summary>
-        [Input("pipelineExecutionStartCondition")]
+        [PolicyResourceProperty("pipelineExecutionStartCondition", "_mUnknown_PipelineExecutionStartCondition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineExecutionStartCondition;
-
-        public string? PipelineExecutionStartCondition => _mPipelineExecutionStartCondition.GetValue("pipelineExecutionStartCondition");
+        private string? _mValue_PipelineExecutionStartCondition;
+        private bool _mUnknown_PipelineExecutionStartCondition;
+        public string? PipelineExecutionStartCondition
+        {
+            get
+            {
+                if (!_mUnknown_PipelineExecutionStartCondition) return _mValue_PipelineExecutionStartCondition;
+                throw new UndeferrableValueException("Value 'ImagePipelineScheduleArgs.PipelineExecutionStartCondition' is not present");
+            }
+        }
 
         /// <summary>
         /// Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("scheduleExpression")]
+        [PolicyResourceProperty("scheduleExpression", "_mUnknown_ScheduleExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpression;
-
-        public string? ScheduleExpression => _mScheduleExpression.GetValue("scheduleExpression");
+        private string? _mValue_ScheduleExpression;
+        private bool _mUnknown_ScheduleExpression;
+        public string? ScheduleExpression
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleExpression) return _mValue_ScheduleExpression;
+                throw new UndeferrableValueException("Value 'ImagePipelineScheduleArgs.ScheduleExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
         /// </summary>
-        [Input("timezone")]
+        [PolicyResourceProperty("timezone", "_mUnknown_Timezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimezone;
-
-        public string? Timezone => _mTimezone.GetValue("timezone");
+        private string? _mValue_Timezone;
+        private bool _mUnknown_Timezone;
+        public string? Timezone
+        {
+            get
+            {
+                if (!_mUnknown_Timezone) return _mValue_Timezone;
+                throw new UndeferrableValueException("Value 'ImagePipelineScheduleArgs.Timezone' is not present");
+            }
+        }
     }
 }

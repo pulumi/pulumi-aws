@@ -16,305 +16,543 @@ namespace Pulumi.PolicyPacks.Aws.LB
         /// <summary>
         /// Access Logs block. See below.
         /// </summary>
-        [Input("accessLogs")]
+        [PolicyResourceProperty("accessLogs", "_mUnknown_AccessLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LoadBalancerAccessLogs> _mAccessLogs;
-
-        public Outputs.LoadBalancerAccessLogs? AccessLogs => _mAccessLogs.GetValue("accessLogs");
+        private Outputs.LoadBalancerAccessLogs? _mValue_AccessLogs;
+        private bool _mUnknown_AccessLogs;
+        public Outputs.LoadBalancerAccessLogs? AccessLogs
+        {
+            get
+            {
+                if (!_mUnknown_AccessLogs) return _mValue_AccessLogs;
+                throw new UndeferrableValueException("Value 'LoadBalancer.AccessLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the load balancer (matches `id`).
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LoadBalancer.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN suffix for use with CloudWatch Metrics.
         /// </summary>
-        [Input("arnSuffix")]
+        [PolicyResourceProperty("arnSuffix", "_mUnknown_ArnSuffix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArnSuffix;
-
-        public string? ArnSuffix => _mArnSuffix.GetValue("arnSuffix");
+        private string? _mValue_ArnSuffix;
+        private bool _mUnknown_ArnSuffix;
+        public string? ArnSuffix
+        {
+            get
+            {
+                if (!_mUnknown_ArnSuffix) return _mValue_ArnSuffix;
+                throw new UndeferrableValueException("Value 'LoadBalancer.ArnSuffix' is not present");
+            }
+        }
 
         /// <summary>
         /// Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
         /// </summary>
-        [Input("clientKeepAlive")]
+        [PolicyResourceProperty("clientKeepAlive", "_mUnknown_ClientKeepAlive")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mClientKeepAlive;
-
-        public int? ClientKeepAlive => _mClientKeepAlive.GetValue("clientKeepAlive");
+        private int? _mValue_ClientKeepAlive;
+        private bool _mUnknown_ClientKeepAlive;
+        public int? ClientKeepAlive
+        {
+            get
+            {
+                if (!_mUnknown_ClientKeepAlive) return _mValue_ClientKeepAlive;
+                throw new UndeferrableValueException("Value 'LoadBalancer.ClientKeepAlive' is not present");
+            }
+        }
 
         /// <summary>
         /// Connection Logs block. See below. Only valid for Load Balancers of type `application`.
         /// </summary>
-        [Input("connectionLogs")]
+        [PolicyResourceProperty("connectionLogs", "_mUnknown_ConnectionLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LoadBalancerConnectionLogs> _mConnectionLogs;
-
-        public Outputs.LoadBalancerConnectionLogs? ConnectionLogs => _mConnectionLogs.GetValue("connectionLogs");
+        private Outputs.LoadBalancerConnectionLogs? _mValue_ConnectionLogs;
+        private bool _mUnknown_ConnectionLogs;
+        public Outputs.LoadBalancerConnectionLogs? ConnectionLogs
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionLogs) return _mValue_ConnectionLogs;
+                throw new UndeferrableValueException("Value 'LoadBalancer.ConnectionLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the customer owned ipv4 pool to use for this load balancer.
         /// </summary>
-        [Input("customerOwnedIpv4Pool")]
+        [PolicyResourceProperty("customerOwnedIpv4Pool", "_mUnknown_CustomerOwnedIpv4Pool")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerOwnedIpv4Pool;
-
-        public string? CustomerOwnedIpv4Pool => _mCustomerOwnedIpv4Pool.GetValue("customerOwnedIpv4Pool");
+        private string? _mValue_CustomerOwnedIpv4Pool;
+        private bool _mUnknown_CustomerOwnedIpv4Pool;
+        public string? CustomerOwnedIpv4Pool
+        {
+            get
+            {
+                if (!_mUnknown_CustomerOwnedIpv4Pool) return _mValue_CustomerOwnedIpv4Pool;
+                throw new UndeferrableValueException("Value 'LoadBalancer.CustomerOwnedIpv4Pool' is not present");
+            }
+        }
 
         /// <summary>
         /// How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         /// </summary>
-        [Input("desyncMitigationMode")]
+        [PolicyResourceProperty("desyncMitigationMode", "_mUnknown_DesyncMitigationMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDesyncMitigationMode;
-
-        public string? DesyncMitigationMode => _mDesyncMitigationMode.GetValue("desyncMitigationMode");
+        private string? _mValue_DesyncMitigationMode;
+        private bool _mUnknown_DesyncMitigationMode;
+        public string? DesyncMitigationMode
+        {
+            get
+            {
+                if (!_mUnknown_DesyncMitigationMode) return _mValue_DesyncMitigationMode;
+                throw new UndeferrableValueException("Value 'LoadBalancer.DesyncMitigationMode' is not present");
+            }
+        }
 
         /// <summary>
         /// DNS name of the load balancer.
         /// </summary>
-        [Input("dnsName")]
+        [PolicyResourceProperty("dnsName", "_mUnknown_DnsName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsName;
-
-        public string? DnsName => _mDnsName.GetValue("dnsName");
+        private string? _mValue_DnsName;
+        private bool _mUnknown_DnsName;
+        public string? DnsName
+        {
+            get
+            {
+                if (!_mUnknown_DnsName) return _mValue_DnsName;
+                throw new UndeferrableValueException("Value 'LoadBalancer.DnsName' is not present");
+            }
+        }
 
         /// <summary>
         /// How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
         /// </summary>
-        [Input("dnsRecordClientRoutingPolicy")]
+        [PolicyResourceProperty("dnsRecordClientRoutingPolicy", "_mUnknown_DnsRecordClientRoutingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsRecordClientRoutingPolicy;
-
-        public string? DnsRecordClientRoutingPolicy => _mDnsRecordClientRoutingPolicy.GetValue("dnsRecordClientRoutingPolicy");
+        private string? _mValue_DnsRecordClientRoutingPolicy;
+        private bool _mUnknown_DnsRecordClientRoutingPolicy;
+        public string? DnsRecordClientRoutingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_DnsRecordClientRoutingPolicy) return _mValue_DnsRecordClientRoutingPolicy;
+                throw new UndeferrableValueException("Value 'LoadBalancer.DnsRecordClientRoutingPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         /// </summary>
-        [Input("dropInvalidHeaderFields")]
+        [PolicyResourceProperty("dropInvalidHeaderFields", "_mUnknown_DropInvalidHeaderFields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDropInvalidHeaderFields;
-
-        public bool? DropInvalidHeaderFields => _mDropInvalidHeaderFields.GetValue("dropInvalidHeaderFields");
+        private bool? _mValue_DropInvalidHeaderFields;
+        private bool _mUnknown_DropInvalidHeaderFields;
+        public bool? DropInvalidHeaderFields
+        {
+            get
+            {
+                if (!_mUnknown_DropInvalidHeaderFields) return _mValue_DropInvalidHeaderFields;
+                throw new UndeferrableValueException("Value 'LoadBalancer.DropInvalidHeaderFields' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
         /// </summary>
-        [Input("enableCrossZoneLoadBalancing")]
+        [PolicyResourceProperty("enableCrossZoneLoadBalancing", "_mUnknown_EnableCrossZoneLoadBalancing")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableCrossZoneLoadBalancing;
-
-        public bool? EnableCrossZoneLoadBalancing => _mEnableCrossZoneLoadBalancing.GetValue("enableCrossZoneLoadBalancing");
+        private bool? _mValue_EnableCrossZoneLoadBalancing;
+        private bool _mUnknown_EnableCrossZoneLoadBalancing;
+        public bool? EnableCrossZoneLoadBalancing
+        {
+            get
+            {
+                if (!_mUnknown_EnableCrossZoneLoadBalancing) return _mValue_EnableCrossZoneLoadBalancing;
+                throw new UndeferrableValueException("Value 'LoadBalancer.EnableCrossZoneLoadBalancing' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         /// </summary>
-        [Input("enableDeletionProtection")]
+        [PolicyResourceProperty("enableDeletionProtection", "_mUnknown_EnableDeletionProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDeletionProtection;
-
-        public bool? EnableDeletionProtection => _mEnableDeletionProtection.GetValue("enableDeletionProtection");
+        private bool? _mValue_EnableDeletionProtection;
+        private bool _mUnknown_EnableDeletionProtection;
+        public bool? EnableDeletionProtection
+        {
+            get
+            {
+                if (!_mUnknown_EnableDeletionProtection) return _mValue_EnableDeletionProtection;
+                throw new UndeferrableValueException("Value 'LoadBalancer.EnableDeletionProtection' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
         /// </summary>
-        [Input("enableHttp2")]
+        [PolicyResourceProperty("enableHttp2", "_mUnknown_EnableHttp2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableHttp2;
-
-        public bool? EnableHttp2 => _mEnableHttp2.GetValue("enableHttp2");
+        private bool? _mValue_EnableHttp2;
+        private bool _mUnknown_EnableHttp2;
+        public bool? EnableHttp2
+        {
+            get
+            {
+                if (!_mUnknown_EnableHttp2) return _mValue_EnableHttp2;
+                throw new UndeferrableValueException("Value 'LoadBalancer.EnableHttp2' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
         /// </summary>
-        [Input("enableTlsVersionAndCipherSuiteHeaders")]
+        [PolicyResourceProperty("enableTlsVersionAndCipherSuiteHeaders", "_mUnknown_EnableTlsVersionAndCipherSuiteHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableTlsVersionAndCipherSuiteHeaders;
-
-        public bool? EnableTlsVersionAndCipherSuiteHeaders => _mEnableTlsVersionAndCipherSuiteHeaders.GetValue("enableTlsVersionAndCipherSuiteHeaders");
+        private bool? _mValue_EnableTlsVersionAndCipherSuiteHeaders;
+        private bool _mUnknown_EnableTlsVersionAndCipherSuiteHeaders;
+        public bool? EnableTlsVersionAndCipherSuiteHeaders
+        {
+            get
+            {
+                if (!_mUnknown_EnableTlsVersionAndCipherSuiteHeaders) return _mValue_EnableTlsVersionAndCipherSuiteHeaders;
+                throw new UndeferrableValueException("Value 'LoadBalancer.EnableTlsVersionAndCipherSuiteHeaders' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         /// </summary>
-        [Input("enableWafFailOpen")]
+        [PolicyResourceProperty("enableWafFailOpen", "_mUnknown_EnableWafFailOpen")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableWafFailOpen;
-
-        public bool? EnableWafFailOpen => _mEnableWafFailOpen.GetValue("enableWafFailOpen");
+        private bool? _mValue_EnableWafFailOpen;
+        private bool _mUnknown_EnableWafFailOpen;
+        public bool? EnableWafFailOpen
+        {
+            get
+            {
+                if (!_mUnknown_EnableWafFailOpen) return _mValue_EnableWafFailOpen;
+                throw new UndeferrableValueException("Value 'LoadBalancer.EnableWafFailOpen' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
         /// </summary>
-        [Input("enableXffClientPort")]
+        [PolicyResourceProperty("enableXffClientPort", "_mUnknown_EnableXffClientPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableXffClientPort;
-
-        public bool? EnableXffClientPort => _mEnableXffClientPort.GetValue("enableXffClientPort");
+        private bool? _mValue_EnableXffClientPort;
+        private bool _mUnknown_EnableXffClientPort;
+        public bool? EnableXffClientPort
+        {
+            get
+            {
+                if (!_mUnknown_EnableXffClientPort) return _mValue_EnableXffClientPort;
+                throw new UndeferrableValueException("Value 'LoadBalancer.EnableXffClientPort' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether zonal shift is enabled. Defaults to `false`.
         /// </summary>
-        [Input("enableZonalShift")]
+        [PolicyResourceProperty("enableZonalShift", "_mUnknown_EnableZonalShift")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableZonalShift;
-
-        public bool? EnableZonalShift => _mEnableZonalShift.GetValue("enableZonalShift");
+        private bool? _mValue_EnableZonalShift;
+        private bool _mUnknown_EnableZonalShift;
+        public bool? EnableZonalShift
+        {
+            get
+            {
+                if (!_mUnknown_EnableZonalShift) return _mValue_EnableZonalShift;
+                throw new UndeferrableValueException("Value 'LoadBalancer.EnableZonalShift' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
         /// </summary>
-        [Input("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
+        [PolicyResourceProperty("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic", "_mUnknown_EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
-
-        public string? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic => _mEnforceSecurityGroupInboundRulesOnPrivateLinkTraffic.GetValue("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic");
+        private string? _mValue_EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+        private bool _mUnknown_EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+        public string? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
+        {
+            get
+            {
+                if (!_mUnknown_EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic) return _mValue_EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+                throw new UndeferrableValueException("Value 'LoadBalancer.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic' is not present");
+            }
+        }
 
         /// <summary>
         /// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         /// </summary>
-        [Input("idleTimeout")]
+        [PolicyResourceProperty("idleTimeout", "_mUnknown_IdleTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIdleTimeout;
-
-        public int? IdleTimeout => _mIdleTimeout.GetValue("idleTimeout");
+        private int? _mValue_IdleTimeout;
+        private bool _mUnknown_IdleTimeout;
+        public int? IdleTimeout
+        {
+            get
+            {
+                if (!_mUnknown_IdleTimeout) return _mValue_IdleTimeout;
+                throw new UndeferrableValueException("Value 'LoadBalancer.IdleTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, the LB will be internal. Defaults to `false`.
         /// </summary>
-        [Input("internal")]
+        [PolicyResourceProperty("internal", "_mUnknown_Internal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInternal;
-
-        public bool? Internal => _mInternal.GetValue("internal");
+        private bool? _mValue_Internal;
+        private bool _mUnknown_Internal;
+        public bool? Internal
+        {
+            get
+            {
+                if (!_mUnknown_Internal) return _mValue_Internal;
+                throw new UndeferrableValueException("Value 'LoadBalancer.Internal' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         /// </summary>
-        [Input("ipAddressType")]
+        [PolicyResourceProperty("ipAddressType", "_mUnknown_IpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
-
-        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+        private string? _mValue_IpAddressType;
+        private bool _mUnknown_IpAddressType;
+        public string? IpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressType) return _mValue_IpAddressType;
+                throw new UndeferrableValueException("Value 'LoadBalancer.IpAddressType' is not present");
+            }
+        }
 
         /// <summary>
         /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
         /// </summary>
-        [Input("ipamPools")]
+        [PolicyResourceProperty("ipamPools", "_mUnknown_IpamPools")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LoadBalancerIpamPools> _mIpamPools;
-
-        public Outputs.LoadBalancerIpamPools? IpamPools => _mIpamPools.GetValue("ipamPools");
+        private Outputs.LoadBalancerIpamPools? _mValue_IpamPools;
+        private bool _mUnknown_IpamPools;
+        public Outputs.LoadBalancerIpamPools? IpamPools
+        {
+            get
+            {
+                if (!_mUnknown_IpamPools) return _mValue_IpamPools;
+                throw new UndeferrableValueException("Value 'LoadBalancer.IpamPools' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         /// </summary>
-        [Input("loadBalancerType")]
+        [PolicyResourceProperty("loadBalancerType", "_mUnknown_LoadBalancerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancerType;
-
-        public string? LoadBalancerType => _mLoadBalancerType.GetValue("loadBalancerType");
+        private string? _mValue_LoadBalancerType;
+        private bool _mUnknown_LoadBalancerType;
+        public string? LoadBalancerType
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerType) return _mValue_LoadBalancerType;
+                throw new UndeferrableValueException("Value 'LoadBalancer.LoadBalancerType' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LoadBalancer.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'LoadBalancer.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
         /// </summary>
-        [Input("preserveHostHeader")]
+        [PolicyResourceProperty("preserveHostHeader", "_mUnknown_PreserveHostHeader")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPreserveHostHeader;
-
-        public bool? PreserveHostHeader => _mPreserveHostHeader.GetValue("preserveHostHeader");
+        private bool? _mValue_PreserveHostHeader;
+        private bool _mUnknown_PreserveHostHeader;
+        public bool? PreserveHostHeader
+        {
+            get
+            {
+                if (!_mUnknown_PreserveHostHeader) return _mValue_PreserveHostHeader;
+                throw new UndeferrableValueException("Value 'LoadBalancer.PreserveHostHeader' is not present");
+            }
+        }
 
         /// <summary>
         /// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'LoadBalancer.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
         /// </summary>
-        [Input("subnetMappings")]
+        [PolicyResourceProperty("subnetMappings", "_mUnknown_SubnetMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LoadBalancerSubnetMapping>> _mSubnetMappings;
-
-        public List<Outputs.LoadBalancerSubnetMapping>? SubnetMappings => _mSubnetMappings.GetValue("subnetMappings");
+        private List<Outputs.LoadBalancerSubnetMapping>? _mValue_SubnetMappings;
+        private bool _mUnknown_SubnetMappings;
+        public List<Outputs.LoadBalancerSubnetMapping>? SubnetMappings
+        {
+            get
+            {
+                if (!_mUnknown_SubnetMappings) return _mValue_SubnetMappings;
+                throw new UndeferrableValueException("Value 'LoadBalancer.SubnetMappings' is not present");
+            }
+        }
 
         /// <summary>
         /// List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
         /// </summary>
-        [Input("subnets")]
+        [PolicyResourceProperty("subnets", "_mUnknown_Subnets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnets;
-
-        public List<string>? Subnets => _mSubnets.GetValue("subnets");
+        private List<string>? _mValue_Subnets;
+        private bool _mUnknown_Subnets;
+        public List<string>? Subnets
+        {
+            get
+            {
+                if (!_mUnknown_Subnets) return _mValue_Subnets;
+                throw new UndeferrableValueException("Value 'LoadBalancer.Subnets' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LoadBalancer.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'LoadBalancer.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'LoadBalancer.VpcId' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
         /// </summary>
-        [Input("xffHeaderProcessingMode")]
+        [PolicyResourceProperty("xffHeaderProcessingMode", "_mUnknown_XffHeaderProcessingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mXffHeaderProcessingMode;
-
-        public string? XffHeaderProcessingMode => _mXffHeaderProcessingMode.GetValue("xffHeaderProcessingMode");
+        private string? _mValue_XffHeaderProcessingMode;
+        private bool _mUnknown_XffHeaderProcessingMode;
+        public string? XffHeaderProcessingMode
+        {
+            get
+            {
+                if (!_mUnknown_XffHeaderProcessingMode) return _mValue_XffHeaderProcessingMode;
+                throw new UndeferrableValueException("Value 'LoadBalancer.XffHeaderProcessingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
         /// </summary>
-        [Input("zoneId")]
+        [PolicyResourceProperty("zoneId", "_mUnknown_ZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZoneId;
-
-        public string? ZoneId => _mZoneId.GetValue("zoneId");
+        private string? _mValue_ZoneId;
+        private bool _mUnknown_ZoneId;
+        public string? ZoneId
+        {
+            get
+            {
+                if (!_mUnknown_ZoneId) return _mValue_ZoneId;
+                throw new UndeferrableValueException("Value 'LoadBalancer.ZoneId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lb/loadBalancer:LoadBalancer")]
@@ -323,253 +561,449 @@ namespace Pulumi.PolicyPacks.Aws.LB
         /// <summary>
         /// Access Logs block. See below.
         /// </summary>
-        [Input("accessLogs")]
+        [PolicyResourceProperty("accessLogs", "_mUnknown_AccessLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LoadBalancerAccessLogsArgs> _mAccessLogs;
-
-        public Inputs.LoadBalancerAccessLogsArgs? AccessLogs => _mAccessLogs.GetValue("accessLogs");
+        private Inputs.LoadBalancerAccessLogsArgs? _mValue_AccessLogs;
+        private bool _mUnknown_AccessLogs;
+        public Inputs.LoadBalancerAccessLogsArgs? AccessLogs
+        {
+            get
+            {
+                if (!_mUnknown_AccessLogs) return _mValue_AccessLogs;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.AccessLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
         /// </summary>
-        [Input("clientKeepAlive")]
+        [PolicyResourceProperty("clientKeepAlive", "_mUnknown_ClientKeepAlive")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mClientKeepAlive;
-
-        public int? ClientKeepAlive => _mClientKeepAlive.GetValue("clientKeepAlive");
+        private int? _mValue_ClientKeepAlive;
+        private bool _mUnknown_ClientKeepAlive;
+        public int? ClientKeepAlive
+        {
+            get
+            {
+                if (!_mUnknown_ClientKeepAlive) return _mValue_ClientKeepAlive;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.ClientKeepAlive' is not present");
+            }
+        }
 
         /// <summary>
         /// Connection Logs block. See below. Only valid for Load Balancers of type `application`.
         /// </summary>
-        [Input("connectionLogs")]
+        [PolicyResourceProperty("connectionLogs", "_mUnknown_ConnectionLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LoadBalancerConnectionLogsArgs> _mConnectionLogs;
-
-        public Inputs.LoadBalancerConnectionLogsArgs? ConnectionLogs => _mConnectionLogs.GetValue("connectionLogs");
+        private Inputs.LoadBalancerConnectionLogsArgs? _mValue_ConnectionLogs;
+        private bool _mUnknown_ConnectionLogs;
+        public Inputs.LoadBalancerConnectionLogsArgs? ConnectionLogs
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionLogs) return _mValue_ConnectionLogs;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.ConnectionLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the customer owned ipv4 pool to use for this load balancer.
         /// </summary>
-        [Input("customerOwnedIpv4Pool")]
+        [PolicyResourceProperty("customerOwnedIpv4Pool", "_mUnknown_CustomerOwnedIpv4Pool")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerOwnedIpv4Pool;
-
-        public string? CustomerOwnedIpv4Pool => _mCustomerOwnedIpv4Pool.GetValue("customerOwnedIpv4Pool");
+        private string? _mValue_CustomerOwnedIpv4Pool;
+        private bool _mUnknown_CustomerOwnedIpv4Pool;
+        public string? CustomerOwnedIpv4Pool
+        {
+            get
+            {
+                if (!_mUnknown_CustomerOwnedIpv4Pool) return _mValue_CustomerOwnedIpv4Pool;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.CustomerOwnedIpv4Pool' is not present");
+            }
+        }
 
         /// <summary>
         /// How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         /// </summary>
-        [Input("desyncMitigationMode")]
+        [PolicyResourceProperty("desyncMitigationMode", "_mUnknown_DesyncMitigationMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDesyncMitigationMode;
-
-        public string? DesyncMitigationMode => _mDesyncMitigationMode.GetValue("desyncMitigationMode");
+        private string? _mValue_DesyncMitigationMode;
+        private bool _mUnknown_DesyncMitigationMode;
+        public string? DesyncMitigationMode
+        {
+            get
+            {
+                if (!_mUnknown_DesyncMitigationMode) return _mValue_DesyncMitigationMode;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.DesyncMitigationMode' is not present");
+            }
+        }
 
         /// <summary>
         /// How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
         /// </summary>
-        [Input("dnsRecordClientRoutingPolicy")]
+        [PolicyResourceProperty("dnsRecordClientRoutingPolicy", "_mUnknown_DnsRecordClientRoutingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsRecordClientRoutingPolicy;
-
-        public string? DnsRecordClientRoutingPolicy => _mDnsRecordClientRoutingPolicy.GetValue("dnsRecordClientRoutingPolicy");
+        private string? _mValue_DnsRecordClientRoutingPolicy;
+        private bool _mUnknown_DnsRecordClientRoutingPolicy;
+        public string? DnsRecordClientRoutingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_DnsRecordClientRoutingPolicy) return _mValue_DnsRecordClientRoutingPolicy;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.DnsRecordClientRoutingPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         /// </summary>
-        [Input("dropInvalidHeaderFields")]
+        [PolicyResourceProperty("dropInvalidHeaderFields", "_mUnknown_DropInvalidHeaderFields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDropInvalidHeaderFields;
-
-        public bool? DropInvalidHeaderFields => _mDropInvalidHeaderFields.GetValue("dropInvalidHeaderFields");
+        private bool? _mValue_DropInvalidHeaderFields;
+        private bool _mUnknown_DropInvalidHeaderFields;
+        public bool? DropInvalidHeaderFields
+        {
+            get
+            {
+                if (!_mUnknown_DropInvalidHeaderFields) return _mValue_DropInvalidHeaderFields;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.DropInvalidHeaderFields' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
         /// </summary>
-        [Input("enableCrossZoneLoadBalancing")]
+        [PolicyResourceProperty("enableCrossZoneLoadBalancing", "_mUnknown_EnableCrossZoneLoadBalancing")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableCrossZoneLoadBalancing;
-
-        public bool? EnableCrossZoneLoadBalancing => _mEnableCrossZoneLoadBalancing.GetValue("enableCrossZoneLoadBalancing");
+        private bool? _mValue_EnableCrossZoneLoadBalancing;
+        private bool _mUnknown_EnableCrossZoneLoadBalancing;
+        public bool? EnableCrossZoneLoadBalancing
+        {
+            get
+            {
+                if (!_mUnknown_EnableCrossZoneLoadBalancing) return _mValue_EnableCrossZoneLoadBalancing;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.EnableCrossZoneLoadBalancing' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         /// </summary>
-        [Input("enableDeletionProtection")]
+        [PolicyResourceProperty("enableDeletionProtection", "_mUnknown_EnableDeletionProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDeletionProtection;
-
-        public bool? EnableDeletionProtection => _mEnableDeletionProtection.GetValue("enableDeletionProtection");
+        private bool? _mValue_EnableDeletionProtection;
+        private bool _mUnknown_EnableDeletionProtection;
+        public bool? EnableDeletionProtection
+        {
+            get
+            {
+                if (!_mUnknown_EnableDeletionProtection) return _mValue_EnableDeletionProtection;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.EnableDeletionProtection' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
         /// </summary>
-        [Input("enableHttp2")]
+        [PolicyResourceProperty("enableHttp2", "_mUnknown_EnableHttp2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableHttp2;
-
-        public bool? EnableHttp2 => _mEnableHttp2.GetValue("enableHttp2");
+        private bool? _mValue_EnableHttp2;
+        private bool _mUnknown_EnableHttp2;
+        public bool? EnableHttp2
+        {
+            get
+            {
+                if (!_mUnknown_EnableHttp2) return _mValue_EnableHttp2;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.EnableHttp2' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
         /// </summary>
-        [Input("enableTlsVersionAndCipherSuiteHeaders")]
+        [PolicyResourceProperty("enableTlsVersionAndCipherSuiteHeaders", "_mUnknown_EnableTlsVersionAndCipherSuiteHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableTlsVersionAndCipherSuiteHeaders;
-
-        public bool? EnableTlsVersionAndCipherSuiteHeaders => _mEnableTlsVersionAndCipherSuiteHeaders.GetValue("enableTlsVersionAndCipherSuiteHeaders");
+        private bool? _mValue_EnableTlsVersionAndCipherSuiteHeaders;
+        private bool _mUnknown_EnableTlsVersionAndCipherSuiteHeaders;
+        public bool? EnableTlsVersionAndCipherSuiteHeaders
+        {
+            get
+            {
+                if (!_mUnknown_EnableTlsVersionAndCipherSuiteHeaders) return _mValue_EnableTlsVersionAndCipherSuiteHeaders;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.EnableTlsVersionAndCipherSuiteHeaders' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         /// </summary>
-        [Input("enableWafFailOpen")]
+        [PolicyResourceProperty("enableWafFailOpen", "_mUnknown_EnableWafFailOpen")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableWafFailOpen;
-
-        public bool? EnableWafFailOpen => _mEnableWafFailOpen.GetValue("enableWafFailOpen");
+        private bool? _mValue_EnableWafFailOpen;
+        private bool _mUnknown_EnableWafFailOpen;
+        public bool? EnableWafFailOpen
+        {
+            get
+            {
+                if (!_mUnknown_EnableWafFailOpen) return _mValue_EnableWafFailOpen;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.EnableWafFailOpen' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
         /// </summary>
-        [Input("enableXffClientPort")]
+        [PolicyResourceProperty("enableXffClientPort", "_mUnknown_EnableXffClientPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableXffClientPort;
-
-        public bool? EnableXffClientPort => _mEnableXffClientPort.GetValue("enableXffClientPort");
+        private bool? _mValue_EnableXffClientPort;
+        private bool _mUnknown_EnableXffClientPort;
+        public bool? EnableXffClientPort
+        {
+            get
+            {
+                if (!_mUnknown_EnableXffClientPort) return _mValue_EnableXffClientPort;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.EnableXffClientPort' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether zonal shift is enabled. Defaults to `false`.
         /// </summary>
-        [Input("enableZonalShift")]
+        [PolicyResourceProperty("enableZonalShift", "_mUnknown_EnableZonalShift")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableZonalShift;
-
-        public bool? EnableZonalShift => _mEnableZonalShift.GetValue("enableZonalShift");
+        private bool? _mValue_EnableZonalShift;
+        private bool _mUnknown_EnableZonalShift;
+        public bool? EnableZonalShift
+        {
+            get
+            {
+                if (!_mUnknown_EnableZonalShift) return _mValue_EnableZonalShift;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.EnableZonalShift' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
         /// </summary>
-        [Input("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
+        [PolicyResourceProperty("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic", "_mUnknown_EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
-
-        public string? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic => _mEnforceSecurityGroupInboundRulesOnPrivateLinkTraffic.GetValue("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic");
+        private string? _mValue_EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+        private bool _mUnknown_EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+        public string? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
+        {
+            get
+            {
+                if (!_mUnknown_EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic) return _mValue_EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic' is not present");
+            }
+        }
 
         /// <summary>
         /// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         /// </summary>
-        [Input("idleTimeout")]
+        [PolicyResourceProperty("idleTimeout", "_mUnknown_IdleTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIdleTimeout;
-
-        public int? IdleTimeout => _mIdleTimeout.GetValue("idleTimeout");
+        private int? _mValue_IdleTimeout;
+        private bool _mUnknown_IdleTimeout;
+        public int? IdleTimeout
+        {
+            get
+            {
+                if (!_mUnknown_IdleTimeout) return _mValue_IdleTimeout;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.IdleTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, the LB will be internal. Defaults to `false`.
         /// </summary>
-        [Input("internal")]
+        [PolicyResourceProperty("internal", "_mUnknown_Internal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInternal;
-
-        public bool? Internal => _mInternal.GetValue("internal");
+        private bool? _mValue_Internal;
+        private bool _mUnknown_Internal;
+        public bool? Internal
+        {
+            get
+            {
+                if (!_mUnknown_Internal) return _mValue_Internal;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.Internal' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         /// </summary>
-        [Input("ipAddressType")]
+        [PolicyResourceProperty("ipAddressType", "_mUnknown_IpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
-
-        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+        private string? _mValue_IpAddressType;
+        private bool _mUnknown_IpAddressType;
+        public string? IpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressType) return _mValue_IpAddressType;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.IpAddressType' is not present");
+            }
+        }
 
         /// <summary>
         /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
         /// </summary>
-        [Input("ipamPools")]
+        [PolicyResourceProperty("ipamPools", "_mUnknown_IpamPools")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LoadBalancerIpamPoolsArgs> _mIpamPools;
-
-        public Inputs.LoadBalancerIpamPoolsArgs? IpamPools => _mIpamPools.GetValue("ipamPools");
+        private Inputs.LoadBalancerIpamPoolsArgs? _mValue_IpamPools;
+        private bool _mUnknown_IpamPools;
+        public Inputs.LoadBalancerIpamPoolsArgs? IpamPools
+        {
+            get
+            {
+                if (!_mUnknown_IpamPools) return _mValue_IpamPools;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.IpamPools' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         /// </summary>
-        [Input("loadBalancerType")]
+        [PolicyResourceProperty("loadBalancerType", "_mUnknown_LoadBalancerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancerType;
-
-        public string? LoadBalancerType => _mLoadBalancerType.GetValue("loadBalancerType");
+        private string? _mValue_LoadBalancerType;
+        private bool _mUnknown_LoadBalancerType;
+        public string? LoadBalancerType
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerType) return _mValue_LoadBalancerType;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.LoadBalancerType' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
         /// </summary>
-        [Input("preserveHostHeader")]
+        [PolicyResourceProperty("preserveHostHeader", "_mUnknown_PreserveHostHeader")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPreserveHostHeader;
-
-        public bool? PreserveHostHeader => _mPreserveHostHeader.GetValue("preserveHostHeader");
+        private bool? _mValue_PreserveHostHeader;
+        private bool _mUnknown_PreserveHostHeader;
+        public bool? PreserveHostHeader
+        {
+            get
+            {
+                if (!_mUnknown_PreserveHostHeader) return _mValue_PreserveHostHeader;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.PreserveHostHeader' is not present");
+            }
+        }
 
         /// <summary>
         /// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
         /// </summary>
-        [Input("subnetMappings")]
+        [PolicyResourceProperty("subnetMappings", "_mUnknown_SubnetMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LoadBalancerSubnetMappingArgs>> _mSubnetMappings;
-
-        public List<Inputs.LoadBalancerSubnetMappingArgs>? SubnetMappings => _mSubnetMappings.GetValue("subnetMappings");
+        private List<Inputs.LoadBalancerSubnetMappingArgs>? _mValue_SubnetMappings;
+        private bool _mUnknown_SubnetMappings;
+        public List<Inputs.LoadBalancerSubnetMappingArgs>? SubnetMappings
+        {
+            get
+            {
+                if (!_mUnknown_SubnetMappings) return _mValue_SubnetMappings;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.SubnetMappings' is not present");
+            }
+        }
 
         /// <summary>
         /// List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
         /// </summary>
-        [Input("subnets")]
+        [PolicyResourceProperty("subnets", "_mUnknown_Subnets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnets;
-
-        public List<string>? Subnets => _mSubnets.GetValue("subnets");
+        private List<string>? _mValue_Subnets;
+        private bool _mUnknown_Subnets;
+        public List<string>? Subnets
+        {
+            get
+            {
+                if (!_mUnknown_Subnets) return _mValue_Subnets;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.Subnets' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
         /// </summary>
-        [Input("xffHeaderProcessingMode")]
+        [PolicyResourceProperty("xffHeaderProcessingMode", "_mUnknown_XffHeaderProcessingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mXffHeaderProcessingMode;
-
-        public string? XffHeaderProcessingMode => _mXffHeaderProcessingMode.GetValue("xffHeaderProcessingMode");
+        private string? _mValue_XffHeaderProcessingMode;
+        private bool _mUnknown_XffHeaderProcessingMode;
+        public string? XffHeaderProcessingMode
+        {
+            get
+            {
+                if (!_mUnknown_XffHeaderProcessingMode) return _mValue_XffHeaderProcessingMode;
+                throw new UndeferrableValueException("Value 'LoadBalancerArgs.XffHeaderProcessingMode' is not present");
+            }
+        }
     }
 }

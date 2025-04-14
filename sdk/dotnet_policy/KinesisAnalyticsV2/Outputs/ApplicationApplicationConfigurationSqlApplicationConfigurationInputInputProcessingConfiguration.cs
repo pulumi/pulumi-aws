@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
         /// </summary>
-        [Input("inputLambdaProcessor")]
+        [PolicyResourceProperty("inputLambdaProcessor", "_mUnknown_InputLambdaProcessor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor> _mInputLambdaProcessor;
-
-        public Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor? InputLambdaProcessor => _mInputLambdaProcessor.GetValue("inputLambdaProcessor");
+        private Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor? _mValue_InputLambdaProcessor;
+        private bool _mUnknown_InputLambdaProcessor;
+        public Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor? InputLambdaProcessor
+        {
+            get
+            {
+                if (!_mUnknown_InputLambdaProcessor) return _mValue_InputLambdaProcessor;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration.InputLambdaProcessor' is not present");
+            }
+        }
     }
 }

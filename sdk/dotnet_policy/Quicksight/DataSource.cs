@@ -16,112 +16,196 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// Amazon Resource Name (ARN) of the data source
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DataSource.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'DataSource.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
         /// </summary>
-        [Input("credentials")]
+        [PolicyResourceProperty("credentials", "_mUnknown_Credentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceCredentials> _mCredentials;
-
-        public Outputs.DataSourceCredentials? Credentials => _mCredentials.GetValue("credentials");
+        private Outputs.DataSourceCredentials? _mValue_Credentials;
+        private bool _mUnknown_Credentials;
+        public Outputs.DataSourceCredentials? Credentials
+        {
+            get
+            {
+                if (!_mUnknown_Credentials) return _mValue_Credentials;
+                throw new UndeferrableValueException("Value 'DataSource.Credentials' is not present");
+            }
+        }
 
         /// <summary>
         /// An identifier for the data source.
         /// </summary>
-        [Input("dataSourceId")]
+        [PolicyResourceProperty("dataSourceId", "_mUnknown_DataSourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceId;
-
-        public string? DataSourceId => _mDataSourceId.GetValue("dataSourceId");
+        private string? _mValue_DataSourceId;
+        private bool _mUnknown_DataSourceId;
+        public string? DataSourceId
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceId) return _mValue_DataSourceId;
+                throw new UndeferrableValueException("Value 'DataSource.DataSourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the data source, maximum of 128 characters.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DataSource.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters used to connect to this data source (exactly one).
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParameters> _mParameters;
-
-        public Outputs.DataSourceParameters? Parameters => _mParameters.GetValue("parameters");
+        private Outputs.DataSourceParameters? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Outputs.DataSourceParameters? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'DataSource.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DataSourcePermission>> _mPermissions;
-
-        public List<Outputs.DataSourcePermission>? Permissions => _mPermissions.GetValue("permissions");
+        private List<Outputs.DataSourcePermission>? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public List<Outputs.DataSourcePermission>? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'DataSource.Permissions' is not present");
+            }
+        }
 
         /// <summary>
         /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
         /// </summary>
-        [Input("sslProperties")]
+        [PolicyResourceProperty("sslProperties", "_mUnknown_SslProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceSslProperties> _mSslProperties;
-
-        public Outputs.DataSourceSslProperties? SslProperties => _mSslProperties.GetValue("sslProperties");
+        private Outputs.DataSourceSslProperties? _mValue_SslProperties;
+        private bool _mUnknown_SslProperties;
+        public Outputs.DataSourceSslProperties? SslProperties
+        {
+            get
+            {
+                if (!_mUnknown_SslProperties) return _mValue_SslProperties;
+                throw new UndeferrableValueException("Value 'DataSource.SslProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DataSource.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DataSource.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'DataSource.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
         /// </summary>
-        [Input("vpcConnectionProperties")]
+        [PolicyResourceProperty("vpcConnectionProperties", "_mUnknown_VpcConnectionProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceVpcConnectionProperties> _mVpcConnectionProperties;
-
-        public Outputs.DataSourceVpcConnectionProperties? VpcConnectionProperties => _mVpcConnectionProperties.GetValue("vpcConnectionProperties");
+        private Outputs.DataSourceVpcConnectionProperties? _mValue_VpcConnectionProperties;
+        private bool _mUnknown_VpcConnectionProperties;
+        public Outputs.DataSourceVpcConnectionProperties? VpcConnectionProperties
+        {
+            get
+            {
+                if (!_mUnknown_VpcConnectionProperties) return _mValue_VpcConnectionProperties;
+                throw new UndeferrableValueException("Value 'DataSource.VpcConnectionProperties' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:quicksight/dataSource:DataSource")]
@@ -130,93 +214,163 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
         /// </summary>
-        [Input("credentials")]
+        [PolicyResourceProperty("credentials", "_mUnknown_Credentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceCredentialsArgs> _mCredentials;
-
-        public Inputs.DataSourceCredentialsArgs? Credentials => _mCredentials.GetValue("credentials");
+        private Inputs.DataSourceCredentialsArgs? _mValue_Credentials;
+        private bool _mUnknown_Credentials;
+        public Inputs.DataSourceCredentialsArgs? Credentials
+        {
+            get
+            {
+                if (!_mUnknown_Credentials) return _mValue_Credentials;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.Credentials' is not present");
+            }
+        }
 
         /// <summary>
         /// An identifier for the data source.
         /// </summary>
-        [Input("dataSourceId")]
+        [PolicyResourceProperty("dataSourceId", "_mUnknown_DataSourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceId;
-
-        public string? DataSourceId => _mDataSourceId.GetValue("dataSourceId");
+        private string? _mValue_DataSourceId;
+        private bool _mUnknown_DataSourceId;
+        public string? DataSourceId
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceId) return _mValue_DataSourceId;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.DataSourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the data source, maximum of 128 characters.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters used to connect to this data source (exactly one).
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceParametersArgs> _mParameters;
-
-        public Inputs.DataSourceParametersArgs? Parameters => _mParameters.GetValue("parameters");
+        private Inputs.DataSourceParametersArgs? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Inputs.DataSourceParametersArgs? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DataSourcePermissionArgs>> _mPermissions;
-
-        public List<Inputs.DataSourcePermissionArgs>? Permissions => _mPermissions.GetValue("permissions");
+        private List<Inputs.DataSourcePermissionArgs>? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public List<Inputs.DataSourcePermissionArgs>? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.Permissions' is not present");
+            }
+        }
 
         /// <summary>
         /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
         /// </summary>
-        [Input("sslProperties")]
+        [PolicyResourceProperty("sslProperties", "_mUnknown_SslProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceSslPropertiesArgs> _mSslProperties;
-
-        public Inputs.DataSourceSslPropertiesArgs? SslProperties => _mSslProperties.GetValue("sslProperties");
+        private Inputs.DataSourceSslPropertiesArgs? _mValue_SslProperties;
+        private bool _mUnknown_SslProperties;
+        public Inputs.DataSourceSslPropertiesArgs? SslProperties
+        {
+            get
+            {
+                if (!_mUnknown_SslProperties) return _mValue_SslProperties;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.SslProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
         /// </summary>
-        [Input("vpcConnectionProperties")]
+        [PolicyResourceProperty("vpcConnectionProperties", "_mUnknown_VpcConnectionProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceVpcConnectionPropertiesArgs> _mVpcConnectionProperties;
-
-        public Inputs.DataSourceVpcConnectionPropertiesArgs? VpcConnectionProperties => _mVpcConnectionProperties.GetValue("vpcConnectionProperties");
+        private Inputs.DataSourceVpcConnectionPropertiesArgs? _mValue_VpcConnectionProperties;
+        private bool _mUnknown_VpcConnectionProperties;
+        public Inputs.DataSourceVpcConnectionPropertiesArgs? VpcConnectionProperties
+        {
+            get
+            {
+                if (!_mUnknown_VpcConnectionProperties) return _mValue_VpcConnectionProperties;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.VpcConnectionProperties' is not present");
+            }
+        }
     }
 }

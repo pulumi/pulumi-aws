@@ -16,130 +16,228 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// ARN of the template.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Template.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'Template.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The time that the template was created.
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
-
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'Template.CreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The time that the template was last updated.
         /// </summary>
-        [Input("lastUpdatedTime")]
+        [PolicyResourceProperty("lastUpdatedTime", "_mUnknown_LastUpdatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
-
-        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
+        private string? _mValue_LastUpdatedTime;
+        private bool _mUnknown_LastUpdatedTime;
+        public string? LastUpdatedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedTime) return _mValue_LastUpdatedTime;
+                throw new UndeferrableValueException("Value 'Template.LastUpdatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Display name for the template.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Template.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of resource permissions on the template. Maximum of 64 items. See permissions.
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TemplatePermission>> _mPermissions;
-
-        public List<Outputs.TemplatePermission>? Permissions => _mPermissions.GetValue("permissions");
+        private List<Outputs.TemplatePermission>? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public List<Outputs.TemplatePermission>? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'Template.Permissions' is not present");
+            }
+        }
 
         /// <summary>
         /// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         /// </summary>
-        [Input("sourceEntity")]
+        [PolicyResourceProperty("sourceEntity", "_mUnknown_SourceEntity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TemplateSourceEntity> _mSourceEntity;
-
-        public Outputs.TemplateSourceEntity? SourceEntity => _mSourceEntity.GetValue("sourceEntity");
+        private Outputs.TemplateSourceEntity? _mValue_SourceEntity;
+        private bool _mUnknown_SourceEntity;
+        public Outputs.TemplateSourceEntity? SourceEntity
+        {
+            get
+            {
+                if (!_mUnknown_SourceEntity) return _mValue_SourceEntity;
+                throw new UndeferrableValueException("Value 'Template.SourceEntity' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
         /// </summary>
-        [Input("sourceEntityArn")]
+        [PolicyResourceProperty("sourceEntityArn", "_mUnknown_SourceEntityArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceEntityArn;
-
-        public string? SourceEntityArn => _mSourceEntityArn.GetValue("sourceEntityArn");
+        private string? _mValue_SourceEntityArn;
+        private bool _mUnknown_SourceEntityArn;
+        public string? SourceEntityArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceEntityArn) return _mValue_SourceEntityArn;
+                throw new UndeferrableValueException("Value 'Template.SourceEntityArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The template creation status.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Template.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Template.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Template.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the template.
         /// </summary>
-        [Input("templateId")]
+        [PolicyResourceProperty("templateId", "_mUnknown_TemplateId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateId;
-
-        public string? TemplateId => _mTemplateId.GetValue("templateId");
+        private string? _mValue_TemplateId;
+        private bool _mUnknown_TemplateId;
+        public string? TemplateId
+        {
+            get
+            {
+                if (!_mUnknown_TemplateId) return _mValue_TemplateId;
+                throw new UndeferrableValueException("Value 'Template.TemplateId' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the current template version being created/updated.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("versionDescription")]
+        [PolicyResourceProperty("versionDescription", "_mUnknown_VersionDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionDescription;
-
-        public string? VersionDescription => _mVersionDescription.GetValue("versionDescription");
+        private string? _mValue_VersionDescription;
+        private bool _mUnknown_VersionDescription;
+        public string? VersionDescription
+        {
+            get
+            {
+                if (!_mUnknown_VersionDescription) return _mValue_VersionDescription;
+                throw new UndeferrableValueException("Value 'Template.VersionDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The version number of the template version.
         /// </summary>
-        [Input("versionNumber")]
+        [PolicyResourceProperty("versionNumber", "_mUnknown_VersionNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVersionNumber;
-
-        public int? VersionNumber => _mVersionNumber.GetValue("versionNumber");
+        private int? _mValue_VersionNumber;
+        private bool _mUnknown_VersionNumber;
+        public int? VersionNumber
+        {
+            get
+            {
+                if (!_mUnknown_VersionNumber) return _mValue_VersionNumber;
+                throw new UndeferrableValueException("Value 'Template.VersionNumber' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:quicksight/template:Template")]
@@ -148,66 +246,115 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'TemplateArgs.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Display name for the template.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TemplateArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of resource permissions on the template. Maximum of 64 items. See permissions.
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TemplatePermissionArgs>> _mPermissions;
-
-        public List<Inputs.TemplatePermissionArgs>? Permissions => _mPermissions.GetValue("permissions");
+        private List<Inputs.TemplatePermissionArgs>? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public List<Inputs.TemplatePermissionArgs>? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'TemplateArgs.Permissions' is not present");
+            }
+        }
 
         /// <summary>
         /// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         /// </summary>
-        [Input("sourceEntity")]
+        [PolicyResourceProperty("sourceEntity", "_mUnknown_SourceEntity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TemplateSourceEntityArgs> _mSourceEntity;
-
-        public Inputs.TemplateSourceEntityArgs? SourceEntity => _mSourceEntity.GetValue("sourceEntity");
+        private Inputs.TemplateSourceEntityArgs? _mValue_SourceEntity;
+        private bool _mUnknown_SourceEntity;
+        public Inputs.TemplateSourceEntityArgs? SourceEntity
+        {
+            get
+            {
+                if (!_mUnknown_SourceEntity) return _mValue_SourceEntity;
+                throw new UndeferrableValueException("Value 'TemplateArgs.SourceEntity' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TemplateArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the template.
         /// </summary>
-        [Input("templateId")]
+        [PolicyResourceProperty("templateId", "_mUnknown_TemplateId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateId;
-
-        public string? TemplateId => _mTemplateId.GetValue("templateId");
+        private string? _mValue_TemplateId;
+        private bool _mUnknown_TemplateId;
+        public string? TemplateId
+        {
+            get
+            {
+                if (!_mUnknown_TemplateId) return _mValue_TemplateId;
+                throw new UndeferrableValueException("Value 'TemplateArgs.TemplateId' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the current template version being created/updated.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("versionDescription")]
+        [PolicyResourceProperty("versionDescription", "_mUnknown_VersionDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionDescription;
-
-        public string? VersionDescription => _mVersionDescription.GetValue("versionDescription");
+        private string? _mValue_VersionDescription;
+        private bool _mUnknown_VersionDescription;
+        public string? VersionDescription
+        {
+            get
+            {
+                if (!_mUnknown_VersionDescription) return _mValue_VersionDescription;
+                throw new UndeferrableValueException("Value 'TemplateArgs.VersionDescription' is not present");
+            }
+        }
     }
 }

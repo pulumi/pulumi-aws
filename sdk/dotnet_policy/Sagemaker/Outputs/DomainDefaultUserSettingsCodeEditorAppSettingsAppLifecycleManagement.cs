@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
         /// </summary>
-        [Input("idleSettings")]
+        [PolicyResourceProperty("idleSettings", "_mUnknown_IdleSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings> _mIdleSettings;
-
-        public Outputs.DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings? IdleSettings => _mIdleSettings.GetValue("idleSettings");
+        private Outputs.DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings? _mValue_IdleSettings;
+        private bool _mUnknown_IdleSettings;
+        public Outputs.DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings? IdleSettings
+        {
+            get
+            {
+                if (!_mUnknown_IdleSettings) return _mValue_IdleSettings;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement.IdleSettings' is not present");
+            }
+        }
     }
 }

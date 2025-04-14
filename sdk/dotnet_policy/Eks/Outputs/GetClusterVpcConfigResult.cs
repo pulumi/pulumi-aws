@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// <summary>
         /// The cluster security group that was created by Amazon EKS for the cluster.
         /// </summary>
-        [Input("clusterSecurityGroupId")]
+        [PolicyResourceProperty("clusterSecurityGroupId", "_mUnknown_ClusterSecurityGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterSecurityGroupId;
-
-        public string? ClusterSecurityGroupId => _mClusterSecurityGroupId.GetValue("clusterSecurityGroupId");
+        private string? _mValue_ClusterSecurityGroupId;
+        private bool _mUnknown_ClusterSecurityGroupId;
+        public string? ClusterSecurityGroupId
+        {
+            get
+            {
+                if (!_mUnknown_ClusterSecurityGroupId) return _mValue_ClusterSecurityGroupId;
+                throw new UndeferrableValueException("Value 'GetClusterVpcConfigResult.ClusterSecurityGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether or not the Amazon EKS private API server endpoint is enabled.
         /// </summary>
-        [Input("endpointPrivateAccess")]
+        [PolicyResourceProperty("endpointPrivateAccess", "_mUnknown_EndpointPrivateAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEndpointPrivateAccess;
-
-        public bool? EndpointPrivateAccess => _mEndpointPrivateAccess.GetValue("endpointPrivateAccess");
+        private bool? _mValue_EndpointPrivateAccess;
+        private bool _mUnknown_EndpointPrivateAccess;
+        public bool? EndpointPrivateAccess
+        {
+            get
+            {
+                if (!_mUnknown_EndpointPrivateAccess) return _mValue_EndpointPrivateAccess;
+                throw new UndeferrableValueException("Value 'GetClusterVpcConfigResult.EndpointPrivateAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether or not the Amazon EKS public API server endpoint is enabled.
         /// </summary>
-        [Input("endpointPublicAccess")]
+        [PolicyResourceProperty("endpointPublicAccess", "_mUnknown_EndpointPublicAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEndpointPublicAccess;
-
-        public bool? EndpointPublicAccess => _mEndpointPublicAccess.GetValue("endpointPublicAccess");
+        private bool? _mValue_EndpointPublicAccess;
+        private bool _mUnknown_EndpointPublicAccess;
+        public bool? EndpointPublicAccess
+        {
+            get
+            {
+                if (!_mUnknown_EndpointPublicAccess) return _mValue_EndpointPublicAccess;
+                throw new UndeferrableValueException("Value 'GetClusterVpcConfigResult.EndpointPublicAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint.
         /// </summary>
-        [Input("publicAccessCidrs")]
+        [PolicyResourceProperty("publicAccessCidrs", "_mUnknown_PublicAccessCidrs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPublicAccessCidrs;
-
-        public List<string>? PublicAccessCidrs => _mPublicAccessCidrs.GetValue("publicAccessCidrs");
+        private List<string>? _mValue_PublicAccessCidrs;
+        private bool _mUnknown_PublicAccessCidrs;
+        public List<string>? PublicAccessCidrs
+        {
+            get
+            {
+                if (!_mUnknown_PublicAccessCidrs) return _mValue_PublicAccessCidrs;
+                throw new UndeferrableValueException("Value 'GetClusterVpcConfigResult.PublicAccessCidrs' is not present");
+            }
+        }
 
         /// <summary>
         /// List of security group IDs
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'GetClusterVpcConfigResult.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// List of subnet IDs
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'GetClusterVpcConfigResult.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC associated with your cluster.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'GetClusterVpcConfigResult.VpcId' is not present");
+            }
+        }
     }
 }

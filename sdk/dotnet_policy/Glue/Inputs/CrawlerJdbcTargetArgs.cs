@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// The name of the connection to use to connect to the JDBC target.
         /// </summary>
-        [Input("connectionName")]
+        [PolicyResourceProperty("connectionName", "_mUnknown_ConnectionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionName;
-
-        public string? ConnectionName => _mConnectionName.GetValue("connectionName");
+        private string? _mValue_ConnectionName;
+        private bool _mUnknown_ConnectionName;
+        public string? ConnectionName
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionName) return _mValue_ConnectionName;
+                throw new UndeferrableValueException("Value 'CrawlerJdbcTargetArgs.ConnectionName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
         /// </summary>
-        [Input("enableAdditionalMetadatas")]
+        [PolicyResourceProperty("enableAdditionalMetadatas", "_mUnknown_EnableAdditionalMetadatas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnableAdditionalMetadatas;
-
-        public List<string>? EnableAdditionalMetadatas => _mEnableAdditionalMetadatas.GetValue("enableAdditionalMetadatas");
+        private List<string>? _mValue_EnableAdditionalMetadatas;
+        private bool _mUnknown_EnableAdditionalMetadatas;
+        public List<string>? EnableAdditionalMetadatas
+        {
+            get
+            {
+                if (!_mUnknown_EnableAdditionalMetadatas) return _mValue_EnableAdditionalMetadatas;
+                throw new UndeferrableValueException("Value 'CrawlerJdbcTargetArgs.EnableAdditionalMetadatas' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of glob patterns used to exclude from the crawl.
         /// </summary>
-        [Input("exclusions")]
+        [PolicyResourceProperty("exclusions", "_mUnknown_Exclusions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExclusions;
-
-        public List<string>? Exclusions => _mExclusions.GetValue("exclusions");
+        private List<string>? _mValue_Exclusions;
+        private bool _mUnknown_Exclusions;
+        public List<string>? Exclusions
+        {
+            get
+            {
+                if (!_mUnknown_Exclusions) return _mValue_Exclusions;
+                throw new UndeferrableValueException("Value 'CrawlerJdbcTargetArgs.Exclusions' is not present");
+            }
+        }
 
         /// <summary>
         /// The path of the JDBC target.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'CrawlerJdbcTargetArgs.Path' is not present");
+            }
+        }
     }
 }

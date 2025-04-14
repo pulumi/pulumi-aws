@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.SesV2.Outputs
         /// <summary>
         /// Specifies whether email sending is enabled.
         /// </summary>
-        [Input("sendingEnabled")]
+        [PolicyResourceProperty("sendingEnabled", "_mUnknown_SendingEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSendingEnabled;
-
-        public bool? SendingEnabled => _mSendingEnabled.GetValue("sendingEnabled");
+        private bool? _mValue_SendingEnabled;
+        private bool _mUnknown_SendingEnabled;
+        public bool? SendingEnabled
+        {
+            get
+            {
+                if (!_mUnknown_SendingEnabled) return _mValue_SendingEnabled;
+                throw new UndeferrableValueException("Value 'GetConfigurationSetSendingOptionResult.SendingEnabled' is not present");
+            }
+        }
     }
 }

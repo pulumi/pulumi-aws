@@ -15,57 +15,99 @@ namespace Pulumi.PolicyPacks.Aws.LB.Inputs
         /// <summary>
         /// Contains a single attribute `values`, which contains a set of host names.
         /// </summary>
-        [Input("hostHeader")]
+        [PolicyResourceProperty("hostHeader", "_mUnknown_HostHeader")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetListenerRuleConditionHostHeaderInputArgs> _mHostHeader;
-
-        public Inputs.GetListenerRuleConditionHostHeaderInputArgs? HostHeader => _mHostHeader.GetValue("hostHeader");
+        private Inputs.GetListenerRuleConditionHostHeaderInputArgs? _mValue_HostHeader;
+        private bool _mUnknown_HostHeader;
+        public Inputs.GetListenerRuleConditionHostHeaderInputArgs? HostHeader
+        {
+            get
+            {
+                if (!_mUnknown_HostHeader) return _mValue_HostHeader;
+                throw new UndeferrableValueException("Value 'GetListenerRuleConditionInputArgs.HostHeader' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP header and values to match.
         /// Detailed below.
         /// </summary>
-        [Input("httpHeader")]
+        [PolicyResourceProperty("httpHeader", "_mUnknown_HttpHeader")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetListenerRuleConditionHttpHeaderInputArgs> _mHttpHeader;
-
-        public Inputs.GetListenerRuleConditionHttpHeaderInputArgs? HttpHeader => _mHttpHeader.GetValue("httpHeader");
+        private Inputs.GetListenerRuleConditionHttpHeaderInputArgs? _mValue_HttpHeader;
+        private bool _mUnknown_HttpHeader;
+        public Inputs.GetListenerRuleConditionHttpHeaderInputArgs? HttpHeader
+        {
+            get
+            {
+                if (!_mUnknown_HttpHeader) return _mValue_HttpHeader;
+                throw new UndeferrableValueException("Value 'GetListenerRuleConditionInputArgs.HttpHeader' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains a single attribute `values`, which contains a set of HTTP request methods.
         /// </summary>
-        [Input("httpRequestMethod")]
+        [PolicyResourceProperty("httpRequestMethod", "_mUnknown_HttpRequestMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetListenerRuleConditionHttpRequestMethodInputArgs> _mHttpRequestMethod;
-
-        public Inputs.GetListenerRuleConditionHttpRequestMethodInputArgs? HttpRequestMethod => _mHttpRequestMethod.GetValue("httpRequestMethod");
+        private Inputs.GetListenerRuleConditionHttpRequestMethodInputArgs? _mValue_HttpRequestMethod;
+        private bool _mUnknown_HttpRequestMethod;
+        public Inputs.GetListenerRuleConditionHttpRequestMethodInputArgs? HttpRequestMethod
+        {
+            get
+            {
+                if (!_mUnknown_HttpRequestMethod) return _mValue_HttpRequestMethod;
+                throw new UndeferrableValueException("Value 'GetListenerRuleConditionInputArgs.HttpRequestMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
         /// </summary>
-        [Input("pathPattern")]
+        [PolicyResourceProperty("pathPattern", "_mUnknown_PathPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetListenerRuleConditionPathPatternInputArgs> _mPathPattern;
-
-        public Inputs.GetListenerRuleConditionPathPatternInputArgs? PathPattern => _mPathPattern.GetValue("pathPattern");
+        private Inputs.GetListenerRuleConditionPathPatternInputArgs? _mValue_PathPattern;
+        private bool _mUnknown_PathPattern;
+        public Inputs.GetListenerRuleConditionPathPatternInputArgs? PathPattern
+        {
+            get
+            {
+                if (!_mUnknown_PathPattern) return _mValue_PathPattern;
+                throw new UndeferrableValueException("Value 'GetListenerRuleConditionInputArgs.PathPattern' is not present");
+            }
+        }
 
         /// <summary>
         /// Query string parameters to match.
         /// Detailed below.
         /// </summary>
-        [Input("queryString")]
+        [PolicyResourceProperty("queryString", "_mUnknown_QueryString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetListenerRuleConditionQueryStringInputArgs> _mQueryString;
-
-        public Inputs.GetListenerRuleConditionQueryStringInputArgs? QueryString => _mQueryString.GetValue("queryString");
+        private Inputs.GetListenerRuleConditionQueryStringInputArgs? _mValue_QueryString;
+        private bool _mUnknown_QueryString;
+        public Inputs.GetListenerRuleConditionQueryStringInputArgs? QueryString
+        {
+            get
+            {
+                if (!_mUnknown_QueryString) return _mValue_QueryString;
+                throw new UndeferrableValueException("Value 'GetListenerRuleConditionInputArgs.QueryString' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
         /// </summary>
-        [Input("sourceIp")]
+        [PolicyResourceProperty("sourceIp", "_mUnknown_SourceIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetListenerRuleConditionSourceIpInputArgs> _mSourceIp;
-
-        public Inputs.GetListenerRuleConditionSourceIpInputArgs? SourceIp => _mSourceIp.GetValue("sourceIp");
+        private Inputs.GetListenerRuleConditionSourceIpInputArgs? _mValue_SourceIp;
+        private bool _mUnknown_SourceIp;
+        public Inputs.GetListenerRuleConditionSourceIpInputArgs? SourceIp
+        {
+            get
+            {
+                if (!_mUnknown_SourceIp) return _mValue_SourceIp;
+                throw new UndeferrableValueException("Value 'GetListenerRuleConditionInputArgs.SourceIp' is not present");
+            }
+        }
     }
 }

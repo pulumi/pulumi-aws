@@ -16,19 +16,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// (Required) ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
         /// See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'GetRealtimeLogConfigEndpointKinesisStreamConfigResult.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required) ARN of the Kinesis data stream.
         /// </summary>
-        [Input("streamArn")]
+        [PolicyResourceProperty("streamArn", "_mUnknown_StreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamArn;
-
-        public string? StreamArn => _mStreamArn.GetValue("streamArn");
+        private string? _mValue_StreamArn;
+        private bool _mUnknown_StreamArn;
+        public string? StreamArn
+        {
+            get
+            {
+                if (!_mUnknown_StreamArn) return _mValue_StreamArn;
+                throw new UndeferrableValueException("Value 'GetRealtimeLogConfigEndpointKinesisStreamConfigResult.StreamArn' is not present");
+            }
+        }
     }
 }

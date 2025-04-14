@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions.Inputs
         /// <summary>
         /// The description of the static policy.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'PolicyDefinitionStaticArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The statement of the static policy.
         /// </summary>
-        [Input("statement")]
+        [PolicyResourceProperty("statement", "_mUnknown_Statement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatement;
-
-        public string? Statement => _mStatement.GetValue("statement");
+        private string? _mValue_Statement;
+        private bool _mUnknown_Statement;
+        public string? Statement
+        {
+            get
+            {
+                if (!_mUnknown_Statement) return _mValue_Statement;
+                throw new UndeferrableValueException("Value 'PolicyDefinitionStaticArgs.Statement' is not present");
+            }
+        }
     }
 }

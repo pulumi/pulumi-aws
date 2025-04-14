@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Cfg.Outputs
         /// <summary>
         /// Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
         /// </summary>
-        [Input("concurrentExecutionRatePercentage")]
+        [PolicyResourceProperty("concurrentExecutionRatePercentage", "_mUnknown_ConcurrentExecutionRatePercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mConcurrentExecutionRatePercentage;
-
-        public int? ConcurrentExecutionRatePercentage => _mConcurrentExecutionRatePercentage.GetValue("concurrentExecutionRatePercentage");
+        private int? _mValue_ConcurrentExecutionRatePercentage;
+        private bool _mUnknown_ConcurrentExecutionRatePercentage;
+        public int? ConcurrentExecutionRatePercentage
+        {
+            get
+            {
+                if (!_mUnknown_ConcurrentExecutionRatePercentage) return _mValue_ConcurrentExecutionRatePercentage;
+                throw new UndeferrableValueException("Value 'RemediationConfigurationExecutionControlsSsmControls.ConcurrentExecutionRatePercentage' is not present");
+            }
+        }
 
         /// <summary>
         /// Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
         /// </summary>
-        [Input("errorPercentage")]
+        [PolicyResourceProperty("errorPercentage", "_mUnknown_ErrorPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mErrorPercentage;
-
-        public int? ErrorPercentage => _mErrorPercentage.GetValue("errorPercentage");
+        private int? _mValue_ErrorPercentage;
+        private bool _mUnknown_ErrorPercentage;
+        public int? ErrorPercentage
+        {
+            get
+            {
+                if (!_mUnknown_ErrorPercentage) return _mValue_ErrorPercentage;
+                throw new UndeferrableValueException("Value 'RemediationConfigurationExecutionControlsSsmControls.ErrorPercentage' is not present");
+            }
+        }
     }
 }

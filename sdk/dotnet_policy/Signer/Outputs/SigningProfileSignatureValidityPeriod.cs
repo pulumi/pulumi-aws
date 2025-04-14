@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Signer.Outputs
         /// <summary>
         /// The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'SigningProfileSignatureValidityPeriod.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// The numerical value of the time unit for signature validity.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mValue;
-
-        public int? Value => _mValue.GetValue("value");
+        private int? _mValue_Value;
+        private bool _mUnknown_Value;
+        public int? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'SigningProfileSignatureValidityPeriod.Value' is not present");
+            }
+        }
     }
 }

@@ -15,107 +15,191 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
         /// </summary>
-        [Input("bufferingInterval")]
+        [PolicyResourceProperty("bufferingInterval", "_mUnknown_BufferingInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferingInterval;
-
-        public int? BufferingInterval => _mBufferingInterval.GetValue("bufferingInterval");
+        private int? _mValue_BufferingInterval;
+        private bool _mUnknown_BufferingInterval;
+        public int? BufferingInterval
+        {
+            get
+            {
+                if (!_mUnknown_BufferingInterval) return _mValue_BufferingInterval;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.BufferingInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
         /// </summary>
-        [Input("bufferingSize")]
+        [PolicyResourceProperty("bufferingSize", "_mUnknown_BufferingSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferingSize;
-
-        public int? BufferingSize => _mBufferingSize.GetValue("bufferingSize");
+        private int? _mValue_BufferingSize;
+        private bool _mUnknown_BufferingSize;
+        public int? BufferingSize
+        {
+            get
+            {
+                if (!_mUnknown_BufferingSize) return _mValue_BufferingSize;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.BufferingSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
-        [Input("cloudwatchLoggingOptions")]
+        [PolicyResourceProperty("cloudwatchLoggingOptions", "_mUnknown_CloudwatchLoggingOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions> _mCloudwatchLoggingOptions;
-
-        public Outputs.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions => _mCloudwatchLoggingOptions.GetValue("cloudwatchLoggingOptions");
+        private Outputs.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions? _mValue_CloudwatchLoggingOptions;
+        private bool _mUnknown_CloudwatchLoggingOptions;
+        public Outputs.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLoggingOptions) return _mValue_CloudwatchLoggingOptions;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.CloudwatchLoggingOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
         /// </summary>
-        [Input("hecAcknowledgmentTimeout")]
+        [PolicyResourceProperty("hecAcknowledgmentTimeout", "_mUnknown_HecAcknowledgmentTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHecAcknowledgmentTimeout;
-
-        public int? HecAcknowledgmentTimeout => _mHecAcknowledgmentTimeout.GetValue("hecAcknowledgmentTimeout");
+        private int? _mValue_HecAcknowledgmentTimeout;
+        private bool _mUnknown_HecAcknowledgmentTimeout;
+        public int? HecAcknowledgmentTimeout
+        {
+            get
+            {
+                if (!_mUnknown_HecAcknowledgmentTimeout) return _mValue_HecAcknowledgmentTimeout;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.HecAcknowledgmentTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
         /// </summary>
-        [Input("hecEndpoint")]
+        [PolicyResourceProperty("hecEndpoint", "_mUnknown_HecEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHecEndpoint;
-
-        public string? HecEndpoint => _mHecEndpoint.GetValue("hecEndpoint");
+        private string? _mValue_HecEndpoint;
+        private bool _mUnknown_HecEndpoint;
+        public string? HecEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_HecEndpoint) return _mValue_HecEndpoint;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.HecEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
         /// </summary>
-        [Input("hecEndpointType")]
+        [PolicyResourceProperty("hecEndpointType", "_mUnknown_HecEndpointType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHecEndpointType;
-
-        public string? HecEndpointType => _mHecEndpointType.GetValue("hecEndpointType");
+        private string? _mValue_HecEndpointType;
+        private bool _mUnknown_HecEndpointType;
+        public string? HecEndpointType
+        {
+            get
+            {
+                if (!_mUnknown_HecEndpointType) return _mValue_HecEndpointType;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.HecEndpointType' is not present");
+            }
+        }
 
         /// <summary>
         /// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secrets_manager_configuration` is not provided.
         /// </summary>
-        [Input("hecToken")]
+        [PolicyResourceProperty("hecToken", "_mUnknown_HecToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHecToken;
-
-        public string? HecToken => _mHecToken.GetValue("hecToken");
+        private string? _mValue_HecToken;
+        private bool _mUnknown_HecToken;
+        public string? HecToken
+        {
+            get
+            {
+                if (!_mUnknown_HecToken) return _mValue_HecToken;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.HecToken' is not present");
+            }
+        }
 
         /// <summary>
         /// The data processing configuration.  See `processing_configuration` block below for details.
         /// </summary>
-        [Input("processingConfiguration")]
+        [PolicyResourceProperty("processingConfiguration", "_mUnknown_ProcessingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration> _mProcessingConfiguration;
-
-        public Outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration? ProcessingConfiguration => _mProcessingConfiguration.GetValue("processingConfiguration");
+        private Outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration? _mValue_ProcessingConfiguration;
+        private bool _mUnknown_ProcessingConfiguration;
+        public Outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration? ProcessingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ProcessingConfiguration) return _mValue_ProcessingConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.ProcessingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
         /// </summary>
-        [Input("retryDuration")]
+        [PolicyResourceProperty("retryDuration", "_mUnknown_RetryDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetryDuration;
-
-        public int? RetryDuration => _mRetryDuration.GetValue("retryDuration");
+        private int? _mValue_RetryDuration;
+        private bool _mUnknown_RetryDuration;
+        public int? RetryDuration
+        {
+            get
+            {
+                if (!_mUnknown_RetryDuration) return _mValue_RetryDuration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.RetryDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
         /// `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `hec_token` is not provided.
         /// </summary>
-        [Input("s3BackupMode")]
+        [PolicyResourceProperty("s3BackupMode", "_mUnknown_S3BackupMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BackupMode;
-
-        public string? S3BackupMode => _mS3BackupMode.GetValue("s3BackupMode");
+        private string? _mValue_S3BackupMode;
+        private bool _mUnknown_S3BackupMode;
+        public string? S3BackupMode
+        {
+            get
+            {
+                if (!_mUnknown_S3BackupMode) return _mValue_S3BackupMode;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.S3BackupMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 Configuration. See `s3_configuration` block below for details.
         /// </summary>
-        [Input("s3Configuration")]
+        [PolicyResourceProperty("s3Configuration", "_mUnknown_S3Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration> _mS3Configuration;
+        private Outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration? _mValue_S3Configuration;
+        private bool _mUnknown_S3Configuration;
+        public Outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration? S3Configuration
+        {
+            get
+            {
+                if (!_mUnknown_S3Configuration) return _mValue_S3Configuration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.S3Configuration' is not present");
+            }
+        }
 
-        public Outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration? S3Configuration => _mS3Configuration.GetValue("s3Configuration");
-
-        [Input("secretsManagerConfiguration")]
+        [PolicyResourceProperty("secretsManagerConfiguration", "_mUnknown_SecretsManagerConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration> _mSecretsManagerConfiguration;
-
-        public Outputs.FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration? SecretsManagerConfiguration => _mSecretsManagerConfiguration.GetValue("secretsManagerConfiguration");
+        private Outputs.FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration? _mValue_SecretsManagerConfiguration;
+        private bool _mUnknown_SecretsManagerConfiguration;
+        public Outputs.FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration? SecretsManagerConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SecretsManagerConfiguration) return _mValue_SecretsManagerConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.SecretsManagerConfiguration' is not present");
+            }
+        }
     }
 }

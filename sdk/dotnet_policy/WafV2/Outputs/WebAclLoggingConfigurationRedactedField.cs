@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
         /// </summary>
-        [Input("method")]
+        [PolicyResourceProperty("method", "_mUnknown_Method")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclLoggingConfigurationRedactedFieldMethod> _mMethod;
-
-        public Outputs.WebAclLoggingConfigurationRedactedFieldMethod? Method => _mMethod.GetValue("method");
+        private Outputs.WebAclLoggingConfigurationRedactedFieldMethod? _mValue_Method;
+        private bool _mUnknown_Method;
+        public Outputs.WebAclLoggingConfigurationRedactedFieldMethod? Method
+        {
+            get
+            {
+                if (!_mUnknown_Method) return _mValue_Method;
+                throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationRedactedField.Method' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
         /// </summary>
-        [Input("queryString")]
+        [PolicyResourceProperty("queryString", "_mUnknown_QueryString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclLoggingConfigurationRedactedFieldQueryString> _mQueryString;
-
-        public Outputs.WebAclLoggingConfigurationRedactedFieldQueryString? QueryString => _mQueryString.GetValue("queryString");
+        private Outputs.WebAclLoggingConfigurationRedactedFieldQueryString? _mValue_QueryString;
+        private bool _mUnknown_QueryString;
+        public Outputs.WebAclLoggingConfigurationRedactedFieldQueryString? QueryString
+        {
+            get
+            {
+                if (!_mUnknown_QueryString) return _mValue_QueryString;
+                throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationRedactedField.QueryString' is not present");
+            }
+        }
 
         /// <summary>
         /// "single_header" refers to the redaction of a single header. For more information, please see the details below under Single Header.
         /// </summary>
-        [Input("singleHeader")]
+        [PolicyResourceProperty("singleHeader", "_mUnknown_SingleHeader")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclLoggingConfigurationRedactedFieldSingleHeader> _mSingleHeader;
-
-        public Outputs.WebAclLoggingConfigurationRedactedFieldSingleHeader? SingleHeader => _mSingleHeader.GetValue("singleHeader");
+        private Outputs.WebAclLoggingConfigurationRedactedFieldSingleHeader? _mValue_SingleHeader;
+        private bool _mUnknown_SingleHeader;
+        public Outputs.WebAclLoggingConfigurationRedactedFieldSingleHeader? SingleHeader
+        {
+            get
+            {
+                if (!_mUnknown_SingleHeader) return _mValue_SingleHeader;
+                throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationRedactedField.SingleHeader' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
         /// </summary>
-        [Input("uriPath")]
+        [PolicyResourceProperty("uriPath", "_mUnknown_UriPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclLoggingConfigurationRedactedFieldUriPath> _mUriPath;
-
-        public Outputs.WebAclLoggingConfigurationRedactedFieldUriPath? UriPath => _mUriPath.GetValue("uriPath");
+        private Outputs.WebAclLoggingConfigurationRedactedFieldUriPath? _mValue_UriPath;
+        private bool _mUnknown_UriPath;
+        public Outputs.WebAclLoggingConfigurationRedactedFieldUriPath? UriPath
+        {
+            get
+            {
+                if (!_mUnknown_UriPath) return _mValue_UriPath;
+                throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationRedactedField.UriPath' is not present");
+            }
+        }
     }
 }

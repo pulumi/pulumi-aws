@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Amplify
         /// <summary>
         /// Unique ID for an Amplify app.
         /// </summary>
-        [Input("appId")]
+        [PolicyResourceProperty("appId", "_mUnknown_AppId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppId;
-
-        public string? AppId => _mAppId.GetValue("appId");
+        private string? _mValue_AppId;
+        private bool _mUnknown_AppId;
+        public string? AppId
+        {
+            get
+            {
+                if (!_mUnknown_AppId) return _mValue_AppId;
+                throw new UndeferrableValueException("Value 'BackendEnvironment.AppId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for a backend environment that is part of an Amplify app.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'BackendEnvironment.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of deployment artifacts.
         /// </summary>
-        [Input("deploymentArtifacts")]
+        [PolicyResourceProperty("deploymentArtifacts", "_mUnknown_DeploymentArtifacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentArtifacts;
-
-        public string? DeploymentArtifacts => _mDeploymentArtifacts.GetValue("deploymentArtifacts");
+        private string? _mValue_DeploymentArtifacts;
+        private bool _mUnknown_DeploymentArtifacts;
+        public string? DeploymentArtifacts
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentArtifacts) return _mValue_DeploymentArtifacts;
+                throw new UndeferrableValueException("Value 'BackendEnvironment.DeploymentArtifacts' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the backend environment.
         /// </summary>
-        [Input("environmentName")]
+        [PolicyResourceProperty("environmentName", "_mUnknown_EnvironmentName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentName;
-
-        public string? EnvironmentName => _mEnvironmentName.GetValue("environmentName");
+        private string? _mValue_EnvironmentName;
+        private bool _mUnknown_EnvironmentName;
+        public string? EnvironmentName
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentName) return _mValue_EnvironmentName;
+                throw new UndeferrableValueException("Value 'BackendEnvironment.EnvironmentName' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS CloudFormation stack name of a backend environment.
         /// </summary>
-        [Input("stackName")]
+        [PolicyResourceProperty("stackName", "_mUnknown_StackName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackName;
-
-        public string? StackName => _mStackName.GetValue("stackName");
+        private string? _mValue_StackName;
+        private bool _mUnknown_StackName;
+        public string? StackName
+        {
+            get
+            {
+                if (!_mUnknown_StackName) return _mValue_StackName;
+                throw new UndeferrableValueException("Value 'BackendEnvironment.StackName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:amplify/backendEnvironment:BackendEnvironment")]
@@ -65,37 +100,65 @@ namespace Pulumi.PolicyPacks.Aws.Amplify
         /// <summary>
         /// Unique ID for an Amplify app.
         /// </summary>
-        [Input("appId")]
+        [PolicyResourceProperty("appId", "_mUnknown_AppId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppId;
-
-        public string? AppId => _mAppId.GetValue("appId");
+        private string? _mValue_AppId;
+        private bool _mUnknown_AppId;
+        public string? AppId
+        {
+            get
+            {
+                if (!_mUnknown_AppId) return _mValue_AppId;
+                throw new UndeferrableValueException("Value 'BackendEnvironmentArgs.AppId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of deployment artifacts.
         /// </summary>
-        [Input("deploymentArtifacts")]
+        [PolicyResourceProperty("deploymentArtifacts", "_mUnknown_DeploymentArtifacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentArtifacts;
-
-        public string? DeploymentArtifacts => _mDeploymentArtifacts.GetValue("deploymentArtifacts");
+        private string? _mValue_DeploymentArtifacts;
+        private bool _mUnknown_DeploymentArtifacts;
+        public string? DeploymentArtifacts
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentArtifacts) return _mValue_DeploymentArtifacts;
+                throw new UndeferrableValueException("Value 'BackendEnvironmentArgs.DeploymentArtifacts' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the backend environment.
         /// </summary>
-        [Input("environmentName")]
+        [PolicyResourceProperty("environmentName", "_mUnknown_EnvironmentName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentName;
-
-        public string? EnvironmentName => _mEnvironmentName.GetValue("environmentName");
+        private string? _mValue_EnvironmentName;
+        private bool _mUnknown_EnvironmentName;
+        public string? EnvironmentName
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentName) return _mValue_EnvironmentName;
+                throw new UndeferrableValueException("Value 'BackendEnvironmentArgs.EnvironmentName' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS CloudFormation stack name of a backend environment.
         /// </summary>
-        [Input("stackName")]
+        [PolicyResourceProperty("stackName", "_mUnknown_StackName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackName;
-
-        public string? StackName => _mStackName.GetValue("stackName");
+        private string? _mValue_StackName;
+        private bool _mUnknown_StackName;
+        public string? StackName
+        {
+            get
+            {
+                if (!_mUnknown_StackName) return _mValue_StackName;
+                throw new UndeferrableValueException("Value 'BackendEnvironmentArgs.StackName' is not present");
+            }
+        }
     }
 }

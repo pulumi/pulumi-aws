@@ -15,91 +15,161 @@ namespace Pulumi.PolicyPacks.Aws.Amplify.Outputs
         /// <summary>
         /// Basic authorization credentials for the autocreated branch.
         /// </summary>
-        [Input("basicAuthCredentials")]
+        [PolicyResourceProperty("basicAuthCredentials", "_mUnknown_BasicAuthCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBasicAuthCredentials;
-
-        public string? BasicAuthCredentials => _mBasicAuthCredentials.GetValue("basicAuthCredentials");
+        private string? _mValue_BasicAuthCredentials;
+        private bool _mUnknown_BasicAuthCredentials;
+        public string? BasicAuthCredentials
+        {
+            get
+            {
+                if (!_mUnknown_BasicAuthCredentials) return _mValue_BasicAuthCredentials;
+                throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.BasicAuthCredentials' is not present");
+            }
+        }
 
         /// <summary>
         /// Build specification (build spec) for the autocreated branch.
         /// </summary>
-        [Input("buildSpec")]
+        [PolicyResourceProperty("buildSpec", "_mUnknown_BuildSpec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBuildSpec;
-
-        public string? BuildSpec => _mBuildSpec.GetValue("buildSpec");
+        private string? _mValue_BuildSpec;
+        private bool _mUnknown_BuildSpec;
+        public string? BuildSpec
+        {
+            get
+            {
+                if (!_mUnknown_BuildSpec) return _mValue_BuildSpec;
+                throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.BuildSpec' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables auto building for the autocreated branch.
         /// </summary>
-        [Input("enableAutoBuild")]
+        [PolicyResourceProperty("enableAutoBuild", "_mUnknown_EnableAutoBuild")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAutoBuild;
-
-        public bool? EnableAutoBuild => _mEnableAutoBuild.GetValue("enableAutoBuild");
+        private bool? _mValue_EnableAutoBuild;
+        private bool _mUnknown_EnableAutoBuild;
+        public bool? EnableAutoBuild
+        {
+            get
+            {
+                if (!_mUnknown_EnableAutoBuild) return _mValue_EnableAutoBuild;
+                throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.EnableAutoBuild' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables basic authorization for the autocreated branch.
         /// </summary>
-        [Input("enableBasicAuth")]
+        [PolicyResourceProperty("enableBasicAuth", "_mUnknown_EnableBasicAuth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableBasicAuth;
-
-        public bool? EnableBasicAuth => _mEnableBasicAuth.GetValue("enableBasicAuth");
+        private bool? _mValue_EnableBasicAuth;
+        private bool _mUnknown_EnableBasicAuth;
+        public bool? EnableBasicAuth
+        {
+            get
+            {
+                if (!_mUnknown_EnableBasicAuth) return _mValue_EnableBasicAuth;
+                throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.EnableBasicAuth' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables performance mode for the branch.
         /// </summary>
-        [Input("enablePerformanceMode")]
+        [PolicyResourceProperty("enablePerformanceMode", "_mUnknown_EnablePerformanceMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePerformanceMode;
-
-        public bool? EnablePerformanceMode => _mEnablePerformanceMode.GetValue("enablePerformanceMode");
+        private bool? _mValue_EnablePerformanceMode;
+        private bool _mUnknown_EnablePerformanceMode;
+        public bool? EnablePerformanceMode
+        {
+            get
+            {
+                if (!_mUnknown_EnablePerformanceMode) return _mValue_EnablePerformanceMode;
+                throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.EnablePerformanceMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables pull request previews for the autocreated branch.
         /// </summary>
-        [Input("enablePullRequestPreview")]
+        [PolicyResourceProperty("enablePullRequestPreview", "_mUnknown_EnablePullRequestPreview")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePullRequestPreview;
-
-        public bool? EnablePullRequestPreview => _mEnablePullRequestPreview.GetValue("enablePullRequestPreview");
+        private bool? _mValue_EnablePullRequestPreview;
+        private bool _mUnknown_EnablePullRequestPreview;
+        public bool? EnablePullRequestPreview
+        {
+            get
+            {
+                if (!_mUnknown_EnablePullRequestPreview) return _mValue_EnablePullRequestPreview;
+                throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.EnablePullRequestPreview' is not present");
+            }
+        }
 
         /// <summary>
         /// Environment variables for the autocreated branch.
         /// </summary>
-        [Input("environmentVariables")]
+        [PolicyResourceProperty("environmentVariables", "_mUnknown_EnvironmentVariables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEnvironmentVariables;
-
-        public Dictionary<string, string>? EnvironmentVariables => _mEnvironmentVariables.GetValue("environmentVariables");
+        private Dictionary<string, string>? _mValue_EnvironmentVariables;
+        private bool _mUnknown_EnvironmentVariables;
+        public Dictionary<string, string>? EnvironmentVariables
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentVariables) return _mValue_EnvironmentVariables;
+                throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.EnvironmentVariables' is not present");
+            }
+        }
 
         /// <summary>
         /// Framework for the autocreated branch.
         /// </summary>
-        [Input("framework")]
+        [PolicyResourceProperty("framework", "_mUnknown_Framework")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFramework;
-
-        public string? Framework => _mFramework.GetValue("framework");
+        private string? _mValue_Framework;
+        private bool _mUnknown_Framework;
+        public string? Framework
+        {
+            get
+            {
+                if (!_mUnknown_Framework) return _mValue_Framework;
+                throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.Framework' is not present");
+            }
+        }
 
         /// <summary>
         /// Amplify environment name for the pull request.
         /// </summary>
-        [Input("pullRequestEnvironmentName")]
+        [PolicyResourceProperty("pullRequestEnvironmentName", "_mUnknown_PullRequestEnvironmentName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPullRequestEnvironmentName;
-
-        public string? PullRequestEnvironmentName => _mPullRequestEnvironmentName.GetValue("pullRequestEnvironmentName");
+        private string? _mValue_PullRequestEnvironmentName;
+        private bool _mUnknown_PullRequestEnvironmentName;
+        public string? PullRequestEnvironmentName
+        {
+            get
+            {
+                if (!_mUnknown_PullRequestEnvironmentName) return _mValue_PullRequestEnvironmentName;
+                throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.PullRequestEnvironmentName' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         /// </summary>
-        [Input("stage")]
+        [PolicyResourceProperty("stage", "_mUnknown_Stage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStage;
-
-        public string? Stage => _mStage.GetValue("stage");
+        private string? _mValue_Stage;
+        private bool _mUnknown_Stage;
+        public string? Stage
+        {
+            get
+            {
+                if (!_mUnknown_Stage) return _mValue_Stage;
+                throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.Stage' is not present");
+            }
+        }
     }
 }

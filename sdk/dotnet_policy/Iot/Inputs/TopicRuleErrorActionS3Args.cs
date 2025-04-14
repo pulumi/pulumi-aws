@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Inputs
         /// <summary>
         /// The Amazon S3 bucket name.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionS3Args.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         /// </summary>
-        [Input("cannedAcl")]
+        [PolicyResourceProperty("cannedAcl", "_mUnknown_CannedAcl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCannedAcl;
-
-        public string? CannedAcl => _mCannedAcl.GetValue("cannedAcl");
+        private string? _mValue_CannedAcl;
+        private bool _mUnknown_CannedAcl;
+        public string? CannedAcl
+        {
+            get
+            {
+                if (!_mUnknown_CannedAcl) return _mValue_CannedAcl;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionS3Args.CannedAcl' is not present");
+            }
+        }
 
         /// <summary>
         /// The object key.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionS3Args.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role that grants access.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionS3Args.RoleArn' is not present");
+            }
+        }
     }
 }

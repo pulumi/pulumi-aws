@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Inputs
         /// <summary>
         /// List of command line arguments to pass to the bootstrap action script.
         /// </summary>
-        [Input("args")]
+        [PolicyResourceProperty("args", "_mUnknown_Args")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mArgs;
-
-        public List<string>? Args => _mArgs.GetValue("args");
+        private List<string>? _mValue_Args;
+        private bool _mUnknown_Args;
+        public List<string>? Args
+        {
+            get
+            {
+                if (!_mUnknown_Args) return _mValue_Args;
+                throw new UndeferrableValueException("Value 'ClusterBootstrapActionArgs.Args' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the bootstrap action.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ClusterBootstrapActionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'ClusterBootstrapActionArgs.Path' is not present");
+            }
+        }
     }
 }

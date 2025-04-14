@@ -15,30 +15,51 @@ namespace Pulumi.PolicyPacks.Aws.Cfg.Inputs
         /// <summary>
         /// List of 12-digit account IDs of the account(s) being aggregated.
         /// </summary>
-        [Input("accountIds")]
+        [PolicyResourceProperty("accountIds", "_mUnknown_AccountIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAccountIds;
-
-        public List<string>? AccountIds => _mAccountIds.GetValue("accountIds");
+        private List<string>? _mValue_AccountIds;
+        private bool _mUnknown_AccountIds;
+        public List<string>? AccountIds
+        {
+            get
+            {
+                if (!_mUnknown_AccountIds) return _mValue_AccountIds;
+                throw new UndeferrableValueException("Value 'ConfigurationAggregatorAccountAggregationSourceArgs.AccountIds' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, aggregate existing AWS Config regions and future regions.
         /// </summary>
-        [Input("allRegions")]
+        [PolicyResourceProperty("allRegions", "_mUnknown_AllRegions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllRegions;
-
-        public bool? AllRegions => _mAllRegions.GetValue("allRegions");
+        private bool? _mValue_AllRegions;
+        private bool _mUnknown_AllRegions;
+        public bool? AllRegions
+        {
+            get
+            {
+                if (!_mUnknown_AllRegions) return _mValue_AllRegions;
+                throw new UndeferrableValueException("Value 'ConfigurationAggregatorAccountAggregationSourceArgs.AllRegions' is not present");
+            }
+        }
 
         /// <summary>
         /// List of source regions being aggregated.
         /// 
         /// Either `regions` or `all_regions` (as true) must be specified.
         /// </summary>
-        [Input("regions")]
+        [PolicyResourceProperty("regions", "_mUnknown_Regions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegions;
-
-        public List<string>? Regions => _mRegions.GetValue("regions");
+        private List<string>? _mValue_Regions;
+        private bool _mUnknown_Regions;
+        public List<string>? Regions
+        {
+            get
+            {
+                if (!_mUnknown_Regions) return _mValue_Regions;
+                throw new UndeferrableValueException("Value 'ConfigurationAggregatorAccountAggregationSourceArgs.Regions' is not present");
+            }
+        }
     }
 }

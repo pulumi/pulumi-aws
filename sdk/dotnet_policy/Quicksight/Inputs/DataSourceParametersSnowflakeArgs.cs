@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// The database to which to connect.
         /// </summary>
-        [Input("database")]
+        [PolicyResourceProperty("database", "_mUnknown_Database")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabase;
-
-        public string? Database => _mDatabase.GetValue("database");
+        private string? _mValue_Database;
+        private bool _mUnknown_Database;
+        public string? Database
+        {
+            get
+            {
+                if (!_mUnknown_Database) return _mValue_Database;
+                throw new UndeferrableValueException("Value 'DataSourceParametersSnowflakeArgs.Database' is not present");
+            }
+        }
 
         /// <summary>
         /// The host to which to connect.
         /// </summary>
-        [Input("host")]
+        [PolicyResourceProperty("host", "_mUnknown_Host")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHost;
-
-        public string? Host => _mHost.GetValue("host");
+        private string? _mValue_Host;
+        private bool _mUnknown_Host;
+        public string? Host
+        {
+            get
+            {
+                if (!_mUnknown_Host) return _mValue_Host;
+                throw new UndeferrableValueException("Value 'DataSourceParametersSnowflakeArgs.Host' is not present");
+            }
+        }
 
         /// <summary>
         /// The warehouse to which to connect.
         /// </summary>
-        [Input("warehouse")]
+        [PolicyResourceProperty("warehouse", "_mUnknown_Warehouse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWarehouse;
-
-        public string? Warehouse => _mWarehouse.GetValue("warehouse");
+        private string? _mValue_Warehouse;
+        private bool _mUnknown_Warehouse;
+        public string? Warehouse
+        {
+            get
+            {
+                if (!_mUnknown_Warehouse) return _mValue_Warehouse;
+                throw new UndeferrableValueException("Value 'DataSourceParametersSnowflakeArgs.Warehouse' is not present");
+            }
+        }
     }
 }

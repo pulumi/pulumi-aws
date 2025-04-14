@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Inputs
         /// <summary>
         /// The command to send to the container that overrides the default command from the Docker image or the task definition.
         /// </summary>
-        [Input("commands")]
+        [PolicyResourceProperty("commands", "_mUnknown_Commands")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCommands;
-
-        public List<string>? Commands => _mCommands.GetValue("commands");
+        private List<string>? _mValue_Commands;
+        private bool _mUnknown_Commands;
+        public List<string>? Commands
+        {
+            get
+            {
+                if (!_mUnknown_Commands) return _mValue_Commands;
+                throw new UndeferrableValueException("Value 'GetTaskExecutionOverridesContainerOverrideArgs.Commands' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of cpu units reserved for the container, instead of the default value from the task definition.
         /// </summary>
-        [Input("cpu")]
+        [PolicyResourceProperty("cpu", "_mUnknown_Cpu")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCpu;
-
-        public int? Cpu => _mCpu.GetValue("cpu");
+        private int? _mValue_Cpu;
+        private bool _mUnknown_Cpu;
+        public int? Cpu
+        {
+            get
+            {
+                if (!_mUnknown_Cpu) return _mValue_Cpu;
+                throw new UndeferrableValueException("Value 'GetTaskExecutionOverridesContainerOverrideArgs.Cpu' is not present");
+            }
+        }
 
         /// <summary>
         /// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
         /// </summary>
-        [Input("environments")]
+        [PolicyResourceProperty("environments", "_mUnknown_Environments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GetTaskExecutionOverridesContainerOverrideEnvironmentArgs>> _mEnvironments;
-
-        public List<Inputs.GetTaskExecutionOverridesContainerOverrideEnvironmentArgs>? Environments => _mEnvironments.GetValue("environments");
+        private List<Inputs.GetTaskExecutionOverridesContainerOverrideEnvironmentArgs>? _mValue_Environments;
+        private bool _mUnknown_Environments;
+        public List<Inputs.GetTaskExecutionOverridesContainerOverrideEnvironmentArgs>? Environments
+        {
+            get
+            {
+                if (!_mUnknown_Environments) return _mValue_Environments;
+                throw new UndeferrableValueException("Value 'GetTaskExecutionOverridesContainerOverrideArgs.Environments' is not present");
+            }
+        }
 
         /// <summary>
         /// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
         /// </summary>
-        [Input("memory")]
+        [PolicyResourceProperty("memory", "_mUnknown_Memory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMemory;
-
-        public int? Memory => _mMemory.GetValue("memory");
+        private int? _mValue_Memory;
+        private bool _mUnknown_Memory;
+        public int? Memory
+        {
+            get
+            {
+                if (!_mUnknown_Memory) return _mValue_Memory;
+                throw new UndeferrableValueException("Value 'GetTaskExecutionOverridesContainerOverrideArgs.Memory' is not present");
+            }
+        }
 
         /// <summary>
         /// The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
         /// </summary>
-        [Input("memoryReservation")]
+        [PolicyResourceProperty("memoryReservation", "_mUnknown_MemoryReservation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMemoryReservation;
-
-        public int? MemoryReservation => _mMemoryReservation.GetValue("memoryReservation");
+        private int? _mValue_MemoryReservation;
+        private bool _mUnknown_MemoryReservation;
+        public int? MemoryReservation
+        {
+            get
+            {
+                if (!_mUnknown_MemoryReservation) return _mValue_MemoryReservation;
+                throw new UndeferrableValueException("Value 'GetTaskExecutionOverridesContainerOverrideArgs.MemoryReservation' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the container that receives the override. This parameter is required if any override is specified.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetTaskExecutionOverridesContainerOverrideArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
         /// </summary>
-        [Input("resourceRequirements")]
+        [PolicyResourceProperty("resourceRequirements", "_mUnknown_ResourceRequirements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs>> _mResourceRequirements;
-
-        public List<Inputs.GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs>? ResourceRequirements => _mResourceRequirements.GetValue("resourceRequirements");
+        private List<Inputs.GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs>? _mValue_ResourceRequirements;
+        private bool _mUnknown_ResourceRequirements;
+        public List<Inputs.GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs>? ResourceRequirements
+        {
+            get
+            {
+                if (!_mUnknown_ResourceRequirements) return _mValue_ResourceRequirements;
+                throw new UndeferrableValueException("Value 'GetTaskExecutionOverridesContainerOverrideArgs.ResourceRequirements' is not present");
+            }
+        }
     }
 }

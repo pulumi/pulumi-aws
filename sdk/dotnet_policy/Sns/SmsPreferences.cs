@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Sns
         /// <summary>
         /// A string, such as your business brand, that is displayed as the sender on the receiving device.
         /// </summary>
-        [Input("defaultSenderId")]
+        [PolicyResourceProperty("defaultSenderId", "_mUnknown_DefaultSenderId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSenderId;
-
-        public string? DefaultSenderId => _mDefaultSenderId.GetValue("defaultSenderId");
+        private string? _mValue_DefaultSenderId;
+        private bool _mUnknown_DefaultSenderId;
+        public string? DefaultSenderId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultSenderId) return _mValue_DefaultSenderId;
+                throw new UndeferrableValueException("Value 'SmsPreferences.DefaultSenderId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
         /// </summary>
-        [Input("defaultSmsType")]
+        [PolicyResourceProperty("defaultSmsType", "_mUnknown_DefaultSmsType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSmsType;
-
-        public string? DefaultSmsType => _mDefaultSmsType.GetValue("defaultSmsType");
+        private string? _mValue_DefaultSmsType;
+        private bool _mUnknown_DefaultSmsType;
+        public string? DefaultSmsType
+        {
+            get
+            {
+                if (!_mUnknown_DefaultSmsType) return _mValue_DefaultSmsType;
+                throw new UndeferrableValueException("Value 'SmsPreferences.DefaultSmsType' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
         /// </summary>
-        [Input("deliveryStatusIamRoleArn")]
+        [PolicyResourceProperty("deliveryStatusIamRoleArn", "_mUnknown_DeliveryStatusIamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryStatusIamRoleArn;
-
-        public string? DeliveryStatusIamRoleArn => _mDeliveryStatusIamRoleArn.GetValue("deliveryStatusIamRoleArn");
+        private string? _mValue_DeliveryStatusIamRoleArn;
+        private bool _mUnknown_DeliveryStatusIamRoleArn;
+        public string? DeliveryStatusIamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryStatusIamRoleArn) return _mValue_DeliveryStatusIamRoleArn;
+                throw new UndeferrableValueException("Value 'SmsPreferences.DeliveryStatusIamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
         /// </summary>
-        [Input("deliveryStatusSuccessSamplingRate")]
+        [PolicyResourceProperty("deliveryStatusSuccessSamplingRate", "_mUnknown_DeliveryStatusSuccessSamplingRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryStatusSuccessSamplingRate;
-
-        public string? DeliveryStatusSuccessSamplingRate => _mDeliveryStatusSuccessSamplingRate.GetValue("deliveryStatusSuccessSamplingRate");
+        private string? _mValue_DeliveryStatusSuccessSamplingRate;
+        private bool _mUnknown_DeliveryStatusSuccessSamplingRate;
+        public string? DeliveryStatusSuccessSamplingRate
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryStatusSuccessSamplingRate) return _mValue_DeliveryStatusSuccessSamplingRate;
+                throw new UndeferrableValueException("Value 'SmsPreferences.DeliveryStatusSuccessSamplingRate' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum amount in USD that you are willing to spend each month to send SMS messages.
         /// </summary>
-        [Input("monthlySpendLimit")]
+        [PolicyResourceProperty("monthlySpendLimit", "_mUnknown_MonthlySpendLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMonthlySpendLimit;
-
-        public int? MonthlySpendLimit => _mMonthlySpendLimit.GetValue("monthlySpendLimit");
+        private int? _mValue_MonthlySpendLimit;
+        private bool _mUnknown_MonthlySpendLimit;
+        public int? MonthlySpendLimit
+        {
+            get
+            {
+                if (!_mUnknown_MonthlySpendLimit) return _mValue_MonthlySpendLimit;
+                throw new UndeferrableValueException("Value 'SmsPreferences.MonthlySpendLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         /// </summary>
-        [Input("usageReportS3Bucket")]
+        [PolicyResourceProperty("usageReportS3Bucket", "_mUnknown_UsageReportS3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsageReportS3Bucket;
-
-        public string? UsageReportS3Bucket => _mUsageReportS3Bucket.GetValue("usageReportS3Bucket");
+        private string? _mValue_UsageReportS3Bucket;
+        private bool _mUnknown_UsageReportS3Bucket;
+        public string? UsageReportS3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_UsageReportS3Bucket) return _mValue_UsageReportS3Bucket;
+                throw new UndeferrableValueException("Value 'SmsPreferences.UsageReportS3Bucket' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sns/smsPreferences:SmsPreferences")]
@@ -74,55 +116,97 @@ namespace Pulumi.PolicyPacks.Aws.Sns
         /// <summary>
         /// A string, such as your business brand, that is displayed as the sender on the receiving device.
         /// </summary>
-        [Input("defaultSenderId")]
+        [PolicyResourceProperty("defaultSenderId", "_mUnknown_DefaultSenderId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSenderId;
-
-        public string? DefaultSenderId => _mDefaultSenderId.GetValue("defaultSenderId");
+        private string? _mValue_DefaultSenderId;
+        private bool _mUnknown_DefaultSenderId;
+        public string? DefaultSenderId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultSenderId) return _mValue_DefaultSenderId;
+                throw new UndeferrableValueException("Value 'SmsPreferencesArgs.DefaultSenderId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
         /// </summary>
-        [Input("defaultSmsType")]
+        [PolicyResourceProperty("defaultSmsType", "_mUnknown_DefaultSmsType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSmsType;
-
-        public string? DefaultSmsType => _mDefaultSmsType.GetValue("defaultSmsType");
+        private string? _mValue_DefaultSmsType;
+        private bool _mUnknown_DefaultSmsType;
+        public string? DefaultSmsType
+        {
+            get
+            {
+                if (!_mUnknown_DefaultSmsType) return _mValue_DefaultSmsType;
+                throw new UndeferrableValueException("Value 'SmsPreferencesArgs.DefaultSmsType' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
         /// </summary>
-        [Input("deliveryStatusIamRoleArn")]
+        [PolicyResourceProperty("deliveryStatusIamRoleArn", "_mUnknown_DeliveryStatusIamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryStatusIamRoleArn;
-
-        public string? DeliveryStatusIamRoleArn => _mDeliveryStatusIamRoleArn.GetValue("deliveryStatusIamRoleArn");
+        private string? _mValue_DeliveryStatusIamRoleArn;
+        private bool _mUnknown_DeliveryStatusIamRoleArn;
+        public string? DeliveryStatusIamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryStatusIamRoleArn) return _mValue_DeliveryStatusIamRoleArn;
+                throw new UndeferrableValueException("Value 'SmsPreferencesArgs.DeliveryStatusIamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
         /// </summary>
-        [Input("deliveryStatusSuccessSamplingRate")]
+        [PolicyResourceProperty("deliveryStatusSuccessSamplingRate", "_mUnknown_DeliveryStatusSuccessSamplingRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryStatusSuccessSamplingRate;
-
-        public string? DeliveryStatusSuccessSamplingRate => _mDeliveryStatusSuccessSamplingRate.GetValue("deliveryStatusSuccessSamplingRate");
+        private string? _mValue_DeliveryStatusSuccessSamplingRate;
+        private bool _mUnknown_DeliveryStatusSuccessSamplingRate;
+        public string? DeliveryStatusSuccessSamplingRate
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryStatusSuccessSamplingRate) return _mValue_DeliveryStatusSuccessSamplingRate;
+                throw new UndeferrableValueException("Value 'SmsPreferencesArgs.DeliveryStatusSuccessSamplingRate' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum amount in USD that you are willing to spend each month to send SMS messages.
         /// </summary>
-        [Input("monthlySpendLimit")]
+        [PolicyResourceProperty("monthlySpendLimit", "_mUnknown_MonthlySpendLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMonthlySpendLimit;
-
-        public int? MonthlySpendLimit => _mMonthlySpendLimit.GetValue("monthlySpendLimit");
+        private int? _mValue_MonthlySpendLimit;
+        private bool _mUnknown_MonthlySpendLimit;
+        public int? MonthlySpendLimit
+        {
+            get
+            {
+                if (!_mUnknown_MonthlySpendLimit) return _mValue_MonthlySpendLimit;
+                throw new UndeferrableValueException("Value 'SmsPreferencesArgs.MonthlySpendLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         /// </summary>
-        [Input("usageReportS3Bucket")]
+        [PolicyResourceProperty("usageReportS3Bucket", "_mUnknown_UsageReportS3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsageReportS3Bucket;
-
-        public string? UsageReportS3Bucket => _mUsageReportS3Bucket.GetValue("usageReportS3Bucket");
+        private string? _mValue_UsageReportS3Bucket;
+        private bool _mUnknown_UsageReportS3Bucket;
+        public string? UsageReportS3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_UsageReportS3Bucket) return _mValue_UsageReportS3Bucket;
+                throw new UndeferrableValueException("Value 'SmsPreferencesArgs.UsageReportS3Bucket' is not present");
+            }
+        }
     }
 }

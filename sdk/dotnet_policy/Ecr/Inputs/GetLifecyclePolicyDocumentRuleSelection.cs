@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Ecr.Inputs
         /// <summary>
         /// Specify a count number. If the `count_type` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `count_type` used is "sinceImagePushed", then the value is the maximum age limit for your images.
         /// </summary>
-        [Input("countNumber")]
+        [PolicyResourceProperty("countNumber", "_mUnknown_CountNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCountNumber;
-
-        public int? CountNumber => _mCountNumber.GetValue("countNumber");
+        private int? _mValue_CountNumber;
+        private bool _mUnknown_CountNumber;
+        public int? CountNumber
+        {
+            get
+            {
+                if (!_mUnknown_CountNumber) return _mValue_CountNumber;
+                throw new UndeferrableValueException("Value 'GetLifecyclePolicyDocumentRuleSelectionArgs.CountNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify a count type to apply to the images. If `count_type` is set to "imageCountMoreThan", you also specify `count_number` to create a rule that sets a limit on the number of images that exist in your repository. If `count_type` is set to "sinceImagePushed", you also specify `count_unit` and `count_number` to specify a time limit on the images that exist in your repository.
         /// </summary>
-        [Input("countType")]
+        [PolicyResourceProperty("countType", "_mUnknown_CountType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCountType;
-
-        public string? CountType => _mCountType.GetValue("countType");
+        private string? _mValue_CountType;
+        private bool _mUnknown_CountType;
+        public string? CountType
+        {
+            get
+            {
+                if (!_mUnknown_CountType) return _mValue_CountType;
+                throw new UndeferrableValueException("Value 'GetLifecyclePolicyDocumentRuleSelectionArgs.CountType' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify a count unit of days to indicate that as the unit of time, in addition to `count_number`, which is the number of days.
         /// </summary>
-        [Input("countUnit")]
+        [PolicyResourceProperty("countUnit", "_mUnknown_CountUnit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCountUnit;
-
-        public string? CountUnit => _mCountUnit.GetValue("countUnit");
+        private string? _mValue_CountUnit;
+        private bool _mUnknown_CountUnit;
+        public string? CountUnit
+        {
+            get
+            {
+                if (!_mUnknown_CountUnit) return _mValue_CountUnit;
+                throw new UndeferrableValueException("Value 'GetLifecyclePolicyDocumentRuleSelectionArgs.CountUnit' is not present");
+            }
+        }
 
         /// <summary>
         /// You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
         /// </summary>
-        [Input("tagPatternLists")]
+        [PolicyResourceProperty("tagPatternLists", "_mUnknown_TagPatternLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTagPatternLists;
-
-        public List<string>? TagPatternLists => _mTagPatternLists.GetValue("tagPatternLists");
+        private List<string>? _mValue_TagPatternLists;
+        private bool _mUnknown_TagPatternLists;
+        public List<string>? TagPatternLists
+        {
+            get
+            {
+                if (!_mUnknown_TagPatternLists) return _mValue_TagPatternLists;
+                throw new UndeferrableValueException("Value 'GetLifecyclePolicyDocumentRuleSelectionArgs.TagPatternLists' is not present");
+            }
+        }
 
         /// <summary>
         /// You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
         /// </summary>
-        [Input("tagPrefixLists")]
+        [PolicyResourceProperty("tagPrefixLists", "_mUnknown_TagPrefixLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTagPrefixLists;
-
-        public List<string>? TagPrefixLists => _mTagPrefixLists.GetValue("tagPrefixLists");
+        private List<string>? _mValue_TagPrefixLists;
+        private bool _mUnknown_TagPrefixLists;
+        public List<string>? TagPrefixLists
+        {
+            get
+            {
+                if (!_mUnknown_TagPrefixLists) return _mValue_TagPrefixLists;
+                throw new UndeferrableValueException("Value 'GetLifecyclePolicyDocumentRuleSelectionArgs.TagPrefixLists' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tag_prefix_list` value. If you specify "untagged", then you must omit `tag_prefix_list`.
         /// </summary>
-        [Input("tagStatus")]
+        [PolicyResourceProperty("tagStatus", "_mUnknown_TagStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTagStatus;
-
-        public string? TagStatus => _mTagStatus.GetValue("tagStatus");
+        private string? _mValue_TagStatus;
+        private bool _mUnknown_TagStatus;
+        public string? TagStatus
+        {
+            get
+            {
+                if (!_mUnknown_TagStatus) return _mValue_TagStatus;
+                throw new UndeferrableValueException("Value 'GetLifecyclePolicyDocumentRuleSelectionArgs.TagStatus' is not present");
+            }
+        }
     }
 }

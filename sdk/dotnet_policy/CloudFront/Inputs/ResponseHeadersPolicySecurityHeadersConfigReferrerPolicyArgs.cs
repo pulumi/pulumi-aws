@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// Whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
-        [Input("override")]
+        [PolicyResourceProperty("override", "_mUnknown_Override")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOverride;
-
-        public bool? Override => _mOverride.GetValue("override");
+        private bool? _mValue_Override;
+        private bool _mUnknown_Override;
+        public bool? Override
+        {
+            get
+            {
+                if (!_mUnknown_Override) return _mValue_Override;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs.Override' is not present");
+            }
+        }
 
         /// <summary>
         /// The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
         /// </summary>
-        [Input("referrerPolicy")]
+        [PolicyResourceProperty("referrerPolicy", "_mUnknown_ReferrerPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReferrerPolicy;
-
-        public string? ReferrerPolicy => _mReferrerPolicy.GetValue("referrerPolicy");
+        private string? _mValue_ReferrerPolicy;
+        private bool _mUnknown_ReferrerPolicy;
+        public string? ReferrerPolicy
+        {
+            get
+            {
+                if (!_mUnknown_ReferrerPolicy) return _mValue_ReferrerPolicy;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs.ReferrerPolicy' is not present");
+            }
+        }
     }
 }

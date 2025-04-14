@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
         /// <summary>
         /// Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
         /// </summary>
-        [Input("prefixFormat")]
+        [PolicyResourceProperty("prefixFormat", "_mUnknown_PrefixFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixFormat;
-
-        public string? PrefixFormat => _mPrefixFormat.GetValue("prefixFormat");
+        private string? _mValue_PrefixFormat;
+        private bool _mUnknown_PrefixFormat;
+        public string? PrefixFormat
+        {
+            get
+            {
+                if (!_mUnknown_PrefixFormat) return _mValue_PrefixFormat;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig.PrefixFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
         /// </summary>
-        [Input("prefixHierarchies")]
+        [PolicyResourceProperty("prefixHierarchies", "_mUnknown_PrefixHierarchies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrefixHierarchies;
-
-        public List<string>? PrefixHierarchies => _mPrefixHierarchies.GetValue("prefixHierarchies");
+        private List<string>? _mValue_PrefixHierarchies;
+        private bool _mUnknown_PrefixHierarchies;
+        public List<string>? PrefixHierarchies
+        {
+            get
+            {
+                if (!_mUnknown_PrefixHierarchies) return _mValue_PrefixHierarchies;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig.PrefixHierarchies' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
         /// </summary>
-        [Input("prefixType")]
+        [PolicyResourceProperty("prefixType", "_mUnknown_PrefixType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixType;
-
-        public string? PrefixType => _mPrefixType.GetValue("prefixType");
+        private string? _mValue_PrefixType;
+        private bool _mUnknown_PrefixType;
+        public string? PrefixType
+        {
+            get
+            {
+                if (!_mUnknown_PrefixType) return _mValue_PrefixType;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig.PrefixType' is not present");
+            }
+        }
     }
 }

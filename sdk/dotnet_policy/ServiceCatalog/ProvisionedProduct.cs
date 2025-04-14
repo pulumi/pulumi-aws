@@ -16,238 +16,420 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         /// </summary>
-        [Input("acceptLanguage")]
+        [PolicyResourceProperty("acceptLanguage", "_mUnknown_AcceptLanguage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
-
-        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
+        private string? _mValue_AcceptLanguage;
+        private bool _mUnknown_AcceptLanguage;
+        public string? AcceptLanguage
+        {
+            get
+            {
+                if (!_mUnknown_AcceptLanguage) return _mValue_AcceptLanguage;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.AcceptLanguage' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the provisioned product.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of CloudWatch dashboards that were created when provisioning the product.
         /// </summary>
-        [Input("cloudwatchDashboardNames")]
+        [PolicyResourceProperty("cloudwatchDashboardNames", "_mUnknown_CloudwatchDashboardNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCloudwatchDashboardNames;
-
-        public List<string>? CloudwatchDashboardNames => _mCloudwatchDashboardNames.GetValue("cloudwatchDashboardNames");
+        private List<string>? _mValue_CloudwatchDashboardNames;
+        private bool _mUnknown_CloudwatchDashboardNames;
+        public List<string>? CloudwatchDashboardNames
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchDashboardNames) return _mValue_CloudwatchDashboardNames;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.CloudwatchDashboardNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Time when the provisioned product was created.
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
-
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.CreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
         /// </summary>
-        [Input("ignoreErrors")]
+        [PolicyResourceProperty("ignoreErrors", "_mUnknown_IgnoreErrors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnoreErrors;
-
-        public bool? IgnoreErrors => _mIgnoreErrors.GetValue("ignoreErrors");
+        private bool? _mValue_IgnoreErrors;
+        private bool _mUnknown_IgnoreErrors;
+        public bool? IgnoreErrors
+        {
+            get
+            {
+                if (!_mUnknown_IgnoreErrors) return _mValue_IgnoreErrors;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.IgnoreErrors' is not present");
+            }
+        }
 
         /// <summary>
         /// Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
         /// </summary>
-        [Input("lastProvisioningRecordId")]
+        [PolicyResourceProperty("lastProvisioningRecordId", "_mUnknown_LastProvisioningRecordId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastProvisioningRecordId;
-
-        public string? LastProvisioningRecordId => _mLastProvisioningRecordId.GetValue("lastProvisioningRecordId");
+        private string? _mValue_LastProvisioningRecordId;
+        private bool _mUnknown_LastProvisioningRecordId;
+        public string? LastProvisioningRecordId
+        {
+            get
+            {
+                if (!_mUnknown_LastProvisioningRecordId) return _mValue_LastProvisioningRecordId;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.LastProvisioningRecordId' is not present");
+            }
+        }
 
         /// <summary>
         /// Record identifier of the last request performed on this provisioned product.
         /// </summary>
-        [Input("lastRecordId")]
+        [PolicyResourceProperty("lastRecordId", "_mUnknown_LastRecordId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastRecordId;
-
-        public string? LastRecordId => _mLastRecordId.GetValue("lastRecordId");
+        private string? _mValue_LastRecordId;
+        private bool _mUnknown_LastRecordId;
+        public string? LastRecordId
+        {
+            get
+            {
+                if (!_mUnknown_LastRecordId) return _mValue_LastRecordId;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.LastRecordId' is not present");
+            }
+        }
 
         /// <summary>
         /// Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
         /// </summary>
-        [Input("lastSuccessfulProvisioningRecordId")]
+        [PolicyResourceProperty("lastSuccessfulProvisioningRecordId", "_mUnknown_LastSuccessfulProvisioningRecordId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastSuccessfulProvisioningRecordId;
-
-        public string? LastSuccessfulProvisioningRecordId => _mLastSuccessfulProvisioningRecordId.GetValue("lastSuccessfulProvisioningRecordId");
+        private string? _mValue_LastSuccessfulProvisioningRecordId;
+        private bool _mUnknown_LastSuccessfulProvisioningRecordId;
+        public string? LastSuccessfulProvisioningRecordId
+        {
+            get
+            {
+                if (!_mUnknown_LastSuccessfulProvisioningRecordId) return _mValue_LastSuccessfulProvisioningRecordId;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.LastSuccessfulProvisioningRecordId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the launch role associated with the provisioned product.
         /// </summary>
-        [Input("launchRoleArn")]
+        [PolicyResourceProperty("launchRoleArn", "_mUnknown_LaunchRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchRoleArn;
-
-        public string? LaunchRoleArn => _mLaunchRoleArn.GetValue("launchRoleArn");
+        private string? _mValue_LaunchRoleArn;
+        private bool _mUnknown_LaunchRoleArn;
+        public string? LaunchRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_LaunchRoleArn) return _mValue_LaunchRoleArn;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.LaunchRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// User-friendly name of the provisioned product.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
         /// </summary>
-        [Input("notificationArns")]
+        [PolicyResourceProperty("notificationArns", "_mUnknown_NotificationArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotificationArns;
-
-        public List<string>? NotificationArns => _mNotificationArns.GetValue("notificationArns");
+        private List<string>? _mValue_NotificationArns;
+        private bool _mUnknown_NotificationArns;
+        public List<string>? NotificationArns
+        {
+            get
+            {
+                if (!_mUnknown_NotificationArns) return _mValue_NotificationArns;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.NotificationArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The set of outputs for the product created.
         /// </summary>
-        [Input("outputs")]
+        [PolicyResourceProperty("outputs", "_mUnknown_Outputs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProvisionedProductOutput>> _mOutputs;
-
-        public List<Outputs.ProvisionedProductOutput>? Outputs => _mOutputs.GetValue("outputs");
+        private List<Outputs.ProvisionedProductOutput>? _mValue_Outputs;
+        private bool _mUnknown_Outputs;
+        public List<Outputs.ProvisionedProductOutput>? Outputs
+        {
+            get
+            {
+                if (!_mUnknown_Outputs) return _mValue_Outputs;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.Outputs' is not present");
+            }
+        }
 
         /// <summary>
         /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
         /// </summary>
-        [Input("pathId")]
+        [PolicyResourceProperty("pathId", "_mUnknown_PathId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPathId;
-
-        public string? PathId => _mPathId.GetValue("pathId");
+        private string? _mValue_PathId;
+        private bool _mUnknown_PathId;
+        public string? PathId
+        {
+            get
+            {
+                if (!_mUnknown_PathId) return _mValue_PathId;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.PathId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the path. You must provide `path_id` or `path_name`, but not both.
         /// </summary>
-        [Input("pathName")]
+        [PolicyResourceProperty("pathName", "_mUnknown_PathName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPathName;
-
-        public string? PathName => _mPathName.GetValue("pathName");
+        private string? _mValue_PathName;
+        private bool _mUnknown_PathName;
+        public string? PathName
+        {
+            get
+            {
+                if (!_mUnknown_PathName) return _mValue_PathName;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.PathName' is not present");
+            }
+        }
 
         /// <summary>
         /// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
         /// </summary>
-        [Input("productId")]
+        [PolicyResourceProperty("productId", "_mUnknown_ProductId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProductId;
-
-        public string? ProductId => _mProductId.GetValue("productId");
+        private string? _mValue_ProductId;
+        private bool _mUnknown_ProductId;
+        public string? ProductId
+        {
+            get
+            {
+                if (!_mUnknown_ProductId) return _mValue_ProductId;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.ProductId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the product. You must provide `product_id` or `product_name`, but not both.
         /// </summary>
-        [Input("productName")]
+        [PolicyResourceProperty("productName", "_mUnknown_ProductName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProductName;
-
-        public string? ProductName => _mProductName.GetValue("productName");
+        private string? _mValue_ProductName;
+        private bool _mUnknown_ProductName;
+        public string? ProductName
+        {
+            get
+            {
+                if (!_mUnknown_ProductName) return _mValue_ProductName;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.ProductName' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         /// </summary>
-        [Input("provisioningArtifactId")]
+        [PolicyResourceProperty("provisioningArtifactId", "_mUnknown_ProvisioningArtifactId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProvisioningArtifactId;
-
-        public string? ProvisioningArtifactId => _mProvisioningArtifactId.GetValue("provisioningArtifactId");
+        private string? _mValue_ProvisioningArtifactId;
+        private bool _mUnknown_ProvisioningArtifactId;
+        public string? ProvisioningArtifactId
+        {
+            get
+            {
+                if (!_mUnknown_ProvisioningArtifactId) return _mValue_ProvisioningArtifactId;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.ProvisioningArtifactId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         /// </summary>
-        [Input("provisioningArtifactName")]
+        [PolicyResourceProperty("provisioningArtifactName", "_mUnknown_ProvisioningArtifactName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProvisioningArtifactName;
-
-        public string? ProvisioningArtifactName => _mProvisioningArtifactName.GetValue("provisioningArtifactName");
+        private string? _mValue_ProvisioningArtifactName;
+        private bool _mUnknown_ProvisioningArtifactName;
+        public string? ProvisioningArtifactName
+        {
+            get
+            {
+                if (!_mUnknown_ProvisioningArtifactName) return _mValue_ProvisioningArtifactName;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.ProvisioningArtifactName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
         /// </summary>
-        [Input("provisioningParameters")]
+        [PolicyResourceProperty("provisioningParameters", "_mUnknown_ProvisioningParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProvisionedProductProvisioningParameter>> _mProvisioningParameters;
-
-        public List<Outputs.ProvisionedProductProvisioningParameter>? ProvisioningParameters => _mProvisioningParameters.GetValue("provisioningParameters");
+        private List<Outputs.ProvisionedProductProvisioningParameter>? _mValue_ProvisioningParameters;
+        private bool _mUnknown_ProvisioningParameters;
+        public List<Outputs.ProvisionedProductProvisioningParameter>? ProvisioningParameters
+        {
+            get
+            {
+                if (!_mUnknown_ProvisioningParameters) return _mValue_ProvisioningParameters;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.ProvisioningParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
         /// </summary>
-        [Input("retainPhysicalResources")]
+        [PolicyResourceProperty("retainPhysicalResources", "_mUnknown_RetainPhysicalResources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRetainPhysicalResources;
-
-        public bool? RetainPhysicalResources => _mRetainPhysicalResources.GetValue("retainPhysicalResources");
+        private bool? _mValue_RetainPhysicalResources;
+        private bool _mUnknown_RetainPhysicalResources;
+        public bool? RetainPhysicalResources
+        {
+            get
+            {
+                if (!_mUnknown_RetainPhysicalResources) return _mValue_RetainPhysicalResources;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.RetainPhysicalResources' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         /// </summary>
-        [Input("stackSetProvisioningPreferences")]
+        [PolicyResourceProperty("stackSetProvisioningPreferences", "_mUnknown_StackSetProvisioningPreferences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProvisionedProductStackSetProvisioningPreferences> _mStackSetProvisioningPreferences;
-
-        public Outputs.ProvisionedProductStackSetProvisioningPreferences? StackSetProvisioningPreferences => _mStackSetProvisioningPreferences.GetValue("stackSetProvisioningPreferences");
+        private Outputs.ProvisionedProductStackSetProvisioningPreferences? _mValue_StackSetProvisioningPreferences;
+        private bool _mUnknown_StackSetProvisioningPreferences;
+        public Outputs.ProvisionedProductStackSetProvisioningPreferences? StackSetProvisioningPreferences
+        {
+            get
+            {
+                if (!_mUnknown_StackSetProvisioningPreferences) return _mValue_StackSetProvisioningPreferences;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.StackSetProvisioningPreferences' is not present");
+            }
+        }
 
         /// <summary>
         /// Current status of the provisioned product. See meanings below.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Current status message of the provisioned product.
         /// </summary>
-        [Input("statusMessage")]
+        [PolicyResourceProperty("statusMessage", "_mUnknown_StatusMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusMessage;
-
-        public string? StatusMessage => _mStatusMessage.GetValue("statusMessage");
+        private string? _mValue_StatusMessage;
+        private bool _mUnknown_StatusMessage;
+        public string? StatusMessage
+        {
+            get
+            {
+                if (!_mUnknown_StatusMessage) return _mValue_StatusMessage;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.StatusMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ProvisionedProduct.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:servicecatalog/provisionedProduct:ProvisionedProduct")]
@@ -256,129 +438,227 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         /// </summary>
-        [Input("acceptLanguage")]
+        [PolicyResourceProperty("acceptLanguage", "_mUnknown_AcceptLanguage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
-
-        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
+        private string? _mValue_AcceptLanguage;
+        private bool _mUnknown_AcceptLanguage;
+        public string? AcceptLanguage
+        {
+            get
+            {
+                if (!_mUnknown_AcceptLanguage) return _mValue_AcceptLanguage;
+                throw new UndeferrableValueException("Value 'ProvisionedProductArgs.AcceptLanguage' is not present");
+            }
+        }
 
         /// <summary>
         /// _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
         /// </summary>
-        [Input("ignoreErrors")]
+        [PolicyResourceProperty("ignoreErrors", "_mUnknown_IgnoreErrors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnoreErrors;
-
-        public bool? IgnoreErrors => _mIgnoreErrors.GetValue("ignoreErrors");
+        private bool? _mValue_IgnoreErrors;
+        private bool _mUnknown_IgnoreErrors;
+        public bool? IgnoreErrors
+        {
+            get
+            {
+                if (!_mUnknown_IgnoreErrors) return _mValue_IgnoreErrors;
+                throw new UndeferrableValueException("Value 'ProvisionedProductArgs.IgnoreErrors' is not present");
+            }
+        }
 
         /// <summary>
         /// User-friendly name of the provisioned product.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ProvisionedProductArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
         /// </summary>
-        [Input("notificationArns")]
+        [PolicyResourceProperty("notificationArns", "_mUnknown_NotificationArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotificationArns;
-
-        public List<string>? NotificationArns => _mNotificationArns.GetValue("notificationArns");
+        private List<string>? _mValue_NotificationArns;
+        private bool _mUnknown_NotificationArns;
+        public List<string>? NotificationArns
+        {
+            get
+            {
+                if (!_mUnknown_NotificationArns) return _mValue_NotificationArns;
+                throw new UndeferrableValueException("Value 'ProvisionedProductArgs.NotificationArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
         /// </summary>
-        [Input("pathId")]
+        [PolicyResourceProperty("pathId", "_mUnknown_PathId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPathId;
-
-        public string? PathId => _mPathId.GetValue("pathId");
+        private string? _mValue_PathId;
+        private bool _mUnknown_PathId;
+        public string? PathId
+        {
+            get
+            {
+                if (!_mUnknown_PathId) return _mValue_PathId;
+                throw new UndeferrableValueException("Value 'ProvisionedProductArgs.PathId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the path. You must provide `path_id` or `path_name`, but not both.
         /// </summary>
-        [Input("pathName")]
+        [PolicyResourceProperty("pathName", "_mUnknown_PathName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPathName;
-
-        public string? PathName => _mPathName.GetValue("pathName");
+        private string? _mValue_PathName;
+        private bool _mUnknown_PathName;
+        public string? PathName
+        {
+            get
+            {
+                if (!_mUnknown_PathName) return _mValue_PathName;
+                throw new UndeferrableValueException("Value 'ProvisionedProductArgs.PathName' is not present");
+            }
+        }
 
         /// <summary>
         /// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
         /// </summary>
-        [Input("productId")]
+        [PolicyResourceProperty("productId", "_mUnknown_ProductId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProductId;
-
-        public string? ProductId => _mProductId.GetValue("productId");
+        private string? _mValue_ProductId;
+        private bool _mUnknown_ProductId;
+        public string? ProductId
+        {
+            get
+            {
+                if (!_mUnknown_ProductId) return _mValue_ProductId;
+                throw new UndeferrableValueException("Value 'ProvisionedProductArgs.ProductId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the product. You must provide `product_id` or `product_name`, but not both.
         /// </summary>
-        [Input("productName")]
+        [PolicyResourceProperty("productName", "_mUnknown_ProductName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProductName;
-
-        public string? ProductName => _mProductName.GetValue("productName");
+        private string? _mValue_ProductName;
+        private bool _mUnknown_ProductName;
+        public string? ProductName
+        {
+            get
+            {
+                if (!_mUnknown_ProductName) return _mValue_ProductName;
+                throw new UndeferrableValueException("Value 'ProvisionedProductArgs.ProductName' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         /// </summary>
-        [Input("provisioningArtifactId")]
+        [PolicyResourceProperty("provisioningArtifactId", "_mUnknown_ProvisioningArtifactId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProvisioningArtifactId;
-
-        public string? ProvisioningArtifactId => _mProvisioningArtifactId.GetValue("provisioningArtifactId");
+        private string? _mValue_ProvisioningArtifactId;
+        private bool _mUnknown_ProvisioningArtifactId;
+        public string? ProvisioningArtifactId
+        {
+            get
+            {
+                if (!_mUnknown_ProvisioningArtifactId) return _mValue_ProvisioningArtifactId;
+                throw new UndeferrableValueException("Value 'ProvisionedProductArgs.ProvisioningArtifactId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         /// </summary>
-        [Input("provisioningArtifactName")]
+        [PolicyResourceProperty("provisioningArtifactName", "_mUnknown_ProvisioningArtifactName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProvisioningArtifactName;
-
-        public string? ProvisioningArtifactName => _mProvisioningArtifactName.GetValue("provisioningArtifactName");
+        private string? _mValue_ProvisioningArtifactName;
+        private bool _mUnknown_ProvisioningArtifactName;
+        public string? ProvisioningArtifactName
+        {
+            get
+            {
+                if (!_mUnknown_ProvisioningArtifactName) return _mValue_ProvisioningArtifactName;
+                throw new UndeferrableValueException("Value 'ProvisionedProductArgs.ProvisioningArtifactName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
         /// </summary>
-        [Input("provisioningParameters")]
+        [PolicyResourceProperty("provisioningParameters", "_mUnknown_ProvisioningParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ProvisionedProductProvisioningParameterArgs>> _mProvisioningParameters;
-
-        public List<Inputs.ProvisionedProductProvisioningParameterArgs>? ProvisioningParameters => _mProvisioningParameters.GetValue("provisioningParameters");
+        private List<Inputs.ProvisionedProductProvisioningParameterArgs>? _mValue_ProvisioningParameters;
+        private bool _mUnknown_ProvisioningParameters;
+        public List<Inputs.ProvisionedProductProvisioningParameterArgs>? ProvisioningParameters
+        {
+            get
+            {
+                if (!_mUnknown_ProvisioningParameters) return _mValue_ProvisioningParameters;
+                throw new UndeferrableValueException("Value 'ProvisionedProductArgs.ProvisioningParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
         /// </summary>
-        [Input("retainPhysicalResources")]
+        [PolicyResourceProperty("retainPhysicalResources", "_mUnknown_RetainPhysicalResources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRetainPhysicalResources;
-
-        public bool? RetainPhysicalResources => _mRetainPhysicalResources.GetValue("retainPhysicalResources");
+        private bool? _mValue_RetainPhysicalResources;
+        private bool _mUnknown_RetainPhysicalResources;
+        public bool? RetainPhysicalResources
+        {
+            get
+            {
+                if (!_mUnknown_RetainPhysicalResources) return _mValue_RetainPhysicalResources;
+                throw new UndeferrableValueException("Value 'ProvisionedProductArgs.RetainPhysicalResources' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         /// </summary>
-        [Input("stackSetProvisioningPreferences")]
+        [PolicyResourceProperty("stackSetProvisioningPreferences", "_mUnknown_StackSetProvisioningPreferences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProvisionedProductStackSetProvisioningPreferencesArgs> _mStackSetProvisioningPreferences;
-
-        public Inputs.ProvisionedProductStackSetProvisioningPreferencesArgs? StackSetProvisioningPreferences => _mStackSetProvisioningPreferences.GetValue("stackSetProvisioningPreferences");
+        private Inputs.ProvisionedProductStackSetProvisioningPreferencesArgs? _mValue_StackSetProvisioningPreferences;
+        private bool _mUnknown_StackSetProvisioningPreferences;
+        public Inputs.ProvisionedProductStackSetProvisioningPreferencesArgs? StackSetProvisioningPreferences
+        {
+            get
+            {
+                if (!_mUnknown_StackSetProvisioningPreferences) return _mValue_StackSetProvisioningPreferences;
+                throw new UndeferrableValueException("Value 'ProvisionedProductArgs.StackSetProvisioningPreferences' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ProvisionedProductArgs.Tags' is not present");
+            }
+        }
     }
 }

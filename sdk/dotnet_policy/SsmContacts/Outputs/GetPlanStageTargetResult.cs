@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.SsmContacts.Outputs
 {
     public sealed class GetPlanStageTargetResult
     {
-        [Input("channelTargetInfos")]
+        [PolicyResourceProperty("channelTargetInfos", "_mUnknown_ChannelTargetInfos")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetPlanStageTargetChannelTargetInfoResult>> _mChannelTargetInfos;
+        private List<Outputs.GetPlanStageTargetChannelTargetInfoResult>? _mValue_ChannelTargetInfos;
+        private bool _mUnknown_ChannelTargetInfos;
+        public List<Outputs.GetPlanStageTargetChannelTargetInfoResult>? ChannelTargetInfos
+        {
+            get
+            {
+                if (!_mUnknown_ChannelTargetInfos) return _mValue_ChannelTargetInfos;
+                throw new UndeferrableValueException("Value 'GetPlanStageTargetResult.ChannelTargetInfos' is not present");
+            }
+        }
 
-        public List<Outputs.GetPlanStageTargetChannelTargetInfoResult>? ChannelTargetInfos => _mChannelTargetInfos.GetValue("channelTargetInfos");
-
-        [Input("contactTargetInfos")]
+        [PolicyResourceProperty("contactTargetInfos", "_mUnknown_ContactTargetInfos")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetPlanStageTargetContactTargetInfoResult>> _mContactTargetInfos;
-
-        public List<Outputs.GetPlanStageTargetContactTargetInfoResult>? ContactTargetInfos => _mContactTargetInfos.GetValue("contactTargetInfos");
+        private List<Outputs.GetPlanStageTargetContactTargetInfoResult>? _mValue_ContactTargetInfos;
+        private bool _mUnknown_ContactTargetInfos;
+        public List<Outputs.GetPlanStageTargetContactTargetInfoResult>? ContactTargetInfos
+        {
+            get
+            {
+                if (!_mUnknown_ContactTargetInfos) return _mValue_ContactTargetInfos;
+                throw new UndeferrableValueException("Value 'GetPlanStageTargetResult.ContactTargetInfos' is not present");
+            }
+        }
     }
 }

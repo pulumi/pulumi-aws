@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Inputs
         /// <summary>
         /// The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
         /// </summary>
-        [Input("collectionName")]
+        [PolicyResourceProperty("collectionName", "_mUnknown_CollectionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollectionName;
-
-        public string? CollectionName => _mCollectionName.GetValue("collectionName");
+        private string? _mValue_CollectionName;
+        private bool _mUnknown_CollectionName;
+        public string? CollectionName
+        {
+            get
+            {
+                if (!_mUnknown_CollectionName) return _mValue_CollectionName;
+                throw new UndeferrableValueException("Value 'EventSourceMappingDocumentDbEventSourceConfigArgs.CollectionName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database to consume within the DocumentDB cluster.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'EventSourceMappingDocumentDbEventSourceConfigArgs.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
         /// </summary>
-        [Input("fullDocument")]
+        [PolicyResourceProperty("fullDocument", "_mUnknown_FullDocument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFullDocument;
-
-        public string? FullDocument => _mFullDocument.GetValue("fullDocument");
+        private string? _mValue_FullDocument;
+        private bool _mUnknown_FullDocument;
+        public string? FullDocument
+        {
+            get
+            {
+                if (!_mUnknown_FullDocument) return _mValue_FullDocument;
+                throw new UndeferrableValueException("Value 'EventSourceMappingDocumentDbEventSourceConfigArgs.FullDocument' is not present");
+            }
+        }
     }
 }

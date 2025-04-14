@@ -16,162 +16,288 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// <summary>
         /// The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
         /// </summary>
-        [Input("abortStatement")]
+        [PolicyResourceProperty("abortStatement", "_mUnknown_AbortStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BotAbortStatement> _mAbortStatement;
+        private Outputs.BotAbortStatement? _mValue_AbortStatement;
+        private bool _mUnknown_AbortStatement;
+        public Outputs.BotAbortStatement? AbortStatement
+        {
+            get
+            {
+                if (!_mUnknown_AbortStatement) return _mValue_AbortStatement;
+                throw new UndeferrableValueException("Value 'Bot.AbortStatement' is not present");
+            }
+        }
 
-        public Outputs.BotAbortStatement? AbortStatement => _mAbortStatement.GetValue("abortStatement");
-
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Bot.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Checksum identifying the version of the bot that was created. The checksum is not
         /// included as an argument because the resource will add it automatically when updating the bot.
         /// </summary>
-        [Input("checksum")]
+        [PolicyResourceProperty("checksum", "_mUnknown_Checksum")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChecksum;
-
-        public string? Checksum => _mChecksum.GetValue("checksum");
+        private string? _mValue_Checksum;
+        private bool _mUnknown_Checksum;
+        public string? Checksum
+        {
+            get
+            {
+                if (!_mUnknown_Checksum) return _mValue_Checksum;
+                throw new UndeferrableValueException("Value 'Bot.Checksum' is not present");
+            }
+        }
 
         /// <summary>
         /// By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
         /// </summary>
-        [Input("childDirected")]
+        [PolicyResourceProperty("childDirected", "_mUnknown_ChildDirected")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mChildDirected;
-
-        public bool? ChildDirected => _mChildDirected.GetValue("childDirected");
+        private bool? _mValue_ChildDirected;
+        private bool _mUnknown_ChildDirected;
+        public bool? ChildDirected
+        {
+            get
+            {
+                if (!_mUnknown_ChildDirected) return _mValue_ChildDirected;
+                throw new UndeferrableValueException("Value 'Bot.ChildDirected' is not present");
+            }
+        }
 
         /// <summary>
         /// The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
         /// </summary>
-        [Input("clarificationPrompt")]
+        [PolicyResourceProperty("clarificationPrompt", "_mUnknown_ClarificationPrompt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BotClarificationPrompt> _mClarificationPrompt;
-
-        public Outputs.BotClarificationPrompt? ClarificationPrompt => _mClarificationPrompt.GetValue("clarificationPrompt");
+        private Outputs.BotClarificationPrompt? _mValue_ClarificationPrompt;
+        private bool _mUnknown_ClarificationPrompt;
+        public Outputs.BotClarificationPrompt? ClarificationPrompt
+        {
+            get
+            {
+                if (!_mUnknown_ClarificationPrompt) return _mValue_ClarificationPrompt;
+                throw new UndeferrableValueException("Value 'Bot.ClarificationPrompt' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
         /// </summary>
-        [Input("createVersion")]
+        [PolicyResourceProperty("createVersion", "_mUnknown_CreateVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCreateVersion;
-
-        public bool? CreateVersion => _mCreateVersion.GetValue("createVersion");
+        private bool? _mValue_CreateVersion;
+        private bool _mUnknown_CreateVersion;
+        public bool? CreateVersion
+        {
+            get
+            {
+                if (!_mUnknown_CreateVersion) return _mValue_CreateVersion;
+                throw new UndeferrableValueException("Value 'Bot.CreateVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The date when the bot version was created.
         /// </summary>
-        [Input("createdDate")]
+        [PolicyResourceProperty("createdDate", "_mUnknown_CreatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
-
-        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
+        private string? _mValue_CreatedDate;
+        private bool _mUnknown_CreatedDate;
+        public string? CreatedDate
+        {
+            get
+            {
+                if (!_mUnknown_CreatedDate) return _mValue_CreatedDate;
+                throw new UndeferrableValueException("Value 'Bot.CreatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the bot. Must be less than or equal to 200 characters in length.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Bot.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
         /// </summary>
-        [Input("detectSentiment")]
+        [PolicyResourceProperty("detectSentiment", "_mUnknown_DetectSentiment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDetectSentiment;
-
-        public bool? DetectSentiment => _mDetectSentiment.GetValue("detectSentiment");
+        private bool? _mValue_DetectSentiment;
+        private bool _mUnknown_DetectSentiment;
+        public bool? DetectSentiment
+        {
+            get
+            {
+                if (!_mUnknown_DetectSentiment) return _mValue_DetectSentiment;
+                throw new UndeferrableValueException("Value 'Bot.DetectSentiment' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
         /// </summary>
-        [Input("enableModelImprovements")]
+        [PolicyResourceProperty("enableModelImprovements", "_mUnknown_EnableModelImprovements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableModelImprovements;
-
-        public bool? EnableModelImprovements => _mEnableModelImprovements.GetValue("enableModelImprovements");
+        private bool? _mValue_EnableModelImprovements;
+        private bool _mUnknown_EnableModelImprovements;
+        public bool? EnableModelImprovements
+        {
+            get
+            {
+                if (!_mUnknown_EnableModelImprovements) return _mValue_EnableModelImprovements;
+                throw new UndeferrableValueException("Value 'Bot.EnableModelImprovements' is not present");
+            }
+        }
 
         /// <summary>
         /// If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
         /// </summary>
-        [Input("failureReason")]
+        [PolicyResourceProperty("failureReason", "_mUnknown_FailureReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFailureReason;
-
-        public string? FailureReason => _mFailureReason.GetValue("failureReason");
+        private string? _mValue_FailureReason;
+        private bool _mUnknown_FailureReason;
+        public string? FailureReason
+        {
+            get
+            {
+                if (!_mUnknown_FailureReason) return _mValue_FailureReason;
+                throw new UndeferrableValueException("Value 'Bot.FailureReason' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
         /// </summary>
-        [Input("idleSessionTtlInSeconds")]
+        [PolicyResourceProperty("idleSessionTtlInSeconds", "_mUnknown_IdleSessionTtlInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIdleSessionTtlInSeconds;
-
-        public int? IdleSessionTtlInSeconds => _mIdleSessionTtlInSeconds.GetValue("idleSessionTtlInSeconds");
+        private int? _mValue_IdleSessionTtlInSeconds;
+        private bool _mUnknown_IdleSessionTtlInSeconds;
+        public int? IdleSessionTtlInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_IdleSessionTtlInSeconds) return _mValue_IdleSessionTtlInSeconds;
+                throw new UndeferrableValueException("Value 'Bot.IdleSessionTtlInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
         /// </summary>
-        [Input("intents")]
+        [PolicyResourceProperty("intents", "_mUnknown_Intents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BotIntent>> _mIntents;
-
-        public List<Outputs.BotIntent>? Intents => _mIntents.GetValue("intents");
+        private List<Outputs.BotIntent>? _mValue_Intents;
+        private bool _mUnknown_Intents;
+        public List<Outputs.BotIntent>? Intents
+        {
+            get
+            {
+                if (!_mUnknown_Intents) return _mValue_Intents;
+                throw new UndeferrableValueException("Value 'Bot.Intents' is not present");
+            }
+        }
 
         /// <summary>
         /// The date when the $LATEST version of this bot was updated.
         /// </summary>
-        [Input("lastUpdatedDate")]
+        [PolicyResourceProperty("lastUpdatedDate", "_mUnknown_LastUpdatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedDate;
-
-        public string? LastUpdatedDate => _mLastUpdatedDate.GetValue("lastUpdatedDate");
+        private string? _mValue_LastUpdatedDate;
+        private bool _mUnknown_LastUpdatedDate;
+        public string? LastUpdatedDate
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedDate) return _mValue_LastUpdatedDate;
+                throw new UndeferrableValueException("Value 'Bot.LastUpdatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
         /// </summary>
-        [Input("locale")]
+        [PolicyResourceProperty("locale", "_mUnknown_Locale")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocale;
-
-        public string? Locale => _mLocale.GetValue("locale");
+        private string? _mValue_Locale;
+        private bool _mUnknown_Locale;
+        public string? Locale
+        {
+            get
+            {
+                if (!_mUnknown_Locale) return _mValue_Locale;
+                throw new UndeferrableValueException("Value 'Bot.Locale' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Bot.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
         /// </summary>
-        [Input("nluIntentConfidenceThreshold")]
+        [PolicyResourceProperty("nluIntentConfidenceThreshold", "_mUnknown_NluIntentConfidenceThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mNluIntentConfidenceThreshold;
-
-        public double? NluIntentConfidenceThreshold => _mNluIntentConfidenceThreshold.GetValue("nluIntentConfidenceThreshold");
+        private double? _mValue_NluIntentConfidenceThreshold;
+        private bool _mUnknown_NluIntentConfidenceThreshold;
+        public double? NluIntentConfidenceThreshold
+        {
+            get
+            {
+                if (!_mUnknown_NluIntentConfidenceThreshold) return _mValue_NluIntentConfidenceThreshold;
+                throw new UndeferrableValueException("Value 'Bot.NluIntentConfidenceThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
         /// </summary>
-        [Input("processBehavior")]
+        [PolicyResourceProperty("processBehavior", "_mUnknown_ProcessBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProcessBehavior;
-
-        public string? ProcessBehavior => _mProcessBehavior.GetValue("processBehavior");
+        private string? _mValue_ProcessBehavior;
+        private bool _mUnknown_ProcessBehavior;
+        public string? ProcessBehavior
+        {
+            get
+            {
+                if (!_mUnknown_ProcessBehavior) return _mValue_ProcessBehavior;
+                throw new UndeferrableValueException("Value 'Bot.ProcessBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// When you send a request to create or update a bot, Amazon Lex sets the status response
@@ -179,29 +305,50 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// build the bot, it sets status to FAILED. Amazon Lex returns the reason for the failure in the
         /// failure_reason response element.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Bot.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the bot.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'Bot.Version' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
         /// </summary>
-        [Input("voiceId")]
+        [PolicyResourceProperty("voiceId", "_mUnknown_VoiceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceId;
-
-        public string? VoiceId => _mVoiceId.GetValue("voiceId");
+        private string? _mValue_VoiceId;
+        private bool _mUnknown_VoiceId;
+        public string? VoiceId
+        {
+            get
+            {
+                if (!_mUnknown_VoiceId) return _mValue_VoiceId;
+                throw new UndeferrableValueException("Value 'Bot.VoiceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lex/bot:Bot")]
@@ -210,127 +357,225 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// <summary>
         /// The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
         /// </summary>
-        [Input("abortStatement")]
+        [PolicyResourceProperty("abortStatement", "_mUnknown_AbortStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BotAbortStatementArgs> _mAbortStatement;
-
-        public Inputs.BotAbortStatementArgs? AbortStatement => _mAbortStatement.GetValue("abortStatement");
+        private Inputs.BotAbortStatementArgs? _mValue_AbortStatement;
+        private bool _mUnknown_AbortStatement;
+        public Inputs.BotAbortStatementArgs? AbortStatement
+        {
+            get
+            {
+                if (!_mUnknown_AbortStatement) return _mValue_AbortStatement;
+                throw new UndeferrableValueException("Value 'BotArgs.AbortStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
         /// </summary>
-        [Input("childDirected")]
+        [PolicyResourceProperty("childDirected", "_mUnknown_ChildDirected")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mChildDirected;
-
-        public bool? ChildDirected => _mChildDirected.GetValue("childDirected");
+        private bool? _mValue_ChildDirected;
+        private bool _mUnknown_ChildDirected;
+        public bool? ChildDirected
+        {
+            get
+            {
+                if (!_mUnknown_ChildDirected) return _mValue_ChildDirected;
+                throw new UndeferrableValueException("Value 'BotArgs.ChildDirected' is not present");
+            }
+        }
 
         /// <summary>
         /// The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
         /// </summary>
-        [Input("clarificationPrompt")]
+        [PolicyResourceProperty("clarificationPrompt", "_mUnknown_ClarificationPrompt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BotClarificationPromptArgs> _mClarificationPrompt;
-
-        public Inputs.BotClarificationPromptArgs? ClarificationPrompt => _mClarificationPrompt.GetValue("clarificationPrompt");
+        private Inputs.BotClarificationPromptArgs? _mValue_ClarificationPrompt;
+        private bool _mUnknown_ClarificationPrompt;
+        public Inputs.BotClarificationPromptArgs? ClarificationPrompt
+        {
+            get
+            {
+                if (!_mUnknown_ClarificationPrompt) return _mValue_ClarificationPrompt;
+                throw new UndeferrableValueException("Value 'BotArgs.ClarificationPrompt' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
         /// </summary>
-        [Input("createVersion")]
+        [PolicyResourceProperty("createVersion", "_mUnknown_CreateVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCreateVersion;
-
-        public bool? CreateVersion => _mCreateVersion.GetValue("createVersion");
+        private bool? _mValue_CreateVersion;
+        private bool _mUnknown_CreateVersion;
+        public bool? CreateVersion
+        {
+            get
+            {
+                if (!_mUnknown_CreateVersion) return _mValue_CreateVersion;
+                throw new UndeferrableValueException("Value 'BotArgs.CreateVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the bot. Must be less than or equal to 200 characters in length.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'BotArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
         /// </summary>
-        [Input("detectSentiment")]
+        [PolicyResourceProperty("detectSentiment", "_mUnknown_DetectSentiment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDetectSentiment;
-
-        public bool? DetectSentiment => _mDetectSentiment.GetValue("detectSentiment");
+        private bool? _mValue_DetectSentiment;
+        private bool _mUnknown_DetectSentiment;
+        public bool? DetectSentiment
+        {
+            get
+            {
+                if (!_mUnknown_DetectSentiment) return _mValue_DetectSentiment;
+                throw new UndeferrableValueException("Value 'BotArgs.DetectSentiment' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
         /// </summary>
-        [Input("enableModelImprovements")]
+        [PolicyResourceProperty("enableModelImprovements", "_mUnknown_EnableModelImprovements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableModelImprovements;
-
-        public bool? EnableModelImprovements => _mEnableModelImprovements.GetValue("enableModelImprovements");
+        private bool? _mValue_EnableModelImprovements;
+        private bool _mUnknown_EnableModelImprovements;
+        public bool? EnableModelImprovements
+        {
+            get
+            {
+                if (!_mUnknown_EnableModelImprovements) return _mValue_EnableModelImprovements;
+                throw new UndeferrableValueException("Value 'BotArgs.EnableModelImprovements' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
         /// </summary>
-        [Input("idleSessionTtlInSeconds")]
+        [PolicyResourceProperty("idleSessionTtlInSeconds", "_mUnknown_IdleSessionTtlInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIdleSessionTtlInSeconds;
-
-        public int? IdleSessionTtlInSeconds => _mIdleSessionTtlInSeconds.GetValue("idleSessionTtlInSeconds");
+        private int? _mValue_IdleSessionTtlInSeconds;
+        private bool _mUnknown_IdleSessionTtlInSeconds;
+        public int? IdleSessionTtlInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_IdleSessionTtlInSeconds) return _mValue_IdleSessionTtlInSeconds;
+                throw new UndeferrableValueException("Value 'BotArgs.IdleSessionTtlInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
         /// </summary>
-        [Input("intents")]
+        [PolicyResourceProperty("intents", "_mUnknown_Intents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BotIntentArgs>> _mIntents;
-
-        public List<Inputs.BotIntentArgs>? Intents => _mIntents.GetValue("intents");
+        private List<Inputs.BotIntentArgs>? _mValue_Intents;
+        private bool _mUnknown_Intents;
+        public List<Inputs.BotIntentArgs>? Intents
+        {
+            get
+            {
+                if (!_mUnknown_Intents) return _mValue_Intents;
+                throw new UndeferrableValueException("Value 'BotArgs.Intents' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
         /// </summary>
-        [Input("locale")]
+        [PolicyResourceProperty("locale", "_mUnknown_Locale")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocale;
-
-        public string? Locale => _mLocale.GetValue("locale");
+        private string? _mValue_Locale;
+        private bool _mUnknown_Locale;
+        public string? Locale
+        {
+            get
+            {
+                if (!_mUnknown_Locale) return _mValue_Locale;
+                throw new UndeferrableValueException("Value 'BotArgs.Locale' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'BotArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
         /// </summary>
-        [Input("nluIntentConfidenceThreshold")]
+        [PolicyResourceProperty("nluIntentConfidenceThreshold", "_mUnknown_NluIntentConfidenceThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mNluIntentConfidenceThreshold;
-
-        public double? NluIntentConfidenceThreshold => _mNluIntentConfidenceThreshold.GetValue("nluIntentConfidenceThreshold");
+        private double? _mValue_NluIntentConfidenceThreshold;
+        private bool _mUnknown_NluIntentConfidenceThreshold;
+        public double? NluIntentConfidenceThreshold
+        {
+            get
+            {
+                if (!_mUnknown_NluIntentConfidenceThreshold) return _mValue_NluIntentConfidenceThreshold;
+                throw new UndeferrableValueException("Value 'BotArgs.NluIntentConfidenceThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
         /// </summary>
-        [Input("processBehavior")]
+        [PolicyResourceProperty("processBehavior", "_mUnknown_ProcessBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProcessBehavior;
-
-        public string? ProcessBehavior => _mProcessBehavior.GetValue("processBehavior");
+        private string? _mValue_ProcessBehavior;
+        private bool _mUnknown_ProcessBehavior;
+        public string? ProcessBehavior
+        {
+            get
+            {
+                if (!_mUnknown_ProcessBehavior) return _mValue_ProcessBehavior;
+                throw new UndeferrableValueException("Value 'BotArgs.ProcessBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
         /// </summary>
-        [Input("voiceId")]
+        [PolicyResourceProperty("voiceId", "_mUnknown_VoiceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceId;
-
-        public string? VoiceId => _mVoiceId.GetValue("voiceId");
+        private string? _mValue_VoiceId;
+        private bool _mUnknown_VoiceId;
+        public string? VoiceId
+        {
+            get
+            {
+                if (!_mUnknown_VoiceId) return _mValue_VoiceId;
+                throw new UndeferrableValueException("Value 'BotArgs.VoiceId' is not present");
+            }
+        }
     }
 }

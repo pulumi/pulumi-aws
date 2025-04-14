@@ -16,130 +16,228 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// ARN of the theme.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Theme.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'Theme.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
         /// </summary>
-        [Input("baseThemeId")]
+        [PolicyResourceProperty("baseThemeId", "_mUnknown_BaseThemeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaseThemeId;
-
-        public string? BaseThemeId => _mBaseThemeId.GetValue("baseThemeId");
+        private string? _mValue_BaseThemeId;
+        private bool _mUnknown_BaseThemeId;
+        public string? BaseThemeId
+        {
+            get
+            {
+                if (!_mUnknown_BaseThemeId) return _mValue_BaseThemeId;
+                throw new UndeferrableValueException("Value 'Theme.BaseThemeId' is not present");
+            }
+        }
 
         /// <summary>
         /// The theme configuration, which contains the theme display properties. See configuration.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ThemeConfiguration> _mConfiguration;
-
-        public Outputs.ThemeConfiguration? Configuration => _mConfiguration.GetValue("configuration");
+        private Outputs.ThemeConfiguration? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Outputs.ThemeConfiguration? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'Theme.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The time that the theme was created.
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
-
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'Theme.CreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The time that the theme was last updated.
         /// </summary>
-        [Input("lastUpdatedTime")]
+        [PolicyResourceProperty("lastUpdatedTime", "_mUnknown_LastUpdatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
-
-        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
+        private string? _mValue_LastUpdatedTime;
+        private bool _mUnknown_LastUpdatedTime;
+        public string? LastUpdatedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedTime) return _mValue_LastUpdatedTime;
+                throw new UndeferrableValueException("Value 'Theme.LastUpdatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Display name of the theme.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Theme.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ThemePermission>> _mPermissions;
-
-        public List<Outputs.ThemePermission>? Permissions => _mPermissions.GetValue("permissions");
+        private List<Outputs.ThemePermission>? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public List<Outputs.ThemePermission>? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'Theme.Permissions' is not present");
+            }
+        }
 
         /// <summary>
         /// The theme creation status.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Theme.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Theme.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Theme.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the theme.
         /// </summary>
-        [Input("themeId")]
+        [PolicyResourceProperty("themeId", "_mUnknown_ThemeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThemeId;
-
-        public string? ThemeId => _mThemeId.GetValue("themeId");
+        private string? _mValue_ThemeId;
+        private bool _mUnknown_ThemeId;
+        public string? ThemeId
+        {
+            get
+            {
+                if (!_mUnknown_ThemeId) return _mValue_ThemeId;
+                throw new UndeferrableValueException("Value 'Theme.ThemeId' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the current theme version being created/updated.
         /// </summary>
-        [Input("versionDescription")]
+        [PolicyResourceProperty("versionDescription", "_mUnknown_VersionDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionDescription;
-
-        public string? VersionDescription => _mVersionDescription.GetValue("versionDescription");
+        private string? _mValue_VersionDescription;
+        private bool _mUnknown_VersionDescription;
+        public string? VersionDescription
+        {
+            get
+            {
+                if (!_mUnknown_VersionDescription) return _mValue_VersionDescription;
+                throw new UndeferrableValueException("Value 'Theme.VersionDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The version number of the theme version.
         /// </summary>
-        [Input("versionNumber")]
+        [PolicyResourceProperty("versionNumber", "_mUnknown_VersionNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVersionNumber;
-
-        public int? VersionNumber => _mVersionNumber.GetValue("versionNumber");
+        private int? _mValue_VersionNumber;
+        private bool _mUnknown_VersionNumber;
+        public int? VersionNumber
+        {
+            get
+            {
+                if (!_mUnknown_VersionNumber) return _mValue_VersionNumber;
+                throw new UndeferrableValueException("Value 'Theme.VersionNumber' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:quicksight/theme:Theme")]
@@ -148,75 +246,131 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'ThemeArgs.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
         /// </summary>
-        [Input("baseThemeId")]
+        [PolicyResourceProperty("baseThemeId", "_mUnknown_BaseThemeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaseThemeId;
-
-        public string? BaseThemeId => _mBaseThemeId.GetValue("baseThemeId");
+        private string? _mValue_BaseThemeId;
+        private bool _mUnknown_BaseThemeId;
+        public string? BaseThemeId
+        {
+            get
+            {
+                if (!_mUnknown_BaseThemeId) return _mValue_BaseThemeId;
+                throw new UndeferrableValueException("Value 'ThemeArgs.BaseThemeId' is not present");
+            }
+        }
 
         /// <summary>
         /// The theme configuration, which contains the theme display properties. See configuration.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ThemeConfigurationArgs> _mConfiguration;
-
-        public Inputs.ThemeConfigurationArgs? Configuration => _mConfiguration.GetValue("configuration");
+        private Inputs.ThemeConfigurationArgs? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Inputs.ThemeConfigurationArgs? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'ThemeArgs.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Display name of the theme.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ThemeArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ThemePermissionArgs>> _mPermissions;
-
-        public List<Inputs.ThemePermissionArgs>? Permissions => _mPermissions.GetValue("permissions");
+        private List<Inputs.ThemePermissionArgs>? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public List<Inputs.ThemePermissionArgs>? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'ThemeArgs.Permissions' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ThemeArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the theme.
         /// </summary>
-        [Input("themeId")]
+        [PolicyResourceProperty("themeId", "_mUnknown_ThemeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThemeId;
-
-        public string? ThemeId => _mThemeId.GetValue("themeId");
+        private string? _mValue_ThemeId;
+        private bool _mUnknown_ThemeId;
+        public string? ThemeId
+        {
+            get
+            {
+                if (!_mUnknown_ThemeId) return _mValue_ThemeId;
+                throw new UndeferrableValueException("Value 'ThemeArgs.ThemeId' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the current theme version being created/updated.
         /// </summary>
-        [Input("versionDescription")]
+        [PolicyResourceProperty("versionDescription", "_mUnknown_VersionDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionDescription;
-
-        public string? VersionDescription => _mVersionDescription.GetValue("versionDescription");
+        private string? _mValue_VersionDescription;
+        private bool _mUnknown_VersionDescription;
+        public string? VersionDescription
+        {
+            get
+            {
+                if (!_mUnknown_VersionDescription) return _mValue_VersionDescription;
+                throw new UndeferrableValueException("Value 'ThemeArgs.VersionDescription' is not present");
+            }
+        }
     }
 }

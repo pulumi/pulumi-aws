@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Emr
         /// <summary>
         /// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
         /// </summary>
-        [Input("autoscalingPolicy")]
+        [PolicyResourceProperty("autoscalingPolicy", "_mUnknown_AutoscalingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingPolicy;
-
-        public string? AutoscalingPolicy => _mAutoscalingPolicy.GetValue("autoscalingPolicy");
+        private string? _mValue_AutoscalingPolicy;
+        private bool _mUnknown_AutoscalingPolicy;
+        public string? AutoscalingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingPolicy) return _mValue_AutoscalingPolicy;
+                throw new UndeferrableValueException("Value 'InstanceGroup.AutoscalingPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         /// </summary>
-        [Input("bidPrice")]
+        [PolicyResourceProperty("bidPrice", "_mUnknown_BidPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBidPrice;
-
-        public string? BidPrice => _mBidPrice.GetValue("bidPrice");
+        private string? _mValue_BidPrice;
+        private bool _mUnknown_BidPrice;
+        public string? BidPrice
+        {
+            get
+            {
+                if (!_mUnknown_BidPrice) return _mValue_BidPrice;
+                throw new UndeferrableValueException("Value 'InstanceGroup.BidPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("clusterId")]
+        [PolicyResourceProperty("clusterId", "_mUnknown_ClusterId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
-
-        public string? ClusterId => _mClusterId.GetValue("clusterId");
+        private string? _mValue_ClusterId;
+        private bool _mUnknown_ClusterId;
+        public string? ClusterId
+        {
+            get
+            {
+                if (!_mUnknown_ClusterId) return _mValue_ClusterId;
+                throw new UndeferrableValueException("Value 'InstanceGroup.ClusterId' is not present");
+            }
+        }
 
         /// <summary>
         /// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
@@ -73,74 +94,130 @@ namespace Pulumi.PolicyPacks.Aws.Emr
         /// });
         /// ```
         /// </summary>
-        [Input("configurationsJson")]
+        [PolicyResourceProperty("configurationsJson", "_mUnknown_ConfigurationsJson")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationsJson;
-
-        public string? ConfigurationsJson => _mConfigurationsJson.GetValue("configurationsJson");
+        private string? _mValue_ConfigurationsJson;
+        private bool _mUnknown_ConfigurationsJson;
+        public string? ConfigurationsJson
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationsJson) return _mValue_ConfigurationsJson;
+                throw new UndeferrableValueException("Value 'InstanceGroup.ConfigurationsJson' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("ebsConfigs")]
+        [PolicyResourceProperty("ebsConfigs", "_mUnknown_EbsConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceGroupEbsConfig>> _mEbsConfigs;
-
-        public List<Outputs.InstanceGroupEbsConfig>? EbsConfigs => _mEbsConfigs.GetValue("ebsConfigs");
+        private List<Outputs.InstanceGroupEbsConfig>? _mValue_EbsConfigs;
+        private bool _mUnknown_EbsConfigs;
+        public List<Outputs.InstanceGroupEbsConfig>? EbsConfigs
+        {
+            get
+            {
+                if (!_mUnknown_EbsConfigs) return _mValue_EbsConfigs;
+                throw new UndeferrableValueException("Value 'InstanceGroup.EbsConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("ebsOptimized")]
+        [PolicyResourceProperty("ebsOptimized", "_mUnknown_EbsOptimized")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimized;
-
-        public bool? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
+        private bool? _mValue_EbsOptimized;
+        private bool _mUnknown_EbsOptimized;
+        public bool? EbsOptimized
+        {
+            get
+            {
+                if (!_mUnknown_EbsOptimized) return _mValue_EbsOptimized;
+                throw new UndeferrableValueException("Value 'InstanceGroup.EbsOptimized' is not present");
+            }
+        }
 
         /// <summary>
         /// target number of instances for the instance group. defaults to 0.
         /// </summary>
-        [Input("instanceCount")]
+        [PolicyResourceProperty("instanceCount", "_mUnknown_InstanceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceCount;
-
-        public int? InstanceCount => _mInstanceCount.GetValue("instanceCount");
+        private int? _mValue_InstanceCount;
+        private bool _mUnknown_InstanceCount;
+        public int? InstanceCount
+        {
+            get
+            {
+                if (!_mUnknown_InstanceCount) return _mValue_InstanceCount;
+                throw new UndeferrableValueException("Value 'InstanceGroup.InstanceCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'InstanceGroup.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Human friendly name given to the instance group. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'InstanceGroup.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of instances currently running in this instance group.
         /// </summary>
-        [Input("runningInstanceCount")]
+        [PolicyResourceProperty("runningInstanceCount", "_mUnknown_RunningInstanceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRunningInstanceCount;
-
-        public int? RunningInstanceCount => _mRunningInstanceCount.GetValue("runningInstanceCount");
+        private int? _mValue_RunningInstanceCount;
+        private bool _mUnknown_RunningInstanceCount;
+        public int? RunningInstanceCount
+        {
+            get
+            {
+                if (!_mUnknown_RunningInstanceCount) return _mValue_RunningInstanceCount;
+                throw new UndeferrableValueException("Value 'InstanceGroup.RunningInstanceCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The current status of the instance group.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'InstanceGroup.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:emr/instanceGroup:InstanceGroup")]
@@ -149,29 +226,50 @@ namespace Pulumi.PolicyPacks.Aws.Emr
         /// <summary>
         /// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
         /// </summary>
-        [Input("autoscalingPolicy")]
+        [PolicyResourceProperty("autoscalingPolicy", "_mUnknown_AutoscalingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingPolicy;
-
-        public string? AutoscalingPolicy => _mAutoscalingPolicy.GetValue("autoscalingPolicy");
+        private string? _mValue_AutoscalingPolicy;
+        private bool _mUnknown_AutoscalingPolicy;
+        public string? AutoscalingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingPolicy) return _mValue_AutoscalingPolicy;
+                throw new UndeferrableValueException("Value 'InstanceGroupArgs.AutoscalingPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         /// </summary>
-        [Input("bidPrice")]
+        [PolicyResourceProperty("bidPrice", "_mUnknown_BidPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBidPrice;
-
-        public string? BidPrice => _mBidPrice.GetValue("bidPrice");
+        private string? _mValue_BidPrice;
+        private bool _mUnknown_BidPrice;
+        public string? BidPrice
+        {
+            get
+            {
+                if (!_mUnknown_BidPrice) return _mValue_BidPrice;
+                throw new UndeferrableValueException("Value 'InstanceGroupArgs.BidPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("clusterId")]
+        [PolicyResourceProperty("clusterId", "_mUnknown_ClusterId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
-
-        public string? ClusterId => _mClusterId.GetValue("clusterId");
+        private string? _mValue_ClusterId;
+        private bool _mUnknown_ClusterId;
+        public string? ClusterId
+        {
+            get
+            {
+                if (!_mUnknown_ClusterId) return _mValue_ClusterId;
+                throw new UndeferrableValueException("Value 'InstanceGroupArgs.ClusterId' is not present");
+            }
+        }
 
         /// <summary>
         /// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
@@ -206,55 +304,97 @@ namespace Pulumi.PolicyPacks.Aws.Emr
         /// });
         /// ```
         /// </summary>
-        [Input("configurationsJson")]
+        [PolicyResourceProperty("configurationsJson", "_mUnknown_ConfigurationsJson")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationsJson;
-
-        public string? ConfigurationsJson => _mConfigurationsJson.GetValue("configurationsJson");
+        private string? _mValue_ConfigurationsJson;
+        private bool _mUnknown_ConfigurationsJson;
+        public string? ConfigurationsJson
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationsJson) return _mValue_ConfigurationsJson;
+                throw new UndeferrableValueException("Value 'InstanceGroupArgs.ConfigurationsJson' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("ebsConfigs")]
+        [PolicyResourceProperty("ebsConfigs", "_mUnknown_EbsConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InstanceGroupEbsConfigArgs>> _mEbsConfigs;
-
-        public List<Inputs.InstanceGroupEbsConfigArgs>? EbsConfigs => _mEbsConfigs.GetValue("ebsConfigs");
+        private List<Inputs.InstanceGroupEbsConfigArgs>? _mValue_EbsConfigs;
+        private bool _mUnknown_EbsConfigs;
+        public List<Inputs.InstanceGroupEbsConfigArgs>? EbsConfigs
+        {
+            get
+            {
+                if (!_mUnknown_EbsConfigs) return _mValue_EbsConfigs;
+                throw new UndeferrableValueException("Value 'InstanceGroupArgs.EbsConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("ebsOptimized")]
+        [PolicyResourceProperty("ebsOptimized", "_mUnknown_EbsOptimized")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimized;
-
-        public bool? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
+        private bool? _mValue_EbsOptimized;
+        private bool _mUnknown_EbsOptimized;
+        public bool? EbsOptimized
+        {
+            get
+            {
+                if (!_mUnknown_EbsOptimized) return _mValue_EbsOptimized;
+                throw new UndeferrableValueException("Value 'InstanceGroupArgs.EbsOptimized' is not present");
+            }
+        }
 
         /// <summary>
         /// target number of instances for the instance group. defaults to 0.
         /// </summary>
-        [Input("instanceCount")]
+        [PolicyResourceProperty("instanceCount", "_mUnknown_InstanceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceCount;
-
-        public int? InstanceCount => _mInstanceCount.GetValue("instanceCount");
+        private int? _mValue_InstanceCount;
+        private bool _mUnknown_InstanceCount;
+        public int? InstanceCount
+        {
+            get
+            {
+                if (!_mUnknown_InstanceCount) return _mValue_InstanceCount;
+                throw new UndeferrableValueException("Value 'InstanceGroupArgs.InstanceCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'InstanceGroupArgs.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Human friendly name given to the instance group. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'InstanceGroupArgs.Name' is not present");
+            }
+        }
     }
 }

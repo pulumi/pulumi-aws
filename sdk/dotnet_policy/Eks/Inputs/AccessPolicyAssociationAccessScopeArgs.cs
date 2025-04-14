@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Inputs
         /// <summary>
         /// The namespaces to which the access scope applies when type is namespace.
         /// </summary>
-        [Input("namespaces")]
+        [PolicyResourceProperty("namespaces", "_mUnknown_Namespaces")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNamespaces;
-
-        public List<string>? Namespaces => _mNamespaces.GetValue("namespaces");
+        private List<string>? _mValue_Namespaces;
+        private bool _mUnknown_Namespaces;
+        public List<string>? Namespaces
+        {
+            get
+            {
+                if (!_mUnknown_Namespaces) return _mValue_Namespaces;
+                throw new UndeferrableValueException("Value 'AccessPolicyAssociationAccessScopeArgs.Namespaces' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid values are `namespace` or `cluster`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'AccessPolicyAssociationAccessScopeArgs.Type' is not present");
+            }
+        }
     }
 }

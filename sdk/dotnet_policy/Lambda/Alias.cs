@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// The Amazon Resource Name (ARN) identifying your Lambda function alias.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Alias.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the alias.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Alias.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Lambda Function name or ARN.
         /// </summary>
-        [Input("functionName")]
+        [PolicyResourceProperty("functionName", "_mUnknown_FunctionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
-
-        public string? FunctionName => _mFunctionName.GetValue("functionName");
+        private string? _mValue_FunctionName;
+        private bool _mUnknown_FunctionName;
+        public string? FunctionName
+        {
+            get
+            {
+                if (!_mUnknown_FunctionName) return _mValue_FunctionName;
+                throw new UndeferrableValueException("Value 'Alias.FunctionName' is not present");
+            }
+        }
 
         /// <summary>
         /// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
         /// </summary>
-        [Input("functionVersion")]
+        [PolicyResourceProperty("functionVersion", "_mUnknown_FunctionVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionVersion;
-
-        public string? FunctionVersion => _mFunctionVersion.GetValue("functionVersion");
+        private string? _mValue_FunctionVersion;
+        private bool _mUnknown_FunctionVersion;
+        public string? FunctionVersion
+        {
+            get
+            {
+                if (!_mUnknown_FunctionVersion) return _mValue_FunctionVersion;
+                throw new UndeferrableValueException("Value 'Alias.FunctionVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`
         /// </summary>
-        [Input("invokeArn")]
+        [PolicyResourceProperty("invokeArn", "_mUnknown_InvokeArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInvokeArn;
-
-        public string? InvokeArn => _mInvokeArn.GetValue("invokeArn");
+        private string? _mValue_InvokeArn;
+        private bool _mUnknown_InvokeArn;
+        public string? InvokeArn
+        {
+            get
+            {
+                if (!_mUnknown_InvokeArn) return _mValue_InvokeArn;
+                throw new UndeferrableValueException("Value 'Alias.InvokeArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Alias.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Lambda alias' route configuration settings. Fields documented below
         /// </summary>
-        [Input("routingConfig")]
+        [PolicyResourceProperty("routingConfig", "_mUnknown_RoutingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AliasRoutingConfig> _mRoutingConfig;
-
-        public Outputs.AliasRoutingConfig? RoutingConfig => _mRoutingConfig.GetValue("routingConfig");
+        private Outputs.AliasRoutingConfig? _mValue_RoutingConfig;
+        private bool _mUnknown_RoutingConfig;
+        public Outputs.AliasRoutingConfig? RoutingConfig
+        {
+            get
+            {
+                if (!_mUnknown_RoutingConfig) return _mValue_RoutingConfig;
+                throw new UndeferrableValueException("Value 'Alias.RoutingConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lambda/alias:Alias")]
@@ -83,46 +132,81 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// Description of the alias.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AliasArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Lambda Function name or ARN.
         /// </summary>
-        [Input("functionName")]
+        [PolicyResourceProperty("functionName", "_mUnknown_FunctionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
-
-        public string? FunctionName => _mFunctionName.GetValue("functionName");
+        private string? _mValue_FunctionName;
+        private bool _mUnknown_FunctionName;
+        public string? FunctionName
+        {
+            get
+            {
+                if (!_mUnknown_FunctionName) return _mValue_FunctionName;
+                throw new UndeferrableValueException("Value 'AliasArgs.FunctionName' is not present");
+            }
+        }
 
         /// <summary>
         /// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
         /// </summary>
-        [Input("functionVersion")]
+        [PolicyResourceProperty("functionVersion", "_mUnknown_FunctionVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionVersion;
-
-        public string? FunctionVersion => _mFunctionVersion.GetValue("functionVersion");
+        private string? _mValue_FunctionVersion;
+        private bool _mUnknown_FunctionVersion;
+        public string? FunctionVersion
+        {
+            get
+            {
+                if (!_mUnknown_FunctionVersion) return _mValue_FunctionVersion;
+                throw new UndeferrableValueException("Value 'AliasArgs.FunctionVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AliasArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Lambda alias' route configuration settings. Fields documented below
         /// </summary>
-        [Input("routingConfig")]
+        [PolicyResourceProperty("routingConfig", "_mUnknown_RoutingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AliasRoutingConfigArgs> _mRoutingConfig;
-
-        public Inputs.AliasRoutingConfigArgs? RoutingConfig => _mRoutingConfig.GetValue("routingConfig");
+        private Inputs.AliasRoutingConfigArgs? _mValue_RoutingConfig;
+        private bool _mUnknown_RoutingConfig;
+        public Inputs.AliasRoutingConfigArgs? RoutingConfig
+        {
+            get
+            {
+                if (!_mUnknown_RoutingConfig) return _mValue_RoutingConfig;
+                throw new UndeferrableValueException("Value 'AliasArgs.RoutingConfig' is not present");
+            }
+        }
     }
 }

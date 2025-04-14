@@ -12,55 +12,97 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService.Outputs
 {
     public sealed class GetDirectoryConnectSettingResult
     {
-        [Input("availabilityZones")]
+        [PolicyResourceProperty("availabilityZones", "_mUnknown_AvailabilityZones")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
-
-        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
+        private List<string>? _mValue_AvailabilityZones;
+        private bool _mUnknown_AvailabilityZones;
+        public List<string>? AvailabilityZones
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZones) return _mValue_AvailabilityZones;
+                throw new UndeferrableValueException("Value 'GetDirectoryConnectSettingResult.AvailabilityZones' is not present");
+            }
+        }
 
         /// <summary>
         /// IP addresses of the AD Connector servers.
         /// </summary>
-        [Input("connectIps")]
+        [PolicyResourceProperty("connectIps", "_mUnknown_ConnectIps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mConnectIps;
-
-        public List<string>? ConnectIps => _mConnectIps.GetValue("connectIps");
+        private List<string>? _mValue_ConnectIps;
+        private bool _mUnknown_ConnectIps;
+        public List<string>? ConnectIps
+        {
+            get
+            {
+                if (!_mUnknown_ConnectIps) return _mValue_ConnectIps;
+                throw new UndeferrableValueException("Value 'GetDirectoryConnectSettingResult.ConnectIps' is not present");
+            }
+        }
 
         /// <summary>
         /// DNS IP addresses of the domain to connect to.
         /// </summary>
-        [Input("customerDnsIps")]
+        [PolicyResourceProperty("customerDnsIps", "_mUnknown_CustomerDnsIps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomerDnsIps;
-
-        public List<string>? CustomerDnsIps => _mCustomerDnsIps.GetValue("customerDnsIps");
+        private List<string>? _mValue_CustomerDnsIps;
+        private bool _mUnknown_CustomerDnsIps;
+        public List<string>? CustomerDnsIps
+        {
+            get
+            {
+                if (!_mUnknown_CustomerDnsIps) return _mValue_CustomerDnsIps;
+                throw new UndeferrableValueException("Value 'GetDirectoryConnectSettingResult.CustomerDnsIps' is not present");
+            }
+        }
 
         /// <summary>
         /// Username corresponding to the password provided.
         /// </summary>
-        [Input("customerUsername")]
+        [PolicyResourceProperty("customerUsername", "_mUnknown_CustomerUsername")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerUsername;
-
-        public string? CustomerUsername => _mCustomerUsername.GetValue("customerUsername");
+        private string? _mValue_CustomerUsername;
+        private bool _mUnknown_CustomerUsername;
+        public string? CustomerUsername
+        {
+            get
+            {
+                if (!_mUnknown_CustomerUsername) return _mValue_CustomerUsername;
+                throw new UndeferrableValueException("Value 'GetDirectoryConnectSettingResult.CustomerUsername' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'GetDirectoryConnectSettingResult.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the VPC that the connector is in.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'GetDirectoryConnectSettingResult.VpcId' is not present");
+            }
+        }
     }
 }

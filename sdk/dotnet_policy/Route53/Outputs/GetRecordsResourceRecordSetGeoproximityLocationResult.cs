@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Outputs
         /// <summary>
         /// The AWS Region the resource you are directing DNS traffic to, is in.
         /// </summary>
-        [Input("awsRegion")]
+        [PolicyResourceProperty("awsRegion", "_mUnknown_AwsRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsRegion;
-
-        public string? AwsRegion => _mAwsRegion.GetValue("awsRegion");
+        private string? _mValue_AwsRegion;
+        private bool _mUnknown_AwsRegion;
+        public string? AwsRegion
+        {
+            get
+            {
+                if (!_mUnknown_AwsRegion) return _mValue_AwsRegion;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetGeoproximityLocationResult.AwsRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// The bias increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
         /// </summary>
-        [Input("bias")]
+        [PolicyResourceProperty("bias", "_mUnknown_Bias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBias;
-
-        public int? Bias => _mBias.GetValue("bias");
+        private int? _mValue_Bias;
+        private bool _mUnknown_Bias;
+        public int? Bias
+        {
+            get
+            {
+                if (!_mUnknown_Bias) return _mValue_Bias;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetGeoproximityLocationResult.Bias' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains the longitude and latitude for a geographic region.
         /// </summary>
-        [Input("coordinates")]
+        [PolicyResourceProperty("coordinates", "_mUnknown_Coordinates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GetRecordsResourceRecordSetGeoproximityLocationCoordinatesResult> _mCoordinates;
-
-        public Outputs.GetRecordsResourceRecordSetGeoproximityLocationCoordinatesResult? Coordinates => _mCoordinates.GetValue("coordinates");
+        private Outputs.GetRecordsResourceRecordSetGeoproximityLocationCoordinatesResult? _mValue_Coordinates;
+        private bool _mUnknown_Coordinates;
+        public Outputs.GetRecordsResourceRecordSetGeoproximityLocationCoordinatesResult? Coordinates
+        {
+            get
+            {
+                if (!_mUnknown_Coordinates) return _mValue_Coordinates;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetGeoproximityLocationResult.Coordinates' is not present");
+            }
+        }
 
         /// <summary>
         /// An AWS Local Zone Group.
         /// </summary>
-        [Input("localZoneGroup")]
+        [PolicyResourceProperty("localZoneGroup", "_mUnknown_LocalZoneGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalZoneGroup;
-
-        public string? LocalZoneGroup => _mLocalZoneGroup.GetValue("localZoneGroup");
+        private string? _mValue_LocalZoneGroup;
+        private bool _mUnknown_LocalZoneGroup;
+        public string? LocalZoneGroup
+        {
+            get
+            {
+                if (!_mUnknown_LocalZoneGroup) return _mValue_LocalZoneGroup;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetGeoproximityLocationResult.LocalZoneGroup' is not present");
+            }
+        }
     }
 }

@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Inputs
         /// <summary>
         /// Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
         /// </summary>
-        [Input("bias")]
+        [PolicyResourceProperty("bias", "_mUnknown_Bias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBias;
-
-        public string? Bias => _mBias.GetValue("bias");
+        private string? _mValue_Bias;
+        private bool _mUnknown_Bias;
+        public string? Bias
+        {
+            get
+            {
+                if (!_mUnknown_Bias) return _mValue_Bias;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.Bias' is not present");
+            }
+        }
 
         /// <summary>
         /// References to an endpoint.
         /// </summary>
-        [Input("endpointReference")]
+        [PolicyResourceProperty("endpointReference", "_mUnknown_EndpointReference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointReference;
-
-        public string? EndpointReference => _mEndpointReference.GetValue("endpointReference");
+        private string? _mValue_EndpointReference;
+        private bool _mUnknown_EndpointReference;
+        public string? EndpointReference
+        {
+            get
+            {
+                if (!_mUnknown_EndpointReference) return _mValue_EndpointReference;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.EndpointReference' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
         /// </summary>
-        [Input("evaluateTargetHealth")]
+        [PolicyResourceProperty("evaluateTargetHealth", "_mUnknown_EvaluateTargetHealth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEvaluateTargetHealth;
-
-        public bool? EvaluateTargetHealth => _mEvaluateTargetHealth.GetValue("evaluateTargetHealth");
+        private bool? _mValue_EvaluateTargetHealth;
+        private bool _mUnknown_EvaluateTargetHealth;
+        public bool? EvaluateTargetHealth
+        {
+            get
+            {
+                if (!_mUnknown_EvaluateTargetHealth) return _mValue_EvaluateTargetHealth;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.EvaluateTargetHealth' is not present");
+            }
+        }
 
         /// <summary>
         /// If you want to associate a health check with the endpoint or rule.
         /// </summary>
-        [Input("healthCheck")]
+        [PolicyResourceProperty("healthCheck", "_mUnknown_HealthCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheck;
-
-        public string? HealthCheck => _mHealthCheck.GetValue("healthCheck");
+        private string? _mValue_HealthCheck;
+        private bool _mUnknown_HealthCheck;
+        public string? HealthCheck
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheck) return _mValue_HealthCheck;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.HealthCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
         /// </summary>
-        [Input("latitude")]
+        [PolicyResourceProperty("latitude", "_mUnknown_Latitude")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLatitude;
-
-        public string? Latitude => _mLatitude.GetValue("latitude");
+        private string? _mValue_Latitude;
+        private bool _mUnknown_Latitude;
+        public string? Latitude
+        {
+            get
+            {
+                if (!_mUnknown_Latitude) return _mValue_Latitude;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.Latitude' is not present");
+            }
+        }
 
         /// <summary>
         /// Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
         /// </summary>
-        [Input("longitude")]
+        [PolicyResourceProperty("longitude", "_mUnknown_Longitude")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLongitude;
-
-        public string? Longitude => _mLongitude.GetValue("longitude");
+        private string? _mValue_Longitude;
+        private bool _mUnknown_Longitude;
+        public string? Longitude
+        {
+            get
+            {
+                if (!_mUnknown_Longitude) return _mValue_Longitude;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.Longitude' is not present");
+            }
+        }
 
         /// <summary>
         /// If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// References to a rule.
         /// </summary>
-        [Input("ruleReference")]
+        [PolicyResourceProperty("ruleReference", "_mUnknown_RuleReference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleReference;
-
-        public string? RuleReference => _mRuleReference.GetValue("ruleReference");
+        private string? _mValue_RuleReference;
+        private bool _mUnknown_RuleReference;
+        public string? RuleReference
+        {
+            get
+            {
+                if (!_mUnknown_RuleReference) return _mValue_RuleReference;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.RuleReference' is not present");
+            }
+        }
     }
 }

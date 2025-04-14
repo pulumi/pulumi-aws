@@ -16,164 +16,290 @@ namespace Pulumi.PolicyPacks.Aws.Signer
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was completed.
         /// </summary>
-        [Input("completedAt")]
+        [PolicyResourceProperty("completedAt", "_mUnknown_CompletedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCompletedAt;
-
-        public string? CompletedAt => _mCompletedAt.GetValue("completedAt");
+        private string? _mValue_CompletedAt;
+        private bool _mUnknown_CompletedAt;
+        public string? CompletedAt
+        {
+            get
+            {
+                if (!_mUnknown_CompletedAt) return _mValue_CompletedAt;
+                throw new UndeferrableValueException("Value 'SigningJob.CompletedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'SigningJob.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 bucket in which to save your signed object. See Destination below for details.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SigningJobDestination> _mDestination;
-
-        public Outputs.SigningJobDestination? Destination => _mDestination.GetValue("destination");
+        private Outputs.SigningJobDestination? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public Outputs.SigningJobDestination? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'SigningJob.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
         /// </summary>
-        [Input("ignoreSigningJobFailure")]
+        [PolicyResourceProperty("ignoreSigningJobFailure", "_mUnknown_IgnoreSigningJobFailure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnoreSigningJobFailure;
-
-        public bool? IgnoreSigningJobFailure => _mIgnoreSigningJobFailure.GetValue("ignoreSigningJobFailure");
+        private bool? _mValue_IgnoreSigningJobFailure;
+        private bool _mUnknown_IgnoreSigningJobFailure;
+        public bool? IgnoreSigningJobFailure
+        {
+            get
+            {
+                if (!_mUnknown_IgnoreSigningJobFailure) return _mValue_IgnoreSigningJobFailure;
+                throw new UndeferrableValueException("Value 'SigningJob.IgnoreSigningJobFailure' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the signing job on output.
         /// </summary>
-        [Input("jobId")]
+        [PolicyResourceProperty("jobId", "_mUnknown_JobId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobId;
-
-        public string? JobId => _mJobId.GetValue("jobId");
+        private string? _mValue_JobId;
+        private bool _mUnknown_JobId;
+        public string? JobId
+        {
+            get
+            {
+                if (!_mUnknown_JobId) return _mValue_JobId;
+                throw new UndeferrableValueException("Value 'SigningJob.JobId' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM entity that initiated the signing job.
         /// </summary>
-        [Input("jobInvoker")]
+        [PolicyResourceProperty("jobInvoker", "_mUnknown_JobInvoker")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobInvoker;
-
-        public string? JobInvoker => _mJobInvoker.GetValue("jobInvoker");
+        private string? _mValue_JobInvoker;
+        private bool _mUnknown_JobInvoker;
+        public string? JobInvoker
+        {
+            get
+            {
+                if (!_mUnknown_JobInvoker) return _mValue_JobInvoker;
+                throw new UndeferrableValueException("Value 'SigningJob.JobInvoker' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS account ID of the job owner.
         /// </summary>
-        [Input("jobOwner")]
+        [PolicyResourceProperty("jobOwner", "_mUnknown_JobOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobOwner;
-
-        public string? JobOwner => _mJobOwner.GetValue("jobOwner");
+        private string? _mValue_JobOwner;
+        private bool _mUnknown_JobOwner;
+        public string? JobOwner
+        {
+            get
+            {
+                if (!_mUnknown_JobOwner) return _mValue_JobOwner;
+                throw new UndeferrableValueException("Value 'SigningJob.JobOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// A human-readable name for the signing platform associated with the signing job.
         /// </summary>
-        [Input("platformDisplayName")]
+        [PolicyResourceProperty("platformDisplayName", "_mUnknown_PlatformDisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformDisplayName;
-
-        public string? PlatformDisplayName => _mPlatformDisplayName.GetValue("platformDisplayName");
+        private string? _mValue_PlatformDisplayName;
+        private bool _mUnknown_PlatformDisplayName;
+        public string? PlatformDisplayName
+        {
+            get
+            {
+                if (!_mUnknown_PlatformDisplayName) return _mValue_PlatformDisplayName;
+                throw new UndeferrableValueException("Value 'SigningJob.PlatformDisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// The platform to which your signed code image will be distributed.
         /// </summary>
-        [Input("platformId")]
+        [PolicyResourceProperty("platformId", "_mUnknown_PlatformId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformId;
-
-        public string? PlatformId => _mPlatformId.GetValue("platformId");
+        private string? _mValue_PlatformId;
+        private bool _mUnknown_PlatformId;
+        public string? PlatformId
+        {
+            get
+            {
+                if (!_mUnknown_PlatformId) return _mValue_PlatformId;
+                throw new UndeferrableValueException("Value 'SigningJob.PlatformId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the profile to initiate the signing operation.
         /// </summary>
-        [Input("profileName")]
+        [PolicyResourceProperty("profileName", "_mUnknown_ProfileName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProfileName;
-
-        public string? ProfileName => _mProfileName.GetValue("profileName");
+        private string? _mValue_ProfileName;
+        private bool _mUnknown_ProfileName;
+        public string? ProfileName
+        {
+            get
+            {
+                if (!_mUnknown_ProfileName) return _mValue_ProfileName;
+                throw new UndeferrableValueException("Value 'SigningJob.ProfileName' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the signing profile used to initiate the signing job.
         /// </summary>
-        [Input("profileVersion")]
+        [PolicyResourceProperty("profileVersion", "_mUnknown_ProfileVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProfileVersion;
-
-        public string? ProfileVersion => _mProfileVersion.GetValue("profileVersion");
+        private string? _mValue_ProfileVersion;
+        private bool _mUnknown_ProfileVersion;
+        public string? ProfileVersion
+        {
+            get
+            {
+                if (!_mUnknown_ProfileVersion) return _mValue_ProfileVersion;
+                throw new UndeferrableValueException("Value 'SigningJob.ProfileVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM principal that requested the signing job.
         /// </summary>
-        [Input("requestedBy")]
+        [PolicyResourceProperty("requestedBy", "_mUnknown_RequestedBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequestedBy;
-
-        public string? RequestedBy => _mRequestedBy.GetValue("requestedBy");
+        private string? _mValue_RequestedBy;
+        private bool _mUnknown_RequestedBy;
+        public string? RequestedBy
+        {
+            get
+            {
+                if (!_mUnknown_RequestedBy) return _mValue_RequestedBy;
+                throw new UndeferrableValueException("Value 'SigningJob.RequestedBy' is not present");
+            }
+        }
 
         /// <summary>
         /// A revocation record if the signature generated by the signing job has been revoked. Contains a timestamp and the ID of the IAM entity that revoked the signature.
         /// </summary>
-        [Input("revocationRecords")]
+        [PolicyResourceProperty("revocationRecords", "_mUnknown_RevocationRecords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SigningJobRevocationRecord>> _mRevocationRecords;
-
-        public List<Outputs.SigningJobRevocationRecord>? RevocationRecords => _mRevocationRecords.GetValue("revocationRecords");
+        private List<Outputs.SigningJobRevocationRecord>? _mValue_RevocationRecords;
+        private bool _mUnknown_RevocationRecords;
+        public List<Outputs.SigningJobRevocationRecord>? RevocationRecords
+        {
+            get
+            {
+                if (!_mUnknown_RevocationRecords) return _mValue_RevocationRecords;
+                throw new UndeferrableValueException("Value 'SigningJob.RevocationRecords' is not present");
+            }
+        }
 
         /// <summary>
         /// The time when the signature of a signing job expires.
         /// </summary>
-        [Input("signatureExpiresAt")]
+        [PolicyResourceProperty("signatureExpiresAt", "_mUnknown_SignatureExpiresAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSignatureExpiresAt;
-
-        public string? SignatureExpiresAt => _mSignatureExpiresAt.GetValue("signatureExpiresAt");
+        private string? _mValue_SignatureExpiresAt;
+        private bool _mUnknown_SignatureExpiresAt;
+        public string? SignatureExpiresAt
+        {
+            get
+            {
+                if (!_mUnknown_SignatureExpiresAt) return _mValue_SignatureExpiresAt;
+                throw new UndeferrableValueException("Value 'SigningJob.SignatureExpiresAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the S3 bucket where the signed code image is saved by code signing.
         /// </summary>
-        [Input("signedObjects")]
+        [PolicyResourceProperty("signedObjects", "_mUnknown_SignedObjects")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SigningJobSignedObject>> _mSignedObjects;
-
-        public List<Outputs.SigningJobSignedObject>? SignedObjects => _mSignedObjects.GetValue("signedObjects");
+        private List<Outputs.SigningJobSignedObject>? _mValue_SignedObjects;
+        private bool _mUnknown_SignedObjects;
+        public List<Outputs.SigningJobSignedObject>? SignedObjects
+        {
+            get
+            {
+                if (!_mUnknown_SignedObjects) return _mValue_SignedObjects;
+                throw new UndeferrableValueException("Value 'SigningJob.SignedObjects' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 bucket that contains the object to sign. See Source below for details.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SigningJobSource> _mSource;
-
-        public Outputs.SigningJobSource? Source => _mSource.GetValue("source");
+        private Outputs.SigningJobSource? _mValue_Source;
+        private bool _mUnknown_Source;
+        public Outputs.SigningJobSource? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'SigningJob.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the signing job.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'SigningJob.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// String value that contains the status reason.
         /// </summary>
-        [Input("statusReason")]
+        [PolicyResourceProperty("statusReason", "_mUnknown_StatusReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusReason;
-
-        public string? StatusReason => _mStatusReason.GetValue("statusReason");
+        private string? _mValue_StatusReason;
+        private bool _mUnknown_StatusReason;
+        public string? StatusReason
+        {
+            get
+            {
+                if (!_mUnknown_StatusReason) return _mValue_StatusReason;
+                throw new UndeferrableValueException("Value 'SigningJob.StatusReason' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:signer/signingJob:SigningJob")]
@@ -182,37 +308,65 @@ namespace Pulumi.PolicyPacks.Aws.Signer
         /// <summary>
         /// The S3 bucket in which to save your signed object. See Destination below for details.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SigningJobDestinationArgs> _mDestination;
-
-        public Inputs.SigningJobDestinationArgs? Destination => _mDestination.GetValue("destination");
+        private Inputs.SigningJobDestinationArgs? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public Inputs.SigningJobDestinationArgs? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'SigningJobArgs.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
         /// </summary>
-        [Input("ignoreSigningJobFailure")]
+        [PolicyResourceProperty("ignoreSigningJobFailure", "_mUnknown_IgnoreSigningJobFailure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnoreSigningJobFailure;
-
-        public bool? IgnoreSigningJobFailure => _mIgnoreSigningJobFailure.GetValue("ignoreSigningJobFailure");
+        private bool? _mValue_IgnoreSigningJobFailure;
+        private bool _mUnknown_IgnoreSigningJobFailure;
+        public bool? IgnoreSigningJobFailure
+        {
+            get
+            {
+                if (!_mUnknown_IgnoreSigningJobFailure) return _mValue_IgnoreSigningJobFailure;
+                throw new UndeferrableValueException("Value 'SigningJobArgs.IgnoreSigningJobFailure' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the profile to initiate the signing operation.
         /// </summary>
-        [Input("profileName")]
+        [PolicyResourceProperty("profileName", "_mUnknown_ProfileName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProfileName;
-
-        public string? ProfileName => _mProfileName.GetValue("profileName");
+        private string? _mValue_ProfileName;
+        private bool _mUnknown_ProfileName;
+        public string? ProfileName
+        {
+            get
+            {
+                if (!_mUnknown_ProfileName) return _mValue_ProfileName;
+                throw new UndeferrableValueException("Value 'SigningJobArgs.ProfileName' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 bucket that contains the object to sign. See Source below for details.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SigningJobSourceArgs> _mSource;
-
-        public Inputs.SigningJobSourceArgs? Source => _mSource.GetValue("source");
+        private Inputs.SigningJobSourceArgs? _mValue_Source;
+        private bool _mUnknown_Source;
+        public Inputs.SigningJobSourceArgs? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'SigningJobArgs.Source' is not present");
+            }
+        }
     }
 }

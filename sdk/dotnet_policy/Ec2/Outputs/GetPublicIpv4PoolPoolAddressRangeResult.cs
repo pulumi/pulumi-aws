@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// Number of addresses in the range.
         /// </summary>
-        [Input("addressCount")]
+        [PolicyResourceProperty("addressCount", "_mUnknown_AddressCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAddressCount;
-
-        public int? AddressCount => _mAddressCount.GetValue("addressCount");
+        private int? _mValue_AddressCount;
+        private bool _mUnknown_AddressCount;
+        public int? AddressCount
+        {
+            get
+            {
+                if (!_mUnknown_AddressCount) return _mValue_AddressCount;
+                throw new UndeferrableValueException("Value 'GetPublicIpv4PoolPoolAddressRangeResult.AddressCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of available addresses in the range.
         /// </summary>
-        [Input("availableAddressCount")]
+        [PolicyResourceProperty("availableAddressCount", "_mUnknown_AvailableAddressCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAvailableAddressCount;
-
-        public int? AvailableAddressCount => _mAvailableAddressCount.GetValue("availableAddressCount");
+        private int? _mValue_AvailableAddressCount;
+        private bool _mUnknown_AvailableAddressCount;
+        public int? AvailableAddressCount
+        {
+            get
+            {
+                if (!_mUnknown_AvailableAddressCount) return _mValue_AvailableAddressCount;
+                throw new UndeferrableValueException("Value 'GetPublicIpv4PoolPoolAddressRangeResult.AvailableAddressCount' is not present");
+            }
+        }
 
         /// <summary>
         /// First address in the range.
         /// </summary>
-        [Input("firstAddress")]
+        [PolicyResourceProperty("firstAddress", "_mUnknown_FirstAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirstAddress;
-
-        public string? FirstAddress => _mFirstAddress.GetValue("firstAddress");
+        private string? _mValue_FirstAddress;
+        private bool _mUnknown_FirstAddress;
+        public string? FirstAddress
+        {
+            get
+            {
+                if (!_mUnknown_FirstAddress) return _mValue_FirstAddress;
+                throw new UndeferrableValueException("Value 'GetPublicIpv4PoolPoolAddressRangeResult.FirstAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Last address in the range.
         /// </summary>
-        [Input("lastAddress")]
+        [PolicyResourceProperty("lastAddress", "_mUnknown_LastAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastAddress;
-
-        public string? LastAddress => _mLastAddress.GetValue("lastAddress");
+        private string? _mValue_LastAddress;
+        private bool _mUnknown_LastAddress;
+        public string? LastAddress
+        {
+            get
+            {
+                if (!_mUnknown_LastAddress) return _mValue_LastAddress;
+                throw new UndeferrableValueException("Value 'GetPublicIpv4PoolPoolAddressRangeResult.LastAddress' is not present");
+            }
+        }
     }
 }

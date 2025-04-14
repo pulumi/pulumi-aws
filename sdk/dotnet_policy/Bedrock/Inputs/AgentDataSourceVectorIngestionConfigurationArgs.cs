@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
         /// </summary>
-        [Input("chunkingConfiguration")]
+        [PolicyResourceProperty("chunkingConfiguration", "_mUnknown_ChunkingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs> _mChunkingConfiguration;
-
-        public Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs? ChunkingConfiguration => _mChunkingConfiguration.GetValue("chunkingConfiguration");
+        private Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs? _mValue_ChunkingConfiguration;
+        private bool _mUnknown_ChunkingConfiguration;
+        public Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs? ChunkingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ChunkingConfiguration) return _mValue_ChunkingConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationArgs.ChunkingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for custom transformation of data source documents.
         /// </summary>
-        [Input("customTransformationConfiguration")]
+        [PolicyResourceProperty("customTransformationConfiguration", "_mUnknown_CustomTransformationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs> _mCustomTransformationConfiguration;
-
-        public Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs? CustomTransformationConfiguration => _mCustomTransformationConfiguration.GetValue("customTransformationConfiguration");
+        private Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs? _mValue_CustomTransformationConfiguration;
+        private bool _mUnknown_CustomTransformationConfiguration;
+        public Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs? CustomTransformationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CustomTransformationConfiguration) return _mValue_CustomTransformationConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationArgs.CustomTransformationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
         /// </summary>
-        [Input("parsingConfiguration")]
+        [PolicyResourceProperty("parsingConfiguration", "_mUnknown_ParsingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs> _mParsingConfiguration;
-
-        public Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs? ParsingConfiguration => _mParsingConfiguration.GetValue("parsingConfiguration");
+        private Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs? _mValue_ParsingConfiguration;
+        private bool _mUnknown_ParsingConfiguration;
+        public Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs? ParsingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ParsingConfiguration) return _mValue_ParsingConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationArgs.ParsingConfiguration' is not present");
+            }
+        }
     }
 }

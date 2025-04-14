@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.AppSync
         /// <summary>
         /// GraphQL API ID.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'Type.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the type.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Type.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The type definition.
         /// </summary>
-        [Input("definition")]
+        [PolicyResourceProperty("definition", "_mUnknown_Definition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefinition;
-
-        public string? Definition => _mDefinition.GetValue("definition");
+        private string? _mValue_Definition;
+        private bool _mUnknown_Definition;
+        public string? Definition
+        {
+            get
+            {
+                if (!_mUnknown_Definition) return _mValue_Definition;
+                throw new UndeferrableValueException("Value 'Type.Definition' is not present");
+            }
+        }
 
         /// <summary>
         /// The type description.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Type.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The type format: `SDL` or `JSON`.
         /// </summary>
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
-
-        public string? Format => _mFormat.GetValue("format");
+        private string? _mValue_Format;
+        private bool _mUnknown_Format;
+        public string? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'Type.Format' is not present");
+            }
+        }
 
         /// <summary>
         /// The type name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Type.Name' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appsync/type:Type")]
@@ -74,28 +116,49 @@ namespace Pulumi.PolicyPacks.Aws.AppSync
         /// <summary>
         /// GraphQL API ID.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'TypeArgs.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type definition.
         /// </summary>
-        [Input("definition")]
+        [PolicyResourceProperty("definition", "_mUnknown_Definition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefinition;
-
-        public string? Definition => _mDefinition.GetValue("definition");
+        private string? _mValue_Definition;
+        private bool _mUnknown_Definition;
+        public string? Definition
+        {
+            get
+            {
+                if (!_mUnknown_Definition) return _mValue_Definition;
+                throw new UndeferrableValueException("Value 'TypeArgs.Definition' is not present");
+            }
+        }
 
         /// <summary>
         /// The type format: `SDL` or `JSON`.
         /// </summary>
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
-
-        public string? Format => _mFormat.GetValue("format");
+        private string? _mValue_Format;
+        private bool _mUnknown_Format;
+        public string? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'TypeArgs.Format' is not present");
+            }
+        }
     }
 }

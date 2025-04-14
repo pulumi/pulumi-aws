@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
         /// </summary>
-        [Input("dateTimeParameters")]
+        [PolicyResourceProperty("dateTimeParameters", "_mUnknown_DateTimeParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DashboardParametersDateTimeParameterArgs>> _mDateTimeParameters;
-
-        public List<Inputs.DashboardParametersDateTimeParameterArgs>? DateTimeParameters => _mDateTimeParameters.GetValue("dateTimeParameters");
+        private List<Inputs.DashboardParametersDateTimeParameterArgs>? _mValue_DateTimeParameters;
+        private bool _mUnknown_DateTimeParameters;
+        public List<Inputs.DashboardParametersDateTimeParameterArgs>? DateTimeParameters
+        {
+            get
+            {
+                if (!_mUnknown_DateTimeParameters) return _mValue_DateTimeParameters;
+                throw new UndeferrableValueException("Value 'DashboardParametersArgs.DateTimeParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
         /// </summary>
-        [Input("decimalParameters")]
+        [PolicyResourceProperty("decimalParameters", "_mUnknown_DecimalParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DashboardParametersDecimalParameterArgs>> _mDecimalParameters;
-
-        public List<Inputs.DashboardParametersDecimalParameterArgs>? DecimalParameters => _mDecimalParameters.GetValue("decimalParameters");
+        private List<Inputs.DashboardParametersDecimalParameterArgs>? _mValue_DecimalParameters;
+        private bool _mUnknown_DecimalParameters;
+        public List<Inputs.DashboardParametersDecimalParameterArgs>? DecimalParameters
+        {
+            get
+            {
+                if (!_mUnknown_DecimalParameters) return _mValue_DecimalParameters;
+                throw new UndeferrableValueException("Value 'DashboardParametersArgs.DecimalParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
         /// </summary>
-        [Input("integerParameters")]
+        [PolicyResourceProperty("integerParameters", "_mUnknown_IntegerParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DashboardParametersIntegerParameterArgs>> _mIntegerParameters;
-
-        public List<Inputs.DashboardParametersIntegerParameterArgs>? IntegerParameters => _mIntegerParameters.GetValue("integerParameters");
+        private List<Inputs.DashboardParametersIntegerParameterArgs>? _mValue_IntegerParameters;
+        private bool _mUnknown_IntegerParameters;
+        public List<Inputs.DashboardParametersIntegerParameterArgs>? IntegerParameters
+        {
+            get
+            {
+                if (!_mUnknown_IntegerParameters) return _mValue_IntegerParameters;
+                throw new UndeferrableValueException("Value 'DashboardParametersArgs.IntegerParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
         /// </summary>
-        [Input("stringParameters")]
+        [PolicyResourceProperty("stringParameters", "_mUnknown_StringParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DashboardParametersStringParameterArgs>> _mStringParameters;
-
-        public List<Inputs.DashboardParametersStringParameterArgs>? StringParameters => _mStringParameters.GetValue("stringParameters");
+        private List<Inputs.DashboardParametersStringParameterArgs>? _mValue_StringParameters;
+        private bool _mUnknown_StringParameters;
+        public List<Inputs.DashboardParametersStringParameterArgs>? StringParameters
+        {
+            get
+            {
+                if (!_mUnknown_StringParameters) return _mValue_StringParameters;
+                throw new UndeferrableValueException("Value 'DashboardParametersArgs.StringParameters' is not present");
+            }
+        }
     }
 }

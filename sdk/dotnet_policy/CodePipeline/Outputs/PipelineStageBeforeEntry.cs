@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Outputs
         /// <summary>
         /// The conditions that are configured as entry condition. Defined as a `condition` block below.
         /// </summary>
-        [Input("condition")]
+        [PolicyResourceProperty("condition", "_mUnknown_Condition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineStageBeforeEntryCondition> _mCondition;
-
-        public Outputs.PipelineStageBeforeEntryCondition? Condition => _mCondition.GetValue("condition");
+        private Outputs.PipelineStageBeforeEntryCondition? _mValue_Condition;
+        private bool _mUnknown_Condition;
+        public Outputs.PipelineStageBeforeEntryCondition? Condition
+        {
+            get
+            {
+                if (!_mUnknown_Condition) return _mValue_Condition;
+                throw new UndeferrableValueException("Value 'PipelineStageBeforeEntry.Condition' is not present");
+            }
+        }
     }
 }

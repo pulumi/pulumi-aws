@@ -15,25 +15,46 @@ namespace Pulumi.PolicyPacks.Aws.Mwaa.Outputs
         /// <summary>
         /// The Created At date of the MWAA Environment
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'EnvironmentLastUpdated.CreatedAt' is not present");
+            }
+        }
 
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
-
-        [Input("errors")]
+        [PolicyResourceProperty("errors", "_mUnknown_Errors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EnvironmentLastUpdatedError>> _mErrors;
-
-        public List<Outputs.EnvironmentLastUpdatedError>? Errors => _mErrors.GetValue("errors");
+        private List<Outputs.EnvironmentLastUpdatedError>? _mValue_Errors;
+        private bool _mUnknown_Errors;
+        public List<Outputs.EnvironmentLastUpdatedError>? Errors
+        {
+            get
+            {
+                if (!_mUnknown_Errors) return _mValue_Errors;
+                throw new UndeferrableValueException("Value 'EnvironmentLastUpdated.Errors' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the Amazon MWAA Environment
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'EnvironmentLastUpdated.Status' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// Configuration block for iceberg table config. See `iceberg_input` below.
         /// </summary>
-        [Input("icebergInput")]
+        [PolicyResourceProperty("icebergInput", "_mUnknown_IcebergInput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CatalogTableOpenTableFormatInputIcebergInput> _mIcebergInput;
-
-        public Outputs.CatalogTableOpenTableFormatInputIcebergInput? IcebergInput => _mIcebergInput.GetValue("icebergInput");
+        private Outputs.CatalogTableOpenTableFormatInputIcebergInput? _mValue_IcebergInput;
+        private bool _mUnknown_IcebergInput;
+        public Outputs.CatalogTableOpenTableFormatInputIcebergInput? IcebergInput
+        {
+            get
+            {
+                if (!_mUnknown_IcebergInput) return _mValue_IcebergInput;
+                throw new UndeferrableValueException("Value 'CatalogTableOpenTableFormatInput.IcebergInput' is not present");
+            }
+        }
     }
 }

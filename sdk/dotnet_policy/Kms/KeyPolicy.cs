@@ -18,31 +18,52 @@ namespace Pulumi.PolicyPacks.Aws.Kms
         /// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. If this value is set, and the resource is destroyed, a warning will be shown, and the resource will be removed from state.
         /// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
         /// </summary>
-        [Input("bypassPolicyLockoutSafetyCheck")]
+        [PolicyResourceProperty("bypassPolicyLockoutSafetyCheck", "_mUnknown_BypassPolicyLockoutSafetyCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBypassPolicyLockoutSafetyCheck;
-
-        public bool? BypassPolicyLockoutSafetyCheck => _mBypassPolicyLockoutSafetyCheck.GetValue("bypassPolicyLockoutSafetyCheck");
+        private bool? _mValue_BypassPolicyLockoutSafetyCheck;
+        private bool _mUnknown_BypassPolicyLockoutSafetyCheck;
+        public bool? BypassPolicyLockoutSafetyCheck
+        {
+            get
+            {
+                if (!_mUnknown_BypassPolicyLockoutSafetyCheck) return _mValue_BypassPolicyLockoutSafetyCheck;
+                throw new UndeferrableValueException("Value 'KeyPolicy.BypassPolicyLockoutSafetyCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the KMS Key to attach the policy.
         /// </summary>
-        [Input("keyId")]
+        [PolicyResourceProperty("keyId", "_mUnknown_KeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
-
-        public string? KeyId => _mKeyId.GetValue("keyId");
+        private string? _mValue_KeyId;
+        private bool _mUnknown_KeyId;
+        public string? KeyId
+        {
+            get
+            {
+                if (!_mUnknown_KeyId) return _mValue_KeyId;
+                throw new UndeferrableValueException("Value 'KeyPolicy.KeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
         /// 
         /// &gt; **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, or this resource is destroyed, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'KeyPolicy.Policy' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:kms/keyPolicy:KeyPolicy")]
@@ -53,30 +74,51 @@ namespace Pulumi.PolicyPacks.Aws.Kms
         /// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. If this value is set, and the resource is destroyed, a warning will be shown, and the resource will be removed from state.
         /// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
         /// </summary>
-        [Input("bypassPolicyLockoutSafetyCheck")]
+        [PolicyResourceProperty("bypassPolicyLockoutSafetyCheck", "_mUnknown_BypassPolicyLockoutSafetyCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBypassPolicyLockoutSafetyCheck;
-
-        public bool? BypassPolicyLockoutSafetyCheck => _mBypassPolicyLockoutSafetyCheck.GetValue("bypassPolicyLockoutSafetyCheck");
+        private bool? _mValue_BypassPolicyLockoutSafetyCheck;
+        private bool _mUnknown_BypassPolicyLockoutSafetyCheck;
+        public bool? BypassPolicyLockoutSafetyCheck
+        {
+            get
+            {
+                if (!_mUnknown_BypassPolicyLockoutSafetyCheck) return _mValue_BypassPolicyLockoutSafetyCheck;
+                throw new UndeferrableValueException("Value 'KeyPolicyArgs.BypassPolicyLockoutSafetyCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the KMS Key to attach the policy.
         /// </summary>
-        [Input("keyId")]
+        [PolicyResourceProperty("keyId", "_mUnknown_KeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
-
-        public string? KeyId => _mKeyId.GetValue("keyId");
+        private string? _mValue_KeyId;
+        private bool _mUnknown_KeyId;
+        public string? KeyId
+        {
+            get
+            {
+                if (!_mUnknown_KeyId) return _mValue_KeyId;
+                throw new UndeferrableValueException("Value 'KeyPolicyArgs.KeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
         /// 
         /// &gt; **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, or this resource is destroyed, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'KeyPolicyArgs.Policy' is not present");
+            }
+        }
     }
 }

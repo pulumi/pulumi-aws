@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy.Inputs
         /// <summary>
         /// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the first Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. If you don't specify a value for `first_zone_monitor_duration_in_seconds`, then CodeDeploy uses the `monitor_duration_in_seconds` value for the first Availability Zone.
         /// </summary>
-        [Input("firstZoneMonitorDurationInSeconds")]
+        [PolicyResourceProperty("firstZoneMonitorDurationInSeconds", "_mUnknown_FirstZoneMonitorDurationInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFirstZoneMonitorDurationInSeconds;
-
-        public int? FirstZoneMonitorDurationInSeconds => _mFirstZoneMonitorDurationInSeconds.GetValue("firstZoneMonitorDurationInSeconds");
+        private int? _mValue_FirstZoneMonitorDurationInSeconds;
+        private bool _mUnknown_FirstZoneMonitorDurationInSeconds;
+        public int? FirstZoneMonitorDurationInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_FirstZoneMonitorDurationInSeconds) return _mValue_FirstZoneMonitorDurationInSeconds;
+                throw new UndeferrableValueException("Value 'DeploymentConfigZonalConfigArgs.FirstZoneMonitorDurationInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The number or percentage of instances that must remain available per Availability Zone during a deployment. If you don't specify a value under `minimum_healthy_hosts_per_zone`, then CodeDeploy uses a default value of 0 percent. This block is more documented below.
         /// </summary>
-        [Input("minimumHealthyHostsPerZone")]
+        [PolicyResourceProperty("minimumHealthyHostsPerZone", "_mUnknown_MinimumHealthyHostsPerZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs> _mMinimumHealthyHostsPerZone;
-
-        public Inputs.DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs? MinimumHealthyHostsPerZone => _mMinimumHealthyHostsPerZone.GetValue("minimumHealthyHostsPerZone");
+        private Inputs.DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs? _mValue_MinimumHealthyHostsPerZone;
+        private bool _mUnknown_MinimumHealthyHostsPerZone;
+        public Inputs.DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs? MinimumHealthyHostsPerZone
+        {
+            get
+            {
+                if (!_mUnknown_MinimumHealthyHostsPerZone) return _mValue_MinimumHealthyHostsPerZone;
+                throw new UndeferrableValueException("Value 'DeploymentConfigZonalConfigArgs.MinimumHealthyHostsPerZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. If you don't specify a `monitor_duration_in_seconds`, CodeDeploy starts deploying to the next Availability Zone immediately.
         /// </summary>
-        [Input("monitorDurationInSeconds")]
+        [PolicyResourceProperty("monitorDurationInSeconds", "_mUnknown_MonitorDurationInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMonitorDurationInSeconds;
-
-        public int? MonitorDurationInSeconds => _mMonitorDurationInSeconds.GetValue("monitorDurationInSeconds");
+        private int? _mValue_MonitorDurationInSeconds;
+        private bool _mUnknown_MonitorDurationInSeconds;
+        public int? MonitorDurationInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MonitorDurationInSeconds) return _mValue_MonitorDurationInSeconds;
+                throw new UndeferrableValueException("Value 'DeploymentConfigZonalConfigArgs.MonitorDurationInSeconds' is not present");
+            }
+        }
     }
 }

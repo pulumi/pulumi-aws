@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Inputs
         /// <summary>
         /// The path to the top-level parent that contains the records.
         /// </summary>
-        [Input("recordRowPath")]
+        [PolicyResourceProperty("recordRowPath", "_mUnknown_RecordRowPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecordRowPath;
-
-        public string? RecordRowPath => _mRecordRowPath.GetValue("recordRowPath");
+        private string? _mValue_RecordRowPath;
+        private bool _mUnknown_RecordRowPath;
+        public string? RecordRowPath
+        {
+            get
+            {
+                if (!_mUnknown_RecordRowPath) return _mValue_RecordRowPath;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs.RecordRowPath' is not present");
+            }
+        }
     }
 }

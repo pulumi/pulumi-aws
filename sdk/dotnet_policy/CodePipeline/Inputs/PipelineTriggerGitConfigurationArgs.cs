@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Inputs
         /// <summary>
         /// The field where the repository event that will start the pipeline is specified as pull requests. A `pull_request` block is documented below.
         /// </summary>
-        [Input("pullRequests")]
+        [PolicyResourceProperty("pullRequests", "_mUnknown_PullRequests")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineTriggerGitConfigurationPullRequestArgs>> _mPullRequests;
-
-        public List<Inputs.PipelineTriggerGitConfigurationPullRequestArgs>? PullRequests => _mPullRequests.GetValue("pullRequests");
+        private List<Inputs.PipelineTriggerGitConfigurationPullRequestArgs>? _mValue_PullRequests;
+        private bool _mUnknown_PullRequests;
+        public List<Inputs.PipelineTriggerGitConfigurationPullRequestArgs>? PullRequests
+        {
+            get
+            {
+                if (!_mUnknown_PullRequests) return _mValue_PullRequests;
+                throw new UndeferrableValueException("Value 'PipelineTriggerGitConfigurationArgs.PullRequests' is not present");
+            }
+        }
 
         /// <summary>
         /// The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
         /// </summary>
-        [Input("pushes")]
+        [PolicyResourceProperty("pushes", "_mUnknown_Pushes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineTriggerGitConfigurationPushArgs>> _mPushes;
-
-        public List<Inputs.PipelineTriggerGitConfigurationPushArgs>? Pushes => _mPushes.GetValue("pushes");
+        private List<Inputs.PipelineTriggerGitConfigurationPushArgs>? _mValue_Pushes;
+        private bool _mUnknown_Pushes;
+        public List<Inputs.PipelineTriggerGitConfigurationPushArgs>? Pushes
+        {
+            get
+            {
+                if (!_mUnknown_Pushes) return _mValue_Pushes;
+                throw new UndeferrableValueException("Value 'PipelineTriggerGitConfigurationArgs.Pushes' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
         /// </summary>
-        [Input("sourceActionName")]
+        [PolicyResourceProperty("sourceActionName", "_mUnknown_SourceActionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceActionName;
-
-        public string? SourceActionName => _mSourceActionName.GetValue("sourceActionName");
+        private string? _mValue_SourceActionName;
+        private bool _mUnknown_SourceActionName;
+        public string? SourceActionName
+        {
+            get
+            {
+                if (!_mUnknown_SourceActionName) return _mValue_SourceActionName;
+                throw new UndeferrableValueException("Value 'PipelineTriggerGitConfigurationArgs.SourceActionName' is not present");
+            }
+        }
     }
 }

@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the human task user interface.
         /// </summary>
-        [Input("humanTaskUiArn")]
+        [PolicyResourceProperty("humanTaskUiArn", "_mUnknown_HumanTaskUiArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHumanTaskUiArn;
-
-        public string? HumanTaskUiArn => _mHumanTaskUiArn.GetValue("humanTaskUiArn");
+        private string? _mValue_HumanTaskUiArn;
+        private bool _mUnknown_HumanTaskUiArn;
+        public string? HumanTaskUiArn
+        {
+            get
+            {
+                if (!_mUnknown_HumanTaskUiArn) return _mValue_HumanTaskUiArn;
+                throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfig.HumanTaskUiArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
         /// </summary>
-        [Input("publicWorkforceTaskPrice")]
+        [PolicyResourceProperty("publicWorkforceTaskPrice", "_mUnknown_PublicWorkforceTaskPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice> _mPublicWorkforceTaskPrice;
-
-        public Outputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice? PublicWorkforceTaskPrice => _mPublicWorkforceTaskPrice.GetValue("publicWorkforceTaskPrice");
+        private Outputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice? _mValue_PublicWorkforceTaskPrice;
+        private bool _mUnknown_PublicWorkforceTaskPrice;
+        public Outputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice? PublicWorkforceTaskPrice
+        {
+            get
+            {
+                if (!_mUnknown_PublicWorkforceTaskPrice) return _mValue_PublicWorkforceTaskPrice;
+                throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfig.PublicWorkforceTaskPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
         /// </summary>
-        [Input("taskAvailabilityLifetimeInSeconds")]
+        [PolicyResourceProperty("taskAvailabilityLifetimeInSeconds", "_mUnknown_TaskAvailabilityLifetimeInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTaskAvailabilityLifetimeInSeconds;
-
-        public int? TaskAvailabilityLifetimeInSeconds => _mTaskAvailabilityLifetimeInSeconds.GetValue("taskAvailabilityLifetimeInSeconds");
+        private int? _mValue_TaskAvailabilityLifetimeInSeconds;
+        private bool _mUnknown_TaskAvailabilityLifetimeInSeconds;
+        public int? TaskAvailabilityLifetimeInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_TaskAvailabilityLifetimeInSeconds) return _mValue_TaskAvailabilityLifetimeInSeconds;
+                throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfig.TaskAvailabilityLifetimeInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
         /// </summary>
-        [Input("taskCount")]
+        [PolicyResourceProperty("taskCount", "_mUnknown_TaskCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTaskCount;
-
-        public int? TaskCount => _mTaskCount.GetValue("taskCount");
+        private int? _mValue_TaskCount;
+        private bool _mUnknown_TaskCount;
+        public int? TaskCount
+        {
+            get
+            {
+                if (!_mUnknown_TaskCount) return _mValue_TaskCount;
+                throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfig.TaskCount' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the human worker task.
         /// </summary>
-        [Input("taskDescription")]
+        [PolicyResourceProperty("taskDescription", "_mUnknown_TaskDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskDescription;
-
-        public string? TaskDescription => _mTaskDescription.GetValue("taskDescription");
+        private string? _mValue_TaskDescription;
+        private bool _mUnknown_TaskDescription;
+        public string? TaskDescription
+        {
+            get
+            {
+                if (!_mUnknown_TaskDescription) return _mValue_TaskDescription;
+                throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfig.TaskDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of keywords used to describe the task so that workers can discover the task.
         /// </summary>
-        [Input("taskKeywords")]
+        [PolicyResourceProperty("taskKeywords", "_mUnknown_TaskKeywords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTaskKeywords;
-
-        public List<string>? TaskKeywords => _mTaskKeywords.GetValue("taskKeywords");
+        private List<string>? _mValue_TaskKeywords;
+        private bool _mUnknown_TaskKeywords;
+        public List<string>? TaskKeywords
+        {
+            get
+            {
+                if (!_mUnknown_TaskKeywords) return _mValue_TaskKeywords;
+                throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfig.TaskKeywords' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of time that a worker has to complete a task. The default value is `3600` seconds.
         /// </summary>
-        [Input("taskTimeLimitInSeconds")]
+        [PolicyResourceProperty("taskTimeLimitInSeconds", "_mUnknown_TaskTimeLimitInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTaskTimeLimitInSeconds;
-
-        public int? TaskTimeLimitInSeconds => _mTaskTimeLimitInSeconds.GetValue("taskTimeLimitInSeconds");
+        private int? _mValue_TaskTimeLimitInSeconds;
+        private bool _mUnknown_TaskTimeLimitInSeconds;
+        public int? TaskTimeLimitInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_TaskTimeLimitInSeconds) return _mValue_TaskTimeLimitInSeconds;
+                throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfig.TaskTimeLimitInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// A title for the human worker task.
         /// </summary>
-        [Input("taskTitle")]
+        [PolicyResourceProperty("taskTitle", "_mUnknown_TaskTitle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskTitle;
-
-        public string? TaskTitle => _mTaskTitle.GetValue("taskTitle");
+        private string? _mValue_TaskTitle;
+        private bool _mUnknown_TaskTitle;
+        public string? TaskTitle
+        {
+            get
+            {
+                if (!_mUnknown_TaskTitle) return _mValue_TaskTitle;
+                throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfig.TaskTitle' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
         /// </summary>
-        [Input("workteamArn")]
+        [PolicyResourceProperty("workteamArn", "_mUnknown_WorkteamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkteamArn;
-
-        public string? WorkteamArn => _mWorkteamArn.GetValue("workteamArn");
+        private string? _mValue_WorkteamArn;
+        private bool _mUnknown_WorkteamArn;
+        public string? WorkteamArn
+        {
+            get
+            {
+                if (!_mUnknown_WorkteamArn) return _mValue_WorkteamArn;
+                throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfig.WorkteamArn' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Ecr.Outputs
 {
     public sealed class RegistryScanningConfigurationRuleRepositoryFilter
     {
-        [Input("filter")]
+        [PolicyResourceProperty("filter", "_mUnknown_Filter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilter;
+        private string? _mValue_Filter;
+        private bool _mUnknown_Filter;
+        public string? Filter
+        {
+            get
+            {
+                if (!_mUnknown_Filter) return _mValue_Filter;
+                throw new UndeferrableValueException("Value 'RegistryScanningConfigurationRuleRepositoryFilter.Filter' is not present");
+            }
+        }
 
-        public string? Filter => _mFilter.GetValue("filter");
-
-        [Input("filterType")]
+        [PolicyResourceProperty("filterType", "_mUnknown_FilterType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilterType;
-
-        public string? FilterType => _mFilterType.GetValue("filterType");
+        private string? _mValue_FilterType;
+        private bool _mUnknown_FilterType;
+        public string? FilterType
+        {
+            get
+            {
+                if (!_mUnknown_FilterType) return _mValue_FilterType;
+                throw new UndeferrableValueException("Value 'RegistryScanningConfigurationRuleRepositoryFilter.FilterType' is not present");
+            }
+        }
     }
 }

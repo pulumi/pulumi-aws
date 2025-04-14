@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// The option to enable display of borders for visuals.
         /// </summary>
-        [Input("show")]
+        [PolicyResourceProperty("show", "_mUnknown_Show")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mShow;
-
-        public bool? Show => _mShow.GetValue("show");
+        private bool? _mValue_Show;
+        private bool _mUnknown_Show;
+        public bool? Show
+        {
+            get
+            {
+                if (!_mUnknown_Show) return _mValue_Show;
+                throw new UndeferrableValueException("Value 'ThemeConfigurationSheetTileBorderArgs.Show' is not present");
+            }
+        }
     }
 }

@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// Whether to automatically enable Security Hub for new accounts in the organization.
         /// </summary>
-        [Input("autoEnable")]
+        [PolicyResourceProperty("autoEnable", "_mUnknown_AutoEnable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnable;
-
-        public bool? AutoEnable => _mAutoEnable.GetValue("autoEnable");
+        private bool? _mValue_AutoEnable;
+        private bool _mUnknown_AutoEnable;
+        public bool? AutoEnable
+        {
+            get
+            {
+                if (!_mUnknown_AutoEnable) return _mValue_AutoEnable;
+                throw new UndeferrableValueException("Value 'OrganizationConfiguration.AutoEnable' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
         /// </summary>
-        [Input("autoEnableStandards")]
+        [PolicyResourceProperty("autoEnableStandards", "_mUnknown_AutoEnableStandards")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoEnableStandards;
-
-        public string? AutoEnableStandards => _mAutoEnableStandards.GetValue("autoEnableStandards");
+        private string? _mValue_AutoEnableStandards;
+        private bool _mUnknown_AutoEnableStandards;
+        public string? AutoEnableStandards
+        {
+            get
+            {
+                if (!_mUnknown_AutoEnableStandards) return _mValue_AutoEnableStandards;
+                throw new UndeferrableValueException("Value 'OrganizationConfiguration.AutoEnableStandards' is not present");
+            }
+        }
 
         /// <summary>
         /// Provides information about the way an organization is configured in Security Hub.
         /// </summary>
-        [Input("organizationConfiguration")]
+        [PolicyResourceProperty("organizationConfiguration", "_mUnknown_OrganizationConfigurationDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OrganizationConfigurationOrganizationConfiguration> _mOrganizationConfigurationDetails;
-
-        public Outputs.OrganizationConfigurationOrganizationConfiguration? OrganizationConfigurationDetails => _mOrganizationConfigurationDetails.GetValue("organizationConfiguration");
+        private Outputs.OrganizationConfigurationOrganizationConfiguration? _mValue_OrganizationConfigurationDetails;
+        private bool _mUnknown_OrganizationConfigurationDetails;
+        public Outputs.OrganizationConfigurationOrganizationConfiguration? OrganizationConfigurationDetails
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationConfigurationDetails) return _mValue_OrganizationConfigurationDetails;
+                throw new UndeferrableValueException("Value 'OrganizationConfiguration.OrganizationConfigurationDetails' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:securityhub/organizationConfiguration:OrganizationConfiguration")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// Whether to automatically enable Security Hub for new accounts in the organization.
         /// </summary>
-        [Input("autoEnable")]
+        [PolicyResourceProperty("autoEnable", "_mUnknown_AutoEnable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnable;
-
-        public bool? AutoEnable => _mAutoEnable.GetValue("autoEnable");
+        private bool? _mValue_AutoEnable;
+        private bool _mUnknown_AutoEnable;
+        public bool? AutoEnable
+        {
+            get
+            {
+                if (!_mUnknown_AutoEnable) return _mValue_AutoEnable;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationArgs.AutoEnable' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
         /// </summary>
-        [Input("autoEnableStandards")]
+        [PolicyResourceProperty("autoEnableStandards", "_mUnknown_AutoEnableStandards")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoEnableStandards;
-
-        public string? AutoEnableStandards => _mAutoEnableStandards.GetValue("autoEnableStandards");
+        private string? _mValue_AutoEnableStandards;
+        private bool _mUnknown_AutoEnableStandards;
+        public string? AutoEnableStandards
+        {
+            get
+            {
+                if (!_mUnknown_AutoEnableStandards) return _mValue_AutoEnableStandards;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationArgs.AutoEnableStandards' is not present");
+            }
+        }
 
         /// <summary>
         /// Provides information about the way an organization is configured in Security Hub.
         /// </summary>
-        [Input("organizationConfiguration")]
+        [PolicyResourceProperty("organizationConfiguration", "_mUnknown_OrganizationConfigurationDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OrganizationConfigurationOrganizationConfigurationArgs> _mOrganizationConfigurationDetails;
-
-        public Inputs.OrganizationConfigurationOrganizationConfigurationArgs? OrganizationConfigurationDetails => _mOrganizationConfigurationDetails.GetValue("organizationConfiguration");
+        private Inputs.OrganizationConfigurationOrganizationConfigurationArgs? _mValue_OrganizationConfigurationDetails;
+        private bool _mUnknown_OrganizationConfigurationDetails;
+        public Inputs.OrganizationConfigurationOrganizationConfigurationArgs? OrganizationConfigurationDetails
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationConfigurationDetails) return _mValue_OrganizationConfigurationDetails;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationArgs.OrganizationConfigurationDetails' is not present");
+            }
+        }
     }
 }

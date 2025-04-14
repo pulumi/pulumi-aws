@@ -16,67 +16,116 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// <summary>
         /// Identifier for the assessment.
         /// </summary>
-        [Input("assessmentId")]
+        [PolicyResourceProperty("assessmentId", "_mUnknown_AssessmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssessmentId;
-
-        public string? AssessmentId => _mAssessmentId.GetValue("assessmentId");
+        private string? _mValue_AssessmentId;
+        private bool _mUnknown_AssessmentId;
+        public string? AssessmentId
+        {
+            get
+            {
+                if (!_mUnknown_AssessmentId) return _mValue_AssessmentId;
+                throw new UndeferrableValueException("Value 'AssessmentDelegation.AssessmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Comment describing the delegation request.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'AssessmentDelegation.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
         /// </summary>
-        [Input("controlSetId")]
+        [PolicyResourceProperty("controlSetId", "_mUnknown_ControlSetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mControlSetId;
-
-        public string? ControlSetId => _mControlSetId.GetValue("controlSetId");
+        private string? _mValue_ControlSetId;
+        private bool _mUnknown_ControlSetId;
+        public string? ControlSetId
+        {
+            get
+            {
+                if (!_mUnknown_ControlSetId) return _mValue_ControlSetId;
+                throw new UndeferrableValueException("Value 'AssessmentDelegation.ControlSetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the delegation.
         /// </summary>
-        [Input("delegationId")]
+        [PolicyResourceProperty("delegationId", "_mUnknown_DelegationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDelegationId;
-
-        public string? DelegationId => _mDelegationId.GetValue("delegationId");
+        private string? _mValue_DelegationId;
+        private bool _mUnknown_DelegationId;
+        public string? DelegationId
+        {
+            get
+            {
+                if (!_mUnknown_DelegationId) return _mValue_DelegationId;
+                throw new UndeferrableValueException("Value 'AssessmentDelegation.DelegationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM role.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'AssessmentDelegation.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("roleType")]
+        [PolicyResourceProperty("roleType", "_mUnknown_RoleType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleType;
-
-        public string? RoleType => _mRoleType.GetValue("roleType");
+        private string? _mValue_RoleType;
+        private bool _mUnknown_RoleType;
+        public string? RoleType
+        {
+            get
+            {
+                if (!_mUnknown_RoleType) return _mValue_RoleType;
+                throw new UndeferrableValueException("Value 'AssessmentDelegation.RoleType' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the delegation.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'AssessmentDelegation.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:auditmanager/assessmentDelegation:AssessmentDelegation")]
@@ -85,48 +134,83 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// <summary>
         /// Identifier for the assessment.
         /// </summary>
-        [Input("assessmentId")]
+        [PolicyResourceProperty("assessmentId", "_mUnknown_AssessmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssessmentId;
-
-        public string? AssessmentId => _mAssessmentId.GetValue("assessmentId");
+        private string? _mValue_AssessmentId;
+        private bool _mUnknown_AssessmentId;
+        public string? AssessmentId
+        {
+            get
+            {
+                if (!_mUnknown_AssessmentId) return _mValue_AssessmentId;
+                throw new UndeferrableValueException("Value 'AssessmentDelegationArgs.AssessmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Comment describing the delegation request.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'AssessmentDelegationArgs.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
         /// </summary>
-        [Input("controlSetId")]
+        [PolicyResourceProperty("controlSetId", "_mUnknown_ControlSetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mControlSetId;
-
-        public string? ControlSetId => _mControlSetId.GetValue("controlSetId");
+        private string? _mValue_ControlSetId;
+        private bool _mUnknown_ControlSetId;
+        public string? ControlSetId
+        {
+            get
+            {
+                if (!_mUnknown_ControlSetId) return _mValue_ControlSetId;
+                throw new UndeferrableValueException("Value 'AssessmentDelegationArgs.ControlSetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM role.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'AssessmentDelegationArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("roleType")]
+        [PolicyResourceProperty("roleType", "_mUnknown_RoleType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleType;
-
-        public string? RoleType => _mRoleType.GetValue("roleType");
+        private string? _mValue_RoleType;
+        private bool _mUnknown_RoleType;
+        public string? RoleType
+        {
+            get
+            {
+                if (!_mUnknown_RoleType) return _mValue_RoleType;
+                throw new UndeferrableValueException("Value 'AssessmentDelegationArgs.RoleType' is not present");
+            }
+        }
     }
 }

@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.CodeGuruProfiler.Outputs
 {
     public sealed class GetProfilingGroupProfilingStatusResult
     {
-        [Input("latestAgentOrchestratedAt")]
+        [PolicyResourceProperty("latestAgentOrchestratedAt", "_mUnknown_LatestAgentOrchestratedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLatestAgentOrchestratedAt;
+        private string? _mValue_LatestAgentOrchestratedAt;
+        private bool _mUnknown_LatestAgentOrchestratedAt;
+        public string? LatestAgentOrchestratedAt
+        {
+            get
+            {
+                if (!_mUnknown_LatestAgentOrchestratedAt) return _mValue_LatestAgentOrchestratedAt;
+                throw new UndeferrableValueException("Value 'GetProfilingGroupProfilingStatusResult.LatestAgentOrchestratedAt' is not present");
+            }
+        }
 
-        public string? LatestAgentOrchestratedAt => _mLatestAgentOrchestratedAt.GetValue("latestAgentOrchestratedAt");
-
-        [Input("latestAgentProfileReportedAt")]
+        [PolicyResourceProperty("latestAgentProfileReportedAt", "_mUnknown_LatestAgentProfileReportedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLatestAgentProfileReportedAt;
+        private string? _mValue_LatestAgentProfileReportedAt;
+        private bool _mUnknown_LatestAgentProfileReportedAt;
+        public string? LatestAgentProfileReportedAt
+        {
+            get
+            {
+                if (!_mUnknown_LatestAgentProfileReportedAt) return _mValue_LatestAgentProfileReportedAt;
+                throw new UndeferrableValueException("Value 'GetProfilingGroupProfilingStatusResult.LatestAgentProfileReportedAt' is not present");
+            }
+        }
 
-        public string? LatestAgentProfileReportedAt => _mLatestAgentProfileReportedAt.GetValue("latestAgentProfileReportedAt");
-
-        [Input("latestAggregatedProfiles")]
+        [PolicyResourceProperty("latestAggregatedProfiles", "_mUnknown_LatestAggregatedProfiles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetProfilingGroupProfilingStatusLatestAggregatedProfileResult>> _mLatestAggregatedProfiles;
-
-        public List<Outputs.GetProfilingGroupProfilingStatusLatestAggregatedProfileResult>? LatestAggregatedProfiles => _mLatestAggregatedProfiles.GetValue("latestAggregatedProfiles");
+        private List<Outputs.GetProfilingGroupProfilingStatusLatestAggregatedProfileResult>? _mValue_LatestAggregatedProfiles;
+        private bool _mUnknown_LatestAggregatedProfiles;
+        public List<Outputs.GetProfilingGroupProfilingStatusLatestAggregatedProfileResult>? LatestAggregatedProfiles
+        {
+            get
+            {
+                if (!_mUnknown_LatestAggregatedProfiles) return _mValue_LatestAggregatedProfiles;
+                throw new UndeferrableValueException("Value 'GetProfilingGroupProfilingStatusResult.LatestAggregatedProfiles' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppConfig.Outputs
         /// <summary>
         /// Either the JSON Schema content or the ARN of an AWS Lambda function.
         /// </summary>
-        [Input("content")]
+        [PolicyResourceProperty("content", "_mUnknown_Content")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContent;
-
-        public string? Content => _mContent.GetValue("content");
+        private string? _mValue_Content;
+        private bool _mUnknown_Content;
+        public string? Content
+        {
+            get
+            {
+                if (!_mUnknown_Content) return _mValue_Content;
+                throw new UndeferrableValueException("Value 'GetConfigurationProfileValidatorResult.Content' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetConfigurationProfileValidatorResult.Type' is not present");
+            }
+        }
     }
 }

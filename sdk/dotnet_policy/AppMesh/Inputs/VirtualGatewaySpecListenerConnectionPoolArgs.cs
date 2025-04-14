@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Connection pool information for gRPC listeners.
         /// </summary>
-        [Input("grpc")]
+        [PolicyResourceProperty("grpc", "_mUnknown_Grpc")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualGatewaySpecListenerConnectionPoolGrpcArgs> _mGrpc;
-
-        public Inputs.VirtualGatewaySpecListenerConnectionPoolGrpcArgs? Grpc => _mGrpc.GetValue("grpc");
+        private Inputs.VirtualGatewaySpecListenerConnectionPoolGrpcArgs? _mValue_Grpc;
+        private bool _mUnknown_Grpc;
+        public Inputs.VirtualGatewaySpecListenerConnectionPoolGrpcArgs? Grpc
+        {
+            get
+            {
+                if (!_mUnknown_Grpc) return _mValue_Grpc;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerConnectionPoolArgs.Grpc' is not present");
+            }
+        }
 
         /// <summary>
         /// Connection pool information for HTTP listeners.
         /// </summary>
-        [Input("http")]
+        [PolicyResourceProperty("http", "_mUnknown_Http")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualGatewaySpecListenerConnectionPoolHttpArgs> _mHttp;
-
-        public Inputs.VirtualGatewaySpecListenerConnectionPoolHttpArgs? Http => _mHttp.GetValue("http");
+        private Inputs.VirtualGatewaySpecListenerConnectionPoolHttpArgs? _mValue_Http;
+        private bool _mUnknown_Http;
+        public Inputs.VirtualGatewaySpecListenerConnectionPoolHttpArgs? Http
+        {
+            get
+            {
+                if (!_mUnknown_Http) return _mValue_Http;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerConnectionPoolArgs.Http' is not present");
+            }
+        }
 
         /// <summary>
         /// Connection pool information for HTTP2 listeners.
         /// </summary>
-        [Input("http2")]
+        [PolicyResourceProperty("http2", "_mUnknown_Http2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualGatewaySpecListenerConnectionPoolHttp2Args> _mHttp2;
-
-        public Inputs.VirtualGatewaySpecListenerConnectionPoolHttp2Args? Http2 => _mHttp2.GetValue("http2");
+        private Inputs.VirtualGatewaySpecListenerConnectionPoolHttp2Args? _mValue_Http2;
+        private bool _mUnknown_Http2;
+        public Inputs.VirtualGatewaySpecListenerConnectionPoolHttp2Args? Http2
+        {
+            get
+            {
+                if (!_mUnknown_Http2) return _mValue_Http2;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerConnectionPoolArgs.Http2' is not present");
+            }
+        }
     }
 }

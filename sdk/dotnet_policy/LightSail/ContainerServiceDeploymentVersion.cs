@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
         /// </summary>
-        [Input("containers")]
+        [PolicyResourceProperty("containers", "_mUnknown_Containers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ContainerServiceDeploymentVersionContainer>> _mContainers;
-
-        public List<Outputs.ContainerServiceDeploymentVersionContainer>? Containers => _mContainers.GetValue("containers");
+        private List<Outputs.ContainerServiceDeploymentVersionContainer>? _mValue_Containers;
+        private bool _mUnknown_Containers;
+        public List<Outputs.ContainerServiceDeploymentVersionContainer>? Containers
+        {
+            get
+            {
+                if (!_mUnknown_Containers) return _mValue_Containers;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersion.Containers' is not present");
+            }
+        }
 
         /// <summary>
         /// The timestamp when the deployment was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersion.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
         /// </summary>
-        [Input("publicEndpoint")]
+        [PolicyResourceProperty("publicEndpoint", "_mUnknown_PublicEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ContainerServiceDeploymentVersionPublicEndpoint> _mPublicEndpoint;
-
-        public Outputs.ContainerServiceDeploymentVersionPublicEndpoint? PublicEndpoint => _mPublicEndpoint.GetValue("publicEndpoint");
+        private Outputs.ContainerServiceDeploymentVersionPublicEndpoint? _mValue_PublicEndpoint;
+        private bool _mUnknown_PublicEndpoint;
+        public Outputs.ContainerServiceDeploymentVersionPublicEndpoint? PublicEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_PublicEndpoint) return _mValue_PublicEndpoint;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersion.PublicEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the container service.
         /// </summary>
-        [Input("serviceName")]
+        [PolicyResourceProperty("serviceName", "_mUnknown_ServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
-
-        public string? ServiceName => _mServiceName.GetValue("serviceName");
+        private string? _mValue_ServiceName;
+        private bool _mUnknown_ServiceName;
+        public string? ServiceName
+        {
+            get
+            {
+                if (!_mUnknown_ServiceName) return _mValue_ServiceName;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersion.ServiceName' is not present");
+            }
+        }
 
         /// <summary>
         /// The current state of the container service.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersion.State' is not present");
+            }
+        }
 
         /// <summary>
         /// The version number of the deployment.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
-
-        public int? Version => _mVersion.GetValue("version");
+        private int? _mValue_Version;
+        private bool _mUnknown_Version;
+        public int? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersion.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion")]
@@ -74,28 +116,49 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
         /// </summary>
-        [Input("containers")]
+        [PolicyResourceProperty("containers", "_mUnknown_Containers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ContainerServiceDeploymentVersionContainerArgs>> _mContainers;
-
-        public List<Inputs.ContainerServiceDeploymentVersionContainerArgs>? Containers => _mContainers.GetValue("containers");
+        private List<Inputs.ContainerServiceDeploymentVersionContainerArgs>? _mValue_Containers;
+        private bool _mUnknown_Containers;
+        public List<Inputs.ContainerServiceDeploymentVersionContainerArgs>? Containers
+        {
+            get
+            {
+                if (!_mUnknown_Containers) return _mValue_Containers;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionArgs.Containers' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
         /// </summary>
-        [Input("publicEndpoint")]
+        [PolicyResourceProperty("publicEndpoint", "_mUnknown_PublicEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ContainerServiceDeploymentVersionPublicEndpointArgs> _mPublicEndpoint;
-
-        public Inputs.ContainerServiceDeploymentVersionPublicEndpointArgs? PublicEndpoint => _mPublicEndpoint.GetValue("publicEndpoint");
+        private Inputs.ContainerServiceDeploymentVersionPublicEndpointArgs? _mValue_PublicEndpoint;
+        private bool _mUnknown_PublicEndpoint;
+        public Inputs.ContainerServiceDeploymentVersionPublicEndpointArgs? PublicEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_PublicEndpoint) return _mValue_PublicEndpoint;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionArgs.PublicEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the container service.
         /// </summary>
-        [Input("serviceName")]
+        [PolicyResourceProperty("serviceName", "_mUnknown_ServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
-
-        public string? ServiceName => _mServiceName.GetValue("serviceName");
+        private string? _mValue_ServiceName;
+        private bool _mUnknown_ServiceName;
+        public string? ServiceName
+        {
+            get
+            {
+                if (!_mUnknown_ServiceName) return _mValue_ServiceName;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionArgs.ServiceName' is not present");
+            }
+        }
     }
 }

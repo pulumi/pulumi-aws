@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Number of days that you want to specify for the default retention period.
         /// </summary>
-        [Input("days")]
+        [PolicyResourceProperty("days", "_mUnknown_Days")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDays;
-
-        public int? Days => _mDays.GetValue("days");
+        private int? _mValue_Days;
+        private bool _mUnknown_Days;
+        public int? Days
+        {
+            get
+            {
+                if (!_mUnknown_Days) return _mValue_Days;
+                throw new UndeferrableValueException("Value 'BucketObjectLockConfigurationV2RuleDefaultRetention.Days' is not present");
+            }
+        }
 
         /// <summary>
         /// Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
         /// </summary>
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
-
-        public string? Mode => _mMode.GetValue("mode");
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'BucketObjectLockConfigurationV2RuleDefaultRetention.Mode' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of years that you want to specify for the default retention period.
         /// </summary>
-        [Input("years")]
+        [PolicyResourceProperty("years", "_mUnknown_Years")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mYears;
-
-        public int? Years => _mYears.GetValue("years");
+        private int? _mValue_Years;
+        private bool _mUnknown_Years;
+        public int? Years
+        {
+            get
+            {
+                if (!_mUnknown_Years) return _mValue_Years;
+                throw new UndeferrableValueException("Value 'BucketObjectLockConfigurationV2RuleDefaultRetention.Years' is not present");
+            }
+        }
     }
 }

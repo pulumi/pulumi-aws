@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
         /// </summary>
-        [Input("captureMode")]
+        [PolicyResourceProperty("captureMode", "_mUnknown_CaptureMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaptureMode;
-
-        public string? CaptureMode => _mCaptureMode.GetValue("captureMode");
+        private string? _mValue_CaptureMode;
+        private bool _mUnknown_CaptureMode;
+        public string? CaptureMode
+        {
+            get
+            {
+                if (!_mUnknown_CaptureMode) return _mValue_CaptureMode;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationDataCaptureConfigCaptureOption.CaptureMode' is not present");
+            }
+        }
     }
 }

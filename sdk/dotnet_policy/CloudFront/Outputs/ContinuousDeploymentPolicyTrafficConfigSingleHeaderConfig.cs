@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
         /// </summary>
-        [Input("header")]
+        [PolicyResourceProperty("header", "_mUnknown_Header")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHeader;
-
-        public string? Header => _mHeader.GetValue("header");
+        private string? _mValue_Header;
+        private bool _mUnknown_Header;
+        public string? Header
+        {
+            get
+            {
+                if (!_mUnknown_Header) return _mValue_Header;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig.Header' is not present");
+            }
+        }
 
         /// <summary>
         /// Request header value.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig.Value' is not present");
+            }
+        }
     }
 }

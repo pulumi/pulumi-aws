@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CodeStarNotifications.Inputs
         /// <summary>
         /// The ARN of notification rule target. For example, a SNS Topic ARN.
         /// </summary>
-        [Input("address")]
+        [PolicyResourceProperty("address", "_mUnknown_Address")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddress;
-
-        public string? Address => _mAddress.GetValue("address");
+        private string? _mValue_Address;
+        private bool _mUnknown_Address;
+        public string? Address
+        {
+            get
+            {
+                if (!_mUnknown_Address) return _mValue_Address;
+                throw new UndeferrableValueException("Value 'NotificationRuleTargetArgs.Address' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'NotificationRuleTargetArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the notification target. Default value is `SNS`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'NotificationRuleTargetArgs.Type' is not present");
+            }
+        }
     }
 }

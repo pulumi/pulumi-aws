@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.MediaPackage.Inputs
         /// <summary>
         /// The password
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'ChannelHlsIngestIngestEndpointArgs.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'ChannelHlsIngestIngestEndpointArgs.Url' is not present");
+            }
+        }
 
         /// <summary>
         /// The username
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'ChannelHlsIngestIngestEndpointArgs.Username' is not present");
+            }
+        }
     }
 }

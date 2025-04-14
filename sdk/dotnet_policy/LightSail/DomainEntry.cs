@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The name of the Lightsail domain in which to create the entry
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'DomainEntry.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// If the entry should be an alias Defaults to `false`
         /// </summary>
-        [Input("isAlias")]
+        [PolicyResourceProperty("isAlias", "_mUnknown_IsAlias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsAlias;
-
-        public bool? IsAlias => _mIsAlias.GetValue("isAlias");
+        private bool? _mValue_IsAlias;
+        private bool _mUnknown_IsAlias;
+        public bool? IsAlias
+        {
+            get
+            {
+                if (!_mUnknown_IsAlias) return _mValue_IsAlias;
+                throw new UndeferrableValueException("Value 'DomainEntry.IsAlias' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the entry record
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DomainEntry.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Target of the domain entry
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
-
-        public string? Target => _mTarget.GetValue("target");
+        private string? _mValue_Target;
+        private bool _mUnknown_Target;
+        public string? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'DomainEntry.Target' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of record
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'DomainEntry.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lightsail/domainEntry:DomainEntry")]
@@ -65,46 +100,81 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The name of the Lightsail domain in which to create the entry
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'DomainEntryArgs.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// If the entry should be an alias Defaults to `false`
         /// </summary>
-        [Input("isAlias")]
+        [PolicyResourceProperty("isAlias", "_mUnknown_IsAlias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsAlias;
-
-        public bool? IsAlias => _mIsAlias.GetValue("isAlias");
+        private bool? _mValue_IsAlias;
+        private bool _mUnknown_IsAlias;
+        public bool? IsAlias
+        {
+            get
+            {
+                if (!_mUnknown_IsAlias) return _mValue_IsAlias;
+                throw new UndeferrableValueException("Value 'DomainEntryArgs.IsAlias' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the entry record
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DomainEntryArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Target of the domain entry
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
-
-        public string? Target => _mTarget.GetValue("target");
+        private string? _mValue_Target;
+        private bool _mUnknown_Target;
+        public string? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'DomainEntryArgs.Target' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of record
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'DomainEntryArgs.Type' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// A Boolean option to control whether SSL should be disabled.
         /// </summary>
-        [Input("disableSsl")]
+        [PolicyResourceProperty("disableSsl", "_mUnknown_DisableSsl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableSsl;
-
-        public bool? DisableSsl => _mDisableSsl.GetValue("disableSsl");
+        private bool? _mValue_DisableSsl;
+        private bool _mUnknown_DisableSsl;
+        public bool? DisableSsl
+        {
+            get
+            {
+                if (!_mUnknown_DisableSsl) return _mValue_DisableSsl;
+                throw new UndeferrableValueException("Value 'DataSourceSslProperties.DisableSsl' is not present");
+            }
+        }
     }
 }

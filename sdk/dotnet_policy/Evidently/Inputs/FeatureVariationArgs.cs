@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Evidently.Inputs
         /// <summary>
         /// The name of the variation. Minimum length of `1`. Maximum length of `127`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FeatureVariationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the value assigned to this variation. Detailed below
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FeatureVariationValueArgs> _mValue;
-
-        public Inputs.FeatureVariationValueArgs? Value => _mValue.GetValue("value");
+        private Inputs.FeatureVariationValueArgs? _mValue_Value;
+        private bool _mUnknown_Value;
+        public Inputs.FeatureVariationValueArgs? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'FeatureVariationArgs.Value' is not present");
+            }
+        }
     }
 }

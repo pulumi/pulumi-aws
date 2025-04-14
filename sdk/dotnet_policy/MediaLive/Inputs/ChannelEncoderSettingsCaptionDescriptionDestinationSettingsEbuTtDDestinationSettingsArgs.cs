@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Complete this field if you want to include the name of the copyright holder in the copyright tag in the captions metadata.
         /// </summary>
-        [Input("copyrightHolder")]
+        [PolicyResourceProperty("copyrightHolder", "_mUnknown_CopyrightHolder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCopyrightHolder;
-
-        public string? CopyrightHolder => _mCopyrightHolder.GetValue("copyrightHolder");
+        private string? _mValue_CopyrightHolder;
+        private bool _mUnknown_CopyrightHolder;
+        public string? CopyrightHolder
+        {
+            get
+            {
+                if (!_mUnknown_CopyrightHolder) return _mValue_CopyrightHolder;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs.CopyrightHolder' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
         /// </summary>
-        [Input("fillLineGap")]
+        [PolicyResourceProperty("fillLineGap", "_mUnknown_FillLineGap")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFillLineGap;
-
-        public string? FillLineGap => _mFillLineGap.GetValue("fillLineGap");
+        private string? _mValue_FillLineGap;
+        private bool _mUnknown_FillLineGap;
+        public string? FillLineGap
+        {
+            get
+            {
+                if (!_mUnknown_FillLineGap) return _mValue_FillLineGap;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs.FillLineGap' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
         /// </summary>
-        [Input("fontFamily")]
+        [PolicyResourceProperty("fontFamily", "_mUnknown_FontFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFontFamily;
-
-        public string? FontFamily => _mFontFamily.GetValue("fontFamily");
+        private string? _mValue_FontFamily;
+        private bool _mUnknown_FontFamily;
+        public string? FontFamily
+        {
+            get
+            {
+                if (!_mUnknown_FontFamily) return _mValue_FontFamily;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs.FontFamily' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
         /// </summary>
-        [Input("styleControl")]
+        [PolicyResourceProperty("styleControl", "_mUnknown_StyleControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStyleControl;
-
-        public string? StyleControl => _mStyleControl.GetValue("styleControl");
+        private string? _mValue_StyleControl;
+        private bool _mUnknown_StyleControl;
+        public string? StyleControl
+        {
+            get
+            {
+                if (!_mUnknown_StyleControl) return _mValue_StyleControl;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs.StyleControl' is not present");
+            }
+        }
     }
 }

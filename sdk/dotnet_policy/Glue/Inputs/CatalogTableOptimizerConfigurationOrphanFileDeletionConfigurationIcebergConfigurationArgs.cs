@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
-
-        public string? Location => _mLocation.GetValue("location");
+        private string? _mValue_Location;
+        private bool _mUnknown_Location;
+        public string? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days that orphan files should be retained before file deletion. Defaults to `3`.
         /// </summary>
-        [Input("orphanFileRetentionPeriodInDays")]
+        [PolicyResourceProperty("orphanFileRetentionPeriodInDays", "_mUnknown_OrphanFileRetentionPeriodInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOrphanFileRetentionPeriodInDays;
-
-        public int? OrphanFileRetentionPeriodInDays => _mOrphanFileRetentionPeriodInDays.GetValue("orphanFileRetentionPeriodInDays");
+        private int? _mValue_OrphanFileRetentionPeriodInDays;
+        private bool _mUnknown_OrphanFileRetentionPeriodInDays;
+        public int? OrphanFileRetentionPeriodInDays
+        {
+            get
+            {
+                if (!_mUnknown_OrphanFileRetentionPeriodInDays) return _mValue_OrphanFileRetentionPeriodInDays;
+                throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs.OrphanFileRetentionPeriodInDays' is not present");
+            }
+        }
     }
 }

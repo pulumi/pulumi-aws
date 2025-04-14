@@ -15,91 +15,161 @@ namespace Pulumi.PolicyPacks.Aws.CloudSearch.Outputs
         /// <summary>
         /// The analysis scheme you want to use for a `text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
         /// </summary>
-        [Input("analysisScheme")]
+        [PolicyResourceProperty("analysisScheme", "_mUnknown_AnalysisScheme")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAnalysisScheme;
-
-        public string? AnalysisScheme => _mAnalysisScheme.GetValue("analysisScheme");
+        private string? _mValue_AnalysisScheme;
+        private bool _mUnknown_AnalysisScheme;
+        public string? AnalysisScheme
+        {
+            get
+            {
+                if (!_mUnknown_AnalysisScheme) return _mValue_AnalysisScheme;
+                throw new UndeferrableValueException("Value 'DomainIndexField.AnalysisScheme' is not present");
+            }
+        }
 
         /// <summary>
         /// The default value for the field. This value is used when no value is specified for the field in the document data.
         /// </summary>
-        [Input("defaultValue")]
+        [PolicyResourceProperty("defaultValue", "_mUnknown_DefaultValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultValue;
-
-        public string? DefaultValue => _mDefaultValue.GetValue("defaultValue");
+        private string? _mValue_DefaultValue;
+        private bool _mUnknown_DefaultValue;
+        public string? DefaultValue
+        {
+            get
+            {
+                if (!_mUnknown_DefaultValue) return _mValue_DefaultValue;
+                throw new UndeferrableValueException("Value 'DomainIndexField.DefaultValue' is not present");
+            }
+        }
 
         /// <summary>
         /// You can get facet information by enabling this.
         /// </summary>
-        [Input("facet")]
+        [PolicyResourceProperty("facet", "_mUnknown_Facet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFacet;
-
-        public bool? Facet => _mFacet.GetValue("facet");
+        private bool? _mValue_Facet;
+        private bool _mUnknown_Facet;
+        public bool? Facet
+        {
+            get
+            {
+                if (!_mUnknown_Facet) return _mValue_Facet;
+                throw new UndeferrableValueException("Value 'DomainIndexField.Facet' is not present");
+            }
+        }
 
         /// <summary>
         /// You can highlight information.
         /// </summary>
-        [Input("highlight")]
+        [PolicyResourceProperty("highlight", "_mUnknown_Highlight")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mHighlight;
-
-        public bool? Highlight => _mHighlight.GetValue("highlight");
+        private bool? _mValue_Highlight;
+        private bool _mUnknown_Highlight;
+        public bool? Highlight
+        {
+            get
+            {
+                if (!_mUnknown_Highlight) return _mValue_Highlight;
+                throw new UndeferrableValueException("Value 'DomainIndexField.Highlight' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique name for the field. Field names must begin with a letter and be at least 1 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DomainIndexField.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// You can enable returning the value of all searchable fields.
         /// </summary>
-        [Input("return")]
+        [PolicyResourceProperty("return", "_mUnknown_Return")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReturn;
-
-        public bool? Return => _mReturn.GetValue("return");
+        private bool? _mValue_Return;
+        private bool _mUnknown_Return;
+        public bool? Return
+        {
+            get
+            {
+                if (!_mUnknown_Return) return _mValue_Return;
+                throw new UndeferrableValueException("Value 'DomainIndexField.Return' is not present");
+            }
+        }
 
         /// <summary>
         /// You can set whether this index should be searchable or not.
         /// </summary>
-        [Input("search")]
+        [PolicyResourceProperty("search", "_mUnknown_Search")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSearch;
-
-        public bool? Search => _mSearch.GetValue("search");
+        private bool? _mValue_Search;
+        private bool _mUnknown_Search;
+        public bool? Search
+        {
+            get
+            {
+                if (!_mUnknown_Search) return _mValue_Search;
+                throw new UndeferrableValueException("Value 'DomainIndexField.Search' is not present");
+            }
+        }
 
         /// <summary>
         /// You can enable the property to be sortable.
         /// </summary>
-        [Input("sort")]
+        [PolicyResourceProperty("sort", "_mUnknown_Sort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSort;
-
-        public bool? Sort => _mSort.GetValue("sort");
+        private bool? _mValue_Sort;
+        private bool _mUnknown_Sort;
+        public bool? Sort
+        {
+            get
+            {
+                if (!_mUnknown_Sort) return _mValue_Sort;
+                throw new UndeferrableValueException("Value 'DomainIndexField.Sort' is not present");
+            }
+        }
 
         /// <summary>
         /// A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
         /// </summary>
-        [Input("sourceFields")]
+        [PolicyResourceProperty("sourceFields", "_mUnknown_SourceFields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceFields;
-
-        public string? SourceFields => _mSourceFields.GetValue("sourceFields");
+        private string? _mValue_SourceFields;
+        private bool _mUnknown_SourceFields;
+        public string? SourceFields
+        {
+            get
+            {
+                if (!_mUnknown_SourceFields) return _mValue_SourceFields;
+                throw new UndeferrableValueException("Value 'DomainIndexField.SourceFields' is not present");
+            }
+        }
 
         /// <summary>
         /// The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'DomainIndexField.Type' is not present");
+            }
+        }
     }
 }

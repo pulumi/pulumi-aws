@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// Defines any Amazon S3 resource constraints. see S3 Presign details below.
         /// </summary>
-        [Input("s3Presign")]
+        [PolicyResourceProperty("s3Presign", "_mUnknown_S3Presign")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkteamWorkerAccessConfigurationS3PresignArgs> _mS3Presign;
-
-        public Inputs.WorkteamWorkerAccessConfigurationS3PresignArgs? S3Presign => _mS3Presign.GetValue("s3Presign");
+        private Inputs.WorkteamWorkerAccessConfigurationS3PresignArgs? _mValue_S3Presign;
+        private bool _mUnknown_S3Presign;
+        public Inputs.WorkteamWorkerAccessConfigurationS3PresignArgs? S3Presign
+        {
+            get
+            {
+                if (!_mUnknown_S3Presign) return _mValue_S3Presign;
+                throw new UndeferrableValueException("Value 'WorkteamWorkerAccessConfigurationArgs.S3Presign' is not present");
+            }
+        }
     }
 }

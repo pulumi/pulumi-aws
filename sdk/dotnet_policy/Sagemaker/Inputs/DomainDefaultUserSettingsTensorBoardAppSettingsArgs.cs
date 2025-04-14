@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         /// </summary>
-        [Input("defaultResourceSpec")]
+        [PolicyResourceProperty("defaultResourceSpec", "_mUnknown_DefaultResourceSpec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs> _mDefaultResourceSpec;
-
-        public Inputs.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs? DefaultResourceSpec => _mDefaultResourceSpec.GetValue("defaultResourceSpec");
+        private Inputs.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs? _mValue_DefaultResourceSpec;
+        private bool _mUnknown_DefaultResourceSpec;
+        public Inputs.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs? DefaultResourceSpec
+        {
+            get
+            {
+                if (!_mUnknown_DefaultResourceSpec) return _mValue_DefaultResourceSpec;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsTensorBoardAppSettingsArgs.DefaultResourceSpec' is not present");
+            }
+        }
     }
 }

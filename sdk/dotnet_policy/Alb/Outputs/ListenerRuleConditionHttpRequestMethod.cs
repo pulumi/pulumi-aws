@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Alb.Outputs
 {
     public sealed class ListenerRuleConditionHttpRequestMethod
     {
-        [Input("values")]
+        [PolicyResourceProperty("values", "_mUnknown_Values")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mValues;
-
-        public List<string>? Values => _mValues.GetValue("values");
+        private List<string>? _mValue_Values;
+        private bool _mUnknown_Values;
+        public List<string>? Values
+        {
+            get
+            {
+                if (!_mUnknown_Values) return _mValue_Values;
+                throw new UndeferrableValueException("Value 'ListenerRuleConditionHttpRequestMethod.Values' is not present");
+            }
+        }
     }
 }

@@ -16,40 +16,68 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// <summary>
         /// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
         /// </summary>
-        [Input("acceptLanguage")]
+        [PolicyResourceProperty("acceptLanguage", "_mUnknown_AcceptLanguage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
-
-        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
+        private string? _mValue_AcceptLanguage;
+        private bool _mUnknown_AcceptLanguage;
+        public string? AcceptLanguage
+        {
+            get
+            {
+                if (!_mUnknown_AcceptLanguage) return _mValue_AcceptLanguage;
+                throw new UndeferrableValueException("Value 'ServiceAction.AcceptLanguage' is not present");
+            }
+        }
 
         /// <summary>
         /// Self-service action definition configuration block. Detailed below.
         /// </summary>
-        [Input("definition")]
+        [PolicyResourceProperty("definition", "_mUnknown_Definition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceActionDefinition> _mDefinition;
-
-        public Outputs.ServiceActionDefinition? Definition => _mDefinition.GetValue("definition");
+        private Outputs.ServiceActionDefinition? _mValue_Definition;
+        private bool _mUnknown_Definition;
+        public Outputs.ServiceActionDefinition? Definition
+        {
+            get
+            {
+                if (!_mUnknown_Definition) return _mValue_Definition;
+                throw new UndeferrableValueException("Value 'ServiceAction.Definition' is not present");
+            }
+        }
 
         /// <summary>
         /// Self-service action description.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ServiceAction.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Self-service action name.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServiceAction.Name' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:servicecatalog/serviceAction:ServiceAction")]
@@ -58,39 +86,67 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// <summary>
         /// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
         /// </summary>
-        [Input("acceptLanguage")]
+        [PolicyResourceProperty("acceptLanguage", "_mUnknown_AcceptLanguage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
-
-        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
+        private string? _mValue_AcceptLanguage;
+        private bool _mUnknown_AcceptLanguage;
+        public string? AcceptLanguage
+        {
+            get
+            {
+                if (!_mUnknown_AcceptLanguage) return _mValue_AcceptLanguage;
+                throw new UndeferrableValueException("Value 'ServiceActionArgs.AcceptLanguage' is not present");
+            }
+        }
 
         /// <summary>
         /// Self-service action definition configuration block. Detailed below.
         /// </summary>
-        [Input("definition")]
+        [PolicyResourceProperty("definition", "_mUnknown_Definition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceActionDefinitionArgs> _mDefinition;
-
-        public Inputs.ServiceActionDefinitionArgs? Definition => _mDefinition.GetValue("definition");
+        private Inputs.ServiceActionDefinitionArgs? _mValue_Definition;
+        private bool _mUnknown_Definition;
+        public Inputs.ServiceActionDefinitionArgs? Definition
+        {
+            get
+            {
+                if (!_mUnknown_Definition) return _mValue_Definition;
+                throw new UndeferrableValueException("Value 'ServiceActionArgs.Definition' is not present");
+            }
+        }
 
         /// <summary>
         /// Self-service action description.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ServiceActionArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Self-service action name.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServiceActionArgs.Name' is not present");
+            }
+        }
     }
 }

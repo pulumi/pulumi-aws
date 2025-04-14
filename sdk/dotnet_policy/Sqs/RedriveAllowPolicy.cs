@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Sqs
         /// <summary>
         /// The URL of the SQS Queue to which to attach the policy
         /// </summary>
-        [Input("queueUrl")]
+        [PolicyResourceProperty("queueUrl", "_mUnknown_QueueUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueueUrl;
-
-        public string? QueueUrl => _mQueueUrl.GetValue("queueUrl");
+        private string? _mValue_QueueUrl;
+        private bool _mUnknown_QueueUrl;
+        public string? QueueUrl
+        {
+            get
+            {
+                if (!_mUnknown_QueueUrl) return _mValue_QueueUrl;
+                throw new UndeferrableValueException("Value 'RedriveAllowPolicy.QueueUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
         /// </summary>
-        [Input("redriveAllowPolicy")]
+        [PolicyResourceProperty("redriveAllowPolicy", "_mUnknown_RedriveAllowPolicyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRedriveAllowPolicyName;
-
-        public string? RedriveAllowPolicyName => _mRedriveAllowPolicyName.GetValue("redriveAllowPolicy");
+        private string? _mValue_RedriveAllowPolicyName;
+        private bool _mUnknown_RedriveAllowPolicyName;
+        public string? RedriveAllowPolicyName
+        {
+            get
+            {
+                if (!_mUnknown_RedriveAllowPolicyName) return _mValue_RedriveAllowPolicyName;
+                throw new UndeferrableValueException("Value 'RedriveAllowPolicy.RedriveAllowPolicyName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sqs/redriveAllowPolicy:RedriveAllowPolicy")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Sqs
         /// <summary>
         /// The URL of the SQS Queue to which to attach the policy
         /// </summary>
-        [Input("queueUrl")]
+        [PolicyResourceProperty("queueUrl", "_mUnknown_QueueUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueueUrl;
-
-        public string? QueueUrl => _mQueueUrl.GetValue("queueUrl");
+        private string? _mValue_QueueUrl;
+        private bool _mUnknown_QueueUrl;
+        public string? QueueUrl
+        {
+            get
+            {
+                if (!_mUnknown_QueueUrl) return _mValue_QueueUrl;
+                throw new UndeferrableValueException("Value 'RedriveAllowPolicyArgs.QueueUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
         /// </summary>
-        [Input("redriveAllowPolicy")]
+        [PolicyResourceProperty("redriveAllowPolicy", "_mUnknown_RedriveAllowPolicyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRedriveAllowPolicyName;
-
-        public string? RedriveAllowPolicyName => _mRedriveAllowPolicyName.GetValue("redriveAllowPolicy");
+        private string? _mValue_RedriveAllowPolicyName;
+        private bool _mUnknown_RedriveAllowPolicyName;
+        public string? RedriveAllowPolicyName
+        {
+            get
+            {
+                if (!_mUnknown_RedriveAllowPolicyName) return _mValue_RedriveAllowPolicyName;
+                throw new UndeferrableValueException("Value 'RedriveAllowPolicyArgs.RedriveAllowPolicyName' is not present");
+            }
+        }
     }
 }

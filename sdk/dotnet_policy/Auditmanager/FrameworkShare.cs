@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// <summary>
         /// Comment from the sender about the share request.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'FrameworkShare.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Web Services account of the recipient.
         /// </summary>
-        [Input("destinationAccount")]
+        [PolicyResourceProperty("destinationAccount", "_mUnknown_DestinationAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationAccount;
-
-        public string? DestinationAccount => _mDestinationAccount.GetValue("destinationAccount");
+        private string? _mValue_DestinationAccount;
+        private bool _mUnknown_DestinationAccount;
+        public string? DestinationAccount
+        {
+            get
+            {
+                if (!_mUnknown_DestinationAccount) return _mValue_DestinationAccount;
+                throw new UndeferrableValueException("Value 'FrameworkShare.DestinationAccount' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Web Services region of the recipient.
         /// </summary>
-        [Input("destinationRegion")]
+        [PolicyResourceProperty("destinationRegion", "_mUnknown_DestinationRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationRegion;
-
-        public string? DestinationRegion => _mDestinationRegion.GetValue("destinationRegion");
+        private string? _mValue_DestinationRegion;
+        private bool _mUnknown_DestinationRegion;
+        public string? DestinationRegion
+        {
+            get
+            {
+                if (!_mUnknown_DestinationRegion) return _mValue_DestinationRegion;
+                throw new UndeferrableValueException("Value 'FrameworkShare.DestinationRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the shared custom framework.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("frameworkId")]
+        [PolicyResourceProperty("frameworkId", "_mUnknown_FrameworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFrameworkId;
-
-        public string? FrameworkId => _mFrameworkId.GetValue("frameworkId");
+        private string? _mValue_FrameworkId;
+        private bool _mUnknown_FrameworkId;
+        public string? FrameworkId
+        {
+            get
+            {
+                if (!_mUnknown_FrameworkId) return _mValue_FrameworkId;
+                throw new UndeferrableValueException("Value 'FrameworkShare.FrameworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the share request.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'FrameworkShare.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:auditmanager/frameworkShare:FrameworkShare")]
@@ -67,39 +102,67 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// <summary>
         /// Comment from the sender about the share request.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'FrameworkShareArgs.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Web Services account of the recipient.
         /// </summary>
-        [Input("destinationAccount")]
+        [PolicyResourceProperty("destinationAccount", "_mUnknown_DestinationAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationAccount;
-
-        public string? DestinationAccount => _mDestinationAccount.GetValue("destinationAccount");
+        private string? _mValue_DestinationAccount;
+        private bool _mUnknown_DestinationAccount;
+        public string? DestinationAccount
+        {
+            get
+            {
+                if (!_mUnknown_DestinationAccount) return _mValue_DestinationAccount;
+                throw new UndeferrableValueException("Value 'FrameworkShareArgs.DestinationAccount' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Web Services region of the recipient.
         /// </summary>
-        [Input("destinationRegion")]
+        [PolicyResourceProperty("destinationRegion", "_mUnknown_DestinationRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationRegion;
-
-        public string? DestinationRegion => _mDestinationRegion.GetValue("destinationRegion");
+        private string? _mValue_DestinationRegion;
+        private bool _mUnknown_DestinationRegion;
+        public string? DestinationRegion
+        {
+            get
+            {
+                if (!_mUnknown_DestinationRegion) return _mValue_DestinationRegion;
+                throw new UndeferrableValueException("Value 'FrameworkShareArgs.DestinationRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the shared custom framework.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("frameworkId")]
+        [PolicyResourceProperty("frameworkId", "_mUnknown_FrameworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFrameworkId;
-
-        public string? FrameworkId => _mFrameworkId.GetValue("frameworkId");
+        private string? _mValue_FrameworkId;
+        private bool _mUnknown_FrameworkId;
+        public string? FrameworkId
+        {
+            get
+            {
+                if (!_mUnknown_FrameworkId) return _mValue_FrameworkId;
+                throw new UndeferrableValueException("Value 'FrameworkShareArgs.FrameworkId' is not present");
+            }
+        }
     }
 }

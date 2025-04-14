@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// Log driver to use for the container.
         /// </summary>
-        [Input("logDriver")]
+        [PolicyResourceProperty("logDriver", "_mUnknown_LogDriver")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogDriver;
-
-        public string? LogDriver => _mLogDriver.GetValue("logDriver");
+        private string? _mValue_LogDriver;
+        private bool _mUnknown_LogDriver;
+        public string? LogDriver
+        {
+            get
+            {
+                if (!_mUnknown_LogDriver) return _mValue_LogDriver;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationLogConfiguration.LogDriver' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options to send to the log driver.
         /// </summary>
-        [Input("options")]
+        [PolicyResourceProperty("options", "_mUnknown_Options")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mOptions;
-
-        public Dictionary<string, string>? Options => _mOptions.GetValue("options");
+        private Dictionary<string, string>? _mValue_Options;
+        private bool _mUnknown_Options;
+        public Dictionary<string, string>? Options
+        {
+            get
+            {
+                if (!_mUnknown_Options) return _mValue_Options;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationLogConfiguration.Options' is not present");
+            }
+        }
 
         /// <summary>
         /// Secrets to pass to the log configuration. See below.
         /// </summary>
-        [Input("secretOptions")]
+        [PolicyResourceProperty("secretOptions", "_mUnknown_SecretOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServiceServiceConnectConfigurationLogConfigurationSecretOption>> _mSecretOptions;
-
-        public List<Outputs.ServiceServiceConnectConfigurationLogConfigurationSecretOption>? SecretOptions => _mSecretOptions.GetValue("secretOptions");
+        private List<Outputs.ServiceServiceConnectConfigurationLogConfigurationSecretOption>? _mValue_SecretOptions;
+        private bool _mUnknown_SecretOptions;
+        public List<Outputs.ServiceServiceConnectConfigurationLogConfigurationSecretOption>? SecretOptions
+        {
+            get
+            {
+                if (!_mUnknown_SecretOptions) return _mValue_SecretOptions;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationLogConfiguration.SecretOptions' is not present");
+            }
+        }
     }
 }

@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.Neptune
         /// <summary>
         /// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ClusterEndpoint.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the endpoint.
         /// </summary>
-        [Input("clusterEndpointIdentifier")]
+        [PolicyResourceProperty("clusterEndpointIdentifier", "_mUnknown_ClusterEndpointIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterEndpointIdentifier;
-
-        public string? ClusterEndpointIdentifier => _mClusterEndpointIdentifier.GetValue("clusterEndpointIdentifier");
+        private string? _mValue_ClusterEndpointIdentifier;
+        private bool _mUnknown_ClusterEndpointIdentifier;
+        public string? ClusterEndpointIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterEndpointIdentifier) return _mValue_ClusterEndpointIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterEndpoint.ClusterEndpointIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The DB cluster identifier of the DB cluster associated with the endpoint.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterEndpoint.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS address of the endpoint.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'ClusterEndpoint.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
         /// </summary>
-        [Input("endpointType")]
+        [PolicyResourceProperty("endpointType", "_mUnknown_EndpointType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
-
-        public string? EndpointType => _mEndpointType.GetValue("endpointType");
+        private string? _mValue_EndpointType;
+        private bool _mUnknown_EndpointType;
+        public string? EndpointType
+        {
+            get
+            {
+                if (!_mUnknown_EndpointType) return _mValue_EndpointType;
+                throw new UndeferrableValueException("Value 'ClusterEndpoint.EndpointType' is not present");
+            }
+        }
 
         /// <summary>
         /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
         /// </summary>
-        [Input("excludedMembers")]
+        [PolicyResourceProperty("excludedMembers", "_mUnknown_ExcludedMembers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedMembers;
-
-        public List<string>? ExcludedMembers => _mExcludedMembers.GetValue("excludedMembers");
+        private List<string>? _mValue_ExcludedMembers;
+        private bool _mUnknown_ExcludedMembers;
+        public List<string>? ExcludedMembers
+        {
+            get
+            {
+                if (!_mUnknown_ExcludedMembers) return _mValue_ExcludedMembers;
+                throw new UndeferrableValueException("Value 'ClusterEndpoint.ExcludedMembers' is not present");
+            }
+        }
 
         /// <summary>
         /// List of DB instance identifiers that are part of the custom endpoint group.
         /// </summary>
-        [Input("staticMembers")]
+        [PolicyResourceProperty("staticMembers", "_mUnknown_StaticMembers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStaticMembers;
-
-        public List<string>? StaticMembers => _mStaticMembers.GetValue("staticMembers");
+        private List<string>? _mValue_StaticMembers;
+        private bool _mUnknown_StaticMembers;
+        public List<string>? StaticMembers
+        {
+            get
+            {
+                if (!_mUnknown_StaticMembers) return _mValue_StaticMembers;
+                throw new UndeferrableValueException("Value 'ClusterEndpoint.StaticMembers' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ClusterEndpoint.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ClusterEndpoint.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:neptune/clusterEndpoint:ClusterEndpoint")]
@@ -101,55 +164,97 @@ namespace Pulumi.PolicyPacks.Aws.Neptune
         /// <summary>
         /// The identifier of the endpoint.
         /// </summary>
-        [Input("clusterEndpointIdentifier")]
+        [PolicyResourceProperty("clusterEndpointIdentifier", "_mUnknown_ClusterEndpointIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterEndpointIdentifier;
-
-        public string? ClusterEndpointIdentifier => _mClusterEndpointIdentifier.GetValue("clusterEndpointIdentifier");
+        private string? _mValue_ClusterEndpointIdentifier;
+        private bool _mUnknown_ClusterEndpointIdentifier;
+        public string? ClusterEndpointIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterEndpointIdentifier) return _mValue_ClusterEndpointIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterEndpointArgs.ClusterEndpointIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The DB cluster identifier of the DB cluster associated with the endpoint.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterEndpointArgs.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
         /// </summary>
-        [Input("endpointType")]
+        [PolicyResourceProperty("endpointType", "_mUnknown_EndpointType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
-
-        public string? EndpointType => _mEndpointType.GetValue("endpointType");
+        private string? _mValue_EndpointType;
+        private bool _mUnknown_EndpointType;
+        public string? EndpointType
+        {
+            get
+            {
+                if (!_mUnknown_EndpointType) return _mValue_EndpointType;
+                throw new UndeferrableValueException("Value 'ClusterEndpointArgs.EndpointType' is not present");
+            }
+        }
 
         /// <summary>
         /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
         /// </summary>
-        [Input("excludedMembers")]
+        [PolicyResourceProperty("excludedMembers", "_mUnknown_ExcludedMembers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedMembers;
-
-        public List<string>? ExcludedMembers => _mExcludedMembers.GetValue("excludedMembers");
+        private List<string>? _mValue_ExcludedMembers;
+        private bool _mUnknown_ExcludedMembers;
+        public List<string>? ExcludedMembers
+        {
+            get
+            {
+                if (!_mUnknown_ExcludedMembers) return _mValue_ExcludedMembers;
+                throw new UndeferrableValueException("Value 'ClusterEndpointArgs.ExcludedMembers' is not present");
+            }
+        }
 
         /// <summary>
         /// List of DB instance identifiers that are part of the custom endpoint group.
         /// </summary>
-        [Input("staticMembers")]
+        [PolicyResourceProperty("staticMembers", "_mUnknown_StaticMembers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStaticMembers;
-
-        public List<string>? StaticMembers => _mStaticMembers.GetValue("staticMembers");
+        private List<string>? _mValue_StaticMembers;
+        private bool _mUnknown_StaticMembers;
+        public List<string>? StaticMembers
+        {
+            get
+            {
+                if (!_mUnknown_StaticMembers) return _mValue_StaticMembers;
+                throw new UndeferrableValueException("Value 'ClusterEndpointArgs.StaticMembers' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ClusterEndpointArgs.Tags' is not present");
+            }
+        }
     }
 }

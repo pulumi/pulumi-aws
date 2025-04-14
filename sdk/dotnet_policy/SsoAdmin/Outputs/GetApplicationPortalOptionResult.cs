@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin.Outputs
 {
     public sealed class GetApplicationPortalOptionResult
     {
-        [Input("signInOptions")]
+        [PolicyResourceProperty("signInOptions", "_mUnknown_SignInOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetApplicationPortalOptionSignInOptionResult>> _mSignInOptions;
+        private List<Outputs.GetApplicationPortalOptionSignInOptionResult>? _mValue_SignInOptions;
+        private bool _mUnknown_SignInOptions;
+        public List<Outputs.GetApplicationPortalOptionSignInOptionResult>? SignInOptions
+        {
+            get
+            {
+                if (!_mUnknown_SignInOptions) return _mValue_SignInOptions;
+                throw new UndeferrableValueException("Value 'GetApplicationPortalOptionResult.SignInOptions' is not present");
+            }
+        }
 
-        public List<Outputs.GetApplicationPortalOptionSignInOptionResult>? SignInOptions => _mSignInOptions.GetValue("signInOptions");
-
-        [Input("visibility")]
+        [PolicyResourceProperty("visibility", "_mUnknown_Visibility")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVisibility;
-
-        public string? Visibility => _mVisibility.GetValue("visibility");
+        private string? _mValue_Visibility;
+        private bool _mUnknown_Visibility;
+        public string? Visibility
+        {
+            get
+            {
+                if (!_mUnknown_Visibility) return _mValue_Visibility;
+                throw new UndeferrableValueException("Value 'GetApplicationPortalOptionResult.Visibility' is not present");
+            }
+        }
     }
 }

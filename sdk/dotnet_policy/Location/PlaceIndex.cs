@@ -16,85 +16,148 @@ namespace Pulumi.PolicyPacks.Aws.Location
         /// <summary>
         /// The timestamp for when the place index resource was created in ISO 8601 format.
         /// </summary>
-        [Input("createTime")]
+        [PolicyResourceProperty("createTime", "_mUnknown_CreateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
-
-        public string? CreateTime => _mCreateTime.GetValue("createTime");
+        private string? _mValue_CreateTime;
+        private bool _mUnknown_CreateTime;
+        public string? CreateTime
+        {
+            get
+            {
+                if (!_mUnknown_CreateTime) return _mValue_CreateTime;
+                throw new UndeferrableValueException("Value 'PlaceIndex.CreateTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the geospatial data provider for the new place index.
         /// </summary>
-        [Input("dataSource")]
+        [PolicyResourceProperty("dataSource", "_mUnknown_DataSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSource;
-
-        public string? DataSource => _mDataSource.GetValue("dataSource");
+        private string? _mValue_DataSource;
+        private bool _mUnknown_DataSource;
+        public string? DataSource
+        {
+            get
+            {
+                if (!_mUnknown_DataSource) return _mValue_DataSource;
+                throw new UndeferrableValueException("Value 'PlaceIndex.DataSource' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with the data storage option chosen for requesting Places. Detailed below.
         /// </summary>
-        [Input("dataSourceConfiguration")]
+        [PolicyResourceProperty("dataSourceConfiguration", "_mUnknown_DataSourceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PlaceIndexDataSourceConfiguration> _mDataSourceConfiguration;
-
-        public Outputs.PlaceIndexDataSourceConfiguration? DataSourceConfiguration => _mDataSourceConfiguration.GetValue("dataSourceConfiguration");
+        private Outputs.PlaceIndexDataSourceConfiguration? _mValue_DataSourceConfiguration;
+        private bool _mUnknown_DataSourceConfiguration;
+        public Outputs.PlaceIndexDataSourceConfiguration? DataSourceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceConfiguration) return _mValue_DataSourceConfiguration;
+                throw new UndeferrableValueException("Value 'PlaceIndex.DataSourceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The optional description for the place index resource.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'PlaceIndex.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
         /// </summary>
-        [Input("indexArn")]
+        [PolicyResourceProperty("indexArn", "_mUnknown_IndexArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIndexArn;
-
-        public string? IndexArn => _mIndexArn.GetValue("indexArn");
+        private string? _mValue_IndexArn;
+        private bool _mUnknown_IndexArn;
+        public string? IndexArn
+        {
+            get
+            {
+                if (!_mUnknown_IndexArn) return _mValue_IndexArn;
+                throw new UndeferrableValueException("Value 'PlaceIndex.IndexArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the place index resource.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("indexName")]
+        [PolicyResourceProperty("indexName", "_mUnknown_IndexName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIndexName;
-
-        public string? IndexName => _mIndexName.GetValue("indexName");
+        private string? _mValue_IndexName;
+        private bool _mUnknown_IndexName;
+        public string? IndexName
+        {
+            get
+            {
+                if (!_mUnknown_IndexName) return _mValue_IndexName;
+                throw new UndeferrableValueException("Value 'PlaceIndex.IndexName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'PlaceIndex.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'PlaceIndex.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The timestamp for when the place index resource was last update in ISO 8601.
         /// </summary>
-        [Input("updateTime")]
+        [PolicyResourceProperty("updateTime", "_mUnknown_UpdateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateTime;
-
-        public string? UpdateTime => _mUpdateTime.GetValue("updateTime");
+        private string? _mValue_UpdateTime;
+        private bool _mUnknown_UpdateTime;
+        public string? UpdateTime
+        {
+            get
+            {
+                if (!_mUnknown_UpdateTime) return _mValue_UpdateTime;
+                throw new UndeferrableValueException("Value 'PlaceIndex.UpdateTime' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:location/placeIndex:PlaceIndex")]
@@ -103,48 +166,83 @@ namespace Pulumi.PolicyPacks.Aws.Location
         /// <summary>
         /// Specifies the geospatial data provider for the new place index.
         /// </summary>
-        [Input("dataSource")]
+        [PolicyResourceProperty("dataSource", "_mUnknown_DataSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSource;
-
-        public string? DataSource => _mDataSource.GetValue("dataSource");
+        private string? _mValue_DataSource;
+        private bool _mUnknown_DataSource;
+        public string? DataSource
+        {
+            get
+            {
+                if (!_mUnknown_DataSource) return _mValue_DataSource;
+                throw new UndeferrableValueException("Value 'PlaceIndexArgs.DataSource' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with the data storage option chosen for requesting Places. Detailed below.
         /// </summary>
-        [Input("dataSourceConfiguration")]
+        [PolicyResourceProperty("dataSourceConfiguration", "_mUnknown_DataSourceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PlaceIndexDataSourceConfigurationArgs> _mDataSourceConfiguration;
-
-        public Inputs.PlaceIndexDataSourceConfigurationArgs? DataSourceConfiguration => _mDataSourceConfiguration.GetValue("dataSourceConfiguration");
+        private Inputs.PlaceIndexDataSourceConfigurationArgs? _mValue_DataSourceConfiguration;
+        private bool _mUnknown_DataSourceConfiguration;
+        public Inputs.PlaceIndexDataSourceConfigurationArgs? DataSourceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceConfiguration) return _mValue_DataSourceConfiguration;
+                throw new UndeferrableValueException("Value 'PlaceIndexArgs.DataSourceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The optional description for the place index resource.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'PlaceIndexArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the place index resource.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("indexName")]
+        [PolicyResourceProperty("indexName", "_mUnknown_IndexName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIndexName;
-
-        public string? IndexName => _mIndexName.GetValue("indexName");
+        private string? _mValue_IndexName;
+        private bool _mUnknown_IndexName;
+        public string? IndexName
+        {
+            get
+            {
+                if (!_mUnknown_IndexName) return _mValue_IndexName;
+                throw new UndeferrableValueException("Value 'PlaceIndexArgs.IndexName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'PlaceIndexArgs.Tags' is not present");
+            }
+        }
     }
 }

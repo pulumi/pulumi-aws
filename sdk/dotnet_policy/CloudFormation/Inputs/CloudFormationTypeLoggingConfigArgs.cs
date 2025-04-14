@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFormation.Inputs
         /// <summary>
         /// Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
         /// </summary>
-        [Input("logGroupName")]
+        [PolicyResourceProperty("logGroupName", "_mUnknown_LogGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
-
-        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+        private string? _mValue_LogGroupName;
+        private bool _mUnknown_LogGroupName;
+        public string? LogGroupName
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupName) return _mValue_LogGroupName;
+                throw new UndeferrableValueException("Value 'CloudFormationTypeLoggingConfigArgs.LogGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
         /// </summary>
-        [Input("logRoleArn")]
+        [PolicyResourceProperty("logRoleArn", "_mUnknown_LogRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogRoleArn;
-
-        public string? LogRoleArn => _mLogRoleArn.GetValue("logRoleArn");
+        private string? _mValue_LogRoleArn;
+        private bool _mUnknown_LogRoleArn;
+        public string? LogRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_LogRoleArn) return _mValue_LogRoleArn;
+                throw new UndeferrableValueException("Value 'CloudFormationTypeLoggingConfigArgs.LogRoleArn' is not present");
+            }
+        }
     }
 }

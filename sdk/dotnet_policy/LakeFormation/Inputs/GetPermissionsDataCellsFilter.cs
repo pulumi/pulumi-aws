@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation.Inputs
         /// <summary>
         /// The name of the database.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'GetPermissionsDataCellsFilterArgs.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the data cells filter.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetPermissionsDataCellsFilterArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Data Catalog.
         /// </summary>
-        [Input("tableCatalogId")]
+        [PolicyResourceProperty("tableCatalogId", "_mUnknown_TableCatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableCatalogId;
-
-        public string? TableCatalogId => _mTableCatalogId.GetValue("tableCatalogId");
+        private string? _mValue_TableCatalogId;
+        private bool _mUnknown_TableCatalogId;
+        public string? TableCatalogId
+        {
+            get
+            {
+                if (!_mUnknown_TableCatalogId) return _mValue_TableCatalogId;
+                throw new UndeferrableValueException("Value 'GetPermissionsDataCellsFilterArgs.TableCatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the table.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'GetPermissionsDataCellsFilterArgs.TableName' is not present");
+            }
+        }
     }
 }

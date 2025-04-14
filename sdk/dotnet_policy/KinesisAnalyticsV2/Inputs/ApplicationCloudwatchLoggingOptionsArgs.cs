@@ -12,19 +12,33 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Inputs
 {
     public sealed class ApplicationCloudwatchLoggingOptionsArgs
     {
-        [Input("cloudwatchLoggingOptionId")]
+        [PolicyResourceProperty("cloudwatchLoggingOptionId", "_mUnknown_CloudwatchLoggingOptionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchLoggingOptionId;
-
-        public string? CloudwatchLoggingOptionId => _mCloudwatchLoggingOptionId.GetValue("cloudwatchLoggingOptionId");
+        private string? _mValue_CloudwatchLoggingOptionId;
+        private bool _mUnknown_CloudwatchLoggingOptionId;
+        public string? CloudwatchLoggingOptionId
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLoggingOptionId) return _mValue_CloudwatchLoggingOptionId;
+                throw new UndeferrableValueException("Value 'ApplicationCloudwatchLoggingOptionsArgs.CloudwatchLoggingOptionId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the CloudWatch log stream to receive application messages.
         /// </summary>
-        [Input("logStreamArn")]
+        [PolicyResourceProperty("logStreamArn", "_mUnknown_LogStreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogStreamArn;
-
-        public string? LogStreamArn => _mLogStreamArn.GetValue("logStreamArn");
+        private string? _mValue_LogStreamArn;
+        private bool _mUnknown_LogStreamArn;
+        public string? LogStreamArn
+        {
+            get
+            {
+                if (!_mUnknown_LogStreamArn) return _mValue_LogStreamArn;
+                throw new UndeferrableValueException("Value 'ApplicationCloudwatchLoggingOptionsArgs.LogStreamArn' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Outputs
         /// <summary>
         /// The name of the log stream.
         /// </summary>
-        [Input("logStreamName")]
+        [PolicyResourceProperty("logStreamName", "_mUnknown_LogStreamName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogStreamName;
-
-        public string? LogStreamName => _mLogStreamName.GetValue("logStreamName");
+        private string? _mValue_LogStreamName;
+        private bool _mUnknown_LogStreamName;
+        public string? LogStreamName
+        {
+            get
+            {
+                if (!_mUnknown_LogStreamName) return _mValue_LogStreamName;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersCloudwatchLogsParameters.LogStreamName' is not present");
+            }
+        }
 
         /// <summary>
         /// The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
         /// </summary>
-        [Input("timestamp")]
+        [PolicyResourceProperty("timestamp", "_mUnknown_Timestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimestamp;
-
-        public string? Timestamp => _mTimestamp.GetValue("timestamp");
+        private string? _mValue_Timestamp;
+        private bool _mUnknown_Timestamp;
+        public string? Timestamp
+        {
+            get
+            {
+                if (!_mUnknown_Timestamp) return _mValue_Timestamp;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersCloudwatchLogsParameters.Timestamp' is not present");
+            }
+        }
     }
 }

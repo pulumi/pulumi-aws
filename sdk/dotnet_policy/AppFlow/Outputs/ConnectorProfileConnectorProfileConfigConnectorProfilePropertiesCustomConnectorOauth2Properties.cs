@@ -12,25 +12,46 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
 {
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties
     {
-        [Input("oauth2GrantType")]
+        [PolicyResourceProperty("oauth2GrantType", "_mUnknown_Oauth2GrantType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOauth2GrantType;
+        private string? _mValue_Oauth2GrantType;
+        private bool _mUnknown_Oauth2GrantType;
+        public string? Oauth2GrantType
+        {
+            get
+            {
+                if (!_mUnknown_Oauth2GrantType) return _mValue_Oauth2GrantType;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties.Oauth2GrantType' is not present");
+            }
+        }
 
-        public string? Oauth2GrantType => _mOauth2GrantType.GetValue("oauth2GrantType");
-
-        [Input("tokenUrl")]
+        [PolicyResourceProperty("tokenUrl", "_mUnknown_TokenUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTokenUrl;
-
-        public string? TokenUrl => _mTokenUrl.GetValue("tokenUrl");
+        private string? _mValue_TokenUrl;
+        private bool _mUnknown_TokenUrl;
+        public string? TokenUrl
+        {
+            get
+            {
+                if (!_mUnknown_TokenUrl) return _mValue_TokenUrl;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties.TokenUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
         /// </summary>
-        [Input("tokenUrlCustomProperties")]
+        [PolicyResourceProperty("tokenUrlCustomProperties", "_mUnknown_TokenUrlCustomProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTokenUrlCustomProperties;
-
-        public Dictionary<string, string>? TokenUrlCustomProperties => _mTokenUrlCustomProperties.GetValue("tokenUrlCustomProperties");
+        private Dictionary<string, string>? _mValue_TokenUrlCustomProperties;
+        private bool _mUnknown_TokenUrlCustomProperties;
+        public Dictionary<string, string>? TokenUrlCustomProperties
+        {
+            get
+            {
+                if (!_mUnknown_TokenUrlCustomProperties) return _mValue_TokenUrlCustomProperties;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties.TokenUrlCustomProperties' is not present");
+            }
+        }
     }
 }

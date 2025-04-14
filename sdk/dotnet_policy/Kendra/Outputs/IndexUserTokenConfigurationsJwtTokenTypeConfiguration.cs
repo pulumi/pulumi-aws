@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// The regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
         /// </summary>
-        [Input("claimRegex")]
+        [PolicyResourceProperty("claimRegex", "_mUnknown_ClaimRegex")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClaimRegex;
-
-        public string? ClaimRegex => _mClaimRegex.GetValue("claimRegex");
+        private string? _mValue_ClaimRegex;
+        private bool _mUnknown_ClaimRegex;
+        public string? ClaimRegex
+        {
+            get
+            {
+                if (!_mUnknown_ClaimRegex) return _mValue_ClaimRegex;
+                throw new UndeferrableValueException("Value 'IndexUserTokenConfigurationsJwtTokenTypeConfiguration.ClaimRegex' is not present");
+            }
+        }
 
         /// <summary>
         /// The group attribute field. Minimum length of 1. Maximum length of 100.
         /// </summary>
-        [Input("groupAttributeField")]
+        [PolicyResourceProperty("groupAttributeField", "_mUnknown_GroupAttributeField")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupAttributeField;
-
-        public string? GroupAttributeField => _mGroupAttributeField.GetValue("groupAttributeField");
+        private string? _mValue_GroupAttributeField;
+        private bool _mUnknown_GroupAttributeField;
+        public string? GroupAttributeField
+        {
+            get
+            {
+                if (!_mUnknown_GroupAttributeField) return _mValue_GroupAttributeField;
+                throw new UndeferrableValueException("Value 'IndexUserTokenConfigurationsJwtTokenTypeConfiguration.GroupAttributeField' is not present");
+            }
+        }
 
         /// <summary>
         /// The issuer of the token. Minimum length of 1. Maximum length of 65.
         /// </summary>
-        [Input("issuer")]
+        [PolicyResourceProperty("issuer", "_mUnknown_Issuer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIssuer;
-
-        public string? Issuer => _mIssuer.GetValue("issuer");
+        private string? _mValue_Issuer;
+        private bool _mUnknown_Issuer;
+        public string? Issuer
+        {
+            get
+            {
+                if (!_mUnknown_Issuer) return _mValue_Issuer;
+                throw new UndeferrableValueException("Value 'IndexUserTokenConfigurationsJwtTokenTypeConfiguration.Issuer' is not present");
+            }
+        }
 
         /// <summary>
         /// The location of the key. Valid values are `URL` or `SECRET_MANAGER`
         /// </summary>
-        [Input("keyLocation")]
+        [PolicyResourceProperty("keyLocation", "_mUnknown_KeyLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyLocation;
-
-        public string? KeyLocation => _mKeyLocation.GetValue("keyLocation");
+        private string? _mValue_KeyLocation;
+        private bool _mUnknown_KeyLocation;
+        public string? KeyLocation
+        {
+            get
+            {
+                if (!_mUnknown_KeyLocation) return _mValue_KeyLocation;
+                throw new UndeferrableValueException("Value 'IndexUserTokenConfigurationsJwtTokenTypeConfiguration.KeyLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the secret.
         /// </summary>
-        [Input("secretsManagerArn")]
+        [PolicyResourceProperty("secretsManagerArn", "_mUnknown_SecretsManagerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretsManagerArn;
-
-        public string? SecretsManagerArn => _mSecretsManagerArn.GetValue("secretsManagerArn");
+        private string? _mValue_SecretsManagerArn;
+        private bool _mUnknown_SecretsManagerArn;
+        public string? SecretsManagerArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretsManagerArn) return _mValue_SecretsManagerArn;
+                throw new UndeferrableValueException("Value 'IndexUserTokenConfigurationsJwtTokenTypeConfiguration.SecretsManagerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'IndexUserTokenConfigurationsJwtTokenTypeConfiguration.Url' is not present");
+            }
+        }
 
         /// <summary>
         /// The user name attribute field. Minimum length of 1. Maximum length of 100.
         /// </summary>
-        [Input("userNameAttributeField")]
+        [PolicyResourceProperty("userNameAttributeField", "_mUnknown_UserNameAttributeField")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserNameAttributeField;
-
-        public string? UserNameAttributeField => _mUserNameAttributeField.GetValue("userNameAttributeField");
+        private string? _mValue_UserNameAttributeField;
+        private bool _mUnknown_UserNameAttributeField;
+        public string? UserNameAttributeField
+        {
+            get
+            {
+                if (!_mUnknown_UserNameAttributeField) return _mValue_UserNameAttributeField;
+                throw new UndeferrableValueException("Value 'IndexUserTokenConfigurationsJwtTokenTypeConfiguration.UserNameAttributeField' is not present");
+            }
+        }
     }
 }

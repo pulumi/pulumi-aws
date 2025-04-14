@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.ServiceQuotas.Inputs
         /// <summary>
         /// The metric dimensions.
         /// </summary>
-        [Input("metricDimensions")]
+        [PolicyResourceProperty("metricDimensions", "_mUnknown_MetricDimensions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ServiceQuotaUsageMetricMetricDimensionArgs>> _mMetricDimensions;
-
-        public List<Inputs.ServiceQuotaUsageMetricMetricDimensionArgs>? MetricDimensions => _mMetricDimensions.GetValue("metricDimensions");
+        private List<Inputs.ServiceQuotaUsageMetricMetricDimensionArgs>? _mValue_MetricDimensions;
+        private bool _mUnknown_MetricDimensions;
+        public List<Inputs.ServiceQuotaUsageMetricMetricDimensionArgs>? MetricDimensions
+        {
+            get
+            {
+                if (!_mUnknown_MetricDimensions) return _mValue_MetricDimensions;
+                throw new UndeferrableValueException("Value 'ServiceQuotaUsageMetricArgs.MetricDimensions' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the metric.
         /// </summary>
-        [Input("metricName")]
+        [PolicyResourceProperty("metricName", "_mUnknown_MetricName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricName;
-
-        public string? MetricName => _mMetricName.GetValue("metricName");
+        private string? _mValue_MetricName;
+        private bool _mUnknown_MetricName;
+        public string? MetricName
+        {
+            get
+            {
+                if (!_mUnknown_MetricName) return _mValue_MetricName;
+                throw new UndeferrableValueException("Value 'ServiceQuotaUsageMetricArgs.MetricName' is not present");
+            }
+        }
 
         /// <summary>
         /// The namespace of the metric.
         /// </summary>
-        [Input("metricNamespace")]
+        [PolicyResourceProperty("metricNamespace", "_mUnknown_MetricNamespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricNamespace;
-
-        public string? MetricNamespace => _mMetricNamespace.GetValue("metricNamespace");
+        private string? _mValue_MetricNamespace;
+        private bool _mUnknown_MetricNamespace;
+        public string? MetricNamespace
+        {
+            get
+            {
+                if (!_mUnknown_MetricNamespace) return _mValue_MetricNamespace;
+                throw new UndeferrableValueException("Value 'ServiceQuotaUsageMetricArgs.MetricNamespace' is not present");
+            }
+        }
 
         /// <summary>
         /// The metric statistic that AWS recommend you use when determining quota usage.
         /// </summary>
-        [Input("metricStatisticRecommendation")]
+        [PolicyResourceProperty("metricStatisticRecommendation", "_mUnknown_MetricStatisticRecommendation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricStatisticRecommendation;
-
-        public string? MetricStatisticRecommendation => _mMetricStatisticRecommendation.GetValue("metricStatisticRecommendation");
+        private string? _mValue_MetricStatisticRecommendation;
+        private bool _mUnknown_MetricStatisticRecommendation;
+        public string? MetricStatisticRecommendation
+        {
+            get
+            {
+                if (!_mUnknown_MetricStatisticRecommendation) return _mValue_MetricStatisticRecommendation;
+                throw new UndeferrableValueException("Value 'ServiceQuotaUsageMetricArgs.MetricStatisticRecommendation' is not present");
+            }
+        }
     }
 }

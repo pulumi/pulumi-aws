@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Transfer.Inputs
         /// <summary>
         /// The name of the step, used as an identifier.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepTagStepDetailsArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
         /// </summary>
-        [Input("sourceFileLocation")]
+        [PolicyResourceProperty("sourceFileLocation", "_mUnknown_SourceFileLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceFileLocation;
-
-        public string? SourceFileLocation => _mSourceFileLocation.GetValue("sourceFileLocation");
+        private string? _mValue_SourceFileLocation;
+        private bool _mUnknown_SourceFileLocation;
+        public string? SourceFileLocation
+        {
+            get
+            {
+                if (!_mUnknown_SourceFileLocation) return _mValue_SourceFileLocation;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepTagStepDetailsArgs.SourceFileLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WorkflowOnExceptionStepTagStepDetailsTagArgs>> _mTags;
-
-        public List<Inputs.WorkflowOnExceptionStepTagStepDetailsTagArgs>? Tags => _mTags.GetValue("tags");
+        private List<Inputs.WorkflowOnExceptionStepTagStepDetailsTagArgs>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public List<Inputs.WorkflowOnExceptionStepTagStepDetailsTagArgs>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepTagStepDetailsArgs.Tags' is not present");
+            }
+        }
     }
 }

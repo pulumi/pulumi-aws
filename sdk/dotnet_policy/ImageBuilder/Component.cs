@@ -16,159 +16,278 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder
         /// <summary>
         /// (Required) Amazon Resource Name (ARN) of the component.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Component.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Change description of the component.
         /// </summary>
-        [Input("changeDescription")]
+        [PolicyResourceProperty("changeDescription", "_mUnknown_ChangeDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChangeDescription;
-
-        public string? ChangeDescription => _mChangeDescription.GetValue("changeDescription");
+        private string? _mValue_ChangeDescription;
+        private bool _mUnknown_ChangeDescription;
+        public string? ChangeDescription
+        {
+            get
+            {
+                if (!_mUnknown_ChangeDescription) return _mValue_ChangeDescription;
+                throw new UndeferrableValueException("Value 'Component.ChangeDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
-        [Input("data")]
+        [PolicyResourceProperty("data", "_mUnknown_Data")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mData;
-
-        public string? Data => _mData.GetValue("data");
+        private string? _mValue_Data;
+        private bool _mUnknown_Data;
+        public string? Data
+        {
+            get
+            {
+                if (!_mUnknown_Data) return _mValue_Data;
+                throw new UndeferrableValueException("Value 'Component.Data' is not present");
+            }
+        }
 
         /// <summary>
         /// Date the component was created.
         /// </summary>
-        [Input("dateCreated")]
+        [PolicyResourceProperty("dateCreated", "_mUnknown_DateCreated")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDateCreated;
-
-        public string? DateCreated => _mDateCreated.GetValue("dateCreated");
+        private string? _mValue_DateCreated;
+        private bool _mUnknown_DateCreated;
+        public string? DateCreated
+        {
+            get
+            {
+                if (!_mUnknown_DateCreated) return _mValue_DateCreated;
+                throw new UndeferrableValueException("Value 'Component.DateCreated' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the component.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Component.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Encryption status of the component.
         /// </summary>
-        [Input("encrypted")]
+        [PolicyResourceProperty("encrypted", "_mUnknown_Encrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypted;
-
-        public bool? Encrypted => _mEncrypted.GetValue("encrypted");
+        private bool? _mValue_Encrypted;
+        private bool _mUnknown_Encrypted;
+        public bool? Encrypted
+        {
+            get
+            {
+                if (!_mUnknown_Encrypted) return _mValue_Encrypted;
+                throw new UndeferrableValueException("Value 'Component.Encrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'Component.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the component.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Component.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Owner of the component.
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'Component.Owner' is not present");
+            }
+        }
 
         /// <summary>
         /// Platform of the component.
         /// </summary>
-        [Input("platform")]
+        [PolicyResourceProperty("platform", "_mUnknown_Platform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
-
-        public string? Platform => _mPlatform.GetValue("platform");
+        private string? _mValue_Platform;
+        private bool _mUnknown_Platform;
+        public string? Platform
+        {
+            get
+            {
+                if (!_mUnknown_Platform) return _mValue_Platform;
+                throw new UndeferrableValueException("Value 'Component.Platform' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'Component.SkipDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of Operating Systems (OS) supported by the component.
         /// </summary>
-        [Input("supportedOsVersions")]
+        [PolicyResourceProperty("supportedOsVersions", "_mUnknown_SupportedOsVersions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSupportedOsVersions;
-
-        public List<string>? SupportedOsVersions => _mSupportedOsVersions.GetValue("supportedOsVersions");
+        private List<string>? _mValue_SupportedOsVersions;
+        private bool _mUnknown_SupportedOsVersions;
+        public List<string>? SupportedOsVersions
+        {
+            get
+            {
+                if (!_mUnknown_SupportedOsVersions) return _mValue_SupportedOsVersions;
+                throw new UndeferrableValueException("Value 'Component.SupportedOsVersions' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Component.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Component.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the component.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Component.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
         /// 
         /// &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         /// </summary>
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'Component.Uri' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the component.
         /// 
         /// The following attributes are optional:
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'Component.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:imagebuilder/component:Component")]
@@ -177,104 +296,181 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder
         /// <summary>
         /// Change description of the component.
         /// </summary>
-        [Input("changeDescription")]
+        [PolicyResourceProperty("changeDescription", "_mUnknown_ChangeDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChangeDescription;
-
-        public string? ChangeDescription => _mChangeDescription.GetValue("changeDescription");
+        private string? _mValue_ChangeDescription;
+        private bool _mUnknown_ChangeDescription;
+        public string? ChangeDescription
+        {
+            get
+            {
+                if (!_mUnknown_ChangeDescription) return _mValue_ChangeDescription;
+                throw new UndeferrableValueException("Value 'ComponentArgs.ChangeDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
-        [Input("data")]
+        [PolicyResourceProperty("data", "_mUnknown_Data")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mData;
-
-        public string? Data => _mData.GetValue("data");
+        private string? _mValue_Data;
+        private bool _mUnknown_Data;
+        public string? Data
+        {
+            get
+            {
+                if (!_mUnknown_Data) return _mValue_Data;
+                throw new UndeferrableValueException("Value 'ComponentArgs.Data' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the component.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ComponentArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ComponentArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the component.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ComponentArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Platform of the component.
         /// </summary>
-        [Input("platform")]
+        [PolicyResourceProperty("platform", "_mUnknown_Platform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
-
-        public string? Platform => _mPlatform.GetValue("platform");
+        private string? _mValue_Platform;
+        private bool _mUnknown_Platform;
+        public string? Platform
+        {
+            get
+            {
+                if (!_mUnknown_Platform) return _mValue_Platform;
+                throw new UndeferrableValueException("Value 'ComponentArgs.Platform' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'ComponentArgs.SkipDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of Operating Systems (OS) supported by the component.
         /// </summary>
-        [Input("supportedOsVersions")]
+        [PolicyResourceProperty("supportedOsVersions", "_mUnknown_SupportedOsVersions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSupportedOsVersions;
-
-        public List<string>? SupportedOsVersions => _mSupportedOsVersions.GetValue("supportedOsVersions");
+        private List<string>? _mValue_SupportedOsVersions;
+        private bool _mUnknown_SupportedOsVersions;
+        public List<string>? SupportedOsVersions
+        {
+            get
+            {
+                if (!_mUnknown_SupportedOsVersions) return _mValue_SupportedOsVersions;
+                throw new UndeferrableValueException("Value 'ComponentArgs.SupportedOsVersions' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ComponentArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
         /// 
         /// &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         /// </summary>
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'ComponentArgs.Uri' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the component.
         /// 
         /// The following attributes are optional:
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'ComponentArgs.Version' is not present");
+            }
+        }
     }
 }

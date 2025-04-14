@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache.Outputs
         /// <summary>
         /// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
         /// </summary>
-        [Input("maximum")]
+        [PolicyResourceProperty("maximum", "_mUnknown_Maximum")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximum;
-
-        public int? Maximum => _mMaximum.GetValue("maximum");
+        private int? _mValue_Maximum;
+        private bool _mUnknown_Maximum;
+        public int? Maximum
+        {
+            get
+            {
+                if (!_mUnknown_Maximum) return _mValue_Maximum;
+                throw new UndeferrableValueException("Value 'ServerlessCacheCacheUsageLimitsDataStorage.Maximum' is not present");
+            }
+        }
 
         /// <summary>
         /// The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
         /// </summary>
-        [Input("minimum")]
+        [PolicyResourceProperty("minimum", "_mUnknown_Minimum")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinimum;
-
-        public int? Minimum => _mMinimum.GetValue("minimum");
+        private int? _mValue_Minimum;
+        private bool _mUnknown_Minimum;
+        public int? Minimum
+        {
+            get
+            {
+                if (!_mUnknown_Minimum) return _mValue_Minimum;
+                throw new UndeferrableValueException("Value 'ServerlessCacheCacheUsageLimitsDataStorage.Minimum' is not present");
+            }
+        }
 
         /// <summary>
         /// The unit that the storage is measured in, in GB.
         /// </summary>
-        [Input("unit")]
+        [PolicyResourceProperty("unit", "_mUnknown_Unit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnit;
-
-        public string? Unit => _mUnit.GetValue("unit");
+        private string? _mValue_Unit;
+        private bool _mUnknown_Unit;
+        public string? Unit
+        {
+            get
+            {
+                if (!_mUnknown_Unit) return _mValue_Unit;
+                throw new UndeferrableValueException("Value 'ServerlessCacheCacheUsageLimitsDataStorage.Unit' is not present");
+            }
+        }
     }
 }

@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationResult
     {
-        [Input("tcpEstablishedTimeout")]
+        [PolicyResourceProperty("tcpEstablishedTimeout", "_mUnknown_TcpEstablishedTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTcpEstablishedTimeout;
+        private int? _mValue_TcpEstablishedTimeout;
+        private bool _mUnknown_TcpEstablishedTimeout;
+        public int? TcpEstablishedTimeout
+        {
+            get
+            {
+                if (!_mUnknown_TcpEstablishedTimeout) return _mValue_TcpEstablishedTimeout;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationResult.TcpEstablishedTimeout' is not present");
+            }
+        }
 
-        public int? TcpEstablishedTimeout => _mTcpEstablishedTimeout.GetValue("tcpEstablishedTimeout");
-
-        [Input("udpStreamTimeout")]
+        [PolicyResourceProperty("udpStreamTimeout", "_mUnknown_UdpStreamTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUdpStreamTimeout;
+        private int? _mValue_UdpStreamTimeout;
+        private bool _mUnknown_UdpStreamTimeout;
+        public int? UdpStreamTimeout
+        {
+            get
+            {
+                if (!_mUnknown_UdpStreamTimeout) return _mValue_UdpStreamTimeout;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationResult.UdpStreamTimeout' is not present");
+            }
+        }
 
-        public int? UdpStreamTimeout => _mUdpStreamTimeout.GetValue("udpStreamTimeout");
-
-        [Input("udpTimeout")]
+        [PolicyResourceProperty("udpTimeout", "_mUnknown_UdpTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUdpTimeout;
-
-        public int? UdpTimeout => _mUdpTimeout.GetValue("udpTimeout");
+        private int? _mValue_UdpTimeout;
+        private bool _mUnknown_UdpTimeout;
+        public int? UdpTimeout
+        {
+            get
+            {
+                if (!_mUnknown_UdpTimeout) return _mValue_UdpTimeout;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationResult.UdpTimeout' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions.Outputs
         /// <summary>
         /// The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
         /// </summary>
-        [Input("clientIds")]
+        [PolicyResourceProperty("clientIds", "_mUnknown_ClientIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClientIds;
-
-        public List<string>? ClientIds => _mClientIds.GetValue("clientIds");
+        private List<string>? _mValue_ClientIds;
+        private bool _mUnknown_ClientIds;
+        public List<string>? ClientIds
+        {
+            get
+            {
+                if (!_mUnknown_ClientIds) return _mValue_ClientIds;
+                throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly.ClientIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The claim that determines the principal in OIDC access tokens.
         /// </summary>
-        [Input("principalIdClaim")]
+        [PolicyResourceProperty("principalIdClaim", "_mUnknown_PrincipalIdClaim")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalIdClaim;
-
-        public string? PrincipalIdClaim => _mPrincipalIdClaim.GetValue("principalIdClaim");
+        private string? _mValue_PrincipalIdClaim;
+        private bool _mUnknown_PrincipalIdClaim;
+        public string? PrincipalIdClaim
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalIdClaim) return _mValue_PrincipalIdClaim;
+                throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly.PrincipalIdClaim' is not present");
+            }
+        }
     }
 }

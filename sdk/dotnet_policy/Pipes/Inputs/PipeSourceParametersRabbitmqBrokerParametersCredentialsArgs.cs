@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Inputs
         /// <summary>
         /// The ARN of the Secrets Manager secret containing the credentials.
         /// </summary>
-        [Input("basicAuth")]
+        [PolicyResourceProperty("basicAuth", "_mUnknown_BasicAuth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBasicAuth;
-
-        public string? BasicAuth => _mBasicAuth.GetValue("basicAuth");
+        private string? _mValue_BasicAuth;
+        private bool _mUnknown_BasicAuth;
+        public string? BasicAuth
+        {
+            get
+            {
+                if (!_mUnknown_BasicAuth) return _mValue_BasicAuth;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs.BasicAuth' is not present");
+            }
+        }
     }
 }

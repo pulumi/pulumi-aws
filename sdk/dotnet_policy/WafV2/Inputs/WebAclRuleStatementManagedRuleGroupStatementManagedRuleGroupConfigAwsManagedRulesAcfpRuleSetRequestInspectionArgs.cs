@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// The names of the fields in the request payload that contain your customer's primary physical address. See `address_fields` for more details.
         /// </summary>
-        [Input("addressFields")]
+        [PolicyResourceProperty("addressFields", "_mUnknown_AddressFields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs> _mAddressFields;
-
-        public Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs? AddressFields => _mAddressFields.GetValue("addressFields");
+        private Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs? _mValue_AddressFields;
+        private bool _mUnknown_AddressFields;
+        public Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs? AddressFields
+        {
+            get
+            {
+                if (!_mUnknown_AddressFields) return _mValue_AddressFields;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs.AddressFields' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the field in the request payload that contains your customer's email. See `email_field` for more details.
         /// </summary>
-        [Input("emailField")]
+        [PolicyResourceProperty("emailField", "_mUnknown_EmailField")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs> _mEmailField;
-
-        public Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs? EmailField => _mEmailField.GetValue("emailField");
+        private Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs? _mValue_EmailField;
+        private bool _mUnknown_EmailField;
+        public Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs? EmailField
+        {
+            get
+            {
+                if (!_mUnknown_EmailField) return _mValue_EmailField;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs.EmailField' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about your login page password field. See `password_field` for more details.
         /// </summary>
-        [Input("passwordField")]
+        [PolicyResourceProperty("passwordField", "_mUnknown_PasswordField")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs> _mPasswordField;
-
-        public Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs? PasswordField => _mPasswordField.GetValue("passwordField");
+        private Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs? _mValue_PasswordField;
+        private bool _mUnknown_PasswordField;
+        public Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs? PasswordField
+        {
+            get
+            {
+                if (!_mUnknown_PasswordField) return _mValue_PasswordField;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs.PasswordField' is not present");
+            }
+        }
 
         /// <summary>
         /// The payload type for your login endpoint, either JSON or form encoded.
         /// </summary>
-        [Input("payloadType")]
+        [PolicyResourceProperty("payloadType", "_mUnknown_PayloadType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPayloadType;
-
-        public string? PayloadType => _mPayloadType.GetValue("payloadType");
+        private string? _mValue_PayloadType;
+        private bool _mUnknown_PayloadType;
+        public string? PayloadType
+        {
+            get
+            {
+                if (!_mUnknown_PayloadType) return _mValue_PayloadType;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs.PayloadType' is not present");
+            }
+        }
 
         /// <summary>
         /// The names of the fields in the request payload that contain your customer's primary phone number. See `phone_number_fields` for more details.
         /// </summary>
-        [Input("phoneNumberFields")]
+        [PolicyResourceProperty("phoneNumberFields", "_mUnknown_PhoneNumberFields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs> _mPhoneNumberFields;
-
-        public Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs? PhoneNumberFields => _mPhoneNumberFields.GetValue("phoneNumberFields");
+        private Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs? _mValue_PhoneNumberFields;
+        private bool _mUnknown_PhoneNumberFields;
+        public Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs? PhoneNumberFields
+        {
+            get
+            {
+                if (!_mUnknown_PhoneNumberFields) return _mValue_PhoneNumberFields;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs.PhoneNumberFields' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about your login page username field. See `username_field` for more details.
         /// </summary>
-        [Input("usernameField")]
+        [PolicyResourceProperty("usernameField", "_mUnknown_UsernameField")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs> _mUsernameField;
-
-        public Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs? UsernameField => _mUsernameField.GetValue("usernameField");
+        private Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs? _mValue_UsernameField;
+        private bool _mUnknown_UsernameField;
+        public Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs? UsernameField
+        {
+            get
+            {
+                if (!_mUnknown_UsernameField) return _mValue_UsernameField;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs.UsernameField' is not present");
+            }
+        }
     }
 }

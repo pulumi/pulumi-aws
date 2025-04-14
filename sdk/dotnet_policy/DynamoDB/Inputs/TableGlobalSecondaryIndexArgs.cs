@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB.Inputs
         /// <summary>
         /// Name of the hash key in the index; must be defined as an attribute in the resource.
         /// </summary>
-        [Input("hashKey")]
+        [PolicyResourceProperty("hashKey", "_mUnknown_HashKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHashKey;
-
-        public string? HashKey => _mHashKey.GetValue("hashKey");
+        private string? _mValue_HashKey;
+        private bool _mUnknown_HashKey;
+        public string? HashKey
+        {
+            get
+            {
+                if (!_mUnknown_HashKey) return _mValue_HashKey;
+                throw new UndeferrableValueException("Value 'TableGlobalSecondaryIndexArgs.HashKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the index.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TableGlobalSecondaryIndexArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
         /// </summary>
-        [Input("nonKeyAttributes")]
+        [PolicyResourceProperty("nonKeyAttributes", "_mUnknown_NonKeyAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNonKeyAttributes;
-
-        public List<string>? NonKeyAttributes => _mNonKeyAttributes.GetValue("nonKeyAttributes");
+        private List<string>? _mValue_NonKeyAttributes;
+        private bool _mUnknown_NonKeyAttributes;
+        public List<string>? NonKeyAttributes
+        {
+            get
+            {
+                if (!_mUnknown_NonKeyAttributes) return _mValue_NonKeyAttributes;
+                throw new UndeferrableValueException("Value 'TableGlobalSecondaryIndexArgs.NonKeyAttributes' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the maximum number of read and write units for the specified on-demand table. See below.
         /// </summary>
-        [Input("onDemandThroughput")]
+        [PolicyResourceProperty("onDemandThroughput", "_mUnknown_OnDemandThroughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableGlobalSecondaryIndexOnDemandThroughputArgs> _mOnDemandThroughput;
-
-        public Inputs.TableGlobalSecondaryIndexOnDemandThroughputArgs? OnDemandThroughput => _mOnDemandThroughput.GetValue("onDemandThroughput");
+        private Inputs.TableGlobalSecondaryIndexOnDemandThroughputArgs? _mValue_OnDemandThroughput;
+        private bool _mUnknown_OnDemandThroughput;
+        public Inputs.TableGlobalSecondaryIndexOnDemandThroughputArgs? OnDemandThroughput
+        {
+            get
+            {
+                if (!_mUnknown_OnDemandThroughput) return _mValue_OnDemandThroughput;
+                throw new UndeferrableValueException("Value 'TableGlobalSecondaryIndexArgs.OnDemandThroughput' is not present");
+            }
+        }
 
         /// <summary>
         /// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
         /// </summary>
-        [Input("projectionType")]
+        [PolicyResourceProperty("projectionType", "_mUnknown_ProjectionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectionType;
-
-        public string? ProjectionType => _mProjectionType.GetValue("projectionType");
+        private string? _mValue_ProjectionType;
+        private bool _mUnknown_ProjectionType;
+        public string? ProjectionType
+        {
+            get
+            {
+                if (!_mUnknown_ProjectionType) return _mValue_ProjectionType;
+                throw new UndeferrableValueException("Value 'TableGlobalSecondaryIndexArgs.ProjectionType' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the range key; must be defined
         /// </summary>
-        [Input("rangeKey")]
+        [PolicyResourceProperty("rangeKey", "_mUnknown_RangeKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRangeKey;
-
-        public string? RangeKey => _mRangeKey.GetValue("rangeKey");
+        private string? _mValue_RangeKey;
+        private bool _mUnknown_RangeKey;
+        public string? RangeKey
+        {
+            get
+            {
+                if (!_mUnknown_RangeKey) return _mValue_RangeKey;
+                throw new UndeferrableValueException("Value 'TableGlobalSecondaryIndexArgs.RangeKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
         /// </summary>
-        [Input("readCapacity")]
+        [PolicyResourceProperty("readCapacity", "_mUnknown_ReadCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mReadCapacity;
-
-        public int? ReadCapacity => _mReadCapacity.GetValue("readCapacity");
+        private int? _mValue_ReadCapacity;
+        private bool _mUnknown_ReadCapacity;
+        public int? ReadCapacity
+        {
+            get
+            {
+                if (!_mUnknown_ReadCapacity) return _mValue_ReadCapacity;
+                throw new UndeferrableValueException("Value 'TableGlobalSecondaryIndexArgs.ReadCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         /// </summary>
-        [Input("writeCapacity")]
+        [PolicyResourceProperty("writeCapacity", "_mUnknown_WriteCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWriteCapacity;
-
-        public int? WriteCapacity => _mWriteCapacity.GetValue("writeCapacity");
+        private int? _mValue_WriteCapacity;
+        private bool _mUnknown_WriteCapacity;
+        public int? WriteCapacity
+        {
+            get
+            {
+                if (!_mUnknown_WriteCapacity) return _mValue_WriteCapacity;
+                throw new UndeferrableValueException("Value 'TableGlobalSecondaryIndexArgs.WriteCapacity' is not present");
+            }
+        }
     }
 }

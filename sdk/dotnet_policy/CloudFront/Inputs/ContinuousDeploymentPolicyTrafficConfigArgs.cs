@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// Determines which HTTP requests are sent to the staging distribution. See `single_header_config`.
         /// </summary>
-        [Input("singleHeaderConfig")]
+        [PolicyResourceProperty("singleHeaderConfig", "_mUnknown_SingleHeaderConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs> _mSingleHeaderConfig;
-
-        public Inputs.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs? SingleHeaderConfig => _mSingleHeaderConfig.GetValue("singleHeaderConfig");
+        private Inputs.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs? _mValue_SingleHeaderConfig;
+        private bool _mUnknown_SingleHeaderConfig;
+        public Inputs.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs? SingleHeaderConfig
+        {
+            get
+            {
+                if (!_mUnknown_SingleHeaderConfig) return _mValue_SingleHeaderConfig;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyTrafficConfigArgs.SingleHeaderConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains the percentage of traffic to send to the staging distribution. See `single_weight_config`.
         /// </summary>
-        [Input("singleWeightConfig")]
+        [PolicyResourceProperty("singleWeightConfig", "_mUnknown_SingleWeightConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs> _mSingleWeightConfig;
-
-        public Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs? SingleWeightConfig => _mSingleWeightConfig.GetValue("singleWeightConfig");
+        private Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs? _mValue_SingleWeightConfig;
+        private bool _mUnknown_SingleWeightConfig;
+        public Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs? SingleWeightConfig
+        {
+            get
+            {
+                if (!_mUnknown_SingleWeightConfig) return _mValue_SingleWeightConfig;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyTrafficConfigArgs.SingleWeightConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyTrafficConfigArgs.Type' is not present");
+            }
+        }
     }
 }

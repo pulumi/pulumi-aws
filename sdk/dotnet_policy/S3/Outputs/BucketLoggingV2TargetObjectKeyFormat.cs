@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Partitioned S3 key for log objects. See below.
         /// </summary>
-        [Input("partitionedPrefix")]
+        [PolicyResourceProperty("partitionedPrefix", "_mUnknown_PartitionedPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix> _mPartitionedPrefix;
-
-        public Outputs.BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix? PartitionedPrefix => _mPartitionedPrefix.GetValue("partitionedPrefix");
+        private Outputs.BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix? _mValue_PartitionedPrefix;
+        private bool _mUnknown_PartitionedPrefix;
+        public Outputs.BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix? PartitionedPrefix
+        {
+            get
+            {
+                if (!_mUnknown_PartitionedPrefix) return _mValue_PartitionedPrefix;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2TargetObjectKeyFormat.PartitionedPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Use the simple format for S3 keys for log objects. To use, set `simple_prefix {}`.
         /// </summary>
-        [Input("simplePrefix")]
+        [PolicyResourceProperty("simplePrefix", "_mUnknown_SimplePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketLoggingV2TargetObjectKeyFormatSimplePrefix> _mSimplePrefix;
-
-        public Outputs.BucketLoggingV2TargetObjectKeyFormatSimplePrefix? SimplePrefix => _mSimplePrefix.GetValue("simplePrefix");
+        private Outputs.BucketLoggingV2TargetObjectKeyFormatSimplePrefix? _mValue_SimplePrefix;
+        private bool _mUnknown_SimplePrefix;
+        public Outputs.BucketLoggingV2TargetObjectKeyFormatSimplePrefix? SimplePrefix
+        {
+            get
+            {
+                if (!_mUnknown_SimplePrefix) return _mValue_SimplePrefix;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2TargetObjectKeyFormat.SimplePrefix' is not present");
+            }
+        }
     }
 }

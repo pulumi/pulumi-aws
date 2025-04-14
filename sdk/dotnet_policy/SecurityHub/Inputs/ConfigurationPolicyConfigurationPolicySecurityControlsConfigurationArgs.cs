@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Inputs
         /// <summary>
         /// A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabled_control_identifiers`.
         /// </summary>
-        [Input("disabledControlIdentifiers")]
+        [PolicyResourceProperty("disabledControlIdentifiers", "_mUnknown_DisabledControlIdentifiers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDisabledControlIdentifiers;
-
-        public List<string>? DisabledControlIdentifiers => _mDisabledControlIdentifiers.GetValue("disabledControlIdentifiers");
+        private List<string>? _mValue_DisabledControlIdentifiers;
+        private bool _mUnknown_DisabledControlIdentifiers;
+        public List<string>? DisabledControlIdentifiers
+        {
+            get
+            {
+                if (!_mUnknown_DisabledControlIdentifiers) return _mValue_DisabledControlIdentifiers;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs.DisabledControlIdentifiers' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabled_control_identifiers`.
         /// </summary>
-        [Input("enabledControlIdentifiers")]
+        [PolicyResourceProperty("enabledControlIdentifiers", "_mUnknown_EnabledControlIdentifiers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledControlIdentifiers;
-
-        public List<string>? EnabledControlIdentifiers => _mEnabledControlIdentifiers.GetValue("enabledControlIdentifiers");
+        private List<string>? _mValue_EnabledControlIdentifiers;
+        private bool _mUnknown_EnabledControlIdentifiers;
+        public List<string>? EnabledControlIdentifiers
+        {
+            get
+            {
+                if (!_mUnknown_EnabledControlIdentifiers) return _mValue_EnabledControlIdentifiers;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs.EnabledControlIdentifiers' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
         /// </summary>
-        [Input("securityControlCustomParameters")]
+        [PolicyResourceProperty("securityControlCustomParameters", "_mUnknown_SecurityControlCustomParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs>> _mSecurityControlCustomParameters;
-
-        public List<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs>? SecurityControlCustomParameters => _mSecurityControlCustomParameters.GetValue("securityControlCustomParameters");
+        private List<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs>? _mValue_SecurityControlCustomParameters;
+        private bool _mUnknown_SecurityControlCustomParameters;
+        public List<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs>? SecurityControlCustomParameters
+        {
+            get
+            {
+                if (!_mUnknown_SecurityControlCustomParameters) return _mValue_SecurityControlCustomParameters;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs.SecurityControlCustomParameters' is not present");
+            }
+        }
     }
 }

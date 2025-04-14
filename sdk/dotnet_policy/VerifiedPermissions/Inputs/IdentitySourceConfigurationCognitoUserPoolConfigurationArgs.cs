@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions.Inputs
         /// <summary>
         /// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
         /// </summary>
-        [Input("clientIds")]
+        [PolicyResourceProperty("clientIds", "_mUnknown_ClientIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClientIds;
-
-        public List<string>? ClientIds => _mClientIds.GetValue("clientIds");
+        private List<string>? _mValue_ClientIds;
+        private bool _mUnknown_ClientIds;
+        public List<string>? ClientIds
+        {
+            get
+            {
+                if (!_mUnknown_ClientIds) return _mValue_ClientIds;
+                throw new UndeferrableValueException("Value 'IdentitySourceConfigurationCognitoUserPoolConfigurationArgs.ClientIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
         /// </summary>
-        [Input("groupConfiguration")]
+        [PolicyResourceProperty("groupConfiguration", "_mUnknown_GroupConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs> _mGroupConfiguration;
-
-        public Inputs.IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs? GroupConfiguration => _mGroupConfiguration.GetValue("groupConfiguration");
+        private Inputs.IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs? _mValue_GroupConfiguration;
+        private bool _mUnknown_GroupConfiguration;
+        public Inputs.IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs? GroupConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_GroupConfiguration) return _mValue_GroupConfiguration;
+                throw new UndeferrableValueException("Value 'IdentitySourceConfigurationCognitoUserPoolConfigurationArgs.GroupConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
         /// </summary>
-        [Input("userPoolArn")]
+        [PolicyResourceProperty("userPoolArn", "_mUnknown_UserPoolArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolArn;
-
-        public string? UserPoolArn => _mUserPoolArn.GetValue("userPoolArn");
+        private string? _mValue_UserPoolArn;
+        private bool _mUnknown_UserPoolArn;
+        public string? UserPoolArn
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolArn) return _mValue_UserPoolArn;
+                throw new UndeferrableValueException("Value 'IdentitySourceConfigurationCognitoUserPoolConfigurationArgs.UserPoolArn' is not present");
+            }
+        }
     }
 }

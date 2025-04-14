@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.WorkLink.Inputs
         /// <summary>
         /// The SAML metadata document provided by the customer’s identity provider.
         /// </summary>
-        [Input("samlMetadata")]
+        [PolicyResourceProperty("samlMetadata", "_mUnknown_SamlMetadata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSamlMetadata;
-
-        public string? SamlMetadata => _mSamlMetadata.GetValue("samlMetadata");
+        private string? _mValue_SamlMetadata;
+        private bool _mUnknown_SamlMetadata;
+        public string? SamlMetadata
+        {
+            get
+            {
+                if (!_mUnknown_SamlMetadata) return _mValue_SamlMetadata;
+                throw new UndeferrableValueException("Value 'FleetIdentityProviderArgs.SamlMetadata' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of identity provider.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'FleetIdentityProviderArgs.Type' is not present");
+            }
+        }
     }
 }

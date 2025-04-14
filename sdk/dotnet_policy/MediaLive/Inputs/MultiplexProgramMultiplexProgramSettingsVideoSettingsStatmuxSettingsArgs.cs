@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Maximum bitrate.
         /// </summary>
-        [Input("maximumBitrate")]
+        [PolicyResourceProperty("maximumBitrate", "_mUnknown_MaximumBitrate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumBitrate;
-
-        public int? MaximumBitrate => _mMaximumBitrate.GetValue("maximumBitrate");
+        private int? _mValue_MaximumBitrate;
+        private bool _mUnknown_MaximumBitrate;
+        public int? MaximumBitrate
+        {
+            get
+            {
+                if (!_mUnknown_MaximumBitrate) return _mValue_MaximumBitrate;
+                throw new UndeferrableValueException("Value 'MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs.MaximumBitrate' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum bitrate.
         /// </summary>
-        [Input("minimumBitrate")]
+        [PolicyResourceProperty("minimumBitrate", "_mUnknown_MinimumBitrate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinimumBitrate;
-
-        public int? MinimumBitrate => _mMinimumBitrate.GetValue("minimumBitrate");
+        private int? _mValue_MinimumBitrate;
+        private bool _mUnknown_MinimumBitrate;
+        public int? MinimumBitrate
+        {
+            get
+            {
+                if (!_mUnknown_MinimumBitrate) return _mValue_MinimumBitrate;
+                throw new UndeferrableValueException("Value 'MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs.MinimumBitrate' is not present");
+            }
+        }
 
         /// <summary>
         /// Priority value.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs.Priority' is not present");
+            }
+        }
     }
 }

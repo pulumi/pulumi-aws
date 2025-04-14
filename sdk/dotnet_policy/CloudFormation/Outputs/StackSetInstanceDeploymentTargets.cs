@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CloudFormation.Outputs
         /// <summary>
         /// Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
         /// </summary>
-        [Input("accountFilterType")]
+        [PolicyResourceProperty("accountFilterType", "_mUnknown_AccountFilterType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountFilterType;
-
-        public string? AccountFilterType => _mAccountFilterType.GetValue("accountFilterType");
+        private string? _mValue_AccountFilterType;
+        private bool _mUnknown_AccountFilterType;
+        public string? AccountFilterType
+        {
+            get
+            {
+                if (!_mUnknown_AccountFilterType) return _mValue_AccountFilterType;
+                throw new UndeferrableValueException("Value 'StackSetInstanceDeploymentTargets.AccountFilterType' is not present");
+            }
+        }
 
         /// <summary>
         /// List of accounts to deploy stack set updates.
         /// </summary>
-        [Input("accounts")]
+        [PolicyResourceProperty("accounts", "_mUnknown_Accounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAccounts;
-
-        public List<string>? Accounts => _mAccounts.GetValue("accounts");
+        private List<string>? _mValue_Accounts;
+        private bool _mUnknown_Accounts;
+        public List<string>? Accounts
+        {
+            get
+            {
+                if (!_mUnknown_Accounts) return _mValue_Accounts;
+                throw new UndeferrableValueException("Value 'StackSetInstanceDeploymentTargets.Accounts' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 URL of the file containing the list of accounts.
         /// </summary>
-        [Input("accountsUrl")]
+        [PolicyResourceProperty("accountsUrl", "_mUnknown_AccountsUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountsUrl;
-
-        public string? AccountsUrl => _mAccountsUrl.GetValue("accountsUrl");
+        private string? _mValue_AccountsUrl;
+        private bool _mUnknown_AccountsUrl;
+        public string? AccountsUrl
+        {
+            get
+            {
+                if (!_mUnknown_AccountsUrl) return _mValue_AccountsUrl;
+                throw new UndeferrableValueException("Value 'StackSetInstanceDeploymentTargets.AccountsUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
         /// </summary>
-        [Input("organizationalUnitIds")]
+        [PolicyResourceProperty("organizationalUnitIds", "_mUnknown_OrganizationalUnitIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOrganizationalUnitIds;
-
-        public List<string>? OrganizationalUnitIds => _mOrganizationalUnitIds.GetValue("organizationalUnitIds");
+        private List<string>? _mValue_OrganizationalUnitIds;
+        private bool _mUnknown_OrganizationalUnitIds;
+        public List<string>? OrganizationalUnitIds
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationalUnitIds) return _mValue_OrganizationalUnitIds;
+                throw new UndeferrableValueException("Value 'StackSetInstanceDeploymentTargets.OrganizationalUnitIds' is not present");
+            }
+        }
     }
 }

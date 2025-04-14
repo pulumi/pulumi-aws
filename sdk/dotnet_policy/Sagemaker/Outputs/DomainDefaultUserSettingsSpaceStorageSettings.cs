@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The default EBS storage settings for a private space. See `default_ebs_storage_settings` Block below.
         /// </summary>
-        [Input("defaultEbsStorageSettings")]
+        [PolicyResourceProperty("defaultEbsStorageSettings", "_mUnknown_DefaultEbsStorageSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings> _mDefaultEbsStorageSettings;
-
-        public Outputs.DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings? DefaultEbsStorageSettings => _mDefaultEbsStorageSettings.GetValue("defaultEbsStorageSettings");
+        private Outputs.DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings? _mValue_DefaultEbsStorageSettings;
+        private bool _mUnknown_DefaultEbsStorageSettings;
+        public Outputs.DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings? DefaultEbsStorageSettings
+        {
+            get
+            {
+                if (!_mUnknown_DefaultEbsStorageSettings) return _mValue_DefaultEbsStorageSettings;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsSpaceStorageSettings.DefaultEbsStorageSettings' is not present");
+            }
+        }
     }
 }

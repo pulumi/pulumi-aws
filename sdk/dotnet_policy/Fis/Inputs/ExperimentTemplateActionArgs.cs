@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Fis.Inputs
         /// <summary>
         /// ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
         /// </summary>
-        [Input("actionId")]
+        [PolicyResourceProperty("actionId", "_mUnknown_ActionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionId;
-
-        public string? ActionId => _mActionId.GetValue("actionId");
+        private string? _mValue_ActionId;
+        private bool _mUnknown_ActionId;
+        public string? ActionId
+        {
+            get
+            {
+                if (!_mUnknown_ActionId) return _mValue_ActionId;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateActionArgs.ActionId' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the action.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateActionArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Friendly name of the action.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateActionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameter(s) for the action, if applicable. See below.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ExperimentTemplateActionParameterArgs>> _mParameters;
-
-        public List<Inputs.ExperimentTemplateActionParameterArgs>? Parameters => _mParameters.GetValue("parameters");
+        private List<Inputs.ExperimentTemplateActionParameterArgs>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Inputs.ExperimentTemplateActionParameterArgs>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateActionArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of action names that must complete before this action can be executed.
         /// </summary>
-        [Input("startAfters")]
+        [PolicyResourceProperty("startAfters", "_mUnknown_StartAfters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStartAfters;
-
-        public List<string>? StartAfters => _mStartAfters.GetValue("startAfters");
+        private List<string>? _mValue_StartAfters;
+        private bool _mUnknown_StartAfters;
+        public List<string>? StartAfters
+        {
+            get
+            {
+                if (!_mUnknown_StartAfters) return _mValue_StartAfters;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateActionArgs.StartAfters' is not present");
+            }
+        }
 
         /// <summary>
         /// Action's target, if applicable. See below.
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ExperimentTemplateActionTargetArgs> _mTarget;
-
-        public Inputs.ExperimentTemplateActionTargetArgs? Target => _mTarget.GetValue("target");
+        private Inputs.ExperimentTemplateActionTargetArgs? _mValue_Target;
+        private bool _mUnknown_Target;
+        public Inputs.ExperimentTemplateActionTargetArgs? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateActionArgs.Target' is not present");
+            }
+        }
     }
 }

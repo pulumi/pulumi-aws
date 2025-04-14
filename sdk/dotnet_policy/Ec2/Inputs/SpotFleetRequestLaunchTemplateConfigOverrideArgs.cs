@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// The availability zone in which to place the request.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideArgs.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance requirements. See below.
         /// </summary>
-        [Input("instanceRequirements")]
+        [PolicyResourceProperty("instanceRequirements", "_mUnknown_InstanceRequirements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs> _mInstanceRequirements;
-
-        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs? InstanceRequirements => _mInstanceRequirements.GetValue("instanceRequirements");
+        private Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs? _mValue_InstanceRequirements;
+        private bool _mUnknown_InstanceRequirements;
+        public Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs? InstanceRequirements
+        {
+            get
+            {
+                if (!_mUnknown_InstanceRequirements) return _mValue_InstanceRequirements;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideArgs.InstanceRequirements' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of instance to request.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideArgs.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mPriority;
-
-        public double? Priority => _mPriority.GetValue("priority");
+        private double? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public double? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideArgs.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum spot bid for this override request.
         /// </summary>
-        [Input("spotPrice")]
+        [PolicyResourceProperty("spotPrice", "_mUnknown_SpotPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpotPrice;
-
-        public string? SpotPrice => _mSpotPrice.GetValue("spotPrice");
+        private string? _mValue_SpotPrice;
+        private bool _mUnknown_SpotPrice;
+        public string? SpotPrice
+        {
+            get
+            {
+                if (!_mUnknown_SpotPrice) return _mValue_SpotPrice;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideArgs.SpotPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// The subnet in which to launch the requested instance.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideArgs.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// The capacity added to the fleet by a fulfilled request.
         /// </summary>
-        [Input("weightedCapacity")]
+        [PolicyResourceProperty("weightedCapacity", "_mUnknown_WeightedCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mWeightedCapacity;
-
-        public double? WeightedCapacity => _mWeightedCapacity.GetValue("weightedCapacity");
+        private double? _mValue_WeightedCapacity;
+        private bool _mUnknown_WeightedCapacity;
+        public double? WeightedCapacity
+        {
+            get
+            {
+                if (!_mUnknown_WeightedCapacity) return _mValue_WeightedCapacity;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideArgs.WeightedCapacity' is not present");
+            }
+        }
     }
 }

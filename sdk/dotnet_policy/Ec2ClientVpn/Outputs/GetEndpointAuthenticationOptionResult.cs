@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.Ec2ClientVpn.Outputs
 {
     public sealed class GetEndpointAuthenticationOptionResult
     {
-        [Input("activeDirectoryId")]
+        [PolicyResourceProperty("activeDirectoryId", "_mUnknown_ActiveDirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActiveDirectoryId;
+        private string? _mValue_ActiveDirectoryId;
+        private bool _mUnknown_ActiveDirectoryId;
+        public string? ActiveDirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_ActiveDirectoryId) return _mValue_ActiveDirectoryId;
+                throw new UndeferrableValueException("Value 'GetEndpointAuthenticationOptionResult.ActiveDirectoryId' is not present");
+            }
+        }
 
-        public string? ActiveDirectoryId => _mActiveDirectoryId.GetValue("activeDirectoryId");
-
-        [Input("rootCertificateChainArn")]
+        [PolicyResourceProperty("rootCertificateChainArn", "_mUnknown_RootCertificateChainArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRootCertificateChainArn;
+        private string? _mValue_RootCertificateChainArn;
+        private bool _mUnknown_RootCertificateChainArn;
+        public string? RootCertificateChainArn
+        {
+            get
+            {
+                if (!_mUnknown_RootCertificateChainArn) return _mValue_RootCertificateChainArn;
+                throw new UndeferrableValueException("Value 'GetEndpointAuthenticationOptionResult.RootCertificateChainArn' is not present");
+            }
+        }
 
-        public string? RootCertificateChainArn => _mRootCertificateChainArn.GetValue("rootCertificateChainArn");
-
-        [Input("samlProviderArn")]
+        [PolicyResourceProperty("samlProviderArn", "_mUnknown_SamlProviderArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSamlProviderArn;
+        private string? _mValue_SamlProviderArn;
+        private bool _mUnknown_SamlProviderArn;
+        public string? SamlProviderArn
+        {
+            get
+            {
+                if (!_mUnknown_SamlProviderArn) return _mValue_SamlProviderArn;
+                throw new UndeferrableValueException("Value 'GetEndpointAuthenticationOptionResult.SamlProviderArn' is not present");
+            }
+        }
 
-        public string? SamlProviderArn => _mSamlProviderArn.GetValue("samlProviderArn");
-
-        [Input("selfServiceSamlProviderArn")]
+        [PolicyResourceProperty("selfServiceSamlProviderArn", "_mUnknown_SelfServiceSamlProviderArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSelfServiceSamlProviderArn;
+        private string? _mValue_SelfServiceSamlProviderArn;
+        private bool _mUnknown_SelfServiceSamlProviderArn;
+        public string? SelfServiceSamlProviderArn
+        {
+            get
+            {
+                if (!_mUnknown_SelfServiceSamlProviderArn) return _mValue_SelfServiceSamlProviderArn;
+                throw new UndeferrableValueException("Value 'GetEndpointAuthenticationOptionResult.SelfServiceSamlProviderArn' is not present");
+            }
+        }
 
-        public string? SelfServiceSamlProviderArn => _mSelfServiceSamlProviderArn.GetValue("selfServiceSamlProviderArn");
-
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetEndpointAuthenticationOptionResult.Type' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.IvsChat.Outputs
         /// <summary>
         /// Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
         /// </summary>
-        [Input("deliveryStreamName")]
+        [PolicyResourceProperty("deliveryStreamName", "_mUnknown_DeliveryStreamName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryStreamName;
-
-        public string? DeliveryStreamName => _mDeliveryStreamName.GetValue("deliveryStreamName");
+        private string? _mValue_DeliveryStreamName;
+        private bool _mUnknown_DeliveryStreamName;
+        public string? DeliveryStreamName
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryStreamName) return _mValue_DeliveryStreamName;
+                throw new UndeferrableValueException("Value 'LoggingConfigurationDestinationConfigurationFirehose.DeliveryStreamName' is not present");
+            }
+        }
     }
 }

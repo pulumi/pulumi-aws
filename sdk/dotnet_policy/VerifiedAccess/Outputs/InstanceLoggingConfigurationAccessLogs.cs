@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess.Outputs
         /// <summary>
         /// A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
         /// </summary>
-        [Input("cloudwatchLogs")]
+        [PolicyResourceProperty("cloudwatchLogs", "_mUnknown_CloudwatchLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceLoggingConfigurationAccessLogsCloudwatchLogs> _mCloudwatchLogs;
-
-        public Outputs.InstanceLoggingConfigurationAccessLogsCloudwatchLogs? CloudwatchLogs => _mCloudwatchLogs.GetValue("cloudwatchLogs");
+        private Outputs.InstanceLoggingConfigurationAccessLogsCloudwatchLogs? _mValue_CloudwatchLogs;
+        private bool _mUnknown_CloudwatchLogs;
+        public Outputs.InstanceLoggingConfigurationAccessLogsCloudwatchLogs? CloudwatchLogs
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogs) return _mValue_CloudwatchLogs;
+                throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogs.CloudwatchLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// Include trust data sent by trust providers into the logs.
         /// </summary>
-        [Input("includeTrustContext")]
+        [PolicyResourceProperty("includeTrustContext", "_mUnknown_IncludeTrustContext")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeTrustContext;
-
-        public bool? IncludeTrustContext => _mIncludeTrustContext.GetValue("includeTrustContext");
+        private bool? _mValue_IncludeTrustContext;
+        private bool _mUnknown_IncludeTrustContext;
+        public bool? IncludeTrustContext
+        {
+            get
+            {
+                if (!_mUnknown_IncludeTrustContext) return _mValue_IncludeTrustContext;
+                throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogs.IncludeTrustContext' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
         /// </summary>
-        [Input("kinesisDataFirehose")]
+        [PolicyResourceProperty("kinesisDataFirehose", "_mUnknown_KinesisDataFirehose")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceLoggingConfigurationAccessLogsKinesisDataFirehose> _mKinesisDataFirehose;
-
-        public Outputs.InstanceLoggingConfigurationAccessLogsKinesisDataFirehose? KinesisDataFirehose => _mKinesisDataFirehose.GetValue("kinesisDataFirehose");
+        private Outputs.InstanceLoggingConfigurationAccessLogsKinesisDataFirehose? _mValue_KinesisDataFirehose;
+        private bool _mUnknown_KinesisDataFirehose;
+        public Outputs.InstanceLoggingConfigurationAccessLogsKinesisDataFirehose? KinesisDataFirehose
+        {
+            get
+            {
+                if (!_mUnknown_KinesisDataFirehose) return _mValue_KinesisDataFirehose;
+                throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogs.KinesisDataFirehose' is not present");
+            }
+        }
 
         /// <summary>
         /// The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
         /// </summary>
-        [Input("logVersion")]
+        [PolicyResourceProperty("logVersion", "_mUnknown_LogVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogVersion;
-
-        public string? LogVersion => _mLogVersion.GetValue("logVersion");
+        private string? _mValue_LogVersion;
+        private bool _mUnknown_LogVersion;
+        public string? LogVersion
+        {
+            get
+            {
+                if (!_mUnknown_LogVersion) return _mValue_LogVersion;
+                throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogs.LogVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies configures sending Verified Access logs to S3. Detailed below.
         /// </summary>
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceLoggingConfigurationAccessLogsS3> _mS3;
-
-        public Outputs.InstanceLoggingConfigurationAccessLogsS3? S3 => _mS3.GetValue("s3");
+        private Outputs.InstanceLoggingConfigurationAccessLogsS3? _mValue_S3;
+        private bool _mUnknown_S3;
+        public Outputs.InstanceLoggingConfigurationAccessLogsS3? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogs.S3' is not present");
+            }
+        }
     }
 }

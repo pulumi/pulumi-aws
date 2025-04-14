@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Outputs
         /// <summary>
         /// The two-letter code for the continent.
         /// </summary>
-        [Input("continentCode")]
+        [PolicyResourceProperty("continentCode", "_mUnknown_ContinentCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContinentCode;
-
-        public string? ContinentCode => _mContinentCode.GetValue("continentCode");
+        private string? _mValue_ContinentCode;
+        private bool _mUnknown_ContinentCode;
+        public string? ContinentCode
+        {
+            get
+            {
+                if (!_mUnknown_ContinentCode) return _mValue_ContinentCode;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetGeolocationResult.ContinentCode' is not present");
+            }
+        }
 
         /// <summary>
         /// The two-letter code for a country.
         /// </summary>
-        [Input("countryCode")]
+        [PolicyResourceProperty("countryCode", "_mUnknown_CountryCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCountryCode;
-
-        public string? CountryCode => _mCountryCode.GetValue("countryCode");
+        private string? _mValue_CountryCode;
+        private bool _mUnknown_CountryCode;
+        public string? CountryCode
+        {
+            get
+            {
+                if (!_mUnknown_CountryCode) return _mValue_CountryCode;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetGeolocationResult.CountryCode' is not present");
+            }
+        }
 
         /// <summary>
         /// The two-letter code for a state of the United States.
         /// </summary>
-        [Input("subdivisionCode")]
+        [PolicyResourceProperty("subdivisionCode", "_mUnknown_SubdivisionCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdivisionCode;
-
-        public string? SubdivisionCode => _mSubdivisionCode.GetValue("subdivisionCode");
+        private string? _mValue_SubdivisionCode;
+        private bool _mUnknown_SubdivisionCode;
+        public string? SubdivisionCode
+        {
+            get
+            {
+                if (!_mUnknown_SubdivisionCode) return _mValue_SubdivisionCode;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetGeolocationResult.SubdivisionCode' is not present");
+            }
+        }
     }
 }

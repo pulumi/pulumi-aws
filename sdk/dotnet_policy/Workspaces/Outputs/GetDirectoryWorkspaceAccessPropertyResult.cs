@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.Workspaces.Outputs
         /// <summary>
         /// (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
         /// </summary>
-        [Input("deviceTypeAndroid")]
+        [PolicyResourceProperty("deviceTypeAndroid", "_mUnknown_DeviceTypeAndroid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceTypeAndroid;
-
-        public string? DeviceTypeAndroid => _mDeviceTypeAndroid.GetValue("deviceTypeAndroid");
+        private string? _mValue_DeviceTypeAndroid;
+        private bool _mUnknown_DeviceTypeAndroid;
+        public string? DeviceTypeAndroid
+        {
+            get
+            {
+                if (!_mUnknown_DeviceTypeAndroid) return _mValue_DeviceTypeAndroid;
+                throw new UndeferrableValueException("Value 'GetDirectoryWorkspaceAccessPropertyResult.DeviceTypeAndroid' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
         /// </summary>
-        [Input("deviceTypeChromeos")]
+        [PolicyResourceProperty("deviceTypeChromeos", "_mUnknown_DeviceTypeChromeos")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceTypeChromeos;
-
-        public string? DeviceTypeChromeos => _mDeviceTypeChromeos.GetValue("deviceTypeChromeos");
+        private string? _mValue_DeviceTypeChromeos;
+        private bool _mUnknown_DeviceTypeChromeos;
+        public string? DeviceTypeChromeos
+        {
+            get
+            {
+                if (!_mUnknown_DeviceTypeChromeos) return _mValue_DeviceTypeChromeos;
+                throw new UndeferrableValueException("Value 'GetDirectoryWorkspaceAccessPropertyResult.DeviceTypeChromeos' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
         /// </summary>
-        [Input("deviceTypeIos")]
+        [PolicyResourceProperty("deviceTypeIos", "_mUnknown_DeviceTypeIos")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceTypeIos;
-
-        public string? DeviceTypeIos => _mDeviceTypeIos.GetValue("deviceTypeIos");
+        private string? _mValue_DeviceTypeIos;
+        private bool _mUnknown_DeviceTypeIos;
+        public string? DeviceTypeIos
+        {
+            get
+            {
+                if (!_mUnknown_DeviceTypeIos) return _mValue_DeviceTypeIos;
+                throw new UndeferrableValueException("Value 'GetDirectoryWorkspaceAccessPropertyResult.DeviceTypeIos' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Indicates whether users can use Linux clients to access their WorkSpaces.
         /// </summary>
-        [Input("deviceTypeLinux")]
+        [PolicyResourceProperty("deviceTypeLinux", "_mUnknown_DeviceTypeLinux")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceTypeLinux;
-
-        public string? DeviceTypeLinux => _mDeviceTypeLinux.GetValue("deviceTypeLinux");
+        private string? _mValue_DeviceTypeLinux;
+        private bool _mUnknown_DeviceTypeLinux;
+        public string? DeviceTypeLinux
+        {
+            get
+            {
+                if (!_mUnknown_DeviceTypeLinux) return _mValue_DeviceTypeLinux;
+                throw new UndeferrableValueException("Value 'GetDirectoryWorkspaceAccessPropertyResult.DeviceTypeLinux' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
         /// </summary>
-        [Input("deviceTypeOsx")]
+        [PolicyResourceProperty("deviceTypeOsx", "_mUnknown_DeviceTypeOsx")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceTypeOsx;
-
-        public string? DeviceTypeOsx => _mDeviceTypeOsx.GetValue("deviceTypeOsx");
+        private string? _mValue_DeviceTypeOsx;
+        private bool _mUnknown_DeviceTypeOsx;
+        public string? DeviceTypeOsx
+        {
+            get
+            {
+                if (!_mUnknown_DeviceTypeOsx) return _mValue_DeviceTypeOsx;
+                throw new UndeferrableValueException("Value 'GetDirectoryWorkspaceAccessPropertyResult.DeviceTypeOsx' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Indicates whether users can access their WorkSpaces through a web browser.
         /// </summary>
-        [Input("deviceTypeWeb")]
+        [PolicyResourceProperty("deviceTypeWeb", "_mUnknown_DeviceTypeWeb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceTypeWeb;
-
-        public string? DeviceTypeWeb => _mDeviceTypeWeb.GetValue("deviceTypeWeb");
+        private string? _mValue_DeviceTypeWeb;
+        private bool _mUnknown_DeviceTypeWeb;
+        public string? DeviceTypeWeb
+        {
+            get
+            {
+                if (!_mUnknown_DeviceTypeWeb) return _mValue_DeviceTypeWeb;
+                throw new UndeferrableValueException("Value 'GetDirectoryWorkspaceAccessPropertyResult.DeviceTypeWeb' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
         /// </summary>
-        [Input("deviceTypeWindows")]
+        [PolicyResourceProperty("deviceTypeWindows", "_mUnknown_DeviceTypeWindows")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceTypeWindows;
-
-        public string? DeviceTypeWindows => _mDeviceTypeWindows.GetValue("deviceTypeWindows");
+        private string? _mValue_DeviceTypeWindows;
+        private bool _mUnknown_DeviceTypeWindows;
+        public string? DeviceTypeWindows
+        {
+            get
+            {
+                if (!_mUnknown_DeviceTypeWindows) return _mValue_DeviceTypeWindows;
+                throw new UndeferrableValueException("Value 'GetDirectoryWorkspaceAccessPropertyResult.DeviceTypeWindows' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
         /// </summary>
-        [Input("deviceTypeZeroclient")]
+        [PolicyResourceProperty("deviceTypeZeroclient", "_mUnknown_DeviceTypeZeroclient")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceTypeZeroclient;
-
-        public string? DeviceTypeZeroclient => _mDeviceTypeZeroclient.GetValue("deviceTypeZeroclient");
+        private string? _mValue_DeviceTypeZeroclient;
+        private bool _mUnknown_DeviceTypeZeroclient;
+        public string? DeviceTypeZeroclient
+        {
+            get
+            {
+                if (!_mUnknown_DeviceTypeZeroclient) return _mValue_DeviceTypeZeroclient;
+                throw new UndeferrableValueException("Value 'GetDirectoryWorkspaceAccessPropertyResult.DeviceTypeZeroclient' is not present");
+            }
+        }
     }
 }

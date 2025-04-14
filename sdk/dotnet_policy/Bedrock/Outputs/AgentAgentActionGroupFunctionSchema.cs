@@ -17,10 +17,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// Each function describes and action in the action group.
         /// See `member_functions` Block for details.
         /// </summary>
-        [Input("memberFunctions")]
+        [PolicyResourceProperty("memberFunctions", "_mUnknown_MemberFunctions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentActionGroupFunctionSchemaMemberFunctions> _mMemberFunctions;
-
-        public Outputs.AgentAgentActionGroupFunctionSchemaMemberFunctions? MemberFunctions => _mMemberFunctions.GetValue("memberFunctions");
+        private Outputs.AgentAgentActionGroupFunctionSchemaMemberFunctions? _mValue_MemberFunctions;
+        private bool _mUnknown_MemberFunctions;
+        public Outputs.AgentAgentActionGroupFunctionSchemaMemberFunctions? MemberFunctions
+        {
+            get
+            {
+                if (!_mUnknown_MemberFunctions) return _mValue_MemberFunctions;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupFunctionSchema.MemberFunctions' is not present");
+            }
+        }
     }
 }

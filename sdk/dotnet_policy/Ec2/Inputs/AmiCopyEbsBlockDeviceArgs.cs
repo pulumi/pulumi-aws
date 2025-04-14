@@ -16,89 +16,152 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// Boolean controlling whether the EBS volumes created to
         /// support each created instance will be deleted once that instance is terminated.
         /// </summary>
-        [Input("deleteOnTermination")]
+        [PolicyResourceProperty("deleteOnTermination", "_mUnknown_DeleteOnTermination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteOnTermination;
-
-        public bool? DeleteOnTermination => _mDeleteOnTermination.GetValue("deleteOnTermination");
+        private bool? _mValue_DeleteOnTermination;
+        private bool _mUnknown_DeleteOnTermination;
+        public bool? DeleteOnTermination
+        {
+            get
+            {
+                if (!_mUnknown_DeleteOnTermination) return _mValue_DeleteOnTermination;
+                throw new UndeferrableValueException("Value 'AmiCopyEbsBlockDeviceArgs.DeleteOnTermination' is not present");
+            }
+        }
 
         /// <summary>
         /// Path at which the device is exposed to created instances.
         /// </summary>
-        [Input("deviceName")]
+        [PolicyResourceProperty("deviceName", "_mUnknown_DeviceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceName;
-
-        public string? DeviceName => _mDeviceName.GetValue("deviceName");
+        private string? _mValue_DeviceName;
+        private bool _mUnknown_DeviceName;
+        public string? DeviceName
+        {
+            get
+            {
+                if (!_mUnknown_DeviceName) return _mValue_DeviceName;
+                throw new UndeferrableValueException("Value 'AmiCopyEbsBlockDeviceArgs.DeviceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
         /// </summary>
-        [Input("encrypted")]
+        [PolicyResourceProperty("encrypted", "_mUnknown_Encrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypted;
-
-        public bool? Encrypted => _mEncrypted.GetValue("encrypted");
+        private bool? _mValue_Encrypted;
+        private bool _mUnknown_Encrypted;
+        public bool? Encrypted
+        {
+            get
+            {
+                if (!_mUnknown_Encrypted) return _mValue_Encrypted;
+                throw new UndeferrableValueException("Value 'AmiCopyEbsBlockDeviceArgs.Encrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of I/O operations per second the
         /// created volumes will support.
         /// </summary>
-        [Input("iops")]
+        [PolicyResourceProperty("iops", "_mUnknown_Iops")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIops;
-
-        public int? Iops => _mIops.GetValue("iops");
+        private int? _mValue_Iops;
+        private bool _mUnknown_Iops;
+        public int? Iops
+        {
+            get
+            {
+                if (!_mUnknown_Iops) return _mValue_Iops;
+                throw new UndeferrableValueException("Value 'AmiCopyEbsBlockDeviceArgs.Iops' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Outpost on which the snapshot is stored.
         /// 
         /// &gt; **Note:** You can specify `encrypted` or `snapshot_id` but not both.
         /// </summary>
-        [Input("outpostArn")]
+        [PolicyResourceProperty("outpostArn", "_mUnknown_OutpostArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostArn;
-
-        public string? OutpostArn => _mOutpostArn.GetValue("outpostArn");
+        private string? _mValue_OutpostArn;
+        private bool _mUnknown_OutpostArn;
+        public string? OutpostArn
+        {
+            get
+            {
+                if (!_mUnknown_OutpostArn) return _mValue_OutpostArn;
+                throw new UndeferrableValueException("Value 'AmiCopyEbsBlockDeviceArgs.OutpostArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of an EBS snapshot that will be used to initialize the created
         /// EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
         /// snapshot.
         /// </summary>
-        [Input("snapshotId")]
+        [PolicyResourceProperty("snapshotId", "_mUnknown_SnapshotId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotId;
-
-        public string? SnapshotId => _mSnapshotId.GetValue("snapshotId");
+        private string? _mValue_SnapshotId;
+        private bool _mUnknown_SnapshotId;
+        public string? SnapshotId
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotId) return _mValue_SnapshotId;
+                throw new UndeferrableValueException("Value 'AmiCopyEbsBlockDeviceArgs.SnapshotId' is not present");
+            }
+        }
 
         /// <summary>
         /// Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
         /// </summary>
-        [Input("throughput")]
+        [PolicyResourceProperty("throughput", "_mUnknown_Throughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThroughput;
-
-        public int? Throughput => _mThroughput.GetValue("throughput");
+        private int? _mValue_Throughput;
+        private bool _mUnknown_Throughput;
+        public int? Throughput
+        {
+            get
+            {
+                if (!_mUnknown_Throughput) return _mValue_Throughput;
+                throw new UndeferrableValueException("Value 'AmiCopyEbsBlockDeviceArgs.Throughput' is not present");
+            }
+        }
 
         /// <summary>
         /// Size of created volumes in GiB.
         /// If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
         /// as the selected snapshot.
         /// </summary>
-        [Input("volumeSize")]
+        [PolicyResourceProperty("volumeSize", "_mUnknown_VolumeSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVolumeSize;
-
-        public int? VolumeSize => _mVolumeSize.GetValue("volumeSize");
+        private int? _mValue_VolumeSize;
+        private bool _mUnknown_VolumeSize;
+        public int? VolumeSize
+        {
+            get
+            {
+                if (!_mUnknown_VolumeSize) return _mValue_VolumeSize;
+                throw new UndeferrableValueException("Value 'AmiCopyEbsBlockDeviceArgs.VolumeSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
         /// </summary>
-        [Input("volumeType")]
+        [PolicyResourceProperty("volumeType", "_mUnknown_VolumeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeType;
-
-        public string? VolumeType => _mVolumeType.GetValue("volumeType");
+        private string? _mValue_VolumeType;
+        private bool _mUnknown_VolumeType;
+        public string? VolumeType
+        {
+            get
+            {
+                if (!_mUnknown_VolumeType) return _mValue_VolumeType;
+                throw new UndeferrableValueException("Value 'AmiCopyEbsBlockDeviceArgs.VolumeType' is not present");
+            }
+        }
     }
 }

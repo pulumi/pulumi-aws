@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Inputs
         /// <summary>
         /// A list of strings. The list of segments that the `send-via` `action` uses.
         /// </summary>
-        [Input("segments")]
+        [PolicyResourceProperty("segments", "_mUnknown_Segments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSegments;
-
-        public List<string>? Segments => _mSegments.GetValue("segments");
+        private List<string>? _mValue_Segments;
+        private bool _mUnknown_Segments;
+        public List<string>? Segments
+        {
+            get
+            {
+                if (!_mUnknown_Segments) return _mValue_Segments;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs.Segments' is not present");
+            }
+        }
     }
 }

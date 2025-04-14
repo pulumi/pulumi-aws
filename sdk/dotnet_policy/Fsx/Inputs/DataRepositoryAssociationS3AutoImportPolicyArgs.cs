@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Inputs
         /// <summary>
         /// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
         /// </summary>
-        [Input("events")]
+        [PolicyResourceProperty("events", "_mUnknown_Events")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEvents;
-
-        public List<string>? Events => _mEvents.GetValue("events");
+        private List<string>? _mValue_Events;
+        private bool _mUnknown_Events;
+        public List<string>? Events
+        {
+            get
+            {
+                if (!_mUnknown_Events) return _mValue_Events;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociationS3AutoImportPolicyArgs.Events' is not present");
+            }
+        }
     }
 }

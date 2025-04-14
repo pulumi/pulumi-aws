@@ -16,67 +16,116 @@ namespace Pulumi.PolicyPacks.Aws.MemoryDb
         /// <summary>
         /// Access permissions string used for this user.
         /// </summary>
-        [Input("accessString")]
+        [PolicyResourceProperty("accessString", "_mUnknown_AccessString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessString;
-
-        public string? AccessString => _mAccessString.GetValue("accessString");
+        private string? _mValue_AccessString;
+        private bool _mUnknown_AccessString;
+        public string? AccessString
+        {
+            get
+            {
+                if (!_mUnknown_AccessString) return _mValue_AccessString;
+                throw new UndeferrableValueException("Value 'User.AccessString' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the user.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'User.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Denotes the user's authentication properties. Detailed below.
         /// </summary>
-        [Input("authenticationMode")]
+        [PolicyResourceProperty("authenticationMode", "_mUnknown_AuthenticationMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserAuthenticationMode> _mAuthenticationMode;
-
-        public Outputs.UserAuthenticationMode? AuthenticationMode => _mAuthenticationMode.GetValue("authenticationMode");
+        private Outputs.UserAuthenticationMode? _mValue_AuthenticationMode;
+        private bool _mUnknown_AuthenticationMode;
+        public Outputs.UserAuthenticationMode? AuthenticationMode
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationMode) return _mValue_AuthenticationMode;
+                throw new UndeferrableValueException("Value 'User.AuthenticationMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum engine version supported for the user.
         /// </summary>
-        [Input("minimumEngineVersion")]
+        [PolicyResourceProperty("minimumEngineVersion", "_mUnknown_MinimumEngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMinimumEngineVersion;
-
-        public string? MinimumEngineVersion => _mMinimumEngineVersion.GetValue("minimumEngineVersion");
+        private string? _mValue_MinimumEngineVersion;
+        private bool _mUnknown_MinimumEngineVersion;
+        public string? MinimumEngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_MinimumEngineVersion) return _mValue_MinimumEngineVersion;
+                throw new UndeferrableValueException("Value 'User.MinimumEngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'User.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'User.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the MemoryDB user. Up to 40 characters.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'User.UserName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:memorydb/user:User")]
@@ -85,39 +134,67 @@ namespace Pulumi.PolicyPacks.Aws.MemoryDb
         /// <summary>
         /// Access permissions string used for this user.
         /// </summary>
-        [Input("accessString")]
+        [PolicyResourceProperty("accessString", "_mUnknown_AccessString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessString;
-
-        public string? AccessString => _mAccessString.GetValue("accessString");
+        private string? _mValue_AccessString;
+        private bool _mUnknown_AccessString;
+        public string? AccessString
+        {
+            get
+            {
+                if (!_mUnknown_AccessString) return _mValue_AccessString;
+                throw new UndeferrableValueException("Value 'UserArgs.AccessString' is not present");
+            }
+        }
 
         /// <summary>
         /// Denotes the user's authentication properties. Detailed below.
         /// </summary>
-        [Input("authenticationMode")]
+        [PolicyResourceProperty("authenticationMode", "_mUnknown_AuthenticationMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserAuthenticationModeArgs> _mAuthenticationMode;
-
-        public Inputs.UserAuthenticationModeArgs? AuthenticationMode => _mAuthenticationMode.GetValue("authenticationMode");
+        private Inputs.UserAuthenticationModeArgs? _mValue_AuthenticationMode;
+        private bool _mUnknown_AuthenticationMode;
+        public Inputs.UserAuthenticationModeArgs? AuthenticationMode
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationMode) return _mValue_AuthenticationMode;
+                throw new UndeferrableValueException("Value 'UserArgs.AuthenticationMode' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'UserArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the MemoryDB user. Up to 40 characters.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'UserArgs.UserName' is not present");
+            }
+        }
     }
 }

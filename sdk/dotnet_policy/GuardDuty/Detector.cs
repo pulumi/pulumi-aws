@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty
         /// <summary>
         /// The AWS account ID of the GuardDuty detector
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'Detector.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the GuardDuty detector
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Detector.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
         /// </summary>
-        [Input("datasources")]
+        [PolicyResourceProperty("datasources", "_mUnknown_Datasources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DetectorDatasources> _mDatasources;
-
-        public Outputs.DetectorDatasources? Datasources => _mDatasources.GetValue("datasources");
+        private Outputs.DetectorDatasources? _mValue_Datasources;
+        private bool _mUnknown_Datasources;
+        public Outputs.DetectorDatasources? Datasources
+        {
+            get
+            {
+                if (!_mUnknown_Datasources) return _mValue_Datasources;
+                throw new UndeferrableValueException("Value 'Detector.Datasources' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
         /// </summary>
-        [Input("enable")]
+        [PolicyResourceProperty("enable", "_mUnknown_Enable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnable;
-
-        public bool? Enable => _mEnable.GetValue("enable");
+        private bool? _mValue_Enable;
+        private bool _mUnknown_Enable;
+        public bool? Enable
+        {
+            get
+            {
+                if (!_mUnknown_Enable) return _mValue_Enable;
+                throw new UndeferrableValueException("Value 'Detector.Enable' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
         /// </summary>
-        [Input("findingPublishingFrequency")]
+        [PolicyResourceProperty("findingPublishingFrequency", "_mUnknown_FindingPublishingFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFindingPublishingFrequency;
-
-        public string? FindingPublishingFrequency => _mFindingPublishingFrequency.GetValue("findingPublishingFrequency");
+        private string? _mValue_FindingPublishingFrequency;
+        private bool _mUnknown_FindingPublishingFrequency;
+        public string? FindingPublishingFrequency
+        {
+            get
+            {
+                if (!_mUnknown_FindingPublishingFrequency) return _mValue_FindingPublishingFrequency;
+                throw new UndeferrableValueException("Value 'Detector.FindingPublishingFrequency' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Detector.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Detector.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:guardduty/detector:Detector")]
@@ -83,37 +132,65 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty
         /// <summary>
         /// Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
         /// </summary>
-        [Input("datasources")]
+        [PolicyResourceProperty("datasources", "_mUnknown_Datasources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DetectorDatasourcesArgs> _mDatasources;
-
-        public Inputs.DetectorDatasourcesArgs? Datasources => _mDatasources.GetValue("datasources");
+        private Inputs.DetectorDatasourcesArgs? _mValue_Datasources;
+        private bool _mUnknown_Datasources;
+        public Inputs.DetectorDatasourcesArgs? Datasources
+        {
+            get
+            {
+                if (!_mUnknown_Datasources) return _mValue_Datasources;
+                throw new UndeferrableValueException("Value 'DetectorArgs.Datasources' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
         /// </summary>
-        [Input("enable")]
+        [PolicyResourceProperty("enable", "_mUnknown_Enable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnable;
-
-        public bool? Enable => _mEnable.GetValue("enable");
+        private bool? _mValue_Enable;
+        private bool _mUnknown_Enable;
+        public bool? Enable
+        {
+            get
+            {
+                if (!_mUnknown_Enable) return _mValue_Enable;
+                throw new UndeferrableValueException("Value 'DetectorArgs.Enable' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
         /// </summary>
-        [Input("findingPublishingFrequency")]
+        [PolicyResourceProperty("findingPublishingFrequency", "_mUnknown_FindingPublishingFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFindingPublishingFrequency;
-
-        public string? FindingPublishingFrequency => _mFindingPublishingFrequency.GetValue("findingPublishingFrequency");
+        private string? _mValue_FindingPublishingFrequency;
+        private bool _mUnknown_FindingPublishingFrequency;
+        public string? FindingPublishingFrequency
+        {
+            get
+            {
+                if (!_mUnknown_FindingPublishingFrequency) return _mValue_FindingPublishingFrequency;
+                throw new UndeferrableValueException("Value 'DetectorArgs.FindingPublishingFrequency' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DetectorArgs.Tags' is not present");
+            }
+        }
     }
 }

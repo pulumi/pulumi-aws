@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionTagConfigurationArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
         /// </summary>
-        [Input("tagRules")]
+        [PolicyResourceProperty("tagRules", "_mUnknown_TagRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DataSetRowLevelPermissionTagConfigurationTagRuleArgs>> _mTagRules;
-
-        public List<Inputs.DataSetRowLevelPermissionTagConfigurationTagRuleArgs>? TagRules => _mTagRules.GetValue("tagRules");
+        private List<Inputs.DataSetRowLevelPermissionTagConfigurationTagRuleArgs>? _mValue_TagRules;
+        private bool _mUnknown_TagRules;
+        public List<Inputs.DataSetRowLevelPermissionTagConfigurationTagRuleArgs>? TagRules
+        {
+            get
+            {
+                if (!_mUnknown_TagRules) return _mValue_TagRules;
+                throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionTagConfigurationArgs.TagRules' is not present");
+            }
+        }
     }
 }

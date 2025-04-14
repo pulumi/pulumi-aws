@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Outputs
         /// <summary>
         /// The partition key.
         /// </summary>
-        [Input("partitionKey")]
+        [PolicyResourceProperty("partitionKey", "_mUnknown_PartitionKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPartitionKey;
-
-        public string? PartitionKey => _mPartitionKey.GetValue("partitionKey");
+        private string? _mValue_PartitionKey;
+        private bool _mUnknown_PartitionKey;
+        public string? PartitionKey
+        {
+            get
+            {
+                if (!_mUnknown_PartitionKey) return _mValue_PartitionKey;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionKinesis.PartitionKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionKinesis.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Amazon Kinesis stream.
         /// </summary>
-        [Input("streamName")]
+        [PolicyResourceProperty("streamName", "_mUnknown_StreamName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamName;
-
-        public string? StreamName => _mStreamName.GetValue("streamName");
+        private string? _mValue_StreamName;
+        private bool _mUnknown_StreamName;
+        public string? StreamName
+        {
+            get
+            {
+                if (!_mUnknown_StreamName) return _mValue_StreamName;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionKinesis.StreamName' is not present");
+            }
+        }
     }
 }

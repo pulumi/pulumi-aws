@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.SesV2.Outputs
         /// <summary>
         /// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
         /// </summary>
-        [Input("maxDeliverySeconds")]
+        [PolicyResourceProperty("maxDeliverySeconds", "_mUnknown_MaxDeliverySeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxDeliverySeconds;
-
-        public int? MaxDeliverySeconds => _mMaxDeliverySeconds.GetValue("maxDeliverySeconds");
+        private int? _mValue_MaxDeliverySeconds;
+        private bool _mUnknown_MaxDeliverySeconds;
+        public int? MaxDeliverySeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaxDeliverySeconds) return _mValue_MaxDeliverySeconds;
+                throw new UndeferrableValueException("Value 'ConfigurationSetDeliveryOptions.MaxDeliverySeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the dedicated IP pool to associate with the configuration set.
         /// </summary>
-        [Input("sendingPoolName")]
+        [PolicyResourceProperty("sendingPoolName", "_mUnknown_SendingPoolName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSendingPoolName;
-
-        public string? SendingPoolName => _mSendingPoolName.GetValue("sendingPoolName");
+        private string? _mValue_SendingPoolName;
+        private bool _mUnknown_SendingPoolName;
+        public string? SendingPoolName
+        {
+            get
+            {
+                if (!_mUnknown_SendingPoolName) return _mValue_SendingPoolName;
+                throw new UndeferrableValueException("Value 'ConfigurationSetDeliveryOptions.SendingPoolName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
         /// </summary>
-        [Input("tlsPolicy")]
+        [PolicyResourceProperty("tlsPolicy", "_mUnknown_TlsPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTlsPolicy;
-
-        public string? TlsPolicy => _mTlsPolicy.GetValue("tlsPolicy");
+        private string? _mValue_TlsPolicy;
+        private bool _mUnknown_TlsPolicy;
+        public string? TlsPolicy
+        {
+            get
+            {
+                if (!_mUnknown_TlsPolicy) return _mValue_TlsPolicy;
+                throw new UndeferrableValueException("Value 'ConfigurationSetDeliveryOptions.TlsPolicy' is not present");
+            }
+        }
     }
 }

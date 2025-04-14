@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Rds.Inputs
         /// <summary>
         /// The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
         /// </summary>
-        [Input("authScheme")]
+        [PolicyResourceProperty("authScheme", "_mUnknown_AuthScheme")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthScheme;
-
-        public string? AuthScheme => _mAuthScheme.GetValue("authScheme");
+        private string? _mValue_AuthScheme;
+        private bool _mUnknown_AuthScheme;
+        public string? AuthScheme
+        {
+            get
+            {
+                if (!_mUnknown_AuthScheme) return _mValue_AuthScheme;
+                throw new UndeferrableValueException("Value 'ProxyAuthArgs.AuthScheme' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
         /// </summary>
-        [Input("clientPasswordAuthType")]
+        [PolicyResourceProperty("clientPasswordAuthType", "_mUnknown_ClientPasswordAuthType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientPasswordAuthType;
-
-        public string? ClientPasswordAuthType => _mClientPasswordAuthType.GetValue("clientPasswordAuthType");
+        private string? _mValue_ClientPasswordAuthType;
+        private bool _mUnknown_ClientPasswordAuthType;
+        public string? ClientPasswordAuthType
+        {
+            get
+            {
+                if (!_mUnknown_ClientPasswordAuthType) return _mValue_ClientPasswordAuthType;
+                throw new UndeferrableValueException("Value 'ProxyAuthArgs.ClientPasswordAuthType' is not present");
+            }
+        }
 
         /// <summary>
         /// A user-specified description about the authentication used by a proxy to log in as a specific database user.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ProxyAuthArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
         /// </summary>
-        [Input("iamAuth")]
+        [PolicyResourceProperty("iamAuth", "_mUnknown_IamAuth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamAuth;
-
-        public string? IamAuth => _mIamAuth.GetValue("iamAuth");
+        private string? _mValue_IamAuth;
+        private bool _mUnknown_IamAuth;
+        public string? IamAuth
+        {
+            get
+            {
+                if (!_mUnknown_IamAuth) return _mValue_IamAuth;
+                throw new UndeferrableValueException("Value 'ProxyAuthArgs.IamAuth' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
         /// </summary>
-        [Input("secretArn")]
+        [PolicyResourceProperty("secretArn", "_mUnknown_SecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
-
-        public string? SecretArn => _mSecretArn.GetValue("secretArn");
+        private string? _mValue_SecretArn;
+        private bool _mUnknown_SecretArn;
+        public string? SecretArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretArn) return _mValue_SecretArn;
+                throw new UndeferrableValueException("Value 'ProxyAuthArgs.SecretArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database user to which the proxy connects.
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'ProxyAuthArgs.Username' is not present");
+            }
+        }
     }
 }

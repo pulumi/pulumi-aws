@@ -16,157 +16,276 @@ namespace Pulumi.PolicyPacks.Aws.Budgets
         /// <summary>
         /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'Budget.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the budget.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Budget.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
         /// </summary>
-        [Input("autoAdjustData")]
+        [PolicyResourceProperty("autoAdjustData", "_mUnknown_AutoAdjustData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BudgetAutoAdjustData> _mAutoAdjustData;
-
-        public Outputs.BudgetAutoAdjustData? AutoAdjustData => _mAutoAdjustData.GetValue("autoAdjustData");
+        private Outputs.BudgetAutoAdjustData? _mValue_AutoAdjustData;
+        private bool _mUnknown_AutoAdjustData;
+        public Outputs.BudgetAutoAdjustData? AutoAdjustData
+        {
+            get
+            {
+                if (!_mUnknown_AutoAdjustData) return _mValue_AutoAdjustData;
+                throw new UndeferrableValueException("Value 'Budget.AutoAdjustData' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether this budget tracks monetary cost or usage.
         /// </summary>
-        [Input("budgetType")]
+        [PolicyResourceProperty("budgetType", "_mUnknown_BudgetType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBudgetType;
-
-        public string? BudgetType => _mBudgetType.GetValue("budgetType");
+        private string? _mValue_BudgetType;
+        private bool _mUnknown_BudgetType;
+        public string? BudgetType
+        {
+            get
+            {
+                if (!_mUnknown_BudgetType) return _mValue_BudgetType;
+                throw new UndeferrableValueException("Value 'Budget.BudgetType' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of CostFilter name/values pair to apply to budget.
         /// </summary>
-        [Input("costFilters")]
+        [PolicyResourceProperty("costFilters", "_mUnknown_CostFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BudgetCostFilter>> _mCostFilters;
-
-        public List<Outputs.BudgetCostFilter>? CostFilters => _mCostFilters.GetValue("costFilters");
+        private List<Outputs.BudgetCostFilter>? _mValue_CostFilters;
+        private bool _mUnknown_CostFilters;
+        public List<Outputs.BudgetCostFilter>? CostFilters
+        {
+            get
+            {
+                if (!_mUnknown_CostFilters) return _mValue_CostFilters;
+                throw new UndeferrableValueException("Value 'Budget.CostFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         /// </summary>
-        [Input("costTypes")]
+        [PolicyResourceProperty("costTypes", "_mUnknown_CostTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BudgetCostTypes> _mCostTypes;
-
-        public Outputs.BudgetCostTypes? CostTypes => _mCostTypes.GetValue("costTypes");
+        private Outputs.BudgetCostTypes? _mValue_CostTypes;
+        private bool _mUnknown_CostTypes;
+        public Outputs.BudgetCostTypes? CostTypes
+        {
+            get
+            {
+                if (!_mUnknown_CostTypes) return _mValue_CostTypes;
+                throw new UndeferrableValueException("Value 'Budget.CostTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of cost or usage being measured for a budget.
         /// </summary>
-        [Input("limitAmount")]
+        [PolicyResourceProperty("limitAmount", "_mUnknown_LimitAmount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLimitAmount;
-
-        public string? LimitAmount => _mLimitAmount.GetValue("limitAmount");
+        private string? _mValue_LimitAmount;
+        private bool _mUnknown_LimitAmount;
+        public string? LimitAmount
+        {
+            get
+            {
+                if (!_mUnknown_LimitAmount) return _mValue_LimitAmount;
+                throw new UndeferrableValueException("Value 'Budget.LimitAmount' is not present");
+            }
+        }
 
         /// <summary>
         /// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         /// </summary>
-        [Input("limitUnit")]
+        [PolicyResourceProperty("limitUnit", "_mUnknown_LimitUnit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLimitUnit;
-
-        public string? LimitUnit => _mLimitUnit.GetValue("limitUnit");
+        private string? _mValue_LimitUnit;
+        private bool _mUnknown_LimitUnit;
+        public string? LimitUnit
+        {
+            get
+            {
+                if (!_mUnknown_LimitUnit) return _mValue_LimitUnit;
+                throw new UndeferrableValueException("Value 'Budget.LimitUnit' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of a budget. Unique within accounts.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Budget.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The prefix of the name of a budget. Unique within accounts.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'Budget.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
         /// </summary>
-        [Input("notifications")]
+        [PolicyResourceProperty("notifications", "_mUnknown_Notifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BudgetNotification>> _mNotifications;
-
-        public List<Outputs.BudgetNotification>? Notifications => _mNotifications.GetValue("notifications");
+        private List<Outputs.BudgetNotification>? _mValue_Notifications;
+        private bool _mUnknown_Notifications;
+        public List<Outputs.BudgetNotification>? Notifications
+        {
+            get
+            {
+                if (!_mUnknown_Notifications) return _mValue_Notifications;
+                throw new UndeferrableValueException("Value 'Budget.Notifications' is not present");
+            }
+        }
 
         /// <summary>
         /// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
         /// </summary>
-        [Input("plannedLimits")]
+        [PolicyResourceProperty("plannedLimits", "_mUnknown_PlannedLimits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BudgetPlannedLimit>> _mPlannedLimits;
-
-        public List<Outputs.BudgetPlannedLimit>? PlannedLimits => _mPlannedLimits.GetValue("plannedLimits");
+        private List<Outputs.BudgetPlannedLimit>? _mValue_PlannedLimits;
+        private bool _mUnknown_PlannedLimits;
+        public List<Outputs.BudgetPlannedLimit>? PlannedLimits
+        {
+            get
+            {
+                if (!_mUnknown_PlannedLimits) return _mValue_PlannedLimits;
+                throw new UndeferrableValueException("Value 'Budget.PlannedLimits' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Budget.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Budget.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         /// </summary>
-        [Input("timePeriodEnd")]
+        [PolicyResourceProperty("timePeriodEnd", "_mUnknown_TimePeriodEnd")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimePeriodEnd;
-
-        public string? TimePeriodEnd => _mTimePeriodEnd.GetValue("timePeriodEnd");
+        private string? _mValue_TimePeriodEnd;
+        private bool _mUnknown_TimePeriodEnd;
+        public string? TimePeriodEnd
+        {
+            get
+            {
+                if (!_mUnknown_TimePeriodEnd) return _mValue_TimePeriodEnd;
+                throw new UndeferrableValueException("Value 'Budget.TimePeriodEnd' is not present");
+            }
+        }
 
         /// <summary>
         /// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
         /// </summary>
-        [Input("timePeriodStart")]
+        [PolicyResourceProperty("timePeriodStart", "_mUnknown_TimePeriodStart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimePeriodStart;
-
-        public string? TimePeriodStart => _mTimePeriodStart.GetValue("timePeriodStart");
+        private string? _mValue_TimePeriodStart;
+        private bool _mUnknown_TimePeriodStart;
+        public string? TimePeriodStart
+        {
+            get
+            {
+                if (!_mUnknown_TimePeriodStart) return _mValue_TimePeriodStart;
+                throw new UndeferrableValueException("Value 'Budget.TimePeriodStart' is not present");
+            }
+        }
 
         /// <summary>
         /// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("timeUnit")]
+        [PolicyResourceProperty("timeUnit", "_mUnknown_TimeUnit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeUnit;
-
-        public string? TimeUnit => _mTimeUnit.GetValue("timeUnit");
+        private string? _mValue_TimeUnit;
+        private bool _mUnknown_TimeUnit;
+        public string? TimeUnit
+        {
+            get
+            {
+                if (!_mUnknown_TimeUnit) return _mValue_TimeUnit;
+                throw new UndeferrableValueException("Value 'Budget.TimeUnit' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:budgets/budget:Budget")]
@@ -175,138 +294,243 @@ namespace Pulumi.PolicyPacks.Aws.Budgets
         /// <summary>
         /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'BudgetArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
         /// </summary>
-        [Input("autoAdjustData")]
+        [PolicyResourceProperty("autoAdjustData", "_mUnknown_AutoAdjustData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BudgetAutoAdjustDataArgs> _mAutoAdjustData;
-
-        public Inputs.BudgetAutoAdjustDataArgs? AutoAdjustData => _mAutoAdjustData.GetValue("autoAdjustData");
+        private Inputs.BudgetAutoAdjustDataArgs? _mValue_AutoAdjustData;
+        private bool _mUnknown_AutoAdjustData;
+        public Inputs.BudgetAutoAdjustDataArgs? AutoAdjustData
+        {
+            get
+            {
+                if (!_mUnknown_AutoAdjustData) return _mValue_AutoAdjustData;
+                throw new UndeferrableValueException("Value 'BudgetArgs.AutoAdjustData' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether this budget tracks monetary cost or usage.
         /// </summary>
-        [Input("budgetType")]
+        [PolicyResourceProperty("budgetType", "_mUnknown_BudgetType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBudgetType;
-
-        public string? BudgetType => _mBudgetType.GetValue("budgetType");
+        private string? _mValue_BudgetType;
+        private bool _mUnknown_BudgetType;
+        public string? BudgetType
+        {
+            get
+            {
+                if (!_mUnknown_BudgetType) return _mValue_BudgetType;
+                throw new UndeferrableValueException("Value 'BudgetArgs.BudgetType' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of CostFilter name/values pair to apply to budget.
         /// </summary>
-        [Input("costFilters")]
+        [PolicyResourceProperty("costFilters", "_mUnknown_CostFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BudgetCostFilterArgs>> _mCostFilters;
-
-        public List<Inputs.BudgetCostFilterArgs>? CostFilters => _mCostFilters.GetValue("costFilters");
+        private List<Inputs.BudgetCostFilterArgs>? _mValue_CostFilters;
+        private bool _mUnknown_CostFilters;
+        public List<Inputs.BudgetCostFilterArgs>? CostFilters
+        {
+            get
+            {
+                if (!_mUnknown_CostFilters) return _mValue_CostFilters;
+                throw new UndeferrableValueException("Value 'BudgetArgs.CostFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         /// </summary>
-        [Input("costTypes")]
+        [PolicyResourceProperty("costTypes", "_mUnknown_CostTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BudgetCostTypesArgs> _mCostTypes;
-
-        public Inputs.BudgetCostTypesArgs? CostTypes => _mCostTypes.GetValue("costTypes");
+        private Inputs.BudgetCostTypesArgs? _mValue_CostTypes;
+        private bool _mUnknown_CostTypes;
+        public Inputs.BudgetCostTypesArgs? CostTypes
+        {
+            get
+            {
+                if (!_mUnknown_CostTypes) return _mValue_CostTypes;
+                throw new UndeferrableValueException("Value 'BudgetArgs.CostTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of cost or usage being measured for a budget.
         /// </summary>
-        [Input("limitAmount")]
+        [PolicyResourceProperty("limitAmount", "_mUnknown_LimitAmount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLimitAmount;
-
-        public string? LimitAmount => _mLimitAmount.GetValue("limitAmount");
+        private string? _mValue_LimitAmount;
+        private bool _mUnknown_LimitAmount;
+        public string? LimitAmount
+        {
+            get
+            {
+                if (!_mUnknown_LimitAmount) return _mValue_LimitAmount;
+                throw new UndeferrableValueException("Value 'BudgetArgs.LimitAmount' is not present");
+            }
+        }
 
         /// <summary>
         /// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         /// </summary>
-        [Input("limitUnit")]
+        [PolicyResourceProperty("limitUnit", "_mUnknown_LimitUnit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLimitUnit;
-
-        public string? LimitUnit => _mLimitUnit.GetValue("limitUnit");
+        private string? _mValue_LimitUnit;
+        private bool _mUnknown_LimitUnit;
+        public string? LimitUnit
+        {
+            get
+            {
+                if (!_mUnknown_LimitUnit) return _mValue_LimitUnit;
+                throw new UndeferrableValueException("Value 'BudgetArgs.LimitUnit' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of a budget. Unique within accounts.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'BudgetArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The prefix of the name of a budget. Unique within accounts.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'BudgetArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
         /// </summary>
-        [Input("notifications")]
+        [PolicyResourceProperty("notifications", "_mUnknown_Notifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BudgetNotificationArgs>> _mNotifications;
-
-        public List<Inputs.BudgetNotificationArgs>? Notifications => _mNotifications.GetValue("notifications");
+        private List<Inputs.BudgetNotificationArgs>? _mValue_Notifications;
+        private bool _mUnknown_Notifications;
+        public List<Inputs.BudgetNotificationArgs>? Notifications
+        {
+            get
+            {
+                if (!_mUnknown_Notifications) return _mValue_Notifications;
+                throw new UndeferrableValueException("Value 'BudgetArgs.Notifications' is not present");
+            }
+        }
 
         /// <summary>
         /// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
         /// </summary>
-        [Input("plannedLimits")]
+        [PolicyResourceProperty("plannedLimits", "_mUnknown_PlannedLimits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BudgetPlannedLimitArgs>> _mPlannedLimits;
-
-        public List<Inputs.BudgetPlannedLimitArgs>? PlannedLimits => _mPlannedLimits.GetValue("plannedLimits");
+        private List<Inputs.BudgetPlannedLimitArgs>? _mValue_PlannedLimits;
+        private bool _mUnknown_PlannedLimits;
+        public List<Inputs.BudgetPlannedLimitArgs>? PlannedLimits
+        {
+            get
+            {
+                if (!_mUnknown_PlannedLimits) return _mValue_PlannedLimits;
+                throw new UndeferrableValueException("Value 'BudgetArgs.PlannedLimits' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'BudgetArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         /// </summary>
-        [Input("timePeriodEnd")]
+        [PolicyResourceProperty("timePeriodEnd", "_mUnknown_TimePeriodEnd")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimePeriodEnd;
-
-        public string? TimePeriodEnd => _mTimePeriodEnd.GetValue("timePeriodEnd");
+        private string? _mValue_TimePeriodEnd;
+        private bool _mUnknown_TimePeriodEnd;
+        public string? TimePeriodEnd
+        {
+            get
+            {
+                if (!_mUnknown_TimePeriodEnd) return _mValue_TimePeriodEnd;
+                throw new UndeferrableValueException("Value 'BudgetArgs.TimePeriodEnd' is not present");
+            }
+        }
 
         /// <summary>
         /// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
         /// </summary>
-        [Input("timePeriodStart")]
+        [PolicyResourceProperty("timePeriodStart", "_mUnknown_TimePeriodStart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimePeriodStart;
-
-        public string? TimePeriodStart => _mTimePeriodStart.GetValue("timePeriodStart");
+        private string? _mValue_TimePeriodStart;
+        private bool _mUnknown_TimePeriodStart;
+        public string? TimePeriodStart
+        {
+            get
+            {
+                if (!_mUnknown_TimePeriodStart) return _mValue_TimePeriodStart;
+                throw new UndeferrableValueException("Value 'BudgetArgs.TimePeriodStart' is not present");
+            }
+        }
 
         /// <summary>
         /// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("timeUnit")]
+        [PolicyResourceProperty("timeUnit", "_mUnknown_TimeUnit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeUnit;
-
-        public string? TimeUnit => _mTimeUnit.GetValue("timeUnit");
+        private string? _mValue_TimeUnit;
+        private bool _mUnknown_TimeUnit;
+        public string? TimeUnit
+        {
+            get
+            {
+                if (!_mUnknown_TimeUnit) return _mValue_TimeUnit;
+                throw new UndeferrableValueException("Value 'BudgetArgs.TimeUnit' is not present");
+            }
+        }
     }
 }

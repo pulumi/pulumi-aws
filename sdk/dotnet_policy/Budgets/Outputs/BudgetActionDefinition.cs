@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Budgets.Outputs
         /// <summary>
         /// The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
         /// </summary>
-        [Input("iamActionDefinition")]
+        [PolicyResourceProperty("iamActionDefinition", "_mUnknown_IamActionDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BudgetActionDefinitionIamActionDefinition> _mIamActionDefinition;
-
-        public Outputs.BudgetActionDefinitionIamActionDefinition? IamActionDefinition => _mIamActionDefinition.GetValue("iamActionDefinition");
+        private Outputs.BudgetActionDefinitionIamActionDefinition? _mValue_IamActionDefinition;
+        private bool _mUnknown_IamActionDefinition;
+        public Outputs.BudgetActionDefinitionIamActionDefinition? IamActionDefinition
+        {
+            get
+            {
+                if (!_mUnknown_IamActionDefinition) return _mValue_IamActionDefinition;
+                throw new UndeferrableValueException("Value 'BudgetActionDefinition.IamActionDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// The service control policies (SCPs) action definition details. See SCP Action Definition.
         /// </summary>
-        [Input("scpActionDefinition")]
+        [PolicyResourceProperty("scpActionDefinition", "_mUnknown_ScpActionDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BudgetActionDefinitionScpActionDefinition> _mScpActionDefinition;
-
-        public Outputs.BudgetActionDefinitionScpActionDefinition? ScpActionDefinition => _mScpActionDefinition.GetValue("scpActionDefinition");
+        private Outputs.BudgetActionDefinitionScpActionDefinition? _mValue_ScpActionDefinition;
+        private bool _mUnknown_ScpActionDefinition;
+        public Outputs.BudgetActionDefinitionScpActionDefinition? ScpActionDefinition
+        {
+            get
+            {
+                if (!_mUnknown_ScpActionDefinition) return _mValue_ScpActionDefinition;
+                throw new UndeferrableValueException("Value 'BudgetActionDefinition.ScpActionDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
         /// </summary>
-        [Input("ssmActionDefinition")]
+        [PolicyResourceProperty("ssmActionDefinition", "_mUnknown_SsmActionDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BudgetActionDefinitionSsmActionDefinition> _mSsmActionDefinition;
-
-        public Outputs.BudgetActionDefinitionSsmActionDefinition? SsmActionDefinition => _mSsmActionDefinition.GetValue("ssmActionDefinition");
+        private Outputs.BudgetActionDefinitionSsmActionDefinition? _mValue_SsmActionDefinition;
+        private bool _mUnknown_SsmActionDefinition;
+        public Outputs.BudgetActionDefinitionSsmActionDefinition? SsmActionDefinition
+        {
+            get
+            {
+                if (!_mUnknown_SsmActionDefinition) return _mValue_SsmActionDefinition;
+                throw new UndeferrableValueException("Value 'BudgetActionDefinition.SsmActionDefinition' is not present");
+            }
+        }
     }
 }

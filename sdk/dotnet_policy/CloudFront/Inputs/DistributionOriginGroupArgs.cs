@@ -15,25 +15,46 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// The failover criteria for when to failover to the secondary origin.
         /// </summary>
-        [Input("failoverCriteria")]
+        [PolicyResourceProperty("failoverCriteria", "_mUnknown_FailoverCriteria")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionOriginGroupFailoverCriteriaArgs> _mFailoverCriteria;
-
-        public Inputs.DistributionOriginGroupFailoverCriteriaArgs? FailoverCriteria => _mFailoverCriteria.GetValue("failoverCriteria");
+        private Inputs.DistributionOriginGroupFailoverCriteriaArgs? _mValue_FailoverCriteria;
+        private bool _mUnknown_FailoverCriteria;
+        public Inputs.DistributionOriginGroupFailoverCriteriaArgs? FailoverCriteria
+        {
+            get
+            {
+                if (!_mUnknown_FailoverCriteria) return _mValue_FailoverCriteria;
+                throw new UndeferrableValueException("Value 'DistributionOriginGroupArgs.FailoverCriteria' is not present");
+            }
+        }
 
         /// <summary>
         /// Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
         /// </summary>
-        [Input("members")]
+        [PolicyResourceProperty("members", "_mUnknown_Members")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DistributionOriginGroupMemberArgs>> _mMembers;
+        private List<Inputs.DistributionOriginGroupMemberArgs>? _mValue_Members;
+        private bool _mUnknown_Members;
+        public List<Inputs.DistributionOriginGroupMemberArgs>? Members
+        {
+            get
+            {
+                if (!_mUnknown_Members) return _mValue_Members;
+                throw new UndeferrableValueException("Value 'DistributionOriginGroupArgs.Members' is not present");
+            }
+        }
 
-        public List<Inputs.DistributionOriginGroupMemberArgs>? Members => _mMembers.GetValue("members");
-
-        [Input("originId")]
+        [PolicyResourceProperty("originId", "_mUnknown_OriginId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOriginId;
-
-        public string? OriginId => _mOriginId.GetValue("originId");
+        private string? _mValue_OriginId;
+        private bool _mUnknown_OriginId;
+        public string? OriginId
+        {
+            get
+            {
+                if (!_mUnknown_OriginId) return _mValue_OriginId;
+                throw new UndeferrableValueException("Value 'DistributionOriginGroupArgs.OriginId' is not present");
+            }
+        }
     }
 }

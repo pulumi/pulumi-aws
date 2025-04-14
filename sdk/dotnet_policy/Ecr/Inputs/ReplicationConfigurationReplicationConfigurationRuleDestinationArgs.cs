@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ecr.Inputs
         /// <summary>
         /// A Region to replicate to.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// The account ID of the destination registry to replicate to.
         /// </summary>
-        [Input("registryId")]
+        [PolicyResourceProperty("registryId", "_mUnknown_RegistryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryId;
-
-        public string? RegistryId => _mRegistryId.GetValue("registryId");
+        private string? _mValue_RegistryId;
+        private bool _mUnknown_RegistryId;
+        public string? RegistryId
+        {
+            get
+            {
+                if (!_mUnknown_RegistryId) return _mValue_RegistryId;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.RegistryId' is not present");
+            }
+        }
     }
 }

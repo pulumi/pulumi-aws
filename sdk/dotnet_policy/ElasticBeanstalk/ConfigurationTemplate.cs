@@ -16,59 +16,101 @@ namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
         /// <summary>
         /// name of the application to associate with this configuration template
         /// </summary>
-        [Input("application")]
+        [PolicyResourceProperty("application", "_mUnknown_Application")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplication;
-
-        public string? Application => _mApplication.GetValue("application");
+        private string? _mValue_Application;
+        private bool _mUnknown_Application;
+        public string? Application
+        {
+            get
+            {
+                if (!_mUnknown_Application) return _mValue_Application;
+                throw new UndeferrableValueException("Value 'ConfigurationTemplate.Application' is not present");
+            }
+        }
 
         /// <summary>
         /// Short description of the Template
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ConfigurationTemplate.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the environment used with this configuration template
         /// </summary>
-        [Input("environmentId")]
+        [PolicyResourceProperty("environmentId", "_mUnknown_EnvironmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
-
-        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+        private string? _mValue_EnvironmentId;
+        private bool _mUnknown_EnvironmentId;
+        public string? EnvironmentId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentId) return _mValue_EnvironmentId;
+                throw new UndeferrableValueException("Value 'ConfigurationTemplate.EnvironmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique name for this Template.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConfigurationTemplate.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Option settings to configure the new Environment. These
         /// override specific values that are set as defaults. The format is detailed
         /// below in Option Settings
         /// </summary>
-        [Input("settings")]
+        [PolicyResourceProperty("settings", "_mUnknown_Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ConfigurationTemplateSetting>> _mSettings;
-
-        public List<Outputs.ConfigurationTemplateSetting>? Settings => _mSettings.GetValue("settings");
+        private List<Outputs.ConfigurationTemplateSetting>? _mValue_Settings;
+        private bool _mUnknown_Settings;
+        public List<Outputs.ConfigurationTemplateSetting>? Settings
+        {
+            get
+            {
+                if (!_mUnknown_Settings) return _mValue_Settings;
+                throw new UndeferrableValueException("Value 'ConfigurationTemplate.Settings' is not present");
+            }
+        }
 
         /// <summary>
         /// A solution stack to base your Template
         /// off of. Example stacks can be found in the [Amazon API documentation][1]
         /// </summary>
-        [Input("solutionStackName")]
+        [PolicyResourceProperty("solutionStackName", "_mUnknown_SolutionStackName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSolutionStackName;
-
-        public string? SolutionStackName => _mSolutionStackName.GetValue("solutionStackName");
+        private string? _mValue_SolutionStackName;
+        private bool _mUnknown_SolutionStackName;
+        public string? SolutionStackName
+        {
+            get
+            {
+                if (!_mUnknown_SolutionStackName) return _mValue_SolutionStackName;
+                throw new UndeferrableValueException("Value 'ConfigurationTemplate.SolutionStackName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate")]
@@ -77,58 +119,100 @@ namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
         /// <summary>
         /// name of the application to associate with this configuration template
         /// </summary>
-        [Input("application")]
+        [PolicyResourceProperty("application", "_mUnknown_Application")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplication;
-
-        public string? Application => _mApplication.GetValue("application");
+        private string? _mValue_Application;
+        private bool _mUnknown_Application;
+        public string? Application
+        {
+            get
+            {
+                if (!_mUnknown_Application) return _mValue_Application;
+                throw new UndeferrableValueException("Value 'ConfigurationTemplateArgs.Application' is not present");
+            }
+        }
 
         /// <summary>
         /// Short description of the Template
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ConfigurationTemplateArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the environment used with this configuration template
         /// </summary>
-        [Input("environmentId")]
+        [PolicyResourceProperty("environmentId", "_mUnknown_EnvironmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
-
-        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+        private string? _mValue_EnvironmentId;
+        private bool _mUnknown_EnvironmentId;
+        public string? EnvironmentId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentId) return _mValue_EnvironmentId;
+                throw new UndeferrableValueException("Value 'ConfigurationTemplateArgs.EnvironmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique name for this Template.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConfigurationTemplateArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Option settings to configure the new Environment. These
         /// override specific values that are set as defaults. The format is detailed
         /// below in Option Settings
         /// </summary>
-        [Input("settings")]
+        [PolicyResourceProperty("settings", "_mUnknown_Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ConfigurationTemplateSettingArgs>> _mSettings;
-
-        public List<Inputs.ConfigurationTemplateSettingArgs>? Settings => _mSettings.GetValue("settings");
+        private List<Inputs.ConfigurationTemplateSettingArgs>? _mValue_Settings;
+        private bool _mUnknown_Settings;
+        public List<Inputs.ConfigurationTemplateSettingArgs>? Settings
+        {
+            get
+            {
+                if (!_mUnknown_Settings) return _mValue_Settings;
+                throw new UndeferrableValueException("Value 'ConfigurationTemplateArgs.Settings' is not present");
+            }
+        }
 
         /// <summary>
         /// A solution stack to base your Template
         /// off of. Example stacks can be found in the [Amazon API documentation][1]
         /// </summary>
-        [Input("solutionStackName")]
+        [PolicyResourceProperty("solutionStackName", "_mUnknown_SolutionStackName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSolutionStackName;
-
-        public string? SolutionStackName => _mSolutionStackName.GetValue("solutionStackName");
+        private string? _mValue_SolutionStackName;
+        private bool _mUnknown_SolutionStackName;
+        public string? SolutionStackName
+        {
+            get
+            {
+                if (!_mUnknown_SolutionStackName) return _mValue_SolutionStackName;
+                throw new UndeferrableValueException("Value 'ConfigurationTemplateArgs.SolutionStackName' is not present");
+            }
+        }
     }
 }

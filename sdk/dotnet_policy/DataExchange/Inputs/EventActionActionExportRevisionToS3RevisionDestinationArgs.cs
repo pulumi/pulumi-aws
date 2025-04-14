@@ -15,20 +15,34 @@ namespace Pulumi.PolicyPacks.Aws.DataExchange.Inputs
         /// <summary>
         /// The S3 bucket where the revision will be exported.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'EventActionActionExportRevisionToS3RevisionDestinationArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Pattern for naming revisions in the S3 bucket.
         /// Defaults to `${Revision.CreatedAt}/${Asset.Name}`.
         /// </summary>
-        [Input("keyPattern")]
+        [PolicyResourceProperty("keyPattern", "_mUnknown_KeyPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyPattern;
-
-        public string? KeyPattern => _mKeyPattern.GetValue("keyPattern");
+        private string? _mValue_KeyPattern;
+        private bool _mUnknown_KeyPattern;
+        public string? KeyPattern
+        {
+            get
+            {
+                if (!_mUnknown_KeyPattern) return _mValue_KeyPattern;
+                throw new UndeferrableValueException("Value 'EventActionActionExportRevisionToS3RevisionDestinationArgs.KeyPattern' is not present");
+            }
+        }
     }
 }

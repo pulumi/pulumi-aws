@@ -12,19 +12,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
 {
     public sealed class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs
     {
-        [Input("profileId")]
+        [PolicyResourceProperty("profileId", "_mUnknown_ProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProfileId;
-
-        public string? ProfileId => _mProfileId.GetValue("profileId");
+        private string? _mValue_ProfileId;
+        private bool _mUnknown_ProfileId;
+        public string? ProfileId
+        {
+            get
+            {
+                if (!_mUnknown_ProfileId) return _mValue_ProfileId;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs.ProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// Query argument for field-level encryption query argument-profile mapping.
         /// </summary>
-        [Input("queryArg")]
+        [PolicyResourceProperty("queryArg", "_mUnknown_QueryArg")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueryArg;
-
-        public string? QueryArg => _mQueryArg.GetValue("queryArg");
+        private string? _mValue_QueryArg;
+        private bool _mUnknown_QueryArg;
+        public string? QueryArg
+        {
+            get
+            {
+                if (!_mUnknown_QueryArg) return _mValue_QueryArg;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs.QueryArg' is not present");
+            }
+        }
     }
 }

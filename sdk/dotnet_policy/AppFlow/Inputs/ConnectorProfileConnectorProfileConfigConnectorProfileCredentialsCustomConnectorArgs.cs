@@ -12,46 +12,81 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
 {
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs
     {
-        [Input("apiKey")]
+        [PolicyResourceProperty("apiKey", "_mUnknown_ApiKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs> _mApiKey;
-
-        public Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs? ApiKey => _mApiKey.GetValue("apiKey");
+        private Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs? _mValue_ApiKey;
+        private bool _mUnknown_ApiKey;
+        public Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs? ApiKey
+        {
+            get
+            {
+                if (!_mUnknown_ApiKey) return _mValue_ApiKey;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs.ApiKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
         /// </summary>
-        [Input("authenticationType")]
+        [PolicyResourceProperty("authenticationType", "_mUnknown_AuthenticationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
-
-        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
+        private string? _mValue_AuthenticationType;
+        private bool _mUnknown_AuthenticationType;
+        public string? AuthenticationType
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationType) return _mValue_AuthenticationType;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs.AuthenticationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Basic credentials that are required for the authentication of the user.
         /// </summary>
-        [Input("basic")]
+        [PolicyResourceProperty("basic", "_mUnknown_Basic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs> _mBasic;
-
-        public Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs? Basic => _mBasic.GetValue("basic");
+        private Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs? _mValue_Basic;
+        private bool _mUnknown_Basic;
+        public Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs? Basic
+        {
+            get
+            {
+                if (!_mUnknown_Basic) return _mValue_Basic;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs.Basic' is not present");
+            }
+        }
 
         /// <summary>
         /// If the connector uses the custom authentication mechanism, this holds the required credentials.
         /// </summary>
-        [Input("custom")]
+        [PolicyResourceProperty("custom", "_mUnknown_Custom")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs> _mCustom;
-
-        public Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs? Custom => _mCustom.GetValue("custom");
+        private Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs? _mValue_Custom;
+        private bool _mUnknown_Custom;
+        public Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs? Custom
+        {
+            get
+            {
+                if (!_mUnknown_Custom) return _mValue_Custom;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs.Custom' is not present");
+            }
+        }
 
         /// <summary>
         /// OAuth 2.0 credentials required for the authentication of the user.
         /// </summary>
-        [Input("oauth2")]
+        [PolicyResourceProperty("oauth2", "_mUnknown_Oauth2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args> _mOauth2;
-
-        public Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args? Oauth2 => _mOauth2.GetValue("oauth2");
+        private Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args? _mValue_Oauth2;
+        private bool _mUnknown_Oauth2;
+        public Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args? Oauth2
+        {
+            get
+            {
+                if (!_mUnknown_Oauth2) return _mValue_Oauth2;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs.Oauth2' is not present");
+            }
+        }
     }
 }

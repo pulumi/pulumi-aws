@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Whether the user can interrupt the start message while it is playing.
         /// </summary>
-        [Input("allowInterrupt")]
+        [PolicyResourceProperty("allowInterrupt", "_mUnknown_AllowInterrupt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowInterrupt;
-
-        public bool? AllowInterrupt => _mAllowInterrupt.GetValue("allowInterrupt");
+        private bool? _mValue_AllowInterrupt;
+        private bool _mUnknown_AllowInterrupt;
+        public bool? AllowInterrupt
+        {
+            get
+            {
+                if (!_mUnknown_AllowInterrupt) return _mValue_AllowInterrupt;
+                throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponse.AllowInterrupt' is not present");
+            }
+        }
 
         /// <summary>
         /// Delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn't played.
         /// </summary>
-        [Input("delayInSeconds")]
+        [PolicyResourceProperty("delayInSeconds", "_mUnknown_DelayInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDelayInSeconds;
-
-        public int? DelayInSeconds => _mDelayInSeconds.GetValue("delayInSeconds");
+        private int? _mValue_DelayInSeconds;
+        private bool _mUnknown_DelayInSeconds;
+        public int? DelayInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_DelayInSeconds) return _mValue_DelayInSeconds;
+                throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponse.DelayInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `message_group`.
         /// </summary>
-        [Input("messageGroups")]
+        [PolicyResourceProperty("messageGroups", "_mUnknown_MessageGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroup>> _mMessageGroups;
-
-        public List<Outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroup>? MessageGroups => _mMessageGroups.GetValue("messageGroups");
+        private List<Outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroup>? _mValue_MessageGroups;
+        private bool _mUnknown_MessageGroups;
+        public List<Outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroup>? MessageGroups
+        {
+            get
+            {
+                if (!_mUnknown_MessageGroups) return _mValue_MessageGroups;
+                throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponse.MessageGroups' is not present");
+            }
+        }
     }
 }

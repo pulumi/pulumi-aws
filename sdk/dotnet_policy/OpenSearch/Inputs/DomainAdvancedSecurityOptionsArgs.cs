@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Inputs
         /// <summary>
         /// Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
         /// </summary>
-        [Input("anonymousAuthEnabled")]
+        [PolicyResourceProperty("anonymousAuthEnabled", "_mUnknown_AnonymousAuthEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAnonymousAuthEnabled;
-
-        public bool? AnonymousAuthEnabled => _mAnonymousAuthEnabled.GetValue("anonymousAuthEnabled");
+        private bool? _mValue_AnonymousAuthEnabled;
+        private bool _mUnknown_AnonymousAuthEnabled;
+        public bool? AnonymousAuthEnabled
+        {
+            get
+            {
+                if (!_mUnknown_AnonymousAuthEnabled) return _mValue_AnonymousAuthEnabled;
+                throw new UndeferrableValueException("Value 'DomainAdvancedSecurityOptionsArgs.AnonymousAuthEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether advanced security is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'DomainAdvancedSecurityOptionsArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the internal user database is enabled. Default is `false`.
         /// </summary>
-        [Input("internalUserDatabaseEnabled")]
+        [PolicyResourceProperty("internalUserDatabaseEnabled", "_mUnknown_InternalUserDatabaseEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInternalUserDatabaseEnabled;
-
-        public bool? InternalUserDatabaseEnabled => _mInternalUserDatabaseEnabled.GetValue("internalUserDatabaseEnabled");
+        private bool? _mValue_InternalUserDatabaseEnabled;
+        private bool _mUnknown_InternalUserDatabaseEnabled;
+        public bool? InternalUserDatabaseEnabled
+        {
+            get
+            {
+                if (!_mUnknown_InternalUserDatabaseEnabled) return _mValue_InternalUserDatabaseEnabled;
+                throw new UndeferrableValueException("Value 'DomainAdvancedSecurityOptionsArgs.InternalUserDatabaseEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the main user. Detailed below.
         /// </summary>
-        [Input("masterUserOptions")]
+        [PolicyResourceProperty("masterUserOptions", "_mUnknown_MasterUserOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs> _mMasterUserOptions;
-
-        public Inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs? MasterUserOptions => _mMasterUserOptions.GetValue("masterUserOptions");
+        private Inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs? _mValue_MasterUserOptions;
+        private bool _mUnknown_MasterUserOptions;
+        public Inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs? MasterUserOptions
+        {
+            get
+            {
+                if (!_mUnknown_MasterUserOptions) return _mValue_MasterUserOptions;
+                throw new UndeferrableValueException("Value 'DomainAdvancedSecurityOptionsArgs.MasterUserOptions' is not present");
+            }
+        }
     }
 }

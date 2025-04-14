@@ -17,39 +17,67 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// Checksum identifying the version of the slot type that was created. The checksum is
         /// not included as an argument because the resource will add it automatically when updating the slot type.
         /// </summary>
-        [Input("checksum")]
+        [PolicyResourceProperty("checksum", "_mUnknown_Checksum")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChecksum;
-
-        public string? Checksum => _mChecksum.GetValue("checksum");
+        private string? _mValue_Checksum;
+        private bool _mUnknown_Checksum;
+        public string? Checksum
+        {
+            get
+            {
+                if (!_mUnknown_Checksum) return _mValue_Checksum;
+                throw new UndeferrableValueException("Value 'SlotType.Checksum' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines if a new slot type version is created when the initial resource is created and on each
         /// update. Defaults to `false`.
         /// </summary>
-        [Input("createVersion")]
+        [PolicyResourceProperty("createVersion", "_mUnknown_CreateVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCreateVersion;
-
-        public bool? CreateVersion => _mCreateVersion.GetValue("createVersion");
+        private bool? _mValue_CreateVersion;
+        private bool _mUnknown_CreateVersion;
+        public bool? CreateVersion
+        {
+            get
+            {
+                if (!_mUnknown_CreateVersion) return _mValue_CreateVersion;
+                throw new UndeferrableValueException("Value 'SlotType.CreateVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The date when the slot type version was created.
         /// </summary>
-        [Input("createdDate")]
+        [PolicyResourceProperty("createdDate", "_mUnknown_CreatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
-
-        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
+        private string? _mValue_CreatedDate;
+        private bool _mUnknown_CreatedDate;
+        public string? CreatedDate
+        {
+            get
+            {
+                if (!_mUnknown_CreatedDate) return _mValue_CreatedDate;
+                throw new UndeferrableValueException("Value 'SlotType.CreatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the slot type. Must be less than or equal to 200 characters in length.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SlotType.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of EnumerationValue objects that defines the values that
@@ -57,29 +85,50 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// train the machine learning model about the values that it resolves for a slot. Attributes are
         /// documented under enumeration_value.
         /// </summary>
-        [Input("enumerationValues")]
+        [PolicyResourceProperty("enumerationValues", "_mUnknown_EnumerationValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SlotTypeEnumerationValue>> _mEnumerationValues;
-
-        public List<Outputs.SlotTypeEnumerationValue>? EnumerationValues => _mEnumerationValues.GetValue("enumerationValues");
+        private List<Outputs.SlotTypeEnumerationValue>? _mValue_EnumerationValues;
+        private bool _mUnknown_EnumerationValues;
+        public List<Outputs.SlotTypeEnumerationValue>? EnumerationValues
+        {
+            get
+            {
+                if (!_mUnknown_EnumerationValues) return _mValue_EnumerationValues;
+                throw new UndeferrableValueException("Value 'SlotType.EnumerationValues' is not present");
+            }
+        }
 
         /// <summary>
         /// The date when the `$LATEST` version of this slot type was updated.
         /// </summary>
-        [Input("lastUpdatedDate")]
+        [PolicyResourceProperty("lastUpdatedDate", "_mUnknown_LastUpdatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedDate;
-
-        public string? LastUpdatedDate => _mLastUpdatedDate.GetValue("lastUpdatedDate");
+        private string? _mValue_LastUpdatedDate;
+        private bool _mUnknown_LastUpdatedDate;
+        public string? LastUpdatedDate
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedDate) return _mValue_LastUpdatedDate;
+                throw new UndeferrableValueException("Value 'SlotType.LastUpdatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SlotType.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the slot resolution strategy that Amazon Lex
@@ -87,20 +136,34 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
         /// if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
         /// </summary>
-        [Input("valueSelectionStrategy")]
+        [PolicyResourceProperty("valueSelectionStrategy", "_mUnknown_ValueSelectionStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValueSelectionStrategy;
-
-        public string? ValueSelectionStrategy => _mValueSelectionStrategy.GetValue("valueSelectionStrategy");
+        private string? _mValue_ValueSelectionStrategy;
+        private bool _mUnknown_ValueSelectionStrategy;
+        public string? ValueSelectionStrategy
+        {
+            get
+            {
+                if (!_mUnknown_ValueSelectionStrategy) return _mValue_ValueSelectionStrategy;
+                throw new UndeferrableValueException("Value 'SlotType.ValueSelectionStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the slot type.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'SlotType.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lex/slotType:SlotType")]
@@ -110,20 +173,34 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// Determines if a new slot type version is created when the initial resource is created and on each
         /// update. Defaults to `false`.
         /// </summary>
-        [Input("createVersion")]
+        [PolicyResourceProperty("createVersion", "_mUnknown_CreateVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCreateVersion;
-
-        public bool? CreateVersion => _mCreateVersion.GetValue("createVersion");
+        private bool? _mValue_CreateVersion;
+        private bool _mUnknown_CreateVersion;
+        public bool? CreateVersion
+        {
+            get
+            {
+                if (!_mUnknown_CreateVersion) return _mValue_CreateVersion;
+                throw new UndeferrableValueException("Value 'SlotTypeArgs.CreateVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the slot type. Must be less than or equal to 200 characters in length.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SlotTypeArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of EnumerationValue objects that defines the values that
@@ -131,20 +208,34 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// train the machine learning model about the values that it resolves for a slot. Attributes are
         /// documented under enumeration_value.
         /// </summary>
-        [Input("enumerationValues")]
+        [PolicyResourceProperty("enumerationValues", "_mUnknown_EnumerationValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SlotTypeEnumerationValueArgs>> _mEnumerationValues;
-
-        public List<Inputs.SlotTypeEnumerationValueArgs>? EnumerationValues => _mEnumerationValues.GetValue("enumerationValues");
+        private List<Inputs.SlotTypeEnumerationValueArgs>? _mValue_EnumerationValues;
+        private bool _mUnknown_EnumerationValues;
+        public List<Inputs.SlotTypeEnumerationValueArgs>? EnumerationValues
+        {
+            get
+            {
+                if (!_mUnknown_EnumerationValues) return _mValue_EnumerationValues;
+                throw new UndeferrableValueException("Value 'SlotTypeArgs.EnumerationValues' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SlotTypeArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the slot resolution strategy that Amazon Lex
@@ -152,10 +243,17 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
         /// if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
         /// </summary>
-        [Input("valueSelectionStrategy")]
+        [PolicyResourceProperty("valueSelectionStrategy", "_mUnknown_ValueSelectionStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValueSelectionStrategy;
-
-        public string? ValueSelectionStrategy => _mValueSelectionStrategy.GetValue("valueSelectionStrategy");
+        private string? _mValue_ValueSelectionStrategy;
+        private bool _mUnknown_ValueSelectionStrategy;
+        public string? ValueSelectionStrategy
+        {
+            get
+            {
+                if (!_mUnknown_ValueSelectionStrategy) return _mValue_ValueSelectionStrategy;
+                throw new UndeferrableValueException("Value 'SlotTypeArgs.ValueSelectionStrategy' is not present");
+            }
+        }
     }
 }

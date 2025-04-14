@@ -16,184 +16,324 @@ namespace Pulumi.PolicyPacks.Aws.Ecs
         /// <summary>
         /// The Amazon Resource Name (ARN) that identifies the task set.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TaskSet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         /// </summary>
-        [Input("capacityProviderStrategies")]
+        [PolicyResourceProperty("capacityProviderStrategies", "_mUnknown_CapacityProviderStrategies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TaskSetCapacityProviderStrategy>> _mCapacityProviderStrategies;
-
-        public List<Outputs.TaskSetCapacityProviderStrategy>? CapacityProviderStrategies => _mCapacityProviderStrategies.GetValue("capacityProviderStrategies");
+        private List<Outputs.TaskSetCapacityProviderStrategy>? _mValue_CapacityProviderStrategies;
+        private bool _mUnknown_CapacityProviderStrategies;
+        public List<Outputs.TaskSetCapacityProviderStrategy>? CapacityProviderStrategies
+        {
+            get
+            {
+                if (!_mUnknown_CapacityProviderStrategies) return _mValue_CapacityProviderStrategies;
+                throw new UndeferrableValueException("Value 'TaskSet.CapacityProviderStrategies' is not present");
+            }
+        }
 
         /// <summary>
         /// The short name or ARN of the cluster that hosts the service to create the task set in.
         /// </summary>
-        [Input("cluster")]
+        [PolicyResourceProperty("cluster", "_mUnknown_Cluster")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCluster;
-
-        public string? Cluster => _mCluster.GetValue("cluster");
+        private string? _mValue_Cluster;
+        private bool _mUnknown_Cluster;
+        public string? Cluster
+        {
+            get
+            {
+                if (!_mUnknown_Cluster) return _mValue_Cluster;
+                throw new UndeferrableValueException("Value 'TaskSet.Cluster' is not present");
+            }
+        }
 
         /// <summary>
         /// The external ID associated with the task set.
         /// </summary>
-        [Input("externalId")]
+        [PolicyResourceProperty("externalId", "_mUnknown_ExternalId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExternalId;
-
-        public string? ExternalId => _mExternalId.GetValue("externalId");
+        private string? _mValue_ExternalId;
+        private bool _mUnknown_ExternalId;
+        public string? ExternalId
+        {
+            get
+            {
+                if (!_mUnknown_ExternalId) return _mValue_ExternalId;
+                throw new UndeferrableValueException("Value 'TaskSet.ExternalId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
         /// </summary>
-        [Input("forceDelete")]
+        [PolicyResourceProperty("forceDelete", "_mUnknown_ForceDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
-
-        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+        private bool? _mValue_ForceDelete;
+        private bool _mUnknown_ForceDelete;
+        public bool? ForceDelete
+        {
+            get
+            {
+                if (!_mUnknown_ForceDelete) return _mValue_ForceDelete;
+                throw new UndeferrableValueException("Value 'TaskSet.ForceDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         /// </summary>
-        [Input("launchType")]
+        [PolicyResourceProperty("launchType", "_mUnknown_LaunchType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchType;
-
-        public string? LaunchType => _mLaunchType.GetValue("launchType");
+        private string? _mValue_LaunchType;
+        private bool _mUnknown_LaunchType;
+        public string? LaunchType
+        {
+            get
+            {
+                if (!_mUnknown_LaunchType) return _mValue_LaunchType;
+                throw new UndeferrableValueException("Value 'TaskSet.LaunchType' is not present");
+            }
+        }
 
         /// <summary>
         /// Details on load balancers that are used with a task set. Detailed below.
         /// </summary>
-        [Input("loadBalancers")]
+        [PolicyResourceProperty("loadBalancers", "_mUnknown_LoadBalancers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TaskSetLoadBalancer>> _mLoadBalancers;
-
-        public List<Outputs.TaskSetLoadBalancer>? LoadBalancers => _mLoadBalancers.GetValue("loadBalancers");
+        private List<Outputs.TaskSetLoadBalancer>? _mValue_LoadBalancers;
+        private bool _mUnknown_LoadBalancers;
+        public List<Outputs.TaskSetLoadBalancer>? LoadBalancers
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancers) return _mValue_LoadBalancers;
+                throw new UndeferrableValueException("Value 'TaskSet.LoadBalancers' is not present");
+            }
+        }
 
         /// <summary>
         /// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
         /// </summary>
-        [Input("networkConfiguration")]
+        [PolicyResourceProperty("networkConfiguration", "_mUnknown_NetworkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskSetNetworkConfiguration> _mNetworkConfiguration;
-
-        public Outputs.TaskSetNetworkConfiguration? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
+        private Outputs.TaskSetNetworkConfiguration? _mValue_NetworkConfiguration;
+        private bool _mUnknown_NetworkConfiguration;
+        public Outputs.TaskSetNetworkConfiguration? NetworkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_NetworkConfiguration) return _mValue_NetworkConfiguration;
+                throw new UndeferrableValueException("Value 'TaskSet.NetworkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
-        [Input("platformVersion")]
+        [PolicyResourceProperty("platformVersion", "_mUnknown_PlatformVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformVersion;
-
-        public string? PlatformVersion => _mPlatformVersion.GetValue("platformVersion");
+        private string? _mValue_PlatformVersion;
+        private bool _mUnknown_PlatformVersion;
+        public string? PlatformVersion
+        {
+            get
+            {
+                if (!_mUnknown_PlatformVersion) return _mValue_PlatformVersion;
+                throw new UndeferrableValueException("Value 'TaskSet.PlatformVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         /// </summary>
-        [Input("scale")]
+        [PolicyResourceProperty("scale", "_mUnknown_Scale")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskSetScale> _mScale;
-
-        public Outputs.TaskSetScale? Scale => _mScale.GetValue("scale");
+        private Outputs.TaskSetScale? _mValue_Scale;
+        private bool _mUnknown_Scale;
+        public Outputs.TaskSetScale? Scale
+        {
+            get
+            {
+                if (!_mUnknown_Scale) return _mValue_Scale;
+                throw new UndeferrableValueException("Value 'TaskSet.Scale' is not present");
+            }
+        }
 
         /// <summary>
         /// The short name or ARN of the ECS service.
         /// </summary>
-        [Input("service")]
+        [PolicyResourceProperty("service", "_mUnknown_Service")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mService;
-
-        public string? Service => _mService.GetValue("service");
+        private string? _mValue_Service;
+        private bool _mUnknown_Service;
+        public string? Service
+        {
+            get
+            {
+                if (!_mUnknown_Service) return _mValue_Service;
+                throw new UndeferrableValueException("Value 'TaskSet.Service' is not present");
+            }
+        }
 
         /// <summary>
         /// The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
         /// </summary>
-        [Input("serviceRegistries")]
+        [PolicyResourceProperty("serviceRegistries", "_mUnknown_ServiceRegistries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskSetServiceRegistries> _mServiceRegistries;
-
-        public Outputs.TaskSetServiceRegistries? ServiceRegistries => _mServiceRegistries.GetValue("serviceRegistries");
+        private Outputs.TaskSetServiceRegistries? _mValue_ServiceRegistries;
+        private bool _mUnknown_ServiceRegistries;
+        public Outputs.TaskSetServiceRegistries? ServiceRegistries
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRegistries) return _mValue_ServiceRegistries;
+                throw new UndeferrableValueException("Value 'TaskSet.ServiceRegistries' is not present");
+            }
+        }
 
         /// <summary>
         /// The stability status. This indicates whether the task set has reached a steady state.
         /// </summary>
-        [Input("stabilityStatus")]
+        [PolicyResourceProperty("stabilityStatus", "_mUnknown_StabilityStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStabilityStatus;
-
-        public string? StabilityStatus => _mStabilityStatus.GetValue("stabilityStatus");
+        private string? _mValue_StabilityStatus;
+        private bool _mUnknown_StabilityStatus;
+        public string? StabilityStatus
+        {
+            get
+            {
+                if (!_mUnknown_StabilityStatus) return _mValue_StabilityStatus;
+                throw new UndeferrableValueException("Value 'TaskSet.StabilityStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the task set.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'TaskSet.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TaskSet.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'TaskSet.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("taskDefinition")]
+        [PolicyResourceProperty("taskDefinition", "_mUnknown_TaskDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskDefinition;
-
-        public string? TaskDefinition => _mTaskDefinition.GetValue("taskDefinition");
+        private string? _mValue_TaskDefinition;
+        private bool _mUnknown_TaskDefinition;
+        public string? TaskDefinition
+        {
+            get
+            {
+                if (!_mUnknown_TaskDefinition) return _mValue_TaskDefinition;
+                throw new UndeferrableValueException("Value 'TaskSet.TaskDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the task set.
         /// </summary>
-        [Input("taskSetId")]
+        [PolicyResourceProperty("taskSetId", "_mUnknown_TaskSetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskSetId;
-
-        public string? TaskSetId => _mTaskSetId.GetValue("taskSetId");
+        private string? _mValue_TaskSetId;
+        private bool _mUnknown_TaskSetId;
+        public string? TaskSetId
+        {
+            get
+            {
+                if (!_mUnknown_TaskSetId) return _mValue_TaskSetId;
+                throw new UndeferrableValueException("Value 'TaskSet.TaskSetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the provider should wait until the task set has reached `STEADY_STATE`.
         /// </summary>
-        [Input("waitUntilStable")]
+        [PolicyResourceProperty("waitUntilStable", "_mUnknown_WaitUntilStable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitUntilStable;
-
-        public bool? WaitUntilStable => _mWaitUntilStable.GetValue("waitUntilStable");
+        private bool? _mValue_WaitUntilStable;
+        private bool _mUnknown_WaitUntilStable;
+        public bool? WaitUntilStable
+        {
+            get
+            {
+                if (!_mUnknown_WaitUntilStable) return _mValue_WaitUntilStable;
+                throw new UndeferrableValueException("Value 'TaskSet.WaitUntilStable' is not present");
+            }
+        }
 
         /// <summary>
         /// Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
         /// </summary>
-        [Input("waitUntilStableTimeout")]
+        [PolicyResourceProperty("waitUntilStableTimeout", "_mUnknown_WaitUntilStableTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWaitUntilStableTimeout;
-
-        public string? WaitUntilStableTimeout => _mWaitUntilStableTimeout.GetValue("waitUntilStableTimeout");
+        private string? _mValue_WaitUntilStableTimeout;
+        private bool _mUnknown_WaitUntilStableTimeout;
+        public string? WaitUntilStableTimeout
+        {
+            get
+            {
+                if (!_mUnknown_WaitUntilStableTimeout) return _mValue_WaitUntilStableTimeout;
+                throw new UndeferrableValueException("Value 'TaskSet.WaitUntilStableTimeout' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ecs/taskSet:TaskSet")]
@@ -202,138 +342,243 @@ namespace Pulumi.PolicyPacks.Aws.Ecs
         /// <summary>
         /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         /// </summary>
-        [Input("capacityProviderStrategies")]
+        [PolicyResourceProperty("capacityProviderStrategies", "_mUnknown_CapacityProviderStrategies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TaskSetCapacityProviderStrategyArgs>> _mCapacityProviderStrategies;
-
-        public List<Inputs.TaskSetCapacityProviderStrategyArgs>? CapacityProviderStrategies => _mCapacityProviderStrategies.GetValue("capacityProviderStrategies");
+        private List<Inputs.TaskSetCapacityProviderStrategyArgs>? _mValue_CapacityProviderStrategies;
+        private bool _mUnknown_CapacityProviderStrategies;
+        public List<Inputs.TaskSetCapacityProviderStrategyArgs>? CapacityProviderStrategies
+        {
+            get
+            {
+                if (!_mUnknown_CapacityProviderStrategies) return _mValue_CapacityProviderStrategies;
+                throw new UndeferrableValueException("Value 'TaskSetArgs.CapacityProviderStrategies' is not present");
+            }
+        }
 
         /// <summary>
         /// The short name or ARN of the cluster that hosts the service to create the task set in.
         /// </summary>
-        [Input("cluster")]
+        [PolicyResourceProperty("cluster", "_mUnknown_Cluster")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCluster;
-
-        public string? Cluster => _mCluster.GetValue("cluster");
+        private string? _mValue_Cluster;
+        private bool _mUnknown_Cluster;
+        public string? Cluster
+        {
+            get
+            {
+                if (!_mUnknown_Cluster) return _mValue_Cluster;
+                throw new UndeferrableValueException("Value 'TaskSetArgs.Cluster' is not present");
+            }
+        }
 
         /// <summary>
         /// The external ID associated with the task set.
         /// </summary>
-        [Input("externalId")]
+        [PolicyResourceProperty("externalId", "_mUnknown_ExternalId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExternalId;
-
-        public string? ExternalId => _mExternalId.GetValue("externalId");
+        private string? _mValue_ExternalId;
+        private bool _mUnknown_ExternalId;
+        public string? ExternalId
+        {
+            get
+            {
+                if (!_mUnknown_ExternalId) return _mValue_ExternalId;
+                throw new UndeferrableValueException("Value 'TaskSetArgs.ExternalId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
         /// </summary>
-        [Input("forceDelete")]
+        [PolicyResourceProperty("forceDelete", "_mUnknown_ForceDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
-
-        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+        private bool? _mValue_ForceDelete;
+        private bool _mUnknown_ForceDelete;
+        public bool? ForceDelete
+        {
+            get
+            {
+                if (!_mUnknown_ForceDelete) return _mValue_ForceDelete;
+                throw new UndeferrableValueException("Value 'TaskSetArgs.ForceDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         /// </summary>
-        [Input("launchType")]
+        [PolicyResourceProperty("launchType", "_mUnknown_LaunchType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchType;
-
-        public string? LaunchType => _mLaunchType.GetValue("launchType");
+        private string? _mValue_LaunchType;
+        private bool _mUnknown_LaunchType;
+        public string? LaunchType
+        {
+            get
+            {
+                if (!_mUnknown_LaunchType) return _mValue_LaunchType;
+                throw new UndeferrableValueException("Value 'TaskSetArgs.LaunchType' is not present");
+            }
+        }
 
         /// <summary>
         /// Details on load balancers that are used with a task set. Detailed below.
         /// </summary>
-        [Input("loadBalancers")]
+        [PolicyResourceProperty("loadBalancers", "_mUnknown_LoadBalancers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TaskSetLoadBalancerArgs>> _mLoadBalancers;
-
-        public List<Inputs.TaskSetLoadBalancerArgs>? LoadBalancers => _mLoadBalancers.GetValue("loadBalancers");
+        private List<Inputs.TaskSetLoadBalancerArgs>? _mValue_LoadBalancers;
+        private bool _mUnknown_LoadBalancers;
+        public List<Inputs.TaskSetLoadBalancerArgs>? LoadBalancers
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancers) return _mValue_LoadBalancers;
+                throw new UndeferrableValueException("Value 'TaskSetArgs.LoadBalancers' is not present");
+            }
+        }
 
         /// <summary>
         /// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
         /// </summary>
-        [Input("networkConfiguration")]
+        [PolicyResourceProperty("networkConfiguration", "_mUnknown_NetworkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskSetNetworkConfigurationArgs> _mNetworkConfiguration;
-
-        public Inputs.TaskSetNetworkConfigurationArgs? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
+        private Inputs.TaskSetNetworkConfigurationArgs? _mValue_NetworkConfiguration;
+        private bool _mUnknown_NetworkConfiguration;
+        public Inputs.TaskSetNetworkConfigurationArgs? NetworkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_NetworkConfiguration) return _mValue_NetworkConfiguration;
+                throw new UndeferrableValueException("Value 'TaskSetArgs.NetworkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
-        [Input("platformVersion")]
+        [PolicyResourceProperty("platformVersion", "_mUnknown_PlatformVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformVersion;
-
-        public string? PlatformVersion => _mPlatformVersion.GetValue("platformVersion");
+        private string? _mValue_PlatformVersion;
+        private bool _mUnknown_PlatformVersion;
+        public string? PlatformVersion
+        {
+            get
+            {
+                if (!_mUnknown_PlatformVersion) return _mValue_PlatformVersion;
+                throw new UndeferrableValueException("Value 'TaskSetArgs.PlatformVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         /// </summary>
-        [Input("scale")]
+        [PolicyResourceProperty("scale", "_mUnknown_Scale")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskSetScaleArgs> _mScale;
-
-        public Inputs.TaskSetScaleArgs? Scale => _mScale.GetValue("scale");
+        private Inputs.TaskSetScaleArgs? _mValue_Scale;
+        private bool _mUnknown_Scale;
+        public Inputs.TaskSetScaleArgs? Scale
+        {
+            get
+            {
+                if (!_mUnknown_Scale) return _mValue_Scale;
+                throw new UndeferrableValueException("Value 'TaskSetArgs.Scale' is not present");
+            }
+        }
 
         /// <summary>
         /// The short name or ARN of the ECS service.
         /// </summary>
-        [Input("service")]
+        [PolicyResourceProperty("service", "_mUnknown_Service")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mService;
-
-        public string? Service => _mService.GetValue("service");
+        private string? _mValue_Service;
+        private bool _mUnknown_Service;
+        public string? Service
+        {
+            get
+            {
+                if (!_mUnknown_Service) return _mValue_Service;
+                throw new UndeferrableValueException("Value 'TaskSetArgs.Service' is not present");
+            }
+        }
 
         /// <summary>
         /// The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
         /// </summary>
-        [Input("serviceRegistries")]
+        [PolicyResourceProperty("serviceRegistries", "_mUnknown_ServiceRegistries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskSetServiceRegistriesArgs> _mServiceRegistries;
-
-        public Inputs.TaskSetServiceRegistriesArgs? ServiceRegistries => _mServiceRegistries.GetValue("serviceRegistries");
+        private Inputs.TaskSetServiceRegistriesArgs? _mValue_ServiceRegistries;
+        private bool _mUnknown_ServiceRegistries;
+        public Inputs.TaskSetServiceRegistriesArgs? ServiceRegistries
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRegistries) return _mValue_ServiceRegistries;
+                throw new UndeferrableValueException("Value 'TaskSetArgs.ServiceRegistries' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TaskSetArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("taskDefinition")]
+        [PolicyResourceProperty("taskDefinition", "_mUnknown_TaskDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskDefinition;
-
-        public string? TaskDefinition => _mTaskDefinition.GetValue("taskDefinition");
+        private string? _mValue_TaskDefinition;
+        private bool _mUnknown_TaskDefinition;
+        public string? TaskDefinition
+        {
+            get
+            {
+                if (!_mUnknown_TaskDefinition) return _mValue_TaskDefinition;
+                throw new UndeferrableValueException("Value 'TaskSetArgs.TaskDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the provider should wait until the task set has reached `STEADY_STATE`.
         /// </summary>
-        [Input("waitUntilStable")]
+        [PolicyResourceProperty("waitUntilStable", "_mUnknown_WaitUntilStable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitUntilStable;
-
-        public bool? WaitUntilStable => _mWaitUntilStable.GetValue("waitUntilStable");
+        private bool? _mValue_WaitUntilStable;
+        private bool _mUnknown_WaitUntilStable;
+        public bool? WaitUntilStable
+        {
+            get
+            {
+                if (!_mUnknown_WaitUntilStable) return _mValue_WaitUntilStable;
+                throw new UndeferrableValueException("Value 'TaskSetArgs.WaitUntilStable' is not present");
+            }
+        }
 
         /// <summary>
         /// Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
         /// </summary>
-        [Input("waitUntilStableTimeout")]
+        [PolicyResourceProperty("waitUntilStableTimeout", "_mUnknown_WaitUntilStableTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWaitUntilStableTimeout;
-
-        public string? WaitUntilStableTimeout => _mWaitUntilStableTimeout.GetValue("waitUntilStableTimeout");
+        private string? _mValue_WaitUntilStableTimeout;
+        private bool _mUnknown_WaitUntilStableTimeout;
+        public string? WaitUntilStableTimeout
+        {
+            get
+            {
+                if (!_mUnknown_WaitUntilStableTimeout) return _mValue_WaitUntilStableTimeout;
+                throw new UndeferrableValueException("Value 'TaskSetArgs.WaitUntilStableTimeout' is not present");
+            }
+        }
     }
 }

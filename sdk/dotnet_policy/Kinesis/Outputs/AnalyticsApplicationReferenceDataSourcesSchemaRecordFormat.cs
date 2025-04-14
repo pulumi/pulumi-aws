@@ -16,19 +16,33 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// The Mapping Information for the record format.
         /// See Mapping Parameters below for more details.
         /// </summary>
-        [Input("mappingParameters")]
+        [PolicyResourceProperty("mappingParameters", "_mUnknown_MappingParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters> _mMappingParameters;
-
-        public Outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters? MappingParameters => _mMappingParameters.GetValue("mappingParameters");
+        private Outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters? _mValue_MappingParameters;
+        private bool _mUnknown_MappingParameters;
+        public Outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters? MappingParameters
+        {
+            get
+            {
+                if (!_mUnknown_MappingParameters) return _mValue_MappingParameters;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat.MappingParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of Record Format. Can be `CSV` or `JSON`.
         /// </summary>
-        [Input("recordFormatType")]
+        [PolicyResourceProperty("recordFormatType", "_mUnknown_RecordFormatType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecordFormatType;
-
-        public string? RecordFormatType => _mRecordFormatType.GetValue("recordFormatType");
+        private string? _mValue_RecordFormatType;
+        private bool _mUnknown_RecordFormatType;
+        public string? RecordFormatType
+        {
+            get
+            {
+                if (!_mUnknown_RecordFormatType) return _mValue_RecordFormatType;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat.RecordFormatType' is not present");
+            }
+        }
     }
 }

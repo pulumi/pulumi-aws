@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetColumnLevelPermissionRuleResult
     {
-        [Input("columnNames")]
+        [PolicyResourceProperty("columnNames", "_mUnknown_ColumnNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mColumnNames;
+        private List<string>? _mValue_ColumnNames;
+        private bool _mUnknown_ColumnNames;
+        public List<string>? ColumnNames
+        {
+            get
+            {
+                if (!_mUnknown_ColumnNames) return _mValue_ColumnNames;
+                throw new UndeferrableValueException("Value 'GetDataSetColumnLevelPermissionRuleResult.ColumnNames' is not present");
+            }
+        }
 
-        public List<string>? ColumnNames => _mColumnNames.GetValue("columnNames");
-
-        [Input("principals")]
+        [PolicyResourceProperty("principals", "_mUnknown_Principals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrincipals;
-
-        public List<string>? Principals => _mPrincipals.GetValue("principals");
+        private List<string>? _mValue_Principals;
+        private bool _mUnknown_Principals;
+        public List<string>? Principals
+        {
+            get
+            {
+                if (!_mUnknown_Principals) return _mValue_Principals;
+                throw new UndeferrableValueException("Value 'GetDataSetColumnLevelPermissionRuleResult.Principals' is not present");
+            }
+        }
     }
 }

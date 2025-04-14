@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Inputs
         /// <summary>
         /// Authorization configuration in case the HTTP endpoint requires authorization. See `authorization_config` Block for details.
         /// </summary>
-        [Input("authorizationConfig")]
+        [PolicyResourceProperty("authorizationConfig", "_mUnknown_AuthorizationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceHttpConfigAuthorizationConfigArgs> _mAuthorizationConfig;
-
-        public Inputs.DataSourceHttpConfigAuthorizationConfigArgs? AuthorizationConfig => _mAuthorizationConfig.GetValue("authorizationConfig");
+        private Inputs.DataSourceHttpConfigAuthorizationConfigArgs? _mValue_AuthorizationConfig;
+        private bool _mUnknown_AuthorizationConfig;
+        public Inputs.DataSourceHttpConfigAuthorizationConfigArgs? AuthorizationConfig
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizationConfig) return _mValue_AuthorizationConfig;
+                throw new UndeferrableValueException("Value 'DataSourceHttpConfigArgs.AuthorizationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP URL.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'DataSourceHttpConfigArgs.Endpoint' is not present");
+            }
+        }
     }
 }

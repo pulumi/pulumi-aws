@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ElasticSearch.Inputs
         /// <summary>
         /// The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
         /// </summary>
-        [Input("desiredState")]
+        [PolicyResourceProperty("desiredState", "_mUnknown_DesiredState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDesiredState;
-
-        public string? DesiredState => _mDesiredState.GetValue("desiredState");
+        private string? _mValue_DesiredState;
+        private bool _mUnknown_DesiredState;
+        public string? DesiredState
+        {
+            get
+            {
+                if (!_mUnknown_DesiredState) return _mValue_DesiredState;
+                throw new UndeferrableValueException("Value 'DomainAutoTuneOptionsArgs.DesiredState' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
         /// </summary>
-        [Input("maintenanceSchedules")]
+        [PolicyResourceProperty("maintenanceSchedules", "_mUnknown_MaintenanceSchedules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DomainAutoTuneOptionsMaintenanceScheduleArgs>> _mMaintenanceSchedules;
-
-        public List<Inputs.DomainAutoTuneOptionsMaintenanceScheduleArgs>? MaintenanceSchedules => _mMaintenanceSchedules.GetValue("maintenanceSchedules");
+        private List<Inputs.DomainAutoTuneOptionsMaintenanceScheduleArgs>? _mValue_MaintenanceSchedules;
+        private bool _mUnknown_MaintenanceSchedules;
+        public List<Inputs.DomainAutoTuneOptionsMaintenanceScheduleArgs>? MaintenanceSchedules
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceSchedules) return _mValue_MaintenanceSchedules;
+                throw new UndeferrableValueException("Value 'DomainAutoTuneOptionsArgs.MaintenanceSchedules' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
         /// </summary>
-        [Input("rollbackOnDisable")]
+        [PolicyResourceProperty("rollbackOnDisable", "_mUnknown_RollbackOnDisable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRollbackOnDisable;
-
-        public string? RollbackOnDisable => _mRollbackOnDisable.GetValue("rollbackOnDisable");
+        private string? _mValue_RollbackOnDisable;
+        private bool _mUnknown_RollbackOnDisable;
+        public string? RollbackOnDisable
+        {
+            get
+            {
+                if (!_mUnknown_RollbackOnDisable) return _mValue_RollbackOnDisable;
+                throw new UndeferrableValueException("Value 'DomainAutoTuneOptionsArgs.RollbackOnDisable' is not present");
+            }
+        }
     }
 }

@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
         /// Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
         /// </summary>
-        [Input("flags")]
+        [PolicyResourceProperty("flags", "_mUnknown_Flags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFlags;
-
-        public List<string>? Flags => _mFlags.GetValue("flags");
+        private List<string>? _mValue_Flags;
+        private bool _mUnknown_Flags;
+        public List<string>? Flags
+        {
+            get
+            {
+                if (!_mUnknown_Flags) return _mValue_Flags;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag.Flags' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of flags to consider in the inspection. To inspect all flags, leave this empty.
         /// Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
         /// </summary>
-        [Input("masks")]
+        [PolicyResourceProperty("masks", "_mUnknown_Masks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMasks;
-
-        public List<string>? Masks => _mMasks.GetValue("masks");
+        private List<string>? _mValue_Masks;
+        private bool _mUnknown_Masks;
+        public List<string>? Masks
+        {
+            get
+            {
+                if (!_mUnknown_Masks) return _mValue_Masks;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag.Masks' is not present");
+            }
+        }
     }
 }

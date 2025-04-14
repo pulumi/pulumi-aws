@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Outputs
         /// <summary>
         /// Describes the rule action that returns a custom HTTP response.
         /// </summary>
-        [Input("fixedResponse")]
+        [PolicyResourceProperty("fixedResponse", "_mUnknown_FixedResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ListenerRuleActionFixedResponse> _mFixedResponse;
-
-        public Outputs.ListenerRuleActionFixedResponse? FixedResponse => _mFixedResponse.GetValue("fixedResponse");
+        private Outputs.ListenerRuleActionFixedResponse? _mValue_FixedResponse;
+        private bool _mUnknown_FixedResponse;
+        public Outputs.ListenerRuleActionFixedResponse? FixedResponse
+        {
+            get
+            {
+                if (!_mUnknown_FixedResponse) return _mValue_FixedResponse;
+                throw new UndeferrableValueException("Value 'ListenerRuleAction.FixedResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// The forward action. Traffic that matches the rule is forwarded to the specified target groups.
         /// </summary>
-        [Input("forward")]
+        [PolicyResourceProperty("forward", "_mUnknown_Forward")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ListenerRuleActionForward> _mForward;
-
-        public Outputs.ListenerRuleActionForward? Forward => _mForward.GetValue("forward");
+        private Outputs.ListenerRuleActionForward? _mValue_Forward;
+        private bool _mUnknown_Forward;
+        public Outputs.ListenerRuleActionForward? Forward
+        {
+            get
+            {
+                if (!_mUnknown_Forward) return _mValue_Forward;
+                throw new UndeferrableValueException("Value 'ListenerRuleAction.Forward' is not present");
+            }
+        }
     }
 }

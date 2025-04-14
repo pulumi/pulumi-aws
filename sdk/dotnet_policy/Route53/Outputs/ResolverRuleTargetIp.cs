@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Outputs
         /// <summary>
         /// One IPv4 address that you want to forward DNS queries to.
         /// </summary>
-        [Input("ip")]
+        [PolicyResourceProperty("ip", "_mUnknown_Ip")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIp;
-
-        public string? Ip => _mIp.GetValue("ip");
+        private string? _mValue_Ip;
+        private bool _mUnknown_Ip;
+        public string? Ip
+        {
+            get
+            {
+                if (!_mUnknown_Ip) return _mValue_Ip;
+                throw new UndeferrableValueException("Value 'ResolverRuleTargetIp.Ip' is not present");
+            }
+        }
 
         /// <summary>
         /// One IPv6 address that you want to forward DNS queries to.
         /// </summary>
-        [Input("ipv6")]
+        [PolicyResourceProperty("ipv6", "_mUnknown_Ipv6")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6;
-
-        public string? Ipv6 => _mIpv6.GetValue("ipv6");
+        private string? _mValue_Ipv6;
+        private bool _mUnknown_Ipv6;
+        public string? Ipv6
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6) return _mValue_Ipv6;
+                throw new UndeferrableValueException("Value 'ResolverRuleTargetIp.Ipv6' is not present");
+            }
+        }
 
         /// <summary>
         /// Port at `ip` that you want to forward DNS queries to. Default value is `53`.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'ResolverRuleTargetIp.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'ResolverRuleTargetIp.Protocol' is not present");
+            }
+        }
     }
 }

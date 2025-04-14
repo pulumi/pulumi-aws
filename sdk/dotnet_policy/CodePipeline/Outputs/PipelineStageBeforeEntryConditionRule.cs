@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Outputs
         /// <summary>
         /// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
         /// </summary>
-        [Input("commands")]
+        [PolicyResourceProperty("commands", "_mUnknown_Commands")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCommands;
-
-        public List<string>? Commands => _mCommands.GetValue("commands");
+        private List<string>? _mValue_Commands;
+        private bool _mUnknown_Commands;
+        public List<string>? Commands
+        {
+            get
+            {
+                if (!_mUnknown_Commands) return _mValue_Commands;
+                throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRule.Commands' is not present");
+            }
+        }
 
         /// <summary>
         /// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mConfiguration;
-
-        public Dictionary<string, string>? Configuration => _mConfiguration.GetValue("configuration");
+        private Dictionary<string, string>? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Dictionary<string, string>? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRule.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
         /// </summary>
-        [Input("inputArtifacts")]
+        [PolicyResourceProperty("inputArtifacts", "_mUnknown_InputArtifacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInputArtifacts;
-
-        public List<string>? InputArtifacts => _mInputArtifacts.GetValue("inputArtifacts");
+        private List<string>? _mValue_InputArtifacts;
+        private bool _mUnknown_InputArtifacts;
+        public List<string>? InputArtifacts
+        {
+            get
+            {
+                if (!_mUnknown_InputArtifacts) return _mValue_InputArtifacts;
+                throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRule.InputArtifacts' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the rule that is created for the condition, such as `VariableCheck`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRule.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Region for the condition associated with the rule.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRule.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// The pipeline role ARN associated with the rule.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRule.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
         /// </summary>
-        [Input("ruleTypeId")]
+        [PolicyResourceProperty("ruleTypeId", "_mUnknown_RuleTypeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineStageBeforeEntryConditionRuleRuleTypeId> _mRuleTypeId;
-
-        public Outputs.PipelineStageBeforeEntryConditionRuleRuleTypeId? RuleTypeId => _mRuleTypeId.GetValue("ruleTypeId");
+        private Outputs.PipelineStageBeforeEntryConditionRuleRuleTypeId? _mValue_RuleTypeId;
+        private bool _mUnknown_RuleTypeId;
+        public Outputs.PipelineStageBeforeEntryConditionRuleRuleTypeId? RuleTypeId
+        {
+            get
+            {
+                if (!_mUnknown_RuleTypeId) return _mValue_RuleTypeId;
+                throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRule.RuleTypeId' is not present");
+            }
+        }
 
         /// <summary>
         /// The action timeout for the rule.
         /// </summary>
-        [Input("timeoutInMinutes")]
+        [PolicyResourceProperty("timeoutInMinutes", "_mUnknown_TimeoutInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutInMinutes;
-
-        public int? TimeoutInMinutes => _mTimeoutInMinutes.GetValue("timeoutInMinutes");
+        private int? _mValue_TimeoutInMinutes;
+        private bool _mUnknown_TimeoutInMinutes;
+        public int? TimeoutInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutInMinutes) return _mValue_TimeoutInMinutes;
+                throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRule.TimeoutInMinutes' is not present");
+            }
+        }
     }
 }

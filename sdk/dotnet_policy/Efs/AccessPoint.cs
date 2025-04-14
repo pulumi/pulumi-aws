@@ -16,71 +16,127 @@ namespace Pulumi.PolicyPacks.Aws.Efs
         /// <summary>
         /// ARN of the access point.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'AccessPoint.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the file system.
         /// </summary>
-        [Input("fileSystemArn")]
+        [PolicyResourceProperty("fileSystemArn", "_mUnknown_FileSystemArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemArn;
-
-        public string? FileSystemArn => _mFileSystemArn.GetValue("fileSystemArn");
+        private string? _mValue_FileSystemArn;
+        private bool _mUnknown_FileSystemArn;
+        public string? FileSystemArn
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemArn) return _mValue_FileSystemArn;
+                throw new UndeferrableValueException("Value 'AccessPoint.FileSystemArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the file system for which the access point is intended.
         /// </summary>
-        [Input("fileSystemId")]
+        [PolicyResourceProperty("fileSystemId", "_mUnknown_FileSystemId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
+        private string? _mValue_FileSystemId;
+        private bool _mUnknown_FileSystemId;
+        public string? FileSystemId
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemId) return _mValue_FileSystemId;
+                throw new UndeferrableValueException("Value 'AccessPoint.FileSystemId' is not present");
+            }
+        }
 
-        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
-
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'AccessPoint.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// Operating system user and group applied to all file system requests made using the access point. Detailed below.
         /// </summary>
-        [Input("posixUser")]
+        [PolicyResourceProperty("posixUser", "_mUnknown_PosixUser")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AccessPointPosixUser> _mPosixUser;
-
-        public Outputs.AccessPointPosixUser? PosixUser => _mPosixUser.GetValue("posixUser");
+        private Outputs.AccessPointPosixUser? _mValue_PosixUser;
+        private bool _mUnknown_PosixUser;
+        public Outputs.AccessPointPosixUser? PosixUser
+        {
+            get
+            {
+                if (!_mUnknown_PosixUser) return _mValue_PosixUser;
+                throw new UndeferrableValueException("Value 'AccessPoint.PosixUser' is not present");
+            }
+        }
 
         /// <summary>
         /// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
         /// </summary>
-        [Input("rootDirectory")]
+        [PolicyResourceProperty("rootDirectory", "_mUnknown_RootDirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AccessPointRootDirectory> _mRootDirectory;
-
-        public Outputs.AccessPointRootDirectory? RootDirectory => _mRootDirectory.GetValue("rootDirectory");
+        private Outputs.AccessPointRootDirectory? _mValue_RootDirectory;
+        private bool _mUnknown_RootDirectory;
+        public Outputs.AccessPointRootDirectory? RootDirectory
+        {
+            get
+            {
+                if (!_mUnknown_RootDirectory) return _mValue_RootDirectory;
+                throw new UndeferrableValueException("Value 'AccessPoint.RootDirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AccessPoint.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'AccessPoint.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:efs/accessPoint:AccessPoint")]
@@ -89,37 +145,65 @@ namespace Pulumi.PolicyPacks.Aws.Efs
         /// <summary>
         /// ID of the file system for which the access point is intended.
         /// </summary>
-        [Input("fileSystemId")]
+        [PolicyResourceProperty("fileSystemId", "_mUnknown_FileSystemId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
-
-        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+        private string? _mValue_FileSystemId;
+        private bool _mUnknown_FileSystemId;
+        public string? FileSystemId
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemId) return _mValue_FileSystemId;
+                throw new UndeferrableValueException("Value 'AccessPointArgs.FileSystemId' is not present");
+            }
+        }
 
         /// <summary>
         /// Operating system user and group applied to all file system requests made using the access point. Detailed below.
         /// </summary>
-        [Input("posixUser")]
+        [PolicyResourceProperty("posixUser", "_mUnknown_PosixUser")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AccessPointPosixUserArgs> _mPosixUser;
-
-        public Inputs.AccessPointPosixUserArgs? PosixUser => _mPosixUser.GetValue("posixUser");
+        private Inputs.AccessPointPosixUserArgs? _mValue_PosixUser;
+        private bool _mUnknown_PosixUser;
+        public Inputs.AccessPointPosixUserArgs? PosixUser
+        {
+            get
+            {
+                if (!_mUnknown_PosixUser) return _mValue_PosixUser;
+                throw new UndeferrableValueException("Value 'AccessPointArgs.PosixUser' is not present");
+            }
+        }
 
         /// <summary>
         /// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
         /// </summary>
-        [Input("rootDirectory")]
+        [PolicyResourceProperty("rootDirectory", "_mUnknown_RootDirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AccessPointRootDirectoryArgs> _mRootDirectory;
-
-        public Inputs.AccessPointRootDirectoryArgs? RootDirectory => _mRootDirectory.GetValue("rootDirectory");
+        private Inputs.AccessPointRootDirectoryArgs? _mValue_RootDirectory;
+        private bool _mUnknown_RootDirectory;
+        public Inputs.AccessPointRootDirectoryArgs? RootDirectory
+        {
+            get
+            {
+                if (!_mUnknown_RootDirectory) return _mValue_RootDirectory;
+                throw new UndeferrableValueException("Value 'AccessPointArgs.RootDirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AccessPointArgs.Tags' is not present");
+            }
+        }
     }
 }

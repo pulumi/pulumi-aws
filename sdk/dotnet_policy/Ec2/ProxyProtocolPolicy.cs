@@ -17,21 +17,35 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// List of instance ports to which the policy
         /// should be applied. This can be specified if the protocol is SSL or TCP.
         /// </summary>
-        [Input("instancePorts")]
+        [PolicyResourceProperty("instancePorts", "_mUnknown_InstancePorts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstancePorts;
-
-        public List<string>? InstancePorts => _mInstancePorts.GetValue("instancePorts");
+        private List<string>? _mValue_InstancePorts;
+        private bool _mUnknown_InstancePorts;
+        public List<string>? InstancePorts
+        {
+            get
+            {
+                if (!_mUnknown_InstancePorts) return _mValue_InstancePorts;
+                throw new UndeferrableValueException("Value 'ProxyProtocolPolicy.InstancePorts' is not present");
+            }
+        }
 
         /// <summary>
         /// The load balancer to which the policy
         /// should be attached.
         /// </summary>
-        [Input("loadBalancer")]
+        [PolicyResourceProperty("loadBalancer", "_mUnknown_LoadBalancer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancer;
-
-        public string? LoadBalancer => _mLoadBalancer.GetValue("loadBalancer");
+        private string? _mValue_LoadBalancer;
+        private bool _mUnknown_LoadBalancer;
+        public string? LoadBalancer
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancer) return _mValue_LoadBalancer;
+                throw new UndeferrableValueException("Value 'ProxyProtocolPolicy.LoadBalancer' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy")]
@@ -41,20 +55,34 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// List of instance ports to which the policy
         /// should be applied. This can be specified if the protocol is SSL or TCP.
         /// </summary>
-        [Input("instancePorts")]
+        [PolicyResourceProperty("instancePorts", "_mUnknown_InstancePorts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstancePorts;
-
-        public List<string>? InstancePorts => _mInstancePorts.GetValue("instancePorts");
+        private List<string>? _mValue_InstancePorts;
+        private bool _mUnknown_InstancePorts;
+        public List<string>? InstancePorts
+        {
+            get
+            {
+                if (!_mUnknown_InstancePorts) return _mValue_InstancePorts;
+                throw new UndeferrableValueException("Value 'ProxyProtocolPolicyArgs.InstancePorts' is not present");
+            }
+        }
 
         /// <summary>
         /// The load balancer to which the policy
         /// should be attached.
         /// </summary>
-        [Input("loadBalancer")]
+        [PolicyResourceProperty("loadBalancer", "_mUnknown_LoadBalancer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancer;
-
-        public string? LoadBalancer => _mLoadBalancer.GetValue("loadBalancer");
+        private string? _mValue_LoadBalancer;
+        private bool _mUnknown_LoadBalancer;
+        public string? LoadBalancer
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancer) return _mValue_LoadBalancer;
+                throw new UndeferrableValueException("Value 'ProxyProtocolPolicyArgs.LoadBalancer' is not present");
+            }
+        }
     }
 }

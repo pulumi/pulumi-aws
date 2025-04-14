@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Vpc
         /// <summary>
         /// Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
         /// </summary>
-        [Input("privateDnsEnabled")]
+        [PolicyResourceProperty("privateDnsEnabled", "_mUnknown_PrivateDnsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPrivateDnsEnabled;
-
-        public bool? PrivateDnsEnabled => _mPrivateDnsEnabled.GetValue("privateDnsEnabled");
+        private bool? _mValue_PrivateDnsEnabled;
+        private bool _mUnknown_PrivateDnsEnabled;
+        public bool? PrivateDnsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_PrivateDnsEnabled) return _mValue_PrivateDnsEnabled;
+                throw new UndeferrableValueException("Value 'EndpointPrivateDns.PrivateDnsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC endpoint identifier.
         /// </summary>
-        [Input("vpcEndpointId")]
+        [PolicyResourceProperty("vpcEndpointId", "_mUnknown_VpcEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
-
-        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+        private string? _mValue_VpcEndpointId;
+        private bool _mUnknown_VpcEndpointId;
+        public string? VpcEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointId) return _mValue_VpcEndpointId;
+                throw new UndeferrableValueException("Value 'EndpointPrivateDns.VpcEndpointId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:vpc/endpointPrivateDns:EndpointPrivateDns")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Vpc
         /// <summary>
         /// Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
         /// </summary>
-        [Input("privateDnsEnabled")]
+        [PolicyResourceProperty("privateDnsEnabled", "_mUnknown_PrivateDnsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPrivateDnsEnabled;
-
-        public bool? PrivateDnsEnabled => _mPrivateDnsEnabled.GetValue("privateDnsEnabled");
+        private bool? _mValue_PrivateDnsEnabled;
+        private bool _mUnknown_PrivateDnsEnabled;
+        public bool? PrivateDnsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_PrivateDnsEnabled) return _mValue_PrivateDnsEnabled;
+                throw new UndeferrableValueException("Value 'EndpointPrivateDnsArgs.PrivateDnsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC endpoint identifier.
         /// </summary>
-        [Input("vpcEndpointId")]
+        [PolicyResourceProperty("vpcEndpointId", "_mUnknown_VpcEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
-
-        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+        private string? _mValue_VpcEndpointId;
+        private bool _mUnknown_VpcEndpointId;
+        public string? VpcEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointId) return _mValue_VpcEndpointId;
+                throw new UndeferrableValueException("Value 'EndpointPrivateDnsArgs.VpcEndpointId' is not present");
+            }
+        }
     }
 }

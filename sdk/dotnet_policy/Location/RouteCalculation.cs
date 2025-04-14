@@ -16,76 +16,132 @@ namespace Pulumi.PolicyPacks.Aws.Location
         /// <summary>
         /// The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
         /// </summary>
-        [Input("calculatorArn")]
+        [PolicyResourceProperty("calculatorArn", "_mUnknown_CalculatorArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCalculatorArn;
-
-        public string? CalculatorArn => _mCalculatorArn.GetValue("calculatorArn");
+        private string? _mValue_CalculatorArn;
+        private bool _mUnknown_CalculatorArn;
+        public string? CalculatorArn
+        {
+            get
+            {
+                if (!_mUnknown_CalculatorArn) return _mValue_CalculatorArn;
+                throw new UndeferrableValueException("Value 'RouteCalculation.CalculatorArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the route calculator resource.
         /// </summary>
-        [Input("calculatorName")]
+        [PolicyResourceProperty("calculatorName", "_mUnknown_CalculatorName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCalculatorName;
-
-        public string? CalculatorName => _mCalculatorName.GetValue("calculatorName");
+        private string? _mValue_CalculatorName;
+        private bool _mUnknown_CalculatorName;
+        public string? CalculatorName
+        {
+            get
+            {
+                if (!_mUnknown_CalculatorName) return _mValue_CalculatorName;
+                throw new UndeferrableValueException("Value 'RouteCalculation.CalculatorName' is not present");
+            }
+        }
 
         /// <summary>
         /// The timestamp for when the route calculator resource was created in ISO 8601 format.
         /// </summary>
-        [Input("createTime")]
+        [PolicyResourceProperty("createTime", "_mUnknown_CreateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
-
-        public string? CreateTime => _mCreateTime.GetValue("createTime");
+        private string? _mValue_CreateTime;
+        private bool _mUnknown_CreateTime;
+        public string? CreateTime
+        {
+            get
+            {
+                if (!_mUnknown_CreateTime) return _mValue_CreateTime;
+                throw new UndeferrableValueException("Value 'RouteCalculation.CreateTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the data provider of traffic and road network data.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("dataSource")]
+        [PolicyResourceProperty("dataSource", "_mUnknown_DataSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSource;
-
-        public string? DataSource => _mDataSource.GetValue("dataSource");
+        private string? _mValue_DataSource;
+        private bool _mUnknown_DataSource;
+        public string? DataSource
+        {
+            get
+            {
+                if (!_mUnknown_DataSource) return _mValue_DataSource;
+                throw new UndeferrableValueException("Value 'RouteCalculation.DataSource' is not present");
+            }
+        }
 
         /// <summary>
         /// The optional description for the route calculator resource.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'RouteCalculation.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the route calculator. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RouteCalculation.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'RouteCalculation.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The timestamp for when the route calculator resource was last update in ISO 8601.
         /// </summary>
-        [Input("updateTime")]
+        [PolicyResourceProperty("updateTime", "_mUnknown_UpdateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateTime;
-
-        public string? UpdateTime => _mUpdateTime.GetValue("updateTime");
+        private string? _mValue_UpdateTime;
+        private bool _mUnknown_UpdateTime;
+        public string? UpdateTime
+        {
+            get
+            {
+                if (!_mUnknown_UpdateTime) return _mValue_UpdateTime;
+                throw new UndeferrableValueException("Value 'RouteCalculation.UpdateTime' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:location/routeCalculation:RouteCalculation")]
@@ -94,39 +150,67 @@ namespace Pulumi.PolicyPacks.Aws.Location
         /// <summary>
         /// The name of the route calculator resource.
         /// </summary>
-        [Input("calculatorName")]
+        [PolicyResourceProperty("calculatorName", "_mUnknown_CalculatorName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCalculatorName;
-
-        public string? CalculatorName => _mCalculatorName.GetValue("calculatorName");
+        private string? _mValue_CalculatorName;
+        private bool _mUnknown_CalculatorName;
+        public string? CalculatorName
+        {
+            get
+            {
+                if (!_mUnknown_CalculatorName) return _mValue_CalculatorName;
+                throw new UndeferrableValueException("Value 'RouteCalculationArgs.CalculatorName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the data provider of traffic and road network data.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("dataSource")]
+        [PolicyResourceProperty("dataSource", "_mUnknown_DataSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSource;
-
-        public string? DataSource => _mDataSource.GetValue("dataSource");
+        private string? _mValue_DataSource;
+        private bool _mUnknown_DataSource;
+        public string? DataSource
+        {
+            get
+            {
+                if (!_mUnknown_DataSource) return _mValue_DataSource;
+                throw new UndeferrableValueException("Value 'RouteCalculationArgs.DataSource' is not present");
+            }
+        }
 
         /// <summary>
         /// The optional description for the route calculator resource.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'RouteCalculationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the route calculator. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RouteCalculationArgs.Tags' is not present");
+            }
+        }
     }
 }

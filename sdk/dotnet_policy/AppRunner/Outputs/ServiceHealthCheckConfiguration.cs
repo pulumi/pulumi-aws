@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner.Outputs
         /// <summary>
         /// Number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
         /// </summary>
-        [Input("healthyThreshold")]
+        [PolicyResourceProperty("healthyThreshold", "_mUnknown_HealthyThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHealthyThreshold;
-
-        public int? HealthyThreshold => _mHealthyThreshold.GetValue("healthyThreshold");
+        private int? _mValue_HealthyThreshold;
+        private bool _mUnknown_HealthyThreshold;
+        public int? HealthyThreshold
+        {
+            get
+            {
+                if (!_mUnknown_HealthyThreshold) return _mValue_HealthyThreshold;
+                throw new UndeferrableValueException("Value 'ServiceHealthCheckConfiguration.HealthyThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// Time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
         /// </summary>
-        [Input("interval")]
+        [PolicyResourceProperty("interval", "_mUnknown_Interval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInterval;
-
-        public int? Interval => _mInterval.GetValue("interval");
+        private int? _mValue_Interval;
+        private bool _mUnknown_Interval;
+        public int? Interval
+        {
+            get
+            {
+                if (!_mUnknown_Interval) return _mValue_Interval;
+                throw new UndeferrableValueException("Value 'ServiceHealthCheckConfiguration.Interval' is not present");
+            }
+        }
 
         /// <summary>
         /// URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'ServiceHealthCheckConfiguration.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'ServiceHealthCheckConfiguration.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
         /// </summary>
-        [Input("timeout")]
+        [PolicyResourceProperty("timeout", "_mUnknown_Timeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeout;
-
-        public int? Timeout => _mTimeout.GetValue("timeout");
+        private int? _mValue_Timeout;
+        private bool _mUnknown_Timeout;
+        public int? Timeout
+        {
+            get
+            {
+                if (!_mUnknown_Timeout) return _mValue_Timeout;
+                throw new UndeferrableValueException("Value 'ServiceHealthCheckConfiguration.Timeout' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
         /// </summary>
-        [Input("unhealthyThreshold")]
+        [PolicyResourceProperty("unhealthyThreshold", "_mUnknown_UnhealthyThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUnhealthyThreshold;
-
-        public int? UnhealthyThreshold => _mUnhealthyThreshold.GetValue("unhealthyThreshold");
+        private int? _mValue_UnhealthyThreshold;
+        private bool _mUnknown_UnhealthyThreshold;
+        public int? UnhealthyThreshold
+        {
+            get
+            {
+                if (!_mUnknown_UnhealthyThreshold) return _mValue_UnhealthyThreshold;
+                throw new UndeferrableValueException("Value 'ServiceHealthCheckConfiguration.UnhealthyThreshold' is not present");
+            }
+        }
     }
 }

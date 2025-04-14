@@ -16,93 +16,163 @@ namespace Pulumi.PolicyPacks.Aws.Kms
         /// <summary>
         /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
         /// </summary>
-        [Input("constraints")]
+        [PolicyResourceProperty("constraints", "_mUnknown_Constraints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GrantConstraint>> _mConstraints;
-
-        public List<Outputs.GrantConstraint>? Constraints => _mConstraints.GetValue("constraints");
+        private List<Outputs.GrantConstraint>? _mValue_Constraints;
+        private bool _mUnknown_Constraints;
+        public List<Outputs.GrantConstraint>? Constraints
+        {
+            get
+            {
+                if (!_mUnknown_Constraints) return _mValue_Constraints;
+                throw new UndeferrableValueException("Value 'Grant.Constraints' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
         /// </summary>
-        [Input("grantCreationTokens")]
+        [PolicyResourceProperty("grantCreationTokens", "_mUnknown_GrantCreationTokens")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGrantCreationTokens;
-
-        public List<string>? GrantCreationTokens => _mGrantCreationTokens.GetValue("grantCreationTokens");
+        private List<string>? _mValue_GrantCreationTokens;
+        private bool _mUnknown_GrantCreationTokens;
+        public List<string>? GrantCreationTokens
+        {
+            get
+            {
+                if (!_mUnknown_GrantCreationTokens) return _mValue_GrantCreationTokens;
+                throw new UndeferrableValueException("Value 'Grant.GrantCreationTokens' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the grant.
         /// </summary>
-        [Input("grantId")]
+        [PolicyResourceProperty("grantId", "_mUnknown_GrantId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGrantId;
-
-        public string? GrantId => _mGrantId.GetValue("grantId");
+        private string? _mValue_GrantId;
+        private bool _mUnknown_GrantId;
+        public string? GrantId
+        {
+            get
+            {
+                if (!_mUnknown_GrantId) return _mValue_GrantId;
+                throw new UndeferrableValueException("Value 'Grant.GrantId' is not present");
+            }
+        }
 
         /// <summary>
         /// The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
         /// </summary>
-        [Input("grantToken")]
+        [PolicyResourceProperty("grantToken", "_mUnknown_GrantToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGrantToken;
-
-        public string? GrantToken => _mGrantToken.GetValue("grantToken");
+        private string? _mValue_GrantToken;
+        private bool _mUnknown_GrantToken;
+        public string? GrantToken
+        {
+            get
+            {
+                if (!_mUnknown_GrantToken) return _mValue_GrantToken;
+                throw new UndeferrableValueException("Value 'Grant.GrantToken' is not present");
+            }
+        }
 
         /// <summary>
         /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         /// </summary>
-        [Input("granteePrincipal")]
+        [PolicyResourceProperty("granteePrincipal", "_mUnknown_GranteePrincipal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGranteePrincipal;
-
-        public string? GranteePrincipal => _mGranteePrincipal.GetValue("granteePrincipal");
+        private string? _mValue_GranteePrincipal;
+        private bool _mUnknown_GranteePrincipal;
+        public string? GranteePrincipal
+        {
+            get
+            {
+                if (!_mUnknown_GranteePrincipal) return _mValue_GranteePrincipal;
+                throw new UndeferrableValueException("Value 'Grant.GranteePrincipal' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
         /// </summary>
-        [Input("keyId")]
+        [PolicyResourceProperty("keyId", "_mUnknown_KeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
-
-        public string? KeyId => _mKeyId.GetValue("keyId");
+        private string? _mValue_KeyId;
+        private bool _mUnknown_KeyId;
+        public string? KeyId
+        {
+            get
+            {
+                if (!_mUnknown_KeyId) return _mValue_KeyId;
+                throw new UndeferrableValueException("Value 'Grant.KeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly name for identifying the grant.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Grant.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
         /// </summary>
-        [Input("operations")]
+        [PolicyResourceProperty("operations", "_mUnknown_Operations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOperations;
-
-        public List<string>? Operations => _mOperations.GetValue("operations");
+        private List<string>? _mValue_Operations;
+        private bool _mUnknown_Operations;
+        public List<string>? Operations
+        {
+            get
+            {
+                if (!_mUnknown_Operations) return _mValue_Operations;
+                throw new UndeferrableValueException("Value 'Grant.Operations' is not present");
+            }
+        }
 
         /// <summary>
         /// If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
         /// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         /// </summary>
-        [Input("retireOnDelete")]
+        [PolicyResourceProperty("retireOnDelete", "_mUnknown_RetireOnDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRetireOnDelete;
-
-        public bool? RetireOnDelete => _mRetireOnDelete.GetValue("retireOnDelete");
+        private bool? _mValue_RetireOnDelete;
+        private bool _mUnknown_RetireOnDelete;
+        public bool? RetireOnDelete
+        {
+            get
+            {
+                if (!_mUnknown_RetireOnDelete) return _mValue_RetireOnDelete;
+                throw new UndeferrableValueException("Value 'Grant.RetireOnDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         /// </summary>
-        [Input("retiringPrincipal")]
+        [PolicyResourceProperty("retiringPrincipal", "_mUnknown_RetiringPrincipal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRetiringPrincipal;
-
-        public string? RetiringPrincipal => _mRetiringPrincipal.GetValue("retiringPrincipal");
+        private string? _mValue_RetiringPrincipal;
+        private bool _mUnknown_RetiringPrincipal;
+        public string? RetiringPrincipal
+        {
+            get
+            {
+                if (!_mUnknown_RetiringPrincipal) return _mValue_RetiringPrincipal;
+                throw new UndeferrableValueException("Value 'Grant.RetiringPrincipal' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:kms/grant:Grant")]
@@ -111,74 +181,130 @@ namespace Pulumi.PolicyPacks.Aws.Kms
         /// <summary>
         /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
         /// </summary>
-        [Input("constraints")]
+        [PolicyResourceProperty("constraints", "_mUnknown_Constraints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GrantConstraintArgs>> _mConstraints;
-
-        public List<Inputs.GrantConstraintArgs>? Constraints => _mConstraints.GetValue("constraints");
+        private List<Inputs.GrantConstraintArgs>? _mValue_Constraints;
+        private bool _mUnknown_Constraints;
+        public List<Inputs.GrantConstraintArgs>? Constraints
+        {
+            get
+            {
+                if (!_mUnknown_Constraints) return _mValue_Constraints;
+                throw new UndeferrableValueException("Value 'GrantArgs.Constraints' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
         /// </summary>
-        [Input("grantCreationTokens")]
+        [PolicyResourceProperty("grantCreationTokens", "_mUnknown_GrantCreationTokens")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGrantCreationTokens;
-
-        public List<string>? GrantCreationTokens => _mGrantCreationTokens.GetValue("grantCreationTokens");
+        private List<string>? _mValue_GrantCreationTokens;
+        private bool _mUnknown_GrantCreationTokens;
+        public List<string>? GrantCreationTokens
+        {
+            get
+            {
+                if (!_mUnknown_GrantCreationTokens) return _mValue_GrantCreationTokens;
+                throw new UndeferrableValueException("Value 'GrantArgs.GrantCreationTokens' is not present");
+            }
+        }
 
         /// <summary>
         /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         /// </summary>
-        [Input("granteePrincipal")]
+        [PolicyResourceProperty("granteePrincipal", "_mUnknown_GranteePrincipal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGranteePrincipal;
-
-        public string? GranteePrincipal => _mGranteePrincipal.GetValue("granteePrincipal");
+        private string? _mValue_GranteePrincipal;
+        private bool _mUnknown_GranteePrincipal;
+        public string? GranteePrincipal
+        {
+            get
+            {
+                if (!_mUnknown_GranteePrincipal) return _mValue_GranteePrincipal;
+                throw new UndeferrableValueException("Value 'GrantArgs.GranteePrincipal' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
         /// </summary>
-        [Input("keyId")]
+        [PolicyResourceProperty("keyId", "_mUnknown_KeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
-
-        public string? KeyId => _mKeyId.GetValue("keyId");
+        private string? _mValue_KeyId;
+        private bool _mUnknown_KeyId;
+        public string? KeyId
+        {
+            get
+            {
+                if (!_mUnknown_KeyId) return _mValue_KeyId;
+                throw new UndeferrableValueException("Value 'GrantArgs.KeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly name for identifying the grant.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GrantArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
         /// </summary>
-        [Input("operations")]
+        [PolicyResourceProperty("operations", "_mUnknown_Operations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOperations;
-
-        public List<string>? Operations => _mOperations.GetValue("operations");
+        private List<string>? _mValue_Operations;
+        private bool _mUnknown_Operations;
+        public List<string>? Operations
+        {
+            get
+            {
+                if (!_mUnknown_Operations) return _mValue_Operations;
+                throw new UndeferrableValueException("Value 'GrantArgs.Operations' is not present");
+            }
+        }
 
         /// <summary>
         /// If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
         /// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         /// </summary>
-        [Input("retireOnDelete")]
+        [PolicyResourceProperty("retireOnDelete", "_mUnknown_RetireOnDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRetireOnDelete;
-
-        public bool? RetireOnDelete => _mRetireOnDelete.GetValue("retireOnDelete");
+        private bool? _mValue_RetireOnDelete;
+        private bool _mUnknown_RetireOnDelete;
+        public bool? RetireOnDelete
+        {
+            get
+            {
+                if (!_mUnknown_RetireOnDelete) return _mValue_RetireOnDelete;
+                throw new UndeferrableValueException("Value 'GrantArgs.RetireOnDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         /// </summary>
-        [Input("retiringPrincipal")]
+        [PolicyResourceProperty("retiringPrincipal", "_mUnknown_RetiringPrincipal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRetiringPrincipal;
-
-        public string? RetiringPrincipal => _mRetiringPrincipal.GetValue("retiringPrincipal");
+        private string? _mValue_RetiringPrincipal;
+        private bool _mUnknown_RetiringPrincipal;
+        public string? RetiringPrincipal
+        {
+            get
+            {
+                if (!_mUnknown_RetiringPrincipal) return _mValue_RetiringPrincipal;
+                throw new UndeferrableValueException("Value 'GrantArgs.RetiringPrincipal' is not present");
+            }
+        }
     }
 }

@@ -15,136 +15,241 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Outputs
         /// <summary>
         /// Information about the AWS resource traffic is routed to.
         /// </summary>
-        [Input("aliasTarget")]
+        [PolicyResourceProperty("aliasTarget", "_mUnknown_AliasTarget")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GetRecordsResourceRecordSetAliasTargetResult> _mAliasTarget;
-
-        public Outputs.GetRecordsResourceRecordSetAliasTargetResult? AliasTarget => _mAliasTarget.GetValue("aliasTarget");
+        private Outputs.GetRecordsResourceRecordSetAliasTargetResult? _mValue_AliasTarget;
+        private bool _mUnknown_AliasTarget;
+        public Outputs.GetRecordsResourceRecordSetAliasTargetResult? AliasTarget
+        {
+            get
+            {
+                if (!_mUnknown_AliasTarget) return _mValue_AliasTarget;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetResult.AliasTarget' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the CIDR location traffic is routed to.
         /// </summary>
-        [Input("cidrRoutingConfig")]
+        [PolicyResourceProperty("cidrRoutingConfig", "_mUnknown_CidrRoutingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GetRecordsResourceRecordSetCidrRoutingConfigResult> _mCidrRoutingConfig;
-
-        public Outputs.GetRecordsResourceRecordSetCidrRoutingConfigResult? CidrRoutingConfig => _mCidrRoutingConfig.GetValue("cidrRoutingConfig");
+        private Outputs.GetRecordsResourceRecordSetCidrRoutingConfigResult? _mValue_CidrRoutingConfig;
+        private bool _mUnknown_CidrRoutingConfig;
+        public Outputs.GetRecordsResourceRecordSetCidrRoutingConfigResult? CidrRoutingConfig
+        {
+            get
+            {
+                if (!_mUnknown_CidrRoutingConfig) return _mValue_CidrRoutingConfig;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetResult.CidrRoutingConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// `PRIMARY` or `SECONDARY`.
         /// </summary>
-        [Input("failover")]
+        [PolicyResourceProperty("failover", "_mUnknown_Failover")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFailover;
-
-        public string? Failover => _mFailover.GetValue("failover");
+        private string? _mValue_Failover;
+        private bool _mUnknown_Failover;
+        public string? Failover
+        {
+            get
+            {
+                if (!_mUnknown_Failover) return _mValue_Failover;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetResult.Failover' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
         /// </summary>
-        [Input("geolocation")]
+        [PolicyResourceProperty("geolocation", "_mUnknown_Geolocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GetRecordsResourceRecordSetGeolocationResult> _mGeolocation;
-
-        public Outputs.GetRecordsResourceRecordSetGeolocationResult? Geolocation => _mGeolocation.GetValue("geolocation");
+        private Outputs.GetRecordsResourceRecordSetGeolocationResult? _mValue_Geolocation;
+        private bool _mUnknown_Geolocation;
+        public Outputs.GetRecordsResourceRecordSetGeolocationResult? Geolocation
+        {
+            get
+            {
+                if (!_mUnknown_Geolocation) return _mValue_Geolocation;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetResult.Geolocation' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
         /// </summary>
-        [Input("geoproximityLocation")]
+        [PolicyResourceProperty("geoproximityLocation", "_mUnknown_GeoproximityLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GetRecordsResourceRecordSetGeoproximityLocationResult> _mGeoproximityLocation;
-
-        public Outputs.GetRecordsResourceRecordSetGeoproximityLocationResult? GeoproximityLocation => _mGeoproximityLocation.GetValue("geoproximityLocation");
+        private Outputs.GetRecordsResourceRecordSetGeoproximityLocationResult? _mValue_GeoproximityLocation;
+        private bool _mUnknown_GeoproximityLocation;
+        public Outputs.GetRecordsResourceRecordSetGeoproximityLocationResult? GeoproximityLocation
+        {
+            get
+            {
+                if (!_mUnknown_GeoproximityLocation) return _mValue_GeoproximityLocation;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetResult.GeoproximityLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of any applicable health check.
         /// </summary>
-        [Input("healthCheckId")]
+        [PolicyResourceProperty("healthCheckId", "_mUnknown_HealthCheckId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckId;
-
-        public string? HealthCheckId => _mHealthCheckId.GetValue("healthCheckId");
+        private string? _mValue_HealthCheckId;
+        private bool _mUnknown_HealthCheckId;
+        public string? HealthCheckId
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckId) return _mValue_HealthCheckId;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetResult.HealthCheckId' is not present");
+            }
+        }
 
         /// <summary>
         /// Traffic is routed approximately randomly to multiple resources.
         /// </summary>
-        [Input("multiValueAnswer")]
+        [PolicyResourceProperty("multiValueAnswer", "_mUnknown_MultiValueAnswer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiValueAnswer;
-
-        public bool? MultiValueAnswer => _mMultiValueAnswer.GetValue("multiValueAnswer");
+        private bool? _mValue_MultiValueAnswer;
+        private bool _mUnknown_MultiValueAnswer;
+        public bool? MultiValueAnswer
+        {
+            get
+            {
+                if (!_mUnknown_MultiValueAnswer) return _mValue_MultiValueAnswer;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetResult.MultiValueAnswer' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the record.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetResult.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon EC2 Region of the resource that this resource record set refers to.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetResult.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// The resource records.
         /// </summary>
-        [Input("resourceRecords")]
+        [PolicyResourceProperty("resourceRecords", "_mUnknown_ResourceRecords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetRecordsResourceRecordSetResourceRecordResult>> _mResourceRecords;
-
-        public List<Outputs.GetRecordsResourceRecordSetResourceRecordResult>? ResourceRecords => _mResourceRecords.GetValue("resourceRecords");
+        private List<Outputs.GetRecordsResourceRecordSetResourceRecordResult>? _mValue_ResourceRecords;
+        private bool _mUnknown_ResourceRecords;
+        public List<Outputs.GetRecordsResourceRecordSetResourceRecordResult>? ResourceRecords
+        {
+            get
+            {
+                if (!_mUnknown_ResourceRecords) return _mValue_ResourceRecords;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetResult.ResourceRecords' is not present");
+            }
+        }
 
         /// <summary>
         /// An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
         /// </summary>
-        [Input("setIdentifier")]
+        [PolicyResourceProperty("setIdentifier", "_mUnknown_SetIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSetIdentifier;
-
-        public string? SetIdentifier => _mSetIdentifier.GetValue("setIdentifier");
+        private string? _mValue_SetIdentifier;
+        private bool _mUnknown_SetIdentifier;
+        public string? SetIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SetIdentifier) return _mValue_SetIdentifier;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetResult.SetIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of any traffic policy instance that Route 53 created this resource record set for.
         /// </summary>
-        [Input("trafficPolicyInstanceId")]
+        [PolicyResourceProperty("trafficPolicyInstanceId", "_mUnknown_TrafficPolicyInstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficPolicyInstanceId;
-
-        public string? TrafficPolicyInstanceId => _mTrafficPolicyInstanceId.GetValue("trafficPolicyInstanceId");
+        private string? _mValue_TrafficPolicyInstanceId;
+        private bool _mUnknown_TrafficPolicyInstanceId;
+        public string? TrafficPolicyInstanceId
+        {
+            get
+            {
+                if (!_mUnknown_TrafficPolicyInstanceId) return _mValue_TrafficPolicyInstanceId;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetResult.TrafficPolicyInstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The resource record cache time to live (TTL), in seconds.
         /// </summary>
-        [Input("ttl")]
+        [PolicyResourceProperty("ttl", "_mUnknown_Ttl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTtl;
-
-        public int? Ttl => _mTtl.GetValue("ttl");
+        private int? _mValue_Ttl;
+        private bool _mUnknown_Ttl;
+        public int? Ttl
+        {
+            get
+            {
+                if (!_mUnknown_Ttl) return _mValue_Ttl;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetResult.Ttl' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS record type.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetResult.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
         /// </summary>
-        [Input("weight")]
+        [PolicyResourceProperty("weight", "_mUnknown_Weight")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWeight;
-
-        public int? Weight => _mWeight.GetValue("weight");
+        private int? _mValue_Weight;
+        private bool _mUnknown_Weight;
+        public int? Weight
+        {
+            get
+            {
+                if (!_mUnknown_Weight) return _mValue_Weight;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetResult.Weight' is not present");
+            }
+        }
     }
 }

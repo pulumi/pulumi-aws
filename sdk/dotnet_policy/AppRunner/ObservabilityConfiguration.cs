@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner
         /// <summary>
         /// ARN of this observability configuration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ObservabilityConfiguration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
         /// </summary>
-        [Input("latest")]
+        [PolicyResourceProperty("latest", "_mUnknown_Latest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mLatest;
-
-        public bool? Latest => _mLatest.GetValue("latest");
+        private bool? _mValue_Latest;
+        private bool _mUnknown_Latest;
+        public bool? Latest
+        {
+            get
+            {
+                if (!_mUnknown_Latest) return _mValue_Latest;
+                throw new UndeferrableValueException("Value 'ObservabilityConfiguration.Latest' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the observability configuration.
         /// </summary>
-        [Input("observabilityConfigurationName")]
+        [PolicyResourceProperty("observabilityConfigurationName", "_mUnknown_ObservabilityConfigurationName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObservabilityConfigurationName;
-
-        public string? ObservabilityConfigurationName => _mObservabilityConfigurationName.GetValue("observabilityConfigurationName");
+        private string? _mValue_ObservabilityConfigurationName;
+        private bool _mUnknown_ObservabilityConfigurationName;
+        public string? ObservabilityConfigurationName
+        {
+            get
+            {
+                if (!_mUnknown_ObservabilityConfigurationName) return _mValue_ObservabilityConfigurationName;
+                throw new UndeferrableValueException("Value 'ObservabilityConfiguration.ObservabilityConfigurationName' is not present");
+            }
+        }
 
         /// <summary>
         /// The revision of this observability configuration.
         /// </summary>
-        [Input("observabilityConfigurationRevision")]
+        [PolicyResourceProperty("observabilityConfigurationRevision", "_mUnknown_ObservabilityConfigurationRevision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mObservabilityConfigurationRevision;
-
-        public int? ObservabilityConfigurationRevision => _mObservabilityConfigurationRevision.GetValue("observabilityConfigurationRevision");
+        private int? _mValue_ObservabilityConfigurationRevision;
+        private bool _mUnknown_ObservabilityConfigurationRevision;
+        public int? ObservabilityConfigurationRevision
+        {
+            get
+            {
+                if (!_mUnknown_ObservabilityConfigurationRevision) return _mValue_ObservabilityConfigurationRevision;
+                throw new UndeferrableValueException("Value 'ObservabilityConfiguration.ObservabilityConfigurationRevision' is not present");
+            }
+        }
 
         /// <summary>
         /// Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'ObservabilityConfiguration.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ObservabilityConfiguration.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ObservabilityConfiguration.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         /// </summary>
-        [Input("traceConfiguration")]
+        [PolicyResourceProperty("traceConfiguration", "_mUnknown_TraceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ObservabilityConfigurationTraceConfiguration> _mTraceConfiguration;
-
-        public Outputs.ObservabilityConfigurationTraceConfiguration? TraceConfiguration => _mTraceConfiguration.GetValue("traceConfiguration");
+        private Outputs.ObservabilityConfigurationTraceConfiguration? _mValue_TraceConfiguration;
+        private bool _mUnknown_TraceConfiguration;
+        public Outputs.ObservabilityConfigurationTraceConfiguration? TraceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_TraceConfiguration) return _mValue_TraceConfiguration;
+                throw new UndeferrableValueException("Value 'ObservabilityConfiguration.TraceConfiguration' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apprunner/observabilityConfiguration:ObservabilityConfiguration")]
@@ -92,28 +148,49 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner
         /// <summary>
         /// Name of the observability configuration.
         /// </summary>
-        [Input("observabilityConfigurationName")]
+        [PolicyResourceProperty("observabilityConfigurationName", "_mUnknown_ObservabilityConfigurationName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObservabilityConfigurationName;
-
-        public string? ObservabilityConfigurationName => _mObservabilityConfigurationName.GetValue("observabilityConfigurationName");
+        private string? _mValue_ObservabilityConfigurationName;
+        private bool _mUnknown_ObservabilityConfigurationName;
+        public string? ObservabilityConfigurationName
+        {
+            get
+            {
+                if (!_mUnknown_ObservabilityConfigurationName) return _mValue_ObservabilityConfigurationName;
+                throw new UndeferrableValueException("Value 'ObservabilityConfigurationArgs.ObservabilityConfigurationName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ObservabilityConfigurationArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         /// </summary>
-        [Input("traceConfiguration")]
+        [PolicyResourceProperty("traceConfiguration", "_mUnknown_TraceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ObservabilityConfigurationTraceConfigurationArgs> _mTraceConfiguration;
-
-        public Inputs.ObservabilityConfigurationTraceConfigurationArgs? TraceConfiguration => _mTraceConfiguration.GetValue("traceConfiguration");
+        private Inputs.ObservabilityConfigurationTraceConfigurationArgs? _mValue_TraceConfiguration;
+        private bool _mUnknown_TraceConfiguration;
+        public Inputs.ObservabilityConfigurationTraceConfigurationArgs? TraceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_TraceConfiguration) return _mValue_TraceConfiguration;
+                throw new UndeferrableValueException("Value 'ObservabilityConfigurationArgs.TraceConfiguration' is not present");
+            }
+        }
     }
 }

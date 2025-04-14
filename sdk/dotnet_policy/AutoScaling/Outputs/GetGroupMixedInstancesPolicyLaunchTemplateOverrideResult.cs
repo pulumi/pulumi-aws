@@ -16,37 +16,65 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Outputs
         /// List of instance requirements objects.
         /// * `accelerator_count - List of objects describing the minimum and maximum number of accelerators for an instance type.
         /// </summary>
-        [Input("instanceRequirements")]
+        [PolicyResourceProperty("instanceRequirements", "_mUnknown_InstanceRequirements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult>> _mInstanceRequirements;
-
-        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult>? InstanceRequirements => _mInstanceRequirements.GetValue("instanceRequirements");
+        private List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult>? _mValue_InstanceRequirements;
+        private bool _mUnknown_InstanceRequirements;
+        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult>? InstanceRequirements
+        {
+            get
+            {
+                if (!_mUnknown_InstanceRequirements) return _mValue_InstanceRequirements;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult.InstanceRequirements' is not present");
+            }
+        }
 
         /// <summary>
         /// Overriding instance type.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// List of overriding launch template specification objects.
         /// </summary>
-        [Input("launchTemplateSpecifications")]
+        [PolicyResourceProperty("launchTemplateSpecifications", "_mUnknown_LaunchTemplateSpecifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationResult>> _mLaunchTemplateSpecifications;
-
-        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationResult>? LaunchTemplateSpecifications => _mLaunchTemplateSpecifications.GetValue("launchTemplateSpecifications");
+        private List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationResult>? _mValue_LaunchTemplateSpecifications;
+        private bool _mUnknown_LaunchTemplateSpecifications;
+        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationResult>? LaunchTemplateSpecifications
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplateSpecifications) return _mValue_LaunchTemplateSpecifications;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult.LaunchTemplateSpecifications' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of capacity units, which gives the instance type a proportional weight to other instance types.
         /// </summary>
-        [Input("weightedCapacity")]
+        [PolicyResourceProperty("weightedCapacity", "_mUnknown_WeightedCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWeightedCapacity;
-
-        public string? WeightedCapacity => _mWeightedCapacity.GetValue("weightedCapacity");
+        private string? _mValue_WeightedCapacity;
+        private bool _mUnknown_WeightedCapacity;
+        public string? WeightedCapacity
+        {
+            get
+            {
+                if (!_mUnknown_WeightedCapacity) return _mValue_WeightedCapacity;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult.WeightedCapacity' is not present");
+            }
+        }
     }
 }

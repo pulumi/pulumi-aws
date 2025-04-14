@@ -15,47 +15,82 @@ namespace Pulumi.PolicyPacks.Aws.Waf.Outputs
         /// <summary>
         /// The action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule. Not used if `type` is `GROUP`.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleAction> _mAction;
-
-        public Outputs.WebAclRuleAction? Action => _mAction.GetValue("action");
+        private Outputs.WebAclRuleAction? _mValue_Action;
+        private bool _mUnknown_Action;
+        public Outputs.WebAclRuleAction? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'WebAclRule.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// Override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule. Only used if `type` is `GROUP`.
         /// </summary>
-        [Input("overrideAction")]
+        [PolicyResourceProperty("overrideAction", "_mUnknown_OverrideAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleOverrideAction> _mOverrideAction;
-
-        public Outputs.WebAclRuleOverrideAction? OverrideAction => _mOverrideAction.GetValue("overrideAction");
+        private Outputs.WebAclRuleOverrideAction? _mValue_OverrideAction;
+        private bool _mUnknown_OverrideAction;
+        public Outputs.WebAclRuleOverrideAction? OverrideAction
+        {
+            get
+            {
+                if (!_mUnknown_OverrideAction) return _mValue_OverrideAction;
+                throw new UndeferrableValueException("Value 'WebAclRule.OverrideAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the order in which the rules in a WebACL are evaluated.
         /// Rules with a lower value are evaluated before rules with a higher value.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'WebAclRule.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the associated WAF (Global) rule (e.g., `aws.waf.Rule`). WAF (Regional) rules cannot be used.
         /// </summary>
-        [Input("ruleId")]
+        [PolicyResourceProperty("ruleId", "_mUnknown_RuleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleId;
-
-        public string? RuleId => _mRuleId.GetValue("ruleId");
+        private string? _mValue_RuleId;
+        private bool _mUnknown_RuleId;
+        public string? RuleId
+        {
+            get
+            {
+                if (!_mUnknown_RuleId) return _mValue_RuleId;
+                throw new UndeferrableValueException("Value 'WebAclRule.RuleId' is not present");
+            }
+        }
 
         /// <summary>
         /// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'WebAclRule.Type' is not present");
+            }
+        }
     }
 }

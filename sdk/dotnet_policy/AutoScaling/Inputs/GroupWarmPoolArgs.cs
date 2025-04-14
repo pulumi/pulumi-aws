@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Inputs
         /// <summary>
         /// Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
         /// </summary>
-        [Input("instanceReusePolicy")]
+        [PolicyResourceProperty("instanceReusePolicy", "_mUnknown_InstanceReusePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupWarmPoolInstanceReusePolicyArgs> _mInstanceReusePolicy;
-
-        public Inputs.GroupWarmPoolInstanceReusePolicyArgs? InstanceReusePolicy => _mInstanceReusePolicy.GetValue("instanceReusePolicy");
+        private Inputs.GroupWarmPoolInstanceReusePolicyArgs? _mValue_InstanceReusePolicy;
+        private bool _mUnknown_InstanceReusePolicy;
+        public Inputs.GroupWarmPoolInstanceReusePolicyArgs? InstanceReusePolicy
+        {
+            get
+            {
+                if (!_mUnknown_InstanceReusePolicy) return _mValue_InstanceReusePolicy;
+                throw new UndeferrableValueException("Value 'GroupWarmPoolArgs.InstanceReusePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
         /// </summary>
-        [Input("maxGroupPreparedCapacity")]
+        [PolicyResourceProperty("maxGroupPreparedCapacity", "_mUnknown_MaxGroupPreparedCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxGroupPreparedCapacity;
-
-        public int? MaxGroupPreparedCapacity => _mMaxGroupPreparedCapacity.GetValue("maxGroupPreparedCapacity");
+        private int? _mValue_MaxGroupPreparedCapacity;
+        private bool _mUnknown_MaxGroupPreparedCapacity;
+        public int? MaxGroupPreparedCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MaxGroupPreparedCapacity) return _mValue_MaxGroupPreparedCapacity;
+                throw new UndeferrableValueException("Value 'GroupWarmPoolArgs.MaxGroupPreparedCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
         /// </summary>
-        [Input("minSize")]
+        [PolicyResourceProperty("minSize", "_mUnknown_MinSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinSize;
-
-        public int? MinSize => _mMinSize.GetValue("minSize");
+        private int? _mValue_MinSize;
+        private bool _mUnknown_MinSize;
+        public int? MinSize
+        {
+            get
+            {
+                if (!_mUnknown_MinSize) return _mValue_MinSize;
+                throw new UndeferrableValueException("Value 'GroupWarmPoolArgs.MinSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
         /// </summary>
-        [Input("poolState")]
+        [PolicyResourceProperty("poolState", "_mUnknown_PoolState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPoolState;
-
-        public string? PoolState => _mPoolState.GetValue("poolState");
+        private string? _mValue_PoolState;
+        private bool _mUnknown_PoolState;
+        public string? PoolState
+        {
+            get
+            {
+                if (!_mUnknown_PoolState) return _mValue_PoolState;
+                throw new UndeferrableValueException("Value 'GroupWarmPoolArgs.PoolState' is not present");
+            }
+        }
     }
 }

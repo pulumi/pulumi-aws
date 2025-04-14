@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway.Outputs
         /// <summary>
         /// The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
         /// </summary>
-        [Input("burstLimit")]
+        [PolicyResourceProperty("burstLimit", "_mUnknown_BurstLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBurstLimit;
-
-        public int? BurstLimit => _mBurstLimit.GetValue("burstLimit");
+        private int? _mValue_BurstLimit;
+        private bool _mUnknown_BurstLimit;
+        public int? BurstLimit
+        {
+            get
+            {
+                if (!_mUnknown_BurstLimit) return _mValue_BurstLimit;
+                throw new UndeferrableValueException("Value 'UsagePlanApiStageThrottle.BurstLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'UsagePlanApiStageThrottle.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The API request steady-state rate limit.
         /// </summary>
-        [Input("rateLimit")]
+        [PolicyResourceProperty("rateLimit", "_mUnknown_RateLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mRateLimit;
-
-        public double? RateLimit => _mRateLimit.GetValue("rateLimit");
+        private double? _mValue_RateLimit;
+        private bool _mUnknown_RateLimit;
+        public double? RateLimit
+        {
+            get
+            {
+                if (!_mUnknown_RateLimit) return _mValue_RateLimit;
+                throw new UndeferrableValueException("Value 'UsagePlanApiStageThrottle.RateLimit' is not present");
+            }
+        }
     }
 }

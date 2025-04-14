@@ -15,793 +15,1409 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Outputs
         /// <summary>
         /// AWS account ID that a finding is generated in. See String_Filter below for more details.
         /// </summary>
-        [Input("awsAccountIds")]
+        [PolicyResourceProperty("awsAccountIds", "_mUnknown_AwsAccountIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersAwsAccountId>> _mAwsAccountIds;
-
-        public List<Outputs.InsightFiltersAwsAccountId>? AwsAccountIds => _mAwsAccountIds.GetValue("awsAccountIds");
+        private List<Outputs.InsightFiltersAwsAccountId>? _mValue_AwsAccountIds;
+        private bool _mUnknown_AwsAccountIds;
+        public List<Outputs.InsightFiltersAwsAccountId>? AwsAccountIds
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountIds) return _mValue_AwsAccountIds;
+                throw new UndeferrableValueException("Value 'InsightFilters.AwsAccountIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
         /// </summary>
-        [Input("companyNames")]
+        [PolicyResourceProperty("companyNames", "_mUnknown_CompanyNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersCompanyName>> _mCompanyNames;
-
-        public List<Outputs.InsightFiltersCompanyName>? CompanyNames => _mCompanyNames.GetValue("companyNames");
+        private List<Outputs.InsightFiltersCompanyName>? _mValue_CompanyNames;
+        private bool _mUnknown_CompanyNames;
+        public List<Outputs.InsightFiltersCompanyName>? CompanyNames
+        {
+            get
+            {
+                if (!_mUnknown_CompanyNames) return _mValue_CompanyNames;
+                throw new UndeferrableValueException("Value 'InsightFilters.CompanyNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
         /// </summary>
-        [Input("complianceStatuses")]
+        [PolicyResourceProperty("complianceStatuses", "_mUnknown_ComplianceStatuses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersComplianceStatus>> _mComplianceStatuses;
-
-        public List<Outputs.InsightFiltersComplianceStatus>? ComplianceStatuses => _mComplianceStatuses.GetValue("complianceStatuses");
+        private List<Outputs.InsightFiltersComplianceStatus>? _mValue_ComplianceStatuses;
+        private bool _mUnknown_ComplianceStatuses;
+        public List<Outputs.InsightFiltersComplianceStatus>? ComplianceStatuses
+        {
+            get
+            {
+                if (!_mUnknown_ComplianceStatuses) return _mValue_ComplianceStatuses;
+                throw new UndeferrableValueException("Value 'InsightFilters.ComplianceStatuses' is not present");
+            }
+        }
 
         /// <summary>
         /// A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
         /// </summary>
-        [Input("confidences")]
+        [PolicyResourceProperty("confidences", "_mUnknown_Confidences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersConfidence>> _mConfidences;
-
-        public List<Outputs.InsightFiltersConfidence>? Confidences => _mConfidences.GetValue("confidences");
+        private List<Outputs.InsightFiltersConfidence>? _mValue_Confidences;
+        private bool _mUnknown_Confidences;
+        public List<Outputs.InsightFiltersConfidence>? Confidences
+        {
+            get
+            {
+                if (!_mUnknown_Confidences) return _mValue_Confidences;
+                throw new UndeferrableValueException("Value 'InsightFilters.Confidences' is not present");
+            }
+        }
 
         /// <summary>
         /// An ISO8601-formatted timestamp that indicates when the security-findings provider captured the potential security issue that a finding captured. See Date Filter below for more details.
         /// </summary>
-        [Input("createdAts")]
+        [PolicyResourceProperty("createdAts", "_mUnknown_CreatedAts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersCreatedAt>> _mCreatedAts;
-
-        public List<Outputs.InsightFiltersCreatedAt>? CreatedAts => _mCreatedAts.GetValue("createdAts");
+        private List<Outputs.InsightFiltersCreatedAt>? _mValue_CreatedAts;
+        private bool _mUnknown_CreatedAts;
+        public List<Outputs.InsightFiltersCreatedAt>? CreatedAts
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAts) return _mValue_CreatedAts;
+                throw new UndeferrableValueException("Value 'InsightFilters.CreatedAts' is not present");
+            }
+        }
 
         /// <summary>
         /// The level of importance assigned to the resources associated with the finding. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
         /// </summary>
-        [Input("criticalities")]
+        [PolicyResourceProperty("criticalities", "_mUnknown_Criticalities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersCriticality>> _mCriticalities;
-
-        public List<Outputs.InsightFiltersCriticality>? Criticalities => _mCriticalities.GetValue("criticalities");
+        private List<Outputs.InsightFiltersCriticality>? _mValue_Criticalities;
+        private bool _mUnknown_Criticalities;
+        public List<Outputs.InsightFiltersCriticality>? Criticalities
+        {
+            get
+            {
+                if (!_mUnknown_Criticalities) return _mValue_Criticalities;
+                throw new UndeferrableValueException("Value 'InsightFilters.Criticalities' is not present");
+            }
+        }
 
         /// <summary>
         /// A finding's description. See String Filter below for more details.
         /// </summary>
-        [Input("descriptions")]
+        [PolicyResourceProperty("descriptions", "_mUnknown_Descriptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersDescription>> _mDescriptions;
-
-        public List<Outputs.InsightFiltersDescription>? Descriptions => _mDescriptions.GetValue("descriptions");
+        private List<Outputs.InsightFiltersDescription>? _mValue_Descriptions;
+        private bool _mUnknown_Descriptions;
+        public List<Outputs.InsightFiltersDescription>? Descriptions
+        {
+            get
+            {
+                if (!_mUnknown_Descriptions) return _mValue_Descriptions;
+                throw new UndeferrableValueException("Value 'InsightFilters.Descriptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The finding provider value for the finding confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
         /// </summary>
-        [Input("findingProviderFieldsConfidences")]
+        [PolicyResourceProperty("findingProviderFieldsConfidences", "_mUnknown_FindingProviderFieldsConfidences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersFindingProviderFieldsConfidence>> _mFindingProviderFieldsConfidences;
-
-        public List<Outputs.InsightFiltersFindingProviderFieldsConfidence>? FindingProviderFieldsConfidences => _mFindingProviderFieldsConfidences.GetValue("findingProviderFieldsConfidences");
+        private List<Outputs.InsightFiltersFindingProviderFieldsConfidence>? _mValue_FindingProviderFieldsConfidences;
+        private bool _mUnknown_FindingProviderFieldsConfidences;
+        public List<Outputs.InsightFiltersFindingProviderFieldsConfidence>? FindingProviderFieldsConfidences
+        {
+            get
+            {
+                if (!_mUnknown_FindingProviderFieldsConfidences) return _mValue_FindingProviderFieldsConfidences;
+                throw new UndeferrableValueException("Value 'InsightFilters.FindingProviderFieldsConfidences' is not present");
+            }
+        }
 
         /// <summary>
         /// The finding provider value for the level of importance assigned to the resources associated with the findings. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
         /// </summary>
-        [Input("findingProviderFieldsCriticalities")]
+        [PolicyResourceProperty("findingProviderFieldsCriticalities", "_mUnknown_FindingProviderFieldsCriticalities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersFindingProviderFieldsCriticality>> _mFindingProviderFieldsCriticalities;
-
-        public List<Outputs.InsightFiltersFindingProviderFieldsCriticality>? FindingProviderFieldsCriticalities => _mFindingProviderFieldsCriticalities.GetValue("findingProviderFieldsCriticalities");
+        private List<Outputs.InsightFiltersFindingProviderFieldsCriticality>? _mValue_FindingProviderFieldsCriticalities;
+        private bool _mUnknown_FindingProviderFieldsCriticalities;
+        public List<Outputs.InsightFiltersFindingProviderFieldsCriticality>? FindingProviderFieldsCriticalities
+        {
+            get
+            {
+                if (!_mUnknown_FindingProviderFieldsCriticalities) return _mValue_FindingProviderFieldsCriticalities;
+                throw new UndeferrableValueException("Value 'InsightFilters.FindingProviderFieldsCriticalities' is not present");
+            }
+        }
 
         /// <summary>
         /// The finding identifier of a related finding that is identified by the finding provider. See String Filter below for more details.
         /// </summary>
-        [Input("findingProviderFieldsRelatedFindingsIds")]
+        [PolicyResourceProperty("findingProviderFieldsRelatedFindingsIds", "_mUnknown_FindingProviderFieldsRelatedFindingsIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersFindingProviderFieldsRelatedFindingsId>> _mFindingProviderFieldsRelatedFindingsIds;
-
-        public List<Outputs.InsightFiltersFindingProviderFieldsRelatedFindingsId>? FindingProviderFieldsRelatedFindingsIds => _mFindingProviderFieldsRelatedFindingsIds.GetValue("findingProviderFieldsRelatedFindingsIds");
+        private List<Outputs.InsightFiltersFindingProviderFieldsRelatedFindingsId>? _mValue_FindingProviderFieldsRelatedFindingsIds;
+        private bool _mUnknown_FindingProviderFieldsRelatedFindingsIds;
+        public List<Outputs.InsightFiltersFindingProviderFieldsRelatedFindingsId>? FindingProviderFieldsRelatedFindingsIds
+        {
+            get
+            {
+                if (!_mUnknown_FindingProviderFieldsRelatedFindingsIds) return _mValue_FindingProviderFieldsRelatedFindingsIds;
+                throw new UndeferrableValueException("Value 'InsightFilters.FindingProviderFieldsRelatedFindingsIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the solution that generated a related finding that is identified by the finding provider. See String Filter below for more details.
         /// </summary>
-        [Input("findingProviderFieldsRelatedFindingsProductArns")]
+        [PolicyResourceProperty("findingProviderFieldsRelatedFindingsProductArns", "_mUnknown_FindingProviderFieldsRelatedFindingsProductArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersFindingProviderFieldsRelatedFindingsProductArn>> _mFindingProviderFieldsRelatedFindingsProductArns;
-
-        public List<Outputs.InsightFiltersFindingProviderFieldsRelatedFindingsProductArn>? FindingProviderFieldsRelatedFindingsProductArns => _mFindingProviderFieldsRelatedFindingsProductArns.GetValue("findingProviderFieldsRelatedFindingsProductArns");
+        private List<Outputs.InsightFiltersFindingProviderFieldsRelatedFindingsProductArn>? _mValue_FindingProviderFieldsRelatedFindingsProductArns;
+        private bool _mUnknown_FindingProviderFieldsRelatedFindingsProductArns;
+        public List<Outputs.InsightFiltersFindingProviderFieldsRelatedFindingsProductArn>? FindingProviderFieldsRelatedFindingsProductArns
+        {
+            get
+            {
+                if (!_mUnknown_FindingProviderFieldsRelatedFindingsProductArns) return _mValue_FindingProviderFieldsRelatedFindingsProductArns;
+                throw new UndeferrableValueException("Value 'InsightFilters.FindingProviderFieldsRelatedFindingsProductArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The finding provider value for the severity label. See String Filter below for more details.
         /// </summary>
-        [Input("findingProviderFieldsSeverityLabels")]
+        [PolicyResourceProperty("findingProviderFieldsSeverityLabels", "_mUnknown_FindingProviderFieldsSeverityLabels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersFindingProviderFieldsSeverityLabel>> _mFindingProviderFieldsSeverityLabels;
-
-        public List<Outputs.InsightFiltersFindingProviderFieldsSeverityLabel>? FindingProviderFieldsSeverityLabels => _mFindingProviderFieldsSeverityLabels.GetValue("findingProviderFieldsSeverityLabels");
+        private List<Outputs.InsightFiltersFindingProviderFieldsSeverityLabel>? _mValue_FindingProviderFieldsSeverityLabels;
+        private bool _mUnknown_FindingProviderFieldsSeverityLabels;
+        public List<Outputs.InsightFiltersFindingProviderFieldsSeverityLabel>? FindingProviderFieldsSeverityLabels
+        {
+            get
+            {
+                if (!_mUnknown_FindingProviderFieldsSeverityLabels) return _mValue_FindingProviderFieldsSeverityLabels;
+                throw new UndeferrableValueException("Value 'InsightFilters.FindingProviderFieldsSeverityLabels' is not present");
+            }
+        }
 
         /// <summary>
         /// The finding provider's original value for the severity. See String Filter below for more details.
         /// </summary>
-        [Input("findingProviderFieldsSeverityOriginals")]
+        [PolicyResourceProperty("findingProviderFieldsSeverityOriginals", "_mUnknown_FindingProviderFieldsSeverityOriginals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersFindingProviderFieldsSeverityOriginal>> _mFindingProviderFieldsSeverityOriginals;
-
-        public List<Outputs.InsightFiltersFindingProviderFieldsSeverityOriginal>? FindingProviderFieldsSeverityOriginals => _mFindingProviderFieldsSeverityOriginals.GetValue("findingProviderFieldsSeverityOriginals");
+        private List<Outputs.InsightFiltersFindingProviderFieldsSeverityOriginal>? _mValue_FindingProviderFieldsSeverityOriginals;
+        private bool _mUnknown_FindingProviderFieldsSeverityOriginals;
+        public List<Outputs.InsightFiltersFindingProviderFieldsSeverityOriginal>? FindingProviderFieldsSeverityOriginals
+        {
+            get
+            {
+                if (!_mUnknown_FindingProviderFieldsSeverityOriginals) return _mValue_FindingProviderFieldsSeverityOriginals;
+                throw new UndeferrableValueException("Value 'InsightFilters.FindingProviderFieldsSeverityOriginals' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more finding types that the finding provider assigned to the finding. Uses the format of `namespace/category/classifier` that classify a finding. Valid namespace values include: `Software and Configuration Checks`, `TTPs`, `Effects`, `Unusual Behaviors`, and `Sensitive Data Identifications`. See String Filter below for more details.
         /// </summary>
-        [Input("findingProviderFieldsTypes")]
+        [PolicyResourceProperty("findingProviderFieldsTypes", "_mUnknown_FindingProviderFieldsTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersFindingProviderFieldsType>> _mFindingProviderFieldsTypes;
-
-        public List<Outputs.InsightFiltersFindingProviderFieldsType>? FindingProviderFieldsTypes => _mFindingProviderFieldsTypes.GetValue("findingProviderFieldsTypes");
+        private List<Outputs.InsightFiltersFindingProviderFieldsType>? _mValue_FindingProviderFieldsTypes;
+        private bool _mUnknown_FindingProviderFieldsTypes;
+        public List<Outputs.InsightFiltersFindingProviderFieldsType>? FindingProviderFieldsTypes
+        {
+            get
+            {
+                if (!_mUnknown_FindingProviderFieldsTypes) return _mValue_FindingProviderFieldsTypes;
+                throw new UndeferrableValueException("Value 'InsightFilters.FindingProviderFieldsTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// An ISO8601-formatted timestamp that indicates when the security-findings provider first observed the potential security issue that a finding captured. See Date Filter below for more details.
         /// </summary>
-        [Input("firstObservedAts")]
+        [PolicyResourceProperty("firstObservedAts", "_mUnknown_FirstObservedAts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersFirstObservedAt>> _mFirstObservedAts;
-
-        public List<Outputs.InsightFiltersFirstObservedAt>? FirstObservedAts => _mFirstObservedAts.GetValue("firstObservedAts");
+        private List<Outputs.InsightFiltersFirstObservedAt>? _mValue_FirstObservedAts;
+        private bool _mUnknown_FirstObservedAts;
+        public List<Outputs.InsightFiltersFirstObservedAt>? FirstObservedAts
+        {
+            get
+            {
+                if (!_mUnknown_FirstObservedAts) return _mValue_FirstObservedAts;
+                throw new UndeferrableValueException("Value 'InsightFilters.FirstObservedAts' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the solution-specific component (a discrete unit of logic) that generated a finding. See String Filter below for more details.
         /// </summary>
-        [Input("generatorIds")]
+        [PolicyResourceProperty("generatorIds", "_mUnknown_GeneratorIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersGeneratorId>> _mGeneratorIds;
-
-        public List<Outputs.InsightFiltersGeneratorId>? GeneratorIds => _mGeneratorIds.GetValue("generatorIds");
+        private List<Outputs.InsightFiltersGeneratorId>? _mValue_GeneratorIds;
+        private bool _mUnknown_GeneratorIds;
+        public List<Outputs.InsightFiltersGeneratorId>? GeneratorIds
+        {
+            get
+            {
+                if (!_mUnknown_GeneratorIds) return _mValue_GeneratorIds;
+                throw new UndeferrableValueException("Value 'InsightFilters.GeneratorIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The security findings provider-specific identifier for a finding. See String Filter below for more details.
         /// </summary>
-        [Input("ids")]
+        [PolicyResourceProperty("ids", "_mUnknown_Ids")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersId>> _mIds;
-
-        public List<Outputs.InsightFiltersId>? Ids => _mIds.GetValue("ids");
+        private List<Outputs.InsightFiltersId>? _mValue_Ids;
+        private bool _mUnknown_Ids;
+        public List<Outputs.InsightFiltersId>? Ids
+        {
+            get
+            {
+                if (!_mUnknown_Ids) return _mValue_Ids;
+                throw new UndeferrableValueException("Value 'InsightFilters.Ids' is not present");
+            }
+        }
 
         /// <summary>
         /// A keyword for a finding. See Keyword Filter below for more details.
         /// </summary>
-        [Input("keywords")]
+        [PolicyResourceProperty("keywords", "_mUnknown_Keywords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersKeyword>> _mKeywords;
-
-        public List<Outputs.InsightFiltersKeyword>? Keywords => _mKeywords.GetValue("keywords");
+        private List<Outputs.InsightFiltersKeyword>? _mValue_Keywords;
+        private bool _mUnknown_Keywords;
+        public List<Outputs.InsightFiltersKeyword>? Keywords
+        {
+            get
+            {
+                if (!_mUnknown_Keywords) return _mValue_Keywords;
+                throw new UndeferrableValueException("Value 'InsightFilters.Keywords' is not present");
+            }
+        }
 
         /// <summary>
         /// An ISO8601-formatted timestamp that indicates when the security-findings provider most recently observed the potential security issue that a finding captured. See Date Filter below for more details.
         /// </summary>
-        [Input("lastObservedAts")]
+        [PolicyResourceProperty("lastObservedAts", "_mUnknown_LastObservedAts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersLastObservedAt>> _mLastObservedAts;
-
-        public List<Outputs.InsightFiltersLastObservedAt>? LastObservedAts => _mLastObservedAts.GetValue("lastObservedAts");
+        private List<Outputs.InsightFiltersLastObservedAt>? _mValue_LastObservedAts;
+        private bool _mUnknown_LastObservedAts;
+        public List<Outputs.InsightFiltersLastObservedAt>? LastObservedAts
+        {
+            get
+            {
+                if (!_mUnknown_LastObservedAts) return _mValue_LastObservedAts;
+                throw new UndeferrableValueException("Value 'InsightFilters.LastObservedAts' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the malware that was observed. See String Filter below for more details.
         /// </summary>
-        [Input("malwareNames")]
+        [PolicyResourceProperty("malwareNames", "_mUnknown_MalwareNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersMalwareName>> _mMalwareNames;
-
-        public List<Outputs.InsightFiltersMalwareName>? MalwareNames => _mMalwareNames.GetValue("malwareNames");
+        private List<Outputs.InsightFiltersMalwareName>? _mValue_MalwareNames;
+        private bool _mUnknown_MalwareNames;
+        public List<Outputs.InsightFiltersMalwareName>? MalwareNames
+        {
+            get
+            {
+                if (!_mUnknown_MalwareNames) return _mValue_MalwareNames;
+                throw new UndeferrableValueException("Value 'InsightFilters.MalwareNames' is not present");
+            }
+        }
 
         /// <summary>
         /// The filesystem path of the malware that was observed. See String Filter below for more details.
         /// </summary>
-        [Input("malwarePaths")]
+        [PolicyResourceProperty("malwarePaths", "_mUnknown_MalwarePaths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersMalwarePath>> _mMalwarePaths;
-
-        public List<Outputs.InsightFiltersMalwarePath>? MalwarePaths => _mMalwarePaths.GetValue("malwarePaths");
+        private List<Outputs.InsightFiltersMalwarePath>? _mValue_MalwarePaths;
+        private bool _mUnknown_MalwarePaths;
+        public List<Outputs.InsightFiltersMalwarePath>? MalwarePaths
+        {
+            get
+            {
+                if (!_mUnknown_MalwarePaths) return _mValue_MalwarePaths;
+                throw new UndeferrableValueException("Value 'InsightFilters.MalwarePaths' is not present");
+            }
+        }
 
         /// <summary>
         /// The state of the malware that was observed. See String Filter below for more details.
         /// </summary>
-        [Input("malwareStates")]
+        [PolicyResourceProperty("malwareStates", "_mUnknown_MalwareStates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersMalwareState>> _mMalwareStates;
-
-        public List<Outputs.InsightFiltersMalwareState>? MalwareStates => _mMalwareStates.GetValue("malwareStates");
+        private List<Outputs.InsightFiltersMalwareState>? _mValue_MalwareStates;
+        private bool _mUnknown_MalwareStates;
+        public List<Outputs.InsightFiltersMalwareState>? MalwareStates
+        {
+            get
+            {
+                if (!_mUnknown_MalwareStates) return _mValue_MalwareStates;
+                throw new UndeferrableValueException("Value 'InsightFilters.MalwareStates' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the malware that was observed. See String Filter below for more details.
         /// </summary>
-        [Input("malwareTypes")]
+        [PolicyResourceProperty("malwareTypes", "_mUnknown_MalwareTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersMalwareType>> _mMalwareTypes;
-
-        public List<Outputs.InsightFiltersMalwareType>? MalwareTypes => _mMalwareTypes.GetValue("malwareTypes");
+        private List<Outputs.InsightFiltersMalwareType>? _mValue_MalwareTypes;
+        private bool _mUnknown_MalwareTypes;
+        public List<Outputs.InsightFiltersMalwareType>? MalwareTypes
+        {
+            get
+            {
+                if (!_mUnknown_MalwareTypes) return _mValue_MalwareTypes;
+                throw new UndeferrableValueException("Value 'InsightFilters.MalwareTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The destination domain of network-related information about a finding. See String Filter below for more details.
         /// </summary>
-        [Input("networkDestinationDomains")]
+        [PolicyResourceProperty("networkDestinationDomains", "_mUnknown_NetworkDestinationDomains")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersNetworkDestinationDomain>> _mNetworkDestinationDomains;
-
-        public List<Outputs.InsightFiltersNetworkDestinationDomain>? NetworkDestinationDomains => _mNetworkDestinationDomains.GetValue("networkDestinationDomains");
+        private List<Outputs.InsightFiltersNetworkDestinationDomain>? _mValue_NetworkDestinationDomains;
+        private bool _mUnknown_NetworkDestinationDomains;
+        public List<Outputs.InsightFiltersNetworkDestinationDomain>? NetworkDestinationDomains
+        {
+            get
+            {
+                if (!_mUnknown_NetworkDestinationDomains) return _mValue_NetworkDestinationDomains;
+                throw new UndeferrableValueException("Value 'InsightFilters.NetworkDestinationDomains' is not present");
+            }
+        }
 
         /// <summary>
         /// The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
         /// </summary>
-        [Input("networkDestinationIpv4s")]
+        [PolicyResourceProperty("networkDestinationIpv4s", "_mUnknown_NetworkDestinationIpv4s")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersNetworkDestinationIpv4>> _mNetworkDestinationIpv4s;
-
-        public List<Outputs.InsightFiltersNetworkDestinationIpv4>? NetworkDestinationIpv4s => _mNetworkDestinationIpv4s.GetValue("networkDestinationIpv4s");
+        private List<Outputs.InsightFiltersNetworkDestinationIpv4>? _mValue_NetworkDestinationIpv4s;
+        private bool _mUnknown_NetworkDestinationIpv4s;
+        public List<Outputs.InsightFiltersNetworkDestinationIpv4>? NetworkDestinationIpv4s
+        {
+            get
+            {
+                if (!_mUnknown_NetworkDestinationIpv4s) return _mValue_NetworkDestinationIpv4s;
+                throw new UndeferrableValueException("Value 'InsightFilters.NetworkDestinationIpv4s' is not present");
+            }
+        }
 
         /// <summary>
         /// The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
         /// </summary>
-        [Input("networkDestinationIpv6s")]
+        [PolicyResourceProperty("networkDestinationIpv6s", "_mUnknown_NetworkDestinationIpv6s")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersNetworkDestinationIpv6>> _mNetworkDestinationIpv6s;
-
-        public List<Outputs.InsightFiltersNetworkDestinationIpv6>? NetworkDestinationIpv6s => _mNetworkDestinationIpv6s.GetValue("networkDestinationIpv6s");
+        private List<Outputs.InsightFiltersNetworkDestinationIpv6>? _mValue_NetworkDestinationIpv6s;
+        private bool _mUnknown_NetworkDestinationIpv6s;
+        public List<Outputs.InsightFiltersNetworkDestinationIpv6>? NetworkDestinationIpv6s
+        {
+            get
+            {
+                if (!_mUnknown_NetworkDestinationIpv6s) return _mValue_NetworkDestinationIpv6s;
+                throw new UndeferrableValueException("Value 'InsightFilters.NetworkDestinationIpv6s' is not present");
+            }
+        }
 
         /// <summary>
         /// The destination port of network-related information about a finding. See Number Filter below for more details.
         /// </summary>
-        [Input("networkDestinationPorts")]
+        [PolicyResourceProperty("networkDestinationPorts", "_mUnknown_NetworkDestinationPorts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersNetworkDestinationPort>> _mNetworkDestinationPorts;
-
-        public List<Outputs.InsightFiltersNetworkDestinationPort>? NetworkDestinationPorts => _mNetworkDestinationPorts.GetValue("networkDestinationPorts");
+        private List<Outputs.InsightFiltersNetworkDestinationPort>? _mValue_NetworkDestinationPorts;
+        private bool _mUnknown_NetworkDestinationPorts;
+        public List<Outputs.InsightFiltersNetworkDestinationPort>? NetworkDestinationPorts
+        {
+            get
+            {
+                if (!_mUnknown_NetworkDestinationPorts) return _mValue_NetworkDestinationPorts;
+                throw new UndeferrableValueException("Value 'InsightFilters.NetworkDestinationPorts' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates the direction of network traffic associated with a finding. See String Filter below for more details.
         /// </summary>
-        [Input("networkDirections")]
+        [PolicyResourceProperty("networkDirections", "_mUnknown_NetworkDirections")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersNetworkDirection>> _mNetworkDirections;
-
-        public List<Outputs.InsightFiltersNetworkDirection>? NetworkDirections => _mNetworkDirections.GetValue("networkDirections");
+        private List<Outputs.InsightFiltersNetworkDirection>? _mValue_NetworkDirections;
+        private bool _mUnknown_NetworkDirections;
+        public List<Outputs.InsightFiltersNetworkDirection>? NetworkDirections
+        {
+            get
+            {
+                if (!_mUnknown_NetworkDirections) return _mValue_NetworkDirections;
+                throw new UndeferrableValueException("Value 'InsightFilters.NetworkDirections' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol of network-related information about a finding. See String Filter below for more details.
         /// </summary>
-        [Input("networkProtocols")]
+        [PolicyResourceProperty("networkProtocols", "_mUnknown_NetworkProtocols")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersNetworkProtocol>> _mNetworkProtocols;
-
-        public List<Outputs.InsightFiltersNetworkProtocol>? NetworkProtocols => _mNetworkProtocols.GetValue("networkProtocols");
+        private List<Outputs.InsightFiltersNetworkProtocol>? _mValue_NetworkProtocols;
+        private bool _mUnknown_NetworkProtocols;
+        public List<Outputs.InsightFiltersNetworkProtocol>? NetworkProtocols
+        {
+            get
+            {
+                if (!_mUnknown_NetworkProtocols) return _mValue_NetworkProtocols;
+                throw new UndeferrableValueException("Value 'InsightFilters.NetworkProtocols' is not present");
+            }
+        }
 
         /// <summary>
         /// The source domain of network-related information about a finding. See String Filter below for more details.
         /// </summary>
-        [Input("networkSourceDomains")]
+        [PolicyResourceProperty("networkSourceDomains", "_mUnknown_NetworkSourceDomains")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersNetworkSourceDomain>> _mNetworkSourceDomains;
-
-        public List<Outputs.InsightFiltersNetworkSourceDomain>? NetworkSourceDomains => _mNetworkSourceDomains.GetValue("networkSourceDomains");
+        private List<Outputs.InsightFiltersNetworkSourceDomain>? _mValue_NetworkSourceDomains;
+        private bool _mUnknown_NetworkSourceDomains;
+        public List<Outputs.InsightFiltersNetworkSourceDomain>? NetworkSourceDomains
+        {
+            get
+            {
+                if (!_mUnknown_NetworkSourceDomains) return _mValue_NetworkSourceDomains;
+                throw new UndeferrableValueException("Value 'InsightFilters.NetworkSourceDomains' is not present");
+            }
+        }
 
         /// <summary>
         /// The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
         /// </summary>
-        [Input("networkSourceIpv4s")]
+        [PolicyResourceProperty("networkSourceIpv4s", "_mUnknown_NetworkSourceIpv4s")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersNetworkSourceIpv4>> _mNetworkSourceIpv4s;
-
-        public List<Outputs.InsightFiltersNetworkSourceIpv4>? NetworkSourceIpv4s => _mNetworkSourceIpv4s.GetValue("networkSourceIpv4s");
+        private List<Outputs.InsightFiltersNetworkSourceIpv4>? _mValue_NetworkSourceIpv4s;
+        private bool _mUnknown_NetworkSourceIpv4s;
+        public List<Outputs.InsightFiltersNetworkSourceIpv4>? NetworkSourceIpv4s
+        {
+            get
+            {
+                if (!_mUnknown_NetworkSourceIpv4s) return _mValue_NetworkSourceIpv4s;
+                throw new UndeferrableValueException("Value 'InsightFilters.NetworkSourceIpv4s' is not present");
+            }
+        }
 
         /// <summary>
         /// The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
         /// </summary>
-        [Input("networkSourceIpv6s")]
+        [PolicyResourceProperty("networkSourceIpv6s", "_mUnknown_NetworkSourceIpv6s")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersNetworkSourceIpv6>> _mNetworkSourceIpv6s;
-
-        public List<Outputs.InsightFiltersNetworkSourceIpv6>? NetworkSourceIpv6s => _mNetworkSourceIpv6s.GetValue("networkSourceIpv6s");
+        private List<Outputs.InsightFiltersNetworkSourceIpv6>? _mValue_NetworkSourceIpv6s;
+        private bool _mUnknown_NetworkSourceIpv6s;
+        public List<Outputs.InsightFiltersNetworkSourceIpv6>? NetworkSourceIpv6s
+        {
+            get
+            {
+                if (!_mUnknown_NetworkSourceIpv6s) return _mValue_NetworkSourceIpv6s;
+                throw new UndeferrableValueException("Value 'InsightFilters.NetworkSourceIpv6s' is not present");
+            }
+        }
 
         /// <summary>
         /// The source media access control (MAC) address of network-related information about a finding. See String Filter below for more details.
         /// </summary>
-        [Input("networkSourceMacs")]
+        [PolicyResourceProperty("networkSourceMacs", "_mUnknown_NetworkSourceMacs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersNetworkSourceMac>> _mNetworkSourceMacs;
-
-        public List<Outputs.InsightFiltersNetworkSourceMac>? NetworkSourceMacs => _mNetworkSourceMacs.GetValue("networkSourceMacs");
+        private List<Outputs.InsightFiltersNetworkSourceMac>? _mValue_NetworkSourceMacs;
+        private bool _mUnknown_NetworkSourceMacs;
+        public List<Outputs.InsightFiltersNetworkSourceMac>? NetworkSourceMacs
+        {
+            get
+            {
+                if (!_mUnknown_NetworkSourceMacs) return _mValue_NetworkSourceMacs;
+                throw new UndeferrableValueException("Value 'InsightFilters.NetworkSourceMacs' is not present");
+            }
+        }
 
         /// <summary>
         /// The source port of network-related information about a finding. See Number Filter below for more details.
         /// </summary>
-        [Input("networkSourcePorts")]
+        [PolicyResourceProperty("networkSourcePorts", "_mUnknown_NetworkSourcePorts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersNetworkSourcePort>> _mNetworkSourcePorts;
-
-        public List<Outputs.InsightFiltersNetworkSourcePort>? NetworkSourcePorts => _mNetworkSourcePorts.GetValue("networkSourcePorts");
+        private List<Outputs.InsightFiltersNetworkSourcePort>? _mValue_NetworkSourcePorts;
+        private bool _mUnknown_NetworkSourcePorts;
+        public List<Outputs.InsightFiltersNetworkSourcePort>? NetworkSourcePorts
+        {
+            get
+            {
+                if (!_mUnknown_NetworkSourcePorts) return _mValue_NetworkSourcePorts;
+                throw new UndeferrableValueException("Value 'InsightFilters.NetworkSourcePorts' is not present");
+            }
+        }
 
         /// <summary>
         /// The text of a note. See String Filter below for more details.
         /// </summary>
-        [Input("noteTexts")]
+        [PolicyResourceProperty("noteTexts", "_mUnknown_NoteTexts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersNoteText>> _mNoteTexts;
-
-        public List<Outputs.InsightFiltersNoteText>? NoteTexts => _mNoteTexts.GetValue("noteTexts");
+        private List<Outputs.InsightFiltersNoteText>? _mValue_NoteTexts;
+        private bool _mUnknown_NoteTexts;
+        public List<Outputs.InsightFiltersNoteText>? NoteTexts
+        {
+            get
+            {
+                if (!_mUnknown_NoteTexts) return _mValue_NoteTexts;
+                throw new UndeferrableValueException("Value 'InsightFilters.NoteTexts' is not present");
+            }
+        }
 
         /// <summary>
         /// The timestamp of when the note was updated. See Date Filter below for more details.
         /// </summary>
-        [Input("noteUpdatedAts")]
+        [PolicyResourceProperty("noteUpdatedAts", "_mUnknown_NoteUpdatedAts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersNoteUpdatedAt>> _mNoteUpdatedAts;
-
-        public List<Outputs.InsightFiltersNoteUpdatedAt>? NoteUpdatedAts => _mNoteUpdatedAts.GetValue("noteUpdatedAts");
+        private List<Outputs.InsightFiltersNoteUpdatedAt>? _mValue_NoteUpdatedAts;
+        private bool _mUnknown_NoteUpdatedAts;
+        public List<Outputs.InsightFiltersNoteUpdatedAt>? NoteUpdatedAts
+        {
+            get
+            {
+                if (!_mUnknown_NoteUpdatedAts) return _mValue_NoteUpdatedAts;
+                throw new UndeferrableValueException("Value 'InsightFilters.NoteUpdatedAts' is not present");
+            }
+        }
 
         /// <summary>
         /// The principal that created a note. See String Filter below for more details.
         /// </summary>
-        [Input("noteUpdatedBies")]
+        [PolicyResourceProperty("noteUpdatedBies", "_mUnknown_NoteUpdatedBies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersNoteUpdatedBy>> _mNoteUpdatedBies;
-
-        public List<Outputs.InsightFiltersNoteUpdatedBy>? NoteUpdatedBies => _mNoteUpdatedBies.GetValue("noteUpdatedBies");
+        private List<Outputs.InsightFiltersNoteUpdatedBy>? _mValue_NoteUpdatedBies;
+        private bool _mUnknown_NoteUpdatedBies;
+        public List<Outputs.InsightFiltersNoteUpdatedBy>? NoteUpdatedBies
+        {
+            get
+            {
+                if (!_mUnknown_NoteUpdatedBies) return _mValue_NoteUpdatedBies;
+                throw new UndeferrableValueException("Value 'InsightFilters.NoteUpdatedBies' is not present");
+            }
+        }
 
         /// <summary>
         /// The date/time that the process was launched. See Date Filter below for more details.
         /// </summary>
-        [Input("processLaunchedAts")]
+        [PolicyResourceProperty("processLaunchedAts", "_mUnknown_ProcessLaunchedAts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersProcessLaunchedAt>> _mProcessLaunchedAts;
-
-        public List<Outputs.InsightFiltersProcessLaunchedAt>? ProcessLaunchedAts => _mProcessLaunchedAts.GetValue("processLaunchedAts");
+        private List<Outputs.InsightFiltersProcessLaunchedAt>? _mValue_ProcessLaunchedAts;
+        private bool _mUnknown_ProcessLaunchedAts;
+        public List<Outputs.InsightFiltersProcessLaunchedAt>? ProcessLaunchedAts
+        {
+            get
+            {
+                if (!_mUnknown_ProcessLaunchedAts) return _mValue_ProcessLaunchedAts;
+                throw new UndeferrableValueException("Value 'InsightFilters.ProcessLaunchedAts' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the process. See String Filter below for more details.
         /// </summary>
-        [Input("processNames")]
+        [PolicyResourceProperty("processNames", "_mUnknown_ProcessNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersProcessName>> _mProcessNames;
-
-        public List<Outputs.InsightFiltersProcessName>? ProcessNames => _mProcessNames.GetValue("processNames");
+        private List<Outputs.InsightFiltersProcessName>? _mValue_ProcessNames;
+        private bool _mUnknown_ProcessNames;
+        public List<Outputs.InsightFiltersProcessName>? ProcessNames
+        {
+            get
+            {
+                if (!_mUnknown_ProcessNames) return _mValue_ProcessNames;
+                throw new UndeferrableValueException("Value 'InsightFilters.ProcessNames' is not present");
+            }
+        }
 
         /// <summary>
         /// The parent process ID. See Number Filter below for more details.
         /// </summary>
-        [Input("processParentPids")]
+        [PolicyResourceProperty("processParentPids", "_mUnknown_ProcessParentPids")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersProcessParentPid>> _mProcessParentPids;
-
-        public List<Outputs.InsightFiltersProcessParentPid>? ProcessParentPids => _mProcessParentPids.GetValue("processParentPids");
+        private List<Outputs.InsightFiltersProcessParentPid>? _mValue_ProcessParentPids;
+        private bool _mUnknown_ProcessParentPids;
+        public List<Outputs.InsightFiltersProcessParentPid>? ProcessParentPids
+        {
+            get
+            {
+                if (!_mUnknown_ProcessParentPids) return _mValue_ProcessParentPids;
+                throw new UndeferrableValueException("Value 'InsightFilters.ProcessParentPids' is not present");
+            }
+        }
 
         /// <summary>
         /// The path to the process executable. See String Filter below for more details.
         /// </summary>
-        [Input("processPaths")]
+        [PolicyResourceProperty("processPaths", "_mUnknown_ProcessPaths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersProcessPath>> _mProcessPaths;
-
-        public List<Outputs.InsightFiltersProcessPath>? ProcessPaths => _mProcessPaths.GetValue("processPaths");
+        private List<Outputs.InsightFiltersProcessPath>? _mValue_ProcessPaths;
+        private bool _mUnknown_ProcessPaths;
+        public List<Outputs.InsightFiltersProcessPath>? ProcessPaths
+        {
+            get
+            {
+                if (!_mUnknown_ProcessPaths) return _mValue_ProcessPaths;
+                throw new UndeferrableValueException("Value 'InsightFilters.ProcessPaths' is not present");
+            }
+        }
 
         /// <summary>
         /// The process ID. See Number Filter below for more details.
         /// </summary>
-        [Input("processPids")]
+        [PolicyResourceProperty("processPids", "_mUnknown_ProcessPids")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersProcessPid>> _mProcessPids;
-
-        public List<Outputs.InsightFiltersProcessPid>? ProcessPids => _mProcessPids.GetValue("processPids");
+        private List<Outputs.InsightFiltersProcessPid>? _mValue_ProcessPids;
+        private bool _mUnknown_ProcessPids;
+        public List<Outputs.InsightFiltersProcessPid>? ProcessPids
+        {
+            get
+            {
+                if (!_mUnknown_ProcessPids) return _mValue_ProcessPids;
+                throw new UndeferrableValueException("Value 'InsightFilters.ProcessPids' is not present");
+            }
+        }
 
         /// <summary>
         /// The date/time that the process was terminated. See Date Filter below for more details.
         /// </summary>
-        [Input("processTerminatedAts")]
+        [PolicyResourceProperty("processTerminatedAts", "_mUnknown_ProcessTerminatedAts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersProcessTerminatedAt>> _mProcessTerminatedAts;
-
-        public List<Outputs.InsightFiltersProcessTerminatedAt>? ProcessTerminatedAts => _mProcessTerminatedAts.GetValue("processTerminatedAts");
+        private List<Outputs.InsightFiltersProcessTerminatedAt>? _mValue_ProcessTerminatedAts;
+        private bool _mUnknown_ProcessTerminatedAts;
+        public List<Outputs.InsightFiltersProcessTerminatedAt>? ProcessTerminatedAts
+        {
+            get
+            {
+                if (!_mUnknown_ProcessTerminatedAts) return _mValue_ProcessTerminatedAts;
+                throw new UndeferrableValueException("Value 'InsightFilters.ProcessTerminatedAts' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub. See String Filter below for more details.
         /// </summary>
-        [Input("productArns")]
+        [PolicyResourceProperty("productArns", "_mUnknown_ProductArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersProductArn>> _mProductArns;
-
-        public List<Outputs.InsightFiltersProductArn>? ProductArns => _mProductArns.GetValue("productArns");
+        private List<Outputs.InsightFiltersProductArn>? _mValue_ProductArns;
+        private bool _mUnknown_ProductArns;
+        public List<Outputs.InsightFiltersProductArn>? ProductArns
+        {
+            get
+            {
+                if (!_mUnknown_ProductArns) return _mValue_ProductArns;
+                throw new UndeferrableValueException("Value 'InsightFilters.ProductArns' is not present");
+            }
+        }
 
         /// <summary>
         /// A data type where security-findings providers can include additional solution-specific details that aren't part of the defined `AwsSecurityFinding` format. See Map Filter below for more details.
         /// </summary>
-        [Input("productFields")]
+        [PolicyResourceProperty("productFields", "_mUnknown_ProductFields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersProductField>> _mProductFields;
-
-        public List<Outputs.InsightFiltersProductField>? ProductFields => _mProductFields.GetValue("productFields");
+        private List<Outputs.InsightFiltersProductField>? _mValue_ProductFields;
+        private bool _mUnknown_ProductFields;
+        public List<Outputs.InsightFiltersProductField>? ProductFields
+        {
+            get
+            {
+                if (!_mUnknown_ProductFields) return _mValue_ProductFields;
+                throw new UndeferrableValueException("Value 'InsightFilters.ProductFields' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the solution (product) that generates findings. See String Filter below for more details.
         /// </summary>
-        [Input("productNames")]
+        [PolicyResourceProperty("productNames", "_mUnknown_ProductNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersProductName>> _mProductNames;
-
-        public List<Outputs.InsightFiltersProductName>? ProductNames => _mProductNames.GetValue("productNames");
+        private List<Outputs.InsightFiltersProductName>? _mValue_ProductNames;
+        private bool _mUnknown_ProductNames;
+        public List<Outputs.InsightFiltersProductName>? ProductNames
+        {
+            get
+            {
+                if (!_mUnknown_ProductNames) return _mValue_ProductNames;
+                throw new UndeferrableValueException("Value 'InsightFilters.ProductNames' is not present");
+            }
+        }
 
         /// <summary>
         /// The recommendation of what to do about the issue described in a finding. See String Filter below for more details.
         /// </summary>
-        [Input("recommendationTexts")]
+        [PolicyResourceProperty("recommendationTexts", "_mUnknown_RecommendationTexts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersRecommendationText>> _mRecommendationTexts;
-
-        public List<Outputs.InsightFiltersRecommendationText>? RecommendationTexts => _mRecommendationTexts.GetValue("recommendationTexts");
+        private List<Outputs.InsightFiltersRecommendationText>? _mValue_RecommendationTexts;
+        private bool _mUnknown_RecommendationTexts;
+        public List<Outputs.InsightFiltersRecommendationText>? RecommendationTexts
+        {
+            get
+            {
+                if (!_mUnknown_RecommendationTexts) return _mValue_RecommendationTexts;
+                throw new UndeferrableValueException("Value 'InsightFilters.RecommendationTexts' is not present");
+            }
+        }
 
         /// <summary>
         /// The updated record state for the finding. See String Filter below for more details.
         /// </summary>
-        [Input("recordStates")]
+        [PolicyResourceProperty("recordStates", "_mUnknown_RecordStates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersRecordState>> _mRecordStates;
-
-        public List<Outputs.InsightFiltersRecordState>? RecordStates => _mRecordStates.GetValue("recordStates");
+        private List<Outputs.InsightFiltersRecordState>? _mValue_RecordStates;
+        private bool _mUnknown_RecordStates;
+        public List<Outputs.InsightFiltersRecordState>? RecordStates
+        {
+            get
+            {
+                if (!_mUnknown_RecordStates) return _mValue_RecordStates;
+                throw new UndeferrableValueException("Value 'InsightFilters.RecordStates' is not present");
+            }
+        }
 
         /// <summary>
         /// The solution-generated identifier for a related finding. See String Filter below for more details.
         /// </summary>
-        [Input("relatedFindingsIds")]
+        [PolicyResourceProperty("relatedFindingsIds", "_mUnknown_RelatedFindingsIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersRelatedFindingsId>> _mRelatedFindingsIds;
-
-        public List<Outputs.InsightFiltersRelatedFindingsId>? RelatedFindingsIds => _mRelatedFindingsIds.GetValue("relatedFindingsIds");
+        private List<Outputs.InsightFiltersRelatedFindingsId>? _mValue_RelatedFindingsIds;
+        private bool _mUnknown_RelatedFindingsIds;
+        public List<Outputs.InsightFiltersRelatedFindingsId>? RelatedFindingsIds
+        {
+            get
+            {
+                if (!_mUnknown_RelatedFindingsIds) return _mValue_RelatedFindingsIds;
+                throw new UndeferrableValueException("Value 'InsightFilters.RelatedFindingsIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the solution that generated a related finding. See String Filter below for more details.
         /// </summary>
-        [Input("relatedFindingsProductArns")]
+        [PolicyResourceProperty("relatedFindingsProductArns", "_mUnknown_RelatedFindingsProductArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersRelatedFindingsProductArn>> _mRelatedFindingsProductArns;
-
-        public List<Outputs.InsightFiltersRelatedFindingsProductArn>? RelatedFindingsProductArns => _mRelatedFindingsProductArns.GetValue("relatedFindingsProductArns");
+        private List<Outputs.InsightFiltersRelatedFindingsProductArn>? _mValue_RelatedFindingsProductArns;
+        private bool _mUnknown_RelatedFindingsProductArns;
+        public List<Outputs.InsightFiltersRelatedFindingsProductArn>? RelatedFindingsProductArns
+        {
+            get
+            {
+                if (!_mUnknown_RelatedFindingsProductArns) return _mValue_RelatedFindingsProductArns;
+                throw new UndeferrableValueException("Value 'InsightFilters.RelatedFindingsProductArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM profile ARN of the instance. See String Filter below for more details.
         /// </summary>
-        [Input("resourceAwsEc2InstanceIamInstanceProfileArns")]
+        [PolicyResourceProperty("resourceAwsEc2InstanceIamInstanceProfileArns", "_mUnknown_ResourceAwsEc2InstanceIamInstanceProfileArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn>> _mResourceAwsEc2InstanceIamInstanceProfileArns;
-
-        public List<Outputs.InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn>? ResourceAwsEc2InstanceIamInstanceProfileArns => _mResourceAwsEc2InstanceIamInstanceProfileArns.GetValue("resourceAwsEc2InstanceIamInstanceProfileArns");
+        private List<Outputs.InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn>? _mValue_ResourceAwsEc2InstanceIamInstanceProfileArns;
+        private bool _mUnknown_ResourceAwsEc2InstanceIamInstanceProfileArns;
+        public List<Outputs.InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn>? ResourceAwsEc2InstanceIamInstanceProfileArns
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAwsEc2InstanceIamInstanceProfileArns) return _mValue_ResourceAwsEc2InstanceIamInstanceProfileArns;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceAwsEc2InstanceIamInstanceProfileArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
         /// </summary>
-        [Input("resourceAwsEc2InstanceImageIds")]
+        [PolicyResourceProperty("resourceAwsEc2InstanceImageIds", "_mUnknown_ResourceAwsEc2InstanceImageIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceAwsEc2InstanceImageId>> _mResourceAwsEc2InstanceImageIds;
-
-        public List<Outputs.InsightFiltersResourceAwsEc2InstanceImageId>? ResourceAwsEc2InstanceImageIds => _mResourceAwsEc2InstanceImageIds.GetValue("resourceAwsEc2InstanceImageIds");
+        private List<Outputs.InsightFiltersResourceAwsEc2InstanceImageId>? _mValue_ResourceAwsEc2InstanceImageIds;
+        private bool _mUnknown_ResourceAwsEc2InstanceImageIds;
+        public List<Outputs.InsightFiltersResourceAwsEc2InstanceImageId>? ResourceAwsEc2InstanceImageIds
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAwsEc2InstanceImageIds) return _mValue_ResourceAwsEc2InstanceImageIds;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceAwsEc2InstanceImageIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 addresses associated with the instance. See Ip Filter below for more details.
         /// </summary>
-        [Input("resourceAwsEc2InstanceIpv4Addresses")]
+        [PolicyResourceProperty("resourceAwsEc2InstanceIpv4Addresses", "_mUnknown_ResourceAwsEc2InstanceIpv4Addresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceAwsEc2InstanceIpv4Address>> _mResourceAwsEc2InstanceIpv4Addresses;
-
-        public List<Outputs.InsightFiltersResourceAwsEc2InstanceIpv4Address>? ResourceAwsEc2InstanceIpv4Addresses => _mResourceAwsEc2InstanceIpv4Addresses.GetValue("resourceAwsEc2InstanceIpv4Addresses");
+        private List<Outputs.InsightFiltersResourceAwsEc2InstanceIpv4Address>? _mValue_ResourceAwsEc2InstanceIpv4Addresses;
+        private bool _mUnknown_ResourceAwsEc2InstanceIpv4Addresses;
+        public List<Outputs.InsightFiltersResourceAwsEc2InstanceIpv4Address>? ResourceAwsEc2InstanceIpv4Addresses
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAwsEc2InstanceIpv4Addresses) return _mValue_ResourceAwsEc2InstanceIpv4Addresses;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceAwsEc2InstanceIpv4Addresses' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv6 addresses associated with the instance. See Ip Filter below for more details.
         /// </summary>
-        [Input("resourceAwsEc2InstanceIpv6Addresses")]
+        [PolicyResourceProperty("resourceAwsEc2InstanceIpv6Addresses", "_mUnknown_ResourceAwsEc2InstanceIpv6Addresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceAwsEc2InstanceIpv6Address>> _mResourceAwsEc2InstanceIpv6Addresses;
-
-        public List<Outputs.InsightFiltersResourceAwsEc2InstanceIpv6Address>? ResourceAwsEc2InstanceIpv6Addresses => _mResourceAwsEc2InstanceIpv6Addresses.GetValue("resourceAwsEc2InstanceIpv6Addresses");
+        private List<Outputs.InsightFiltersResourceAwsEc2InstanceIpv6Address>? _mValue_ResourceAwsEc2InstanceIpv6Addresses;
+        private bool _mUnknown_ResourceAwsEc2InstanceIpv6Addresses;
+        public List<Outputs.InsightFiltersResourceAwsEc2InstanceIpv6Address>? ResourceAwsEc2InstanceIpv6Addresses
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAwsEc2InstanceIpv6Addresses) return _mValue_ResourceAwsEc2InstanceIpv6Addresses;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceAwsEc2InstanceIpv6Addresses' is not present");
+            }
+        }
 
         /// <summary>
         /// The key name associated with the instance. See String Filter below for more details.
         /// </summary>
-        [Input("resourceAwsEc2InstanceKeyNames")]
+        [PolicyResourceProperty("resourceAwsEc2InstanceKeyNames", "_mUnknown_ResourceAwsEc2InstanceKeyNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceAwsEc2InstanceKeyName>> _mResourceAwsEc2InstanceKeyNames;
-
-        public List<Outputs.InsightFiltersResourceAwsEc2InstanceKeyName>? ResourceAwsEc2InstanceKeyNames => _mResourceAwsEc2InstanceKeyNames.GetValue("resourceAwsEc2InstanceKeyNames");
+        private List<Outputs.InsightFiltersResourceAwsEc2InstanceKeyName>? _mValue_ResourceAwsEc2InstanceKeyNames;
+        private bool _mUnknown_ResourceAwsEc2InstanceKeyNames;
+        public List<Outputs.InsightFiltersResourceAwsEc2InstanceKeyName>? ResourceAwsEc2InstanceKeyNames
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAwsEc2InstanceKeyNames) return _mValue_ResourceAwsEc2InstanceKeyNames;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceAwsEc2InstanceKeyNames' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time the instance was launched. See Date Filter below for more details.
         /// </summary>
-        [Input("resourceAwsEc2InstanceLaunchedAts")]
+        [PolicyResourceProperty("resourceAwsEc2InstanceLaunchedAts", "_mUnknown_ResourceAwsEc2InstanceLaunchedAts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceAwsEc2InstanceLaunchedAt>> _mResourceAwsEc2InstanceLaunchedAts;
-
-        public List<Outputs.InsightFiltersResourceAwsEc2InstanceLaunchedAt>? ResourceAwsEc2InstanceLaunchedAts => _mResourceAwsEc2InstanceLaunchedAts.GetValue("resourceAwsEc2InstanceLaunchedAts");
+        private List<Outputs.InsightFiltersResourceAwsEc2InstanceLaunchedAt>? _mValue_ResourceAwsEc2InstanceLaunchedAts;
+        private bool _mUnknown_ResourceAwsEc2InstanceLaunchedAts;
+        public List<Outputs.InsightFiltersResourceAwsEc2InstanceLaunchedAt>? ResourceAwsEc2InstanceLaunchedAts
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAwsEc2InstanceLaunchedAts) return _mValue_ResourceAwsEc2InstanceLaunchedAts;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceAwsEc2InstanceLaunchedAts' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the subnet that the instance was launched in. See String Filter below for more details.
         /// </summary>
-        [Input("resourceAwsEc2InstanceSubnetIds")]
+        [PolicyResourceProperty("resourceAwsEc2InstanceSubnetIds", "_mUnknown_ResourceAwsEc2InstanceSubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceAwsEc2InstanceSubnetId>> _mResourceAwsEc2InstanceSubnetIds;
-
-        public List<Outputs.InsightFiltersResourceAwsEc2InstanceSubnetId>? ResourceAwsEc2InstanceSubnetIds => _mResourceAwsEc2InstanceSubnetIds.GetValue("resourceAwsEc2InstanceSubnetIds");
+        private List<Outputs.InsightFiltersResourceAwsEc2InstanceSubnetId>? _mValue_ResourceAwsEc2InstanceSubnetIds;
+        private bool _mUnknown_ResourceAwsEc2InstanceSubnetIds;
+        public List<Outputs.InsightFiltersResourceAwsEc2InstanceSubnetId>? ResourceAwsEc2InstanceSubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAwsEc2InstanceSubnetIds) return _mValue_ResourceAwsEc2InstanceSubnetIds;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceAwsEc2InstanceSubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance type of the instance. See String Filter below for more details.
         /// </summary>
-        [Input("resourceAwsEc2InstanceTypes")]
+        [PolicyResourceProperty("resourceAwsEc2InstanceTypes", "_mUnknown_ResourceAwsEc2InstanceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceAwsEc2InstanceType>> _mResourceAwsEc2InstanceTypes;
-
-        public List<Outputs.InsightFiltersResourceAwsEc2InstanceType>? ResourceAwsEc2InstanceTypes => _mResourceAwsEc2InstanceTypes.GetValue("resourceAwsEc2InstanceTypes");
+        private List<Outputs.InsightFiltersResourceAwsEc2InstanceType>? _mValue_ResourceAwsEc2InstanceTypes;
+        private bool _mUnknown_ResourceAwsEc2InstanceTypes;
+        public List<Outputs.InsightFiltersResourceAwsEc2InstanceType>? ResourceAwsEc2InstanceTypes
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAwsEc2InstanceTypes) return _mValue_ResourceAwsEc2InstanceTypes;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceAwsEc2InstanceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the VPC that the instance was launched in. See String Filter below for more details.
         /// </summary>
-        [Input("resourceAwsEc2InstanceVpcIds")]
+        [PolicyResourceProperty("resourceAwsEc2InstanceVpcIds", "_mUnknown_ResourceAwsEc2InstanceVpcIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceAwsEc2InstanceVpcId>> _mResourceAwsEc2InstanceVpcIds;
-
-        public List<Outputs.InsightFiltersResourceAwsEc2InstanceVpcId>? ResourceAwsEc2InstanceVpcIds => _mResourceAwsEc2InstanceVpcIds.GetValue("resourceAwsEc2InstanceVpcIds");
+        private List<Outputs.InsightFiltersResourceAwsEc2InstanceVpcId>? _mValue_ResourceAwsEc2InstanceVpcIds;
+        private bool _mUnknown_ResourceAwsEc2InstanceVpcIds;
+        public List<Outputs.InsightFiltersResourceAwsEc2InstanceVpcId>? ResourceAwsEc2InstanceVpcIds
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAwsEc2InstanceVpcIds) return _mValue_ResourceAwsEc2InstanceVpcIds;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceAwsEc2InstanceVpcIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The creation date/time of the IAM access key related to a finding. See Date Filter below for more details.
         /// </summary>
-        [Input("resourceAwsIamAccessKeyCreatedAts")]
+        [PolicyResourceProperty("resourceAwsIamAccessKeyCreatedAts", "_mUnknown_ResourceAwsIamAccessKeyCreatedAts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceAwsIamAccessKeyCreatedAt>> _mResourceAwsIamAccessKeyCreatedAts;
-
-        public List<Outputs.InsightFiltersResourceAwsIamAccessKeyCreatedAt>? ResourceAwsIamAccessKeyCreatedAts => _mResourceAwsIamAccessKeyCreatedAts.GetValue("resourceAwsIamAccessKeyCreatedAts");
+        private List<Outputs.InsightFiltersResourceAwsIamAccessKeyCreatedAt>? _mValue_ResourceAwsIamAccessKeyCreatedAts;
+        private bool _mUnknown_ResourceAwsIamAccessKeyCreatedAts;
+        public List<Outputs.InsightFiltersResourceAwsIamAccessKeyCreatedAt>? ResourceAwsIamAccessKeyCreatedAts
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAwsIamAccessKeyCreatedAts) return _mValue_ResourceAwsIamAccessKeyCreatedAts;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceAwsIamAccessKeyCreatedAts' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the IAM access key related to a finding. See String Filter below for more details.
         /// </summary>
-        [Input("resourceAwsIamAccessKeyStatuses")]
+        [PolicyResourceProperty("resourceAwsIamAccessKeyStatuses", "_mUnknown_ResourceAwsIamAccessKeyStatuses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceAwsIamAccessKeyStatus>> _mResourceAwsIamAccessKeyStatuses;
-
-        public List<Outputs.InsightFiltersResourceAwsIamAccessKeyStatus>? ResourceAwsIamAccessKeyStatuses => _mResourceAwsIamAccessKeyStatuses.GetValue("resourceAwsIamAccessKeyStatuses");
+        private List<Outputs.InsightFiltersResourceAwsIamAccessKeyStatus>? _mValue_ResourceAwsIamAccessKeyStatuses;
+        private bool _mUnknown_ResourceAwsIamAccessKeyStatuses;
+        public List<Outputs.InsightFiltersResourceAwsIamAccessKeyStatus>? ResourceAwsIamAccessKeyStatuses
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAwsIamAccessKeyStatuses) return _mValue_ResourceAwsIamAccessKeyStatuses;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceAwsIamAccessKeyStatuses' is not present");
+            }
+        }
 
         /// <summary>
         /// The user associated with the IAM access key related to a finding. See String Filter below for more details.
         /// </summary>
-        [Input("resourceAwsIamAccessKeyUserNames")]
+        [PolicyResourceProperty("resourceAwsIamAccessKeyUserNames", "_mUnknown_ResourceAwsIamAccessKeyUserNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceAwsIamAccessKeyUserName>> _mResourceAwsIamAccessKeyUserNames;
-
-        public List<Outputs.InsightFiltersResourceAwsIamAccessKeyUserName>? ResourceAwsIamAccessKeyUserNames => _mResourceAwsIamAccessKeyUserNames.GetValue("resourceAwsIamAccessKeyUserNames");
+        private List<Outputs.InsightFiltersResourceAwsIamAccessKeyUserName>? _mValue_ResourceAwsIamAccessKeyUserNames;
+        private bool _mUnknown_ResourceAwsIamAccessKeyUserNames;
+        public List<Outputs.InsightFiltersResourceAwsIamAccessKeyUserName>? ResourceAwsIamAccessKeyUserNames
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAwsIamAccessKeyUserNames) return _mValue_ResourceAwsIamAccessKeyUserNames;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceAwsIamAccessKeyUserNames' is not present");
+            }
+        }
 
         /// <summary>
         /// The canonical user ID of the owner of the S3 bucket. See String Filter below for more details.
         /// </summary>
-        [Input("resourceAwsS3BucketOwnerIds")]
+        [PolicyResourceProperty("resourceAwsS3BucketOwnerIds", "_mUnknown_ResourceAwsS3BucketOwnerIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceAwsS3BucketOwnerId>> _mResourceAwsS3BucketOwnerIds;
-
-        public List<Outputs.InsightFiltersResourceAwsS3BucketOwnerId>? ResourceAwsS3BucketOwnerIds => _mResourceAwsS3BucketOwnerIds.GetValue("resourceAwsS3BucketOwnerIds");
+        private List<Outputs.InsightFiltersResourceAwsS3BucketOwnerId>? _mValue_ResourceAwsS3BucketOwnerIds;
+        private bool _mUnknown_ResourceAwsS3BucketOwnerIds;
+        public List<Outputs.InsightFiltersResourceAwsS3BucketOwnerId>? ResourceAwsS3BucketOwnerIds
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAwsS3BucketOwnerIds) return _mValue_ResourceAwsS3BucketOwnerIds;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceAwsS3BucketOwnerIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The display name of the owner of the S3 bucket. See String Filter below for more details.
         /// </summary>
-        [Input("resourceAwsS3BucketOwnerNames")]
+        [PolicyResourceProperty("resourceAwsS3BucketOwnerNames", "_mUnknown_ResourceAwsS3BucketOwnerNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceAwsS3BucketOwnerName>> _mResourceAwsS3BucketOwnerNames;
-
-        public List<Outputs.InsightFiltersResourceAwsS3BucketOwnerName>? ResourceAwsS3BucketOwnerNames => _mResourceAwsS3BucketOwnerNames.GetValue("resourceAwsS3BucketOwnerNames");
+        private List<Outputs.InsightFiltersResourceAwsS3BucketOwnerName>? _mValue_ResourceAwsS3BucketOwnerNames;
+        private bool _mUnknown_ResourceAwsS3BucketOwnerNames;
+        public List<Outputs.InsightFiltersResourceAwsS3BucketOwnerName>? ResourceAwsS3BucketOwnerNames
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAwsS3BucketOwnerNames) return _mValue_ResourceAwsS3BucketOwnerNames;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceAwsS3BucketOwnerNames' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the image related to a finding. See String Filter below for more details.
         /// </summary>
-        [Input("resourceContainerImageIds")]
+        [PolicyResourceProperty("resourceContainerImageIds", "_mUnknown_ResourceContainerImageIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceContainerImageId>> _mResourceContainerImageIds;
-
-        public List<Outputs.InsightFiltersResourceContainerImageId>? ResourceContainerImageIds => _mResourceContainerImageIds.GetValue("resourceContainerImageIds");
+        private List<Outputs.InsightFiltersResourceContainerImageId>? _mValue_ResourceContainerImageIds;
+        private bool _mUnknown_ResourceContainerImageIds;
+        public List<Outputs.InsightFiltersResourceContainerImageId>? ResourceContainerImageIds
+        {
+            get
+            {
+                if (!_mUnknown_ResourceContainerImageIds) return _mValue_ResourceContainerImageIds;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceContainerImageIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the image related to a finding. See String Filter below for more details.
         /// </summary>
-        [Input("resourceContainerImageNames")]
+        [PolicyResourceProperty("resourceContainerImageNames", "_mUnknown_ResourceContainerImageNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceContainerImageName>> _mResourceContainerImageNames;
-
-        public List<Outputs.InsightFiltersResourceContainerImageName>? ResourceContainerImageNames => _mResourceContainerImageNames.GetValue("resourceContainerImageNames");
+        private List<Outputs.InsightFiltersResourceContainerImageName>? _mValue_ResourceContainerImageNames;
+        private bool _mUnknown_ResourceContainerImageNames;
+        public List<Outputs.InsightFiltersResourceContainerImageName>? ResourceContainerImageNames
+        {
+            get
+            {
+                if (!_mUnknown_ResourceContainerImageNames) return _mValue_ResourceContainerImageNames;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceContainerImageNames' is not present");
+            }
+        }
 
         /// <summary>
         /// The date/time that the container was started. See Date Filter below for more details.
         /// </summary>
-        [Input("resourceContainerLaunchedAts")]
+        [PolicyResourceProperty("resourceContainerLaunchedAts", "_mUnknown_ResourceContainerLaunchedAts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceContainerLaunchedAt>> _mResourceContainerLaunchedAts;
-
-        public List<Outputs.InsightFiltersResourceContainerLaunchedAt>? ResourceContainerLaunchedAts => _mResourceContainerLaunchedAts.GetValue("resourceContainerLaunchedAts");
+        private List<Outputs.InsightFiltersResourceContainerLaunchedAt>? _mValue_ResourceContainerLaunchedAts;
+        private bool _mUnknown_ResourceContainerLaunchedAts;
+        public List<Outputs.InsightFiltersResourceContainerLaunchedAt>? ResourceContainerLaunchedAts
+        {
+            get
+            {
+                if (!_mUnknown_ResourceContainerLaunchedAts) return _mValue_ResourceContainerLaunchedAts;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceContainerLaunchedAts' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the container related to a finding. See String Filter below for more details.
         /// </summary>
-        [Input("resourceContainerNames")]
+        [PolicyResourceProperty("resourceContainerNames", "_mUnknown_ResourceContainerNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceContainerName>> _mResourceContainerNames;
-
-        public List<Outputs.InsightFiltersResourceContainerName>? ResourceContainerNames => _mResourceContainerNames.GetValue("resourceContainerNames");
+        private List<Outputs.InsightFiltersResourceContainerName>? _mValue_ResourceContainerNames;
+        private bool _mUnknown_ResourceContainerNames;
+        public List<Outputs.InsightFiltersResourceContainerName>? ResourceContainerNames
+        {
+            get
+            {
+                if (!_mUnknown_ResourceContainerNames) return _mValue_ResourceContainerNames;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceContainerNames' is not present");
+            }
+        }
 
         /// <summary>
         /// The details of a resource that doesn't have a specific subfield for the resource type defined. See Map Filter below for more details.
         /// </summary>
-        [Input("resourceDetailsOthers")]
+        [PolicyResourceProperty("resourceDetailsOthers", "_mUnknown_ResourceDetailsOthers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceDetailsOther>> _mResourceDetailsOthers;
-
-        public List<Outputs.InsightFiltersResourceDetailsOther>? ResourceDetailsOthers => _mResourceDetailsOthers.GetValue("resourceDetailsOthers");
+        private List<Outputs.InsightFiltersResourceDetailsOther>? _mValue_ResourceDetailsOthers;
+        private bool _mUnknown_ResourceDetailsOthers;
+        public List<Outputs.InsightFiltersResourceDetailsOther>? ResourceDetailsOthers
+        {
+            get
+            {
+                if (!_mUnknown_ResourceDetailsOthers) return _mValue_ResourceDetailsOthers;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceDetailsOthers' is not present");
+            }
+        }
 
         /// <summary>
         /// The canonical identifier for the given resource type. See String Filter below for more details.
         /// </summary>
-        [Input("resourceIds")]
+        [PolicyResourceProperty("resourceIds", "_mUnknown_ResourceIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceId>> _mResourceIds;
-
-        public List<Outputs.InsightFiltersResourceId>? ResourceIds => _mResourceIds.GetValue("resourceIds");
+        private List<Outputs.InsightFiltersResourceId>? _mValue_ResourceIds;
+        private bool _mUnknown_ResourceIds;
+        public List<Outputs.InsightFiltersResourceId>? ResourceIds
+        {
+            get
+            {
+                if (!_mUnknown_ResourceIds) return _mValue_ResourceIds;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The canonical AWS partition name that the Region is assigned to. See String Filter below for more details.
         /// </summary>
-        [Input("resourcePartitions")]
+        [PolicyResourceProperty("resourcePartitions", "_mUnknown_ResourcePartitions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourcePartition>> _mResourcePartitions;
-
-        public List<Outputs.InsightFiltersResourcePartition>? ResourcePartitions => _mResourcePartitions.GetValue("resourcePartitions");
+        private List<Outputs.InsightFiltersResourcePartition>? _mValue_ResourcePartitions;
+        private bool _mUnknown_ResourcePartitions;
+        public List<Outputs.InsightFiltersResourcePartition>? ResourcePartitions
+        {
+            get
+            {
+                if (!_mUnknown_ResourcePartitions) return _mValue_ResourcePartitions;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourcePartitions' is not present");
+            }
+        }
 
         /// <summary>
         /// The canonical AWS external Region name where this resource is located. See String Filter below for more details.
         /// </summary>
-        [Input("resourceRegions")]
+        [PolicyResourceProperty("resourceRegions", "_mUnknown_ResourceRegions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceRegion>> _mResourceRegions;
-
-        public List<Outputs.InsightFiltersResourceRegion>? ResourceRegions => _mResourceRegions.GetValue("resourceRegions");
+        private List<Outputs.InsightFiltersResourceRegion>? _mValue_ResourceRegions;
+        private bool _mUnknown_ResourceRegions;
+        public List<Outputs.InsightFiltersResourceRegion>? ResourceRegions
+        {
+            get
+            {
+                if (!_mUnknown_ResourceRegions) return _mValue_ResourceRegions;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceRegions' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of AWS tags associated with a resource at the time the finding was processed. See Map Filter below for more details.
         /// </summary>
-        [Input("resourceTags")]
+        [PolicyResourceProperty("resourceTags", "_mUnknown_ResourceTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceTag>> _mResourceTags;
-
-        public List<Outputs.InsightFiltersResourceTag>? ResourceTags => _mResourceTags.GetValue("resourceTags");
+        private List<Outputs.InsightFiltersResourceTag>? _mValue_ResourceTags;
+        private bool _mUnknown_ResourceTags;
+        public List<Outputs.InsightFiltersResourceTag>? ResourceTags
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTags) return _mValue_ResourceTags;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceTags' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the type of the resource that details are provided for. See String Filter below for more details.
         /// </summary>
-        [Input("resourceTypes")]
+        [PolicyResourceProperty("resourceTypes", "_mUnknown_ResourceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersResourceType>> _mResourceTypes;
-
-        public List<Outputs.InsightFiltersResourceType>? ResourceTypes => _mResourceTypes.GetValue("resourceTypes");
+        private List<Outputs.InsightFiltersResourceType>? _mValue_ResourceTypes;
+        private bool _mUnknown_ResourceTypes;
+        public List<Outputs.InsightFiltersResourceType>? ResourceTypes
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTypes) return _mValue_ResourceTypes;
+                throw new UndeferrableValueException("Value 'InsightFilters.ResourceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The label of a finding's severity. See String Filter below for more details.
         /// </summary>
-        [Input("severityLabels")]
+        [PolicyResourceProperty("severityLabels", "_mUnknown_SeverityLabels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersSeverityLabel>> _mSeverityLabels;
-
-        public List<Outputs.InsightFiltersSeverityLabel>? SeverityLabels => _mSeverityLabels.GetValue("severityLabels");
+        private List<Outputs.InsightFiltersSeverityLabel>? _mValue_SeverityLabels;
+        private bool _mUnknown_SeverityLabels;
+        public List<Outputs.InsightFiltersSeverityLabel>? SeverityLabels
+        {
+            get
+            {
+                if (!_mUnknown_SeverityLabels) return _mValue_SeverityLabels;
+                throw new UndeferrableValueException("Value 'InsightFilters.SeverityLabels' is not present");
+            }
+        }
 
         /// <summary>
         /// A URL that links to a page about the current finding in the security-findings provider's solution. See String Filter below for more details.
         /// </summary>
-        [Input("sourceUrls")]
+        [PolicyResourceProperty("sourceUrls", "_mUnknown_SourceUrls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersSourceUrl>> _mSourceUrls;
-
-        public List<Outputs.InsightFiltersSourceUrl>? SourceUrls => _mSourceUrls.GetValue("sourceUrls");
+        private List<Outputs.InsightFiltersSourceUrl>? _mValue_SourceUrls;
+        private bool _mUnknown_SourceUrls;
+        public List<Outputs.InsightFiltersSourceUrl>? SourceUrls
+        {
+            get
+            {
+                if (!_mUnknown_SourceUrls) return _mValue_SourceUrls;
+                throw new UndeferrableValueException("Value 'InsightFilters.SourceUrls' is not present");
+            }
+        }
 
         /// <summary>
         /// The category of a threat intelligence indicator. See String Filter below for more details.
         /// </summary>
-        [Input("threatIntelIndicatorCategories")]
+        [PolicyResourceProperty("threatIntelIndicatorCategories", "_mUnknown_ThreatIntelIndicatorCategories")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersThreatIntelIndicatorCategory>> _mThreatIntelIndicatorCategories;
-
-        public List<Outputs.InsightFiltersThreatIntelIndicatorCategory>? ThreatIntelIndicatorCategories => _mThreatIntelIndicatorCategories.GetValue("threatIntelIndicatorCategories");
+        private List<Outputs.InsightFiltersThreatIntelIndicatorCategory>? _mValue_ThreatIntelIndicatorCategories;
+        private bool _mUnknown_ThreatIntelIndicatorCategories;
+        public List<Outputs.InsightFiltersThreatIntelIndicatorCategory>? ThreatIntelIndicatorCategories
+        {
+            get
+            {
+                if (!_mUnknown_ThreatIntelIndicatorCategories) return _mValue_ThreatIntelIndicatorCategories;
+                throw new UndeferrableValueException("Value 'InsightFilters.ThreatIntelIndicatorCategories' is not present");
+            }
+        }
 
         /// <summary>
         /// The date/time of the last observation of a threat intelligence indicator. See Date Filter below for more details.
         /// </summary>
-        [Input("threatIntelIndicatorLastObservedAts")]
+        [PolicyResourceProperty("threatIntelIndicatorLastObservedAts", "_mUnknown_ThreatIntelIndicatorLastObservedAts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersThreatIntelIndicatorLastObservedAt>> _mThreatIntelIndicatorLastObservedAts;
-
-        public List<Outputs.InsightFiltersThreatIntelIndicatorLastObservedAt>? ThreatIntelIndicatorLastObservedAts => _mThreatIntelIndicatorLastObservedAts.GetValue("threatIntelIndicatorLastObservedAts");
+        private List<Outputs.InsightFiltersThreatIntelIndicatorLastObservedAt>? _mValue_ThreatIntelIndicatorLastObservedAts;
+        private bool _mUnknown_ThreatIntelIndicatorLastObservedAts;
+        public List<Outputs.InsightFiltersThreatIntelIndicatorLastObservedAt>? ThreatIntelIndicatorLastObservedAts
+        {
+            get
+            {
+                if (!_mUnknown_ThreatIntelIndicatorLastObservedAts) return _mValue_ThreatIntelIndicatorLastObservedAts;
+                throw new UndeferrableValueException("Value 'InsightFilters.ThreatIntelIndicatorLastObservedAts' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL for more details from the source of the threat intelligence. See String Filter below for more details.
         /// </summary>
-        [Input("threatIntelIndicatorSourceUrls")]
+        [PolicyResourceProperty("threatIntelIndicatorSourceUrls", "_mUnknown_ThreatIntelIndicatorSourceUrls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersThreatIntelIndicatorSourceUrl>> _mThreatIntelIndicatorSourceUrls;
-
-        public List<Outputs.InsightFiltersThreatIntelIndicatorSourceUrl>? ThreatIntelIndicatorSourceUrls => _mThreatIntelIndicatorSourceUrls.GetValue("threatIntelIndicatorSourceUrls");
+        private List<Outputs.InsightFiltersThreatIntelIndicatorSourceUrl>? _mValue_ThreatIntelIndicatorSourceUrls;
+        private bool _mUnknown_ThreatIntelIndicatorSourceUrls;
+        public List<Outputs.InsightFiltersThreatIntelIndicatorSourceUrl>? ThreatIntelIndicatorSourceUrls
+        {
+            get
+            {
+                if (!_mUnknown_ThreatIntelIndicatorSourceUrls) return _mValue_ThreatIntelIndicatorSourceUrls;
+                throw new UndeferrableValueException("Value 'InsightFilters.ThreatIntelIndicatorSourceUrls' is not present");
+            }
+        }
 
         /// <summary>
         /// The source of the threat intelligence. See String Filter below for more details.
         /// </summary>
-        [Input("threatIntelIndicatorSources")]
+        [PolicyResourceProperty("threatIntelIndicatorSources", "_mUnknown_ThreatIntelIndicatorSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersThreatIntelIndicatorSource>> _mThreatIntelIndicatorSources;
-
-        public List<Outputs.InsightFiltersThreatIntelIndicatorSource>? ThreatIntelIndicatorSources => _mThreatIntelIndicatorSources.GetValue("threatIntelIndicatorSources");
+        private List<Outputs.InsightFiltersThreatIntelIndicatorSource>? _mValue_ThreatIntelIndicatorSources;
+        private bool _mUnknown_ThreatIntelIndicatorSources;
+        public List<Outputs.InsightFiltersThreatIntelIndicatorSource>? ThreatIntelIndicatorSources
+        {
+            get
+            {
+                if (!_mUnknown_ThreatIntelIndicatorSources) return _mValue_ThreatIntelIndicatorSources;
+                throw new UndeferrableValueException("Value 'InsightFilters.ThreatIntelIndicatorSources' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of a threat intelligence indicator. See String Filter below for more details.
         /// </summary>
-        [Input("threatIntelIndicatorTypes")]
+        [PolicyResourceProperty("threatIntelIndicatorTypes", "_mUnknown_ThreatIntelIndicatorTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersThreatIntelIndicatorType>> _mThreatIntelIndicatorTypes;
-
-        public List<Outputs.InsightFiltersThreatIntelIndicatorType>? ThreatIntelIndicatorTypes => _mThreatIntelIndicatorTypes.GetValue("threatIntelIndicatorTypes");
+        private List<Outputs.InsightFiltersThreatIntelIndicatorType>? _mValue_ThreatIntelIndicatorTypes;
+        private bool _mUnknown_ThreatIntelIndicatorTypes;
+        public List<Outputs.InsightFiltersThreatIntelIndicatorType>? ThreatIntelIndicatorTypes
+        {
+            get
+            {
+                if (!_mUnknown_ThreatIntelIndicatorTypes) return _mValue_ThreatIntelIndicatorTypes;
+                throw new UndeferrableValueException("Value 'InsightFilters.ThreatIntelIndicatorTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The value of a threat intelligence indicator. See String Filter below for more details.
         /// </summary>
-        [Input("threatIntelIndicatorValues")]
+        [PolicyResourceProperty("threatIntelIndicatorValues", "_mUnknown_ThreatIntelIndicatorValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersThreatIntelIndicatorValue>> _mThreatIntelIndicatorValues;
-
-        public List<Outputs.InsightFiltersThreatIntelIndicatorValue>? ThreatIntelIndicatorValues => _mThreatIntelIndicatorValues.GetValue("threatIntelIndicatorValues");
+        private List<Outputs.InsightFiltersThreatIntelIndicatorValue>? _mValue_ThreatIntelIndicatorValues;
+        private bool _mUnknown_ThreatIntelIndicatorValues;
+        public List<Outputs.InsightFiltersThreatIntelIndicatorValue>? ThreatIntelIndicatorValues
+        {
+            get
+            {
+                if (!_mUnknown_ThreatIntelIndicatorValues) return _mValue_ThreatIntelIndicatorValues;
+                throw new UndeferrableValueException("Value 'InsightFilters.ThreatIntelIndicatorValues' is not present");
+            }
+        }
 
         /// <summary>
         /// A finding's title. See String Filter below for more details.
         /// </summary>
-        [Input("titles")]
+        [PolicyResourceProperty("titles", "_mUnknown_Titles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersTitle>> _mTitles;
-
-        public List<Outputs.InsightFiltersTitle>? Titles => _mTitles.GetValue("titles");
+        private List<Outputs.InsightFiltersTitle>? _mValue_Titles;
+        private bool _mUnknown_Titles;
+        public List<Outputs.InsightFiltersTitle>? Titles
+        {
+            get
+            {
+                if (!_mUnknown_Titles) return _mValue_Titles;
+                throw new UndeferrableValueException("Value 'InsightFilters.Titles' is not present");
+            }
+        }
 
         /// <summary>
         /// A finding type in the format of `namespace/category/classifier` that classifies a finding. See String Filter below for more details.
         /// </summary>
-        [Input("types")]
+        [PolicyResourceProperty("types", "_mUnknown_Types")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersType>> _mTypes;
-
-        public List<Outputs.InsightFiltersType>? Types => _mTypes.GetValue("types");
+        private List<Outputs.InsightFiltersType>? _mValue_Types;
+        private bool _mUnknown_Types;
+        public List<Outputs.InsightFiltersType>? Types
+        {
+            get
+            {
+                if (!_mUnknown_Types) return _mValue_Types;
+                throw new UndeferrableValueException("Value 'InsightFilters.Types' is not present");
+            }
+        }
 
         /// <summary>
         /// An ISO8601-formatted timestamp that indicates when the security-findings provider last updated the finding record. See Date Filter below for more details.
         /// </summary>
-        [Input("updatedAts")]
+        [PolicyResourceProperty("updatedAts", "_mUnknown_UpdatedAts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersUpdatedAt>> _mUpdatedAts;
-
-        public List<Outputs.InsightFiltersUpdatedAt>? UpdatedAts => _mUpdatedAts.GetValue("updatedAts");
+        private List<Outputs.InsightFiltersUpdatedAt>? _mValue_UpdatedAts;
+        private bool _mUnknown_UpdatedAts;
+        public List<Outputs.InsightFiltersUpdatedAt>? UpdatedAts
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedAts) return _mValue_UpdatedAts;
+                throw new UndeferrableValueException("Value 'InsightFilters.UpdatedAts' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding. See Map Filter below for more details.
         /// </summary>
-        [Input("userDefinedValues")]
+        [PolicyResourceProperty("userDefinedValues", "_mUnknown_UserDefinedValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersUserDefinedValue>> _mUserDefinedValues;
-
-        public List<Outputs.InsightFiltersUserDefinedValue>? UserDefinedValues => _mUserDefinedValues.GetValue("userDefinedValues");
+        private List<Outputs.InsightFiltersUserDefinedValue>? _mValue_UserDefinedValues;
+        private bool _mUnknown_UserDefinedValues;
+        public List<Outputs.InsightFiltersUserDefinedValue>? UserDefinedValues
+        {
+            get
+            {
+                if (!_mUnknown_UserDefinedValues) return _mValue_UserDefinedValues;
+                throw new UndeferrableValueException("Value 'InsightFilters.UserDefinedValues' is not present");
+            }
+        }
 
         /// <summary>
         /// The veracity of a finding. See String Filter below for more details.
         /// </summary>
-        [Input("verificationStates")]
+        [PolicyResourceProperty("verificationStates", "_mUnknown_VerificationStates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersVerificationState>> _mVerificationStates;
-
-        public List<Outputs.InsightFiltersVerificationState>? VerificationStates => _mVerificationStates.GetValue("verificationStates");
+        private List<Outputs.InsightFiltersVerificationState>? _mValue_VerificationStates;
+        private bool _mUnknown_VerificationStates;
+        public List<Outputs.InsightFiltersVerificationState>? VerificationStates
+        {
+            get
+            {
+                if (!_mUnknown_VerificationStates) return _mValue_VerificationStates;
+                throw new UndeferrableValueException("Value 'InsightFilters.VerificationStates' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the investigation into a finding. See Workflow Status Filter below for more details.
         /// </summary>
-        [Input("workflowStatuses")]
+        [PolicyResourceProperty("workflowStatuses", "_mUnknown_WorkflowStatuses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InsightFiltersWorkflowStatus>> _mWorkflowStatuses;
-
-        public List<Outputs.InsightFiltersWorkflowStatus>? WorkflowStatuses => _mWorkflowStatuses.GetValue("workflowStatuses");
+        private List<Outputs.InsightFiltersWorkflowStatus>? _mValue_WorkflowStatuses;
+        private bool _mUnknown_WorkflowStatuses;
+        public List<Outputs.InsightFiltersWorkflowStatus>? WorkflowStatuses
+        {
+            get
+            {
+                if (!_mUnknown_WorkflowStatuses) return _mValue_WorkflowStatuses;
+                throw new UndeferrableValueException("Value 'InsightFilters.WorkflowStatuses' is not present");
+            }
+        }
     }
 }

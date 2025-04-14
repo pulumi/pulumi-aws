@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// The lookback window setup for an incremental refresh configuration. See lookback_window.
         /// </summary>
-        [Input("lookbackWindow")]
+        [PolicyResourceProperty("lookbackWindow", "_mUnknown_LookbackWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow> _mLookbackWindow;
-
-        public Outputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow? LookbackWindow => _mLookbackWindow.GetValue("lookbackWindow");
+        private Outputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow? _mValue_LookbackWindow;
+        private bool _mUnknown_LookbackWindow;
+        public Outputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow? LookbackWindow
+        {
+            get
+            {
+                if (!_mUnknown_LookbackWindow) return _mValue_LookbackWindow;
+                throw new UndeferrableValueException("Value 'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh.LookbackWindow' is not present");
+            }
+        }
     }
 }

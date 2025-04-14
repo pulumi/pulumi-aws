@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         /// </summary>
-        [Input("condition")]
+        [PolicyResourceProperty("condition", "_mUnknown_Condition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchConditionArgs> _mCondition;
-
-        public Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchConditionArgs? Condition => _mCondition.GetValue("condition");
+        private Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchConditionArgs? _mValue_Condition;
+        private bool _mUnknown_Condition;
+        public Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchConditionArgs? Condition
+        {
+            get
+            {
+                if (!_mUnknown_Condition) return _mValue_Condition;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchArgs.Condition' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the branch.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the next step in the conversation. See `next_step`.
         /// </summary>
-        [Input("nextStep")]
+        [PolicyResourceProperty("nextStep", "_mUnknown_NextStep")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepArgs> _mNextStep;
-
-        public Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepArgs? NextStep => _mNextStep.GetValue("nextStep");
+        private Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepArgs? _mValue_NextStep;
+        private bool _mUnknown_NextStep;
+        public Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepArgs? NextStep
+        {
+            get
+            {
+                if (!_mUnknown_NextStep) return _mValue_NextStep;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchArgs.NextStep' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
         /// </summary>
-        [Input("response")]
+        [PolicyResourceProperty("response", "_mUnknown_Response")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseArgs> _mResponse;
-
-        public Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseArgs? Response => _mResponse.GetValue("response");
+        private Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseArgs? _mValue_Response;
+        private bool _mUnknown_Response;
+        public Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseArgs? Response
+        {
+            get
+            {
+                if (!_mUnknown_Response) return _mValue_Response;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchArgs.Response' is not present");
+            }
+        }
     }
 }

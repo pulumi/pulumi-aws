@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Configuration block for the settings on audio input. See `audio_specification`.
         /// </summary>
-        [Input("audioSpecification")]
+        [PolicyResourceProperty("audioSpecification", "_mUnknown_AudioSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification> _mAudioSpecification;
-
-        public Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification? AudioSpecification => _mAudioSpecification.GetValue("audioSpecification");
+        private Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification? _mValue_AudioSpecification;
+        private bool _mUnknown_AudioSpecification;
+        public Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification? AudioSpecification
+        {
+            get
+            {
+                if (!_mUnknown_AudioSpecification) return _mValue_AudioSpecification;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.AudioSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the settings on DTMF input. See `dtmf_specification`.
         /// </summary>
-        [Input("dtmfSpecification")]
+        [PolicyResourceProperty("dtmfSpecification", "_mUnknown_DtmfSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification> _mDtmfSpecification;
-
-        public Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification? DtmfSpecification => _mDtmfSpecification.GetValue("dtmfSpecification");
+        private Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification? _mValue_DtmfSpecification;
+        private bool _mUnknown_DtmfSpecification;
+        public Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification? DtmfSpecification
+        {
+            get
+            {
+                if (!_mUnknown_DtmfSpecification) return _mValue_DtmfSpecification;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.DtmfSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
         /// </summary>
-        [Input("startTimeoutMs")]
+        [PolicyResourceProperty("startTimeoutMs", "_mUnknown_StartTimeoutMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStartTimeoutMs;
-
-        public int? StartTimeoutMs => _mStartTimeoutMs.GetValue("startTimeoutMs");
+        private int? _mValue_StartTimeoutMs;
+        private bool _mUnknown_StartTimeoutMs;
+        public int? StartTimeoutMs
+        {
+            get
+            {
+                if (!_mUnknown_StartTimeoutMs) return _mValue_StartTimeoutMs;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.StartTimeoutMs' is not present");
+            }
+        }
     }
 }

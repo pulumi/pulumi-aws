@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions.Inputs
         /// <summary>
         /// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
         /// </summary>
-        [Input("groupEntityType")]
+        [PolicyResourceProperty("groupEntityType", "_mUnknown_GroupEntityType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupEntityType;
-
-        public string? GroupEntityType => _mGroupEntityType.GetValue("groupEntityType");
+        private string? _mValue_GroupEntityType;
+        private bool _mUnknown_GroupEntityType;
+        public string? GroupEntityType
+        {
+            get
+            {
+                if (!_mUnknown_GroupEntityType) return _mValue_GroupEntityType;
+                throw new UndeferrableValueException("Value 'IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs.GroupEntityType' is not present");
+            }
+        }
     }
 }

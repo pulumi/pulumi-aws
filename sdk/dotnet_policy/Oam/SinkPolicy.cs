@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Oam
         /// <summary>
         /// ARN of the Sink.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'SinkPolicy.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'SinkPolicy.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// ID string that AWS generated as part of the sink ARN.
         /// </summary>
-        [Input("sinkId")]
+        [PolicyResourceProperty("sinkId", "_mUnknown_SinkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSinkId;
-
-        public string? SinkId => _mSinkId.GetValue("sinkId");
+        private string? _mValue_SinkId;
+        private bool _mUnknown_SinkId;
+        public string? SinkId
+        {
+            get
+            {
+                if (!_mUnknown_SinkId) return _mValue_SinkId;
+                throw new UndeferrableValueException("Value 'SinkPolicy.SinkId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the sink to attach this policy to.
         /// </summary>
-        [Input("sinkIdentifier")]
+        [PolicyResourceProperty("sinkIdentifier", "_mUnknown_SinkIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSinkIdentifier;
-
-        public string? SinkIdentifier => _mSinkIdentifier.GetValue("sinkIdentifier");
+        private string? _mValue_SinkIdentifier;
+        private bool _mUnknown_SinkIdentifier;
+        public string? SinkIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SinkIdentifier) return _mValue_SinkIdentifier;
+                throw new UndeferrableValueException("Value 'SinkPolicy.SinkIdentifier' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:oam/sinkPolicy:SinkPolicy")]
@@ -56,19 +84,33 @@ namespace Pulumi.PolicyPacks.Aws.Oam
         /// <summary>
         /// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'SinkPolicyArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the sink to attach this policy to.
         /// </summary>
-        [Input("sinkIdentifier")]
+        [PolicyResourceProperty("sinkIdentifier", "_mUnknown_SinkIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSinkIdentifier;
-
-        public string? SinkIdentifier => _mSinkIdentifier.GetValue("sinkIdentifier");
+        private string? _mValue_SinkIdentifier;
+        private bool _mUnknown_SinkIdentifier;
+        public string? SinkIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SinkIdentifier) return _mValue_SinkIdentifier;
+                throw new UndeferrableValueException("Value 'SinkPolicyArgs.SinkIdentifier' is not present");
+            }
+        }
     }
 }

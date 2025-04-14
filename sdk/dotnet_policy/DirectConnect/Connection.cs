@@ -16,166 +16,292 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// The ARN of the connection.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Connection.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Direct Connect endpoint on which the physical connection terminates.
         /// </summary>
-        [Input("awsDevice")]
+        [PolicyResourceProperty("awsDevice", "_mUnknown_AwsDevice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsDevice;
-
-        public string? AwsDevice => _mAwsDevice.GetValue("awsDevice");
+        private string? _mValue_AwsDevice;
+        private bool _mUnknown_AwsDevice;
+        public string? AwsDevice
+        {
+            get
+            {
+                if (!_mUnknown_AwsDevice) return _mValue_AwsDevice;
+                throw new UndeferrableValueException("Value 'Connection.AwsDevice' is not present");
+            }
+        }
 
         /// <summary>
         /// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html) and [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
         /// </summary>
-        [Input("bandwidth")]
+        [PolicyResourceProperty("bandwidth", "_mUnknown_Bandwidth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBandwidth;
-
-        public string? Bandwidth => _mBandwidth.GetValue("bandwidth");
+        private string? _mValue_Bandwidth;
+        private bool _mUnknown_Bandwidth;
+        public string? Bandwidth
+        {
+            get
+            {
+                if (!_mUnknown_Bandwidth) return _mValue_Bandwidth;
+                throw new UndeferrableValueException("Value 'Connection.Bandwidth' is not present");
+            }
+        }
 
         /// <summary>
         /// The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
         /// </summary>
-        [Input("encryptionMode")]
+        [PolicyResourceProperty("encryptionMode", "_mUnknown_EncryptionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionMode;
-
-        public string? EncryptionMode => _mEncryptionMode.GetValue("encryptionMode");
+        private string? _mValue_EncryptionMode;
+        private bool _mUnknown_EncryptionMode;
+        public string? EncryptionMode
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionMode) return _mValue_EncryptionMode;
+                throw new UndeferrableValueException("Value 'Connection.EncryptionMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
         /// </summary>
-        [Input("hasLogicalRedundancy")]
+        [PolicyResourceProperty("hasLogicalRedundancy", "_mUnknown_HasLogicalRedundancy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHasLogicalRedundancy;
-
-        public string? HasLogicalRedundancy => _mHasLogicalRedundancy.GetValue("hasLogicalRedundancy");
+        private string? _mValue_HasLogicalRedundancy;
+        private bool _mUnknown_HasLogicalRedundancy;
+        public string? HasLogicalRedundancy
+        {
+            get
+            {
+                if (!_mUnknown_HasLogicalRedundancy) return _mValue_HasLogicalRedundancy;
+                throw new UndeferrableValueException("Value 'Connection.HasLogicalRedundancy' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean value representing if jumbo frames have been enabled for this connection.
         /// </summary>
-        [Input("jumboFrameCapable")]
+        [PolicyResourceProperty("jumboFrameCapable", "_mUnknown_JumboFrameCapable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mJumboFrameCapable;
-
-        public bool? JumboFrameCapable => _mJumboFrameCapable.GetValue("jumboFrameCapable");
+        private bool? _mValue_JumboFrameCapable;
+        private bool _mUnknown_JumboFrameCapable;
+        public bool? JumboFrameCapable
+        {
+            get
+            {
+                if (!_mUnknown_JumboFrameCapable) return _mValue_JumboFrameCapable;
+                throw new UndeferrableValueException("Value 'Connection.JumboFrameCapable' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
-
-        public string? Location => _mLocation.GetValue("location");
+        private string? _mValue_Location;
+        private bool _mUnknown_Location;
+        public string? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'Connection.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean value indicating whether the connection supports MAC Security (MACsec).
         /// </summary>
-        [Input("macsecCapable")]
+        [PolicyResourceProperty("macsecCapable", "_mUnknown_MacsecCapable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMacsecCapable;
-
-        public bool? MacsecCapable => _mMacsecCapable.GetValue("macsecCapable");
+        private bool? _mValue_MacsecCapable;
+        private bool _mUnknown_MacsecCapable;
+        public bool? MacsecCapable
+        {
+            get
+            {
+                if (!_mUnknown_MacsecCapable) return _mValue_MacsecCapable;
+                throw new UndeferrableValueException("Value 'Connection.MacsecCapable' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the connection.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Connection.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the AWS account that owns the connection.
         /// </summary>
-        [Input("ownerAccountId")]
+        [PolicyResourceProperty("ownerAccountId", "_mUnknown_OwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
-
-        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+        private string? _mValue_OwnerAccountId;
+        private bool _mUnknown_OwnerAccountId;
+        public string? OwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccountId) return _mValue_OwnerAccountId;
+                throw new UndeferrableValueException("Value 'Connection.OwnerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the AWS Direct Connect service provider associated with the connection.
         /// </summary>
-        [Input("partnerName")]
+        [PolicyResourceProperty("partnerName", "_mUnknown_PartnerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPartnerName;
-
-        public string? PartnerName => _mPartnerName.GetValue("partnerName");
+        private string? _mValue_PartnerName;
+        private bool _mUnknown_PartnerName;
+        public string? PartnerName
+        {
+            get
+            {
+                if (!_mUnknown_PartnerName) return _mValue_PartnerName;
+                throw new UndeferrableValueException("Value 'Connection.PartnerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The MAC Security (MACsec) port link status of the connection.
         /// </summary>
-        [Input("portEncryptionStatus")]
+        [PolicyResourceProperty("portEncryptionStatus", "_mUnknown_PortEncryptionStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPortEncryptionStatus;
-
-        public string? PortEncryptionStatus => _mPortEncryptionStatus.GetValue("portEncryptionStatus");
+        private string? _mValue_PortEncryptionStatus;
+        private bool _mUnknown_PortEncryptionStatus;
+        public string? PortEncryptionStatus
+        {
+            get
+            {
+                if (!_mUnknown_PortEncryptionStatus) return _mValue_PortEncryptionStatus;
+                throw new UndeferrableValueException("Value 'Connection.PortEncryptionStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the service provider associated with the connection.
         /// </summary>
-        [Input("providerName")]
+        [PolicyResourceProperty("providerName", "_mUnknown_ProviderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
-
-        public string? ProviderName => _mProviderName.GetValue("providerName");
+        private string? _mValue_ProviderName;
+        private bool _mUnknown_ProviderName;
+        public string? ProviderName
+        {
+            get
+            {
+                if (!_mUnknown_ProviderName) return _mValue_ProviderName;
+                throw new UndeferrableValueException("Value 'Connection.ProviderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
         /// 
         /// &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
         /// </summary>
-        [Input("requestMacsec")]
+        [PolicyResourceProperty("requestMacsec", "_mUnknown_RequestMacsec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequestMacsec;
-
-        public bool? RequestMacsec => _mRequestMacsec.GetValue("requestMacsec");
+        private bool? _mValue_RequestMacsec;
+        private bool _mUnknown_RequestMacsec;
+        public bool? RequestMacsec
+        {
+            get
+            {
+                if (!_mUnknown_RequestMacsec) return _mValue_RequestMacsec;
+                throw new UndeferrableValueException("Value 'Connection.RequestMacsec' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'Connection.SkipDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Connection.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Connection.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The VLAN ID.
         /// </summary>
-        [Input("vlanId")]
+        [PolicyResourceProperty("vlanId", "_mUnknown_VlanId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVlanId;
-
-        public int? VlanId => _mVlanId.GetValue("vlanId");
+        private int? _mValue_VlanId;
+        private bool _mUnknown_VlanId;
+        public int? VlanId
+        {
+            get
+            {
+                if (!_mUnknown_VlanId) return _mValue_VlanId;
+                throw new UndeferrableValueException("Value 'Connection.VlanId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:directconnect/connection:Connection")]
@@ -184,75 +310,131 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html) and [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
         /// </summary>
-        [Input("bandwidth")]
+        [PolicyResourceProperty("bandwidth", "_mUnknown_Bandwidth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBandwidth;
-
-        public string? Bandwidth => _mBandwidth.GetValue("bandwidth");
+        private string? _mValue_Bandwidth;
+        private bool _mUnknown_Bandwidth;
+        public string? Bandwidth
+        {
+            get
+            {
+                if (!_mUnknown_Bandwidth) return _mValue_Bandwidth;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.Bandwidth' is not present");
+            }
+        }
 
         /// <summary>
         /// The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
         /// </summary>
-        [Input("encryptionMode")]
+        [PolicyResourceProperty("encryptionMode", "_mUnknown_EncryptionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionMode;
-
-        public string? EncryptionMode => _mEncryptionMode.GetValue("encryptionMode");
+        private string? _mValue_EncryptionMode;
+        private bool _mUnknown_EncryptionMode;
+        public string? EncryptionMode
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionMode) return _mValue_EncryptionMode;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.EncryptionMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
-
-        public string? Location => _mLocation.GetValue("location");
+        private string? _mValue_Location;
+        private bool _mUnknown_Location;
+        public string? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the connection.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the service provider associated with the connection.
         /// </summary>
-        [Input("providerName")]
+        [PolicyResourceProperty("providerName", "_mUnknown_ProviderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
-
-        public string? ProviderName => _mProviderName.GetValue("providerName");
+        private string? _mValue_ProviderName;
+        private bool _mUnknown_ProviderName;
+        public string? ProviderName
+        {
+            get
+            {
+                if (!_mUnknown_ProviderName) return _mValue_ProviderName;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.ProviderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
         /// 
         /// &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
         /// </summary>
-        [Input("requestMacsec")]
+        [PolicyResourceProperty("requestMacsec", "_mUnknown_RequestMacsec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequestMacsec;
-
-        public bool? RequestMacsec => _mRequestMacsec.GetValue("requestMacsec");
+        private bool? _mValue_RequestMacsec;
+        private bool _mUnknown_RequestMacsec;
+        public bool? RequestMacsec
+        {
+            get
+            {
+                if (!_mUnknown_RequestMacsec) return _mValue_RequestMacsec;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.RequestMacsec' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.SkipDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.Tags' is not present");
+            }
+        }
     }
 }

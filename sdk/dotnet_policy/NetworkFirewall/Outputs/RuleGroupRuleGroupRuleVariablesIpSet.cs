@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// A configuration block that defines a set of IP addresses. See IP Set below for details.
         /// </summary>
-        [Input("ipSet")]
+        [PolicyResourceProperty("ipSet", "_mUnknown_IpSet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleGroupRuleVariablesIpSetIpSet> _mIpSet;
-
-        public Outputs.RuleGroupRuleGroupRuleVariablesIpSetIpSet? IpSet => _mIpSet.GetValue("ipSet");
+        private Outputs.RuleGroupRuleGroupRuleVariablesIpSetIpSet? _mValue_IpSet;
+        private bool _mUnknown_IpSet;
+        public Outputs.RuleGroupRuleGroupRuleVariablesIpSetIpSet? IpSet
+        {
+            get
+            {
+                if (!_mUnknown_IpSet) return _mValue_IpSet;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRuleVariablesIpSet.IpSet' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique alphanumeric string to identify the `ip_set`.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRuleVariablesIpSet.Key' is not present");
+            }
+        }
     }
 }

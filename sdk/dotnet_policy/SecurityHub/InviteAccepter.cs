@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// The ID of the invitation.
         /// </summary>
-        [Input("invitationId")]
+        [PolicyResourceProperty("invitationId", "_mUnknown_InvitationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInvitationId;
-
-        public string? InvitationId => _mInvitationId.GetValue("invitationId");
+        private string? _mValue_InvitationId;
+        private bool _mUnknown_InvitationId;
+        public string? InvitationId
+        {
+            get
+            {
+                if (!_mUnknown_InvitationId) return _mValue_InvitationId;
+                throw new UndeferrableValueException("Value 'InviteAccepter.InvitationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The account ID of the master Security Hub account whose invitation you're accepting.
         /// </summary>
-        [Input("masterId")]
+        [PolicyResourceProperty("masterId", "_mUnknown_MasterId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterId;
-
-        public string? MasterId => _mMasterId.GetValue("masterId");
+        private string? _mValue_MasterId;
+        private bool _mUnknown_MasterId;
+        public string? MasterId
+        {
+            get
+            {
+                if (!_mUnknown_MasterId) return _mValue_MasterId;
+                throw new UndeferrableValueException("Value 'InviteAccepter.MasterId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:securityhub/inviteAccepter:InviteAccepter")]
@@ -38,10 +52,17 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// The account ID of the master Security Hub account whose invitation you're accepting.
         /// </summary>
-        [Input("masterId")]
+        [PolicyResourceProperty("masterId", "_mUnknown_MasterId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterId;
-
-        public string? MasterId => _mMasterId.GetValue("masterId");
+        private string? _mValue_MasterId;
+        private bool _mUnknown_MasterId;
+        public string? MasterId
+        {
+            get
+            {
+                if (!_mUnknown_MasterId) return _mValue_MasterId;
+                throw new UndeferrableValueException("Value 'InviteAccepterArgs.MasterId' is not present");
+            }
+        }
     }
 }

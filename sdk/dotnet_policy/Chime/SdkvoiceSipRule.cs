@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// Enables or disables a rule. You must disable rules before you can delete them.
         /// </summary>
-        [Input("disabled")]
+        [PolicyResourceProperty("disabled", "_mUnknown_Disabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisabled;
-
-        public bool? Disabled => _mDisabled.GetValue("disabled");
+        private bool? _mValue_Disabled;
+        private bool _mUnknown_Disabled;
+        public bool? Disabled
+        {
+            get
+            {
+                if (!_mUnknown_Disabled) return _mValue_Disabled;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipRule.Disabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the SIP rule.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipRule.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
         /// </summary>
-        [Input("targetApplications")]
+        [PolicyResourceProperty("targetApplications", "_mUnknown_TargetApplications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SdkvoiceSipRuleTargetApplication>> _mTargetApplications;
-
-        public List<Outputs.SdkvoiceSipRuleTargetApplication>? TargetApplications => _mTargetApplications.GetValue("targetApplications");
+        private List<Outputs.SdkvoiceSipRuleTargetApplication>? _mValue_TargetApplications;
+        private bool _mUnknown_TargetApplications;
+        public List<Outputs.SdkvoiceSipRuleTargetApplication>? TargetApplications
+        {
+            get
+            {
+                if (!_mUnknown_TargetApplications) return _mValue_TargetApplications;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipRule.TargetApplications' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of trigger assigned to the SIP rule in `trigger_value`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
         /// </summary>
-        [Input("triggerType")]
+        [PolicyResourceProperty("triggerType", "_mUnknown_TriggerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTriggerType;
-
-        public string? TriggerType => _mTriggerType.GetValue("triggerType");
+        private string? _mValue_TriggerType;
+        private bool _mUnknown_TriggerType;
+        public string? TriggerType
+        {
+            get
+            {
+                if (!_mUnknown_TriggerType) return _mValue_TriggerType;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipRule.TriggerType' is not present");
+            }
+        }
 
         /// <summary>
         /// If `trigger_type` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `trigger_type` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("triggerValue")]
+        [PolicyResourceProperty("triggerValue", "_mUnknown_TriggerValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTriggerValue;
-
-        public string? TriggerValue => _mTriggerValue.GetValue("triggerValue");
+        private string? _mValue_TriggerValue;
+        private bool _mUnknown_TriggerValue;
+        public string? TriggerValue
+        {
+            get
+            {
+                if (!_mUnknown_TriggerValue) return _mValue_TriggerValue;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipRule.TriggerValue' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:chime/sdkvoiceSipRule:SdkvoiceSipRule")]
@@ -67,48 +102,83 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// Enables or disables a rule. You must disable rules before you can delete them.
         /// </summary>
-        [Input("disabled")]
+        [PolicyResourceProperty("disabled", "_mUnknown_Disabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisabled;
-
-        public bool? Disabled => _mDisabled.GetValue("disabled");
+        private bool? _mValue_Disabled;
+        private bool _mUnknown_Disabled;
+        public bool? Disabled
+        {
+            get
+            {
+                if (!_mUnknown_Disabled) return _mValue_Disabled;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipRuleArgs.Disabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the SIP rule.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipRuleArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
         /// </summary>
-        [Input("targetApplications")]
+        [PolicyResourceProperty("targetApplications", "_mUnknown_TargetApplications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SdkvoiceSipRuleTargetApplicationArgs>> _mTargetApplications;
-
-        public List<Inputs.SdkvoiceSipRuleTargetApplicationArgs>? TargetApplications => _mTargetApplications.GetValue("targetApplications");
+        private List<Inputs.SdkvoiceSipRuleTargetApplicationArgs>? _mValue_TargetApplications;
+        private bool _mUnknown_TargetApplications;
+        public List<Inputs.SdkvoiceSipRuleTargetApplicationArgs>? TargetApplications
+        {
+            get
+            {
+                if (!_mUnknown_TargetApplications) return _mValue_TargetApplications;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipRuleArgs.TargetApplications' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of trigger assigned to the SIP rule in `trigger_value`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
         /// </summary>
-        [Input("triggerType")]
+        [PolicyResourceProperty("triggerType", "_mUnknown_TriggerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTriggerType;
-
-        public string? TriggerType => _mTriggerType.GetValue("triggerType");
+        private string? _mValue_TriggerType;
+        private bool _mUnknown_TriggerType;
+        public string? TriggerType
+        {
+            get
+            {
+                if (!_mUnknown_TriggerType) return _mValue_TriggerType;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipRuleArgs.TriggerType' is not present");
+            }
+        }
 
         /// <summary>
         /// If `trigger_type` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `trigger_type` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("triggerValue")]
+        [PolicyResourceProperty("triggerValue", "_mUnknown_TriggerValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTriggerValue;
-
-        public string? TriggerValue => _mTriggerValue.GetValue("triggerValue");
+        private string? _mValue_TriggerValue;
+        private bool _mUnknown_TriggerValue;
+        public string? TriggerValue
+        {
+            get
+            {
+                if (!_mUnknown_TriggerValue) return _mValue_TriggerValue;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipRuleArgs.TriggerValue' is not present");
+            }
+        }
     }
 }

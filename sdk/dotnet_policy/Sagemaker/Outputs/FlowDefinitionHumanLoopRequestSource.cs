@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
         /// </summary>
-        [Input("awsManagedHumanLoopRequestSource")]
+        [PolicyResourceProperty("awsManagedHumanLoopRequestSource", "_mUnknown_AwsManagedHumanLoopRequestSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsManagedHumanLoopRequestSource;
-
-        public string? AwsManagedHumanLoopRequestSource => _mAwsManagedHumanLoopRequestSource.GetValue("awsManagedHumanLoopRequestSource");
+        private string? _mValue_AwsManagedHumanLoopRequestSource;
+        private bool _mUnknown_AwsManagedHumanLoopRequestSource;
+        public string? AwsManagedHumanLoopRequestSource
+        {
+            get
+            {
+                if (!_mUnknown_AwsManagedHumanLoopRequestSource) return _mValue_AwsManagedHumanLoopRequestSource;
+                throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopRequestSource.AwsManagedHumanLoopRequestSource' is not present");
+            }
+        }
     }
 }

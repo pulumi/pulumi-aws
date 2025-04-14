@@ -16,80 +16,143 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
         /// </summary>
-        [Input("agentArns")]
+        [PolicyResourceProperty("agentArns", "_mUnknown_AgentArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAgentArns;
-
-        public List<string>? AgentArns => _mAgentArns.GetValue("agentArns");
+        private List<string>? _mValue_AgentArns;
+        private bool _mUnknown_AgentArns;
+        public List<string>? AgentArns
+        {
+            get
+            {
+                if (!_mUnknown_AgentArns) return _mValue_AgentArns;
+                throw new UndeferrableValueException("Value 'S3Location.AgentArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'S3Location.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         /// </summary>
-        [Input("s3BucketArn")]
+        [PolicyResourceProperty("s3BucketArn", "_mUnknown_S3BucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketArn;
-
-        public string? S3BucketArn => _mS3BucketArn.GetValue("s3BucketArn");
+        private string? _mValue_S3BucketArn;
+        private bool _mUnknown_S3BucketArn;
+        public string? S3BucketArn
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketArn) return _mValue_S3BucketArn;
+                throw new UndeferrableValueException("Value 'S3Location.S3BucketArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing information for connecting to S3.
         /// </summary>
-        [Input("s3Config")]
+        [PolicyResourceProperty("s3Config", "_mUnknown_S3Config")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.S3LocationS3Config> _mS3Config;
-
-        public Outputs.S3LocationS3Config? S3Config => _mS3Config.GetValue("s3Config");
+        private Outputs.S3LocationS3Config? _mValue_S3Config;
+        private bool _mUnknown_S3Config;
+        public Outputs.S3LocationS3Config? S3Config
+        {
+            get
+            {
+                if (!_mUnknown_S3Config) return _mValue_S3Config;
+                throw new UndeferrableValueException("Value 'S3Location.S3Config' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         /// </summary>
-        [Input("s3StorageClass")]
+        [PolicyResourceProperty("s3StorageClass", "_mUnknown_S3StorageClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3StorageClass;
-
-        public string? S3StorageClass => _mS3StorageClass.GetValue("s3StorageClass");
+        private string? _mValue_S3StorageClass;
+        private bool _mUnknown_S3StorageClass;
+        public string? S3StorageClass
+        {
+            get
+            {
+                if (!_mUnknown_S3StorageClass) return _mValue_S3StorageClass;
+                throw new UndeferrableValueException("Value 'S3Location.S3StorageClass' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix to perform actions as source or destination.
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'S3Location.Subdirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'S3Location.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'S3Location.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'S3Location.Uri' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datasync/s3Location:S3Location")]
@@ -98,55 +161,97 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
         /// </summary>
-        [Input("agentArns")]
+        [PolicyResourceProperty("agentArns", "_mUnknown_AgentArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAgentArns;
-
-        public List<string>? AgentArns => _mAgentArns.GetValue("agentArns");
+        private List<string>? _mValue_AgentArns;
+        private bool _mUnknown_AgentArns;
+        public List<string>? AgentArns
+        {
+            get
+            {
+                if (!_mUnknown_AgentArns) return _mValue_AgentArns;
+                throw new UndeferrableValueException("Value 'S3LocationArgs.AgentArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         /// </summary>
-        [Input("s3BucketArn")]
+        [PolicyResourceProperty("s3BucketArn", "_mUnknown_S3BucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketArn;
-
-        public string? S3BucketArn => _mS3BucketArn.GetValue("s3BucketArn");
+        private string? _mValue_S3BucketArn;
+        private bool _mUnknown_S3BucketArn;
+        public string? S3BucketArn
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketArn) return _mValue_S3BucketArn;
+                throw new UndeferrableValueException("Value 'S3LocationArgs.S3BucketArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing information for connecting to S3.
         /// </summary>
-        [Input("s3Config")]
+        [PolicyResourceProperty("s3Config", "_mUnknown_S3Config")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.S3LocationS3ConfigArgs> _mS3Config;
-
-        public Inputs.S3LocationS3ConfigArgs? S3Config => _mS3Config.GetValue("s3Config");
+        private Inputs.S3LocationS3ConfigArgs? _mValue_S3Config;
+        private bool _mUnknown_S3Config;
+        public Inputs.S3LocationS3ConfigArgs? S3Config
+        {
+            get
+            {
+                if (!_mUnknown_S3Config) return _mValue_S3Config;
+                throw new UndeferrableValueException("Value 'S3LocationArgs.S3Config' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         /// </summary>
-        [Input("s3StorageClass")]
+        [PolicyResourceProperty("s3StorageClass", "_mUnknown_S3StorageClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3StorageClass;
-
-        public string? S3StorageClass => _mS3StorageClass.GetValue("s3StorageClass");
+        private string? _mValue_S3StorageClass;
+        private bool _mUnknown_S3StorageClass;
+        public string? S3StorageClass
+        {
+            get
+            {
+                if (!_mUnknown_S3StorageClass) return _mValue_S3StorageClass;
+                throw new UndeferrableValueException("Value 'S3LocationArgs.S3StorageClass' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix to perform actions as source or destination.
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'S3LocationArgs.Subdirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'S3LocationArgs.Tags' is not present");
+            }
+        }
     }
 }

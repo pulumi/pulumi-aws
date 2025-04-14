@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
         /// </summary>
-        [Input("s3Output")]
+        [PolicyResourceProperty("s3Output", "_mUnknown_S3Output")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output> _mS3Output;
-
-        public Outputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output? S3Output => _mS3Output.GetValue("s3Output");
+        private Outputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output? _mValue_S3Output;
+        private bool _mUnknown_S3Output;
+        public Outputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output? S3Output
+        {
+            get
+            {
+                if (!_mUnknown_S3Output) return _mValue_S3Output;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs.S3Output' is not present");
+            }
+        }
     }
 }

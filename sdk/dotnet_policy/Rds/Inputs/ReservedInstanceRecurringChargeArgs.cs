@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Rds.Inputs
 {
     public sealed class ReservedInstanceRecurringChargeArgs
     {
-        [Input("recurringChargeAmount")]
+        [PolicyResourceProperty("recurringChargeAmount", "_mUnknown_RecurringChargeAmount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRecurringChargeAmount;
+        private int? _mValue_RecurringChargeAmount;
+        private bool _mUnknown_RecurringChargeAmount;
+        public int? RecurringChargeAmount
+        {
+            get
+            {
+                if (!_mUnknown_RecurringChargeAmount) return _mValue_RecurringChargeAmount;
+                throw new UndeferrableValueException("Value 'ReservedInstanceRecurringChargeArgs.RecurringChargeAmount' is not present");
+            }
+        }
 
-        public int? RecurringChargeAmount => _mRecurringChargeAmount.GetValue("recurringChargeAmount");
-
-        [Input("recurringChargeFrequency")]
+        [PolicyResourceProperty("recurringChargeFrequency", "_mUnknown_RecurringChargeFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecurringChargeFrequency;
-
-        public string? RecurringChargeFrequency => _mRecurringChargeFrequency.GetValue("recurringChargeFrequency");
+        private string? _mValue_RecurringChargeFrequency;
+        private bool _mUnknown_RecurringChargeFrequency;
+        public string? RecurringChargeFrequency
+        {
+            get
+            {
+                if (!_mUnknown_RecurringChargeFrequency) return _mValue_RecurringChargeFrequency;
+                throw new UndeferrableValueException("Value 'ReservedInstanceRecurringChargeArgs.RecurringChargeFrequency' is not present");
+            }
+        }
     }
 }

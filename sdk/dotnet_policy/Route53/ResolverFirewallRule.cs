@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
-
-        public string? Action => _mAction.GetValue("action");
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRule.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS record's type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
         /// </summary>
-        [Input("blockOverrideDnsType")]
+        [PolicyResourceProperty("blockOverrideDnsType", "_mUnknown_BlockOverrideDnsType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlockOverrideDnsType;
-
-        public string? BlockOverrideDnsType => _mBlockOverrideDnsType.GetValue("blockOverrideDnsType");
+        private string? _mValue_BlockOverrideDnsType;
+        private bool _mUnknown_BlockOverrideDnsType;
+        public string? BlockOverrideDnsType
+        {
+            get
+            {
+                if (!_mUnknown_BlockOverrideDnsType) return _mValue_BlockOverrideDnsType;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRule.BlockOverrideDnsType' is not present");
+            }
+        }
 
         /// <summary>
         /// The custom DNS record to send back in response to the query.
         /// </summary>
-        [Input("blockOverrideDomain")]
+        [PolicyResourceProperty("blockOverrideDomain", "_mUnknown_BlockOverrideDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlockOverrideDomain;
-
-        public string? BlockOverrideDomain => _mBlockOverrideDomain.GetValue("blockOverrideDomain");
+        private string? _mValue_BlockOverrideDomain;
+        private bool _mUnknown_BlockOverrideDomain;
+        public string? BlockOverrideDomain
+        {
+            get
+            {
+                if (!_mUnknown_BlockOverrideDomain) return _mValue_BlockOverrideDomain;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRule.BlockOverrideDomain' is not present");
+            }
+        }
 
         /// <summary>
         /// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
         /// </summary>
-        [Input("blockOverrideTtl")]
+        [PolicyResourceProperty("blockOverrideTtl", "_mUnknown_BlockOverrideTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBlockOverrideTtl;
-
-        public int? BlockOverrideTtl => _mBlockOverrideTtl.GetValue("blockOverrideTtl");
+        private int? _mValue_BlockOverrideTtl;
+        private bool _mUnknown_BlockOverrideTtl;
+        public int? BlockOverrideTtl
+        {
+            get
+            {
+                if (!_mUnknown_BlockOverrideTtl) return _mValue_BlockOverrideTtl;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRule.BlockOverrideTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
         /// </summary>
-        [Input("blockResponse")]
+        [PolicyResourceProperty("blockResponse", "_mUnknown_BlockResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlockResponse;
-
-        public string? BlockResponse => _mBlockResponse.GetValue("blockResponse");
+        private string? _mValue_BlockResponse;
+        private bool _mUnknown_BlockResponse;
+        public string? BlockResponse
+        {
+            get
+            {
+                if (!_mUnknown_BlockResponse) return _mValue_BlockResponse;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRule.BlockResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the domain list that you want to use in the rule.
         /// </summary>
-        [Input("firewallDomainListId")]
+        [PolicyResourceProperty("firewallDomainListId", "_mUnknown_FirewallDomainListId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallDomainListId;
-
-        public string? FirewallDomainListId => _mFirewallDomainListId.GetValue("firewallDomainListId");
+        private string? _mValue_FirewallDomainListId;
+        private bool _mUnknown_FirewallDomainListId;
+        public string? FirewallDomainListId
+        {
+            get
+            {
+                if (!_mUnknown_FirewallDomainListId) return _mValue_FirewallDomainListId;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRule.FirewallDomainListId' is not present");
+            }
+        }
 
         /// <summary>
         /// Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
         /// </summary>
-        [Input("firewallDomainRedirectionAction")]
+        [PolicyResourceProperty("firewallDomainRedirectionAction", "_mUnknown_FirewallDomainRedirectionAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallDomainRedirectionAction;
-
-        public string? FirewallDomainRedirectionAction => _mFirewallDomainRedirectionAction.GetValue("firewallDomainRedirectionAction");
+        private string? _mValue_FirewallDomainRedirectionAction;
+        private bool _mUnknown_FirewallDomainRedirectionAction;
+        public string? FirewallDomainRedirectionAction
+        {
+            get
+            {
+                if (!_mUnknown_FirewallDomainRedirectionAction) return _mValue_FirewallDomainRedirectionAction;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRule.FirewallDomainRedirectionAction' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier of the firewall rule group where you want to create the rule.
         /// </summary>
-        [Input("firewallRuleGroupId")]
+        [PolicyResourceProperty("firewallRuleGroupId", "_mUnknown_FirewallRuleGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallRuleGroupId;
-
-        public string? FirewallRuleGroupId => _mFirewallRuleGroupId.GetValue("firewallRuleGroupId");
+        private string? _mValue_FirewallRuleGroupId;
+        private bool _mUnknown_FirewallRuleGroupId;
+        public string? FirewallRuleGroupId
+        {
+            get
+            {
+                if (!_mUnknown_FirewallRuleGroupId) return _mValue_FirewallRuleGroupId;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRule.FirewallRuleGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// A name that lets you identify the rule, to manage and use it.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRule.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRule.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
         /// </summary>
-        [Input("qType")]
+        [PolicyResourceProperty("qType", "_mUnknown_QType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQType;
-
-        public string? QType => _mQType.GetValue("qType");
+        private string? _mValue_QType;
+        private bool _mUnknown_QType;
+        public string? QType
+        {
+            get
+            {
+                if (!_mUnknown_QType) return _mValue_QType;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRule.QType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/resolverFirewallRule:ResolverFirewallRule")]
@@ -119,100 +196,177 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
-
-        public string? Action => _mAction.GetValue("action");
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS record's type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
         /// </summary>
-        [Input("blockOverrideDnsType")]
+        [PolicyResourceProperty("blockOverrideDnsType", "_mUnknown_BlockOverrideDnsType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlockOverrideDnsType;
-
-        public string? BlockOverrideDnsType => _mBlockOverrideDnsType.GetValue("blockOverrideDnsType");
+        private string? _mValue_BlockOverrideDnsType;
+        private bool _mUnknown_BlockOverrideDnsType;
+        public string? BlockOverrideDnsType
+        {
+            get
+            {
+                if (!_mUnknown_BlockOverrideDnsType) return _mValue_BlockOverrideDnsType;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.BlockOverrideDnsType' is not present");
+            }
+        }
 
         /// <summary>
         /// The custom DNS record to send back in response to the query.
         /// </summary>
-        [Input("blockOverrideDomain")]
+        [PolicyResourceProperty("blockOverrideDomain", "_mUnknown_BlockOverrideDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlockOverrideDomain;
-
-        public string? BlockOverrideDomain => _mBlockOverrideDomain.GetValue("blockOverrideDomain");
+        private string? _mValue_BlockOverrideDomain;
+        private bool _mUnknown_BlockOverrideDomain;
+        public string? BlockOverrideDomain
+        {
+            get
+            {
+                if (!_mUnknown_BlockOverrideDomain) return _mValue_BlockOverrideDomain;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.BlockOverrideDomain' is not present");
+            }
+        }
 
         /// <summary>
         /// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
         /// </summary>
-        [Input("blockOverrideTtl")]
+        [PolicyResourceProperty("blockOverrideTtl", "_mUnknown_BlockOverrideTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBlockOverrideTtl;
-
-        public int? BlockOverrideTtl => _mBlockOverrideTtl.GetValue("blockOverrideTtl");
+        private int? _mValue_BlockOverrideTtl;
+        private bool _mUnknown_BlockOverrideTtl;
+        public int? BlockOverrideTtl
+        {
+            get
+            {
+                if (!_mUnknown_BlockOverrideTtl) return _mValue_BlockOverrideTtl;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.BlockOverrideTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
         /// </summary>
-        [Input("blockResponse")]
+        [PolicyResourceProperty("blockResponse", "_mUnknown_BlockResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlockResponse;
-
-        public string? BlockResponse => _mBlockResponse.GetValue("blockResponse");
+        private string? _mValue_BlockResponse;
+        private bool _mUnknown_BlockResponse;
+        public string? BlockResponse
+        {
+            get
+            {
+                if (!_mUnknown_BlockResponse) return _mValue_BlockResponse;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.BlockResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the domain list that you want to use in the rule.
         /// </summary>
-        [Input("firewallDomainListId")]
+        [PolicyResourceProperty("firewallDomainListId", "_mUnknown_FirewallDomainListId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallDomainListId;
-
-        public string? FirewallDomainListId => _mFirewallDomainListId.GetValue("firewallDomainListId");
+        private string? _mValue_FirewallDomainListId;
+        private bool _mUnknown_FirewallDomainListId;
+        public string? FirewallDomainListId
+        {
+            get
+            {
+                if (!_mUnknown_FirewallDomainListId) return _mValue_FirewallDomainListId;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.FirewallDomainListId' is not present");
+            }
+        }
 
         /// <summary>
         /// Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
         /// </summary>
-        [Input("firewallDomainRedirectionAction")]
+        [PolicyResourceProperty("firewallDomainRedirectionAction", "_mUnknown_FirewallDomainRedirectionAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallDomainRedirectionAction;
-
-        public string? FirewallDomainRedirectionAction => _mFirewallDomainRedirectionAction.GetValue("firewallDomainRedirectionAction");
+        private string? _mValue_FirewallDomainRedirectionAction;
+        private bool _mUnknown_FirewallDomainRedirectionAction;
+        public string? FirewallDomainRedirectionAction
+        {
+            get
+            {
+                if (!_mUnknown_FirewallDomainRedirectionAction) return _mValue_FirewallDomainRedirectionAction;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.FirewallDomainRedirectionAction' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier of the firewall rule group where you want to create the rule.
         /// </summary>
-        [Input("firewallRuleGroupId")]
+        [PolicyResourceProperty("firewallRuleGroupId", "_mUnknown_FirewallRuleGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallRuleGroupId;
-
-        public string? FirewallRuleGroupId => _mFirewallRuleGroupId.GetValue("firewallRuleGroupId");
+        private string? _mValue_FirewallRuleGroupId;
+        private bool _mUnknown_FirewallRuleGroupId;
+        public string? FirewallRuleGroupId
+        {
+            get
+            {
+                if (!_mUnknown_FirewallRuleGroupId) return _mValue_FirewallRuleGroupId;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.FirewallRuleGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// A name that lets you identify the rule, to manage and use it.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
         /// </summary>
-        [Input("qType")]
+        [PolicyResourceProperty("qType", "_mUnknown_QType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQType;
-
-        public string? QType => _mQType.GetValue("qType");
+        private string? _mValue_QType;
+        private bool _mUnknown_QType;
+        public string? QType
+        {
+            get
+            {
+                if (!_mUnknown_QType) return _mValue_QType;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.QType' is not present");
+            }
+        }
     }
 }

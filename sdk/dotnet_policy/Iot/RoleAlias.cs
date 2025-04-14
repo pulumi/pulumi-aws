@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// The name of the role alias.
         /// </summary>
-        [Input("alias")]
+        [PolicyResourceProperty("alias", "_mUnknown_Alias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
-
-        public string? Alias => _mAlias.GetValue("alias");
+        private string? _mValue_Alias;
+        private bool _mUnknown_Alias;
+        public string? Alias
+        {
+            get
+            {
+                if (!_mUnknown_Alias) return _mValue_Alias;
+                throw new UndeferrableValueException("Value 'RoleAlias.Alias' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN assigned by AWS to this role alias.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'RoleAlias.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         /// </summary>
-        [Input("credentialDuration")]
+        [PolicyResourceProperty("credentialDuration", "_mUnknown_CredentialDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCredentialDuration;
-
-        public int? CredentialDuration => _mCredentialDuration.GetValue("credentialDuration");
+        private int? _mValue_CredentialDuration;
+        private bool _mUnknown_CredentialDuration;
+        public int? CredentialDuration
+        {
+            get
+            {
+                if (!_mUnknown_CredentialDuration) return _mValue_CredentialDuration;
+                throw new UndeferrableValueException("Value 'RoleAlias.CredentialDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The identity of the role to which the alias refers.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'RoleAlias.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RoleAlias.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'RoleAlias.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iot/roleAlias:RoleAlias")]
@@ -74,37 +116,65 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// The name of the role alias.
         /// </summary>
-        [Input("alias")]
+        [PolicyResourceProperty("alias", "_mUnknown_Alias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
-
-        public string? Alias => _mAlias.GetValue("alias");
+        private string? _mValue_Alias;
+        private bool _mUnknown_Alias;
+        public string? Alias
+        {
+            get
+            {
+                if (!_mUnknown_Alias) return _mValue_Alias;
+                throw new UndeferrableValueException("Value 'RoleAliasArgs.Alias' is not present");
+            }
+        }
 
         /// <summary>
         /// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         /// </summary>
-        [Input("credentialDuration")]
+        [PolicyResourceProperty("credentialDuration", "_mUnknown_CredentialDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCredentialDuration;
-
-        public int? CredentialDuration => _mCredentialDuration.GetValue("credentialDuration");
+        private int? _mValue_CredentialDuration;
+        private bool _mUnknown_CredentialDuration;
+        public int? CredentialDuration
+        {
+            get
+            {
+                if (!_mUnknown_CredentialDuration) return _mValue_CredentialDuration;
+                throw new UndeferrableValueException("Value 'RoleAliasArgs.CredentialDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The identity of the role to which the alias refers.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'RoleAliasArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RoleAliasArgs.Tags' is not present");
+            }
+        }
     }
 }

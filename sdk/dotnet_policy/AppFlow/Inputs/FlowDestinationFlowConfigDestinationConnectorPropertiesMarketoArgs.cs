@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
 {
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs
     {
-        [Input("errorHandlingConfig")]
+        [PolicyResourceProperty("errorHandlingConfig", "_mUnknown_ErrorHandlingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs> _mErrorHandlingConfig;
+        private Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs? _mValue_ErrorHandlingConfig;
+        private bool _mUnknown_ErrorHandlingConfig;
+        public Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs? ErrorHandlingConfig
+        {
+            get
+            {
+                if (!_mUnknown_ErrorHandlingConfig) return _mValue_ErrorHandlingConfig;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs.ErrorHandlingConfig' is not present");
+            }
+        }
 
-        public Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs? ErrorHandlingConfig => _mErrorHandlingConfig.GetValue("errorHandlingConfig");
-
-        [Input("object")]
+        [PolicyResourceProperty("object", "_mUnknown_Object")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObject;
-
-        public string? Object => _mObject.GetValue("object");
+        private string? _mValue_Object;
+        private bool _mUnknown_Object;
+        public string? Object
+        {
+            get
+            {
+                if (!_mUnknown_Object) return _mValue_Object;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs.Object' is not present");
+            }
+        }
     }
 }

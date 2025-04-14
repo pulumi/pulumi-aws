@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// The database to which to connect.
         /// </summary>
-        [Input("database")]
+        [PolicyResourceProperty("database", "_mUnknown_Database")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabase;
-
-        public string? Database => _mDatabase.GetValue("database");
+        private string? _mValue_Database;
+        private bool _mUnknown_Database;
+        public string? Database
+        {
+            get
+            {
+                if (!_mUnknown_Database) return _mValue_Database;
+                throw new UndeferrableValueException("Value 'DataSourceParametersRds.Database' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance ID to which to connect.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'DataSourceParametersRds.InstanceId' is not present");
+            }
+        }
     }
 }

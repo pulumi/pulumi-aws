@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
         /// </summary>
-        [Input("patternObjectFilters")]
+        [PolicyResourceProperty("patternObjectFilters", "_mUnknown_PatternObjectFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter>> _mPatternObjectFilters;
-
-        public List<Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter>? PatternObjectFilters => _mPatternObjectFilters.GetValue("patternObjectFilters");
+        private List<Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter>? _mValue_PatternObjectFilters;
+        private bool _mUnknown_PatternObjectFilters;
+        public List<Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter>? PatternObjectFilters
+        {
+            get
+            {
+                if (!_mUnknown_PatternObjectFilters) return _mValue_PatternObjectFilters;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration.PatternObjectFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration.Type' is not present");
+            }
+        }
     }
 }

@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
 {
     public sealed class GetIdentityPoolCognitoIdentityProviderResult
     {
-        [Input("clientId")]
+        [PolicyResourceProperty("clientId", "_mUnknown_ClientId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
+        private string? _mValue_ClientId;
+        private bool _mUnknown_ClientId;
+        public string? ClientId
+        {
+            get
+            {
+                if (!_mUnknown_ClientId) return _mValue_ClientId;
+                throw new UndeferrableValueException("Value 'GetIdentityPoolCognitoIdentityProviderResult.ClientId' is not present");
+            }
+        }
 
-        public string? ClientId => _mClientId.GetValue("clientId");
-
-        [Input("providerName")]
+        [PolicyResourceProperty("providerName", "_mUnknown_ProviderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
+        private string? _mValue_ProviderName;
+        private bool _mUnknown_ProviderName;
+        public string? ProviderName
+        {
+            get
+            {
+                if (!_mUnknown_ProviderName) return _mValue_ProviderName;
+                throw new UndeferrableValueException("Value 'GetIdentityPoolCognitoIdentityProviderResult.ProviderName' is not present");
+            }
+        }
 
-        public string? ProviderName => _mProviderName.GetValue("providerName");
-
-        [Input("serverSideTokenCheck")]
+        [PolicyResourceProperty("serverSideTokenCheck", "_mUnknown_ServerSideTokenCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mServerSideTokenCheck;
-
-        public bool? ServerSideTokenCheck => _mServerSideTokenCheck.GetValue("serverSideTokenCheck");
+        private bool? _mValue_ServerSideTokenCheck;
+        private bool _mUnknown_ServerSideTokenCheck;
+        public bool? ServerSideTokenCheck
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideTokenCheck) return _mValue_ServerSideTokenCheck;
+                throw new UndeferrableValueException("Value 'GetIdentityPoolCognitoIdentityProviderResult.ServerSideTokenCheck' is not present");
+            }
+        }
     }
 }

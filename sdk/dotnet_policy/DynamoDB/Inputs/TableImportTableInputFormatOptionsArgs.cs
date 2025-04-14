@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB.Inputs
         /// <summary>
         /// This block contains the processing options for the CSV file being imported:
         /// </summary>
-        [Input("csv")]
+        [PolicyResourceProperty("csv", "_mUnknown_Csv")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableImportTableInputFormatOptionsCsvArgs> _mCsv;
-
-        public Inputs.TableImportTableInputFormatOptionsCsvArgs? Csv => _mCsv.GetValue("csv");
+        private Inputs.TableImportTableInputFormatOptionsCsvArgs? _mValue_Csv;
+        private bool _mUnknown_Csv;
+        public Inputs.TableImportTableInputFormatOptionsCsvArgs? Csv
+        {
+            get
+            {
+                if (!_mUnknown_Csv) return _mValue_Csv;
+                throw new UndeferrableValueException("Value 'TableImportTableInputFormatOptionsArgs.Csv' is not present");
+            }
+        }
     }
 }

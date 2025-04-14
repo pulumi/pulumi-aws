@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
 {
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs
     {
-        [Input("audioRenditionSets")]
+        [PolicyResourceProperty("audioRenditionSets", "_mUnknown_AudioRenditionSets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAudioRenditionSets;
+        private string? _mValue_AudioRenditionSets;
+        private bool _mUnknown_AudioRenditionSets;
+        public string? AudioRenditionSets
+        {
+            get
+            {
+                if (!_mUnknown_AudioRenditionSets) return _mValue_AudioRenditionSets;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs.AudioRenditionSets' is not present");
+            }
+        }
 
-        public string? AudioRenditionSets => _mAudioRenditionSets.GetValue("audioRenditionSets");
-
-        [Input("nielsenId3Behavior")]
+        [PolicyResourceProperty("nielsenId3Behavior", "_mUnknown_NielsenId3Behavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNielsenId3Behavior;
+        private string? _mValue_NielsenId3Behavior;
+        private bool _mUnknown_NielsenId3Behavior;
+        public string? NielsenId3Behavior
+        {
+            get
+            {
+                if (!_mUnknown_NielsenId3Behavior) return _mValue_NielsenId3Behavior;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs.NielsenId3Behavior' is not present");
+            }
+        }
 
-        public string? NielsenId3Behavior => _mNielsenId3Behavior.GetValue("nielsenId3Behavior");
-
-        [Input("timedMetadataBehavior")]
+        [PolicyResourceProperty("timedMetadataBehavior", "_mUnknown_TimedMetadataBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimedMetadataBehavior;
-
-        public string? TimedMetadataBehavior => _mTimedMetadataBehavior.GetValue("timedMetadataBehavior");
+        private string? _mValue_TimedMetadataBehavior;
+        private bool _mUnknown_TimedMetadataBehavior;
+        public string? TimedMetadataBehavior
+        {
+            get
+            {
+                if (!_mUnknown_TimedMetadataBehavior) return _mValue_TimedMetadataBehavior;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs.TimedMetadataBehavior' is not present");
+            }
+        }
     }
 }

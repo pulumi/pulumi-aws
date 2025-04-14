@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Hub.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Hub.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the hub.
         /// </summary>
-        [Input("hubDescription")]
+        [PolicyResourceProperty("hubDescription", "_mUnknown_HubDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHubDescription;
-
-        public string? HubDescription => _mHubDescription.GetValue("hubDescription");
+        private string? _mValue_HubDescription;
+        private bool _mUnknown_HubDescription;
+        public string? HubDescription
+        {
+            get
+            {
+                if (!_mUnknown_HubDescription) return _mValue_HubDescription;
+                throw new UndeferrableValueException("Value 'Hub.HubDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The display name of the hub.
         /// </summary>
-        [Input("hubDisplayName")]
+        [PolicyResourceProperty("hubDisplayName", "_mUnknown_HubDisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHubDisplayName;
-
-        public string? HubDisplayName => _mHubDisplayName.GetValue("hubDisplayName");
+        private string? _mValue_HubDisplayName;
+        private bool _mUnknown_HubDisplayName;
+        public string? HubDisplayName
+        {
+            get
+            {
+                if (!_mUnknown_HubDisplayName) return _mValue_HubDisplayName;
+                throw new UndeferrableValueException("Value 'Hub.HubDisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the hub.
         /// </summary>
-        [Input("hubName")]
+        [PolicyResourceProperty("hubName", "_mUnknown_HubName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHubName;
-
-        public string? HubName => _mHubName.GetValue("hubName");
+        private string? _mValue_HubName;
+        private bool _mUnknown_HubName;
+        public string? HubName
+        {
+            get
+            {
+                if (!_mUnknown_HubName) return _mValue_HubName;
+                throw new UndeferrableValueException("Value 'Hub.HubName' is not present");
+            }
+        }
 
         /// <summary>
         /// The searchable keywords for the hub.
         /// </summary>
-        [Input("hubSearchKeywords")]
+        [PolicyResourceProperty("hubSearchKeywords", "_mUnknown_HubSearchKeywords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mHubSearchKeywords;
-
-        public List<string>? HubSearchKeywords => _mHubSearchKeywords.GetValue("hubSearchKeywords");
+        private List<string>? _mValue_HubSearchKeywords;
+        private bool _mUnknown_HubSearchKeywords;
+        public List<string>? HubSearchKeywords
+        {
+            get
+            {
+                if (!_mUnknown_HubSearchKeywords) return _mValue_HubSearchKeywords;
+                throw new UndeferrableValueException("Value 'Hub.HubSearchKeywords' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
         /// </summary>
-        [Input("s3StorageConfig")]
+        [PolicyResourceProperty("s3StorageConfig", "_mUnknown_S3StorageConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.HubS3StorageConfig> _mS3StorageConfig;
-
-        public Outputs.HubS3StorageConfig? S3StorageConfig => _mS3StorageConfig.GetValue("s3StorageConfig");
+        private Outputs.HubS3StorageConfig? _mValue_S3StorageConfig;
+        private bool _mUnknown_S3StorageConfig;
+        public Outputs.HubS3StorageConfig? S3StorageConfig
+        {
+            get
+            {
+                if (!_mUnknown_S3StorageConfig) return _mValue_S3StorageConfig;
+                throw new UndeferrableValueException("Value 'Hub.S3StorageConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Hub.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Hub.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/hub:Hub")]
@@ -92,55 +148,97 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// A description of the hub.
         /// </summary>
-        [Input("hubDescription")]
+        [PolicyResourceProperty("hubDescription", "_mUnknown_HubDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHubDescription;
-
-        public string? HubDescription => _mHubDescription.GetValue("hubDescription");
+        private string? _mValue_HubDescription;
+        private bool _mUnknown_HubDescription;
+        public string? HubDescription
+        {
+            get
+            {
+                if (!_mUnknown_HubDescription) return _mValue_HubDescription;
+                throw new UndeferrableValueException("Value 'HubArgs.HubDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The display name of the hub.
         /// </summary>
-        [Input("hubDisplayName")]
+        [PolicyResourceProperty("hubDisplayName", "_mUnknown_HubDisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHubDisplayName;
-
-        public string? HubDisplayName => _mHubDisplayName.GetValue("hubDisplayName");
+        private string? _mValue_HubDisplayName;
+        private bool _mUnknown_HubDisplayName;
+        public string? HubDisplayName
+        {
+            get
+            {
+                if (!_mUnknown_HubDisplayName) return _mValue_HubDisplayName;
+                throw new UndeferrableValueException("Value 'HubArgs.HubDisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the hub.
         /// </summary>
-        [Input("hubName")]
+        [PolicyResourceProperty("hubName", "_mUnknown_HubName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHubName;
-
-        public string? HubName => _mHubName.GetValue("hubName");
+        private string? _mValue_HubName;
+        private bool _mUnknown_HubName;
+        public string? HubName
+        {
+            get
+            {
+                if (!_mUnknown_HubName) return _mValue_HubName;
+                throw new UndeferrableValueException("Value 'HubArgs.HubName' is not present");
+            }
+        }
 
         /// <summary>
         /// The searchable keywords for the hub.
         /// </summary>
-        [Input("hubSearchKeywords")]
+        [PolicyResourceProperty("hubSearchKeywords", "_mUnknown_HubSearchKeywords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mHubSearchKeywords;
-
-        public List<string>? HubSearchKeywords => _mHubSearchKeywords.GetValue("hubSearchKeywords");
+        private List<string>? _mValue_HubSearchKeywords;
+        private bool _mUnknown_HubSearchKeywords;
+        public List<string>? HubSearchKeywords
+        {
+            get
+            {
+                if (!_mUnknown_HubSearchKeywords) return _mValue_HubSearchKeywords;
+                throw new UndeferrableValueException("Value 'HubArgs.HubSearchKeywords' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
         /// </summary>
-        [Input("s3StorageConfig")]
+        [PolicyResourceProperty("s3StorageConfig", "_mUnknown_S3StorageConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.HubS3StorageConfigArgs> _mS3StorageConfig;
-
-        public Inputs.HubS3StorageConfigArgs? S3StorageConfig => _mS3StorageConfig.GetValue("s3StorageConfig");
+        private Inputs.HubS3StorageConfigArgs? _mValue_S3StorageConfig;
+        private bool _mUnknown_S3StorageConfig;
+        public Inputs.HubS3StorageConfigArgs? S3StorageConfig
+        {
+            get
+            {
+                if (!_mUnknown_S3StorageConfig) return _mValue_S3StorageConfig;
+                throw new UndeferrableValueException("Value 'HubArgs.S3StorageConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'HubArgs.Tags' is not present");
+            }
+        }
     }
 }

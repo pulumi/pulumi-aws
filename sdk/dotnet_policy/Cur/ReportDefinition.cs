@@ -16,128 +16,226 @@ namespace Pulumi.PolicyPacks.Aws.Cur
         /// <summary>
         /// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
         /// </summary>
-        [Input("additionalArtifacts")]
+        [PolicyResourceProperty("additionalArtifacts", "_mUnknown_AdditionalArtifacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdditionalArtifacts;
-
-        public List<string>? AdditionalArtifacts => _mAdditionalArtifacts.GetValue("additionalArtifacts");
+        private List<string>? _mValue_AdditionalArtifacts;
+        private bool _mUnknown_AdditionalArtifacts;
+        public List<string>? AdditionalArtifacts
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalArtifacts) return _mValue_AdditionalArtifacts;
+                throw new UndeferrableValueException("Value 'ReportDefinition.AdditionalArtifacts' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
         /// </summary>
-        [Input("additionalSchemaElements")]
+        [PolicyResourceProperty("additionalSchemaElements", "_mUnknown_AdditionalSchemaElements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdditionalSchemaElements;
-
-        public List<string>? AdditionalSchemaElements => _mAdditionalSchemaElements.GetValue("additionalSchemaElements");
+        private List<string>? _mValue_AdditionalSchemaElements;
+        private bool _mUnknown_AdditionalSchemaElements;
+        public List<string>? AdditionalSchemaElements
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalSchemaElements) return _mValue_AdditionalSchemaElements;
+                throw new UndeferrableValueException("Value 'ReportDefinition.AdditionalSchemaElements' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the cur report.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ReportDefinition.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         /// </summary>
-        [Input("compression")]
+        [PolicyResourceProperty("compression", "_mUnknown_Compression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCompression;
-
-        public string? Compression => _mCompression.GetValue("compression");
+        private string? _mValue_Compression;
+        private bool _mUnknown_Compression;
+        public string? Compression
+        {
+            get
+            {
+                if (!_mUnknown_Compression) return _mValue_Compression;
+                throw new UndeferrableValueException("Value 'ReportDefinition.Compression' is not present");
+            }
+        }
 
         /// <summary>
         /// Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
         /// </summary>
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
-
-        public string? Format => _mFormat.GetValue("format");
+        private string? _mValue_Format;
+        private bool _mUnknown_Format;
+        public string? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'ReportDefinition.Format' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
         /// </summary>
-        [Input("refreshClosedReports")]
+        [PolicyResourceProperty("refreshClosedReports", "_mUnknown_RefreshClosedReports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRefreshClosedReports;
-
-        public bool? RefreshClosedReports => _mRefreshClosedReports.GetValue("refreshClosedReports");
+        private bool? _mValue_RefreshClosedReports;
+        private bool _mUnknown_RefreshClosedReports;
+        public bool? RefreshClosedReports
+        {
+            get
+            {
+                if (!_mUnknown_RefreshClosedReports) return _mValue_RefreshClosedReports;
+                throw new UndeferrableValueException("Value 'ReportDefinition.RefreshClosedReports' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         /// </summary>
-        [Input("reportName")]
+        [PolicyResourceProperty("reportName", "_mUnknown_ReportName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReportName;
-
-        public string? ReportName => _mReportName.GetValue("reportName");
+        private string? _mValue_ReportName;
+        private bool _mUnknown_ReportName;
+        public string? ReportName
+        {
+            get
+            {
+                if (!_mUnknown_ReportName) return _mValue_ReportName;
+                throw new UndeferrableValueException("Value 'ReportDefinition.ReportName' is not present");
+            }
+        }
 
         /// <summary>
         /// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
         /// </summary>
-        [Input("reportVersioning")]
+        [PolicyResourceProperty("reportVersioning", "_mUnknown_ReportVersioning")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReportVersioning;
-
-        public string? ReportVersioning => _mReportVersioning.GetValue("reportVersioning");
+        private string? _mValue_ReportVersioning;
+        private bool _mUnknown_ReportVersioning;
+        public string? ReportVersioning
+        {
+            get
+            {
+                if (!_mUnknown_ReportVersioning) return _mValue_ReportVersioning;
+                throw new UndeferrableValueException("Value 'ReportDefinition.ReportVersioning' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the existing S3 bucket to hold generated reports.
         /// </summary>
-        [Input("s3Bucket")]
+        [PolicyResourceProperty("s3Bucket", "_mUnknown_S3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
-
-        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+        private string? _mValue_S3Bucket;
+        private bool _mUnknown_S3Bucket;
+        public string? S3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_S3Bucket) return _mValue_S3Bucket;
+                throw new UndeferrableValueException("Value 'ReportDefinition.S3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Report path prefix. Limited to 256 characters.
         /// </summary>
-        [Input("s3Prefix")]
+        [PolicyResourceProperty("s3Prefix", "_mUnknown_S3Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Prefix;
-
-        public string? S3Prefix => _mS3Prefix.GetValue("s3Prefix");
+        private string? _mValue_S3Prefix;
+        private bool _mUnknown_S3Prefix;
+        public string? S3Prefix
+        {
+            get
+            {
+                if (!_mUnknown_S3Prefix) return _mValue_S3Prefix;
+                throw new UndeferrableValueException("Value 'ReportDefinition.S3Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Region of the existing S3 bucket to hold generated reports.
         /// </summary>
-        [Input("s3Region")]
+        [PolicyResourceProperty("s3Region", "_mUnknown_S3Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Region;
-
-        public string? S3Region => _mS3Region.GetValue("s3Region");
+        private string? _mValue_S3Region;
+        private bool _mUnknown_S3Region;
+        public string? S3Region
+        {
+            get
+            {
+                if (!_mUnknown_S3Region) return _mValue_S3Region;
+                throw new UndeferrableValueException("Value 'ReportDefinition.S3Region' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReportDefinition.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ReportDefinition.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         /// </summary>
-        [Input("timeUnit")]
+        [PolicyResourceProperty("timeUnit", "_mUnknown_TimeUnit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeUnit;
-
-        public string? TimeUnit => _mTimeUnit.GetValue("timeUnit");
+        private string? _mValue_TimeUnit;
+        private bool _mUnknown_TimeUnit;
+        public string? TimeUnit
+        {
+            get
+            {
+                if (!_mUnknown_TimeUnit) return _mValue_TimeUnit;
+                throw new UndeferrableValueException("Value 'ReportDefinition.TimeUnit' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cur/reportDefinition:ReportDefinition")]
@@ -146,109 +244,193 @@ namespace Pulumi.PolicyPacks.Aws.Cur
         /// <summary>
         /// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
         /// </summary>
-        [Input("additionalArtifacts")]
+        [PolicyResourceProperty("additionalArtifacts", "_mUnknown_AdditionalArtifacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdditionalArtifacts;
-
-        public List<string>? AdditionalArtifacts => _mAdditionalArtifacts.GetValue("additionalArtifacts");
+        private List<string>? _mValue_AdditionalArtifacts;
+        private bool _mUnknown_AdditionalArtifacts;
+        public List<string>? AdditionalArtifacts
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalArtifacts) return _mValue_AdditionalArtifacts;
+                throw new UndeferrableValueException("Value 'ReportDefinitionArgs.AdditionalArtifacts' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
         /// </summary>
-        [Input("additionalSchemaElements")]
+        [PolicyResourceProperty("additionalSchemaElements", "_mUnknown_AdditionalSchemaElements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdditionalSchemaElements;
-
-        public List<string>? AdditionalSchemaElements => _mAdditionalSchemaElements.GetValue("additionalSchemaElements");
+        private List<string>? _mValue_AdditionalSchemaElements;
+        private bool _mUnknown_AdditionalSchemaElements;
+        public List<string>? AdditionalSchemaElements
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalSchemaElements) return _mValue_AdditionalSchemaElements;
+                throw new UndeferrableValueException("Value 'ReportDefinitionArgs.AdditionalSchemaElements' is not present");
+            }
+        }
 
         /// <summary>
         /// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         /// </summary>
-        [Input("compression")]
+        [PolicyResourceProperty("compression", "_mUnknown_Compression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCompression;
-
-        public string? Compression => _mCompression.GetValue("compression");
+        private string? _mValue_Compression;
+        private bool _mUnknown_Compression;
+        public string? Compression
+        {
+            get
+            {
+                if (!_mUnknown_Compression) return _mValue_Compression;
+                throw new UndeferrableValueException("Value 'ReportDefinitionArgs.Compression' is not present");
+            }
+        }
 
         /// <summary>
         /// Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
         /// </summary>
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
-
-        public string? Format => _mFormat.GetValue("format");
+        private string? _mValue_Format;
+        private bool _mUnknown_Format;
+        public string? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'ReportDefinitionArgs.Format' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
         /// </summary>
-        [Input("refreshClosedReports")]
+        [PolicyResourceProperty("refreshClosedReports", "_mUnknown_RefreshClosedReports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRefreshClosedReports;
-
-        public bool? RefreshClosedReports => _mRefreshClosedReports.GetValue("refreshClosedReports");
+        private bool? _mValue_RefreshClosedReports;
+        private bool _mUnknown_RefreshClosedReports;
+        public bool? RefreshClosedReports
+        {
+            get
+            {
+                if (!_mUnknown_RefreshClosedReports) return _mValue_RefreshClosedReports;
+                throw new UndeferrableValueException("Value 'ReportDefinitionArgs.RefreshClosedReports' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         /// </summary>
-        [Input("reportName")]
+        [PolicyResourceProperty("reportName", "_mUnknown_ReportName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReportName;
-
-        public string? ReportName => _mReportName.GetValue("reportName");
+        private string? _mValue_ReportName;
+        private bool _mUnknown_ReportName;
+        public string? ReportName
+        {
+            get
+            {
+                if (!_mUnknown_ReportName) return _mValue_ReportName;
+                throw new UndeferrableValueException("Value 'ReportDefinitionArgs.ReportName' is not present");
+            }
+        }
 
         /// <summary>
         /// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
         /// </summary>
-        [Input("reportVersioning")]
+        [PolicyResourceProperty("reportVersioning", "_mUnknown_ReportVersioning")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReportVersioning;
-
-        public string? ReportVersioning => _mReportVersioning.GetValue("reportVersioning");
+        private string? _mValue_ReportVersioning;
+        private bool _mUnknown_ReportVersioning;
+        public string? ReportVersioning
+        {
+            get
+            {
+                if (!_mUnknown_ReportVersioning) return _mValue_ReportVersioning;
+                throw new UndeferrableValueException("Value 'ReportDefinitionArgs.ReportVersioning' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the existing S3 bucket to hold generated reports.
         /// </summary>
-        [Input("s3Bucket")]
+        [PolicyResourceProperty("s3Bucket", "_mUnknown_S3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
-
-        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+        private string? _mValue_S3Bucket;
+        private bool _mUnknown_S3Bucket;
+        public string? S3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_S3Bucket) return _mValue_S3Bucket;
+                throw new UndeferrableValueException("Value 'ReportDefinitionArgs.S3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Report path prefix. Limited to 256 characters.
         /// </summary>
-        [Input("s3Prefix")]
+        [PolicyResourceProperty("s3Prefix", "_mUnknown_S3Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Prefix;
-
-        public string? S3Prefix => _mS3Prefix.GetValue("s3Prefix");
+        private string? _mValue_S3Prefix;
+        private bool _mUnknown_S3Prefix;
+        public string? S3Prefix
+        {
+            get
+            {
+                if (!_mUnknown_S3Prefix) return _mValue_S3Prefix;
+                throw new UndeferrableValueException("Value 'ReportDefinitionArgs.S3Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Region of the existing S3 bucket to hold generated reports.
         /// </summary>
-        [Input("s3Region")]
+        [PolicyResourceProperty("s3Region", "_mUnknown_S3Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Region;
-
-        public string? S3Region => _mS3Region.GetValue("s3Region");
+        private string? _mValue_S3Region;
+        private bool _mUnknown_S3Region;
+        public string? S3Region
+        {
+            get
+            {
+                if (!_mUnknown_S3Region) return _mValue_S3Region;
+                throw new UndeferrableValueException("Value 'ReportDefinitionArgs.S3Region' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReportDefinitionArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         /// </summary>
-        [Input("timeUnit")]
+        [PolicyResourceProperty("timeUnit", "_mUnknown_TimeUnit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeUnit;
-
-        public string? TimeUnit => _mTimeUnit.GetValue("timeUnit");
+        private string? _mValue_TimeUnit;
+        private bool _mUnknown_TimeUnit;
+        public string? TimeUnit
+        {
+            get
+            {
+                if (!_mUnknown_TimeUnit) return _mValue_TimeUnit;
+                throw new UndeferrableValueException("Value 'ReportDefinitionArgs.TimeUnit' is not present");
+            }
+        }
     }
 }

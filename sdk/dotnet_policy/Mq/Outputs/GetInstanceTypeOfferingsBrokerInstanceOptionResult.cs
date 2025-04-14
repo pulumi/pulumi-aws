@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Mq.Outputs
         /// <summary>
         /// List of available AZs. See Availability Zones. below
         /// </summary>
-        [Input("availabilityZones")]
+        [PolicyResourceProperty("availabilityZones", "_mUnknown_AvailabilityZones")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult>> _mAvailabilityZones;
-
-        public List<Outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
+        private List<Outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult>? _mValue_AvailabilityZones;
+        private bool _mUnknown_AvailabilityZones;
+        public List<Outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult>? AvailabilityZones
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZones) return _mValue_AvailabilityZones;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeOfferingsBrokerInstanceOptionResult.AvailabilityZones' is not present");
+            }
+        }
 
         /// <summary>
         /// Filter response by engine type.
         /// </summary>
-        [Input("engineType")]
+        [PolicyResourceProperty("engineType", "_mUnknown_EngineType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineType;
-
-        public string? EngineType => _mEngineType.GetValue("engineType");
+        private string? _mValue_EngineType;
+        private bool _mUnknown_EngineType;
+        public string? EngineType
+        {
+            get
+            {
+                if (!_mUnknown_EngineType) return _mValue_EngineType;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeOfferingsBrokerInstanceOptionResult.EngineType' is not present");
+            }
+        }
 
         /// <summary>
         /// Filter response by host instance type.
         /// </summary>
-        [Input("hostInstanceType")]
+        [PolicyResourceProperty("hostInstanceType", "_mUnknown_HostInstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostInstanceType;
-
-        public string? HostInstanceType => _mHostInstanceType.GetValue("hostInstanceType");
+        private string? _mValue_HostInstanceType;
+        private bool _mUnknown_HostInstanceType;
+        public string? HostInstanceType
+        {
+            get
+            {
+                if (!_mUnknown_HostInstanceType) return _mValue_HostInstanceType;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeOfferingsBrokerInstanceOptionResult.HostInstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Filter response by storage type.
         /// </summary>
-        [Input("storageType")]
+        [PolicyResourceProperty("storageType", "_mUnknown_StorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
-
-        public string? StorageType => _mStorageType.GetValue("storageType");
+        private string? _mValue_StorageType;
+        private bool _mUnknown_StorageType;
+        public string? StorageType
+        {
+            get
+            {
+                if (!_mUnknown_StorageType) return _mValue_StorageType;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeOfferingsBrokerInstanceOptionResult.StorageType' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of supported deployment modes.
         /// </summary>
-        [Input("supportedDeploymentModes")]
+        [PolicyResourceProperty("supportedDeploymentModes", "_mUnknown_SupportedDeploymentModes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSupportedDeploymentModes;
-
-        public List<string>? SupportedDeploymentModes => _mSupportedDeploymentModes.GetValue("supportedDeploymentModes");
+        private List<string>? _mValue_SupportedDeploymentModes;
+        private bool _mUnknown_SupportedDeploymentModes;
+        public List<string>? SupportedDeploymentModes
+        {
+            get
+            {
+                if (!_mUnknown_SupportedDeploymentModes) return _mValue_SupportedDeploymentModes;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeOfferingsBrokerInstanceOptionResult.SupportedDeploymentModes' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of supported engine versions.
         /// </summary>
-        [Input("supportedEngineVersions")]
+        [PolicyResourceProperty("supportedEngineVersions", "_mUnknown_SupportedEngineVersions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSupportedEngineVersions;
-
-        public List<string>? SupportedEngineVersions => _mSupportedEngineVersions.GetValue("supportedEngineVersions");
+        private List<string>? _mValue_SupportedEngineVersions;
+        private bool _mUnknown_SupportedEngineVersions;
+        public List<string>? SupportedEngineVersions
+        {
+            get
+            {
+                if (!_mUnknown_SupportedEngineVersions) return _mValue_SupportedEngineVersions;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeOfferingsBrokerInstanceOptionResult.SupportedEngineVersions' is not present");
+            }
+        }
     }
 }

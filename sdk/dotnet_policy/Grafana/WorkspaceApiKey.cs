@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Grafana
         /// <summary>
         /// The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'WorkspaceApiKey.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the API key. Key names must be unique to the workspace.
         /// </summary>
-        [Input("keyName")]
+        [PolicyResourceProperty("keyName", "_mUnknown_KeyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
-
-        public string? KeyName => _mKeyName.GetValue("keyName");
+        private string? _mValue_KeyName;
+        private bool _mUnknown_KeyName;
+        public string? KeyName
+        {
+            get
+            {
+                if (!_mUnknown_KeyName) return _mValue_KeyName;
+                throw new UndeferrableValueException("Value 'WorkspaceApiKey.KeyName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
         /// </summary>
-        [Input("keyRole")]
+        [PolicyResourceProperty("keyRole", "_mUnknown_KeyRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyRole;
-
-        public string? KeyRole => _mKeyRole.GetValue("keyRole");
+        private string? _mValue_KeyRole;
+        private bool _mUnknown_KeyRole;
+        public string? KeyRole
+        {
+            get
+            {
+                if (!_mUnknown_KeyRole) return _mValue_KeyRole;
+                throw new UndeferrableValueException("Value 'WorkspaceApiKey.KeyRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
         /// </summary>
-        [Input("secondsToLive")]
+        [PolicyResourceProperty("secondsToLive", "_mUnknown_SecondsToLive")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSecondsToLive;
-
-        public int? SecondsToLive => _mSecondsToLive.GetValue("secondsToLive");
+        private int? _mValue_SecondsToLive;
+        private bool _mUnknown_SecondsToLive;
+        public int? SecondsToLive
+        {
+            get
+            {
+                if (!_mUnknown_SecondsToLive) return _mValue_SecondsToLive;
+                throw new UndeferrableValueException("Value 'WorkspaceApiKey.SecondsToLive' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the workspace that the API key is valid for.
         /// </summary>
-        [Input("workspaceId")]
+        [PolicyResourceProperty("workspaceId", "_mUnknown_WorkspaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
-
-        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+        private string? _mValue_WorkspaceId;
+        private bool _mUnknown_WorkspaceId;
+        public string? WorkspaceId
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceId) return _mValue_WorkspaceId;
+                throw new UndeferrableValueException("Value 'WorkspaceApiKey.WorkspaceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:grafana/workspaceApiKey:WorkspaceApiKey")]
@@ -65,37 +100,65 @@ namespace Pulumi.PolicyPacks.Aws.Grafana
         /// <summary>
         /// Specifies the name of the API key. Key names must be unique to the workspace.
         /// </summary>
-        [Input("keyName")]
+        [PolicyResourceProperty("keyName", "_mUnknown_KeyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
-
-        public string? KeyName => _mKeyName.GetValue("keyName");
+        private string? _mValue_KeyName;
+        private bool _mUnknown_KeyName;
+        public string? KeyName
+        {
+            get
+            {
+                if (!_mUnknown_KeyName) return _mValue_KeyName;
+                throw new UndeferrableValueException("Value 'WorkspaceApiKeyArgs.KeyName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
         /// </summary>
-        [Input("keyRole")]
+        [PolicyResourceProperty("keyRole", "_mUnknown_KeyRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyRole;
-
-        public string? KeyRole => _mKeyRole.GetValue("keyRole");
+        private string? _mValue_KeyRole;
+        private bool _mUnknown_KeyRole;
+        public string? KeyRole
+        {
+            get
+            {
+                if (!_mUnknown_KeyRole) return _mValue_KeyRole;
+                throw new UndeferrableValueException("Value 'WorkspaceApiKeyArgs.KeyRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
         /// </summary>
-        [Input("secondsToLive")]
+        [PolicyResourceProperty("secondsToLive", "_mUnknown_SecondsToLive")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSecondsToLive;
-
-        public int? SecondsToLive => _mSecondsToLive.GetValue("secondsToLive");
+        private int? _mValue_SecondsToLive;
+        private bool _mUnknown_SecondsToLive;
+        public int? SecondsToLive
+        {
+            get
+            {
+                if (!_mUnknown_SecondsToLive) return _mValue_SecondsToLive;
+                throw new UndeferrableValueException("Value 'WorkspaceApiKeyArgs.SecondsToLive' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the workspace that the API key is valid for.
         /// </summary>
-        [Input("workspaceId")]
+        [PolicyResourceProperty("workspaceId", "_mUnknown_WorkspaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
-
-        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+        private string? _mValue_WorkspaceId;
+        private bool _mUnknown_WorkspaceId;
+        public string? WorkspaceId
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceId) return _mValue_WorkspaceId;
+                throw new UndeferrableValueException("Value 'WorkspaceApiKeyArgs.WorkspaceId' is not present");
+            }
+        }
     }
 }

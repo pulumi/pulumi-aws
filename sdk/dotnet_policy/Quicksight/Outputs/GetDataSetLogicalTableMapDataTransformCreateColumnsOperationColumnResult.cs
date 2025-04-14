@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult
     {
-        [Input("columnId")]
+        [PolicyResourceProperty("columnId", "_mUnknown_ColumnId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColumnId;
+        private string? _mValue_ColumnId;
+        private bool _mUnknown_ColumnId;
+        public string? ColumnId
+        {
+            get
+            {
+                if (!_mUnknown_ColumnId) return _mValue_ColumnId;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult.ColumnId' is not present");
+            }
+        }
 
-        public string? ColumnId => _mColumnId.GetValue("columnId");
-
-        [Input("columnName")]
+        [PolicyResourceProperty("columnName", "_mUnknown_ColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColumnName;
+        private string? _mValue_ColumnName;
+        private bool _mUnknown_ColumnName;
+        public string? ColumnName
+        {
+            get
+            {
+                if (!_mUnknown_ColumnName) return _mValue_ColumnName;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult.ColumnName' is not present");
+            }
+        }
 
-        public string? ColumnName => _mColumnName.GetValue("columnName");
-
-        [Input("expression")]
+        [PolicyResourceProperty("expression", "_mUnknown_Expression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpression;
-
-        public string? Expression => _mExpression.GetValue("expression");
+        private string? _mValue_Expression;
+        private bool _mUnknown_Expression;
+        public string? Expression
+        {
+            get
+            {
+                if (!_mUnknown_Expression) return _mValue_Expression;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult.Expression' is not present");
+            }
+        }
     }
 }

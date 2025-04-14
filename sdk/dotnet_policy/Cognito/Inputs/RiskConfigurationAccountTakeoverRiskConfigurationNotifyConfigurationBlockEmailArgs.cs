@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Inputs
         /// <summary>
         /// The email HTML body.
         /// </summary>
-        [Input("htmlBody")]
+        [PolicyResourceProperty("htmlBody", "_mUnknown_HtmlBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHtmlBody;
-
-        public string? HtmlBody => _mHtmlBody.GetValue("htmlBody");
+        private string? _mValue_HtmlBody;
+        private bool _mUnknown_HtmlBody;
+        public string? HtmlBody
+        {
+            get
+            {
+                if (!_mUnknown_HtmlBody) return _mValue_HtmlBody;
+                throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs.HtmlBody' is not present");
+            }
+        }
 
         /// <summary>
         /// The email subject.
         /// </summary>
-        [Input("subject")]
+        [PolicyResourceProperty("subject", "_mUnknown_Subject")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubject;
-
-        public string? Subject => _mSubject.GetValue("subject");
+        private string? _mValue_Subject;
+        private bool _mUnknown_Subject;
+        public string? Subject
+        {
+            get
+            {
+                if (!_mUnknown_Subject) return _mValue_Subject;
+                throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs.Subject' is not present");
+            }
+        }
 
         /// <summary>
         /// The email text body.
         /// </summary>
-        [Input("textBody")]
+        [PolicyResourceProperty("textBody", "_mUnknown_TextBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTextBody;
-
-        public string? TextBody => _mTextBody.GetValue("textBody");
+        private string? _mValue_TextBody;
+        private bool _mUnknown_TextBody;
+        public string? TextBody
+        {
+            get
+            {
+                if (!_mUnknown_TextBody) return _mValue_TextBody;
+                throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs.TextBody' is not present");
+            }
+        }
     }
 }

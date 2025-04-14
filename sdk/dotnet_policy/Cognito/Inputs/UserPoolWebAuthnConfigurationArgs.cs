@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Inputs
         /// <summary>
         /// The authentication domain that passkeys providers use as a relying party.
         /// </summary>
-        [Input("relyingPartyId")]
+        [PolicyResourceProperty("relyingPartyId", "_mUnknown_RelyingPartyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRelyingPartyId;
-
-        public string? RelyingPartyId => _mRelyingPartyId.GetValue("relyingPartyId");
+        private string? _mValue_RelyingPartyId;
+        private bool _mUnknown_RelyingPartyId;
+        public string? RelyingPartyId
+        {
+            get
+            {
+                if (!_mUnknown_RelyingPartyId) return _mValue_RelyingPartyId;
+                throw new UndeferrableValueException("Value 'UserPoolWebAuthnConfigurationArgs.RelyingPartyId' is not present");
+            }
+        }
 
         /// <summary>
         /// If your user pool should require a passkey. Must be one of `required` or `preferred`.
         /// </summary>
-        [Input("userVerification")]
+        [PolicyResourceProperty("userVerification", "_mUnknown_UserVerification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserVerification;
-
-        public string? UserVerification => _mUserVerification.GetValue("userVerification");
+        private string? _mValue_UserVerification;
+        private bool _mUnknown_UserVerification;
+        public string? UserVerification
+        {
+            get
+            {
+                if (!_mUnknown_UserVerification) return _mValue_UserVerification;
+                throw new UndeferrableValueException("Value 'UserPoolWebAuthnConfigurationArgs.UserVerification' is not present");
+            }
+        }
     }
 }

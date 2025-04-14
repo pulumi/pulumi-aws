@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Outputs
         /// <summary>
         /// Conditions where snap start is enabled. Valid values are `PublishedVersions`.
         /// </summary>
-        [Input("applyOn")]
+        [PolicyResourceProperty("applyOn", "_mUnknown_ApplyOn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplyOn;
-
-        public string? ApplyOn => _mApplyOn.GetValue("applyOn");
+        private string? _mValue_ApplyOn;
+        private bool _mUnknown_ApplyOn;
+        public string? ApplyOn
+        {
+            get
+            {
+                if (!_mUnknown_ApplyOn) return _mValue_ApplyOn;
+                throw new UndeferrableValueException("Value 'FunctionSnapStart.ApplyOn' is not present");
+            }
+        }
 
         /// <summary>
         /// Optimization status of the snap start configuration. Valid values are `On` and `Off`.
         /// </summary>
-        [Input("optimizationStatus")]
+        [PolicyResourceProperty("optimizationStatus", "_mUnknown_OptimizationStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOptimizationStatus;
-
-        public string? OptimizationStatus => _mOptimizationStatus.GetValue("optimizationStatus");
+        private string? _mValue_OptimizationStatus;
+        private bool _mUnknown_OptimizationStatus;
+        public string? OptimizationStatus
+        {
+            get
+            {
+                if (!_mUnknown_OptimizationStatus) return _mValue_OptimizationStatus;
+                throw new UndeferrableValueException("Value 'FunctionSnapStart.OptimizationStatus' is not present");
+            }
+        }
     }
 }

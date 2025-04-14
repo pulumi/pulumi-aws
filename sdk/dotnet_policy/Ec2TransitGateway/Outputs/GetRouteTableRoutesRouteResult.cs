@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway.Outputs
         /// <summary>
         /// The CIDR used for route destination matches.
         /// </summary>
-        [Input("destinationCidrBlock")]
+        [PolicyResourceProperty("destinationCidrBlock", "_mUnknown_DestinationCidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
-
-        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+        private string? _mValue_DestinationCidrBlock;
+        private bool _mUnknown_DestinationCidrBlock;
+        public string? DestinationCidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_DestinationCidrBlock) return _mValue_DestinationCidrBlock;
+                throw new UndeferrableValueException("Value 'GetRouteTableRoutesRouteResult.DestinationCidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the prefix list used for destination matches.
         /// </summary>
-        [Input("prefixListId")]
+        [PolicyResourceProperty("prefixListId", "_mUnknown_PrefixListId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixListId;
-
-        public string? PrefixListId => _mPrefixListId.GetValue("prefixListId");
+        private string? _mValue_PrefixListId;
+        private bool _mUnknown_PrefixListId;
+        public string? PrefixListId
+        {
+            get
+            {
+                if (!_mUnknown_PrefixListId) return _mValue_PrefixListId;
+                throw new UndeferrableValueException("Value 'GetRouteTableRoutesRouteResult.PrefixListId' is not present");
+            }
+        }
 
         /// <summary>
         /// The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'GetRouteTableRoutesRouteResult.State' is not present");
+            }
+        }
 
         /// <summary>
         /// The id of the transit gateway route table announcement, most of the time it is an empty string.
         /// </summary>
-        [Input("transitGatewayRouteTableAnnouncementId")]
+        [PolicyResourceProperty("transitGatewayRouteTableAnnouncementId", "_mUnknown_TransitGatewayRouteTableAnnouncementId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableAnnouncementId;
-
-        public string? TransitGatewayRouteTableAnnouncementId => _mTransitGatewayRouteTableAnnouncementId.GetValue("transitGatewayRouteTableAnnouncementId");
+        private string? _mValue_TransitGatewayRouteTableAnnouncementId;
+        private bool _mUnknown_TransitGatewayRouteTableAnnouncementId;
+        public string? TransitGatewayRouteTableAnnouncementId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayRouteTableAnnouncementId) return _mValue_TransitGatewayRouteTableAnnouncementId;
+                throw new UndeferrableValueException("Value 'GetRouteTableRoutesRouteResult.TransitGatewayRouteTableAnnouncementId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the route, can be `propagated` or `static`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetRouteTableRoutesRouteResult.Type' is not present");
+            }
+        }
     }
 }

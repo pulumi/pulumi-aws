@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
         /// </summary>
-        [Input("tcpEstablishedTimeout")]
+        [PolicyResourceProperty("tcpEstablishedTimeout", "_mUnknown_TcpEstablishedTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTcpEstablishedTimeout;
-
-        public int? TcpEstablishedTimeout => _mTcpEstablishedTimeout.GetValue("tcpEstablishedTimeout");
+        private int? _mValue_TcpEstablishedTimeout;
+        private bool _mUnknown_TcpEstablishedTimeout;
+        public int? TcpEstablishedTimeout
+        {
+            get
+            {
+                if (!_mUnknown_TcpEstablishedTimeout) return _mValue_TcpEstablishedTimeout;
+                throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs.TcpEstablishedTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
         /// </summary>
-        [Input("udpStreamTimeout")]
+        [PolicyResourceProperty("udpStreamTimeout", "_mUnknown_UdpStreamTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUdpStreamTimeout;
-
-        public int? UdpStreamTimeout => _mUdpStreamTimeout.GetValue("udpStreamTimeout");
+        private int? _mValue_UdpStreamTimeout;
+        private bool _mUnknown_UdpStreamTimeout;
+        public int? UdpStreamTimeout
+        {
+            get
+            {
+                if (!_mUnknown_UdpStreamTimeout) return _mValue_UdpStreamTimeout;
+                throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs.UdpStreamTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
         /// </summary>
-        [Input("udpTimeout")]
+        [PolicyResourceProperty("udpTimeout", "_mUnknown_UdpTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUdpTimeout;
-
-        public int? UdpTimeout => _mUdpTimeout.GetValue("udpTimeout");
+        private int? _mValue_UdpTimeout;
+        private bool _mUnknown_UdpTimeout;
+        public int? UdpTimeout
+        {
+            get
+            {
+                if (!_mUnknown_UdpTimeout) return _mValue_UdpTimeout;
+                throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs.UdpTimeout' is not present");
+            }
+        }
     }
 }

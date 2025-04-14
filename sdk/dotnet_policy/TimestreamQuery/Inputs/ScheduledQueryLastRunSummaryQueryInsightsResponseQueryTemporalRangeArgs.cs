@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery.Inputs
         /// <summary>
         /// Insights into the most sub-optimal performing table on the temporal axis:
         /// </summary>
-        [Input("maxes")]
+        [PolicyResourceProperty("maxes", "_mUnknown_Maxes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs>> _mMaxes;
-
-        public List<Inputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs>? Maxes => _mMaxes.GetValue("maxes");
+        private List<Inputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs>? _mValue_Maxes;
+        private bool _mUnknown_Maxes;
+        public List<Inputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs>? Maxes
+        {
+            get
+            {
+                if (!_mUnknown_Maxes) return _mValue_Maxes;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs.Maxes' is not present");
+            }
+        }
     }
 }

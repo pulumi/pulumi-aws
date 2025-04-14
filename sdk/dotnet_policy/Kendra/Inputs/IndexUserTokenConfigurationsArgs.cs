@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Inputs
         /// <summary>
         /// A block that specifies the information about the JSON token type configuration. Detailed below.
         /// </summary>
-        [Input("jsonTokenTypeConfiguration")]
+        [PolicyResourceProperty("jsonTokenTypeConfiguration", "_mUnknown_JsonTokenTypeConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs> _mJsonTokenTypeConfiguration;
-
-        public Inputs.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs? JsonTokenTypeConfiguration => _mJsonTokenTypeConfiguration.GetValue("jsonTokenTypeConfiguration");
+        private Inputs.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs? _mValue_JsonTokenTypeConfiguration;
+        private bool _mUnknown_JsonTokenTypeConfiguration;
+        public Inputs.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs? JsonTokenTypeConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_JsonTokenTypeConfiguration) return _mValue_JsonTokenTypeConfiguration;
+                throw new UndeferrableValueException("Value 'IndexUserTokenConfigurationsArgs.JsonTokenTypeConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the information about the JWT token type configuration. Detailed below.
         /// </summary>
-        [Input("jwtTokenTypeConfiguration")]
+        [PolicyResourceProperty("jwtTokenTypeConfiguration", "_mUnknown_JwtTokenTypeConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs> _mJwtTokenTypeConfiguration;
-
-        public Inputs.IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs? JwtTokenTypeConfiguration => _mJwtTokenTypeConfiguration.GetValue("jwtTokenTypeConfiguration");
+        private Inputs.IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs? _mValue_JwtTokenTypeConfiguration;
+        private bool _mUnknown_JwtTokenTypeConfiguration;
+        public Inputs.IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs? JwtTokenTypeConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_JwtTokenTypeConfiguration) return _mValue_JwtTokenTypeConfiguration;
+                throw new UndeferrableValueException("Value 'IndexUserTokenConfigurationsArgs.JwtTokenTypeConfiguration' is not present");
+            }
+        }
     }
 }

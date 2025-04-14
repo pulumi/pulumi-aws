@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting
     {
-        [Input("hlsAkamaiSettings")]
+        [PolicyResourceProperty("hlsAkamaiSettings", "_mUnknown_HlsAkamaiSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings> _mHlsAkamaiSettings;
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings? _mValue_HlsAkamaiSettings;
+        private bool _mUnknown_HlsAkamaiSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings? HlsAkamaiSettings
+        {
+            get
+            {
+                if (!_mUnknown_HlsAkamaiSettings) return _mValue_HlsAkamaiSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting.HlsAkamaiSettings' is not present");
+            }
+        }
 
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings? HlsAkamaiSettings => _mHlsAkamaiSettings.GetValue("hlsAkamaiSettings");
-
-        [Input("hlsBasicPutSettings")]
+        [PolicyResourceProperty("hlsBasicPutSettings", "_mUnknown_HlsBasicPutSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings> _mHlsBasicPutSettings;
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings? _mValue_HlsBasicPutSettings;
+        private bool _mUnknown_HlsBasicPutSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings? HlsBasicPutSettings
+        {
+            get
+            {
+                if (!_mUnknown_HlsBasicPutSettings) return _mValue_HlsBasicPutSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting.HlsBasicPutSettings' is not present");
+            }
+        }
 
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings? HlsBasicPutSettings => _mHlsBasicPutSettings.GetValue("hlsBasicPutSettings");
-
-        [Input("hlsMediaStoreSettings")]
+        [PolicyResourceProperty("hlsMediaStoreSettings", "_mUnknown_HlsMediaStoreSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings> _mHlsMediaStoreSettings;
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings? _mValue_HlsMediaStoreSettings;
+        private bool _mUnknown_HlsMediaStoreSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings? HlsMediaStoreSettings
+        {
+            get
+            {
+                if (!_mUnknown_HlsMediaStoreSettings) return _mValue_HlsMediaStoreSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting.HlsMediaStoreSettings' is not present");
+            }
+        }
 
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings? HlsMediaStoreSettings => _mHlsMediaStoreSettings.GetValue("hlsMediaStoreSettings");
-
-        [Input("hlsS3Settings")]
+        [PolicyResourceProperty("hlsS3Settings", "_mUnknown_HlsS3Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings> _mHlsS3Settings;
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings? _mValue_HlsS3Settings;
+        private bool _mUnknown_HlsS3Settings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings? HlsS3Settings
+        {
+            get
+            {
+                if (!_mUnknown_HlsS3Settings) return _mValue_HlsS3Settings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting.HlsS3Settings' is not present");
+            }
+        }
 
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings? HlsS3Settings => _mHlsS3Settings.GetValue("hlsS3Settings");
-
-        [Input("hlsWebdavSettings")]
+        [PolicyResourceProperty("hlsWebdavSettings", "_mUnknown_HlsWebdavSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings> _mHlsWebdavSettings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings? HlsWebdavSettings => _mHlsWebdavSettings.GetValue("hlsWebdavSettings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings? _mValue_HlsWebdavSettings;
+        private bool _mUnknown_HlsWebdavSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings? HlsWebdavSettings
+        {
+            get
+            {
+                if (!_mUnknown_HlsWebdavSettings) return _mValue_HlsWebdavSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting.HlsWebdavSettings' is not present");
+            }
+        }
     }
 }

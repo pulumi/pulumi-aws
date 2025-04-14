@@ -16,77 +16,133 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Amazon Resource Name (ARN) of the placement group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'PlacementGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the placement group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PlacementGroup.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of partitions to create in the
         /// placement group.  Can only be specified when the `strategy` is set to
         /// `partition`.  Valid values are 1 - 7 (default is `2`).
         /// </summary>
-        [Input("partitionCount")]
+        [PolicyResourceProperty("partitionCount", "_mUnknown_PartitionCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPartitionCount;
-
-        public int? PartitionCount => _mPartitionCount.GetValue("partitionCount");
+        private int? _mValue_PartitionCount;
+        private bool _mUnknown_PartitionCount;
+        public int? PartitionCount
+        {
+            get
+            {
+                if (!_mUnknown_PartitionCount) return _mValue_PartitionCount;
+                throw new UndeferrableValueException("Value 'PlacementGroup.PartitionCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the placement group.
         /// </summary>
-        [Input("placementGroupId")]
+        [PolicyResourceProperty("placementGroupId", "_mUnknown_PlacementGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementGroupId;
-
-        public string? PlacementGroupId => _mPlacementGroupId.GetValue("placementGroupId");
+        private string? _mValue_PlacementGroupId;
+        private bool _mUnknown_PlacementGroupId;
+        public string? PlacementGroupId
+        {
+            get
+            {
+                if (!_mUnknown_PlacementGroupId) return _mValue_PlacementGroupId;
+                throw new UndeferrableValueException("Value 'PlacementGroup.PlacementGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines how placement groups spread instances. Can only be used
         /// when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
         /// </summary>
-        [Input("spreadLevel")]
+        [PolicyResourceProperty("spreadLevel", "_mUnknown_SpreadLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpreadLevel;
-
-        public string? SpreadLevel => _mSpreadLevel.GetValue("spreadLevel");
+        private string? _mValue_SpreadLevel;
+        private bool _mUnknown_SpreadLevel;
+        public string? SpreadLevel
+        {
+            get
+            {
+                if (!_mUnknown_SpreadLevel) return _mValue_SpreadLevel;
+                throw new UndeferrableValueException("Value 'PlacementGroup.SpreadLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// The placement strategy. Can be `cluster`, `partition` or `spread`.
         /// </summary>
-        [Input("strategy")]
+        [PolicyResourceProperty("strategy", "_mUnknown_Strategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStrategy;
-
-        public string? Strategy => _mStrategy.GetValue("strategy");
+        private string? _mValue_Strategy;
+        private bool _mUnknown_Strategy;
+        public string? Strategy
+        {
+            get
+            {
+                if (!_mUnknown_Strategy) return _mValue_Strategy;
+                throw new UndeferrableValueException("Value 'PlacementGroup.Strategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'PlacementGroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'PlacementGroup.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/placementGroup:PlacementGroup")]
@@ -95,49 +151,84 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The name of the placement group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PlacementGroupArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of partitions to create in the
         /// placement group.  Can only be specified when the `strategy` is set to
         /// `partition`.  Valid values are 1 - 7 (default is `2`).
         /// </summary>
-        [Input("partitionCount")]
+        [PolicyResourceProperty("partitionCount", "_mUnknown_PartitionCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPartitionCount;
-
-        public int? PartitionCount => _mPartitionCount.GetValue("partitionCount");
+        private int? _mValue_PartitionCount;
+        private bool _mUnknown_PartitionCount;
+        public int? PartitionCount
+        {
+            get
+            {
+                if (!_mUnknown_PartitionCount) return _mValue_PartitionCount;
+                throw new UndeferrableValueException("Value 'PlacementGroupArgs.PartitionCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines how placement groups spread instances. Can only be used
         /// when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
         /// </summary>
-        [Input("spreadLevel")]
+        [PolicyResourceProperty("spreadLevel", "_mUnknown_SpreadLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpreadLevel;
-
-        public string? SpreadLevel => _mSpreadLevel.GetValue("spreadLevel");
+        private string? _mValue_SpreadLevel;
+        private bool _mUnknown_SpreadLevel;
+        public string? SpreadLevel
+        {
+            get
+            {
+                if (!_mUnknown_SpreadLevel) return _mValue_SpreadLevel;
+                throw new UndeferrableValueException("Value 'PlacementGroupArgs.SpreadLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// The placement strategy. Can be `cluster`, `partition` or `spread`.
         /// </summary>
-        [Input("strategy")]
+        [PolicyResourceProperty("strategy", "_mUnknown_Strategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStrategy;
-
-        public string? Strategy => _mStrategy.GetValue("strategy");
+        private string? _mValue_Strategy;
+        private bool _mUnknown_Strategy;
+        public string? Strategy
+        {
+            get
+            {
+                if (!_mUnknown_Strategy) return _mValue_Strategy;
+                throw new UndeferrableValueException("Value 'PlacementGroupArgs.Strategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'PlacementGroupArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -16,146 +16,258 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// Amazon Resource Name (ARN) of Glue ML Transform.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'MLTransform.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the ML Transform.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'MLTransform.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         /// </summary>
-        [Input("glueVersion")]
+        [PolicyResourceProperty("glueVersion", "_mUnknown_GlueVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlueVersion;
-
-        public string? GlueVersion => _mGlueVersion.GetValue("glueVersion");
+        private string? _mValue_GlueVersion;
+        private bool _mUnknown_GlueVersion;
+        public string? GlueVersion
+        {
+            get
+            {
+                if (!_mUnknown_GlueVersion) return _mValue_GlueVersion;
+                throw new UndeferrableValueException("Value 'MLTransform.GlueVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
         /// </summary>
-        [Input("inputRecordTables")]
+        [PolicyResourceProperty("inputRecordTables", "_mUnknown_InputRecordTables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MLTransformInputRecordTable>> _mInputRecordTables;
-
-        public List<Outputs.MLTransformInputRecordTable>? InputRecordTables => _mInputRecordTables.GetValue("inputRecordTables");
+        private List<Outputs.MLTransformInputRecordTable>? _mValue_InputRecordTables;
+        private bool _mUnknown_InputRecordTables;
+        public List<Outputs.MLTransformInputRecordTable>? InputRecordTables
+        {
+            get
+            {
+                if (!_mUnknown_InputRecordTables) return _mValue_InputRecordTables;
+                throw new UndeferrableValueException("Value 'MLTransform.InputRecordTables' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of labels available for this transform.
         /// </summary>
-        [Input("labelCount")]
+        [PolicyResourceProperty("labelCount", "_mUnknown_LabelCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLabelCount;
-
-        public int? LabelCount => _mLabelCount.GetValue("labelCount");
+        private int? _mValue_LabelCount;
+        private bool _mUnknown_LabelCount;
+        public int? LabelCount
+        {
+            get
+            {
+                if (!_mUnknown_LabelCount) return _mValue_LabelCount;
+                throw new UndeferrableValueException("Value 'MLTransform.LabelCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
         /// </summary>
-        [Input("maxCapacity")]
+        [PolicyResourceProperty("maxCapacity", "_mUnknown_MaxCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mMaxCapacity;
-
-        public double? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
+        private double? _mValue_MaxCapacity;
+        private bool _mUnknown_MaxCapacity;
+        public double? MaxCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MaxCapacity) return _mValue_MaxCapacity;
+                throw new UndeferrableValueException("Value 'MLTransform.MaxCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of times to retry this ML Transform if it fails.
         /// </summary>
-        [Input("maxRetries")]
+        [PolicyResourceProperty("maxRetries", "_mUnknown_MaxRetries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRetries;
-
-        public int? MaxRetries => _mMaxRetries.GetValue("maxRetries");
+        private int? _mValue_MaxRetries;
+        private bool _mUnknown_MaxRetries;
+        public int? MaxRetries
+        {
+            get
+            {
+                if (!_mUnknown_MaxRetries) return _mValue_MaxRetries;
+                throw new UndeferrableValueException("Value 'MLTransform.MaxRetries' is not present");
+            }
+        }
 
         /// <summary>
         /// The name you assign to this ML Transform. It must be unique in your account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MLTransform.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
         /// </summary>
-        [Input("numberOfWorkers")]
+        [PolicyResourceProperty("numberOfWorkers", "_mUnknown_NumberOfWorkers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfWorkers;
-
-        public int? NumberOfWorkers => _mNumberOfWorkers.GetValue("numberOfWorkers");
+        private int? _mValue_NumberOfWorkers;
+        private bool _mUnknown_NumberOfWorkers;
+        public int? NumberOfWorkers
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfWorkers) return _mValue_NumberOfWorkers;
+                throw new UndeferrableValueException("Value 'MLTransform.NumberOfWorkers' is not present");
+            }
+        }
 
         /// <summary>
         /// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MLTransformParameters> _mParameters;
-
-        public Outputs.MLTransformParameters? Parameters => _mParameters.GetValue("parameters");
+        private Outputs.MLTransformParameters? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Outputs.MLTransformParameters? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'MLTransform.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role associated with this ML Transform.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'MLTransform.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The object that represents the schema that this transform accepts. see Schema.
         /// </summary>
-        [Input("schemas")]
+        [PolicyResourceProperty("schemas", "_mUnknown_Schemas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MLTransformSchema>> _mSchemas;
-
-        public List<Outputs.MLTransformSchema>? Schemas => _mSchemas.GetValue("schemas");
+        private List<Outputs.MLTransformSchema>? _mValue_Schemas;
+        private bool _mUnknown_Schemas;
+        public List<Outputs.MLTransformSchema>? Schemas
+        {
+            get
+            {
+                if (!_mUnknown_Schemas) return _mValue_Schemas;
+                throw new UndeferrableValueException("Value 'MLTransform.Schemas' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'MLTransform.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'MLTransform.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         /// </summary>
-        [Input("timeout")]
+        [PolicyResourceProperty("timeout", "_mUnknown_Timeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeout;
-
-        public int? Timeout => _mTimeout.GetValue("timeout");
+        private int? _mValue_Timeout;
+        private bool _mUnknown_Timeout;
+        public int? Timeout
+        {
+            get
+            {
+                if (!_mUnknown_Timeout) return _mValue_Timeout;
+                throw new UndeferrableValueException("Value 'MLTransform.Timeout' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
         /// </summary>
-        [Input("workerType")]
+        [PolicyResourceProperty("workerType", "_mUnknown_WorkerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkerType;
-
-        public string? WorkerType => _mWorkerType.GetValue("workerType");
+        private string? _mValue_WorkerType;
+        private bool _mUnknown_WorkerType;
+        public string? WorkerType
+        {
+            get
+            {
+                if (!_mUnknown_WorkerType) return _mValue_WorkerType;
+                throw new UndeferrableValueException("Value 'MLTransform.WorkerType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:glue/mLTransform:MLTransform")]
@@ -164,109 +276,193 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// Description of the ML Transform.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'MLTransformArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         /// </summary>
-        [Input("glueVersion")]
+        [PolicyResourceProperty("glueVersion", "_mUnknown_GlueVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlueVersion;
-
-        public string? GlueVersion => _mGlueVersion.GetValue("glueVersion");
+        private string? _mValue_GlueVersion;
+        private bool _mUnknown_GlueVersion;
+        public string? GlueVersion
+        {
+            get
+            {
+                if (!_mUnknown_GlueVersion) return _mValue_GlueVersion;
+                throw new UndeferrableValueException("Value 'MLTransformArgs.GlueVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
         /// </summary>
-        [Input("inputRecordTables")]
+        [PolicyResourceProperty("inputRecordTables", "_mUnknown_InputRecordTables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.MLTransformInputRecordTableArgs>> _mInputRecordTables;
-
-        public List<Inputs.MLTransformInputRecordTableArgs>? InputRecordTables => _mInputRecordTables.GetValue("inputRecordTables");
+        private List<Inputs.MLTransformInputRecordTableArgs>? _mValue_InputRecordTables;
+        private bool _mUnknown_InputRecordTables;
+        public List<Inputs.MLTransformInputRecordTableArgs>? InputRecordTables
+        {
+            get
+            {
+                if (!_mUnknown_InputRecordTables) return _mValue_InputRecordTables;
+                throw new UndeferrableValueException("Value 'MLTransformArgs.InputRecordTables' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
         /// </summary>
-        [Input("maxCapacity")]
+        [PolicyResourceProperty("maxCapacity", "_mUnknown_MaxCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mMaxCapacity;
-
-        public double? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
+        private double? _mValue_MaxCapacity;
+        private bool _mUnknown_MaxCapacity;
+        public double? MaxCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MaxCapacity) return _mValue_MaxCapacity;
+                throw new UndeferrableValueException("Value 'MLTransformArgs.MaxCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of times to retry this ML Transform if it fails.
         /// </summary>
-        [Input("maxRetries")]
+        [PolicyResourceProperty("maxRetries", "_mUnknown_MaxRetries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRetries;
-
-        public int? MaxRetries => _mMaxRetries.GetValue("maxRetries");
+        private int? _mValue_MaxRetries;
+        private bool _mUnknown_MaxRetries;
+        public int? MaxRetries
+        {
+            get
+            {
+                if (!_mUnknown_MaxRetries) return _mValue_MaxRetries;
+                throw new UndeferrableValueException("Value 'MLTransformArgs.MaxRetries' is not present");
+            }
+        }
 
         /// <summary>
         /// The name you assign to this ML Transform. It must be unique in your account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MLTransformArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
         /// </summary>
-        [Input("numberOfWorkers")]
+        [PolicyResourceProperty("numberOfWorkers", "_mUnknown_NumberOfWorkers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfWorkers;
-
-        public int? NumberOfWorkers => _mNumberOfWorkers.GetValue("numberOfWorkers");
+        private int? _mValue_NumberOfWorkers;
+        private bool _mUnknown_NumberOfWorkers;
+        public int? NumberOfWorkers
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfWorkers) return _mValue_NumberOfWorkers;
+                throw new UndeferrableValueException("Value 'MLTransformArgs.NumberOfWorkers' is not present");
+            }
+        }
 
         /// <summary>
         /// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MLTransformParametersArgs> _mParameters;
-
-        public Inputs.MLTransformParametersArgs? Parameters => _mParameters.GetValue("parameters");
+        private Inputs.MLTransformParametersArgs? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Inputs.MLTransformParametersArgs? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'MLTransformArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role associated with this ML Transform.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'MLTransformArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'MLTransformArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         /// </summary>
-        [Input("timeout")]
+        [PolicyResourceProperty("timeout", "_mUnknown_Timeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeout;
-
-        public int? Timeout => _mTimeout.GetValue("timeout");
+        private int? _mValue_Timeout;
+        private bool _mUnknown_Timeout;
+        public int? Timeout
+        {
+            get
+            {
+                if (!_mUnknown_Timeout) return _mValue_Timeout;
+                throw new UndeferrableValueException("Value 'MLTransformArgs.Timeout' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
         /// </summary>
-        [Input("workerType")]
+        [PolicyResourceProperty("workerType", "_mUnknown_WorkerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkerType;
-
-        public string? WorkerType => _mWorkerType.GetValue("workerType");
+        private string? _mValue_WorkerType;
+        private bool _mUnknown_WorkerType;
+        public string? WorkerType
+        {
+            get
+            {
+                if (!_mUnknown_WorkerType) return _mValue_WorkerType;
+                throw new UndeferrableValueException("Value 'MLTransformArgs.WorkerType' is not present");
+            }
+        }
     }
 }

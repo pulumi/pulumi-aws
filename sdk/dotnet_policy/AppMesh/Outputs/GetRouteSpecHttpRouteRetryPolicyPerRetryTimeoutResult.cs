@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult
     {
-        [Input("unit")]
+        [PolicyResourceProperty("unit", "_mUnknown_Unit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnit;
+        private string? _mValue_Unit;
+        private bool _mUnknown_Unit;
+        public string? Unit
+        {
+            get
+            {
+                if (!_mUnknown_Unit) return _mValue_Unit;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult.Unit' is not present");
+            }
+        }
 
-        public string? Unit => _mUnit.GetValue("unit");
-
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mValue;
-
-        public int? Value => _mValue.GetValue("value");
+        private int? _mValue_Value;
+        private bool _mUnknown_Value;
+        public int? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult.Value' is not present");
+            }
+        }
     }
 }

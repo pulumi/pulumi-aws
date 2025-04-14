@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
         /// </summary>
-        [Input("appLifecycleManagement")]
+        [PolicyResourceProperty("appLifecycleManagement", "_mUnknown_AppLifecycleManagement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs> _mAppLifecycleManagement;
-
-        public Inputs.UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs? AppLifecycleManagement => _mAppLifecycleManagement.GetValue("appLifecycleManagement");
+        private Inputs.UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs? _mValue_AppLifecycleManagement;
+        private bool _mUnknown_AppLifecycleManagement;
+        public Inputs.UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs? AppLifecycleManagement
+        {
+            get
+            {
+                if (!_mUnknown_AppLifecycleManagement) return _mValue_AppLifecycleManagement;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsCodeEditorAppSettingsArgs.AppLifecycleManagement' is not present");
+            }
+        }
 
         /// <summary>
         /// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
         /// </summary>
-        [Input("builtInLifecycleConfigArn")]
+        [PolicyResourceProperty("builtInLifecycleConfigArn", "_mUnknown_BuiltInLifecycleConfigArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBuiltInLifecycleConfigArn;
-
-        public string? BuiltInLifecycleConfigArn => _mBuiltInLifecycleConfigArn.GetValue("builtInLifecycleConfigArn");
+        private string? _mValue_BuiltInLifecycleConfigArn;
+        private bool _mUnknown_BuiltInLifecycleConfigArn;
+        public string? BuiltInLifecycleConfigArn
+        {
+            get
+            {
+                if (!_mUnknown_BuiltInLifecycleConfigArn) return _mValue_BuiltInLifecycleConfigArn;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsCodeEditorAppSettingsArgs.BuiltInLifecycleConfigArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
         /// </summary>
-        [Input("customImages")]
+        [PolicyResourceProperty("customImages", "_mUnknown_CustomImages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs>> _mCustomImages;
-
-        public List<Inputs.UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs>? CustomImages => _mCustomImages.GetValue("customImages");
+        private List<Inputs.UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs>? _mValue_CustomImages;
+        private bool _mUnknown_CustomImages;
+        public List<Inputs.UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs>? CustomImages
+        {
+            get
+            {
+                if (!_mUnknown_CustomImages) return _mValue_CustomImages;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsCodeEditorAppSettingsArgs.CustomImages' is not present");
+            }
+        }
 
         /// <summary>
         /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         /// </summary>
-        [Input("defaultResourceSpec")]
+        [PolicyResourceProperty("defaultResourceSpec", "_mUnknown_DefaultResourceSpec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs> _mDefaultResourceSpec;
-
-        public Inputs.UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs? DefaultResourceSpec => _mDefaultResourceSpec.GetValue("defaultResourceSpec");
+        private Inputs.UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs? _mValue_DefaultResourceSpec;
+        private bool _mUnknown_DefaultResourceSpec;
+        public Inputs.UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs? DefaultResourceSpec
+        {
+            get
+            {
+                if (!_mUnknown_DefaultResourceSpec) return _mValue_DefaultResourceSpec;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsCodeEditorAppSettingsArgs.DefaultResourceSpec' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         /// </summary>
-        [Input("lifecycleConfigArns")]
+        [PolicyResourceProperty("lifecycleConfigArns", "_mUnknown_LifecycleConfigArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLifecycleConfigArns;
-
-        public List<string>? LifecycleConfigArns => _mLifecycleConfigArns.GetValue("lifecycleConfigArns");
+        private List<string>? _mValue_LifecycleConfigArns;
+        private bool _mUnknown_LifecycleConfigArns;
+        public List<string>? LifecycleConfigArns
+        {
+            get
+            {
+                if (!_mUnknown_LifecycleConfigArns) return _mValue_LifecycleConfigArns;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsCodeEditorAppSettingsArgs.LifecycleConfigArns' is not present");
+            }
+        }
     }
 }

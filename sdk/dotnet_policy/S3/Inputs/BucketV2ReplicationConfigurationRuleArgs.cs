@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
         /// </summary>
-        [Input("deleteMarkerReplicationStatus")]
+        [PolicyResourceProperty("deleteMarkerReplicationStatus", "_mUnknown_DeleteMarkerReplicationStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeleteMarkerReplicationStatus;
-
-        public string? DeleteMarkerReplicationStatus => _mDeleteMarkerReplicationStatus.GetValue("deleteMarkerReplicationStatus");
+        private string? _mValue_DeleteMarkerReplicationStatus;
+        private bool _mUnknown_DeleteMarkerReplicationStatus;
+        public string? DeleteMarkerReplicationStatus
+        {
+            get
+            {
+                if (!_mUnknown_DeleteMarkerReplicationStatus) return _mValue_DeleteMarkerReplicationStatus;
+                throw new UndeferrableValueException("Value 'BucketV2ReplicationConfigurationRuleArgs.DeleteMarkerReplicationStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the destination for the rule (documented below).
         /// </summary>
-        [Input("destinations")]
+        [PolicyResourceProperty("destinations", "_mUnknown_Destinations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketV2ReplicationConfigurationRuleDestinationArgs>> _mDestinations;
-
-        public List<Inputs.BucketV2ReplicationConfigurationRuleDestinationArgs>? Destinations => _mDestinations.GetValue("destinations");
+        private List<Inputs.BucketV2ReplicationConfigurationRuleDestinationArgs>? _mValue_Destinations;
+        private bool _mUnknown_Destinations;
+        public List<Inputs.BucketV2ReplicationConfigurationRuleDestinationArgs>? Destinations
+        {
+            get
+            {
+                if (!_mUnknown_Destinations) return _mValue_Destinations;
+                throw new UndeferrableValueException("Value 'BucketV2ReplicationConfigurationRuleArgs.Destinations' is not present");
+            }
+        }
 
         /// <summary>
         /// Filter that identifies subset of objects to which the replication rule applies (documented below).
         /// </summary>
-        [Input("filters")]
+        [PolicyResourceProperty("filters", "_mUnknown_Filters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketV2ReplicationConfigurationRuleFilterArgs>> _mFilters;
-
-        public List<Inputs.BucketV2ReplicationConfigurationRuleFilterArgs>? Filters => _mFilters.GetValue("filters");
+        private List<Inputs.BucketV2ReplicationConfigurationRuleFilterArgs>? _mValue_Filters;
+        private bool _mUnknown_Filters;
+        public List<Inputs.BucketV2ReplicationConfigurationRuleFilterArgs>? Filters
+        {
+            get
+            {
+                if (!_mUnknown_Filters) return _mValue_Filters;
+                throw new UndeferrableValueException("Value 'BucketV2ReplicationConfigurationRuleArgs.Filters' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'BucketV2ReplicationConfigurationRuleArgs.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'BucketV2ReplicationConfigurationRuleArgs.Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'BucketV2ReplicationConfigurationRuleArgs.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies special object selection criteria (documented below).
         /// </summary>
-        [Input("sourceSelectionCriterias")]
+        [PolicyResourceProperty("sourceSelectionCriterias", "_mUnknown_SourceSelectionCriterias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs>> _mSourceSelectionCriterias;
-
-        public List<Inputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs>? SourceSelectionCriterias => _mSourceSelectionCriterias.GetValue("sourceSelectionCriterias");
+        private List<Inputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs>? _mValue_SourceSelectionCriterias;
+        private bool _mUnknown_SourceSelectionCriterias;
+        public List<Inputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs>? SourceSelectionCriterias
+        {
+            get
+            {
+                if (!_mUnknown_SourceSelectionCriterias) return _mValue_SourceSelectionCriterias;
+                throw new UndeferrableValueException("Value 'BucketV2ReplicationConfigurationRuleArgs.SourceSelectionCriterias' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'BucketV2ReplicationConfigurationRuleArgs.Status' is not present");
+            }
+        }
     }
 }

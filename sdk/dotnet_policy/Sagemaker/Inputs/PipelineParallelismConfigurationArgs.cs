@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The max number of steps that can be executed in parallel.
         /// </summary>
-        [Input("maxParallelExecutionSteps")]
+        [PolicyResourceProperty("maxParallelExecutionSteps", "_mUnknown_MaxParallelExecutionSteps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxParallelExecutionSteps;
-
-        public int? MaxParallelExecutionSteps => _mMaxParallelExecutionSteps.GetValue("maxParallelExecutionSteps");
+        private int? _mValue_MaxParallelExecutionSteps;
+        private bool _mUnknown_MaxParallelExecutionSteps;
+        public int? MaxParallelExecutionSteps
+        {
+            get
+            {
+                if (!_mUnknown_MaxParallelExecutionSteps) return _mValue_MaxParallelExecutionSteps;
+                throw new UndeferrableValueException("Value 'PipelineParallelismConfigurationArgs.MaxParallelExecutionSteps' is not present");
+            }
+        }
     }
 }

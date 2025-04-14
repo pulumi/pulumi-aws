@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Outputs
         /// <summary>
         /// Configuration for an AWS Lambda function. See AWS Lambda below for more details.
         /// </summary>
-        [Input("awsLambda")]
+        [PolicyResourceProperty("awsLambda", "_mUnknown_AwsLambda")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda> _mAwsLambda;
-
-        public Outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda? AwsLambda => _mAwsLambda.GetValue("awsLambda");
+        private Outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda? _mValue_AwsLambda;
+        private bool _mUnknown_AwsLambda;
+        public Outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda? AwsLambda
+        {
+            get
+            {
+                if (!_mUnknown_AwsLambda) return _mValue_AwsLambda;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation.AwsLambda' is not present");
+            }
+        }
     }
 }

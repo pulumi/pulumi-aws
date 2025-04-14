@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Outputs
         /// <summary>
         /// Indicates whether the match is case sensitive. Defaults to false.
         /// </summary>
-        [Input("caseSensitive")]
+        [PolicyResourceProperty("caseSensitive", "_mUnknown_CaseSensitive")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCaseSensitive;
-
-        public bool? CaseSensitive => _mCaseSensitive.GetValue("caseSensitive");
+        private bool? _mValue_CaseSensitive;
+        private bool _mUnknown_CaseSensitive;
+        public bool? CaseSensitive
+        {
+            get
+            {
+                if (!_mUnknown_CaseSensitive) return _mValue_CaseSensitive;
+                throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchHeaderMatch.CaseSensitive' is not present");
+            }
+        }
 
         /// <summary>
         /// The header match type.
         /// </summary>
-        [Input("match")]
+        [PolicyResourceProperty("match", "_mUnknown_Match")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ListenerRuleMatchHttpMatchHeaderMatchMatch> _mMatch;
-
-        public Outputs.ListenerRuleMatchHttpMatchHeaderMatchMatch? Match => _mMatch.GetValue("match");
+        private Outputs.ListenerRuleMatchHttpMatchHeaderMatchMatch? _mValue_Match;
+        private bool _mUnknown_Match;
+        public Outputs.ListenerRuleMatchHttpMatchHeaderMatchMatch? Match
+        {
+            get
+            {
+                if (!_mUnknown_Match) return _mValue_Match;
+                throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchHeaderMatch.Match' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the header.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchHeaderMatch.Name' is not present");
+            }
+        }
     }
 }

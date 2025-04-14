@@ -16,52 +16,87 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'AccountPublicAccessBlock.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
         /// * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
         /// * PUT Object calls fail if the request includes a public ACL.
         /// </summary>
-        [Input("blockPublicAcls")]
+        [PolicyResourceProperty("blockPublicAcls", "_mUnknown_BlockPublicAcls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBlockPublicAcls;
-
-        public bool? BlockPublicAcls => _mBlockPublicAcls.GetValue("blockPublicAcls");
+        private bool? _mValue_BlockPublicAcls;
+        private bool _mUnknown_BlockPublicAcls;
+        public bool? BlockPublicAcls
+        {
+            get
+            {
+                if (!_mUnknown_BlockPublicAcls) return _mValue_BlockPublicAcls;
+                throw new UndeferrableValueException("Value 'AccountPublicAccessBlock.BlockPublicAcls' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
         /// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
         /// </summary>
-        [Input("blockPublicPolicy")]
+        [PolicyResourceProperty("blockPublicPolicy", "_mUnknown_BlockPublicPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBlockPublicPolicy;
-
-        public bool? BlockPublicPolicy => _mBlockPublicPolicy.GetValue("blockPublicPolicy");
+        private bool? _mValue_BlockPublicPolicy;
+        private bool _mUnknown_BlockPublicPolicy;
+        public bool? BlockPublicPolicy
+        {
+            get
+            {
+                if (!_mUnknown_BlockPublicPolicy) return _mValue_BlockPublicPolicy;
+                throw new UndeferrableValueException("Value 'AccountPublicAccessBlock.BlockPublicPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
         /// * Ignore all public ACLs on buckets in this account and any objects that they contain.
         /// </summary>
-        [Input("ignorePublicAcls")]
+        [PolicyResourceProperty("ignorePublicAcls", "_mUnknown_IgnorePublicAcls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnorePublicAcls;
-
-        public bool? IgnorePublicAcls => _mIgnorePublicAcls.GetValue("ignorePublicAcls");
+        private bool? _mValue_IgnorePublicAcls;
+        private bool _mUnknown_IgnorePublicAcls;
+        public bool? IgnorePublicAcls
+        {
+            get
+            {
+                if (!_mUnknown_IgnorePublicAcls) return _mValue_IgnorePublicAcls;
+                throw new UndeferrableValueException("Value 'AccountPublicAccessBlock.IgnorePublicAcls' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `false`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
         /// * Only the bucket owner and AWS Services can access buckets with public policies.
         /// </summary>
-        [Input("restrictPublicBuckets")]
+        [PolicyResourceProperty("restrictPublicBuckets", "_mUnknown_RestrictPublicBuckets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRestrictPublicBuckets;
-
-        public bool? RestrictPublicBuckets => _mRestrictPublicBuckets.GetValue("restrictPublicBuckets");
+        private bool? _mValue_RestrictPublicBuckets;
+        private bool _mUnknown_RestrictPublicBuckets;
+        public bool? RestrictPublicBuckets
+        {
+            get
+            {
+                if (!_mUnknown_RestrictPublicBuckets) return _mValue_RestrictPublicBuckets;
+                throw new UndeferrableValueException("Value 'AccountPublicAccessBlock.RestrictPublicBuckets' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock")]
@@ -70,51 +105,86 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'AccountPublicAccessBlockArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
         /// * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
         /// * PUT Object calls fail if the request includes a public ACL.
         /// </summary>
-        [Input("blockPublicAcls")]
+        [PolicyResourceProperty("blockPublicAcls", "_mUnknown_BlockPublicAcls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBlockPublicAcls;
-
-        public bool? BlockPublicAcls => _mBlockPublicAcls.GetValue("blockPublicAcls");
+        private bool? _mValue_BlockPublicAcls;
+        private bool _mUnknown_BlockPublicAcls;
+        public bool? BlockPublicAcls
+        {
+            get
+            {
+                if (!_mUnknown_BlockPublicAcls) return _mValue_BlockPublicAcls;
+                throw new UndeferrableValueException("Value 'AccountPublicAccessBlockArgs.BlockPublicAcls' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
         /// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
         /// </summary>
-        [Input("blockPublicPolicy")]
+        [PolicyResourceProperty("blockPublicPolicy", "_mUnknown_BlockPublicPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBlockPublicPolicy;
-
-        public bool? BlockPublicPolicy => _mBlockPublicPolicy.GetValue("blockPublicPolicy");
+        private bool? _mValue_BlockPublicPolicy;
+        private bool _mUnknown_BlockPublicPolicy;
+        public bool? BlockPublicPolicy
+        {
+            get
+            {
+                if (!_mUnknown_BlockPublicPolicy) return _mValue_BlockPublicPolicy;
+                throw new UndeferrableValueException("Value 'AccountPublicAccessBlockArgs.BlockPublicPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
         /// * Ignore all public ACLs on buckets in this account and any objects that they contain.
         /// </summary>
-        [Input("ignorePublicAcls")]
+        [PolicyResourceProperty("ignorePublicAcls", "_mUnknown_IgnorePublicAcls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnorePublicAcls;
-
-        public bool? IgnorePublicAcls => _mIgnorePublicAcls.GetValue("ignorePublicAcls");
+        private bool? _mValue_IgnorePublicAcls;
+        private bool _mUnknown_IgnorePublicAcls;
+        public bool? IgnorePublicAcls
+        {
+            get
+            {
+                if (!_mUnknown_IgnorePublicAcls) return _mValue_IgnorePublicAcls;
+                throw new UndeferrableValueException("Value 'AccountPublicAccessBlockArgs.IgnorePublicAcls' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `false`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
         /// * Only the bucket owner and AWS Services can access buckets with public policies.
         /// </summary>
-        [Input("restrictPublicBuckets")]
+        [PolicyResourceProperty("restrictPublicBuckets", "_mUnknown_RestrictPublicBuckets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRestrictPublicBuckets;
-
-        public bool? RestrictPublicBuckets => _mRestrictPublicBuckets.GetValue("restrictPublicBuckets");
+        private bool? _mValue_RestrictPublicBuckets;
+        private bool _mUnknown_RestrictPublicBuckets;
+        public bool? RestrictPublicBuckets
+        {
+            get
+            {
+                if (!_mUnknown_RestrictPublicBuckets) return _mValue_RestrictPublicBuckets;
+                throw new UndeferrableValueException("Value 'AccountPublicAccessBlockArgs.RestrictPublicBuckets' is not present");
+            }
+        }
     }
 }

@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// The SES receipt filter ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ReceiptFilter.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address or address range to filter, in CIDR notation
         /// </summary>
-        [Input("cidr")]
+        [PolicyResourceProperty("cidr", "_mUnknown_Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidr;
-
-        public string? Cidr => _mCidr.GetValue("cidr");
+        private string? _mValue_Cidr;
+        private bool _mUnknown_Cidr;
+        public string? Cidr
+        {
+            get
+            {
+                if (!_mUnknown_Cidr) return _mValue_Cidr;
+                throw new UndeferrableValueException("Value 'ReceiptFilter.Cidr' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the filter
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ReceiptFilter.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Block or Allow
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ReceiptFilter.Policy' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ses/receiptFilter:ReceiptFilter")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// The IP address or address range to filter, in CIDR notation
         /// </summary>
-        [Input("cidr")]
+        [PolicyResourceProperty("cidr", "_mUnknown_Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidr;
-
-        public string? Cidr => _mCidr.GetValue("cidr");
+        private string? _mValue_Cidr;
+        private bool _mUnknown_Cidr;
+        public string? Cidr
+        {
+            get
+            {
+                if (!_mUnknown_Cidr) return _mValue_Cidr;
+                throw new UndeferrableValueException("Value 'ReceiptFilterArgs.Cidr' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the filter
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ReceiptFilterArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Block or Allow
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ReceiptFilterArgs.Policy' is not present");
+            }
+        }
     }
 }

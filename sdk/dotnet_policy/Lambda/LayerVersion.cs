@@ -16,175 +16,308 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// ARN of the Lambda Layer with version.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LayerVersion.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
         /// </summary>
-        [Input("code")]
+        [PolicyResourceProperty("code", "_mUnknown_Code")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Archive> _mCode;
-
-        public Archive? Code => _mCode.GetValue("code");
+        private Archive? _mValue_Code;
+        private bool _mUnknown_Code;
+        public Archive? Code
+        {
+            get
+            {
+                if (!_mUnknown_Code) return _mValue_Code;
+                throw new UndeferrableValueException("Value 'LayerVersion.Code' is not present");
+            }
+        }
 
         /// <summary>
         /// Base64-encoded representation of raw SHA-256 sum of the zip file.
         /// </summary>
-        [Input("codeSha256")]
+        [PolicyResourceProperty("codeSha256", "_mUnknown_CodeSha256")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodeSha256;
-
-        public string? CodeSha256 => _mCodeSha256.GetValue("codeSha256");
+        private string? _mValue_CodeSha256;
+        private bool _mUnknown_CodeSha256;
+        public string? CodeSha256
+        {
+            get
+            {
+                if (!_mUnknown_CodeSha256) return _mValue_CodeSha256;
+                throw new UndeferrableValueException("Value 'LayerVersion.CodeSha256' is not present");
+            }
+        }
 
         /// <summary>
         /// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         /// </summary>
-        [Input("compatibleArchitectures")]
+        [PolicyResourceProperty("compatibleArchitectures", "_mUnknown_CompatibleArchitectures")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCompatibleArchitectures;
-
-        public List<string>? CompatibleArchitectures => _mCompatibleArchitectures.GetValue("compatibleArchitectures");
+        private List<string>? _mValue_CompatibleArchitectures;
+        private bool _mUnknown_CompatibleArchitectures;
+        public List<string>? CompatibleArchitectures
+        {
+            get
+            {
+                if (!_mUnknown_CompatibleArchitectures) return _mValue_CompatibleArchitectures;
+                throw new UndeferrableValueException("Value 'LayerVersion.CompatibleArchitectures' is not present");
+            }
+        }
 
         /// <summary>
         /// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
         /// </summary>
-        [Input("compatibleRuntimes")]
+        [PolicyResourceProperty("compatibleRuntimes", "_mUnknown_CompatibleRuntimes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCompatibleRuntimes;
-
-        public List<string>? CompatibleRuntimes => _mCompatibleRuntimes.GetValue("compatibleRuntimes");
+        private List<string>? _mValue_CompatibleRuntimes;
+        private bool _mUnknown_CompatibleRuntimes;
+        public List<string>? CompatibleRuntimes
+        {
+            get
+            {
+                if (!_mUnknown_CompatibleRuntimes) return _mValue_CompatibleRuntimes;
+                throw new UndeferrableValueException("Value 'LayerVersion.CompatibleRuntimes' is not present");
+            }
+        }
 
         /// <summary>
         /// Date this resource was created.
         /// </summary>
-        [Input("createdDate")]
+        [PolicyResourceProperty("createdDate", "_mUnknown_CreatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
-
-        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
+        private string? _mValue_CreatedDate;
+        private bool _mUnknown_CreatedDate;
+        public string? CreatedDate
+        {
+            get
+            {
+                if (!_mUnknown_CreatedDate) return _mValue_CreatedDate;
+                throw new UndeferrableValueException("Value 'LayerVersion.CreatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of what your Lambda Layer does.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'LayerVersion.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Lambda Layer without version.
         /// </summary>
-        [Input("layerArn")]
+        [PolicyResourceProperty("layerArn", "_mUnknown_LayerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLayerArn;
-
-        public string? LayerArn => _mLayerArn.GetValue("layerArn");
+        private string? _mValue_LayerArn;
+        private bool _mUnknown_LayerArn;
+        public string? LayerArn
+        {
+            get
+            {
+                if (!_mUnknown_LayerArn) return _mValue_LayerArn;
+                throw new UndeferrableValueException("Value 'LayerVersion.LayerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for your Lambda Layer
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("layerName")]
+        [PolicyResourceProperty("layerName", "_mUnknown_LayerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLayerName;
-
-        public string? LayerName => _mLayerName.GetValue("layerName");
+        private string? _mValue_LayerName;
+        private bool _mUnknown_LayerName;
+        public string? LayerName
+        {
+            get
+            {
+                if (!_mUnknown_LayerName) return _mValue_LayerName;
+                throw new UndeferrableValueException("Value 'LayerVersion.LayerName' is not present");
+            }
+        }
 
         /// <summary>
         /// License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
         /// </summary>
-        [Input("licenseInfo")]
+        [PolicyResourceProperty("licenseInfo", "_mUnknown_LicenseInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseInfo;
-
-        public string? LicenseInfo => _mLicenseInfo.GetValue("licenseInfo");
+        private string? _mValue_LicenseInfo;
+        private bool _mUnknown_LicenseInfo;
+        public string? LicenseInfo
+        {
+            get
+            {
+                if (!_mUnknown_LicenseInfo) return _mValue_LicenseInfo;
+                throw new UndeferrableValueException("Value 'LayerVersion.LicenseInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         /// </summary>
-        [Input("s3Bucket")]
+        [PolicyResourceProperty("s3Bucket", "_mUnknown_S3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
-
-        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+        private string? _mValue_S3Bucket;
+        private bool _mUnknown_S3Bucket;
+        public string? S3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_S3Bucket) return _mValue_S3Bucket;
+                throw new UndeferrableValueException("Value 'LayerVersion.S3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         /// </summary>
-        [Input("s3Key")]
+        [PolicyResourceProperty("s3Key", "_mUnknown_S3Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Key;
-
-        public string? S3Key => _mS3Key.GetValue("s3Key");
+        private string? _mValue_S3Key;
+        private bool _mUnknown_S3Key;
+        public string? S3Key
+        {
+            get
+            {
+                if (!_mUnknown_S3Key) return _mValue_S3Key;
+                throw new UndeferrableValueException("Value 'LayerVersion.S3Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Object version containing the function's deployment package. Conflicts with `filename`.
         /// </summary>
-        [Input("s3ObjectVersion")]
+        [PolicyResourceProperty("s3ObjectVersion", "_mUnknown_S3ObjectVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3ObjectVersion;
-
-        public string? S3ObjectVersion => _mS3ObjectVersion.GetValue("s3ObjectVersion");
+        private string? _mValue_S3ObjectVersion;
+        private bool _mUnknown_S3ObjectVersion;
+        public string? S3ObjectVersion
+        {
+            get
+            {
+                if (!_mUnknown_S3ObjectVersion) return _mValue_S3ObjectVersion;
+                throw new UndeferrableValueException("Value 'LayerVersion.S3ObjectVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of a signing job.
         /// </summary>
-        [Input("signingJobArn")]
+        [PolicyResourceProperty("signingJobArn", "_mUnknown_SigningJobArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSigningJobArn;
-
-        public string? SigningJobArn => _mSigningJobArn.GetValue("signingJobArn");
+        private string? _mValue_SigningJobArn;
+        private bool _mUnknown_SigningJobArn;
+        public string? SigningJobArn
+        {
+            get
+            {
+                if (!_mUnknown_SigningJobArn) return _mValue_SigningJobArn;
+                throw new UndeferrableValueException("Value 'LayerVersion.SigningJobArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for a signing profile version.
         /// </summary>
-        [Input("signingProfileVersionArn")]
+        [PolicyResourceProperty("signingProfileVersionArn", "_mUnknown_SigningProfileVersionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSigningProfileVersionArn;
-
-        public string? SigningProfileVersionArn => _mSigningProfileVersionArn.GetValue("signingProfileVersionArn");
+        private string? _mValue_SigningProfileVersionArn;
+        private bool _mUnknown_SigningProfileVersionArn;
+        public string? SigningProfileVersionArn
+        {
+            get
+            {
+                if (!_mUnknown_SigningProfileVersionArn) return _mValue_SigningProfileVersionArn;
+                throw new UndeferrableValueException("Value 'LayerVersion.SigningProfileVersionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'LayerVersion.SkipDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         /// </summary>
-        [Input("sourceCodeHash")]
+        [PolicyResourceProperty("sourceCodeHash", "_mUnknown_SourceCodeHash")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceCodeHash;
-
-        public string? SourceCodeHash => _mSourceCodeHash.GetValue("sourceCodeHash");
+        private string? _mValue_SourceCodeHash;
+        private bool _mUnknown_SourceCodeHash;
+        public string? SourceCodeHash
+        {
+            get
+            {
+                if (!_mUnknown_SourceCodeHash) return _mValue_SourceCodeHash;
+                throw new UndeferrableValueException("Value 'LayerVersion.SourceCodeHash' is not present");
+            }
+        }
 
         /// <summary>
         /// Size in bytes of the function .zip file.
         /// </summary>
-        [Input("sourceCodeSize")]
+        [PolicyResourceProperty("sourceCodeSize", "_mUnknown_SourceCodeSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSourceCodeSize;
-
-        public int? SourceCodeSize => _mSourceCodeSize.GetValue("sourceCodeSize");
+        private int? _mValue_SourceCodeSize;
+        private bool _mUnknown_SourceCodeSize;
+        public int? SourceCodeSize
+        {
+            get
+            {
+                if (!_mUnknown_SourceCodeSize) return _mValue_SourceCodeSize;
+                throw new UndeferrableValueException("Value 'LayerVersion.SourceCodeSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Lambda Layer version.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'LayerVersion.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lambda/layerVersion:LayerVersion")]
@@ -193,102 +326,179 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
         /// </summary>
-        [Input("code")]
+        [PolicyResourceProperty("code", "_mUnknown_Code")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Archive> _mCode;
-
-        public Archive? Code => _mCode.GetValue("code");
+        private Archive? _mValue_Code;
+        private bool _mUnknown_Code;
+        public Archive? Code
+        {
+            get
+            {
+                if (!_mUnknown_Code) return _mValue_Code;
+                throw new UndeferrableValueException("Value 'LayerVersionArgs.Code' is not present");
+            }
+        }
 
         /// <summary>
         /// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         /// </summary>
-        [Input("compatibleArchitectures")]
+        [PolicyResourceProperty("compatibleArchitectures", "_mUnknown_CompatibleArchitectures")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCompatibleArchitectures;
-
-        public List<string>? CompatibleArchitectures => _mCompatibleArchitectures.GetValue("compatibleArchitectures");
+        private List<string>? _mValue_CompatibleArchitectures;
+        private bool _mUnknown_CompatibleArchitectures;
+        public List<string>? CompatibleArchitectures
+        {
+            get
+            {
+                if (!_mUnknown_CompatibleArchitectures) return _mValue_CompatibleArchitectures;
+                throw new UndeferrableValueException("Value 'LayerVersionArgs.CompatibleArchitectures' is not present");
+            }
+        }
 
         /// <summary>
         /// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
         /// </summary>
-        [Input("compatibleRuntimes")]
+        [PolicyResourceProperty("compatibleRuntimes", "_mUnknown_CompatibleRuntimes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCompatibleRuntimes;
-
-        public List<string>? CompatibleRuntimes => _mCompatibleRuntimes.GetValue("compatibleRuntimes");
+        private List<string>? _mValue_CompatibleRuntimes;
+        private bool _mUnknown_CompatibleRuntimes;
+        public List<string>? CompatibleRuntimes
+        {
+            get
+            {
+                if (!_mUnknown_CompatibleRuntimes) return _mValue_CompatibleRuntimes;
+                throw new UndeferrableValueException("Value 'LayerVersionArgs.CompatibleRuntimes' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of what your Lambda Layer does.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'LayerVersionArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for your Lambda Layer
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("layerName")]
+        [PolicyResourceProperty("layerName", "_mUnknown_LayerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLayerName;
-
-        public string? LayerName => _mLayerName.GetValue("layerName");
+        private string? _mValue_LayerName;
+        private bool _mUnknown_LayerName;
+        public string? LayerName
+        {
+            get
+            {
+                if (!_mUnknown_LayerName) return _mValue_LayerName;
+                throw new UndeferrableValueException("Value 'LayerVersionArgs.LayerName' is not present");
+            }
+        }
 
         /// <summary>
         /// License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
         /// </summary>
-        [Input("licenseInfo")]
+        [PolicyResourceProperty("licenseInfo", "_mUnknown_LicenseInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseInfo;
-
-        public string? LicenseInfo => _mLicenseInfo.GetValue("licenseInfo");
+        private string? _mValue_LicenseInfo;
+        private bool _mUnknown_LicenseInfo;
+        public string? LicenseInfo
+        {
+            get
+            {
+                if (!_mUnknown_LicenseInfo) return _mValue_LicenseInfo;
+                throw new UndeferrableValueException("Value 'LayerVersionArgs.LicenseInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         /// </summary>
-        [Input("s3Bucket")]
+        [PolicyResourceProperty("s3Bucket", "_mUnknown_S3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
-
-        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+        private string? _mValue_S3Bucket;
+        private bool _mUnknown_S3Bucket;
+        public string? S3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_S3Bucket) return _mValue_S3Bucket;
+                throw new UndeferrableValueException("Value 'LayerVersionArgs.S3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         /// </summary>
-        [Input("s3Key")]
+        [PolicyResourceProperty("s3Key", "_mUnknown_S3Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Key;
-
-        public string? S3Key => _mS3Key.GetValue("s3Key");
+        private string? _mValue_S3Key;
+        private bool _mUnknown_S3Key;
+        public string? S3Key
+        {
+            get
+            {
+                if (!_mUnknown_S3Key) return _mValue_S3Key;
+                throw new UndeferrableValueException("Value 'LayerVersionArgs.S3Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Object version containing the function's deployment package. Conflicts with `filename`.
         /// </summary>
-        [Input("s3ObjectVersion")]
+        [PolicyResourceProperty("s3ObjectVersion", "_mUnknown_S3ObjectVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3ObjectVersion;
-
-        public string? S3ObjectVersion => _mS3ObjectVersion.GetValue("s3ObjectVersion");
+        private string? _mValue_S3ObjectVersion;
+        private bool _mUnknown_S3ObjectVersion;
+        public string? S3ObjectVersion
+        {
+            get
+            {
+                if (!_mUnknown_S3ObjectVersion) return _mValue_S3ObjectVersion;
+                throw new UndeferrableValueException("Value 'LayerVersionArgs.S3ObjectVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'LayerVersionArgs.SkipDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         /// </summary>
-        [Input("sourceCodeHash")]
+        [PolicyResourceProperty("sourceCodeHash", "_mUnknown_SourceCodeHash")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceCodeHash;
-
-        public string? SourceCodeHash => _mSourceCodeHash.GetValue("sourceCodeHash");
+        private string? _mValue_SourceCodeHash;
+        private bool _mUnknown_SourceCodeHash;
+        public string? SourceCodeHash
+        {
+            get
+            {
+                if (!_mUnknown_SourceCodeHash) return _mValue_SourceCodeHash;
+                throw new UndeferrableValueException("Value 'LayerVersionArgs.SourceCodeHash' is not present");
+            }
+        }
     }
 }

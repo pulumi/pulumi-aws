@@ -15,100 +15,177 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Outputs
         /// <summary>
         /// Configuration options for sending command output to CloudWatch Logs. Documented below.
         /// </summary>
-        [Input("cloudwatchConfig")]
+        [PolicyResourceProperty("cloudwatchConfig", "_mUnknown_CloudwatchConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig> _mCloudwatchConfig;
-
-        public Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig? CloudwatchConfig => _mCloudwatchConfig.GetValue("cloudwatchConfig");
+        private Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig? _mValue_CloudwatchConfig;
+        private bool _mUnknown_CloudwatchConfig;
+        public Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig? CloudwatchConfig
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchConfig) return _mValue_CloudwatchConfig;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters.CloudwatchConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the command(s) to execute.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
         /// </summary>
-        [Input("documentHash")]
+        [PolicyResourceProperty("documentHash", "_mUnknown_DocumentHash")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentHash;
-
-        public string? DocumentHash => _mDocumentHash.GetValue("documentHash");
+        private string? _mValue_DocumentHash;
+        private bool _mUnknown_DocumentHash;
+        public string? DocumentHash
+        {
+            get
+            {
+                if (!_mUnknown_DocumentHash) return _mValue_DocumentHash;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters.DocumentHash' is not present");
+            }
+        }
 
         /// <summary>
         /// SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
         /// </summary>
-        [Input("documentHashType")]
+        [PolicyResourceProperty("documentHashType", "_mUnknown_DocumentHashType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentHashType;
-
-        public string? DocumentHashType => _mDocumentHashType.GetValue("documentHashType");
+        private string? _mValue_DocumentHashType;
+        private bool _mUnknown_DocumentHashType;
+        public string? DocumentHashType
+        {
+            get
+            {
+                if (!_mUnknown_DocumentHashType) return _mValue_DocumentHashType;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters.DocumentHashType' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of an Automation document to use during task execution.
         /// </summary>
-        [Input("documentVersion")]
+        [PolicyResourceProperty("documentVersion", "_mUnknown_DocumentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentVersion;
-
-        public string? DocumentVersion => _mDocumentVersion.GetValue("documentVersion");
+        private string? _mValue_DocumentVersion;
+        private bool _mUnknown_DocumentVersion;
+        public string? DocumentVersion
+        {
+            get
+            {
+                if (!_mUnknown_DocumentVersion) return _mValue_DocumentVersion;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters.DocumentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
         /// </summary>
-        [Input("notificationConfig")]
+        [PolicyResourceProperty("notificationConfig", "_mUnknown_NotificationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig> _mNotificationConfig;
-
-        public Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig? NotificationConfig => _mNotificationConfig.GetValue("notificationConfig");
+        private Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig? _mValue_NotificationConfig;
+        private bool _mUnknown_NotificationConfig;
+        public Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig? NotificationConfig
+        {
+            get
+            {
+                if (!_mUnknown_NotificationConfig) return _mValue_NotificationConfig;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters.NotificationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Amazon S3 bucket.
         /// </summary>
-        [Input("outputS3Bucket")]
+        [PolicyResourceProperty("outputS3Bucket", "_mUnknown_OutputS3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputS3Bucket;
-
-        public string? OutputS3Bucket => _mOutputS3Bucket.GetValue("outputS3Bucket");
+        private string? _mValue_OutputS3Bucket;
+        private bool _mUnknown_OutputS3Bucket;
+        public string? OutputS3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_OutputS3Bucket) return _mValue_OutputS3Bucket;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters.OutputS3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 bucket subfolder.
         /// </summary>
-        [Input("outputS3KeyPrefix")]
+        [PolicyResourceProperty("outputS3KeyPrefix", "_mUnknown_OutputS3KeyPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputS3KeyPrefix;
-
-        public string? OutputS3KeyPrefix => _mOutputS3KeyPrefix.GetValue("outputS3KeyPrefix");
+        private string? _mValue_OutputS3KeyPrefix;
+        private bool _mUnknown_OutputS3KeyPrefix;
+        public string? OutputS3KeyPrefix
+        {
+            get
+            {
+                if (!_mUnknown_OutputS3KeyPrefix) return _mValue_OutputS3KeyPrefix;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters.OutputS3KeyPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for the RUN_COMMAND task execution. Documented below.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter>> _mParameters;
-
-        public List<Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter>? Parameters => _mParameters.GetValue("parameters");
+        private List<Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
         /// </summary>
-        [Input("serviceRoleArn")]
+        [PolicyResourceProperty("serviceRoleArn", "_mUnknown_ServiceRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRoleArn;
-
-        public string? ServiceRoleArn => _mServiceRoleArn.GetValue("serviceRoleArn");
+        private string? _mValue_ServiceRoleArn;
+        private bool _mUnknown_ServiceRoleArn;
+        public string? ServiceRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRoleArn) return _mValue_ServiceRoleArn;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters.ServiceRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// If this time is reached and the command has not already started executing, it doesn't run.
         /// </summary>
-        [Input("timeoutSeconds")]
+        [PolicyResourceProperty("timeoutSeconds", "_mUnknown_TimeoutSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutSeconds;
-
-        public int? TimeoutSeconds => _mTimeoutSeconds.GetValue("timeoutSeconds");
+        private int? _mValue_TimeoutSeconds;
+        private bool _mUnknown_TimeoutSeconds;
+        public int? TimeoutSeconds
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutSeconds) return _mValue_TimeoutSeconds;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters.TimeoutSeconds' is not present");
+            }
+        }
     }
 }

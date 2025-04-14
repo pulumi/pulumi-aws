@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Schemas
         /// <summary>
         /// Resource Policy for EventBridge Schema Registry
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'RegistryPolicy.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of EventBridge Schema Registry
         /// </summary>
-        [Input("registryName")]
+        [PolicyResourceProperty("registryName", "_mUnknown_RegistryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryName;
-
-        public string? RegistryName => _mRegistryName.GetValue("registryName");
+        private string? _mValue_RegistryName;
+        private bool _mUnknown_RegistryName;
+        public string? RegistryName
+        {
+            get
+            {
+                if (!_mUnknown_RegistryName) return _mValue_RegistryName;
+                throw new UndeferrableValueException("Value 'RegistryPolicy.RegistryName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:schemas/registryPolicy:RegistryPolicy")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Schemas
         /// <summary>
         /// Resource Policy for EventBridge Schema Registry
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'RegistryPolicyArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of EventBridge Schema Registry
         /// </summary>
-        [Input("registryName")]
+        [PolicyResourceProperty("registryName", "_mUnknown_RegistryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryName;
-
-        public string? RegistryName => _mRegistryName.GetValue("registryName");
+        private string? _mValue_RegistryName;
+        private bool _mUnknown_RegistryName;
+        public string? RegistryName
+        {
+            get
+            {
+                if (!_mUnknown_RegistryName) return _mValue_RegistryName;
+                throw new UndeferrableValueException("Value 'RegistryPolicyArgs.RegistryName' is not present");
+            }
+        }
     }
 }

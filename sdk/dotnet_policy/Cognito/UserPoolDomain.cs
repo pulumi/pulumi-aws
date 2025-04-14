@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// <summary>
         /// The AWS account ID for the user pool owner.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'UserPoolDomain.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'UserPoolDomain.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
         /// </summary>
-        [Input("cloudfrontDistribution")]
+        [PolicyResourceProperty("cloudfrontDistribution", "_mUnknown_CloudfrontDistribution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudfrontDistribution;
-
-        public string? CloudfrontDistribution => _mCloudfrontDistribution.GetValue("cloudfrontDistribution");
+        private string? _mValue_CloudfrontDistribution;
+        private bool _mUnknown_CloudfrontDistribution;
+        public string? CloudfrontDistribution
+        {
+            get
+            {
+                if (!_mUnknown_CloudfrontDistribution) return _mValue_CloudfrontDistribution;
+                throw new UndeferrableValueException("Value 'UserPoolDomain.CloudfrontDistribution' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
         /// </summary>
-        [Input("cloudfrontDistributionArn")]
+        [PolicyResourceProperty("cloudfrontDistributionArn", "_mUnknown_CloudfrontDistributionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudfrontDistributionArn;
-
-        public string? CloudfrontDistributionArn => _mCloudfrontDistributionArn.GetValue("cloudfrontDistributionArn");
+        private string? _mValue_CloudfrontDistributionArn;
+        private bool _mUnknown_CloudfrontDistributionArn;
+        public string? CloudfrontDistributionArn
+        {
+            get
+            {
+                if (!_mUnknown_CloudfrontDistributionArn) return _mValue_CloudfrontDistributionArn;
+                throw new UndeferrableValueException("Value 'UserPoolDomain.CloudfrontDistributionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Route 53 hosted zone ID of the CloudFront distribution.
         /// </summary>
-        [Input("cloudfrontDistributionZoneId")]
+        [PolicyResourceProperty("cloudfrontDistributionZoneId", "_mUnknown_CloudfrontDistributionZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudfrontDistributionZoneId;
-
-        public string? CloudfrontDistributionZoneId => _mCloudfrontDistributionZoneId.GetValue("cloudfrontDistributionZoneId");
+        private string? _mValue_CloudfrontDistributionZoneId;
+        private bool _mUnknown_CloudfrontDistributionZoneId;
+        public string? CloudfrontDistributionZoneId
+        {
+            get
+            {
+                if (!_mUnknown_CloudfrontDistributionZoneId) return _mValue_CloudfrontDistributionZoneId;
+                throw new UndeferrableValueException("Value 'UserPoolDomain.CloudfrontDistributionZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'UserPoolDomain.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 bucket where the static files for this domain are stored.
         /// </summary>
-        [Input("s3Bucket")]
+        [PolicyResourceProperty("s3Bucket", "_mUnknown_S3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
-
-        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+        private string? _mValue_S3Bucket;
+        private bool _mUnknown_S3Bucket;
+        public string? S3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_S3Bucket) return _mValue_S3Bucket;
+                throw new UndeferrableValueException("Value 'UserPoolDomain.S3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// The user pool ID.
         /// </summary>
-        [Input("userPoolId")]
+        [PolicyResourceProperty("userPoolId", "_mUnknown_UserPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
-
-        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+        private string? _mValue_UserPoolId;
+        private bool _mUnknown_UserPoolId;
+        public string? UserPoolId
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolId) return _mValue_UserPoolId;
+                throw new UndeferrableValueException("Value 'UserPoolDomain.UserPoolId' is not present");
+            }
+        }
 
         /// <summary>
         /// The app version.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'UserPoolDomain.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cognito/userPoolDomain:UserPoolDomain")]
@@ -101,28 +164,49 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// <summary>
         /// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'UserPoolDomainArgs.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'UserPoolDomainArgs.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// The user pool ID.
         /// </summary>
-        [Input("userPoolId")]
+        [PolicyResourceProperty("userPoolId", "_mUnknown_UserPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
-
-        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+        private string? _mValue_UserPoolId;
+        private bool _mUnknown_UserPoolId;
+        public string? UserPoolId
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolId) return _mValue_UserPoolId;
+                throw new UndeferrableValueException("Value 'UserPoolDomainArgs.UserPoolId' is not present");
+            }
+        }
     }
 }

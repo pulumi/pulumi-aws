@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the S3 bucket.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketVersioningV2.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the expected bucket owner.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'BucketVersioningV2.ExpectedBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
         /// </summary>
-        [Input("mfa")]
+        [PolicyResourceProperty("mfa", "_mUnknown_Mfa")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMfa;
-
-        public string? Mfa => _mMfa.GetValue("mfa");
+        private string? _mValue_Mfa;
+        private bool _mUnknown_Mfa;
+        public string? Mfa
+        {
+            get
+            {
+                if (!_mUnknown_Mfa) return _mValue_Mfa;
+                throw new UndeferrableValueException("Value 'BucketVersioningV2.Mfa' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the versioning parameters. See below.
         /// </summary>
-        [Input("versioningConfiguration")]
+        [PolicyResourceProperty("versioningConfiguration", "_mUnknown_VersioningConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketVersioningV2VersioningConfiguration> _mVersioningConfiguration;
-
-        public Outputs.BucketVersioningV2VersioningConfiguration? VersioningConfiguration => _mVersioningConfiguration.GetValue("versioningConfiguration");
+        private Outputs.BucketVersioningV2VersioningConfiguration? _mValue_VersioningConfiguration;
+        private bool _mUnknown_VersioningConfiguration;
+        public Outputs.BucketVersioningV2VersioningConfiguration? VersioningConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VersioningConfiguration) return _mValue_VersioningConfiguration;
+                throw new UndeferrableValueException("Value 'BucketVersioningV2.VersioningConfiguration' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/bucketVersioningV2:BucketVersioningV2")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the S3 bucket.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketVersioningV2Args.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the expected bucket owner.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'BucketVersioningV2Args.ExpectedBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
         /// </summary>
-        [Input("mfa")]
+        [PolicyResourceProperty("mfa", "_mUnknown_Mfa")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMfa;
-
-        public string? Mfa => _mMfa.GetValue("mfa");
+        private string? _mValue_Mfa;
+        private bool _mUnknown_Mfa;
+        public string? Mfa
+        {
+            get
+            {
+                if (!_mUnknown_Mfa) return _mValue_Mfa;
+                throw new UndeferrableValueException("Value 'BucketVersioningV2Args.Mfa' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the versioning parameters. See below.
         /// </summary>
-        [Input("versioningConfiguration")]
+        [PolicyResourceProperty("versioningConfiguration", "_mUnknown_VersioningConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketVersioningV2VersioningConfigurationArgs> _mVersioningConfiguration;
-
-        public Inputs.BucketVersioningV2VersioningConfigurationArgs? VersioningConfiguration => _mVersioningConfiguration.GetValue("versioningConfiguration");
+        private Inputs.BucketVersioningV2VersioningConfigurationArgs? _mValue_VersioningConfiguration;
+        private bool _mUnknown_VersioningConfiguration;
+        public Inputs.BucketVersioningV2VersioningConfigurationArgs? VersioningConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VersioningConfiguration) return _mValue_VersioningConfiguration;
+                throw new UndeferrableValueException("Value 'BucketVersioningV2Args.VersioningConfiguration' is not present");
+            }
+        }
     }
 }

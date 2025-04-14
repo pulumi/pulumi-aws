@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CodeGuruReviewer.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
         /// </summary>
-        [Input("connectionArn")]
+        [PolicyResourceProperty("connectionArn", "_mUnknown_ConnectionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionArn;
-
-        public string? ConnectionArn => _mConnectionArn.GetValue("connectionArn");
+        private string? _mValue_ConnectionArn;
+        private bool _mUnknown_ConnectionArn;
+        public string? ConnectionArn
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionArn) return _mValue_ConnectionArn;
+                throw new UndeferrableValueException("Value 'RepositoryAssociationRepositoryBitbucketArgs.ConnectionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the third party source repository.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RepositoryAssociationRepositoryBitbucketArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The username for the account that owns the repository.
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'RepositoryAssociationRepositoryBitbucketArgs.Owner' is not present");
+            }
+        }
     }
 }

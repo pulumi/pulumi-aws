@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Port mapping information for the listener.
         /// </summary>
-        [Input("portMapping")]
+        [PolicyResourceProperty("portMapping", "_mUnknown_PortMapping")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualRouterSpecListenerPortMappingArgs> _mPortMapping;
-
-        public Inputs.VirtualRouterSpecListenerPortMappingArgs? PortMapping => _mPortMapping.GetValue("portMapping");
+        private Inputs.VirtualRouterSpecListenerPortMappingArgs? _mValue_PortMapping;
+        private bool _mUnknown_PortMapping;
+        public Inputs.VirtualRouterSpecListenerPortMappingArgs? PortMapping
+        {
+            get
+            {
+                if (!_mUnknown_PortMapping) return _mValue_PortMapping;
+                throw new UndeferrableValueException("Value 'VirtualRouterSpecListenerArgs.PortMapping' is not present");
+            }
+        }
     }
 }

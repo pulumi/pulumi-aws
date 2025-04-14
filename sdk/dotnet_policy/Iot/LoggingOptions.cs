@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
         /// </summary>
-        [Input("defaultLogLevel")]
+        [PolicyResourceProperty("defaultLogLevel", "_mUnknown_DefaultLogLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultLogLevel;
-
-        public string? DefaultLogLevel => _mDefaultLogLevel.GetValue("defaultLogLevel");
+        private string? _mValue_DefaultLogLevel;
+        private bool _mUnknown_DefaultLogLevel;
+        public string? DefaultLogLevel
+        {
+            get
+            {
+                if (!_mUnknown_DefaultLogLevel) return _mValue_DefaultLogLevel;
+                throw new UndeferrableValueException("Value 'LoggingOptions.DefaultLogLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// If `true` all logs are disabled. The default is `false`.
         /// </summary>
-        [Input("disableAllLogs")]
+        [PolicyResourceProperty("disableAllLogs", "_mUnknown_DisableAllLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableAllLogs;
-
-        public bool? DisableAllLogs => _mDisableAllLogs.GetValue("disableAllLogs");
+        private bool? _mValue_DisableAllLogs;
+        private bool _mUnknown_DisableAllLogs;
+        public bool? DisableAllLogs
+        {
+            get
+            {
+                if (!_mUnknown_DisableAllLogs) return _mValue_DisableAllLogs;
+                throw new UndeferrableValueException("Value 'LoggingOptions.DisableAllLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the role that allows IoT to write to Cloudwatch logs.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'LoggingOptions.RoleArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iot/loggingOptions:LoggingOptions")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
         /// </summary>
-        [Input("defaultLogLevel")]
+        [PolicyResourceProperty("defaultLogLevel", "_mUnknown_DefaultLogLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultLogLevel;
-
-        public string? DefaultLogLevel => _mDefaultLogLevel.GetValue("defaultLogLevel");
+        private string? _mValue_DefaultLogLevel;
+        private bool _mUnknown_DefaultLogLevel;
+        public string? DefaultLogLevel
+        {
+            get
+            {
+                if (!_mUnknown_DefaultLogLevel) return _mValue_DefaultLogLevel;
+                throw new UndeferrableValueException("Value 'LoggingOptionsArgs.DefaultLogLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// If `true` all logs are disabled. The default is `false`.
         /// </summary>
-        [Input("disableAllLogs")]
+        [PolicyResourceProperty("disableAllLogs", "_mUnknown_DisableAllLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableAllLogs;
-
-        public bool? DisableAllLogs => _mDisableAllLogs.GetValue("disableAllLogs");
+        private bool? _mValue_DisableAllLogs;
+        private bool _mUnknown_DisableAllLogs;
+        public bool? DisableAllLogs
+        {
+            get
+            {
+                if (!_mUnknown_DisableAllLogs) return _mValue_DisableAllLogs;
+                throw new UndeferrableValueException("Value 'LoggingOptionsArgs.DisableAllLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the role that allows IoT to write to Cloudwatch logs.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'LoggingOptionsArgs.RoleArn' is not present");
+            }
+        }
     }
 }

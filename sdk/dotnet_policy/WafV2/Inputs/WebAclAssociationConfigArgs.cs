@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Customizes the request body that your protected resource forward to AWS WAF for inspection. See `request_body` below for details.
         /// </summary>
-        [Input("requestBodies")]
+        [PolicyResourceProperty("requestBodies", "_mUnknown_RequestBodies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclAssociationConfigRequestBodyArgs>> _mRequestBodies;
-
-        public List<Inputs.WebAclAssociationConfigRequestBodyArgs>? RequestBodies => _mRequestBodies.GetValue("requestBodies");
+        private List<Inputs.WebAclAssociationConfigRequestBodyArgs>? _mValue_RequestBodies;
+        private bool _mUnknown_RequestBodies;
+        public List<Inputs.WebAclAssociationConfigRequestBodyArgs>? RequestBodies
+        {
+            get
+            {
+                if (!_mUnknown_RequestBodies) return _mValue_RequestBodies;
+                throw new UndeferrableValueException("Value 'WebAclAssociationConfigArgs.RequestBodies' is not present");
+            }
+        }
     }
 }

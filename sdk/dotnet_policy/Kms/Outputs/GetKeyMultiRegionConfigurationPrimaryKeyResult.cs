@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kms.Outputs
         /// <summary>
         /// The key ARN of a primary or replica key of a multi-Region key.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'GetKeyMultiRegionConfigurationPrimaryKeyResult.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Region of a primary or replica key in a multi-Region key.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'GetKeyMultiRegionConfigurationPrimaryKeyResult.Region' is not present");
+            }
+        }
     }
 }

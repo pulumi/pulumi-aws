@@ -16,84 +16,147 @@ namespace Pulumi.PolicyPacks.Aws.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) of the hierarchy group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'UserHierarchyGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the hierarchy group.
         /// </summary>
-        [Input("hierarchyGroupId")]
+        [PolicyResourceProperty("hierarchyGroupId", "_mUnknown_HierarchyGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHierarchyGroupId;
-
-        public string? HierarchyGroupId => _mHierarchyGroupId.GetValue("hierarchyGroupId");
+        private string? _mValue_HierarchyGroupId;
+        private bool _mUnknown_HierarchyGroupId;
+        public string? HierarchyGroupId
+        {
+            get
+            {
+                if (!_mUnknown_HierarchyGroupId) return _mValue_HierarchyGroupId;
+                throw new UndeferrableValueException("Value 'UserHierarchyGroup.HierarchyGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
         /// </summary>
-        [Input("hierarchyPaths")]
+        [PolicyResourceProperty("hierarchyPaths", "_mUnknown_HierarchyPaths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UserHierarchyGroupHierarchyPath>> _mHierarchyPaths;
-
-        public List<Outputs.UserHierarchyGroupHierarchyPath>? HierarchyPaths => _mHierarchyPaths.GetValue("hierarchyPaths");
+        private List<Outputs.UserHierarchyGroupHierarchyPath>? _mValue_HierarchyPaths;
+        private bool _mUnknown_HierarchyPaths;
+        public List<Outputs.UserHierarchyGroupHierarchyPath>? HierarchyPaths
+        {
+            get
+            {
+                if (!_mUnknown_HierarchyPaths) return _mValue_HierarchyPaths;
+                throw new UndeferrableValueException("Value 'UserHierarchyGroup.HierarchyPaths' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'UserHierarchyGroup.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the level in the hierarchy group.
         /// </summary>
-        [Input("levelId")]
+        [PolicyResourceProperty("levelId", "_mUnknown_LevelId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLevelId;
-
-        public string? LevelId => _mLevelId.GetValue("levelId");
+        private string? _mValue_LevelId;
+        private bool _mUnknown_LevelId;
+        public string? LevelId
+        {
+            get
+            {
+                if (!_mUnknown_LevelId) return _mValue_LevelId;
+                throw new UndeferrableValueException("Value 'UserHierarchyGroup.LevelId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the user hierarchy group. Must not be more than 100 characters.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UserHierarchyGroup.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
         /// </summary>
-        [Input("parentGroupId")]
+        [PolicyResourceProperty("parentGroupId", "_mUnknown_ParentGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentGroupId;
-
-        public string? ParentGroupId => _mParentGroupId.GetValue("parentGroupId");
+        private string? _mValue_ParentGroupId;
+        private bool _mUnknown_ParentGroupId;
+        public string? ParentGroupId
+        {
+            get
+            {
+                if (!_mUnknown_ParentGroupId) return _mValue_ParentGroupId;
+                throw new UndeferrableValueException("Value 'UserHierarchyGroup.ParentGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the hierarchy group. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'UserHierarchyGroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'UserHierarchyGroup.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:connect/userHierarchyGroup:UserHierarchyGroup")]
@@ -102,38 +165,66 @@ namespace Pulumi.PolicyPacks.Aws.Connect
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'UserHierarchyGroupArgs.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the user hierarchy group. Must not be more than 100 characters.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UserHierarchyGroupArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
         /// </summary>
-        [Input("parentGroupId")]
+        [PolicyResourceProperty("parentGroupId", "_mUnknown_ParentGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentGroupId;
-
-        public string? ParentGroupId => _mParentGroupId.GetValue("parentGroupId");
+        private string? _mValue_ParentGroupId;
+        private bool _mUnknown_ParentGroupId;
+        public string? ParentGroupId
+        {
+            get
+            {
+                if (!_mUnknown_ParentGroupId) return _mValue_ParentGroupId;
+                throw new UndeferrableValueException("Value 'UserHierarchyGroupArgs.ParentGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the hierarchy group. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'UserHierarchyGroupArgs.Tags' is not present");
+            }
+        }
     }
 }

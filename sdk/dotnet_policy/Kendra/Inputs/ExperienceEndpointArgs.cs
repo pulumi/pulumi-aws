@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Inputs
         /// <summary>
         /// The endpoint of your Amazon Kendra experience.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'ExperienceEndpointArgs.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of endpoint for your Amazon Kendra experience.
         /// </summary>
-        [Input("endpointType")]
+        [PolicyResourceProperty("endpointType", "_mUnknown_EndpointType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
-
-        public string? EndpointType => _mEndpointType.GetValue("endpointType");
+        private string? _mValue_EndpointType;
+        private bool _mUnknown_EndpointType;
+        public string? EndpointType
+        {
+            get
+            {
+                if (!_mUnknown_EndpointType) return _mValue_EndpointType;
+                throw new UndeferrableValueException("Value 'ExperienceEndpointArgs.EndpointType' is not present");
+            }
+        }
     }
 }

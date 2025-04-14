@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.LightSail.Inputs
         /// <summary>
         /// Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
         /// </summary>
-        [Input("ecrImagePullerRole")]
+        [PolicyResourceProperty("ecrImagePullerRole", "_mUnknown_EcrImagePullerRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs> _mEcrImagePullerRole;
-
-        public Inputs.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs? EcrImagePullerRole => _mEcrImagePullerRole.GetValue("ecrImagePullerRole");
+        private Inputs.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs? _mValue_EcrImagePullerRole;
+        private bool _mUnknown_EcrImagePullerRole;
+        public Inputs.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs? EcrImagePullerRole
+        {
+            get
+            {
+                if (!_mUnknown_EcrImagePullerRole) return _mValue_EcrImagePullerRole;
+                throw new UndeferrableValueException("Value 'ContainerServicePrivateRegistryAccessArgs.EcrImagePullerRole' is not present");
+            }
+        }
     }
 }

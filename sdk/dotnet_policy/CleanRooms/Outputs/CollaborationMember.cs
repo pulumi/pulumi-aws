@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms.Outputs
 {
     public sealed class CollaborationMember
     {
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'CollaborationMember.AccountId' is not present");
+            }
+        }
 
-        public string? AccountId => _mAccountId.GetValue("accountId");
-
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'CollaborationMember.DisplayName' is not present");
+            }
+        }
 
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
-
-        [Input("memberAbilities")]
+        [PolicyResourceProperty("memberAbilities", "_mUnknown_MemberAbilities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMemberAbilities;
+        private List<string>? _mValue_MemberAbilities;
+        private bool _mUnknown_MemberAbilities;
+        public List<string>? MemberAbilities
+        {
+            get
+            {
+                if (!_mUnknown_MemberAbilities) return _mValue_MemberAbilities;
+                throw new UndeferrableValueException("Value 'CollaborationMember.MemberAbilities' is not present");
+            }
+        }
 
-        public List<string>? MemberAbilities => _mMemberAbilities.GetValue("memberAbilities");
-
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'CollaborationMember.Status' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.DevOpsGuru.Inputs
         /// <summary>
         /// Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
         /// </summary>
-        [Input("topicArn")]
+        [PolicyResourceProperty("topicArn", "_mUnknown_TopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopicArn;
-
-        public string? TopicArn => _mTopicArn.GetValue("topicArn");
+        private string? _mValue_TopicArn;
+        private bool _mUnknown_TopicArn;
+        public string? TopicArn
+        {
+            get
+            {
+                if (!_mUnknown_TopicArn) return _mValue_TopicArn;
+                throw new UndeferrableValueException("Value 'GetNotificationChannelSnArgs.TopicArn' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2.Outputs
         /// <summary>
         /// List of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
         /// </summary>
-        [Input("audiences")]
+        [PolicyResourceProperty("audiences", "_mUnknown_Audiences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAudiences;
-
-        public List<string>? Audiences => _mAudiences.GetValue("audiences");
+        private List<string>? _mValue_Audiences;
+        private bool _mUnknown_Audiences;
+        public List<string>? Audiences
+        {
+            get
+            {
+                if (!_mUnknown_Audiences) return _mValue_Audiences;
+                throw new UndeferrableValueException("Value 'AuthorizerJwtConfiguration.Audiences' is not present");
+            }
+        }
 
         /// <summary>
         /// Base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `aws.cognito.UserPool` resource.
         /// </summary>
-        [Input("issuer")]
+        [PolicyResourceProperty("issuer", "_mUnknown_Issuer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIssuer;
-
-        public string? Issuer => _mIssuer.GetValue("issuer");
+        private string? _mValue_Issuer;
+        private bool _mUnknown_Issuer;
+        public string? Issuer
+        {
+            get
+            {
+                if (!_mUnknown_Issuer) return _mValue_Issuer;
+                throw new UndeferrableValueException("Value 'AuthorizerJwtConfiguration.Issuer' is not present");
+            }
+        }
     }
 }

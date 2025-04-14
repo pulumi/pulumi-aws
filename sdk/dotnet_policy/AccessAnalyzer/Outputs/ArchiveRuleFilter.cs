@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.AccessAnalyzer.Outputs
         /// <summary>
         /// Contains comparator.
         /// </summary>
-        [Input("contains")]
+        [PolicyResourceProperty("contains", "_mUnknown_Contains")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mContains;
-
-        public List<string>? Contains => _mContains.GetValue("contains");
+        private List<string>? _mValue_Contains;
+        private bool _mUnknown_Contains;
+        public List<string>? Contains
+        {
+            get
+            {
+                if (!_mUnknown_Contains) return _mValue_Contains;
+                throw new UndeferrableValueException("Value 'ArchiveRuleFilter.Contains' is not present");
+            }
+        }
 
         /// <summary>
         /// Filter criteria.
         /// </summary>
-        [Input("criteria")]
+        [PolicyResourceProperty("criteria", "_mUnknown_Criteria")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCriteria;
-
-        public string? Criteria => _mCriteria.GetValue("criteria");
+        private string? _mValue_Criteria;
+        private bool _mUnknown_Criteria;
+        public string? Criteria
+        {
+            get
+            {
+                if (!_mUnknown_Criteria) return _mValue_Criteria;
+                throw new UndeferrableValueException("Value 'ArchiveRuleFilter.Criteria' is not present");
+            }
+        }
 
         /// <summary>
         /// Equals comparator.
         /// </summary>
-        [Input("eqs")]
+        [PolicyResourceProperty("eqs", "_mUnknown_Eqs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEqs;
-
-        public List<string>? Eqs => _mEqs.GetValue("eqs");
+        private List<string>? _mValue_Eqs;
+        private bool _mUnknown_Eqs;
+        public List<string>? Eqs
+        {
+            get
+            {
+                if (!_mUnknown_Eqs) return _mValue_Eqs;
+                throw new UndeferrableValueException("Value 'ArchiveRuleFilter.Eqs' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean comparator.
         /// </summary>
-        [Input("exists")]
+        [PolicyResourceProperty("exists", "_mUnknown_Exists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExists;
-
-        public string? Exists => _mExists.GetValue("exists");
+        private string? _mValue_Exists;
+        private bool _mUnknown_Exists;
+        public string? Exists
+        {
+            get
+            {
+                if (!_mUnknown_Exists) return _mValue_Exists;
+                throw new UndeferrableValueException("Value 'ArchiveRuleFilter.Exists' is not present");
+            }
+        }
 
         /// <summary>
         /// Not Equals comparator.
         /// </summary>
-        [Input("neqs")]
+        [PolicyResourceProperty("neqs", "_mUnknown_Neqs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNeqs;
-
-        public List<string>? Neqs => _mNeqs.GetValue("neqs");
+        private List<string>? _mValue_Neqs;
+        private bool _mUnknown_Neqs;
+        public List<string>? Neqs
+        {
+            get
+            {
+                if (!_mUnknown_Neqs) return _mValue_Neqs;
+                throw new UndeferrableValueException("Value 'ArchiveRuleFilter.Neqs' is not present");
+            }
+        }
     }
 }

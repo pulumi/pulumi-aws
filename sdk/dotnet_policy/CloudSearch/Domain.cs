@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.CloudSearch
         /// <summary>
         /// The domain's ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Domain.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The service endpoint for updating documents in a search domain.
         /// </summary>
-        [Input("documentServiceEndpoint")]
+        [PolicyResourceProperty("documentServiceEndpoint", "_mUnknown_DocumentServiceEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentServiceEndpoint;
-
-        public string? DocumentServiceEndpoint => _mDocumentServiceEndpoint.GetValue("documentServiceEndpoint");
+        private string? _mValue_DocumentServiceEndpoint;
+        private bool _mUnknown_DocumentServiceEndpoint;
+        public string? DocumentServiceEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_DocumentServiceEndpoint) return _mValue_DocumentServiceEndpoint;
+                throw new UndeferrableValueException("Value 'Domain.DocumentServiceEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// An internally generated unique identifier for the domain.
         /// </summary>
-        [Input("domainId")]
+        [PolicyResourceProperty("domainId", "_mUnknown_DomainId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainId;
-
-        public string? DomainId => _mDomainId.GetValue("domainId");
+        private string? _mValue_DomainId;
+        private bool _mUnknown_DomainId;
+        public string? DomainId
+        {
+            get
+            {
+                if (!_mUnknown_DomainId) return _mValue_DomainId;
+                throw new UndeferrableValueException("Value 'Domain.DomainId' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain endpoint options. Documented below.
         /// </summary>
-        [Input("endpointOptions")]
+        [PolicyResourceProperty("endpointOptions", "_mUnknown_EndpointOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainEndpointOptions> _mEndpointOptions;
-
-        public Outputs.DomainEndpointOptions? EndpointOptions => _mEndpointOptions.GetValue("endpointOptions");
+        private Outputs.DomainEndpointOptions? _mValue_EndpointOptions;
+        private bool _mUnknown_EndpointOptions;
+        public Outputs.DomainEndpointOptions? EndpointOptions
+        {
+            get
+            {
+                if (!_mUnknown_EndpointOptions) return _mValue_EndpointOptions;
+                throw new UndeferrableValueException("Value 'Domain.EndpointOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The index fields for documents added to the domain. Documented below.
         /// </summary>
-        [Input("indexFields")]
+        [PolicyResourceProperty("indexFields", "_mUnknown_IndexFields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DomainIndexField>> _mIndexFields;
-
-        public List<Outputs.DomainIndexField>? IndexFields => _mIndexFields.GetValue("indexFields");
+        private List<Outputs.DomainIndexField>? _mValue_IndexFields;
+        private bool _mUnknown_IndexFields;
+        public List<Outputs.DomainIndexField>? IndexFields
+        {
+            get
+            {
+                if (!_mUnknown_IndexFields) return _mValue_IndexFields;
+                throw new UndeferrableValueException("Value 'Domain.IndexFields' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
         /// </summary>
-        [Input("multiAz")]
+        [PolicyResourceProperty("multiAz", "_mUnknown_MultiAz")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiAz;
-
-        public bool? MultiAz => _mMultiAz.GetValue("multiAz");
+        private bool? _mValue_MultiAz;
+        private bool _mUnknown_MultiAz;
+        public bool? MultiAz
+        {
+            get
+            {
+                if (!_mUnknown_MultiAz) return _mValue_MultiAz;
+                throw new UndeferrableValueException("Value 'Domain.MultiAz' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the CloudSearch domain.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Domain.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain scaling parameters. Documented below.
         /// </summary>
-        [Input("scalingParameters")]
+        [PolicyResourceProperty("scalingParameters", "_mUnknown_ScalingParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainScalingParameters> _mScalingParameters;
-
-        public Outputs.DomainScalingParameters? ScalingParameters => _mScalingParameters.GetValue("scalingParameters");
+        private Outputs.DomainScalingParameters? _mValue_ScalingParameters;
+        private bool _mUnknown_ScalingParameters;
+        public Outputs.DomainScalingParameters? ScalingParameters
+        {
+            get
+            {
+                if (!_mUnknown_ScalingParameters) return _mValue_ScalingParameters;
+                throw new UndeferrableValueException("Value 'Domain.ScalingParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The service endpoint for requesting search results from a search domain.
         /// </summary>
-        [Input("searchServiceEndpoint")]
+        [PolicyResourceProperty("searchServiceEndpoint", "_mUnknown_SearchServiceEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSearchServiceEndpoint;
-
-        public string? SearchServiceEndpoint => _mSearchServiceEndpoint.GetValue("searchServiceEndpoint");
+        private string? _mValue_SearchServiceEndpoint;
+        private bool _mUnknown_SearchServiceEndpoint;
+        public string? SearchServiceEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_SearchServiceEndpoint) return _mValue_SearchServiceEndpoint;
+                throw new UndeferrableValueException("Value 'Domain.SearchServiceEndpoint' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudsearch/domain:Domain")]
@@ -101,46 +164,81 @@ namespace Pulumi.PolicyPacks.Aws.CloudSearch
         /// <summary>
         /// Domain endpoint options. Documented below.
         /// </summary>
-        [Input("endpointOptions")]
+        [PolicyResourceProperty("endpointOptions", "_mUnknown_EndpointOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainEndpointOptionsArgs> _mEndpointOptions;
-
-        public Inputs.DomainEndpointOptionsArgs? EndpointOptions => _mEndpointOptions.GetValue("endpointOptions");
+        private Inputs.DomainEndpointOptionsArgs? _mValue_EndpointOptions;
+        private bool _mUnknown_EndpointOptions;
+        public Inputs.DomainEndpointOptionsArgs? EndpointOptions
+        {
+            get
+            {
+                if (!_mUnknown_EndpointOptions) return _mValue_EndpointOptions;
+                throw new UndeferrableValueException("Value 'DomainArgs.EndpointOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The index fields for documents added to the domain. Documented below.
         /// </summary>
-        [Input("indexFields")]
+        [PolicyResourceProperty("indexFields", "_mUnknown_IndexFields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DomainIndexFieldArgs>> _mIndexFields;
-
-        public List<Inputs.DomainIndexFieldArgs>? IndexFields => _mIndexFields.GetValue("indexFields");
+        private List<Inputs.DomainIndexFieldArgs>? _mValue_IndexFields;
+        private bool _mUnknown_IndexFields;
+        public List<Inputs.DomainIndexFieldArgs>? IndexFields
+        {
+            get
+            {
+                if (!_mUnknown_IndexFields) return _mValue_IndexFields;
+                throw new UndeferrableValueException("Value 'DomainArgs.IndexFields' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
         /// </summary>
-        [Input("multiAz")]
+        [PolicyResourceProperty("multiAz", "_mUnknown_MultiAz")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiAz;
-
-        public bool? MultiAz => _mMultiAz.GetValue("multiAz");
+        private bool? _mValue_MultiAz;
+        private bool _mUnknown_MultiAz;
+        public bool? MultiAz
+        {
+            get
+            {
+                if (!_mUnknown_MultiAz) return _mValue_MultiAz;
+                throw new UndeferrableValueException("Value 'DomainArgs.MultiAz' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the CloudSearch domain.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DomainArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain scaling parameters. Documented below.
         /// </summary>
-        [Input("scalingParameters")]
+        [PolicyResourceProperty("scalingParameters", "_mUnknown_ScalingParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainScalingParametersArgs> _mScalingParameters;
-
-        public Inputs.DomainScalingParametersArgs? ScalingParameters => _mScalingParameters.GetValue("scalingParameters");
+        private Inputs.DomainScalingParametersArgs? _mValue_ScalingParameters;
+        private bool _mUnknown_ScalingParameters;
+        public Inputs.DomainScalingParametersArgs? ScalingParameters
+        {
+            get
+            {
+                if (!_mUnknown_ScalingParameters) return _mValue_ScalingParameters;
+                throw new UndeferrableValueException("Value 'DomainArgs.ScalingParameters' is not present");
+            }
+        }
     }
 }

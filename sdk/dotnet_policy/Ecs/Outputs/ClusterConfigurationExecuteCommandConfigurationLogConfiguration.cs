@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
         /// </summary>
-        [Input("cloudWatchEncryptionEnabled")]
+        [PolicyResourceProperty("cloudWatchEncryptionEnabled", "_mUnknown_CloudWatchEncryptionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCloudWatchEncryptionEnabled;
-
-        public bool? CloudWatchEncryptionEnabled => _mCloudWatchEncryptionEnabled.GetValue("cloudWatchEncryptionEnabled");
+        private bool? _mValue_CloudWatchEncryptionEnabled;
+        private bool _mUnknown_CloudWatchEncryptionEnabled;
+        public bool? CloudWatchEncryptionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_CloudWatchEncryptionEnabled) return _mValue_CloudWatchEncryptionEnabled;
+                throw new UndeferrableValueException("Value 'ClusterConfigurationExecuteCommandConfigurationLogConfiguration.CloudWatchEncryptionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the CloudWatch log group to send logs to.
         /// </summary>
-        [Input("cloudWatchLogGroupName")]
+        [PolicyResourceProperty("cloudWatchLogGroupName", "_mUnknown_CloudWatchLogGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudWatchLogGroupName;
-
-        public string? CloudWatchLogGroupName => _mCloudWatchLogGroupName.GetValue("cloudWatchLogGroupName");
+        private string? _mValue_CloudWatchLogGroupName;
+        private bool _mUnknown_CloudWatchLogGroupName;
+        public string? CloudWatchLogGroupName
+        {
+            get
+            {
+                if (!_mUnknown_CloudWatchLogGroupName) return _mValue_CloudWatchLogGroupName;
+                throw new UndeferrableValueException("Value 'ClusterConfigurationExecuteCommandConfigurationLogConfiguration.CloudWatchLogGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
         /// </summary>
-        [Input("s3BucketEncryptionEnabled")]
+        [PolicyResourceProperty("s3BucketEncryptionEnabled", "_mUnknown_S3BucketEncryptionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mS3BucketEncryptionEnabled;
-
-        public bool? S3BucketEncryptionEnabled => _mS3BucketEncryptionEnabled.GetValue("s3BucketEncryptionEnabled");
+        private bool? _mValue_S3BucketEncryptionEnabled;
+        private bool _mUnknown_S3BucketEncryptionEnabled;
+        public bool? S3BucketEncryptionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketEncryptionEnabled) return _mValue_S3BucketEncryptionEnabled;
+                throw new UndeferrableValueException("Value 'ClusterConfigurationExecuteCommandConfigurationLogConfiguration.S3BucketEncryptionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the S3 bucket to send logs to.
         /// </summary>
-        [Input("s3BucketName")]
+        [PolicyResourceProperty("s3BucketName", "_mUnknown_S3BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketName;
-
-        public string? S3BucketName => _mS3BucketName.GetValue("s3BucketName");
+        private string? _mValue_S3BucketName;
+        private bool _mUnknown_S3BucketName;
+        public string? S3BucketName
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketName) return _mValue_S3BucketName;
+                throw new UndeferrableValueException("Value 'ClusterConfigurationExecuteCommandConfigurationLogConfiguration.S3BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// Optional folder in the S3 bucket to place logs in.
         /// </summary>
-        [Input("s3KeyPrefix")]
+        [PolicyResourceProperty("s3KeyPrefix", "_mUnknown_S3KeyPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3KeyPrefix;
-
-        public string? S3KeyPrefix => _mS3KeyPrefix.GetValue("s3KeyPrefix");
+        private string? _mValue_S3KeyPrefix;
+        private bool _mUnknown_S3KeyPrefix;
+        public string? S3KeyPrefix
+        {
+            get
+            {
+                if (!_mUnknown_S3KeyPrefix) return _mValue_S3KeyPrefix;
+                throw new UndeferrableValueException("Value 'ClusterConfigurationExecuteCommandConfigurationLogConfiguration.S3KeyPrefix' is not present");
+            }
+        }
     }
 }

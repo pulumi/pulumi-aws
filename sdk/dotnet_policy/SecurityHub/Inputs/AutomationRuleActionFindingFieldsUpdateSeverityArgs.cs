@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Inputs
         /// <summary>
         /// The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
         /// </summary>
-        [Input("label")]
+        [PolicyResourceProperty("label", "_mUnknown_Label")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLabel;
-
-        public string? Label => _mLabel.GetValue("label");
+        private string? _mValue_Label;
+        private bool _mUnknown_Label;
+        public string? Label
+        {
+            get
+            {
+                if (!_mUnknown_Label) return _mValue_Label;
+                throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdateSeverityArgs.Label' is not present");
+            }
+        }
 
         /// <summary>
         /// The native severity as defined by the AWS service or integrated partner product that generated the finding.
         /// </summary>
-        [Input("product")]
+        [PolicyResourceProperty("product", "_mUnknown_Product")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mProduct;
-
-        public double? Product => _mProduct.GetValue("product");
+        private double? _mValue_Product;
+        private bool _mUnknown_Product;
+        public double? Product
+        {
+            get
+            {
+                if (!_mUnknown_Product) return _mValue_Product;
+                throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdateSeverityArgs.Product' is not present");
+            }
+        }
     }
 }

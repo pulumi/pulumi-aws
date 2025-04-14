@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
         /// </summary>
-        [Input("allowedPrefixes")]
+        [PolicyResourceProperty("allowedPrefixes", "_mUnknown_AllowedPrefixes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedPrefixes;
-
-        public List<string>? AllowedPrefixes => _mAllowedPrefixes.GetValue("allowedPrefixes");
+        private List<string>? _mValue_AllowedPrefixes;
+        private bool _mUnknown_AllowedPrefixes;
+        public List<string>? AllowedPrefixes
+        {
+            get
+            {
+                if (!_mUnknown_AllowedPrefixes) return _mValue_AllowedPrefixes;
+                throw new UndeferrableValueException("Value 'GatewayAssociationProposal.AllowedPrefixes' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
         /// </summary>
-        [Input("associatedGatewayId")]
+        [PolicyResourceProperty("associatedGatewayId", "_mUnknown_AssociatedGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociatedGatewayId;
-
-        public string? AssociatedGatewayId => _mAssociatedGatewayId.GetValue("associatedGatewayId");
+        private string? _mValue_AssociatedGatewayId;
+        private bool _mUnknown_AssociatedGatewayId;
+        public string? AssociatedGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_AssociatedGatewayId) return _mValue_AssociatedGatewayId;
+                throw new UndeferrableValueException("Value 'GatewayAssociationProposal.AssociatedGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
         /// </summary>
-        [Input("associatedGatewayOwnerAccountId")]
+        [PolicyResourceProperty("associatedGatewayOwnerAccountId", "_mUnknown_AssociatedGatewayOwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociatedGatewayOwnerAccountId;
-
-        public string? AssociatedGatewayOwnerAccountId => _mAssociatedGatewayOwnerAccountId.GetValue("associatedGatewayOwnerAccountId");
+        private string? _mValue_AssociatedGatewayOwnerAccountId;
+        private bool _mUnknown_AssociatedGatewayOwnerAccountId;
+        public string? AssociatedGatewayOwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AssociatedGatewayOwnerAccountId) return _mValue_AssociatedGatewayOwnerAccountId;
+                throw new UndeferrableValueException("Value 'GatewayAssociationProposal.AssociatedGatewayOwnerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
         /// </summary>
-        [Input("associatedGatewayType")]
+        [PolicyResourceProperty("associatedGatewayType", "_mUnknown_AssociatedGatewayType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociatedGatewayType;
-
-        public string? AssociatedGatewayType => _mAssociatedGatewayType.GetValue("associatedGatewayType");
+        private string? _mValue_AssociatedGatewayType;
+        private bool _mUnknown_AssociatedGatewayType;
+        public string? AssociatedGatewayType
+        {
+            get
+            {
+                if (!_mUnknown_AssociatedGatewayType) return _mValue_AssociatedGatewayType;
+                throw new UndeferrableValueException("Value 'GatewayAssociationProposal.AssociatedGatewayType' is not present");
+            }
+        }
 
         /// <summary>
         /// Direct Connect Gateway identifier.
         /// </summary>
-        [Input("dxGatewayId")]
+        [PolicyResourceProperty("dxGatewayId", "_mUnknown_DxGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDxGatewayId;
-
-        public string? DxGatewayId => _mDxGatewayId.GetValue("dxGatewayId");
+        private string? _mValue_DxGatewayId;
+        private bool _mUnknown_DxGatewayId;
+        public string? DxGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_DxGatewayId) return _mValue_DxGatewayId;
+                throw new UndeferrableValueException("Value 'GatewayAssociationProposal.DxGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Account identifier of the Direct Connect Gateway's owner.
         /// </summary>
-        [Input("dxGatewayOwnerAccountId")]
+        [PolicyResourceProperty("dxGatewayOwnerAccountId", "_mUnknown_DxGatewayOwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDxGatewayOwnerAccountId;
-
-        public string? DxGatewayOwnerAccountId => _mDxGatewayOwnerAccountId.GetValue("dxGatewayOwnerAccountId");
+        private string? _mValue_DxGatewayOwnerAccountId;
+        private bool _mUnknown_DxGatewayOwnerAccountId;
+        public string? DxGatewayOwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_DxGatewayOwnerAccountId) return _mValue_DxGatewayOwnerAccountId;
+                throw new UndeferrableValueException("Value 'GatewayAssociationProposal.DxGatewayOwnerAccountId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal")]
@@ -74,37 +116,65 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
         /// </summary>
-        [Input("allowedPrefixes")]
+        [PolicyResourceProperty("allowedPrefixes", "_mUnknown_AllowedPrefixes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedPrefixes;
-
-        public List<string>? AllowedPrefixes => _mAllowedPrefixes.GetValue("allowedPrefixes");
+        private List<string>? _mValue_AllowedPrefixes;
+        private bool _mUnknown_AllowedPrefixes;
+        public List<string>? AllowedPrefixes
+        {
+            get
+            {
+                if (!_mUnknown_AllowedPrefixes) return _mValue_AllowedPrefixes;
+                throw new UndeferrableValueException("Value 'GatewayAssociationProposalArgs.AllowedPrefixes' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
         /// </summary>
-        [Input("associatedGatewayId")]
+        [PolicyResourceProperty("associatedGatewayId", "_mUnknown_AssociatedGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociatedGatewayId;
-
-        public string? AssociatedGatewayId => _mAssociatedGatewayId.GetValue("associatedGatewayId");
+        private string? _mValue_AssociatedGatewayId;
+        private bool _mUnknown_AssociatedGatewayId;
+        public string? AssociatedGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_AssociatedGatewayId) return _mValue_AssociatedGatewayId;
+                throw new UndeferrableValueException("Value 'GatewayAssociationProposalArgs.AssociatedGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Direct Connect Gateway identifier.
         /// </summary>
-        [Input("dxGatewayId")]
+        [PolicyResourceProperty("dxGatewayId", "_mUnknown_DxGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDxGatewayId;
-
-        public string? DxGatewayId => _mDxGatewayId.GetValue("dxGatewayId");
+        private string? _mValue_DxGatewayId;
+        private bool _mUnknown_DxGatewayId;
+        public string? DxGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_DxGatewayId) return _mValue_DxGatewayId;
+                throw new UndeferrableValueException("Value 'GatewayAssociationProposalArgs.DxGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Account identifier of the Direct Connect Gateway's owner.
         /// </summary>
-        [Input("dxGatewayOwnerAccountId")]
+        [PolicyResourceProperty("dxGatewayOwnerAccountId", "_mUnknown_DxGatewayOwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDxGatewayOwnerAccountId;
-
-        public string? DxGatewayOwnerAccountId => _mDxGatewayOwnerAccountId.GetValue("dxGatewayOwnerAccountId");
+        private string? _mValue_DxGatewayOwnerAccountId;
+        private bool _mUnknown_DxGatewayOwnerAccountId;
+        public string? DxGatewayOwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_DxGatewayOwnerAccountId) return _mValue_DxGatewayOwnerAccountId;
+                throw new UndeferrableValueException("Value 'GatewayAssociationProposalArgs.DxGatewayOwnerAccountId' is not present");
+            }
+        }
     }
 }

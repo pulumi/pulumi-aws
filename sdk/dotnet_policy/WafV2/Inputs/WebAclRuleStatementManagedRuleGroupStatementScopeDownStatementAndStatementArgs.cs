@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// The statements to combine.
         /// </summary>
-        [Input("statements")]
+        [PolicyResourceProperty("statements", "_mUnknown_Statements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclRuleStatementArgs>> _mStatements;
-
-        public List<Inputs.WebAclRuleStatementArgs>? Statements => _mStatements.GetValue("statements");
+        private List<Inputs.WebAclRuleStatementArgs>? _mValue_Statements;
+        private bool _mUnknown_Statements;
+        public List<Inputs.WebAclRuleStatementArgs>? Statements
+        {
+            get
+            {
+                if (!_mUnknown_Statements) return _mValue_Statements;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs.Statements' is not present");
+            }
+        }
     }
 }

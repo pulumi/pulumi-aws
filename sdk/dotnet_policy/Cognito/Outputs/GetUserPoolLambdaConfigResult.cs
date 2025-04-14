@@ -12,88 +12,186 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
 {
     public sealed class GetUserPoolLambdaConfigResult
     {
-        [Input("createAuthChallenge")]
+        [PolicyResourceProperty("createAuthChallenge", "_mUnknown_CreateAuthChallenge")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreateAuthChallenge;
+        private string? _mValue_CreateAuthChallenge;
+        private bool _mUnknown_CreateAuthChallenge;
+        public string? CreateAuthChallenge
+        {
+            get
+            {
+                if (!_mUnknown_CreateAuthChallenge) return _mValue_CreateAuthChallenge;
+                throw new UndeferrableValueException("Value 'GetUserPoolLambdaConfigResult.CreateAuthChallenge' is not present");
+            }
+        }
 
-        public string? CreateAuthChallenge => _mCreateAuthChallenge.GetValue("createAuthChallenge");
-
-        [Input("customEmailSenders")]
+        [PolicyResourceProperty("customEmailSenders", "_mUnknown_CustomEmailSenders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetUserPoolLambdaConfigCustomEmailSenderResult>> _mCustomEmailSenders;
+        private List<Outputs.GetUserPoolLambdaConfigCustomEmailSenderResult>? _mValue_CustomEmailSenders;
+        private bool _mUnknown_CustomEmailSenders;
+        public List<Outputs.GetUserPoolLambdaConfigCustomEmailSenderResult>? CustomEmailSenders
+        {
+            get
+            {
+                if (!_mUnknown_CustomEmailSenders) return _mValue_CustomEmailSenders;
+                throw new UndeferrableValueException("Value 'GetUserPoolLambdaConfigResult.CustomEmailSenders' is not present");
+            }
+        }
 
-        public List<Outputs.GetUserPoolLambdaConfigCustomEmailSenderResult>? CustomEmailSenders => _mCustomEmailSenders.GetValue("customEmailSenders");
-
-        [Input("customMessage")]
+        [PolicyResourceProperty("customMessage", "_mUnknown_CustomMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomMessage;
+        private string? _mValue_CustomMessage;
+        private bool _mUnknown_CustomMessage;
+        public string? CustomMessage
+        {
+            get
+            {
+                if (!_mUnknown_CustomMessage) return _mValue_CustomMessage;
+                throw new UndeferrableValueException("Value 'GetUserPoolLambdaConfigResult.CustomMessage' is not present");
+            }
+        }
 
-        public string? CustomMessage => _mCustomMessage.GetValue("customMessage");
-
-        [Input("customSmsSenders")]
+        [PolicyResourceProperty("customSmsSenders", "_mUnknown_CustomSmsSenders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetUserPoolLambdaConfigCustomSmsSenderResult>> _mCustomSmsSenders;
+        private List<Outputs.GetUserPoolLambdaConfigCustomSmsSenderResult>? _mValue_CustomSmsSenders;
+        private bool _mUnknown_CustomSmsSenders;
+        public List<Outputs.GetUserPoolLambdaConfigCustomSmsSenderResult>? CustomSmsSenders
+        {
+            get
+            {
+                if (!_mUnknown_CustomSmsSenders) return _mValue_CustomSmsSenders;
+                throw new UndeferrableValueException("Value 'GetUserPoolLambdaConfigResult.CustomSmsSenders' is not present");
+            }
+        }
 
-        public List<Outputs.GetUserPoolLambdaConfigCustomSmsSenderResult>? CustomSmsSenders => _mCustomSmsSenders.GetValue("customSmsSenders");
-
-        [Input("defineAuthChallenge")]
+        [PolicyResourceProperty("defineAuthChallenge", "_mUnknown_DefineAuthChallenge")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefineAuthChallenge;
+        private string? _mValue_DefineAuthChallenge;
+        private bool _mUnknown_DefineAuthChallenge;
+        public string? DefineAuthChallenge
+        {
+            get
+            {
+                if (!_mUnknown_DefineAuthChallenge) return _mValue_DefineAuthChallenge;
+                throw new UndeferrableValueException("Value 'GetUserPoolLambdaConfigResult.DefineAuthChallenge' is not present");
+            }
+        }
 
-        public string? DefineAuthChallenge => _mDefineAuthChallenge.GetValue("defineAuthChallenge");
-
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'GetUserPoolLambdaConfigResult.KmsKeyId' is not present");
+            }
+        }
 
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
-
-        [Input("postAuthentication")]
+        [PolicyResourceProperty("postAuthentication", "_mUnknown_PostAuthentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPostAuthentication;
+        private string? _mValue_PostAuthentication;
+        private bool _mUnknown_PostAuthentication;
+        public string? PostAuthentication
+        {
+            get
+            {
+                if (!_mUnknown_PostAuthentication) return _mValue_PostAuthentication;
+                throw new UndeferrableValueException("Value 'GetUserPoolLambdaConfigResult.PostAuthentication' is not present");
+            }
+        }
 
-        public string? PostAuthentication => _mPostAuthentication.GetValue("postAuthentication");
-
-        [Input("postConfirmation")]
+        [PolicyResourceProperty("postConfirmation", "_mUnknown_PostConfirmation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPostConfirmation;
+        private string? _mValue_PostConfirmation;
+        private bool _mUnknown_PostConfirmation;
+        public string? PostConfirmation
+        {
+            get
+            {
+                if (!_mUnknown_PostConfirmation) return _mValue_PostConfirmation;
+                throw new UndeferrableValueException("Value 'GetUserPoolLambdaConfigResult.PostConfirmation' is not present");
+            }
+        }
 
-        public string? PostConfirmation => _mPostConfirmation.GetValue("postConfirmation");
-
-        [Input("preAuthentication")]
+        [PolicyResourceProperty("preAuthentication", "_mUnknown_PreAuthentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreAuthentication;
+        private string? _mValue_PreAuthentication;
+        private bool _mUnknown_PreAuthentication;
+        public string? PreAuthentication
+        {
+            get
+            {
+                if (!_mUnknown_PreAuthentication) return _mValue_PreAuthentication;
+                throw new UndeferrableValueException("Value 'GetUserPoolLambdaConfigResult.PreAuthentication' is not present");
+            }
+        }
 
-        public string? PreAuthentication => _mPreAuthentication.GetValue("preAuthentication");
-
-        [Input("preSignUp")]
+        [PolicyResourceProperty("preSignUp", "_mUnknown_PreSignUp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreSignUp;
+        private string? _mValue_PreSignUp;
+        private bool _mUnknown_PreSignUp;
+        public string? PreSignUp
+        {
+            get
+            {
+                if (!_mUnknown_PreSignUp) return _mValue_PreSignUp;
+                throw new UndeferrableValueException("Value 'GetUserPoolLambdaConfigResult.PreSignUp' is not present");
+            }
+        }
 
-        public string? PreSignUp => _mPreSignUp.GetValue("preSignUp");
-
-        [Input("preTokenGeneration")]
+        [PolicyResourceProperty("preTokenGeneration", "_mUnknown_PreTokenGeneration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreTokenGeneration;
+        private string? _mValue_PreTokenGeneration;
+        private bool _mUnknown_PreTokenGeneration;
+        public string? PreTokenGeneration
+        {
+            get
+            {
+                if (!_mUnknown_PreTokenGeneration) return _mValue_PreTokenGeneration;
+                throw new UndeferrableValueException("Value 'GetUserPoolLambdaConfigResult.PreTokenGeneration' is not present");
+            }
+        }
 
-        public string? PreTokenGeneration => _mPreTokenGeneration.GetValue("preTokenGeneration");
-
-        [Input("preTokenGenerationConfigs")]
+        [PolicyResourceProperty("preTokenGenerationConfigs", "_mUnknown_PreTokenGenerationConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetUserPoolLambdaConfigPreTokenGenerationConfigResult>> _mPreTokenGenerationConfigs;
+        private List<Outputs.GetUserPoolLambdaConfigPreTokenGenerationConfigResult>? _mValue_PreTokenGenerationConfigs;
+        private bool _mUnknown_PreTokenGenerationConfigs;
+        public List<Outputs.GetUserPoolLambdaConfigPreTokenGenerationConfigResult>? PreTokenGenerationConfigs
+        {
+            get
+            {
+                if (!_mUnknown_PreTokenGenerationConfigs) return _mValue_PreTokenGenerationConfigs;
+                throw new UndeferrableValueException("Value 'GetUserPoolLambdaConfigResult.PreTokenGenerationConfigs' is not present");
+            }
+        }
 
-        public List<Outputs.GetUserPoolLambdaConfigPreTokenGenerationConfigResult>? PreTokenGenerationConfigs => _mPreTokenGenerationConfigs.GetValue("preTokenGenerationConfigs");
-
-        [Input("userMigration")]
+        [PolicyResourceProperty("userMigration", "_mUnknown_UserMigration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserMigration;
+        private string? _mValue_UserMigration;
+        private bool _mUnknown_UserMigration;
+        public string? UserMigration
+        {
+            get
+            {
+                if (!_mUnknown_UserMigration) return _mValue_UserMigration;
+                throw new UndeferrableValueException("Value 'GetUserPoolLambdaConfigResult.UserMigration' is not present");
+            }
+        }
 
-        public string? UserMigration => _mUserMigration.GetValue("userMigration");
-
-        [Input("verifyAuthChallengeResponse")]
+        [PolicyResourceProperty("verifyAuthChallengeResponse", "_mUnknown_VerifyAuthChallengeResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerifyAuthChallengeResponse;
-
-        public string? VerifyAuthChallengeResponse => _mVerifyAuthChallengeResponse.GetValue("verifyAuthChallengeResponse");
+        private string? _mValue_VerifyAuthChallengeResponse;
+        private bool _mUnknown_VerifyAuthChallengeResponse;
+        public string? VerifyAuthChallengeResponse
+        {
+            get
+            {
+                if (!_mUnknown_VerifyAuthChallengeResponse) return _mValue_VerifyAuthChallengeResponse;
+                throw new UndeferrableValueException("Value 'GetUserPoolLambdaConfigResult.VerifyAuthChallengeResponse' is not present");
+            }
+        }
     }
 }

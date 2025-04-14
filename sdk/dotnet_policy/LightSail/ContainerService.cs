@@ -16,95 +16,165 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The Amazon Resource Name (ARN) of the container service.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ContainerService.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Availability Zone. Follows the format us-east-2a (case-sensitive).
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'ContainerService.AvailabilityZone' is not present");
+            }
+        }
 
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
-
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'ContainerService.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// A Boolean value indicating whether the container service is disabled. Defaults to `false`.
         /// </summary>
-        [Input("isDisabled")]
+        [PolicyResourceProperty("isDisabled", "_mUnknown_IsDisabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsDisabled;
-
-        public bool? IsDisabled => _mIsDisabled.GetValue("isDisabled");
+        private bool? _mValue_IsDisabled;
+        private bool _mUnknown_IsDisabled;
+        public bool? IsDisabled
+        {
+            get
+            {
+                if (!_mUnknown_IsDisabled) return _mValue_IsDisabled;
+                throw new UndeferrableValueException("Value 'ContainerService.IsDisabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the container service. Names must be of length 1 to 63, and be
         /// unique within each AWS Region in your Lightsail account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ContainerService.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The power specification for the container service. The power specifies the amount of memory,
         /// the number of vCPUs, and the monthly price of each node of the container service.
         /// Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
         /// </summary>
-        [Input("power")]
+        [PolicyResourceProperty("power", "_mUnknown_Power")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPower;
-
-        public string? Power => _mPower.GetValue("power");
+        private string? _mValue_Power;
+        private bool _mUnknown_Power;
+        public string? Power
+        {
+            get
+            {
+                if (!_mUnknown_Power) return _mValue_Power;
+                throw new UndeferrableValueException("Value 'ContainerService.Power' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the power of the container service.
         /// </summary>
-        [Input("powerId")]
+        [PolicyResourceProperty("powerId", "_mUnknown_PowerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPowerId;
-
-        public string? PowerId => _mPowerId.GetValue("powerId");
+        private string? _mValue_PowerId;
+        private bool _mUnknown_PowerId;
+        public string? PowerId
+        {
+            get
+            {
+                if (!_mUnknown_PowerId) return _mValue_PowerId;
+                throw new UndeferrableValueException("Value 'ContainerService.PowerId' is not present");
+            }
+        }
 
         /// <summary>
         /// The principal ARN of the container service. The principal ARN can be used to create a trust
         /// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
         /// service permission to access resources in your standard AWS account.
         /// </summary>
-        [Input("principalArn")]
+        [PolicyResourceProperty("principalArn", "_mUnknown_PrincipalArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalArn;
-
-        public string? PrincipalArn => _mPrincipalArn.GetValue("principalArn");
+        private string? _mValue_PrincipalArn;
+        private bool _mUnknown_PrincipalArn;
+        public string? PrincipalArn
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalArn) return _mValue_PrincipalArn;
+                throw new UndeferrableValueException("Value 'ContainerService.PrincipalArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The private domain name of the container service. The private domain name is accessible only
         /// by other resources within the default virtual private cloud (VPC) of your Lightsail account.
         /// </summary>
-        [Input("privateDomainName")]
+        [PolicyResourceProperty("privateDomainName", "_mUnknown_PrivateDomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateDomainName;
-
-        public string? PrivateDomainName => _mPrivateDomainName.GetValue("privateDomainName");
+        private string? _mValue_PrivateDomainName;
+        private bool _mUnknown_PrivateDomainName;
+        public string? PrivateDomainName
+        {
+            get
+            {
+                if (!_mUnknown_PrivateDomainName) return _mValue_PrivateDomainName;
+                throw new UndeferrableValueException("Value 'ContainerService.PrivateDomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
         /// </summary>
-        [Input("privateRegistryAccess")]
+        [PolicyResourceProperty("privateRegistryAccess", "_mUnknown_PrivateRegistryAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ContainerServicePrivateRegistryAccess> _mPrivateRegistryAccess;
-
-        public Outputs.ContainerServicePrivateRegistryAccess? PrivateRegistryAccess => _mPrivateRegistryAccess.GetValue("privateRegistryAccess");
+        private Outputs.ContainerServicePrivateRegistryAccess? _mValue_PrivateRegistryAccess;
+        private bool _mUnknown_PrivateRegistryAccess;
+        public Outputs.ContainerServicePrivateRegistryAccess? PrivateRegistryAccess
+        {
+            get
+            {
+                if (!_mUnknown_PrivateRegistryAccess) return _mValue_PrivateRegistryAccess;
+                throw new UndeferrableValueException("Value 'ContainerService.PrivateRegistryAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// The public domain names to use with the container service, such as example.com
@@ -113,39 +183,67 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// service. If you don't specify public domain names, then you can use the default domain of the container service.
         /// Defined below.
         /// </summary>
-        [Input("publicDomainNames")]
+        [PolicyResourceProperty("publicDomainNames", "_mUnknown_PublicDomainNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ContainerServicePublicDomainNames> _mPublicDomainNames;
-
-        public Outputs.ContainerServicePublicDomainNames? PublicDomainNames => _mPublicDomainNames.GetValue("publicDomainNames");
+        private Outputs.ContainerServicePublicDomainNames? _mValue_PublicDomainNames;
+        private bool _mUnknown_PublicDomainNames;
+        public Outputs.ContainerServicePublicDomainNames? PublicDomainNames
+        {
+            get
+            {
+                if (!_mUnknown_PublicDomainNames) return _mValue_PublicDomainNames;
+                throw new UndeferrableValueException("Value 'ContainerService.PublicDomainNames' is not present");
+            }
+        }
 
         /// <summary>
         /// The Lightsail resource type of the container service (i.e., ContainerService).
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'ContainerService.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The scale specification for the container service. The scale specifies the allocated compute
         /// nodes of the container service.
         /// </summary>
-        [Input("scale")]
+        [PolicyResourceProperty("scale", "_mUnknown_Scale")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mScale;
-
-        public int? Scale => _mScale.GetValue("scale");
+        private int? _mValue_Scale;
+        private bool _mUnknown_Scale;
+        public int? Scale
+        {
+            get
+            {
+                if (!_mUnknown_Scale) return _mValue_Scale;
+                throw new UndeferrableValueException("Value 'ContainerService.Scale' is not present");
+            }
+        }
 
         /// <summary>
         /// The current state of the container service.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'ContainerService.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
@@ -153,31 +251,52 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// `default_tags` configuration block
         /// present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ContainerService.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider
         /// `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ContainerService.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The publicly accessible URL of the container service. If no public endpoint is specified in the
         /// currentDeployment, this URL returns a 404 response.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'ContainerService.Url' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lightsail/containerService:ContainerService")]
@@ -186,41 +305,69 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// A Boolean value indicating whether the container service is disabled. Defaults to `false`.
         /// </summary>
-        [Input("isDisabled")]
+        [PolicyResourceProperty("isDisabled", "_mUnknown_IsDisabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsDisabled;
-
-        public bool? IsDisabled => _mIsDisabled.GetValue("isDisabled");
+        private bool? _mValue_IsDisabled;
+        private bool _mUnknown_IsDisabled;
+        public bool? IsDisabled
+        {
+            get
+            {
+                if (!_mUnknown_IsDisabled) return _mValue_IsDisabled;
+                throw new UndeferrableValueException("Value 'ContainerServiceArgs.IsDisabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the container service. Names must be of length 1 to 63, and be
         /// unique within each AWS Region in your Lightsail account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ContainerServiceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The power specification for the container service. The power specifies the amount of memory,
         /// the number of vCPUs, and the monthly price of each node of the container service.
         /// Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
         /// </summary>
-        [Input("power")]
+        [PolicyResourceProperty("power", "_mUnknown_Power")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPower;
-
-        public string? Power => _mPower.GetValue("power");
+        private string? _mValue_Power;
+        private bool _mUnknown_Power;
+        public string? Power
+        {
+            get
+            {
+                if (!_mUnknown_Power) return _mValue_Power;
+                throw new UndeferrableValueException("Value 'ContainerServiceArgs.Power' is not present");
+            }
+        }
 
         /// <summary>
         /// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
         /// </summary>
-        [Input("privateRegistryAccess")]
+        [PolicyResourceProperty("privateRegistryAccess", "_mUnknown_PrivateRegistryAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ContainerServicePrivateRegistryAccessArgs> _mPrivateRegistryAccess;
-
-        public Inputs.ContainerServicePrivateRegistryAccessArgs? PrivateRegistryAccess => _mPrivateRegistryAccess.GetValue("privateRegistryAccess");
+        private Inputs.ContainerServicePrivateRegistryAccessArgs? _mValue_PrivateRegistryAccess;
+        private bool _mUnknown_PrivateRegistryAccess;
+        public Inputs.ContainerServicePrivateRegistryAccessArgs? PrivateRegistryAccess
+        {
+            get
+            {
+                if (!_mUnknown_PrivateRegistryAccess) return _mValue_PrivateRegistryAccess;
+                throw new UndeferrableValueException("Value 'ContainerServiceArgs.PrivateRegistryAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// The public domain names to use with the container service, such as example.com
@@ -229,21 +376,35 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// service. If you don't specify public domain names, then you can use the default domain of the container service.
         /// Defined below.
         /// </summary>
-        [Input("publicDomainNames")]
+        [PolicyResourceProperty("publicDomainNames", "_mUnknown_PublicDomainNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ContainerServicePublicDomainNamesArgs> _mPublicDomainNames;
-
-        public Inputs.ContainerServicePublicDomainNamesArgs? PublicDomainNames => _mPublicDomainNames.GetValue("publicDomainNames");
+        private Inputs.ContainerServicePublicDomainNamesArgs? _mValue_PublicDomainNames;
+        private bool _mUnknown_PublicDomainNames;
+        public Inputs.ContainerServicePublicDomainNamesArgs? PublicDomainNames
+        {
+            get
+            {
+                if (!_mUnknown_PublicDomainNames) return _mValue_PublicDomainNames;
+                throw new UndeferrableValueException("Value 'ContainerServiceArgs.PublicDomainNames' is not present");
+            }
+        }
 
         /// <summary>
         /// The scale specification for the container service. The scale specifies the allocated compute
         /// nodes of the container service.
         /// </summary>
-        [Input("scale")]
+        [PolicyResourceProperty("scale", "_mUnknown_Scale")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mScale;
-
-        public int? Scale => _mScale.GetValue("scale");
+        private int? _mValue_Scale;
+        private bool _mUnknown_Scale;
+        public int? Scale
+        {
+            get
+            {
+                if (!_mUnknown_Scale) return _mValue_Scale;
+                throw new UndeferrableValueException("Value 'ContainerServiceArgs.Scale' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
@@ -251,10 +412,17 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// `default_tags` configuration block
         /// present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ContainerServiceArgs.Tags' is not present");
+            }
+        }
     }
 }

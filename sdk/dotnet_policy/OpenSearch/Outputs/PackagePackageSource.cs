@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Outputs
         /// <summary>
         /// The name of the Amazon S3 bucket containing the package.
         /// </summary>
-        [Input("s3BucketName")]
+        [PolicyResourceProperty("s3BucketName", "_mUnknown_S3BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketName;
-
-        public string? S3BucketName => _mS3BucketName.GetValue("s3BucketName");
+        private string? _mValue_S3BucketName;
+        private bool _mUnknown_S3BucketName;
+        public string? S3BucketName
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketName) return _mValue_S3BucketName;
+                throw new UndeferrableValueException("Value 'PackagePackageSource.S3BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key (file name) of the package.
         /// </summary>
-        [Input("s3Key")]
+        [PolicyResourceProperty("s3Key", "_mUnknown_S3Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Key;
-
-        public string? S3Key => _mS3Key.GetValue("s3Key");
+        private string? _mValue_S3Key;
+        private bool _mUnknown_S3Key;
+        public string? S3Key
+        {
+            get
+            {
+                if (!_mUnknown_S3Key) return _mValue_S3Key;
+                throw new UndeferrableValueException("Value 'PackagePackageSource.S3Key' is not present");
+            }
+        }
     }
 }

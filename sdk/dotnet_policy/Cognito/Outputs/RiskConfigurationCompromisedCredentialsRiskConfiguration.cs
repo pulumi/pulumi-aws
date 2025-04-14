@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// The compromised credentials risk configuration actions. See details below.
         /// </summary>
-        [Input("actions")]
+        [PolicyResourceProperty("actions", "_mUnknown_Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RiskConfigurationCompromisedCredentialsRiskConfigurationActions> _mActions;
-
-        public Outputs.RiskConfigurationCompromisedCredentialsRiskConfigurationActions? Actions => _mActions.GetValue("actions");
+        private Outputs.RiskConfigurationCompromisedCredentialsRiskConfigurationActions? _mValue_Actions;
+        private bool _mUnknown_Actions;
+        public Outputs.RiskConfigurationCompromisedCredentialsRiskConfigurationActions? Actions
+        {
+            get
+            {
+                if (!_mUnknown_Actions) return _mValue_Actions;
+                throw new UndeferrableValueException("Value 'RiskConfigurationCompromisedCredentialsRiskConfiguration.Actions' is not present");
+            }
+        }
 
         /// <summary>
         /// Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
         /// </summary>
-        [Input("eventFilters")]
+        [PolicyResourceProperty("eventFilters", "_mUnknown_EventFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEventFilters;
-
-        public List<string>? EventFilters => _mEventFilters.GetValue("eventFilters");
+        private List<string>? _mValue_EventFilters;
+        private bool _mUnknown_EventFilters;
+        public List<string>? EventFilters
+        {
+            get
+            {
+                if (!_mUnknown_EventFilters) return _mValue_EventFilters;
+                throw new UndeferrableValueException("Value 'RiskConfigurationCompromisedCredentialsRiskConfiguration.EventFilters' is not present");
+            }
+        }
     }
 }

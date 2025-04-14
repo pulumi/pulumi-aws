@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         /// </summary>
-        [Input("instanceArn")]
+        [PolicyResourceProperty("instanceArn", "_mUnknown_InstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
-
-        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+        private string? _mValue_InstanceArn;
+        private bool _mUnknown_InstanceArn;
+        public string? InstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_InstanceArn) return _mValue_InstanceArn;
+                throw new UndeferrableValueException("Value 'ManagedPolicyAttachment.InstanceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
         /// </summary>
-        [Input("managedPolicyArn")]
+        [PolicyResourceProperty("managedPolicyArn", "_mUnknown_ManagedPolicyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManagedPolicyArn;
-
-        public string? ManagedPolicyArn => _mManagedPolicyArn.GetValue("managedPolicyArn");
+        private string? _mValue_ManagedPolicyArn;
+        private bool _mUnknown_ManagedPolicyArn;
+        public string? ManagedPolicyArn
+        {
+            get
+            {
+                if (!_mUnknown_ManagedPolicyArn) return _mValue_ManagedPolicyArn;
+                throw new UndeferrableValueException("Value 'ManagedPolicyAttachment.ManagedPolicyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the IAM Managed Policy.
         /// </summary>
-        [Input("managedPolicyName")]
+        [PolicyResourceProperty("managedPolicyName", "_mUnknown_ManagedPolicyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManagedPolicyName;
-
-        public string? ManagedPolicyName => _mManagedPolicyName.GetValue("managedPolicyName");
+        private string? _mValue_ManagedPolicyName;
+        private bool _mUnknown_ManagedPolicyName;
+        public string? ManagedPolicyName
+        {
+            get
+            {
+                if (!_mUnknown_ManagedPolicyName) return _mValue_ManagedPolicyName;
+                throw new UndeferrableValueException("Value 'ManagedPolicyAttachment.ManagedPolicyName' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Permission Set.
         /// </summary>
-        [Input("permissionSetArn")]
+        [PolicyResourceProperty("permissionSetArn", "_mUnknown_PermissionSetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionSetArn;
-
-        public string? PermissionSetArn => _mPermissionSetArn.GetValue("permissionSetArn");
+        private string? _mValue_PermissionSetArn;
+        private bool _mUnknown_PermissionSetArn;
+        public string? PermissionSetArn
+        {
+            get
+            {
+                if (!_mUnknown_PermissionSetArn) return _mValue_PermissionSetArn;
+                throw new UndeferrableValueException("Value 'ManagedPolicyAttachment.PermissionSetArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         /// </summary>
-        [Input("instanceArn")]
+        [PolicyResourceProperty("instanceArn", "_mUnknown_InstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
-
-        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+        private string? _mValue_InstanceArn;
+        private bool _mUnknown_InstanceArn;
+        public string? InstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_InstanceArn) return _mValue_InstanceArn;
+                throw new UndeferrableValueException("Value 'ManagedPolicyAttachmentArgs.InstanceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
         /// </summary>
-        [Input("managedPolicyArn")]
+        [PolicyResourceProperty("managedPolicyArn", "_mUnknown_ManagedPolicyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManagedPolicyArn;
-
-        public string? ManagedPolicyArn => _mManagedPolicyArn.GetValue("managedPolicyArn");
+        private string? _mValue_ManagedPolicyArn;
+        private bool _mUnknown_ManagedPolicyArn;
+        public string? ManagedPolicyArn
+        {
+            get
+            {
+                if (!_mUnknown_ManagedPolicyArn) return _mValue_ManagedPolicyArn;
+                throw new UndeferrableValueException("Value 'ManagedPolicyAttachmentArgs.ManagedPolicyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Permission Set.
         /// </summary>
-        [Input("permissionSetArn")]
+        [PolicyResourceProperty("permissionSetArn", "_mUnknown_PermissionSetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionSetArn;
-
-        public string? PermissionSetArn => _mPermissionSetArn.GetValue("permissionSetArn");
+        private string? _mValue_PermissionSetArn;
+        private bool _mUnknown_PermissionSetArn;
+        public string? PermissionSetArn
+        {
+            get
+            {
+                if (!_mUnknown_PermissionSetArn) return _mValue_PermissionSetArn;
+                throw new UndeferrableValueException("Value 'ManagedPolicyAttachmentArgs.PermissionSetArn' is not present");
+            }
+        }
     }
 }

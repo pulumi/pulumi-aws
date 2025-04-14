@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// Information about the Amazon S3 bucket containing the application code.
         /// </summary>
-        [Input("s3ContentLocation")]
+        [PolicyResourceProperty("s3ContentLocation", "_mUnknown_S3ContentLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation> _mS3ContentLocation;
-
-        public Outputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation? S3ContentLocation => _mS3ContentLocation.GetValue("s3ContentLocation");
+        private Outputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation? _mValue_S3ContentLocation;
+        private bool _mUnknown_S3ContentLocation;
+        public Outputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation? S3ContentLocation
+        {
+            get
+            {
+                if (!_mUnknown_S3ContentLocation) return _mValue_S3ContentLocation;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent.S3ContentLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// The text-format code for the application.
         /// </summary>
-        [Input("textContent")]
+        [PolicyResourceProperty("textContent", "_mUnknown_TextContent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTextContent;
-
-        public string? TextContent => _mTextContent.GetValue("textContent");
+        private string? _mValue_TextContent;
+        private bool _mUnknown_TextContent;
+        public string? TextContent
+        {
+            get
+            {
+                if (!_mUnknown_TextContent) return _mValue_TextContent;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent.TextContent' is not present");
+            }
+        }
     }
 }

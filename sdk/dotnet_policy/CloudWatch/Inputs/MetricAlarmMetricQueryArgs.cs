@@ -15,68 +15,117 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// The ID of the account where the metrics are located, if this is a cross-account alarm.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
         /// </summary>
-        [Input("expression")]
+        [PolicyResourceProperty("expression", "_mUnknown_Expression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpression;
-
-        public string? Expression => _mExpression.GetValue("expression");
+        private string? _mValue_Expression;
+        private bool _mUnknown_Expression;
+        public string? Expression
+        {
+            get
+            {
+                if (!_mUnknown_Expression) return _mValue_Expression;
+                throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryArgs.Expression' is not present");
+            }
+        }
 
         /// <summary>
         /// A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryArgs.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
         /// </summary>
-        [Input("label")]
+        [PolicyResourceProperty("label", "_mUnknown_Label")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLabel;
-
-        public string? Label => _mLabel.GetValue("label");
+        private string? _mValue_Label;
+        private bool _mUnknown_Label;
+        public string? Label
+        {
+            get
+            {
+                if (!_mUnknown_Label) return _mValue_Label;
+                throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryArgs.Label' is not present");
+            }
+        }
 
         /// <summary>
         /// The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
         /// </summary>
-        [Input("metric")]
+        [PolicyResourceProperty("metric", "_mUnknown_Metric")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MetricAlarmMetricQueryMetricArgs> _mMetric;
-
-        public Inputs.MetricAlarmMetricQueryMetricArgs? Metric => _mMetric.GetValue("metric");
+        private Inputs.MetricAlarmMetricQueryMetricArgs? _mValue_Metric;
+        private bool _mUnknown_Metric;
+        public Inputs.MetricAlarmMetricQueryMetricArgs? Metric
+        {
+            get
+            {
+                if (!_mUnknown_Metric) return _mValue_Metric;
+                throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryArgs.Metric' is not present");
+            }
+        }
 
         /// <summary>
         /// Granularity in seconds of returned data points.
         /// For metrics with regular resolution, valid values are any multiple of `60`.
         /// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
         /// </summary>
-        [Input("period")]
+        [PolicyResourceProperty("period", "_mUnknown_Period")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPeriod;
-
-        public int? Period => _mPeriod.GetValue("period");
+        private int? _mValue_Period;
+        private bool _mUnknown_Period;
+        public int? Period
+        {
+            get
+            {
+                if (!_mUnknown_Period) return _mValue_Period;
+                throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryArgs.Period' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
         /// 
         /// &gt; **NOTE:**  You must specify either `metric` or `expression`. Not both.
         /// </summary>
-        [Input("returnData")]
+        [PolicyResourceProperty("returnData", "_mUnknown_ReturnData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReturnData;
-
-        public bool? ReturnData => _mReturnData.GetValue("returnData");
+        private bool? _mValue_ReturnData;
+        private bool _mUnknown_ReturnData;
+        public bool? ReturnData
+        {
+            get
+            {
+                if (!_mUnknown_ReturnData) return _mValue_ReturnData;
+                throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryArgs.ReturnData' is not present");
+            }
+        }
     }
 }

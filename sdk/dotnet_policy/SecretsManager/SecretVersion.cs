@@ -16,58 +16,100 @@ namespace Pulumi.PolicyPacks.Aws.SecretsManager
         /// <summary>
         /// The ARN of the secret.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'SecretVersion.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
         /// </summary>
-        [Input("secretBinary")]
+        [PolicyResourceProperty("secretBinary", "_mUnknown_SecretBinary")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretBinary;
-
-        public string? SecretBinary => _mSecretBinary.GetValue("secretBinary");
+        private string? _mValue_SecretBinary;
+        private bool _mUnknown_SecretBinary;
+        public string? SecretBinary
+        {
+            get
+            {
+                if (!_mUnknown_SecretBinary) return _mValue_SecretBinary;
+                throw new UndeferrableValueException("Value 'SecretVersion.SecretBinary' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         /// </summary>
-        [Input("secretId")]
+        [PolicyResourceProperty("secretId", "_mUnknown_SecretId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretId;
-
-        public string? SecretId => _mSecretId.GetValue("secretId");
+        private string? _mValue_SecretId;
+        private bool _mUnknown_SecretId;
+        public string? SecretId
+        {
+            get
+            {
+                if (!_mUnknown_SecretId) return _mValue_SecretId;
+                throw new UndeferrableValueException("Value 'SecretVersion.SecretId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
         /// </summary>
-        [Input("secretString")]
+        [PolicyResourceProperty("secretString", "_mUnknown_SecretString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretString;
-
-        public string? SecretString => _mSecretString.GetValue("secretString");
+        private string? _mValue_SecretString;
+        private bool _mUnknown_SecretString;
+        public string? SecretString
+        {
+            get
+            {
+                if (!_mUnknown_SecretString) return _mValue_SecretString;
+                throw new UndeferrableValueException("Value 'SecretVersion.SecretString' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier of the version of the secret.
         /// </summary>
-        [Input("versionId")]
+        [PolicyResourceProperty("versionId", "_mUnknown_VersionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionId;
-
-        public string? VersionId => _mVersionId.GetValue("versionId");
+        private string? _mValue_VersionId;
+        private bool _mUnknown_VersionId;
+        public string? VersionId
+        {
+            get
+            {
+                if (!_mUnknown_VersionId) return _mValue_VersionId;
+                throw new UndeferrableValueException("Value 'SecretVersion.VersionId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
         /// 
         /// &gt; **NOTE:** If `version_stages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
         /// </summary>
-        [Input("versionStages")]
+        [PolicyResourceProperty("versionStages", "_mUnknown_VersionStages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVersionStages;
-
-        public List<string>? VersionStages => _mVersionStages.GetValue("versionStages");
+        private List<string>? _mValue_VersionStages;
+        private bool _mUnknown_VersionStages;
+        public List<string>? VersionStages
+        {
+            get
+            {
+                if (!_mUnknown_VersionStages) return _mValue_VersionStages;
+                throw new UndeferrableValueException("Value 'SecretVersion.VersionStages' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:secretsmanager/secretVersion:SecretVersion")]
@@ -76,39 +118,67 @@ namespace Pulumi.PolicyPacks.Aws.SecretsManager
         /// <summary>
         /// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
         /// </summary>
-        [Input("secretBinary")]
+        [PolicyResourceProperty("secretBinary", "_mUnknown_SecretBinary")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretBinary;
-
-        public string? SecretBinary => _mSecretBinary.GetValue("secretBinary");
+        private string? _mValue_SecretBinary;
+        private bool _mUnknown_SecretBinary;
+        public string? SecretBinary
+        {
+            get
+            {
+                if (!_mUnknown_SecretBinary) return _mValue_SecretBinary;
+                throw new UndeferrableValueException("Value 'SecretVersionArgs.SecretBinary' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         /// </summary>
-        [Input("secretId")]
+        [PolicyResourceProperty("secretId", "_mUnknown_SecretId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretId;
-
-        public string? SecretId => _mSecretId.GetValue("secretId");
+        private string? _mValue_SecretId;
+        private bool _mUnknown_SecretId;
+        public string? SecretId
+        {
+            get
+            {
+                if (!_mUnknown_SecretId) return _mValue_SecretId;
+                throw new UndeferrableValueException("Value 'SecretVersionArgs.SecretId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
         /// </summary>
-        [Input("secretString")]
+        [PolicyResourceProperty("secretString", "_mUnknown_SecretString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretString;
-
-        public string? SecretString => _mSecretString.GetValue("secretString");
+        private string? _mValue_SecretString;
+        private bool _mUnknown_SecretString;
+        public string? SecretString
+        {
+            get
+            {
+                if (!_mUnknown_SecretString) return _mValue_SecretString;
+                throw new UndeferrableValueException("Value 'SecretVersionArgs.SecretString' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
         /// 
         /// &gt; **NOTE:** If `version_stages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
         /// </summary>
-        [Input("versionStages")]
+        [PolicyResourceProperty("versionStages", "_mUnknown_VersionStages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVersionStages;
-
-        public List<string>? VersionStages => _mVersionStages.GetValue("versionStages");
+        private List<string>? _mValue_VersionStages;
+        private bool _mUnknown_VersionStages;
+        public List<string>? VersionStages
+        {
+            get
+            {
+                if (!_mUnknown_VersionStages) return _mValue_VersionStages;
+                throw new UndeferrableValueException("Value 'SecretVersionArgs.VersionStages' is not present");
+            }
+        }
     }
 }

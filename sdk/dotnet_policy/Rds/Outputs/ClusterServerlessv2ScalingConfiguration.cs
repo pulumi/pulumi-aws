@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Rds.Outputs
         /// <summary>
         /// Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
         /// </summary>
-        [Input("maxCapacity")]
+        [PolicyResourceProperty("maxCapacity", "_mUnknown_MaxCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mMaxCapacity;
-
-        public double? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
+        private double? _mValue_MaxCapacity;
+        private bool _mUnknown_MaxCapacity;
+        public double? MaxCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MaxCapacity) return _mValue_MaxCapacity;
+                throw new UndeferrableValueException("Value 'ClusterServerlessv2ScalingConfiguration.MaxCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
         /// </summary>
-        [Input("minCapacity")]
+        [PolicyResourceProperty("minCapacity", "_mUnknown_MinCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mMinCapacity;
-
-        public double? MinCapacity => _mMinCapacity.GetValue("minCapacity");
+        private double? _mValue_MinCapacity;
+        private bool _mUnknown_MinCapacity;
+        public double? MinCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MinCapacity) return _mValue_MinCapacity;
+                throw new UndeferrableValueException("Value 'ClusterServerlessv2ScalingConfiguration.MinCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
         /// </summary>
-        [Input("secondsUntilAutoPause")]
+        [PolicyResourceProperty("secondsUntilAutoPause", "_mUnknown_SecondsUntilAutoPause")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSecondsUntilAutoPause;
-
-        public int? SecondsUntilAutoPause => _mSecondsUntilAutoPause.GetValue("secondsUntilAutoPause");
+        private int? _mValue_SecondsUntilAutoPause;
+        private bool _mUnknown_SecondsUntilAutoPause;
+        public int? SecondsUntilAutoPause
+        {
+            get
+            {
+                if (!_mUnknown_SecondsUntilAutoPause) return _mValue_SecondsUntilAutoPause;
+                throw new UndeferrableValueException("Value 'ClusterServerlessv2ScalingConfiguration.SecondsUntilAutoPause' is not present");
+            }
+        }
     }
 }

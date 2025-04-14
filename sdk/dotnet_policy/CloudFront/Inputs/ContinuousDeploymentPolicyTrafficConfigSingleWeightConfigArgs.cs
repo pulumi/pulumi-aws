@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
         /// </summary>
-        [Input("sessionStickinessConfig")]
+        [PolicyResourceProperty("sessionStickinessConfig", "_mUnknown_SessionStickinessConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs> _mSessionStickinessConfig;
-
-        public Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs? SessionStickinessConfig => _mSessionStickinessConfig.GetValue("sessionStickinessConfig");
+        private Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs? _mValue_SessionStickinessConfig;
+        private bool _mUnknown_SessionStickinessConfig;
+        public Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs? SessionStickinessConfig
+        {
+            get
+            {
+                if (!_mUnknown_SessionStickinessConfig) return _mValue_SessionStickinessConfig;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs.SessionStickinessConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
         /// </summary>
-        [Input("weight")]
+        [PolicyResourceProperty("weight", "_mUnknown_Weight")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mWeight;
-
-        public double? Weight => _mWeight.GetValue("weight");
+        private double? _mValue_Weight;
+        private bool _mUnknown_Weight;
+        public double? Weight
+        {
+            get
+            {
+                if (!_mUnknown_Weight) return _mValue_Weight;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs.Weight' is not present");
+            }
+        }
     }
 }

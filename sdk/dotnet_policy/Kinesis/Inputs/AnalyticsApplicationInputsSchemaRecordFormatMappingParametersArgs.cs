@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// Mapping information when the record format uses delimiters.
         /// See CSV Mapping Parameters below for more details.
         /// </summary>
-        [Input("csv")]
+        [PolicyResourceProperty("csv", "_mUnknown_Csv")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs> _mCsv;
-
-        public Inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs? Csv => _mCsv.GetValue("csv");
+        private Inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs? _mValue_Csv;
+        private bool _mUnknown_Csv;
+        public Inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs? Csv
+        {
+            get
+            {
+                if (!_mUnknown_Csv) return _mValue_Csv;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs.Csv' is not present");
+            }
+        }
 
         /// <summary>
         /// Mapping information when JSON is the record format on the streaming source.
         /// See JSON Mapping Parameters below for more details.
         /// </summary>
-        [Input("json")]
+        [PolicyResourceProperty("json", "_mUnknown_Json")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs> _mJson;
-
-        public Inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs? Json => _mJson.GetValue("json");
+        private Inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs? _mValue_Json;
+        private bool _mUnknown_Json;
+        public Inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs? Json
+        {
+            get
+            {
+                if (!_mUnknown_Json) return _mValue_Json;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs.Json' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// A unique identifier for the AWS Glue Data Catalog.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'MLTransformInputRecordTable.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the connection to the AWS Glue Data Catalog.
         /// </summary>
-        [Input("connectionName")]
+        [PolicyResourceProperty("connectionName", "_mUnknown_ConnectionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionName;
-
-        public string? ConnectionName => _mConnectionName.GetValue("connectionName");
+        private string? _mValue_ConnectionName;
+        private bool _mUnknown_ConnectionName;
+        public string? ConnectionName
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionName) return _mValue_ConnectionName;
+                throw new UndeferrableValueException("Value 'MLTransformInputRecordTable.ConnectionName' is not present");
+            }
+        }
 
         /// <summary>
         /// A database name in the AWS Glue Data Catalog.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'MLTransformInputRecordTable.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// A table name in the AWS Glue Data Catalog.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'MLTransformInputRecordTable.TableName' is not present");
+            }
+        }
     }
 }

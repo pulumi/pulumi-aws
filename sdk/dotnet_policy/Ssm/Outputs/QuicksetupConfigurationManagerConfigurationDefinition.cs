@@ -12,52 +12,94 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Outputs
 {
     public sealed class QuicksetupConfigurationManagerConfigurationDefinition
     {
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerConfigurationDefinition.Id' is not present");
+            }
+        }
 
-        public string? Id => _mId.GetValue("id");
-
-        [Input("localDeploymentAdministrationRoleArn")]
+        [PolicyResourceProperty("localDeploymentAdministrationRoleArn", "_mUnknown_LocalDeploymentAdministrationRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalDeploymentAdministrationRoleArn;
-
-        public string? LocalDeploymentAdministrationRoleArn => _mLocalDeploymentAdministrationRoleArn.GetValue("localDeploymentAdministrationRoleArn");
+        private string? _mValue_LocalDeploymentAdministrationRoleArn;
+        private bool _mUnknown_LocalDeploymentAdministrationRoleArn;
+        public string? LocalDeploymentAdministrationRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_LocalDeploymentAdministrationRoleArn) return _mValue_LocalDeploymentAdministrationRoleArn;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerConfigurationDefinition.LocalDeploymentAdministrationRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the IAM role used to deploy local configurations.
         /// </summary>
-        [Input("localDeploymentExecutionRoleName")]
+        [PolicyResourceProperty("localDeploymentExecutionRoleName", "_mUnknown_LocalDeploymentExecutionRoleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalDeploymentExecutionRoleName;
-
-        public string? LocalDeploymentExecutionRoleName => _mLocalDeploymentExecutionRoleName.GetValue("localDeploymentExecutionRoleName");
+        private string? _mValue_LocalDeploymentExecutionRoleName;
+        private bool _mUnknown_LocalDeploymentExecutionRoleName;
+        public string? LocalDeploymentExecutionRoleName
+        {
+            get
+            {
+                if (!_mUnknown_LocalDeploymentExecutionRoleName) return _mValue_LocalDeploymentExecutionRoleName;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerConfigurationDefinition.LocalDeploymentExecutionRoleName' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerConfigurationDefinition.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the Quick Setup configuration.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerConfigurationDefinition.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the Quick Setup type to use.
         /// </summary>
-        [Input("typeVersion")]
+        [PolicyResourceProperty("typeVersion", "_mUnknown_TypeVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTypeVersion;
-
-        public string? TypeVersion => _mTypeVersion.GetValue("typeVersion");
+        private string? _mValue_TypeVersion;
+        private bool _mUnknown_TypeVersion;
+        public string? TypeVersion
+        {
+            get
+            {
+                if (!_mUnknown_TypeVersion) return _mValue_TypeVersion;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerConfigurationDefinition.TypeVersion' is not present");
+            }
+        }
     }
 }

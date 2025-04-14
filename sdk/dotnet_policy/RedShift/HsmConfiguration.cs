@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// Amazon Resource Name (ARN) of the Hsm Client Certificate.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'HsmConfiguration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A text description of the HSM configuration to be created.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'HsmConfiguration.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier to be assigned to the new Amazon Redshift HSM configuration.
         /// </summary>
-        [Input("hsmConfigurationIdentifier")]
+        [PolicyResourceProperty("hsmConfigurationIdentifier", "_mUnknown_HsmConfigurationIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHsmConfigurationIdentifier;
-
-        public string? HsmConfigurationIdentifier => _mHsmConfigurationIdentifier.GetValue("hsmConfigurationIdentifier");
+        private string? _mValue_HsmConfigurationIdentifier;
+        private bool _mUnknown_HsmConfigurationIdentifier;
+        public string? HsmConfigurationIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_HsmConfigurationIdentifier) return _mValue_HsmConfigurationIdentifier;
+                throw new UndeferrableValueException("Value 'HsmConfiguration.HsmConfigurationIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address that the Amazon Redshift cluster must use to access the HSM.
         /// </summary>
-        [Input("hsmIpAddress")]
+        [PolicyResourceProperty("hsmIpAddress", "_mUnknown_HsmIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHsmIpAddress;
-
-        public string? HsmIpAddress => _mHsmIpAddress.GetValue("hsmIpAddress");
+        private string? _mValue_HsmIpAddress;
+        private bool _mUnknown_HsmIpAddress;
+        public string? HsmIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_HsmIpAddress) return _mValue_HsmIpAddress;
+                throw new UndeferrableValueException("Value 'HsmConfiguration.HsmIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
         /// </summary>
-        [Input("hsmPartitionName")]
+        [PolicyResourceProperty("hsmPartitionName", "_mUnknown_HsmPartitionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHsmPartitionName;
-
-        public string? HsmPartitionName => _mHsmPartitionName.GetValue("hsmPartitionName");
+        private string? _mValue_HsmPartitionName;
+        private bool _mUnknown_HsmPartitionName;
+        public string? HsmPartitionName
+        {
+            get
+            {
+                if (!_mUnknown_HsmPartitionName) return _mValue_HsmPartitionName;
+                throw new UndeferrableValueException("Value 'HsmConfiguration.HsmPartitionName' is not present");
+            }
+        }
 
         /// <summary>
         /// The password required to access the HSM partition.
         /// </summary>
-        [Input("hsmPartitionPassword")]
+        [PolicyResourceProperty("hsmPartitionPassword", "_mUnknown_HsmPartitionPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHsmPartitionPassword;
-
-        public string? HsmPartitionPassword => _mHsmPartitionPassword.GetValue("hsmPartitionPassword");
+        private string? _mValue_HsmPartitionPassword;
+        private bool _mUnknown_HsmPartitionPassword;
+        public string? HsmPartitionPassword
+        {
+            get
+            {
+                if (!_mUnknown_HsmPartitionPassword) return _mValue_HsmPartitionPassword;
+                throw new UndeferrableValueException("Value 'HsmConfiguration.HsmPartitionPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
         /// </summary>
-        [Input("hsmServerPublicCertificate")]
+        [PolicyResourceProperty("hsmServerPublicCertificate", "_mUnknown_HsmServerPublicCertificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHsmServerPublicCertificate;
-
-        public string? HsmServerPublicCertificate => _mHsmServerPublicCertificate.GetValue("hsmServerPublicCertificate");
+        private string? _mValue_HsmServerPublicCertificate;
+        private bool _mUnknown_HsmServerPublicCertificate;
+        public string? HsmServerPublicCertificate
+        {
+            get
+            {
+                if (!_mUnknown_HsmServerPublicCertificate) return _mValue_HsmServerPublicCertificate;
+                throw new UndeferrableValueException("Value 'HsmConfiguration.HsmServerPublicCertificate' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'HsmConfiguration.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'HsmConfiguration.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshift/hsmConfiguration:HsmConfiguration")]
@@ -101,64 +164,113 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// A text description of the HSM configuration to be created.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'HsmConfigurationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier to be assigned to the new Amazon Redshift HSM configuration.
         /// </summary>
-        [Input("hsmConfigurationIdentifier")]
+        [PolicyResourceProperty("hsmConfigurationIdentifier", "_mUnknown_HsmConfigurationIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHsmConfigurationIdentifier;
-
-        public string? HsmConfigurationIdentifier => _mHsmConfigurationIdentifier.GetValue("hsmConfigurationIdentifier");
+        private string? _mValue_HsmConfigurationIdentifier;
+        private bool _mUnknown_HsmConfigurationIdentifier;
+        public string? HsmConfigurationIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_HsmConfigurationIdentifier) return _mValue_HsmConfigurationIdentifier;
+                throw new UndeferrableValueException("Value 'HsmConfigurationArgs.HsmConfigurationIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address that the Amazon Redshift cluster must use to access the HSM.
         /// </summary>
-        [Input("hsmIpAddress")]
+        [PolicyResourceProperty("hsmIpAddress", "_mUnknown_HsmIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHsmIpAddress;
-
-        public string? HsmIpAddress => _mHsmIpAddress.GetValue("hsmIpAddress");
+        private string? _mValue_HsmIpAddress;
+        private bool _mUnknown_HsmIpAddress;
+        public string? HsmIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_HsmIpAddress) return _mValue_HsmIpAddress;
+                throw new UndeferrableValueException("Value 'HsmConfigurationArgs.HsmIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
         /// </summary>
-        [Input("hsmPartitionName")]
+        [PolicyResourceProperty("hsmPartitionName", "_mUnknown_HsmPartitionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHsmPartitionName;
-
-        public string? HsmPartitionName => _mHsmPartitionName.GetValue("hsmPartitionName");
+        private string? _mValue_HsmPartitionName;
+        private bool _mUnknown_HsmPartitionName;
+        public string? HsmPartitionName
+        {
+            get
+            {
+                if (!_mUnknown_HsmPartitionName) return _mValue_HsmPartitionName;
+                throw new UndeferrableValueException("Value 'HsmConfigurationArgs.HsmPartitionName' is not present");
+            }
+        }
 
         /// <summary>
         /// The password required to access the HSM partition.
         /// </summary>
-        [Input("hsmPartitionPassword")]
+        [PolicyResourceProperty("hsmPartitionPassword", "_mUnknown_HsmPartitionPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHsmPartitionPassword;
-
-        public string? HsmPartitionPassword => _mHsmPartitionPassword.GetValue("hsmPartitionPassword");
+        private string? _mValue_HsmPartitionPassword;
+        private bool _mUnknown_HsmPartitionPassword;
+        public string? HsmPartitionPassword
+        {
+            get
+            {
+                if (!_mUnknown_HsmPartitionPassword) return _mValue_HsmPartitionPassword;
+                throw new UndeferrableValueException("Value 'HsmConfigurationArgs.HsmPartitionPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
         /// </summary>
-        [Input("hsmServerPublicCertificate")]
+        [PolicyResourceProperty("hsmServerPublicCertificate", "_mUnknown_HsmServerPublicCertificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHsmServerPublicCertificate;
-
-        public string? HsmServerPublicCertificate => _mHsmServerPublicCertificate.GetValue("hsmServerPublicCertificate");
+        private string? _mValue_HsmServerPublicCertificate;
+        private bool _mUnknown_HsmServerPublicCertificate;
+        public string? HsmServerPublicCertificate
+        {
+            get
+            {
+                if (!_mUnknown_HsmServerPublicCertificate) return _mValue_HsmServerPublicCertificate;
+                throw new UndeferrableValueException("Value 'HsmConfigurationArgs.HsmServerPublicCertificate' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'HsmConfigurationArgs.Tags' is not present");
+            }
+        }
     }
 }

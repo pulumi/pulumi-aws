@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
         /// </summary>
-        [Input("externalId")]
+        [PolicyResourceProperty("externalId", "_mUnknown_ExternalId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExternalId;
-
-        public string? ExternalId => _mExternalId.GetValue("externalId");
+        private string? _mValue_ExternalId;
+        private bool _mUnknown_ExternalId;
+        public string? ExternalId
+        {
+            get
+            {
+                if (!_mUnknown_ExternalId) return _mValue_ExternalId;
+                throw new UndeferrableValueException("Value 'UserPoolSmsConfiguration.ExternalId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
         /// </summary>
-        [Input("snsCallerArn")]
+        [PolicyResourceProperty("snsCallerArn", "_mUnknown_SnsCallerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnsCallerArn;
-
-        public string? SnsCallerArn => _mSnsCallerArn.GetValue("snsCallerArn");
+        private string? _mValue_SnsCallerArn;
+        private bool _mUnknown_SnsCallerArn;
+        public string? SnsCallerArn
+        {
+            get
+            {
+                if (!_mUnknown_SnsCallerArn) return _mValue_SnsCallerArn;
+                throw new UndeferrableValueException("Value 'UserPoolSmsConfiguration.SnsCallerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
         /// </summary>
-        [Input("snsRegion")]
+        [PolicyResourceProperty("snsRegion", "_mUnknown_SnsRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnsRegion;
-
-        public string? SnsRegion => _mSnsRegion.GetValue("snsRegion");
+        private string? _mValue_SnsRegion;
+        private bool _mUnknown_SnsRegion;
+        public string? SnsRegion
+        {
+            get
+            {
+                if (!_mUnknown_SnsRegion) return _mValue_SnsRegion;
+                throw new UndeferrableValueException("Value 'UserPoolSmsConfiguration.SnsRegion' is not present");
+            }
+        }
     }
 }

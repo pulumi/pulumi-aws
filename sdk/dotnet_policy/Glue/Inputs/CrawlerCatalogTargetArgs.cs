@@ -15,20 +15,34 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
         /// </summary>
-        [Input("connectionName")]
+        [PolicyResourceProperty("connectionName", "_mUnknown_ConnectionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionName;
-
-        public string? ConnectionName => _mConnectionName.GetValue("connectionName");
+        private string? _mValue_ConnectionName;
+        private bool _mUnknown_ConnectionName;
+        public string? ConnectionName
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionName) return _mValue_ConnectionName;
+                throw new UndeferrableValueException("Value 'CrawlerCatalogTargetArgs.ConnectionName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Glue database to be synchronized.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'CrawlerCatalogTargetArgs.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// A valid Amazon SQS ARN.
@@ -37,28 +51,49 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// 
         /// &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
         /// </summary>
-        [Input("dlqEventQueueArn")]
+        [PolicyResourceProperty("dlqEventQueueArn", "_mUnknown_DlqEventQueueArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDlqEventQueueArn;
-
-        public string? DlqEventQueueArn => _mDlqEventQueueArn.GetValue("dlqEventQueueArn");
+        private string? _mValue_DlqEventQueueArn;
+        private bool _mUnknown_DlqEventQueueArn;
+        public string? DlqEventQueueArn
+        {
+            get
+            {
+                if (!_mUnknown_DlqEventQueueArn) return _mValue_DlqEventQueueArn;
+                throw new UndeferrableValueException("Value 'CrawlerCatalogTargetArgs.DlqEventQueueArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A valid Amazon SQS ARN.
         /// </summary>
-        [Input("eventQueueArn")]
+        [PolicyResourceProperty("eventQueueArn", "_mUnknown_EventQueueArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventQueueArn;
-
-        public string? EventQueueArn => _mEventQueueArn.GetValue("eventQueueArn");
+        private string? _mValue_EventQueueArn;
+        private bool _mUnknown_EventQueueArn;
+        public string? EventQueueArn
+        {
+            get
+            {
+                if (!_mUnknown_EventQueueArn) return _mValue_EventQueueArn;
+                throw new UndeferrableValueException("Value 'CrawlerCatalogTargetArgs.EventQueueArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of catalog tables to be synchronized.
         /// </summary>
-        [Input("tables")]
+        [PolicyResourceProperty("tables", "_mUnknown_Tables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTables;
-
-        public List<string>? Tables => _mTables.GetValue("tables");
+        private List<string>? _mValue_Tables;
+        private bool _mUnknown_Tables;
+        public List<string>? Tables
+        {
+            get
+            {
+                if (!_mUnknown_Tables) return _mValue_Tables;
+                throw new UndeferrableValueException("Value 'CrawlerCatalogTargetArgs.Tables' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The arguments for the container when you're running the application.
         /// </summary>
-        [Input("containerArguments")]
+        [PolicyResourceProperty("containerArguments", "_mUnknown_ContainerArguments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mContainerArguments;
-
-        public List<string>? ContainerArguments => _mContainerArguments.GetValue("containerArguments");
+        private List<string>? _mValue_ContainerArguments;
+        private bool _mUnknown_ContainerArguments;
+        public List<string>? ContainerArguments
+        {
+            get
+            {
+                if (!_mUnknown_ContainerArguments) return _mValue_ContainerArguments;
+                throw new UndeferrableValueException("Value 'AppImageConfigCodeEditorAppImageConfigContainerConfig.ContainerArguments' is not present");
+            }
+        }
 
         /// <summary>
         /// The entrypoint used to run the application in the container.
         /// </summary>
-        [Input("containerEntrypoints")]
+        [PolicyResourceProperty("containerEntrypoints", "_mUnknown_ContainerEntrypoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mContainerEntrypoints;
-
-        public List<string>? ContainerEntrypoints => _mContainerEntrypoints.GetValue("containerEntrypoints");
+        private List<string>? _mValue_ContainerEntrypoints;
+        private bool _mUnknown_ContainerEntrypoints;
+        public List<string>? ContainerEntrypoints
+        {
+            get
+            {
+                if (!_mUnknown_ContainerEntrypoints) return _mValue_ContainerEntrypoints;
+                throw new UndeferrableValueException("Value 'AppImageConfigCodeEditorAppImageConfigContainerConfig.ContainerEntrypoints' is not present");
+            }
+        }
 
         /// <summary>
         /// The environment variables to set in the container.
         /// </summary>
-        [Input("containerEnvironmentVariables")]
+        [PolicyResourceProperty("containerEnvironmentVariables", "_mUnknown_ContainerEnvironmentVariables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mContainerEnvironmentVariables;
-
-        public Dictionary<string, string>? ContainerEnvironmentVariables => _mContainerEnvironmentVariables.GetValue("containerEnvironmentVariables");
+        private Dictionary<string, string>? _mValue_ContainerEnvironmentVariables;
+        private bool _mUnknown_ContainerEnvironmentVariables;
+        public Dictionary<string, string>? ContainerEnvironmentVariables
+        {
+            get
+            {
+                if (!_mUnknown_ContainerEnvironmentVariables) return _mValue_ContainerEnvironmentVariables;
+                throw new UndeferrableValueException("Value 'AppImageConfigCodeEditorAppImageConfigContainerConfig.ContainerEnvironmentVariables' is not present");
+            }
+        }
     }
 }

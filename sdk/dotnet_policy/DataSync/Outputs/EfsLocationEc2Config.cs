@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.DataSync.Outputs
         /// <summary>
         /// List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
         /// </summary>
-        [Input("securityGroupArns")]
+        [PolicyResourceProperty("securityGroupArns", "_mUnknown_SecurityGroupArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupArns;
-
-        public List<string>? SecurityGroupArns => _mSecurityGroupArns.GetValue("securityGroupArns");
+        private List<string>? _mValue_SecurityGroupArns;
+        private bool _mUnknown_SecurityGroupArns;
+        public List<string>? SecurityGroupArns
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupArns) return _mValue_SecurityGroupArns;
+                throw new UndeferrableValueException("Value 'EfsLocationEc2Config.SecurityGroupArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
         /// </summary>
-        [Input("subnetArn")]
+        [PolicyResourceProperty("subnetArn", "_mUnknown_SubnetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetArn;
-
-        public string? SubnetArn => _mSubnetArn.GetValue("subnetArn");
+        private string? _mValue_SubnetArn;
+        private bool _mUnknown_SubnetArn;
+        public string? SubnetArn
+        {
+            get
+            {
+                if (!_mUnknown_SubnetArn) return _mValue_SubnetArn;
+                throw new UndeferrableValueException("Value 'EfsLocationEc2Config.SubnetArn' is not present");
+            }
+        }
     }
 }

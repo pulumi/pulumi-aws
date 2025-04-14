@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace.Inputs
 {
     public sealed class KxVolumeAttachedClusterArgs
     {
-        [Input("clusterName")]
+        [PolicyResourceProperty("clusterName", "_mUnknown_ClusterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
+        private string? _mValue_ClusterName;
+        private bool _mUnknown_ClusterName;
+        public string? ClusterName
+        {
+            get
+            {
+                if (!_mUnknown_ClusterName) return _mValue_ClusterName;
+                throw new UndeferrableValueException("Value 'KxVolumeAttachedClusterArgs.ClusterName' is not present");
+            }
+        }
 
-        public string? ClusterName => _mClusterName.GetValue("clusterName");
-
-        [Input("clusterStatus")]
+        [PolicyResourceProperty("clusterStatus", "_mUnknown_ClusterStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterStatus;
+        private string? _mValue_ClusterStatus;
+        private bool _mUnknown_ClusterStatus;
+        public string? ClusterStatus
+        {
+            get
+            {
+                if (!_mUnknown_ClusterStatus) return _mValue_ClusterStatus;
+                throw new UndeferrableValueException("Value 'KxVolumeAttachedClusterArgs.ClusterStatus' is not present");
+            }
+        }
 
-        public string? ClusterStatus => _mClusterStatus.GetValue("clusterStatus");
-
-        [Input("clusterType")]
+        [PolicyResourceProperty("clusterType", "_mUnknown_ClusterType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterType;
-
-        public string? ClusterType => _mClusterType.GetValue("clusterType");
+        private string? _mValue_ClusterType;
+        private bool _mUnknown_ClusterType;
+        public string? ClusterType
+        {
+            get
+            {
+                if (!_mUnknown_ClusterType) return _mValue_ClusterType;
+                throw new UndeferrableValueException("Value 'KxVolumeAttachedClusterArgs.ClusterType' is not present");
+            }
+        }
     }
 }

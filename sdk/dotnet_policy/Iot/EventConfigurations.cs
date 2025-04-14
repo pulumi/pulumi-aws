@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
         /// </summary>
-        [Input("eventConfigurations")]
+        [PolicyResourceProperty("eventConfigurations", "_mUnknown_Configurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, bool>> _mConfigurations;
-
-        public Dictionary<string, bool>? Configurations => _mConfigurations.GetValue("eventConfigurations");
+        private Dictionary<string, bool>? _mValue_Configurations;
+        private bool _mUnknown_Configurations;
+        public Dictionary<string, bool>? Configurations
+        {
+            get
+            {
+                if (!_mUnknown_Configurations) return _mValue_Configurations;
+                throw new UndeferrableValueException("Value 'EventConfigurations.Configurations' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iot/eventConfigurations:EventConfigurations")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
         /// </summary>
-        [Input("eventConfigurations")]
+        [PolicyResourceProperty("eventConfigurations", "_mUnknown_Configurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, bool>> _mConfigurations;
-
-        public Dictionary<string, bool>? Configurations => _mConfigurations.GetValue("eventConfigurations");
+        private Dictionary<string, bool>? _mValue_Configurations;
+        private bool _mUnknown_Configurations;
+        public Dictionary<string, bool>? Configurations
+        {
+            get
+            {
+                if (!_mUnknown_Configurations) return _mValue_Configurations;
+                throw new UndeferrableValueException("Value 'EventConfigurationsArgs.Configurations' is not present");
+            }
+        }
     }
 }

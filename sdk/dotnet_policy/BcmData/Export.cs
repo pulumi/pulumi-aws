@@ -16,29 +16,57 @@ namespace Pulumi.PolicyPacks.Aws.BcmData
         /// <summary>
         /// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
         /// </summary>
-        [Input("export")]
+        [PolicyResourceProperty("export", "_mUnknown_ExportDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ExportExport> _mExportDetails;
+        private Outputs.ExportExport? _mValue_ExportDetails;
+        private bool _mUnknown_ExportDetails;
+        public Outputs.ExportExport? ExportDetails
+        {
+            get
+            {
+                if (!_mUnknown_ExportDetails) return _mValue_ExportDetails;
+                throw new UndeferrableValueException("Value 'Export.ExportDetails' is not present");
+            }
+        }
 
-        public Outputs.ExportExport? ExportDetails => _mExportDetails.GetValue("export");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Export.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Export.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ExportTimeouts> _mTimeouts;
-
-        public Outputs.ExportTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.ExportTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.ExportTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'Export.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:bcmdata/export:Export")]
@@ -47,22 +75,43 @@ namespace Pulumi.PolicyPacks.Aws.BcmData
         /// <summary>
         /// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
         /// </summary>
-        [Input("export")]
+        [PolicyResourceProperty("export", "_mUnknown_ExportDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ExportExportArgs> _mExportDetails;
+        private Inputs.ExportExportArgs? _mValue_ExportDetails;
+        private bool _mUnknown_ExportDetails;
+        public Inputs.ExportExportArgs? ExportDetails
+        {
+            get
+            {
+                if (!_mUnknown_ExportDetails) return _mValue_ExportDetails;
+                throw new UndeferrableValueException("Value 'ExportArgs.ExportDetails' is not present");
+            }
+        }
 
-        public Inputs.ExportExportArgs? ExportDetails => _mExportDetails.GetValue("export");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ExportArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ExportTimeoutsArgs> _mTimeouts;
-
-        public Inputs.ExportTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.ExportTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.ExportTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ExportArgs.Timeouts' is not present");
+            }
+        }
     }
 }

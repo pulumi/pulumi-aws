@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SsmContacts.Inputs
         /// <summary>
         /// The time to wait until beginning the next stage. The duration can only be set to 0 if a target is specified.
         /// </summary>
-        [Input("durationInMinutes")]
+        [PolicyResourceProperty("durationInMinutes", "_mUnknown_DurationInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDurationInMinutes;
-
-        public int? DurationInMinutes => _mDurationInMinutes.GetValue("durationInMinutes");
+        private int? _mValue_DurationInMinutes;
+        private bool _mUnknown_DurationInMinutes;
+        public int? DurationInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_DurationInMinutes) return _mValue_DurationInMinutes;
+                throw new UndeferrableValueException("Value 'PlanStageArgs.DurationInMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more configuration blocks for specifying the contacts or contact methods that the escalation plan or engagement plan is engaging. See Target below for more details.
         /// </summary>
-        [Input("targets")]
+        [PolicyResourceProperty("targets", "_mUnknown_Targets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PlanStageTargetArgs>> _mTargets;
-
-        public List<Inputs.PlanStageTargetArgs>? Targets => _mTargets.GetValue("targets");
+        private List<Inputs.PlanStageTargetArgs>? _mValue_Targets;
+        private bool _mUnknown_Targets;
+        public List<Inputs.PlanStageTargetArgs>? Targets
+        {
+            get
+            {
+                if (!_mUnknown_Targets) return _mValue_Targets;
+                throw new UndeferrableValueException("Value 'PlanStageArgs.Targets' is not present");
+            }
+        }
     }
 }

@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty
         /// <summary>
         /// Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
-
-        public string? Action => _mAction.GetValue("action");
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'Filter.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the GuardDuty filter.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Filter.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the filter.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Filter.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of a GuardDuty detector, attached to your account.
         /// </summary>
-        [Input("detectorId")]
+        [PolicyResourceProperty("detectorId", "_mUnknown_DetectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
-
-        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+        private string? _mValue_DetectorId;
+        private bool _mUnknown_DetectorId;
+        public string? DetectorId
+        {
+            get
+            {
+                if (!_mUnknown_DetectorId) return _mValue_DetectorId;
+                throw new UndeferrableValueException("Value 'Filter.DetectorId' is not present");
+            }
+        }
 
         /// <summary>
         /// Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
         /// </summary>
-        [Input("findingCriteria")]
+        [PolicyResourceProperty("findingCriteria", "_mUnknown_FindingCriteria")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FilterFindingCriteria> _mFindingCriteria;
-
-        public Outputs.FilterFindingCriteria? FindingCriteria => _mFindingCriteria.GetValue("findingCriteria");
+        private Outputs.FilterFindingCriteria? _mValue_FindingCriteria;
+        private bool _mUnknown_FindingCriteria;
+        public Outputs.FilterFindingCriteria? FindingCriteria
+        {
+            get
+            {
+                if (!_mUnknown_FindingCriteria) return _mValue_FindingCriteria;
+                throw new UndeferrableValueException("Value 'Filter.FindingCriteria' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of your filter.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Filter.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
         /// </summary>
-        [Input("rank")]
+        [PolicyResourceProperty("rank", "_mUnknown_Rank")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRank;
-
-        public int? Rank => _mRank.GetValue("rank");
+        private int? _mValue_Rank;
+        private bool _mUnknown_Rank;
+        public int? Rank
+        {
+            get
+            {
+                if (!_mUnknown_Rank) return _mValue_Rank;
+                throw new UndeferrableValueException("Value 'Filter.Rank' is not present");
+            }
+        }
 
         /// <summary>
         /// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Filter.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Filter.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:guardduty/filter:Filter")]
@@ -101,64 +164,113 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty
         /// <summary>
         /// Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
-
-        public string? Action => _mAction.GetValue("action");
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'FilterArgs.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the filter.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'FilterArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of a GuardDuty detector, attached to your account.
         /// </summary>
-        [Input("detectorId")]
+        [PolicyResourceProperty("detectorId", "_mUnknown_DetectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
-
-        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+        private string? _mValue_DetectorId;
+        private bool _mUnknown_DetectorId;
+        public string? DetectorId
+        {
+            get
+            {
+                if (!_mUnknown_DetectorId) return _mValue_DetectorId;
+                throw new UndeferrableValueException("Value 'FilterArgs.DetectorId' is not present");
+            }
+        }
 
         /// <summary>
         /// Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
         /// </summary>
-        [Input("findingCriteria")]
+        [PolicyResourceProperty("findingCriteria", "_mUnknown_FindingCriteria")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FilterFindingCriteriaArgs> _mFindingCriteria;
-
-        public Inputs.FilterFindingCriteriaArgs? FindingCriteria => _mFindingCriteria.GetValue("findingCriteria");
+        private Inputs.FilterFindingCriteriaArgs? _mValue_FindingCriteria;
+        private bool _mUnknown_FindingCriteria;
+        public Inputs.FilterFindingCriteriaArgs? FindingCriteria
+        {
+            get
+            {
+                if (!_mUnknown_FindingCriteria) return _mValue_FindingCriteria;
+                throw new UndeferrableValueException("Value 'FilterArgs.FindingCriteria' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of your filter.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FilterArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
         /// </summary>
-        [Input("rank")]
+        [PolicyResourceProperty("rank", "_mUnknown_Rank")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRank;
-
-        public int? Rank => _mRank.GetValue("rank");
+        private int? _mValue_Rank;
+        private bool _mUnknown_Rank;
+        public int? Rank
+        {
+            get
+            {
+                if (!_mUnknown_Rank) return _mValue_Rank;
+                throw new UndeferrableValueException("Value 'FilterArgs.Rank' is not present");
+            }
+        }
 
         /// <summary>
         /// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FilterArgs.Tags' is not present");
+            }
+        }
     }
 }

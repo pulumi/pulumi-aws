@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.CloudFormation.Inputs
         /// <summary>
         /// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
         /// </summary>
-        [Input("failureToleranceCount")]
+        [PolicyResourceProperty("failureToleranceCount", "_mUnknown_FailureToleranceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFailureToleranceCount;
-
-        public int? FailureToleranceCount => _mFailureToleranceCount.GetValue("failureToleranceCount");
+        private int? _mValue_FailureToleranceCount;
+        private bool _mUnknown_FailureToleranceCount;
+        public int? FailureToleranceCount
+        {
+            get
+            {
+                if (!_mUnknown_FailureToleranceCount) return _mValue_FailureToleranceCount;
+                throw new UndeferrableValueException("Value 'StackSetOperationPreferencesArgs.FailureToleranceCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
         /// </summary>
-        [Input("failureTolerancePercentage")]
+        [PolicyResourceProperty("failureTolerancePercentage", "_mUnknown_FailureTolerancePercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFailureTolerancePercentage;
-
-        public int? FailureTolerancePercentage => _mFailureTolerancePercentage.GetValue("failureTolerancePercentage");
+        private int? _mValue_FailureTolerancePercentage;
+        private bool _mUnknown_FailureTolerancePercentage;
+        public int? FailureTolerancePercentage
+        {
+            get
+            {
+                if (!_mUnknown_FailureTolerancePercentage) return _mValue_FailureTolerancePercentage;
+                throw new UndeferrableValueException("Value 'StackSetOperationPreferencesArgs.FailureTolerancePercentage' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of accounts in which to perform this operation at one time.
         /// </summary>
-        [Input("maxConcurrentCount")]
+        [PolicyResourceProperty("maxConcurrentCount", "_mUnknown_MaxConcurrentCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxConcurrentCount;
-
-        public int? MaxConcurrentCount => _mMaxConcurrentCount.GetValue("maxConcurrentCount");
+        private int? _mValue_MaxConcurrentCount;
+        private bool _mUnknown_MaxConcurrentCount;
+        public int? MaxConcurrentCount
+        {
+            get
+            {
+                if (!_mUnknown_MaxConcurrentCount) return _mValue_MaxConcurrentCount;
+                throw new UndeferrableValueException("Value 'StackSetOperationPreferencesArgs.MaxConcurrentCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum percentage of accounts in which to perform this operation at one time.
         /// </summary>
-        [Input("maxConcurrentPercentage")]
+        [PolicyResourceProperty("maxConcurrentPercentage", "_mUnknown_MaxConcurrentPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxConcurrentPercentage;
-
-        public int? MaxConcurrentPercentage => _mMaxConcurrentPercentage.GetValue("maxConcurrentPercentage");
+        private int? _mValue_MaxConcurrentPercentage;
+        private bool _mUnknown_MaxConcurrentPercentage;
+        public int? MaxConcurrentPercentage
+        {
+            get
+            {
+                if (!_mUnknown_MaxConcurrentPercentage) return _mValue_MaxConcurrentPercentage;
+                throw new UndeferrableValueException("Value 'StackSetOperationPreferencesArgs.MaxConcurrentPercentage' is not present");
+            }
+        }
 
         /// <summary>
         /// The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
         /// </summary>
-        [Input("regionConcurrencyType")]
+        [PolicyResourceProperty("regionConcurrencyType", "_mUnknown_RegionConcurrencyType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegionConcurrencyType;
-
-        public string? RegionConcurrencyType => _mRegionConcurrencyType.GetValue("regionConcurrencyType");
+        private string? _mValue_RegionConcurrencyType;
+        private bool _mUnknown_RegionConcurrencyType;
+        public string? RegionConcurrencyType
+        {
+            get
+            {
+                if (!_mUnknown_RegionConcurrencyType) return _mValue_RegionConcurrencyType;
+                throw new UndeferrableValueException("Value 'StackSetOperationPreferencesArgs.RegionConcurrencyType' is not present");
+            }
+        }
 
         /// <summary>
         /// The order of the Regions in where you want to perform the stack operation.
         /// </summary>
-        [Input("regionOrders")]
+        [PolicyResourceProperty("regionOrders", "_mUnknown_RegionOrders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegionOrders;
-
-        public List<string>? RegionOrders => _mRegionOrders.GetValue("regionOrders");
+        private List<string>? _mValue_RegionOrders;
+        private bool _mUnknown_RegionOrders;
+        public List<string>? RegionOrders
+        {
+            get
+            {
+                if (!_mUnknown_RegionOrders) return _mValue_RegionOrders;
+                throw new UndeferrableValueException("Value 'StackSetOperationPreferencesArgs.RegionOrders' is not present");
+            }
+        }
     }
 }

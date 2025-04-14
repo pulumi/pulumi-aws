@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
         /// </summary>
-        [Input("mfaDelete")]
+        [PolicyResourceProperty("mfaDelete", "_mUnknown_MfaDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMfaDelete;
-
-        public string? MfaDelete => _mMfaDelete.GetValue("mfaDelete");
+        private string? _mValue_MfaDelete;
+        private bool _mUnknown_MfaDelete;
+        public string? MfaDelete
+        {
+            get
+            {
+                if (!_mUnknown_MfaDelete) return _mValue_MfaDelete;
+                throw new UndeferrableValueException("Value 'BucketVersioningV2VersioningConfiguration.MfaDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'BucketVersioningV2VersioningConfiguration.Status' is not present");
+            }
+        }
     }
 }

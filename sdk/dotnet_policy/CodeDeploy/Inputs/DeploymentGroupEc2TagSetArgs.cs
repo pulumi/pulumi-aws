@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy.Inputs
         /// <summary>
         /// Tag filters associated with the deployment group. See the AWS docs for details.
         /// </summary>
-        [Input("ec2TagFilters")]
+        [PolicyResourceProperty("ec2TagFilters", "_mUnknown_Ec2TagFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DeploymentGroupEc2TagSetEc2TagFilterArgs>> _mEc2TagFilters;
-
-        public List<Inputs.DeploymentGroupEc2TagSetEc2TagFilterArgs>? Ec2TagFilters => _mEc2TagFilters.GetValue("ec2TagFilters");
+        private List<Inputs.DeploymentGroupEc2TagSetEc2TagFilterArgs>? _mValue_Ec2TagFilters;
+        private bool _mUnknown_Ec2TagFilters;
+        public List<Inputs.DeploymentGroupEc2TagSetEc2TagFilterArgs>? Ec2TagFilters
+        {
+            get
+            {
+                if (!_mUnknown_Ec2TagFilters) return _mValue_Ec2TagFilters;
+                throw new UndeferrableValueException("Value 'DeploymentGroupEc2TagSetArgs.Ec2TagFilters' is not present");
+            }
+        }
     }
 }

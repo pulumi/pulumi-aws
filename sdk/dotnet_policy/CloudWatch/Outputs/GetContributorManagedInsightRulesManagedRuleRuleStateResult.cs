@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Outputs
         /// <summary>
         /// Name of the Contributor Insights rule that contains data for the specified Amazon Web Services resource.
         /// </summary>
-        [Input("ruleName")]
+        [PolicyResourceProperty("ruleName", "_mUnknown_RuleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
-
-        public string? RuleName => _mRuleName.GetValue("ruleName");
+        private string? _mValue_RuleName;
+        private bool _mUnknown_RuleName;
+        public string? RuleName
+        {
+            get
+            {
+                if (!_mUnknown_RuleName) return _mValue_RuleName;
+                throw new UndeferrableValueException("Value 'GetContributorManagedInsightRulesManagedRuleRuleStateResult.RuleName' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the rule is enabled or disabled.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'GetContributorManagedInsightRulesManagedRuleRuleStateResult.State' is not present");
+            }
+        }
     }
 }

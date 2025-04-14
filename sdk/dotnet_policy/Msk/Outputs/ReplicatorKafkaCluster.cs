@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
         /// <summary>
         /// Details of an Amazon MSK cluster.
         /// </summary>
-        [Input("amazonMskCluster")]
+        [PolicyResourceProperty("amazonMskCluster", "_mUnknown_AmazonMskCluster")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ReplicatorKafkaClusterAmazonMskCluster> _mAmazonMskCluster;
-
-        public Outputs.ReplicatorKafkaClusterAmazonMskCluster? AmazonMskCluster => _mAmazonMskCluster.GetValue("amazonMskCluster");
+        private Outputs.ReplicatorKafkaClusterAmazonMskCluster? _mValue_AmazonMskCluster;
+        private bool _mUnknown_AmazonMskCluster;
+        public Outputs.ReplicatorKafkaClusterAmazonMskCluster? AmazonMskCluster
+        {
+            get
+            {
+                if (!_mUnknown_AmazonMskCluster) return _mValue_AmazonMskCluster;
+                throw new UndeferrableValueException("Value 'ReplicatorKafkaCluster.AmazonMskCluster' is not present");
+            }
+        }
 
         /// <summary>
         /// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ReplicatorKafkaClusterVpcConfig> _mVpcConfig;
-
-        public Outputs.ReplicatorKafkaClusterVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Outputs.ReplicatorKafkaClusterVpcConfig? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Outputs.ReplicatorKafkaClusterVpcConfig? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'ReplicatorKafkaCluster.VpcConfig' is not present");
+            }
+        }
     }
 }

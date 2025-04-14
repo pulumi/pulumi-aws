@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.SesV2.Outputs
         /// <summary>
         /// IPv4 address.
         /// </summary>
-        [Input("ip")]
+        [PolicyResourceProperty("ip", "_mUnknown_Ip")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIp;
-
-        public string? Ip => _mIp.GetValue("ip");
+        private string? _mValue_Ip;
+        private bool _mUnknown_Ip;
+        public string? Ip
+        {
+            get
+            {
+                if (!_mUnknown_Ip) return _mValue_Ip;
+                throw new UndeferrableValueException("Value 'GetDedicatedIpPoolDedicatedIpResult.Ip' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
         /// </summary>
-        [Input("warmupPercentage")]
+        [PolicyResourceProperty("warmupPercentage", "_mUnknown_WarmupPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWarmupPercentage;
-
-        public int? WarmupPercentage => _mWarmupPercentage.GetValue("warmupPercentage");
+        private int? _mValue_WarmupPercentage;
+        private bool _mUnknown_WarmupPercentage;
+        public int? WarmupPercentage
+        {
+            get
+            {
+                if (!_mUnknown_WarmupPercentage) return _mValue_WarmupPercentage;
+                throw new UndeferrableValueException("Value 'GetDedicatedIpPoolDedicatedIpResult.WarmupPercentage' is not present");
+            }
+        }
 
         /// <summary>
         /// The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
         /// </summary>
-        [Input("warmupStatus")]
+        [PolicyResourceProperty("warmupStatus", "_mUnknown_WarmupStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWarmupStatus;
-
-        public string? WarmupStatus => _mWarmupStatus.GetValue("warmupStatus");
+        private string? _mValue_WarmupStatus;
+        private bool _mUnknown_WarmupStatus;
+        public string? WarmupStatus
+        {
+            get
+            {
+                if (!_mUnknown_WarmupStatus) return _mValue_WarmupStatus;
+                throw new UndeferrableValueException("Value 'GetDedicatedIpPoolDedicatedIpResult.WarmupStatus' is not present");
+            }
+        }
     }
 }

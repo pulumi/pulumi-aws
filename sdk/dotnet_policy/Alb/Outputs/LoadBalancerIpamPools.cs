@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Alb.Outputs
         /// <summary>
         /// The ID of the IPv4 IPAM pool.
         /// </summary>
-        [Input("ipv4IpamPoolId")]
+        [PolicyResourceProperty("ipv4IpamPoolId", "_mUnknown_Ipv4IpamPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv4IpamPoolId;
-
-        public string? Ipv4IpamPoolId => _mIpv4IpamPoolId.GetValue("ipv4IpamPoolId");
+        private string? _mValue_Ipv4IpamPoolId;
+        private bool _mUnknown_Ipv4IpamPoolId;
+        public string? Ipv4IpamPoolId
+        {
+            get
+            {
+                if (!_mUnknown_Ipv4IpamPoolId) return _mValue_Ipv4IpamPoolId;
+                throw new UndeferrableValueException("Value 'LoadBalancerIpamPools.Ipv4IpamPoolId' is not present");
+            }
+        }
     }
 }

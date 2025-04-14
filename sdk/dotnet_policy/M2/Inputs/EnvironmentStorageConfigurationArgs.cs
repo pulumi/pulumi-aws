@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.M2.Inputs
 {
     public sealed class EnvironmentStorageConfigurationArgs
     {
-        [Input("efs")]
+        [PolicyResourceProperty("efs", "_mUnknown_Efs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EnvironmentStorageConfigurationEfsArgs> _mEfs;
+        private Inputs.EnvironmentStorageConfigurationEfsArgs? _mValue_Efs;
+        private bool _mUnknown_Efs;
+        public Inputs.EnvironmentStorageConfigurationEfsArgs? Efs
+        {
+            get
+            {
+                if (!_mUnknown_Efs) return _mValue_Efs;
+                throw new UndeferrableValueException("Value 'EnvironmentStorageConfigurationArgs.Efs' is not present");
+            }
+        }
 
-        public Inputs.EnvironmentStorageConfigurationEfsArgs? Efs => _mEfs.GetValue("efs");
-
-        [Input("fsx")]
+        [PolicyResourceProperty("fsx", "_mUnknown_Fsx")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EnvironmentStorageConfigurationFsxArgs> _mFsx;
-
-        public Inputs.EnvironmentStorageConfigurationFsxArgs? Fsx => _mFsx.GetValue("fsx");
+        private Inputs.EnvironmentStorageConfigurationFsxArgs? _mValue_Fsx;
+        private bool _mUnknown_Fsx;
+        public Inputs.EnvironmentStorageConfigurationFsxArgs? Fsx
+        {
+            get
+            {
+                if (!_mUnknown_Fsx) return _mValue_Fsx;
+                throw new UndeferrableValueException("Value 'EnvironmentStorageConfigurationArgs.Fsx' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// Specifies the configuration of a Kubernetes emptyDir volume.
         /// </summary>
-        [Input("emptyDirs")]
+        [PolicyResourceProperty("emptyDirs", "_mUnknown_EmptyDirs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirResult>> _mEmptyDirs;
-
-        public List<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirResult>? EmptyDirs => _mEmptyDirs.GetValue("emptyDirs");
+        private List<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirResult>? _mValue_EmptyDirs;
+        private bool _mUnknown_EmptyDirs;
+        public List<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirResult>? EmptyDirs
+        {
+            get
+            {
+                if (!_mUnknown_EmptyDirs) return _mValue_EmptyDirs;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyVolumeResult.EmptyDirs' is not present");
+            }
+        }
 
         /// <summary>
         /// The path for the device on the host container instance.
         /// </summary>
-        [Input("hostPaths")]
+        [PolicyResourceProperty("hostPaths", "_mUnknown_HostPaths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeHostPathResult>> _mHostPaths;
-
-        public List<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeHostPathResult>? HostPaths => _mHostPaths.GetValue("hostPaths");
+        private List<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeHostPathResult>? _mValue_HostPaths;
+        private bool _mUnknown_HostPaths;
+        public List<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeHostPathResult>? HostPaths
+        {
+            get
+            {
+                if (!_mUnknown_HostPaths) return _mValue_HostPaths;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyVolumeResult.HostPaths' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyVolumeResult.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the configuration of a Kubernetes secret volume.
         /// </summary>
-        [Input("secrets")]
+        [PolicyResourceProperty("secrets", "_mUnknown_Secrets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeSecretResult>> _mSecrets;
-
-        public List<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeSecretResult>? Secrets => _mSecrets.GetValue("secrets");
+        private List<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeSecretResult>? _mValue_Secrets;
+        private bool _mUnknown_Secrets;
+        public List<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeSecretResult>? Secrets
+        {
+            get
+            {
+                if (!_mUnknown_Secrets) return _mValue_Secrets;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyVolumeResult.Secrets' is not present");
+            }
+        }
     }
 }

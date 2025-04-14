@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace.Outputs
 {
     public sealed class KxClusterTickerplantLogConfiguration
     {
-        [Input("tickerplantLogVolumes")]
+        [PolicyResourceProperty("tickerplantLogVolumes", "_mUnknown_TickerplantLogVolumes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTickerplantLogVolumes;
-
-        public List<string>? TickerplantLogVolumes => _mTickerplantLogVolumes.GetValue("tickerplantLogVolumes");
+        private List<string>? _mValue_TickerplantLogVolumes;
+        private bool _mUnknown_TickerplantLogVolumes;
+        public List<string>? TickerplantLogVolumes
+        {
+            get
+            {
+                if (!_mUnknown_TickerplantLogVolumes) return _mValue_TickerplantLogVolumes;
+                throw new UndeferrableValueException("Value 'KxClusterTickerplantLogConfiguration.TickerplantLogVolumes' is not present");
+            }
+        }
     }
 }

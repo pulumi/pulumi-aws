@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Inputs
         /// <summary>
         /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         /// </summary>
-        [Input("copyTagsToSnapshots")]
+        [PolicyResourceProperty("copyTagsToSnapshots", "_mUnknown_CopyTagsToSnapshots")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToSnapshots;
-
-        public bool? CopyTagsToSnapshots => _mCopyTagsToSnapshots.GetValue("copyTagsToSnapshots");
+        private bool? _mValue_CopyTagsToSnapshots;
+        private bool _mUnknown_CopyTagsToSnapshots;
+        public bool? CopyTagsToSnapshots
+        {
+            get
+            {
+                if (!_mUnknown_CopyTagsToSnapshots) return _mValue_CopyTagsToSnapshots;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfigurationArgs.CopyTagsToSnapshots' is not present");
+            }
+        }
 
         /// <summary>
         /// Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         /// </summary>
-        [Input("dataCompressionType")]
+        [PolicyResourceProperty("dataCompressionType", "_mUnknown_DataCompressionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataCompressionType;
-
-        public string? DataCompressionType => _mDataCompressionType.GetValue("dataCompressionType");
+        private string? _mValue_DataCompressionType;
+        private bool _mUnknown_DataCompressionType;
+        public string? DataCompressionType
+        {
+            get
+            {
+                if (!_mUnknown_DataCompressionType) return _mValue_DataCompressionType;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfigurationArgs.DataCompressionType' is not present");
+            }
+        }
 
         /// <summary>
         /// NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block for details.
         /// </summary>
-        [Input("nfsExports")]
+        [PolicyResourceProperty("nfsExports", "_mUnknown_NfsExports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs> _mNfsExports;
-
-        public Inputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs? NfsExports => _mNfsExports.GetValue("nfsExports");
+        private Inputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs? _mValue_NfsExports;
+        private bool _mUnknown_NfsExports;
+        public Inputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs? NfsExports
+        {
+            get
+            {
+                if (!_mUnknown_NfsExports) return _mValue_NfsExports;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfigurationArgs.NfsExports' is not present");
+            }
+        }
 
         /// <summary>
         /// specifies whether the volume is read-only. Default is false.
         /// </summary>
-        [Input("readOnly")]
+        [PolicyResourceProperty("readOnly", "_mUnknown_ReadOnly")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReadOnly;
-
-        public bool? ReadOnly => _mReadOnly.GetValue("readOnly");
+        private bool? _mValue_ReadOnly;
+        private bool _mUnknown_ReadOnly;
+        public bool? ReadOnly
+        {
+            get
+            {
+                if (!_mUnknown_ReadOnly) return _mValue_ReadOnly;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfigurationArgs.ReadOnly' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
         /// </summary>
-        [Input("recordSizeKib")]
+        [PolicyResourceProperty("recordSizeKib", "_mUnknown_RecordSizeKib")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRecordSizeKib;
-
-        public int? RecordSizeKib => _mRecordSizeKib.GetValue("recordSizeKib");
+        private int? _mValue_RecordSizeKib;
+        private bool _mUnknown_RecordSizeKib;
+        public int? RecordSizeKib
+        {
+            get
+            {
+                if (!_mUnknown_RecordSizeKib) return _mValue_RecordSizeKib;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfigurationArgs.RecordSizeKib' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block for details.
         /// </summary>
-        [Input("userAndGroupQuotas")]
+        [PolicyResourceProperty("userAndGroupQuotas", "_mUnknown_UserAndGroupQuotas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs>> _mUserAndGroupQuotas;
-
-        public List<Inputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs>? UserAndGroupQuotas => _mUserAndGroupQuotas.GetValue("userAndGroupQuotas");
+        private List<Inputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs>? _mValue_UserAndGroupQuotas;
+        private bool _mUnknown_UserAndGroupQuotas;
+        public List<Inputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs>? UserAndGroupQuotas
+        {
+            get
+            {
+                if (!_mUnknown_UserAndGroupQuotas) return _mValue_UserAndGroupQuotas;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfigurationArgs.UserAndGroupQuotas' is not present");
+            }
+        }
     }
 }

@@ -16,121 +16,212 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Task.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Task.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         /// </summary>
-        [Input("cloudwatchLogGroupArn")]
+        [PolicyResourceProperty("cloudwatchLogGroupArn", "_mUnknown_CloudwatchLogGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchLogGroupArn;
-
-        public string? CloudwatchLogGroupArn => _mCloudwatchLogGroupArn.GetValue("cloudwatchLogGroupArn");
+        private string? _mValue_CloudwatchLogGroupArn;
+        private bool _mUnknown_CloudwatchLogGroupArn;
+        public string? CloudwatchLogGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogGroupArn) return _mValue_CloudwatchLogGroupArn;
+                throw new UndeferrableValueException("Value 'Task.CloudwatchLogGroupArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of destination DataSync Location.
         /// </summary>
-        [Input("destinationLocationArn")]
+        [PolicyResourceProperty("destinationLocationArn", "_mUnknown_DestinationLocationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationLocationArn;
-
-        public string? DestinationLocationArn => _mDestinationLocationArn.GetValue("destinationLocationArn");
+        private string? _mValue_DestinationLocationArn;
+        private bool _mUnknown_DestinationLocationArn;
+        public string? DestinationLocationArn
+        {
+            get
+            {
+                if (!_mUnknown_DestinationLocationArn) return _mValue_DestinationLocationArn;
+                throw new UndeferrableValueException("Value 'Task.DestinationLocationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Filter rules that determines which files to exclude from a task.
         /// </summary>
-        [Input("excludes")]
+        [PolicyResourceProperty("excludes", "_mUnknown_Excludes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskExcludes> _mExcludes;
-
-        public Outputs.TaskExcludes? Excludes => _mExcludes.GetValue("excludes");
+        private Outputs.TaskExcludes? _mValue_Excludes;
+        private bool _mUnknown_Excludes;
+        public Outputs.TaskExcludes? Excludes
+        {
+            get
+            {
+                if (!_mUnknown_Excludes) return _mValue_Excludes;
+                throw new UndeferrableValueException("Value 'Task.Excludes' is not present");
+            }
+        }
 
         /// <summary>
         /// Filter rules that determines which files to include in a task.
         /// </summary>
-        [Input("includes")]
+        [PolicyResourceProperty("includes", "_mUnknown_Includes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskIncludes> _mIncludes;
-
-        public Outputs.TaskIncludes? Includes => _mIncludes.GetValue("includes");
+        private Outputs.TaskIncludes? _mValue_Includes;
+        private bool _mUnknown_Includes;
+        public Outputs.TaskIncludes? Includes
+        {
+            get
+            {
+                if (!_mUnknown_Includes) return _mValue_Includes;
+                throw new UndeferrableValueException("Value 'Task.Includes' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the DataSync Task.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Task.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
         /// </summary>
-        [Input("options")]
+        [PolicyResourceProperty("options", "_mUnknown_Options")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskOptions> _mOptions;
-
-        public Outputs.TaskOptions? Options => _mOptions.GetValue("options");
+        private Outputs.TaskOptions? _mValue_Options;
+        private bool _mUnknown_Options;
+        public Outputs.TaskOptions? Options
+        {
+            get
+            {
+                if (!_mUnknown_Options) return _mValue_Options;
+                throw new UndeferrableValueException("Value 'Task.Options' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a schedule used to periodically transfer files from a source to a destination location.
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskSchedule> _mSchedule;
-
-        public Outputs.TaskSchedule? Schedule => _mSchedule.GetValue("schedule");
+        private Outputs.TaskSchedule? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public Outputs.TaskSchedule? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'Task.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of source DataSync Location.
         /// </summary>
-        [Input("sourceLocationArn")]
+        [PolicyResourceProperty("sourceLocationArn", "_mUnknown_SourceLocationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceLocationArn;
-
-        public string? SourceLocationArn => _mSourceLocationArn.GetValue("sourceLocationArn");
+        private string? _mValue_SourceLocationArn;
+        private bool _mUnknown_SourceLocationArn;
+        public string? SourceLocationArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceLocationArn) return _mValue_SourceLocationArn;
+                throw new UndeferrableValueException("Value 'Task.SourceLocationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Task.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Task.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// One of the following task modes for your data transfer:
         /// * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
         /// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
         /// </summary>
-        [Input("taskMode")]
+        [PolicyResourceProperty("taskMode", "_mUnknown_TaskMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskMode;
-
-        public string? TaskMode => _mTaskMode.GetValue("taskMode");
+        private string? _mValue_TaskMode;
+        private bool _mUnknown_TaskMode;
+        public string? TaskMode
+        {
+            get
+            {
+                if (!_mUnknown_TaskMode) return _mValue_TaskMode;
+                throw new UndeferrableValueException("Value 'Task.TaskMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
         /// </summary>
-        [Input("taskReportConfig")]
+        [PolicyResourceProperty("taskReportConfig", "_mUnknown_TaskReportConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskTaskReportConfig> _mTaskReportConfig;
-
-        public Outputs.TaskTaskReportConfig? TaskReportConfig => _mTaskReportConfig.GetValue("taskReportConfig");
+        private Outputs.TaskTaskReportConfig? _mValue_TaskReportConfig;
+        private bool _mUnknown_TaskReportConfig;
+        public Outputs.TaskTaskReportConfig? TaskReportConfig
+        {
+            get
+            {
+                if (!_mUnknown_TaskReportConfig) return _mValue_TaskReportConfig;
+                throw new UndeferrableValueException("Value 'Task.TaskReportConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datasync/task:Task")]
@@ -139,102 +230,179 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         /// </summary>
-        [Input("cloudwatchLogGroupArn")]
+        [PolicyResourceProperty("cloudwatchLogGroupArn", "_mUnknown_CloudwatchLogGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchLogGroupArn;
-
-        public string? CloudwatchLogGroupArn => _mCloudwatchLogGroupArn.GetValue("cloudwatchLogGroupArn");
+        private string? _mValue_CloudwatchLogGroupArn;
+        private bool _mUnknown_CloudwatchLogGroupArn;
+        public string? CloudwatchLogGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogGroupArn) return _mValue_CloudwatchLogGroupArn;
+                throw new UndeferrableValueException("Value 'TaskArgs.CloudwatchLogGroupArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of destination DataSync Location.
         /// </summary>
-        [Input("destinationLocationArn")]
+        [PolicyResourceProperty("destinationLocationArn", "_mUnknown_DestinationLocationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationLocationArn;
-
-        public string? DestinationLocationArn => _mDestinationLocationArn.GetValue("destinationLocationArn");
+        private string? _mValue_DestinationLocationArn;
+        private bool _mUnknown_DestinationLocationArn;
+        public string? DestinationLocationArn
+        {
+            get
+            {
+                if (!_mUnknown_DestinationLocationArn) return _mValue_DestinationLocationArn;
+                throw new UndeferrableValueException("Value 'TaskArgs.DestinationLocationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Filter rules that determines which files to exclude from a task.
         /// </summary>
-        [Input("excludes")]
+        [PolicyResourceProperty("excludes", "_mUnknown_Excludes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskExcludesArgs> _mExcludes;
-
-        public Inputs.TaskExcludesArgs? Excludes => _mExcludes.GetValue("excludes");
+        private Inputs.TaskExcludesArgs? _mValue_Excludes;
+        private bool _mUnknown_Excludes;
+        public Inputs.TaskExcludesArgs? Excludes
+        {
+            get
+            {
+                if (!_mUnknown_Excludes) return _mValue_Excludes;
+                throw new UndeferrableValueException("Value 'TaskArgs.Excludes' is not present");
+            }
+        }
 
         /// <summary>
         /// Filter rules that determines which files to include in a task.
         /// </summary>
-        [Input("includes")]
+        [PolicyResourceProperty("includes", "_mUnknown_Includes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskIncludesArgs> _mIncludes;
-
-        public Inputs.TaskIncludesArgs? Includes => _mIncludes.GetValue("includes");
+        private Inputs.TaskIncludesArgs? _mValue_Includes;
+        private bool _mUnknown_Includes;
+        public Inputs.TaskIncludesArgs? Includes
+        {
+            get
+            {
+                if (!_mUnknown_Includes) return _mValue_Includes;
+                throw new UndeferrableValueException("Value 'TaskArgs.Includes' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the DataSync Task.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TaskArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
         /// </summary>
-        [Input("options")]
+        [PolicyResourceProperty("options", "_mUnknown_Options")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskOptionsArgs> _mOptions;
-
-        public Inputs.TaskOptionsArgs? Options => _mOptions.GetValue("options");
+        private Inputs.TaskOptionsArgs? _mValue_Options;
+        private bool _mUnknown_Options;
+        public Inputs.TaskOptionsArgs? Options
+        {
+            get
+            {
+                if (!_mUnknown_Options) return _mValue_Options;
+                throw new UndeferrableValueException("Value 'TaskArgs.Options' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a schedule used to periodically transfer files from a source to a destination location.
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskScheduleArgs> _mSchedule;
-
-        public Inputs.TaskScheduleArgs? Schedule => _mSchedule.GetValue("schedule");
+        private Inputs.TaskScheduleArgs? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public Inputs.TaskScheduleArgs? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'TaskArgs.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of source DataSync Location.
         /// </summary>
-        [Input("sourceLocationArn")]
+        [PolicyResourceProperty("sourceLocationArn", "_mUnknown_SourceLocationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceLocationArn;
-
-        public string? SourceLocationArn => _mSourceLocationArn.GetValue("sourceLocationArn");
+        private string? _mValue_SourceLocationArn;
+        private bool _mUnknown_SourceLocationArn;
+        public string? SourceLocationArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceLocationArn) return _mValue_SourceLocationArn;
+                throw new UndeferrableValueException("Value 'TaskArgs.SourceLocationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TaskArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// One of the following task modes for your data transfer:
         /// * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
         /// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
         /// </summary>
-        [Input("taskMode")]
+        [PolicyResourceProperty("taskMode", "_mUnknown_TaskMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskMode;
-
-        public string? TaskMode => _mTaskMode.GetValue("taskMode");
+        private string? _mValue_TaskMode;
+        private bool _mUnknown_TaskMode;
+        public string? TaskMode
+        {
+            get
+            {
+                if (!_mUnknown_TaskMode) return _mValue_TaskMode;
+                throw new UndeferrableValueException("Value 'TaskArgs.TaskMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
         /// </summary>
-        [Input("taskReportConfig")]
+        [PolicyResourceProperty("taskReportConfig", "_mUnknown_TaskReportConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskTaskReportConfigArgs> _mTaskReportConfig;
-
-        public Inputs.TaskTaskReportConfigArgs? TaskReportConfig => _mTaskReportConfig.GetValue("taskReportConfig");
+        private Inputs.TaskTaskReportConfigArgs? _mValue_TaskReportConfig;
+        private bool _mUnknown_TaskReportConfig;
+        public Inputs.TaskTaskReportConfigArgs? TaskReportConfig
+        {
+            get
+            {
+                if (!_mUnknown_TaskReportConfig) return _mValue_TaskReportConfig;
+                throw new UndeferrableValueException("Value 'TaskArgs.TaskReportConfig' is not present");
+            }
+        }
     }
 }

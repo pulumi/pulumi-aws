@@ -16,33 +16,54 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Inputs
         /// Information about the strategy CodeBuild should use when authenticating with the source code host.
         /// Detailed below.
         /// </summary>
-        [Input("auth")]
+        [PolicyResourceProperty("auth", "_mUnknown_Auth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectSourceAuthArgs> _mAuth;
-
-        public Inputs.ProjectSourceAuthArgs? Auth => _mAuth.GetValue("auth");
+        private Inputs.ProjectSourceAuthArgs? _mValue_Auth;
+        private bool _mUnknown_Auth;
+        public Inputs.ProjectSourceAuthArgs? Auth
+        {
+            get
+            {
+                if (!_mUnknown_Auth) return _mValue_Auth;
+                throw new UndeferrableValueException("Value 'ProjectSourceArgs.Auth' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block that contains information that defines how the build project
         /// reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
         /// Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
         /// </summary>
-        [Input("buildStatusConfig")]
+        [PolicyResourceProperty("buildStatusConfig", "_mUnknown_BuildStatusConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectSourceBuildStatusConfigArgs> _mBuildStatusConfig;
-
-        public Inputs.ProjectSourceBuildStatusConfigArgs? BuildStatusConfig => _mBuildStatusConfig.GetValue("buildStatusConfig");
+        private Inputs.ProjectSourceBuildStatusConfigArgs? _mValue_BuildStatusConfig;
+        private bool _mUnknown_BuildStatusConfig;
+        public Inputs.ProjectSourceBuildStatusConfigArgs? BuildStatusConfig
+        {
+            get
+            {
+                if (!_mUnknown_BuildStatusConfig) return _mValue_BuildStatusConfig;
+                throw new UndeferrableValueException("Value 'ProjectSourceArgs.BuildStatusConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Build specification to use for this build project's related builds. This must be set when
         /// `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be
         /// specified.
         /// </summary>
-        [Input("buildspec")]
+        [PolicyResourceProperty("buildspec", "_mUnknown_Buildspec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBuildspec;
-
-        public string? Buildspec => _mBuildspec.GetValue("buildspec");
+        private string? _mValue_Buildspec;
+        private bool _mUnknown_Buildspec;
+        public string? Buildspec
+        {
+            get
+            {
+                if (!_mUnknown_Buildspec) return _mValue_Buildspec;
+                throw new UndeferrableValueException("Value 'ProjectSourceArgs.Buildspec' is not present");
+            }
+        }
 
         /// <summary>
         /// Truncate git history to this many commits. Use `0` for a `Full` checkout which you need
@@ -50,58 +71,100 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Inputs
         /// See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
         /// for details.
         /// </summary>
-        [Input("gitCloneDepth")]
+        [PolicyResourceProperty("gitCloneDepth", "_mUnknown_GitCloneDepth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mGitCloneDepth;
-
-        public int? GitCloneDepth => _mGitCloneDepth.GetValue("gitCloneDepth");
+        private int? _mValue_GitCloneDepth;
+        private bool _mUnknown_GitCloneDepth;
+        public int? GitCloneDepth
+        {
+            get
+            {
+                if (!_mUnknown_GitCloneDepth) return _mValue_GitCloneDepth;
+                throw new UndeferrableValueException("Value 'ProjectSourceArgs.GitCloneDepth' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("gitSubmodulesConfig")]
+        [PolicyResourceProperty("gitSubmodulesConfig", "_mUnknown_GitSubmodulesConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectSourceGitSubmodulesConfigArgs> _mGitSubmodulesConfig;
-
-        public Inputs.ProjectSourceGitSubmodulesConfigArgs? GitSubmodulesConfig => _mGitSubmodulesConfig.GetValue("gitSubmodulesConfig");
+        private Inputs.ProjectSourceGitSubmodulesConfigArgs? _mValue_GitSubmodulesConfig;
+        private bool _mUnknown_GitSubmodulesConfig;
+        public Inputs.ProjectSourceGitSubmodulesConfigArgs? GitSubmodulesConfig
+        {
+            get
+            {
+                if (!_mUnknown_GitSubmodulesConfig) return _mValue_GitSubmodulesConfig;
+                throw new UndeferrableValueException("Value 'ProjectSourceArgs.GitSubmodulesConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Ignore SSL warnings when connecting to source control.
         /// </summary>
-        [Input("insecureSsl")]
+        [PolicyResourceProperty("insecureSsl", "_mUnknown_InsecureSsl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInsecureSsl;
-
-        public bool? InsecureSsl => _mInsecureSsl.GetValue("insecureSsl");
+        private bool? _mValue_InsecureSsl;
+        private bool _mUnknown_InsecureSsl;
+        public bool? InsecureSsl
+        {
+            get
+            {
+                if (!_mUnknown_InsecureSsl) return _mValue_InsecureSsl;
+                throw new UndeferrableValueException("Value 'ProjectSourceArgs.InsecureSsl' is not present");
+            }
+        }
 
         /// <summary>
         /// Location of the source code from git or s3.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
-
-        public string? Location => _mLocation.GetValue("location");
+        private string? _mValue_Location;
+        private bool _mUnknown_Location;
+        public string? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'ProjectSourceArgs.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to report the status of a build's start and finish to your source provider.
         /// This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
         /// Bitbucket.
         /// </summary>
-        [Input("reportBuildStatus")]
+        [PolicyResourceProperty("reportBuildStatus", "_mUnknown_ReportBuildStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReportBuildStatus;
-
-        public bool? ReportBuildStatus => _mReportBuildStatus.GetValue("reportBuildStatus");
+        private bool? _mValue_ReportBuildStatus;
+        private bool _mUnknown_ReportBuildStatus;
+        public bool? ReportBuildStatus
+        {
+            get
+            {
+                if (!_mUnknown_ReportBuildStatus) return _mValue_ReportBuildStatus;
+                throw new UndeferrableValueException("Value 'ProjectSourceArgs.ReportBuildStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
         /// `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ProjectSourceArgs.Type' is not present");
+            }
+        }
     }
 }

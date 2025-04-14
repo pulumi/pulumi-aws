@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// Name of the container that will serve as the App Mesh proxy.
         /// </summary>
-        [Input("containerName")]
+        [PolicyResourceProperty("containerName", "_mUnknown_ContainerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerName;
-
-        public string? ContainerName => _mContainerName.GetValue("containerName");
+        private string? _mValue_ContainerName;
+        private bool _mUnknown_ContainerName;
+        public string? ContainerName
+        {
+            get
+            {
+                if (!_mUnknown_ContainerName) return _mValue_ContainerName;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionProxyConfigurationResult.ContainerName' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
         /// </summary>
-        [Input("properties")]
+        [PolicyResourceProperty("properties", "_mUnknown_Properties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mProperties;
-
-        public Dictionary<string, string>? Properties => _mProperties.GetValue("properties");
+        private Dictionary<string, string>? _mValue_Properties;
+        private bool _mUnknown_Properties;
+        public Dictionary<string, string>? Properties
+        {
+            get
+            {
+                if (!_mUnknown_Properties) return _mValue_Properties;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionProxyConfigurationResult.Properties' is not present");
+            }
+        }
 
         /// <summary>
         /// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionProxyConfigurationResult.Type' is not present");
+            }
+        }
     }
 }

@@ -16,10 +16,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// Set of content filter configs in content policy.
         /// See Filters Config for more information.
         /// </summary>
-        [Input("filtersConfigs")]
+        [PolicyResourceProperty("filtersConfigs", "_mUnknown_FiltersConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GuardrailContentPolicyConfigFiltersConfigArgs>> _mFiltersConfigs;
-
-        public List<Inputs.GuardrailContentPolicyConfigFiltersConfigArgs>? FiltersConfigs => _mFiltersConfigs.GetValue("filtersConfigs");
+        private List<Inputs.GuardrailContentPolicyConfigFiltersConfigArgs>? _mValue_FiltersConfigs;
+        private bool _mUnknown_FiltersConfigs;
+        public List<Inputs.GuardrailContentPolicyConfigFiltersConfigArgs>? FiltersConfigs
+        {
+            get
+            {
+                if (!_mUnknown_FiltersConfigs) return _mValue_FiltersConfigs;
+                throw new UndeferrableValueException("Value 'GuardrailContentPolicyConfigArgs.FiltersConfigs' is not present");
+            }
+        }
     }
 }

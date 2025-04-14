@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// Sets the environment variables in the container that the monitoring job runs. A list of key value pairs.
         /// </summary>
-        [Input("environment")]
+        [PolicyResourceProperty("environment", "_mUnknown_Environment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEnvironment;
-
-        public Dictionary<string, string>? Environment => _mEnvironment.GetValue("environment");
+        private Dictionary<string, string>? _mValue_Environment;
+        private bool _mUnknown_Environment;
+        public Dictionary<string, string>? Environment
+        {
+            get
+            {
+                if (!_mUnknown_Environment) return _mValue_Environment;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityAppSpecification.Environment' is not present");
+            }
+        }
 
         /// <summary>
         /// The container image that the data quality monitoring job runs.
         /// </summary>
-        [Input("imageUri")]
+        [PolicyResourceProperty("imageUri", "_mUnknown_ImageUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageUri;
-
-        public string? ImageUri => _mImageUri.GetValue("imageUri");
+        private string? _mValue_ImageUri;
+        private bool _mUnknown_ImageUri;
+        public string? ImageUri
+        {
+            get
+            {
+                if (!_mUnknown_ImageUri) return _mValue_ImageUri;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityAppSpecification.ImageUri' is not present");
+            }
+        }
 
         /// <summary>
         /// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
         /// </summary>
-        [Input("postAnalyticsProcessorSourceUri")]
+        [PolicyResourceProperty("postAnalyticsProcessorSourceUri", "_mUnknown_PostAnalyticsProcessorSourceUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPostAnalyticsProcessorSourceUri;
-
-        public string? PostAnalyticsProcessorSourceUri => _mPostAnalyticsProcessorSourceUri.GetValue("postAnalyticsProcessorSourceUri");
+        private string? _mValue_PostAnalyticsProcessorSourceUri;
+        private bool _mUnknown_PostAnalyticsProcessorSourceUri;
+        public string? PostAnalyticsProcessorSourceUri
+        {
+            get
+            {
+                if (!_mUnknown_PostAnalyticsProcessorSourceUri) return _mValue_PostAnalyticsProcessorSourceUri;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityAppSpecification.PostAnalyticsProcessorSourceUri' is not present");
+            }
+        }
 
         /// <summary>
         /// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
         /// </summary>
-        [Input("recordPreprocessorSourceUri")]
+        [PolicyResourceProperty("recordPreprocessorSourceUri", "_mUnknown_RecordPreprocessorSourceUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecordPreprocessorSourceUri;
-
-        public string? RecordPreprocessorSourceUri => _mRecordPreprocessorSourceUri.GetValue("recordPreprocessorSourceUri");
+        private string? _mValue_RecordPreprocessorSourceUri;
+        private bool _mUnknown_RecordPreprocessorSourceUri;
+        public string? RecordPreprocessorSourceUri
+        {
+            get
+            {
+                if (!_mUnknown_RecordPreprocessorSourceUri) return _mValue_RecordPreprocessorSourceUri;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityAppSpecification.RecordPreprocessorSourceUri' is not present");
+            }
+        }
     }
 }

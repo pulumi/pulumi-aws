@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Inputs
         /// <summary>
         /// Current status.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerStatusSummaryArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// When applicable, returns an informational message relevant to the current status and status type of the status summary object.
         /// </summary>
-        [Input("statusMessage")]
+        [PolicyResourceProperty("statusMessage", "_mUnknown_StatusMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusMessage;
-
-        public string? StatusMessage => _mStatusMessage.GetValue("statusMessage");
+        private string? _mValue_StatusMessage;
+        private bool _mUnknown_StatusMessage;
+        public string? StatusMessage
+        {
+            get
+            {
+                if (!_mUnknown_StatusMessage) return _mValue_StatusMessage;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerStatusSummaryArgs.StatusMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of a status summary.
         /// </summary>
-        [Input("statusType")]
+        [PolicyResourceProperty("statusType", "_mUnknown_StatusType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusType;
-
-        public string? StatusType => _mStatusType.GetValue("statusType");
+        private string? _mValue_StatusType;
+        private bool _mUnknown_StatusType;
+        public string? StatusType
+        {
+            get
+            {
+                if (!_mUnknown_StatusType) return _mValue_StatusType;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerStatusSummaryArgs.StatusType' is not present");
+            }
+        }
     }
 }

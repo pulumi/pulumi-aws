@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
         /// </summary>
-        [Input("canarySize")]
+        [PolicyResourceProperty("canarySize", "_mUnknown_CanarySize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize> _mCanarySize;
-
-        public Outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize? CanarySize => _mCanarySize.GetValue("canarySize");
+        private Outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize? _mValue_CanarySize;
+        private bool _mUnknown_CanarySize;
+        public Outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize? CanarySize
+        {
+            get
+            {
+                if (!_mUnknown_CanarySize) return _mValue_CanarySize;
+                throw new UndeferrableValueException("Value 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration.CanarySize' is not present");
+            }
+        }
 
         /// <summary>
         /// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
         /// </summary>
-        [Input("linearStepSize")]
+        [PolicyResourceProperty("linearStepSize", "_mUnknown_LinearStepSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize> _mLinearStepSize;
-
-        public Outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize? LinearStepSize => _mLinearStepSize.GetValue("linearStepSize");
+        private Outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize? _mValue_LinearStepSize;
+        private bool _mUnknown_LinearStepSize;
+        public Outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize? LinearStepSize
+        {
+            get
+            {
+                if (!_mUnknown_LinearStepSize) return _mValue_LinearStepSize;
+                throw new UndeferrableValueException("Value 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration.LinearStepSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Traffic routing strategy type. Valid values are: `ALL_AT_ONCE`, `CANARY`, and `LINEAR`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
         /// </summary>
-        [Input("waitIntervalInSeconds")]
+        [PolicyResourceProperty("waitIntervalInSeconds", "_mUnknown_WaitIntervalInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWaitIntervalInSeconds;
-
-        public int? WaitIntervalInSeconds => _mWaitIntervalInSeconds.GetValue("waitIntervalInSeconds");
+        private int? _mValue_WaitIntervalInSeconds;
+        private bool _mUnknown_WaitIntervalInSeconds;
+        public int? WaitIntervalInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_WaitIntervalInSeconds) return _mValue_WaitIntervalInSeconds;
+                throw new UndeferrableValueException("Value 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration.WaitIntervalInSeconds' is not present");
+            }
+        }
     }
 }

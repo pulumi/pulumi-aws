@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
 {
     public sealed class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes
     {
-        [Input("allowAudioInput")]
+        [PolicyResourceProperty("allowAudioInput", "_mUnknown_AllowAudioInput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowAudioInput;
+        private bool? _mValue_AllowAudioInput;
+        private bool _mUnknown_AllowAudioInput;
+        public bool? AllowAudioInput
+        {
+            get
+            {
+                if (!_mUnknown_AllowAudioInput) return _mValue_AllowAudioInput;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes.AllowAudioInput' is not present");
+            }
+        }
 
-        public bool? AllowAudioInput => _mAllowAudioInput.GetValue("allowAudioInput");
-
-        [Input("allowDtmfInput")]
+        [PolicyResourceProperty("allowDtmfInput", "_mUnknown_AllowDtmfInput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowDtmfInput;
-
-        public bool? AllowDtmfInput => _mAllowDtmfInput.GetValue("allowDtmfInput");
+        private bool? _mValue_AllowDtmfInput;
+        private bool _mUnknown_AllowDtmfInput;
+        public bool? AllowDtmfInput
+        {
+            get
+            {
+                if (!_mUnknown_AllowDtmfInput) return _mValue_AllowDtmfInput;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes.AllowDtmfInput' is not present");
+            }
+        }
     }
 }

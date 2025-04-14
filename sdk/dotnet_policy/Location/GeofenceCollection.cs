@@ -16,73 +16,129 @@ namespace Pulumi.PolicyPacks.Aws.Location
         /// <summary>
         /// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
         /// </summary>
-        [Input("collectionArn")]
+        [PolicyResourceProperty("collectionArn", "_mUnknown_CollectionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollectionArn;
-
-        public string? CollectionArn => _mCollectionArn.GetValue("collectionArn");
+        private string? _mValue_CollectionArn;
+        private bool _mUnknown_CollectionArn;
+        public string? CollectionArn
+        {
+            get
+            {
+                if (!_mUnknown_CollectionArn) return _mValue_CollectionArn;
+                throw new UndeferrableValueException("Value 'GeofenceCollection.CollectionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the geofence collection.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("collectionName")]
+        [PolicyResourceProperty("collectionName", "_mUnknown_CollectionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollectionName;
-
-        public string? CollectionName => _mCollectionName.GetValue("collectionName");
+        private string? _mValue_CollectionName;
+        private bool _mUnknown_CollectionName;
+        public string? CollectionName
+        {
+            get
+            {
+                if (!_mUnknown_CollectionName) return _mValue_CollectionName;
+                throw new UndeferrableValueException("Value 'GeofenceCollection.CollectionName' is not present");
+            }
+        }
 
         /// <summary>
         /// The timestamp for when the geofence collection resource was created in ISO 8601 format.
         /// </summary>
-        [Input("createTime")]
+        [PolicyResourceProperty("createTime", "_mUnknown_CreateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
-
-        public string? CreateTime => _mCreateTime.GetValue("createTime");
+        private string? _mValue_CreateTime;
+        private bool _mUnknown_CreateTime;
+        public string? CreateTime
+        {
+            get
+            {
+                if (!_mUnknown_CreateTime) return _mValue_CreateTime;
+                throw new UndeferrableValueException("Value 'GeofenceCollection.CreateTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The optional description for the geofence collection.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GeofenceCollection.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'GeofenceCollection.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GeofenceCollection.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'GeofenceCollection.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
         /// </summary>
-        [Input("updateTime")]
+        [PolicyResourceProperty("updateTime", "_mUnknown_UpdateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateTime;
-
-        public string? UpdateTime => _mUpdateTime.GetValue("updateTime");
+        private string? _mValue_UpdateTime;
+        private bool _mUnknown_UpdateTime;
+        public string? UpdateTime
+        {
+            get
+            {
+                if (!_mUnknown_UpdateTime) return _mValue_UpdateTime;
+                throw new UndeferrableValueException("Value 'GeofenceCollection.UpdateTime' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:location/geofenceCollection:GeofenceCollection")]
@@ -93,37 +149,65 @@ namespace Pulumi.PolicyPacks.Aws.Location
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("collectionName")]
+        [PolicyResourceProperty("collectionName", "_mUnknown_CollectionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollectionName;
-
-        public string? CollectionName => _mCollectionName.GetValue("collectionName");
+        private string? _mValue_CollectionName;
+        private bool _mUnknown_CollectionName;
+        public string? CollectionName
+        {
+            get
+            {
+                if (!_mUnknown_CollectionName) return _mValue_CollectionName;
+                throw new UndeferrableValueException("Value 'GeofenceCollectionArgs.CollectionName' is not present");
+            }
+        }
 
         /// <summary>
         /// The optional description for the geofence collection.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GeofenceCollectionArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'GeofenceCollectionArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GeofenceCollectionArgs.Tags' is not present");
+            }
+        }
     }
 }

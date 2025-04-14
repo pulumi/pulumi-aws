@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Inputs
         /// <summary>
         /// A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3_prefix` to include only the desired metadata files.
         /// </summary>
-        [Input("s3Prefix")]
+        [PolicyResourceProperty("s3Prefix", "_mUnknown_S3Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Prefix;
-
-        public string? S3Prefix => _mS3Prefix.GetValue("s3Prefix");
+        private string? _mValue_S3Prefix;
+        private bool _mUnknown_S3Prefix;
+        public string? S3Prefix
+        {
+            get
+            {
+                if (!_mUnknown_S3Prefix) return _mValue_S3Prefix;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs.S3Prefix' is not present");
+            }
+        }
     }
 }

@@ -12,58 +12,121 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class SpotFleetRequestLaunchSpecificationEbsBlockDevice
     {
-        [Input("deleteOnTermination")]
+        [PolicyResourceProperty("deleteOnTermination", "_mUnknown_DeleteOnTermination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteOnTermination;
+        private bool? _mValue_DeleteOnTermination;
+        private bool _mUnknown_DeleteOnTermination;
+        public bool? DeleteOnTermination
+        {
+            get
+            {
+                if (!_mUnknown_DeleteOnTermination) return _mValue_DeleteOnTermination;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEbsBlockDevice.DeleteOnTermination' is not present");
+            }
+        }
 
-        public bool? DeleteOnTermination => _mDeleteOnTermination.GetValue("deleteOnTermination");
-
-        [Input("deviceName")]
+        [PolicyResourceProperty("deviceName", "_mUnknown_DeviceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceName;
+        private string? _mValue_DeviceName;
+        private bool _mUnknown_DeviceName;
+        public string? DeviceName
+        {
+            get
+            {
+                if (!_mUnknown_DeviceName) return _mValue_DeviceName;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEbsBlockDevice.DeviceName' is not present");
+            }
+        }
 
-        public string? DeviceName => _mDeviceName.GetValue("deviceName");
-
-        [Input("encrypted")]
+        [PolicyResourceProperty("encrypted", "_mUnknown_Encrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypted;
+        private bool? _mValue_Encrypted;
+        private bool _mUnknown_Encrypted;
+        public bool? Encrypted
+        {
+            get
+            {
+                if (!_mUnknown_Encrypted) return _mValue_Encrypted;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEbsBlockDevice.Encrypted' is not present");
+            }
+        }
 
-        public bool? Encrypted => _mEncrypted.GetValue("encrypted");
-
-        [Input("iops")]
+        [PolicyResourceProperty("iops", "_mUnknown_Iops")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIops;
+        private int? _mValue_Iops;
+        private bool _mUnknown_Iops;
+        public int? Iops
+        {
+            get
+            {
+                if (!_mUnknown_Iops) return _mValue_Iops;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEbsBlockDevice.Iops' is not present");
+            }
+        }
 
-        public int? Iops => _mIops.GetValue("iops");
-
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEbsBlockDevice.KmsKeyId' is not present");
+            }
+        }
 
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
-
-        [Input("snapshotId")]
+        [PolicyResourceProperty("snapshotId", "_mUnknown_SnapshotId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotId;
+        private string? _mValue_SnapshotId;
+        private bool _mUnknown_SnapshotId;
+        public string? SnapshotId
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotId) return _mValue_SnapshotId;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEbsBlockDevice.SnapshotId' is not present");
+            }
+        }
 
-        public string? SnapshotId => _mSnapshotId.GetValue("snapshotId");
-
-        [Input("throughput")]
+        [PolicyResourceProperty("throughput", "_mUnknown_Throughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThroughput;
+        private int? _mValue_Throughput;
+        private bool _mUnknown_Throughput;
+        public int? Throughput
+        {
+            get
+            {
+                if (!_mUnknown_Throughput) return _mValue_Throughput;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEbsBlockDevice.Throughput' is not present");
+            }
+        }
 
-        public int? Throughput => _mThroughput.GetValue("throughput");
-
-        [Input("volumeSize")]
+        [PolicyResourceProperty("volumeSize", "_mUnknown_VolumeSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVolumeSize;
+        private int? _mValue_VolumeSize;
+        private bool _mUnknown_VolumeSize;
+        public int? VolumeSize
+        {
+            get
+            {
+                if (!_mUnknown_VolumeSize) return _mValue_VolumeSize;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEbsBlockDevice.VolumeSize' is not present");
+            }
+        }
 
-        public int? VolumeSize => _mVolumeSize.GetValue("volumeSize");
-
-        [Input("volumeType")]
+        [PolicyResourceProperty("volumeType", "_mUnknown_VolumeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeType;
-
-        public string? VolumeType => _mVolumeType.GetValue("volumeType");
+        private string? _mValue_VolumeType;
+        private bool _mUnknown_VolumeType;
+        public string? VolumeType
+        {
+            get
+            {
+                if (!_mUnknown_VolumeType) return _mValue_VolumeType;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEbsBlockDevice.VolumeType' is not present");
+            }
+        }
     }
 }

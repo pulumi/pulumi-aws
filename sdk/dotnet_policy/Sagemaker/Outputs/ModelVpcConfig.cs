@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
 {
     public sealed class ModelVpcConfig
     {
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ModelVpcConfig.SecurityGroupIds' is not present");
+            }
+        }
 
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
-
-        [Input("subnets")]
+        [PolicyResourceProperty("subnets", "_mUnknown_Subnets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnets;
-
-        public List<string>? Subnets => _mSubnets.GetValue("subnets");
+        private List<string>? _mValue_Subnets;
+        private bool _mUnknown_Subnets;
+        public List<string>? Subnets
+        {
+            get
+            {
+                if (!_mUnknown_Subnets) return _mValue_Subnets;
+                throw new UndeferrableValueException("Value 'ModelVpcConfig.Subnets' is not present");
+            }
+        }
     }
 }

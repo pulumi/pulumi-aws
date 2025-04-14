@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
         /// <summary>
         /// The Access Key portion of the credentials.
         /// </summary>
-        [Input("accessKeyId")]
+        [PolicyResourceProperty("accessKeyId", "_mUnknown_AccessKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessKeyId;
-
-        public string? AccessKeyId => _mAccessKeyId.GetValue("accessKeyId");
+        private string? _mValue_AccessKeyId;
+        private bool _mUnknown_AccessKeyId;
+        public string? AccessKeyId
+        {
+            get
+            {
+                if (!_mUnknown_AccessKeyId) return _mValue_AccessKeyId;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus.AccessKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Encryption keys used to encrypt data.
         /// </summary>
-        [Input("datakey")]
+        [PolicyResourceProperty("datakey", "_mUnknown_Datakey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatakey;
-
-        public string? Datakey => _mDatakey.GetValue("datakey");
+        private string? _mValue_Datakey;
+        private bool _mUnknown_Datakey;
+        public string? Datakey
+        {
+            get
+            {
+                if (!_mUnknown_Datakey) return _mValue_Datakey;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus.Datakey' is not present");
+            }
+        }
 
         /// <summary>
         /// The secret key used to sign requests.
         /// </summary>
-        [Input("secretAccessKey")]
+        [PolicyResourceProperty("secretAccessKey", "_mUnknown_SecretAccessKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretAccessKey;
-
-        public string? SecretAccessKey => _mSecretAccessKey.GetValue("secretAccessKey");
+        private string? _mValue_SecretAccessKey;
+        private bool _mUnknown_SecretAccessKey;
+        public string? SecretAccessKey
+        {
+            get
+            {
+                if (!_mUnknown_SecretAccessKey) return _mValue_SecretAccessKey;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus.SecretAccessKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the user.
         /// </summary>
-        [Input("userId")]
+        [PolicyResourceProperty("userId", "_mUnknown_UserId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserId;
-
-        public string? UserId => _mUserId.GetValue("userId");
+        private string? _mValue_UserId;
+        private bool _mUnknown_UserId;
+        public string? UserId
+        {
+            get
+            {
+                if (!_mUnknown_UserId) return _mValue_UserId;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus.UserId' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Macie2.Inputs
         /// <summary>
         /// A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
         /// </summary>
-        [Input("simpleScopeTerm")]
+        [PolicyResourceProperty("simpleScopeTerm", "_mUnknown_SimpleScopeTerm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgs> _mSimpleScopeTerm;
-
-        public Inputs.ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgs? SimpleScopeTerm => _mSimpleScopeTerm.GetValue("simpleScopeTerm");
+        private Inputs.ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgs? _mValue_SimpleScopeTerm;
+        private bool _mUnknown_SimpleScopeTerm;
+        public Inputs.ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgs? SimpleScopeTerm
+        {
+            get
+            {
+                if (!_mUnknown_SimpleScopeTerm) return _mValue_SimpleScopeTerm;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionScopingExcludesAndArgs.SimpleScopeTerm' is not present");
+            }
+        }
 
         /// <summary>
         /// A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
         /// </summary>
-        [Input("tagScopeTerm")]
+        [PolicyResourceProperty("tagScopeTerm", "_mUnknown_TagScopeTerm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs> _mTagScopeTerm;
-
-        public Inputs.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs? TagScopeTerm => _mTagScopeTerm.GetValue("tagScopeTerm");
+        private Inputs.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs? _mValue_TagScopeTerm;
+        private bool _mUnknown_TagScopeTerm;
+        public Inputs.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs? TagScopeTerm
+        {
+            get
+            {
+                if (!_mUnknown_TagScopeTerm) return _mValue_TagScopeTerm;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionScopingExcludesAndArgs.TagScopeTerm' is not present");
+            }
+        }
     }
 }

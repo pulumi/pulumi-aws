@@ -16,31 +16,52 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// <summary>
         /// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         /// </summary>
-        [Input("dashboardAttributes")]
+        [PolicyResourceProperty("dashboardAttributes", "_mUnknown_DashboardAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AccountVdmAttributesDashboardAttributes> _mDashboardAttributes;
-
-        public Outputs.AccountVdmAttributesDashboardAttributes? DashboardAttributes => _mDashboardAttributes.GetValue("dashboardAttributes");
+        private Outputs.AccountVdmAttributesDashboardAttributes? _mValue_DashboardAttributes;
+        private bool _mUnknown_DashboardAttributes;
+        public Outputs.AccountVdmAttributesDashboardAttributes? DashboardAttributes
+        {
+            get
+            {
+                if (!_mUnknown_DashboardAttributes) return _mValue_DashboardAttributes;
+                throw new UndeferrableValueException("Value 'AccountVdmAttributes.DashboardAttributes' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies additional settings for your VDM configuration as applicable to the Guardian.
         /// </summary>
-        [Input("guardianAttributes")]
+        [PolicyResourceProperty("guardianAttributes", "_mUnknown_GuardianAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AccountVdmAttributesGuardianAttributes> _mGuardianAttributes;
-
-        public Outputs.AccountVdmAttributesGuardianAttributes? GuardianAttributes => _mGuardianAttributes.GetValue("guardianAttributes");
+        private Outputs.AccountVdmAttributesGuardianAttributes? _mValue_GuardianAttributes;
+        private bool _mUnknown_GuardianAttributes;
+        public Outputs.AccountVdmAttributesGuardianAttributes? GuardianAttributes
+        {
+            get
+            {
+                if (!_mUnknown_GuardianAttributes) return _mValue_GuardianAttributes;
+                throw new UndeferrableValueException("Value 'AccountVdmAttributes.GuardianAttributes' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("vdmEnabled")]
+        [PolicyResourceProperty("vdmEnabled", "_mUnknown_VdmEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVdmEnabled;
-
-        public string? VdmEnabled => _mVdmEnabled.GetValue("vdmEnabled");
+        private string? _mValue_VdmEnabled;
+        private bool _mUnknown_VdmEnabled;
+        public string? VdmEnabled
+        {
+            get
+            {
+                if (!_mUnknown_VdmEnabled) return _mValue_VdmEnabled;
+                throw new UndeferrableValueException("Value 'AccountVdmAttributes.VdmEnabled' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sesv2/accountVdmAttributes:AccountVdmAttributes")]
@@ -49,30 +70,51 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// <summary>
         /// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         /// </summary>
-        [Input("dashboardAttributes")]
+        [PolicyResourceProperty("dashboardAttributes", "_mUnknown_DashboardAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AccountVdmAttributesDashboardAttributesArgs> _mDashboardAttributes;
-
-        public Inputs.AccountVdmAttributesDashboardAttributesArgs? DashboardAttributes => _mDashboardAttributes.GetValue("dashboardAttributes");
+        private Inputs.AccountVdmAttributesDashboardAttributesArgs? _mValue_DashboardAttributes;
+        private bool _mUnknown_DashboardAttributes;
+        public Inputs.AccountVdmAttributesDashboardAttributesArgs? DashboardAttributes
+        {
+            get
+            {
+                if (!_mUnknown_DashboardAttributes) return _mValue_DashboardAttributes;
+                throw new UndeferrableValueException("Value 'AccountVdmAttributesArgs.DashboardAttributes' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies additional settings for your VDM configuration as applicable to the Guardian.
         /// </summary>
-        [Input("guardianAttributes")]
+        [PolicyResourceProperty("guardianAttributes", "_mUnknown_GuardianAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AccountVdmAttributesGuardianAttributesArgs> _mGuardianAttributes;
-
-        public Inputs.AccountVdmAttributesGuardianAttributesArgs? GuardianAttributes => _mGuardianAttributes.GetValue("guardianAttributes");
+        private Inputs.AccountVdmAttributesGuardianAttributesArgs? _mValue_GuardianAttributes;
+        private bool _mUnknown_GuardianAttributes;
+        public Inputs.AccountVdmAttributesGuardianAttributesArgs? GuardianAttributes
+        {
+            get
+            {
+                if (!_mUnknown_GuardianAttributes) return _mValue_GuardianAttributes;
+                throw new UndeferrableValueException("Value 'AccountVdmAttributesArgs.GuardianAttributes' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("vdmEnabled")]
+        [PolicyResourceProperty("vdmEnabled", "_mUnknown_VdmEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVdmEnabled;
-
-        public string? VdmEnabled => _mVdmEnabled.GetValue("vdmEnabled");
+        private string? _mValue_VdmEnabled;
+        private bool _mUnknown_VdmEnabled;
+        public string? VdmEnabled
+        {
+            get
+            {
+                if (!_mUnknown_VdmEnabled) return _mValue_VdmEnabled;
+                throw new UndeferrableValueException("Value 'AccountVdmAttributesArgs.VdmEnabled' is not present");
+            }
+        }
     }
 }

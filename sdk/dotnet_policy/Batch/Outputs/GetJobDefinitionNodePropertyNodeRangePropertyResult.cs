@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// The container details for the node range.
         /// </summary>
-        [Input("containers")]
+        [PolicyResourceProperty("containers", "_mUnknown_Containers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerResult>> _mContainers;
-
-        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerResult>? Containers => _mContainers.GetValue("containers");
+        private List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerResult>? _mValue_Containers;
+        private bool _mUnknown_Containers;
+        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerResult>? Containers
+        {
+            get
+            {
+                if (!_mUnknown_Containers) return _mValue_Containers;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyResult.Containers' is not present");
+            }
+        }
 
         /// <summary>
         /// The range of nodes, using node index values. A range of 0:3 indicates nodes with index values of 0 through 3. I
         /// </summary>
-        [Input("targetNodes")]
+        [PolicyResourceProperty("targetNodes", "_mUnknown_TargetNodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetNodes;
-
-        public string? TargetNodes => _mTargetNodes.GetValue("targetNodes");
+        private string? _mValue_TargetNodes;
+        private bool _mUnknown_TargetNodes;
+        public string? TargetNodes
+        {
+            get
+            {
+                if (!_mUnknown_TargetNodes) return _mValue_TargetNodes;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyResult.TargetNodes' is not present");
+            }
+        }
     }
 }

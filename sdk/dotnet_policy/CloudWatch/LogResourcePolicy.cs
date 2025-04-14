@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         /// </summary>
-        [Input("policyDocument")]
+        [PolicyResourceProperty("policyDocument", "_mUnknown_PolicyDocument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
-
-        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
+        private string? _mValue_PolicyDocument;
+        private bool _mUnknown_PolicyDocument;
+        public string? PolicyDocument
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDocument) return _mValue_PolicyDocument;
+                throw new UndeferrableValueException("Value 'LogResourcePolicy.PolicyDocument' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the resource policy.
         /// </summary>
-        [Input("policyName")]
+        [PolicyResourceProperty("policyName", "_mUnknown_PolicyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyName;
-
-        public string? PolicyName => _mPolicyName.GetValue("policyName");
+        private string? _mValue_PolicyName;
+        private bool _mUnknown_PolicyName;
+        public string? PolicyName
+        {
+            get
+            {
+                if (!_mUnknown_PolicyName) return _mValue_PolicyName;
+                throw new UndeferrableValueException("Value 'LogResourcePolicy.PolicyName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/logResourcePolicy:LogResourcePolicy")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         /// </summary>
-        [Input("policyDocument")]
+        [PolicyResourceProperty("policyDocument", "_mUnknown_PolicyDocument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
-
-        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
+        private string? _mValue_PolicyDocument;
+        private bool _mUnknown_PolicyDocument;
+        public string? PolicyDocument
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDocument) return _mValue_PolicyDocument;
+                throw new UndeferrableValueException("Value 'LogResourcePolicyArgs.PolicyDocument' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the resource policy.
         /// </summary>
-        [Input("policyName")]
+        [PolicyResourceProperty("policyName", "_mUnknown_PolicyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyName;
-
-        public string? PolicyName => _mPolicyName.GetValue("policyName");
+        private string? _mValue_PolicyName;
+        private bool _mUnknown_PolicyName;
+        public string? PolicyName
+        {
+            get
+            {
+                if (!_mUnknown_PolicyName) return _mValue_PolicyName;
+                throw new UndeferrableValueException("Value 'LogResourcePolicyArgs.PolicyName' is not present");
+            }
+        }
     }
 }

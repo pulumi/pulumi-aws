@@ -16,85 +16,155 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomaly_visibility_time`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
         /// </summary>
-        [Input("anomalyVisibilityTime")]
+        [PolicyResourceProperty("anomalyVisibilityTime", "_mUnknown_AnomalyVisibilityTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAnomalyVisibilityTime;
-
-        public int? AnomalyVisibilityTime => _mAnomalyVisibilityTime.GetValue("anomalyVisibilityTime");
+        private int? _mValue_AnomalyVisibilityTime;
+        private bool _mUnknown_AnomalyVisibilityTime;
+        public int? AnomalyVisibilityTime
+        {
+            get
+            {
+                if (!_mUnknown_AnomalyVisibilityTime) return _mValue_AnomalyVisibilityTime;
+                throw new UndeferrableValueException("Value 'LogAnomalyDetector.AnomalyVisibilityTime' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the log anomaly detector that you just created.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LogAnomalyDetector.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for this anomaly detector.
         /// </summary>
-        [Input("detectorName")]
+        [PolicyResourceProperty("detectorName", "_mUnknown_DetectorName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorName;
+        private string? _mValue_DetectorName;
+        private bool _mUnknown_DetectorName;
+        public string? DetectorName
+        {
+            get
+            {
+                if (!_mUnknown_DetectorName) return _mValue_DetectorName;
+                throw new UndeferrableValueException("Value 'LogAnomalyDetector.DetectorName' is not present");
+            }
+        }
 
-        public string? DetectorName => _mDetectorName.GetValue("detectorName");
-
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'LogAnomalyDetector.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluation_frequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
         /// </summary>
-        [Input("evaluationFrequency")]
+        [PolicyResourceProperty("evaluationFrequency", "_mUnknown_EvaluationFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEvaluationFrequency;
-
-        public string? EvaluationFrequency => _mEvaluationFrequency.GetValue("evaluationFrequency");
+        private string? _mValue_EvaluationFrequency;
+        private bool _mUnknown_EvaluationFrequency;
+        public string? EvaluationFrequency
+        {
+            get
+            {
+                if (!_mUnknown_EvaluationFrequency) return _mValue_EvaluationFrequency;
+                throw new UndeferrableValueException("Value 'LogAnomalyDetector.EvaluationFrequency' is not present");
+            }
+        }
 
         /// <summary>
         /// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         /// </summary>
-        [Input("filterPattern")]
+        [PolicyResourceProperty("filterPattern", "_mUnknown_FilterPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilterPattern;
-
-        public string? FilterPattern => _mFilterPattern.GetValue("filterPattern");
+        private string? _mValue_FilterPattern;
+        private bool _mUnknown_FilterPattern;
+        public string? FilterPattern
+        {
+            get
+            {
+                if (!_mUnknown_FilterPattern) return _mValue_FilterPattern;
+                throw new UndeferrableValueException("Value 'LogAnomalyDetector.FilterPattern' is not present");
+            }
+        }
 
         /// <summary>
         /// Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'LogAnomalyDetector.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("logGroupArnLists")]
+        [PolicyResourceProperty("logGroupArnLists", "_mUnknown_LogGroupArnLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLogGroupArnLists;
+        private List<string>? _mValue_LogGroupArnLists;
+        private bool _mUnknown_LogGroupArnLists;
+        public List<string>? LogGroupArnLists
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupArnLists) return _mValue_LogGroupArnLists;
+                throw new UndeferrableValueException("Value 'LogAnomalyDetector.LogGroupArnLists' is not present");
+            }
+        }
 
-        public List<string>? LogGroupArnLists => _mLogGroupArnLists.GetValue("logGroupArnLists");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LogAnomalyDetector.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'LogAnomalyDetector.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector")]
@@ -103,69 +173,125 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomaly_visibility_time`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
         /// </summary>
-        [Input("anomalyVisibilityTime")]
+        [PolicyResourceProperty("anomalyVisibilityTime", "_mUnknown_AnomalyVisibilityTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAnomalyVisibilityTime;
-
-        public int? AnomalyVisibilityTime => _mAnomalyVisibilityTime.GetValue("anomalyVisibilityTime");
+        private int? _mValue_AnomalyVisibilityTime;
+        private bool _mUnknown_AnomalyVisibilityTime;
+        public int? AnomalyVisibilityTime
+        {
+            get
+            {
+                if (!_mUnknown_AnomalyVisibilityTime) return _mValue_AnomalyVisibilityTime;
+                throw new UndeferrableValueException("Value 'LogAnomalyDetectorArgs.AnomalyVisibilityTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for this anomaly detector.
         /// </summary>
-        [Input("detectorName")]
+        [PolicyResourceProperty("detectorName", "_mUnknown_DetectorName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorName;
+        private string? _mValue_DetectorName;
+        private bool _mUnknown_DetectorName;
+        public string? DetectorName
+        {
+            get
+            {
+                if (!_mUnknown_DetectorName) return _mValue_DetectorName;
+                throw new UndeferrableValueException("Value 'LogAnomalyDetectorArgs.DetectorName' is not present");
+            }
+        }
 
-        public string? DetectorName => _mDetectorName.GetValue("detectorName");
-
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'LogAnomalyDetectorArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluation_frequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
         /// </summary>
-        [Input("evaluationFrequency")]
+        [PolicyResourceProperty("evaluationFrequency", "_mUnknown_EvaluationFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEvaluationFrequency;
-
-        public string? EvaluationFrequency => _mEvaluationFrequency.GetValue("evaluationFrequency");
+        private string? _mValue_EvaluationFrequency;
+        private bool _mUnknown_EvaluationFrequency;
+        public string? EvaluationFrequency
+        {
+            get
+            {
+                if (!_mUnknown_EvaluationFrequency) return _mValue_EvaluationFrequency;
+                throw new UndeferrableValueException("Value 'LogAnomalyDetectorArgs.EvaluationFrequency' is not present");
+            }
+        }
 
         /// <summary>
         /// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         /// </summary>
-        [Input("filterPattern")]
+        [PolicyResourceProperty("filterPattern", "_mUnknown_FilterPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilterPattern;
-
-        public string? FilterPattern => _mFilterPattern.GetValue("filterPattern");
+        private string? _mValue_FilterPattern;
+        private bool _mUnknown_FilterPattern;
+        public string? FilterPattern
+        {
+            get
+            {
+                if (!_mUnknown_FilterPattern) return _mValue_FilterPattern;
+                throw new UndeferrableValueException("Value 'LogAnomalyDetectorArgs.FilterPattern' is not present");
+            }
+        }
 
         /// <summary>
         /// Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'LogAnomalyDetectorArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("logGroupArnLists")]
+        [PolicyResourceProperty("logGroupArnLists", "_mUnknown_LogGroupArnLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLogGroupArnLists;
+        private List<string>? _mValue_LogGroupArnLists;
+        private bool _mUnknown_LogGroupArnLists;
+        public List<string>? LogGroupArnLists
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupArnLists) return _mValue_LogGroupArnLists;
+                throw new UndeferrableValueException("Value 'LogAnomalyDetectorArgs.LogGroupArnLists' is not present");
+            }
+        }
 
-        public List<string>? LogGroupArnLists => _mLogGroupArnLists.GetValue("logGroupArnLists");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LogAnomalyDetectorArgs.Tags' is not present");
+            }
+        }
     }
 }

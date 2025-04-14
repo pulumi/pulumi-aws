@@ -16,281 +16,498 @@ namespace Pulumi.PolicyPacks.Aws.Sns
         /// <summary>
         /// IAM role for failure feedback
         /// </summary>
-        [Input("applicationFailureFeedbackRoleArn")]
+        [PolicyResourceProperty("applicationFailureFeedbackRoleArn", "_mUnknown_ApplicationFailureFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationFailureFeedbackRoleArn;
-
-        public string? ApplicationFailureFeedbackRoleArn => _mApplicationFailureFeedbackRoleArn.GetValue("applicationFailureFeedbackRoleArn");
+        private string? _mValue_ApplicationFailureFeedbackRoleArn;
+        private bool _mUnknown_ApplicationFailureFeedbackRoleArn;
+        public string? ApplicationFailureFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationFailureFeedbackRoleArn) return _mValue_ApplicationFailureFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'Topic.ApplicationFailureFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role permitted to receive success feedback for this topic
         /// </summary>
-        [Input("applicationSuccessFeedbackRoleArn")]
+        [PolicyResourceProperty("applicationSuccessFeedbackRoleArn", "_mUnknown_ApplicationSuccessFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationSuccessFeedbackRoleArn;
-
-        public string? ApplicationSuccessFeedbackRoleArn => _mApplicationSuccessFeedbackRoleArn.GetValue("applicationSuccessFeedbackRoleArn");
+        private string? _mValue_ApplicationSuccessFeedbackRoleArn;
+        private bool _mUnknown_ApplicationSuccessFeedbackRoleArn;
+        public string? ApplicationSuccessFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationSuccessFeedbackRoleArn) return _mValue_ApplicationSuccessFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'Topic.ApplicationSuccessFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Percentage of success to sample
         /// </summary>
-        [Input("applicationSuccessFeedbackSampleRate")]
+        [PolicyResourceProperty("applicationSuccessFeedbackSampleRate", "_mUnknown_ApplicationSuccessFeedbackSampleRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mApplicationSuccessFeedbackSampleRate;
-
-        public int? ApplicationSuccessFeedbackSampleRate => _mApplicationSuccessFeedbackSampleRate.GetValue("applicationSuccessFeedbackSampleRate");
+        private int? _mValue_ApplicationSuccessFeedbackSampleRate;
+        private bool _mUnknown_ApplicationSuccessFeedbackSampleRate;
+        public int? ApplicationSuccessFeedbackSampleRate
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationSuccessFeedbackSampleRate) return _mValue_ApplicationSuccessFeedbackSampleRate;
+                throw new UndeferrableValueException("Value 'Topic.ApplicationSuccessFeedbackSampleRate' is not present");
+            }
+        }
 
         /// <summary>
         /// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
         /// </summary>
-        [Input("archivePolicy")]
+        [PolicyResourceProperty("archivePolicy", "_mUnknown_ArchivePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArchivePolicy;
-
-        public string? ArchivePolicy => _mArchivePolicy.GetValue("archivePolicy");
+        private string? _mValue_ArchivePolicy;
+        private bool _mUnknown_ArchivePolicy;
+        public string? ArchivePolicy
+        {
+            get
+            {
+                if (!_mUnknown_ArchivePolicy) return _mValue_ArchivePolicy;
+                throw new UndeferrableValueException("Value 'Topic.ArchivePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SNS topic, as a more obvious property (clone of id)
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Topic.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The oldest timestamp at which a FIFO topic subscriber can start a replay.
         /// </summary>
-        [Input("beginningArchiveTime")]
+        [PolicyResourceProperty("beginningArchiveTime", "_mUnknown_BeginningArchiveTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBeginningArchiveTime;
-
-        public string? BeginningArchiveTime => _mBeginningArchiveTime.GetValue("beginningArchiveTime");
+        private string? _mValue_BeginningArchiveTime;
+        private bool _mUnknown_BeginningArchiveTime;
+        public string? BeginningArchiveTime
+        {
+            get
+            {
+                if (!_mUnknown_BeginningArchiveTime) return _mValue_BeginningArchiveTime;
+                throw new UndeferrableValueException("Value 'Topic.BeginningArchiveTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
         /// </summary>
-        [Input("contentBasedDeduplication")]
+        [PolicyResourceProperty("contentBasedDeduplication", "_mUnknown_ContentBasedDeduplication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mContentBasedDeduplication;
-
-        public bool? ContentBasedDeduplication => _mContentBasedDeduplication.GetValue("contentBasedDeduplication");
+        private bool? _mValue_ContentBasedDeduplication;
+        private bool _mUnknown_ContentBasedDeduplication;
+        public bool? ContentBasedDeduplication
+        {
+            get
+            {
+                if (!_mUnknown_ContentBasedDeduplication) return _mValue_ContentBasedDeduplication;
+                throw new UndeferrableValueException("Value 'Topic.ContentBasedDeduplication' is not present");
+            }
+        }
 
         /// <summary>
         /// The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         /// </summary>
-        [Input("deliveryPolicy")]
+        [PolicyResourceProperty("deliveryPolicy", "_mUnknown_DeliveryPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryPolicy;
-
-        public string? DeliveryPolicy => _mDeliveryPolicy.GetValue("deliveryPolicy");
+        private string? _mValue_DeliveryPolicy;
+        private bool _mUnknown_DeliveryPolicy;
+        public string? DeliveryPolicy
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryPolicy) return _mValue_DeliveryPolicy;
+                throw new UndeferrableValueException("Value 'Topic.DeliveryPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The display name for the topic
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'Topic.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         /// </summary>
-        [Input("fifoTopic")]
+        [PolicyResourceProperty("fifoTopic", "_mUnknown_FifoTopic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFifoTopic;
-
-        public bool? FifoTopic => _mFifoTopic.GetValue("fifoTopic");
+        private bool? _mValue_FifoTopic;
+        private bool _mUnknown_FifoTopic;
+        public bool? FifoTopic
+        {
+            get
+            {
+                if (!_mUnknown_FifoTopic) return _mValue_FifoTopic;
+                throw new UndeferrableValueException("Value 'Topic.FifoTopic' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM role for failure feedback
         /// </summary>
-        [Input("firehoseFailureFeedbackRoleArn")]
+        [PolicyResourceProperty("firehoseFailureFeedbackRoleArn", "_mUnknown_FirehoseFailureFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirehoseFailureFeedbackRoleArn;
-
-        public string? FirehoseFailureFeedbackRoleArn => _mFirehoseFailureFeedbackRoleArn.GetValue("firehoseFailureFeedbackRoleArn");
+        private string? _mValue_FirehoseFailureFeedbackRoleArn;
+        private bool _mUnknown_FirehoseFailureFeedbackRoleArn;
+        public string? FirehoseFailureFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_FirehoseFailureFeedbackRoleArn) return _mValue_FirehoseFailureFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'Topic.FirehoseFailureFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role permitted to receive success feedback for this topic
         /// </summary>
-        [Input("firehoseSuccessFeedbackRoleArn")]
+        [PolicyResourceProperty("firehoseSuccessFeedbackRoleArn", "_mUnknown_FirehoseSuccessFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirehoseSuccessFeedbackRoleArn;
-
-        public string? FirehoseSuccessFeedbackRoleArn => _mFirehoseSuccessFeedbackRoleArn.GetValue("firehoseSuccessFeedbackRoleArn");
+        private string? _mValue_FirehoseSuccessFeedbackRoleArn;
+        private bool _mUnknown_FirehoseSuccessFeedbackRoleArn;
+        public string? FirehoseSuccessFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_FirehoseSuccessFeedbackRoleArn) return _mValue_FirehoseSuccessFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'Topic.FirehoseSuccessFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Percentage of success to sample
         /// </summary>
-        [Input("firehoseSuccessFeedbackSampleRate")]
+        [PolicyResourceProperty("firehoseSuccessFeedbackSampleRate", "_mUnknown_FirehoseSuccessFeedbackSampleRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFirehoseSuccessFeedbackSampleRate;
-
-        public int? FirehoseSuccessFeedbackSampleRate => _mFirehoseSuccessFeedbackSampleRate.GetValue("firehoseSuccessFeedbackSampleRate");
+        private int? _mValue_FirehoseSuccessFeedbackSampleRate;
+        private bool _mUnknown_FirehoseSuccessFeedbackSampleRate;
+        public int? FirehoseSuccessFeedbackSampleRate
+        {
+            get
+            {
+                if (!_mUnknown_FirehoseSuccessFeedbackSampleRate) return _mValue_FirehoseSuccessFeedbackSampleRate;
+                throw new UndeferrableValueException("Value 'Topic.FirehoseSuccessFeedbackSampleRate' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM role for failure feedback
         /// </summary>
-        [Input("httpFailureFeedbackRoleArn")]
+        [PolicyResourceProperty("httpFailureFeedbackRoleArn", "_mUnknown_HttpFailureFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpFailureFeedbackRoleArn;
-
-        public string? HttpFailureFeedbackRoleArn => _mHttpFailureFeedbackRoleArn.GetValue("httpFailureFeedbackRoleArn");
+        private string? _mValue_HttpFailureFeedbackRoleArn;
+        private bool _mUnknown_HttpFailureFeedbackRoleArn;
+        public string? HttpFailureFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_HttpFailureFeedbackRoleArn) return _mValue_HttpFailureFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'Topic.HttpFailureFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role permitted to receive success feedback for this topic
         /// </summary>
-        [Input("httpSuccessFeedbackRoleArn")]
+        [PolicyResourceProperty("httpSuccessFeedbackRoleArn", "_mUnknown_HttpSuccessFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpSuccessFeedbackRoleArn;
-
-        public string? HttpSuccessFeedbackRoleArn => _mHttpSuccessFeedbackRoleArn.GetValue("httpSuccessFeedbackRoleArn");
+        private string? _mValue_HttpSuccessFeedbackRoleArn;
+        private bool _mUnknown_HttpSuccessFeedbackRoleArn;
+        public string? HttpSuccessFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_HttpSuccessFeedbackRoleArn) return _mValue_HttpSuccessFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'Topic.HttpSuccessFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Percentage of success to sample
         /// </summary>
-        [Input("httpSuccessFeedbackSampleRate")]
+        [PolicyResourceProperty("httpSuccessFeedbackSampleRate", "_mUnknown_HttpSuccessFeedbackSampleRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHttpSuccessFeedbackSampleRate;
-
-        public int? HttpSuccessFeedbackSampleRate => _mHttpSuccessFeedbackSampleRate.GetValue("httpSuccessFeedbackSampleRate");
+        private int? _mValue_HttpSuccessFeedbackSampleRate;
+        private bool _mUnknown_HttpSuccessFeedbackSampleRate;
+        public int? HttpSuccessFeedbackSampleRate
+        {
+            get
+            {
+                if (!_mUnknown_HttpSuccessFeedbackSampleRate) return _mValue_HttpSuccessFeedbackSampleRate;
+                throw new UndeferrableValueException("Value 'Topic.HttpSuccessFeedbackSampleRate' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
         /// </summary>
-        [Input("kmsMasterKeyId")]
+        [PolicyResourceProperty("kmsMasterKeyId", "_mUnknown_KmsMasterKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsMasterKeyId;
-
-        public string? KmsMasterKeyId => _mKmsMasterKeyId.GetValue("kmsMasterKeyId");
+        private string? _mValue_KmsMasterKeyId;
+        private bool _mUnknown_KmsMasterKeyId;
+        public string? KmsMasterKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsMasterKeyId) return _mValue_KmsMasterKeyId;
+                throw new UndeferrableValueException("Value 'Topic.KmsMasterKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM role for failure feedback
         /// </summary>
-        [Input("lambdaFailureFeedbackRoleArn")]
+        [PolicyResourceProperty("lambdaFailureFeedbackRoleArn", "_mUnknown_LambdaFailureFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaFailureFeedbackRoleArn;
-
-        public string? LambdaFailureFeedbackRoleArn => _mLambdaFailureFeedbackRoleArn.GetValue("lambdaFailureFeedbackRoleArn");
+        private string? _mValue_LambdaFailureFeedbackRoleArn;
+        private bool _mUnknown_LambdaFailureFeedbackRoleArn;
+        public string? LambdaFailureFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_LambdaFailureFeedbackRoleArn) return _mValue_LambdaFailureFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'Topic.LambdaFailureFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role permitted to receive success feedback for this topic
         /// </summary>
-        [Input("lambdaSuccessFeedbackRoleArn")]
+        [PolicyResourceProperty("lambdaSuccessFeedbackRoleArn", "_mUnknown_LambdaSuccessFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaSuccessFeedbackRoleArn;
-
-        public string? LambdaSuccessFeedbackRoleArn => _mLambdaSuccessFeedbackRoleArn.GetValue("lambdaSuccessFeedbackRoleArn");
+        private string? _mValue_LambdaSuccessFeedbackRoleArn;
+        private bool _mUnknown_LambdaSuccessFeedbackRoleArn;
+        public string? LambdaSuccessFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_LambdaSuccessFeedbackRoleArn) return _mValue_LambdaSuccessFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'Topic.LambdaSuccessFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Percentage of success to sample
         /// </summary>
-        [Input("lambdaSuccessFeedbackSampleRate")]
+        [PolicyResourceProperty("lambdaSuccessFeedbackSampleRate", "_mUnknown_LambdaSuccessFeedbackSampleRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLambdaSuccessFeedbackSampleRate;
-
-        public int? LambdaSuccessFeedbackSampleRate => _mLambdaSuccessFeedbackSampleRate.GetValue("lambdaSuccessFeedbackSampleRate");
+        private int? _mValue_LambdaSuccessFeedbackSampleRate;
+        private bool _mUnknown_LambdaSuccessFeedbackSampleRate;
+        public int? LambdaSuccessFeedbackSampleRate
+        {
+            get
+            {
+                if (!_mUnknown_LambdaSuccessFeedbackSampleRate) return _mValue_LambdaSuccessFeedbackSampleRate;
+                throw new UndeferrableValueException("Value 'Topic.LambdaSuccessFeedbackSampleRate' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Topic.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'Topic.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Account ID of the SNS topic owner
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'Topic.Owner' is not present");
+            }
+        }
 
         /// <summary>
         /// The fully-formed AWS policy as JSON.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'Topic.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
         /// </summary>
-        [Input("signatureVersion")]
+        [PolicyResourceProperty("signatureVersion", "_mUnknown_SignatureVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSignatureVersion;
-
-        public int? SignatureVersion => _mSignatureVersion.GetValue("signatureVersion");
+        private int? _mValue_SignatureVersion;
+        private bool _mUnknown_SignatureVersion;
+        public int? SignatureVersion
+        {
+            get
+            {
+                if (!_mUnknown_SignatureVersion) return _mValue_SignatureVersion;
+                throw new UndeferrableValueException("Value 'Topic.SignatureVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM role for failure feedback
         /// </summary>
-        [Input("sqsFailureFeedbackRoleArn")]
+        [PolicyResourceProperty("sqsFailureFeedbackRoleArn", "_mUnknown_SqsFailureFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSqsFailureFeedbackRoleArn;
-
-        public string? SqsFailureFeedbackRoleArn => _mSqsFailureFeedbackRoleArn.GetValue("sqsFailureFeedbackRoleArn");
+        private string? _mValue_SqsFailureFeedbackRoleArn;
+        private bool _mUnknown_SqsFailureFeedbackRoleArn;
+        public string? SqsFailureFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_SqsFailureFeedbackRoleArn) return _mValue_SqsFailureFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'Topic.SqsFailureFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role permitted to receive success feedback for this topic
         /// </summary>
-        [Input("sqsSuccessFeedbackRoleArn")]
+        [PolicyResourceProperty("sqsSuccessFeedbackRoleArn", "_mUnknown_SqsSuccessFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSqsSuccessFeedbackRoleArn;
-
-        public string? SqsSuccessFeedbackRoleArn => _mSqsSuccessFeedbackRoleArn.GetValue("sqsSuccessFeedbackRoleArn");
+        private string? _mValue_SqsSuccessFeedbackRoleArn;
+        private bool _mUnknown_SqsSuccessFeedbackRoleArn;
+        public string? SqsSuccessFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_SqsSuccessFeedbackRoleArn) return _mValue_SqsSuccessFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'Topic.SqsSuccessFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Percentage of success to sample
         /// </summary>
-        [Input("sqsSuccessFeedbackSampleRate")]
+        [PolicyResourceProperty("sqsSuccessFeedbackSampleRate", "_mUnknown_SqsSuccessFeedbackSampleRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSqsSuccessFeedbackSampleRate;
-
-        public int? SqsSuccessFeedbackSampleRate => _mSqsSuccessFeedbackSampleRate.GetValue("sqsSuccessFeedbackSampleRate");
+        private int? _mValue_SqsSuccessFeedbackSampleRate;
+        private bool _mUnknown_SqsSuccessFeedbackSampleRate;
+        public int? SqsSuccessFeedbackSampleRate
+        {
+            get
+            {
+                if (!_mUnknown_SqsSuccessFeedbackSampleRate) return _mValue_SqsSuccessFeedbackSampleRate;
+                throw new UndeferrableValueException("Value 'Topic.SqsSuccessFeedbackSampleRate' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Topic.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Topic.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
         /// </summary>
-        [Input("tracingConfig")]
+        [PolicyResourceProperty("tracingConfig", "_mUnknown_TracingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTracingConfig;
-
-        public string? TracingConfig => _mTracingConfig.GetValue("tracingConfig");
+        private string? _mValue_TracingConfig;
+        private bool _mUnknown_TracingConfig;
+        public string? TracingConfig
+        {
+            get
+            {
+                if (!_mUnknown_TracingConfig) return _mValue_TracingConfig;
+                throw new UndeferrableValueException("Value 'Topic.TracingConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sns/topic:Topic")]
@@ -299,244 +516,433 @@ namespace Pulumi.PolicyPacks.Aws.Sns
         /// <summary>
         /// IAM role for failure feedback
         /// </summary>
-        [Input("applicationFailureFeedbackRoleArn")]
+        [PolicyResourceProperty("applicationFailureFeedbackRoleArn", "_mUnknown_ApplicationFailureFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationFailureFeedbackRoleArn;
-
-        public string? ApplicationFailureFeedbackRoleArn => _mApplicationFailureFeedbackRoleArn.GetValue("applicationFailureFeedbackRoleArn");
+        private string? _mValue_ApplicationFailureFeedbackRoleArn;
+        private bool _mUnknown_ApplicationFailureFeedbackRoleArn;
+        public string? ApplicationFailureFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationFailureFeedbackRoleArn) return _mValue_ApplicationFailureFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'TopicArgs.ApplicationFailureFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role permitted to receive success feedback for this topic
         /// </summary>
-        [Input("applicationSuccessFeedbackRoleArn")]
+        [PolicyResourceProperty("applicationSuccessFeedbackRoleArn", "_mUnknown_ApplicationSuccessFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationSuccessFeedbackRoleArn;
-
-        public string? ApplicationSuccessFeedbackRoleArn => _mApplicationSuccessFeedbackRoleArn.GetValue("applicationSuccessFeedbackRoleArn");
+        private string? _mValue_ApplicationSuccessFeedbackRoleArn;
+        private bool _mUnknown_ApplicationSuccessFeedbackRoleArn;
+        public string? ApplicationSuccessFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationSuccessFeedbackRoleArn) return _mValue_ApplicationSuccessFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'TopicArgs.ApplicationSuccessFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Percentage of success to sample
         /// </summary>
-        [Input("applicationSuccessFeedbackSampleRate")]
+        [PolicyResourceProperty("applicationSuccessFeedbackSampleRate", "_mUnknown_ApplicationSuccessFeedbackSampleRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mApplicationSuccessFeedbackSampleRate;
-
-        public int? ApplicationSuccessFeedbackSampleRate => _mApplicationSuccessFeedbackSampleRate.GetValue("applicationSuccessFeedbackSampleRate");
+        private int? _mValue_ApplicationSuccessFeedbackSampleRate;
+        private bool _mUnknown_ApplicationSuccessFeedbackSampleRate;
+        public int? ApplicationSuccessFeedbackSampleRate
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationSuccessFeedbackSampleRate) return _mValue_ApplicationSuccessFeedbackSampleRate;
+                throw new UndeferrableValueException("Value 'TopicArgs.ApplicationSuccessFeedbackSampleRate' is not present");
+            }
+        }
 
         /// <summary>
         /// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
         /// </summary>
-        [Input("archivePolicy")]
+        [PolicyResourceProperty("archivePolicy", "_mUnknown_ArchivePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArchivePolicy;
-
-        public string? ArchivePolicy => _mArchivePolicy.GetValue("archivePolicy");
+        private string? _mValue_ArchivePolicy;
+        private bool _mUnknown_ArchivePolicy;
+        public string? ArchivePolicy
+        {
+            get
+            {
+                if (!_mUnknown_ArchivePolicy) return _mValue_ArchivePolicy;
+                throw new UndeferrableValueException("Value 'TopicArgs.ArchivePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
         /// </summary>
-        [Input("contentBasedDeduplication")]
+        [PolicyResourceProperty("contentBasedDeduplication", "_mUnknown_ContentBasedDeduplication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mContentBasedDeduplication;
-
-        public bool? ContentBasedDeduplication => _mContentBasedDeduplication.GetValue("contentBasedDeduplication");
+        private bool? _mValue_ContentBasedDeduplication;
+        private bool _mUnknown_ContentBasedDeduplication;
+        public bool? ContentBasedDeduplication
+        {
+            get
+            {
+                if (!_mUnknown_ContentBasedDeduplication) return _mValue_ContentBasedDeduplication;
+                throw new UndeferrableValueException("Value 'TopicArgs.ContentBasedDeduplication' is not present");
+            }
+        }
 
         /// <summary>
         /// The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         /// </summary>
-        [Input("deliveryPolicy")]
+        [PolicyResourceProperty("deliveryPolicy", "_mUnknown_DeliveryPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryPolicy;
-
-        public string? DeliveryPolicy => _mDeliveryPolicy.GetValue("deliveryPolicy");
+        private string? _mValue_DeliveryPolicy;
+        private bool _mUnknown_DeliveryPolicy;
+        public string? DeliveryPolicy
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryPolicy) return _mValue_DeliveryPolicy;
+                throw new UndeferrableValueException("Value 'TopicArgs.DeliveryPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The display name for the topic
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'TopicArgs.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         /// </summary>
-        [Input("fifoTopic")]
+        [PolicyResourceProperty("fifoTopic", "_mUnknown_FifoTopic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFifoTopic;
-
-        public bool? FifoTopic => _mFifoTopic.GetValue("fifoTopic");
+        private bool? _mValue_FifoTopic;
+        private bool _mUnknown_FifoTopic;
+        public bool? FifoTopic
+        {
+            get
+            {
+                if (!_mUnknown_FifoTopic) return _mValue_FifoTopic;
+                throw new UndeferrableValueException("Value 'TopicArgs.FifoTopic' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM role for failure feedback
         /// </summary>
-        [Input("firehoseFailureFeedbackRoleArn")]
+        [PolicyResourceProperty("firehoseFailureFeedbackRoleArn", "_mUnknown_FirehoseFailureFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirehoseFailureFeedbackRoleArn;
-
-        public string? FirehoseFailureFeedbackRoleArn => _mFirehoseFailureFeedbackRoleArn.GetValue("firehoseFailureFeedbackRoleArn");
+        private string? _mValue_FirehoseFailureFeedbackRoleArn;
+        private bool _mUnknown_FirehoseFailureFeedbackRoleArn;
+        public string? FirehoseFailureFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_FirehoseFailureFeedbackRoleArn) return _mValue_FirehoseFailureFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'TopicArgs.FirehoseFailureFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role permitted to receive success feedback for this topic
         /// </summary>
-        [Input("firehoseSuccessFeedbackRoleArn")]
+        [PolicyResourceProperty("firehoseSuccessFeedbackRoleArn", "_mUnknown_FirehoseSuccessFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirehoseSuccessFeedbackRoleArn;
-
-        public string? FirehoseSuccessFeedbackRoleArn => _mFirehoseSuccessFeedbackRoleArn.GetValue("firehoseSuccessFeedbackRoleArn");
+        private string? _mValue_FirehoseSuccessFeedbackRoleArn;
+        private bool _mUnknown_FirehoseSuccessFeedbackRoleArn;
+        public string? FirehoseSuccessFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_FirehoseSuccessFeedbackRoleArn) return _mValue_FirehoseSuccessFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'TopicArgs.FirehoseSuccessFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Percentage of success to sample
         /// </summary>
-        [Input("firehoseSuccessFeedbackSampleRate")]
+        [PolicyResourceProperty("firehoseSuccessFeedbackSampleRate", "_mUnknown_FirehoseSuccessFeedbackSampleRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFirehoseSuccessFeedbackSampleRate;
-
-        public int? FirehoseSuccessFeedbackSampleRate => _mFirehoseSuccessFeedbackSampleRate.GetValue("firehoseSuccessFeedbackSampleRate");
+        private int? _mValue_FirehoseSuccessFeedbackSampleRate;
+        private bool _mUnknown_FirehoseSuccessFeedbackSampleRate;
+        public int? FirehoseSuccessFeedbackSampleRate
+        {
+            get
+            {
+                if (!_mUnknown_FirehoseSuccessFeedbackSampleRate) return _mValue_FirehoseSuccessFeedbackSampleRate;
+                throw new UndeferrableValueException("Value 'TopicArgs.FirehoseSuccessFeedbackSampleRate' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM role for failure feedback
         /// </summary>
-        [Input("httpFailureFeedbackRoleArn")]
+        [PolicyResourceProperty("httpFailureFeedbackRoleArn", "_mUnknown_HttpFailureFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpFailureFeedbackRoleArn;
-
-        public string? HttpFailureFeedbackRoleArn => _mHttpFailureFeedbackRoleArn.GetValue("httpFailureFeedbackRoleArn");
+        private string? _mValue_HttpFailureFeedbackRoleArn;
+        private bool _mUnknown_HttpFailureFeedbackRoleArn;
+        public string? HttpFailureFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_HttpFailureFeedbackRoleArn) return _mValue_HttpFailureFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'TopicArgs.HttpFailureFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role permitted to receive success feedback for this topic
         /// </summary>
-        [Input("httpSuccessFeedbackRoleArn")]
+        [PolicyResourceProperty("httpSuccessFeedbackRoleArn", "_mUnknown_HttpSuccessFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpSuccessFeedbackRoleArn;
-
-        public string? HttpSuccessFeedbackRoleArn => _mHttpSuccessFeedbackRoleArn.GetValue("httpSuccessFeedbackRoleArn");
+        private string? _mValue_HttpSuccessFeedbackRoleArn;
+        private bool _mUnknown_HttpSuccessFeedbackRoleArn;
+        public string? HttpSuccessFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_HttpSuccessFeedbackRoleArn) return _mValue_HttpSuccessFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'TopicArgs.HttpSuccessFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Percentage of success to sample
         /// </summary>
-        [Input("httpSuccessFeedbackSampleRate")]
+        [PolicyResourceProperty("httpSuccessFeedbackSampleRate", "_mUnknown_HttpSuccessFeedbackSampleRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHttpSuccessFeedbackSampleRate;
-
-        public int? HttpSuccessFeedbackSampleRate => _mHttpSuccessFeedbackSampleRate.GetValue("httpSuccessFeedbackSampleRate");
+        private int? _mValue_HttpSuccessFeedbackSampleRate;
+        private bool _mUnknown_HttpSuccessFeedbackSampleRate;
+        public int? HttpSuccessFeedbackSampleRate
+        {
+            get
+            {
+                if (!_mUnknown_HttpSuccessFeedbackSampleRate) return _mValue_HttpSuccessFeedbackSampleRate;
+                throw new UndeferrableValueException("Value 'TopicArgs.HttpSuccessFeedbackSampleRate' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
         /// </summary>
-        [Input("kmsMasterKeyId")]
+        [PolicyResourceProperty("kmsMasterKeyId", "_mUnknown_KmsMasterKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsMasterKeyId;
-
-        public string? KmsMasterKeyId => _mKmsMasterKeyId.GetValue("kmsMasterKeyId");
+        private string? _mValue_KmsMasterKeyId;
+        private bool _mUnknown_KmsMasterKeyId;
+        public string? KmsMasterKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsMasterKeyId) return _mValue_KmsMasterKeyId;
+                throw new UndeferrableValueException("Value 'TopicArgs.KmsMasterKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM role for failure feedback
         /// </summary>
-        [Input("lambdaFailureFeedbackRoleArn")]
+        [PolicyResourceProperty("lambdaFailureFeedbackRoleArn", "_mUnknown_LambdaFailureFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaFailureFeedbackRoleArn;
-
-        public string? LambdaFailureFeedbackRoleArn => _mLambdaFailureFeedbackRoleArn.GetValue("lambdaFailureFeedbackRoleArn");
+        private string? _mValue_LambdaFailureFeedbackRoleArn;
+        private bool _mUnknown_LambdaFailureFeedbackRoleArn;
+        public string? LambdaFailureFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_LambdaFailureFeedbackRoleArn) return _mValue_LambdaFailureFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'TopicArgs.LambdaFailureFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role permitted to receive success feedback for this topic
         /// </summary>
-        [Input("lambdaSuccessFeedbackRoleArn")]
+        [PolicyResourceProperty("lambdaSuccessFeedbackRoleArn", "_mUnknown_LambdaSuccessFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaSuccessFeedbackRoleArn;
-
-        public string? LambdaSuccessFeedbackRoleArn => _mLambdaSuccessFeedbackRoleArn.GetValue("lambdaSuccessFeedbackRoleArn");
+        private string? _mValue_LambdaSuccessFeedbackRoleArn;
+        private bool _mUnknown_LambdaSuccessFeedbackRoleArn;
+        public string? LambdaSuccessFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_LambdaSuccessFeedbackRoleArn) return _mValue_LambdaSuccessFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'TopicArgs.LambdaSuccessFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Percentage of success to sample
         /// </summary>
-        [Input("lambdaSuccessFeedbackSampleRate")]
+        [PolicyResourceProperty("lambdaSuccessFeedbackSampleRate", "_mUnknown_LambdaSuccessFeedbackSampleRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLambdaSuccessFeedbackSampleRate;
-
-        public int? LambdaSuccessFeedbackSampleRate => _mLambdaSuccessFeedbackSampleRate.GetValue("lambdaSuccessFeedbackSampleRate");
+        private int? _mValue_LambdaSuccessFeedbackSampleRate;
+        private bool _mUnknown_LambdaSuccessFeedbackSampleRate;
+        public int? LambdaSuccessFeedbackSampleRate
+        {
+            get
+            {
+                if (!_mUnknown_LambdaSuccessFeedbackSampleRate) return _mValue_LambdaSuccessFeedbackSampleRate;
+                throw new UndeferrableValueException("Value 'TopicArgs.LambdaSuccessFeedbackSampleRate' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TopicArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'TopicArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The fully-formed AWS policy as JSON.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'TopicArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
         /// </summary>
-        [Input("signatureVersion")]
+        [PolicyResourceProperty("signatureVersion", "_mUnknown_SignatureVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSignatureVersion;
-
-        public int? SignatureVersion => _mSignatureVersion.GetValue("signatureVersion");
+        private int? _mValue_SignatureVersion;
+        private bool _mUnknown_SignatureVersion;
+        public int? SignatureVersion
+        {
+            get
+            {
+                if (!_mUnknown_SignatureVersion) return _mValue_SignatureVersion;
+                throw new UndeferrableValueException("Value 'TopicArgs.SignatureVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM role for failure feedback
         /// </summary>
-        [Input("sqsFailureFeedbackRoleArn")]
+        [PolicyResourceProperty("sqsFailureFeedbackRoleArn", "_mUnknown_SqsFailureFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSqsFailureFeedbackRoleArn;
-
-        public string? SqsFailureFeedbackRoleArn => _mSqsFailureFeedbackRoleArn.GetValue("sqsFailureFeedbackRoleArn");
+        private string? _mValue_SqsFailureFeedbackRoleArn;
+        private bool _mUnknown_SqsFailureFeedbackRoleArn;
+        public string? SqsFailureFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_SqsFailureFeedbackRoleArn) return _mValue_SqsFailureFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'TopicArgs.SqsFailureFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role permitted to receive success feedback for this topic
         /// </summary>
-        [Input("sqsSuccessFeedbackRoleArn")]
+        [PolicyResourceProperty("sqsSuccessFeedbackRoleArn", "_mUnknown_SqsSuccessFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSqsSuccessFeedbackRoleArn;
-
-        public string? SqsSuccessFeedbackRoleArn => _mSqsSuccessFeedbackRoleArn.GetValue("sqsSuccessFeedbackRoleArn");
+        private string? _mValue_SqsSuccessFeedbackRoleArn;
+        private bool _mUnknown_SqsSuccessFeedbackRoleArn;
+        public string? SqsSuccessFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_SqsSuccessFeedbackRoleArn) return _mValue_SqsSuccessFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'TopicArgs.SqsSuccessFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Percentage of success to sample
         /// </summary>
-        [Input("sqsSuccessFeedbackSampleRate")]
+        [PolicyResourceProperty("sqsSuccessFeedbackSampleRate", "_mUnknown_SqsSuccessFeedbackSampleRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSqsSuccessFeedbackSampleRate;
-
-        public int? SqsSuccessFeedbackSampleRate => _mSqsSuccessFeedbackSampleRate.GetValue("sqsSuccessFeedbackSampleRate");
+        private int? _mValue_SqsSuccessFeedbackSampleRate;
+        private bool _mUnknown_SqsSuccessFeedbackSampleRate;
+        public int? SqsSuccessFeedbackSampleRate
+        {
+            get
+            {
+                if (!_mUnknown_SqsSuccessFeedbackSampleRate) return _mValue_SqsSuccessFeedbackSampleRate;
+                throw new UndeferrableValueException("Value 'TopicArgs.SqsSuccessFeedbackSampleRate' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TopicArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
         /// </summary>
-        [Input("tracingConfig")]
+        [PolicyResourceProperty("tracingConfig", "_mUnknown_TracingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTracingConfig;
-
-        public string? TracingConfig => _mTracingConfig.GetValue("tracingConfig");
+        private string? _mValue_TracingConfig;
+        private bool _mUnknown_TracingConfig;
+        public string? TracingConfig
+        {
+            get
+            {
+                if (!_mUnknown_TracingConfig) return _mValue_TracingConfig;
+                throw new UndeferrableValueException("Value 'TopicArgs.TracingConfig' is not present");
+            }
+        }
     }
 }

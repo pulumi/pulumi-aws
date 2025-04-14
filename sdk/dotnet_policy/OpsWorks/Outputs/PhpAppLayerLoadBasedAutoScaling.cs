@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks.Outputs
 {
     public sealed class PhpAppLayerLoadBasedAutoScaling
     {
-        [Input("downscaling")]
+        [PolicyResourceProperty("downscaling", "_mUnknown_Downscaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PhpAppLayerLoadBasedAutoScalingDownscaling> _mDownscaling;
+        private Outputs.PhpAppLayerLoadBasedAutoScalingDownscaling? _mValue_Downscaling;
+        private bool _mUnknown_Downscaling;
+        public Outputs.PhpAppLayerLoadBasedAutoScalingDownscaling? Downscaling
+        {
+            get
+            {
+                if (!_mUnknown_Downscaling) return _mValue_Downscaling;
+                throw new UndeferrableValueException("Value 'PhpAppLayerLoadBasedAutoScaling.Downscaling' is not present");
+            }
+        }
 
-        public Outputs.PhpAppLayerLoadBasedAutoScalingDownscaling? Downscaling => _mDownscaling.GetValue("downscaling");
-
-        [Input("enable")]
+        [PolicyResourceProperty("enable", "_mUnknown_Enable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnable;
+        private bool? _mValue_Enable;
+        private bool _mUnknown_Enable;
+        public bool? Enable
+        {
+            get
+            {
+                if (!_mUnknown_Enable) return _mValue_Enable;
+                throw new UndeferrableValueException("Value 'PhpAppLayerLoadBasedAutoScaling.Enable' is not present");
+            }
+        }
 
-        public bool? Enable => _mEnable.GetValue("enable");
-
-        [Input("upscaling")]
+        [PolicyResourceProperty("upscaling", "_mUnknown_Upscaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PhpAppLayerLoadBasedAutoScalingUpscaling> _mUpscaling;
-
-        public Outputs.PhpAppLayerLoadBasedAutoScalingUpscaling? Upscaling => _mUpscaling.GetValue("upscaling");
+        private Outputs.PhpAppLayerLoadBasedAutoScalingUpscaling? _mValue_Upscaling;
+        private bool _mUnknown_Upscaling;
+        public Outputs.PhpAppLayerLoadBasedAutoScalingUpscaling? Upscaling
+        {
+            get
+            {
+                if (!_mUnknown_Upscaling) return _mValue_Upscaling;
+                throw new UndeferrableValueException("Value 'PhpAppLayerLoadBasedAutoScaling.Upscaling' is not present");
+            }
+        }
     }
 }

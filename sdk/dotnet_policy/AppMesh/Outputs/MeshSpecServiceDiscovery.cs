@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
         /// </summary>
-        [Input("ipPreference")]
+        [PolicyResourceProperty("ipPreference", "_mUnknown_IpPreference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpPreference;
-
-        public string? IpPreference => _mIpPreference.GetValue("ipPreference");
+        private string? _mValue_IpPreference;
+        private bool _mUnknown_IpPreference;
+        public string? IpPreference
+        {
+            get
+            {
+                if (!_mUnknown_IpPreference) return _mValue_IpPreference;
+                throw new UndeferrableValueException("Value 'MeshSpecServiceDiscovery.IpPreference' is not present");
+            }
+        }
     }
 }

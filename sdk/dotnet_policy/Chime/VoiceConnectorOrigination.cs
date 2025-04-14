@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
         /// </summary>
-        [Input("disabled")]
+        [PolicyResourceProperty("disabled", "_mUnknown_Disabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisabled;
-
-        public bool? Disabled => _mDisabled.GetValue("disabled");
+        private bool? _mValue_Disabled;
+        private bool _mUnknown_Disabled;
+        public bool? Disabled
+        {
+            get
+            {
+                if (!_mUnknown_Disabled) return _mValue_Disabled;
+                throw new UndeferrableValueException("Value 'VoiceConnectorOrigination.Disabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
         /// </summary>
-        [Input("routes")]
+        [PolicyResourceProperty("routes", "_mUnknown_Routes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VoiceConnectorOriginationRoute>> _mRoutes;
-
-        public List<Outputs.VoiceConnectorOriginationRoute>? Routes => _mRoutes.GetValue("routes");
+        private List<Outputs.VoiceConnectorOriginationRoute>? _mValue_Routes;
+        private bool _mUnknown_Routes;
+        public List<Outputs.VoiceConnectorOriginationRoute>? Routes
+        {
+            get
+            {
+                if (!_mUnknown_Routes) return _mValue_Routes;
+                throw new UndeferrableValueException("Value 'VoiceConnectorOrigination.Routes' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Chime Voice Connector ID.
         /// </summary>
-        [Input("voiceConnectorId")]
+        [PolicyResourceProperty("voiceConnectorId", "_mUnknown_VoiceConnectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceConnectorId;
-
-        public string? VoiceConnectorId => _mVoiceConnectorId.GetValue("voiceConnectorId");
+        private string? _mValue_VoiceConnectorId;
+        private bool _mUnknown_VoiceConnectorId;
+        public string? VoiceConnectorId
+        {
+            get
+            {
+                if (!_mUnknown_VoiceConnectorId) return _mValue_VoiceConnectorId;
+                throw new UndeferrableValueException("Value 'VoiceConnectorOrigination.VoiceConnectorId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:chime/voiceConnectorOrigination:VoiceConnectorOrigination")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
         /// </summary>
-        [Input("disabled")]
+        [PolicyResourceProperty("disabled", "_mUnknown_Disabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisabled;
-
-        public bool? Disabled => _mDisabled.GetValue("disabled");
+        private bool? _mValue_Disabled;
+        private bool _mUnknown_Disabled;
+        public bool? Disabled
+        {
+            get
+            {
+                if (!_mUnknown_Disabled) return _mValue_Disabled;
+                throw new UndeferrableValueException("Value 'VoiceConnectorOriginationArgs.Disabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
         /// </summary>
-        [Input("routes")]
+        [PolicyResourceProperty("routes", "_mUnknown_Routes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.VoiceConnectorOriginationRouteArgs>> _mRoutes;
-
-        public List<Inputs.VoiceConnectorOriginationRouteArgs>? Routes => _mRoutes.GetValue("routes");
+        private List<Inputs.VoiceConnectorOriginationRouteArgs>? _mValue_Routes;
+        private bool _mUnknown_Routes;
+        public List<Inputs.VoiceConnectorOriginationRouteArgs>? Routes
+        {
+            get
+            {
+                if (!_mUnknown_Routes) return _mValue_Routes;
+                throw new UndeferrableValueException("Value 'VoiceConnectorOriginationArgs.Routes' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Chime Voice Connector ID.
         /// </summary>
-        [Input("voiceConnectorId")]
+        [PolicyResourceProperty("voiceConnectorId", "_mUnknown_VoiceConnectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceConnectorId;
-
-        public string? VoiceConnectorId => _mVoiceConnectorId.GetValue("voiceConnectorId");
+        private string? _mValue_VoiceConnectorId;
+        private bool _mUnknown_VoiceConnectorId;
+        public string? VoiceConnectorId
+        {
+            get
+            {
+                if (!_mUnknown_VoiceConnectorId) return _mValue_VoiceConnectorId;
+                throw new UndeferrableValueException("Value 'VoiceConnectorOriginationArgs.VoiceConnectorId' is not present");
+            }
+        }
     }
 }

@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
-
-        public string? Action => _mAction.GetValue("action");
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'Permission.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
         /// </summary>
-        [Input("eventSourceToken")]
+        [PolicyResourceProperty("eventSourceToken", "_mUnknown_EventSourceToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventSourceToken;
-
-        public string? EventSourceToken => _mEventSourceToken.GetValue("eventSourceToken");
+        private string? _mValue_EventSourceToken;
+        private bool _mUnknown_EventSourceToken;
+        public string? EventSourceToken
+        {
+            get
+            {
+                if (!_mUnknown_EventSourceToken) return _mValue_EventSourceToken;
+                throw new UndeferrableValueException("Value 'Permission.EventSourceToken' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Lambda function whose resource policy you are updating
         /// </summary>
-        [Input("function")]
+        [PolicyResourceProperty("function", "_mUnknown_Function")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunction;
-
-        public string? Function => _mFunction.GetValue("function");
+        private string? _mValue_Function;
+        private bool _mUnknown_Function;
+        public string? Function
+        {
+            get
+            {
+                if (!_mUnknown_Function) return _mValue_Function;
+                throw new UndeferrableValueException("Value 'Permission.Function' is not present");
+            }
+        }
 
         /// <summary>
         /// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
         /// </summary>
-        [Input("functionUrlAuthType")]
+        [PolicyResourceProperty("functionUrlAuthType", "_mUnknown_FunctionUrlAuthType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionUrlAuthType;
-
-        public string? FunctionUrlAuthType => _mFunctionUrlAuthType.GetValue("functionUrlAuthType");
+        private string? _mValue_FunctionUrlAuthType;
+        private bool _mUnknown_FunctionUrlAuthType;
+        public string? FunctionUrlAuthType
+        {
+            get
+            {
+                if (!_mUnknown_FunctionUrlAuthType) return _mValue_FunctionUrlAuthType;
+                throw new UndeferrableValueException("Value 'Permission.FunctionUrlAuthType' is not present");
+            }
+        }
 
         /// <summary>
         /// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         /// </summary>
-        [Input("principal")]
+        [PolicyResourceProperty("principal", "_mUnknown_Principal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
-
-        public string? Principal => _mPrincipal.GetValue("principal");
+        private string? _mValue_Principal;
+        private bool _mUnknown_Principal;
+        public string? Principal
+        {
+            get
+            {
+                if (!_mUnknown_Principal) return _mValue_Principal;
+                throw new UndeferrableValueException("Value 'Permission.Principal' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
@@ -65,29 +100,50 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
         /// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
         /// </summary>
-        [Input("principalOrgId")]
+        [PolicyResourceProperty("principalOrgId", "_mUnknown_PrincipalOrgId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalOrgId;
-
-        public string? PrincipalOrgId => _mPrincipalOrgId.GetValue("principalOrgId");
+        private string? _mValue_PrincipalOrgId;
+        private bool _mUnknown_PrincipalOrgId;
+        public string? PrincipalOrgId
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalOrgId) return _mValue_PrincipalOrgId;
+                throw new UndeferrableValueException("Value 'Permission.PrincipalOrgId' is not present");
+            }
+        }
 
         /// <summary>
         /// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
         /// </summary>
-        [Input("qualifier")]
+        [PolicyResourceProperty("qualifier", "_mUnknown_Qualifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
-
-        public string? Qualifier => _mQualifier.GetValue("qualifier");
+        private string? _mValue_Qualifier;
+        private bool _mUnknown_Qualifier;
+        public string? Qualifier
+        {
+            get
+            {
+                if (!_mUnknown_Qualifier) return _mValue_Qualifier;
+                throw new UndeferrableValueException("Value 'Permission.Qualifier' is not present");
+            }
+        }
 
         /// <summary>
         /// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         /// </summary>
-        [Input("sourceAccount")]
+        [PolicyResourceProperty("sourceAccount", "_mUnknown_SourceAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceAccount;
-
-        public string? SourceAccount => _mSourceAccount.GetValue("sourceAccount");
+        private string? _mValue_SourceAccount;
+        private bool _mUnknown_SourceAccount;
+        public string? SourceAccount
+        {
+            get
+            {
+                if (!_mUnknown_SourceAccount) return _mValue_SourceAccount;
+                throw new UndeferrableValueException("Value 'Permission.SourceAccount' is not present");
+            }
+        }
 
         /// <summary>
         /// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
@@ -96,29 +152,50 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// For EventBridge events, this should be the ARN of the EventBridge Rule.
         /// For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
         /// </summary>
-        [Input("sourceArn")]
+        [PolicyResourceProperty("sourceArn", "_mUnknown_SourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
-
-        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
+        private string? _mValue_SourceArn;
+        private bool _mUnknown_SourceArn;
+        public string? SourceArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceArn) return _mValue_SourceArn;
+                throw new UndeferrableValueException("Value 'Permission.SourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique statement identifier. By default generated by the provider.
         /// </summary>
-        [Input("statementId")]
+        [PolicyResourceProperty("statementId", "_mUnknown_StatementId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatementId;
-
-        public string? StatementId => _mStatementId.GetValue("statementId");
+        private string? _mValue_StatementId;
+        private bool _mUnknown_StatementId;
+        public string? StatementId
+        {
+            get
+            {
+                if (!_mUnknown_StatementId) return _mValue_StatementId;
+                throw new UndeferrableValueException("Value 'Permission.StatementId' is not present");
+            }
+        }
 
         /// <summary>
         /// A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
         /// </summary>
-        [Input("statementIdPrefix")]
+        [PolicyResourceProperty("statementIdPrefix", "_mUnknown_StatementIdPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatementIdPrefix;
-
-        public string? StatementIdPrefix => _mStatementIdPrefix.GetValue("statementIdPrefix");
+        private string? _mValue_StatementIdPrefix;
+        private bool _mUnknown_StatementIdPrefix;
+        public string? StatementIdPrefix
+        {
+            get
+            {
+                if (!_mUnknown_StatementIdPrefix) return _mValue_StatementIdPrefix;
+                throw new UndeferrableValueException("Value 'Permission.StatementIdPrefix' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lambda/permission:Permission")]
@@ -127,47 +204,82 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
-
-        public string? Action => _mAction.GetValue("action");
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'PermissionArgs.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
         /// </summary>
-        [Input("eventSourceToken")]
+        [PolicyResourceProperty("eventSourceToken", "_mUnknown_EventSourceToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventSourceToken;
-
-        public string? EventSourceToken => _mEventSourceToken.GetValue("eventSourceToken");
+        private string? _mValue_EventSourceToken;
+        private bool _mUnknown_EventSourceToken;
+        public string? EventSourceToken
+        {
+            get
+            {
+                if (!_mUnknown_EventSourceToken) return _mValue_EventSourceToken;
+                throw new UndeferrableValueException("Value 'PermissionArgs.EventSourceToken' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Lambda function whose resource policy you are updating
         /// </summary>
-        [Input("function")]
+        [PolicyResourceProperty("function", "_mUnknown_Function")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunction;
-
-        public string? Function => _mFunction.GetValue("function");
+        private string? _mValue_Function;
+        private bool _mUnknown_Function;
+        public string? Function
+        {
+            get
+            {
+                if (!_mUnknown_Function) return _mValue_Function;
+                throw new UndeferrableValueException("Value 'PermissionArgs.Function' is not present");
+            }
+        }
 
         /// <summary>
         /// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
         /// </summary>
-        [Input("functionUrlAuthType")]
+        [PolicyResourceProperty("functionUrlAuthType", "_mUnknown_FunctionUrlAuthType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionUrlAuthType;
-
-        public string? FunctionUrlAuthType => _mFunctionUrlAuthType.GetValue("functionUrlAuthType");
+        private string? _mValue_FunctionUrlAuthType;
+        private bool _mUnknown_FunctionUrlAuthType;
+        public string? FunctionUrlAuthType
+        {
+            get
+            {
+                if (!_mUnknown_FunctionUrlAuthType) return _mValue_FunctionUrlAuthType;
+                throw new UndeferrableValueException("Value 'PermissionArgs.FunctionUrlAuthType' is not present");
+            }
+        }
 
         /// <summary>
         /// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         /// </summary>
-        [Input("principal")]
+        [PolicyResourceProperty("principal", "_mUnknown_Principal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
-
-        public string? Principal => _mPrincipal.GetValue("principal");
+        private string? _mValue_Principal;
+        private bool _mUnknown_Principal;
+        public string? Principal
+        {
+            get
+            {
+                if (!_mUnknown_Principal) return _mValue_Principal;
+                throw new UndeferrableValueException("Value 'PermissionArgs.Principal' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
@@ -176,29 +288,50 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
         /// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
         /// </summary>
-        [Input("principalOrgId")]
+        [PolicyResourceProperty("principalOrgId", "_mUnknown_PrincipalOrgId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalOrgId;
-
-        public string? PrincipalOrgId => _mPrincipalOrgId.GetValue("principalOrgId");
+        private string? _mValue_PrincipalOrgId;
+        private bool _mUnknown_PrincipalOrgId;
+        public string? PrincipalOrgId
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalOrgId) return _mValue_PrincipalOrgId;
+                throw new UndeferrableValueException("Value 'PermissionArgs.PrincipalOrgId' is not present");
+            }
+        }
 
         /// <summary>
         /// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
         /// </summary>
-        [Input("qualifier")]
+        [PolicyResourceProperty("qualifier", "_mUnknown_Qualifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
-
-        public string? Qualifier => _mQualifier.GetValue("qualifier");
+        private string? _mValue_Qualifier;
+        private bool _mUnknown_Qualifier;
+        public string? Qualifier
+        {
+            get
+            {
+                if (!_mUnknown_Qualifier) return _mValue_Qualifier;
+                throw new UndeferrableValueException("Value 'PermissionArgs.Qualifier' is not present");
+            }
+        }
 
         /// <summary>
         /// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         /// </summary>
-        [Input("sourceAccount")]
+        [PolicyResourceProperty("sourceAccount", "_mUnknown_SourceAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceAccount;
-
-        public string? SourceAccount => _mSourceAccount.GetValue("sourceAccount");
+        private string? _mValue_SourceAccount;
+        private bool _mUnknown_SourceAccount;
+        public string? SourceAccount
+        {
+            get
+            {
+                if (!_mUnknown_SourceAccount) return _mValue_SourceAccount;
+                throw new UndeferrableValueException("Value 'PermissionArgs.SourceAccount' is not present");
+            }
+        }
 
         /// <summary>
         /// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
@@ -207,28 +340,49 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// For EventBridge events, this should be the ARN of the EventBridge Rule.
         /// For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
         /// </summary>
-        [Input("sourceArn")]
+        [PolicyResourceProperty("sourceArn", "_mUnknown_SourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
-
-        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
+        private string? _mValue_SourceArn;
+        private bool _mUnknown_SourceArn;
+        public string? SourceArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceArn) return _mValue_SourceArn;
+                throw new UndeferrableValueException("Value 'PermissionArgs.SourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique statement identifier. By default generated by the provider.
         /// </summary>
-        [Input("statementId")]
+        [PolicyResourceProperty("statementId", "_mUnknown_StatementId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatementId;
-
-        public string? StatementId => _mStatementId.GetValue("statementId");
+        private string? _mValue_StatementId;
+        private bool _mUnknown_StatementId;
+        public string? StatementId
+        {
+            get
+            {
+                if (!_mUnknown_StatementId) return _mValue_StatementId;
+                throw new UndeferrableValueException("Value 'PermissionArgs.StatementId' is not present");
+            }
+        }
 
         /// <summary>
         /// A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
         /// </summary>
-        [Input("statementIdPrefix")]
+        [PolicyResourceProperty("statementIdPrefix", "_mUnknown_StatementIdPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatementIdPrefix;
-
-        public string? StatementIdPrefix => _mStatementIdPrefix.GetValue("statementIdPrefix");
+        private string? _mValue_StatementIdPrefix;
+        private bool _mUnknown_StatementIdPrefix;
+        public string? StatementIdPrefix
+        {
+            get
+            {
+                if (!_mUnknown_StatementIdPrefix) return _mValue_StatementIdPrefix;
+                throw new UndeferrableValueException("Value 'PermissionArgs.StatementIdPrefix' is not present");
+            }
+        }
     }
 }

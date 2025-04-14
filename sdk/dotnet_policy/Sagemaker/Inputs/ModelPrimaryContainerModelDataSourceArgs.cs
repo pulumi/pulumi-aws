@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The S3 location of model data to deploy.
         /// </summary>
-        [Input("s3DataSources")]
+        [PolicyResourceProperty("s3DataSources", "_mUnknown_S3DataSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ModelPrimaryContainerModelDataSourceS3DataSourceArgs>> _mS3DataSources;
-
-        public List<Inputs.ModelPrimaryContainerModelDataSourceS3DataSourceArgs>? S3DataSources => _mS3DataSources.GetValue("s3DataSources");
+        private List<Inputs.ModelPrimaryContainerModelDataSourceS3DataSourceArgs>? _mValue_S3DataSources;
+        private bool _mUnknown_S3DataSources;
+        public List<Inputs.ModelPrimaryContainerModelDataSourceS3DataSourceArgs>? S3DataSources
+        {
+            get
+            {
+                if (!_mUnknown_S3DataSources) return _mValue_S3DataSources;
+                throw new UndeferrableValueException("Value 'ModelPrimaryContainerModelDataSourceArgs.S3DataSources' is not present");
+            }
+        }
     }
 }

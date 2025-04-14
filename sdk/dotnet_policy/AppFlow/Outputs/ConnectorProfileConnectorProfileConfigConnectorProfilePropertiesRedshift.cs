@@ -12,61 +12,110 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
 {
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift
     {
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.BucketName' is not present");
+            }
+        }
 
-        public string? BucketName => _mBucketName.GetValue("bucketName");
-
-        [Input("bucketPrefix")]
+        [PolicyResourceProperty("bucketPrefix", "_mUnknown_BucketPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketPrefix;
-
-        public string? BucketPrefix => _mBucketPrefix.GetValue("bucketPrefix");
+        private string? _mValue_BucketPrefix;
+        private bool _mUnknown_BucketPrefix;
+        public string? BucketPrefix
+        {
+            get
+            {
+                if (!_mUnknown_BucketPrefix) return _mValue_BucketPrefix;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.BucketPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique ID that's assigned to an Amazon Redshift cluster.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role that permits AppFlow to access the database through Data API.
         /// </summary>
-        [Input("dataApiRoleArn")]
+        [PolicyResourceProperty("dataApiRoleArn", "_mUnknown_DataApiRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataApiRoleArn;
-
-        public string? DataApiRoleArn => _mDataApiRoleArn.GetValue("dataApiRoleArn");
+        private string? _mValue_DataApiRoleArn;
+        private bool _mUnknown_DataApiRoleArn;
+        public string? DataApiRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_DataApiRoleArn) return _mValue_DataApiRoleArn;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.DataApiRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of an Amazon Redshift database.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// The JDBC URL of the Amazon Redshift cluster.
         /// </summary>
-        [Input("databaseUrl")]
+        [PolicyResourceProperty("databaseUrl", "_mUnknown_DatabaseUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseUrl;
-
-        public string? DatabaseUrl => _mDatabaseUrl.GetValue("databaseUrl");
+        private string? _mValue_DatabaseUrl;
+        private bool _mUnknown_DatabaseUrl;
+        public string? DatabaseUrl
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseUrl) return _mValue_DatabaseUrl;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.DatabaseUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.RoleArn' is not present");
+            }
+        }
     }
 }

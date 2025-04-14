@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// Max number of web pages crawled from your source URLs, up to 25,000 pages.
         /// </summary>
-        [Input("maxPages")]
+        [PolicyResourceProperty("maxPages", "_mUnknown_MaxPages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxPages;
-
-        public int? MaxPages => _mMaxPages.GetValue("maxPages");
+        private int? _mValue_MaxPages;
+        private bool _mUnknown_MaxPages;
+        public int? MaxPages
+        {
+            get
+            {
+                if (!_mUnknown_MaxPages) return _mValue_MaxPages;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs.MaxPages' is not present");
+            }
+        }
 
         /// <summary>
         /// Max rate at which pages are crawled, up to 300 per minute per host.
         /// </summary>
-        [Input("rateLimit")]
+        [PolicyResourceProperty("rateLimit", "_mUnknown_RateLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRateLimit;
-
-        public int? RateLimit => _mRateLimit.GetValue("rateLimit");
+        private int? _mValue_RateLimit;
+        private bool _mUnknown_RateLimit;
+        public int? RateLimit
+        {
+            get
+            {
+                if (!_mUnknown_RateLimit) return _mValue_RateLimit;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs.RateLimit' is not present");
+            }
+        }
     }
 }

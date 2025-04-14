@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
         /// </summary>
-        [Input("defaultValue")]
+        [PolicyResourceProperty("defaultValue", "_mUnknown_DefaultValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultValue;
-
-        public string? DefaultValue => _mDefaultValue.GetValue("defaultValue");
+        private string? _mValue_DefaultValue;
+        private bool _mUnknown_DefaultValue;
+        public string? DefaultValue
+        {
+            get
+            {
+                if (!_mUnknown_DefaultValue) return _mValue_DefaultValue;
+                throw new UndeferrableValueException("Value 'LogMetricFilterMetricTransformationArgs.DefaultValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
         /// </summary>
-        [Input("dimensions")]
+        [PolicyResourceProperty("dimensions", "_mUnknown_Dimensions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mDimensions;
-
-        public Dictionary<string, string>? Dimensions => _mDimensions.GetValue("dimensions");
+        private Dictionary<string, string>? _mValue_Dimensions;
+        private bool _mUnknown_Dimensions;
+        public Dictionary<string, string>? Dimensions
+        {
+            get
+            {
+                if (!_mUnknown_Dimensions) return _mValue_Dimensions;
+                throw new UndeferrableValueException("Value 'LogMetricFilterMetricTransformationArgs.Dimensions' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LogMetricFilterMetricTransformationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The destination namespace of the CloudWatch metric.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'LogMetricFilterMetricTransformationArgs.Namespace' is not present");
+            }
+        }
 
         /// <summary>
         /// The unit to assign to the metric. If you omit this, the unit is set as `None`.
         /// </summary>
-        [Input("unit")]
+        [PolicyResourceProperty("unit", "_mUnknown_Unit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnit;
-
-        public string? Unit => _mUnit.GetValue("unit");
+        private string? _mValue_Unit;
+        private bool _mUnknown_Unit;
+        public string? Unit
+        {
+            get
+            {
+                if (!_mUnknown_Unit) return _mValue_Unit;
+                throw new UndeferrableValueException("Value 'LogMetricFilterMetricTransformationArgs.Unit' is not present");
+            }
+        }
 
         /// <summary>
         /// What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'LogMetricFilterMetricTransformationArgs.Value' is not present");
+            }
+        }
     }
 }

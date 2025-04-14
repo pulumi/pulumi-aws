@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
         /// <summary>
         /// Configuration block for specifying SASL client authentication. See below.
         /// </summary>
-        [Input("sasl")]
+        [PolicyResourceProperty("sasl", "_mUnknown_Sasl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl> _mSasl;
-
-        public Outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl? Sasl => _mSasl.GetValue("sasl");
+        private Outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl? _mValue_Sasl;
+        private bool _mUnknown_Sasl;
+        public Outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl? Sasl
+        {
+            get
+            {
+                if (!_mUnknown_Sasl) return _mValue_Sasl;
+                throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication.Sasl' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for specifying TLS client authentication. See below.
         /// </summary>
-        [Input("tls")]
+        [PolicyResourceProperty("tls", "_mUnknown_Tls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTls;
-
-        public bool? Tls => _mTls.GetValue("tls");
+        private bool? _mValue_Tls;
+        private bool _mUnknown_Tls;
+        public bool? Tls
+        {
+            get
+            {
+                if (!_mUnknown_Tls) return _mValue_Tls;
+                throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication.Tls' is not present");
+            }
+        }
     }
 }

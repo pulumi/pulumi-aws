@@ -18,56 +18,98 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// 
         /// &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         /// </summary>
-        [Input("connectionEvents")]
+        [PolicyResourceProperty("connectionEvents", "_mUnknown_ConnectionEvents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mConnectionEvents;
-
-        public List<string>? ConnectionEvents => _mConnectionEvents.GetValue("connectionEvents");
+        private List<string>? _mValue_ConnectionEvents;
+        private bool _mUnknown_ConnectionEvents;
+        public List<string>? ConnectionEvents
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionEvents) return _mValue_ConnectionEvents;
+                throw new UndeferrableValueException("Value 'VpcEndpointConnectionNotification.ConnectionEvents' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SNS topic for the notifications.
         /// </summary>
-        [Input("connectionNotificationArn")]
+        [PolicyResourceProperty("connectionNotificationArn", "_mUnknown_ConnectionNotificationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionNotificationArn;
-
-        public string? ConnectionNotificationArn => _mConnectionNotificationArn.GetValue("connectionNotificationArn");
+        private string? _mValue_ConnectionNotificationArn;
+        private bool _mUnknown_ConnectionNotificationArn;
+        public string? ConnectionNotificationArn
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionNotificationArn) return _mValue_ConnectionNotificationArn;
+                throw new UndeferrableValueException("Value 'VpcEndpointConnectionNotification.ConnectionNotificationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of notification.
         /// </summary>
-        [Input("notificationType")]
+        [PolicyResourceProperty("notificationType", "_mUnknown_NotificationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationType;
-
-        public string? NotificationType => _mNotificationType.GetValue("notificationType");
+        private string? _mValue_NotificationType;
+        private bool _mUnknown_NotificationType;
+        public string? NotificationType
+        {
+            get
+            {
+                if (!_mUnknown_NotificationType) return _mValue_NotificationType;
+                throw new UndeferrableValueException("Value 'VpcEndpointConnectionNotification.NotificationType' is not present");
+            }
+        }
 
         /// <summary>
         /// The state of the notification.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'VpcEndpointConnectionNotification.State' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC Endpoint to receive notifications for.
         /// </summary>
-        [Input("vpcEndpointId")]
+        [PolicyResourceProperty("vpcEndpointId", "_mUnknown_VpcEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
-
-        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+        private string? _mValue_VpcEndpointId;
+        private bool _mUnknown_VpcEndpointId;
+        public string? VpcEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointId) return _mValue_VpcEndpointId;
+                throw new UndeferrableValueException("Value 'VpcEndpointConnectionNotification.VpcEndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC Endpoint Service to receive notifications for.
         /// </summary>
-        [Input("vpcEndpointServiceId")]
+        [PolicyResourceProperty("vpcEndpointServiceId", "_mUnknown_VpcEndpointServiceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointServiceId;
-
-        public string? VpcEndpointServiceId => _mVpcEndpointServiceId.GetValue("vpcEndpointServiceId");
+        private string? _mValue_VpcEndpointServiceId;
+        private bool _mUnknown_VpcEndpointServiceId;
+        public string? VpcEndpointServiceId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointServiceId) return _mValue_VpcEndpointServiceId;
+                throw new UndeferrableValueException("Value 'VpcEndpointConnectionNotification.VpcEndpointServiceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification")]
@@ -78,37 +120,65 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// 
         /// &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         /// </summary>
-        [Input("connectionEvents")]
+        [PolicyResourceProperty("connectionEvents", "_mUnknown_ConnectionEvents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mConnectionEvents;
-
-        public List<string>? ConnectionEvents => _mConnectionEvents.GetValue("connectionEvents");
+        private List<string>? _mValue_ConnectionEvents;
+        private bool _mUnknown_ConnectionEvents;
+        public List<string>? ConnectionEvents
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionEvents) return _mValue_ConnectionEvents;
+                throw new UndeferrableValueException("Value 'VpcEndpointConnectionNotificationArgs.ConnectionEvents' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SNS topic for the notifications.
         /// </summary>
-        [Input("connectionNotificationArn")]
+        [PolicyResourceProperty("connectionNotificationArn", "_mUnknown_ConnectionNotificationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionNotificationArn;
-
-        public string? ConnectionNotificationArn => _mConnectionNotificationArn.GetValue("connectionNotificationArn");
+        private string? _mValue_ConnectionNotificationArn;
+        private bool _mUnknown_ConnectionNotificationArn;
+        public string? ConnectionNotificationArn
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionNotificationArn) return _mValue_ConnectionNotificationArn;
+                throw new UndeferrableValueException("Value 'VpcEndpointConnectionNotificationArgs.ConnectionNotificationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC Endpoint to receive notifications for.
         /// </summary>
-        [Input("vpcEndpointId")]
+        [PolicyResourceProperty("vpcEndpointId", "_mUnknown_VpcEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
-
-        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+        private string? _mValue_VpcEndpointId;
+        private bool _mUnknown_VpcEndpointId;
+        public string? VpcEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointId) return _mValue_VpcEndpointId;
+                throw new UndeferrableValueException("Value 'VpcEndpointConnectionNotificationArgs.VpcEndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC Endpoint Service to receive notifications for.
         /// </summary>
-        [Input("vpcEndpointServiceId")]
+        [PolicyResourceProperty("vpcEndpointServiceId", "_mUnknown_VpcEndpointServiceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointServiceId;
-
-        public string? VpcEndpointServiceId => _mVpcEndpointServiceId.GetValue("vpcEndpointServiceId");
+        private string? _mValue_VpcEndpointServiceId;
+        private bool _mUnknown_VpcEndpointServiceId;
+        public string? VpcEndpointServiceId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointServiceId) return _mValue_VpcEndpointServiceId;
+                throw new UndeferrableValueException("Value 'VpcEndpointConnectionNotificationArgs.VpcEndpointServiceId' is not present");
+            }
+        }
     }
 }

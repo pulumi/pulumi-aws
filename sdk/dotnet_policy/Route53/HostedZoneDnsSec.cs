@@ -18,20 +18,34 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("hostedZoneId")]
+        [PolicyResourceProperty("hostedZoneId", "_mUnknown_HostedZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
-
-        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+        private string? _mValue_HostedZoneId;
+        private bool _mUnknown_HostedZoneId;
+        public string? HostedZoneId
+        {
+            get
+            {
+                if (!_mUnknown_HostedZoneId) return _mValue_HostedZoneId;
+                throw new UndeferrableValueException("Value 'HostedZoneDnsSec.HostedZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         /// </summary>
-        [Input("signingStatus")]
+        [PolicyResourceProperty("signingStatus", "_mUnknown_SigningStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSigningStatus;
-
-        public string? SigningStatus => _mSigningStatus.GetValue("signingStatus");
+        private string? _mValue_SigningStatus;
+        private bool _mUnknown_SigningStatus;
+        public string? SigningStatus
+        {
+            get
+            {
+                if (!_mUnknown_SigningStatus) return _mValue_SigningStatus;
+                throw new UndeferrableValueException("Value 'HostedZoneDnsSec.SigningStatus' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/hostedZoneDnsSec:HostedZoneDnsSec")]
@@ -42,19 +56,33 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("hostedZoneId")]
+        [PolicyResourceProperty("hostedZoneId", "_mUnknown_HostedZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
-
-        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+        private string? _mValue_HostedZoneId;
+        private bool _mUnknown_HostedZoneId;
+        public string? HostedZoneId
+        {
+            get
+            {
+                if (!_mUnknown_HostedZoneId) return _mValue_HostedZoneId;
+                throw new UndeferrableValueException("Value 'HostedZoneDnsSecArgs.HostedZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         /// </summary>
-        [Input("signingStatus")]
+        [PolicyResourceProperty("signingStatus", "_mUnknown_SigningStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSigningStatus;
-
-        public string? SigningStatus => _mSigningStatus.GetValue("signingStatus");
+        private string? _mValue_SigningStatus;
+        private bool _mUnknown_SigningStatus;
+        public string? SigningStatus
+        {
+            get
+            {
+                if (!_mUnknown_SigningStatus) return _mValue_SigningStatus;
+                throw new UndeferrableValueException("Value 'HostedZoneDnsSecArgs.SigningStatus' is not present");
+            }
+        }
     }
 }

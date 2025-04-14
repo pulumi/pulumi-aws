@@ -16,125 +16,223 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
         /// </summary>
-        [Input("addressFamily")]
+        [PolicyResourceProperty("addressFamily", "_mUnknown_AddressFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
-
-        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
+        private string? _mValue_AddressFamily;
+        private bool _mUnknown_AddressFamily;
+        public string? AddressFamily
+        {
+            get
+            {
+                if (!_mUnknown_AddressFamily) return _mValue_AddressFamily;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.AddressFamily' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         /// </summary>
-        [Input("amazonAddress")]
+        [PolicyResourceProperty("amazonAddress", "_mUnknown_AmazonAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonAddress;
+        private string? _mValue_AmazonAddress;
+        private bool _mUnknown_AmazonAddress;
+        public string? AmazonAddress
+        {
+            get
+            {
+                if (!_mUnknown_AmazonAddress) return _mValue_AmazonAddress;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.AmazonAddress' is not present");
+            }
+        }
 
-        public string? AmazonAddress => _mAmazonAddress.GetValue("amazonAddress");
-
-        [Input("amazonSideAsn")]
+        [PolicyResourceProperty("amazonSideAsn", "_mUnknown_AmazonSideAsn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonSideAsn;
-
-        public string? AmazonSideAsn => _mAmazonSideAsn.GetValue("amazonSideAsn");
+        private string? _mValue_AmazonSideAsn;
+        private bool _mUnknown_AmazonSideAsn;
+        public string? AmazonSideAsn
+        {
+            get
+            {
+                if (!_mUnknown_AmazonSideAsn) return _mValue_AmazonSideAsn;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.AmazonSideAsn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the virtual interface.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Direct Connect endpoint on which the virtual interface terminates.
         /// </summary>
-        [Input("awsDevice")]
+        [PolicyResourceProperty("awsDevice", "_mUnknown_AwsDevice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsDevice;
-
-        public string? AwsDevice => _mAwsDevice.GetValue("awsDevice");
+        private string? _mValue_AwsDevice;
+        private bool _mUnknown_AwsDevice;
+        public string? AwsDevice
+        {
+            get
+            {
+                if (!_mUnknown_AwsDevice) return _mValue_AwsDevice;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.AwsDevice' is not present");
+            }
+        }
 
         /// <summary>
         /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         /// </summary>
-        [Input("bgpAsn")]
+        [PolicyResourceProperty("bgpAsn", "_mUnknown_BgpAsn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBgpAsn;
-
-        public int? BgpAsn => _mBgpAsn.GetValue("bgpAsn");
+        private int? _mValue_BgpAsn;
+        private bool _mUnknown_BgpAsn;
+        public int? BgpAsn
+        {
+            get
+            {
+                if (!_mUnknown_BgpAsn) return _mValue_BgpAsn;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.BgpAsn' is not present");
+            }
+        }
 
         /// <summary>
         /// The authentication key for BGP configuration.
         /// </summary>
-        [Input("bgpAuthKey")]
+        [PolicyResourceProperty("bgpAuthKey", "_mUnknown_BgpAuthKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAuthKey;
-
-        public string? BgpAuthKey => _mBgpAuthKey.GetValue("bgpAuthKey");
+        private string? _mValue_BgpAuthKey;
+        private bool _mUnknown_BgpAuthKey;
+        public string? BgpAuthKey
+        {
+            get
+            {
+                if (!_mUnknown_BgpAuthKey) return _mValue_BgpAuthKey;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.BgpAuthKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         /// </summary>
-        [Input("connectionId")]
+        [PolicyResourceProperty("connectionId", "_mUnknown_ConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
-
-        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+        private string? _mValue_ConnectionId;
+        private bool _mUnknown_ConnectionId;
+        public string? ConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionId) return _mValue_ConnectionId;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.ConnectionId' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         /// </summary>
-        [Input("customerAddress")]
+        [PolicyResourceProperty("customerAddress", "_mUnknown_CustomerAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerAddress;
-
-        public string? CustomerAddress => _mCustomerAddress.GetValue("customerAddress");
+        private string? _mValue_CustomerAddress;
+        private bool _mUnknown_CustomerAddress;
+        public string? CustomerAddress
+        {
+            get
+            {
+                if (!_mUnknown_CustomerAddress) return _mValue_CustomerAddress;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.CustomerAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether jumbo frames (8500 MTU) are supported.
         /// </summary>
-        [Input("jumboFrameCapable")]
+        [PolicyResourceProperty("jumboFrameCapable", "_mUnknown_JumboFrameCapable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mJumboFrameCapable;
-
-        public bool? JumboFrameCapable => _mJumboFrameCapable.GetValue("jumboFrameCapable");
+        private bool? _mValue_JumboFrameCapable;
+        private bool _mUnknown_JumboFrameCapable;
+        public bool? JumboFrameCapable
+        {
+            get
+            {
+                if (!_mUnknown_JumboFrameCapable) return _mValue_JumboFrameCapable;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.JumboFrameCapable' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
         /// </summary>
-        [Input("mtu")]
+        [PolicyResourceProperty("mtu", "_mUnknown_Mtu")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMtu;
-
-        public int? Mtu => _mMtu.GetValue("mtu");
+        private int? _mValue_Mtu;
+        private bool _mUnknown_Mtu;
+        public int? Mtu
+        {
+            get
+            {
+                if (!_mUnknown_Mtu) return _mValue_Mtu;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.Mtu' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the virtual interface.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS account that will own the new virtual interface.
         /// </summary>
-        [Input("ownerAccountId")]
+        [PolicyResourceProperty("ownerAccountId", "_mUnknown_OwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
-
-        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+        private string? _mValue_OwnerAccountId;
+        private bool _mUnknown_OwnerAccountId;
+        public string? OwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccountId) return _mValue_OwnerAccountId;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.OwnerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The VLAN ID.
         /// </summary>
-        [Input("vlan")]
+        [PolicyResourceProperty("vlan", "_mUnknown_Vlan")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVlan;
-
-        public int? Vlan => _mVlan.GetValue("vlan");
+        private int? _mValue_Vlan;
+        private bool _mUnknown_Vlan;
+        public int? Vlan
+        {
+            get
+            {
+                if (!_mUnknown_Vlan) return _mValue_Vlan;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.Vlan' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface")]
@@ -143,91 +241,161 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
         /// </summary>
-        [Input("addressFamily")]
+        [PolicyResourceProperty("addressFamily", "_mUnknown_AddressFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
-
-        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
+        private string? _mValue_AddressFamily;
+        private bool _mUnknown_AddressFamily;
+        public string? AddressFamily
+        {
+            get
+            {
+                if (!_mUnknown_AddressFamily) return _mValue_AddressFamily;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterfaceArgs.AddressFamily' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         /// </summary>
-        [Input("amazonAddress")]
+        [PolicyResourceProperty("amazonAddress", "_mUnknown_AmazonAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonAddress;
-
-        public string? AmazonAddress => _mAmazonAddress.GetValue("amazonAddress");
+        private string? _mValue_AmazonAddress;
+        private bool _mUnknown_AmazonAddress;
+        public string? AmazonAddress
+        {
+            get
+            {
+                if (!_mUnknown_AmazonAddress) return _mValue_AmazonAddress;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterfaceArgs.AmazonAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         /// </summary>
-        [Input("bgpAsn")]
+        [PolicyResourceProperty("bgpAsn", "_mUnknown_BgpAsn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBgpAsn;
-
-        public int? BgpAsn => _mBgpAsn.GetValue("bgpAsn");
+        private int? _mValue_BgpAsn;
+        private bool _mUnknown_BgpAsn;
+        public int? BgpAsn
+        {
+            get
+            {
+                if (!_mUnknown_BgpAsn) return _mValue_BgpAsn;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterfaceArgs.BgpAsn' is not present");
+            }
+        }
 
         /// <summary>
         /// The authentication key for BGP configuration.
         /// </summary>
-        [Input("bgpAuthKey")]
+        [PolicyResourceProperty("bgpAuthKey", "_mUnknown_BgpAuthKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAuthKey;
-
-        public string? BgpAuthKey => _mBgpAuthKey.GetValue("bgpAuthKey");
+        private string? _mValue_BgpAuthKey;
+        private bool _mUnknown_BgpAuthKey;
+        public string? BgpAuthKey
+        {
+            get
+            {
+                if (!_mUnknown_BgpAuthKey) return _mValue_BgpAuthKey;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterfaceArgs.BgpAuthKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         /// </summary>
-        [Input("connectionId")]
+        [PolicyResourceProperty("connectionId", "_mUnknown_ConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
-
-        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+        private string? _mValue_ConnectionId;
+        private bool _mUnknown_ConnectionId;
+        public string? ConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionId) return _mValue_ConnectionId;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterfaceArgs.ConnectionId' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         /// </summary>
-        [Input("customerAddress")]
+        [PolicyResourceProperty("customerAddress", "_mUnknown_CustomerAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerAddress;
-
-        public string? CustomerAddress => _mCustomerAddress.GetValue("customerAddress");
+        private string? _mValue_CustomerAddress;
+        private bool _mUnknown_CustomerAddress;
+        public string? CustomerAddress
+        {
+            get
+            {
+                if (!_mUnknown_CustomerAddress) return _mValue_CustomerAddress;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterfaceArgs.CustomerAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
         /// </summary>
-        [Input("mtu")]
+        [PolicyResourceProperty("mtu", "_mUnknown_Mtu")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMtu;
-
-        public int? Mtu => _mMtu.GetValue("mtu");
+        private int? _mValue_Mtu;
+        private bool _mUnknown_Mtu;
+        public int? Mtu
+        {
+            get
+            {
+                if (!_mUnknown_Mtu) return _mValue_Mtu;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterfaceArgs.Mtu' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the virtual interface.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterfaceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS account that will own the new virtual interface.
         /// </summary>
-        [Input("ownerAccountId")]
+        [PolicyResourceProperty("ownerAccountId", "_mUnknown_OwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
-
-        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+        private string? _mValue_OwnerAccountId;
+        private bool _mUnknown_OwnerAccountId;
+        public string? OwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccountId) return _mValue_OwnerAccountId;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterfaceArgs.OwnerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The VLAN ID.
         /// </summary>
-        [Input("vlan")]
+        [PolicyResourceProperty("vlan", "_mUnknown_Vlan")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVlan;
-
-        public int? Vlan => _mVlan.GetValue("vlan");
+        private int? _mValue_Vlan;
+        private bool _mUnknown_Vlan;
+        public int? Vlan
+        {
+            get
+            {
+                if (!_mUnknown_Vlan) return _mValue_Vlan;
+                throw new UndeferrableValueException("Value 'HostedTransitVirtualInterfaceArgs.Vlan' is not present");
+            }
+        }
     }
 }

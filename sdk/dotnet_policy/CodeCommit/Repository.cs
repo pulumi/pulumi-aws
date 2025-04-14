@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.CodeCommit
         /// <summary>
         /// The ARN of the repository
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Repository.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL to use for cloning the repository over HTTPS.
         /// </summary>
-        [Input("cloneUrlHttp")]
+        [PolicyResourceProperty("cloneUrlHttp", "_mUnknown_CloneUrlHttp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloneUrlHttp;
-
-        public string? CloneUrlHttp => _mCloneUrlHttp.GetValue("cloneUrlHttp");
+        private string? _mValue_CloneUrlHttp;
+        private bool _mUnknown_CloneUrlHttp;
+        public string? CloneUrlHttp
+        {
+            get
+            {
+                if (!_mUnknown_CloneUrlHttp) return _mValue_CloneUrlHttp;
+                throw new UndeferrableValueException("Value 'Repository.CloneUrlHttp' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL to use for cloning the repository over SSH.
         /// </summary>
-        [Input("cloneUrlSsh")]
+        [PolicyResourceProperty("cloneUrlSsh", "_mUnknown_CloneUrlSsh")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloneUrlSsh;
-
-        public string? CloneUrlSsh => _mCloneUrlSsh.GetValue("cloneUrlSsh");
+        private string? _mValue_CloneUrlSsh;
+        private bool _mUnknown_CloneUrlSsh;
+        public string? CloneUrlSsh
+        {
+            get
+            {
+                if (!_mUnknown_CloneUrlSsh) return _mValue_CloneUrlSsh;
+                throw new UndeferrableValueException("Value 'Repository.CloneUrlSsh' is not present");
+            }
+        }
 
         /// <summary>
         /// The default branch of the repository. The branch specified here needs to exist.
         /// </summary>
-        [Input("defaultBranch")]
+        [PolicyResourceProperty("defaultBranch", "_mUnknown_DefaultBranch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultBranch;
-
-        public string? DefaultBranch => _mDefaultBranch.GetValue("defaultBranch");
+        private string? _mValue_DefaultBranch;
+        private bool _mUnknown_DefaultBranch;
+        public string? DefaultBranch
+        {
+            get
+            {
+                if (!_mUnknown_DefaultBranch) return _mValue_DefaultBranch;
+                throw new UndeferrableValueException("Value 'Repository.DefaultBranch' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the repository. This needs to be less than 1000 characters
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Repository.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'Repository.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the repository
         /// </summary>
-        [Input("repositoryId")]
+        [PolicyResourceProperty("repositoryId", "_mUnknown_RepositoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryId;
-
-        public string? RepositoryId => _mRepositoryId.GetValue("repositoryId");
+        private string? _mValue_RepositoryId;
+        private bool _mUnknown_RepositoryId;
+        public string? RepositoryId
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryId) return _mValue_RepositoryId;
+                throw new UndeferrableValueException("Value 'Repository.RepositoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the repository. This needs to be less than 100 characters.
         /// </summary>
-        [Input("repositoryName")]
+        [PolicyResourceProperty("repositoryName", "_mUnknown_RepositoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
-
-        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
+        private string? _mValue_RepositoryName;
+        private bool _mUnknown_RepositoryName;
+        public string? RepositoryName
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryName) return _mValue_RepositoryName;
+                throw new UndeferrableValueException("Value 'Repository.RepositoryName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Repository.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Repository.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codecommit/repository:Repository")]
@@ -110,46 +180,81 @@ namespace Pulumi.PolicyPacks.Aws.CodeCommit
         /// <summary>
         /// The default branch of the repository. The branch specified here needs to exist.
         /// </summary>
-        [Input("defaultBranch")]
+        [PolicyResourceProperty("defaultBranch", "_mUnknown_DefaultBranch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultBranch;
-
-        public string? DefaultBranch => _mDefaultBranch.GetValue("defaultBranch");
+        private string? _mValue_DefaultBranch;
+        private bool _mUnknown_DefaultBranch;
+        public string? DefaultBranch
+        {
+            get
+            {
+                if (!_mUnknown_DefaultBranch) return _mValue_DefaultBranch;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.DefaultBranch' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the repository. This needs to be less than 1000 characters
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the repository. This needs to be less than 100 characters.
         /// </summary>
-        [Input("repositoryName")]
+        [PolicyResourceProperty("repositoryName", "_mUnknown_RepositoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
-
-        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
+        private string? _mValue_RepositoryName;
+        private bool _mUnknown_RepositoryName;
+        public string? RepositoryName
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryName) return _mValue_RepositoryName;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.RepositoryName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.Tags' is not present");
+            }
+        }
     }
 }

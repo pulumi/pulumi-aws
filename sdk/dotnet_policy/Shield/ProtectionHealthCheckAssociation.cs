@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Shield
         /// <summary>
         /// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
         /// </summary>
-        [Input("healthCheckArn")]
+        [PolicyResourceProperty("healthCheckArn", "_mUnknown_HealthCheckArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckArn;
-
-        public string? HealthCheckArn => _mHealthCheckArn.GetValue("healthCheckArn");
+        private string? _mValue_HealthCheckArn;
+        private bool _mUnknown_HealthCheckArn;
+        public string? HealthCheckArn
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckArn) return _mValue_HealthCheckArn;
+                throw new UndeferrableValueException("Value 'ProtectionHealthCheckAssociation.HealthCheckArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the protected resource.
         /// </summary>
-        [Input("shieldProtectionId")]
+        [PolicyResourceProperty("shieldProtectionId", "_mUnknown_ShieldProtectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShieldProtectionId;
-
-        public string? ShieldProtectionId => _mShieldProtectionId.GetValue("shieldProtectionId");
+        private string? _mValue_ShieldProtectionId;
+        private bool _mUnknown_ShieldProtectionId;
+        public string? ShieldProtectionId
+        {
+            get
+            {
+                if (!_mUnknown_ShieldProtectionId) return _mValue_ShieldProtectionId;
+                throw new UndeferrableValueException("Value 'ProtectionHealthCheckAssociation.ShieldProtectionId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Shield
         /// <summary>
         /// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
         /// </summary>
-        [Input("healthCheckArn")]
+        [PolicyResourceProperty("healthCheckArn", "_mUnknown_HealthCheckArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckArn;
-
-        public string? HealthCheckArn => _mHealthCheckArn.GetValue("healthCheckArn");
+        private string? _mValue_HealthCheckArn;
+        private bool _mUnknown_HealthCheckArn;
+        public string? HealthCheckArn
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckArn) return _mValue_HealthCheckArn;
+                throw new UndeferrableValueException("Value 'ProtectionHealthCheckAssociationArgs.HealthCheckArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the protected resource.
         /// </summary>
-        [Input("shieldProtectionId")]
+        [PolicyResourceProperty("shieldProtectionId", "_mUnknown_ShieldProtectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShieldProtectionId;
-
-        public string? ShieldProtectionId => _mShieldProtectionId.GetValue("shieldProtectionId");
+        private string? _mValue_ShieldProtectionId;
+        private bool _mUnknown_ShieldProtectionId;
+        public string? ShieldProtectionId
+        {
+            get
+            {
+                if (!_mUnknown_ShieldProtectionId) return _mValue_ShieldProtectionId;
+                throw new UndeferrableValueException("Value 'ProtectionHealthCheckAssociationArgs.ShieldProtectionId' is not present");
+            }
+        }
     }
 }

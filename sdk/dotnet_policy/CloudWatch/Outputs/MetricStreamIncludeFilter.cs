@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Outputs
         /// <summary>
         /// An array that defines the metrics you want to include for this metric namespace
         /// </summary>
-        [Input("metricNames")]
+        [PolicyResourceProperty("metricNames", "_mUnknown_MetricNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMetricNames;
-
-        public List<string>? MetricNames => _mMetricNames.GetValue("metricNames");
+        private List<string>? _mValue_MetricNames;
+        private bool _mUnknown_MetricNames;
+        public List<string>? MetricNames
+        {
+            get
+            {
+                if (!_mUnknown_MetricNames) return _mValue_MetricNames;
+                throw new UndeferrableValueException("Value 'MetricStreamIncludeFilter.MetricNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the metric namespace in the filter.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'MetricStreamIncludeFilter.Namespace' is not present");
+            }
+        }
     }
 }

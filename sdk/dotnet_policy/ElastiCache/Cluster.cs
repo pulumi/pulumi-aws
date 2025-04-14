@@ -16,94 +16,164 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// <summary>
         /// Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
         /// </summary>
-        [Input("applyImmediately")]
+        [PolicyResourceProperty("applyImmediately", "_mUnknown_ApplyImmediately")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
-
-        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+        private bool? _mValue_ApplyImmediately;
+        private bool _mUnknown_ApplyImmediately;
+        public bool? ApplyImmediately
+        {
+            get
+            {
+                if (!_mUnknown_ApplyImmediately) return _mValue_ApplyImmediately;
+                throw new UndeferrableValueException("Value 'Cluster.ApplyImmediately' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the created ElastiCache Cluster.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Cluster.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
         /// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
         /// Defaults to `true`.
         /// </summary>
-        [Input("autoMinorVersionUpgrade")]
+        [PolicyResourceProperty("autoMinorVersionUpgrade", "_mUnknown_AutoMinorVersionUpgrade")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoMinorVersionUpgrade;
-
-        public string? AutoMinorVersionUpgrade => _mAutoMinorVersionUpgrade.GetValue("autoMinorVersionUpgrade");
+        private string? _mValue_AutoMinorVersionUpgrade;
+        private bool _mUnknown_AutoMinorVersionUpgrade;
+        public string? AutoMinorVersionUpgrade
+        {
+            get
+            {
+                if (!_mUnknown_AutoMinorVersionUpgrade) return _mValue_AutoMinorVersionUpgrade;
+                throw new UndeferrableValueException("Value 'Cluster.AutoMinorVersionUpgrade' is not present");
+            }
+        }
 
         /// <summary>
         /// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'Cluster.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
         /// </summary>
-        [Input("azMode")]
+        [PolicyResourceProperty("azMode", "_mUnknown_AzMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAzMode;
-
-        public string? AzMode => _mAzMode.GetValue("azMode");
+        private string? _mValue_AzMode;
+        private bool _mUnknown_AzMode;
+        public string? AzMode
+        {
+            get
+            {
+                if (!_mUnknown_AzMode) return _mValue_AzMode;
+                throw new UndeferrableValueException("Value 'Cluster.AzMode' is not present");
+            }
+        }
 
         /// <summary>
         /// List of node objects including `id`, `address`, `port` and `availability_zone`.
         /// </summary>
-        [Input("cacheNodes")]
+        [PolicyResourceProperty("cacheNodes", "_mUnknown_CacheNodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterCacheNode>> _mCacheNodes;
-
-        public List<Outputs.ClusterCacheNode>? CacheNodes => _mCacheNodes.GetValue("cacheNodes");
+        private List<Outputs.ClusterCacheNode>? _mValue_CacheNodes;
+        private bool _mUnknown_CacheNodes;
+        public List<Outputs.ClusterCacheNode>? CacheNodes
+        {
+            get
+            {
+                if (!_mUnknown_CacheNodes) return _mValue_CacheNodes;
+                throw new UndeferrableValueException("Value 'Cluster.CacheNodes' is not present");
+            }
+        }
 
         /// <summary>
         /// (Memcached only) DNS name of the cache cluster without the port appended.
         /// </summary>
-        [Input("clusterAddress")]
+        [PolicyResourceProperty("clusterAddress", "_mUnknown_ClusterAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterAddress;
-
-        public string? ClusterAddress => _mClusterAddress.GetValue("clusterAddress");
+        private string? _mValue_ClusterAddress;
+        private bool _mUnknown_ClusterAddress;
+        public string? ClusterAddress
+        {
+            get
+            {
+                if (!_mUnknown_ClusterAddress) return _mValue_ClusterAddress;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
         /// </summary>
-        [Input("clusterId")]
+        [PolicyResourceProperty("clusterId", "_mUnknown_ClusterId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
-
-        public string? ClusterId => _mClusterId.GetValue("clusterId");
+        private string? _mValue_ClusterId;
+        private bool _mUnknown_ClusterId;
+        public string? ClusterId
+        {
+            get
+            {
+                if (!_mUnknown_ClusterId) return _mValue_ClusterId;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterId' is not present");
+            }
+        }
 
         /// <summary>
         /// (Memcached only) Configuration endpoint to allow host discovery.
         /// </summary>
-        [Input("configurationEndpoint")]
+        [PolicyResourceProperty("configurationEndpoint", "_mUnknown_ConfigurationEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationEndpoint;
-
-        public string? ConfigurationEndpoint => _mConfigurationEndpoint.GetValue("configurationEndpoint");
+        private string? _mValue_ConfigurationEndpoint;
+        private bool _mUnknown_ConfigurationEndpoint;
+        public string? ConfigurationEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationEndpoint) return _mValue_ConfigurationEndpoint;
+                throw new UndeferrableValueException("Value 'Cluster.ConfigurationEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'Cluster.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// Version number of the cache engine to be used.
@@ -115,67 +185,116 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// Otherwise, specify the full version desired, e.g., `5.0.6`.
         /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'Cluster.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         /// </summary>
-        [Input("engineVersionActual")]
+        [PolicyResourceProperty("engineVersionActual", "_mUnknown_EngineVersionActual")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersionActual;
-
-        public string? EngineVersionActual => _mEngineVersionActual.GetValue("engineVersionActual");
+        private string? _mValue_EngineVersionActual;
+        private bool _mUnknown_EngineVersionActual;
+        public string? EngineVersionActual
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersionActual) return _mValue_EngineVersionActual;
+                throw new UndeferrableValueException("Value 'Cluster.EngineVersionActual' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         /// </summary>
-        [Input("finalSnapshotIdentifier")]
+        [PolicyResourceProperty("finalSnapshotIdentifier", "_mUnknown_FinalSnapshotIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFinalSnapshotIdentifier;
-
-        public string? FinalSnapshotIdentifier => _mFinalSnapshotIdentifier.GetValue("finalSnapshotIdentifier");
+        private string? _mValue_FinalSnapshotIdentifier;
+        private bool _mUnknown_FinalSnapshotIdentifier;
+        public string? FinalSnapshotIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_FinalSnapshotIdentifier) return _mValue_FinalSnapshotIdentifier;
+                throw new UndeferrableValueException("Value 'Cluster.FinalSnapshotIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         /// </summary>
-        [Input("ipDiscovery")]
+        [PolicyResourceProperty("ipDiscovery", "_mUnknown_IpDiscovery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpDiscovery;
-
-        public string? IpDiscovery => _mIpDiscovery.GetValue("ipDiscovery");
+        private string? _mValue_IpDiscovery;
+        private bool _mUnknown_IpDiscovery;
+        public string? IpDiscovery
+        {
+            get
+            {
+                if (!_mUnknown_IpDiscovery) return _mValue_IpDiscovery;
+                throw new UndeferrableValueException("Value 'Cluster.IpDiscovery' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         /// </summary>
-        [Input("logDeliveryConfigurations")]
+        [PolicyResourceProperty("logDeliveryConfigurations", "_mUnknown_LogDeliveryConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterLogDeliveryConfiguration>> _mLogDeliveryConfigurations;
-
-        public List<Outputs.ClusterLogDeliveryConfiguration>? LogDeliveryConfigurations => _mLogDeliveryConfigurations.GetValue("logDeliveryConfigurations");
+        private List<Outputs.ClusterLogDeliveryConfiguration>? _mValue_LogDeliveryConfigurations;
+        private bool _mUnknown_LogDeliveryConfigurations;
+        public List<Outputs.ClusterLogDeliveryConfiguration>? LogDeliveryConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_LogDeliveryConfigurations) return _mValue_LogDeliveryConfigurations;
+                throw new UndeferrableValueException("Value 'Cluster.LogDeliveryConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the weekly time range for when maintenance
         /// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
         /// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
         /// </summary>
-        [Input("maintenanceWindow")]
+        [PolicyResourceProperty("maintenanceWindow", "_mUnknown_MaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaintenanceWindow;
-
-        public string? MaintenanceWindow => _mMaintenanceWindow.GetValue("maintenanceWindow");
+        private string? _mValue_MaintenanceWindow;
+        private bool _mUnknown_MaintenanceWindow;
+        public string? MaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceWindow) return _mValue_MaintenanceWindow;
+                throw new UndeferrableValueException("Value 'Cluster.MaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
         /// </summary>
-        [Input("networkType")]
+        [PolicyResourceProperty("networkType", "_mUnknown_NetworkType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkType;
-
-        public string? NetworkType => _mNetworkType.GetValue("networkType");
+        private string? _mValue_NetworkType;
+        private bool _mUnknown_NetworkType;
+        public string? NetworkType
+        {
+            get
+            {
+                if (!_mUnknown_NetworkType) return _mValue_NetworkType;
+                throw new UndeferrableValueException("Value 'Cluster.NetworkType' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance class used.
@@ -183,166 +302,292 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html).
         /// For Memcached, changing this value will re-create the resource.
         /// </summary>
-        [Input("nodeType")]
+        [PolicyResourceProperty("nodeType", "_mUnknown_NodeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeType;
-
-        public string? NodeType => _mNodeType.GetValue("nodeType");
+        private string? _mValue_NodeType;
+        private bool _mUnknown_NodeType;
+        public string? NodeType
+        {
+            get
+            {
+                if (!_mUnknown_NodeType) return _mValue_NodeType;
+                throw new UndeferrableValueException("Value 'Cluster.NodeType' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`.
         /// </summary>
-        [Input("notificationTopicArn")]
+        [PolicyResourceProperty("notificationTopicArn", "_mUnknown_NotificationTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationTopicArn;
-
-        public string? NotificationTopicArn => _mNotificationTopicArn.GetValue("notificationTopicArn");
+        private string? _mValue_NotificationTopicArn;
+        private bool _mUnknown_NotificationTopicArn;
+        public string? NotificationTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_NotificationTopicArn) return _mValue_NotificationTopicArn;
+                throw new UndeferrableValueException("Value 'Cluster.NotificationTopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
         /// </summary>
-        [Input("numCacheNodes")]
+        [PolicyResourceProperty("numCacheNodes", "_mUnknown_NumCacheNodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumCacheNodes;
-
-        public int? NumCacheNodes => _mNumCacheNodes.GetValue("numCacheNodes");
+        private int? _mValue_NumCacheNodes;
+        private bool _mUnknown_NumCacheNodes;
+        public int? NumCacheNodes
+        {
+            get
+            {
+                if (!_mUnknown_NumCacheNodes) return _mValue_NumCacheNodes;
+                throw new UndeferrableValueException("Value 'Cluster.NumCacheNodes' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
         /// </summary>
-        [Input("outpostMode")]
+        [PolicyResourceProperty("outpostMode", "_mUnknown_OutpostMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostMode;
-
-        public string? OutpostMode => _mOutpostMode.GetValue("outpostMode");
+        private string? _mValue_OutpostMode;
+        private bool _mUnknown_OutpostMode;
+        public string? OutpostMode
+        {
+            get
+            {
+                if (!_mUnknown_OutpostMode) return _mValue_OutpostMode;
+                throw new UndeferrableValueException("Value 'Cluster.OutpostMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the parameter group to associate with this cache cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("parameterGroupName")]
+        [PolicyResourceProperty("parameterGroupName", "_mUnknown_ParameterGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameterGroupName;
-
-        public string? ParameterGroupName => _mParameterGroupName.GetValue("parameterGroupName");
+        private string? _mValue_ParameterGroupName;
+        private bool _mUnknown_ParameterGroupName;
+        public string? ParameterGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ParameterGroupName) return _mValue_ParameterGroupName;
+                throw new UndeferrableValueException("Value 'Cluster.ParameterGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'Cluster.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         /// </summary>
-        [Input("preferredAvailabilityZones")]
+        [PolicyResourceProperty("preferredAvailabilityZones", "_mUnknown_PreferredAvailabilityZones")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPreferredAvailabilityZones;
-
-        public List<string>? PreferredAvailabilityZones => _mPreferredAvailabilityZones.GetValue("preferredAvailabilityZones");
+        private List<string>? _mValue_PreferredAvailabilityZones;
+        private bool _mUnknown_PreferredAvailabilityZones;
+        public List<string>? PreferredAvailabilityZones
+        {
+            get
+            {
+                if (!_mUnknown_PreferredAvailabilityZones) return _mValue_PreferredAvailabilityZones;
+                throw new UndeferrableValueException("Value 'Cluster.PreferredAvailabilityZones' is not present");
+            }
+        }
 
         /// <summary>
         /// The outpost ARN in which the cache cluster will be created.
         /// </summary>
-        [Input("preferredOutpostArn")]
+        [PolicyResourceProperty("preferredOutpostArn", "_mUnknown_PreferredOutpostArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredOutpostArn;
-
-        public string? PreferredOutpostArn => _mPreferredOutpostArn.GetValue("preferredOutpostArn");
+        private string? _mValue_PreferredOutpostArn;
+        private bool _mUnknown_PreferredOutpostArn;
+        public string? PreferredOutpostArn
+        {
+            get
+            {
+                if (!_mUnknown_PreferredOutpostArn) return _mValue_PreferredOutpostArn;
+                throw new UndeferrableValueException("Value 'Cluster.PreferredOutpostArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         /// </summary>
-        [Input("replicationGroupId")]
+        [PolicyResourceProperty("replicationGroupId", "_mUnknown_ReplicationGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationGroupId;
-
-        public string? ReplicationGroupId => _mReplicationGroupId.GetValue("replicationGroupId");
+        private string? _mValue_ReplicationGroupId;
+        private bool _mUnknown_ReplicationGroupId;
+        public string? ReplicationGroupId
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationGroupId) return _mValue_ReplicationGroupId;
+                throw new UndeferrableValueException("Value 'Cluster.ReplicationGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'Cluster.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         /// </summary>
-        [Input("snapshotArns")]
+        [PolicyResourceProperty("snapshotArns", "_mUnknown_SnapshotArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotArns;
-
-        public string? SnapshotArns => _mSnapshotArns.GetValue("snapshotArns");
+        private string? _mValue_SnapshotArns;
+        private bool _mUnknown_SnapshotArns;
+        public string? SnapshotArns
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotArns) return _mValue_SnapshotArns;
+                throw new UndeferrableValueException("Value 'Cluster.SnapshotArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         /// </summary>
-        [Input("snapshotName")]
+        [PolicyResourceProperty("snapshotName", "_mUnknown_SnapshotName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotName;
-
-        public string? SnapshotName => _mSnapshotName.GetValue("snapshotName");
+        private string? _mValue_SnapshotName;
+        private bool _mUnknown_SnapshotName;
+        public string? SnapshotName
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotName) return _mValue_SnapshotName;
+                throw new UndeferrableValueException("Value 'Cluster.SnapshotName' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         /// </summary>
-        [Input("snapshotRetentionLimit")]
+        [PolicyResourceProperty("snapshotRetentionLimit", "_mUnknown_SnapshotRetentionLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSnapshotRetentionLimit;
-
-        public int? SnapshotRetentionLimit => _mSnapshotRetentionLimit.GetValue("snapshotRetentionLimit");
+        private int? _mValue_SnapshotRetentionLimit;
+        private bool _mUnknown_SnapshotRetentionLimit;
+        public int? SnapshotRetentionLimit
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotRetentionLimit) return _mValue_SnapshotRetentionLimit;
+                throw new UndeferrableValueException("Value 'Cluster.SnapshotRetentionLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
         /// </summary>
-        [Input("snapshotWindow")]
+        [PolicyResourceProperty("snapshotWindow", "_mUnknown_SnapshotWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotWindow;
-
-        public string? SnapshotWindow => _mSnapshotWindow.GetValue("snapshotWindow");
+        private string? _mValue_SnapshotWindow;
+        private bool _mUnknown_SnapshotWindow;
+        public string? SnapshotWindow
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotWindow) return _mValue_SnapshotWindow;
+                throw new UndeferrableValueException("Value 'Cluster.SnapshotWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
         /// </summary>
-        [Input("subnetGroupName")]
+        [PolicyResourceProperty("subnetGroupName", "_mUnknown_SubnetGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetGroupName;
-
-        public string? SubnetGroupName => _mSubnetGroupName.GetValue("subnetGroupName");
+        private string? _mValue_SubnetGroupName;
+        private bool _mUnknown_SubnetGroupName;
+        public string? SubnetGroupName
+        {
+            get
+            {
+                if (!_mUnknown_SubnetGroupName) return _mValue_SubnetGroupName;
+                throw new UndeferrableValueException("Value 'Cluster.SubnetGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Cluster.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Cluster.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
         /// </summary>
-        [Input("transitEncryptionEnabled")]
+        [PolicyResourceProperty("transitEncryptionEnabled", "_mUnknown_TransitEncryptionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitEncryptionEnabled;
-
-        public bool? TransitEncryptionEnabled => _mTransitEncryptionEnabled.GetValue("transitEncryptionEnabled");
+        private bool? _mValue_TransitEncryptionEnabled;
+        private bool _mUnknown_TransitEncryptionEnabled;
+        public bool? TransitEncryptionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_TransitEncryptionEnabled) return _mValue_TransitEncryptionEnabled;
+                throw new UndeferrableValueException("Value 'Cluster.TransitEncryptionEnabled' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:elasticache/cluster:Cluster")]
@@ -351,58 +596,100 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// <summary>
         /// Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
         /// </summary>
-        [Input("applyImmediately")]
+        [PolicyResourceProperty("applyImmediately", "_mUnknown_ApplyImmediately")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
-
-        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+        private bool? _mValue_ApplyImmediately;
+        private bool _mUnknown_ApplyImmediately;
+        public bool? ApplyImmediately
+        {
+            get
+            {
+                if (!_mUnknown_ApplyImmediately) return _mValue_ApplyImmediately;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ApplyImmediately' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
         /// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
         /// Defaults to `true`.
         /// </summary>
-        [Input("autoMinorVersionUpgrade")]
+        [PolicyResourceProperty("autoMinorVersionUpgrade", "_mUnknown_AutoMinorVersionUpgrade")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoMinorVersionUpgrade;
-
-        public string? AutoMinorVersionUpgrade => _mAutoMinorVersionUpgrade.GetValue("autoMinorVersionUpgrade");
+        private string? _mValue_AutoMinorVersionUpgrade;
+        private bool _mUnknown_AutoMinorVersionUpgrade;
+        public string? AutoMinorVersionUpgrade
+        {
+            get
+            {
+                if (!_mUnknown_AutoMinorVersionUpgrade) return _mValue_AutoMinorVersionUpgrade;
+                throw new UndeferrableValueException("Value 'ClusterArgs.AutoMinorVersionUpgrade' is not present");
+            }
+        }
 
         /// <summary>
         /// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'ClusterArgs.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
         /// </summary>
-        [Input("azMode")]
+        [PolicyResourceProperty("azMode", "_mUnknown_AzMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAzMode;
-
-        public string? AzMode => _mAzMode.GetValue("azMode");
+        private string? _mValue_AzMode;
+        private bool _mUnknown_AzMode;
+        public string? AzMode
+        {
+            get
+            {
+                if (!_mUnknown_AzMode) return _mValue_AzMode;
+                throw new UndeferrableValueException("Value 'ClusterArgs.AzMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
         /// </summary>
-        [Input("clusterId")]
+        [PolicyResourceProperty("clusterId", "_mUnknown_ClusterId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
-
-        public string? ClusterId => _mClusterId.GetValue("clusterId");
+        private string? _mValue_ClusterId;
+        private bool _mUnknown_ClusterId;
+        public string? ClusterId
+        {
+            get
+            {
+                if (!_mUnknown_ClusterId) return _mValue_ClusterId;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ClusterId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// Version number of the cache engine to be used.
@@ -414,58 +701,100 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// Otherwise, specify the full version desired, e.g., `5.0.6`.
         /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'ClusterArgs.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         /// </summary>
-        [Input("finalSnapshotIdentifier")]
+        [PolicyResourceProperty("finalSnapshotIdentifier", "_mUnknown_FinalSnapshotIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFinalSnapshotIdentifier;
-
-        public string? FinalSnapshotIdentifier => _mFinalSnapshotIdentifier.GetValue("finalSnapshotIdentifier");
+        private string? _mValue_FinalSnapshotIdentifier;
+        private bool _mUnknown_FinalSnapshotIdentifier;
+        public string? FinalSnapshotIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_FinalSnapshotIdentifier) return _mValue_FinalSnapshotIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterArgs.FinalSnapshotIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         /// </summary>
-        [Input("ipDiscovery")]
+        [PolicyResourceProperty("ipDiscovery", "_mUnknown_IpDiscovery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpDiscovery;
-
-        public string? IpDiscovery => _mIpDiscovery.GetValue("ipDiscovery");
+        private string? _mValue_IpDiscovery;
+        private bool _mUnknown_IpDiscovery;
+        public string? IpDiscovery
+        {
+            get
+            {
+                if (!_mUnknown_IpDiscovery) return _mValue_IpDiscovery;
+                throw new UndeferrableValueException("Value 'ClusterArgs.IpDiscovery' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         /// </summary>
-        [Input("logDeliveryConfigurations")]
+        [PolicyResourceProperty("logDeliveryConfigurations", "_mUnknown_LogDeliveryConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ClusterLogDeliveryConfigurationArgs>> _mLogDeliveryConfigurations;
-
-        public List<Inputs.ClusterLogDeliveryConfigurationArgs>? LogDeliveryConfigurations => _mLogDeliveryConfigurations.GetValue("logDeliveryConfigurations");
+        private List<Inputs.ClusterLogDeliveryConfigurationArgs>? _mValue_LogDeliveryConfigurations;
+        private bool _mUnknown_LogDeliveryConfigurations;
+        public List<Inputs.ClusterLogDeliveryConfigurationArgs>? LogDeliveryConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_LogDeliveryConfigurations) return _mValue_LogDeliveryConfigurations;
+                throw new UndeferrableValueException("Value 'ClusterArgs.LogDeliveryConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the weekly time range for when maintenance
         /// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
         /// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
         /// </summary>
-        [Input("maintenanceWindow")]
+        [PolicyResourceProperty("maintenanceWindow", "_mUnknown_MaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaintenanceWindow;
-
-        public string? MaintenanceWindow => _mMaintenanceWindow.GetValue("maintenanceWindow");
+        private string? _mValue_MaintenanceWindow;
+        private bool _mUnknown_MaintenanceWindow;
+        public string? MaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceWindow) return _mValue_MaintenanceWindow;
+                throw new UndeferrableValueException("Value 'ClusterArgs.MaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
         /// </summary>
-        [Input("networkType")]
+        [PolicyResourceProperty("networkType", "_mUnknown_NetworkType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkType;
-
-        public string? NetworkType => _mNetworkType.GetValue("networkType");
+        private string? _mValue_NetworkType;
+        private bool _mUnknown_NetworkType;
+        public string? NetworkType
+        {
+            get
+            {
+                if (!_mUnknown_NetworkType) return _mValue_NetworkType;
+                throw new UndeferrableValueException("Value 'ClusterArgs.NetworkType' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance class used.
@@ -473,156 +802,275 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html).
         /// For Memcached, changing this value will re-create the resource.
         /// </summary>
-        [Input("nodeType")]
+        [PolicyResourceProperty("nodeType", "_mUnknown_NodeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeType;
-
-        public string? NodeType => _mNodeType.GetValue("nodeType");
+        private string? _mValue_NodeType;
+        private bool _mUnknown_NodeType;
+        public string? NodeType
+        {
+            get
+            {
+                if (!_mUnknown_NodeType) return _mValue_NodeType;
+                throw new UndeferrableValueException("Value 'ClusterArgs.NodeType' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`.
         /// </summary>
-        [Input("notificationTopicArn")]
+        [PolicyResourceProperty("notificationTopicArn", "_mUnknown_NotificationTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationTopicArn;
-
-        public string? NotificationTopicArn => _mNotificationTopicArn.GetValue("notificationTopicArn");
+        private string? _mValue_NotificationTopicArn;
+        private bool _mUnknown_NotificationTopicArn;
+        public string? NotificationTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_NotificationTopicArn) return _mValue_NotificationTopicArn;
+                throw new UndeferrableValueException("Value 'ClusterArgs.NotificationTopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
         /// </summary>
-        [Input("numCacheNodes")]
+        [PolicyResourceProperty("numCacheNodes", "_mUnknown_NumCacheNodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumCacheNodes;
-
-        public int? NumCacheNodes => _mNumCacheNodes.GetValue("numCacheNodes");
+        private int? _mValue_NumCacheNodes;
+        private bool _mUnknown_NumCacheNodes;
+        public int? NumCacheNodes
+        {
+            get
+            {
+                if (!_mUnknown_NumCacheNodes) return _mValue_NumCacheNodes;
+                throw new UndeferrableValueException("Value 'ClusterArgs.NumCacheNodes' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
         /// </summary>
-        [Input("outpostMode")]
+        [PolicyResourceProperty("outpostMode", "_mUnknown_OutpostMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostMode;
-
-        public string? OutpostMode => _mOutpostMode.GetValue("outpostMode");
+        private string? _mValue_OutpostMode;
+        private bool _mUnknown_OutpostMode;
+        public string? OutpostMode
+        {
+            get
+            {
+                if (!_mUnknown_OutpostMode) return _mValue_OutpostMode;
+                throw new UndeferrableValueException("Value 'ClusterArgs.OutpostMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the parameter group to associate with this cache cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("parameterGroupName")]
+        [PolicyResourceProperty("parameterGroupName", "_mUnknown_ParameterGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameterGroupName;
-
-        public string? ParameterGroupName => _mParameterGroupName.GetValue("parameterGroupName");
+        private string? _mValue_ParameterGroupName;
+        private bool _mUnknown_ParameterGroupName;
+        public string? ParameterGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ParameterGroupName) return _mValue_ParameterGroupName;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ParameterGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         /// </summary>
-        [Input("preferredAvailabilityZones")]
+        [PolicyResourceProperty("preferredAvailabilityZones", "_mUnknown_PreferredAvailabilityZones")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPreferredAvailabilityZones;
-
-        public List<string>? PreferredAvailabilityZones => _mPreferredAvailabilityZones.GetValue("preferredAvailabilityZones");
+        private List<string>? _mValue_PreferredAvailabilityZones;
+        private bool _mUnknown_PreferredAvailabilityZones;
+        public List<string>? PreferredAvailabilityZones
+        {
+            get
+            {
+                if (!_mUnknown_PreferredAvailabilityZones) return _mValue_PreferredAvailabilityZones;
+                throw new UndeferrableValueException("Value 'ClusterArgs.PreferredAvailabilityZones' is not present");
+            }
+        }
 
         /// <summary>
         /// The outpost ARN in which the cache cluster will be created.
         /// </summary>
-        [Input("preferredOutpostArn")]
+        [PolicyResourceProperty("preferredOutpostArn", "_mUnknown_PreferredOutpostArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredOutpostArn;
-
-        public string? PreferredOutpostArn => _mPreferredOutpostArn.GetValue("preferredOutpostArn");
+        private string? _mValue_PreferredOutpostArn;
+        private bool _mUnknown_PreferredOutpostArn;
+        public string? PreferredOutpostArn
+        {
+            get
+            {
+                if (!_mUnknown_PreferredOutpostArn) return _mValue_PreferredOutpostArn;
+                throw new UndeferrableValueException("Value 'ClusterArgs.PreferredOutpostArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         /// </summary>
-        [Input("replicationGroupId")]
+        [PolicyResourceProperty("replicationGroupId", "_mUnknown_ReplicationGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationGroupId;
-
-        public string? ReplicationGroupId => _mReplicationGroupId.GetValue("replicationGroupId");
+        private string? _mValue_ReplicationGroupId;
+        private bool _mUnknown_ReplicationGroupId;
+        public string? ReplicationGroupId
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationGroupId) return _mValue_ReplicationGroupId;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ReplicationGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ClusterArgs.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         /// </summary>
-        [Input("snapshotArns")]
+        [PolicyResourceProperty("snapshotArns", "_mUnknown_SnapshotArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotArns;
-
-        public string? SnapshotArns => _mSnapshotArns.GetValue("snapshotArns");
+        private string? _mValue_SnapshotArns;
+        private bool _mUnknown_SnapshotArns;
+        public string? SnapshotArns
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotArns) return _mValue_SnapshotArns;
+                throw new UndeferrableValueException("Value 'ClusterArgs.SnapshotArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         /// </summary>
-        [Input("snapshotName")]
+        [PolicyResourceProperty("snapshotName", "_mUnknown_SnapshotName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotName;
-
-        public string? SnapshotName => _mSnapshotName.GetValue("snapshotName");
+        private string? _mValue_SnapshotName;
+        private bool _mUnknown_SnapshotName;
+        public string? SnapshotName
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotName) return _mValue_SnapshotName;
+                throw new UndeferrableValueException("Value 'ClusterArgs.SnapshotName' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         /// </summary>
-        [Input("snapshotRetentionLimit")]
+        [PolicyResourceProperty("snapshotRetentionLimit", "_mUnknown_SnapshotRetentionLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSnapshotRetentionLimit;
-
-        public int? SnapshotRetentionLimit => _mSnapshotRetentionLimit.GetValue("snapshotRetentionLimit");
+        private int? _mValue_SnapshotRetentionLimit;
+        private bool _mUnknown_SnapshotRetentionLimit;
+        public int? SnapshotRetentionLimit
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotRetentionLimit) return _mValue_SnapshotRetentionLimit;
+                throw new UndeferrableValueException("Value 'ClusterArgs.SnapshotRetentionLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
         /// </summary>
-        [Input("snapshotWindow")]
+        [PolicyResourceProperty("snapshotWindow", "_mUnknown_SnapshotWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotWindow;
-
-        public string? SnapshotWindow => _mSnapshotWindow.GetValue("snapshotWindow");
+        private string? _mValue_SnapshotWindow;
+        private bool _mUnknown_SnapshotWindow;
+        public string? SnapshotWindow
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotWindow) return _mValue_SnapshotWindow;
+                throw new UndeferrableValueException("Value 'ClusterArgs.SnapshotWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
         /// </summary>
-        [Input("subnetGroupName")]
+        [PolicyResourceProperty("subnetGroupName", "_mUnknown_SubnetGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetGroupName;
-
-        public string? SubnetGroupName => _mSubnetGroupName.GetValue("subnetGroupName");
+        private string? _mValue_SubnetGroupName;
+        private bool _mUnknown_SubnetGroupName;
+        public string? SubnetGroupName
+        {
+            get
+            {
+                if (!_mUnknown_SubnetGroupName) return _mValue_SubnetGroupName;
+                throw new UndeferrableValueException("Value 'ClusterArgs.SubnetGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
         /// </summary>
-        [Input("transitEncryptionEnabled")]
+        [PolicyResourceProperty("transitEncryptionEnabled", "_mUnknown_TransitEncryptionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitEncryptionEnabled;
-
-        public bool? TransitEncryptionEnabled => _mTransitEncryptionEnabled.GetValue("transitEncryptionEnabled");
+        private bool? _mValue_TransitEncryptionEnabled;
+        private bool _mUnknown_TransitEncryptionEnabled;
+        public bool? TransitEncryptionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_TransitEncryptionEnabled) return _mValue_TransitEncryptionEnabled;
+                throw new UndeferrableValueException("Value 'ClusterArgs.TransitEncryptionEnabled' is not present");
+            }
+        }
     }
 }

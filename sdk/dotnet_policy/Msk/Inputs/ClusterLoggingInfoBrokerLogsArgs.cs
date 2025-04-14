@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Inputs
 {
     public sealed class ClusterLoggingInfoBrokerLogsArgs
     {
-        [Input("cloudwatchLogs")]
+        [PolicyResourceProperty("cloudwatchLogs", "_mUnknown_CloudwatchLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs> _mCloudwatchLogs;
+        private Inputs.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs? _mValue_CloudwatchLogs;
+        private bool _mUnknown_CloudwatchLogs;
+        public Inputs.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs? CloudwatchLogs
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogs) return _mValue_CloudwatchLogs;
+                throw new UndeferrableValueException("Value 'ClusterLoggingInfoBrokerLogsArgs.CloudwatchLogs' is not present");
+            }
+        }
 
-        public Inputs.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs? CloudwatchLogs => _mCloudwatchLogs.GetValue("cloudwatchLogs");
-
-        [Input("firehose")]
+        [PolicyResourceProperty("firehose", "_mUnknown_Firehose")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterLoggingInfoBrokerLogsFirehoseArgs> _mFirehose;
+        private Inputs.ClusterLoggingInfoBrokerLogsFirehoseArgs? _mValue_Firehose;
+        private bool _mUnknown_Firehose;
+        public Inputs.ClusterLoggingInfoBrokerLogsFirehoseArgs? Firehose
+        {
+            get
+            {
+                if (!_mUnknown_Firehose) return _mValue_Firehose;
+                throw new UndeferrableValueException("Value 'ClusterLoggingInfoBrokerLogsArgs.Firehose' is not present");
+            }
+        }
 
-        public Inputs.ClusterLoggingInfoBrokerLogsFirehoseArgs? Firehose => _mFirehose.GetValue("firehose");
-
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterLoggingInfoBrokerLogsS3Args> _mS3;
-
-        public Inputs.ClusterLoggingInfoBrokerLogsS3Args? S3 => _mS3.GetValue("s3");
+        private Inputs.ClusterLoggingInfoBrokerLogsS3Args? _mValue_S3;
+        private bool _mUnknown_S3;
+        public Inputs.ClusterLoggingInfoBrokerLogsS3Args? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'ClusterLoggingInfoBrokerLogsArgs.S3' is not present");
+            }
+        }
     }
 }

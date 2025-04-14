@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
         /// </summary>
-        [Input("cookies")]
+        [PolicyResourceProperty("cookies", "_mUnknown_Cookies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DistributionOrderedCacheBehaviorForwardedValuesCookies> _mCookies;
-
-        public Outputs.DistributionOrderedCacheBehaviorForwardedValuesCookies? Cookies => _mCookies.GetValue("cookies");
+        private Outputs.DistributionOrderedCacheBehaviorForwardedValuesCookies? _mValue_Cookies;
+        private bool _mUnknown_Cookies;
+        public Outputs.DistributionOrderedCacheBehaviorForwardedValuesCookies? Cookies
+        {
+            get
+            {
+                if (!_mUnknown_Cookies) return _mValue_Cookies;
+                throw new UndeferrableValueException("Value 'DistributionOrderedCacheBehaviorForwardedValues.Cookies' is not present");
+            }
+        }
 
         /// <summary>
         /// Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
         /// </summary>
-        [Input("headers")]
+        [PolicyResourceProperty("headers", "_mUnknown_Headers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mHeaders;
-
-        public List<string>? Headers => _mHeaders.GetValue("headers");
+        private List<string>? _mValue_Headers;
+        private bool _mUnknown_Headers;
+        public List<string>? Headers
+        {
+            get
+            {
+                if (!_mUnknown_Headers) return _mValue_Headers;
+                throw new UndeferrableValueException("Value 'DistributionOrderedCacheBehaviorForwardedValues.Headers' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
         /// </summary>
-        [Input("queryString")]
+        [PolicyResourceProperty("queryString", "_mUnknown_QueryString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mQueryString;
-
-        public bool? QueryString => _mQueryString.GetValue("queryString");
+        private bool? _mValue_QueryString;
+        private bool _mUnknown_QueryString;
+        public bool? QueryString
+        {
+            get
+            {
+                if (!_mUnknown_QueryString) return _mValue_QueryString;
+                throw new UndeferrableValueException("Value 'DistributionOrderedCacheBehaviorForwardedValues.QueryString' is not present");
+            }
+        }
 
         /// <summary>
         /// When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
         /// </summary>
-        [Input("queryStringCacheKeys")]
+        [PolicyResourceProperty("queryStringCacheKeys", "_mUnknown_QueryStringCacheKeys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mQueryStringCacheKeys;
-
-        public List<string>? QueryStringCacheKeys => _mQueryStringCacheKeys.GetValue("queryStringCacheKeys");
+        private List<string>? _mValue_QueryStringCacheKeys;
+        private bool _mUnknown_QueryStringCacheKeys;
+        public List<string>? QueryStringCacheKeys
+        {
+            get
+            {
+                if (!_mUnknown_QueryStringCacheKeys) return _mValue_QueryStringCacheKeys;
+                throw new UndeferrableValueException("Value 'DistributionOrderedCacheBehaviorForwardedValues.QueryStringCacheKeys' is not present");
+            }
+        }
     }
 }

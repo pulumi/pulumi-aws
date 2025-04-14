@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Connect.Outputs
         /// <summary>
         /// The encryption configuration. Documented below.
         /// </summary>
-        [Input("encryptionConfigs")]
+        [PolicyResourceProperty("encryptionConfigs", "_mUnknown_EncryptionConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigResult>> _mEncryptionConfigs;
-
-        public List<Outputs.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigResult>? EncryptionConfigs => _mEncryptionConfigs.GetValue("encryptionConfigs");
+        private List<Outputs.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigResult>? _mValue_EncryptionConfigs;
+        private bool _mUnknown_EncryptionConfigs;
+        public List<Outputs.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigResult>? EncryptionConfigs
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfigs) return _mValue_EncryptionConfigs;
+                throw new UndeferrableValueException("Value 'GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigResult.EncryptionConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `&lt;prefix&gt;-connect-&lt;connect_instance_alias&gt;-contact-` since the API appends additional details to the `prefix`.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigResult.Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of hours to retain the data in a data store associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0` indicates that the stream does not persist data.
         /// </summary>
-        [Input("retentionPeriodHours")]
+        [PolicyResourceProperty("retentionPeriodHours", "_mUnknown_RetentionPeriodHours")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriodHours;
-
-        public int? RetentionPeriodHours => _mRetentionPeriodHours.GetValue("retentionPeriodHours");
+        private int? _mValue_RetentionPeriodHours;
+        private bool _mUnknown_RetentionPeriodHours;
+        public int? RetentionPeriodHours
+        {
+            get
+            {
+                if (!_mUnknown_RetentionPeriodHours) return _mValue_RetentionPeriodHours;
+                throw new UndeferrableValueException("Value 'GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigResult.RetentionPeriodHours' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
         /// </summary>
-        [Input("sourceAncillaryChannelNumber")]
+        [PolicyResourceProperty("sourceAncillaryChannelNumber", "_mUnknown_SourceAncillaryChannelNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSourceAncillaryChannelNumber;
-
-        public int? SourceAncillaryChannelNumber => _mSourceAncillaryChannelNumber.GetValue("sourceAncillaryChannelNumber");
+        private int? _mValue_SourceAncillaryChannelNumber;
+        private bool _mUnknown_SourceAncillaryChannelNumber;
+        public int? SourceAncillaryChannelNumber
+        {
+            get
+            {
+                if (!_mUnknown_SourceAncillaryChannelNumber) return _mValue_SourceAncillaryChannelNumber;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs.SourceAncillaryChannelNumber' is not present");
+            }
+        }
     }
 }

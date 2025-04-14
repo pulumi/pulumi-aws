@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetGatewayRouteSpecHttp2RouteActionTargetResult
     {
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecHttp2RouteActionTargetResult.Port' is not present");
+            }
+        }
 
-        public int? Port => _mPort.GetValue("port");
-
-        [Input("virtualServices")]
+        [PolicyResourceProperty("virtualServices", "_mUnknown_VirtualServices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult>> _mVirtualServices;
-
-        public List<Outputs.GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult>? VirtualServices => _mVirtualServices.GetValue("virtualServices");
+        private List<Outputs.GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult>? _mValue_VirtualServices;
+        private bool _mUnknown_VirtualServices;
+        public List<Outputs.GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult>? VirtualServices
+        {
+            get
+            {
+                if (!_mUnknown_VirtualServices) return _mValue_VirtualServices;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecHttp2RouteActionTargetResult.VirtualServices' is not present");
+            }
+        }
     }
 }

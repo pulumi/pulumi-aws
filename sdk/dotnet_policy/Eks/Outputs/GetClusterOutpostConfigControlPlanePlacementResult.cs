@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// <summary>
         /// The name of the placement group for the Kubernetes control plane instances.
         /// </summary>
-        [Input("groupName")]
+        [PolicyResourceProperty("groupName", "_mUnknown_GroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
-
-        public string? GroupName => _mGroupName.GetValue("groupName");
+        private string? _mValue_GroupName;
+        private bool _mUnknown_GroupName;
+        public string? GroupName
+        {
+            get
+            {
+                if (!_mUnknown_GroupName) return _mValue_GroupName;
+                throw new UndeferrableValueException("Value 'GetClusterOutpostConfigControlPlanePlacementResult.GroupName' is not present");
+            }
+        }
     }
 }

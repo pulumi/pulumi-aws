@@ -16,147 +16,266 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// <summary>
         /// A map that contains user attributes and attribute values to be set for the user.
         /// </summary>
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
-
-        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
+        private Dictionary<string, string>? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public Dictionary<string, string>? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'User.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `client_metadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
         /// </summary>
-        [Input("clientMetadata")]
+        [PolicyResourceProperty("clientMetadata", "_mUnknown_ClientMetadata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mClientMetadata;
+        private Dictionary<string, string>? _mValue_ClientMetadata;
+        private bool _mUnknown_ClientMetadata;
+        public Dictionary<string, string>? ClientMetadata
+        {
+            get
+            {
+                if (!_mUnknown_ClientMetadata) return _mValue_ClientMetadata;
+                throw new UndeferrableValueException("Value 'User.ClientMetadata' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? ClientMetadata => _mClientMetadata.GetValue("clientMetadata");
-
-        [Input("creationDate")]
+        [PolicyResourceProperty("creationDate", "_mUnknown_CreationDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDate;
-
-        public string? CreationDate => _mCreationDate.GetValue("creationDate");
+        private string? _mValue_CreationDate;
+        private bool _mUnknown_CreationDate;
+        public string? CreationDate
+        {
+            get
+            {
+                if (!_mUnknown_CreationDate) return _mValue_CreationDate;
+                throw new UndeferrableValueException("Value 'User.CreationDate' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phone_number` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desired_delivery_mediums` value. Defaults to `["SMS"]`.
         /// </summary>
-        [Input("desiredDeliveryMediums")]
+        [PolicyResourceProperty("desiredDeliveryMediums", "_mUnknown_DesiredDeliveryMediums")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDesiredDeliveryMediums;
-
-        public List<string>? DesiredDeliveryMediums => _mDesiredDeliveryMediums.GetValue("desiredDeliveryMediums");
+        private List<string>? _mValue_DesiredDeliveryMediums;
+        private bool _mUnknown_DesiredDeliveryMediums;
+        public List<string>? DesiredDeliveryMediums
+        {
+            get
+            {
+                if (!_mUnknown_DesiredDeliveryMediums) return _mValue_DesiredDeliveryMediums;
+                throw new UndeferrableValueException("Value 'User.DesiredDeliveryMediums' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the user should be enabled after creation. The welcome message will be sent regardless of the `enabled` value. The behavior can be changed with `message_action` argument. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'User.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// If this parameter is set to True and the `phone_number` or `email` address specified in the `attributes` parameter already exists as an alias with a different user, Amazon Cognito will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. Amazon Cognito does not store the `force_alias_creation` value. Defaults to `false`.
         /// </summary>
-        [Input("forceAliasCreation")]
+        [PolicyResourceProperty("forceAliasCreation", "_mUnknown_ForceAliasCreation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceAliasCreation;
+        private bool? _mValue_ForceAliasCreation;
+        private bool _mUnknown_ForceAliasCreation;
+        public bool? ForceAliasCreation
+        {
+            get
+            {
+                if (!_mUnknown_ForceAliasCreation) return _mValue_ForceAliasCreation;
+                throw new UndeferrableValueException("Value 'User.ForceAliasCreation' is not present");
+            }
+        }
 
-        public bool? ForceAliasCreation => _mForceAliasCreation.GetValue("forceAliasCreation");
-
-        [Input("lastModifiedDate")]
+        [PolicyResourceProperty("lastModifiedDate", "_mUnknown_LastModifiedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedDate;
-
-        public string? LastModifiedDate => _mLastModifiedDate.GetValue("lastModifiedDate");
+        private string? _mValue_LastModifiedDate;
+        private bool _mUnknown_LastModifiedDate;
+        public string? LastModifiedDate
+        {
+            get
+            {
+                if (!_mUnknown_LastModifiedDate) return _mValue_LastModifiedDate;
+                throw new UndeferrableValueException("Value 'User.LastModifiedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `message_action` value.
         /// </summary>
-        [Input("messageAction")]
+        [PolicyResourceProperty("messageAction", "_mUnknown_MessageAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessageAction;
+        private string? _mValue_MessageAction;
+        private bool _mUnknown_MessageAction;
+        public string? MessageAction
+        {
+            get
+            {
+                if (!_mUnknown_MessageAction) return _mValue_MessageAction;
+                throw new UndeferrableValueException("Value 'User.MessageAction' is not present");
+            }
+        }
 
-        public string? MessageAction => _mMessageAction.GetValue("messageAction");
-
-        [Input("mfaSettingLists")]
+        [PolicyResourceProperty("mfaSettingLists", "_mUnknown_MfaSettingLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMfaSettingLists;
-
-        public List<string>? MfaSettingLists => _mMfaSettingLists.GetValue("mfaSettingLists");
+        private List<string>? _mValue_MfaSettingLists;
+        private bool _mUnknown_MfaSettingLists;
+        public List<string>? MfaSettingLists
+        {
+            get
+            {
+                if (!_mUnknown_MfaSettingLists) return _mValue_MfaSettingLists;
+                throw new UndeferrableValueException("Value 'User.MfaSettingLists' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporary_password` value. You can suppress sending the welcome message with the `message_action` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporary_password`.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'User.Password' is not present");
+            }
+        }
 
-        public string? Password => _mPassword.GetValue("password");
-
-        [Input("preferredMfaSetting")]
+        [PolicyResourceProperty("preferredMfaSetting", "_mUnknown_PreferredMfaSetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMfaSetting;
-
-        public string? PreferredMfaSetting => _mPreferredMfaSetting.GetValue("preferredMfaSetting");
+        private string? _mValue_PreferredMfaSetting;
+        private bool _mUnknown_PreferredMfaSetting;
+        public string? PreferredMfaSetting
+        {
+            get
+            {
+                if (!_mUnknown_PreferredMfaSetting) return _mValue_PreferredMfaSetting;
+                throw new UndeferrableValueException("Value 'User.PreferredMfaSetting' is not present");
+            }
+        }
 
         /// <summary>
         /// current user status.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'User.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// unique user id that is never reassignable to another user.
         /// </summary>
-        [Input("sub")]
+        [PolicyResourceProperty("sub", "_mUnknown_Sub")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSub;
-
-        public string? Sub => _mSub.GetValue("sub");
+        private string? _mValue_Sub;
+        private bool _mUnknown_Sub;
+        public string? Sub
+        {
+            get
+            {
+                if (!_mUnknown_Sub) return _mValue_Sub;
+                throw new UndeferrableValueException("Value 'User.Sub' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's temporary password. Conflicts with `password`.
         /// </summary>
-        [Input("temporaryPassword")]
+        [PolicyResourceProperty("temporaryPassword", "_mUnknown_TemporaryPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemporaryPassword;
-
-        public string? TemporaryPassword => _mTemporaryPassword.GetValue("temporaryPassword");
+        private string? _mValue_TemporaryPassword;
+        private bool _mUnknown_TemporaryPassword;
+        public string? TemporaryPassword
+        {
+            get
+            {
+                if (!_mUnknown_TemporaryPassword) return _mValue_TemporaryPassword;
+                throw new UndeferrableValueException("Value 'User.TemporaryPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// The user pool ID for the user pool where the user will be created.
         /// </summary>
-        [Input("userPoolId")]
+        [PolicyResourceProperty("userPoolId", "_mUnknown_UserPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
-
-        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+        private string? _mValue_UserPoolId;
+        private bool _mUnknown_UserPoolId;
+        public string? UserPoolId
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolId) return _mValue_UserPoolId;
+                throw new UndeferrableValueException("Value 'User.UserPoolId' is not present");
+            }
+        }
 
         /// <summary>
         /// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'User.Username' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validation_data` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
         /// 
         /// &gt; **NOTE:** Clearing `password` or `temporary_password` does not reset user's password in Cognito.
         /// </summary>
-        [Input("validationData")]
+        [PolicyResourceProperty("validationData", "_mUnknown_ValidationData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mValidationData;
-
-        public Dictionary<string, string>? ValidationData => _mValidationData.GetValue("validationData");
+        private Dictionary<string, string>? _mValue_ValidationData;
+        private bool _mUnknown_ValidationData;
+        public Dictionary<string, string>? ValidationData
+        {
+            get
+            {
+                if (!_mUnknown_ValidationData) return _mValue_ValidationData;
+                throw new UndeferrableValueException("Value 'User.ValidationData' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cognito/user:User")]
@@ -165,104 +284,181 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// <summary>
         /// A map that contains user attributes and attribute values to be set for the user.
         /// </summary>
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
-
-        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
+        private Dictionary<string, string>? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public Dictionary<string, string>? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'UserArgs.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `client_metadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
         /// </summary>
-        [Input("clientMetadata")]
+        [PolicyResourceProperty("clientMetadata", "_mUnknown_ClientMetadata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mClientMetadata;
-
-        public Dictionary<string, string>? ClientMetadata => _mClientMetadata.GetValue("clientMetadata");
+        private Dictionary<string, string>? _mValue_ClientMetadata;
+        private bool _mUnknown_ClientMetadata;
+        public Dictionary<string, string>? ClientMetadata
+        {
+            get
+            {
+                if (!_mUnknown_ClientMetadata) return _mValue_ClientMetadata;
+                throw new UndeferrableValueException("Value 'UserArgs.ClientMetadata' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phone_number` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desired_delivery_mediums` value. Defaults to `["SMS"]`.
         /// </summary>
-        [Input("desiredDeliveryMediums")]
+        [PolicyResourceProperty("desiredDeliveryMediums", "_mUnknown_DesiredDeliveryMediums")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDesiredDeliveryMediums;
-
-        public List<string>? DesiredDeliveryMediums => _mDesiredDeliveryMediums.GetValue("desiredDeliveryMediums");
+        private List<string>? _mValue_DesiredDeliveryMediums;
+        private bool _mUnknown_DesiredDeliveryMediums;
+        public List<string>? DesiredDeliveryMediums
+        {
+            get
+            {
+                if (!_mUnknown_DesiredDeliveryMediums) return _mValue_DesiredDeliveryMediums;
+                throw new UndeferrableValueException("Value 'UserArgs.DesiredDeliveryMediums' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the user should be enabled after creation. The welcome message will be sent regardless of the `enabled` value. The behavior can be changed with `message_action` argument. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'UserArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// If this parameter is set to True and the `phone_number` or `email` address specified in the `attributes` parameter already exists as an alias with a different user, Amazon Cognito will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. Amazon Cognito does not store the `force_alias_creation` value. Defaults to `false`.
         /// </summary>
-        [Input("forceAliasCreation")]
+        [PolicyResourceProperty("forceAliasCreation", "_mUnknown_ForceAliasCreation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceAliasCreation;
-
-        public bool? ForceAliasCreation => _mForceAliasCreation.GetValue("forceAliasCreation");
+        private bool? _mValue_ForceAliasCreation;
+        private bool _mUnknown_ForceAliasCreation;
+        public bool? ForceAliasCreation
+        {
+            get
+            {
+                if (!_mUnknown_ForceAliasCreation) return _mValue_ForceAliasCreation;
+                throw new UndeferrableValueException("Value 'UserArgs.ForceAliasCreation' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `message_action` value.
         /// </summary>
-        [Input("messageAction")]
+        [PolicyResourceProperty("messageAction", "_mUnknown_MessageAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessageAction;
-
-        public string? MessageAction => _mMessageAction.GetValue("messageAction");
+        private string? _mValue_MessageAction;
+        private bool _mUnknown_MessageAction;
+        public string? MessageAction
+        {
+            get
+            {
+                if (!_mUnknown_MessageAction) return _mValue_MessageAction;
+                throw new UndeferrableValueException("Value 'UserArgs.MessageAction' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporary_password` value. You can suppress sending the welcome message with the `message_action` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporary_password`.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'UserArgs.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's temporary password. Conflicts with `password`.
         /// </summary>
-        [Input("temporaryPassword")]
+        [PolicyResourceProperty("temporaryPassword", "_mUnknown_TemporaryPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemporaryPassword;
-
-        public string? TemporaryPassword => _mTemporaryPassword.GetValue("temporaryPassword");
+        private string? _mValue_TemporaryPassword;
+        private bool _mUnknown_TemporaryPassword;
+        public string? TemporaryPassword
+        {
+            get
+            {
+                if (!_mUnknown_TemporaryPassword) return _mValue_TemporaryPassword;
+                throw new UndeferrableValueException("Value 'UserArgs.TemporaryPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// The user pool ID for the user pool where the user will be created.
         /// </summary>
-        [Input("userPoolId")]
+        [PolicyResourceProperty("userPoolId", "_mUnknown_UserPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
-
-        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+        private string? _mValue_UserPoolId;
+        private bool _mUnknown_UserPoolId;
+        public string? UserPoolId
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolId) return _mValue_UserPoolId;
+                throw new UndeferrableValueException("Value 'UserArgs.UserPoolId' is not present");
+            }
+        }
 
         /// <summary>
         /// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'UserArgs.Username' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validation_data` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
         /// 
         /// &gt; **NOTE:** Clearing `password` or `temporary_password` does not reset user's password in Cognito.
         /// </summary>
-        [Input("validationData")]
+        [PolicyResourceProperty("validationData", "_mUnknown_ValidationData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mValidationData;
-
-        public Dictionary<string, string>? ValidationData => _mValidationData.GetValue("validationData");
+        private Dictionary<string, string>? _mValue_ValidationData;
+        private bool _mUnknown_ValidationData;
+        public Dictionary<string, string>? ValidationData
+        {
+            get
+            {
+                if (!_mUnknown_ValidationData) return _mValue_ValidationData;
+                throw new UndeferrableValueException("Value 'UserArgs.ValidationData' is not present");
+            }
+        }
     }
 }

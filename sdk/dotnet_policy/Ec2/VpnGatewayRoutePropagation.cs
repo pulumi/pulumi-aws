@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The id of the `aws.ec2.RouteTable` to propagate routes into.
         /// </summary>
-        [Input("routeTableId")]
+        [PolicyResourceProperty("routeTableId", "_mUnknown_RouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
-
-        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
+        private string? _mValue_RouteTableId;
+        private bool _mUnknown_RouteTableId;
+        public string? RouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_RouteTableId) return _mValue_RouteTableId;
+                throw new UndeferrableValueException("Value 'VpnGatewayRoutePropagation.RouteTableId' is not present");
+            }
+        }
 
         /// <summary>
         /// The id of the `aws.ec2.VpnGateway` to propagate routes from.
         /// </summary>
-        [Input("vpnGatewayId")]
+        [PolicyResourceProperty("vpnGatewayId", "_mUnknown_VpnGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpnGatewayId;
-
-        public string? VpnGatewayId => _mVpnGatewayId.GetValue("vpnGatewayId");
+        private string? _mValue_VpnGatewayId;
+        private bool _mUnknown_VpnGatewayId;
+        public string? VpnGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_VpnGatewayId) return _mValue_VpnGatewayId;
+                throw new UndeferrableValueException("Value 'VpnGatewayRoutePropagation.VpnGatewayId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The id of the `aws.ec2.RouteTable` to propagate routes into.
         /// </summary>
-        [Input("routeTableId")]
+        [PolicyResourceProperty("routeTableId", "_mUnknown_RouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
-
-        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
+        private string? _mValue_RouteTableId;
+        private bool _mUnknown_RouteTableId;
+        public string? RouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_RouteTableId) return _mValue_RouteTableId;
+                throw new UndeferrableValueException("Value 'VpnGatewayRoutePropagationArgs.RouteTableId' is not present");
+            }
+        }
 
         /// <summary>
         /// The id of the `aws.ec2.VpnGateway` to propagate routes from.
         /// </summary>
-        [Input("vpnGatewayId")]
+        [PolicyResourceProperty("vpnGatewayId", "_mUnknown_VpnGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpnGatewayId;
-
-        public string? VpnGatewayId => _mVpnGatewayId.GetValue("vpnGatewayId");
+        private string? _mValue_VpnGatewayId;
+        private bool _mUnknown_VpnGatewayId;
+        public string? VpnGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_VpnGatewayId) return _mValue_VpnGatewayId;
+                throw new UndeferrableValueException("Value 'VpnGatewayRoutePropagationArgs.VpnGatewayId' is not present");
+            }
+        }
     }
 }

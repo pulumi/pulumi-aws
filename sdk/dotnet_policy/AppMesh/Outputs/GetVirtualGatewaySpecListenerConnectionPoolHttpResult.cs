@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualGatewaySpecListenerConnectionPoolHttpResult
     {
-        [Input("maxConnections")]
+        [PolicyResourceProperty("maxConnections", "_mUnknown_MaxConnections")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxConnections;
+        private int? _mValue_MaxConnections;
+        private bool _mUnknown_MaxConnections;
+        public int? MaxConnections
+        {
+            get
+            {
+                if (!_mUnknown_MaxConnections) return _mValue_MaxConnections;
+                throw new UndeferrableValueException("Value 'GetVirtualGatewaySpecListenerConnectionPoolHttpResult.MaxConnections' is not present");
+            }
+        }
 
-        public int? MaxConnections => _mMaxConnections.GetValue("maxConnections");
-
-        [Input("maxPendingRequests")]
+        [PolicyResourceProperty("maxPendingRequests", "_mUnknown_MaxPendingRequests")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxPendingRequests;
-
-        public int? MaxPendingRequests => _mMaxPendingRequests.GetValue("maxPendingRequests");
+        private int? _mValue_MaxPendingRequests;
+        private bool _mUnknown_MaxPendingRequests;
+        public int? MaxPendingRequests
+        {
+            get
+            {
+                if (!_mUnknown_MaxPendingRequests) return _mValue_MaxPendingRequests;
+                throw new UndeferrableValueException("Value 'GetVirtualGatewaySpecListenerConnectionPoolHttpResult.MaxPendingRequests' is not present");
+            }
+        }
     }
 }

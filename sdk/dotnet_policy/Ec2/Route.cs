@@ -16,170 +16,296 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
         /// </summary>
-        [Input("carrierGatewayId")]
+        [PolicyResourceProperty("carrierGatewayId", "_mUnknown_CarrierGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCarrierGatewayId;
-
-        public string? CarrierGatewayId => _mCarrierGatewayId.GetValue("carrierGatewayId");
+        private string? _mValue_CarrierGatewayId;
+        private bool _mUnknown_CarrierGatewayId;
+        public string? CarrierGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_CarrierGatewayId) return _mValue_CarrierGatewayId;
+                throw new UndeferrableValueException("Value 'Route.CarrierGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of a core network.
         /// </summary>
-        [Input("coreNetworkArn")]
+        [PolicyResourceProperty("coreNetworkArn", "_mUnknown_CoreNetworkArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkArn;
-
-        public string? CoreNetworkArn => _mCoreNetworkArn.GetValue("coreNetworkArn");
+        private string? _mValue_CoreNetworkArn;
+        private bool _mUnknown_CoreNetworkArn;
+        public string? CoreNetworkArn
+        {
+            get
+            {
+                if (!_mUnknown_CoreNetworkArn) return _mValue_CoreNetworkArn;
+                throw new UndeferrableValueException("Value 'Route.CoreNetworkArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The destination CIDR block.
         /// </summary>
-        [Input("destinationCidrBlock")]
+        [PolicyResourceProperty("destinationCidrBlock", "_mUnknown_DestinationCidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
-
-        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+        private string? _mValue_DestinationCidrBlock;
+        private bool _mUnknown_DestinationCidrBlock;
+        public string? DestinationCidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_DestinationCidrBlock) return _mValue_DestinationCidrBlock;
+                throw new UndeferrableValueException("Value 'Route.DestinationCidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// The destination IPv6 CIDR block.
         /// </summary>
-        [Input("destinationIpv6CidrBlock")]
+        [PolicyResourceProperty("destinationIpv6CidrBlock", "_mUnknown_DestinationIpv6CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationIpv6CidrBlock;
-
-        public string? DestinationIpv6CidrBlock => _mDestinationIpv6CidrBlock.GetValue("destinationIpv6CidrBlock");
+        private string? _mValue_DestinationIpv6CidrBlock;
+        private bool _mUnknown_DestinationIpv6CidrBlock;
+        public string? DestinationIpv6CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_DestinationIpv6CidrBlock) return _mValue_DestinationIpv6CidrBlock;
+                throw new UndeferrableValueException("Value 'Route.DestinationIpv6CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of a managed prefix list destination.
         /// 
         /// One of the following target arguments must be supplied:
         /// </summary>
-        [Input("destinationPrefixListId")]
+        [PolicyResourceProperty("destinationPrefixListId", "_mUnknown_DestinationPrefixListId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationPrefixListId;
-
-        public string? DestinationPrefixListId => _mDestinationPrefixListId.GetValue("destinationPrefixListId");
+        private string? _mValue_DestinationPrefixListId;
+        private bool _mUnknown_DestinationPrefixListId;
+        public string? DestinationPrefixListId
+        {
+            get
+            {
+                if (!_mUnknown_DestinationPrefixListId) return _mValue_DestinationPrefixListId;
+                throw new UndeferrableValueException("Value 'Route.DestinationPrefixListId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of a VPC Egress Only Internet Gateway.
         /// </summary>
-        [Input("egressOnlyGatewayId")]
+        [PolicyResourceProperty("egressOnlyGatewayId", "_mUnknown_EgressOnlyGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEgressOnlyGatewayId;
-
-        public string? EgressOnlyGatewayId => _mEgressOnlyGatewayId.GetValue("egressOnlyGatewayId");
+        private string? _mValue_EgressOnlyGatewayId;
+        private bool _mUnknown_EgressOnlyGatewayId;
+        public string? EgressOnlyGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_EgressOnlyGatewayId) return _mValue_EgressOnlyGatewayId;
+                throw new UndeferrableValueException("Value 'Route.EgressOnlyGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
         /// </summary>
-        [Input("gatewayId")]
+        [PolicyResourceProperty("gatewayId", "_mUnknown_GatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayId;
-
-        public string? GatewayId => _mGatewayId.GetValue("gatewayId");
+        private string? _mValue_GatewayId;
+        private bool _mUnknown_GatewayId;
+        public string? GatewayId
+        {
+            get
+            {
+                if (!_mUnknown_GatewayId) return _mValue_GatewayId;
+                throw new UndeferrableValueException("Value 'Route.GatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of an EC2 instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'Route.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS account ID of the owner of the EC2 instance.
         /// </summary>
-        [Input("instanceOwnerId")]
+        [PolicyResourceProperty("instanceOwnerId", "_mUnknown_InstanceOwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceOwnerId;
-
-        public string? InstanceOwnerId => _mInstanceOwnerId.GetValue("instanceOwnerId");
+        private string? _mValue_InstanceOwnerId;
+        private bool _mUnknown_InstanceOwnerId;
+        public string? InstanceOwnerId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceOwnerId) return _mValue_InstanceOwnerId;
+                throw new UndeferrableValueException("Value 'Route.InstanceOwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of a Outpost local gateway.
         /// </summary>
-        [Input("localGatewayId")]
+        [PolicyResourceProperty("localGatewayId", "_mUnknown_LocalGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalGatewayId;
-
-        public string? LocalGatewayId => _mLocalGatewayId.GetValue("localGatewayId");
+        private string? _mValue_LocalGatewayId;
+        private bool _mUnknown_LocalGatewayId;
+        public string? LocalGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_LocalGatewayId) return _mValue_LocalGatewayId;
+                throw new UndeferrableValueException("Value 'Route.LocalGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of a VPC NAT gateway.
         /// </summary>
-        [Input("natGatewayId")]
+        [PolicyResourceProperty("natGatewayId", "_mUnknown_NatGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNatGatewayId;
-
-        public string? NatGatewayId => _mNatGatewayId.GetValue("natGatewayId");
+        private string? _mValue_NatGatewayId;
+        private bool _mUnknown_NatGatewayId;
+        public string? NatGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_NatGatewayId) return _mValue_NatGatewayId;
+                throw new UndeferrableValueException("Value 'Route.NatGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of an EC2 network interface.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'Route.NetworkInterfaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
         /// </summary>
-        [Input("origin")]
+        [PolicyResourceProperty("origin", "_mUnknown_Origin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrigin;
-
-        public string? Origin => _mOrigin.GetValue("origin");
+        private string? _mValue_Origin;
+        private bool _mUnknown_Origin;
+        public string? Origin
+        {
+            get
+            {
+                if (!_mUnknown_Origin) return _mValue_Origin;
+                throw new UndeferrableValueException("Value 'Route.Origin' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the routing table.
         /// 
         /// One of the following destination arguments must be supplied:
         /// </summary>
-        [Input("routeTableId")]
+        [PolicyResourceProperty("routeTableId", "_mUnknown_RouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
-
-        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
+        private string? _mValue_RouteTableId;
+        private bool _mUnknown_RouteTableId;
+        public string? RouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_RouteTableId) return _mValue_RouteTableId;
+                throw new UndeferrableValueException("Value 'Route.RouteTableId' is not present");
+            }
+        }
 
         /// <summary>
         /// The state of the route - `active` or `blackhole`.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'Route.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of an EC2 Transit Gateway.
         /// </summary>
-        [Input("transitGatewayId")]
+        [PolicyResourceProperty("transitGatewayId", "_mUnknown_TransitGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
-
-        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+        private string? _mValue_TransitGatewayId;
+        private bool _mUnknown_TransitGatewayId;
+        public string? TransitGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayId) return _mValue_TransitGatewayId;
+                throw new UndeferrableValueException("Value 'Route.TransitGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of a VPC Endpoint.
         /// </summary>
-        [Input("vpcEndpointId")]
+        [PolicyResourceProperty("vpcEndpointId", "_mUnknown_VpcEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
-
-        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+        private string? _mValue_VpcEndpointId;
+        private bool _mUnknown_VpcEndpointId;
+        public string? VpcEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointId) return _mValue_VpcEndpointId;
+                throw new UndeferrableValueException("Value 'Route.VpcEndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of a VPC peering connection.
         /// 
         /// Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         /// </summary>
-        [Input("vpcPeeringConnectionId")]
+        [PolicyResourceProperty("vpcPeeringConnectionId", "_mUnknown_VpcPeeringConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcPeeringConnectionId;
-
-        public string? VpcPeeringConnectionId => _mVpcPeeringConnectionId.GetValue("vpcPeeringConnectionId");
+        private string? _mValue_VpcPeeringConnectionId;
+        private bool _mUnknown_VpcPeeringConnectionId;
+        public string? VpcPeeringConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_VpcPeeringConnectionId) return _mValue_VpcPeeringConnectionId;
+                throw new UndeferrableValueException("Value 'Route.VpcPeeringConnectionId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/route:Route")]
@@ -188,133 +314,231 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
         /// </summary>
-        [Input("carrierGatewayId")]
+        [PolicyResourceProperty("carrierGatewayId", "_mUnknown_CarrierGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCarrierGatewayId;
-
-        public string? CarrierGatewayId => _mCarrierGatewayId.GetValue("carrierGatewayId");
+        private string? _mValue_CarrierGatewayId;
+        private bool _mUnknown_CarrierGatewayId;
+        public string? CarrierGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_CarrierGatewayId) return _mValue_CarrierGatewayId;
+                throw new UndeferrableValueException("Value 'RouteArgs.CarrierGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of a core network.
         /// </summary>
-        [Input("coreNetworkArn")]
+        [PolicyResourceProperty("coreNetworkArn", "_mUnknown_CoreNetworkArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkArn;
-
-        public string? CoreNetworkArn => _mCoreNetworkArn.GetValue("coreNetworkArn");
+        private string? _mValue_CoreNetworkArn;
+        private bool _mUnknown_CoreNetworkArn;
+        public string? CoreNetworkArn
+        {
+            get
+            {
+                if (!_mUnknown_CoreNetworkArn) return _mValue_CoreNetworkArn;
+                throw new UndeferrableValueException("Value 'RouteArgs.CoreNetworkArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The destination CIDR block.
         /// </summary>
-        [Input("destinationCidrBlock")]
+        [PolicyResourceProperty("destinationCidrBlock", "_mUnknown_DestinationCidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
-
-        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+        private string? _mValue_DestinationCidrBlock;
+        private bool _mUnknown_DestinationCidrBlock;
+        public string? DestinationCidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_DestinationCidrBlock) return _mValue_DestinationCidrBlock;
+                throw new UndeferrableValueException("Value 'RouteArgs.DestinationCidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// The destination IPv6 CIDR block.
         /// </summary>
-        [Input("destinationIpv6CidrBlock")]
+        [PolicyResourceProperty("destinationIpv6CidrBlock", "_mUnknown_DestinationIpv6CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationIpv6CidrBlock;
-
-        public string? DestinationIpv6CidrBlock => _mDestinationIpv6CidrBlock.GetValue("destinationIpv6CidrBlock");
+        private string? _mValue_DestinationIpv6CidrBlock;
+        private bool _mUnknown_DestinationIpv6CidrBlock;
+        public string? DestinationIpv6CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_DestinationIpv6CidrBlock) return _mValue_DestinationIpv6CidrBlock;
+                throw new UndeferrableValueException("Value 'RouteArgs.DestinationIpv6CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of a managed prefix list destination.
         /// 
         /// One of the following target arguments must be supplied:
         /// </summary>
-        [Input("destinationPrefixListId")]
+        [PolicyResourceProperty("destinationPrefixListId", "_mUnknown_DestinationPrefixListId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationPrefixListId;
-
-        public string? DestinationPrefixListId => _mDestinationPrefixListId.GetValue("destinationPrefixListId");
+        private string? _mValue_DestinationPrefixListId;
+        private bool _mUnknown_DestinationPrefixListId;
+        public string? DestinationPrefixListId
+        {
+            get
+            {
+                if (!_mUnknown_DestinationPrefixListId) return _mValue_DestinationPrefixListId;
+                throw new UndeferrableValueException("Value 'RouteArgs.DestinationPrefixListId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of a VPC Egress Only Internet Gateway.
         /// </summary>
-        [Input("egressOnlyGatewayId")]
+        [PolicyResourceProperty("egressOnlyGatewayId", "_mUnknown_EgressOnlyGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEgressOnlyGatewayId;
-
-        public string? EgressOnlyGatewayId => _mEgressOnlyGatewayId.GetValue("egressOnlyGatewayId");
+        private string? _mValue_EgressOnlyGatewayId;
+        private bool _mUnknown_EgressOnlyGatewayId;
+        public string? EgressOnlyGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_EgressOnlyGatewayId) return _mValue_EgressOnlyGatewayId;
+                throw new UndeferrableValueException("Value 'RouteArgs.EgressOnlyGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
         /// </summary>
-        [Input("gatewayId")]
+        [PolicyResourceProperty("gatewayId", "_mUnknown_GatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayId;
-
-        public string? GatewayId => _mGatewayId.GetValue("gatewayId");
+        private string? _mValue_GatewayId;
+        private bool _mUnknown_GatewayId;
+        public string? GatewayId
+        {
+            get
+            {
+                if (!_mUnknown_GatewayId) return _mValue_GatewayId;
+                throw new UndeferrableValueException("Value 'RouteArgs.GatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of a Outpost local gateway.
         /// </summary>
-        [Input("localGatewayId")]
+        [PolicyResourceProperty("localGatewayId", "_mUnknown_LocalGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalGatewayId;
-
-        public string? LocalGatewayId => _mLocalGatewayId.GetValue("localGatewayId");
+        private string? _mValue_LocalGatewayId;
+        private bool _mUnknown_LocalGatewayId;
+        public string? LocalGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_LocalGatewayId) return _mValue_LocalGatewayId;
+                throw new UndeferrableValueException("Value 'RouteArgs.LocalGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of a VPC NAT gateway.
         /// </summary>
-        [Input("natGatewayId")]
+        [PolicyResourceProperty("natGatewayId", "_mUnknown_NatGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNatGatewayId;
-
-        public string? NatGatewayId => _mNatGatewayId.GetValue("natGatewayId");
+        private string? _mValue_NatGatewayId;
+        private bool _mUnknown_NatGatewayId;
+        public string? NatGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_NatGatewayId) return _mValue_NatGatewayId;
+                throw new UndeferrableValueException("Value 'RouteArgs.NatGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of an EC2 network interface.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'RouteArgs.NetworkInterfaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the routing table.
         /// 
         /// One of the following destination arguments must be supplied:
         /// </summary>
-        [Input("routeTableId")]
+        [PolicyResourceProperty("routeTableId", "_mUnknown_RouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
-
-        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
+        private string? _mValue_RouteTableId;
+        private bool _mUnknown_RouteTableId;
+        public string? RouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_RouteTableId) return _mValue_RouteTableId;
+                throw new UndeferrableValueException("Value 'RouteArgs.RouteTableId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of an EC2 Transit Gateway.
         /// </summary>
-        [Input("transitGatewayId")]
+        [PolicyResourceProperty("transitGatewayId", "_mUnknown_TransitGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
-
-        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+        private string? _mValue_TransitGatewayId;
+        private bool _mUnknown_TransitGatewayId;
+        public string? TransitGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayId) return _mValue_TransitGatewayId;
+                throw new UndeferrableValueException("Value 'RouteArgs.TransitGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of a VPC Endpoint.
         /// </summary>
-        [Input("vpcEndpointId")]
+        [PolicyResourceProperty("vpcEndpointId", "_mUnknown_VpcEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
-
-        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+        private string? _mValue_VpcEndpointId;
+        private bool _mUnknown_VpcEndpointId;
+        public string? VpcEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointId) return _mValue_VpcEndpointId;
+                throw new UndeferrableValueException("Value 'RouteArgs.VpcEndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of a VPC peering connection.
         /// 
         /// Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         /// </summary>
-        [Input("vpcPeeringConnectionId")]
+        [PolicyResourceProperty("vpcPeeringConnectionId", "_mUnknown_VpcPeeringConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcPeeringConnectionId;
-
-        public string? VpcPeeringConnectionId => _mVpcPeeringConnectionId.GetValue("vpcPeeringConnectionId");
+        private string? _mValue_VpcPeeringConnectionId;
+        private bool _mUnknown_VpcPeeringConnectionId;
+        public string? VpcPeeringConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_VpcPeeringConnectionId) return _mValue_VpcPeeringConnectionId;
+                throw new UndeferrableValueException("Value 'RouteArgs.VpcPeeringConnectionId' is not present");
+            }
+        }
     }
 }

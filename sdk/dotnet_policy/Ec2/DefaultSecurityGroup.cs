@@ -16,95 +16,172 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// ARN of the security group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DefaultSecurityGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the security group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DefaultSecurityGroup.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("egress")]
+        [PolicyResourceProperty("egress", "_mUnknown_Egress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DefaultSecurityGroupEgress>> _mEgress;
-
-        public List<Outputs.DefaultSecurityGroupEgress>? Egress => _mEgress.GetValue("egress");
+        private List<Outputs.DefaultSecurityGroupEgress>? _mValue_Egress;
+        private bool _mUnknown_Egress;
+        public List<Outputs.DefaultSecurityGroupEgress>? Egress
+        {
+            get
+            {
+                if (!_mUnknown_Egress) return _mValue_Egress;
+                throw new UndeferrableValueException("Value 'DefaultSecurityGroup.Egress' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("ingress")]
+        [PolicyResourceProperty("ingress", "_mUnknown_Ingress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DefaultSecurityGroupIngress>> _mIngress;
-
-        public List<Outputs.DefaultSecurityGroupIngress>? Ingress => _mIngress.GetValue("ingress");
+        private List<Outputs.DefaultSecurityGroupIngress>? _mValue_Ingress;
+        private bool _mUnknown_Ingress;
+        public List<Outputs.DefaultSecurityGroupIngress>? Ingress
+        {
+            get
+            {
+                if (!_mUnknown_Ingress) return _mValue_Ingress;
+                throw new UndeferrableValueException("Value 'DefaultSecurityGroup.Ingress' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the security group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DefaultSecurityGroup.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'DefaultSecurityGroup.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Owner ID.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'DefaultSecurityGroup.OwnerId' is not present");
+            }
+        }
 
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
-
-        [Input("revokeRulesOnDelete")]
+        [PolicyResourceProperty("revokeRulesOnDelete", "_mUnknown_RevokeRulesOnDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRevokeRulesOnDelete;
-
-        public bool? RevokeRulesOnDelete => _mRevokeRulesOnDelete.GetValue("revokeRulesOnDelete");
+        private bool? _mValue_RevokeRulesOnDelete;
+        private bool _mUnknown_RevokeRulesOnDelete;
+        public bool? RevokeRulesOnDelete
+        {
+            get
+            {
+                if (!_mUnknown_RevokeRulesOnDelete) return _mValue_RevokeRulesOnDelete;
+                throw new UndeferrableValueException("Value 'DefaultSecurityGroup.RevokeRulesOnDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DefaultSecurityGroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DefaultSecurityGroup.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'DefaultSecurityGroup.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup")]
@@ -113,43 +190,78 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("egress")]
+        [PolicyResourceProperty("egress", "_mUnknown_Egress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DefaultSecurityGroupEgressArgs>> _mEgress;
-
-        public List<Inputs.DefaultSecurityGroupEgressArgs>? Egress => _mEgress.GetValue("egress");
+        private List<Inputs.DefaultSecurityGroupEgressArgs>? _mValue_Egress;
+        private bool _mUnknown_Egress;
+        public List<Inputs.DefaultSecurityGroupEgressArgs>? Egress
+        {
+            get
+            {
+                if (!_mUnknown_Egress) return _mValue_Egress;
+                throw new UndeferrableValueException("Value 'DefaultSecurityGroupArgs.Egress' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("ingress")]
+        [PolicyResourceProperty("ingress", "_mUnknown_Ingress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DefaultSecurityGroupIngressArgs>> _mIngress;
+        private List<Inputs.DefaultSecurityGroupIngressArgs>? _mValue_Ingress;
+        private bool _mUnknown_Ingress;
+        public List<Inputs.DefaultSecurityGroupIngressArgs>? Ingress
+        {
+            get
+            {
+                if (!_mUnknown_Ingress) return _mValue_Ingress;
+                throw new UndeferrableValueException("Value 'DefaultSecurityGroupArgs.Ingress' is not present");
+            }
+        }
 
-        public List<Inputs.DefaultSecurityGroupIngressArgs>? Ingress => _mIngress.GetValue("ingress");
-
-        [Input("revokeRulesOnDelete")]
+        [PolicyResourceProperty("revokeRulesOnDelete", "_mUnknown_RevokeRulesOnDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRevokeRulesOnDelete;
-
-        public bool? RevokeRulesOnDelete => _mRevokeRulesOnDelete.GetValue("revokeRulesOnDelete");
+        private bool? _mValue_RevokeRulesOnDelete;
+        private bool _mUnknown_RevokeRulesOnDelete;
+        public bool? RevokeRulesOnDelete
+        {
+            get
+            {
+                if (!_mUnknown_RevokeRulesOnDelete) return _mValue_RevokeRulesOnDelete;
+                throw new UndeferrableValueException("Value 'DefaultSecurityGroupArgs.RevokeRulesOnDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DefaultSecurityGroupArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'DefaultSecurityGroupArgs.VpcId' is not present");
+            }
+        }
     }
 }

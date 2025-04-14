@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the role.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ServiceLinkedRole.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
         /// </summary>
-        [Input("awsServiceName")]
+        [PolicyResourceProperty("awsServiceName", "_mUnknown_AwsServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsServiceName;
-
-        public string? AwsServiceName => _mAwsServiceName.GetValue("awsServiceName");
+        private string? _mValue_AwsServiceName;
+        private bool _mUnknown_AwsServiceName;
+        public string? AwsServiceName
+        {
+            get
+            {
+                if (!_mUnknown_AwsServiceName) return _mValue_AwsServiceName;
+                throw new UndeferrableValueException("Value 'ServiceLinkedRole.AwsServiceName' is not present");
+            }
+        }
 
         /// <summary>
         /// The creation date of the IAM role.
         /// </summary>
-        [Input("createDate")]
+        [PolicyResourceProperty("createDate", "_mUnknown_CreateDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreateDate;
-
-        public string? CreateDate => _mCreateDate.GetValue("createDate");
+        private string? _mValue_CreateDate;
+        private bool _mUnknown_CreateDate;
+        public string? CreateDate
+        {
+            get
+            {
+                if (!_mUnknown_CreateDate) return _mValue_CreateDate;
+                throw new UndeferrableValueException("Value 'ServiceLinkedRole.CreateDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional string appended to the role name. Not all AWS services support custom suffixes.
         /// </summary>
-        [Input("customSuffix")]
+        [PolicyResourceProperty("customSuffix", "_mUnknown_CustomSuffix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomSuffix;
-
-        public string? CustomSuffix => _mCustomSuffix.GetValue("customSuffix");
+        private string? _mValue_CustomSuffix;
+        private bool _mUnknown_CustomSuffix;
+        public string? CustomSuffix
+        {
+            get
+            {
+                if (!_mUnknown_CustomSuffix) return _mValue_CustomSuffix;
+                throw new UndeferrableValueException("Value 'ServiceLinkedRole.CustomSuffix' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the role.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ServiceLinkedRole.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the role.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServiceLinkedRole.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The path of the role.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'ServiceLinkedRole.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServiceLinkedRole.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ServiceLinkedRole.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The stable and unique string identifying the role.
         /// </summary>
-        [Input("uniqueId")]
+        [PolicyResourceProperty("uniqueId", "_mUnknown_UniqueId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUniqueId;
-
-        public string? UniqueId => _mUniqueId.GetValue("uniqueId");
+        private string? _mValue_UniqueId;
+        private bool _mUnknown_UniqueId;
+        public string? UniqueId
+        {
+            get
+            {
+                if (!_mUnknown_UniqueId) return _mValue_UniqueId;
+                throw new UndeferrableValueException("Value 'ServiceLinkedRole.UniqueId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/serviceLinkedRole:ServiceLinkedRole")]
@@ -110,37 +180,65 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
         /// </summary>
-        [Input("awsServiceName")]
+        [PolicyResourceProperty("awsServiceName", "_mUnknown_AwsServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsServiceName;
-
-        public string? AwsServiceName => _mAwsServiceName.GetValue("awsServiceName");
+        private string? _mValue_AwsServiceName;
+        private bool _mUnknown_AwsServiceName;
+        public string? AwsServiceName
+        {
+            get
+            {
+                if (!_mUnknown_AwsServiceName) return _mValue_AwsServiceName;
+                throw new UndeferrableValueException("Value 'ServiceLinkedRoleArgs.AwsServiceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional string appended to the role name. Not all AWS services support custom suffixes.
         /// </summary>
-        [Input("customSuffix")]
+        [PolicyResourceProperty("customSuffix", "_mUnknown_CustomSuffix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomSuffix;
-
-        public string? CustomSuffix => _mCustomSuffix.GetValue("customSuffix");
+        private string? _mValue_CustomSuffix;
+        private bool _mUnknown_CustomSuffix;
+        public string? CustomSuffix
+        {
+            get
+            {
+                if (!_mUnknown_CustomSuffix) return _mValue_CustomSuffix;
+                throw new UndeferrableValueException("Value 'ServiceLinkedRoleArgs.CustomSuffix' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the role.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ServiceLinkedRoleArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServiceLinkedRoleArgs.Tags' is not present");
+            }
+        }
     }
 }

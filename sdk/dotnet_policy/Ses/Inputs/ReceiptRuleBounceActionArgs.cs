@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Ses.Inputs
         /// <summary>
         /// The message to send
         /// </summary>
-        [Input("message")]
+        [PolicyResourceProperty("message", "_mUnknown_Message")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessage;
-
-        public string? Message => _mMessage.GetValue("message");
+        private string? _mValue_Message;
+        private bool _mUnknown_Message;
+        public string? Message
+        {
+            get
+            {
+                if (!_mUnknown_Message) return _mValue_Message;
+                throw new UndeferrableValueException("Value 'ReceiptRuleBounceActionArgs.Message' is not present");
+            }
+        }
 
         /// <summary>
         /// The position of the action in the receipt rule
         /// </summary>
-        [Input("position")]
+        [PolicyResourceProperty("position", "_mUnknown_Position")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPosition;
-
-        public int? Position => _mPosition.GetValue("position");
+        private int? _mValue_Position;
+        private bool _mUnknown_Position;
+        public int? Position
+        {
+            get
+            {
+                if (!_mUnknown_Position) return _mValue_Position;
+                throw new UndeferrableValueException("Value 'ReceiptRuleBounceActionArgs.Position' is not present");
+            }
+        }
 
         /// <summary>
         /// The email address of the sender
         /// </summary>
-        [Input("sender")]
+        [PolicyResourceProperty("sender", "_mUnknown_Sender")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSender;
-
-        public string? Sender => _mSender.GetValue("sender");
+        private string? _mValue_Sender;
+        private bool _mUnknown_Sender;
+        public string? Sender
+        {
+            get
+            {
+                if (!_mUnknown_Sender) return _mValue_Sender;
+                throw new UndeferrableValueException("Value 'ReceiptRuleBounceActionArgs.Sender' is not present");
+            }
+        }
 
         /// <summary>
         /// The RFC 5321 SMTP reply code
         /// </summary>
-        [Input("smtpReplyCode")]
+        [PolicyResourceProperty("smtpReplyCode", "_mUnknown_SmtpReplyCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSmtpReplyCode;
-
-        public string? SmtpReplyCode => _mSmtpReplyCode.GetValue("smtpReplyCode");
+        private string? _mValue_SmtpReplyCode;
+        private bool _mUnknown_SmtpReplyCode;
+        public string? SmtpReplyCode
+        {
+            get
+            {
+                if (!_mUnknown_SmtpReplyCode) return _mValue_SmtpReplyCode;
+                throw new UndeferrableValueException("Value 'ReceiptRuleBounceActionArgs.SmtpReplyCode' is not present");
+            }
+        }
 
         /// <summary>
         /// The RFC 3463 SMTP enhanced status code
         /// </summary>
-        [Input("statusCode")]
+        [PolicyResourceProperty("statusCode", "_mUnknown_StatusCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusCode;
-
-        public string? StatusCode => _mStatusCode.GetValue("statusCode");
+        private string? _mValue_StatusCode;
+        private bool _mUnknown_StatusCode;
+        public string? StatusCode
+        {
+            get
+            {
+                if (!_mUnknown_StatusCode) return _mValue_StatusCode;
+                throw new UndeferrableValueException("Value 'ReceiptRuleBounceActionArgs.StatusCode' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an SNS topic to notify
         /// </summary>
-        [Input("topicArn")]
+        [PolicyResourceProperty("topicArn", "_mUnknown_TopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopicArn;
-
-        public string? TopicArn => _mTopicArn.GetValue("topicArn");
+        private string? _mValue_TopicArn;
+        private bool _mUnknown_TopicArn;
+        public string? TopicArn
+        {
+            get
+            {
+                if (!_mUnknown_TopicArn) return _mValue_TopicArn;
+                throw new UndeferrableValueException("Value 'ReceiptRuleBounceActionArgs.TopicArn' is not present");
+            }
+        }
     }
 }

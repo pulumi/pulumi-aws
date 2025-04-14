@@ -15,16 +15,30 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// An empty configuration block that is used for inspecting all headers.
         /// </summary>
-        [Input("all")]
+        [PolicyResourceProperty("all", "_mUnknown_All")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll> _mAll;
+        private Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll? _mValue_All;
+        private bool _mUnknown_All;
+        public Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll? All
+        {
+            get
+            {
+                if (!_mUnknown_All) return _mValue_All;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern.All' is not present");
+            }
+        }
 
-        public Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll? All => _mAll.GetValue("all");
-
-        [Input("includedPaths")]
+        [PolicyResourceProperty("includedPaths", "_mUnknown_IncludedPaths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIncludedPaths;
-
-        public List<string>? IncludedPaths => _mIncludedPaths.GetValue("includedPaths");
+        private List<string>? _mValue_IncludedPaths;
+        private bool _mUnknown_IncludedPaths;
+        public List<string>? IncludedPaths
+        {
+            get
+            {
+                if (!_mUnknown_IncludedPaths) return _mValue_IncludedPaths;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern.IncludedPaths' is not present");
+            }
+        }
     }
 }

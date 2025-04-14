@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService.Outputs
         /// <summary>
         /// The protocol specified for your RADIUS endpoints.
         /// </summary>
-        [Input("authenticationProtocol")]
+        [PolicyResourceProperty("authenticationProtocol", "_mUnknown_AuthenticationProtocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationProtocol;
-
-        public string? AuthenticationProtocol => _mAuthenticationProtocol.GetValue("authenticationProtocol");
+        private string? _mValue_AuthenticationProtocol;
+        private bool _mUnknown_AuthenticationProtocol;
+        public string? AuthenticationProtocol
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationProtocol) return _mValue_AuthenticationProtocol;
+                throw new UndeferrableValueException("Value 'GetDirectoryRadiusSettingResult.AuthenticationProtocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Display label.
         /// </summary>
-        [Input("displayLabel")]
+        [PolicyResourceProperty("displayLabel", "_mUnknown_DisplayLabel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayLabel;
-
-        public string? DisplayLabel => _mDisplayLabel.GetValue("displayLabel");
+        private string? _mValue_DisplayLabel;
+        private bool _mUnknown_DisplayLabel;
+        public string? DisplayLabel
+        {
+            get
+            {
+                if (!_mUnknown_DisplayLabel) return _mValue_DisplayLabel;
+                throw new UndeferrableValueException("Value 'GetDirectoryRadiusSettingResult.DisplayLabel' is not present");
+            }
+        }
 
         /// <summary>
         /// Port that your RADIUS server is using for communications.
         /// </summary>
-        [Input("radiusPort")]
+        [PolicyResourceProperty("radiusPort", "_mUnknown_RadiusPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRadiusPort;
-
-        public int? RadiusPort => _mRadiusPort.GetValue("radiusPort");
+        private int? _mValue_RadiusPort;
+        private bool _mUnknown_RadiusPort;
+        public int? RadiusPort
+        {
+            get
+            {
+                if (!_mUnknown_RadiusPort) return _mValue_RadiusPort;
+                throw new UndeferrableValueException("Value 'GetDirectoryRadiusSettingResult.RadiusPort' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of times that communication with the RADIUS server is attempted.
         /// </summary>
-        [Input("radiusRetries")]
+        [PolicyResourceProperty("radiusRetries", "_mUnknown_RadiusRetries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRadiusRetries;
-
-        public int? RadiusRetries => _mRadiusRetries.GetValue("radiusRetries");
+        private int? _mValue_RadiusRetries;
+        private bool _mUnknown_RadiusRetries;
+        public int? RadiusRetries
+        {
+            get
+            {
+                if (!_mUnknown_RadiusRetries) return _mValue_RadiusRetries;
+                throw new UndeferrableValueException("Value 'GetDirectoryRadiusSettingResult.RadiusRetries' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
         /// </summary>
-        [Input("radiusServers")]
+        [PolicyResourceProperty("radiusServers", "_mUnknown_RadiusServers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRadiusServers;
-
-        public List<string>? RadiusServers => _mRadiusServers.GetValue("radiusServers");
+        private List<string>? _mValue_RadiusServers;
+        private bool _mUnknown_RadiusServers;
+        public List<string>? RadiusServers
+        {
+            get
+            {
+                if (!_mUnknown_RadiusServers) return _mValue_RadiusServers;
+                throw new UndeferrableValueException("Value 'GetDirectoryRadiusSettingResult.RadiusServers' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time, in seconds, to wait for the RADIUS server to respond.
         /// </summary>
-        [Input("radiusTimeout")]
+        [PolicyResourceProperty("radiusTimeout", "_mUnknown_RadiusTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRadiusTimeout;
-
-        public int? RadiusTimeout => _mRadiusTimeout.GetValue("radiusTimeout");
+        private int? _mValue_RadiusTimeout;
+        private bool _mUnknown_RadiusTimeout;
+        public int? RadiusTimeout
+        {
+            get
+            {
+                if (!_mUnknown_RadiusTimeout) return _mValue_RadiusTimeout;
+                throw new UndeferrableValueException("Value 'GetDirectoryRadiusSettingResult.RadiusTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// Not currently used.
         /// </summary>
-        [Input("useSameUsername")]
+        [PolicyResourceProperty("useSameUsername", "_mUnknown_UseSameUsername")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseSameUsername;
-
-        public bool? UseSameUsername => _mUseSameUsername.GetValue("useSameUsername");
+        private bool? _mValue_UseSameUsername;
+        private bool _mUnknown_UseSameUsername;
+        public bool? UseSameUsername
+        {
+            get
+            {
+                if (!_mUnknown_UseSameUsername) return _mValue_UseSameUsername;
+                throw new UndeferrableValueException("Value 'GetDirectoryRadiusSettingResult.UseSameUsername' is not present");
+            }
+        }
     }
 }

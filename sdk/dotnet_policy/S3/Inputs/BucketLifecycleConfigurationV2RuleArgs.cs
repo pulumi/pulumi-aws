@@ -15,20 +15,34 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. See below.
         /// </summary>
-        [Input("abortIncompleteMultipartUpload")]
+        [PolicyResourceProperty("abortIncompleteMultipartUpload", "_mUnknown_AbortIncompleteMultipartUpload")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs> _mAbortIncompleteMultipartUpload;
-
-        public Inputs.BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs? AbortIncompleteMultipartUpload => _mAbortIncompleteMultipartUpload.GetValue("abortIncompleteMultipartUpload");
+        private Inputs.BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs? _mValue_AbortIncompleteMultipartUpload;
+        private bool _mUnknown_AbortIncompleteMultipartUpload;
+        public Inputs.BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs? AbortIncompleteMultipartUpload
+        {
+            get
+            {
+                if (!_mUnknown_AbortIncompleteMultipartUpload) return _mValue_AbortIncompleteMultipartUpload;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleArgs.AbortIncompleteMultipartUpload' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker. See below.
         /// </summary>
-        [Input("expiration")]
+        [PolicyResourceProperty("expiration", "_mUnknown_Expiration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketLifecycleConfigurationV2RuleExpirationArgs> _mExpiration;
-
-        public Inputs.BucketLifecycleConfigurationV2RuleExpirationArgs? Expiration => _mExpiration.GetValue("expiration");
+        private Inputs.BucketLifecycleConfigurationV2RuleExpirationArgs? _mValue_Expiration;
+        private bool _mUnknown_Expiration;
+        public Inputs.BucketLifecycleConfigurationV2RuleExpirationArgs? Expiration
+        {
+            get
+            {
+                if (!_mUnknown_Expiration) return _mValue_Expiration;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleArgs.Expiration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block used to identify objects that a Lifecycle Rule applies to.
@@ -36,38 +50,66 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// If not specified, the `rule` will default to using `prefix`.
         /// One of `filter` or `prefix` should be specified.
         /// </summary>
-        [Input("filter")]
+        [PolicyResourceProperty("filter", "_mUnknown_Filter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketLifecycleConfigurationV2RuleFilterArgs> _mFilter;
-
-        public Inputs.BucketLifecycleConfigurationV2RuleFilterArgs? Filter => _mFilter.GetValue("filter");
+        private Inputs.BucketLifecycleConfigurationV2RuleFilterArgs? _mValue_Filter;
+        private bool _mUnknown_Filter;
+        public Inputs.BucketLifecycleConfigurationV2RuleFilterArgs? Filter
+        {
+            get
+            {
+                if (!_mUnknown_Filter) return _mValue_Filter;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleArgs.Filter' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the rule. The value cannot be longer than 255 characters.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleArgs.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block that specifies when noncurrent object versions expire. See below.
         /// </summary>
-        [Input("noncurrentVersionExpiration")]
+        [PolicyResourceProperty("noncurrentVersionExpiration", "_mUnknown_NoncurrentVersionExpiration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs> _mNoncurrentVersionExpiration;
-
-        public Inputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs? NoncurrentVersionExpiration => _mNoncurrentVersionExpiration.GetValue("noncurrentVersionExpiration");
+        private Inputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs? _mValue_NoncurrentVersionExpiration;
+        private bool _mUnknown_NoncurrentVersionExpiration;
+        public Inputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs? NoncurrentVersionExpiration
+        {
+            get
+            {
+                if (!_mUnknown_NoncurrentVersionExpiration) return _mValue_NoncurrentVersionExpiration;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleArgs.NoncurrentVersionExpiration' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. See below.
         /// </summary>
-        [Input("noncurrentVersionTransitions")]
+        [PolicyResourceProperty("noncurrentVersionTransitions", "_mUnknown_NoncurrentVersionTransitions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs>> _mNoncurrentVersionTransitions;
-
-        public List<Inputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs>? NoncurrentVersionTransitions => _mNoncurrentVersionTransitions.GetValue("noncurrentVersionTransitions");
+        private List<Inputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs>? _mValue_NoncurrentVersionTransitions;
+        private bool _mUnknown_NoncurrentVersionTransitions;
+        public List<Inputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs>? NoncurrentVersionTransitions
+        {
+            get
+            {
+                if (!_mUnknown_NoncurrentVersionTransitions) return _mValue_NoncurrentVersionTransitions;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleArgs.NoncurrentVersionTransitions' is not present");
+            }
+        }
 
         /// <summary>
         /// **DEPRECATED** Use `filter` instead.
@@ -76,28 +118,49 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// Defaults to an empty string (`""`) if `filter` is not specified.
         /// One of `prefix` or `filter` should be specified.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleArgs.Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class. See below.
         /// </summary>
-        [Input("transitions")]
+        [PolicyResourceProperty("transitions", "_mUnknown_Transitions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketLifecycleConfigurationV2RuleTransitionArgs>> _mTransitions;
-
-        public List<Inputs.BucketLifecycleConfigurationV2RuleTransitionArgs>? Transitions => _mTransitions.GetValue("transitions");
+        private List<Inputs.BucketLifecycleConfigurationV2RuleTransitionArgs>? _mValue_Transitions;
+        private bool _mUnknown_Transitions;
+        public List<Inputs.BucketLifecycleConfigurationV2RuleTransitionArgs>? Transitions
+        {
+            get
+            {
+                if (!_mUnknown_Transitions) return _mValue_Transitions;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleArgs.Transitions' is not present");
+            }
+        }
     }
 }

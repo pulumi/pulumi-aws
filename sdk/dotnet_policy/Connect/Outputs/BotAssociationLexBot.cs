@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Connect.Outputs
         /// <summary>
         /// The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
         /// </summary>
-        [Input("lexRegion")]
+        [PolicyResourceProperty("lexRegion", "_mUnknown_LexRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLexRegion;
-
-        public string? LexRegion => _mLexRegion.GetValue("lexRegion");
+        private string? _mValue_LexRegion;
+        private bool _mUnknown_LexRegion;
+        public string? LexRegion
+        {
+            get
+            {
+                if (!_mUnknown_LexRegion) return _mValue_LexRegion;
+                throw new UndeferrableValueException("Value 'BotAssociationLexBot.LexRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Amazon Lex (V1) bot.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'BotAssociationLexBot.Name' is not present");
+            }
+        }
     }
 }

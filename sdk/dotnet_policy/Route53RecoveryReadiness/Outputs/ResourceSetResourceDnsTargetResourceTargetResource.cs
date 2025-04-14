@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryReadiness.Outputs
         /// <summary>
         /// NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
         /// </summary>
-        [Input("nlbResource")]
+        [PolicyResourceProperty("nlbResource", "_mUnknown_NlbResource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceSetResourceDnsTargetResourceTargetResourceNlbResource> _mNlbResource;
-
-        public Outputs.ResourceSetResourceDnsTargetResourceTargetResourceNlbResource? NlbResource => _mNlbResource.GetValue("nlbResource");
+        private Outputs.ResourceSetResourceDnsTargetResourceTargetResourceNlbResource? _mValue_NlbResource;
+        private bool _mUnknown_NlbResource;
+        public Outputs.ResourceSetResourceDnsTargetResourceTargetResourceNlbResource? NlbResource
+        {
+            get
+            {
+                if (!_mUnknown_NlbResource) return _mValue_NlbResource;
+                throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResourceTargetResource.NlbResource' is not present");
+            }
+        }
 
         /// <summary>
         /// Route53 resource a DNS Target Resource record points to.
         /// </summary>
-        [Input("r53Resource")]
+        [PolicyResourceProperty("r53Resource", "_mUnknown_R53Resource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceSetResourceDnsTargetResourceTargetResourceR53Resource> _mR53Resource;
-
-        public Outputs.ResourceSetResourceDnsTargetResourceTargetResourceR53Resource? R53Resource => _mR53Resource.GetValue("r53Resource");
+        private Outputs.ResourceSetResourceDnsTargetResourceTargetResourceR53Resource? _mValue_R53Resource;
+        private bool _mUnknown_R53Resource;
+        public Outputs.ResourceSetResourceDnsTargetResourceTargetResourceR53Resource? R53Resource
+        {
+            get
+            {
+                if (!_mUnknown_R53Resource) return _mValue_R53Resource;
+                throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResourceTargetResource.R53Resource' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.ChimeSDKMediaPipelines.Inputs
         /// <summary>
         /// Should output be redacted.
         /// </summary>
-        [Input("contentRedactionOutput")]
+        [PolicyResourceProperty("contentRedactionOutput", "_mUnknown_ContentRedactionOutput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentRedactionOutput;
-
-        public string? ContentRedactionOutput => _mContentRedactionOutput.GetValue("contentRedactionOutput");
+        private string? _mValue_ContentRedactionOutput;
+        private bool _mUnknown_ContentRedactionOutput;
+        public string? ContentRedactionOutput
+        {
+            get
+            {
+                if (!_mUnknown_ContentRedactionOutput) return _mValue_ContentRedactionOutput;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs.ContentRedactionOutput' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the role used by AWS Transcribe to upload your post call analysis.
         /// </summary>
-        [Input("dataAccessRoleArn")]
+        [PolicyResourceProperty("dataAccessRoleArn", "_mUnknown_DataAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataAccessRoleArn;
-
-        public string? DataAccessRoleArn => _mDataAccessRoleArn.GetValue("dataAccessRoleArn");
+        private string? _mValue_DataAccessRoleArn;
+        private bool _mUnknown_DataAccessRoleArn;
+        public string? DataAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_DataAccessRoleArn) return _mValue_DataAccessRoleArn;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs.DataAccessRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the KMS key used to encrypt the output.
         /// </summary>
-        [Input("outputEncryptionKmsKeyId")]
+        [PolicyResourceProperty("outputEncryptionKmsKeyId", "_mUnknown_OutputEncryptionKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputEncryptionKmsKeyId;
-
-        public string? OutputEncryptionKmsKeyId => _mOutputEncryptionKmsKeyId.GetValue("outputEncryptionKmsKeyId");
+        private string? _mValue_OutputEncryptionKmsKeyId;
+        private bool _mUnknown_OutputEncryptionKmsKeyId;
+        public string? OutputEncryptionKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_OutputEncryptionKmsKeyId) return _mValue_OutputEncryptionKmsKeyId;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs.OutputEncryptionKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
         /// </summary>
-        [Input("outputLocation")]
+        [PolicyResourceProperty("outputLocation", "_mUnknown_OutputLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputLocation;
-
-        public string? OutputLocation => _mOutputLocation.GetValue("outputLocation");
+        private string? _mValue_OutputLocation;
+        private bool _mUnknown_OutputLocation;
+        public string? OutputLocation
+        {
+            get
+            {
+                if (!_mUnknown_OutputLocation) return _mValue_OutputLocation;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs.OutputLocation' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// Enables you to specify HTTP headers to add to the request.
         /// </summary>
-        [Input("headerParameters")]
+        [PolicyResourceProperty("headerParameters", "_mUnknown_HeaderParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mHeaderParameters;
-
-        public Dictionary<string, string>? HeaderParameters => _mHeaderParameters.GetValue("headerParameters");
+        private Dictionary<string, string>? _mValue_HeaderParameters;
+        private bool _mUnknown_HeaderParameters;
+        public Dictionary<string, string>? HeaderParameters
+        {
+            get
+            {
+                if (!_mUnknown_HeaderParameters) return _mValue_HeaderParameters;
+                throw new UndeferrableValueException("Value 'EventTargetHttpTargetArgs.HeaderParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
         /// </summary>
-        [Input("pathParameterValues")]
+        [PolicyResourceProperty("pathParameterValues", "_mUnknown_PathParameterValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPathParameterValues;
-
-        public List<string>? PathParameterValues => _mPathParameterValues.GetValue("pathParameterValues");
+        private List<string>? _mValue_PathParameterValues;
+        private bool _mUnknown_PathParameterValues;
+        public List<string>? PathParameterValues
+        {
+            get
+            {
+                if (!_mUnknown_PathParameterValues) return _mValue_PathParameterValues;
+                throw new UndeferrableValueException("Value 'EventTargetHttpTargetArgs.PathParameterValues' is not present");
+            }
+        }
 
         /// <summary>
         /// Represents keys/values of query string parameters that are appended to the invoked endpoint.
         /// </summary>
-        [Input("queryStringParameters")]
+        [PolicyResourceProperty("queryStringParameters", "_mUnknown_QueryStringParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mQueryStringParameters;
-
-        public Dictionary<string, string>? QueryStringParameters => _mQueryStringParameters.GetValue("queryStringParameters");
+        private Dictionary<string, string>? _mValue_QueryStringParameters;
+        private bool _mUnknown_QueryStringParameters;
+        public Dictionary<string, string>? QueryStringParameters
+        {
+            get
+            {
+                if (!_mUnknown_QueryStringParameters) return _mValue_QueryStringParameters;
+                throw new UndeferrableValueException("Value 'EventTargetHttpTargetArgs.QueryStringParameters' is not present");
+            }
+        }
     }
 }

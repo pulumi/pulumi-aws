@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.SsmIncidents.Outputs
         /// <summary>
         /// The automation document's name.
         /// </summary>
-        [Input("documentName")]
+        [PolicyResourceProperty("documentName", "_mUnknown_DocumentName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentName;
-
-        public string? DocumentName => _mDocumentName.GetValue("documentName");
+        private string? _mValue_DocumentName;
+        private bool _mUnknown_DocumentName;
+        public string? DocumentName
+        {
+            get
+            {
+                if (!_mUnknown_DocumentName) return _mValue_DocumentName;
+                throw new UndeferrableValueException("Value 'ResponsePlanActionSsmAutomation.DocumentName' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the automation document to use at runtime.
         /// </summary>
-        [Input("documentVersion")]
+        [PolicyResourceProperty("documentVersion", "_mUnknown_DocumentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentVersion;
-
-        public string? DocumentVersion => _mDocumentVersion.GetValue("documentVersion");
+        private string? _mValue_DocumentVersion;
+        private bool _mUnknown_DocumentVersion;
+        public string? DocumentVersion
+        {
+            get
+            {
+                if (!_mUnknown_DocumentVersion) return _mValue_DocumentVersion;
+                throw new UndeferrableValueException("Value 'ResponsePlanActionSsmAutomation.DocumentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
         /// </summary>
-        [Input("dynamicParameters")]
+        [PolicyResourceProperty("dynamicParameters", "_mUnknown_DynamicParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mDynamicParameters;
-
-        public Dictionary<string, string>? DynamicParameters => _mDynamicParameters.GetValue("dynamicParameters");
+        private Dictionary<string, string>? _mValue_DynamicParameters;
+        private bool _mUnknown_DynamicParameters;
+        public Dictionary<string, string>? DynamicParameters
+        {
+            get
+            {
+                if (!_mUnknown_DynamicParameters) return _mValue_DynamicParameters;
+                throw new UndeferrableValueException("Value 'ResponsePlanActionSsmAutomation.DynamicParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The key-value pair parameters to use when the automation document runs. The following values are supported:
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ResponsePlanActionSsmAutomationParameter>> _mParameters;
-
-        public List<Outputs.ResponsePlanActionSsmAutomationParameter>? Parameters => _mParameters.GetValue("parameters");
+        private List<Outputs.ResponsePlanActionSsmAutomationParameter>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Outputs.ResponsePlanActionSsmAutomationParameter>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'ResponsePlanActionSsmAutomation.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ResponsePlanActionSsmAutomation.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The account that the automation document runs in. This can be in either the management account or an application account.
         /// </summary>
-        [Input("targetAccount")]
+        [PolicyResourceProperty("targetAccount", "_mUnknown_TargetAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetAccount;
-
-        public string? TargetAccount => _mTargetAccount.GetValue("targetAccount");
+        private string? _mValue_TargetAccount;
+        private bool _mUnknown_TargetAccount;
+        public string? TargetAccount
+        {
+            get
+            {
+                if (!_mUnknown_TargetAccount) return _mValue_TargetAccount;
+                throw new UndeferrableValueException("Value 'ResponsePlanActionSsmAutomation.TargetAccount' is not present");
+            }
+        }
     }
 }

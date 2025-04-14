@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Rekognition.Outputs
         /// <summary>
         /// Label detection settings to use on a streaming video. See `connected_home`.
         /// </summary>
-        [Input("connectedHome")]
+        [PolicyResourceProperty("connectedHome", "_mUnknown_ConnectedHome")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamProcessorSettingsConnectedHome> _mConnectedHome;
-
-        public Outputs.StreamProcessorSettingsConnectedHome? ConnectedHome => _mConnectedHome.GetValue("connectedHome");
+        private Outputs.StreamProcessorSettingsConnectedHome? _mValue_ConnectedHome;
+        private bool _mUnknown_ConnectedHome;
+        public Outputs.StreamProcessorSettingsConnectedHome? ConnectedHome
+        {
+            get
+            {
+                if (!_mUnknown_ConnectedHome) return _mValue_ConnectedHome;
+                throw new UndeferrableValueException("Value 'StreamProcessorSettings.ConnectedHome' is not present");
+            }
+        }
 
         /// <summary>
         /// Input face recognition parameters for an Amazon Rekognition stream processor. See `face_search`.
         /// </summary>
-        [Input("faceSearch")]
+        [PolicyResourceProperty("faceSearch", "_mUnknown_FaceSearch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamProcessorSettingsFaceSearch> _mFaceSearch;
-
-        public Outputs.StreamProcessorSettingsFaceSearch? FaceSearch => _mFaceSearch.GetValue("faceSearch");
+        private Outputs.StreamProcessorSettingsFaceSearch? _mValue_FaceSearch;
+        private bool _mUnknown_FaceSearch;
+        public Outputs.StreamProcessorSettingsFaceSearch? FaceSearch
+        {
+            get
+            {
+                if (!_mUnknown_FaceSearch) return _mValue_FaceSearch;
+                throw new UndeferrableValueException("Value 'StreamProcessorSettings.FaceSearch' is not present");
+            }
+        }
     }
 }

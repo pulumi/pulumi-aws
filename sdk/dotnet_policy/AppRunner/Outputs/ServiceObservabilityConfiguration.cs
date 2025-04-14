@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner.Outputs
         /// <summary>
         /// ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
         /// </summary>
-        [Input("observabilityConfigurationArn")]
+        [PolicyResourceProperty("observabilityConfigurationArn", "_mUnknown_ObservabilityConfigurationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObservabilityConfigurationArn;
-
-        public string? ObservabilityConfigurationArn => _mObservabilityConfigurationArn.GetValue("observabilityConfigurationArn");
+        private string? _mValue_ObservabilityConfigurationArn;
+        private bool _mUnknown_ObservabilityConfigurationArn;
+        public string? ObservabilityConfigurationArn
+        {
+            get
+            {
+                if (!_mUnknown_ObservabilityConfigurationArn) return _mValue_ObservabilityConfigurationArn;
+                throw new UndeferrableValueException("Value 'ServiceObservabilityConfiguration.ObservabilityConfigurationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// When `true`, an observability configuration resource is associated with the service.
         /// </summary>
-        [Input("observabilityEnabled")]
+        [PolicyResourceProperty("observabilityEnabled", "_mUnknown_ObservabilityEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mObservabilityEnabled;
-
-        public bool? ObservabilityEnabled => _mObservabilityEnabled.GetValue("observabilityEnabled");
+        private bool? _mValue_ObservabilityEnabled;
+        private bool _mUnknown_ObservabilityEnabled;
+        public bool? ObservabilityEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ObservabilityEnabled) return _mValue_ObservabilityEnabled;
+                throw new UndeferrableValueException("Value 'ServiceObservabilityConfiguration.ObservabilityEnabled' is not present");
+            }
+        }
     }
 }

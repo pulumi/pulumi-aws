@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
         /// </summary>
-        [Input("basePromptTemplate")]
+        [PolicyResourceProperty("basePromptTemplate", "_mUnknown_BasePromptTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBasePromptTemplate;
-
-        public string? BasePromptTemplate => _mBasePromptTemplate.GetValue("basePromptTemplate");
+        private string? _mValue_BasePromptTemplate;
+        private bool _mUnknown_BasePromptTemplate;
+        public string? BasePromptTemplate
+        {
+            get
+            {
+                if (!_mUnknown_BasePromptTemplate) return _mValue_BasePromptTemplate;
+                throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfigurationArgs.BasePromptTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` Block for details.
         /// </summary>
-        [Input("inferenceConfigurations")]
+        [PolicyResourceProperty("inferenceConfigurations", "_mUnknown_InferenceConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs>> _mInferenceConfigurations;
-
-        public List<Inputs.AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs>? InferenceConfigurations => _mInferenceConfigurations.GetValue("inferenceConfigurations");
+        private List<Inputs.AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs>? _mValue_InferenceConfigurations;
+        private bool _mUnknown_InferenceConfigurations;
+        public List<Inputs.AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs>? InferenceConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_InferenceConfigurations) return _mValue_InferenceConfigurations;
+                throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfigurationArgs.InferenceConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `prompt_type`. If you set the argument as `OVERRIDDEN`, the `override_lambda` argument in the `prompt_override_configuration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
         /// </summary>
-        [Input("parserMode")]
+        [PolicyResourceProperty("parserMode", "_mUnknown_ParserMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParserMode;
-
-        public string? ParserMode => _mParserMode.GetValue("parserMode");
+        private string? _mValue_ParserMode;
+        private bool _mUnknown_ParserMode;
+        public string? ParserMode
+        {
+            get
+            {
+                if (!_mUnknown_ParserMode) return _mValue_ParserMode;
+                throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfigurationArgs.ParserMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to override the default prompt template for this `prompt_type`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `base_prompt_template`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
         /// </summary>
-        [Input("promptCreationMode")]
+        [PolicyResourceProperty("promptCreationMode", "_mUnknown_PromptCreationMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPromptCreationMode;
-
-        public string? PromptCreationMode => _mPromptCreationMode.GetValue("promptCreationMode");
+        private string? _mValue_PromptCreationMode;
+        private bool _mUnknown_PromptCreationMode;
+        public string? PromptCreationMode
+        {
+            get
+            {
+                if (!_mUnknown_PromptCreationMode) return _mValue_PromptCreationMode;
+                throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfigurationArgs.PromptCreationMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to allow the agent to carry out the step specified in the `prompt_type`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("promptState")]
+        [PolicyResourceProperty("promptState", "_mUnknown_PromptState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPromptState;
-
-        public string? PromptState => _mPromptState.GetValue("promptState");
+        private string? _mValue_PromptState;
+        private bool _mUnknown_PromptState;
+        public string? PromptState
+        {
+            get
+            {
+                if (!_mUnknown_PromptState) return _mValue_PromptState;
+                throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfigurationArgs.PromptState' is not present");
+            }
+        }
 
         /// <summary>
         /// Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
         /// </summary>
-        [Input("promptType")]
+        [PolicyResourceProperty("promptType", "_mUnknown_PromptType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPromptType;
-
-        public string? PromptType => _mPromptType.GetValue("promptType");
+        private string? _mValue_PromptType;
+        private bool _mUnknown_PromptType;
+        public string? PromptType
+        {
+            get
+            {
+                if (!_mUnknown_PromptType) return _mValue_PromptType;
+                throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfigurationArgs.PromptType' is not present");
+            }
+        }
     }
 }

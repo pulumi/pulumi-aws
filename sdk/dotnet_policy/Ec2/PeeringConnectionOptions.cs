@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
         /// </summary>
-        [Input("accepter")]
+        [PolicyResourceProperty("accepter", "_mUnknown_Accepter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PeeringConnectionOptionsAccepter> _mAccepter;
-
-        public Outputs.PeeringConnectionOptionsAccepter? Accepter => _mAccepter.GetValue("accepter");
+        private Outputs.PeeringConnectionOptionsAccepter? _mValue_Accepter;
+        private bool _mUnknown_Accepter;
+        public Outputs.PeeringConnectionOptionsAccepter? Accepter
+        {
+            get
+            {
+                if (!_mUnknown_Accepter) return _mValue_Accepter;
+                throw new UndeferrableValueException("Value 'PeeringConnectionOptions.Accepter' is not present");
+            }
+        }
 
         /// <summary>
         /// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
         /// </summary>
-        [Input("requester")]
+        [PolicyResourceProperty("requester", "_mUnknown_Requester")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PeeringConnectionOptionsRequester> _mRequester;
-
-        public Outputs.PeeringConnectionOptionsRequester? Requester => _mRequester.GetValue("requester");
+        private Outputs.PeeringConnectionOptionsRequester? _mValue_Requester;
+        private bool _mUnknown_Requester;
+        public Outputs.PeeringConnectionOptionsRequester? Requester
+        {
+            get
+            {
+                if (!_mUnknown_Requester) return _mValue_Requester;
+                throw new UndeferrableValueException("Value 'PeeringConnectionOptions.Requester' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the requester VPC peering connection.
         /// </summary>
-        [Input("vpcPeeringConnectionId")]
+        [PolicyResourceProperty("vpcPeeringConnectionId", "_mUnknown_VpcPeeringConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcPeeringConnectionId;
-
-        public string? VpcPeeringConnectionId => _mVpcPeeringConnectionId.GetValue("vpcPeeringConnectionId");
+        private string? _mValue_VpcPeeringConnectionId;
+        private bool _mUnknown_VpcPeeringConnectionId;
+        public string? VpcPeeringConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_VpcPeeringConnectionId) return _mValue_VpcPeeringConnectionId;
+                throw new UndeferrableValueException("Value 'PeeringConnectionOptions.VpcPeeringConnectionId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/peeringConnectionOptions:PeeringConnectionOptions")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
         /// </summary>
-        [Input("accepter")]
+        [PolicyResourceProperty("accepter", "_mUnknown_Accepter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PeeringConnectionOptionsAccepterArgs> _mAccepter;
-
-        public Inputs.PeeringConnectionOptionsAccepterArgs? Accepter => _mAccepter.GetValue("accepter");
+        private Inputs.PeeringConnectionOptionsAccepterArgs? _mValue_Accepter;
+        private bool _mUnknown_Accepter;
+        public Inputs.PeeringConnectionOptionsAccepterArgs? Accepter
+        {
+            get
+            {
+                if (!_mUnknown_Accepter) return _mValue_Accepter;
+                throw new UndeferrableValueException("Value 'PeeringConnectionOptionsArgs.Accepter' is not present");
+            }
+        }
 
         /// <summary>
         /// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
         /// </summary>
-        [Input("requester")]
+        [PolicyResourceProperty("requester", "_mUnknown_Requester")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PeeringConnectionOptionsRequesterArgs> _mRequester;
-
-        public Inputs.PeeringConnectionOptionsRequesterArgs? Requester => _mRequester.GetValue("requester");
+        private Inputs.PeeringConnectionOptionsRequesterArgs? _mValue_Requester;
+        private bool _mUnknown_Requester;
+        public Inputs.PeeringConnectionOptionsRequesterArgs? Requester
+        {
+            get
+            {
+                if (!_mUnknown_Requester) return _mValue_Requester;
+                throw new UndeferrableValueException("Value 'PeeringConnectionOptionsArgs.Requester' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the requester VPC peering connection.
         /// </summary>
-        [Input("vpcPeeringConnectionId")]
+        [PolicyResourceProperty("vpcPeeringConnectionId", "_mUnknown_VpcPeeringConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcPeeringConnectionId;
-
-        public string? VpcPeeringConnectionId => _mVpcPeeringConnectionId.GetValue("vpcPeeringConnectionId");
+        private string? _mValue_VpcPeeringConnectionId;
+        private bool _mUnknown_VpcPeeringConnectionId;
+        public string? VpcPeeringConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_VpcPeeringConnectionId) return _mValue_VpcPeeringConnectionId;
+                throw new UndeferrableValueException("Value 'PeeringConnectionOptionsArgs.VpcPeeringConnectionId' is not present");
+            }
+        }
     }
 }

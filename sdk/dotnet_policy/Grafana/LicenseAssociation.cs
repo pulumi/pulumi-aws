@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Grafana
         /// <summary>
         /// If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
         /// </summary>
-        [Input("freeTrialExpiration")]
+        [PolicyResourceProperty("freeTrialExpiration", "_mUnknown_FreeTrialExpiration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFreeTrialExpiration;
-
-        public string? FreeTrialExpiration => _mFreeTrialExpiration.GetValue("freeTrialExpiration");
+        private string? _mValue_FreeTrialExpiration;
+        private bool _mUnknown_FreeTrialExpiration;
+        public string? FreeTrialExpiration
+        {
+            get
+            {
+                if (!_mUnknown_FreeTrialExpiration) return _mValue_FreeTrialExpiration;
+                throw new UndeferrableValueException("Value 'LicenseAssociation.FreeTrialExpiration' is not present");
+            }
+        }
 
         /// <summary>
         /// A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
         /// </summary>
-        [Input("grafanaToken")]
+        [PolicyResourceProperty("grafanaToken", "_mUnknown_GrafanaToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGrafanaToken;
-
-        public string? GrafanaToken => _mGrafanaToken.GetValue("grafanaToken");
+        private string? _mValue_GrafanaToken;
+        private bool _mUnknown_GrafanaToken;
+        public string? GrafanaToken
+        {
+            get
+            {
+                if (!_mUnknown_GrafanaToken) return _mValue_GrafanaToken;
+                throw new UndeferrableValueException("Value 'LicenseAssociation.GrafanaToken' is not present");
+            }
+        }
 
         /// <summary>
         /// If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
         /// </summary>
-        [Input("licenseExpiration")]
+        [PolicyResourceProperty("licenseExpiration", "_mUnknown_LicenseExpiration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseExpiration;
-
-        public string? LicenseExpiration => _mLicenseExpiration.GetValue("licenseExpiration");
+        private string? _mValue_LicenseExpiration;
+        private bool _mUnknown_LicenseExpiration;
+        public string? LicenseExpiration
+        {
+            get
+            {
+                if (!_mUnknown_LicenseExpiration) return _mValue_LicenseExpiration;
+                throw new UndeferrableValueException("Value 'LicenseAssociation.LicenseExpiration' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
         /// </summary>
-        [Input("licenseType")]
+        [PolicyResourceProperty("licenseType", "_mUnknown_LicenseType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseType;
-
-        public string? LicenseType => _mLicenseType.GetValue("licenseType");
+        private string? _mValue_LicenseType;
+        private bool _mUnknown_LicenseType;
+        public string? LicenseType
+        {
+            get
+            {
+                if (!_mUnknown_LicenseType) return _mValue_LicenseType;
+                throw new UndeferrableValueException("Value 'LicenseAssociation.LicenseType' is not present");
+            }
+        }
 
         /// <summary>
         /// The workspace id.
         /// </summary>
-        [Input("workspaceId")]
+        [PolicyResourceProperty("workspaceId", "_mUnknown_WorkspaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
-
-        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+        private string? _mValue_WorkspaceId;
+        private bool _mUnknown_WorkspaceId;
+        public string? WorkspaceId
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceId) return _mValue_WorkspaceId;
+                throw new UndeferrableValueException("Value 'LicenseAssociation.WorkspaceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:grafana/licenseAssociation:LicenseAssociation")]
@@ -65,28 +100,49 @@ namespace Pulumi.PolicyPacks.Aws.Grafana
         /// <summary>
         /// A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
         /// </summary>
-        [Input("grafanaToken")]
+        [PolicyResourceProperty("grafanaToken", "_mUnknown_GrafanaToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGrafanaToken;
-
-        public string? GrafanaToken => _mGrafanaToken.GetValue("grafanaToken");
+        private string? _mValue_GrafanaToken;
+        private bool _mUnknown_GrafanaToken;
+        public string? GrafanaToken
+        {
+            get
+            {
+                if (!_mUnknown_GrafanaToken) return _mValue_GrafanaToken;
+                throw new UndeferrableValueException("Value 'LicenseAssociationArgs.GrafanaToken' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
         /// </summary>
-        [Input("licenseType")]
+        [PolicyResourceProperty("licenseType", "_mUnknown_LicenseType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseType;
-
-        public string? LicenseType => _mLicenseType.GetValue("licenseType");
+        private string? _mValue_LicenseType;
+        private bool _mUnknown_LicenseType;
+        public string? LicenseType
+        {
+            get
+            {
+                if (!_mUnknown_LicenseType) return _mValue_LicenseType;
+                throw new UndeferrableValueException("Value 'LicenseAssociationArgs.LicenseType' is not present");
+            }
+        }
 
         /// <summary>
         /// The workspace id.
         /// </summary>
-        [Input("workspaceId")]
+        [PolicyResourceProperty("workspaceId", "_mUnknown_WorkspaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
-
-        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+        private string? _mValue_WorkspaceId;
+        private bool _mUnknown_WorkspaceId;
+        public string? WorkspaceId
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceId) return _mValue_WorkspaceId;
+                throw new UndeferrableValueException("Value 'LicenseAssociationArgs.WorkspaceId' is not present");
+            }
+        }
     }
 }

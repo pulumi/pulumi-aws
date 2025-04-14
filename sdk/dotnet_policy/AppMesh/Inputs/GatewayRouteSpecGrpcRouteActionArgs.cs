@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Target that traffic is routed to when a request matches the gateway route.
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GatewayRouteSpecGrpcRouteActionTargetArgs> _mTarget;
-
-        public Inputs.GatewayRouteSpecGrpcRouteActionTargetArgs? Target => _mTarget.GetValue("target");
+        private Inputs.GatewayRouteSpecGrpcRouteActionTargetArgs? _mValue_Target;
+        private bool _mUnknown_Target;
+        public Inputs.GatewayRouteSpecGrpcRouteActionTargetArgs? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecGrpcRouteActionArgs.Target' is not present");
+            }
+        }
     }
 }

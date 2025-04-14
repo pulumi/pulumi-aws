@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Inputs
         /// <summary>
         /// The container name value, already specified in the task definition, to be used for your service discovery service.
         /// </summary>
-        [Input("containerName")]
+        [PolicyResourceProperty("containerName", "_mUnknown_ContainerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerName;
-
-        public string? ContainerName => _mContainerName.GetValue("containerName");
+        private string? _mValue_ContainerName;
+        private bool _mUnknown_ContainerName;
+        public string? ContainerName
+        {
+            get
+            {
+                if (!_mUnknown_ContainerName) return _mValue_ContainerName;
+                throw new UndeferrableValueException("Value 'TaskSetServiceRegistriesArgs.ContainerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The port value, already specified in the task definition, to be used for your service discovery service.
         /// </summary>
-        [Input("containerPort")]
+        [PolicyResourceProperty("containerPort", "_mUnknown_ContainerPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mContainerPort;
-
-        public int? ContainerPort => _mContainerPort.GetValue("containerPort");
+        private int? _mValue_ContainerPort;
+        private bool _mUnknown_ContainerPort;
+        public int? ContainerPort
+        {
+            get
+            {
+                if (!_mUnknown_ContainerPort) return _mValue_ContainerPort;
+                throw new UndeferrableValueException("Value 'TaskSetServiceRegistriesArgs.ContainerPort' is not present");
+            }
+        }
 
         /// <summary>
         /// The port value used if your Service Discovery service specified an SRV record.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'TaskSetServiceRegistriesArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
         /// </summary>
-        [Input("registryArn")]
+        [PolicyResourceProperty("registryArn", "_mUnknown_RegistryArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryArn;
-
-        public string? RegistryArn => _mRegistryArn.GetValue("registryArn");
+        private string? _mValue_RegistryArn;
+        private bool _mUnknown_RegistryArn;
+        public string? RegistryArn
+        {
+            get
+            {
+                if (!_mUnknown_RegistryArn) return _mValue_RegistryArn;
+                throw new UndeferrableValueException("Value 'TaskSetServiceRegistriesArgs.RegistryArn' is not present");
+            }
+        }
     }
 }

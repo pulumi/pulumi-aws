@@ -15,20 +15,34 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Inputs
         /// <summary>
         /// Override default parameters for Instance Refresh.
         /// </summary>
-        [Input("preferences")]
+        [PolicyResourceProperty("preferences", "_mUnknown_Preferences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupInstanceRefreshPreferencesArgs> _mPreferences;
-
-        public Inputs.GroupInstanceRefreshPreferencesArgs? Preferences => _mPreferences.GetValue("preferences");
+        private Inputs.GroupInstanceRefreshPreferencesArgs? _mValue_Preferences;
+        private bool _mUnknown_Preferences;
+        public Inputs.GroupInstanceRefreshPreferencesArgs? Preferences
+        {
+            get
+            {
+                if (!_mUnknown_Preferences) return _mValue_Preferences;
+                throw new UndeferrableValueException("Value 'GroupInstanceRefreshArgs.Preferences' is not present");
+            }
+        }
 
         /// <summary>
         /// Strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
         /// </summary>
-        [Input("strategy")]
+        [PolicyResourceProperty("strategy", "_mUnknown_Strategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStrategy;
-
-        public string? Strategy => _mStrategy.GetValue("strategy");
+        private string? _mValue_Strategy;
+        private bool _mUnknown_Strategy;
+        public string? Strategy
+        {
+            get
+            {
+                if (!_mUnknown_Strategy) return _mValue_Strategy;
+                throw new UndeferrableValueException("Value 'GroupInstanceRefreshArgs.Strategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
@@ -41,10 +55,17 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Inputs
         /// 
         /// &gt; **NOTE:** Depending on health check settings and group size, an instance refresh may take a long time or fail. This resource does not wait for the instance refresh to complete.
         /// </summary>
-        [Input("triggers")]
+        [PolicyResourceProperty("triggers", "_mUnknown_Triggers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTriggers;
-
-        public List<string>? Triggers => _mTriggers.GetValue("triggers");
+        private List<string>? _mValue_Triggers;
+        private bool _mUnknown_Triggers;
+        public List<string>? Triggers
+        {
+            get
+            {
+                if (!_mUnknown_Triggers) return _mValue_Triggers;
+                throw new UndeferrableValueException("Value 'GroupInstanceRefreshArgs.Triggers' is not present");
+            }
+        }
     }
 }

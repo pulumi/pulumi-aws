@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Outputs
         /// <summary>
         /// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
         /// </summary>
-        [Input("excludes")]
+        [PolicyResourceProperty("excludes", "_mUnknown_Excludes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludes;
-
-        public List<string>? Excludes => _mExcludes.GetValue("excludes");
+        private List<string>? _mValue_Excludes;
+        private bool _mUnknown_Excludes;
+        public List<string>? Excludes
+        {
+            get
+            {
+                if (!_mUnknown_Excludes) return _mValue_Excludes;
+                throw new UndeferrableValueException("Value 'PipelineTriggerAllGitConfigurationPullRequestBranch.Excludes' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
         /// </summary>
-        [Input("includes")]
+        [PolicyResourceProperty("includes", "_mUnknown_Includes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIncludes;
-
-        public List<string>? Includes => _mIncludes.GetValue("includes");
+        private List<string>? _mValue_Includes;
+        private bool _mUnknown_Includes;
+        public List<string>? Includes
+        {
+            get
+            {
+                if (!_mUnknown_Includes) return _mValue_Includes;
+                throw new UndeferrableValueException("Value 'PipelineTriggerAllGitConfigurationPullRequestBranch.Includes' is not present");
+            }
+        }
     }
 }

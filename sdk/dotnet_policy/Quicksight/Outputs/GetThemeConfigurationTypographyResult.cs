@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// Determines the list of font families. Maximum number of 5 items. See font_families.
         /// </summary>
-        [Input("fontFamilies")]
+        [PolicyResourceProperty("fontFamilies", "_mUnknown_FontFamilies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetThemeConfigurationTypographyFontFamilyResult>> _mFontFamilies;
-
-        public List<Outputs.GetThemeConfigurationTypographyFontFamilyResult>? FontFamilies => _mFontFamilies.GetValue("fontFamilies");
+        private List<Outputs.GetThemeConfigurationTypographyFontFamilyResult>? _mValue_FontFamilies;
+        private bool _mUnknown_FontFamilies;
+        public List<Outputs.GetThemeConfigurationTypographyFontFamilyResult>? FontFamilies
+        {
+            get
+            {
+                if (!_mUnknown_FontFamilies) return _mValue_FontFamilies;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationTypographyResult.FontFamilies' is not present");
+            }
+        }
     }
 }

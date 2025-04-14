@@ -15,100 +15,177 @@ namespace Pulumi.PolicyPacks.Aws.Budgets.Inputs
         /// <summary>
         /// A boolean value whether to include credits in the cost budget. Defaults to `true`
         /// </summary>
-        [Input("includeCredit")]
+        [PolicyResourceProperty("includeCredit", "_mUnknown_IncludeCredit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeCredit;
-
-        public bool? IncludeCredit => _mIncludeCredit.GetValue("includeCredit");
+        private bool? _mValue_IncludeCredit;
+        private bool _mUnknown_IncludeCredit;
+        public bool? IncludeCredit
+        {
+            get
+            {
+                if (!_mUnknown_IncludeCredit) return _mValue_IncludeCredit;
+                throw new UndeferrableValueException("Value 'BudgetCostTypesArgs.IncludeCredit' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether a budget includes discounts. Defaults to `true`
         /// </summary>
-        [Input("includeDiscount")]
+        [PolicyResourceProperty("includeDiscount", "_mUnknown_IncludeDiscount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeDiscount;
-
-        public bool? IncludeDiscount => _mIncludeDiscount.GetValue("includeDiscount");
+        private bool? _mValue_IncludeDiscount;
+        private bool _mUnknown_IncludeDiscount;
+        public bool? IncludeDiscount
+        {
+            get
+            {
+                if (!_mUnknown_IncludeDiscount) return _mValue_IncludeDiscount;
+                throw new UndeferrableValueException("Value 'BudgetCostTypesArgs.IncludeDiscount' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
         /// </summary>
-        [Input("includeOtherSubscription")]
+        [PolicyResourceProperty("includeOtherSubscription", "_mUnknown_IncludeOtherSubscription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeOtherSubscription;
-
-        public bool? IncludeOtherSubscription => _mIncludeOtherSubscription.GetValue("includeOtherSubscription");
+        private bool? _mValue_IncludeOtherSubscription;
+        private bool _mUnknown_IncludeOtherSubscription;
+        public bool? IncludeOtherSubscription
+        {
+            get
+            {
+                if (!_mUnknown_IncludeOtherSubscription) return _mValue_IncludeOtherSubscription;
+                throw new UndeferrableValueException("Value 'BudgetCostTypesArgs.IncludeOtherSubscription' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
         /// </summary>
-        [Input("includeRecurring")]
+        [PolicyResourceProperty("includeRecurring", "_mUnknown_IncludeRecurring")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeRecurring;
-
-        public bool? IncludeRecurring => _mIncludeRecurring.GetValue("includeRecurring");
+        private bool? _mValue_IncludeRecurring;
+        private bool _mUnknown_IncludeRecurring;
+        public bool? IncludeRecurring
+        {
+            get
+            {
+                if (!_mUnknown_IncludeRecurring) return _mValue_IncludeRecurring;
+                throw new UndeferrableValueException("Value 'BudgetCostTypesArgs.IncludeRecurring' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value whether to include refunds in the cost budget. Defaults to `true`
         /// </summary>
-        [Input("includeRefund")]
+        [PolicyResourceProperty("includeRefund", "_mUnknown_IncludeRefund")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeRefund;
-
-        public bool? IncludeRefund => _mIncludeRefund.GetValue("includeRefund");
+        private bool? _mValue_IncludeRefund;
+        private bool _mUnknown_IncludeRefund;
+        public bool? IncludeRefund
+        {
+            get
+            {
+                if (!_mUnknown_IncludeRefund) return _mValue_IncludeRefund;
+                throw new UndeferrableValueException("Value 'BudgetCostTypesArgs.IncludeRefund' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
         /// </summary>
-        [Input("includeSubscription")]
+        [PolicyResourceProperty("includeSubscription", "_mUnknown_IncludeSubscription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeSubscription;
-
-        public bool? IncludeSubscription => _mIncludeSubscription.GetValue("includeSubscription");
+        private bool? _mValue_IncludeSubscription;
+        private bool _mUnknown_IncludeSubscription;
+        public bool? IncludeSubscription
+        {
+            get
+            {
+                if (!_mUnknown_IncludeSubscription) return _mValue_IncludeSubscription;
+                throw new UndeferrableValueException("Value 'BudgetCostTypesArgs.IncludeSubscription' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value whether to include support costs in the cost budget. Defaults to `true`
         /// </summary>
-        [Input("includeSupport")]
+        [PolicyResourceProperty("includeSupport", "_mUnknown_IncludeSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeSupport;
-
-        public bool? IncludeSupport => _mIncludeSupport.GetValue("includeSupport");
+        private bool? _mValue_IncludeSupport;
+        private bool _mUnknown_IncludeSupport;
+        public bool? IncludeSupport
+        {
+            get
+            {
+                if (!_mUnknown_IncludeSupport) return _mValue_IncludeSupport;
+                throw new UndeferrableValueException("Value 'BudgetCostTypesArgs.IncludeSupport' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value whether to include tax in the cost budget. Defaults to `true`
         /// </summary>
-        [Input("includeTax")]
+        [PolicyResourceProperty("includeTax", "_mUnknown_IncludeTax")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeTax;
-
-        public bool? IncludeTax => _mIncludeTax.GetValue("includeTax");
+        private bool? _mValue_IncludeTax;
+        private bool _mUnknown_IncludeTax;
+        public bool? IncludeTax
+        {
+            get
+            {
+                if (!_mUnknown_IncludeTax) return _mValue_IncludeTax;
+                throw new UndeferrableValueException("Value 'BudgetCostTypesArgs.IncludeTax' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
         /// </summary>
-        [Input("includeUpfront")]
+        [PolicyResourceProperty("includeUpfront", "_mUnknown_IncludeUpfront")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeUpfront;
-
-        public bool? IncludeUpfront => _mIncludeUpfront.GetValue("includeUpfront");
+        private bool? _mValue_IncludeUpfront;
+        private bool _mUnknown_IncludeUpfront;
+        public bool? IncludeUpfront
+        {
+            get
+            {
+                if (!_mUnknown_IncludeUpfront) return _mValue_IncludeUpfront;
+                throw new UndeferrableValueException("Value 'BudgetCostTypesArgs.IncludeUpfront' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether a budget uses the amortized rate. Defaults to `false`
         /// </summary>
-        [Input("useAmortized")]
+        [PolicyResourceProperty("useAmortized", "_mUnknown_UseAmortized")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseAmortized;
-
-        public bool? UseAmortized => _mUseAmortized.GetValue("useAmortized");
+        private bool? _mValue_UseAmortized;
+        private bool _mUnknown_UseAmortized;
+        public bool? UseAmortized
+        {
+            get
+            {
+                if (!_mUnknown_UseAmortized) return _mValue_UseAmortized;
+                throw new UndeferrableValueException("Value 'BudgetCostTypesArgs.UseAmortized' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value whether to use blended costs in the cost budget. Defaults to `false`
         /// </summary>
-        [Input("useBlended")]
+        [PolicyResourceProperty("useBlended", "_mUnknown_UseBlended")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseBlended;
-
-        public bool? UseBlended => _mUseBlended.GetValue("useBlended");
+        private bool? _mValue_UseBlended;
+        private bool _mUnknown_UseBlended;
+        public bool? UseBlended
+        {
+            get
+            {
+                if (!_mUnknown_UseBlended) return _mValue_UseBlended;
+                throw new UndeferrableValueException("Value 'BudgetCostTypesArgs.UseBlended' is not present");
+            }
+        }
     }
 }

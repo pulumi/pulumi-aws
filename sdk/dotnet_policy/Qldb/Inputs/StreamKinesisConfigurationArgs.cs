@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Qldb.Inputs
         /// <summary>
         /// Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
         /// </summary>
-        [Input("aggregationEnabled")]
+        [PolicyResourceProperty("aggregationEnabled", "_mUnknown_AggregationEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAggregationEnabled;
-
-        public bool? AggregationEnabled => _mAggregationEnabled.GetValue("aggregationEnabled");
+        private bool? _mValue_AggregationEnabled;
+        private bool _mUnknown_AggregationEnabled;
+        public bool? AggregationEnabled
+        {
+            get
+            {
+                if (!_mUnknown_AggregationEnabled) return _mValue_AggregationEnabled;
+                throw new UndeferrableValueException("Value 'StreamKinesisConfigurationArgs.AggregationEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
         /// </summary>
-        [Input("streamArn")]
+        [PolicyResourceProperty("streamArn", "_mUnknown_StreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamArn;
-
-        public string? StreamArn => _mStreamArn.GetValue("streamArn");
+        private string? _mValue_StreamArn;
+        private bool _mUnknown_StreamArn;
+        public string? StreamArn
+        {
+            get
+            {
+                if (!_mUnknown_StreamArn) return _mValue_StreamArn;
+                throw new UndeferrableValueException("Value 'StreamKinesisConfigurationArgs.StreamArn' is not present");
+            }
+        }
     }
 }

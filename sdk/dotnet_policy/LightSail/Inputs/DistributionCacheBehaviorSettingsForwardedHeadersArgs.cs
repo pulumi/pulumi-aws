@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.LightSail.Inputs
         /// <summary>
         /// The specific headers to forward to your distribution's origin.
         /// </summary>
-        [Input("headersAllowLists")]
+        [PolicyResourceProperty("headersAllowLists", "_mUnknown_HeadersAllowLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mHeadersAllowLists;
-
-        public List<string>? HeadersAllowLists => _mHeadersAllowLists.GetValue("headersAllowLists");
+        private List<string>? _mValue_HeadersAllowLists;
+        private bool _mUnknown_HeadersAllowLists;
+        public List<string>? HeadersAllowLists
+        {
+            get
+            {
+                if (!_mUnknown_HeadersAllowLists) return _mValue_HeadersAllowLists;
+                throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsForwardedHeadersArgs.HeadersAllowLists' is not present");
+            }
+        }
 
         /// <summary>
         /// The headers that you want your distribution to forward to your origin and base caching on.
         /// </summary>
-        [Input("option")]
+        [PolicyResourceProperty("option", "_mUnknown_Option")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOption;
-
-        public string? Option => _mOption.GetValue("option");
+        private string? _mValue_Option;
+        private bool _mUnknown_Option;
+        public string? Option
+        {
+            get
+            {
+                if (!_mUnknown_Option) return _mValue_Option;
+                throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsForwardedHeadersArgs.Option' is not present");
+            }
+        }
     }
 }

@@ -16,481 +16,852 @@ namespace Pulumi.PolicyPacks.Aws.Dms
         /// <summary>
         /// Whether to add column name information to the .csv output file. Default is `false`.
         /// </summary>
-        [Input("addColumnName")]
+        [PolicyResourceProperty("addColumnName", "_mUnknown_AddColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAddColumnName;
-
-        public bool? AddColumnName => _mAddColumnName.GetValue("addColumnName");
+        private bool? _mValue_AddColumnName;
+        private bool _mUnknown_AddColumnName;
+        public bool? AddColumnName
+        {
+            get
+            {
+                if (!_mUnknown_AddColumnName) return _mValue_AddColumnName;
+                throw new UndeferrableValueException("Value 'S3Endpoint.AddColumnName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to add padding. Default is `false`. (Ignored for source endpoints.)
         /// </summary>
-        [Input("addTrailingPaddingCharacter")]
+        [PolicyResourceProperty("addTrailingPaddingCharacter", "_mUnknown_AddTrailingPaddingCharacter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAddTrailingPaddingCharacter;
-
-        public bool? AddTrailingPaddingCharacter => _mAddTrailingPaddingCharacter.GetValue("addTrailingPaddingCharacter");
+        private bool? _mValue_AddTrailingPaddingCharacter;
+        private bool _mUnknown_AddTrailingPaddingCharacter;
+        public bool? AddTrailingPaddingCharacter
+        {
+            get
+            {
+                if (!_mUnknown_AddTrailingPaddingCharacter) return _mValue_AddTrailingPaddingCharacter;
+                throw new UndeferrableValueException("Value 'S3Endpoint.AddTrailingPaddingCharacter' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 object prefix.
         /// </summary>
-        [Input("bucketFolder")]
+        [PolicyResourceProperty("bucketFolder", "_mUnknown_BucketFolder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketFolder;
-
-        public string? BucketFolder => _mBucketFolder.GetValue("bucketFolder");
+        private string? _mValue_BucketFolder;
+        private bool _mUnknown_BucketFolder;
+        public string? BucketFolder
+        {
+            get
+            {
+                if (!_mUnknown_BucketFolder) return _mValue_BucketFolder;
+                throw new UndeferrableValueException("Value 'S3Endpoint.BucketFolder' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 bucket name.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'S3Endpoint.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
         /// </summary>
-        [Input("cannedAclForObjects")]
+        [PolicyResourceProperty("cannedAclForObjects", "_mUnknown_CannedAclForObjects")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCannedAclForObjects;
-
-        public string? CannedAclForObjects => _mCannedAclForObjects.GetValue("cannedAclForObjects");
+        private string? _mValue_CannedAclForObjects;
+        private bool _mUnknown_CannedAclForObjects;
+        public string? CannedAclForObjects
+        {
+            get
+            {
+                if (!_mUnknown_CannedAclForObjects) return _mValue_CannedAclForObjects;
+                throw new UndeferrableValueException("Value 'S3Endpoint.CannedAclForObjects' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
         /// </summary>
-        [Input("cdcInsertsAndUpdates")]
+        [PolicyResourceProperty("cdcInsertsAndUpdates", "_mUnknown_CdcInsertsAndUpdates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCdcInsertsAndUpdates;
-
-        public bool? CdcInsertsAndUpdates => _mCdcInsertsAndUpdates.GetValue("cdcInsertsAndUpdates");
+        private bool? _mValue_CdcInsertsAndUpdates;
+        private bool _mUnknown_CdcInsertsAndUpdates;
+        public bool? CdcInsertsAndUpdates
+        {
+            get
+            {
+                if (!_mUnknown_CdcInsertsAndUpdates) return _mValue_CdcInsertsAndUpdates;
+                throw new UndeferrableValueException("Value 'S3Endpoint.CdcInsertsAndUpdates' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to write insert operations to .csv or .parquet output files. Default is `false`.
         /// </summary>
-        [Input("cdcInsertsOnly")]
+        [PolicyResourceProperty("cdcInsertsOnly", "_mUnknown_CdcInsertsOnly")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCdcInsertsOnly;
-
-        public bool? CdcInsertsOnly => _mCdcInsertsOnly.GetValue("cdcInsertsOnly");
+        private bool? _mValue_CdcInsertsOnly;
+        private bool _mUnknown_CdcInsertsOnly;
+        public bool? CdcInsertsOnly
+        {
+            get
+            {
+                if (!_mUnknown_CdcInsertsOnly) return _mValue_CdcInsertsOnly;
+                throw new UndeferrableValueException("Value 'S3Endpoint.CdcInsertsOnly' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
         /// </summary>
-        [Input("cdcMaxBatchInterval")]
+        [PolicyResourceProperty("cdcMaxBatchInterval", "_mUnknown_CdcMaxBatchInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCdcMaxBatchInterval;
-
-        public int? CdcMaxBatchInterval => _mCdcMaxBatchInterval.GetValue("cdcMaxBatchInterval");
+        private int? _mValue_CdcMaxBatchInterval;
+        private bool _mUnknown_CdcMaxBatchInterval;
+        public int? CdcMaxBatchInterval
+        {
+            get
+            {
+                if (!_mUnknown_CdcMaxBatchInterval) return _mValue_CdcMaxBatchInterval;
+                throw new UndeferrableValueException("Value 'S3Endpoint.CdcMaxBatchInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
         /// </summary>
-        [Input("cdcMinFileSize")]
+        [PolicyResourceProperty("cdcMinFileSize", "_mUnknown_CdcMinFileSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCdcMinFileSize;
-
-        public int? CdcMinFileSize => _mCdcMinFileSize.GetValue("cdcMinFileSize");
+        private int? _mValue_CdcMinFileSize;
+        private bool _mUnknown_CdcMinFileSize;
+        public int? CdcMinFileSize
+        {
+            get
+            {
+                if (!_mUnknown_CdcMinFileSize) return _mValue_CdcMinFileSize;
+                throw new UndeferrableValueException("Value 'S3Endpoint.CdcMinFileSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
         /// </summary>
-        [Input("cdcPath")]
+        [PolicyResourceProperty("cdcPath", "_mUnknown_CdcPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCdcPath;
-
-        public string? CdcPath => _mCdcPath.GetValue("cdcPath");
+        private string? _mValue_CdcPath;
+        private bool _mUnknown_CdcPath;
+        public string? CdcPath
+        {
+            get
+            {
+                if (!_mUnknown_CdcPath) return _mValue_CdcPath;
+                throw new UndeferrableValueException("Value 'S3Endpoint.CdcPath' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the certificate.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'S3Endpoint.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         /// </summary>
-        [Input("compressionType")]
+        [PolicyResourceProperty("compressionType", "_mUnknown_CompressionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCompressionType;
-
-        public string? CompressionType => _mCompressionType.GetValue("compressionType");
+        private string? _mValue_CompressionType;
+        private bool _mUnknown_CompressionType;
+        public string? CompressionType
+        {
+            get
+            {
+                if (!_mUnknown_CompressionType) return _mValue_CompressionType;
+                throw new UndeferrableValueException("Value 'S3Endpoint.CompressionType' is not present");
+            }
+        }
 
         /// <summary>
         /// Delimiter used to separate columns in the source files. Default is `,`.
         /// </summary>
-        [Input("csvDelimiter")]
+        [PolicyResourceProperty("csvDelimiter", "_mUnknown_CsvDelimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCsvDelimiter;
-
-        public string? CsvDelimiter => _mCsvDelimiter.GetValue("csvDelimiter");
+        private string? _mValue_CsvDelimiter;
+        private bool _mUnknown_CsvDelimiter;
+        public string? CsvDelimiter
+        {
+            get
+            {
+                if (!_mUnknown_CsvDelimiter) return _mValue_CsvDelimiter;
+                throw new UndeferrableValueException("Value 'S3Endpoint.CsvDelimiter' is not present");
+            }
+        }
 
         /// <summary>
         /// Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
         /// </summary>
-        [Input("csvNoSupValue")]
+        [PolicyResourceProperty("csvNoSupValue", "_mUnknown_CsvNoSupValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCsvNoSupValue;
-
-        public string? CsvNoSupValue => _mCsvNoSupValue.GetValue("csvNoSupValue");
+        private string? _mValue_CsvNoSupValue;
+        private bool _mUnknown_CsvNoSupValue;
+        public string? CsvNoSupValue
+        {
+            get
+            {
+                if (!_mUnknown_CsvNoSupValue) return _mValue_CsvNoSupValue;
+                throw new UndeferrableValueException("Value 'S3Endpoint.CsvNoSupValue' is not present");
+            }
+        }
 
         /// <summary>
         /// String to as null when writing to the target. (AWS default is `NULL`.)
         /// </summary>
-        [Input("csvNullValue")]
+        [PolicyResourceProperty("csvNullValue", "_mUnknown_CsvNullValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCsvNullValue;
-
-        public string? CsvNullValue => _mCsvNullValue.GetValue("csvNullValue");
+        private string? _mValue_CsvNullValue;
+        private bool _mUnknown_CsvNullValue;
+        public string? CsvNullValue
+        {
+            get
+            {
+                if (!_mUnknown_CsvNullValue) return _mValue_CsvNullValue;
+                throw new UndeferrableValueException("Value 'S3Endpoint.CsvNullValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\n`).
         /// </summary>
-        [Input("csvRowDelimiter")]
+        [PolicyResourceProperty("csvRowDelimiter", "_mUnknown_CsvRowDelimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCsvRowDelimiter;
-
-        public string? CsvRowDelimiter => _mCsvRowDelimiter.GetValue("csvRowDelimiter");
+        private string? _mValue_CsvRowDelimiter;
+        private bool _mUnknown_CsvRowDelimiter;
+        public string? CsvRowDelimiter
+        {
+            get
+            {
+                if (!_mUnknown_CsvRowDelimiter) return _mValue_CsvRowDelimiter;
+                throw new UndeferrableValueException("Value 'S3Endpoint.CsvRowDelimiter' is not present");
+            }
+        }
 
         /// <summary>
         /// Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
         /// </summary>
-        [Input("dataFormat")]
+        [PolicyResourceProperty("dataFormat", "_mUnknown_DataFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataFormat;
-
-        public string? DataFormat => _mDataFormat.GetValue("dataFormat");
+        private string? _mValue_DataFormat;
+        private bool _mUnknown_DataFormat;
+        public string? DataFormat
+        {
+            get
+            {
+                if (!_mUnknown_DataFormat) return _mValue_DataFormat;
+                throw new UndeferrableValueException("Value 'S3Endpoint.DataFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Size of one data page in bytes. (AWS default is 1 MiB, _i.e._, `1048576`.)
         /// </summary>
-        [Input("dataPageSize")]
+        [PolicyResourceProperty("dataPageSize", "_mUnknown_DataPageSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDataPageSize;
-
-        public int? DataPageSize => _mDataPageSize.GetValue("dataPageSize");
+        private int? _mValue_DataPageSize;
+        private bool _mUnknown_DataPageSize;
+        public int? DataPageSize
+        {
+            get
+            {
+                if (!_mUnknown_DataPageSize) return _mValue_DataPageSize;
+                throw new UndeferrableValueException("Value 'S3Endpoint.DataPageSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
         /// </summary>
-        [Input("datePartitionDelimiter")]
+        [PolicyResourceProperty("datePartitionDelimiter", "_mUnknown_DatePartitionDelimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatePartitionDelimiter;
-
-        public string? DatePartitionDelimiter => _mDatePartitionDelimiter.GetValue("datePartitionDelimiter");
+        private string? _mValue_DatePartitionDelimiter;
+        private bool _mUnknown_DatePartitionDelimiter;
+        public string? DatePartitionDelimiter
+        {
+            get
+            {
+                if (!_mUnknown_DatePartitionDelimiter) return _mValue_DatePartitionDelimiter;
+                throw new UndeferrableValueException("Value 'S3Endpoint.DatePartitionDelimiter' is not present");
+            }
+        }
 
         /// <summary>
         /// Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
         /// </summary>
-        [Input("datePartitionEnabled")]
+        [PolicyResourceProperty("datePartitionEnabled", "_mUnknown_DatePartitionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDatePartitionEnabled;
-
-        public bool? DatePartitionEnabled => _mDatePartitionEnabled.GetValue("datePartitionEnabled");
+        private bool? _mValue_DatePartitionEnabled;
+        private bool _mUnknown_DatePartitionEnabled;
+        public bool? DatePartitionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_DatePartitionEnabled) return _mValue_DatePartitionEnabled;
+                throw new UndeferrableValueException("Value 'S3Endpoint.DatePartitionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
         /// </summary>
-        [Input("datePartitionSequence")]
+        [PolicyResourceProperty("datePartitionSequence", "_mUnknown_DatePartitionSequence")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatePartitionSequence;
-
-        public string? DatePartitionSequence => _mDatePartitionSequence.GetValue("datePartitionSequence");
+        private string? _mValue_DatePartitionSequence;
+        private bool _mUnknown_DatePartitionSequence;
+        public string? DatePartitionSequence
+        {
+            get
+            {
+                if (!_mUnknown_DatePartitionSequence) return _mValue_DatePartitionSequence;
+                throw new UndeferrableValueException("Value 'S3Endpoint.DatePartitionSequence' is not present");
+            }
+        }
 
         /// <summary>
         /// Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
         /// </summary>
-        [Input("datePartitionTimezone")]
+        [PolicyResourceProperty("datePartitionTimezone", "_mUnknown_DatePartitionTimezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatePartitionTimezone;
-
-        public string? DatePartitionTimezone => _mDatePartitionTimezone.GetValue("datePartitionTimezone");
+        private string? _mValue_DatePartitionTimezone;
+        private bool _mUnknown_DatePartitionTimezone;
+        public string? DatePartitionTimezone
+        {
+            get
+            {
+                if (!_mUnknown_DatePartitionTimezone) return _mValue_DatePartitionTimezone;
+                throw new UndeferrableValueException("Value 'S3Endpoint.DatePartitionTimezone' is not present");
+            }
+        }
 
         /// <summary>
         /// Undocumented argument for use as directed by AWS Support.
         /// </summary>
-        [Input("detachTargetOnLobLookupFailureParquet")]
+        [PolicyResourceProperty("detachTargetOnLobLookupFailureParquet", "_mUnknown_DetachTargetOnLobLookupFailureParquet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDetachTargetOnLobLookupFailureParquet;
-
-        public bool? DetachTargetOnLobLookupFailureParquet => _mDetachTargetOnLobLookupFailureParquet.GetValue("detachTargetOnLobLookupFailureParquet");
+        private bool? _mValue_DetachTargetOnLobLookupFailureParquet;
+        private bool _mUnknown_DetachTargetOnLobLookupFailureParquet;
+        public bool? DetachTargetOnLobLookupFailureParquet
+        {
+            get
+            {
+                if (!_mUnknown_DetachTargetOnLobLookupFailureParquet) return _mValue_DetachTargetOnLobLookupFailureParquet;
+                throw new UndeferrableValueException("Value 'S3Endpoint.DetachTargetOnLobLookupFailureParquet' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
         /// </summary>
-        [Input("dictPageSizeLimit")]
+        [PolicyResourceProperty("dictPageSizeLimit", "_mUnknown_DictPageSizeLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDictPageSizeLimit;
-
-        public int? DictPageSizeLimit => _mDictPageSizeLimit.GetValue("dictPageSizeLimit");
+        private int? _mValue_DictPageSizeLimit;
+        private bool _mUnknown_DictPageSizeLimit;
+        public int? DictPageSizeLimit
+        {
+            get
+            {
+                if (!_mUnknown_DictPageSizeLimit) return _mValue_DictPageSizeLimit;
+                throw new UndeferrableValueException("Value 'S3Endpoint.DictPageSizeLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable statistics for Parquet pages and row groups. Default is `true`.
         /// </summary>
-        [Input("enableStatistics")]
+        [PolicyResourceProperty("enableStatistics", "_mUnknown_EnableStatistics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableStatistics;
-
-        public bool? EnableStatistics => _mEnableStatistics.GetValue("enableStatistics");
+        private bool? _mValue_EnableStatistics;
+        private bool _mUnknown_EnableStatistics;
+        public bool? EnableStatistics
+        {
+            get
+            {
+                if (!_mUnknown_EnableStatistics) return _mValue_EnableStatistics;
+                throw new UndeferrableValueException("Value 'S3Endpoint.EnableStatistics' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
         /// </summary>
-        [Input("encodingType")]
+        [PolicyResourceProperty("encodingType", "_mUnknown_EncodingType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncodingType;
-
-        public string? EncodingType => _mEncodingType.GetValue("encodingType");
+        private string? _mValue_EncodingType;
+        private bool _mUnknown_EncodingType;
+        public string? EncodingType
+        {
+            get
+            {
+                if (!_mUnknown_EncodingType) return _mValue_EncodingType;
+                throw new UndeferrableValueException("Value 'S3Endpoint.EncodingType' is not present");
+            }
+        }
 
         /// <summary>
         /// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         /// </summary>
-        [Input("encryptionMode")]
+        [PolicyResourceProperty("encryptionMode", "_mUnknown_EncryptionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionMode;
-
-        public string? EncryptionMode => _mEncryptionMode.GetValue("encryptionMode");
+        private string? _mValue_EncryptionMode;
+        private bool _mUnknown_EncryptionMode;
+        public string? EncryptionMode
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionMode) return _mValue_EncryptionMode;
+                throw new UndeferrableValueException("Value 'S3Endpoint.EncryptionMode' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the endpoint.
         /// </summary>
-        [Input("endpointArn")]
+        [PolicyResourceProperty("endpointArn", "_mUnknown_EndpointArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointArn;
-
-        public string? EndpointArn => _mEndpointArn.GetValue("endpointArn");
+        private string? _mValue_EndpointArn;
+        private bool _mUnknown_EndpointArn;
+        public string? EndpointArn
+        {
+            get
+            {
+                if (!_mUnknown_EndpointArn) return _mValue_EndpointArn;
+                throw new UndeferrableValueException("Value 'S3Endpoint.EndpointArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         /// </summary>
-        [Input("endpointId")]
+        [PolicyResourceProperty("endpointId", "_mUnknown_EndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointId;
-
-        public string? EndpointId => _mEndpointId.GetValue("endpointId");
+        private string? _mValue_EndpointId;
+        private bool _mUnknown_EndpointId;
+        public string? EndpointId
+        {
+            get
+            {
+                if (!_mUnknown_EndpointId) return _mValue_EndpointId;
+                throw new UndeferrableValueException("Value 'S3Endpoint.EndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of endpoint. Valid values are `source`, `target`.
         /// </summary>
-        [Input("endpointType")]
+        [PolicyResourceProperty("endpointType", "_mUnknown_EndpointType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
-
-        public string? EndpointType => _mEndpointType.GetValue("endpointType");
+        private string? _mValue_EndpointType;
+        private bool _mUnknown_EndpointType;
+        public string? EndpointType
+        {
+            get
+            {
+                if (!_mUnknown_EndpointType) return _mValue_EndpointType;
+                throw new UndeferrableValueException("Value 'S3Endpoint.EndpointType' is not present");
+            }
+        }
 
         /// <summary>
         /// Expanded name for the engine name.
         /// </summary>
-        [Input("engineDisplayName")]
+        [PolicyResourceProperty("engineDisplayName", "_mUnknown_EngineDisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineDisplayName;
-
-        public string? EngineDisplayName => _mEngineDisplayName.GetValue("engineDisplayName");
+        private string? _mValue_EngineDisplayName;
+        private bool _mUnknown_EngineDisplayName;
+        public string? EngineDisplayName
+        {
+            get
+            {
+                if (!_mUnknown_EngineDisplayName) return _mValue_EngineDisplayName;
+                throw new UndeferrableValueException("Value 'S3Endpoint.EngineDisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Bucket owner to prevent sniping. Value is an AWS account ID.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'S3Endpoint.ExpectedBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Can be used for cross-account validation. Use it in another account with `aws.dms.S3Endpoint` to create the endpoint cross-account.
         /// </summary>
-        [Input("externalId")]
+        [PolicyResourceProperty("externalId", "_mUnknown_ExternalId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExternalId;
-
-        public string? ExternalId => _mExternalId.GetValue("externalId");
+        private string? _mValue_ExternalId;
+        private bool _mUnknown_ExternalId;
+        public string? ExternalId
+        {
+            get
+            {
+                if (!_mUnknown_ExternalId) return _mValue_ExternalId;
+                throw new UndeferrableValueException("Value 'S3Endpoint.ExternalId' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON document that describes how AWS DMS should interpret the data.
         /// </summary>
-        [Input("externalTableDefinition")]
+        [PolicyResourceProperty("externalTableDefinition", "_mUnknown_ExternalTableDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExternalTableDefinition;
-
-        public string? ExternalTableDefinition => _mExternalTableDefinition.GetValue("externalTableDefinition");
+        private string? _mValue_ExternalTableDefinition;
+        private bool _mUnknown_ExternalTableDefinition;
+        public string? ExternalTableDefinition
+        {
+            get
+            {
+                if (!_mUnknown_ExternalTableDefinition) return _mValue_ExternalTableDefinition;
+                throw new UndeferrableValueException("Value 'S3Endpoint.ExternalTableDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
         /// </summary>
-        [Input("glueCatalogGeneration")]
+        [PolicyResourceProperty("glueCatalogGeneration", "_mUnknown_GlueCatalogGeneration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mGlueCatalogGeneration;
-
-        public bool? GlueCatalogGeneration => _mGlueCatalogGeneration.GetValue("glueCatalogGeneration");
+        private bool? _mValue_GlueCatalogGeneration;
+        private bool _mUnknown_GlueCatalogGeneration;
+        public bool? GlueCatalogGeneration
+        {
+            get
+            {
+                if (!_mUnknown_GlueCatalogGeneration) return _mValue_GlueCatalogGeneration;
+                throw new UndeferrableValueException("Value 'S3Endpoint.GlueCatalogGeneration' is not present");
+            }
+        }
 
         /// <summary>
         /// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
         /// </summary>
-        [Input("ignoreHeaderRows")]
+        [PolicyResourceProperty("ignoreHeaderRows", "_mUnknown_IgnoreHeaderRows")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIgnoreHeaderRows;
-
-        public int? IgnoreHeaderRows => _mIgnoreHeaderRows.GetValue("ignoreHeaderRows");
+        private int? _mValue_IgnoreHeaderRows;
+        private bool _mUnknown_IgnoreHeaderRows;
+        public int? IgnoreHeaderRows
+        {
+            get
+            {
+                if (!_mUnknown_IgnoreHeaderRows) return _mValue_IgnoreHeaderRows;
+                throw new UndeferrableValueException("Value 'S3Endpoint.IgnoreHeaderRows' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
         /// </summary>
-        [Input("includeOpForFullLoad")]
+        [PolicyResourceProperty("includeOpForFullLoad", "_mUnknown_IncludeOpForFullLoad")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeOpForFullLoad;
-
-        public bool? IncludeOpForFullLoad => _mIncludeOpForFullLoad.GetValue("includeOpForFullLoad");
+        private bool? _mValue_IncludeOpForFullLoad;
+        private bool _mUnknown_IncludeOpForFullLoad;
+        public bool? IncludeOpForFullLoad
+        {
+            get
+            {
+                if (!_mUnknown_IncludeOpForFullLoad) return _mValue_IncludeOpForFullLoad;
+                throw new UndeferrableValueException("Value 'S3Endpoint.IncludeOpForFullLoad' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'S3Endpoint.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
         /// </summary>
-        [Input("maxFileSize")]
+        [PolicyResourceProperty("maxFileSize", "_mUnknown_MaxFileSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxFileSize;
-
-        public int? MaxFileSize => _mMaxFileSize.GetValue("maxFileSize");
+        private int? _mValue_MaxFileSize;
+        private bool _mUnknown_MaxFileSize;
+        public int? MaxFileSize
+        {
+            get
+            {
+                if (!_mUnknown_MaxFileSize) return _mValue_MaxFileSize;
+                throw new UndeferrableValueException("Value 'S3Endpoint.MaxFileSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
         /// </summary>
-        [Input("parquetTimestampInMillisecond")]
+        [PolicyResourceProperty("parquetTimestampInMillisecond", "_mUnknown_ParquetTimestampInMillisecond")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mParquetTimestampInMillisecond;
-
-        public bool? ParquetTimestampInMillisecond => _mParquetTimestampInMillisecond.GetValue("parquetTimestampInMillisecond");
+        private bool? _mValue_ParquetTimestampInMillisecond;
+        private bool _mUnknown_ParquetTimestampInMillisecond;
+        public bool? ParquetTimestampInMillisecond
+        {
+            get
+            {
+                if (!_mUnknown_ParquetTimestampInMillisecond) return _mValue_ParquetTimestampInMillisecond;
+                throw new UndeferrableValueException("Value 'S3Endpoint.ParquetTimestampInMillisecond' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
         /// </summary>
-        [Input("parquetVersion")]
+        [PolicyResourceProperty("parquetVersion", "_mUnknown_ParquetVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParquetVersion;
-
-        public string? ParquetVersion => _mParquetVersion.GetValue("parquetVersion");
+        private string? _mValue_ParquetVersion;
+        private bool _mUnknown_ParquetVersion;
+        public string? ParquetVersion
+        {
+            get
+            {
+                if (!_mUnknown_ParquetVersion) return _mValue_ParquetVersion;
+                throw new UndeferrableValueException("Value 'S3Endpoint.ParquetVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
         /// </summary>
-        [Input("preserveTransactions")]
+        [PolicyResourceProperty("preserveTransactions", "_mUnknown_PreserveTransactions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPreserveTransactions;
-
-        public bool? PreserveTransactions => _mPreserveTransactions.GetValue("preserveTransactions");
+        private bool? _mValue_PreserveTransactions;
+        private bool _mUnknown_PreserveTransactions;
+        public bool? PreserveTransactions
+        {
+            get
+            {
+                if (!_mUnknown_PreserveTransactions) return _mValue_PreserveTransactions;
+                throw new UndeferrableValueException("Value 'S3Endpoint.PreserveTransactions' is not present");
+            }
+        }
 
         /// <summary>
         /// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
         /// </summary>
-        [Input("rfc4180")]
+        [PolicyResourceProperty("rfc4180", "_mUnknown_Rfc4180")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRfc4180;
-
-        public bool? Rfc4180 => _mRfc4180.GetValue("rfc4180");
+        private bool? _mValue_Rfc4180;
+        private bool _mUnknown_Rfc4180;
+        public bool? Rfc4180
+        {
+            get
+            {
+                if (!_mUnknown_Rfc4180) return _mValue_Rfc4180;
+                throw new UndeferrableValueException("Value 'S3Endpoint.Rfc4180' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of rows in a row group. (AWS default is `10000`.)
         /// </summary>
-        [Input("rowGroupLength")]
+        [PolicyResourceProperty("rowGroupLength", "_mUnknown_RowGroupLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRowGroupLength;
-
-        public int? RowGroupLength => _mRowGroupLength.GetValue("rowGroupLength");
+        private int? _mValue_RowGroupLength;
+        private bool _mUnknown_RowGroupLength;
+        public int? RowGroupLength
+        {
+            get
+            {
+                if (!_mUnknown_RowGroupLength) return _mValue_RowGroupLength;
+                throw new UndeferrableValueException("Value 'S3Endpoint.RowGroupLength' is not present");
+            }
+        }
 
         /// <summary>
         /// When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
         /// </summary>
-        [Input("serverSideEncryptionKmsKeyId")]
+        [PolicyResourceProperty("serverSideEncryptionKmsKeyId", "_mUnknown_ServerSideEncryptionKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerSideEncryptionKmsKeyId;
-
-        public string? ServerSideEncryptionKmsKeyId => _mServerSideEncryptionKmsKeyId.GetValue("serverSideEncryptionKmsKeyId");
+        private string? _mValue_ServerSideEncryptionKmsKeyId;
+        private bool _mUnknown_ServerSideEncryptionKmsKeyId;
+        public string? ServerSideEncryptionKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryptionKmsKeyId) return _mValue_ServerSideEncryptionKmsKeyId;
+                throw new UndeferrableValueException("Value 'S3Endpoint.ServerSideEncryptionKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role with permissions to the S3 Bucket.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("serviceAccessRoleArn")]
+        [PolicyResourceProperty("serviceAccessRoleArn", "_mUnknown_ServiceAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccessRoleArn;
-
-        public string? ServiceAccessRoleArn => _mServiceAccessRoleArn.GetValue("serviceAccessRoleArn");
+        private string? _mValue_ServiceAccessRoleArn;
+        private bool _mUnknown_ServiceAccessRoleArn;
+        public string? ServiceAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccessRoleArn) return _mValue_ServiceAccessRoleArn;
+                throw new UndeferrableValueException("Value 'S3Endpoint.ServiceAccessRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
         /// </summary>
-        [Input("sslMode")]
+        [PolicyResourceProperty("sslMode", "_mUnknown_SslMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslMode;
-
-        public string? SslMode => _mSslMode.GetValue("sslMode");
+        private string? _mValue_SslMode;
+        private bool _mUnknown_SslMode;
+        public string? SslMode
+        {
+            get
+            {
+                if (!_mUnknown_SslMode) return _mValue_SslMode;
+                throw new UndeferrableValueException("Value 'S3Endpoint.SslMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the endpoint.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'S3Endpoint.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'S3Endpoint.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'S3Endpoint.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Column to add with timestamp information to the endpoint data for an Amazon S3 target.
         /// </summary>
-        [Input("timestampColumnName")]
+        [PolicyResourceProperty("timestampColumnName", "_mUnknown_TimestampColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimestampColumnName;
-
-        public string? TimestampColumnName => _mTimestampColumnName.GetValue("timestampColumnName");
+        private string? _mValue_TimestampColumnName;
+        private bool _mUnknown_TimestampColumnName;
+        public string? TimestampColumnName
+        {
+            get
+            {
+                if (!_mUnknown_TimestampColumnName) return _mValue_TimestampColumnName;
+                throw new UndeferrableValueException("Value 'S3Endpoint.TimestampColumnName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
         /// </summary>
-        [Input("useCsvNoSupValue")]
+        [PolicyResourceProperty("useCsvNoSupValue", "_mUnknown_UseCsvNoSupValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseCsvNoSupValue;
-
-        public bool? UseCsvNoSupValue => _mUseCsvNoSupValue.GetValue("useCsvNoSupValue");
+        private bool? _mValue_UseCsvNoSupValue;
+        private bool _mUnknown_UseCsvNoSupValue;
+        public bool? UseCsvNoSupValue
+        {
+            get
+            {
+                if (!_mUnknown_UseCsvNoSupValue) return _mValue_UseCsvNoSupValue;
+                throw new UndeferrableValueException("Value 'S3Endpoint.UseCsvNoSupValue' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to `true`, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
         /// </summary>
-        [Input("useTaskStartTimeForFullLoadTimestamp")]
+        [PolicyResourceProperty("useTaskStartTimeForFullLoadTimestamp", "_mUnknown_UseTaskStartTimeForFullLoadTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseTaskStartTimeForFullLoadTimestamp;
-
-        public bool? UseTaskStartTimeForFullLoadTimestamp => _mUseTaskStartTimeForFullLoadTimestamp.GetValue("useTaskStartTimeForFullLoadTimestamp");
+        private bool? _mValue_UseTaskStartTimeForFullLoadTimestamp;
+        private bool _mUnknown_UseTaskStartTimeForFullLoadTimestamp;
+        public bool? UseTaskStartTimeForFullLoadTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_UseTaskStartTimeForFullLoadTimestamp) return _mValue_UseTaskStartTimeForFullLoadTimestamp;
+                throw new UndeferrableValueException("Value 'S3Endpoint.UseTaskStartTimeForFullLoadTimestamp' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:dms/s3Endpoint:S3Endpoint")]
@@ -499,435 +870,771 @@ namespace Pulumi.PolicyPacks.Aws.Dms
         /// <summary>
         /// Whether to add column name information to the .csv output file. Default is `false`.
         /// </summary>
-        [Input("addColumnName")]
+        [PolicyResourceProperty("addColumnName", "_mUnknown_AddColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAddColumnName;
-
-        public bool? AddColumnName => _mAddColumnName.GetValue("addColumnName");
+        private bool? _mValue_AddColumnName;
+        private bool _mUnknown_AddColumnName;
+        public bool? AddColumnName
+        {
+            get
+            {
+                if (!_mUnknown_AddColumnName) return _mValue_AddColumnName;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.AddColumnName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to add padding. Default is `false`. (Ignored for source endpoints.)
         /// </summary>
-        [Input("addTrailingPaddingCharacter")]
+        [PolicyResourceProperty("addTrailingPaddingCharacter", "_mUnknown_AddTrailingPaddingCharacter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAddTrailingPaddingCharacter;
-
-        public bool? AddTrailingPaddingCharacter => _mAddTrailingPaddingCharacter.GetValue("addTrailingPaddingCharacter");
+        private bool? _mValue_AddTrailingPaddingCharacter;
+        private bool _mUnknown_AddTrailingPaddingCharacter;
+        public bool? AddTrailingPaddingCharacter
+        {
+            get
+            {
+                if (!_mUnknown_AddTrailingPaddingCharacter) return _mValue_AddTrailingPaddingCharacter;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.AddTrailingPaddingCharacter' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 object prefix.
         /// </summary>
-        [Input("bucketFolder")]
+        [PolicyResourceProperty("bucketFolder", "_mUnknown_BucketFolder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketFolder;
-
-        public string? BucketFolder => _mBucketFolder.GetValue("bucketFolder");
+        private string? _mValue_BucketFolder;
+        private bool _mUnknown_BucketFolder;
+        public string? BucketFolder
+        {
+            get
+            {
+                if (!_mUnknown_BucketFolder) return _mValue_BucketFolder;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.BucketFolder' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 bucket name.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
         /// </summary>
-        [Input("cannedAclForObjects")]
+        [PolicyResourceProperty("cannedAclForObjects", "_mUnknown_CannedAclForObjects")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCannedAclForObjects;
-
-        public string? CannedAclForObjects => _mCannedAclForObjects.GetValue("cannedAclForObjects");
+        private string? _mValue_CannedAclForObjects;
+        private bool _mUnknown_CannedAclForObjects;
+        public string? CannedAclForObjects
+        {
+            get
+            {
+                if (!_mUnknown_CannedAclForObjects) return _mValue_CannedAclForObjects;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.CannedAclForObjects' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
         /// </summary>
-        [Input("cdcInsertsAndUpdates")]
+        [PolicyResourceProperty("cdcInsertsAndUpdates", "_mUnknown_CdcInsertsAndUpdates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCdcInsertsAndUpdates;
-
-        public bool? CdcInsertsAndUpdates => _mCdcInsertsAndUpdates.GetValue("cdcInsertsAndUpdates");
+        private bool? _mValue_CdcInsertsAndUpdates;
+        private bool _mUnknown_CdcInsertsAndUpdates;
+        public bool? CdcInsertsAndUpdates
+        {
+            get
+            {
+                if (!_mUnknown_CdcInsertsAndUpdates) return _mValue_CdcInsertsAndUpdates;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.CdcInsertsAndUpdates' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to write insert operations to .csv or .parquet output files. Default is `false`.
         /// </summary>
-        [Input("cdcInsertsOnly")]
+        [PolicyResourceProperty("cdcInsertsOnly", "_mUnknown_CdcInsertsOnly")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCdcInsertsOnly;
-
-        public bool? CdcInsertsOnly => _mCdcInsertsOnly.GetValue("cdcInsertsOnly");
+        private bool? _mValue_CdcInsertsOnly;
+        private bool _mUnknown_CdcInsertsOnly;
+        public bool? CdcInsertsOnly
+        {
+            get
+            {
+                if (!_mUnknown_CdcInsertsOnly) return _mValue_CdcInsertsOnly;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.CdcInsertsOnly' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
         /// </summary>
-        [Input("cdcMaxBatchInterval")]
+        [PolicyResourceProperty("cdcMaxBatchInterval", "_mUnknown_CdcMaxBatchInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCdcMaxBatchInterval;
-
-        public int? CdcMaxBatchInterval => _mCdcMaxBatchInterval.GetValue("cdcMaxBatchInterval");
+        private int? _mValue_CdcMaxBatchInterval;
+        private bool _mUnknown_CdcMaxBatchInterval;
+        public int? CdcMaxBatchInterval
+        {
+            get
+            {
+                if (!_mUnknown_CdcMaxBatchInterval) return _mValue_CdcMaxBatchInterval;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.CdcMaxBatchInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
         /// </summary>
-        [Input("cdcMinFileSize")]
+        [PolicyResourceProperty("cdcMinFileSize", "_mUnknown_CdcMinFileSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCdcMinFileSize;
-
-        public int? CdcMinFileSize => _mCdcMinFileSize.GetValue("cdcMinFileSize");
+        private int? _mValue_CdcMinFileSize;
+        private bool _mUnknown_CdcMinFileSize;
+        public int? CdcMinFileSize
+        {
+            get
+            {
+                if (!_mUnknown_CdcMinFileSize) return _mValue_CdcMinFileSize;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.CdcMinFileSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
         /// </summary>
-        [Input("cdcPath")]
+        [PolicyResourceProperty("cdcPath", "_mUnknown_CdcPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCdcPath;
-
-        public string? CdcPath => _mCdcPath.GetValue("cdcPath");
+        private string? _mValue_CdcPath;
+        private bool _mUnknown_CdcPath;
+        public string? CdcPath
+        {
+            get
+            {
+                if (!_mUnknown_CdcPath) return _mValue_CdcPath;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.CdcPath' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the certificate.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         /// </summary>
-        [Input("compressionType")]
+        [PolicyResourceProperty("compressionType", "_mUnknown_CompressionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCompressionType;
-
-        public string? CompressionType => _mCompressionType.GetValue("compressionType");
+        private string? _mValue_CompressionType;
+        private bool _mUnknown_CompressionType;
+        public string? CompressionType
+        {
+            get
+            {
+                if (!_mUnknown_CompressionType) return _mValue_CompressionType;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.CompressionType' is not present");
+            }
+        }
 
         /// <summary>
         /// Delimiter used to separate columns in the source files. Default is `,`.
         /// </summary>
-        [Input("csvDelimiter")]
+        [PolicyResourceProperty("csvDelimiter", "_mUnknown_CsvDelimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCsvDelimiter;
-
-        public string? CsvDelimiter => _mCsvDelimiter.GetValue("csvDelimiter");
+        private string? _mValue_CsvDelimiter;
+        private bool _mUnknown_CsvDelimiter;
+        public string? CsvDelimiter
+        {
+            get
+            {
+                if (!_mUnknown_CsvDelimiter) return _mValue_CsvDelimiter;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.CsvDelimiter' is not present");
+            }
+        }
 
         /// <summary>
         /// Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
         /// </summary>
-        [Input("csvNoSupValue")]
+        [PolicyResourceProperty("csvNoSupValue", "_mUnknown_CsvNoSupValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCsvNoSupValue;
-
-        public string? CsvNoSupValue => _mCsvNoSupValue.GetValue("csvNoSupValue");
+        private string? _mValue_CsvNoSupValue;
+        private bool _mUnknown_CsvNoSupValue;
+        public string? CsvNoSupValue
+        {
+            get
+            {
+                if (!_mUnknown_CsvNoSupValue) return _mValue_CsvNoSupValue;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.CsvNoSupValue' is not present");
+            }
+        }
 
         /// <summary>
         /// String to as null when writing to the target. (AWS default is `NULL`.)
         /// </summary>
-        [Input("csvNullValue")]
+        [PolicyResourceProperty("csvNullValue", "_mUnknown_CsvNullValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCsvNullValue;
-
-        public string? CsvNullValue => _mCsvNullValue.GetValue("csvNullValue");
+        private string? _mValue_CsvNullValue;
+        private bool _mUnknown_CsvNullValue;
+        public string? CsvNullValue
+        {
+            get
+            {
+                if (!_mUnknown_CsvNullValue) return _mValue_CsvNullValue;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.CsvNullValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\n`).
         /// </summary>
-        [Input("csvRowDelimiter")]
+        [PolicyResourceProperty("csvRowDelimiter", "_mUnknown_CsvRowDelimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCsvRowDelimiter;
-
-        public string? CsvRowDelimiter => _mCsvRowDelimiter.GetValue("csvRowDelimiter");
+        private string? _mValue_CsvRowDelimiter;
+        private bool _mUnknown_CsvRowDelimiter;
+        public string? CsvRowDelimiter
+        {
+            get
+            {
+                if (!_mUnknown_CsvRowDelimiter) return _mValue_CsvRowDelimiter;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.CsvRowDelimiter' is not present");
+            }
+        }
 
         /// <summary>
         /// Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
         /// </summary>
-        [Input("dataFormat")]
+        [PolicyResourceProperty("dataFormat", "_mUnknown_DataFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataFormat;
-
-        public string? DataFormat => _mDataFormat.GetValue("dataFormat");
+        private string? _mValue_DataFormat;
+        private bool _mUnknown_DataFormat;
+        public string? DataFormat
+        {
+            get
+            {
+                if (!_mUnknown_DataFormat) return _mValue_DataFormat;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.DataFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Size of one data page in bytes. (AWS default is 1 MiB, _i.e._, `1048576`.)
         /// </summary>
-        [Input("dataPageSize")]
+        [PolicyResourceProperty("dataPageSize", "_mUnknown_DataPageSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDataPageSize;
-
-        public int? DataPageSize => _mDataPageSize.GetValue("dataPageSize");
+        private int? _mValue_DataPageSize;
+        private bool _mUnknown_DataPageSize;
+        public int? DataPageSize
+        {
+            get
+            {
+                if (!_mUnknown_DataPageSize) return _mValue_DataPageSize;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.DataPageSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
         /// </summary>
-        [Input("datePartitionDelimiter")]
+        [PolicyResourceProperty("datePartitionDelimiter", "_mUnknown_DatePartitionDelimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatePartitionDelimiter;
-
-        public string? DatePartitionDelimiter => _mDatePartitionDelimiter.GetValue("datePartitionDelimiter");
+        private string? _mValue_DatePartitionDelimiter;
+        private bool _mUnknown_DatePartitionDelimiter;
+        public string? DatePartitionDelimiter
+        {
+            get
+            {
+                if (!_mUnknown_DatePartitionDelimiter) return _mValue_DatePartitionDelimiter;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.DatePartitionDelimiter' is not present");
+            }
+        }
 
         /// <summary>
         /// Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
         /// </summary>
-        [Input("datePartitionEnabled")]
+        [PolicyResourceProperty("datePartitionEnabled", "_mUnknown_DatePartitionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDatePartitionEnabled;
-
-        public bool? DatePartitionEnabled => _mDatePartitionEnabled.GetValue("datePartitionEnabled");
+        private bool? _mValue_DatePartitionEnabled;
+        private bool _mUnknown_DatePartitionEnabled;
+        public bool? DatePartitionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_DatePartitionEnabled) return _mValue_DatePartitionEnabled;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.DatePartitionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
         /// </summary>
-        [Input("datePartitionSequence")]
+        [PolicyResourceProperty("datePartitionSequence", "_mUnknown_DatePartitionSequence")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatePartitionSequence;
-
-        public string? DatePartitionSequence => _mDatePartitionSequence.GetValue("datePartitionSequence");
+        private string? _mValue_DatePartitionSequence;
+        private bool _mUnknown_DatePartitionSequence;
+        public string? DatePartitionSequence
+        {
+            get
+            {
+                if (!_mUnknown_DatePartitionSequence) return _mValue_DatePartitionSequence;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.DatePartitionSequence' is not present");
+            }
+        }
 
         /// <summary>
         /// Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
         /// </summary>
-        [Input("datePartitionTimezone")]
+        [PolicyResourceProperty("datePartitionTimezone", "_mUnknown_DatePartitionTimezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatePartitionTimezone;
-
-        public string? DatePartitionTimezone => _mDatePartitionTimezone.GetValue("datePartitionTimezone");
+        private string? _mValue_DatePartitionTimezone;
+        private bool _mUnknown_DatePartitionTimezone;
+        public string? DatePartitionTimezone
+        {
+            get
+            {
+                if (!_mUnknown_DatePartitionTimezone) return _mValue_DatePartitionTimezone;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.DatePartitionTimezone' is not present");
+            }
+        }
 
         /// <summary>
         /// Undocumented argument for use as directed by AWS Support.
         /// </summary>
-        [Input("detachTargetOnLobLookupFailureParquet")]
+        [PolicyResourceProperty("detachTargetOnLobLookupFailureParquet", "_mUnknown_DetachTargetOnLobLookupFailureParquet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDetachTargetOnLobLookupFailureParquet;
-
-        public bool? DetachTargetOnLobLookupFailureParquet => _mDetachTargetOnLobLookupFailureParquet.GetValue("detachTargetOnLobLookupFailureParquet");
+        private bool? _mValue_DetachTargetOnLobLookupFailureParquet;
+        private bool _mUnknown_DetachTargetOnLobLookupFailureParquet;
+        public bool? DetachTargetOnLobLookupFailureParquet
+        {
+            get
+            {
+                if (!_mUnknown_DetachTargetOnLobLookupFailureParquet) return _mValue_DetachTargetOnLobLookupFailureParquet;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.DetachTargetOnLobLookupFailureParquet' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
         /// </summary>
-        [Input("dictPageSizeLimit")]
+        [PolicyResourceProperty("dictPageSizeLimit", "_mUnknown_DictPageSizeLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDictPageSizeLimit;
-
-        public int? DictPageSizeLimit => _mDictPageSizeLimit.GetValue("dictPageSizeLimit");
+        private int? _mValue_DictPageSizeLimit;
+        private bool _mUnknown_DictPageSizeLimit;
+        public int? DictPageSizeLimit
+        {
+            get
+            {
+                if (!_mUnknown_DictPageSizeLimit) return _mValue_DictPageSizeLimit;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.DictPageSizeLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable statistics for Parquet pages and row groups. Default is `true`.
         /// </summary>
-        [Input("enableStatistics")]
+        [PolicyResourceProperty("enableStatistics", "_mUnknown_EnableStatistics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableStatistics;
-
-        public bool? EnableStatistics => _mEnableStatistics.GetValue("enableStatistics");
+        private bool? _mValue_EnableStatistics;
+        private bool _mUnknown_EnableStatistics;
+        public bool? EnableStatistics
+        {
+            get
+            {
+                if (!_mUnknown_EnableStatistics) return _mValue_EnableStatistics;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.EnableStatistics' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
         /// </summary>
-        [Input("encodingType")]
+        [PolicyResourceProperty("encodingType", "_mUnknown_EncodingType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncodingType;
-
-        public string? EncodingType => _mEncodingType.GetValue("encodingType");
+        private string? _mValue_EncodingType;
+        private bool _mUnknown_EncodingType;
+        public string? EncodingType
+        {
+            get
+            {
+                if (!_mUnknown_EncodingType) return _mValue_EncodingType;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.EncodingType' is not present");
+            }
+        }
 
         /// <summary>
         /// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         /// </summary>
-        [Input("encryptionMode")]
+        [PolicyResourceProperty("encryptionMode", "_mUnknown_EncryptionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionMode;
-
-        public string? EncryptionMode => _mEncryptionMode.GetValue("encryptionMode");
+        private string? _mValue_EncryptionMode;
+        private bool _mUnknown_EncryptionMode;
+        public string? EncryptionMode
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionMode) return _mValue_EncryptionMode;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.EncryptionMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         /// </summary>
-        [Input("endpointId")]
+        [PolicyResourceProperty("endpointId", "_mUnknown_EndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointId;
-
-        public string? EndpointId => _mEndpointId.GetValue("endpointId");
+        private string? _mValue_EndpointId;
+        private bool _mUnknown_EndpointId;
+        public string? EndpointId
+        {
+            get
+            {
+                if (!_mUnknown_EndpointId) return _mValue_EndpointId;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.EndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of endpoint. Valid values are `source`, `target`.
         /// </summary>
-        [Input("endpointType")]
+        [PolicyResourceProperty("endpointType", "_mUnknown_EndpointType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
-
-        public string? EndpointType => _mEndpointType.GetValue("endpointType");
+        private string? _mValue_EndpointType;
+        private bool _mUnknown_EndpointType;
+        public string? EndpointType
+        {
+            get
+            {
+                if (!_mUnknown_EndpointType) return _mValue_EndpointType;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.EndpointType' is not present");
+            }
+        }
 
         /// <summary>
         /// Bucket owner to prevent sniping. Value is an AWS account ID.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.ExpectedBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON document that describes how AWS DMS should interpret the data.
         /// </summary>
-        [Input("externalTableDefinition")]
+        [PolicyResourceProperty("externalTableDefinition", "_mUnknown_ExternalTableDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExternalTableDefinition;
-
-        public string? ExternalTableDefinition => _mExternalTableDefinition.GetValue("externalTableDefinition");
+        private string? _mValue_ExternalTableDefinition;
+        private bool _mUnknown_ExternalTableDefinition;
+        public string? ExternalTableDefinition
+        {
+            get
+            {
+                if (!_mUnknown_ExternalTableDefinition) return _mValue_ExternalTableDefinition;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.ExternalTableDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
         /// </summary>
-        [Input("glueCatalogGeneration")]
+        [PolicyResourceProperty("glueCatalogGeneration", "_mUnknown_GlueCatalogGeneration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mGlueCatalogGeneration;
-
-        public bool? GlueCatalogGeneration => _mGlueCatalogGeneration.GetValue("glueCatalogGeneration");
+        private bool? _mValue_GlueCatalogGeneration;
+        private bool _mUnknown_GlueCatalogGeneration;
+        public bool? GlueCatalogGeneration
+        {
+            get
+            {
+                if (!_mUnknown_GlueCatalogGeneration) return _mValue_GlueCatalogGeneration;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.GlueCatalogGeneration' is not present");
+            }
+        }
 
         /// <summary>
         /// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
         /// </summary>
-        [Input("ignoreHeaderRows")]
+        [PolicyResourceProperty("ignoreHeaderRows", "_mUnknown_IgnoreHeaderRows")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIgnoreHeaderRows;
-
-        public int? IgnoreHeaderRows => _mIgnoreHeaderRows.GetValue("ignoreHeaderRows");
+        private int? _mValue_IgnoreHeaderRows;
+        private bool _mUnknown_IgnoreHeaderRows;
+        public int? IgnoreHeaderRows
+        {
+            get
+            {
+                if (!_mUnknown_IgnoreHeaderRows) return _mValue_IgnoreHeaderRows;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.IgnoreHeaderRows' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
         /// </summary>
-        [Input("includeOpForFullLoad")]
+        [PolicyResourceProperty("includeOpForFullLoad", "_mUnknown_IncludeOpForFullLoad")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeOpForFullLoad;
-
-        public bool? IncludeOpForFullLoad => _mIncludeOpForFullLoad.GetValue("includeOpForFullLoad");
+        private bool? _mValue_IncludeOpForFullLoad;
+        private bool _mUnknown_IncludeOpForFullLoad;
+        public bool? IncludeOpForFullLoad
+        {
+            get
+            {
+                if (!_mUnknown_IncludeOpForFullLoad) return _mValue_IncludeOpForFullLoad;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.IncludeOpForFullLoad' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
         /// </summary>
-        [Input("maxFileSize")]
+        [PolicyResourceProperty("maxFileSize", "_mUnknown_MaxFileSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxFileSize;
-
-        public int? MaxFileSize => _mMaxFileSize.GetValue("maxFileSize");
+        private int? _mValue_MaxFileSize;
+        private bool _mUnknown_MaxFileSize;
+        public int? MaxFileSize
+        {
+            get
+            {
+                if (!_mUnknown_MaxFileSize) return _mValue_MaxFileSize;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.MaxFileSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
         /// </summary>
-        [Input("parquetTimestampInMillisecond")]
+        [PolicyResourceProperty("parquetTimestampInMillisecond", "_mUnknown_ParquetTimestampInMillisecond")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mParquetTimestampInMillisecond;
-
-        public bool? ParquetTimestampInMillisecond => _mParquetTimestampInMillisecond.GetValue("parquetTimestampInMillisecond");
+        private bool? _mValue_ParquetTimestampInMillisecond;
+        private bool _mUnknown_ParquetTimestampInMillisecond;
+        public bool? ParquetTimestampInMillisecond
+        {
+            get
+            {
+                if (!_mUnknown_ParquetTimestampInMillisecond) return _mValue_ParquetTimestampInMillisecond;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.ParquetTimestampInMillisecond' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
         /// </summary>
-        [Input("parquetVersion")]
+        [PolicyResourceProperty("parquetVersion", "_mUnknown_ParquetVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParquetVersion;
-
-        public string? ParquetVersion => _mParquetVersion.GetValue("parquetVersion");
+        private string? _mValue_ParquetVersion;
+        private bool _mUnknown_ParquetVersion;
+        public string? ParquetVersion
+        {
+            get
+            {
+                if (!_mUnknown_ParquetVersion) return _mValue_ParquetVersion;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.ParquetVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
         /// </summary>
-        [Input("preserveTransactions")]
+        [PolicyResourceProperty("preserveTransactions", "_mUnknown_PreserveTransactions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPreserveTransactions;
-
-        public bool? PreserveTransactions => _mPreserveTransactions.GetValue("preserveTransactions");
+        private bool? _mValue_PreserveTransactions;
+        private bool _mUnknown_PreserveTransactions;
+        public bool? PreserveTransactions
+        {
+            get
+            {
+                if (!_mUnknown_PreserveTransactions) return _mValue_PreserveTransactions;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.PreserveTransactions' is not present");
+            }
+        }
 
         /// <summary>
         /// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
         /// </summary>
-        [Input("rfc4180")]
+        [PolicyResourceProperty("rfc4180", "_mUnknown_Rfc4180")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRfc4180;
-
-        public bool? Rfc4180 => _mRfc4180.GetValue("rfc4180");
+        private bool? _mValue_Rfc4180;
+        private bool _mUnknown_Rfc4180;
+        public bool? Rfc4180
+        {
+            get
+            {
+                if (!_mUnknown_Rfc4180) return _mValue_Rfc4180;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.Rfc4180' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of rows in a row group. (AWS default is `10000`.)
         /// </summary>
-        [Input("rowGroupLength")]
+        [PolicyResourceProperty("rowGroupLength", "_mUnknown_RowGroupLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRowGroupLength;
-
-        public int? RowGroupLength => _mRowGroupLength.GetValue("rowGroupLength");
+        private int? _mValue_RowGroupLength;
+        private bool _mUnknown_RowGroupLength;
+        public int? RowGroupLength
+        {
+            get
+            {
+                if (!_mUnknown_RowGroupLength) return _mValue_RowGroupLength;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.RowGroupLength' is not present");
+            }
+        }
 
         /// <summary>
         /// When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
         /// </summary>
-        [Input("serverSideEncryptionKmsKeyId")]
+        [PolicyResourceProperty("serverSideEncryptionKmsKeyId", "_mUnknown_ServerSideEncryptionKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerSideEncryptionKmsKeyId;
-
-        public string? ServerSideEncryptionKmsKeyId => _mServerSideEncryptionKmsKeyId.GetValue("serverSideEncryptionKmsKeyId");
+        private string? _mValue_ServerSideEncryptionKmsKeyId;
+        private bool _mUnknown_ServerSideEncryptionKmsKeyId;
+        public string? ServerSideEncryptionKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryptionKmsKeyId) return _mValue_ServerSideEncryptionKmsKeyId;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.ServerSideEncryptionKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role with permissions to the S3 Bucket.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("serviceAccessRoleArn")]
+        [PolicyResourceProperty("serviceAccessRoleArn", "_mUnknown_ServiceAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccessRoleArn;
-
-        public string? ServiceAccessRoleArn => _mServiceAccessRoleArn.GetValue("serviceAccessRoleArn");
+        private string? _mValue_ServiceAccessRoleArn;
+        private bool _mUnknown_ServiceAccessRoleArn;
+        public string? ServiceAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccessRoleArn) return _mValue_ServiceAccessRoleArn;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.ServiceAccessRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
         /// </summary>
-        [Input("sslMode")]
+        [PolicyResourceProperty("sslMode", "_mUnknown_SslMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslMode;
-
-        public string? SslMode => _mSslMode.GetValue("sslMode");
+        private string? _mValue_SslMode;
+        private bool _mUnknown_SslMode;
+        public string? SslMode
+        {
+            get
+            {
+                if (!_mUnknown_SslMode) return _mValue_SslMode;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.SslMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Column to add with timestamp information to the endpoint data for an Amazon S3 target.
         /// </summary>
-        [Input("timestampColumnName")]
+        [PolicyResourceProperty("timestampColumnName", "_mUnknown_TimestampColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimestampColumnName;
-
-        public string? TimestampColumnName => _mTimestampColumnName.GetValue("timestampColumnName");
+        private string? _mValue_TimestampColumnName;
+        private bool _mUnknown_TimestampColumnName;
+        public string? TimestampColumnName
+        {
+            get
+            {
+                if (!_mUnknown_TimestampColumnName) return _mValue_TimestampColumnName;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.TimestampColumnName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
         /// </summary>
-        [Input("useCsvNoSupValue")]
+        [PolicyResourceProperty("useCsvNoSupValue", "_mUnknown_UseCsvNoSupValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseCsvNoSupValue;
-
-        public bool? UseCsvNoSupValue => _mUseCsvNoSupValue.GetValue("useCsvNoSupValue");
+        private bool? _mValue_UseCsvNoSupValue;
+        private bool _mUnknown_UseCsvNoSupValue;
+        public bool? UseCsvNoSupValue
+        {
+            get
+            {
+                if (!_mUnknown_UseCsvNoSupValue) return _mValue_UseCsvNoSupValue;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.UseCsvNoSupValue' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to `true`, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
         /// </summary>
-        [Input("useTaskStartTimeForFullLoadTimestamp")]
+        [PolicyResourceProperty("useTaskStartTimeForFullLoadTimestamp", "_mUnknown_UseTaskStartTimeForFullLoadTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseTaskStartTimeForFullLoadTimestamp;
-
-        public bool? UseTaskStartTimeForFullLoadTimestamp => _mUseTaskStartTimeForFullLoadTimestamp.GetValue("useTaskStartTimeForFullLoadTimestamp");
+        private bool? _mValue_UseTaskStartTimeForFullLoadTimestamp;
+        private bool _mUnknown_UseTaskStartTimeForFullLoadTimestamp;
+        public bool? UseTaskStartTimeForFullLoadTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_UseTaskStartTimeForFullLoadTimestamp) return _mValue_UseTaskStartTimeForFullLoadTimestamp;
+                throw new UndeferrableValueException("Value 'S3EndpointArgs.UseTaskStartTimeForFullLoadTimestamp' is not present");
+            }
+        }
     }
 }

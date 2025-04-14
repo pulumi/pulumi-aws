@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
         /// </summary>
-        [Input("overrideDynamicGroup")]
+        [PolicyResourceProperty("overrideDynamicGroup", "_mUnknown_OverrideDynamicGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOverrideDynamicGroup;
-
-        public bool? OverrideDynamicGroup => _mOverrideDynamicGroup.GetValue("overrideDynamicGroup");
+        private bool? _mValue_OverrideDynamicGroup;
+        private bool _mUnknown_OverrideDynamicGroup;
+        public bool? OverrideDynamicGroup
+        {
+            get
+            {
+                if (!_mUnknown_OverrideDynamicGroup) return _mValue_OverrideDynamicGroup;
+                throw new UndeferrableValueException("Value 'ThingGroupMembership.OverrideDynamicGroup' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the group to which you are adding a thing.
         /// </summary>
-        [Input("thingGroupName")]
+        [PolicyResourceProperty("thingGroupName", "_mUnknown_ThingGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThingGroupName;
-
-        public string? ThingGroupName => _mThingGroupName.GetValue("thingGroupName");
+        private string? _mValue_ThingGroupName;
+        private bool _mUnknown_ThingGroupName;
+        public string? ThingGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ThingGroupName) return _mValue_ThingGroupName;
+                throw new UndeferrableValueException("Value 'ThingGroupMembership.ThingGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the thing to add to a group.
         /// </summary>
-        [Input("thingName")]
+        [PolicyResourceProperty("thingName", "_mUnknown_ThingName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThingName;
-
-        public string? ThingName => _mThingName.GetValue("thingName");
+        private string? _mValue_ThingName;
+        private bool _mUnknown_ThingName;
+        public string? ThingName
+        {
+            get
+            {
+                if (!_mUnknown_ThingName) return _mValue_ThingName;
+                throw new UndeferrableValueException("Value 'ThingGroupMembership.ThingName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iot/thingGroupMembership:ThingGroupMembership")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
         /// </summary>
-        [Input("overrideDynamicGroup")]
+        [PolicyResourceProperty("overrideDynamicGroup", "_mUnknown_OverrideDynamicGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOverrideDynamicGroup;
-
-        public bool? OverrideDynamicGroup => _mOverrideDynamicGroup.GetValue("overrideDynamicGroup");
+        private bool? _mValue_OverrideDynamicGroup;
+        private bool _mUnknown_OverrideDynamicGroup;
+        public bool? OverrideDynamicGroup
+        {
+            get
+            {
+                if (!_mUnknown_OverrideDynamicGroup) return _mValue_OverrideDynamicGroup;
+                throw new UndeferrableValueException("Value 'ThingGroupMembershipArgs.OverrideDynamicGroup' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the group to which you are adding a thing.
         /// </summary>
-        [Input("thingGroupName")]
+        [PolicyResourceProperty("thingGroupName", "_mUnknown_ThingGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThingGroupName;
-
-        public string? ThingGroupName => _mThingGroupName.GetValue("thingGroupName");
+        private string? _mValue_ThingGroupName;
+        private bool _mUnknown_ThingGroupName;
+        public string? ThingGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ThingGroupName) return _mValue_ThingGroupName;
+                throw new UndeferrableValueException("Value 'ThingGroupMembershipArgs.ThingGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the thing to add to a group.
         /// </summary>
-        [Input("thingName")]
+        [PolicyResourceProperty("thingName", "_mUnknown_ThingName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThingName;
-
-        public string? ThingName => _mThingName.GetValue("thingName");
+        private string? _mValue_ThingName;
+        private bool _mUnknown_ThingName;
+        public string? ThingName
+        {
+            get
+            {
+                if (!_mUnknown_ThingName) return _mValue_ThingName;
+                throw new UndeferrableValueException("Value 'ThingGroupMembershipArgs.ThingName' is not present");
+            }
+        }
     }
 }

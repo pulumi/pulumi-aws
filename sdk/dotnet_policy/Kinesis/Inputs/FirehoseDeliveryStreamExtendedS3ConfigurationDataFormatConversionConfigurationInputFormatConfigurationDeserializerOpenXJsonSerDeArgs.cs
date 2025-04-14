@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// When set to true, which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.
         /// </summary>
-        [Input("caseInsensitive")]
+        [PolicyResourceProperty("caseInsensitive", "_mUnknown_CaseInsensitive")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCaseInsensitive;
-
-        public bool? CaseInsensitive => _mCaseInsensitive.GetValue("caseInsensitive");
+        private bool? _mValue_CaseInsensitive;
+        private bool _mUnknown_CaseInsensitive;
+        public bool? CaseInsensitive
+        {
+            get
+            {
+                if (!_mUnknown_CaseInsensitive) return _mValue_CaseInsensitive;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs.CaseInsensitive' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
         /// </summary>
-        [Input("columnToJsonKeyMappings")]
+        [PolicyResourceProperty("columnToJsonKeyMappings", "_mUnknown_ColumnToJsonKeyMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mColumnToJsonKeyMappings;
-
-        public Dictionary<string, string>? ColumnToJsonKeyMappings => _mColumnToJsonKeyMappings.GetValue("columnToJsonKeyMappings");
+        private Dictionary<string, string>? _mValue_ColumnToJsonKeyMappings;
+        private bool _mUnknown_ColumnToJsonKeyMappings;
+        public Dictionary<string, string>? ColumnToJsonKeyMappings
+        {
+            get
+            {
+                if (!_mUnknown_ColumnToJsonKeyMappings) return _mValue_ColumnToJsonKeyMappings;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs.ColumnToJsonKeyMappings' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "a_b" when using this option. Defaults to `false`.
         /// </summary>
-        [Input("convertDotsInJsonKeysToUnderscores")]
+        [PolicyResourceProperty("convertDotsInJsonKeysToUnderscores", "_mUnknown_ConvertDotsInJsonKeysToUnderscores")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mConvertDotsInJsonKeysToUnderscores;
-
-        public bool? ConvertDotsInJsonKeysToUnderscores => _mConvertDotsInJsonKeysToUnderscores.GetValue("convertDotsInJsonKeysToUnderscores");
+        private bool? _mValue_ConvertDotsInJsonKeysToUnderscores;
+        private bool _mUnknown_ConvertDotsInJsonKeysToUnderscores;
+        public bool? ConvertDotsInJsonKeysToUnderscores
+        {
+            get
+            {
+                if (!_mUnknown_ConvertDotsInJsonKeysToUnderscores) return _mValue_ConvertDotsInJsonKeysToUnderscores;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs.ConvertDotsInJsonKeysToUnderscores' is not present");
+            }
+        }
     }
 }

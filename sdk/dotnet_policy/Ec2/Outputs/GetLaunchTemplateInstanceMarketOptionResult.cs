@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetLaunchTemplateInstanceMarketOptionResult
     {
-        [Input("marketType")]
+        [PolicyResourceProperty("marketType", "_mUnknown_MarketType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMarketType;
+        private string? _mValue_MarketType;
+        private bool _mUnknown_MarketType;
+        public string? MarketType
+        {
+            get
+            {
+                if (!_mUnknown_MarketType) return _mValue_MarketType;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateInstanceMarketOptionResult.MarketType' is not present");
+            }
+        }
 
-        public string? MarketType => _mMarketType.GetValue("marketType");
-
-        [Input("spotOptions")]
+        [PolicyResourceProperty("spotOptions", "_mUnknown_SpotOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetLaunchTemplateInstanceMarketOptionSpotOptionResult>> _mSpotOptions;
-
-        public List<Outputs.GetLaunchTemplateInstanceMarketOptionSpotOptionResult>? SpotOptions => _mSpotOptions.GetValue("spotOptions");
+        private List<Outputs.GetLaunchTemplateInstanceMarketOptionSpotOptionResult>? _mValue_SpotOptions;
+        private bool _mUnknown_SpotOptions;
+        public List<Outputs.GetLaunchTemplateInstanceMarketOptionSpotOptionResult>? SpotOptions
+        {
+            get
+            {
+                if (!_mUnknown_SpotOptions) return _mValue_SpotOptions;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateInstanceMarketOptionResult.SpotOptions' is not present");
+            }
+        }
     }
 }

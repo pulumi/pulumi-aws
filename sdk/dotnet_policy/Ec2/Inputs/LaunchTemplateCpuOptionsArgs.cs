@@ -15,20 +15,34 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
         /// </summary>
-        [Input("amdSevSnp")]
+        [PolicyResourceProperty("amdSevSnp", "_mUnknown_AmdSevSnp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmdSevSnp;
-
-        public string? AmdSevSnp => _mAmdSevSnp.GetValue("amdSevSnp");
+        private string? _mValue_AmdSevSnp;
+        private bool _mUnknown_AmdSevSnp;
+        public string? AmdSevSnp
+        {
+            get
+            {
+                if (!_mUnknown_AmdSevSnp) return _mValue_AmdSevSnp;
+                throw new UndeferrableValueException("Value 'LaunchTemplateCpuOptionsArgs.AmdSevSnp' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of CPU cores for the instance.
         /// </summary>
-        [Input("coreCount")]
+        [PolicyResourceProperty("coreCount", "_mUnknown_CoreCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCoreCount;
-
-        public int? CoreCount => _mCoreCount.GetValue("coreCount");
+        private int? _mValue_CoreCount;
+        private bool _mUnknown_CoreCount;
+        public int? CoreCount
+        {
+            get
+            {
+                if (!_mUnknown_CoreCount) return _mValue_CoreCount;
+                throw new UndeferrableValueException("Value 'LaunchTemplateCpuOptionsArgs.CoreCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of threads per CPU core.
@@ -37,10 +51,17 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// 
         /// Both number of CPU cores and threads per core must be specified. Valid number of CPU cores and threads per core for the instance type can be found in the [CPU Options Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html?shortFooter=true#cpu-options-supported-instances-values)
         /// </summary>
-        [Input("threadsPerCore")]
+        [PolicyResourceProperty("threadsPerCore", "_mUnknown_ThreadsPerCore")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThreadsPerCore;
-
-        public int? ThreadsPerCore => _mThreadsPerCore.GetValue("threadsPerCore");
+        private int? _mValue_ThreadsPerCore;
+        private bool _mUnknown_ThreadsPerCore;
+        public int? ThreadsPerCore
+        {
+            get
+            {
+                if (!_mUnknown_ThreadsPerCore) return _mValue_ThreadsPerCore;
+                throw new UndeferrableValueException("Value 'LaunchTemplateCpuOptionsArgs.ThreadsPerCore' is not present");
+            }
+        }
     }
 }

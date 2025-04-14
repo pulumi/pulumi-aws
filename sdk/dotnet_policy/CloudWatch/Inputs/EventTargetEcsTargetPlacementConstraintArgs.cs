@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
         /// </summary>
-        [Input("expression")]
+        [PolicyResourceProperty("expression", "_mUnknown_Expression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpression;
-
-        public string? Expression => _mExpression.GetValue("expression");
+        private string? _mValue_Expression;
+        private bool _mUnknown_Expression;
+        public string? Expression
+        {
+            get
+            {
+                if (!_mUnknown_Expression) return _mValue_Expression;
+                throw new UndeferrableValueException("Value 'EventTargetEcsTargetPlacementConstraintArgs.Expression' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'EventTargetEcsTargetPlacementConstraintArgs.Type' is not present");
+            }
+        }
     }
 }

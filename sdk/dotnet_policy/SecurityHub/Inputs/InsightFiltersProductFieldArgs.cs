@@ -12,25 +12,46 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Inputs
 {
     public sealed class InsightFiltersProductFieldArgs
     {
-        [Input("comparison")]
+        [PolicyResourceProperty("comparison", "_mUnknown_Comparison")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComparison;
-
-        public string? Comparison => _mComparison.GetValue("comparison");
+        private string? _mValue_Comparison;
+        private bool _mUnknown_Comparison;
+        public string? Comparison
+        {
+            get
+            {
+                if (!_mUnknown_Comparison) return _mValue_Comparison;
+                throw new UndeferrableValueException("Value 'InsightFiltersProductFieldArgs.Comparison' is not present");
+            }
+        }
 
         /// <summary>
         /// The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'InsightFiltersProductFieldArgs.Key' is not present");
+            }
+        }
 
-        public string? Key => _mKey.GetValue("key");
-
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'InsightFiltersProductFieldArgs.Value' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Inputs
         /// <summary>
         /// You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
         /// </summary>
-        [Input("encryptionAtRestKmsKeyArn")]
+        [PolicyResourceProperty("encryptionAtRestKmsKeyArn", "_mUnknown_EncryptionAtRestKmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionAtRestKmsKeyArn;
-
-        public string? EncryptionAtRestKmsKeyArn => _mEncryptionAtRestKmsKeyArn.GetValue("encryptionAtRestKmsKeyArn");
+        private string? _mValue_EncryptionAtRestKmsKeyArn;
+        private bool _mUnknown_EncryptionAtRestKmsKeyArn;
+        public string? EncryptionAtRestKmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionAtRestKmsKeyArn) return _mValue_EncryptionAtRestKmsKeyArn;
+                throw new UndeferrableValueException("Value 'ClusterEncryptionInfoArgs.EncryptionAtRestKmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to specify encryption in transit. See below.
         /// </summary>
-        [Input("encryptionInTransit")]
+        [PolicyResourceProperty("encryptionInTransit", "_mUnknown_EncryptionInTransit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterEncryptionInfoEncryptionInTransitArgs> _mEncryptionInTransit;
-
-        public Inputs.ClusterEncryptionInfoEncryptionInTransitArgs? EncryptionInTransit => _mEncryptionInTransit.GetValue("encryptionInTransit");
+        private Inputs.ClusterEncryptionInfoEncryptionInTransitArgs? _mValue_EncryptionInTransit;
+        private bool _mUnknown_EncryptionInTransit;
+        public Inputs.ClusterEncryptionInfoEncryptionInTransitArgs? EncryptionInTransit
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionInTransit) return _mValue_EncryptionInTransit;
+                throw new UndeferrableValueException("Value 'ClusterEncryptionInfoArgs.EncryptionInTransit' is not present");
+            }
+        }
     }
 }

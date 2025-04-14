@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Outputs
         /// <summary>
         /// Target DNS name.
         /// </summary>
-        [Input("dnsName")]
+        [PolicyResourceProperty("dnsName", "_mUnknown_DnsName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsName;
-
-        public string? DnsName => _mDnsName.GetValue("dnsName");
+        private string? _mValue_DnsName;
+        private bool _mUnknown_DnsName;
+        public string? DnsName
+        {
+            get
+            {
+                if (!_mUnknown_DnsName) return _mValue_DnsName;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetAliasTargetResult.DnsName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether an alias resource record set inherits the health of the referenced AWS resource.
         /// </summary>
-        [Input("evaluateTargetHealth")]
+        [PolicyResourceProperty("evaluateTargetHealth", "_mUnknown_EvaluateTargetHealth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEvaluateTargetHealth;
-
-        public bool? EvaluateTargetHealth => _mEvaluateTargetHealth.GetValue("evaluateTargetHealth");
+        private bool? _mValue_EvaluateTargetHealth;
+        private bool _mUnknown_EvaluateTargetHealth;
+        public bool? EvaluateTargetHealth
+        {
+            get
+            {
+                if (!_mUnknown_EvaluateTargetHealth) return _mValue_EvaluateTargetHealth;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetAliasTargetResult.EvaluateTargetHealth' is not present");
+            }
+        }
 
         /// <summary>
         /// Target hosted zone ID.
         /// </summary>
-        [Input("hostedZoneId")]
+        [PolicyResourceProperty("hostedZoneId", "_mUnknown_HostedZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
-
-        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+        private string? _mValue_HostedZoneId;
+        private bool _mUnknown_HostedZoneId;
+        public string? HostedZoneId
+        {
+            get
+            {
+                if (!_mUnknown_HostedZoneId) return _mValue_HostedZoneId;
+                throw new UndeferrableValueException("Value 'GetRecordsResourceRecordSetAliasTargetResult.HostedZoneId' is not present");
+            }
+        }
     }
 }

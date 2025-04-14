@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ElasticSearch.Outputs
         /// <summary>
         /// The unique Entity ID of the application in SAML Identity Provider.
         /// </summary>
-        [Input("entityId")]
+        [PolicyResourceProperty("entityId", "_mUnknown_EntityId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEntityId;
-
-        public string? EntityId => _mEntityId.GetValue("entityId");
+        private string? _mValue_EntityId;
+        private bool _mUnknown_EntityId;
+        public string? EntityId
+        {
+            get
+            {
+                if (!_mUnknown_EntityId) return _mValue_EntityId;
+                throw new UndeferrableValueException("Value 'DomainSamlOptionsSamlOptionsIdp.EntityId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Metadata of the SAML application in xml format.
         /// </summary>
-        [Input("metadataContent")]
+        [PolicyResourceProperty("metadataContent", "_mUnknown_MetadataContent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetadataContent;
-
-        public string? MetadataContent => _mMetadataContent.GetValue("metadataContent");
+        private string? _mValue_MetadataContent;
+        private bool _mUnknown_MetadataContent;
+        public string? MetadataContent
+        {
+            get
+            {
+                if (!_mUnknown_MetadataContent) return _mValue_MetadataContent;
+                throw new UndeferrableValueException("Value 'DomainSamlOptionsSamlOptionsIdp.MetadataContent' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Outputs
         /// <summary>
         /// The version of an Automation document to use during task execution.
         /// </summary>
-        [Input("documentVersion")]
+        [PolicyResourceProperty("documentVersion", "_mUnknown_DocumentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentVersion;
-
-        public string? DocumentVersion => _mDocumentVersion.GetValue("documentVersion");
+        private string? _mValue_DocumentVersion;
+        private bool _mUnknown_DocumentVersion;
+        public string? DocumentVersion
+        {
+            get
+            {
+                if (!_mUnknown_DocumentVersion) return _mValue_DocumentVersion;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersAutomationParameters.DocumentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for the RUN_COMMAND task execution. Documented below.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter>> _mParameters;
-
-        public List<Outputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter>? Parameters => _mParameters.GetValue("parameters");
+        private List<Outputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Outputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersAutomationParameters.Parameters' is not present");
+            }
+        }
     }
 }

@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.LB
         /// <summary>
         /// An Action block. Action blocks are documented below.
         /// </summary>
-        [Input("actions")]
+        [PolicyResourceProperty("actions", "_mUnknown_Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ListenerRuleAction>> _mActions;
-
-        public List<Outputs.ListenerRuleAction>? Actions => _mActions.GetValue("actions");
+        private List<Outputs.ListenerRuleAction>? _mValue_Actions;
+        private bool _mUnknown_Actions;
+        public List<Outputs.ListenerRuleAction>? Actions
+        {
+            get
+            {
+                if (!_mUnknown_Actions) return _mValue_Actions;
+                throw new UndeferrableValueException("Value 'ListenerRule.Actions' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the rule (matches `id`)
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ListenerRule.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
         /// </summary>
-        [Input("conditions")]
+        [PolicyResourceProperty("conditions", "_mUnknown_Conditions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ListenerRuleCondition>> _mConditions;
-
-        public List<Outputs.ListenerRuleCondition>? Conditions => _mConditions.GetValue("conditions");
+        private List<Outputs.ListenerRuleCondition>? _mValue_Conditions;
+        private bool _mUnknown_Conditions;
+        public List<Outputs.ListenerRuleCondition>? Conditions
+        {
+            get
+            {
+                if (!_mUnknown_Conditions) return _mValue_Conditions;
+                throw new UndeferrableValueException("Value 'ListenerRule.Conditions' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the listener to which to attach the rule.
         /// </summary>
-        [Input("listenerArn")]
+        [PolicyResourceProperty("listenerArn", "_mUnknown_ListenerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mListenerArn;
-
-        public string? ListenerArn => _mListenerArn.GetValue("listenerArn");
+        private string? _mValue_ListenerArn;
+        private bool _mUnknown_ListenerArn;
+        public string? ListenerArn
+        {
+            get
+            {
+                if (!_mUnknown_ListenerArn) return _mValue_ListenerArn;
+                throw new UndeferrableValueException("Value 'ListenerRule.ListenerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'ListenerRule.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ListenerRule.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ListenerRule.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lb/listenerRule:ListenerRule")]
@@ -83,46 +132,81 @@ namespace Pulumi.PolicyPacks.Aws.LB
         /// <summary>
         /// An Action block. Action blocks are documented below.
         /// </summary>
-        [Input("actions")]
+        [PolicyResourceProperty("actions", "_mUnknown_Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ListenerRuleActionArgs>> _mActions;
-
-        public List<Inputs.ListenerRuleActionArgs>? Actions => _mActions.GetValue("actions");
+        private List<Inputs.ListenerRuleActionArgs>? _mValue_Actions;
+        private bool _mUnknown_Actions;
+        public List<Inputs.ListenerRuleActionArgs>? Actions
+        {
+            get
+            {
+                if (!_mUnknown_Actions) return _mValue_Actions;
+                throw new UndeferrableValueException("Value 'ListenerRuleArgs.Actions' is not present");
+            }
+        }
 
         /// <summary>
         /// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
         /// </summary>
-        [Input("conditions")]
+        [PolicyResourceProperty("conditions", "_mUnknown_Conditions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ListenerRuleConditionArgs>> _mConditions;
-
-        public List<Inputs.ListenerRuleConditionArgs>? Conditions => _mConditions.GetValue("conditions");
+        private List<Inputs.ListenerRuleConditionArgs>? _mValue_Conditions;
+        private bool _mUnknown_Conditions;
+        public List<Inputs.ListenerRuleConditionArgs>? Conditions
+        {
+            get
+            {
+                if (!_mUnknown_Conditions) return _mValue_Conditions;
+                throw new UndeferrableValueException("Value 'ListenerRuleArgs.Conditions' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the listener to which to attach the rule.
         /// </summary>
-        [Input("listenerArn")]
+        [PolicyResourceProperty("listenerArn", "_mUnknown_ListenerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mListenerArn;
-
-        public string? ListenerArn => _mListenerArn.GetValue("listenerArn");
+        private string? _mValue_ListenerArn;
+        private bool _mUnknown_ListenerArn;
+        public string? ListenerArn
+        {
+            get
+            {
+                if (!_mUnknown_ListenerArn) return _mValue_ListenerArn;
+                throw new UndeferrableValueException("Value 'ListenerRuleArgs.ListenerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'ListenerRuleArgs.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ListenerRuleArgs.Tags' is not present");
+            }
+        }
     }
 }

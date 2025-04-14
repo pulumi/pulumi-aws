@@ -12,41 +12,76 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache.Outputs
 {
     public sealed class GetClusterCacheNodeResult
     {
-        [Input("address")]
+        [PolicyResourceProperty("address", "_mUnknown_Address")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddress;
-
-        public string? Address => _mAddress.GetValue("address");
+        private string? _mValue_Address;
+        private bool _mUnknown_Address;
+        public string? Address
+        {
+            get
+            {
+                if (!_mUnknown_Address) return _mValue_Address;
+                throw new UndeferrableValueException("Value 'GetClusterCacheNodeResult.Address' is not present");
+            }
+        }
 
         /// <summary>
         /// Availability Zone for the cache cluster.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'GetClusterCacheNodeResult.AvailabilityZone' is not present");
+            }
+        }
 
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
-
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'GetClusterCacheNodeResult.Id' is not present");
+            }
+        }
 
-        public string? Id => _mId.GetValue("id");
-
-        [Input("outpostArn")]
+        [PolicyResourceProperty("outpostArn", "_mUnknown_OutpostArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostArn;
-
-        public string? OutpostArn => _mOutpostArn.GetValue("outpostArn");
+        private string? _mValue_OutpostArn;
+        private bool _mUnknown_OutpostArn;
+        public string? OutpostArn
+        {
+            get
+            {
+                if (!_mUnknown_OutpostArn) return _mValue_OutpostArn;
+                throw new UndeferrableValueException("Value 'GetClusterCacheNodeResult.OutpostArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The port number on which each of the cache nodes will
         /// accept connections.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'GetClusterCacheNodeResult.Port' is not present");
+            }
+        }
     }
 }

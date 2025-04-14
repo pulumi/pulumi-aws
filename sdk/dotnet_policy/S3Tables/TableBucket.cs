@@ -16,30 +16,51 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// <summary>
         /// ARN of the table bucket.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TableBucket.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time when the bucket was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'TableBucket.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// A single table bucket maintenance configuration object.
         /// See `maintenance_configuration` below.
         /// </summary>
-        [Input("maintenanceConfiguration")]
+        [PolicyResourceProperty("maintenanceConfiguration", "_mUnknown_MaintenanceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableBucketMaintenanceConfiguration> _mMaintenanceConfiguration;
-
-        public Outputs.TableBucketMaintenanceConfiguration? MaintenanceConfiguration => _mMaintenanceConfiguration.GetValue("maintenanceConfiguration");
+        private Outputs.TableBucketMaintenanceConfiguration? _mValue_MaintenanceConfiguration;
+        private bool _mUnknown_MaintenanceConfiguration;
+        public Outputs.TableBucketMaintenanceConfiguration? MaintenanceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceConfiguration) return _mValue_MaintenanceConfiguration;
+                throw new UndeferrableValueException("Value 'TableBucket.MaintenanceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the table bucket.
@@ -49,20 +70,34 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// 
         /// The following argument is optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TableBucket.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the account that owns the table bucket.
         /// </summary>
-        [Input("ownerAccountId")]
+        [PolicyResourceProperty("ownerAccountId", "_mUnknown_OwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
-
-        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+        private string? _mValue_OwnerAccountId;
+        private bool _mUnknown_OwnerAccountId;
+        public string? OwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccountId) return _mValue_OwnerAccountId;
+                throw new UndeferrableValueException("Value 'TableBucket.OwnerAccountId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3tables/tableBucket:TableBucket")]
@@ -72,11 +107,18 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// A single table bucket maintenance configuration object.
         /// See `maintenance_configuration` below.
         /// </summary>
-        [Input("maintenanceConfiguration")]
+        [PolicyResourceProperty("maintenanceConfiguration", "_mUnknown_MaintenanceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableBucketMaintenanceConfigurationArgs> _mMaintenanceConfiguration;
-
-        public Inputs.TableBucketMaintenanceConfigurationArgs? MaintenanceConfiguration => _mMaintenanceConfiguration.GetValue("maintenanceConfiguration");
+        private Inputs.TableBucketMaintenanceConfigurationArgs? _mValue_MaintenanceConfiguration;
+        private bool _mUnknown_MaintenanceConfiguration;
+        public Inputs.TableBucketMaintenanceConfigurationArgs? MaintenanceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceConfiguration) return _mValue_MaintenanceConfiguration;
+                throw new UndeferrableValueException("Value 'TableBucketArgs.MaintenanceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the table bucket.
@@ -86,10 +128,17 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// 
         /// The following argument is optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TableBucketArgs.Name' is not present");
+            }
+        }
     }
 }

@@ -16,62 +16,111 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// <summary>
         /// The ARN of the profile.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Profile.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
         /// </summary>
-        [Input("as2Id")]
+        [PolicyResourceProperty("as2Id", "_mUnknown_As2Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAs2Id;
-
-        public string? As2Id => _mAs2Id.GetValue("as2Id");
+        private string? _mValue_As2Id;
+        private bool _mUnknown_As2Id;
+        public string? As2Id
+        {
+            get
+            {
+                if (!_mUnknown_As2Id) return _mValue_As2Id;
+                throw new UndeferrableValueException("Value 'Profile.As2Id' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of certificate Ids from the imported certificate operation.
         /// </summary>
-        [Input("certificateIds")]
+        [PolicyResourceProperty("certificateIds", "_mUnknown_CertificateIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCertificateIds;
-
-        public List<string>? CertificateIds => _mCertificateIds.GetValue("certificateIds");
+        private List<string>? _mValue_CertificateIds;
+        private bool _mUnknown_CertificateIds;
+        public List<string>? CertificateIds
+        {
+            get
+            {
+                if (!_mUnknown_CertificateIds) return _mValue_CertificateIds;
+                throw new UndeferrableValueException("Value 'Profile.CertificateIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the AS2 profile.
         /// </summary>
-        [Input("profileId")]
+        [PolicyResourceProperty("profileId", "_mUnknown_ProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProfileId;
-
-        public string? ProfileId => _mProfileId.GetValue("profileId");
+        private string? _mValue_ProfileId;
+        private bool _mUnknown_ProfileId;
+        public string? ProfileId
+        {
+            get
+            {
+                if (!_mUnknown_ProfileId) return _mValue_ProfileId;
+                throw new UndeferrableValueException("Value 'Profile.ProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// The profile type should be LOCAL or PARTNER.
         /// </summary>
-        [Input("profileType")]
+        [PolicyResourceProperty("profileType", "_mUnknown_ProfileType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProfileType;
-
-        public string? ProfileType => _mProfileType.GetValue("profileType");
+        private string? _mValue_ProfileType;
+        private bool _mUnknown_ProfileType;
+        public string? ProfileType
+        {
+            get
+            {
+                if (!_mUnknown_ProfileType) return _mValue_ProfileType;
+                throw new UndeferrableValueException("Value 'Profile.ProfileType' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Profile.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Profile.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:transfer/profile:Profile")]
@@ -80,37 +129,65 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// <summary>
         /// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
         /// </summary>
-        [Input("as2Id")]
+        [PolicyResourceProperty("as2Id", "_mUnknown_As2Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAs2Id;
-
-        public string? As2Id => _mAs2Id.GetValue("as2Id");
+        private string? _mValue_As2Id;
+        private bool _mUnknown_As2Id;
+        public string? As2Id
+        {
+            get
+            {
+                if (!_mUnknown_As2Id) return _mValue_As2Id;
+                throw new UndeferrableValueException("Value 'ProfileArgs.As2Id' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of certificate Ids from the imported certificate operation.
         /// </summary>
-        [Input("certificateIds")]
+        [PolicyResourceProperty("certificateIds", "_mUnknown_CertificateIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCertificateIds;
-
-        public List<string>? CertificateIds => _mCertificateIds.GetValue("certificateIds");
+        private List<string>? _mValue_CertificateIds;
+        private bool _mUnknown_CertificateIds;
+        public List<string>? CertificateIds
+        {
+            get
+            {
+                if (!_mUnknown_CertificateIds) return _mValue_CertificateIds;
+                throw new UndeferrableValueException("Value 'ProfileArgs.CertificateIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The profile type should be LOCAL or PARTNER.
         /// </summary>
-        [Input("profileType")]
+        [PolicyResourceProperty("profileType", "_mUnknown_ProfileType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProfileType;
-
-        public string? ProfileType => _mProfileType.GetValue("profileType");
+        private string? _mValue_ProfileType;
+        private bool _mUnknown_ProfileType;
+        public string? ProfileType
+        {
+            get
+            {
+                if (!_mUnknown_ProfileType) return _mValue_ProfileType;
+                throw new UndeferrableValueException("Value 'ProfileArgs.ProfileType' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ProfileArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,34 +15,62 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
         /// </summary>
-        [Input("connectionRetryInterval")]
+        [PolicyResourceProperty("connectionRetryInterval", "_mUnknown_ConnectionRetryInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mConnectionRetryInterval;
+        private int? _mValue_ConnectionRetryInterval;
+        private bool _mUnknown_ConnectionRetryInterval;
+        public int? ConnectionRetryInterval
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionRetryInterval) return _mValue_ConnectionRetryInterval;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs.ConnectionRetryInterval' is not present");
+            }
+        }
 
-        public int? ConnectionRetryInterval => _mConnectionRetryInterval.GetValue("connectionRetryInterval");
-
-        [Input("filecacheDuration")]
+        [PolicyResourceProperty("filecacheDuration", "_mUnknown_FilecacheDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFilecacheDuration;
-
-        public int? FilecacheDuration => _mFilecacheDuration.GetValue("filecacheDuration");
+        private int? _mValue_FilecacheDuration;
+        private bool _mUnknown_FilecacheDuration;
+        public int? FilecacheDuration
+        {
+            get
+            {
+                if (!_mUnknown_FilecacheDuration) return _mValue_FilecacheDuration;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs.FilecacheDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of retry attempts.
         /// </summary>
-        [Input("numRetries")]
+        [PolicyResourceProperty("numRetries", "_mUnknown_NumRetries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumRetries;
-
-        public int? NumRetries => _mNumRetries.GetValue("numRetries");
+        private int? _mValue_NumRetries;
+        private bool _mUnknown_NumRetries;
+        public int? NumRetries
+        {
+            get
+            {
+                if (!_mUnknown_NumRetries) return _mValue_NumRetries;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs.NumRetries' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of seconds to wait until a restart is initiated.
         /// </summary>
-        [Input("restartDelay")]
+        [PolicyResourceProperty("restartDelay", "_mUnknown_RestartDelay")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRestartDelay;
-
-        public int? RestartDelay => _mRestartDelay.GetValue("restartDelay");
+        private int? _mValue_RestartDelay;
+        private bool _mUnknown_RestartDelay;
+        public int? RestartDelay
+        {
+            get
+            {
+                if (!_mUnknown_RestartDelay) return _mValue_RestartDelay;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs.RestartDelay' is not present");
+            }
+        }
     }
 }

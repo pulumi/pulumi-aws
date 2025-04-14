@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualGatewaySpecLoggingAccessLogFileFormatResult
     {
-        [Input("jsons")]
+        [PolicyResourceProperty("jsons", "_mUnknown_Jsons")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult>> _mJsons;
+        private List<Outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult>? _mValue_Jsons;
+        private bool _mUnknown_Jsons;
+        public List<Outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult>? Jsons
+        {
+            get
+            {
+                if (!_mUnknown_Jsons) return _mValue_Jsons;
+                throw new UndeferrableValueException("Value 'GetVirtualGatewaySpecLoggingAccessLogFileFormatResult.Jsons' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult>? Jsons => _mJsons.GetValue("jsons");
-
-        [Input("text")]
+        [PolicyResourceProperty("text", "_mUnknown_Text")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mText;
-
-        public string? Text => _mText.GetValue("text");
+        private string? _mValue_Text;
+        private bool _mUnknown_Text;
+        public string? Text
+        {
+            get
+            {
+                if (!_mUnknown_Text) return _mValue_Text;
+                throw new UndeferrableValueException("Value 'GetVirtualGatewaySpecLoggingAccessLogFileFormatResult.Text' is not present");
+            }
+        }
     }
 }

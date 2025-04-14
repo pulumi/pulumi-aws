@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker AI rolls back the deployment. See Alarms.
         /// </summary>
-        [Input("alarms")]
+        [PolicyResourceProperty("alarms", "_mUnknown_Alarms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs>> _mAlarms;
-
-        public List<Inputs.EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs>? Alarms => _mAlarms.GetValue("alarms");
+        private List<Inputs.EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs>? _mValue_Alarms;
+        private bool _mUnknown_Alarms;
+        public List<Inputs.EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs>? Alarms
+        {
+            get
+            {
+                if (!_mUnknown_Alarms) return _mValue_Alarms;
+                throw new UndeferrableValueException("Value 'EndpointDeploymentConfigAutoRollbackConfigurationArgs.Alarms' is not present");
+            }
+        }
     }
 }

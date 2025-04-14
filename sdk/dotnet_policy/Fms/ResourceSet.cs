@@ -16,38 +16,73 @@ namespace Pulumi.PolicyPacks.Aws.Fms
         /// <summary>
         /// ARN of the Resource Set.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ResourceSet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
         /// </summary>
-        [Input("resourceSets")]
+        [PolicyResourceProperty("resourceSets", "_mUnknown_ResourceSets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ResourceSetResourceSet>> _mResourceSets;
+        private List<Outputs.ResourceSetResourceSet>? _mValue_ResourceSets;
+        private bool _mUnknown_ResourceSets;
+        public List<Outputs.ResourceSetResourceSet>? ResourceSets
+        {
+            get
+            {
+                if (!_mUnknown_ResourceSets) return _mValue_ResourceSets;
+                throw new UndeferrableValueException("Value 'ResourceSet.ResourceSets' is not present");
+            }
+        }
 
-        public List<Outputs.ResourceSetResourceSet>? ResourceSets => _mResourceSets.GetValue("resourceSets");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResourceSet.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ResourceSet.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceSetTimeouts> _mTimeouts;
-
-        public Outputs.ResourceSetTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.ResourceSetTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.ResourceSetTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ResourceSet.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:fms/resourceSet:ResourceSet")]
@@ -56,22 +91,43 @@ namespace Pulumi.PolicyPacks.Aws.Fms
         /// <summary>
         /// Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
         /// </summary>
-        [Input("resourceSets")]
+        [PolicyResourceProperty("resourceSets", "_mUnknown_ResourceSets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ResourceSetResourceSetArgs>> _mResourceSets;
+        private List<Inputs.ResourceSetResourceSetArgs>? _mValue_ResourceSets;
+        private bool _mUnknown_ResourceSets;
+        public List<Inputs.ResourceSetResourceSetArgs>? ResourceSets
+        {
+            get
+            {
+                if (!_mUnknown_ResourceSets) return _mValue_ResourceSets;
+                throw new UndeferrableValueException("Value 'ResourceSetArgs.ResourceSets' is not present");
+            }
+        }
 
-        public List<Inputs.ResourceSetResourceSetArgs>? ResourceSets => _mResourceSets.GetValue("resourceSets");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResourceSetArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResourceSetTimeoutsArgs> _mTimeouts;
-
-        public Inputs.ResourceSetTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.ResourceSetTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.ResourceSetTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ResourceSetArgs.Timeouts' is not present");
+            }
+        }
     }
 }

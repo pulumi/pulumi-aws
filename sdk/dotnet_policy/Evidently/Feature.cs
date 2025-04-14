@@ -16,137 +16,242 @@ namespace Pulumi.PolicyPacks.Aws.Evidently
         /// <summary>
         /// The ARN of the feature.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Feature.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time that the feature is created.
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
-
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'Feature.CreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
         /// </summary>
-        [Input("defaultVariation")]
+        [PolicyResourceProperty("defaultVariation", "_mUnknown_DefaultVariation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultVariation;
-
-        public string? DefaultVariation => _mDefaultVariation.GetValue("defaultVariation");
+        private string? _mValue_DefaultVariation;
+        private bool _mUnknown_DefaultVariation;
+        public string? DefaultVariation
+        {
+            get
+            {
+                if (!_mUnknown_DefaultVariation) return _mValue_DefaultVariation;
+                throw new UndeferrableValueException("Value 'Feature.DefaultVariation' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the description of the feature.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Feature.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
         /// </summary>
-        [Input("entityOverrides")]
+        [PolicyResourceProperty("entityOverrides", "_mUnknown_EntityOverrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEntityOverrides;
-
-        public Dictionary<string, string>? EntityOverrides => _mEntityOverrides.GetValue("entityOverrides");
+        private Dictionary<string, string>? _mValue_EntityOverrides;
+        private bool _mUnknown_EntityOverrides;
+        public Dictionary<string, string>? EntityOverrides
+        {
+            get
+            {
+                if (!_mUnknown_EntityOverrides) return _mValue_EntityOverrides;
+                throw new UndeferrableValueException("Value 'Feature.EntityOverrides' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more blocks that define the evaluation rules for the feature. Detailed below
         /// </summary>
-        [Input("evaluationRules")]
+        [PolicyResourceProperty("evaluationRules", "_mUnknown_EvaluationRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FeatureEvaluationRule>> _mEvaluationRules;
-
-        public List<Outputs.FeatureEvaluationRule>? EvaluationRules => _mEvaluationRules.GetValue("evaluationRules");
+        private List<Outputs.FeatureEvaluationRule>? _mValue_EvaluationRules;
+        private bool _mUnknown_EvaluationRules;
+        public List<Outputs.FeatureEvaluationRule>? EvaluationRules
+        {
+            get
+            {
+                if (!_mUnknown_EvaluationRules) return _mValue_EvaluationRules;
+                throw new UndeferrableValueException("Value 'Feature.EvaluationRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
         /// </summary>
-        [Input("evaluationStrategy")]
+        [PolicyResourceProperty("evaluationStrategy", "_mUnknown_EvaluationStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEvaluationStrategy;
-
-        public string? EvaluationStrategy => _mEvaluationStrategy.GetValue("evaluationStrategy");
+        private string? _mValue_EvaluationStrategy;
+        private bool _mUnknown_EvaluationStrategy;
+        public string? EvaluationStrategy
+        {
+            get
+            {
+                if (!_mUnknown_EvaluationStrategy) return _mValue_EvaluationStrategy;
+                throw new UndeferrableValueException("Value 'Feature.EvaluationStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time that the feature was most recently updated.
         /// </summary>
-        [Input("lastUpdatedTime")]
+        [PolicyResourceProperty("lastUpdatedTime", "_mUnknown_LastUpdatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
-
-        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
+        private string? _mValue_LastUpdatedTime;
+        private bool _mUnknown_LastUpdatedTime;
+        public string? LastUpdatedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedTime) return _mValue_LastUpdatedTime;
+                throw new UndeferrableValueException("Value 'Feature.LastUpdatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Feature.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or ARN of the project that is to contain the new feature.
         /// </summary>
-        [Input("project")]
+        [PolicyResourceProperty("project", "_mUnknown_Project")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProject;
-
-        public string? Project => _mProject.GetValue("project");
+        private string? _mValue_Project;
+        private bool _mUnknown_Project;
+        public string? Project
+        {
+            get
+            {
+                if (!_mUnknown_Project) return _mValue_Project;
+                throw new UndeferrableValueException("Value 'Feature.Project' is not present");
+            }
+        }
 
         /// <summary>
         /// The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Feature.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Feature.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Feature.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
         /// </summary>
-        [Input("valueType")]
+        [PolicyResourceProperty("valueType", "_mUnknown_ValueType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValueType;
-
-        public string? ValueType => _mValueType.GetValue("valueType");
+        private string? _mValue_ValueType;
+        private bool _mUnknown_ValueType;
+        public string? ValueType
+        {
+            get
+            {
+                if (!_mUnknown_ValueType) return _mValue_ValueType;
+                throw new UndeferrableValueException("Value 'Feature.ValueType' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more blocks that contain the configuration of the feature's different variations. Detailed below
         /// </summary>
-        [Input("variations")]
+        [PolicyResourceProperty("variations", "_mUnknown_Variations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FeatureVariation>> _mVariations;
-
-        public List<Outputs.FeatureVariation>? Variations => _mVariations.GetValue("variations");
+        private List<Outputs.FeatureVariation>? _mValue_Variations;
+        private bool _mUnknown_Variations;
+        public List<Outputs.FeatureVariation>? Variations
+        {
+            get
+            {
+                if (!_mUnknown_Variations) return _mValue_Variations;
+                throw new UndeferrableValueException("Value 'Feature.Variations' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:evidently/feature:Feature")]
@@ -155,73 +260,129 @@ namespace Pulumi.PolicyPacks.Aws.Evidently
         /// <summary>
         /// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
         /// </summary>
-        [Input("defaultVariation")]
+        [PolicyResourceProperty("defaultVariation", "_mUnknown_DefaultVariation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultVariation;
-
-        public string? DefaultVariation => _mDefaultVariation.GetValue("defaultVariation");
+        private string? _mValue_DefaultVariation;
+        private bool _mUnknown_DefaultVariation;
+        public string? DefaultVariation
+        {
+            get
+            {
+                if (!_mUnknown_DefaultVariation) return _mValue_DefaultVariation;
+                throw new UndeferrableValueException("Value 'FeatureArgs.DefaultVariation' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the description of the feature.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'FeatureArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
         /// </summary>
-        [Input("entityOverrides")]
+        [PolicyResourceProperty("entityOverrides", "_mUnknown_EntityOverrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEntityOverrides;
-
-        public Dictionary<string, string>? EntityOverrides => _mEntityOverrides.GetValue("entityOverrides");
+        private Dictionary<string, string>? _mValue_EntityOverrides;
+        private bool _mUnknown_EntityOverrides;
+        public Dictionary<string, string>? EntityOverrides
+        {
+            get
+            {
+                if (!_mUnknown_EntityOverrides) return _mValue_EntityOverrides;
+                throw new UndeferrableValueException("Value 'FeatureArgs.EntityOverrides' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
         /// </summary>
-        [Input("evaluationStrategy")]
+        [PolicyResourceProperty("evaluationStrategy", "_mUnknown_EvaluationStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEvaluationStrategy;
-
-        public string? EvaluationStrategy => _mEvaluationStrategy.GetValue("evaluationStrategy");
+        private string? _mValue_EvaluationStrategy;
+        private bool _mUnknown_EvaluationStrategy;
+        public string? EvaluationStrategy
+        {
+            get
+            {
+                if (!_mUnknown_EvaluationStrategy) return _mValue_EvaluationStrategy;
+                throw new UndeferrableValueException("Value 'FeatureArgs.EvaluationStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FeatureArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or ARN of the project that is to contain the new feature.
         /// </summary>
-        [Input("project")]
+        [PolicyResourceProperty("project", "_mUnknown_Project")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProject;
-
-        public string? Project => _mProject.GetValue("project");
+        private string? _mValue_Project;
+        private bool _mUnknown_Project;
+        public string? Project
+        {
+            get
+            {
+                if (!_mUnknown_Project) return _mValue_Project;
+                throw new UndeferrableValueException("Value 'FeatureArgs.Project' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FeatureArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more blocks that contain the configuration of the feature's different variations. Detailed below
         /// </summary>
-        [Input("variations")]
+        [PolicyResourceProperty("variations", "_mUnknown_Variations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FeatureVariationArgs>> _mVariations;
-
-        public List<Inputs.FeatureVariationArgs>? Variations => _mVariations.GetValue("variations");
+        private List<Inputs.FeatureVariationArgs>? _mValue_Variations;
+        private bool _mUnknown_Variations;
+        public List<Inputs.FeatureVariationArgs>? Variations
+        {
+            get
+            {
+                if (!_mUnknown_Variations) return _mValue_Variations;
+                throw new UndeferrableValueException("Value 'FeatureArgs.Variations' is not present");
+            }
+        }
     }
 }

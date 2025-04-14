@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.GameLift.Outputs
         /// <summary>
         /// Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
         /// </summary>
-        [Input("certificateType")]
+        [PolicyResourceProperty("certificateType", "_mUnknown_CertificateType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateType;
-
-        public string? CertificateType => _mCertificateType.GetValue("certificateType");
+        private string? _mValue_CertificateType;
+        private bool _mUnknown_CertificateType;
+        public string? CertificateType
+        {
+            get
+            {
+                if (!_mUnknown_CertificateType) return _mValue_CertificateType;
+                throw new UndeferrableValueException("Value 'FleetCertificateConfiguration.CertificateType' is not present");
+            }
+        }
     }
 }

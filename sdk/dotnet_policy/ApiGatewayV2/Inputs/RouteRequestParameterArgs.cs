@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2.Inputs
         /// <summary>
         /// Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
         /// </summary>
-        [Input("requestParameterKey")]
+        [PolicyResourceProperty("requestParameterKey", "_mUnknown_RequestParameterKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequestParameterKey;
-
-        public string? RequestParameterKey => _mRequestParameterKey.GetValue("requestParameterKey");
+        private string? _mValue_RequestParameterKey;
+        private bool _mUnknown_RequestParameterKey;
+        public string? RequestParameterKey
+        {
+            get
+            {
+                if (!_mUnknown_RequestParameterKey) return _mValue_RequestParameterKey;
+                throw new UndeferrableValueException("Value 'RouteRequestParameterArgs.RequestParameterKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether or not the parameter is required.
         /// </summary>
-        [Input("required")]
+        [PolicyResourceProperty("required", "_mUnknown_Required")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequired;
-
-        public bool? Required => _mRequired.GetValue("required");
+        private bool? _mValue_Required;
+        private bool _mUnknown_Required;
+        public bool? Required
+        {
+            get
+            {
+                if (!_mUnknown_Required) return _mValue_Required;
+                throw new UndeferrableValueException("Value 'RouteRequestParameterArgs.Required' is not present");
+            }
+        }
     }
 }

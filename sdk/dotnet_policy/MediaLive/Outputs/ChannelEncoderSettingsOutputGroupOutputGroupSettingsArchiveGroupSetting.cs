@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
         /// </summary>
-        [Input("archiveCdnSettings")]
+        [PolicyResourceProperty("archiveCdnSettings", "_mUnknown_ArchiveCdnSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings> _mArchiveCdnSettings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings? ArchiveCdnSettings => _mArchiveCdnSettings.GetValue("archiveCdnSettings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings? _mValue_ArchiveCdnSettings;
+        private bool _mUnknown_ArchiveCdnSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings? ArchiveCdnSettings
+        {
+            get
+            {
+                if (!_mUnknown_ArchiveCdnSettings) return _mValue_ArchiveCdnSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting.ArchiveCdnSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// A director and base filename where archive files should be written. See Destination for more details.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination> _mDestination;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination? Destination => _mDestination.GetValue("destination");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of seconds to write to archive file before closing and starting a new one.
         /// </summary>
-        [Input("rolloverInterval")]
+        [PolicyResourceProperty("rolloverInterval", "_mUnknown_RolloverInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRolloverInterval;
-
-        public int? RolloverInterval => _mRolloverInterval.GetValue("rolloverInterval");
+        private int? _mValue_RolloverInterval;
+        private bool _mUnknown_RolloverInterval;
+        public int? RolloverInterval
+        {
+            get
+            {
+                if (!_mUnknown_RolloverInterval) return _mValue_RolloverInterval;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting.RolloverInterval' is not present");
+            }
+        }
     }
 }

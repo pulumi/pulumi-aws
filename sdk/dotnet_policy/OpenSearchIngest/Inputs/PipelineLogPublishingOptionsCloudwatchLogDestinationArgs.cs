@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearchIngest.Inputs
         /// <summary>
         /// The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing log group or create a new one. For example, /aws/OpenSearchService/IngestionService/my-pipeline.
         /// </summary>
-        [Input("logGroup")]
+        [PolicyResourceProperty("logGroup", "_mUnknown_LogGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroup;
-
-        public string? LogGroup => _mLogGroup.GetValue("logGroup");
+        private string? _mValue_LogGroup;
+        private bool _mUnknown_LogGroup;
+        public string? LogGroup
+        {
+            get
+            {
+                if (!_mUnknown_LogGroup) return _mValue_LogGroup;
+                throw new UndeferrableValueException("Value 'PipelineLogPublishingOptionsCloudwatchLogDestinationArgs.LogGroup' is not present");
+            }
+        }
     }
 }

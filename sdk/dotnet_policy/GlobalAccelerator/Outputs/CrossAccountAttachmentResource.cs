@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator.Outputs
         /// <summary>
         /// IP address range, in CIDR format, that is specified as resource.
         /// </summary>
-        [Input("cidrBlock")]
+        [PolicyResourceProperty("cidrBlock", "_mUnknown_CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
-
-        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
+        private string? _mValue_CidrBlock;
+        private bool _mUnknown_CidrBlock;
+        public string? CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_CidrBlock) return _mValue_CidrBlock;
+                throw new UndeferrableValueException("Value 'CrossAccountAttachmentResource.CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// The endpoint ID for the endpoint that is specified as a AWS resource.
         /// </summary>
-        [Input("endpointId")]
+        [PolicyResourceProperty("endpointId", "_mUnknown_EndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointId;
-
-        public string? EndpointId => _mEndpointId.GetValue("endpointId");
+        private string? _mValue_EndpointId;
+        private bool _mUnknown_EndpointId;
+        public string? EndpointId
+        {
+            get
+            {
+                if (!_mUnknown_EndpointId) return _mValue_EndpointId;
+                throw new UndeferrableValueException("Value 'CrossAccountAttachmentResource.EndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Region where a shared endpoint resource is located.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'CrossAccountAttachmentResource.Region' is not present");
+            }
+        }
     }
 }

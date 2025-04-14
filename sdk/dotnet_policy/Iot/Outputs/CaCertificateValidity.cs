@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Outputs
         /// <summary>
         /// The certificate is not valid after this date.
         /// </summary>
-        [Input("notAfter")]
+        [PolicyResourceProperty("notAfter", "_mUnknown_NotAfter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotAfter;
-
-        public string? NotAfter => _mNotAfter.GetValue("notAfter");
+        private string? _mValue_NotAfter;
+        private bool _mUnknown_NotAfter;
+        public string? NotAfter
+        {
+            get
+            {
+                if (!_mUnknown_NotAfter) return _mValue_NotAfter;
+                throw new UndeferrableValueException("Value 'CaCertificateValidity.NotAfter' is not present");
+            }
+        }
 
         /// <summary>
         /// The certificate is not valid before this date.
         /// </summary>
-        [Input("notBefore")]
+        [PolicyResourceProperty("notBefore", "_mUnknown_NotBefore")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotBefore;
-
-        public string? NotBefore => _mNotBefore.GetValue("notBefore");
+        private string? _mValue_NotBefore;
+        private bool _mUnknown_NotBefore;
+        public string? NotBefore
+        {
+            get
+            {
+                if (!_mUnknown_NotBefore) return _mValue_NotBefore;
+                throw new UndeferrableValueException("Value 'CaCertificateValidity.NotBefore' is not present");
+            }
+        }
     }
 }

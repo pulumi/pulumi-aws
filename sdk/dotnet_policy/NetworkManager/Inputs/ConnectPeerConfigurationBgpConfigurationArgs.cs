@@ -15,33 +15,61 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Inputs
         /// <summary>
         /// A Connect peer core network address.
         /// </summary>
-        [Input("coreNetworkAddress")]
+        [PolicyResourceProperty("coreNetworkAddress", "_mUnknown_CoreNetworkAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkAddress;
+        private string? _mValue_CoreNetworkAddress;
+        private bool _mUnknown_CoreNetworkAddress;
+        public string? CoreNetworkAddress
+        {
+            get
+            {
+                if (!_mUnknown_CoreNetworkAddress) return _mValue_CoreNetworkAddress;
+                throw new UndeferrableValueException("Value 'ConnectPeerConfigurationBgpConfigurationArgs.CoreNetworkAddress' is not present");
+            }
+        }
 
-        public string? CoreNetworkAddress => _mCoreNetworkAddress.GetValue("coreNetworkAddress");
-
-        [Input("coreNetworkAsn")]
+        [PolicyResourceProperty("coreNetworkAsn", "_mUnknown_CoreNetworkAsn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCoreNetworkAsn;
-
-        public int? CoreNetworkAsn => _mCoreNetworkAsn.GetValue("coreNetworkAsn");
+        private int? _mValue_CoreNetworkAsn;
+        private bool _mUnknown_CoreNetworkAsn;
+        public int? CoreNetworkAsn
+        {
+            get
+            {
+                if (!_mUnknown_CoreNetworkAsn) return _mValue_CoreNetworkAsn;
+                throw new UndeferrableValueException("Value 'ConnectPeerConfigurationBgpConfigurationArgs.CoreNetworkAsn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Connect peer address.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("peerAddress")]
+        [PolicyResourceProperty("peerAddress", "_mUnknown_PeerAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeerAddress;
+        private string? _mValue_PeerAddress;
+        private bool _mUnknown_PeerAddress;
+        public string? PeerAddress
+        {
+            get
+            {
+                if (!_mUnknown_PeerAddress) return _mValue_PeerAddress;
+                throw new UndeferrableValueException("Value 'ConnectPeerConfigurationBgpConfigurationArgs.PeerAddress' is not present");
+            }
+        }
 
-        public string? PeerAddress => _mPeerAddress.GetValue("peerAddress");
-
-        [Input("peerAsn")]
+        [PolicyResourceProperty("peerAsn", "_mUnknown_PeerAsn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPeerAsn;
-
-        public int? PeerAsn => _mPeerAsn.GetValue("peerAsn");
+        private int? _mValue_PeerAsn;
+        private bool _mUnknown_PeerAsn;
+        public int? PeerAsn
+        {
+            get
+            {
+                if (!_mUnknown_PeerAsn) return _mValue_PeerAsn;
+                throw new UndeferrableValueException("Value 'ConnectPeerConfigurationBgpConfigurationArgs.PeerAsn' is not present");
+            }
+        }
     }
 }

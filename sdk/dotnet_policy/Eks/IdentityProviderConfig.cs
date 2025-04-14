@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Eks
         /// <summary>
         /// Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'IdentityProviderConfig.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the EKS Cluster.
         /// </summary>
-        [Input("clusterName")]
+        [PolicyResourceProperty("clusterName", "_mUnknown_ClusterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
-
-        public string? ClusterName => _mClusterName.GetValue("clusterName");
+        private string? _mValue_ClusterName;
+        private bool _mUnknown_ClusterName;
+        public string? ClusterName
+        {
+            get
+            {
+                if (!_mUnknown_ClusterName) return _mValue_ClusterName;
+                throw new UndeferrableValueException("Value 'IdentityProviderConfig.ClusterName' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
         /// </summary>
-        [Input("oidc")]
+        [PolicyResourceProperty("oidc", "_mUnknown_Oidc")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IdentityProviderConfigOidc> _mOidc;
-
-        public Outputs.IdentityProviderConfigOidc? Oidc => _mOidc.GetValue("oidc");
+        private Outputs.IdentityProviderConfigOidc? _mValue_Oidc;
+        private bool _mUnknown_Oidc;
+        public Outputs.IdentityProviderConfigOidc? Oidc
+        {
+            get
+            {
+                if (!_mUnknown_Oidc) return _mValue_Oidc;
+                throw new UndeferrableValueException("Value 'IdentityProviderConfig.Oidc' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the EKS Identity Provider Configuration.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'IdentityProviderConfig.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'IdentityProviderConfig.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'IdentityProviderConfig.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:eks/identityProviderConfig:IdentityProviderConfig")]
@@ -74,28 +116,49 @@ namespace Pulumi.PolicyPacks.Aws.Eks
         /// <summary>
         /// Name of the EKS Cluster.
         /// </summary>
-        [Input("clusterName")]
+        [PolicyResourceProperty("clusterName", "_mUnknown_ClusterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
-
-        public string? ClusterName => _mClusterName.GetValue("clusterName");
+        private string? _mValue_ClusterName;
+        private bool _mUnknown_ClusterName;
+        public string? ClusterName
+        {
+            get
+            {
+                if (!_mUnknown_ClusterName) return _mValue_ClusterName;
+                throw new UndeferrableValueException("Value 'IdentityProviderConfigArgs.ClusterName' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
         /// </summary>
-        [Input("oidc")]
+        [PolicyResourceProperty("oidc", "_mUnknown_Oidc")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IdentityProviderConfigOidcArgs> _mOidc;
-
-        public Inputs.IdentityProviderConfigOidcArgs? Oidc => _mOidc.GetValue("oidc");
+        private Inputs.IdentityProviderConfigOidcArgs? _mValue_Oidc;
+        private bool _mUnknown_Oidc;
+        public Inputs.IdentityProviderConfigOidcArgs? Oidc
+        {
+            get
+            {
+                if (!_mUnknown_Oidc) return _mValue_Oidc;
+                throw new UndeferrableValueException("Value 'IdentityProviderConfigArgs.Oidc' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'IdentityProviderConfigArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// Set of configuration blocks containing custom action definitions that are available for use by the set of `stateless rule`. See Custom Action below for details.
         /// </summary>
-        [Input("customActions")]
+        [PolicyResourceProperty("customActions", "_mUnknown_CustomActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction>> _mCustomActions;
-
-        public List<Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction>? CustomActions => _mCustomActions.GetValue("customActions");
+        private List<Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction>? _mValue_CustomActions;
+        private bool _mUnknown_CustomActions;
+        public List<Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction>? CustomActions
+        {
+            get
+            {
+                if (!_mUnknown_CustomActions) return _mValue_CustomActions;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions.CustomActions' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks containing the stateless rules for use in the stateless rule group. See Stateless Rule below for details.
         /// </summary>
-        [Input("statelessRules")]
+        [PolicyResourceProperty("statelessRules", "_mUnknown_StatelessRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule>> _mStatelessRules;
-
-        public List<Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule>? StatelessRules => _mStatelessRules.GetValue("statelessRules");
+        private List<Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule>? _mValue_StatelessRules;
+        private bool _mUnknown_StatelessRules;
+        public List<Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule>? StatelessRules
+        {
+            get
+            {
+                if (!_mUnknown_StatelessRules) return _mValue_StatelessRules;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions.StatelessRules' is not present");
+            }
+        }
     }
 }

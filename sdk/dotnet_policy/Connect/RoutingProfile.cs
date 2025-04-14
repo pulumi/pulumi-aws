@@ -16,93 +16,163 @@ namespace Pulumi.PolicyPacks.Aws.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Routing Profile.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'RoutingProfile.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the default outbound queue for the Routing Profile.
         /// </summary>
-        [Input("defaultOutboundQueueId")]
+        [PolicyResourceProperty("defaultOutboundQueueId", "_mUnknown_DefaultOutboundQueueId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultOutboundQueueId;
-
-        public string? DefaultOutboundQueueId => _mDefaultOutboundQueueId.GetValue("defaultOutboundQueueId");
+        private string? _mValue_DefaultOutboundQueueId;
+        private bool _mUnknown_DefaultOutboundQueueId;
+        public string? DefaultOutboundQueueId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultOutboundQueueId) return _mValue_DefaultOutboundQueueId;
+                throw new UndeferrableValueException("Value 'RoutingProfile.DefaultOutboundQueueId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the description of the Routing Profile.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'RoutingProfile.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'RoutingProfile.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
         /// </summary>
-        [Input("mediaConcurrencies")]
+        [PolicyResourceProperty("mediaConcurrencies", "_mUnknown_MediaConcurrencies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RoutingProfileMediaConcurrency>> _mMediaConcurrencies;
-
-        public List<Outputs.RoutingProfileMediaConcurrency>? MediaConcurrencies => _mMediaConcurrencies.GetValue("mediaConcurrencies");
+        private List<Outputs.RoutingProfileMediaConcurrency>? _mValue_MediaConcurrencies;
+        private bool _mUnknown_MediaConcurrencies;
+        public List<Outputs.RoutingProfileMediaConcurrency>? MediaConcurrencies
+        {
+            get
+            {
+                if (!_mUnknown_MediaConcurrencies) return _mValue_MediaConcurrencies;
+                throw new UndeferrableValueException("Value 'RoutingProfile.MediaConcurrencies' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the Routing Profile.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RoutingProfile.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
         /// </summary>
-        [Input("queueConfigs")]
+        [PolicyResourceProperty("queueConfigs", "_mUnknown_QueueConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RoutingProfileQueueConfig>> _mQueueConfigs;
-
-        public List<Outputs.RoutingProfileQueueConfig>? QueueConfigs => _mQueueConfigs.GetValue("queueConfigs");
+        private List<Outputs.RoutingProfileQueueConfig>? _mValue_QueueConfigs;
+        private bool _mUnknown_QueueConfigs;
+        public List<Outputs.RoutingProfileQueueConfig>? QueueConfigs
+        {
+            get
+            {
+                if (!_mUnknown_QueueConfigs) return _mValue_QueueConfigs;
+                throw new UndeferrableValueException("Value 'RoutingProfile.QueueConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the Routing Profile.
         /// </summary>
-        [Input("routingProfileId")]
+        [PolicyResourceProperty("routingProfileId", "_mUnknown_RoutingProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingProfileId;
-
-        public string? RoutingProfileId => _mRoutingProfileId.GetValue("routingProfileId");
+        private string? _mValue_RoutingProfileId;
+        private bool _mUnknown_RoutingProfileId;
+        public string? RoutingProfileId
+        {
+            get
+            {
+                if (!_mUnknown_RoutingProfileId) return _mValue_RoutingProfileId;
+                throw new UndeferrableValueException("Value 'RoutingProfile.RoutingProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the Routing Profile. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RoutingProfile.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'RoutingProfile.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:connect/routingProfile:RoutingProfile")]
@@ -111,65 +181,114 @@ namespace Pulumi.PolicyPacks.Aws.Connect
         /// <summary>
         /// Specifies the default outbound queue for the Routing Profile.
         /// </summary>
-        [Input("defaultOutboundQueueId")]
+        [PolicyResourceProperty("defaultOutboundQueueId", "_mUnknown_DefaultOutboundQueueId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultOutboundQueueId;
-
-        public string? DefaultOutboundQueueId => _mDefaultOutboundQueueId.GetValue("defaultOutboundQueueId");
+        private string? _mValue_DefaultOutboundQueueId;
+        private bool _mUnknown_DefaultOutboundQueueId;
+        public string? DefaultOutboundQueueId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultOutboundQueueId) return _mValue_DefaultOutboundQueueId;
+                throw new UndeferrableValueException("Value 'RoutingProfileArgs.DefaultOutboundQueueId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the description of the Routing Profile.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'RoutingProfileArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'RoutingProfileArgs.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
         /// </summary>
-        [Input("mediaConcurrencies")]
+        [PolicyResourceProperty("mediaConcurrencies", "_mUnknown_MediaConcurrencies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RoutingProfileMediaConcurrencyArgs>> _mMediaConcurrencies;
-
-        public List<Inputs.RoutingProfileMediaConcurrencyArgs>? MediaConcurrencies => _mMediaConcurrencies.GetValue("mediaConcurrencies");
+        private List<Inputs.RoutingProfileMediaConcurrencyArgs>? _mValue_MediaConcurrencies;
+        private bool _mUnknown_MediaConcurrencies;
+        public List<Inputs.RoutingProfileMediaConcurrencyArgs>? MediaConcurrencies
+        {
+            get
+            {
+                if (!_mUnknown_MediaConcurrencies) return _mValue_MediaConcurrencies;
+                throw new UndeferrableValueException("Value 'RoutingProfileArgs.MediaConcurrencies' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the Routing Profile.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RoutingProfileArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
         /// </summary>
-        [Input("queueConfigs")]
+        [PolicyResourceProperty("queueConfigs", "_mUnknown_QueueConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RoutingProfileQueueConfigArgs>> _mQueueConfigs;
-
-        public List<Inputs.RoutingProfileQueueConfigArgs>? QueueConfigs => _mQueueConfigs.GetValue("queueConfigs");
+        private List<Inputs.RoutingProfileQueueConfigArgs>? _mValue_QueueConfigs;
+        private bool _mUnknown_QueueConfigs;
+        public List<Inputs.RoutingProfileQueueConfigArgs>? QueueConfigs
+        {
+            get
+            {
+                if (!_mUnknown_QueueConfigs) return _mValue_QueueConfigs;
+                throw new UndeferrableValueException("Value 'RoutingProfileArgs.QueueConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the Routing Profile. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RoutingProfileArgs.Tags' is not present");
+            }
+        }
     }
 }

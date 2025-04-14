@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Outputs
         /// <summary>
         /// Name of the CloudWatch Log Group to send findings to.
         /// </summary>
-        [Input("logGroup")]
+        [PolicyResourceProperty("logGroup", "_mUnknown_LogGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroup;
-
-        public string? LogGroup => _mLogGroup.GetValue("logGroup");
+        private string? _mValue_LogGroup;
+        private bool _mUnknown_LogGroup;
+        public string? LogGroup
+        {
+            get
+            {
+                if (!_mUnknown_LogGroup) return _mValue_LogGroup;
+                throw new UndeferrableValueException("Value 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsResult.LogGroup' is not present");
+            }
+        }
     }
 }

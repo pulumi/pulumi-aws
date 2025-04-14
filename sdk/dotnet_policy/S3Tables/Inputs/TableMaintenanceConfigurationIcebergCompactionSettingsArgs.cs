@@ -16,10 +16,17 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables.Inputs
         /// Data objects smaller than this size may be combined with others to improve query performance.
         /// Must be between `64` and `512`.
         /// </summary>
-        [Input("targetFileSizeMb")]
+        [PolicyResourceProperty("targetFileSizeMb", "_mUnknown_TargetFileSizeMb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTargetFileSizeMb;
-
-        public int? TargetFileSizeMb => _mTargetFileSizeMb.GetValue("targetFileSizeMb");
+        private int? _mValue_TargetFileSizeMb;
+        private bool _mUnknown_TargetFileSizeMb;
+        public int? TargetFileSizeMb
+        {
+            get
+            {
+                if (!_mUnknown_TargetFileSizeMb) return _mValue_TargetFileSizeMb;
+                throw new UndeferrableValueException("Value 'TableMaintenanceConfigurationIcebergCompactionSettingsArgs.TargetFileSizeMb' is not present");
+            }
+        }
     }
 }

@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.CodeArtifact
         /// <summary>
         /// The account number of the AWS account that manages the repository.
         /// </summary>
-        [Input("administratorAccount")]
+        [PolicyResourceProperty("administratorAccount", "_mUnknown_AdministratorAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdministratorAccount;
-
-        public string? AdministratorAccount => _mAdministratorAccount.GetValue("administratorAccount");
+        private string? _mValue_AdministratorAccount;
+        private bool _mUnknown_AdministratorAccount;
+        public string? AdministratorAccount
+        {
+            get
+            {
+                if (!_mUnknown_AdministratorAccount) return _mValue_AdministratorAccount;
+                throw new UndeferrableValueException("Value 'Repository.AdministratorAccount' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the repository.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Repository.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the repository.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Repository.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The domain that contains the created repository.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'Repository.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// The account number of the AWS account that owns the domain.
         /// </summary>
-        [Input("domainOwner")]
+        [PolicyResourceProperty("domainOwner", "_mUnknown_DomainOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainOwner;
-
-        public string? DomainOwner => _mDomainOwner.GetValue("domainOwner");
+        private string? _mValue_DomainOwner;
+        private bool _mUnknown_DomainOwner;
+        public string? DomainOwner
+        {
+            get
+            {
+                if (!_mUnknown_DomainOwner) return _mValue_DomainOwner;
+                throw new UndeferrableValueException("Value 'Repository.DomainOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
         /// </summary>
-        [Input("externalConnections")]
+        [PolicyResourceProperty("externalConnections", "_mUnknown_ExternalConnections")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RepositoryExternalConnections> _mExternalConnections;
-
-        public Outputs.RepositoryExternalConnections? ExternalConnections => _mExternalConnections.GetValue("externalConnections");
+        private Outputs.RepositoryExternalConnections? _mValue_ExternalConnections;
+        private bool _mUnknown_ExternalConnections;
+        public Outputs.RepositoryExternalConnections? ExternalConnections
+        {
+            get
+            {
+                if (!_mUnknown_ExternalConnections) return _mValue_ExternalConnections;
+                throw new UndeferrableValueException("Value 'Repository.ExternalConnections' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the repository to create.
         /// </summary>
-        [Input("repository")]
+        [PolicyResourceProperty("repository", "_mUnknown_RepositoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
-
-        public string? RepositoryName => _mRepositoryName.GetValue("repository");
+        private string? _mValue_RepositoryName;
+        private bool _mUnknown_RepositoryName;
+        public string? RepositoryName
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryName) return _mValue_RepositoryName;
+                throw new UndeferrableValueException("Value 'Repository.RepositoryName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Repository.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Repository.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         /// </summary>
-        [Input("upstreams")]
+        [PolicyResourceProperty("upstreams", "_mUnknown_Upstreams")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RepositoryUpstream>> _mUpstreams;
-
-        public List<Outputs.RepositoryUpstream>? Upstreams => _mUpstreams.GetValue("upstreams");
+        private List<Outputs.RepositoryUpstream>? _mValue_Upstreams;
+        private bool _mUnknown_Upstreams;
+        public List<Outputs.RepositoryUpstream>? Upstreams
+        {
+            get
+            {
+                if (!_mUnknown_Upstreams) return _mValue_Upstreams;
+                throw new UndeferrableValueException("Value 'Repository.Upstreams' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codeartifact/repository:Repository")]
@@ -110,64 +180,113 @@ namespace Pulumi.PolicyPacks.Aws.CodeArtifact
         /// <summary>
         /// The description of the repository.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The domain that contains the created repository.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// The account number of the AWS account that owns the domain.
         /// </summary>
-        [Input("domainOwner")]
+        [PolicyResourceProperty("domainOwner", "_mUnknown_DomainOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainOwner;
-
-        public string? DomainOwner => _mDomainOwner.GetValue("domainOwner");
+        private string? _mValue_DomainOwner;
+        private bool _mUnknown_DomainOwner;
+        public string? DomainOwner
+        {
+            get
+            {
+                if (!_mUnknown_DomainOwner) return _mValue_DomainOwner;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.DomainOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
         /// </summary>
-        [Input("externalConnections")]
+        [PolicyResourceProperty("externalConnections", "_mUnknown_ExternalConnections")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RepositoryExternalConnectionsArgs> _mExternalConnections;
-
-        public Inputs.RepositoryExternalConnectionsArgs? ExternalConnections => _mExternalConnections.GetValue("externalConnections");
+        private Inputs.RepositoryExternalConnectionsArgs? _mValue_ExternalConnections;
+        private bool _mUnknown_ExternalConnections;
+        public Inputs.RepositoryExternalConnectionsArgs? ExternalConnections
+        {
+            get
+            {
+                if (!_mUnknown_ExternalConnections) return _mValue_ExternalConnections;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.ExternalConnections' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the repository to create.
         /// </summary>
-        [Input("repository")]
+        [PolicyResourceProperty("repository", "_mUnknown_RepositoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
-
-        public string? RepositoryName => _mRepositoryName.GetValue("repository");
+        private string? _mValue_RepositoryName;
+        private bool _mUnknown_RepositoryName;
+        public string? RepositoryName
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryName) return _mValue_RepositoryName;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.RepositoryName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         /// </summary>
-        [Input("upstreams")]
+        [PolicyResourceProperty("upstreams", "_mUnknown_Upstreams")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RepositoryUpstreamArgs>> _mUpstreams;
-
-        public List<Inputs.RepositoryUpstreamArgs>? Upstreams => _mUpstreams.GetValue("upstreams");
+        private List<Inputs.RepositoryUpstreamArgs>? _mValue_Upstreams;
+        private bool _mUnknown_Upstreams;
+        public List<Inputs.RepositoryUpstreamArgs>? Upstreams
+        {
+            get
+            {
+                if (!_mUnknown_Upstreams) return _mValue_Upstreams;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.Upstreams' is not present");
+            }
+        }
     }
 }

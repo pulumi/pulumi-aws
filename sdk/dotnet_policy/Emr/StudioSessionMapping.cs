@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Emr
         /// <summary>
         /// The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
         /// </summary>
-        [Input("identityId")]
+        [PolicyResourceProperty("identityId", "_mUnknown_IdentityId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityId;
-
-        public string? IdentityId => _mIdentityId.GetValue("identityId");
+        private string? _mValue_IdentityId;
+        private bool _mUnknown_IdentityId;
+        public string? IdentityId
+        {
+            get
+            {
+                if (!_mUnknown_IdentityId) return _mValue_IdentityId;
+                throw new UndeferrableValueException("Value 'StudioSessionMapping.IdentityId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the user or group from the Amazon Web Services SSO Identity Store.
         /// </summary>
-        [Input("identityName")]
+        [PolicyResourceProperty("identityName", "_mUnknown_IdentityName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityName;
-
-        public string? IdentityName => _mIdentityName.GetValue("identityName");
+        private string? _mValue_IdentityName;
+        private bool _mUnknown_IdentityName;
+        public string? IdentityName
+        {
+            get
+            {
+                if (!_mUnknown_IdentityName) return _mValue_IdentityName;
+                throw new UndeferrableValueException("Value 'StudioSessionMapping.IdentityName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
         /// </summary>
-        [Input("identityType")]
+        [PolicyResourceProperty("identityType", "_mUnknown_IdentityType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityType;
-
-        public string? IdentityType => _mIdentityType.GetValue("identityType");
+        private string? _mValue_IdentityType;
+        private bool _mUnknown_IdentityType;
+        public string? IdentityType
+        {
+            get
+            {
+                if (!_mUnknown_IdentityType) return _mValue_IdentityType;
+                throw new UndeferrableValueException("Value 'StudioSessionMapping.IdentityType' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
         /// </summary>
-        [Input("sessionPolicyArn")]
+        [PolicyResourceProperty("sessionPolicyArn", "_mUnknown_SessionPolicyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSessionPolicyArn;
-
-        public string? SessionPolicyArn => _mSessionPolicyArn.GetValue("sessionPolicyArn");
+        private string? _mValue_SessionPolicyArn;
+        private bool _mUnknown_SessionPolicyArn;
+        public string? SessionPolicyArn
+        {
+            get
+            {
+                if (!_mUnknown_SessionPolicyArn) return _mValue_SessionPolicyArn;
+                throw new UndeferrableValueException("Value 'StudioSessionMapping.SessionPolicyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Amazon EMR Studio to which the user or group will be mapped.
         /// </summary>
-        [Input("studioId")]
+        [PolicyResourceProperty("studioId", "_mUnknown_StudioId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStudioId;
-
-        public string? StudioId => _mStudioId.GetValue("studioId");
+        private string? _mValue_StudioId;
+        private bool _mUnknown_StudioId;
+        public string? StudioId
+        {
+            get
+            {
+                if (!_mUnknown_StudioId) return _mValue_StudioId;
+                throw new UndeferrableValueException("Value 'StudioSessionMapping.StudioId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:emr/studioSessionMapping:StudioSessionMapping")]
@@ -65,46 +100,81 @@ namespace Pulumi.PolicyPacks.Aws.Emr
         /// <summary>
         /// The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
         /// </summary>
-        [Input("identityId")]
+        [PolicyResourceProperty("identityId", "_mUnknown_IdentityId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityId;
-
-        public string? IdentityId => _mIdentityId.GetValue("identityId");
+        private string? _mValue_IdentityId;
+        private bool _mUnknown_IdentityId;
+        public string? IdentityId
+        {
+            get
+            {
+                if (!_mUnknown_IdentityId) return _mValue_IdentityId;
+                throw new UndeferrableValueException("Value 'StudioSessionMappingArgs.IdentityId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the user or group from the Amazon Web Services SSO Identity Store.
         /// </summary>
-        [Input("identityName")]
+        [PolicyResourceProperty("identityName", "_mUnknown_IdentityName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityName;
-
-        public string? IdentityName => _mIdentityName.GetValue("identityName");
+        private string? _mValue_IdentityName;
+        private bool _mUnknown_IdentityName;
+        public string? IdentityName
+        {
+            get
+            {
+                if (!_mUnknown_IdentityName) return _mValue_IdentityName;
+                throw new UndeferrableValueException("Value 'StudioSessionMappingArgs.IdentityName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
         /// </summary>
-        [Input("identityType")]
+        [PolicyResourceProperty("identityType", "_mUnknown_IdentityType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityType;
-
-        public string? IdentityType => _mIdentityType.GetValue("identityType");
+        private string? _mValue_IdentityType;
+        private bool _mUnknown_IdentityType;
+        public string? IdentityType
+        {
+            get
+            {
+                if (!_mUnknown_IdentityType) return _mValue_IdentityType;
+                throw new UndeferrableValueException("Value 'StudioSessionMappingArgs.IdentityType' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
         /// </summary>
-        [Input("sessionPolicyArn")]
+        [PolicyResourceProperty("sessionPolicyArn", "_mUnknown_SessionPolicyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSessionPolicyArn;
-
-        public string? SessionPolicyArn => _mSessionPolicyArn.GetValue("sessionPolicyArn");
+        private string? _mValue_SessionPolicyArn;
+        private bool _mUnknown_SessionPolicyArn;
+        public string? SessionPolicyArn
+        {
+            get
+            {
+                if (!_mUnknown_SessionPolicyArn) return _mValue_SessionPolicyArn;
+                throw new UndeferrableValueException("Value 'StudioSessionMappingArgs.SessionPolicyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Amazon EMR Studio to which the user or group will be mapped.
         /// </summary>
-        [Input("studioId")]
+        [PolicyResourceProperty("studioId", "_mUnknown_StudioId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStudioId;
-
-        public string? StudioId => _mStudioId.GetValue("studioId");
+        private string? _mValue_StudioId;
+        private bool _mUnknown_StudioId;
+        public string? StudioId
+        {
+            get
+            {
+                if (!_mUnknown_StudioId) return _mValue_StudioId;
+                throw new UndeferrableValueException("Value 'StudioSessionMappingArgs.StudioId' is not present");
+            }
+        }
     }
 }

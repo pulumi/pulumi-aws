@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// ARN of the service setting.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ServiceSetting.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the service setting.
         /// </summary>
-        [Input("settingId")]
+        [PolicyResourceProperty("settingId", "_mUnknown_SettingId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSettingId;
-
-        public string? SettingId => _mSettingId.GetValue("settingId");
+        private string? _mValue_SettingId;
+        private bool _mUnknown_SettingId;
+        public string? SettingId
+        {
+            get
+            {
+                if (!_mUnknown_SettingId) return _mValue_SettingId;
+                throw new UndeferrableValueException("Value 'ServiceSetting.SettingId' is not present");
+            }
+        }
 
         /// <summary>
         /// Value of the service setting.
         /// </summary>
-        [Input("settingValue")]
+        [PolicyResourceProperty("settingValue", "_mUnknown_SettingValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSettingValue;
-
-        public string? SettingValue => _mSettingValue.GetValue("settingValue");
+        private string? _mValue_SettingValue;
+        private bool _mUnknown_SettingValue;
+        public string? SettingValue
+        {
+            get
+            {
+                if (!_mUnknown_SettingValue) return _mValue_SettingValue;
+                throw new UndeferrableValueException("Value 'ServiceSetting.SettingValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'ServiceSetting.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssm/serviceSetting:ServiceSetting")]
@@ -56,19 +84,33 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// ID of the service setting.
         /// </summary>
-        [Input("settingId")]
+        [PolicyResourceProperty("settingId", "_mUnknown_SettingId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSettingId;
-
-        public string? SettingId => _mSettingId.GetValue("settingId");
+        private string? _mValue_SettingId;
+        private bool _mUnknown_SettingId;
+        public string? SettingId
+        {
+            get
+            {
+                if (!_mUnknown_SettingId) return _mValue_SettingId;
+                throw new UndeferrableValueException("Value 'ServiceSettingArgs.SettingId' is not present");
+            }
+        }
 
         /// <summary>
         /// Value of the service setting.
         /// </summary>
-        [Input("settingValue")]
+        [PolicyResourceProperty("settingValue", "_mUnknown_SettingValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSettingValue;
-
-        public string? SettingValue => _mSettingValue.GetValue("settingValue");
+        private string? _mValue_SettingValue;
+        private bool _mUnknown_SettingValue;
+        public string? SettingValue
+        {
+            get
+            {
+                if (!_mUnknown_SettingValue) return _mValue_SettingValue;
+                throw new UndeferrableValueException("Value 'ServiceSettingArgs.SettingValue' is not present");
+            }
+        }
     }
 }

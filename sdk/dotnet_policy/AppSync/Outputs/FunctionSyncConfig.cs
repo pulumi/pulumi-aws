@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Outputs
         /// <summary>
         /// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
         /// </summary>
-        [Input("conflictDetection")]
+        [PolicyResourceProperty("conflictDetection", "_mUnknown_ConflictDetection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConflictDetection;
-
-        public string? ConflictDetection => _mConflictDetection.GetValue("conflictDetection");
+        private string? _mValue_ConflictDetection;
+        private bool _mUnknown_ConflictDetection;
+        public string? ConflictDetection
+        {
+            get
+            {
+                if (!_mUnknown_ConflictDetection) return _mValue_ConflictDetection;
+                throw new UndeferrableValueException("Value 'FunctionSyncConfig.ConflictDetection' is not present");
+            }
+        }
 
         /// <summary>
         /// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
         /// </summary>
-        [Input("conflictHandler")]
+        [PolicyResourceProperty("conflictHandler", "_mUnknown_ConflictHandler")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConflictHandler;
-
-        public string? ConflictHandler => _mConflictHandler.GetValue("conflictHandler");
+        private string? _mValue_ConflictHandler;
+        private bool _mUnknown_ConflictHandler;
+        public string? ConflictHandler
+        {
+            get
+            {
+                if (!_mUnknown_ConflictHandler) return _mValue_ConflictHandler;
+                throw new UndeferrableValueException("Value 'FunctionSyncConfig.ConflictHandler' is not present");
+            }
+        }
 
         /// <summary>
         /// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambda_conflict_handler_config` Block for details.
         /// </summary>
-        [Input("lambdaConflictHandlerConfig")]
+        [PolicyResourceProperty("lambdaConflictHandlerConfig", "_mUnknown_LambdaConflictHandlerConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FunctionSyncConfigLambdaConflictHandlerConfig> _mLambdaConflictHandlerConfig;
-
-        public Outputs.FunctionSyncConfigLambdaConflictHandlerConfig? LambdaConflictHandlerConfig => _mLambdaConflictHandlerConfig.GetValue("lambdaConflictHandlerConfig");
+        private Outputs.FunctionSyncConfigLambdaConflictHandlerConfig? _mValue_LambdaConflictHandlerConfig;
+        private bool _mUnknown_LambdaConflictHandlerConfig;
+        public Outputs.FunctionSyncConfigLambdaConflictHandlerConfig? LambdaConflictHandlerConfig
+        {
+            get
+            {
+                if (!_mUnknown_LambdaConflictHandlerConfig) return _mValue_LambdaConflictHandlerConfig;
+                throw new UndeferrableValueException("Value 'FunctionSyncConfig.LambdaConflictHandlerConfig' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,56 @@ namespace Pulumi.PolicyPacks.Aws.LightSail.Inputs
         /// <summary>
         /// A domain name for which the certificate should be issued.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'CertificateDomainValidationOptionArgs.DomainName' is not present");
+            }
+        }
 
-        public string? DomainName => _mDomainName.GetValue("domainName");
-
-        [Input("resourceRecordName")]
+        [PolicyResourceProperty("resourceRecordName", "_mUnknown_ResourceRecordName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceRecordName;
+        private string? _mValue_ResourceRecordName;
+        private bool _mUnknown_ResourceRecordName;
+        public string? ResourceRecordName
+        {
+            get
+            {
+                if (!_mUnknown_ResourceRecordName) return _mValue_ResourceRecordName;
+                throw new UndeferrableValueException("Value 'CertificateDomainValidationOptionArgs.ResourceRecordName' is not present");
+            }
+        }
 
-        public string? ResourceRecordName => _mResourceRecordName.GetValue("resourceRecordName");
-
-        [Input("resourceRecordType")]
+        [PolicyResourceProperty("resourceRecordType", "_mUnknown_ResourceRecordType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceRecordType;
+        private string? _mValue_ResourceRecordType;
+        private bool _mUnknown_ResourceRecordType;
+        public string? ResourceRecordType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceRecordType) return _mValue_ResourceRecordType;
+                throw new UndeferrableValueException("Value 'CertificateDomainValidationOptionArgs.ResourceRecordType' is not present");
+            }
+        }
 
-        public string? ResourceRecordType => _mResourceRecordType.GetValue("resourceRecordType");
-
-        [Input("resourceRecordValue")]
+        [PolicyResourceProperty("resourceRecordValue", "_mUnknown_ResourceRecordValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceRecordValue;
-
-        public string? ResourceRecordValue => _mResourceRecordValue.GetValue("resourceRecordValue");
+        private string? _mValue_ResourceRecordValue;
+        private bool _mUnknown_ResourceRecordValue;
+        public string? ResourceRecordValue
+        {
+            get
+            {
+                if (!_mUnknown_ResourceRecordValue) return _mValue_ResourceRecordValue;
+                throw new UndeferrableValueException("Value 'CertificateDomainValidationOptionArgs.ResourceRecordValue' is not present");
+            }
+        }
     }
 }

@@ -12,238 +12,511 @@ namespace Pulumi.PolicyPacks.Aws.Dms.Outputs
 {
     public sealed class GetEndpointS3SettingResult
     {
-        [Input("addColumnName")]
+        [PolicyResourceProperty("addColumnName", "_mUnknown_AddColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAddColumnName;
+        private bool? _mValue_AddColumnName;
+        private bool _mUnknown_AddColumnName;
+        public bool? AddColumnName
+        {
+            get
+            {
+                if (!_mUnknown_AddColumnName) return _mValue_AddColumnName;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.AddColumnName' is not present");
+            }
+        }
 
-        public bool? AddColumnName => _mAddColumnName.GetValue("addColumnName");
-
-        [Input("bucketFolder")]
+        [PolicyResourceProperty("bucketFolder", "_mUnknown_BucketFolder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketFolder;
+        private string? _mValue_BucketFolder;
+        private bool _mUnknown_BucketFolder;
+        public string? BucketFolder
+        {
+            get
+            {
+                if (!_mUnknown_BucketFolder) return _mValue_BucketFolder;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.BucketFolder' is not present");
+            }
+        }
 
-        public string? BucketFolder => _mBucketFolder.GetValue("bucketFolder");
-
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.BucketName' is not present");
+            }
+        }
 
-        public string? BucketName => _mBucketName.GetValue("bucketName");
-
-        [Input("cannedAclForObjects")]
+        [PolicyResourceProperty("cannedAclForObjects", "_mUnknown_CannedAclForObjects")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCannedAclForObjects;
+        private string? _mValue_CannedAclForObjects;
+        private bool _mUnknown_CannedAclForObjects;
+        public string? CannedAclForObjects
+        {
+            get
+            {
+                if (!_mUnknown_CannedAclForObjects) return _mValue_CannedAclForObjects;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.CannedAclForObjects' is not present");
+            }
+        }
 
-        public string? CannedAclForObjects => _mCannedAclForObjects.GetValue("cannedAclForObjects");
-
-        [Input("cdcInsertsAndUpdates")]
+        [PolicyResourceProperty("cdcInsertsAndUpdates", "_mUnknown_CdcInsertsAndUpdates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCdcInsertsAndUpdates;
+        private bool? _mValue_CdcInsertsAndUpdates;
+        private bool _mUnknown_CdcInsertsAndUpdates;
+        public bool? CdcInsertsAndUpdates
+        {
+            get
+            {
+                if (!_mUnknown_CdcInsertsAndUpdates) return _mValue_CdcInsertsAndUpdates;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.CdcInsertsAndUpdates' is not present");
+            }
+        }
 
-        public bool? CdcInsertsAndUpdates => _mCdcInsertsAndUpdates.GetValue("cdcInsertsAndUpdates");
-
-        [Input("cdcInsertsOnly")]
+        [PolicyResourceProperty("cdcInsertsOnly", "_mUnknown_CdcInsertsOnly")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCdcInsertsOnly;
+        private bool? _mValue_CdcInsertsOnly;
+        private bool _mUnknown_CdcInsertsOnly;
+        public bool? CdcInsertsOnly
+        {
+            get
+            {
+                if (!_mUnknown_CdcInsertsOnly) return _mValue_CdcInsertsOnly;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.CdcInsertsOnly' is not present");
+            }
+        }
 
-        public bool? CdcInsertsOnly => _mCdcInsertsOnly.GetValue("cdcInsertsOnly");
-
-        [Input("cdcMaxBatchInterval")]
+        [PolicyResourceProperty("cdcMaxBatchInterval", "_mUnknown_CdcMaxBatchInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCdcMaxBatchInterval;
+        private int? _mValue_CdcMaxBatchInterval;
+        private bool _mUnknown_CdcMaxBatchInterval;
+        public int? CdcMaxBatchInterval
+        {
+            get
+            {
+                if (!_mUnknown_CdcMaxBatchInterval) return _mValue_CdcMaxBatchInterval;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.CdcMaxBatchInterval' is not present");
+            }
+        }
 
-        public int? CdcMaxBatchInterval => _mCdcMaxBatchInterval.GetValue("cdcMaxBatchInterval");
-
-        [Input("cdcMinFileSize")]
+        [PolicyResourceProperty("cdcMinFileSize", "_mUnknown_CdcMinFileSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCdcMinFileSize;
+        private int? _mValue_CdcMinFileSize;
+        private bool _mUnknown_CdcMinFileSize;
+        public int? CdcMinFileSize
+        {
+            get
+            {
+                if (!_mUnknown_CdcMinFileSize) return _mValue_CdcMinFileSize;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.CdcMinFileSize' is not present");
+            }
+        }
 
-        public int? CdcMinFileSize => _mCdcMinFileSize.GetValue("cdcMinFileSize");
-
-        [Input("cdcPath")]
+        [PolicyResourceProperty("cdcPath", "_mUnknown_CdcPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCdcPath;
+        private string? _mValue_CdcPath;
+        private bool _mUnknown_CdcPath;
+        public string? CdcPath
+        {
+            get
+            {
+                if (!_mUnknown_CdcPath) return _mValue_CdcPath;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.CdcPath' is not present");
+            }
+        }
 
-        public string? CdcPath => _mCdcPath.GetValue("cdcPath");
-
-        [Input("compressionType")]
+        [PolicyResourceProperty("compressionType", "_mUnknown_CompressionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCompressionType;
+        private string? _mValue_CompressionType;
+        private bool _mUnknown_CompressionType;
+        public string? CompressionType
+        {
+            get
+            {
+                if (!_mUnknown_CompressionType) return _mValue_CompressionType;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.CompressionType' is not present");
+            }
+        }
 
-        public string? CompressionType => _mCompressionType.GetValue("compressionType");
-
-        [Input("csvDelimiter")]
+        [PolicyResourceProperty("csvDelimiter", "_mUnknown_CsvDelimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCsvDelimiter;
+        private string? _mValue_CsvDelimiter;
+        private bool _mUnknown_CsvDelimiter;
+        public string? CsvDelimiter
+        {
+            get
+            {
+                if (!_mUnknown_CsvDelimiter) return _mValue_CsvDelimiter;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.CsvDelimiter' is not present");
+            }
+        }
 
-        public string? CsvDelimiter => _mCsvDelimiter.GetValue("csvDelimiter");
-
-        [Input("csvNoSupValue")]
+        [PolicyResourceProperty("csvNoSupValue", "_mUnknown_CsvNoSupValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCsvNoSupValue;
+        private string? _mValue_CsvNoSupValue;
+        private bool _mUnknown_CsvNoSupValue;
+        public string? CsvNoSupValue
+        {
+            get
+            {
+                if (!_mUnknown_CsvNoSupValue) return _mValue_CsvNoSupValue;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.CsvNoSupValue' is not present");
+            }
+        }
 
-        public string? CsvNoSupValue => _mCsvNoSupValue.GetValue("csvNoSupValue");
-
-        [Input("csvNullValue")]
+        [PolicyResourceProperty("csvNullValue", "_mUnknown_CsvNullValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCsvNullValue;
+        private string? _mValue_CsvNullValue;
+        private bool _mUnknown_CsvNullValue;
+        public string? CsvNullValue
+        {
+            get
+            {
+                if (!_mUnknown_CsvNullValue) return _mValue_CsvNullValue;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.CsvNullValue' is not present");
+            }
+        }
 
-        public string? CsvNullValue => _mCsvNullValue.GetValue("csvNullValue");
-
-        [Input("csvRowDelimiter")]
+        [PolicyResourceProperty("csvRowDelimiter", "_mUnknown_CsvRowDelimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCsvRowDelimiter;
+        private string? _mValue_CsvRowDelimiter;
+        private bool _mUnknown_CsvRowDelimiter;
+        public string? CsvRowDelimiter
+        {
+            get
+            {
+                if (!_mUnknown_CsvRowDelimiter) return _mValue_CsvRowDelimiter;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.CsvRowDelimiter' is not present");
+            }
+        }
 
-        public string? CsvRowDelimiter => _mCsvRowDelimiter.GetValue("csvRowDelimiter");
-
-        [Input("dataFormat")]
+        [PolicyResourceProperty("dataFormat", "_mUnknown_DataFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataFormat;
+        private string? _mValue_DataFormat;
+        private bool _mUnknown_DataFormat;
+        public string? DataFormat
+        {
+            get
+            {
+                if (!_mUnknown_DataFormat) return _mValue_DataFormat;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.DataFormat' is not present");
+            }
+        }
 
-        public string? DataFormat => _mDataFormat.GetValue("dataFormat");
-
-        [Input("dataPageSize")]
+        [PolicyResourceProperty("dataPageSize", "_mUnknown_DataPageSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDataPageSize;
+        private int? _mValue_DataPageSize;
+        private bool _mUnknown_DataPageSize;
+        public int? DataPageSize
+        {
+            get
+            {
+                if (!_mUnknown_DataPageSize) return _mValue_DataPageSize;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.DataPageSize' is not present");
+            }
+        }
 
-        public int? DataPageSize => _mDataPageSize.GetValue("dataPageSize");
-
-        [Input("datePartitionDelimiter")]
+        [PolicyResourceProperty("datePartitionDelimiter", "_mUnknown_DatePartitionDelimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatePartitionDelimiter;
+        private string? _mValue_DatePartitionDelimiter;
+        private bool _mUnknown_DatePartitionDelimiter;
+        public string? DatePartitionDelimiter
+        {
+            get
+            {
+                if (!_mUnknown_DatePartitionDelimiter) return _mValue_DatePartitionDelimiter;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.DatePartitionDelimiter' is not present");
+            }
+        }
 
-        public string? DatePartitionDelimiter => _mDatePartitionDelimiter.GetValue("datePartitionDelimiter");
-
-        [Input("datePartitionEnabled")]
+        [PolicyResourceProperty("datePartitionEnabled", "_mUnknown_DatePartitionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDatePartitionEnabled;
+        private bool? _mValue_DatePartitionEnabled;
+        private bool _mUnknown_DatePartitionEnabled;
+        public bool? DatePartitionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_DatePartitionEnabled) return _mValue_DatePartitionEnabled;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.DatePartitionEnabled' is not present");
+            }
+        }
 
-        public bool? DatePartitionEnabled => _mDatePartitionEnabled.GetValue("datePartitionEnabled");
-
-        [Input("datePartitionSequence")]
+        [PolicyResourceProperty("datePartitionSequence", "_mUnknown_DatePartitionSequence")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatePartitionSequence;
+        private string? _mValue_DatePartitionSequence;
+        private bool _mUnknown_DatePartitionSequence;
+        public string? DatePartitionSequence
+        {
+            get
+            {
+                if (!_mUnknown_DatePartitionSequence) return _mValue_DatePartitionSequence;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.DatePartitionSequence' is not present");
+            }
+        }
 
-        public string? DatePartitionSequence => _mDatePartitionSequence.GetValue("datePartitionSequence");
-
-        [Input("dictPageSizeLimit")]
+        [PolicyResourceProperty("dictPageSizeLimit", "_mUnknown_DictPageSizeLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDictPageSizeLimit;
+        private int? _mValue_DictPageSizeLimit;
+        private bool _mUnknown_DictPageSizeLimit;
+        public int? DictPageSizeLimit
+        {
+            get
+            {
+                if (!_mUnknown_DictPageSizeLimit) return _mValue_DictPageSizeLimit;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.DictPageSizeLimit' is not present");
+            }
+        }
 
-        public int? DictPageSizeLimit => _mDictPageSizeLimit.GetValue("dictPageSizeLimit");
-
-        [Input("enableStatistics")]
+        [PolicyResourceProperty("enableStatistics", "_mUnknown_EnableStatistics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableStatistics;
+        private bool? _mValue_EnableStatistics;
+        private bool _mUnknown_EnableStatistics;
+        public bool? EnableStatistics
+        {
+            get
+            {
+                if (!_mUnknown_EnableStatistics) return _mValue_EnableStatistics;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.EnableStatistics' is not present");
+            }
+        }
 
-        public bool? EnableStatistics => _mEnableStatistics.GetValue("enableStatistics");
-
-        [Input("encodingType")]
+        [PolicyResourceProperty("encodingType", "_mUnknown_EncodingType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncodingType;
+        private string? _mValue_EncodingType;
+        private bool _mUnknown_EncodingType;
+        public string? EncodingType
+        {
+            get
+            {
+                if (!_mUnknown_EncodingType) return _mValue_EncodingType;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.EncodingType' is not present");
+            }
+        }
 
-        public string? EncodingType => _mEncodingType.GetValue("encodingType");
-
-        [Input("encryptionMode")]
+        [PolicyResourceProperty("encryptionMode", "_mUnknown_EncryptionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionMode;
+        private string? _mValue_EncryptionMode;
+        private bool _mUnknown_EncryptionMode;
+        public string? EncryptionMode
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionMode) return _mValue_EncryptionMode;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.EncryptionMode' is not present");
+            }
+        }
 
-        public string? EncryptionMode => _mEncryptionMode.GetValue("encryptionMode");
-
-        [Input("externalTableDefinition")]
+        [PolicyResourceProperty("externalTableDefinition", "_mUnknown_ExternalTableDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExternalTableDefinition;
+        private string? _mValue_ExternalTableDefinition;
+        private bool _mUnknown_ExternalTableDefinition;
+        public string? ExternalTableDefinition
+        {
+            get
+            {
+                if (!_mUnknown_ExternalTableDefinition) return _mValue_ExternalTableDefinition;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.ExternalTableDefinition' is not present");
+            }
+        }
 
-        public string? ExternalTableDefinition => _mExternalTableDefinition.GetValue("externalTableDefinition");
-
-        [Input("glueCatalogGeneration")]
+        [PolicyResourceProperty("glueCatalogGeneration", "_mUnknown_GlueCatalogGeneration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mGlueCatalogGeneration;
+        private bool? _mValue_GlueCatalogGeneration;
+        private bool _mUnknown_GlueCatalogGeneration;
+        public bool? GlueCatalogGeneration
+        {
+            get
+            {
+                if (!_mUnknown_GlueCatalogGeneration) return _mValue_GlueCatalogGeneration;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.GlueCatalogGeneration' is not present");
+            }
+        }
 
-        public bool? GlueCatalogGeneration => _mGlueCatalogGeneration.GetValue("glueCatalogGeneration");
-
-        [Input("ignoreHeaderRows")]
+        [PolicyResourceProperty("ignoreHeaderRows", "_mUnknown_IgnoreHeaderRows")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIgnoreHeaderRows;
+        private int? _mValue_IgnoreHeaderRows;
+        private bool _mUnknown_IgnoreHeaderRows;
+        public int? IgnoreHeaderRows
+        {
+            get
+            {
+                if (!_mUnknown_IgnoreHeaderRows) return _mValue_IgnoreHeaderRows;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.IgnoreHeaderRows' is not present");
+            }
+        }
 
-        public int? IgnoreHeaderRows => _mIgnoreHeaderRows.GetValue("ignoreHeaderRows");
-
-        [Input("ignoreHeadersRow")]
+        [PolicyResourceProperty("ignoreHeadersRow", "_mUnknown_IgnoreHeadersRow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIgnoreHeadersRow;
+        private int? _mValue_IgnoreHeadersRow;
+        private bool _mUnknown_IgnoreHeadersRow;
+        public int? IgnoreHeadersRow
+        {
+            get
+            {
+                if (!_mUnknown_IgnoreHeadersRow) return _mValue_IgnoreHeadersRow;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.IgnoreHeadersRow' is not present");
+            }
+        }
 
-        public int? IgnoreHeadersRow => _mIgnoreHeadersRow.GetValue("ignoreHeadersRow");
-
-        [Input("includeOpForFullLoad")]
+        [PolicyResourceProperty("includeOpForFullLoad", "_mUnknown_IncludeOpForFullLoad")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeOpForFullLoad;
+        private bool? _mValue_IncludeOpForFullLoad;
+        private bool _mUnknown_IncludeOpForFullLoad;
+        public bool? IncludeOpForFullLoad
+        {
+            get
+            {
+                if (!_mUnknown_IncludeOpForFullLoad) return _mValue_IncludeOpForFullLoad;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.IncludeOpForFullLoad' is not present");
+            }
+        }
 
-        public bool? IncludeOpForFullLoad => _mIncludeOpForFullLoad.GetValue("includeOpForFullLoad");
-
-        [Input("maxFileSize")]
+        [PolicyResourceProperty("maxFileSize", "_mUnknown_MaxFileSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxFileSize;
+        private int? _mValue_MaxFileSize;
+        private bool _mUnknown_MaxFileSize;
+        public int? MaxFileSize
+        {
+            get
+            {
+                if (!_mUnknown_MaxFileSize) return _mValue_MaxFileSize;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.MaxFileSize' is not present");
+            }
+        }
 
-        public int? MaxFileSize => _mMaxFileSize.GetValue("maxFileSize");
-
-        [Input("parquetTimestampInMillisecond")]
+        [PolicyResourceProperty("parquetTimestampInMillisecond", "_mUnknown_ParquetTimestampInMillisecond")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mParquetTimestampInMillisecond;
+        private bool? _mValue_ParquetTimestampInMillisecond;
+        private bool _mUnknown_ParquetTimestampInMillisecond;
+        public bool? ParquetTimestampInMillisecond
+        {
+            get
+            {
+                if (!_mUnknown_ParquetTimestampInMillisecond) return _mValue_ParquetTimestampInMillisecond;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.ParquetTimestampInMillisecond' is not present");
+            }
+        }
 
-        public bool? ParquetTimestampInMillisecond => _mParquetTimestampInMillisecond.GetValue("parquetTimestampInMillisecond");
-
-        [Input("parquetVersion")]
+        [PolicyResourceProperty("parquetVersion", "_mUnknown_ParquetVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParquetVersion;
+        private string? _mValue_ParquetVersion;
+        private bool _mUnknown_ParquetVersion;
+        public string? ParquetVersion
+        {
+            get
+            {
+                if (!_mUnknown_ParquetVersion) return _mValue_ParquetVersion;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.ParquetVersion' is not present");
+            }
+        }
 
-        public string? ParquetVersion => _mParquetVersion.GetValue("parquetVersion");
-
-        [Input("preserveTransactions")]
+        [PolicyResourceProperty("preserveTransactions", "_mUnknown_PreserveTransactions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPreserveTransactions;
+        private bool? _mValue_PreserveTransactions;
+        private bool _mUnknown_PreserveTransactions;
+        public bool? PreserveTransactions
+        {
+            get
+            {
+                if (!_mUnknown_PreserveTransactions) return _mValue_PreserveTransactions;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.PreserveTransactions' is not present");
+            }
+        }
 
-        public bool? PreserveTransactions => _mPreserveTransactions.GetValue("preserveTransactions");
-
-        [Input("rfc4180")]
+        [PolicyResourceProperty("rfc4180", "_mUnknown_Rfc4180")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRfc4180;
+        private bool? _mValue_Rfc4180;
+        private bool _mUnknown_Rfc4180;
+        public bool? Rfc4180
+        {
+            get
+            {
+                if (!_mUnknown_Rfc4180) return _mValue_Rfc4180;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.Rfc4180' is not present");
+            }
+        }
 
-        public bool? Rfc4180 => _mRfc4180.GetValue("rfc4180");
-
-        [Input("rowGroupLength")]
+        [PolicyResourceProperty("rowGroupLength", "_mUnknown_RowGroupLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRowGroupLength;
+        private int? _mValue_RowGroupLength;
+        private bool _mUnknown_RowGroupLength;
+        public int? RowGroupLength
+        {
+            get
+            {
+                if (!_mUnknown_RowGroupLength) return _mValue_RowGroupLength;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.RowGroupLength' is not present");
+            }
+        }
 
-        public int? RowGroupLength => _mRowGroupLength.GetValue("rowGroupLength");
-
-        [Input("serverSideEncryptionKmsKeyId")]
+        [PolicyResourceProperty("serverSideEncryptionKmsKeyId", "_mUnknown_ServerSideEncryptionKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerSideEncryptionKmsKeyId;
+        private string? _mValue_ServerSideEncryptionKmsKeyId;
+        private bool _mUnknown_ServerSideEncryptionKmsKeyId;
+        public string? ServerSideEncryptionKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryptionKmsKeyId) return _mValue_ServerSideEncryptionKmsKeyId;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.ServerSideEncryptionKmsKeyId' is not present");
+            }
+        }
 
-        public string? ServerSideEncryptionKmsKeyId => _mServerSideEncryptionKmsKeyId.GetValue("serverSideEncryptionKmsKeyId");
-
-        [Input("serviceAccessRoleArn")]
+        [PolicyResourceProperty("serviceAccessRoleArn", "_mUnknown_ServiceAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccessRoleArn;
+        private string? _mValue_ServiceAccessRoleArn;
+        private bool _mUnknown_ServiceAccessRoleArn;
+        public string? ServiceAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccessRoleArn) return _mValue_ServiceAccessRoleArn;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.ServiceAccessRoleArn' is not present");
+            }
+        }
 
-        public string? ServiceAccessRoleArn => _mServiceAccessRoleArn.GetValue("serviceAccessRoleArn");
-
-        [Input("timestampColumnName")]
+        [PolicyResourceProperty("timestampColumnName", "_mUnknown_TimestampColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimestampColumnName;
+        private string? _mValue_TimestampColumnName;
+        private bool _mUnknown_TimestampColumnName;
+        public string? TimestampColumnName
+        {
+            get
+            {
+                if (!_mUnknown_TimestampColumnName) return _mValue_TimestampColumnName;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.TimestampColumnName' is not present");
+            }
+        }
 
-        public string? TimestampColumnName => _mTimestampColumnName.GetValue("timestampColumnName");
-
-        [Input("useCsvNoSupValue")]
+        [PolicyResourceProperty("useCsvNoSupValue", "_mUnknown_UseCsvNoSupValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseCsvNoSupValue;
+        private bool? _mValue_UseCsvNoSupValue;
+        private bool _mUnknown_UseCsvNoSupValue;
+        public bool? UseCsvNoSupValue
+        {
+            get
+            {
+                if (!_mUnknown_UseCsvNoSupValue) return _mValue_UseCsvNoSupValue;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.UseCsvNoSupValue' is not present");
+            }
+        }
 
-        public bool? UseCsvNoSupValue => _mUseCsvNoSupValue.GetValue("useCsvNoSupValue");
-
-        [Input("useTaskStartTimeForFullLoadTimestamp")]
+        [PolicyResourceProperty("useTaskStartTimeForFullLoadTimestamp", "_mUnknown_UseTaskStartTimeForFullLoadTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseTaskStartTimeForFullLoadTimestamp;
-
-        public bool? UseTaskStartTimeForFullLoadTimestamp => _mUseTaskStartTimeForFullLoadTimestamp.GetValue("useTaskStartTimeForFullLoadTimestamp");
+        private bool? _mValue_UseTaskStartTimeForFullLoadTimestamp;
+        private bool _mUnknown_UseTaskStartTimeForFullLoadTimestamp;
+        public bool? UseTaskStartTimeForFullLoadTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_UseTaskStartTimeForFullLoadTimestamp) return _mValue_UseTaskStartTimeForFullLoadTimestamp;
+                throw new UndeferrableValueException("Value 'GetEndpointS3SettingResult.UseTaskStartTimeForFullLoadTimestamp' is not present");
+            }
+        }
     }
 }

@@ -16,130 +16,228 @@ namespace Pulumi.PolicyPacks.Aws.Sns
         /// <summary>
         /// The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
         /// </summary>
-        [Input("applePlatformBundleId")]
+        [PolicyResourceProperty("applePlatformBundleId", "_mUnknown_ApplePlatformBundleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplePlatformBundleId;
-
-        public string? ApplePlatformBundleId => _mApplePlatformBundleId.GetValue("applePlatformBundleId");
+        private string? _mValue_ApplePlatformBundleId;
+        private bool _mUnknown_ApplePlatformBundleId;
+        public string? ApplePlatformBundleId
+        {
+            get
+            {
+                if (!_mUnknown_ApplePlatformBundleId) return _mValue_ApplePlatformBundleId;
+                throw new UndeferrableValueException("Value 'PlatformApplication.ApplePlatformBundleId' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
         /// </summary>
-        [Input("applePlatformTeamId")]
+        [PolicyResourceProperty("applePlatformTeamId", "_mUnknown_ApplePlatformTeamId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplePlatformTeamId;
-
-        public string? ApplePlatformTeamId => _mApplePlatformTeamId.GetValue("applePlatformTeamId");
+        private string? _mValue_ApplePlatformTeamId;
+        private bool _mUnknown_ApplePlatformTeamId;
+        public string? ApplePlatformTeamId
+        {
+            get
+            {
+                if (!_mUnknown_ApplePlatformTeamId) return _mValue_ApplePlatformTeamId;
+                throw new UndeferrableValueException("Value 'PlatformApplication.ApplePlatformTeamId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SNS platform application
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'PlatformApplication.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
         /// </summary>
-        [Input("eventDeliveryFailureTopicArn")]
+        [PolicyResourceProperty("eventDeliveryFailureTopicArn", "_mUnknown_EventDeliveryFailureTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventDeliveryFailureTopicArn;
-
-        public string? EventDeliveryFailureTopicArn => _mEventDeliveryFailureTopicArn.GetValue("eventDeliveryFailureTopicArn");
+        private string? _mValue_EventDeliveryFailureTopicArn;
+        private bool _mUnknown_EventDeliveryFailureTopicArn;
+        public string? EventDeliveryFailureTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_EventDeliveryFailureTopicArn) return _mValue_EventDeliveryFailureTopicArn;
+                throw new UndeferrableValueException("Value 'PlatformApplication.EventDeliveryFailureTopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
         /// </summary>
-        [Input("eventEndpointCreatedTopicArn")]
+        [PolicyResourceProperty("eventEndpointCreatedTopicArn", "_mUnknown_EventEndpointCreatedTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventEndpointCreatedTopicArn;
-
-        public string? EventEndpointCreatedTopicArn => _mEventEndpointCreatedTopicArn.GetValue("eventEndpointCreatedTopicArn");
+        private string? _mValue_EventEndpointCreatedTopicArn;
+        private bool _mUnknown_EventEndpointCreatedTopicArn;
+        public string? EventEndpointCreatedTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_EventEndpointCreatedTopicArn) return _mValue_EventEndpointCreatedTopicArn;
+                throw new UndeferrableValueException("Value 'PlatformApplication.EventEndpointCreatedTopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
         /// </summary>
-        [Input("eventEndpointDeletedTopicArn")]
+        [PolicyResourceProperty("eventEndpointDeletedTopicArn", "_mUnknown_EventEndpointDeletedTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventEndpointDeletedTopicArn;
-
-        public string? EventEndpointDeletedTopicArn => _mEventEndpointDeletedTopicArn.GetValue("eventEndpointDeletedTopicArn");
+        private string? _mValue_EventEndpointDeletedTopicArn;
+        private bool _mUnknown_EventEndpointDeletedTopicArn;
+        public string? EventEndpointDeletedTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_EventEndpointDeletedTopicArn) return _mValue_EventEndpointDeletedTopicArn;
+                throw new UndeferrableValueException("Value 'PlatformApplication.EventEndpointDeletedTopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
         /// </summary>
-        [Input("eventEndpointUpdatedTopicArn")]
+        [PolicyResourceProperty("eventEndpointUpdatedTopicArn", "_mUnknown_EventEndpointUpdatedTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventEndpointUpdatedTopicArn;
-
-        public string? EventEndpointUpdatedTopicArn => _mEventEndpointUpdatedTopicArn.GetValue("eventEndpointUpdatedTopicArn");
+        private string? _mValue_EventEndpointUpdatedTopicArn;
+        private bool _mUnknown_EventEndpointUpdatedTopicArn;
+        public string? EventEndpointUpdatedTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_EventEndpointUpdatedTopicArn) return _mValue_EventEndpointUpdatedTopicArn;
+                throw new UndeferrableValueException("Value 'PlatformApplication.EventEndpointUpdatedTopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         /// </summary>
-        [Input("failureFeedbackRoleArn")]
+        [PolicyResourceProperty("failureFeedbackRoleArn", "_mUnknown_FailureFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFailureFeedbackRoleArn;
-
-        public string? FailureFeedbackRoleArn => _mFailureFeedbackRoleArn.GetValue("failureFeedbackRoleArn");
+        private string? _mValue_FailureFeedbackRoleArn;
+        private bool _mUnknown_FailureFeedbackRoleArn;
+        public string? FailureFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_FailureFeedbackRoleArn) return _mValue_FailureFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'PlatformApplication.FailureFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The friendly name for the SNS platform application
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PlatformApplication.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
         /// </summary>
-        [Input("platform")]
+        [PolicyResourceProperty("platform", "_mUnknown_Platform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
-
-        public string? Platform => _mPlatform.GetValue("platform");
+        private string? _mValue_Platform;
+        private bool _mUnknown_Platform;
+        public string? Platform
+        {
+            get
+            {
+                if (!_mUnknown_Platform) return _mValue_Platform;
+                throw new UndeferrableValueException("Value 'PlatformApplication.Platform' is not present");
+            }
+        }
 
         /// <summary>
         /// Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         /// </summary>
-        [Input("platformCredential")]
+        [PolicyResourceProperty("platformCredential", "_mUnknown_PlatformCredential")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformCredential;
-
-        public string? PlatformCredential => _mPlatformCredential.GetValue("platformCredential");
+        private string? _mValue_PlatformCredential;
+        private bool _mUnknown_PlatformCredential;
+        public string? PlatformCredential
+        {
+            get
+            {
+                if (!_mUnknown_PlatformCredential) return _mValue_PlatformCredential;
+                throw new UndeferrableValueException("Value 'PlatformApplication.PlatformCredential' is not present");
+            }
+        }
 
         /// <summary>
         /// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         /// </summary>
-        [Input("platformPrincipal")]
+        [PolicyResourceProperty("platformPrincipal", "_mUnknown_PlatformPrincipal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformPrincipal;
-
-        public string? PlatformPrincipal => _mPlatformPrincipal.GetValue("platformPrincipal");
+        private string? _mValue_PlatformPrincipal;
+        private bool _mUnknown_PlatformPrincipal;
+        public string? PlatformPrincipal
+        {
+            get
+            {
+                if (!_mUnknown_PlatformPrincipal) return _mValue_PlatformPrincipal;
+                throw new UndeferrableValueException("Value 'PlatformApplication.PlatformPrincipal' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         /// </summary>
-        [Input("successFeedbackRoleArn")]
+        [PolicyResourceProperty("successFeedbackRoleArn", "_mUnknown_SuccessFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSuccessFeedbackRoleArn;
-
-        public string? SuccessFeedbackRoleArn => _mSuccessFeedbackRoleArn.GetValue("successFeedbackRoleArn");
+        private string? _mValue_SuccessFeedbackRoleArn;
+        private bool _mUnknown_SuccessFeedbackRoleArn;
+        public string? SuccessFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_SuccessFeedbackRoleArn) return _mValue_SuccessFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'PlatformApplication.SuccessFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The sample rate percentage (0-100) of successfully delivered messages.
         /// 
         /// The following attributes are needed only when using APNS token credentials:
         /// </summary>
-        [Input("successFeedbackSampleRate")]
+        [PolicyResourceProperty("successFeedbackSampleRate", "_mUnknown_SuccessFeedbackSampleRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSuccessFeedbackSampleRate;
-
-        public string? SuccessFeedbackSampleRate => _mSuccessFeedbackSampleRate.GetValue("successFeedbackSampleRate");
+        private string? _mValue_SuccessFeedbackSampleRate;
+        private bool _mUnknown_SuccessFeedbackSampleRate;
+        public string? SuccessFeedbackSampleRate
+        {
+            get
+            {
+                if (!_mUnknown_SuccessFeedbackSampleRate) return _mValue_SuccessFeedbackSampleRate;
+                throw new UndeferrableValueException("Value 'PlatformApplication.SuccessFeedbackSampleRate' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sns/platformApplication:PlatformApplication")]
@@ -148,120 +246,211 @@ namespace Pulumi.PolicyPacks.Aws.Sns
         /// <summary>
         /// The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
         /// </summary>
-        [Input("applePlatformBundleId")]
+        [PolicyResourceProperty("applePlatformBundleId", "_mUnknown_ApplePlatformBundleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplePlatformBundleId;
-
-        public string? ApplePlatformBundleId => _mApplePlatformBundleId.GetValue("applePlatformBundleId");
+        private string? _mValue_ApplePlatformBundleId;
+        private bool _mUnknown_ApplePlatformBundleId;
+        public string? ApplePlatformBundleId
+        {
+            get
+            {
+                if (!_mUnknown_ApplePlatformBundleId) return _mValue_ApplePlatformBundleId;
+                throw new UndeferrableValueException("Value 'PlatformApplicationArgs.ApplePlatformBundleId' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
         /// </summary>
-        [Input("applePlatformTeamId")]
+        [PolicyResourceProperty("applePlatformTeamId", "_mUnknown_ApplePlatformTeamId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplePlatformTeamId;
-
-        public string? ApplePlatformTeamId => _mApplePlatformTeamId.GetValue("applePlatformTeamId");
+        private string? _mValue_ApplePlatformTeamId;
+        private bool _mUnknown_ApplePlatformTeamId;
+        public string? ApplePlatformTeamId
+        {
+            get
+            {
+                if (!_mUnknown_ApplePlatformTeamId) return _mValue_ApplePlatformTeamId;
+                throw new UndeferrableValueException("Value 'PlatformApplicationArgs.ApplePlatformTeamId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
         /// </summary>
-        [Input("eventDeliveryFailureTopicArn")]
+        [PolicyResourceProperty("eventDeliveryFailureTopicArn", "_mUnknown_EventDeliveryFailureTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventDeliveryFailureTopicArn;
-
-        public string? EventDeliveryFailureTopicArn => _mEventDeliveryFailureTopicArn.GetValue("eventDeliveryFailureTopicArn");
+        private string? _mValue_EventDeliveryFailureTopicArn;
+        private bool _mUnknown_EventDeliveryFailureTopicArn;
+        public string? EventDeliveryFailureTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_EventDeliveryFailureTopicArn) return _mValue_EventDeliveryFailureTopicArn;
+                throw new UndeferrableValueException("Value 'PlatformApplicationArgs.EventDeliveryFailureTopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
         /// </summary>
-        [Input("eventEndpointCreatedTopicArn")]
+        [PolicyResourceProperty("eventEndpointCreatedTopicArn", "_mUnknown_EventEndpointCreatedTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventEndpointCreatedTopicArn;
-
-        public string? EventEndpointCreatedTopicArn => _mEventEndpointCreatedTopicArn.GetValue("eventEndpointCreatedTopicArn");
+        private string? _mValue_EventEndpointCreatedTopicArn;
+        private bool _mUnknown_EventEndpointCreatedTopicArn;
+        public string? EventEndpointCreatedTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_EventEndpointCreatedTopicArn) return _mValue_EventEndpointCreatedTopicArn;
+                throw new UndeferrableValueException("Value 'PlatformApplicationArgs.EventEndpointCreatedTopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
         /// </summary>
-        [Input("eventEndpointDeletedTopicArn")]
+        [PolicyResourceProperty("eventEndpointDeletedTopicArn", "_mUnknown_EventEndpointDeletedTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventEndpointDeletedTopicArn;
-
-        public string? EventEndpointDeletedTopicArn => _mEventEndpointDeletedTopicArn.GetValue("eventEndpointDeletedTopicArn");
+        private string? _mValue_EventEndpointDeletedTopicArn;
+        private bool _mUnknown_EventEndpointDeletedTopicArn;
+        public string? EventEndpointDeletedTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_EventEndpointDeletedTopicArn) return _mValue_EventEndpointDeletedTopicArn;
+                throw new UndeferrableValueException("Value 'PlatformApplicationArgs.EventEndpointDeletedTopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
         /// </summary>
-        [Input("eventEndpointUpdatedTopicArn")]
+        [PolicyResourceProperty("eventEndpointUpdatedTopicArn", "_mUnknown_EventEndpointUpdatedTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventEndpointUpdatedTopicArn;
-
-        public string? EventEndpointUpdatedTopicArn => _mEventEndpointUpdatedTopicArn.GetValue("eventEndpointUpdatedTopicArn");
+        private string? _mValue_EventEndpointUpdatedTopicArn;
+        private bool _mUnknown_EventEndpointUpdatedTopicArn;
+        public string? EventEndpointUpdatedTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_EventEndpointUpdatedTopicArn) return _mValue_EventEndpointUpdatedTopicArn;
+                throw new UndeferrableValueException("Value 'PlatformApplicationArgs.EventEndpointUpdatedTopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         /// </summary>
-        [Input("failureFeedbackRoleArn")]
+        [PolicyResourceProperty("failureFeedbackRoleArn", "_mUnknown_FailureFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFailureFeedbackRoleArn;
-
-        public string? FailureFeedbackRoleArn => _mFailureFeedbackRoleArn.GetValue("failureFeedbackRoleArn");
+        private string? _mValue_FailureFeedbackRoleArn;
+        private bool _mUnknown_FailureFeedbackRoleArn;
+        public string? FailureFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_FailureFeedbackRoleArn) return _mValue_FailureFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'PlatformApplicationArgs.FailureFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The friendly name for the SNS platform application
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PlatformApplicationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
         /// </summary>
-        [Input("platform")]
+        [PolicyResourceProperty("platform", "_mUnknown_Platform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
-
-        public string? Platform => _mPlatform.GetValue("platform");
+        private string? _mValue_Platform;
+        private bool _mUnknown_Platform;
+        public string? Platform
+        {
+            get
+            {
+                if (!_mUnknown_Platform) return _mValue_Platform;
+                throw new UndeferrableValueException("Value 'PlatformApplicationArgs.Platform' is not present");
+            }
+        }
 
         /// <summary>
         /// Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         /// </summary>
-        [Input("platformCredential")]
+        [PolicyResourceProperty("platformCredential", "_mUnknown_PlatformCredential")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformCredential;
-
-        public string? PlatformCredential => _mPlatformCredential.GetValue("platformCredential");
+        private string? _mValue_PlatformCredential;
+        private bool _mUnknown_PlatformCredential;
+        public string? PlatformCredential
+        {
+            get
+            {
+                if (!_mUnknown_PlatformCredential) return _mValue_PlatformCredential;
+                throw new UndeferrableValueException("Value 'PlatformApplicationArgs.PlatformCredential' is not present");
+            }
+        }
 
         /// <summary>
         /// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         /// </summary>
-        [Input("platformPrincipal")]
+        [PolicyResourceProperty("platformPrincipal", "_mUnknown_PlatformPrincipal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformPrincipal;
-
-        public string? PlatformPrincipal => _mPlatformPrincipal.GetValue("platformPrincipal");
+        private string? _mValue_PlatformPrincipal;
+        private bool _mUnknown_PlatformPrincipal;
+        public string? PlatformPrincipal
+        {
+            get
+            {
+                if (!_mUnknown_PlatformPrincipal) return _mValue_PlatformPrincipal;
+                throw new UndeferrableValueException("Value 'PlatformApplicationArgs.PlatformPrincipal' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         /// </summary>
-        [Input("successFeedbackRoleArn")]
+        [PolicyResourceProperty("successFeedbackRoleArn", "_mUnknown_SuccessFeedbackRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSuccessFeedbackRoleArn;
-
-        public string? SuccessFeedbackRoleArn => _mSuccessFeedbackRoleArn.GetValue("successFeedbackRoleArn");
+        private string? _mValue_SuccessFeedbackRoleArn;
+        private bool _mUnknown_SuccessFeedbackRoleArn;
+        public string? SuccessFeedbackRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_SuccessFeedbackRoleArn) return _mValue_SuccessFeedbackRoleArn;
+                throw new UndeferrableValueException("Value 'PlatformApplicationArgs.SuccessFeedbackRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The sample rate percentage (0-100) of successfully delivered messages.
         /// 
         /// The following attributes are needed only when using APNS token credentials:
         /// </summary>
-        [Input("successFeedbackSampleRate")]
+        [PolicyResourceProperty("successFeedbackSampleRate", "_mUnknown_SuccessFeedbackSampleRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSuccessFeedbackSampleRate;
-
-        public string? SuccessFeedbackSampleRate => _mSuccessFeedbackSampleRate.GetValue("successFeedbackSampleRate");
+        private string? _mValue_SuccessFeedbackSampleRate;
+        private bool _mUnknown_SuccessFeedbackSampleRate;
+        public string? SuccessFeedbackSampleRate
+        {
+            get
+            {
+                if (!_mUnknown_SuccessFeedbackSampleRate) return _mValue_SuccessFeedbackSampleRate;
+                throw new UndeferrableValueException("Value 'PlatformApplicationArgs.SuccessFeedbackSampleRate' is not present");
+            }
+        }
     }
 }

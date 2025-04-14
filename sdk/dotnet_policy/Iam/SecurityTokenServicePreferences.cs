@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
         /// </summary>
-        [Input("globalEndpointTokenVersion")]
+        [PolicyResourceProperty("globalEndpointTokenVersion", "_mUnknown_GlobalEndpointTokenVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalEndpointTokenVersion;
-
-        public string? GlobalEndpointTokenVersion => _mGlobalEndpointTokenVersion.GetValue("globalEndpointTokenVersion");
+        private string? _mValue_GlobalEndpointTokenVersion;
+        private bool _mUnknown_GlobalEndpointTokenVersion;
+        public string? GlobalEndpointTokenVersion
+        {
+            get
+            {
+                if (!_mUnknown_GlobalEndpointTokenVersion) return _mValue_GlobalEndpointTokenVersion;
+                throw new UndeferrableValueException("Value 'SecurityTokenServicePreferences.GlobalEndpointTokenVersion' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
         /// </summary>
-        [Input("globalEndpointTokenVersion")]
+        [PolicyResourceProperty("globalEndpointTokenVersion", "_mUnknown_GlobalEndpointTokenVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalEndpointTokenVersion;
-
-        public string? GlobalEndpointTokenVersion => _mGlobalEndpointTokenVersion.GetValue("globalEndpointTokenVersion");
+        private string? _mValue_GlobalEndpointTokenVersion;
+        private bool _mUnknown_GlobalEndpointTokenVersion;
+        public string? GlobalEndpointTokenVersion
+        {
+            get
+            {
+                if (!_mUnknown_GlobalEndpointTokenVersion) return _mValue_GlobalEndpointTokenVersion;
+                throw new UndeferrableValueException("Value 'SecurityTokenServicePreferencesArgs.GlobalEndpointTokenVersion' is not present");
+            }
+        }
     }
 }

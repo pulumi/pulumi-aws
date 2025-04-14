@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Outputs
         /// <summary>
         /// Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
         /// </summary>
-        [Input("invocationType")]
+        [PolicyResourceProperty("invocationType", "_mUnknown_InvocationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInvocationType;
-
-        public string? InvocationType => _mInvocationType.GetValue("invocationType");
+        private string? _mValue_InvocationType;
+        private bool _mUnknown_InvocationType;
+        public string? InvocationType
+        {
+            get
+            {
+                if (!_mUnknown_InvocationType) return _mValue_InvocationType;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersStepFunctionStateMachineParameters.InvocationType' is not present");
+            }
+        }
     }
 }

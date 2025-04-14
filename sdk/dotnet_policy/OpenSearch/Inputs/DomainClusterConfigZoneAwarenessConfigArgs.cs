@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Inputs
         /// <summary>
         /// Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
         /// </summary>
-        [Input("availabilityZoneCount")]
+        [PolicyResourceProperty("availabilityZoneCount", "_mUnknown_AvailabilityZoneCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAvailabilityZoneCount;
-
-        public int? AvailabilityZoneCount => _mAvailabilityZoneCount.GetValue("availabilityZoneCount");
+        private int? _mValue_AvailabilityZoneCount;
+        private bool _mUnknown_AvailabilityZoneCount;
+        public int? AvailabilityZoneCount
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZoneCount) return _mValue_AvailabilityZoneCount;
+                throw new UndeferrableValueException("Value 'DomainClusterConfigZoneAwarenessConfigArgs.AvailabilityZoneCount' is not present");
+            }
+        }
     }
 }

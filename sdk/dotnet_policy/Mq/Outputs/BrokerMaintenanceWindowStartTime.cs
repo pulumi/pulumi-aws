@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Mq.Outputs
         /// <summary>
         /// Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
         /// </summary>
-        [Input("dayOfWeek")]
+        [PolicyResourceProperty("dayOfWeek", "_mUnknown_DayOfWeek")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDayOfWeek;
-
-        public string? DayOfWeek => _mDayOfWeek.GetValue("dayOfWeek");
+        private string? _mValue_DayOfWeek;
+        private bool _mUnknown_DayOfWeek;
+        public string? DayOfWeek
+        {
+            get
+            {
+                if (!_mUnknown_DayOfWeek) return _mValue_DayOfWeek;
+                throw new UndeferrableValueException("Value 'BrokerMaintenanceWindowStartTime.DayOfWeek' is not present");
+            }
+        }
 
         /// <summary>
         /// Time, in 24-hour format, e.g., `02:00`.
         /// </summary>
-        [Input("timeOfDay")]
+        [PolicyResourceProperty("timeOfDay", "_mUnknown_TimeOfDay")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeOfDay;
-
-        public string? TimeOfDay => _mTimeOfDay.GetValue("timeOfDay");
+        private string? _mValue_TimeOfDay;
+        private bool _mUnknown_TimeOfDay;
+        public string? TimeOfDay
+        {
+            get
+            {
+                if (!_mUnknown_TimeOfDay) return _mValue_TimeOfDay;
+                throw new UndeferrableValueException("Value 'BrokerMaintenanceWindowStartTime.TimeOfDay' is not present");
+            }
+        }
 
         /// <summary>
         /// Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
         /// </summary>
-        [Input("timeZone")]
+        [PolicyResourceProperty("timeZone", "_mUnknown_TimeZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeZone;
-
-        public string? TimeZone => _mTimeZone.GetValue("timeZone");
+        private string? _mValue_TimeZone;
+        private bool _mUnknown_TimeZone;
+        public string? TimeZone
+        {
+            get
+            {
+                if (!_mUnknown_TimeZone) return _mValue_TimeZone;
+                throw new UndeferrableValueException("Value 'BrokerMaintenanceWindowStartTime.TimeZone' is not present");
+            }
+        }
     }
 }

@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// <summary>
         /// The ARN of the DynamoDB Global Table
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'GlobalTable.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the global table. Must match underlying DynamoDB Table names in all regions.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GlobalTable.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         /// </summary>
-        [Input("replicas")]
+        [PolicyResourceProperty("replicas", "_mUnknown_Replicas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GlobalTableReplica>> _mReplicas;
-
-        public List<Outputs.GlobalTableReplica>? Replicas => _mReplicas.GetValue("replicas");
+        private List<Outputs.GlobalTableReplica>? _mValue_Replicas;
+        private bool _mUnknown_Replicas;
+        public List<Outputs.GlobalTableReplica>? Replicas
+        {
+            get
+            {
+                if (!_mUnknown_Replicas) return _mValue_Replicas;
+                throw new UndeferrableValueException("Value 'GlobalTable.Replicas' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:dynamodb/globalTable:GlobalTable")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// <summary>
         /// The name of the global table. Must match underlying DynamoDB Table names in all regions.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GlobalTableArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         /// </summary>
-        [Input("replicas")]
+        [PolicyResourceProperty("replicas", "_mUnknown_Replicas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GlobalTableReplicaArgs>> _mReplicas;
-
-        public List<Inputs.GlobalTableReplicaArgs>? Replicas => _mReplicas.GetValue("replicas");
+        private List<Inputs.GlobalTableReplicaArgs>? _mValue_Replicas;
+        private bool _mUnknown_Replicas;
+        public List<Inputs.GlobalTableReplicaArgs>? Replicas
+        {
+            get
+            {
+                if (!_mUnknown_Replicas) return _mValue_Replicas;
+                throw new UndeferrableValueException("Value 'GlobalTableArgs.Replicas' is not present");
+            }
+        }
     }
 }

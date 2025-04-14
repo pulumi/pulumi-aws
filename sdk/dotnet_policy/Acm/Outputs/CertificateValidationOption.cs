@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Acm.Outputs
         /// <summary>
         /// Fully qualified domain name (FQDN) in the certificate.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'CertificateValidationOption.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
         /// </summary>
-        [Input("validationDomain")]
+        [PolicyResourceProperty("validationDomain", "_mUnknown_ValidationDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValidationDomain;
-
-        public string? ValidationDomain => _mValidationDomain.GetValue("validationDomain");
+        private string? _mValue_ValidationDomain;
+        private bool _mUnknown_ValidationDomain;
+        public string? ValidationDomain
+        {
+            get
+            {
+                if (!_mUnknown_ValidationDomain) return _mValue_ValidationDomain;
+                throw new UndeferrableValueException("Value 'CertificateValidationOption.ValidationDomain' is not present");
+            }
+        }
     }
 }

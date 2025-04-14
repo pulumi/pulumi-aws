@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Ivs.Inputs
         /// <summary>
         /// S3 destination configuration where recorded videos will be stored.
         /// </summary>
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RecordingConfigurationDestinationConfigurationS3Args> _mS3;
-
-        public Inputs.RecordingConfigurationDestinationConfigurationS3Args? S3 => _mS3.GetValue("s3");
+        private Inputs.RecordingConfigurationDestinationConfigurationS3Args? _mValue_S3;
+        private bool _mUnknown_S3;
+        public Inputs.RecordingConfigurationDestinationConfigurationS3Args? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'RecordingConfigurationDestinationConfigurationArgs.S3' is not present");
+            }
+        }
     }
 }

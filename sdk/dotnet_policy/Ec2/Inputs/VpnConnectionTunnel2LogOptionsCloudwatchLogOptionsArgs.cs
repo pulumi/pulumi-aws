@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// Enable or disable VPN tunnel logging feature. The default is `false`.
         /// </summary>
-        [Input("logEnabled")]
+        [PolicyResourceProperty("logEnabled", "_mUnknown_LogEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mLogEnabled;
-
-        public bool? LogEnabled => _mLogEnabled.GetValue("logEnabled");
+        private bool? _mValue_LogEnabled;
+        private bool _mUnknown_LogEnabled;
+        public bool? LogEnabled
+        {
+            get
+            {
+                if (!_mUnknown_LogEnabled) return _mValue_LogEnabled;
+                throw new UndeferrableValueException("Value 'VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs.LogEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
         /// </summary>
-        [Input("logGroupArn")]
+        [PolicyResourceProperty("logGroupArn", "_mUnknown_LogGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupArn;
-
-        public string? LogGroupArn => _mLogGroupArn.GetValue("logGroupArn");
+        private string? _mValue_LogGroupArn;
+        private bool _mUnknown_LogGroupArn;
+        public string? LogGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupArn) return _mValue_LogGroupArn;
+                throw new UndeferrableValueException("Value 'VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs.LogGroupArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
         /// </summary>
-        [Input("logOutputFormat")]
+        [PolicyResourceProperty("logOutputFormat", "_mUnknown_LogOutputFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogOutputFormat;
-
-        public string? LogOutputFormat => _mLogOutputFormat.GetValue("logOutputFormat");
+        private string? _mValue_LogOutputFormat;
+        private bool _mUnknown_LogOutputFormat;
+        public string? LogOutputFormat
+        {
+            get
+            {
+                if (!_mUnknown_LogOutputFormat) return _mValue_LogOutputFormat;
+                throw new UndeferrableValueException("Value 'VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs.LogOutputFormat' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
         /// </summary>
-        [Input("authorizationConfig")]
+        [PolicyResourceProperty("authorizationConfig", "_mUnknown_AuthorizationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig> _mAuthorizationConfig;
-
-        public Outputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig? AuthorizationConfig => _mAuthorizationConfig.GetValue("authorizationConfig");
+        private Outputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig? _mValue_AuthorizationConfig;
+        private bool _mUnknown_AuthorizationConfig;
+        public Outputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig? AuthorizationConfig
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizationConfig) return _mValue_AuthorizationConfig;
+                throw new UndeferrableValueException("Value 'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration.AuthorizationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon FSx for Windows File Server file system ID to use.
         /// </summary>
-        [Input("fileSystemId")]
+        [PolicyResourceProperty("fileSystemId", "_mUnknown_FileSystemId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
-
-        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+        private string? _mValue_FileSystemId;
+        private bool _mUnknown_FileSystemId;
+        public string? FileSystemId
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemId) return _mValue_FileSystemId;
+                throw new UndeferrableValueException("Value 'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration.FileSystemId' is not present");
+            }
+        }
 
         /// <summary>
         /// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
         /// </summary>
-        [Input("rootDirectory")]
+        [PolicyResourceProperty("rootDirectory", "_mUnknown_RootDirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRootDirectory;
-
-        public string? RootDirectory => _mRootDirectory.GetValue("rootDirectory");
+        private string? _mValue_RootDirectory;
+        private bool _mUnknown_RootDirectory;
+        public string? RootDirectory
+        {
+            get
+            {
+                if (!_mUnknown_RootDirectory) return _mValue_RootDirectory;
+                throw new UndeferrableValueException("Value 'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration.RootDirectory' is not present");
+            }
+        }
     }
 }

@@ -16,40 +16,68 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         /// </summary>
-        [Input("acceptLanguage")]
+        [PolicyResourceProperty("acceptLanguage", "_mUnknown_AcceptLanguage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
-
-        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
+        private string? _mValue_AcceptLanguage;
+        private bool _mUnknown_AcceptLanguage;
+        public string? AcceptLanguage
+        {
+            get
+            {
+                if (!_mUnknown_AcceptLanguage) return _mValue_AcceptLanguage;
+                throw new UndeferrableValueException("Value 'PrincipalPortfolioAssociation.AcceptLanguage' is not present");
+            }
+        }
 
         /// <summary>
         /// Portfolio identifier.
         /// </summary>
-        [Input("portfolioId")]
+        [PolicyResourceProperty("portfolioId", "_mUnknown_PortfolioId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPortfolioId;
-
-        public string? PortfolioId => _mPortfolioId.GetValue("portfolioId");
+        private string? _mValue_PortfolioId;
+        private bool _mUnknown_PortfolioId;
+        public string? PortfolioId
+        {
+            get
+            {
+                if (!_mUnknown_PortfolioId) return _mValue_PortfolioId;
+                throw new UndeferrableValueException("Value 'PrincipalPortfolioAssociation.PortfolioId' is not present");
+            }
+        }
 
         /// <summary>
         /// Principal ARN.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("principalArn")]
+        [PolicyResourceProperty("principalArn", "_mUnknown_PrincipalArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalArn;
-
-        public string? PrincipalArn => _mPrincipalArn.GetValue("principalArn");
+        private string? _mValue_PrincipalArn;
+        private bool _mUnknown_PrincipalArn;
+        public string? PrincipalArn
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalArn) return _mValue_PrincipalArn;
+                throw new UndeferrableValueException("Value 'PrincipalPortfolioAssociation.PrincipalArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         /// </summary>
-        [Input("principalType")]
+        [PolicyResourceProperty("principalType", "_mUnknown_PrincipalType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalType;
-
-        public string? PrincipalType => _mPrincipalType.GetValue("principalType");
+        private string? _mValue_PrincipalType;
+        private bool _mUnknown_PrincipalType;
+        public string? PrincipalType
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalType) return _mValue_PrincipalType;
+                throw new UndeferrableValueException("Value 'PrincipalPortfolioAssociation.PrincipalType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation")]
@@ -58,39 +86,67 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         /// </summary>
-        [Input("acceptLanguage")]
+        [PolicyResourceProperty("acceptLanguage", "_mUnknown_AcceptLanguage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
-
-        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
+        private string? _mValue_AcceptLanguage;
+        private bool _mUnknown_AcceptLanguage;
+        public string? AcceptLanguage
+        {
+            get
+            {
+                if (!_mUnknown_AcceptLanguage) return _mValue_AcceptLanguage;
+                throw new UndeferrableValueException("Value 'PrincipalPortfolioAssociationArgs.AcceptLanguage' is not present");
+            }
+        }
 
         /// <summary>
         /// Portfolio identifier.
         /// </summary>
-        [Input("portfolioId")]
+        [PolicyResourceProperty("portfolioId", "_mUnknown_PortfolioId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPortfolioId;
-
-        public string? PortfolioId => _mPortfolioId.GetValue("portfolioId");
+        private string? _mValue_PortfolioId;
+        private bool _mUnknown_PortfolioId;
+        public string? PortfolioId
+        {
+            get
+            {
+                if (!_mUnknown_PortfolioId) return _mValue_PortfolioId;
+                throw new UndeferrableValueException("Value 'PrincipalPortfolioAssociationArgs.PortfolioId' is not present");
+            }
+        }
 
         /// <summary>
         /// Principal ARN.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("principalArn")]
+        [PolicyResourceProperty("principalArn", "_mUnknown_PrincipalArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalArn;
-
-        public string? PrincipalArn => _mPrincipalArn.GetValue("principalArn");
+        private string? _mValue_PrincipalArn;
+        private bool _mUnknown_PrincipalArn;
+        public string? PrincipalArn
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalArn) return _mValue_PrincipalArn;
+                throw new UndeferrableValueException("Value 'PrincipalPortfolioAssociationArgs.PrincipalArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         /// </summary>
-        [Input("principalType")]
+        [PolicyResourceProperty("principalType", "_mUnknown_PrincipalType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalType;
-
-        public string? PrincipalType => _mPrincipalType.GetValue("principalType");
+        private string? _mValue_PrincipalType;
+        private bool _mUnknown_PrincipalType;
+        public string? PrincipalType
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalType) return _mValue_PrincipalType;
+                throw new UndeferrableValueException("Value 'PrincipalPortfolioAssociationArgs.PrincipalType' is not present");
+            }
+        }
     }
 }

@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// <summary>
         /// The description of the user group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'UserGroup.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the user group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UserGroup.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The precedence of the user group.
         /// </summary>
-        [Input("precedence")]
+        [PolicyResourceProperty("precedence", "_mUnknown_Precedence")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPrecedence;
-
-        public int? Precedence => _mPrecedence.GetValue("precedence");
+        private int? _mValue_Precedence;
+        private bool _mUnknown_Precedence;
+        public int? Precedence
+        {
+            get
+            {
+                if (!_mUnknown_Precedence) return _mValue_Precedence;
+                throw new UndeferrableValueException("Value 'UserGroup.Precedence' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role to be associated with the user group.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'UserGroup.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The user pool ID.
         /// </summary>
-        [Input("userPoolId")]
+        [PolicyResourceProperty("userPoolId", "_mUnknown_UserPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
-
-        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+        private string? _mValue_UserPoolId;
+        private bool _mUnknown_UserPoolId;
+        public string? UserPoolId
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolId) return _mValue_UserPoolId;
+                throw new UndeferrableValueException("Value 'UserGroup.UserPoolId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cognito/userGroup:UserGroup")]
@@ -65,46 +100,81 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// <summary>
         /// The description of the user group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'UserGroupArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the user group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UserGroupArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The precedence of the user group.
         /// </summary>
-        [Input("precedence")]
+        [PolicyResourceProperty("precedence", "_mUnknown_Precedence")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPrecedence;
-
-        public int? Precedence => _mPrecedence.GetValue("precedence");
+        private int? _mValue_Precedence;
+        private bool _mUnknown_Precedence;
+        public int? Precedence
+        {
+            get
+            {
+                if (!_mUnknown_Precedence) return _mValue_Precedence;
+                throw new UndeferrableValueException("Value 'UserGroupArgs.Precedence' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role to be associated with the user group.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'UserGroupArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The user pool ID.
         /// </summary>
-        [Input("userPoolId")]
+        [PolicyResourceProperty("userPoolId", "_mUnknown_UserPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
-
-        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+        private string? _mValue_UserPoolId;
+        private bool _mUnknown_UserPoolId;
+        public string? UserPoolId
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolId) return _mValue_UserPoolId;
+                throw new UndeferrableValueException("Value 'UserGroupArgs.UserPoolId' is not present");
+            }
+        }
     }
 }

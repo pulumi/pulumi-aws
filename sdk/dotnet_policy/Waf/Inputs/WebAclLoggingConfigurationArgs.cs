@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Waf.Inputs
         /// <summary>
         /// Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
         /// </summary>
-        [Input("logDestination")]
+        [PolicyResourceProperty("logDestination", "_mUnknown_LogDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogDestination;
-
-        public string? LogDestination => _mLogDestination.GetValue("logDestination");
+        private string? _mValue_LogDestination;
+        private bool _mUnknown_LogDestination;
+        public string? LogDestination
+        {
+            get
+            {
+                if (!_mUnknown_LogDestination) return _mValue_LogDestination;
+                throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationArgs.LogDestination' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
         /// </summary>
-        [Input("redactedFields")]
+        [PolicyResourceProperty("redactedFields", "_mUnknown_RedactedFields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclLoggingConfigurationRedactedFieldsArgs> _mRedactedFields;
-
-        public Inputs.WebAclLoggingConfigurationRedactedFieldsArgs? RedactedFields => _mRedactedFields.GetValue("redactedFields");
+        private Inputs.WebAclLoggingConfigurationRedactedFieldsArgs? _mValue_RedactedFields;
+        private bool _mUnknown_RedactedFields;
+        public Inputs.WebAclLoggingConfigurationRedactedFieldsArgs? RedactedFields
+        {
+            get
+            {
+                if (!_mUnknown_RedactedFields) return _mValue_RedactedFields;
+                throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationArgs.RedactedFields' is not present");
+            }
+        }
     }
 }

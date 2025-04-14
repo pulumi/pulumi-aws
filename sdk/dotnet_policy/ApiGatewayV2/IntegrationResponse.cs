@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// <summary>
         /// API identifier.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'IntegrationResponse.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
         /// </summary>
-        [Input("contentHandlingStrategy")]
+        [PolicyResourceProperty("contentHandlingStrategy", "_mUnknown_ContentHandlingStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentHandlingStrategy;
-
-        public string? ContentHandlingStrategy => _mContentHandlingStrategy.GetValue("contentHandlingStrategy");
+        private string? _mValue_ContentHandlingStrategy;
+        private bool _mUnknown_ContentHandlingStrategy;
+        public string? ContentHandlingStrategy
+        {
+            get
+            {
+                if (!_mUnknown_ContentHandlingStrategy) return _mValue_ContentHandlingStrategy;
+                throw new UndeferrableValueException("Value 'IntegrationResponse.ContentHandlingStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the `aws.apigatewayv2.Integration`.
         /// </summary>
-        [Input("integrationId")]
+        [PolicyResourceProperty("integrationId", "_mUnknown_IntegrationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationId;
-
-        public string? IntegrationId => _mIntegrationId.GetValue("integrationId");
+        private string? _mValue_IntegrationId;
+        private bool _mUnknown_IntegrationId;
+        public string? IntegrationId
+        {
+            get
+            {
+                if (!_mUnknown_IntegrationId) return _mValue_IntegrationId;
+                throw new UndeferrableValueException("Value 'IntegrationResponse.IntegrationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Integration response key.
         /// </summary>
-        [Input("integrationResponseKey")]
+        [PolicyResourceProperty("integrationResponseKey", "_mUnknown_IntegrationResponseKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationResponseKey;
-
-        public string? IntegrationResponseKey => _mIntegrationResponseKey.GetValue("integrationResponseKey");
+        private string? _mValue_IntegrationResponseKey;
+        private bool _mUnknown_IntegrationResponseKey;
+        public string? IntegrationResponseKey
+        {
+            get
+            {
+                if (!_mUnknown_IntegrationResponseKey) return _mValue_IntegrationResponseKey;
+                throw new UndeferrableValueException("Value 'IntegrationResponse.IntegrationResponseKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         /// </summary>
-        [Input("responseTemplates")]
+        [PolicyResourceProperty("responseTemplates", "_mUnknown_ResponseTemplates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseTemplates;
-
-        public Dictionary<string, string>? ResponseTemplates => _mResponseTemplates.GetValue("responseTemplates");
+        private Dictionary<string, string>? _mValue_ResponseTemplates;
+        private bool _mUnknown_ResponseTemplates;
+        public Dictionary<string, string>? ResponseTemplates
+        {
+            get
+            {
+                if (!_mUnknown_ResponseTemplates) return _mValue_ResponseTemplates;
+                throw new UndeferrableValueException("Value 'IntegrationResponse.ResponseTemplates' is not present");
+            }
+        }
 
         /// <summary>
         /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         /// </summary>
-        [Input("templateSelectionExpression")]
+        [PolicyResourceProperty("templateSelectionExpression", "_mUnknown_TemplateSelectionExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateSelectionExpression;
-
-        public string? TemplateSelectionExpression => _mTemplateSelectionExpression.GetValue("templateSelectionExpression");
+        private string? _mValue_TemplateSelectionExpression;
+        private bool _mUnknown_TemplateSelectionExpression;
+        public string? TemplateSelectionExpression
+        {
+            get
+            {
+                if (!_mUnknown_TemplateSelectionExpression) return _mValue_TemplateSelectionExpression;
+                throw new UndeferrableValueException("Value 'IntegrationResponse.TemplateSelectionExpression' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigatewayv2/integrationResponse:IntegrationResponse")]
@@ -74,55 +116,97 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// <summary>
         /// API identifier.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'IntegrationResponseArgs.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
         /// </summary>
-        [Input("contentHandlingStrategy")]
+        [PolicyResourceProperty("contentHandlingStrategy", "_mUnknown_ContentHandlingStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentHandlingStrategy;
-
-        public string? ContentHandlingStrategy => _mContentHandlingStrategy.GetValue("contentHandlingStrategy");
+        private string? _mValue_ContentHandlingStrategy;
+        private bool _mUnknown_ContentHandlingStrategy;
+        public string? ContentHandlingStrategy
+        {
+            get
+            {
+                if (!_mUnknown_ContentHandlingStrategy) return _mValue_ContentHandlingStrategy;
+                throw new UndeferrableValueException("Value 'IntegrationResponseArgs.ContentHandlingStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the `aws.apigatewayv2.Integration`.
         /// </summary>
-        [Input("integrationId")]
+        [PolicyResourceProperty("integrationId", "_mUnknown_IntegrationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationId;
-
-        public string? IntegrationId => _mIntegrationId.GetValue("integrationId");
+        private string? _mValue_IntegrationId;
+        private bool _mUnknown_IntegrationId;
+        public string? IntegrationId
+        {
+            get
+            {
+                if (!_mUnknown_IntegrationId) return _mValue_IntegrationId;
+                throw new UndeferrableValueException("Value 'IntegrationResponseArgs.IntegrationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Integration response key.
         /// </summary>
-        [Input("integrationResponseKey")]
+        [PolicyResourceProperty("integrationResponseKey", "_mUnknown_IntegrationResponseKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationResponseKey;
-
-        public string? IntegrationResponseKey => _mIntegrationResponseKey.GetValue("integrationResponseKey");
+        private string? _mValue_IntegrationResponseKey;
+        private bool _mUnknown_IntegrationResponseKey;
+        public string? IntegrationResponseKey
+        {
+            get
+            {
+                if (!_mUnknown_IntegrationResponseKey) return _mValue_IntegrationResponseKey;
+                throw new UndeferrableValueException("Value 'IntegrationResponseArgs.IntegrationResponseKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         /// </summary>
-        [Input("responseTemplates")]
+        [PolicyResourceProperty("responseTemplates", "_mUnknown_ResponseTemplates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseTemplates;
-
-        public Dictionary<string, string>? ResponseTemplates => _mResponseTemplates.GetValue("responseTemplates");
+        private Dictionary<string, string>? _mValue_ResponseTemplates;
+        private bool _mUnknown_ResponseTemplates;
+        public Dictionary<string, string>? ResponseTemplates
+        {
+            get
+            {
+                if (!_mUnknown_ResponseTemplates) return _mValue_ResponseTemplates;
+                throw new UndeferrableValueException("Value 'IntegrationResponseArgs.ResponseTemplates' is not present");
+            }
+        }
 
         /// <summary>
         /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         /// </summary>
-        [Input("templateSelectionExpression")]
+        [PolicyResourceProperty("templateSelectionExpression", "_mUnknown_TemplateSelectionExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateSelectionExpression;
-
-        public string? TemplateSelectionExpression => _mTemplateSelectionExpression.GetValue("templateSelectionExpression");
+        private string? _mValue_TemplateSelectionExpression;
+        private bool _mUnknown_TemplateSelectionExpression;
+        public string? TemplateSelectionExpression
+        {
+            get
+            {
+                if (!_mUnknown_TemplateSelectionExpression) return _mValue_TemplateSelectionExpression;
+                throw new UndeferrableValueException("Value 'IntegrationResponseArgs.TemplateSelectionExpression' is not present");
+            }
+        }
     }
 }

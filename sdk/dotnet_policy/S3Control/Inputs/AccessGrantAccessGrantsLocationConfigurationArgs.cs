@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Inputs
         /// <summary>
         /// Sub-prefix.
         /// </summary>
-        [Input("s3SubPrefix")]
+        [PolicyResourceProperty("s3SubPrefix", "_mUnknown_S3SubPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3SubPrefix;
-
-        public string? S3SubPrefix => _mS3SubPrefix.GetValue("s3SubPrefix");
+        private string? _mValue_S3SubPrefix;
+        private bool _mUnknown_S3SubPrefix;
+        public string? S3SubPrefix
+        {
+            get
+            {
+                if (!_mUnknown_S3SubPrefix) return _mValue_S3SubPrefix;
+                throw new UndeferrableValueException("Value 'AccessGrantAccessGrantsLocationConfigurationArgs.S3SubPrefix' is not present");
+            }
+        }
     }
 }

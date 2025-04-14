@@ -15,118 +15,209 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// ARIB Destination Settings.
         /// </summary>
-        [Input("aribDestinationSettings")]
+        [PolicyResourceProperty("aribDestinationSettings", "_mUnknown_AribDestinationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings> _mAribDestinationSettings;
-
-        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings? AribDestinationSettings => _mAribDestinationSettings.GetValue("aribDestinationSettings");
+        private Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings? _mValue_AribDestinationSettings;
+        private bool _mUnknown_AribDestinationSettings;
+        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings? AribDestinationSettings
+        {
+            get
+            {
+                if (!_mUnknown_AribDestinationSettings) return _mValue_AribDestinationSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettings.AribDestinationSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Burn In Destination Settings. See Burn In Destination Settings for more details.
         /// </summary>
-        [Input("burnInDestinationSettings")]
+        [PolicyResourceProperty("burnInDestinationSettings", "_mUnknown_BurnInDestinationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings> _mBurnInDestinationSettings;
-
-        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings? BurnInDestinationSettings => _mBurnInDestinationSettings.GetValue("burnInDestinationSettings");
+        private Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings? _mValue_BurnInDestinationSettings;
+        private bool _mUnknown_BurnInDestinationSettings;
+        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings? BurnInDestinationSettings
+        {
+            get
+            {
+                if (!_mUnknown_BurnInDestinationSettings) return _mValue_BurnInDestinationSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettings.BurnInDestinationSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
         /// </summary>
-        [Input("dvbSubDestinationSettings")]
+        [PolicyResourceProperty("dvbSubDestinationSettings", "_mUnknown_DvbSubDestinationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings> _mDvbSubDestinationSettings;
-
-        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings? DvbSubDestinationSettings => _mDvbSubDestinationSettings.GetValue("dvbSubDestinationSettings");
+        private Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings? _mValue_DvbSubDestinationSettings;
+        private bool _mUnknown_DvbSubDestinationSettings;
+        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings? DvbSubDestinationSettings
+        {
+            get
+            {
+                if (!_mUnknown_DvbSubDestinationSettings) return _mValue_DvbSubDestinationSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettings.DvbSubDestinationSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
         /// </summary>
-        [Input("ebuTtDDestinationSettings")]
+        [PolicyResourceProperty("ebuTtDDestinationSettings", "_mUnknown_EbuTtDDestinationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings> _mEbuTtDDestinationSettings;
-
-        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings? EbuTtDDestinationSettings => _mEbuTtDDestinationSettings.GetValue("ebuTtDDestinationSettings");
+        private Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings? _mValue_EbuTtDDestinationSettings;
+        private bool _mUnknown_EbuTtDDestinationSettings;
+        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings? EbuTtDDestinationSettings
+        {
+            get
+            {
+                if (!_mUnknown_EbuTtDDestinationSettings) return _mValue_EbuTtDDestinationSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettings.EbuTtDDestinationSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Embedded Destination Settings.
         /// </summary>
-        [Input("embeddedDestinationSettings")]
+        [PolicyResourceProperty("embeddedDestinationSettings", "_mUnknown_EmbeddedDestinationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings> _mEmbeddedDestinationSettings;
-
-        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings? EmbeddedDestinationSettings => _mEmbeddedDestinationSettings.GetValue("embeddedDestinationSettings");
+        private Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings? _mValue_EmbeddedDestinationSettings;
+        private bool _mUnknown_EmbeddedDestinationSettings;
+        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings? EmbeddedDestinationSettings
+        {
+            get
+            {
+                if (!_mUnknown_EmbeddedDestinationSettings) return _mValue_EmbeddedDestinationSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettings.EmbeddedDestinationSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Embedded Plus SCTE20 Destination Settings.
         /// </summary>
-        [Input("embeddedPlusScte20DestinationSettings")]
+        [PolicyResourceProperty("embeddedPlusScte20DestinationSettings", "_mUnknown_EmbeddedPlusScte20DestinationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings> _mEmbeddedPlusScte20DestinationSettings;
-
-        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings? EmbeddedPlusScte20DestinationSettings => _mEmbeddedPlusScte20DestinationSettings.GetValue("embeddedPlusScte20DestinationSettings");
+        private Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings? _mValue_EmbeddedPlusScte20DestinationSettings;
+        private bool _mUnknown_EmbeddedPlusScte20DestinationSettings;
+        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings? EmbeddedPlusScte20DestinationSettings
+        {
+            get
+            {
+                if (!_mUnknown_EmbeddedPlusScte20DestinationSettings) return _mValue_EmbeddedPlusScte20DestinationSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettings.EmbeddedPlusScte20DestinationSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// RTMP Caption Info Destination Settings.
         /// </summary>
-        [Input("rtmpCaptionInfoDestinationSettings")]
+        [PolicyResourceProperty("rtmpCaptionInfoDestinationSettings", "_mUnknown_RtmpCaptionInfoDestinationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings> _mRtmpCaptionInfoDestinationSettings;
-
-        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings? RtmpCaptionInfoDestinationSettings => _mRtmpCaptionInfoDestinationSettings.GetValue("rtmpCaptionInfoDestinationSettings");
+        private Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings? _mValue_RtmpCaptionInfoDestinationSettings;
+        private bool _mUnknown_RtmpCaptionInfoDestinationSettings;
+        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings? RtmpCaptionInfoDestinationSettings
+        {
+            get
+            {
+                if (!_mUnknown_RtmpCaptionInfoDestinationSettings) return _mValue_RtmpCaptionInfoDestinationSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettings.RtmpCaptionInfoDestinationSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// SCTE20 Plus Embedded Destination Settings.
         /// </summary>
-        [Input("scte20PlusEmbeddedDestinationSettings")]
+        [PolicyResourceProperty("scte20PlusEmbeddedDestinationSettings", "_mUnknown_Scte20PlusEmbeddedDestinationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings> _mScte20PlusEmbeddedDestinationSettings;
-
-        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings? Scte20PlusEmbeddedDestinationSettings => _mScte20PlusEmbeddedDestinationSettings.GetValue("scte20PlusEmbeddedDestinationSettings");
+        private Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings? _mValue_Scte20PlusEmbeddedDestinationSettings;
+        private bool _mUnknown_Scte20PlusEmbeddedDestinationSettings;
+        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings? Scte20PlusEmbeddedDestinationSettings
+        {
+            get
+            {
+                if (!_mUnknown_Scte20PlusEmbeddedDestinationSettings) return _mValue_Scte20PlusEmbeddedDestinationSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettings.Scte20PlusEmbeddedDestinationSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// SCTE27 Destination Settings.
         /// </summary>
-        [Input("scte27DestinationSettings")]
+        [PolicyResourceProperty("scte27DestinationSettings", "_mUnknown_Scte27DestinationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings> _mScte27DestinationSettings;
-
-        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings? Scte27DestinationSettings => _mScte27DestinationSettings.GetValue("scte27DestinationSettings");
+        private Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings? _mValue_Scte27DestinationSettings;
+        private bool _mUnknown_Scte27DestinationSettings;
+        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings? Scte27DestinationSettings
+        {
+            get
+            {
+                if (!_mUnknown_Scte27DestinationSettings) return _mValue_Scte27DestinationSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettings.Scte27DestinationSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// SMPTE TT Destination Settings.
         /// </summary>
-        [Input("smpteTtDestinationSettings")]
+        [PolicyResourceProperty("smpteTtDestinationSettings", "_mUnknown_SmpteTtDestinationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings> _mSmpteTtDestinationSettings;
-
-        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings? SmpteTtDestinationSettings => _mSmpteTtDestinationSettings.GetValue("smpteTtDestinationSettings");
+        private Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings? _mValue_SmpteTtDestinationSettings;
+        private bool _mUnknown_SmpteTtDestinationSettings;
+        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings? SmpteTtDestinationSettings
+        {
+            get
+            {
+                if (!_mUnknown_SmpteTtDestinationSettings) return _mValue_SmpteTtDestinationSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettings.SmpteTtDestinationSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Teletext Destination Settings.
         /// </summary>
-        [Input("teletextDestinationSettings")]
+        [PolicyResourceProperty("teletextDestinationSettings", "_mUnknown_TeletextDestinationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings> _mTeletextDestinationSettings;
-
-        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings? TeletextDestinationSettings => _mTeletextDestinationSettings.GetValue("teletextDestinationSettings");
+        private Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings? _mValue_TeletextDestinationSettings;
+        private bool _mUnknown_TeletextDestinationSettings;
+        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings? TeletextDestinationSettings
+        {
+            get
+            {
+                if (!_mUnknown_TeletextDestinationSettings) return _mValue_TeletextDestinationSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettings.TeletextDestinationSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// TTML Destination Settings. See TTML Destination Settings for more details.
         /// </summary>
-        [Input("ttmlDestinationSettings")]
+        [PolicyResourceProperty("ttmlDestinationSettings", "_mUnknown_TtmlDestinationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings> _mTtmlDestinationSettings;
-
-        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings? TtmlDestinationSettings => _mTtmlDestinationSettings.GetValue("ttmlDestinationSettings");
+        private Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings? _mValue_TtmlDestinationSettings;
+        private bool _mUnknown_TtmlDestinationSettings;
+        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings? TtmlDestinationSettings
+        {
+            get
+            {
+                if (!_mUnknown_TtmlDestinationSettings) return _mValue_TtmlDestinationSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettings.TtmlDestinationSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// WebVTT Destination Settings. See WebVTT Destination Settings for more details.
         /// </summary>
-        [Input("webvttDestinationSettings")]
+        [PolicyResourceProperty("webvttDestinationSettings", "_mUnknown_WebvttDestinationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings> _mWebvttDestinationSettings;
-
-        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings? WebvttDestinationSettings => _mWebvttDestinationSettings.GetValue("webvttDestinationSettings");
+        private Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings? _mValue_WebvttDestinationSettings;
+        private bool _mUnknown_WebvttDestinationSettings;
+        public Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings? WebvttDestinationSettings
+        {
+            get
+            {
+                if (!_mUnknown_WebvttDestinationSettings) return _mValue_WebvttDestinationSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettings.WebvttDestinationSettings' is not present");
+            }
+        }
     }
 }

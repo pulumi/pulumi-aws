@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// Name of the argument or property.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetScriptDagNodeArgResult.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean if the value is used as a parameter. Defaults to `false`.
         /// </summary>
-        [Input("param")]
+        [PolicyResourceProperty("param", "_mUnknown_Param")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mParam;
-
-        public bool? Param => _mParam.GetValue("param");
+        private bool? _mValue_Param;
+        private bool _mUnknown_Param;
+        public bool? Param
+        {
+            get
+            {
+                if (!_mUnknown_Param) return _mValue_Param;
+                throw new UndeferrableValueException("Value 'GetScriptDagNodeArgResult.Param' is not present");
+            }
+        }
 
         /// <summary>
         /// Value of the argument or property.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'GetScriptDagNodeArgResult.Value' is not present");
+            }
+        }
     }
 }

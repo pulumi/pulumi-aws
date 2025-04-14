@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Alb.Inputs
         /// <summary>
         /// Valid values are `off` and `on`.
         /// </summary>
-        [Input("advertiseTrustStoreCaNames")]
+        [PolicyResourceProperty("advertiseTrustStoreCaNames", "_mUnknown_AdvertiseTrustStoreCaNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdvertiseTrustStoreCaNames;
-
-        public string? AdvertiseTrustStoreCaNames => _mAdvertiseTrustStoreCaNames.GetValue("advertiseTrustStoreCaNames");
+        private string? _mValue_AdvertiseTrustStoreCaNames;
+        private bool _mUnknown_AdvertiseTrustStoreCaNames;
+        public string? AdvertiseTrustStoreCaNames
+        {
+            get
+            {
+                if (!_mUnknown_AdvertiseTrustStoreCaNames) return _mValue_AdvertiseTrustStoreCaNames;
+                throw new UndeferrableValueException("Value 'ListenerMutualAuthenticationArgs.AdvertiseTrustStoreCaNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether client certificate expiry is ignored. Default is `false`.
         /// </summary>
-        [Input("ignoreClientCertificateExpiry")]
+        [PolicyResourceProperty("ignoreClientCertificateExpiry", "_mUnknown_IgnoreClientCertificateExpiry")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnoreClientCertificateExpiry;
-
-        public bool? IgnoreClientCertificateExpiry => _mIgnoreClientCertificateExpiry.GetValue("ignoreClientCertificateExpiry");
+        private bool? _mValue_IgnoreClientCertificateExpiry;
+        private bool _mUnknown_IgnoreClientCertificateExpiry;
+        public bool? IgnoreClientCertificateExpiry
+        {
+            get
+            {
+                if (!_mUnknown_IgnoreClientCertificateExpiry) return _mValue_IgnoreClientCertificateExpiry;
+                throw new UndeferrableValueException("Value 'ListenerMutualAuthenticationArgs.IgnoreClientCertificateExpiry' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid values are `off`, `verify` and `passthrough`.
         /// </summary>
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
-
-        public string? Mode => _mMode.GetValue("mode");
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'ListenerMutualAuthenticationArgs.Mode' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the elbv2 Trust Store.
         /// </summary>
-        [Input("trustStoreArn")]
+        [PolicyResourceProperty("trustStoreArn", "_mUnknown_TrustStoreArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrustStoreArn;
-
-        public string? TrustStoreArn => _mTrustStoreArn.GetValue("trustStoreArn");
+        private string? _mValue_TrustStoreArn;
+        private bool _mUnknown_TrustStoreArn;
+        public string? TrustStoreArn
+        {
+            get
+            {
+                if (!_mUnknown_TrustStoreArn) return _mValue_TrustStoreArn;
+                throw new UndeferrableValueException("Value 'ListenerMutualAuthenticationArgs.TrustStoreArn' is not present");
+            }
+        }
     }
 }

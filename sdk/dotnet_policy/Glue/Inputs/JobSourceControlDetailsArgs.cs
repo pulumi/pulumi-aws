@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
         /// </summary>
-        [Input("authStrategy")]
+        [PolicyResourceProperty("authStrategy", "_mUnknown_AuthStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthStrategy;
-
-        public string? AuthStrategy => _mAuthStrategy.GetValue("authStrategy");
+        private string? _mValue_AuthStrategy;
+        private bool _mUnknown_AuthStrategy;
+        public string? AuthStrategy
+        {
+            get
+            {
+                if (!_mUnknown_AuthStrategy) return _mValue_AuthStrategy;
+                throw new UndeferrableValueException("Value 'JobSourceControlDetailsArgs.AuthStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// The value of an authorization token.
         /// </summary>
-        [Input("authToken")]
+        [PolicyResourceProperty("authToken", "_mUnknown_AuthToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthToken;
-
-        public string? AuthToken => _mAuthToken.GetValue("authToken");
+        private string? _mValue_AuthToken;
+        private bool _mUnknown_AuthToken;
+        public string? AuthToken
+        {
+            get
+            {
+                if (!_mUnknown_AuthToken) return _mValue_AuthToken;
+                throw new UndeferrableValueException("Value 'JobSourceControlDetailsArgs.AuthToken' is not present");
+            }
+        }
 
         /// <summary>
         /// A branch in the remote repository.
         /// </summary>
-        [Input("branch")]
+        [PolicyResourceProperty("branch", "_mUnknown_Branch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBranch;
-
-        public string? Branch => _mBranch.GetValue("branch");
+        private string? _mValue_Branch;
+        private bool _mUnknown_Branch;
+        public string? Branch
+        {
+            get
+            {
+                if (!_mUnknown_Branch) return _mValue_Branch;
+                throw new UndeferrableValueException("Value 'JobSourceControlDetailsArgs.Branch' is not present");
+            }
+        }
 
         /// <summary>
         /// A folder in the remote repository.
         /// </summary>
-        [Input("folder")]
+        [PolicyResourceProperty("folder", "_mUnknown_Folder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFolder;
-
-        public string? Folder => _mFolder.GetValue("folder");
+        private string? _mValue_Folder;
+        private bool _mUnknown_Folder;
+        public string? Folder
+        {
+            get
+            {
+                if (!_mUnknown_Folder) return _mValue_Folder;
+                throw new UndeferrableValueException("Value 'JobSourceControlDetailsArgs.Folder' is not present");
+            }
+        }
 
         /// <summary>
         /// The last commit ID for a commit in the remote repository.
         /// </summary>
-        [Input("lastCommitId")]
+        [PolicyResourceProperty("lastCommitId", "_mUnknown_LastCommitId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastCommitId;
-
-        public string? LastCommitId => _mLastCommitId.GetValue("lastCommitId");
+        private string? _mValue_LastCommitId;
+        private bool _mUnknown_LastCommitId;
+        public string? LastCommitId
+        {
+            get
+            {
+                if (!_mUnknown_LastCommitId) return _mValue_LastCommitId;
+                throw new UndeferrableValueException("Value 'JobSourceControlDetailsArgs.LastCommitId' is not present");
+            }
+        }
 
         /// <summary>
         /// The owner of the remote repository that contains the job artifacts.
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'JobSourceControlDetailsArgs.Owner' is not present");
+            }
+        }
 
         /// <summary>
         /// The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
         /// </summary>
-        [Input("provider")]
+        [PolicyResourceProperty("provider", "_mUnknown_Provider")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProvider;
-
-        public string? Provider => _mProvider.GetValue("provider");
+        private string? _mValue_Provider;
+        private bool _mUnknown_Provider;
+        public string? Provider
+        {
+            get
+            {
+                if (!_mUnknown_Provider) return _mValue_Provider;
+                throw new UndeferrableValueException("Value 'JobSourceControlDetailsArgs.Provider' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the remote repository that contains the job artifacts.
         /// </summary>
-        [Input("repository")]
+        [PolicyResourceProperty("repository", "_mUnknown_Repository")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepository;
-
-        public string? Repository => _mRepository.GetValue("repository");
+        private string? _mValue_Repository;
+        private bool _mUnknown_Repository;
+        public string? Repository
+        {
+            get
+            {
+                if (!_mUnknown_Repository) return _mValue_Repository;
+                throw new UndeferrableValueException("Value 'JobSourceControlDetailsArgs.Repository' is not present");
+            }
+        }
     }
 }

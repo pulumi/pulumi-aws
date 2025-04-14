@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Xray.Outputs
         /// <summary>
         /// Specifies whether insights are enabled.
         /// </summary>
-        [Input("insightsEnabled")]
+        [PolicyResourceProperty("insightsEnabled", "_mUnknown_InsightsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInsightsEnabled;
-
-        public bool? InsightsEnabled => _mInsightsEnabled.GetValue("insightsEnabled");
+        private bool? _mValue_InsightsEnabled;
+        private bool _mUnknown_InsightsEnabled;
+        public bool? InsightsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_InsightsEnabled) return _mValue_InsightsEnabled;
+                throw new UndeferrableValueException("Value 'GroupInsightsConfiguration.InsightsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether insight notifications are enabled.
         /// </summary>
-        [Input("notificationsEnabled")]
+        [PolicyResourceProperty("notificationsEnabled", "_mUnknown_NotificationsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mNotificationsEnabled;
-
-        public bool? NotificationsEnabled => _mNotificationsEnabled.GetValue("notificationsEnabled");
+        private bool? _mValue_NotificationsEnabled;
+        private bool _mUnknown_NotificationsEnabled;
+        public bool? NotificationsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_NotificationsEnabled) return _mValue_NotificationsEnabled;
+                throw new UndeferrableValueException("Value 'GroupInsightsConfiguration.NotificationsEnabled' is not present");
+            }
+        }
     }
 }

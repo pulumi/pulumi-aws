@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
 {
     public sealed class GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult
     {
-        [Input("ruleOrder")]
+        [PolicyResourceProperty("ruleOrder", "_mUnknown_RuleOrder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleOrder;
+        private string? _mValue_RuleOrder;
+        private bool _mUnknown_RuleOrder;
+        public string? RuleOrder
+        {
+            get
+            {
+                if (!_mUnknown_RuleOrder) return _mValue_RuleOrder;
+                throw new UndeferrableValueException("Value 'GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult.RuleOrder' is not present");
+            }
+        }
 
-        public string? RuleOrder => _mRuleOrder.GetValue("ruleOrder");
-
-        [Input("streamExceptionPolicy")]
+        [PolicyResourceProperty("streamExceptionPolicy", "_mUnknown_StreamExceptionPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamExceptionPolicy;
-
-        public string? StreamExceptionPolicy => _mStreamExceptionPolicy.GetValue("streamExceptionPolicy");
+        private string? _mValue_StreamExceptionPolicy;
+        private bool _mUnknown_StreamExceptionPolicy;
+        public string? StreamExceptionPolicy
+        {
+            get
+            {
+                if (!_mUnknown_StreamExceptionPolicy) return _mValue_StreamExceptionPolicy;
+                throw new UndeferrableValueException("Value 'GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult.StreamExceptionPolicy' is not present");
+            }
+        }
     }
 }

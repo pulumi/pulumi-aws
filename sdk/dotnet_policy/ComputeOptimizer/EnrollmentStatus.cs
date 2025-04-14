@@ -16,35 +16,63 @@ namespace Pulumi.PolicyPacks.Aws.ComputeOptimizer
         /// <summary>
         /// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
         /// </summary>
-        [Input("includeMemberAccounts")]
+        [PolicyResourceProperty("includeMemberAccounts", "_mUnknown_IncludeMemberAccounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeMemberAccounts;
-
-        public bool? IncludeMemberAccounts => _mIncludeMemberAccounts.GetValue("includeMemberAccounts");
+        private bool? _mValue_IncludeMemberAccounts;
+        private bool _mUnknown_IncludeMemberAccounts;
+        public bool? IncludeMemberAccounts
+        {
+            get
+            {
+                if (!_mUnknown_IncludeMemberAccounts) return _mValue_IncludeMemberAccounts;
+                throw new UndeferrableValueException("Value 'EnrollmentStatus.IncludeMemberAccounts' is not present");
+            }
+        }
 
         /// <summary>
         /// The count of organization member accounts that are opted in to the service, if your account is an organization management account.
         /// </summary>
-        [Input("numberOfMemberAccountsOptedIn")]
+        [PolicyResourceProperty("numberOfMemberAccountsOptedIn", "_mUnknown_NumberOfMemberAccountsOptedIn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfMemberAccountsOptedIn;
-
-        public int? NumberOfMemberAccountsOptedIn => _mNumberOfMemberAccountsOptedIn.GetValue("numberOfMemberAccountsOptedIn");
+        private int? _mValue_NumberOfMemberAccountsOptedIn;
+        private bool _mUnknown_NumberOfMemberAccountsOptedIn;
+        public int? NumberOfMemberAccountsOptedIn
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfMemberAccountsOptedIn) return _mValue_NumberOfMemberAccountsOptedIn;
+                throw new UndeferrableValueException("Value 'EnrollmentStatus.NumberOfMemberAccountsOptedIn' is not present");
+            }
+        }
 
         /// <summary>
         /// The enrollment status of the account. Valid values: `Active`, `Inactive`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'EnrollmentStatus.Status' is not present");
+            }
+        }
 
-        public string? Status => _mStatus.GetValue("status");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EnrollmentStatusTimeouts> _mTimeouts;
-
-        public Outputs.EnrollmentStatusTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.EnrollmentStatusTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.EnrollmentStatusTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'EnrollmentStatus.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:computeoptimizer/enrollmentStatus:EnrollmentStatus")]
@@ -53,25 +81,46 @@ namespace Pulumi.PolicyPacks.Aws.ComputeOptimizer
         /// <summary>
         /// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
         /// </summary>
-        [Input("includeMemberAccounts")]
+        [PolicyResourceProperty("includeMemberAccounts", "_mUnknown_IncludeMemberAccounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeMemberAccounts;
-
-        public bool? IncludeMemberAccounts => _mIncludeMemberAccounts.GetValue("includeMemberAccounts");
+        private bool? _mValue_IncludeMemberAccounts;
+        private bool _mUnknown_IncludeMemberAccounts;
+        public bool? IncludeMemberAccounts
+        {
+            get
+            {
+                if (!_mUnknown_IncludeMemberAccounts) return _mValue_IncludeMemberAccounts;
+                throw new UndeferrableValueException("Value 'EnrollmentStatusArgs.IncludeMemberAccounts' is not present");
+            }
+        }
 
         /// <summary>
         /// The enrollment status of the account. Valid values: `Active`, `Inactive`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'EnrollmentStatusArgs.Status' is not present");
+            }
+        }
 
-        public string? Status => _mStatus.GetValue("status");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EnrollmentStatusTimeoutsArgs> _mTimeouts;
-
-        public Inputs.EnrollmentStatusTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.EnrollmentStatusTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.EnrollmentStatusTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'EnrollmentStatusArgs.Timeouts' is not present");
+            }
+        }
     }
 }

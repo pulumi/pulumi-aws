@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
         /// </summary>
-        [Input("virtualRouterName")]
+        [PolicyResourceProperty("virtualRouterName", "_mUnknown_VirtualRouterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualRouterName;
-
-        public string? VirtualRouterName => _mVirtualRouterName.GetValue("virtualRouterName");
+        private string? _mValue_VirtualRouterName;
+        private bool _mUnknown_VirtualRouterName;
+        public string? VirtualRouterName
+        {
+            get
+            {
+                if (!_mUnknown_VirtualRouterName) return _mValue_VirtualRouterName;
+                throw new UndeferrableValueException("Value 'VirtualServiceSpecProviderVirtualRouterArgs.VirtualRouterName' is not present");
+            }
+        }
     }
 }

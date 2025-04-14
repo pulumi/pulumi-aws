@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
         /// </summary>
-        [Input("allowedPublishers")]
+        [PolicyResourceProperty("allowedPublishers", "_mUnknown_AllowedPublishers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CodeSigningConfigAllowedPublishers> _mAllowedPublishers;
-
-        public Outputs.CodeSigningConfigAllowedPublishers? AllowedPublishers => _mAllowedPublishers.GetValue("allowedPublishers");
+        private Outputs.CodeSigningConfigAllowedPublishers? _mValue_AllowedPublishers;
+        private bool _mUnknown_AllowedPublishers;
+        public Outputs.CodeSigningConfigAllowedPublishers? AllowedPublishers
+        {
+            get
+            {
+                if (!_mUnknown_AllowedPublishers) return _mValue_AllowedPublishers;
+                throw new UndeferrableValueException("Value 'CodeSigningConfig.AllowedPublishers' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the code signing configuration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CodeSigningConfig.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the code signing configuration.
         /// </summary>
-        [Input("configId")]
+        [PolicyResourceProperty("configId", "_mUnknown_ConfigId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigId;
-
-        public string? ConfigId => _mConfigId.GetValue("configId");
+        private string? _mValue_ConfigId;
+        private bool _mUnknown_ConfigId;
+        public string? ConfigId
+        {
+            get
+            {
+                if (!_mUnknown_ConfigId) return _mValue_ConfigId;
+                throw new UndeferrableValueException("Value 'CodeSigningConfig.ConfigId' is not present");
+            }
+        }
 
         /// <summary>
         /// Descriptive name for this code signing configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'CodeSigningConfig.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time that the code signing configuration was last modified.
         /// </summary>
-        [Input("lastModified")]
+        [PolicyResourceProperty("lastModified", "_mUnknown_LastModified")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModified;
-
-        public string? LastModified => _mLastModified.GetValue("lastModified");
+        private string? _mValue_LastModified;
+        private bool _mUnknown_LastModified;
+        public string? LastModified
+        {
+            get
+            {
+                if (!_mUnknown_LastModified) return _mValue_LastModified;
+                throw new UndeferrableValueException("Value 'CodeSigningConfig.LastModified' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
         /// </summary>
-        [Input("policies")]
+        [PolicyResourceProperty("policies", "_mUnknown_Policies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CodeSigningConfigPolicies> _mPolicies;
-
-        public Outputs.CodeSigningConfigPolicies? Policies => _mPolicies.GetValue("policies");
+        private Outputs.CodeSigningConfigPolicies? _mValue_Policies;
+        private bool _mUnknown_Policies;
+        public Outputs.CodeSigningConfigPolicies? Policies
+        {
+            get
+            {
+                if (!_mUnknown_Policies) return _mValue_Policies;
+                throw new UndeferrableValueException("Value 'CodeSigningConfig.Policies' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CodeSigningConfig.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'CodeSigningConfig.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lambda/codeSigningConfig:CodeSigningConfig")]
@@ -92,37 +148,65 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
         /// </summary>
-        [Input("allowedPublishers")]
+        [PolicyResourceProperty("allowedPublishers", "_mUnknown_AllowedPublishers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CodeSigningConfigAllowedPublishersArgs> _mAllowedPublishers;
-
-        public Inputs.CodeSigningConfigAllowedPublishersArgs? AllowedPublishers => _mAllowedPublishers.GetValue("allowedPublishers");
+        private Inputs.CodeSigningConfigAllowedPublishersArgs? _mValue_AllowedPublishers;
+        private bool _mUnknown_AllowedPublishers;
+        public Inputs.CodeSigningConfigAllowedPublishersArgs? AllowedPublishers
+        {
+            get
+            {
+                if (!_mUnknown_AllowedPublishers) return _mValue_AllowedPublishers;
+                throw new UndeferrableValueException("Value 'CodeSigningConfigArgs.AllowedPublishers' is not present");
+            }
+        }
 
         /// <summary>
         /// Descriptive name for this code signing configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'CodeSigningConfigArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
         /// </summary>
-        [Input("policies")]
+        [PolicyResourceProperty("policies", "_mUnknown_Policies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CodeSigningConfigPoliciesArgs> _mPolicies;
-
-        public Inputs.CodeSigningConfigPoliciesArgs? Policies => _mPolicies.GetValue("policies");
+        private Inputs.CodeSigningConfigPoliciesArgs? _mValue_Policies;
+        private bool _mUnknown_Policies;
+        public Inputs.CodeSigningConfigPoliciesArgs? Policies
+        {
+            get
+            {
+                if (!_mUnknown_Policies) return _mValue_Policies;
+                throw new UndeferrableValueException("Value 'CodeSigningConfigArgs.Policies' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CodeSigningConfigArgs.Tags' is not present");
+            }
+        }
     }
 }

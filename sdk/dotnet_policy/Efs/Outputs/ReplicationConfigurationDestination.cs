@@ -15,43 +15,78 @@ namespace Pulumi.PolicyPacks.Aws.Efs.Outputs
         /// <summary>
         /// The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
         /// </summary>
-        [Input("availabilityZoneName")]
+        [PolicyResourceProperty("availabilityZoneName", "_mUnknown_AvailabilityZoneName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneName;
-
-        public string? AvailabilityZoneName => _mAvailabilityZoneName.GetValue("availabilityZoneName");
+        private string? _mValue_AvailabilityZoneName;
+        private bool _mUnknown_AvailabilityZoneName;
+        public string? AvailabilityZoneName
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZoneName) return _mValue_AvailabilityZoneName;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationDestination.AvailabilityZoneName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
         /// </summary>
-        [Input("fileSystemId")]
+        [PolicyResourceProperty("fileSystemId", "_mUnknown_FileSystemId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
-
-        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+        private string? _mValue_FileSystemId;
+        private bool _mUnknown_FileSystemId;
+        public string? FileSystemId
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemId) return _mValue_FileSystemId;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationDestination.FileSystemId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationDestination.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The region in which the replica should be created.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationDestination.Region' is not present");
+            }
+        }
 
-        public string? Region => _mRegion.GetValue("region");
-
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationDestination.Status' is not present");
+            }
+        }
     }
 }

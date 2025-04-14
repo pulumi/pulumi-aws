@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Waf
         /// <summary>
         /// Amazon Resource Name (ARN)
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'RegexPatternSet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or description of the Regex Pattern Set.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RegexPatternSet.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
         /// </summary>
-        [Input("regexPatternStrings")]
+        [PolicyResourceProperty("regexPatternStrings", "_mUnknown_RegexPatternStrings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegexPatternStrings;
-
-        public List<string>? RegexPatternStrings => _mRegexPatternStrings.GetValue("regexPatternStrings");
+        private List<string>? _mValue_RegexPatternStrings;
+        private bool _mUnknown_RegexPatternStrings;
+        public List<string>? RegexPatternStrings
+        {
+            get
+            {
+                if (!_mUnknown_RegexPatternStrings) return _mValue_RegexPatternStrings;
+                throw new UndeferrableValueException("Value 'RegexPatternSet.RegexPatternStrings' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:waf/regexPatternSet:RegexPatternSet")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.Waf
         /// <summary>
         /// The name or description of the Regex Pattern Set.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RegexPatternSetArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
         /// </summary>
-        [Input("regexPatternStrings")]
+        [PolicyResourceProperty("regexPatternStrings", "_mUnknown_RegexPatternStrings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegexPatternStrings;
-
-        public List<string>? RegexPatternStrings => _mRegexPatternStrings.GetValue("regexPatternStrings");
+        private List<string>? _mValue_RegexPatternStrings;
+        private bool _mUnknown_RegexPatternStrings;
+        public List<string>? RegexPatternStrings
+        {
+            get
+            {
+                if (!_mUnknown_RegexPatternStrings) return _mValue_RegexPatternStrings;
+                throw new UndeferrableValueException("Value 'RegexPatternSetArgs.RegexPatternStrings' is not present");
+            }
+        }
     }
 }

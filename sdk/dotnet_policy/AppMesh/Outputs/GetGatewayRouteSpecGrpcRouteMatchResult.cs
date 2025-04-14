@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetGatewayRouteSpecGrpcRouteMatchResult
     {
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecGrpcRouteMatchResult.Port' is not present");
+            }
+        }
 
-        public int? Port => _mPort.GetValue("port");
-
-        [Input("serviceName")]
+        [PolicyResourceProperty("serviceName", "_mUnknown_ServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
-
-        public string? ServiceName => _mServiceName.GetValue("serviceName");
+        private string? _mValue_ServiceName;
+        private bool _mUnknown_ServiceName;
+        public string? ServiceName
+        {
+            get
+            {
+                if (!_mUnknown_ServiceName) return _mValue_ServiceName;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecGrpcRouteMatchResult.ServiceName' is not present");
+            }
+        }
     }
 }

@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
-
-        public string? Destination => _mDestination.GetValue("destination");
+        private string? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public string? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRuleHeader.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// The destination port to inspect for. To match with any address, specify `ANY`.
         /// </summary>
-        [Input("destinationPort")]
+        [PolicyResourceProperty("destinationPort", "_mUnknown_DestinationPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationPort;
-
-        public string? DestinationPort => _mDestinationPort.GetValue("destinationPort");
+        private string? _mValue_DestinationPort;
+        private bool _mUnknown_DestinationPort;
+        public string? DestinationPort
+        {
+            get
+            {
+                if (!_mUnknown_DestinationPort) return _mValue_DestinationPort;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRuleHeader.DestinationPort' is not present");
+            }
+        }
 
         /// <summary>
         /// The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
         /// </summary>
-        [Input("direction")]
+        [PolicyResourceProperty("direction", "_mUnknown_Direction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirection;
-
-        public string? Direction => _mDirection.GetValue("direction");
+        private string? _mValue_Direction;
+        private bool _mUnknown_Direction;
+        public string? Direction
+        {
+            get
+            {
+                if (!_mUnknown_Direction) return _mValue_Direction;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRuleHeader.Direction' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRuleHeader.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
-
-        public string? Source => _mSource.GetValue("source");
+        private string? _mValue_Source;
+        private bool _mUnknown_Source;
+        public string? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRuleHeader.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// The source port to inspect for. To match with any address, specify `ANY`.
         /// </summary>
-        [Input("sourcePort")]
+        [PolicyResourceProperty("sourcePort", "_mUnknown_SourcePort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourcePort;
-
-        public string? SourcePort => _mSourcePort.GetValue("sourcePort");
+        private string? _mValue_SourcePort;
+        private bool _mUnknown_SourcePort;
+        public string? SourcePort
+        {
+            get
+            {
+                if (!_mUnknown_SourcePort) return _mValue_SourcePort;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRuleHeader.SourcePort' is not present");
+            }
+        }
     }
 }

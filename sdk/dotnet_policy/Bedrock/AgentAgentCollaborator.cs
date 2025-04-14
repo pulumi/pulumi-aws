@@ -13,137 +13,256 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
     [PolicyResourceType("aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator")]
     public sealed class AgentAgentCollaborator : global::Pulumi.PolicyResourceOutput
     {
-        [Input("agentDescriptor")]
+        [PolicyResourceProperty("agentDescriptor", "_mUnknown_AgentDescriptor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentCollaboratorAgentDescriptor> _mAgentDescriptor;
-
-        public Outputs.AgentAgentCollaboratorAgentDescriptor? AgentDescriptor => _mAgentDescriptor.GetValue("agentDescriptor");
+        private Outputs.AgentAgentCollaboratorAgentDescriptor? _mValue_AgentDescriptor;
+        private bool _mUnknown_AgentDescriptor;
+        public Outputs.AgentAgentCollaboratorAgentDescriptor? AgentDescriptor
+        {
+            get
+            {
+                if (!_mUnknown_AgentDescriptor) return _mValue_AgentDescriptor;
+                throw new UndeferrableValueException("Value 'AgentAgentCollaborator.AgentDescriptor' is not present");
+            }
+        }
 
         /// <summary>
         /// ID if the agent to associate the collaborator.
         /// </summary>
-        [Input("agentId")]
+        [PolicyResourceProperty("agentId", "_mUnknown_AgentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentId;
+        private string? _mValue_AgentId;
+        private bool _mUnknown_AgentId;
+        public string? AgentId
+        {
+            get
+            {
+                if (!_mUnknown_AgentId) return _mValue_AgentId;
+                throw new UndeferrableValueException("Value 'AgentAgentCollaborator.AgentId' is not present");
+            }
+        }
 
-        public string? AgentId => _mAgentId.GetValue("agentId");
-
-        [Input("agentVersion")]
+        [PolicyResourceProperty("agentVersion", "_mUnknown_AgentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
-
-        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
+        private string? _mValue_AgentVersion;
+        private bool _mUnknown_AgentVersion;
+        public string? AgentVersion
+        {
+            get
+            {
+                if (!_mUnknown_AgentVersion) return _mValue_AgentVersion;
+                throw new UndeferrableValueException("Value 'AgentAgentCollaborator.AgentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Instruction to give the collaborator.
         /// </summary>
-        [Input("collaborationInstruction")]
+        [PolicyResourceProperty("collaborationInstruction", "_mUnknown_CollaborationInstruction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollaborationInstruction;
-
-        public string? CollaborationInstruction => _mCollaborationInstruction.GetValue("collaborationInstruction");
+        private string? _mValue_CollaborationInstruction;
+        private bool _mUnknown_CollaborationInstruction;
+        public string? CollaborationInstruction
+        {
+            get
+            {
+                if (!_mUnknown_CollaborationInstruction) return _mValue_CollaborationInstruction;
+                throw new UndeferrableValueException("Value 'AgentAgentCollaborator.CollaborationInstruction' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Agent Collaborator.
         /// </summary>
-        [Input("collaboratorId")]
+        [PolicyResourceProperty("collaboratorId", "_mUnknown_CollaboratorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollaboratorId;
+        private string? _mValue_CollaboratorId;
+        private bool _mUnknown_CollaboratorId;
+        public string? CollaboratorId
+        {
+            get
+            {
+                if (!_mUnknown_CollaboratorId) return _mValue_CollaboratorId;
+                throw new UndeferrableValueException("Value 'AgentAgentCollaborator.CollaboratorId' is not present");
+            }
+        }
 
-        public string? CollaboratorId => _mCollaboratorId.GetValue("collaboratorId");
-
-        [Input("collaboratorName")]
+        [PolicyResourceProperty("collaboratorName", "_mUnknown_CollaboratorName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollaboratorName;
-
-        public string? CollaboratorName => _mCollaboratorName.GetValue("collaboratorName");
+        private string? _mValue_CollaboratorName;
+        private bool _mUnknown_CollaboratorName;
+        public string? CollaboratorName
+        {
+            get
+            {
+                if (!_mUnknown_CollaboratorName) return _mValue_CollaboratorName;
+                throw new UndeferrableValueException("Value 'AgentAgentCollaborator.CollaboratorName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to prepare the agent after creation or modification. Defaults to `true`.
         /// </summary>
-        [Input("prepareAgent")]
+        [PolicyResourceProperty("prepareAgent", "_mUnknown_PrepareAgent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPrepareAgent;
-
-        public bool? PrepareAgent => _mPrepareAgent.GetValue("prepareAgent");
+        private bool? _mValue_PrepareAgent;
+        private bool _mUnknown_PrepareAgent;
+        public bool? PrepareAgent
+        {
+            get
+            {
+                if (!_mUnknown_PrepareAgent) return _mValue_PrepareAgent;
+                throw new UndeferrableValueException("Value 'AgentAgentCollaborator.PrepareAgent' is not present");
+            }
+        }
 
         /// <summary>
         /// Configure relaying the history to the collaborator.
         /// </summary>
-        [Input("relayConversationHistory")]
+        [PolicyResourceProperty("relayConversationHistory", "_mUnknown_RelayConversationHistory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRelayConversationHistory;
+        private string? _mValue_RelayConversationHistory;
+        private bool _mUnknown_RelayConversationHistory;
+        public string? RelayConversationHistory
+        {
+            get
+            {
+                if (!_mUnknown_RelayConversationHistory) return _mValue_RelayConversationHistory;
+                throw new UndeferrableValueException("Value 'AgentAgentCollaborator.RelayConversationHistory' is not present");
+            }
+        }
 
-        public string? RelayConversationHistory => _mRelayConversationHistory.GetValue("relayConversationHistory");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentCollaboratorTimeouts> _mTimeouts;
-
-        public Outputs.AgentAgentCollaboratorTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.AgentAgentCollaboratorTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.AgentAgentCollaboratorTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'AgentAgentCollaborator.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator")]
     public sealed class AgentAgentCollaboratorArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("agentDescriptor")]
+        [PolicyResourceProperty("agentDescriptor", "_mUnknown_AgentDescriptor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentCollaboratorAgentDescriptorArgs> _mAgentDescriptor;
-
-        public Inputs.AgentAgentCollaboratorAgentDescriptorArgs? AgentDescriptor => _mAgentDescriptor.GetValue("agentDescriptor");
+        private Inputs.AgentAgentCollaboratorAgentDescriptorArgs? _mValue_AgentDescriptor;
+        private bool _mUnknown_AgentDescriptor;
+        public Inputs.AgentAgentCollaboratorAgentDescriptorArgs? AgentDescriptor
+        {
+            get
+            {
+                if (!_mUnknown_AgentDescriptor) return _mValue_AgentDescriptor;
+                throw new UndeferrableValueException("Value 'AgentAgentCollaboratorArgs.AgentDescriptor' is not present");
+            }
+        }
 
         /// <summary>
         /// ID if the agent to associate the collaborator.
         /// </summary>
-        [Input("agentId")]
+        [PolicyResourceProperty("agentId", "_mUnknown_AgentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentId;
+        private string? _mValue_AgentId;
+        private bool _mUnknown_AgentId;
+        public string? AgentId
+        {
+            get
+            {
+                if (!_mUnknown_AgentId) return _mValue_AgentId;
+                throw new UndeferrableValueException("Value 'AgentAgentCollaboratorArgs.AgentId' is not present");
+            }
+        }
 
-        public string? AgentId => _mAgentId.GetValue("agentId");
-
-        [Input("agentVersion")]
+        [PolicyResourceProperty("agentVersion", "_mUnknown_AgentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
-
-        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
+        private string? _mValue_AgentVersion;
+        private bool _mUnknown_AgentVersion;
+        public string? AgentVersion
+        {
+            get
+            {
+                if (!_mUnknown_AgentVersion) return _mValue_AgentVersion;
+                throw new UndeferrableValueException("Value 'AgentAgentCollaboratorArgs.AgentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Instruction to give the collaborator.
         /// </summary>
-        [Input("collaborationInstruction")]
+        [PolicyResourceProperty("collaborationInstruction", "_mUnknown_CollaborationInstruction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollaborationInstruction;
+        private string? _mValue_CollaborationInstruction;
+        private bool _mUnknown_CollaborationInstruction;
+        public string? CollaborationInstruction
+        {
+            get
+            {
+                if (!_mUnknown_CollaborationInstruction) return _mValue_CollaborationInstruction;
+                throw new UndeferrableValueException("Value 'AgentAgentCollaboratorArgs.CollaborationInstruction' is not present");
+            }
+        }
 
-        public string? CollaborationInstruction => _mCollaborationInstruction.GetValue("collaborationInstruction");
-
-        [Input("collaboratorName")]
+        [PolicyResourceProperty("collaboratorName", "_mUnknown_CollaboratorName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollaboratorName;
-
-        public string? CollaboratorName => _mCollaboratorName.GetValue("collaboratorName");
+        private string? _mValue_CollaboratorName;
+        private bool _mUnknown_CollaboratorName;
+        public string? CollaboratorName
+        {
+            get
+            {
+                if (!_mUnknown_CollaboratorName) return _mValue_CollaboratorName;
+                throw new UndeferrableValueException("Value 'AgentAgentCollaboratorArgs.CollaboratorName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to prepare the agent after creation or modification. Defaults to `true`.
         /// </summary>
-        [Input("prepareAgent")]
+        [PolicyResourceProperty("prepareAgent", "_mUnknown_PrepareAgent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPrepareAgent;
-
-        public bool? PrepareAgent => _mPrepareAgent.GetValue("prepareAgent");
+        private bool? _mValue_PrepareAgent;
+        private bool _mUnknown_PrepareAgent;
+        public bool? PrepareAgent
+        {
+            get
+            {
+                if (!_mUnknown_PrepareAgent) return _mValue_PrepareAgent;
+                throw new UndeferrableValueException("Value 'AgentAgentCollaboratorArgs.PrepareAgent' is not present");
+            }
+        }
 
         /// <summary>
         /// Configure relaying the history to the collaborator.
         /// </summary>
-        [Input("relayConversationHistory")]
+        [PolicyResourceProperty("relayConversationHistory", "_mUnknown_RelayConversationHistory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRelayConversationHistory;
+        private string? _mValue_RelayConversationHistory;
+        private bool _mUnknown_RelayConversationHistory;
+        public string? RelayConversationHistory
+        {
+            get
+            {
+                if (!_mUnknown_RelayConversationHistory) return _mValue_RelayConversationHistory;
+                throw new UndeferrableValueException("Value 'AgentAgentCollaboratorArgs.RelayConversationHistory' is not present");
+            }
+        }
 
-        public string? RelayConversationHistory => _mRelayConversationHistory.GetValue("relayConversationHistory");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentCollaboratorTimeoutsArgs> _mTimeouts;
-
-        public Inputs.AgentAgentCollaboratorTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.AgentAgentCollaboratorTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.AgentAgentCollaboratorTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'AgentAgentCollaboratorArgs.Timeouts' is not present");
+            }
+        }
     }
 }

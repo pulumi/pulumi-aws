@@ -16,170 +16,303 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// The Amazon Resource Name (ARN) of the base model.
         /// </summary>
-        [Input("baseModelIdentifier")]
+        [PolicyResourceProperty("baseModelIdentifier", "_mUnknown_BaseModelIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaseModelIdentifier;
-
-        public string? BaseModelIdentifier => _mBaseModelIdentifier.GetValue("baseModelIdentifier");
+        private string? _mValue_BaseModelIdentifier;
+        private bool _mUnknown_BaseModelIdentifier;
+        public string? BaseModelIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_BaseModelIdentifier) return _mValue_BaseModelIdentifier;
+                throw new UndeferrableValueException("Value 'CustomModel.BaseModelIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the output model.
         /// </summary>
-        [Input("customModelArn")]
+        [PolicyResourceProperty("customModelArn", "_mUnknown_CustomModelArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomModelArn;
-
-        public string? CustomModelArn => _mCustomModelArn.GetValue("customModelArn");
+        private string? _mValue_CustomModelArn;
+        private bool _mUnknown_CustomModelArn;
+        public string? CustomModelArn
+        {
+            get
+            {
+                if (!_mUnknown_CustomModelArn) return _mValue_CustomModelArn;
+                throw new UndeferrableValueException("Value 'CustomModel.CustomModelArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The custom model is encrypted at rest using this key. Specify the key ARN.
         /// </summary>
-        [Input("customModelKmsKeyId")]
+        [PolicyResourceProperty("customModelKmsKeyId", "_mUnknown_CustomModelKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomModelKmsKeyId;
-
-        public string? CustomModelKmsKeyId => _mCustomModelKmsKeyId.GetValue("customModelKmsKeyId");
+        private string? _mValue_CustomModelKmsKeyId;
+        private bool _mUnknown_CustomModelKmsKeyId;
+        public string? CustomModelKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_CustomModelKmsKeyId) return _mValue_CustomModelKmsKeyId;
+                throw new UndeferrableValueException("Value 'CustomModel.CustomModelKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the custom model.
         /// </summary>
-        [Input("customModelName")]
+        [PolicyResourceProperty("customModelName", "_mUnknown_CustomModelName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomModelName;
-
-        public string? CustomModelName => _mCustomModelName.GetValue("customModelName");
+        private string? _mValue_CustomModelName;
+        private bool _mUnknown_CustomModelName;
+        public string? CustomModelName
+        {
+            get
+            {
+                if (!_mUnknown_CustomModelName) return _mValue_CustomModelName;
+                throw new UndeferrableValueException("Value 'CustomModel.CustomModelName' is not present");
+            }
+        }
 
         /// <summary>
         /// The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         /// </summary>
-        [Input("customizationType")]
+        [PolicyResourceProperty("customizationType", "_mUnknown_CustomizationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomizationType;
-
-        public string? CustomizationType => _mCustomizationType.GetValue("customizationType");
+        private string? _mValue_CustomizationType;
+        private bool _mUnknown_CustomizationType;
+        public string? CustomizationType
+        {
+            get
+            {
+                if (!_mUnknown_CustomizationType) return _mValue_CustomizationType;
+                throw new UndeferrableValueException("Value 'CustomModel.CustomizationType' is not present");
+            }
+        }
 
         /// <summary>
         /// [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
         /// </summary>
-        [Input("hyperparameters")]
+        [PolicyResourceProperty("hyperparameters", "_mUnknown_Hyperparameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mHyperparameters;
-
-        public Dictionary<string, string>? Hyperparameters => _mHyperparameters.GetValue("hyperparameters");
+        private Dictionary<string, string>? _mValue_Hyperparameters;
+        private bool _mUnknown_Hyperparameters;
+        public Dictionary<string, string>? Hyperparameters
+        {
+            get
+            {
+                if (!_mUnknown_Hyperparameters) return _mValue_Hyperparameters;
+                throw new UndeferrableValueException("Value 'CustomModel.Hyperparameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the customization job.
         /// </summary>
-        [Input("jobArn")]
+        [PolicyResourceProperty("jobArn", "_mUnknown_JobArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobArn;
-
-        public string? JobArn => _mJobArn.GetValue("jobArn");
+        private string? _mValue_JobArn;
+        private bool _mUnknown_JobArn;
+        public string? JobArn
+        {
+            get
+            {
+                if (!_mUnknown_JobArn) return _mValue_JobArn;
+                throw new UndeferrableValueException("Value 'CustomModel.JobArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the customization job.
         /// </summary>
-        [Input("jobName")]
+        [PolicyResourceProperty("jobName", "_mUnknown_JobName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobName;
-
-        public string? JobName => _mJobName.GetValue("jobName");
+        private string? _mValue_JobName;
+        private bool _mUnknown_JobName;
+        public string? JobName
+        {
+            get
+            {
+                if (!_mUnknown_JobName) return _mValue_JobName;
+                throw new UndeferrableValueException("Value 'CustomModel.JobName' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
         /// </summary>
-        [Input("jobStatus")]
+        [PolicyResourceProperty("jobStatus", "_mUnknown_JobStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobStatus;
-
-        public string? JobStatus => _mJobStatus.GetValue("jobStatus");
+        private string? _mValue_JobStatus;
+        private bool _mUnknown_JobStatus;
+        public string? JobStatus
+        {
+            get
+            {
+                if (!_mUnknown_JobStatus) return _mValue_JobStatus;
+                throw new UndeferrableValueException("Value 'CustomModel.JobStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 location for the output data.
         /// </summary>
-        [Input("outputDataConfig")]
+        [PolicyResourceProperty("outputDataConfig", "_mUnknown_OutputDataConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomModelOutputDataConfig> _mOutputDataConfig;
-
-        public Outputs.CustomModelOutputDataConfig? OutputDataConfig => _mOutputDataConfig.GetValue("outputDataConfig");
+        private Outputs.CustomModelOutputDataConfig? _mValue_OutputDataConfig;
+        private bool _mUnknown_OutputDataConfig;
+        public Outputs.CustomModelOutputDataConfig? OutputDataConfig
+        {
+            get
+            {
+                if (!_mUnknown_OutputDataConfig) return _mValue_OutputDataConfig;
+                throw new UndeferrableValueException("Value 'CustomModel.OutputDataConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'CustomModel.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CustomModel.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'CustomModel.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomModelTimeouts> _mTimeouts;
-
-        public Outputs.CustomModelTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.CustomModelTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.CustomModelTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'CustomModel.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the training dataset.
         /// </summary>
-        [Input("trainingDataConfig")]
+        [PolicyResourceProperty("trainingDataConfig", "_mUnknown_TrainingDataConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomModelTrainingDataConfig> _mTrainingDataConfig;
-
-        public Outputs.CustomModelTrainingDataConfig? TrainingDataConfig => _mTrainingDataConfig.GetValue("trainingDataConfig");
+        private Outputs.CustomModelTrainingDataConfig? _mValue_TrainingDataConfig;
+        private bool _mUnknown_TrainingDataConfig;
+        public Outputs.CustomModelTrainingDataConfig? TrainingDataConfig
+        {
+            get
+            {
+                if (!_mUnknown_TrainingDataConfig) return _mValue_TrainingDataConfig;
+                throw new UndeferrableValueException("Value 'CustomModel.TrainingDataConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Metrics associated with the customization job.
         /// </summary>
-        [Input("trainingMetrics")]
+        [PolicyResourceProperty("trainingMetrics", "_mUnknown_TrainingMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CustomModelTrainingMetric>> _mTrainingMetrics;
-
-        public List<Outputs.CustomModelTrainingMetric>? TrainingMetrics => _mTrainingMetrics.GetValue("trainingMetrics");
+        private List<Outputs.CustomModelTrainingMetric>? _mValue_TrainingMetrics;
+        private bool _mUnknown_TrainingMetrics;
+        public List<Outputs.CustomModelTrainingMetric>? TrainingMetrics
+        {
+            get
+            {
+                if (!_mUnknown_TrainingMetrics) return _mValue_TrainingMetrics;
+                throw new UndeferrableValueException("Value 'CustomModel.TrainingMetrics' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the validation dataset.
         /// </summary>
-        [Input("validationDataConfig")]
+        [PolicyResourceProperty("validationDataConfig", "_mUnknown_ValidationDataConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomModelValidationDataConfig> _mValidationDataConfig;
-
-        public Outputs.CustomModelValidationDataConfig? ValidationDataConfig => _mValidationDataConfig.GetValue("validationDataConfig");
+        private Outputs.CustomModelValidationDataConfig? _mValue_ValidationDataConfig;
+        private bool _mUnknown_ValidationDataConfig;
+        public Outputs.CustomModelValidationDataConfig? ValidationDataConfig
+        {
+            get
+            {
+                if (!_mUnknown_ValidationDataConfig) return _mValue_ValidationDataConfig;
+                throw new UndeferrableValueException("Value 'CustomModel.ValidationDataConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The loss metric for each validator that you provided.
         /// </summary>
-        [Input("validationMetrics")]
+        [PolicyResourceProperty("validationMetrics", "_mUnknown_ValidationMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CustomModelValidationMetric>> _mValidationMetrics;
-
-        public List<Outputs.CustomModelValidationMetric>? ValidationMetrics => _mValidationMetrics.GetValue("validationMetrics");
+        private List<Outputs.CustomModelValidationMetric>? _mValue_ValidationMetrics;
+        private bool _mUnknown_ValidationMetrics;
+        public List<Outputs.CustomModelValidationMetric>? ValidationMetrics
+        {
+            get
+            {
+                if (!_mUnknown_ValidationMetrics) return _mValue_ValidationMetrics;
+                throw new UndeferrableValueException("Value 'CustomModel.ValidationMetrics' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomModelVpcConfig> _mVpcConfig;
-
-        public Outputs.CustomModelVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Outputs.CustomModelVpcConfig? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Outputs.CustomModelVpcConfig? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'CustomModel.VpcConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:bedrock/customModel:CustomModel")]
@@ -188,115 +321,206 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// The Amazon Resource Name (ARN) of the base model.
         /// </summary>
-        [Input("baseModelIdentifier")]
+        [PolicyResourceProperty("baseModelIdentifier", "_mUnknown_BaseModelIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaseModelIdentifier;
-
-        public string? BaseModelIdentifier => _mBaseModelIdentifier.GetValue("baseModelIdentifier");
+        private string? _mValue_BaseModelIdentifier;
+        private bool _mUnknown_BaseModelIdentifier;
+        public string? BaseModelIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_BaseModelIdentifier) return _mValue_BaseModelIdentifier;
+                throw new UndeferrableValueException("Value 'CustomModelArgs.BaseModelIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The custom model is encrypted at rest using this key. Specify the key ARN.
         /// </summary>
-        [Input("customModelKmsKeyId")]
+        [PolicyResourceProperty("customModelKmsKeyId", "_mUnknown_CustomModelKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomModelKmsKeyId;
-
-        public string? CustomModelKmsKeyId => _mCustomModelKmsKeyId.GetValue("customModelKmsKeyId");
+        private string? _mValue_CustomModelKmsKeyId;
+        private bool _mUnknown_CustomModelKmsKeyId;
+        public string? CustomModelKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_CustomModelKmsKeyId) return _mValue_CustomModelKmsKeyId;
+                throw new UndeferrableValueException("Value 'CustomModelArgs.CustomModelKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the custom model.
         /// </summary>
-        [Input("customModelName")]
+        [PolicyResourceProperty("customModelName", "_mUnknown_CustomModelName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomModelName;
-
-        public string? CustomModelName => _mCustomModelName.GetValue("customModelName");
+        private string? _mValue_CustomModelName;
+        private bool _mUnknown_CustomModelName;
+        public string? CustomModelName
+        {
+            get
+            {
+                if (!_mUnknown_CustomModelName) return _mValue_CustomModelName;
+                throw new UndeferrableValueException("Value 'CustomModelArgs.CustomModelName' is not present");
+            }
+        }
 
         /// <summary>
         /// The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         /// </summary>
-        [Input("customizationType")]
+        [PolicyResourceProperty("customizationType", "_mUnknown_CustomizationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomizationType;
-
-        public string? CustomizationType => _mCustomizationType.GetValue("customizationType");
+        private string? _mValue_CustomizationType;
+        private bool _mUnknown_CustomizationType;
+        public string? CustomizationType
+        {
+            get
+            {
+                if (!_mUnknown_CustomizationType) return _mValue_CustomizationType;
+                throw new UndeferrableValueException("Value 'CustomModelArgs.CustomizationType' is not present");
+            }
+        }
 
         /// <summary>
         /// [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
         /// </summary>
-        [Input("hyperparameters")]
+        [PolicyResourceProperty("hyperparameters", "_mUnknown_Hyperparameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mHyperparameters;
-
-        public Dictionary<string, string>? Hyperparameters => _mHyperparameters.GetValue("hyperparameters");
+        private Dictionary<string, string>? _mValue_Hyperparameters;
+        private bool _mUnknown_Hyperparameters;
+        public Dictionary<string, string>? Hyperparameters
+        {
+            get
+            {
+                if (!_mUnknown_Hyperparameters) return _mValue_Hyperparameters;
+                throw new UndeferrableValueException("Value 'CustomModelArgs.Hyperparameters' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the customization job.
         /// </summary>
-        [Input("jobName")]
+        [PolicyResourceProperty("jobName", "_mUnknown_JobName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobName;
-
-        public string? JobName => _mJobName.GetValue("jobName");
+        private string? _mValue_JobName;
+        private bool _mUnknown_JobName;
+        public string? JobName
+        {
+            get
+            {
+                if (!_mUnknown_JobName) return _mValue_JobName;
+                throw new UndeferrableValueException("Value 'CustomModelArgs.JobName' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 location for the output data.
         /// </summary>
-        [Input("outputDataConfig")]
+        [PolicyResourceProperty("outputDataConfig", "_mUnknown_OutputDataConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomModelOutputDataConfigArgs> _mOutputDataConfig;
-
-        public Inputs.CustomModelOutputDataConfigArgs? OutputDataConfig => _mOutputDataConfig.GetValue("outputDataConfig");
+        private Inputs.CustomModelOutputDataConfigArgs? _mValue_OutputDataConfig;
+        private bool _mUnknown_OutputDataConfig;
+        public Inputs.CustomModelOutputDataConfigArgs? OutputDataConfig
+        {
+            get
+            {
+                if (!_mUnknown_OutputDataConfig) return _mValue_OutputDataConfig;
+                throw new UndeferrableValueException("Value 'CustomModelArgs.OutputDataConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'CustomModelArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CustomModelArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomModelTimeoutsArgs> _mTimeouts;
-
-        public Inputs.CustomModelTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.CustomModelTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.CustomModelTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'CustomModelArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the training dataset.
         /// </summary>
-        [Input("trainingDataConfig")]
+        [PolicyResourceProperty("trainingDataConfig", "_mUnknown_TrainingDataConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomModelTrainingDataConfigArgs> _mTrainingDataConfig;
-
-        public Inputs.CustomModelTrainingDataConfigArgs? TrainingDataConfig => _mTrainingDataConfig.GetValue("trainingDataConfig");
+        private Inputs.CustomModelTrainingDataConfigArgs? _mValue_TrainingDataConfig;
+        private bool _mUnknown_TrainingDataConfig;
+        public Inputs.CustomModelTrainingDataConfigArgs? TrainingDataConfig
+        {
+            get
+            {
+                if (!_mUnknown_TrainingDataConfig) return _mValue_TrainingDataConfig;
+                throw new UndeferrableValueException("Value 'CustomModelArgs.TrainingDataConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the validation dataset.
         /// </summary>
-        [Input("validationDataConfig")]
+        [PolicyResourceProperty("validationDataConfig", "_mUnknown_ValidationDataConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomModelValidationDataConfigArgs> _mValidationDataConfig;
-
-        public Inputs.CustomModelValidationDataConfigArgs? ValidationDataConfig => _mValidationDataConfig.GetValue("validationDataConfig");
+        private Inputs.CustomModelValidationDataConfigArgs? _mValue_ValidationDataConfig;
+        private bool _mUnknown_ValidationDataConfig;
+        public Inputs.CustomModelValidationDataConfigArgs? ValidationDataConfig
+        {
+            get
+            {
+                if (!_mUnknown_ValidationDataConfig) return _mValue_ValidationDataConfig;
+                throw new UndeferrableValueException("Value 'CustomModelArgs.ValidationDataConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomModelVpcConfigArgs> _mVpcConfig;
-
-        public Inputs.CustomModelVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Inputs.CustomModelVpcConfigArgs? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Inputs.CustomModelVpcConfigArgs? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'CustomModelArgs.VpcConfig' is not present");
+            }
+        }
     }
 }

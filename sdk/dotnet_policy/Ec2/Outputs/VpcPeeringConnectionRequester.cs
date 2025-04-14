@@ -16,10 +16,17 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// Allow a local VPC to resolve public DNS hostnames to
         /// private IP addresses when queried from instances in the peer VPC.
         /// </summary>
-        [Input("allowRemoteVpcDnsResolution")]
+        [PolicyResourceProperty("allowRemoteVpcDnsResolution", "_mUnknown_AllowRemoteVpcDnsResolution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowRemoteVpcDnsResolution;
-
-        public bool? AllowRemoteVpcDnsResolution => _mAllowRemoteVpcDnsResolution.GetValue("allowRemoteVpcDnsResolution");
+        private bool? _mValue_AllowRemoteVpcDnsResolution;
+        private bool _mUnknown_AllowRemoteVpcDnsResolution;
+        public bool? AllowRemoteVpcDnsResolution
+        {
+            get
+            {
+                if (!_mUnknown_AllowRemoteVpcDnsResolution) return _mValue_AllowRemoteVpcDnsResolution;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnectionRequester.AllowRemoteVpcDnsResolution' is not present");
+            }
+        }
     }
 }

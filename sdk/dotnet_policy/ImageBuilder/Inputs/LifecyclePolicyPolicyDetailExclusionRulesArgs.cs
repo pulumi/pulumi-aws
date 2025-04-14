@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Inputs
         /// <summary>
         /// Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action. Detailed below.
         /// </summary>
-        [Input("amis")]
+        [PolicyResourceProperty("amis", "_mUnknown_Amis")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LifecyclePolicyPolicyDetailExclusionRulesAmisArgs> _mAmis;
-
-        public Inputs.LifecyclePolicyPolicyDetailExclusionRulesAmisArgs? Amis => _mAmis.GetValue("amis");
+        private Inputs.LifecyclePolicyPolicyDetailExclusionRulesAmisArgs? _mValue_Amis;
+        private bool _mUnknown_Amis;
+        public Inputs.LifecyclePolicyPolicyDetailExclusionRulesAmisArgs? Amis
+        {
+            get
+            {
+                if (!_mUnknown_Amis) return _mValue_Amis;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesArgs.Amis' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains a list of tags that Image Builder uses to skip lifecycle actions for Image Builder image resources that have them.
         /// </summary>
-        [Input("tagMap")]
+        [PolicyResourceProperty("tagMap", "_mUnknown_TagMap")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagMap;
-
-        public Dictionary<string, string>? TagMap => _mTagMap.GetValue("tagMap");
+        private Dictionary<string, string>? _mValue_TagMap;
+        private bool _mUnknown_TagMap;
+        public Dictionary<string, string>? TagMap
+        {
+            get
+            {
+                if (!_mUnknown_TagMap) return _mValue_TagMap;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesArgs.TagMap' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Motion Graphics Insertion.
         /// </summary>
-        [Input("motionGraphicsInsertion")]
+        [PolicyResourceProperty("motionGraphicsInsertion", "_mUnknown_MotionGraphicsInsertion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMotionGraphicsInsertion;
-
-        public string? MotionGraphicsInsertion => _mMotionGraphicsInsertion.GetValue("motionGraphicsInsertion");
+        private string? _mValue_MotionGraphicsInsertion;
+        private bool _mUnknown_MotionGraphicsInsertion;
+        public string? MotionGraphicsInsertion
+        {
+            get
+            {
+                if (!_mUnknown_MotionGraphicsInsertion) return _mValue_MotionGraphicsInsertion;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsMotionGraphicsConfiguration.MotionGraphicsInsertion' is not present");
+            }
+        }
 
         /// <summary>
         /// Motion Graphics Settings. See Motion Graphics Settings for more details.
         /// </summary>
-        [Input("motionGraphicsSettings")]
+        [PolicyResourceProperty("motionGraphicsSettings", "_mUnknown_MotionGraphicsSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings> _mMotionGraphicsSettings;
-
-        public Outputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings? MotionGraphicsSettings => _mMotionGraphicsSettings.GetValue("motionGraphicsSettings");
+        private Outputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings? _mValue_MotionGraphicsSettings;
+        private bool _mUnknown_MotionGraphicsSettings;
+        public Outputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings? MotionGraphicsSettings
+        {
+            get
+            {
+                if (!_mUnknown_MotionGraphicsSettings) return _mValue_MotionGraphicsSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsMotionGraphicsConfiguration.MotionGraphicsSettings' is not present");
+            }
+        }
     }
 }

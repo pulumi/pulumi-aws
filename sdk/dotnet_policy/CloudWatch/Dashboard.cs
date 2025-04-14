@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The Amazon Resource Name (ARN) of the dashboard.
         /// </summary>
-        [Input("dashboardArn")]
+        [PolicyResourceProperty("dashboardArn", "_mUnknown_DashboardArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDashboardArn;
-
-        public string? DashboardArn => _mDashboardArn.GetValue("dashboardArn");
+        private string? _mValue_DashboardArn;
+        private bool _mUnknown_DashboardArn;
+        public string? DashboardArn
+        {
+            get
+            {
+                if (!_mUnknown_DashboardArn) return _mValue_DashboardArn;
+                throw new UndeferrableValueException("Value 'Dashboard.DashboardArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
         /// </summary>
-        [Input("dashboardBody")]
+        [PolicyResourceProperty("dashboardBody", "_mUnknown_DashboardBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDashboardBody;
-
-        public string? DashboardBody => _mDashboardBody.GetValue("dashboardBody");
+        private string? _mValue_DashboardBody;
+        private bool _mUnknown_DashboardBody;
+        public string? DashboardBody
+        {
+            get
+            {
+                if (!_mUnknown_DashboardBody) return _mValue_DashboardBody;
+                throw new UndeferrableValueException("Value 'Dashboard.DashboardBody' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the dashboard.
         /// </summary>
-        [Input("dashboardName")]
+        [PolicyResourceProperty("dashboardName", "_mUnknown_DashboardName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDashboardName;
-
-        public string? DashboardName => _mDashboardName.GetValue("dashboardName");
+        private string? _mValue_DashboardName;
+        private bool _mUnknown_DashboardName;
+        public string? DashboardName
+        {
+            get
+            {
+                if (!_mUnknown_DashboardName) return _mValue_DashboardName;
+                throw new UndeferrableValueException("Value 'Dashboard.DashboardName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/dashboard:Dashboard")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
         /// </summary>
-        [Input("dashboardBody")]
+        [PolicyResourceProperty("dashboardBody", "_mUnknown_DashboardBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDashboardBody;
-
-        public string? DashboardBody => _mDashboardBody.GetValue("dashboardBody");
+        private string? _mValue_DashboardBody;
+        private bool _mUnknown_DashboardBody;
+        public string? DashboardBody
+        {
+            get
+            {
+                if (!_mUnknown_DashboardBody) return _mValue_DashboardBody;
+                throw new UndeferrableValueException("Value 'DashboardArgs.DashboardBody' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the dashboard.
         /// </summary>
-        [Input("dashboardName")]
+        [PolicyResourceProperty("dashboardName", "_mUnknown_DashboardName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDashboardName;
-
-        public string? DashboardName => _mDashboardName.GetValue("dashboardName");
+        private string? _mValue_DashboardName;
+        private bool _mUnknown_DashboardName;
+        public string? DashboardName
+        {
+            get
+            {
+                if (!_mUnknown_DashboardName) return _mValue_DashboardName;
+                throw new UndeferrableValueException("Value 'DashboardArgs.DashboardName' is not present");
+            }
+        }
     }
 }

@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.Amplify
         /// <summary>
         /// Unique ID for an Amplify app.
         /// </summary>
-        [Input("appId")]
+        [PolicyResourceProperty("appId", "_mUnknown_AppId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppId;
-
-        public string? AppId => _mAppId.GetValue("appId");
+        private string? _mValue_AppId;
+        private bool _mUnknown_AppId;
+        public string? AppId
+        {
+            get
+            {
+                if (!_mUnknown_AppId) return _mValue_AppId;
+                throw new UndeferrableValueException("Value 'DomainAssociation.AppId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the domain association.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DomainAssociation.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         /// </summary>
-        [Input("certificateSettings")]
+        [PolicyResourceProperty("certificateSettings", "_mUnknown_CertificateSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainAssociationCertificateSettings> _mCertificateSettings;
-
-        public Outputs.DomainAssociationCertificateSettings? CertificateSettings => _mCertificateSettings.GetValue("certificateSettings");
+        private Outputs.DomainAssociationCertificateSettings? _mValue_CertificateSettings;
+        private bool _mUnknown_CertificateSettings;
+        public Outputs.DomainAssociationCertificateSettings? CertificateSettings
+        {
+            get
+            {
+                if (!_mUnknown_CertificateSettings) return _mValue_CertificateSettings;
+                throw new UndeferrableValueException("Value 'DomainAssociation.CertificateSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
         /// </summary>
-        [Input("certificateVerificationDnsRecord")]
+        [PolicyResourceProperty("certificateVerificationDnsRecord", "_mUnknown_CertificateVerificationDnsRecord")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateVerificationDnsRecord;
-
-        public string? CertificateVerificationDnsRecord => _mCertificateVerificationDnsRecord.GetValue("certificateVerificationDnsRecord");
+        private string? _mValue_CertificateVerificationDnsRecord;
+        private bool _mUnknown_CertificateVerificationDnsRecord;
+        public string? CertificateVerificationDnsRecord
+        {
+            get
+            {
+                if (!_mUnknown_CertificateVerificationDnsRecord) return _mValue_CertificateVerificationDnsRecord;
+                throw new UndeferrableValueException("Value 'DomainAssociation.CertificateVerificationDnsRecord' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain name for the domain association.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'DomainAssociation.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables the automated creation of subdomains for branches.
         /// </summary>
-        [Input("enableAutoSubDomain")]
+        [PolicyResourceProperty("enableAutoSubDomain", "_mUnknown_EnableAutoSubDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAutoSubDomain;
-
-        public bool? EnableAutoSubDomain => _mEnableAutoSubDomain.GetValue("enableAutoSubDomain");
+        private bool? _mValue_EnableAutoSubDomain;
+        private bool _mUnknown_EnableAutoSubDomain;
+        public bool? EnableAutoSubDomain
+        {
+            get
+            {
+                if (!_mUnknown_EnableAutoSubDomain) return _mValue_EnableAutoSubDomain;
+                throw new UndeferrableValueException("Value 'DomainAssociation.EnableAutoSubDomain' is not present");
+            }
+        }
 
         /// <summary>
         /// Setting for the subdomain. Documented below.
         /// </summary>
-        [Input("subDomains")]
+        [PolicyResourceProperty("subDomains", "_mUnknown_SubDomains")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DomainAssociationSubDomain>> _mSubDomains;
-
-        public List<Outputs.DomainAssociationSubDomain>? SubDomains => _mSubDomains.GetValue("subDomains");
+        private List<Outputs.DomainAssociationSubDomain>? _mValue_SubDomains;
+        private bool _mUnknown_SubDomains;
+        public List<Outputs.DomainAssociationSubDomain>? SubDomains
+        {
+            get
+            {
+                if (!_mUnknown_SubDomains) return _mValue_SubDomains;
+                throw new UndeferrableValueException("Value 'DomainAssociation.SubDomains' is not present");
+            }
+        }
 
         /// <summary>
         /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         /// </summary>
-        [Input("waitForVerification")]
+        [PolicyResourceProperty("waitForVerification", "_mUnknown_WaitForVerification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForVerification;
-
-        public bool? WaitForVerification => _mWaitForVerification.GetValue("waitForVerification");
+        private bool? _mValue_WaitForVerification;
+        private bool _mUnknown_WaitForVerification;
+        public bool? WaitForVerification
+        {
+            get
+            {
+                if (!_mUnknown_WaitForVerification) return _mValue_WaitForVerification;
+                throw new UndeferrableValueException("Value 'DomainAssociation.WaitForVerification' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:amplify/domainAssociation:DomainAssociation")]
@@ -92,55 +148,97 @@ namespace Pulumi.PolicyPacks.Aws.Amplify
         /// <summary>
         /// Unique ID for an Amplify app.
         /// </summary>
-        [Input("appId")]
+        [PolicyResourceProperty("appId", "_mUnknown_AppId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppId;
-
-        public string? AppId => _mAppId.GetValue("appId");
+        private string? _mValue_AppId;
+        private bool _mUnknown_AppId;
+        public string? AppId
+        {
+            get
+            {
+                if (!_mUnknown_AppId) return _mValue_AppId;
+                throw new UndeferrableValueException("Value 'DomainAssociationArgs.AppId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         /// </summary>
-        [Input("certificateSettings")]
+        [PolicyResourceProperty("certificateSettings", "_mUnknown_CertificateSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainAssociationCertificateSettingsArgs> _mCertificateSettings;
-
-        public Inputs.DomainAssociationCertificateSettingsArgs? CertificateSettings => _mCertificateSettings.GetValue("certificateSettings");
+        private Inputs.DomainAssociationCertificateSettingsArgs? _mValue_CertificateSettings;
+        private bool _mUnknown_CertificateSettings;
+        public Inputs.DomainAssociationCertificateSettingsArgs? CertificateSettings
+        {
+            get
+            {
+                if (!_mUnknown_CertificateSettings) return _mValue_CertificateSettings;
+                throw new UndeferrableValueException("Value 'DomainAssociationArgs.CertificateSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain name for the domain association.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'DomainAssociationArgs.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables the automated creation of subdomains for branches.
         /// </summary>
-        [Input("enableAutoSubDomain")]
+        [PolicyResourceProperty("enableAutoSubDomain", "_mUnknown_EnableAutoSubDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAutoSubDomain;
-
-        public bool? EnableAutoSubDomain => _mEnableAutoSubDomain.GetValue("enableAutoSubDomain");
+        private bool? _mValue_EnableAutoSubDomain;
+        private bool _mUnknown_EnableAutoSubDomain;
+        public bool? EnableAutoSubDomain
+        {
+            get
+            {
+                if (!_mUnknown_EnableAutoSubDomain) return _mValue_EnableAutoSubDomain;
+                throw new UndeferrableValueException("Value 'DomainAssociationArgs.EnableAutoSubDomain' is not present");
+            }
+        }
 
         /// <summary>
         /// Setting for the subdomain. Documented below.
         /// </summary>
-        [Input("subDomains")]
+        [PolicyResourceProperty("subDomains", "_mUnknown_SubDomains")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DomainAssociationSubDomainArgs>> _mSubDomains;
-
-        public List<Inputs.DomainAssociationSubDomainArgs>? SubDomains => _mSubDomains.GetValue("subDomains");
+        private List<Inputs.DomainAssociationSubDomainArgs>? _mValue_SubDomains;
+        private bool _mUnknown_SubDomains;
+        public List<Inputs.DomainAssociationSubDomainArgs>? SubDomains
+        {
+            get
+            {
+                if (!_mUnknown_SubDomains) return _mValue_SubDomains;
+                throw new UndeferrableValueException("Value 'DomainAssociationArgs.SubDomains' is not present");
+            }
+        }
 
         /// <summary>
         /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         /// </summary>
-        [Input("waitForVerification")]
+        [PolicyResourceProperty("waitForVerification", "_mUnknown_WaitForVerification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForVerification;
-
-        public bool? WaitForVerification => _mWaitForVerification.GetValue("waitForVerification");
+        private bool? _mValue_WaitForVerification;
+        private bool _mUnknown_WaitForVerification;
+        public bool? WaitForVerification
+        {
+            get
+            {
+                if (!_mUnknown_WaitForVerification) return _mValue_WaitForVerification;
+                throw new UndeferrableValueException("Value 'DomainAssociationArgs.WaitForVerification' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.SesV2.Inputs
         /// <summary>
         /// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("optimizedSharedDelivery")]
+        [PolicyResourceProperty("optimizedSharedDelivery", "_mUnknown_OptimizedSharedDelivery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOptimizedSharedDelivery;
-
-        public string? OptimizedSharedDelivery => _mOptimizedSharedDelivery.GetValue("optimizedSharedDelivery");
+        private string? _mValue_OptimizedSharedDelivery;
+        private bool _mUnknown_OptimizedSharedDelivery;
+        public string? OptimizedSharedDelivery
+        {
+            get
+            {
+                if (!_mUnknown_OptimizedSharedDelivery) return _mValue_OptimizedSharedDelivery;
+                throw new UndeferrableValueException("Value 'AccountVdmAttributesGuardianAttributesArgs.OptimizedSharedDelivery' is not present");
+            }
+        }
     }
 }

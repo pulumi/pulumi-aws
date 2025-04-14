@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings
     {
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination> _mDestination;
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings.Destination' is not present");
+            }
+        }
 
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination? Destination => _mDestination.GetValue("destination");
-
-        [Input("frameCaptureCdnSettings")]
+        [PolicyResourceProperty("frameCaptureCdnSettings", "_mUnknown_FrameCaptureCdnSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings> _mFrameCaptureCdnSettings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings? FrameCaptureCdnSettings => _mFrameCaptureCdnSettings.GetValue("frameCaptureCdnSettings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings? _mValue_FrameCaptureCdnSettings;
+        private bool _mUnknown_FrameCaptureCdnSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings? FrameCaptureCdnSettings
+        {
+            get
+            {
+                if (!_mUnknown_FrameCaptureCdnSettings) return _mValue_FrameCaptureCdnSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings.FrameCaptureCdnSettings' is not present");
+            }
+        }
     }
 }

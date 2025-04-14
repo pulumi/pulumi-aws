@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// A list of custom SageMaker AI images that are configured to run as a RSession app. see `custom_image` Block below.
         /// </summary>
-        [Input("customImages")]
+        [PolicyResourceProperty("customImages", "_mUnknown_CustomImages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs>> _mCustomImages;
-
-        public List<Inputs.DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs>? CustomImages => _mCustomImages.GetValue("customImages");
+        private List<Inputs.DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs>? _mValue_CustomImages;
+        private bool _mUnknown_CustomImages;
+        public List<Inputs.DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs>? CustomImages
+        {
+            get
+            {
+                if (!_mUnknown_CustomImages) return _mValue_CustomImages;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsRSessionAppSettingsArgs.CustomImages' is not present");
+            }
+        }
 
         /// <summary>
         /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block above.
         /// </summary>
-        [Input("defaultResourceSpec")]
+        [PolicyResourceProperty("defaultResourceSpec", "_mUnknown_DefaultResourceSpec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs> _mDefaultResourceSpec;
-
-        public Inputs.DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs? DefaultResourceSpec => _mDefaultResourceSpec.GetValue("defaultResourceSpec");
+        private Inputs.DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs? _mValue_DefaultResourceSpec;
+        private bool _mUnknown_DefaultResourceSpec;
+        public Inputs.DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs? DefaultResourceSpec
+        {
+            get
+            {
+                if (!_mUnknown_DefaultResourceSpec) return _mValue_DefaultResourceSpec;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsRSessionAppSettingsArgs.DefaultResourceSpec' is not present");
+            }
+        }
     }
 }

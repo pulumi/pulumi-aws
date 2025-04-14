@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect.Inputs
         /// <summary>
         /// The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
         /// </summary>
-        [Input("authenticationType")]
+        [PolicyResourceProperty("authenticationType", "_mUnknown_AuthenticationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
-
-        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
+        private string? _mValue_AuthenticationType;
+        private bool _mUnknown_AuthenticationType;
+        public string? AuthenticationType
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationType) return _mValue_AuthenticationType;
+                throw new UndeferrableValueException("Value 'ConnectorKafkaClusterClientAuthenticationArgs.AuthenticationType' is not present");
+            }
+        }
     }
 }

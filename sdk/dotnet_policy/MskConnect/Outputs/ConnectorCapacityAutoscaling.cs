@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect.Outputs
         /// <summary>
         /// The maximum number of workers allocated to the connector.
         /// </summary>
-        [Input("maxWorkerCount")]
+        [PolicyResourceProperty("maxWorkerCount", "_mUnknown_MaxWorkerCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxWorkerCount;
-
-        public int? MaxWorkerCount => _mMaxWorkerCount.GetValue("maxWorkerCount");
+        private int? _mValue_MaxWorkerCount;
+        private bool _mUnknown_MaxWorkerCount;
+        public int? MaxWorkerCount
+        {
+            get
+            {
+                if (!_mUnknown_MaxWorkerCount) return _mValue_MaxWorkerCount;
+                throw new UndeferrableValueException("Value 'ConnectorCapacityAutoscaling.MaxWorkerCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
         /// </summary>
-        [Input("mcuCount")]
+        [PolicyResourceProperty("mcuCount", "_mUnknown_McuCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMcuCount;
-
-        public int? McuCount => _mMcuCount.GetValue("mcuCount");
+        private int? _mValue_McuCount;
+        private bool _mUnknown_McuCount;
+        public int? McuCount
+        {
+            get
+            {
+                if (!_mUnknown_McuCount) return _mValue_McuCount;
+                throw new UndeferrableValueException("Value 'ConnectorCapacityAutoscaling.McuCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum number of workers allocated to the connector.
         /// </summary>
-        [Input("minWorkerCount")]
+        [PolicyResourceProperty("minWorkerCount", "_mUnknown_MinWorkerCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinWorkerCount;
-
-        public int? MinWorkerCount => _mMinWorkerCount.GetValue("minWorkerCount");
+        private int? _mValue_MinWorkerCount;
+        private bool _mUnknown_MinWorkerCount;
+        public int? MinWorkerCount
+        {
+            get
+            {
+                if (!_mUnknown_MinWorkerCount) return _mValue_MinWorkerCount;
+                throw new UndeferrableValueException("Value 'ConnectorCapacityAutoscaling.MinWorkerCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The scale-in policy for the connector. See `scale_in_policy` Block for details.
         /// </summary>
-        [Input("scaleInPolicy")]
+        [PolicyResourceProperty("scaleInPolicy", "_mUnknown_ScaleInPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorCapacityAutoscalingScaleInPolicy> _mScaleInPolicy;
-
-        public Outputs.ConnectorCapacityAutoscalingScaleInPolicy? ScaleInPolicy => _mScaleInPolicy.GetValue("scaleInPolicy");
+        private Outputs.ConnectorCapacityAutoscalingScaleInPolicy? _mValue_ScaleInPolicy;
+        private bool _mUnknown_ScaleInPolicy;
+        public Outputs.ConnectorCapacityAutoscalingScaleInPolicy? ScaleInPolicy
+        {
+            get
+            {
+                if (!_mUnknown_ScaleInPolicy) return _mValue_ScaleInPolicy;
+                throw new UndeferrableValueException("Value 'ConnectorCapacityAutoscaling.ScaleInPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The scale-out policy for the connector. See `scale_out_policy` Block for details.
         /// </summary>
-        [Input("scaleOutPolicy")]
+        [PolicyResourceProperty("scaleOutPolicy", "_mUnknown_ScaleOutPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorCapacityAutoscalingScaleOutPolicy> _mScaleOutPolicy;
-
-        public Outputs.ConnectorCapacityAutoscalingScaleOutPolicy? ScaleOutPolicy => _mScaleOutPolicy.GetValue("scaleOutPolicy");
+        private Outputs.ConnectorCapacityAutoscalingScaleOutPolicy? _mValue_ScaleOutPolicy;
+        private bool _mUnknown_ScaleOutPolicy;
+        public Outputs.ConnectorCapacityAutoscalingScaleOutPolicy? ScaleOutPolicy
+        {
+            get
+            {
+                if (!_mUnknown_ScaleOutPolicy) return _mValue_ScaleOutPolicy;
+                throw new UndeferrableValueException("Value 'ConnectorCapacityAutoscaling.ScaleOutPolicy' is not present");
+            }
+        }
     }
 }

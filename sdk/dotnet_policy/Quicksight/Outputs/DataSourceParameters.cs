@@ -15,190 +15,337 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// Parameters for connecting to Amazon Elasticsearch.
         /// </summary>
-        [Input("amazonElasticsearch")]
+        [PolicyResourceProperty("amazonElasticsearch", "_mUnknown_AmazonElasticsearch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersAmazonElasticsearch> _mAmazonElasticsearch;
-
-        public Outputs.DataSourceParametersAmazonElasticsearch? AmazonElasticsearch => _mAmazonElasticsearch.GetValue("amazonElasticsearch");
+        private Outputs.DataSourceParametersAmazonElasticsearch? _mValue_AmazonElasticsearch;
+        private bool _mUnknown_AmazonElasticsearch;
+        public Outputs.DataSourceParametersAmazonElasticsearch? AmazonElasticsearch
+        {
+            get
+            {
+                if (!_mUnknown_AmazonElasticsearch) return _mValue_AmazonElasticsearch;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.AmazonElasticsearch' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to Athena.
         /// </summary>
-        [Input("athena")]
+        [PolicyResourceProperty("athena", "_mUnknown_Athena")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersAthena> _mAthena;
-
-        public Outputs.DataSourceParametersAthena? Athena => _mAthena.GetValue("athena");
+        private Outputs.DataSourceParametersAthena? _mValue_Athena;
+        private bool _mUnknown_Athena;
+        public Outputs.DataSourceParametersAthena? Athena
+        {
+            get
+            {
+                if (!_mUnknown_Athena) return _mValue_Athena;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.Athena' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to Aurora MySQL.
         /// </summary>
-        [Input("aurora")]
+        [PolicyResourceProperty("aurora", "_mUnknown_Aurora")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersAurora> _mAurora;
-
-        public Outputs.DataSourceParametersAurora? Aurora => _mAurora.GetValue("aurora");
+        private Outputs.DataSourceParametersAurora? _mValue_Aurora;
+        private bool _mUnknown_Aurora;
+        public Outputs.DataSourceParametersAurora? Aurora
+        {
+            get
+            {
+                if (!_mUnknown_Aurora) return _mValue_Aurora;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.Aurora' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to Aurora Postgresql.
         /// </summary>
-        [Input("auroraPostgresql")]
+        [PolicyResourceProperty("auroraPostgresql", "_mUnknown_AuroraPostgresql")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersAuroraPostgresql> _mAuroraPostgresql;
-
-        public Outputs.DataSourceParametersAuroraPostgresql? AuroraPostgresql => _mAuroraPostgresql.GetValue("auroraPostgresql");
+        private Outputs.DataSourceParametersAuroraPostgresql? _mValue_AuroraPostgresql;
+        private bool _mUnknown_AuroraPostgresql;
+        public Outputs.DataSourceParametersAuroraPostgresql? AuroraPostgresql
+        {
+            get
+            {
+                if (!_mUnknown_AuroraPostgresql) return _mValue_AuroraPostgresql;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.AuroraPostgresql' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to AWS IOT Analytics.
         /// </summary>
-        [Input("awsIotAnalytics")]
+        [PolicyResourceProperty("awsIotAnalytics", "_mUnknown_AwsIotAnalytics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersAwsIotAnalytics> _mAwsIotAnalytics;
-
-        public Outputs.DataSourceParametersAwsIotAnalytics? AwsIotAnalytics => _mAwsIotAnalytics.GetValue("awsIotAnalytics");
+        private Outputs.DataSourceParametersAwsIotAnalytics? _mValue_AwsIotAnalytics;
+        private bool _mUnknown_AwsIotAnalytics;
+        public Outputs.DataSourceParametersAwsIotAnalytics? AwsIotAnalytics
+        {
+            get
+            {
+                if (!_mUnknown_AwsIotAnalytics) return _mValue_AwsIotAnalytics;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.AwsIotAnalytics' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to Databricks.
         /// </summary>
-        [Input("databricks")]
+        [PolicyResourceProperty("databricks", "_mUnknown_Databricks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersDatabricks> _mDatabricks;
-
-        public Outputs.DataSourceParametersDatabricks? Databricks => _mDatabricks.GetValue("databricks");
+        private Outputs.DataSourceParametersDatabricks? _mValue_Databricks;
+        private bool _mUnknown_Databricks;
+        public Outputs.DataSourceParametersDatabricks? Databricks
+        {
+            get
+            {
+                if (!_mUnknown_Databricks) return _mValue_Databricks;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.Databricks' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to Jira.
         /// </summary>
-        [Input("jira")]
+        [PolicyResourceProperty("jira", "_mUnknown_Jira")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersJira> _mJira;
-
-        public Outputs.DataSourceParametersJira? Jira => _mJira.GetValue("jira");
+        private Outputs.DataSourceParametersJira? _mValue_Jira;
+        private bool _mUnknown_Jira;
+        public Outputs.DataSourceParametersJira? Jira
+        {
+            get
+            {
+                if (!_mUnknown_Jira) return _mValue_Jira;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.Jira' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to MariaDB.
         /// </summary>
-        [Input("mariaDb")]
+        [PolicyResourceProperty("mariaDb", "_mUnknown_MariaDb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersMariaDb> _mMariaDb;
-
-        public Outputs.DataSourceParametersMariaDb? MariaDb => _mMariaDb.GetValue("mariaDb");
+        private Outputs.DataSourceParametersMariaDb? _mValue_MariaDb;
+        private bool _mUnknown_MariaDb;
+        public Outputs.DataSourceParametersMariaDb? MariaDb
+        {
+            get
+            {
+                if (!_mUnknown_MariaDb) return _mValue_MariaDb;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.MariaDb' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to MySQL.
         /// </summary>
-        [Input("mysql")]
+        [PolicyResourceProperty("mysql", "_mUnknown_Mysql")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersMysql> _mMysql;
-
-        public Outputs.DataSourceParametersMysql? Mysql => _mMysql.GetValue("mysql");
+        private Outputs.DataSourceParametersMysql? _mValue_Mysql;
+        private bool _mUnknown_Mysql;
+        public Outputs.DataSourceParametersMysql? Mysql
+        {
+            get
+            {
+                if (!_mUnknown_Mysql) return _mValue_Mysql;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.Mysql' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to Oracle.
         /// </summary>
-        [Input("oracle")]
+        [PolicyResourceProperty("oracle", "_mUnknown_Oracle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersOracle> _mOracle;
-
-        public Outputs.DataSourceParametersOracle? Oracle => _mOracle.GetValue("oracle");
+        private Outputs.DataSourceParametersOracle? _mValue_Oracle;
+        private bool _mUnknown_Oracle;
+        public Outputs.DataSourceParametersOracle? Oracle
+        {
+            get
+            {
+                if (!_mUnknown_Oracle) return _mValue_Oracle;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.Oracle' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to Postgresql.
         /// </summary>
-        [Input("postgresql")]
+        [PolicyResourceProperty("postgresql", "_mUnknown_Postgresql")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersPostgresql> _mPostgresql;
-
-        public Outputs.DataSourceParametersPostgresql? Postgresql => _mPostgresql.GetValue("postgresql");
+        private Outputs.DataSourceParametersPostgresql? _mValue_Postgresql;
+        private bool _mUnknown_Postgresql;
+        public Outputs.DataSourceParametersPostgresql? Postgresql
+        {
+            get
+            {
+                if (!_mUnknown_Postgresql) return _mValue_Postgresql;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.Postgresql' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to Presto.
         /// </summary>
-        [Input("presto")]
+        [PolicyResourceProperty("presto", "_mUnknown_Presto")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersPresto> _mPresto;
-
-        public Outputs.DataSourceParametersPresto? Presto => _mPresto.GetValue("presto");
+        private Outputs.DataSourceParametersPresto? _mValue_Presto;
+        private bool _mUnknown_Presto;
+        public Outputs.DataSourceParametersPresto? Presto
+        {
+            get
+            {
+                if (!_mUnknown_Presto) return _mValue_Presto;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.Presto' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to RDS.
         /// </summary>
-        [Input("rds")]
+        [PolicyResourceProperty("rds", "_mUnknown_Rds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersRds> _mRds;
-
-        public Outputs.DataSourceParametersRds? Rds => _mRds.GetValue("rds");
+        private Outputs.DataSourceParametersRds? _mValue_Rds;
+        private bool _mUnknown_Rds;
+        public Outputs.DataSourceParametersRds? Rds
+        {
+            get
+            {
+                if (!_mUnknown_Rds) return _mValue_Rds;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.Rds' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to Redshift.
         /// </summary>
-        [Input("redshift")]
+        [PolicyResourceProperty("redshift", "_mUnknown_Redshift")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersRedshift> _mRedshift;
-
-        public Outputs.DataSourceParametersRedshift? Redshift => _mRedshift.GetValue("redshift");
+        private Outputs.DataSourceParametersRedshift? _mValue_Redshift;
+        private bool _mUnknown_Redshift;
+        public Outputs.DataSourceParametersRedshift? Redshift
+        {
+            get
+            {
+                if (!_mUnknown_Redshift) return _mValue_Redshift;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.Redshift' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to S3.
         /// </summary>
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersS3> _mS3;
-
-        public Outputs.DataSourceParametersS3? S3 => _mS3.GetValue("s3");
+        private Outputs.DataSourceParametersS3? _mValue_S3;
+        private bool _mUnknown_S3;
+        public Outputs.DataSourceParametersS3? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.S3' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to ServiceNow.
         /// </summary>
-        [Input("serviceNow")]
+        [PolicyResourceProperty("serviceNow", "_mUnknown_ServiceNow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersServiceNow> _mServiceNow;
-
-        public Outputs.DataSourceParametersServiceNow? ServiceNow => _mServiceNow.GetValue("serviceNow");
+        private Outputs.DataSourceParametersServiceNow? _mValue_ServiceNow;
+        private bool _mUnknown_ServiceNow;
+        public Outputs.DataSourceParametersServiceNow? ServiceNow
+        {
+            get
+            {
+                if (!_mUnknown_ServiceNow) return _mValue_ServiceNow;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.ServiceNow' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to Snowflake.
         /// </summary>
-        [Input("snowflake")]
+        [PolicyResourceProperty("snowflake", "_mUnknown_Snowflake")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersSnowflake> _mSnowflake;
-
-        public Outputs.DataSourceParametersSnowflake? Snowflake => _mSnowflake.GetValue("snowflake");
+        private Outputs.DataSourceParametersSnowflake? _mValue_Snowflake;
+        private bool _mUnknown_Snowflake;
+        public Outputs.DataSourceParametersSnowflake? Snowflake
+        {
+            get
+            {
+                if (!_mUnknown_Snowflake) return _mValue_Snowflake;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.Snowflake' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to Spark.
         /// </summary>
-        [Input("spark")]
+        [PolicyResourceProperty("spark", "_mUnknown_Spark")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersSpark> _mSpark;
-
-        public Outputs.DataSourceParametersSpark? Spark => _mSpark.GetValue("spark");
+        private Outputs.DataSourceParametersSpark? _mValue_Spark;
+        private bool _mUnknown_Spark;
+        public Outputs.DataSourceParametersSpark? Spark
+        {
+            get
+            {
+                if (!_mUnknown_Spark) return _mValue_Spark;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.Spark' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to SQL Server.
         /// </summary>
-        [Input("sqlServer")]
+        [PolicyResourceProperty("sqlServer", "_mUnknown_SqlServer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersSqlServer> _mSqlServer;
-
-        public Outputs.DataSourceParametersSqlServer? SqlServer => _mSqlServer.GetValue("sqlServer");
+        private Outputs.DataSourceParametersSqlServer? _mValue_SqlServer;
+        private bool _mUnknown_SqlServer;
+        public Outputs.DataSourceParametersSqlServer? SqlServer
+        {
+            get
+            {
+                if (!_mUnknown_SqlServer) return _mValue_SqlServer;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.SqlServer' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to Teradata.
         /// </summary>
-        [Input("teradata")]
+        [PolicyResourceProperty("teradata", "_mUnknown_Teradata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersTeradata> _mTeradata;
-
-        public Outputs.DataSourceParametersTeradata? Teradata => _mTeradata.GetValue("teradata");
+        private Outputs.DataSourceParametersTeradata? _mValue_Teradata;
+        private bool _mUnknown_Teradata;
+        public Outputs.DataSourceParametersTeradata? Teradata
+        {
+            get
+            {
+                if (!_mUnknown_Teradata) return _mValue_Teradata;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.Teradata' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for connecting to Twitter.
         /// </summary>
-        [Input("twitter")]
+        [PolicyResourceProperty("twitter", "_mUnknown_Twitter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParametersTwitter> _mTwitter;
-
-        public Outputs.DataSourceParametersTwitter? Twitter => _mTwitter.GetValue("twitter");
+        private Outputs.DataSourceParametersTwitter? _mValue_Twitter;
+        private bool _mUnknown_Twitter;
+        public Outputs.DataSourceParametersTwitter? Twitter
+        {
+            get
+            {
+                if (!_mUnknown_Twitter) return _mValue_Twitter;
+                throw new UndeferrableValueException("Value 'DataSourceParameters.Twitter' is not present");
+            }
+        }
     }
 }

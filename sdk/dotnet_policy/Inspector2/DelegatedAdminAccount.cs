@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Inspector2
         /// <summary>
         /// Account to enable as delegated admin account.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'DelegatedAdminAccount.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of this delegated admin account.
         /// </summary>
-        [Input("relationshipStatus")]
+        [PolicyResourceProperty("relationshipStatus", "_mUnknown_RelationshipStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRelationshipStatus;
-
-        public string? RelationshipStatus => _mRelationshipStatus.GetValue("relationshipStatus");
+        private string? _mValue_RelationshipStatus;
+        private bool _mUnknown_RelationshipStatus;
+        public string? RelationshipStatus
+        {
+            get
+            {
+                if (!_mUnknown_RelationshipStatus) return _mValue_RelationshipStatus;
+                throw new UndeferrableValueException("Value 'DelegatedAdminAccount.RelationshipStatus' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount")]
@@ -38,10 +52,17 @@ namespace Pulumi.PolicyPacks.Aws.Inspector2
         /// <summary>
         /// Account to enable as delegated admin account.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'DelegatedAdminAccountArgs.AccountId' is not present");
+            }
+        }
     }
 }

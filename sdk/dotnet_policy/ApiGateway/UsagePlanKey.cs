@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Identifier of the API key resource.
         /// </summary>
-        [Input("keyId")]
+        [PolicyResourceProperty("keyId", "_mUnknown_KeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
-
-        public string? KeyId => _mKeyId.GetValue("keyId");
+        private string? _mValue_KeyId;
+        private bool _mUnknown_KeyId;
+        public string? KeyId
+        {
+            get
+            {
+                if (!_mUnknown_KeyId) return _mValue_KeyId;
+                throw new UndeferrableValueException("Value 'UsagePlanKey.KeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the API key resource. Currently, the valid key type is API_KEY.
         /// </summary>
-        [Input("keyType")]
+        [PolicyResourceProperty("keyType", "_mUnknown_KeyType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyType;
-
-        public string? KeyType => _mKeyType.GetValue("keyType");
+        private string? _mValue_KeyType;
+        private bool _mUnknown_KeyType;
+        public string? KeyType
+        {
+            get
+            {
+                if (!_mUnknown_KeyType) return _mValue_KeyType;
+                throw new UndeferrableValueException("Value 'UsagePlanKey.KeyType' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of a usage plan key.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UsagePlanKey.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Id of the usage plan resource representing to associate the key to.
         /// </summary>
-        [Input("usagePlanId")]
+        [PolicyResourceProperty("usagePlanId", "_mUnknown_UsagePlanId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsagePlanId;
-
-        public string? UsagePlanId => _mUsagePlanId.GetValue("usagePlanId");
+        private string? _mValue_UsagePlanId;
+        private bool _mUnknown_UsagePlanId;
+        public string? UsagePlanId
+        {
+            get
+            {
+                if (!_mUnknown_UsagePlanId) return _mValue_UsagePlanId;
+                throw new UndeferrableValueException("Value 'UsagePlanKey.UsagePlanId' is not present");
+            }
+        }
 
         /// <summary>
         /// Value of a usage plan key.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'UsagePlanKey.Value' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/usagePlanKey:UsagePlanKey")]
@@ -65,28 +100,49 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Identifier of the API key resource.
         /// </summary>
-        [Input("keyId")]
+        [PolicyResourceProperty("keyId", "_mUnknown_KeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
-
-        public string? KeyId => _mKeyId.GetValue("keyId");
+        private string? _mValue_KeyId;
+        private bool _mUnknown_KeyId;
+        public string? KeyId
+        {
+            get
+            {
+                if (!_mUnknown_KeyId) return _mValue_KeyId;
+                throw new UndeferrableValueException("Value 'UsagePlanKeyArgs.KeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the API key resource. Currently, the valid key type is API_KEY.
         /// </summary>
-        [Input("keyType")]
+        [PolicyResourceProperty("keyType", "_mUnknown_KeyType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyType;
-
-        public string? KeyType => _mKeyType.GetValue("keyType");
+        private string? _mValue_KeyType;
+        private bool _mUnknown_KeyType;
+        public string? KeyType
+        {
+            get
+            {
+                if (!_mUnknown_KeyType) return _mValue_KeyType;
+                throw new UndeferrableValueException("Value 'UsagePlanKeyArgs.KeyType' is not present");
+            }
+        }
 
         /// <summary>
         /// Id of the usage plan resource representing to associate the key to.
         /// </summary>
-        [Input("usagePlanId")]
+        [PolicyResourceProperty("usagePlanId", "_mUnknown_UsagePlanId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsagePlanId;
-
-        public string? UsagePlanId => _mUsagePlanId.GetValue("usagePlanId");
+        private string? _mValue_UsagePlanId;
+        private bool _mUnknown_UsagePlanId;
+        public string? UsagePlanId
+        {
+            get
+            {
+                if (!_mUnknown_UsagePlanId) return _mValue_UsagePlanId;
+                throw new UndeferrableValueException("Value 'UsagePlanKeyArgs.UsagePlanId' is not present");
+            }
+        }
     }
 }

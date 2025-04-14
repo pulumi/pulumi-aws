@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Waf.Inputs
         /// <summary>
         /// When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
         /// </summary>
-        [Input("data")]
+        [PolicyResourceProperty("data", "_mUnknown_Data")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mData;
-
-        public string? Data => _mData.GetValue("data");
+        private string? _mValue_Data;
+        private bool _mUnknown_Data;
+        public string? Data
+        {
+            get
+            {
+                if (!_mUnknown_Data) return _mValue_Data;
+                throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs.Data' is not present");
+            }
+        }
 
         /// <summary>
         /// The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs.Type' is not present");
+            }
+        }
     }
 }

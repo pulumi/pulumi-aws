@@ -12,52 +12,108 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
 {
     public sealed class GetFirewallPolicyFirewallPolicyResult
     {
-        [Input("statefulDefaultActions")]
+        [PolicyResourceProperty("statefulDefaultActions", "_mUnknown_StatefulDefaultActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStatefulDefaultActions;
+        private List<string>? _mValue_StatefulDefaultActions;
+        private bool _mUnknown_StatefulDefaultActions;
+        public List<string>? StatefulDefaultActions
+        {
+            get
+            {
+                if (!_mUnknown_StatefulDefaultActions) return _mValue_StatefulDefaultActions;
+                throw new UndeferrableValueException("Value 'GetFirewallPolicyFirewallPolicyResult.StatefulDefaultActions' is not present");
+            }
+        }
 
-        public List<string>? StatefulDefaultActions => _mStatefulDefaultActions.GetValue("statefulDefaultActions");
-
-        [Input("statefulEngineOptions")]
+        [PolicyResourceProperty("statefulEngineOptions", "_mUnknown_StatefulEngineOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult>> _mStatefulEngineOptions;
+        private List<Outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult>? _mValue_StatefulEngineOptions;
+        private bool _mUnknown_StatefulEngineOptions;
+        public List<Outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult>? StatefulEngineOptions
+        {
+            get
+            {
+                if (!_mUnknown_StatefulEngineOptions) return _mValue_StatefulEngineOptions;
+                throw new UndeferrableValueException("Value 'GetFirewallPolicyFirewallPolicyResult.StatefulEngineOptions' is not present");
+            }
+        }
 
-        public List<Outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult>? StatefulEngineOptions => _mStatefulEngineOptions.GetValue("statefulEngineOptions");
-
-        [Input("statefulRuleGroupReferences")]
+        [PolicyResourceProperty("statefulRuleGroupReferences", "_mUnknown_StatefulRuleGroupReferences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult>> _mStatefulRuleGroupReferences;
+        private List<Outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult>? _mValue_StatefulRuleGroupReferences;
+        private bool _mUnknown_StatefulRuleGroupReferences;
+        public List<Outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult>? StatefulRuleGroupReferences
+        {
+            get
+            {
+                if (!_mUnknown_StatefulRuleGroupReferences) return _mValue_StatefulRuleGroupReferences;
+                throw new UndeferrableValueException("Value 'GetFirewallPolicyFirewallPolicyResult.StatefulRuleGroupReferences' is not present");
+            }
+        }
 
-        public List<Outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult>? StatefulRuleGroupReferences => _mStatefulRuleGroupReferences.GetValue("statefulRuleGroupReferences");
-
-        [Input("statelessCustomActions")]
+        [PolicyResourceProperty("statelessCustomActions", "_mUnknown_StatelessCustomActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionResult>> _mStatelessCustomActions;
+        private List<Outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionResult>? _mValue_StatelessCustomActions;
+        private bool _mUnknown_StatelessCustomActions;
+        public List<Outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionResult>? StatelessCustomActions
+        {
+            get
+            {
+                if (!_mUnknown_StatelessCustomActions) return _mValue_StatelessCustomActions;
+                throw new UndeferrableValueException("Value 'GetFirewallPolicyFirewallPolicyResult.StatelessCustomActions' is not present");
+            }
+        }
 
-        public List<Outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionResult>? StatelessCustomActions => _mStatelessCustomActions.GetValue("statelessCustomActions");
-
-        [Input("statelessDefaultActions")]
+        [PolicyResourceProperty("statelessDefaultActions", "_mUnknown_StatelessDefaultActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStatelessDefaultActions;
+        private List<string>? _mValue_StatelessDefaultActions;
+        private bool _mUnknown_StatelessDefaultActions;
+        public List<string>? StatelessDefaultActions
+        {
+            get
+            {
+                if (!_mUnknown_StatelessDefaultActions) return _mValue_StatelessDefaultActions;
+                throw new UndeferrableValueException("Value 'GetFirewallPolicyFirewallPolicyResult.StatelessDefaultActions' is not present");
+            }
+        }
 
-        public List<string>? StatelessDefaultActions => _mStatelessDefaultActions.GetValue("statelessDefaultActions");
-
-        [Input("statelessFragmentDefaultActions")]
+        [PolicyResourceProperty("statelessFragmentDefaultActions", "_mUnknown_StatelessFragmentDefaultActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStatelessFragmentDefaultActions;
+        private List<string>? _mValue_StatelessFragmentDefaultActions;
+        private bool _mUnknown_StatelessFragmentDefaultActions;
+        public List<string>? StatelessFragmentDefaultActions
+        {
+            get
+            {
+                if (!_mUnknown_StatelessFragmentDefaultActions) return _mValue_StatelessFragmentDefaultActions;
+                throw new UndeferrableValueException("Value 'GetFirewallPolicyFirewallPolicyResult.StatelessFragmentDefaultActions' is not present");
+            }
+        }
 
-        public List<string>? StatelessFragmentDefaultActions => _mStatelessFragmentDefaultActions.GetValue("statelessFragmentDefaultActions");
-
-        [Input("statelessRuleGroupReferences")]
+        [PolicyResourceProperty("statelessRuleGroupReferences", "_mUnknown_StatelessRuleGroupReferences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult>> _mStatelessRuleGroupReferences;
+        private List<Outputs.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult>? _mValue_StatelessRuleGroupReferences;
+        private bool _mUnknown_StatelessRuleGroupReferences;
+        public List<Outputs.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult>? StatelessRuleGroupReferences
+        {
+            get
+            {
+                if (!_mUnknown_StatelessRuleGroupReferences) return _mValue_StatelessRuleGroupReferences;
+                throw new UndeferrableValueException("Value 'GetFirewallPolicyFirewallPolicyResult.StatelessRuleGroupReferences' is not present");
+            }
+        }
 
-        public List<Outputs.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult>? StatelessRuleGroupReferences => _mStatelessRuleGroupReferences.GetValue("statelessRuleGroupReferences");
-
-        [Input("tlsInspectionConfigurationArn")]
+        [PolicyResourceProperty("tlsInspectionConfigurationArn", "_mUnknown_TlsInspectionConfigurationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTlsInspectionConfigurationArn;
-
-        public string? TlsInspectionConfigurationArn => _mTlsInspectionConfigurationArn.GetValue("tlsInspectionConfigurationArn");
+        private string? _mValue_TlsInspectionConfigurationArn;
+        private bool _mUnknown_TlsInspectionConfigurationArn;
+        public string? TlsInspectionConfigurationArn
+        {
+            get
+            {
+                if (!_mUnknown_TlsInspectionConfigurationArn) return _mValue_TlsInspectionConfigurationArn;
+                throw new UndeferrableValueException("Value 'GetFirewallPolicyFirewallPolicyResult.TlsInspectionConfigurationArn' is not present");
+            }
+        }
     }
 }

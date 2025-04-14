@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The Amazon Resource Name (ARN) of the delivery destination.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LogDeliveryDestination.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS resource that will receive the logs.
         /// </summary>
-        [Input("deliveryDestinationConfiguration")]
+        [PolicyResourceProperty("deliveryDestinationConfiguration", "_mUnknown_DeliveryDestinationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LogDeliveryDestinationDeliveryDestinationConfiguration> _mDeliveryDestinationConfiguration;
-
-        public Outputs.LogDeliveryDestinationDeliveryDestinationConfiguration? DeliveryDestinationConfiguration => _mDeliveryDestinationConfiguration.GetValue("deliveryDestinationConfiguration");
+        private Outputs.LogDeliveryDestinationDeliveryDestinationConfiguration? _mValue_DeliveryDestinationConfiguration;
+        private bool _mUnknown_DeliveryDestinationConfiguration;
+        public Outputs.LogDeliveryDestinationDeliveryDestinationConfiguration? DeliveryDestinationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryDestinationConfiguration) return _mValue_DeliveryDestinationConfiguration;
+                throw new UndeferrableValueException("Value 'LogDeliveryDestination.DeliveryDestinationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
         /// </summary>
-        [Input("deliveryDestinationType")]
+        [PolicyResourceProperty("deliveryDestinationType", "_mUnknown_DeliveryDestinationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryDestinationType;
-
-        public string? DeliveryDestinationType => _mDeliveryDestinationType.GetValue("deliveryDestinationType");
+        private string? _mValue_DeliveryDestinationType;
+        private bool _mUnknown_DeliveryDestinationType;
+        public string? DeliveryDestinationType
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryDestinationType) return _mValue_DeliveryDestinationType;
+                throw new UndeferrableValueException("Value 'LogDeliveryDestination.DeliveryDestinationType' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for this delivery destination.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LogDeliveryDestination.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
         /// </summary>
-        [Input("outputFormat")]
+        [PolicyResourceProperty("outputFormat", "_mUnknown_OutputFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputFormat;
-
-        public string? OutputFormat => _mOutputFormat.GetValue("outputFormat");
+        private string? _mValue_OutputFormat;
+        private bool _mUnknown_OutputFormat;
+        public string? OutputFormat
+        {
+            get
+            {
+                if (!_mUnknown_OutputFormat) return _mValue_OutputFormat;
+                throw new UndeferrableValueException("Value 'LogDeliveryDestination.OutputFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LogDeliveryDestination.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'LogDeliveryDestination.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/logDeliveryDestination:LogDeliveryDestination")]
@@ -83,37 +132,65 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The AWS resource that will receive the logs.
         /// </summary>
-        [Input("deliveryDestinationConfiguration")]
+        [PolicyResourceProperty("deliveryDestinationConfiguration", "_mUnknown_DeliveryDestinationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs> _mDeliveryDestinationConfiguration;
-
-        public Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs? DeliveryDestinationConfiguration => _mDeliveryDestinationConfiguration.GetValue("deliveryDestinationConfiguration");
+        private Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs? _mValue_DeliveryDestinationConfiguration;
+        private bool _mUnknown_DeliveryDestinationConfiguration;
+        public Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs? DeliveryDestinationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryDestinationConfiguration) return _mValue_DeliveryDestinationConfiguration;
+                throw new UndeferrableValueException("Value 'LogDeliveryDestinationArgs.DeliveryDestinationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for this delivery destination.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LogDeliveryDestinationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
         /// </summary>
-        [Input("outputFormat")]
+        [PolicyResourceProperty("outputFormat", "_mUnknown_OutputFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputFormat;
-
-        public string? OutputFormat => _mOutputFormat.GetValue("outputFormat");
+        private string? _mValue_OutputFormat;
+        private bool _mUnknown_OutputFormat;
+        public string? OutputFormat
+        {
+            get
+            {
+                if (!_mUnknown_OutputFormat) return _mValue_OutputFormat;
+                throw new UndeferrableValueException("Value 'LogDeliveryDestinationArgs.OutputFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LogDeliveryDestinationArgs.Tags' is not present");
+            }
+        }
     }
 }

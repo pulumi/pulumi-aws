@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Acm
         /// <summary>
         /// ARN of the certificate that is being validated.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'CertificateValidation.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         /// </summary>
-        [Input("validationRecordFqdns")]
+        [PolicyResourceProperty("validationRecordFqdns", "_mUnknown_ValidationRecordFqdns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mValidationRecordFqdns;
-
-        public List<string>? ValidationRecordFqdns => _mValidationRecordFqdns.GetValue("validationRecordFqdns");
+        private List<string>? _mValue_ValidationRecordFqdns;
+        private bool _mUnknown_ValidationRecordFqdns;
+        public List<string>? ValidationRecordFqdns
+        {
+            get
+            {
+                if (!_mUnknown_ValidationRecordFqdns) return _mValue_ValidationRecordFqdns;
+                throw new UndeferrableValueException("Value 'CertificateValidation.ValidationRecordFqdns' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:acm/certificateValidation:CertificateValidation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Acm
         /// <summary>
         /// ARN of the certificate that is being validated.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'CertificateValidationArgs.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         /// </summary>
-        [Input("validationRecordFqdns")]
+        [PolicyResourceProperty("validationRecordFqdns", "_mUnknown_ValidationRecordFqdns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mValidationRecordFqdns;
-
-        public List<string>? ValidationRecordFqdns => _mValidationRecordFqdns.GetValue("validationRecordFqdns");
+        private List<string>? _mValue_ValidationRecordFqdns;
+        private bool _mUnknown_ValidationRecordFqdns;
+        public List<string>? ValidationRecordFqdns
+        {
+            get
+            {
+                if (!_mUnknown_ValidationRecordFqdns) return _mValue_ValidationRecordFqdns;
+                throw new UndeferrableValueException("Value 'CertificateValidationArgs.ValidationRecordFqdns' is not present");
+            }
+        }
     }
 }

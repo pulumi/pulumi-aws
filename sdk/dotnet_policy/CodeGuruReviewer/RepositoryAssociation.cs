@@ -16,112 +16,203 @@ namespace Pulumi.PolicyPacks.Aws.CodeGuruReviewer
         /// <summary>
         /// The Amazon Resource Name (ARN) identifying the repository association.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'RepositoryAssociation.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the repository association.
         /// </summary>
-        [Input("associationId")]
+        [PolicyResourceProperty("associationId", "_mUnknown_AssociationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationId;
-
-        public string? AssociationId => _mAssociationId.GetValue("associationId");
+        private string? _mValue_AssociationId;
+        private bool _mUnknown_AssociationId;
+        public string? AssociationId
+        {
+            get
+            {
+                if (!_mUnknown_AssociationId) return _mValue_AssociationId;
+                throw new UndeferrableValueException("Value 'RepositoryAssociation.AssociationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
         /// </summary>
-        [Input("connectionArn")]
+        [PolicyResourceProperty("connectionArn", "_mUnknown_ConnectionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionArn;
-
-        public string? ConnectionArn => _mConnectionArn.GetValue("connectionArn");
+        private string? _mValue_ConnectionArn;
+        private bool _mUnknown_ConnectionArn;
+        public string? ConnectionArn
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionArn) return _mValue_ConnectionArn;
+                throw new UndeferrableValueException("Value 'RepositoryAssociation.ConnectionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// An object describing the KMS key to asssociate. Block is documented below.
         /// </summary>
-        [Input("kmsKeyDetails")]
+        [PolicyResourceProperty("kmsKeyDetails", "_mUnknown_KmsKeyDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RepositoryAssociationKmsKeyDetails> _mKmsKeyDetails;
-
-        public Outputs.RepositoryAssociationKmsKeyDetails? KmsKeyDetails => _mKmsKeyDetails.GetValue("kmsKeyDetails");
+        private Outputs.RepositoryAssociationKmsKeyDetails? _mValue_KmsKeyDetails;
+        private bool _mUnknown_KmsKeyDetails;
+        public Outputs.RepositoryAssociationKmsKeyDetails? KmsKeyDetails
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyDetails) return _mValue_KmsKeyDetails;
+                throw new UndeferrableValueException("Value 'RepositoryAssociation.KmsKeyDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the repository.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RepositoryAssociation.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The owner of the repository.
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'RepositoryAssociation.Owner' is not present");
+            }
+        }
 
         /// <summary>
         /// The provider type of the repository association.
         /// </summary>
-        [Input("providerType")]
+        [PolicyResourceProperty("providerType", "_mUnknown_ProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
-
-        public string? ProviderType => _mProviderType.GetValue("providerType");
+        private string? _mValue_ProviderType;
+        private bool _mUnknown_ProviderType;
+        public string? ProviderType
+        {
+            get
+            {
+                if (!_mUnknown_ProviderType) return _mValue_ProviderType;
+                throw new UndeferrableValueException("Value 'RepositoryAssociation.ProviderType' is not present");
+            }
+        }
 
         /// <summary>
         /// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("repository")]
+        [PolicyResourceProperty("repository", "_mUnknown_Repository")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RepositoryAssociationRepository> _mRepository;
+        private Outputs.RepositoryAssociationRepository? _mValue_Repository;
+        private bool _mUnknown_Repository;
+        public Outputs.RepositoryAssociationRepository? Repository
+        {
+            get
+            {
+                if (!_mUnknown_Repository) return _mValue_Repository;
+                throw new UndeferrableValueException("Value 'RepositoryAssociation.Repository' is not present");
+            }
+        }
 
-        public Outputs.RepositoryAssociationRepository? Repository => _mRepository.GetValue("repository");
-
-        [Input("s3RepositoryDetails")]
+        [PolicyResourceProperty("s3RepositoryDetails", "_mUnknown_S3RepositoryDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RepositoryAssociationS3RepositoryDetail>> _mS3RepositoryDetails;
-
-        public List<Outputs.RepositoryAssociationS3RepositoryDetail>? S3RepositoryDetails => _mS3RepositoryDetails.GetValue("s3RepositoryDetails");
+        private List<Outputs.RepositoryAssociationS3RepositoryDetail>? _mValue_S3RepositoryDetails;
+        private bool _mUnknown_S3RepositoryDetails;
+        public List<Outputs.RepositoryAssociationS3RepositoryDetail>? S3RepositoryDetails
+        {
+            get
+            {
+                if (!_mUnknown_S3RepositoryDetails) return _mValue_S3RepositoryDetails;
+                throw new UndeferrableValueException("Value 'RepositoryAssociation.S3RepositoryDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// The state of the repository association.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'RepositoryAssociation.State' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of why the repository association is in the current state.
         /// </summary>
-        [Input("stateReason")]
+        [PolicyResourceProperty("stateReason", "_mUnknown_StateReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStateReason;
+        private string? _mValue_StateReason;
+        private bool _mUnknown_StateReason;
+        public string? StateReason
+        {
+            get
+            {
+                if (!_mUnknown_StateReason) return _mValue_StateReason;
+                throw new UndeferrableValueException("Value 'RepositoryAssociation.StateReason' is not present");
+            }
+        }
 
-        public string? StateReason => _mStateReason.GetValue("stateReason");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RepositoryAssociation.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'RepositoryAssociation.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codegurureviewer/repositoryAssociation:RepositoryAssociation")]
@@ -130,27 +221,48 @@ namespace Pulumi.PolicyPacks.Aws.CodeGuruReviewer
         /// <summary>
         /// An object describing the KMS key to asssociate. Block is documented below.
         /// </summary>
-        [Input("kmsKeyDetails")]
+        [PolicyResourceProperty("kmsKeyDetails", "_mUnknown_KmsKeyDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RepositoryAssociationKmsKeyDetailsArgs> _mKmsKeyDetails;
-
-        public Inputs.RepositoryAssociationKmsKeyDetailsArgs? KmsKeyDetails => _mKmsKeyDetails.GetValue("kmsKeyDetails");
+        private Inputs.RepositoryAssociationKmsKeyDetailsArgs? _mValue_KmsKeyDetails;
+        private bool _mUnknown_KmsKeyDetails;
+        public Inputs.RepositoryAssociationKmsKeyDetailsArgs? KmsKeyDetails
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyDetails) return _mValue_KmsKeyDetails;
+                throw new UndeferrableValueException("Value 'RepositoryAssociationArgs.KmsKeyDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("repository")]
+        [PolicyResourceProperty("repository", "_mUnknown_Repository")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RepositoryAssociationRepositoryArgs> _mRepository;
+        private Inputs.RepositoryAssociationRepositoryArgs? _mValue_Repository;
+        private bool _mUnknown_Repository;
+        public Inputs.RepositoryAssociationRepositoryArgs? Repository
+        {
+            get
+            {
+                if (!_mUnknown_Repository) return _mValue_Repository;
+                throw new UndeferrableValueException("Value 'RepositoryAssociationArgs.Repository' is not present");
+            }
+        }
 
-        public Inputs.RepositoryAssociationRepositoryArgs? Repository => _mRepository.GetValue("repository");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RepositoryAssociationArgs.Tags' is not present");
+            }
+        }
     }
 }

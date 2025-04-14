@@ -16,218 +16,386 @@ namespace Pulumi.PolicyPacks.Aws.Amplify
         /// <summary>
         /// Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
         /// </summary>
-        [Input("accessToken")]
+        [PolicyResourceProperty("accessToken", "_mUnknown_AccessToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessToken;
-
-        public string? AccessToken => _mAccessToken.GetValue("accessToken");
+        private string? _mValue_AccessToken;
+        private bool _mUnknown_AccessToken;
+        public string? AccessToken
+        {
+            get
+            {
+                if (!_mUnknown_AccessToken) return _mValue_AccessToken;
+                throw new UndeferrableValueException("Value 'App.AccessToken' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Amplify app.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'App.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
         /// </summary>
-        [Input("autoBranchCreationConfig")]
+        [PolicyResourceProperty("autoBranchCreationConfig", "_mUnknown_AutoBranchCreationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AppAutoBranchCreationConfig> _mAutoBranchCreationConfig;
-
-        public Outputs.AppAutoBranchCreationConfig? AutoBranchCreationConfig => _mAutoBranchCreationConfig.GetValue("autoBranchCreationConfig");
+        private Outputs.AppAutoBranchCreationConfig? _mValue_AutoBranchCreationConfig;
+        private bool _mUnknown_AutoBranchCreationConfig;
+        public Outputs.AppAutoBranchCreationConfig? AutoBranchCreationConfig
+        {
+            get
+            {
+                if (!_mUnknown_AutoBranchCreationConfig) return _mValue_AutoBranchCreationConfig;
+                throw new UndeferrableValueException("Value 'App.AutoBranchCreationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Automated branch creation glob patterns for an Amplify app.
         /// </summary>
-        [Input("autoBranchCreationPatterns")]
+        [PolicyResourceProperty("autoBranchCreationPatterns", "_mUnknown_AutoBranchCreationPatterns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAutoBranchCreationPatterns;
-
-        public List<string>? AutoBranchCreationPatterns => _mAutoBranchCreationPatterns.GetValue("autoBranchCreationPatterns");
+        private List<string>? _mValue_AutoBranchCreationPatterns;
+        private bool _mUnknown_AutoBranchCreationPatterns;
+        public List<string>? AutoBranchCreationPatterns
+        {
+            get
+            {
+                if (!_mUnknown_AutoBranchCreationPatterns) return _mValue_AutoBranchCreationPatterns;
+                throw new UndeferrableValueException("Value 'App.AutoBranchCreationPatterns' is not present");
+            }
+        }
 
         /// <summary>
         /// Credentials for basic authorization for an Amplify app.
         /// </summary>
-        [Input("basicAuthCredentials")]
+        [PolicyResourceProperty("basicAuthCredentials", "_mUnknown_BasicAuthCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBasicAuthCredentials;
-
-        public string? BasicAuthCredentials => _mBasicAuthCredentials.GetValue("basicAuthCredentials");
+        private string? _mValue_BasicAuthCredentials;
+        private bool _mUnknown_BasicAuthCredentials;
+        public string? BasicAuthCredentials
+        {
+            get
+            {
+                if (!_mUnknown_BasicAuthCredentials) return _mValue_BasicAuthCredentials;
+                throw new UndeferrableValueException("Value 'App.BasicAuthCredentials' is not present");
+            }
+        }
 
         /// <summary>
         /// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
         /// </summary>
-        [Input("buildSpec")]
+        [PolicyResourceProperty("buildSpec", "_mUnknown_BuildSpec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBuildSpec;
-
-        public string? BuildSpec => _mBuildSpec.GetValue("buildSpec");
+        private string? _mValue_BuildSpec;
+        private bool _mUnknown_BuildSpec;
+        public string? BuildSpec
+        {
+            get
+            {
+                if (!_mUnknown_BuildSpec) return _mValue_BuildSpec;
+                throw new UndeferrableValueException("Value 'App.BuildSpec' is not present");
+            }
+        }
 
         /// <summary>
         /// Cache configuration for the Amplify app. See `cache_config` Block for details.
         /// </summary>
-        [Input("cacheConfig")]
+        [PolicyResourceProperty("cacheConfig", "_mUnknown_CacheConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AppCacheConfig> _mCacheConfig;
-
-        public Outputs.AppCacheConfig? CacheConfig => _mCacheConfig.GetValue("cacheConfig");
+        private Outputs.AppCacheConfig? _mValue_CacheConfig;
+        private bool _mUnknown_CacheConfig;
+        public Outputs.AppCacheConfig? CacheConfig
+        {
+            get
+            {
+                if (!_mUnknown_CacheConfig) return _mValue_CacheConfig;
+                throw new UndeferrableValueException("Value 'App.CacheConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         /// </summary>
-        [Input("customHeaders")]
+        [PolicyResourceProperty("customHeaders", "_mUnknown_CustomHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomHeaders;
-
-        public string? CustomHeaders => _mCustomHeaders.GetValue("customHeaders");
+        private string? _mValue_CustomHeaders;
+        private bool _mUnknown_CustomHeaders;
+        public string? CustomHeaders
+        {
+            get
+            {
+                if (!_mUnknown_CustomHeaders) return _mValue_CustomHeaders;
+                throw new UndeferrableValueException("Value 'App.CustomHeaders' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
         /// </summary>
-        [Input("customRules")]
+        [PolicyResourceProperty("customRules", "_mUnknown_CustomRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AppCustomRule>> _mCustomRules;
-
-        public List<Outputs.AppCustomRule>? CustomRules => _mCustomRules.GetValue("customRules");
+        private List<Outputs.AppCustomRule>? _mValue_CustomRules;
+        private bool _mUnknown_CustomRules;
+        public List<Outputs.AppCustomRule>? CustomRules
+        {
+            get
+            {
+                if (!_mUnknown_CustomRules) return _mValue_CustomRules;
+                throw new UndeferrableValueException("Value 'App.CustomRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Default domain for the Amplify app.
         /// </summary>
-        [Input("defaultDomain")]
+        [PolicyResourceProperty("defaultDomain", "_mUnknown_DefaultDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultDomain;
-
-        public string? DefaultDomain => _mDefaultDomain.GetValue("defaultDomain");
+        private string? _mValue_DefaultDomain;
+        private bool _mUnknown_DefaultDomain;
+        public string? DefaultDomain
+        {
+            get
+            {
+                if (!_mUnknown_DefaultDomain) return _mValue_DefaultDomain;
+                throw new UndeferrableValueException("Value 'App.DefaultDomain' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for an Amplify app.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'App.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables automated branch creation for an Amplify app.
         /// </summary>
-        [Input("enableAutoBranchCreation")]
+        [PolicyResourceProperty("enableAutoBranchCreation", "_mUnknown_EnableAutoBranchCreation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAutoBranchCreation;
-
-        public bool? EnableAutoBranchCreation => _mEnableAutoBranchCreation.GetValue("enableAutoBranchCreation");
+        private bool? _mValue_EnableAutoBranchCreation;
+        private bool _mUnknown_EnableAutoBranchCreation;
+        public bool? EnableAutoBranchCreation
+        {
+            get
+            {
+                if (!_mUnknown_EnableAutoBranchCreation) return _mValue_EnableAutoBranchCreation;
+                throw new UndeferrableValueException("Value 'App.EnableAutoBranchCreation' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
         /// </summary>
-        [Input("enableBasicAuth")]
+        [PolicyResourceProperty("enableBasicAuth", "_mUnknown_EnableBasicAuth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableBasicAuth;
-
-        public bool? EnableBasicAuth => _mEnableBasicAuth.GetValue("enableBasicAuth");
+        private bool? _mValue_EnableBasicAuth;
+        private bool _mUnknown_EnableBasicAuth;
+        public bool? EnableBasicAuth
+        {
+            get
+            {
+                if (!_mUnknown_EnableBasicAuth) return _mValue_EnableBasicAuth;
+                throw new UndeferrableValueException("Value 'App.EnableBasicAuth' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables auto-building of branches for the Amplify App.
         /// </summary>
-        [Input("enableBranchAutoBuild")]
+        [PolicyResourceProperty("enableBranchAutoBuild", "_mUnknown_EnableBranchAutoBuild")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableBranchAutoBuild;
-
-        public bool? EnableBranchAutoBuild => _mEnableBranchAutoBuild.GetValue("enableBranchAutoBuild");
+        private bool? _mValue_EnableBranchAutoBuild;
+        private bool _mUnknown_EnableBranchAutoBuild;
+        public bool? EnableBranchAutoBuild
+        {
+            get
+            {
+                if (!_mUnknown_EnableBranchAutoBuild) return _mValue_EnableBranchAutoBuild;
+                throw new UndeferrableValueException("Value 'App.EnableBranchAutoBuild' is not present");
+            }
+        }
 
         /// <summary>
         /// Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
         /// </summary>
-        [Input("enableBranchAutoDeletion")]
+        [PolicyResourceProperty("enableBranchAutoDeletion", "_mUnknown_EnableBranchAutoDeletion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableBranchAutoDeletion;
-
-        public bool? EnableBranchAutoDeletion => _mEnableBranchAutoDeletion.GetValue("enableBranchAutoDeletion");
+        private bool? _mValue_EnableBranchAutoDeletion;
+        private bool _mUnknown_EnableBranchAutoDeletion;
+        public bool? EnableBranchAutoDeletion
+        {
+            get
+            {
+                if (!_mUnknown_EnableBranchAutoDeletion) return _mValue_EnableBranchAutoDeletion;
+                throw new UndeferrableValueException("Value 'App.EnableBranchAutoDeletion' is not present");
+            }
+        }
 
         /// <summary>
         /// Environment variables map for an Amplify app.
         /// </summary>
-        [Input("environmentVariables")]
+        [PolicyResourceProperty("environmentVariables", "_mUnknown_EnvironmentVariables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEnvironmentVariables;
-
-        public Dictionary<string, string>? EnvironmentVariables => _mEnvironmentVariables.GetValue("environmentVariables");
+        private Dictionary<string, string>? _mValue_EnvironmentVariables;
+        private bool _mUnknown_EnvironmentVariables;
+        public Dictionary<string, string>? EnvironmentVariables
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentVariables) return _mValue_EnvironmentVariables;
+                throw new UndeferrableValueException("Value 'App.EnvironmentVariables' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Identity and Access Management (IAM) service role for an Amplify app.
         /// </summary>
-        [Input("iamServiceRoleArn")]
+        [PolicyResourceProperty("iamServiceRoleArn", "_mUnknown_IamServiceRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamServiceRoleArn;
-
-        public string? IamServiceRoleArn => _mIamServiceRoleArn.GetValue("iamServiceRoleArn");
+        private string? _mValue_IamServiceRoleArn;
+        private bool _mUnknown_IamServiceRoleArn;
+        public string? IamServiceRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamServiceRoleArn) return _mValue_IamServiceRoleArn;
+                throw new UndeferrableValueException("Value 'App.IamServiceRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for an Amplify app.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'App.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
         /// </summary>
-        [Input("oauthToken")]
+        [PolicyResourceProperty("oauthToken", "_mUnknown_OauthToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOauthToken;
-
-        public string? OauthToken => _mOauthToken.GetValue("oauthToken");
+        private string? _mValue_OauthToken;
+        private bool _mUnknown_OauthToken;
+        public string? OauthToken
+        {
+            get
+            {
+                if (!_mUnknown_OauthToken) return _mValue_OauthToken;
+                throw new UndeferrableValueException("Value 'App.OauthToken' is not present");
+            }
+        }
 
         /// <summary>
         /// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
         /// </summary>
-        [Input("platform")]
+        [PolicyResourceProperty("platform", "_mUnknown_Platform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
-
-        public string? Platform => _mPlatform.GetValue("platform");
+        private string? _mValue_Platform;
+        private bool _mUnknown_Platform;
+        public string? Platform
+        {
+            get
+            {
+                if (!_mUnknown_Platform) return _mValue_Platform;
+                throw new UndeferrableValueException("Value 'App.Platform' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
         /// </summary>
-        [Input("productionBranches")]
+        [PolicyResourceProperty("productionBranches", "_mUnknown_ProductionBranches")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AppProductionBranch>> _mProductionBranches;
-
-        public List<Outputs.AppProductionBranch>? ProductionBranches => _mProductionBranches.GetValue("productionBranches");
+        private List<Outputs.AppProductionBranch>? _mValue_ProductionBranches;
+        private bool _mUnknown_ProductionBranches;
+        public List<Outputs.AppProductionBranch>? ProductionBranches
+        {
+            get
+            {
+                if (!_mUnknown_ProductionBranches) return _mValue_ProductionBranches;
+                throw new UndeferrableValueException("Value 'App.ProductionBranches' is not present");
+            }
+        }
 
         /// <summary>
         /// Repository for an Amplify app.
         /// </summary>
-        [Input("repository")]
+        [PolicyResourceProperty("repository", "_mUnknown_Repository")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepository;
-
-        public string? Repository => _mRepository.GetValue("repository");
+        private string? _mValue_Repository;
+        private bool _mUnknown_Repository;
+        public string? Repository
+        {
+            get
+            {
+                if (!_mUnknown_Repository) return _mValue_Repository;
+                throw new UndeferrableValueException("Value 'App.Repository' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'App.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'App.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:amplify/app:App")]
@@ -236,181 +404,321 @@ namespace Pulumi.PolicyPacks.Aws.Amplify
         /// <summary>
         /// Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
         /// </summary>
-        [Input("accessToken")]
+        [PolicyResourceProperty("accessToken", "_mUnknown_AccessToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessToken;
-
-        public string? AccessToken => _mAccessToken.GetValue("accessToken");
+        private string? _mValue_AccessToken;
+        private bool _mUnknown_AccessToken;
+        public string? AccessToken
+        {
+            get
+            {
+                if (!_mUnknown_AccessToken) return _mValue_AccessToken;
+                throw new UndeferrableValueException("Value 'AppArgs.AccessToken' is not present");
+            }
+        }
 
         /// <summary>
         /// Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
         /// </summary>
-        [Input("autoBranchCreationConfig")]
+        [PolicyResourceProperty("autoBranchCreationConfig", "_mUnknown_AutoBranchCreationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AppAutoBranchCreationConfigArgs> _mAutoBranchCreationConfig;
-
-        public Inputs.AppAutoBranchCreationConfigArgs? AutoBranchCreationConfig => _mAutoBranchCreationConfig.GetValue("autoBranchCreationConfig");
+        private Inputs.AppAutoBranchCreationConfigArgs? _mValue_AutoBranchCreationConfig;
+        private bool _mUnknown_AutoBranchCreationConfig;
+        public Inputs.AppAutoBranchCreationConfigArgs? AutoBranchCreationConfig
+        {
+            get
+            {
+                if (!_mUnknown_AutoBranchCreationConfig) return _mValue_AutoBranchCreationConfig;
+                throw new UndeferrableValueException("Value 'AppArgs.AutoBranchCreationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Automated branch creation glob patterns for an Amplify app.
         /// </summary>
-        [Input("autoBranchCreationPatterns")]
+        [PolicyResourceProperty("autoBranchCreationPatterns", "_mUnknown_AutoBranchCreationPatterns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAutoBranchCreationPatterns;
-
-        public List<string>? AutoBranchCreationPatterns => _mAutoBranchCreationPatterns.GetValue("autoBranchCreationPatterns");
+        private List<string>? _mValue_AutoBranchCreationPatterns;
+        private bool _mUnknown_AutoBranchCreationPatterns;
+        public List<string>? AutoBranchCreationPatterns
+        {
+            get
+            {
+                if (!_mUnknown_AutoBranchCreationPatterns) return _mValue_AutoBranchCreationPatterns;
+                throw new UndeferrableValueException("Value 'AppArgs.AutoBranchCreationPatterns' is not present");
+            }
+        }
 
         /// <summary>
         /// Credentials for basic authorization for an Amplify app.
         /// </summary>
-        [Input("basicAuthCredentials")]
+        [PolicyResourceProperty("basicAuthCredentials", "_mUnknown_BasicAuthCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBasicAuthCredentials;
-
-        public string? BasicAuthCredentials => _mBasicAuthCredentials.GetValue("basicAuthCredentials");
+        private string? _mValue_BasicAuthCredentials;
+        private bool _mUnknown_BasicAuthCredentials;
+        public string? BasicAuthCredentials
+        {
+            get
+            {
+                if (!_mUnknown_BasicAuthCredentials) return _mValue_BasicAuthCredentials;
+                throw new UndeferrableValueException("Value 'AppArgs.BasicAuthCredentials' is not present");
+            }
+        }
 
         /// <summary>
         /// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
         /// </summary>
-        [Input("buildSpec")]
+        [PolicyResourceProperty("buildSpec", "_mUnknown_BuildSpec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBuildSpec;
-
-        public string? BuildSpec => _mBuildSpec.GetValue("buildSpec");
+        private string? _mValue_BuildSpec;
+        private bool _mUnknown_BuildSpec;
+        public string? BuildSpec
+        {
+            get
+            {
+                if (!_mUnknown_BuildSpec) return _mValue_BuildSpec;
+                throw new UndeferrableValueException("Value 'AppArgs.BuildSpec' is not present");
+            }
+        }
 
         /// <summary>
         /// Cache configuration for the Amplify app. See `cache_config` Block for details.
         /// </summary>
-        [Input("cacheConfig")]
+        [PolicyResourceProperty("cacheConfig", "_mUnknown_CacheConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AppCacheConfigArgs> _mCacheConfig;
-
-        public Inputs.AppCacheConfigArgs? CacheConfig => _mCacheConfig.GetValue("cacheConfig");
+        private Inputs.AppCacheConfigArgs? _mValue_CacheConfig;
+        private bool _mUnknown_CacheConfig;
+        public Inputs.AppCacheConfigArgs? CacheConfig
+        {
+            get
+            {
+                if (!_mUnknown_CacheConfig) return _mValue_CacheConfig;
+                throw new UndeferrableValueException("Value 'AppArgs.CacheConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         /// </summary>
-        [Input("customHeaders")]
+        [PolicyResourceProperty("customHeaders", "_mUnknown_CustomHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomHeaders;
-
-        public string? CustomHeaders => _mCustomHeaders.GetValue("customHeaders");
+        private string? _mValue_CustomHeaders;
+        private bool _mUnknown_CustomHeaders;
+        public string? CustomHeaders
+        {
+            get
+            {
+                if (!_mUnknown_CustomHeaders) return _mValue_CustomHeaders;
+                throw new UndeferrableValueException("Value 'AppArgs.CustomHeaders' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
         /// </summary>
-        [Input("customRules")]
+        [PolicyResourceProperty("customRules", "_mUnknown_CustomRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AppCustomRuleArgs>> _mCustomRules;
-
-        public List<Inputs.AppCustomRuleArgs>? CustomRules => _mCustomRules.GetValue("customRules");
+        private List<Inputs.AppCustomRuleArgs>? _mValue_CustomRules;
+        private bool _mUnknown_CustomRules;
+        public List<Inputs.AppCustomRuleArgs>? CustomRules
+        {
+            get
+            {
+                if (!_mUnknown_CustomRules) return _mValue_CustomRules;
+                throw new UndeferrableValueException("Value 'AppArgs.CustomRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for an Amplify app.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AppArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables automated branch creation for an Amplify app.
         /// </summary>
-        [Input("enableAutoBranchCreation")]
+        [PolicyResourceProperty("enableAutoBranchCreation", "_mUnknown_EnableAutoBranchCreation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAutoBranchCreation;
-
-        public bool? EnableAutoBranchCreation => _mEnableAutoBranchCreation.GetValue("enableAutoBranchCreation");
+        private bool? _mValue_EnableAutoBranchCreation;
+        private bool _mUnknown_EnableAutoBranchCreation;
+        public bool? EnableAutoBranchCreation
+        {
+            get
+            {
+                if (!_mUnknown_EnableAutoBranchCreation) return _mValue_EnableAutoBranchCreation;
+                throw new UndeferrableValueException("Value 'AppArgs.EnableAutoBranchCreation' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
         /// </summary>
-        [Input("enableBasicAuth")]
+        [PolicyResourceProperty("enableBasicAuth", "_mUnknown_EnableBasicAuth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableBasicAuth;
-
-        public bool? EnableBasicAuth => _mEnableBasicAuth.GetValue("enableBasicAuth");
+        private bool? _mValue_EnableBasicAuth;
+        private bool _mUnknown_EnableBasicAuth;
+        public bool? EnableBasicAuth
+        {
+            get
+            {
+                if (!_mUnknown_EnableBasicAuth) return _mValue_EnableBasicAuth;
+                throw new UndeferrableValueException("Value 'AppArgs.EnableBasicAuth' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables auto-building of branches for the Amplify App.
         /// </summary>
-        [Input("enableBranchAutoBuild")]
+        [PolicyResourceProperty("enableBranchAutoBuild", "_mUnknown_EnableBranchAutoBuild")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableBranchAutoBuild;
-
-        public bool? EnableBranchAutoBuild => _mEnableBranchAutoBuild.GetValue("enableBranchAutoBuild");
+        private bool? _mValue_EnableBranchAutoBuild;
+        private bool _mUnknown_EnableBranchAutoBuild;
+        public bool? EnableBranchAutoBuild
+        {
+            get
+            {
+                if (!_mUnknown_EnableBranchAutoBuild) return _mValue_EnableBranchAutoBuild;
+                throw new UndeferrableValueException("Value 'AppArgs.EnableBranchAutoBuild' is not present");
+            }
+        }
 
         /// <summary>
         /// Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
         /// </summary>
-        [Input("enableBranchAutoDeletion")]
+        [PolicyResourceProperty("enableBranchAutoDeletion", "_mUnknown_EnableBranchAutoDeletion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableBranchAutoDeletion;
-
-        public bool? EnableBranchAutoDeletion => _mEnableBranchAutoDeletion.GetValue("enableBranchAutoDeletion");
+        private bool? _mValue_EnableBranchAutoDeletion;
+        private bool _mUnknown_EnableBranchAutoDeletion;
+        public bool? EnableBranchAutoDeletion
+        {
+            get
+            {
+                if (!_mUnknown_EnableBranchAutoDeletion) return _mValue_EnableBranchAutoDeletion;
+                throw new UndeferrableValueException("Value 'AppArgs.EnableBranchAutoDeletion' is not present");
+            }
+        }
 
         /// <summary>
         /// Environment variables map for an Amplify app.
         /// </summary>
-        [Input("environmentVariables")]
+        [PolicyResourceProperty("environmentVariables", "_mUnknown_EnvironmentVariables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEnvironmentVariables;
-
-        public Dictionary<string, string>? EnvironmentVariables => _mEnvironmentVariables.GetValue("environmentVariables");
+        private Dictionary<string, string>? _mValue_EnvironmentVariables;
+        private bool _mUnknown_EnvironmentVariables;
+        public Dictionary<string, string>? EnvironmentVariables
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentVariables) return _mValue_EnvironmentVariables;
+                throw new UndeferrableValueException("Value 'AppArgs.EnvironmentVariables' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Identity and Access Management (IAM) service role for an Amplify app.
         /// </summary>
-        [Input("iamServiceRoleArn")]
+        [PolicyResourceProperty("iamServiceRoleArn", "_mUnknown_IamServiceRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamServiceRoleArn;
-
-        public string? IamServiceRoleArn => _mIamServiceRoleArn.GetValue("iamServiceRoleArn");
+        private string? _mValue_IamServiceRoleArn;
+        private bool _mUnknown_IamServiceRoleArn;
+        public string? IamServiceRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamServiceRoleArn) return _mValue_IamServiceRoleArn;
+                throw new UndeferrableValueException("Value 'AppArgs.IamServiceRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for an Amplify app.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AppArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
         /// </summary>
-        [Input("oauthToken")]
+        [PolicyResourceProperty("oauthToken", "_mUnknown_OauthToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOauthToken;
-
-        public string? OauthToken => _mOauthToken.GetValue("oauthToken");
+        private string? _mValue_OauthToken;
+        private bool _mUnknown_OauthToken;
+        public string? OauthToken
+        {
+            get
+            {
+                if (!_mUnknown_OauthToken) return _mValue_OauthToken;
+                throw new UndeferrableValueException("Value 'AppArgs.OauthToken' is not present");
+            }
+        }
 
         /// <summary>
         /// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
         /// </summary>
-        [Input("platform")]
+        [PolicyResourceProperty("platform", "_mUnknown_Platform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
-
-        public string? Platform => _mPlatform.GetValue("platform");
+        private string? _mValue_Platform;
+        private bool _mUnknown_Platform;
+        public string? Platform
+        {
+            get
+            {
+                if (!_mUnknown_Platform) return _mValue_Platform;
+                throw new UndeferrableValueException("Value 'AppArgs.Platform' is not present");
+            }
+        }
 
         /// <summary>
         /// Repository for an Amplify app.
         /// </summary>
-        [Input("repository")]
+        [PolicyResourceProperty("repository", "_mUnknown_Repository")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepository;
-
-        public string? Repository => _mRepository.GetValue("repository");
+        private string? _mValue_Repository;
+        private bool _mUnknown_Repository;
+        public string? Repository
+        {
+            get
+            {
+                if (!_mUnknown_Repository) return _mValue_Repository;
+                throw new UndeferrableValueException("Value 'AppArgs.Repository' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AppArgs.Tags' is not present");
+            }
+        }
     }
 }

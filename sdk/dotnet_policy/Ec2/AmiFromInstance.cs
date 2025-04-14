@@ -16,196 +16,364 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Machine architecture for created instances. Defaults to `x86_64`.
         /// </summary>
-        [Input("architecture")]
+        [PolicyResourceProperty("architecture", "_mUnknown_Architecture")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArchitecture;
-
-        public string? Architecture => _mArchitecture.GetValue("architecture");
+        private string? _mValue_Architecture;
+        private bool _mUnknown_Architecture;
+        public string? Architecture
+        {
+            get
+            {
+                if (!_mUnknown_Architecture) return _mValue_Architecture;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.Architecture' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the AMI.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         /// </summary>
-        [Input("bootMode")]
+        [PolicyResourceProperty("bootMode", "_mUnknown_BootMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBootMode;
-
-        public string? BootMode => _mBootMode.GetValue("bootMode");
+        private string? _mValue_BootMode;
+        private bool _mUnknown_BootMode;
+        public string? BootMode
+        {
+            get
+            {
+                if (!_mUnknown_BootMode) return _mValue_BootMode;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.BootMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         /// </summary>
-        [Input("deprecationTime")]
+        [PolicyResourceProperty("deprecationTime", "_mUnknown_DeprecationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeprecationTime;
-
-        public string? DeprecationTime => _mDeprecationTime.GetValue("deprecationTime");
+        private string? _mValue_DeprecationTime;
+        private bool _mUnknown_DeprecationTime;
+        public string? DeprecationTime
+        {
+            get
+            {
+                if (!_mUnknown_DeprecationTime) return _mValue_DeprecationTime;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.DeprecationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Longer, human-readable description for the AMI.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested block describing an EBS block device that should be
         /// attached to created instances. The structure of this block is described below.
         /// </summary>
-        [Input("ebsBlockDevices")]
+        [PolicyResourceProperty("ebsBlockDevices", "_mUnknown_EbsBlockDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AmiFromInstanceEbsBlockDevice>> _mEbsBlockDevices;
-
-        public List<Outputs.AmiFromInstanceEbsBlockDevice>? EbsBlockDevices => _mEbsBlockDevices.GetValue("ebsBlockDevices");
+        private List<Outputs.AmiFromInstanceEbsBlockDevice>? _mValue_EbsBlockDevices;
+        private bool _mUnknown_EbsBlockDevices;
+        public List<Outputs.AmiFromInstanceEbsBlockDevice>? EbsBlockDevices
+        {
+            get
+            {
+                if (!_mUnknown_EbsBlockDevices) return _mValue_EbsBlockDevices;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.EbsBlockDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether enhanced networking with ENA is enabled. Defaults to `false`.
         /// </summary>
-        [Input("enaSupport")]
+        [PolicyResourceProperty("enaSupport", "_mUnknown_EnaSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnaSupport;
-
-        public bool? EnaSupport => _mEnaSupport.GetValue("enaSupport");
+        private bool? _mValue_EnaSupport;
+        private bool _mUnknown_EnaSupport;
+        public bool? EnaSupport
+        {
+            get
+            {
+                if (!_mUnknown_EnaSupport) return _mValue_EnaSupport;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.EnaSupport' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested block describing an ephemeral block device that
         /// should be attached to created instances. The structure of this block is described below.
         /// </summary>
-        [Input("ephemeralBlockDevices")]
+        [PolicyResourceProperty("ephemeralBlockDevices", "_mUnknown_EphemeralBlockDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AmiFromInstanceEphemeralBlockDevice>> _mEphemeralBlockDevices;
+        private List<Outputs.AmiFromInstanceEphemeralBlockDevice>? _mValue_EphemeralBlockDevices;
+        private bool _mUnknown_EphemeralBlockDevices;
+        public List<Outputs.AmiFromInstanceEphemeralBlockDevice>? EphemeralBlockDevices
+        {
+            get
+            {
+                if (!_mUnknown_EphemeralBlockDevices) return _mValue_EphemeralBlockDevices;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.EphemeralBlockDevices' is not present");
+            }
+        }
 
-        public List<Outputs.AmiFromInstanceEphemeralBlockDevice>? EphemeralBlockDevices => _mEphemeralBlockDevices.GetValue("ephemeralBlockDevices");
-
-        [Input("hypervisor")]
+        [PolicyResourceProperty("hypervisor", "_mUnknown_Hypervisor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHypervisor;
-
-        public string? Hypervisor => _mHypervisor.GetValue("hypervisor");
+        private string? _mValue_Hypervisor;
+        private bool _mUnknown_Hypervisor;
+        public string? Hypervisor
+        {
+            get
+            {
+                if (!_mUnknown_Hypervisor) return _mValue_Hypervisor;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.Hypervisor' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to an S3 object containing an image manifest, e.g., created
         /// by the `ec2-upload-bundle` command in the EC2 command line tools.
         /// </summary>
-        [Input("imageLocation")]
+        [PolicyResourceProperty("imageLocation", "_mUnknown_ImageLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageLocation;
+        private string? _mValue_ImageLocation;
+        private bool _mUnknown_ImageLocation;
+        public string? ImageLocation
+        {
+            get
+            {
+                if (!_mUnknown_ImageLocation) return _mValue_ImageLocation;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.ImageLocation' is not present");
+            }
+        }
 
-        public string? ImageLocation => _mImageLocation.GetValue("imageLocation");
-
-        [Input("imageOwnerAlias")]
+        [PolicyResourceProperty("imageOwnerAlias", "_mUnknown_ImageOwnerAlias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageOwnerAlias;
+        private string? _mValue_ImageOwnerAlias;
+        private bool _mUnknown_ImageOwnerAlias;
+        public string? ImageOwnerAlias
+        {
+            get
+            {
+                if (!_mUnknown_ImageOwnerAlias) return _mValue_ImageOwnerAlias;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.ImageOwnerAlias' is not present");
+            }
+        }
 
-        public string? ImageOwnerAlias => _mImageOwnerAlias.GetValue("imageOwnerAlias");
-
-        [Input("imageType")]
+        [PolicyResourceProperty("imageType", "_mUnknown_ImageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageType;
-
-        public string? ImageType => _mImageType.GetValue("imageType");
+        private string? _mValue_ImageType;
+        private bool _mUnknown_ImageType;
+        public string? ImageType
+        {
+            get
+            {
+                if (!_mUnknown_ImageType) return _mValue_ImageType;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.ImageType' is not present");
+            }
+        }
 
         /// <summary>
         /// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         /// </summary>
-        [Input("imdsSupport")]
+        [PolicyResourceProperty("imdsSupport", "_mUnknown_ImdsSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImdsSupport;
-
-        public string? ImdsSupport => _mImdsSupport.GetValue("imdsSupport");
+        private string? _mValue_ImdsSupport;
+        private bool _mUnknown_ImdsSupport;
+        public string? ImdsSupport
+        {
+            get
+            {
+                if (!_mUnknown_ImdsSupport) return _mValue_ImdsSupport;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.ImdsSupport' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the kernel image (AKI) that will be used as the paravirtual
         /// kernel in created instances.
         /// </summary>
-        [Input("kernelId")]
+        [PolicyResourceProperty("kernelId", "_mUnknown_KernelId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKernelId;
-
-        public string? KernelId => _mKernelId.GetValue("kernelId");
+        private string? _mValue_KernelId;
+        private bool _mUnknown_KernelId;
+        public string? KernelId
+        {
+            get
+            {
+                if (!_mUnknown_KernelId) return _mValue_KernelId;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.KernelId' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
         /// </summary>
-        [Input("lastLaunchedTime")]
+        [PolicyResourceProperty("lastLaunchedTime", "_mUnknown_LastLaunchedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastLaunchedTime;
+        private string? _mValue_LastLaunchedTime;
+        private bool _mUnknown_LastLaunchedTime;
+        public string? LastLaunchedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastLaunchedTime) return _mValue_LastLaunchedTime;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.LastLaunchedTime' is not present");
+            }
+        }
 
-        public string? LastLaunchedTime => _mLastLaunchedTime.GetValue("lastLaunchedTime");
-
-        [Input("manageEbsSnapshots")]
+        [PolicyResourceProperty("manageEbsSnapshots", "_mUnknown_ManageEbsSnapshots")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mManageEbsSnapshots;
-
-        public bool? ManageEbsSnapshots => _mManageEbsSnapshots.GetValue("manageEbsSnapshots");
+        private bool? _mValue_ManageEbsSnapshots;
+        private bool _mUnknown_ManageEbsSnapshots;
+        public bool? ManageEbsSnapshots
+        {
+            get
+            {
+                if (!_mUnknown_ManageEbsSnapshots) return _mValue_ManageEbsSnapshots;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.ManageEbsSnapshots' is not present");
+            }
+        }
 
         /// <summary>
         /// Region-unique name for the AMI.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.OwnerId' is not present");
+            }
+        }
 
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
-
-        [Input("platform")]
+        [PolicyResourceProperty("platform", "_mUnknown_Platform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
+        private string? _mValue_Platform;
+        private bool _mUnknown_Platform;
+        public string? Platform
+        {
+            get
+            {
+                if (!_mUnknown_Platform) return _mValue_Platform;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.Platform' is not present");
+            }
+        }
 
-        public string? Platform => _mPlatform.GetValue("platform");
-
-        [Input("platformDetails")]
+        [PolicyResourceProperty("platformDetails", "_mUnknown_PlatformDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformDetails;
+        private string? _mValue_PlatformDetails;
+        private bool _mUnknown_PlatformDetails;
+        public string? PlatformDetails
+        {
+            get
+            {
+                if (!_mUnknown_PlatformDetails) return _mValue_PlatformDetails;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.PlatformDetails' is not present");
+            }
+        }
 
-        public string? PlatformDetails => _mPlatformDetails.GetValue("platformDetails");
-
-        [Input("public")]
+        [PolicyResourceProperty("public", "_mUnknown_Public")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPublic;
-
-        public bool? Public => _mPublic.GetValue("public");
+        private bool? _mValue_Public;
+        private bool _mUnknown_Public;
+        public bool? Public
+        {
+            get
+            {
+                if (!_mUnknown_Public) return _mValue_Public;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.Public' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of an initrd image (ARI) that will be used when booting the
         /// created instances.
         /// </summary>
-        [Input("ramdiskId")]
+        [PolicyResourceProperty("ramdiskId", "_mUnknown_RamdiskId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRamdiskId;
-
-        public string? RamdiskId => _mRamdiskId.GetValue("ramdiskId");
+        private string? _mValue_RamdiskId;
+        private bool _mUnknown_RamdiskId;
+        public string? RamdiskId
+        {
+            get
+            {
+                if (!_mUnknown_RamdiskId) return _mValue_RamdiskId;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.RamdiskId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         /// </summary>
-        [Input("rootDeviceName")]
+        [PolicyResourceProperty("rootDeviceName", "_mUnknown_RootDeviceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRootDeviceName;
+        private string? _mValue_RootDeviceName;
+        private bool _mUnknown_RootDeviceName;
+        public string? RootDeviceName
+        {
+            get
+            {
+                if (!_mUnknown_RootDeviceName) return _mValue_RootDeviceName;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.RootDeviceName' is not present");
+            }
+        }
 
-        public string? RootDeviceName => _mRootDeviceName.GetValue("rootDeviceName");
-
-        [Input("rootSnapshotId")]
+        [PolicyResourceProperty("rootSnapshotId", "_mUnknown_RootSnapshotId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRootSnapshotId;
-
-        public string? RootSnapshotId => _mRootSnapshotId.GetValue("rootSnapshotId");
+        private string? _mValue_RootSnapshotId;
+        private bool _mUnknown_RootSnapshotId;
+        public string? RootSnapshotId
+        {
+            get
+            {
+                if (!_mUnknown_RootSnapshotId) return _mValue_RootSnapshotId;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.RootSnapshotId' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean that overrides the behavior of stopping
@@ -213,80 +381,143 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
         /// guarantees that no filesystem writes will be underway at the time of snapshot.
         /// </summary>
-        [Input("snapshotWithoutReboot")]
+        [PolicyResourceProperty("snapshotWithoutReboot", "_mUnknown_SnapshotWithoutReboot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSnapshotWithoutReboot;
-
-        public bool? SnapshotWithoutReboot => _mSnapshotWithoutReboot.GetValue("snapshotWithoutReboot");
+        private bool? _mValue_SnapshotWithoutReboot;
+        private bool _mUnknown_SnapshotWithoutReboot;
+        public bool? SnapshotWithoutReboot
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotWithoutReboot) return _mValue_SnapshotWithoutReboot;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.SnapshotWithoutReboot' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the instance to use as the basis of the AMI.
         /// </summary>
-        [Input("sourceInstanceId")]
+        [PolicyResourceProperty("sourceInstanceId", "_mUnknown_SourceInstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceInstanceId;
-
-        public string? SourceInstanceId => _mSourceInstanceId.GetValue("sourceInstanceId");
+        private string? _mValue_SourceInstanceId;
+        private bool _mUnknown_SourceInstanceId;
+        public string? SourceInstanceId
+        {
+            get
+            {
+                if (!_mUnknown_SourceInstanceId) return _mValue_SourceInstanceId;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.SourceInstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to "simple" (the default), enables enhanced networking
         /// for created instances. No other value is supported at this time.
         /// </summary>
-        [Input("sriovNetSupport")]
+        [PolicyResourceProperty("sriovNetSupport", "_mUnknown_SriovNetSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSriovNetSupport;
-
-        public string? SriovNetSupport => _mSriovNetSupport.GetValue("sriovNetSupport");
+        private string? _mValue_SriovNetSupport;
+        private bool _mUnknown_SriovNetSupport;
+        public string? SriovNetSupport
+        {
+            get
+            {
+                if (!_mUnknown_SriovNetSupport) return _mValue_SriovNetSupport;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.SriovNetSupport' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         /// </summary>
-        [Input("tpmSupport")]
+        [PolicyResourceProperty("tpmSupport", "_mUnknown_TpmSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTpmSupport;
-
-        public string? TpmSupport => _mTpmSupport.GetValue("tpmSupport");
+        private string? _mValue_TpmSupport;
+        private bool _mUnknown_TpmSupport;
+        public string? TpmSupport
+        {
+            get
+            {
+                if (!_mUnknown_TpmSupport) return _mValue_TpmSupport;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.TpmSupport' is not present");
+            }
+        }
 
         /// <summary>
         /// Base64 representation of the non-volatile UEFI variable store.
         /// </summary>
-        [Input("uefiData")]
+        [PolicyResourceProperty("uefiData", "_mUnknown_UefiData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUefiData;
+        private string? _mValue_UefiData;
+        private bool _mUnknown_UefiData;
+        public string? UefiData
+        {
+            get
+            {
+                if (!_mUnknown_UefiData) return _mValue_UefiData;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.UefiData' is not present");
+            }
+        }
 
-        public string? UefiData => _mUefiData.GetValue("uefiData");
-
-        [Input("usageOperation")]
+        [PolicyResourceProperty("usageOperation", "_mUnknown_UsageOperation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsageOperation;
-
-        public string? UsageOperation => _mUsageOperation.GetValue("usageOperation");
+        private string? _mValue_UsageOperation;
+        private bool _mUnknown_UsageOperation;
+        public string? UsageOperation
+        {
+            get
+            {
+                if (!_mUnknown_UsageOperation) return _mValue_UsageOperation;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.UsageOperation' is not present");
+            }
+        }
 
         /// <summary>
         /// Keyword to choose what virtualization mode created instances
         /// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
         /// changes the set of further arguments that are required, as described below.
         /// </summary>
-        [Input("virtualizationType")]
+        [PolicyResourceProperty("virtualizationType", "_mUnknown_VirtualizationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualizationType;
-
-        public string? VirtualizationType => _mVirtualizationType.GetValue("virtualizationType");
+        private string? _mValue_VirtualizationType;
+        private bool _mUnknown_VirtualizationType;
+        public string? VirtualizationType
+        {
+            get
+            {
+                if (!_mUnknown_VirtualizationType) return _mValue_VirtualizationType;
+                throw new UndeferrableValueException("Value 'AmiFromInstance.VirtualizationType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/amiFromInstance:AmiFromInstance")]
@@ -295,49 +526,84 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         /// </summary>
-        [Input("deprecationTime")]
+        [PolicyResourceProperty("deprecationTime", "_mUnknown_DeprecationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeprecationTime;
-
-        public string? DeprecationTime => _mDeprecationTime.GetValue("deprecationTime");
+        private string? _mValue_DeprecationTime;
+        private bool _mUnknown_DeprecationTime;
+        public string? DeprecationTime
+        {
+            get
+            {
+                if (!_mUnknown_DeprecationTime) return _mValue_DeprecationTime;
+                throw new UndeferrableValueException("Value 'AmiFromInstanceArgs.DeprecationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Longer, human-readable description for the AMI.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AmiFromInstanceArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested block describing an EBS block device that should be
         /// attached to created instances. The structure of this block is described below.
         /// </summary>
-        [Input("ebsBlockDevices")]
+        [PolicyResourceProperty("ebsBlockDevices", "_mUnknown_EbsBlockDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AmiFromInstanceEbsBlockDeviceArgs>> _mEbsBlockDevices;
-
-        public List<Inputs.AmiFromInstanceEbsBlockDeviceArgs>? EbsBlockDevices => _mEbsBlockDevices.GetValue("ebsBlockDevices");
+        private List<Inputs.AmiFromInstanceEbsBlockDeviceArgs>? _mValue_EbsBlockDevices;
+        private bool _mUnknown_EbsBlockDevices;
+        public List<Inputs.AmiFromInstanceEbsBlockDeviceArgs>? EbsBlockDevices
+        {
+            get
+            {
+                if (!_mUnknown_EbsBlockDevices) return _mValue_EbsBlockDevices;
+                throw new UndeferrableValueException("Value 'AmiFromInstanceArgs.EbsBlockDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested block describing an ephemeral block device that
         /// should be attached to created instances. The structure of this block is described below.
         /// </summary>
-        [Input("ephemeralBlockDevices")]
+        [PolicyResourceProperty("ephemeralBlockDevices", "_mUnknown_EphemeralBlockDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AmiFromInstanceEphemeralBlockDeviceArgs>> _mEphemeralBlockDevices;
-
-        public List<Inputs.AmiFromInstanceEphemeralBlockDeviceArgs>? EphemeralBlockDevices => _mEphemeralBlockDevices.GetValue("ephemeralBlockDevices");
+        private List<Inputs.AmiFromInstanceEphemeralBlockDeviceArgs>? _mValue_EphemeralBlockDevices;
+        private bool _mUnknown_EphemeralBlockDevices;
+        public List<Inputs.AmiFromInstanceEphemeralBlockDeviceArgs>? EphemeralBlockDevices
+        {
+            get
+            {
+                if (!_mUnknown_EphemeralBlockDevices) return _mValue_EphemeralBlockDevices;
+                throw new UndeferrableValueException("Value 'AmiFromInstanceArgs.EphemeralBlockDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// Region-unique name for the AMI.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AmiFromInstanceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean that overrides the behavior of stopping
@@ -345,28 +611,49 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
         /// guarantees that no filesystem writes will be underway at the time of snapshot.
         /// </summary>
-        [Input("snapshotWithoutReboot")]
+        [PolicyResourceProperty("snapshotWithoutReboot", "_mUnknown_SnapshotWithoutReboot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSnapshotWithoutReboot;
-
-        public bool? SnapshotWithoutReboot => _mSnapshotWithoutReboot.GetValue("snapshotWithoutReboot");
+        private bool? _mValue_SnapshotWithoutReboot;
+        private bool _mUnknown_SnapshotWithoutReboot;
+        public bool? SnapshotWithoutReboot
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotWithoutReboot) return _mValue_SnapshotWithoutReboot;
+                throw new UndeferrableValueException("Value 'AmiFromInstanceArgs.SnapshotWithoutReboot' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the instance to use as the basis of the AMI.
         /// </summary>
-        [Input("sourceInstanceId")]
+        [PolicyResourceProperty("sourceInstanceId", "_mUnknown_SourceInstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceInstanceId;
-
-        public string? SourceInstanceId => _mSourceInstanceId.GetValue("sourceInstanceId");
+        private string? _mValue_SourceInstanceId;
+        private bool _mUnknown_SourceInstanceId;
+        public string? SourceInstanceId
+        {
+            get
+            {
+                if (!_mUnknown_SourceInstanceId) return _mValue_SourceInstanceId;
+                throw new UndeferrableValueException("Value 'AmiFromInstanceArgs.SourceInstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AmiFromInstanceArgs.Tags' is not present");
+            }
+        }
     }
 }

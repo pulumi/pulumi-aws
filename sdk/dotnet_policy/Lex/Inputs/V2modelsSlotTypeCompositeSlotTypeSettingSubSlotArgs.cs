@@ -15,20 +15,34 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Name of a constituent sub slot inside a composite slot.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier assigned to a slot type.
         /// This refers to either a built-in slot type or the unique `slot_type_id` of a custom slot type.
         /// </summary>
-        [Input("slotTypeId")]
+        [PolicyResourceProperty("slotTypeId", "_mUnknown_SlotTypeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSlotTypeId;
-
-        public string? SlotTypeId => _mSlotTypeId.GetValue("slotTypeId");
+        private string? _mValue_SlotTypeId;
+        private bool _mUnknown_SlotTypeId;
+        public string? SlotTypeId
+        {
+            get
+            {
+                if (!_mUnknown_SlotTypeId) return _mValue_SlotTypeId;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs.SlotTypeId' is not present");
+            }
+        }
     }
 }

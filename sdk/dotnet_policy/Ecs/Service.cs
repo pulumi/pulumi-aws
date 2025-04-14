@@ -16,302 +16,533 @@ namespace Pulumi.PolicyPacks.Aws.Ecs
         /// <summary>
         /// Information about the CloudWatch alarms. See below.
         /// </summary>
-        [Input("alarms")]
+        [PolicyResourceProperty("alarms", "_mUnknown_Alarms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceAlarms> _mAlarms;
-
-        public Outputs.ServiceAlarms? Alarms => _mAlarms.GetValue("alarms");
+        private Outputs.ServiceAlarms? _mValue_Alarms;
+        private bool _mUnknown_Alarms;
+        public Outputs.ServiceAlarms? Alarms
+        {
+            get
+            {
+                if (!_mUnknown_Alarms) return _mValue_Alarms;
+                throw new UndeferrableValueException("Value 'Service.Alarms' is not present");
+            }
+        }
 
         /// <summary>
         /// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
         /// </summary>
-        [Input("availabilityZoneRebalancing")]
+        [PolicyResourceProperty("availabilityZoneRebalancing", "_mUnknown_AvailabilityZoneRebalancing")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneRebalancing;
-
-        public string? AvailabilityZoneRebalancing => _mAvailabilityZoneRebalancing.GetValue("availabilityZoneRebalancing");
+        private string? _mValue_AvailabilityZoneRebalancing;
+        private bool _mUnknown_AvailabilityZoneRebalancing;
+        public string? AvailabilityZoneRebalancing
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZoneRebalancing) return _mValue_AvailabilityZoneRebalancing;
+                throw new UndeferrableValueException("Value 'Service.AvailabilityZoneRebalancing' is not present");
+            }
+        }
 
         /// <summary>
         /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         /// </summary>
-        [Input("capacityProviderStrategies")]
+        [PolicyResourceProperty("capacityProviderStrategies", "_mUnknown_CapacityProviderStrategies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServiceCapacityProviderStrategy>> _mCapacityProviderStrategies;
-
-        public List<Outputs.ServiceCapacityProviderStrategy>? CapacityProviderStrategies => _mCapacityProviderStrategies.GetValue("capacityProviderStrategies");
+        private List<Outputs.ServiceCapacityProviderStrategy>? _mValue_CapacityProviderStrategies;
+        private bool _mUnknown_CapacityProviderStrategies;
+        public List<Outputs.ServiceCapacityProviderStrategy>? CapacityProviderStrategies
+        {
+            get
+            {
+                if (!_mUnknown_CapacityProviderStrategies) return _mValue_CapacityProviderStrategies;
+                throw new UndeferrableValueException("Value 'Service.CapacityProviderStrategies' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an ECS cluster.
         /// </summary>
-        [Input("cluster")]
+        [PolicyResourceProperty("cluster", "_mUnknown_Cluster")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCluster;
-
-        public string? Cluster => _mCluster.GetValue("cluster");
+        private string? _mValue_Cluster;
+        private bool _mUnknown_Cluster;
+        public string? Cluster
+        {
+            get
+            {
+                if (!_mUnknown_Cluster) return _mValue_Cluster;
+                throw new UndeferrableValueException("Value 'Service.Cluster' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for deployment circuit breaker. See below.
         /// </summary>
-        [Input("deploymentCircuitBreaker")]
+        [PolicyResourceProperty("deploymentCircuitBreaker", "_mUnknown_DeploymentCircuitBreaker")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceDeploymentCircuitBreaker> _mDeploymentCircuitBreaker;
-
-        public Outputs.ServiceDeploymentCircuitBreaker? DeploymentCircuitBreaker => _mDeploymentCircuitBreaker.GetValue("deploymentCircuitBreaker");
+        private Outputs.ServiceDeploymentCircuitBreaker? _mValue_DeploymentCircuitBreaker;
+        private bool _mUnknown_DeploymentCircuitBreaker;
+        public Outputs.ServiceDeploymentCircuitBreaker? DeploymentCircuitBreaker
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentCircuitBreaker) return _mValue_DeploymentCircuitBreaker;
+                throw new UndeferrableValueException("Value 'Service.DeploymentCircuitBreaker' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for deployment controller configuration. See below.
         /// </summary>
-        [Input("deploymentController")]
+        [PolicyResourceProperty("deploymentController", "_mUnknown_DeploymentController")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceDeploymentController> _mDeploymentController;
-
-        public Outputs.ServiceDeploymentController? DeploymentController => _mDeploymentController.GetValue("deploymentController");
+        private Outputs.ServiceDeploymentController? _mValue_DeploymentController;
+        private bool _mUnknown_DeploymentController;
+        public Outputs.ServiceDeploymentController? DeploymentController
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentController) return _mValue_DeploymentController;
+                throw new UndeferrableValueException("Value 'Service.DeploymentController' is not present");
+            }
+        }
 
         /// <summary>
         /// Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
         /// </summary>
-        [Input("deploymentMaximumPercent")]
+        [PolicyResourceProperty("deploymentMaximumPercent", "_mUnknown_DeploymentMaximumPercent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeploymentMaximumPercent;
-
-        public int? DeploymentMaximumPercent => _mDeploymentMaximumPercent.GetValue("deploymentMaximumPercent");
+        private int? _mValue_DeploymentMaximumPercent;
+        private bool _mUnknown_DeploymentMaximumPercent;
+        public int? DeploymentMaximumPercent
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentMaximumPercent) return _mValue_DeploymentMaximumPercent;
+                throw new UndeferrableValueException("Value 'Service.DeploymentMaximumPercent' is not present");
+            }
+        }
 
         /// <summary>
         /// Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
         /// </summary>
-        [Input("deploymentMinimumHealthyPercent")]
+        [PolicyResourceProperty("deploymentMinimumHealthyPercent", "_mUnknown_DeploymentMinimumHealthyPercent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeploymentMinimumHealthyPercent;
-
-        public int? DeploymentMinimumHealthyPercent => _mDeploymentMinimumHealthyPercent.GetValue("deploymentMinimumHealthyPercent");
+        private int? _mValue_DeploymentMinimumHealthyPercent;
+        private bool _mUnknown_DeploymentMinimumHealthyPercent;
+        public int? DeploymentMinimumHealthyPercent
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentMinimumHealthyPercent) return _mValue_DeploymentMinimumHealthyPercent;
+                throw new UndeferrableValueException("Value 'Service.DeploymentMinimumHealthyPercent' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
         /// </summary>
-        [Input("desiredCount")]
+        [PolicyResourceProperty("desiredCount", "_mUnknown_DesiredCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredCount;
-
-        public int? DesiredCount => _mDesiredCount.GetValue("desiredCount");
+        private int? _mValue_DesiredCount;
+        private bool _mUnknown_DesiredCount;
+        public int? DesiredCount
+        {
+            get
+            {
+                if (!_mUnknown_DesiredCount) return _mValue_DesiredCount;
+                throw new UndeferrableValueException("Value 'Service.DesiredCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable Amazon ECS managed tags for the tasks within the service.
         /// </summary>
-        [Input("enableEcsManagedTags")]
+        [PolicyResourceProperty("enableEcsManagedTags", "_mUnknown_EnableEcsManagedTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableEcsManagedTags;
-
-        public bool? EnableEcsManagedTags => _mEnableEcsManagedTags.GetValue("enableEcsManagedTags");
+        private bool? _mValue_EnableEcsManagedTags;
+        private bool _mUnknown_EnableEcsManagedTags;
+        public bool? EnableEcsManagedTags
+        {
+            get
+            {
+                if (!_mUnknown_EnableEcsManagedTags) return _mValue_EnableEcsManagedTags;
+                throw new UndeferrableValueException("Value 'Service.EnableEcsManagedTags' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable Amazon ECS Exec for the tasks within the service.
         /// </summary>
-        [Input("enableExecuteCommand")]
+        [PolicyResourceProperty("enableExecuteCommand", "_mUnknown_EnableExecuteCommand")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableExecuteCommand;
-
-        public bool? EnableExecuteCommand => _mEnableExecuteCommand.GetValue("enableExecuteCommand");
+        private bool? _mValue_EnableExecuteCommand;
+        private bool _mUnknown_EnableExecuteCommand;
+        public bool? EnableExecuteCommand
+        {
+            get
+            {
+                if (!_mUnknown_EnableExecuteCommand) return _mValue_EnableExecuteCommand;
+                throw new UndeferrableValueException("Value 'Service.EnableExecuteCommand' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
         /// </summary>
-        [Input("forceDelete")]
+        [PolicyResourceProperty("forceDelete", "_mUnknown_ForceDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
-
-        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+        private bool? _mValue_ForceDelete;
+        private bool _mUnknown_ForceDelete;
+        public bool? ForceDelete
+        {
+            get
+            {
+                if (!_mUnknown_ForceDelete) return _mValue_ForceDelete;
+                throw new UndeferrableValueException("Value 'Service.ForceDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
         /// When using the forceNewDeployment property you also need to configure the triggers property.
         /// </summary>
-        [Input("forceNewDeployment")]
+        [PolicyResourceProperty("forceNewDeployment", "_mUnknown_ForceNewDeployment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceNewDeployment;
-
-        public bool? ForceNewDeployment => _mForceNewDeployment.GetValue("forceNewDeployment");
+        private bool? _mValue_ForceNewDeployment;
+        private bool _mUnknown_ForceNewDeployment;
+        public bool? ForceNewDeployment
+        {
+            get
+            {
+                if (!_mUnknown_ForceNewDeployment) return _mValue_ForceNewDeployment;
+                throw new UndeferrableValueException("Value 'Service.ForceNewDeployment' is not present");
+            }
+        }
 
         /// <summary>
         /// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         /// </summary>
-        [Input("healthCheckGracePeriodSeconds")]
+        [PolicyResourceProperty("healthCheckGracePeriodSeconds", "_mUnknown_HealthCheckGracePeriodSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHealthCheckGracePeriodSeconds;
-
-        public int? HealthCheckGracePeriodSeconds => _mHealthCheckGracePeriodSeconds.GetValue("healthCheckGracePeriodSeconds");
+        private int? _mValue_HealthCheckGracePeriodSeconds;
+        private bool _mUnknown_HealthCheckGracePeriodSeconds;
+        public int? HealthCheckGracePeriodSeconds
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckGracePeriodSeconds) return _mValue_HealthCheckGracePeriodSeconds;
+                throw new UndeferrableValueException("Value 'Service.HealthCheckGracePeriodSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
         /// </summary>
-        [Input("iamRole")]
+        [PolicyResourceProperty("iamRole", "_mUnknown_IamRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRole;
-
-        public string? IamRole => _mIamRole.GetValue("iamRole");
+        private string? _mValue_IamRole;
+        private bool _mUnknown_IamRole;
+        public string? IamRole
+        {
+            get
+            {
+                if (!_mUnknown_IamRole) return _mValue_IamRole;
+                throw new UndeferrableValueException("Value 'Service.IamRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
         /// </summary>
-        [Input("launchType")]
+        [PolicyResourceProperty("launchType", "_mUnknown_LaunchType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchType;
-
-        public string? LaunchType => _mLaunchType.GetValue("launchType");
+        private string? _mValue_LaunchType;
+        private bool _mUnknown_LaunchType;
+        public string? LaunchType
+        {
+            get
+            {
+                if (!_mUnknown_LaunchType) return _mValue_LaunchType;
+                throw new UndeferrableValueException("Value 'Service.LaunchType' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for load balancers. See below.
         /// </summary>
-        [Input("loadBalancers")]
+        [PolicyResourceProperty("loadBalancers", "_mUnknown_LoadBalancers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServiceLoadBalancer>> _mLoadBalancers;
-
-        public List<Outputs.ServiceLoadBalancer>? LoadBalancers => _mLoadBalancers.GetValue("loadBalancers");
+        private List<Outputs.ServiceLoadBalancer>? _mValue_LoadBalancers;
+        private bool _mUnknown_LoadBalancers;
+        public List<Outputs.ServiceLoadBalancer>? LoadBalancers
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancers) return _mValue_LoadBalancers;
+                throw new UndeferrableValueException("Value 'Service.LoadBalancers' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Service.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
         /// </summary>
-        [Input("networkConfiguration")]
+        [PolicyResourceProperty("networkConfiguration", "_mUnknown_NetworkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceNetworkConfiguration> _mNetworkConfiguration;
-
-        public Outputs.ServiceNetworkConfiguration? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
+        private Outputs.ServiceNetworkConfiguration? _mValue_NetworkConfiguration;
+        private bool _mUnknown_NetworkConfiguration;
+        public Outputs.ServiceNetworkConfiguration? NetworkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_NetworkConfiguration) return _mValue_NetworkConfiguration;
+                throw new UndeferrableValueException("Value 'Service.NetworkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
         /// </summary>
-        [Input("orderedPlacementStrategies")]
+        [PolicyResourceProperty("orderedPlacementStrategies", "_mUnknown_OrderedPlacementStrategies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServiceOrderedPlacementStrategy>> _mOrderedPlacementStrategies;
-
-        public List<Outputs.ServiceOrderedPlacementStrategy>? OrderedPlacementStrategies => _mOrderedPlacementStrategies.GetValue("orderedPlacementStrategies");
+        private List<Outputs.ServiceOrderedPlacementStrategy>? _mValue_OrderedPlacementStrategies;
+        private bool _mUnknown_OrderedPlacementStrategies;
+        public List<Outputs.ServiceOrderedPlacementStrategy>? OrderedPlacementStrategies
+        {
+            get
+            {
+                if (!_mUnknown_OrderedPlacementStrategies) return _mValue_OrderedPlacementStrategies;
+                throw new UndeferrableValueException("Value 'Service.OrderedPlacementStrategies' is not present");
+            }
+        }
 
         /// <summary>
         /// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
         /// </summary>
-        [Input("placementConstraints")]
+        [PolicyResourceProperty("placementConstraints", "_mUnknown_PlacementConstraints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServicePlacementConstraint>> _mPlacementConstraints;
-
-        public List<Outputs.ServicePlacementConstraint>? PlacementConstraints => _mPlacementConstraints.GetValue("placementConstraints");
+        private List<Outputs.ServicePlacementConstraint>? _mValue_PlacementConstraints;
+        private bool _mUnknown_PlacementConstraints;
+        public List<Outputs.ServicePlacementConstraint>? PlacementConstraints
+        {
+            get
+            {
+                if (!_mUnknown_PlacementConstraints) return _mValue_PlacementConstraints;
+                throw new UndeferrableValueException("Value 'Service.PlacementConstraints' is not present");
+            }
+        }
 
         /// <summary>
         /// Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
-        [Input("platformVersion")]
+        [PolicyResourceProperty("platformVersion", "_mUnknown_PlatformVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformVersion;
-
-        public string? PlatformVersion => _mPlatformVersion.GetValue("platformVersion");
+        private string? _mValue_PlatformVersion;
+        private bool _mUnknown_PlatformVersion;
+        public string? PlatformVersion
+        {
+            get
+            {
+                if (!_mUnknown_PlatformVersion) return _mValue_PlatformVersion;
+                throw new UndeferrableValueException("Value 'Service.PlatformVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
         /// </summary>
-        [Input("propagateTags")]
+        [PolicyResourceProperty("propagateTags", "_mUnknown_PropagateTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPropagateTags;
-
-        public string? PropagateTags => _mPropagateTags.GetValue("propagateTags");
+        private string? _mValue_PropagateTags;
+        private bool _mUnknown_PropagateTags;
+        public string? PropagateTags
+        {
+            get
+            {
+                if (!_mUnknown_PropagateTags) return _mValue_PropagateTags;
+                throw new UndeferrableValueException("Value 'Service.PropagateTags' is not present");
+            }
+        }
 
         /// <summary>
         /// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         /// </summary>
-        [Input("schedulingStrategy")]
+        [PolicyResourceProperty("schedulingStrategy", "_mUnknown_SchedulingStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchedulingStrategy;
-
-        public string? SchedulingStrategy => _mSchedulingStrategy.GetValue("schedulingStrategy");
+        private string? _mValue_SchedulingStrategy;
+        private bool _mUnknown_SchedulingStrategy;
+        public string? SchedulingStrategy
+        {
+            get
+            {
+                if (!_mUnknown_SchedulingStrategy) return _mValue_SchedulingStrategy;
+                throw new UndeferrableValueException("Value 'Service.SchedulingStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         /// </summary>
-        [Input("serviceConnectConfiguration")]
+        [PolicyResourceProperty("serviceConnectConfiguration", "_mUnknown_ServiceConnectConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceServiceConnectConfiguration> _mServiceConnectConfiguration;
-
-        public Outputs.ServiceServiceConnectConfiguration? ServiceConnectConfiguration => _mServiceConnectConfiguration.GetValue("serviceConnectConfiguration");
+        private Outputs.ServiceServiceConnectConfiguration? _mValue_ServiceConnectConfiguration;
+        private bool _mUnknown_ServiceConnectConfiguration;
+        public Outputs.ServiceServiceConnectConfiguration? ServiceConnectConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ServiceConnectConfiguration) return _mValue_ServiceConnectConfiguration;
+                throw new UndeferrableValueException("Value 'Service.ServiceConnectConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         /// </summary>
-        [Input("serviceRegistries")]
+        [PolicyResourceProperty("serviceRegistries", "_mUnknown_ServiceRegistries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceServiceRegistries> _mServiceRegistries;
-
-        public Outputs.ServiceServiceRegistries? ServiceRegistries => _mServiceRegistries.GetValue("serviceRegistries");
+        private Outputs.ServiceServiceRegistries? _mValue_ServiceRegistries;
+        private bool _mUnknown_ServiceRegistries;
+        public Outputs.ServiceServiceRegistries? ServiceRegistries
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRegistries) return _mValue_ServiceRegistries;
+                throw new UndeferrableValueException("Value 'Service.ServiceRegistries' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Service.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Service.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         /// </summary>
-        [Input("taskDefinition")]
+        [PolicyResourceProperty("taskDefinition", "_mUnknown_TaskDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskDefinition;
-
-        public string? TaskDefinition => _mTaskDefinition.GetValue("taskDefinition");
+        private string? _mValue_TaskDefinition;
+        private bool _mUnknown_TaskDefinition;
+        public string? TaskDefinition
+        {
+            get
+            {
+                if (!_mUnknown_TaskDefinition) return _mValue_TaskDefinition;
+                throw new UndeferrableValueException("Value 'Service.TaskDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
         /// </summary>
-        [Input("triggers")]
+        [PolicyResourceProperty("triggers", "_mUnknown_Triggers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
-
-        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
+        private Dictionary<string, string>? _mValue_Triggers;
+        private bool _mUnknown_Triggers;
+        public Dictionary<string, string>? Triggers
+        {
+            get
+            {
+                if (!_mUnknown_Triggers) return _mValue_Triggers;
+                throw new UndeferrableValueException("Value 'Service.Triggers' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
         /// </summary>
-        [Input("volumeConfiguration")]
+        [PolicyResourceProperty("volumeConfiguration", "_mUnknown_VolumeConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceVolumeConfiguration> _mVolumeConfiguration;
-
-        public Outputs.ServiceVolumeConfiguration? VolumeConfiguration => _mVolumeConfiguration.GetValue("volumeConfiguration");
+        private Outputs.ServiceVolumeConfiguration? _mValue_VolumeConfiguration;
+        private bool _mUnknown_VolumeConfiguration;
+        public Outputs.ServiceVolumeConfiguration? VolumeConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VolumeConfiguration) return _mValue_VolumeConfiguration;
+                throw new UndeferrableValueException("Value 'Service.VolumeConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
         /// </summary>
-        [Input("vpcLatticeConfigurations")]
+        [PolicyResourceProperty("vpcLatticeConfigurations", "_mUnknown_VpcLatticeConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServiceVpcLatticeConfiguration>> _mVpcLatticeConfigurations;
-
-        public List<Outputs.ServiceVpcLatticeConfiguration>? VpcLatticeConfigurations => _mVpcLatticeConfigurations.GetValue("vpcLatticeConfigurations");
+        private List<Outputs.ServiceVpcLatticeConfiguration>? _mValue_VpcLatticeConfigurations;
+        private bool _mUnknown_VpcLatticeConfigurations;
+        public List<Outputs.ServiceVpcLatticeConfiguration>? VpcLatticeConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_VpcLatticeConfigurations) return _mValue_VpcLatticeConfigurations;
+                throw new UndeferrableValueException("Value 'Service.VpcLatticeConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         /// </summary>
-        [Input("waitForSteadyState")]
+        [PolicyResourceProperty("waitForSteadyState", "_mUnknown_WaitForSteadyState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForSteadyState;
-
-        public bool? WaitForSteadyState => _mWaitForSteadyState.GetValue("waitForSteadyState");
+        private bool? _mValue_WaitForSteadyState;
+        private bool _mUnknown_WaitForSteadyState;
+        public bool? WaitForSteadyState
+        {
+            get
+            {
+                if (!_mUnknown_WaitForSteadyState) return _mValue_WaitForSteadyState;
+                throw new UndeferrableValueException("Value 'Service.WaitForSteadyState' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ecs/service:Service")]
@@ -320,292 +551,516 @@ namespace Pulumi.PolicyPacks.Aws.Ecs
         /// <summary>
         /// Information about the CloudWatch alarms. See below.
         /// </summary>
-        [Input("alarms")]
+        [PolicyResourceProperty("alarms", "_mUnknown_Alarms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceAlarmsArgs> _mAlarms;
-
-        public Inputs.ServiceAlarmsArgs? Alarms => _mAlarms.GetValue("alarms");
+        private Inputs.ServiceAlarmsArgs? _mValue_Alarms;
+        private bool _mUnknown_Alarms;
+        public Inputs.ServiceAlarmsArgs? Alarms
+        {
+            get
+            {
+                if (!_mUnknown_Alarms) return _mValue_Alarms;
+                throw new UndeferrableValueException("Value 'ServiceArgs.Alarms' is not present");
+            }
+        }
 
         /// <summary>
         /// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
         /// </summary>
-        [Input("availabilityZoneRebalancing")]
+        [PolicyResourceProperty("availabilityZoneRebalancing", "_mUnknown_AvailabilityZoneRebalancing")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneRebalancing;
-
-        public string? AvailabilityZoneRebalancing => _mAvailabilityZoneRebalancing.GetValue("availabilityZoneRebalancing");
+        private string? _mValue_AvailabilityZoneRebalancing;
+        private bool _mUnknown_AvailabilityZoneRebalancing;
+        public string? AvailabilityZoneRebalancing
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZoneRebalancing) return _mValue_AvailabilityZoneRebalancing;
+                throw new UndeferrableValueException("Value 'ServiceArgs.AvailabilityZoneRebalancing' is not present");
+            }
+        }
 
         /// <summary>
         /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         /// </summary>
-        [Input("capacityProviderStrategies")]
+        [PolicyResourceProperty("capacityProviderStrategies", "_mUnknown_CapacityProviderStrategies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ServiceCapacityProviderStrategyArgs>> _mCapacityProviderStrategies;
-
-        public List<Inputs.ServiceCapacityProviderStrategyArgs>? CapacityProviderStrategies => _mCapacityProviderStrategies.GetValue("capacityProviderStrategies");
+        private List<Inputs.ServiceCapacityProviderStrategyArgs>? _mValue_CapacityProviderStrategies;
+        private bool _mUnknown_CapacityProviderStrategies;
+        public List<Inputs.ServiceCapacityProviderStrategyArgs>? CapacityProviderStrategies
+        {
+            get
+            {
+                if (!_mUnknown_CapacityProviderStrategies) return _mValue_CapacityProviderStrategies;
+                throw new UndeferrableValueException("Value 'ServiceArgs.CapacityProviderStrategies' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an ECS cluster.
         /// </summary>
-        [Input("cluster")]
+        [PolicyResourceProperty("cluster", "_mUnknown_Cluster")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCluster;
-
-        public string? Cluster => _mCluster.GetValue("cluster");
+        private string? _mValue_Cluster;
+        private bool _mUnknown_Cluster;
+        public string? Cluster
+        {
+            get
+            {
+                if (!_mUnknown_Cluster) return _mValue_Cluster;
+                throw new UndeferrableValueException("Value 'ServiceArgs.Cluster' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for deployment circuit breaker. See below.
         /// </summary>
-        [Input("deploymentCircuitBreaker")]
+        [PolicyResourceProperty("deploymentCircuitBreaker", "_mUnknown_DeploymentCircuitBreaker")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceDeploymentCircuitBreakerArgs> _mDeploymentCircuitBreaker;
-
-        public Inputs.ServiceDeploymentCircuitBreakerArgs? DeploymentCircuitBreaker => _mDeploymentCircuitBreaker.GetValue("deploymentCircuitBreaker");
+        private Inputs.ServiceDeploymentCircuitBreakerArgs? _mValue_DeploymentCircuitBreaker;
+        private bool _mUnknown_DeploymentCircuitBreaker;
+        public Inputs.ServiceDeploymentCircuitBreakerArgs? DeploymentCircuitBreaker
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentCircuitBreaker) return _mValue_DeploymentCircuitBreaker;
+                throw new UndeferrableValueException("Value 'ServiceArgs.DeploymentCircuitBreaker' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for deployment controller configuration. See below.
         /// </summary>
-        [Input("deploymentController")]
+        [PolicyResourceProperty("deploymentController", "_mUnknown_DeploymentController")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceDeploymentControllerArgs> _mDeploymentController;
-
-        public Inputs.ServiceDeploymentControllerArgs? DeploymentController => _mDeploymentController.GetValue("deploymentController");
+        private Inputs.ServiceDeploymentControllerArgs? _mValue_DeploymentController;
+        private bool _mUnknown_DeploymentController;
+        public Inputs.ServiceDeploymentControllerArgs? DeploymentController
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentController) return _mValue_DeploymentController;
+                throw new UndeferrableValueException("Value 'ServiceArgs.DeploymentController' is not present");
+            }
+        }
 
         /// <summary>
         /// Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
         /// </summary>
-        [Input("deploymentMaximumPercent")]
+        [PolicyResourceProperty("deploymentMaximumPercent", "_mUnknown_DeploymentMaximumPercent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeploymentMaximumPercent;
-
-        public int? DeploymentMaximumPercent => _mDeploymentMaximumPercent.GetValue("deploymentMaximumPercent");
+        private int? _mValue_DeploymentMaximumPercent;
+        private bool _mUnknown_DeploymentMaximumPercent;
+        public int? DeploymentMaximumPercent
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentMaximumPercent) return _mValue_DeploymentMaximumPercent;
+                throw new UndeferrableValueException("Value 'ServiceArgs.DeploymentMaximumPercent' is not present");
+            }
+        }
 
         /// <summary>
         /// Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
         /// </summary>
-        [Input("deploymentMinimumHealthyPercent")]
+        [PolicyResourceProperty("deploymentMinimumHealthyPercent", "_mUnknown_DeploymentMinimumHealthyPercent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeploymentMinimumHealthyPercent;
-
-        public int? DeploymentMinimumHealthyPercent => _mDeploymentMinimumHealthyPercent.GetValue("deploymentMinimumHealthyPercent");
+        private int? _mValue_DeploymentMinimumHealthyPercent;
+        private bool _mUnknown_DeploymentMinimumHealthyPercent;
+        public int? DeploymentMinimumHealthyPercent
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentMinimumHealthyPercent) return _mValue_DeploymentMinimumHealthyPercent;
+                throw new UndeferrableValueException("Value 'ServiceArgs.DeploymentMinimumHealthyPercent' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
         /// </summary>
-        [Input("desiredCount")]
+        [PolicyResourceProperty("desiredCount", "_mUnknown_DesiredCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredCount;
-
-        public int? DesiredCount => _mDesiredCount.GetValue("desiredCount");
+        private int? _mValue_DesiredCount;
+        private bool _mUnknown_DesiredCount;
+        public int? DesiredCount
+        {
+            get
+            {
+                if (!_mUnknown_DesiredCount) return _mValue_DesiredCount;
+                throw new UndeferrableValueException("Value 'ServiceArgs.DesiredCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable Amazon ECS managed tags for the tasks within the service.
         /// </summary>
-        [Input("enableEcsManagedTags")]
+        [PolicyResourceProperty("enableEcsManagedTags", "_mUnknown_EnableEcsManagedTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableEcsManagedTags;
-
-        public bool? EnableEcsManagedTags => _mEnableEcsManagedTags.GetValue("enableEcsManagedTags");
+        private bool? _mValue_EnableEcsManagedTags;
+        private bool _mUnknown_EnableEcsManagedTags;
+        public bool? EnableEcsManagedTags
+        {
+            get
+            {
+                if (!_mUnknown_EnableEcsManagedTags) return _mValue_EnableEcsManagedTags;
+                throw new UndeferrableValueException("Value 'ServiceArgs.EnableEcsManagedTags' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable Amazon ECS Exec for the tasks within the service.
         /// </summary>
-        [Input("enableExecuteCommand")]
+        [PolicyResourceProperty("enableExecuteCommand", "_mUnknown_EnableExecuteCommand")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableExecuteCommand;
-
-        public bool? EnableExecuteCommand => _mEnableExecuteCommand.GetValue("enableExecuteCommand");
+        private bool? _mValue_EnableExecuteCommand;
+        private bool _mUnknown_EnableExecuteCommand;
+        public bool? EnableExecuteCommand
+        {
+            get
+            {
+                if (!_mUnknown_EnableExecuteCommand) return _mValue_EnableExecuteCommand;
+                throw new UndeferrableValueException("Value 'ServiceArgs.EnableExecuteCommand' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
         /// </summary>
-        [Input("forceDelete")]
+        [PolicyResourceProperty("forceDelete", "_mUnknown_ForceDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
-
-        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+        private bool? _mValue_ForceDelete;
+        private bool _mUnknown_ForceDelete;
+        public bool? ForceDelete
+        {
+            get
+            {
+                if (!_mUnknown_ForceDelete) return _mValue_ForceDelete;
+                throw new UndeferrableValueException("Value 'ServiceArgs.ForceDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
         /// When using the forceNewDeployment property you also need to configure the triggers property.
         /// </summary>
-        [Input("forceNewDeployment")]
+        [PolicyResourceProperty("forceNewDeployment", "_mUnknown_ForceNewDeployment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceNewDeployment;
-
-        public bool? ForceNewDeployment => _mForceNewDeployment.GetValue("forceNewDeployment");
+        private bool? _mValue_ForceNewDeployment;
+        private bool _mUnknown_ForceNewDeployment;
+        public bool? ForceNewDeployment
+        {
+            get
+            {
+                if (!_mUnknown_ForceNewDeployment) return _mValue_ForceNewDeployment;
+                throw new UndeferrableValueException("Value 'ServiceArgs.ForceNewDeployment' is not present");
+            }
+        }
 
         /// <summary>
         /// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         /// </summary>
-        [Input("healthCheckGracePeriodSeconds")]
+        [PolicyResourceProperty("healthCheckGracePeriodSeconds", "_mUnknown_HealthCheckGracePeriodSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHealthCheckGracePeriodSeconds;
-
-        public int? HealthCheckGracePeriodSeconds => _mHealthCheckGracePeriodSeconds.GetValue("healthCheckGracePeriodSeconds");
+        private int? _mValue_HealthCheckGracePeriodSeconds;
+        private bool _mUnknown_HealthCheckGracePeriodSeconds;
+        public int? HealthCheckGracePeriodSeconds
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckGracePeriodSeconds) return _mValue_HealthCheckGracePeriodSeconds;
+                throw new UndeferrableValueException("Value 'ServiceArgs.HealthCheckGracePeriodSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
         /// </summary>
-        [Input("iamRole")]
+        [PolicyResourceProperty("iamRole", "_mUnknown_IamRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRole;
-
-        public string? IamRole => _mIamRole.GetValue("iamRole");
+        private string? _mValue_IamRole;
+        private bool _mUnknown_IamRole;
+        public string? IamRole
+        {
+            get
+            {
+                if (!_mUnknown_IamRole) return _mValue_IamRole;
+                throw new UndeferrableValueException("Value 'ServiceArgs.IamRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
         /// </summary>
-        [Input("launchType")]
+        [PolicyResourceProperty("launchType", "_mUnknown_LaunchType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchType;
-
-        public string? LaunchType => _mLaunchType.GetValue("launchType");
+        private string? _mValue_LaunchType;
+        private bool _mUnknown_LaunchType;
+        public string? LaunchType
+        {
+            get
+            {
+                if (!_mUnknown_LaunchType) return _mValue_LaunchType;
+                throw new UndeferrableValueException("Value 'ServiceArgs.LaunchType' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for load balancers. See below.
         /// </summary>
-        [Input("loadBalancers")]
+        [PolicyResourceProperty("loadBalancers", "_mUnknown_LoadBalancers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ServiceLoadBalancerArgs>> _mLoadBalancers;
-
-        public List<Inputs.ServiceLoadBalancerArgs>? LoadBalancers => _mLoadBalancers.GetValue("loadBalancers");
+        private List<Inputs.ServiceLoadBalancerArgs>? _mValue_LoadBalancers;
+        private bool _mUnknown_LoadBalancers;
+        public List<Inputs.ServiceLoadBalancerArgs>? LoadBalancers
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancers) return _mValue_LoadBalancers;
+                throw new UndeferrableValueException("Value 'ServiceArgs.LoadBalancers' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServiceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
         /// </summary>
-        [Input("networkConfiguration")]
+        [PolicyResourceProperty("networkConfiguration", "_mUnknown_NetworkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceNetworkConfigurationArgs> _mNetworkConfiguration;
-
-        public Inputs.ServiceNetworkConfigurationArgs? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
+        private Inputs.ServiceNetworkConfigurationArgs? _mValue_NetworkConfiguration;
+        private bool _mUnknown_NetworkConfiguration;
+        public Inputs.ServiceNetworkConfigurationArgs? NetworkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_NetworkConfiguration) return _mValue_NetworkConfiguration;
+                throw new UndeferrableValueException("Value 'ServiceArgs.NetworkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
         /// </summary>
-        [Input("orderedPlacementStrategies")]
+        [PolicyResourceProperty("orderedPlacementStrategies", "_mUnknown_OrderedPlacementStrategies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ServiceOrderedPlacementStrategyArgs>> _mOrderedPlacementStrategies;
-
-        public List<Inputs.ServiceOrderedPlacementStrategyArgs>? OrderedPlacementStrategies => _mOrderedPlacementStrategies.GetValue("orderedPlacementStrategies");
+        private List<Inputs.ServiceOrderedPlacementStrategyArgs>? _mValue_OrderedPlacementStrategies;
+        private bool _mUnknown_OrderedPlacementStrategies;
+        public List<Inputs.ServiceOrderedPlacementStrategyArgs>? OrderedPlacementStrategies
+        {
+            get
+            {
+                if (!_mUnknown_OrderedPlacementStrategies) return _mValue_OrderedPlacementStrategies;
+                throw new UndeferrableValueException("Value 'ServiceArgs.OrderedPlacementStrategies' is not present");
+            }
+        }
 
         /// <summary>
         /// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
         /// </summary>
-        [Input("placementConstraints")]
+        [PolicyResourceProperty("placementConstraints", "_mUnknown_PlacementConstraints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ServicePlacementConstraintArgs>> _mPlacementConstraints;
-
-        public List<Inputs.ServicePlacementConstraintArgs>? PlacementConstraints => _mPlacementConstraints.GetValue("placementConstraints");
+        private List<Inputs.ServicePlacementConstraintArgs>? _mValue_PlacementConstraints;
+        private bool _mUnknown_PlacementConstraints;
+        public List<Inputs.ServicePlacementConstraintArgs>? PlacementConstraints
+        {
+            get
+            {
+                if (!_mUnknown_PlacementConstraints) return _mValue_PlacementConstraints;
+                throw new UndeferrableValueException("Value 'ServiceArgs.PlacementConstraints' is not present");
+            }
+        }
 
         /// <summary>
         /// Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
-        [Input("platformVersion")]
+        [PolicyResourceProperty("platformVersion", "_mUnknown_PlatformVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformVersion;
-
-        public string? PlatformVersion => _mPlatformVersion.GetValue("platformVersion");
+        private string? _mValue_PlatformVersion;
+        private bool _mUnknown_PlatformVersion;
+        public string? PlatformVersion
+        {
+            get
+            {
+                if (!_mUnknown_PlatformVersion) return _mValue_PlatformVersion;
+                throw new UndeferrableValueException("Value 'ServiceArgs.PlatformVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
         /// </summary>
-        [Input("propagateTags")]
+        [PolicyResourceProperty("propagateTags", "_mUnknown_PropagateTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPropagateTags;
-
-        public string? PropagateTags => _mPropagateTags.GetValue("propagateTags");
+        private string? _mValue_PropagateTags;
+        private bool _mUnknown_PropagateTags;
+        public string? PropagateTags
+        {
+            get
+            {
+                if (!_mUnknown_PropagateTags) return _mValue_PropagateTags;
+                throw new UndeferrableValueException("Value 'ServiceArgs.PropagateTags' is not present");
+            }
+        }
 
         /// <summary>
         /// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         /// </summary>
-        [Input("schedulingStrategy")]
+        [PolicyResourceProperty("schedulingStrategy", "_mUnknown_SchedulingStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchedulingStrategy;
-
-        public string? SchedulingStrategy => _mSchedulingStrategy.GetValue("schedulingStrategy");
+        private string? _mValue_SchedulingStrategy;
+        private bool _mUnknown_SchedulingStrategy;
+        public string? SchedulingStrategy
+        {
+            get
+            {
+                if (!_mUnknown_SchedulingStrategy) return _mValue_SchedulingStrategy;
+                throw new UndeferrableValueException("Value 'ServiceArgs.SchedulingStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         /// </summary>
-        [Input("serviceConnectConfiguration")]
+        [PolicyResourceProperty("serviceConnectConfiguration", "_mUnknown_ServiceConnectConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceServiceConnectConfigurationArgs> _mServiceConnectConfiguration;
-
-        public Inputs.ServiceServiceConnectConfigurationArgs? ServiceConnectConfiguration => _mServiceConnectConfiguration.GetValue("serviceConnectConfiguration");
+        private Inputs.ServiceServiceConnectConfigurationArgs? _mValue_ServiceConnectConfiguration;
+        private bool _mUnknown_ServiceConnectConfiguration;
+        public Inputs.ServiceServiceConnectConfigurationArgs? ServiceConnectConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ServiceConnectConfiguration) return _mValue_ServiceConnectConfiguration;
+                throw new UndeferrableValueException("Value 'ServiceArgs.ServiceConnectConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         /// </summary>
-        [Input("serviceRegistries")]
+        [PolicyResourceProperty("serviceRegistries", "_mUnknown_ServiceRegistries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceServiceRegistriesArgs> _mServiceRegistries;
-
-        public Inputs.ServiceServiceRegistriesArgs? ServiceRegistries => _mServiceRegistries.GetValue("serviceRegistries");
+        private Inputs.ServiceServiceRegistriesArgs? _mValue_ServiceRegistries;
+        private bool _mUnknown_ServiceRegistries;
+        public Inputs.ServiceServiceRegistriesArgs? ServiceRegistries
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRegistries) return _mValue_ServiceRegistries;
+                throw new UndeferrableValueException("Value 'ServiceArgs.ServiceRegistries' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServiceArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         /// </summary>
-        [Input("taskDefinition")]
+        [PolicyResourceProperty("taskDefinition", "_mUnknown_TaskDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskDefinition;
-
-        public string? TaskDefinition => _mTaskDefinition.GetValue("taskDefinition");
+        private string? _mValue_TaskDefinition;
+        private bool _mUnknown_TaskDefinition;
+        public string? TaskDefinition
+        {
+            get
+            {
+                if (!_mUnknown_TaskDefinition) return _mValue_TaskDefinition;
+                throw new UndeferrableValueException("Value 'ServiceArgs.TaskDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
         /// </summary>
-        [Input("triggers")]
+        [PolicyResourceProperty("triggers", "_mUnknown_Triggers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
-
-        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
+        private Dictionary<string, string>? _mValue_Triggers;
+        private bool _mUnknown_Triggers;
+        public Dictionary<string, string>? Triggers
+        {
+            get
+            {
+                if (!_mUnknown_Triggers) return _mValue_Triggers;
+                throw new UndeferrableValueException("Value 'ServiceArgs.Triggers' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
         /// </summary>
-        [Input("volumeConfiguration")]
+        [PolicyResourceProperty("volumeConfiguration", "_mUnknown_VolumeConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceVolumeConfigurationArgs> _mVolumeConfiguration;
-
-        public Inputs.ServiceVolumeConfigurationArgs? VolumeConfiguration => _mVolumeConfiguration.GetValue("volumeConfiguration");
+        private Inputs.ServiceVolumeConfigurationArgs? _mValue_VolumeConfiguration;
+        private bool _mUnknown_VolumeConfiguration;
+        public Inputs.ServiceVolumeConfigurationArgs? VolumeConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VolumeConfiguration) return _mValue_VolumeConfiguration;
+                throw new UndeferrableValueException("Value 'ServiceArgs.VolumeConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
         /// </summary>
-        [Input("vpcLatticeConfigurations")]
+        [PolicyResourceProperty("vpcLatticeConfigurations", "_mUnknown_VpcLatticeConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ServiceVpcLatticeConfigurationArgs>> _mVpcLatticeConfigurations;
-
-        public List<Inputs.ServiceVpcLatticeConfigurationArgs>? VpcLatticeConfigurations => _mVpcLatticeConfigurations.GetValue("vpcLatticeConfigurations");
+        private List<Inputs.ServiceVpcLatticeConfigurationArgs>? _mValue_VpcLatticeConfigurations;
+        private bool _mUnknown_VpcLatticeConfigurations;
+        public List<Inputs.ServiceVpcLatticeConfigurationArgs>? VpcLatticeConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_VpcLatticeConfigurations) return _mValue_VpcLatticeConfigurations;
+                throw new UndeferrableValueException("Value 'ServiceArgs.VpcLatticeConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         /// </summary>
-        [Input("waitForSteadyState")]
+        [PolicyResourceProperty("waitForSteadyState", "_mUnknown_WaitForSteadyState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForSteadyState;
-
-        public bool? WaitForSteadyState => _mWaitForSteadyState.GetValue("waitForSteadyState");
+        private bool? _mValue_WaitForSteadyState;
+        private bool _mUnknown_WaitForSteadyState;
+        public bool? WaitForSteadyState
+        {
+            get
+            {
+                if (!_mUnknown_WaitForSteadyState) return _mValue_WaitForSteadyState;
+                throw new UndeferrableValueException("Value 'ServiceArgs.WaitForSteadyState' is not present");
+            }
+        }
     }
 }

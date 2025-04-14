@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace.Outputs
         /// <summary>
         /// Unique name for the S3 bucket.
         /// </summary>
-        [Input("s3Bucket")]
+        [PolicyResourceProperty("s3Bucket", "_mUnknown_S3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
-
-        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+        private string? _mValue_S3Bucket;
+        private bool _mUnknown_S3Bucket;
+        public string? S3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_S3Bucket) return _mValue_S3Bucket;
+                throw new UndeferrableValueException("Value 'KxClusterCode.S3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Full S3 path (excluding bucket) to the .zip file that contains the code to be loaded onto the cluster when it’s started.
         /// </summary>
-        [Input("s3Key")]
+        [PolicyResourceProperty("s3Key", "_mUnknown_S3Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Key;
-
-        public string? S3Key => _mS3Key.GetValue("s3Key");
+        private string? _mValue_S3Key;
+        private bool _mUnknown_S3Key;
+        public string? S3Key
+        {
+            get
+            {
+                if (!_mUnknown_S3Key) return _mValue_S3Key;
+                throw new UndeferrableValueException("Value 'KxClusterCode.S3Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of an S3 Object.
         /// </summary>
-        [Input("s3ObjectVersion")]
+        [PolicyResourceProperty("s3ObjectVersion", "_mUnknown_S3ObjectVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3ObjectVersion;
-
-        public string? S3ObjectVersion => _mS3ObjectVersion.GetValue("s3ObjectVersion");
+        private string? _mValue_S3ObjectVersion;
+        private bool _mUnknown_S3ObjectVersion;
+        public string? S3ObjectVersion
+        {
+            get
+            {
+                if (!_mUnknown_S3ObjectVersion) return _mValue_S3ObjectVersion;
+                throw new UndeferrableValueException("Value 'KxClusterCode.S3ObjectVersion' is not present");
+            }
+        }
     }
 }

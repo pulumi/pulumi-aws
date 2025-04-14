@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Criteria for determining a SAN's match.
         /// </summary>
-        [Input("match")]
+        [PolicyResourceProperty("match", "_mUnknown_Match")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs> _mMatch;
-
-        public Inputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs? Match => _mMatch.GetValue("match");
+        private Inputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs? _mValue_Match;
+        private bool _mUnknown_Match;
+        public Inputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs? Match
+        {
+            get
+            {
+                if (!_mUnknown_Match) return _mValue_Match;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs.Match' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ecr.Inputs
         /// <summary>
         /// The repository filter details.
         /// </summary>
-        [Input("filter")]
+        [PolicyResourceProperty("filter", "_mUnknown_Filter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilter;
-
-        public string? Filter => _mFilter.GetValue("filter");
+        private string? _mValue_Filter;
+        private bool _mUnknown_Filter;
+        public string? Filter
+        {
+            get
+            {
+                if (!_mUnknown_Filter) return _mValue_Filter;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs.Filter' is not present");
+            }
+        }
 
         /// <summary>
         /// The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
         /// </summary>
-        [Input("filterType")]
+        [PolicyResourceProperty("filterType", "_mUnknown_FilterType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilterType;
-
-        public string? FilterType => _mFilterType.GetValue("filterType");
+        private string? _mValue_FilterType;
+        private bool _mUnknown_FilterType;
+        public string? FilterType
+        {
+            get
+            {
+                if (!_mUnknown_FilterType) return _mValue_FilterType;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs.FilterType' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Defaults for backends.
         /// </summary>
-        [Input("backendDefaults")]
+        [PolicyResourceProperty("backendDefaults", "_mUnknown_BackendDefaults")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualGatewaySpecBackendDefaultsArgs> _mBackendDefaults;
-
-        public Inputs.VirtualGatewaySpecBackendDefaultsArgs? BackendDefaults => _mBackendDefaults.GetValue("backendDefaults");
+        private Inputs.VirtualGatewaySpecBackendDefaultsArgs? _mValue_BackendDefaults;
+        private bool _mUnknown_BackendDefaults;
+        public Inputs.VirtualGatewaySpecBackendDefaultsArgs? BackendDefaults
+        {
+            get
+            {
+                if (!_mUnknown_BackendDefaults) return _mValue_BackendDefaults;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecArgs.BackendDefaults' is not present");
+            }
+        }
 
         /// <summary>
         /// Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
         /// </summary>
-        [Input("listeners")]
+        [PolicyResourceProperty("listeners", "_mUnknown_Listeners")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.VirtualGatewaySpecListenerArgs>> _mListeners;
-
-        public List<Inputs.VirtualGatewaySpecListenerArgs>? Listeners => _mListeners.GetValue("listeners");
+        private List<Inputs.VirtualGatewaySpecListenerArgs>? _mValue_Listeners;
+        private bool _mUnknown_Listeners;
+        public List<Inputs.VirtualGatewaySpecListenerArgs>? Listeners
+        {
+            get
+            {
+                if (!_mUnknown_Listeners) return _mValue_Listeners;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecArgs.Listeners' is not present");
+            }
+        }
 
         /// <summary>
         /// Inbound and outbound access logging information for the virtual gateway.
         /// </summary>
-        [Input("logging")]
+        [PolicyResourceProperty("logging", "_mUnknown_Logging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualGatewaySpecLoggingArgs> _mLogging;
-
-        public Inputs.VirtualGatewaySpecLoggingArgs? Logging => _mLogging.GetValue("logging");
+        private Inputs.VirtualGatewaySpecLoggingArgs? _mValue_Logging;
+        private bool _mUnknown_Logging;
+        public Inputs.VirtualGatewaySpecLoggingArgs? Logging
+        {
+            get
+            {
+                if (!_mUnknown_Logging) return _mValue_Logging;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecArgs.Logging' is not present");
+            }
+        }
     }
 }

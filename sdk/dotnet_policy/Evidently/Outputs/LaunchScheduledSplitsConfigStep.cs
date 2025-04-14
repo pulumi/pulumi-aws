@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Evidently.Outputs
         /// <summary>
         /// The traffic allocation percentages among the feature variations during one step of a launch. This is a set of key-value pairs. The keys are variation names. The values represent the percentage of traffic to allocate to that variation during this step. For more information, refer to the [AWS documentation for ScheduledSplitConfig groupWeights](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ScheduledSplitConfig.html).
         /// </summary>
-        [Input("groupWeights")]
+        [PolicyResourceProperty("groupWeights", "_mUnknown_GroupWeights")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, int>> _mGroupWeights;
-
-        public Dictionary<string, int>? GroupWeights => _mGroupWeights.GetValue("groupWeights");
+        private Dictionary<string, int>? _mValue_GroupWeights;
+        private bool _mUnknown_GroupWeights;
+        public Dictionary<string, int>? GroupWeights
+        {
+            get
+            {
+                if (!_mUnknown_GroupWeights) return _mValue_GroupWeights;
+                throw new UndeferrableValueException("Value 'LaunchScheduledSplitsConfigStep.GroupWeights' is not present");
+            }
+        }
 
         /// <summary>
         /// One or up to six blocks that specify different traffic splits for one or more audience segments. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age. Detailed below.
         /// </summary>
-        [Input("segmentOverrides")]
+        [PolicyResourceProperty("segmentOverrides", "_mUnknown_SegmentOverrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchScheduledSplitsConfigStepSegmentOverride>> _mSegmentOverrides;
-
-        public List<Outputs.LaunchScheduledSplitsConfigStepSegmentOverride>? SegmentOverrides => _mSegmentOverrides.GetValue("segmentOverrides");
+        private List<Outputs.LaunchScheduledSplitsConfigStepSegmentOverride>? _mValue_SegmentOverrides;
+        private bool _mUnknown_SegmentOverrides;
+        public List<Outputs.LaunchScheduledSplitsConfigStepSegmentOverride>? SegmentOverrides
+        {
+            get
+            {
+                if (!_mUnknown_SegmentOverrides) return _mValue_SegmentOverrides;
+                throw new UndeferrableValueException("Value 'LaunchScheduledSplitsConfigStep.SegmentOverrides' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the date and time that this step of the launch starts.
         /// </summary>
-        [Input("startTime")]
+        [PolicyResourceProperty("startTime", "_mUnknown_StartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
-
-        public string? StartTime => _mStartTime.GetValue("startTime");
+        private string? _mValue_StartTime;
+        private bool _mUnknown_StartTime;
+        public string? StartTime
+        {
+            get
+            {
+                if (!_mUnknown_StartTime) return _mValue_StartTime;
+                throw new UndeferrableValueException("Value 'LaunchScheduledSplitsConfigStep.StartTime' is not present");
+            }
+        }
     }
 }

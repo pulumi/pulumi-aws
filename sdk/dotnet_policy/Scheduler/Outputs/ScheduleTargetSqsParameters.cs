@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Scheduler.Outputs
         /// <summary>
         /// FIFO message group ID to use as the target.
         /// </summary>
-        [Input("messageGroupId")]
+        [PolicyResourceProperty("messageGroupId", "_mUnknown_MessageGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessageGroupId;
-
-        public string? MessageGroupId => _mMessageGroupId.GetValue("messageGroupId");
+        private string? _mValue_MessageGroupId;
+        private bool _mUnknown_MessageGroupId;
+        public string? MessageGroupId
+        {
+            get
+            {
+                if (!_mUnknown_MessageGroupId) return _mValue_MessageGroupId;
+                throw new UndeferrableValueException("Value 'ScheduleTargetSqsParameters.MessageGroupId' is not present");
+            }
+        }
     }
 }

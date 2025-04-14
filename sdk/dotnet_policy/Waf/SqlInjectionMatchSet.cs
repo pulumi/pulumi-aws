@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Waf
         /// <summary>
         /// Amazon Resource Name (ARN) of the SQL injection match set.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'SqlInjectionMatchSet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or description of the SQL Injection Match Set.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SqlInjectionMatchSet.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         /// </summary>
-        [Input("sqlInjectionMatchTuples")]
+        [PolicyResourceProperty("sqlInjectionMatchTuples", "_mUnknown_SqlInjectionMatchTuples")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SqlInjectionMatchSetSqlInjectionMatchTuple>> _mSqlInjectionMatchTuples;
-
-        public List<Outputs.SqlInjectionMatchSetSqlInjectionMatchTuple>? SqlInjectionMatchTuples => _mSqlInjectionMatchTuples.GetValue("sqlInjectionMatchTuples");
+        private List<Outputs.SqlInjectionMatchSetSqlInjectionMatchTuple>? _mValue_SqlInjectionMatchTuples;
+        private bool _mUnknown_SqlInjectionMatchTuples;
+        public List<Outputs.SqlInjectionMatchSetSqlInjectionMatchTuple>? SqlInjectionMatchTuples
+        {
+            get
+            {
+                if (!_mUnknown_SqlInjectionMatchTuples) return _mValue_SqlInjectionMatchTuples;
+                throw new UndeferrableValueException("Value 'SqlInjectionMatchSet.SqlInjectionMatchTuples' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.Waf
         /// <summary>
         /// The name or description of the SQL Injection Match Set.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SqlInjectionMatchSetArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         /// </summary>
-        [Input("sqlInjectionMatchTuples")]
+        [PolicyResourceProperty("sqlInjectionMatchTuples", "_mUnknown_SqlInjectionMatchTuples")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleArgs>> _mSqlInjectionMatchTuples;
-
-        public List<Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleArgs>? SqlInjectionMatchTuples => _mSqlInjectionMatchTuples.GetValue("sqlInjectionMatchTuples");
+        private List<Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleArgs>? _mValue_SqlInjectionMatchTuples;
+        private bool _mUnknown_SqlInjectionMatchTuples;
+        public List<Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleArgs>? SqlInjectionMatchTuples
+        {
+            get
+            {
+                if (!_mUnknown_SqlInjectionMatchTuples) return _mValue_SqlInjectionMatchTuples;
+                throw new UndeferrableValueException("Value 'SqlInjectionMatchSetArgs.SqlInjectionMatchTuples' is not present");
+            }
+        }
     }
 }

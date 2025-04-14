@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog.Inputs
         /// <summary>
         /// ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
         /// </summary>
-        [Input("assumeRole")]
+        [PolicyResourceProperty("assumeRole", "_mUnknown_AssumeRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssumeRole;
-
-        public string? AssumeRole => _mAssumeRole.GetValue("assumeRole");
+        private string? _mValue_AssumeRole;
+        private bool _mUnknown_AssumeRole;
+        public string? AssumeRole
+        {
+            get
+            {
+                if (!_mUnknown_AssumeRole) return _mValue_AssumeRole;
+                throw new UndeferrableValueException("Value 'ServiceActionDefinitionArgs.AssumeRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the SSM document. For example, `AWS-RestartEC2Instance`. If you are using a shared SSM document, you must provide the ARN instead of the name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServiceActionDefinitionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// List of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]` or `[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]`.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameters;
-
-        public string? Parameters => _mParameters.GetValue("parameters");
+        private string? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public string? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'ServiceActionDefinitionArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Service action definition type. Valid value is `SSM_AUTOMATION`. Default is `SSM_AUTOMATION`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ServiceActionDefinitionArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// SSM document version. For example, `1`.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'ServiceActionDefinitionArgs.Version' is not present");
+            }
+        }
     }
 }

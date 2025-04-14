@@ -15,29 +15,50 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace.Outputs
         /// <summary>
         /// Size of temporary storage in gigabytes. Must be between 10 and 16000.
         /// </summary>
-        [Input("size")]
+        [PolicyResourceProperty("size", "_mUnknown_Size")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSize;
-
-        public int? Size => _mSize.GetValue("size");
+        private int? _mValue_Size;
+        private bool _mUnknown_Size;
+        public int? Size
+        {
+            get
+            {
+                if (!_mUnknown_Size) return _mValue_Size;
+                throw new UndeferrableValueException("Value 'KxClusterSavedownStorageConfiguration.Size' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of writeable storage space for temporarily storing your savedown data. The valid values are:
         /// * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'KxClusterSavedownStorageConfiguration.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the kdb volume that you want to use as writeable save-down storage for clusters.
         /// </summary>
-        [Input("volumeName")]
+        [PolicyResourceProperty("volumeName", "_mUnknown_VolumeName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeName;
-
-        public string? VolumeName => _mVolumeName.GetValue("volumeName");
+        private string? _mValue_VolumeName;
+        private bool _mUnknown_VolumeName;
+        public string? VolumeName
+        {
+            get
+            {
+                if (!_mUnknown_VolumeName) return _mValue_VolumeName;
+                throw new UndeferrableValueException("Value 'KxClusterSavedownStorageConfiguration.VolumeName' is not present");
+            }
+        }
     }
 }

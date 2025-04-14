@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Listener's TLS certificate.
         /// </summary>
-        [Input("certificate")]
+        [PolicyResourceProperty("certificate", "_mUnknown_Certificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs> _mCertificate;
-
-        public Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs? Certificate => _mCertificate.GetValue("certificate");
+        private Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs? _mValue_Certificate;
+        private bool _mUnknown_Certificate;
+        public Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs? Certificate
+        {
+            get
+            {
+                if (!_mUnknown_Certificate) return _mValue_Certificate;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs.Certificate' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the policy is enforced. Default is `true`.
         /// </summary>
-        [Input("enforce")]
+        [PolicyResourceProperty("enforce", "_mUnknown_Enforce")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnforce;
-
-        public bool? Enforce => _mEnforce.GetValue("enforce");
+        private bool? _mValue_Enforce;
+        private bool _mUnknown_Enforce;
+        public bool? Enforce
+        {
+            get
+            {
+                if (!_mUnknown_Enforce) return _mValue_Enforce;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs.Enforce' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more ports that the policy is enforced for.
         /// </summary>
-        [Input("ports")]
+        [PolicyResourceProperty("ports", "_mUnknown_Ports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mPorts;
-
-        public List<int>? Ports => _mPorts.GetValue("ports");
+        private List<int>? _mValue_Ports;
+        private bool _mUnknown_Ports;
+        public List<int>? Ports
+        {
+            get
+            {
+                if (!_mUnknown_Ports) return _mValue_Ports;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs.Ports' is not present");
+            }
+        }
 
         /// <summary>
         /// Listener's Transport Layer Security (TLS) validation context.
         /// </summary>
-        [Input("validation")]
+        [PolicyResourceProperty("validation", "_mUnknown_Validation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs> _mValidation;
-
-        public Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs? Validation => _mValidation.GetValue("validation");
+        private Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs? _mValue_Validation;
+        private bool _mUnknown_Validation;
+        public Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs? Validation
+        {
+            get
+            {
+                if (!_mUnknown_Validation) return _mValue_Validation;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs.Validation' is not present");
+            }
+        }
     }
 }

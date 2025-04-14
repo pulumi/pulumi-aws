@@ -15,154 +15,273 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
-        [Input("allocationStrategy")]
+        [PolicyResourceProperty("allocationStrategy", "_mUnknown_AllocationStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationStrategy;
-
-        public string? AllocationStrategy => _mAllocationStrategy.GetValue("allocationStrategy");
+        private string? _mValue_AllocationStrategy;
+        private bool _mUnknown_AllocationStrategy;
+        public string? AllocationStrategy
+        {
+            get
+            {
+                if (!_mUnknown_AllocationStrategy) return _mValue_AllocationStrategy;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.AllocationStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
-        [Input("bidPercentage")]
+        [PolicyResourceProperty("bidPercentage", "_mUnknown_BidPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBidPercentage;
-
-        public int? BidPercentage => _mBidPercentage.GetValue("bidPercentage");
+        private int? _mValue_BidPercentage;
+        private bool _mUnknown_BidPercentage;
+        public int? BidPercentage
+        {
+            get
+            {
+                if (!_mUnknown_BidPercentage) return _mValue_BidPercentage;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.BidPercentage' is not present");
+            }
+        }
 
         /// <summary>
         /// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
-        [Input("desiredVcpus")]
+        [PolicyResourceProperty("desiredVcpus", "_mUnknown_DesiredVcpus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredVcpus;
-
-        public int? DesiredVcpus => _mDesiredVcpus.GetValue("desiredVcpus");
+        private int? _mValue_DesiredVcpus;
+        private bool _mUnknown_DesiredVcpus;
+        public int? DesiredVcpus
+        {
+            get
+            {
+                if (!_mUnknown_DesiredVcpus) return _mValue_DesiredVcpus;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.DesiredVcpus' is not present");
+            }
+        }
 
         /// <summary>
         /// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
         /// </summary>
-        [Input("ec2Configurations")]
+        [PolicyResourceProperty("ec2Configurations", "_mUnknown_Ec2Configurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ComputeEnvironmentComputeResourcesEc2Configuration>> _mEc2Configurations;
-
-        public List<Outputs.ComputeEnvironmentComputeResourcesEc2Configuration>? Ec2Configurations => _mEc2Configurations.GetValue("ec2Configurations");
+        private List<Outputs.ComputeEnvironmentComputeResourcesEc2Configuration>? _mValue_Ec2Configurations;
+        private bool _mUnknown_Ec2Configurations;
+        public List<Outputs.ComputeEnvironmentComputeResourcesEc2Configuration>? Ec2Configurations
+        {
+            get
+            {
+                if (!_mUnknown_Ec2Configurations) return _mValue_Ec2Configurations;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.Ec2Configurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
-        [Input("ec2KeyPair")]
+        [PolicyResourceProperty("ec2KeyPair", "_mUnknown_Ec2KeyPair")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEc2KeyPair;
-
-        public string? Ec2KeyPair => _mEc2KeyPair.GetValue("ec2KeyPair");
+        private string? _mValue_Ec2KeyPair;
+        private bool _mUnknown_Ec2KeyPair;
+        public string? Ec2KeyPair
+        {
+            get
+            {
+                if (!_mUnknown_Ec2KeyPair) return _mValue_Ec2KeyPair;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.Ec2KeyPair' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
         /// </summary>
-        [Input("imageId")]
+        [PolicyResourceProperty("imageId", "_mUnknown_ImageId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
-
-        public string? ImageId => _mImageId.GetValue("imageId");
+        private string? _mValue_ImageId;
+        private bool _mUnknown_ImageId;
+        public string? ImageId
+        {
+            get
+            {
+                if (!_mUnknown_ImageId) return _mValue_ImageId;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.ImageId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
-        [Input("instanceRole")]
+        [PolicyResourceProperty("instanceRole", "_mUnknown_InstanceRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceRole;
-
-        public string? InstanceRole => _mInstanceRole.GetValue("instanceRole");
+        private string? _mValue_InstanceRole;
+        private bool _mUnknown_InstanceRole;
+        public string? InstanceRole
+        {
+            get
+            {
+                if (!_mUnknown_InstanceRole) return _mValue_InstanceRole;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.InstanceRole' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
-        [Input("instanceTypes")]
+        [PolicyResourceProperty("instanceTypes", "_mUnknown_InstanceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstanceTypes;
-
-        public List<string>? InstanceTypes => _mInstanceTypes.GetValue("instanceTypes");
+        private List<string>? _mValue_InstanceTypes;
+        private bool _mUnknown_InstanceTypes;
+        public List<string>? InstanceTypes
+        {
+            get
+            {
+                if (!_mUnknown_InstanceTypes) return _mValue_InstanceTypes;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.InstanceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
-        [Input("launchTemplate")]
+        [PolicyResourceProperty("launchTemplate", "_mUnknown_LaunchTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ComputeEnvironmentComputeResourcesLaunchTemplate> _mLaunchTemplate;
-
-        public Outputs.ComputeEnvironmentComputeResourcesLaunchTemplate? LaunchTemplate => _mLaunchTemplate.GetValue("launchTemplate");
+        private Outputs.ComputeEnvironmentComputeResourcesLaunchTemplate? _mValue_LaunchTemplate;
+        private bool _mUnknown_LaunchTemplate;
+        public Outputs.ComputeEnvironmentComputeResourcesLaunchTemplate? LaunchTemplate
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplate) return _mValue_LaunchTemplate;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.LaunchTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of EC2 vCPUs that an environment can reach.
         /// </summary>
-        [Input("maxVcpus")]
+        [PolicyResourceProperty("maxVcpus", "_mUnknown_MaxVcpus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxVcpus;
-
-        public int? MaxVcpus => _mMaxVcpus.GetValue("maxVcpus");
+        private int? _mValue_MaxVcpus;
+        private bool _mUnknown_MaxVcpus;
+        public int? MaxVcpus
+        {
+            get
+            {
+                if (!_mUnknown_MaxVcpus) return _mValue_MaxVcpus;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.MaxVcpus' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
-        [Input("minVcpus")]
+        [PolicyResourceProperty("minVcpus", "_mUnknown_MinVcpus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinVcpus;
-
-        public int? MinVcpus => _mMinVcpus.GetValue("minVcpus");
+        private int? _mValue_MinVcpus;
+        private bool _mUnknown_MinVcpus;
+        public int? MinVcpus
+        {
+            get
+            {
+                if (!_mUnknown_MinVcpus) return _mValue_MinVcpus;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.MinVcpus' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon EC2 placement group to associate with your compute resources.
         /// </summary>
-        [Input("placementGroup")]
+        [PolicyResourceProperty("placementGroup", "_mUnknown_PlacementGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementGroup;
-
-        public string? PlacementGroup => _mPlacementGroup.GetValue("placementGroup");
+        private string? _mValue_PlacementGroup;
+        private bool _mUnknown_PlacementGroup;
+        public string? PlacementGroup
+        {
+            get
+            {
+                if (!_mUnknown_PlacementGroup) return _mValue_PlacementGroup;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.PlacementGroup' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
-        [Input("spotIamFleetRole")]
+        [PolicyResourceProperty("spotIamFleetRole", "_mUnknown_SpotIamFleetRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpotIamFleetRole;
-
-        public string? SpotIamFleetRole => _mSpotIamFleetRole.GetValue("spotIamFleetRole");
+        private string? _mValue_SpotIamFleetRole;
+        private bool _mUnknown_SpotIamFleetRole;
+        public string? SpotIamFleetRole
+        {
+            get
+            {
+                if (!_mUnknown_SpotIamFleetRole) return _mValue_SpotIamFleetRole;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.SpotIamFleetRole' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of VPC subnets into which the compute resources are launched.
         /// </summary>
-        [Input("subnets")]
+        [PolicyResourceProperty("subnets", "_mUnknown_Subnets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnets;
-
-        public List<string>? Subnets => _mSubnets.GetValue("subnets");
+        private List<string>? _mValue_Subnets;
+        private bool _mUnknown_Subnets;
+        public List<string>? Subnets
+        {
+            get
+            {
+                if (!_mUnknown_Subnets) return _mValue_Subnets;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.Subnets' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.Type' is not present");
+            }
+        }
     }
 }

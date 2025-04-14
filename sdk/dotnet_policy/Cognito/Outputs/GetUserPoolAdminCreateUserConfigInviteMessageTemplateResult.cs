@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// - Email message content.
         /// </summary>
-        [Input("emailMessage")]
+        [PolicyResourceProperty("emailMessage", "_mUnknown_EmailMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailMessage;
-
-        public string? EmailMessage => _mEmailMessage.GetValue("emailMessage");
+        private string? _mValue_EmailMessage;
+        private bool _mUnknown_EmailMessage;
+        public string? EmailMessage
+        {
+            get
+            {
+                if (!_mUnknown_EmailMessage) return _mValue_EmailMessage;
+                throw new UndeferrableValueException("Value 'GetUserPoolAdminCreateUserConfigInviteMessageTemplateResult.EmailMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// - Email message subject.
         /// </summary>
-        [Input("emailSubject")]
+        [PolicyResourceProperty("emailSubject", "_mUnknown_EmailSubject")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailSubject;
-
-        public string? EmailSubject => _mEmailSubject.GetValue("emailSubject");
+        private string? _mValue_EmailSubject;
+        private bool _mUnknown_EmailSubject;
+        public string? EmailSubject
+        {
+            get
+            {
+                if (!_mUnknown_EmailSubject) return _mValue_EmailSubject;
+                throw new UndeferrableValueException("Value 'GetUserPoolAdminCreateUserConfigInviteMessageTemplateResult.EmailSubject' is not present");
+            }
+        }
 
         /// <summary>
         /// - SMS message content.
         /// </summary>
-        [Input("smsMessage")]
+        [PolicyResourceProperty("smsMessage", "_mUnknown_SmsMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSmsMessage;
-
-        public string? SmsMessage => _mSmsMessage.GetValue("smsMessage");
+        private string? _mValue_SmsMessage;
+        private bool _mUnknown_SmsMessage;
+        public string? SmsMessage
+        {
+            get
+            {
+                if (!_mUnknown_SmsMessage) return _mValue_SmsMessage;
+                throw new UndeferrableValueException("Value 'GetUserPoolAdminCreateUserConfigInviteMessageTemplateResult.SmsMessage' is not present");
+            }
+        }
     }
 }

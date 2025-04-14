@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The ID of the access key.
         /// </summary>
-        [Input("accessKeyId")]
+        [PolicyResourceProperty("accessKeyId", "_mUnknown_AccessKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessKeyId;
-
-        public string? AccessKeyId => _mAccessKeyId.GetValue("accessKeyId");
+        private string? _mValue_AccessKeyId;
+        private bool _mUnknown_AccessKeyId;
+        public string? AccessKeyId
+        {
+            get
+            {
+                if (!_mUnknown_AccessKeyId) return _mValue_AccessKeyId;
+                throw new UndeferrableValueException("Value 'BucketAccessKey.AccessKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the bucket that the new access key will belong to, and grant access to.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'BucketAccessKey.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// The timestamp when the access key was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'BucketAccessKey.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
         /// </summary>
-        [Input("secretAccessKey")]
+        [PolicyResourceProperty("secretAccessKey", "_mUnknown_SecretAccessKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretAccessKey;
-
-        public string? SecretAccessKey => _mSecretAccessKey.GetValue("secretAccessKey");
+        private string? _mValue_SecretAccessKey;
+        private bool _mUnknown_SecretAccessKey;
+        public string? SecretAccessKey
+        {
+            get
+            {
+                if (!_mUnknown_SecretAccessKey) return _mValue_SecretAccessKey;
+                throw new UndeferrableValueException("Value 'BucketAccessKey.SecretAccessKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the access key.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'BucketAccessKey.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lightsail/bucketAccessKey:BucketAccessKey")]
@@ -65,10 +100,17 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The name of the bucket that the new access key will belong to, and grant access to.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'BucketAccessKeyArgs.BucketName' is not present");
+            }
+        }
     }
 }

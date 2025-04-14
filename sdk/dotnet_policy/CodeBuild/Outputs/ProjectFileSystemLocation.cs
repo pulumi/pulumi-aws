@@ -17,47 +17,82 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify
         /// my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
         /// </summary>
-        [Input("identifier")]
+        [PolicyResourceProperty("identifier", "_mUnknown_Identifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
-
-        public string? Identifier => _mIdentifier.GetValue("identifier");
+        private string? _mValue_Identifier;
+        private bool _mUnknown_Identifier;
+        public string? Identifier
+        {
+            get
+            {
+                if (!_mUnknown_Identifier) return _mValue_Identifier;
+                throw new UndeferrableValueException("Value 'ProjectFileSystemLocation.Identifier' is not present");
+            }
+        }
 
         /// <summary>
         /// A string that specifies the location of the file system created by Amazon EFS. Its format is
         /// `efs-dns-name:/directory-path`.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
-
-        public string? Location => _mLocation.GetValue("location");
+        private string? _mValue_Location;
+        private bool _mUnknown_Location;
+        public string? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'ProjectFileSystemLocation.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// The mount options for a file system created by AWS EFS.
         /// </summary>
-        [Input("mountOptions")]
+        [PolicyResourceProperty("mountOptions", "_mUnknown_MountOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMountOptions;
-
-        public string? MountOptions => _mMountOptions.GetValue("mountOptions");
+        private string? _mValue_MountOptions;
+        private bool _mUnknown_MountOptions;
+        public string? MountOptions
+        {
+            get
+            {
+                if (!_mUnknown_MountOptions) return _mValue_MountOptions;
+                throw new UndeferrableValueException("Value 'ProjectFileSystemLocation.MountOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The location in the container where you mount the file system.
         /// </summary>
-        [Input("mountPoint")]
+        [PolicyResourceProperty("mountPoint", "_mUnknown_MountPoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMountPoint;
-
-        public string? MountPoint => _mMountPoint.GetValue("mountPoint");
+        private string? _mValue_MountPoint;
+        private bool _mUnknown_MountPoint;
+        public string? MountPoint
+        {
+            get
+            {
+                if (!_mUnknown_MountPoint) return _mValue_MountPoint;
+                throw new UndeferrableValueException("Value 'ProjectFileSystemLocation.MountPoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the file system. The one supported type is `EFS`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ProjectFileSystemLocation.Type' is not present");
+            }
+        }
     }
 }

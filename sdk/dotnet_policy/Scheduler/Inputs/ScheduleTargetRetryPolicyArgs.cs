@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Scheduler.Inputs
         /// <summary>
         /// Maximum amount of time, in seconds, to continue to make retry attempts. Ranges from `60` to `86400` (default).
         /// </summary>
-        [Input("maximumEventAgeInSeconds")]
+        [PolicyResourceProperty("maximumEventAgeInSeconds", "_mUnknown_MaximumEventAgeInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumEventAgeInSeconds;
-
-        public int? MaximumEventAgeInSeconds => _mMaximumEventAgeInSeconds.GetValue("maximumEventAgeInSeconds");
+        private int? _mValue_MaximumEventAgeInSeconds;
+        private bool _mUnknown_MaximumEventAgeInSeconds;
+        public int? MaximumEventAgeInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaximumEventAgeInSeconds) return _mValue_MaximumEventAgeInSeconds;
+                throw new UndeferrableValueException("Value 'ScheduleTargetRetryPolicyArgs.MaximumEventAgeInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of retry attempts to make before the request fails. Ranges from `0` to `185` (default).
         /// </summary>
-        [Input("maximumRetryAttempts")]
+        [PolicyResourceProperty("maximumRetryAttempts", "_mUnknown_MaximumRetryAttempts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumRetryAttempts;
-
-        public int? MaximumRetryAttempts => _mMaximumRetryAttempts.GetValue("maximumRetryAttempts");
+        private int? _mValue_MaximumRetryAttempts;
+        private bool _mUnknown_MaximumRetryAttempts;
+        public int? MaximumRetryAttempts
+        {
+            get
+            {
+                if (!_mUnknown_MaximumRetryAttempts) return _mValue_MaximumRetryAttempts;
+                throw new UndeferrableValueException("Value 'ScheduleTargetRetryPolicyArgs.MaximumRetryAttempts' is not present");
+            }
+        }
     }
 }

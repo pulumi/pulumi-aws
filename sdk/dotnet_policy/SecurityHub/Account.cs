@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// ARN of the SecurityHub Hub created in the account.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Account.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
         /// </summary>
-        [Input("autoEnableControls")]
+        [PolicyResourceProperty("autoEnableControls", "_mUnknown_AutoEnableControls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnableControls;
-
-        public bool? AutoEnableControls => _mAutoEnableControls.GetValue("autoEnableControls");
+        private bool? _mValue_AutoEnableControls;
+        private bool _mUnknown_AutoEnableControls;
+        public bool? AutoEnableControls
+        {
+            get
+            {
+                if (!_mUnknown_AutoEnableControls) return _mValue_AutoEnableControls;
+                throw new UndeferrableValueException("Value 'Account.AutoEnableControls' is not present");
+            }
+        }
 
         /// <summary>
         /// Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
         /// </summary>
-        [Input("controlFindingGenerator")]
+        [PolicyResourceProperty("controlFindingGenerator", "_mUnknown_ControlFindingGenerator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mControlFindingGenerator;
-
-        public string? ControlFindingGenerator => _mControlFindingGenerator.GetValue("controlFindingGenerator");
+        private string? _mValue_ControlFindingGenerator;
+        private bool _mUnknown_ControlFindingGenerator;
+        public string? ControlFindingGenerator
+        {
+            get
+            {
+                if (!_mUnknown_ControlFindingGenerator) return _mValue_ControlFindingGenerator;
+                throw new UndeferrableValueException("Value 'Account.ControlFindingGenerator' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
         /// </summary>
-        [Input("enableDefaultStandards")]
+        [PolicyResourceProperty("enableDefaultStandards", "_mUnknown_EnableDefaultStandards")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDefaultStandards;
-
-        public bool? EnableDefaultStandards => _mEnableDefaultStandards.GetValue("enableDefaultStandards");
+        private bool? _mValue_EnableDefaultStandards;
+        private bool _mUnknown_EnableDefaultStandards;
+        public bool? EnableDefaultStandards
+        {
+            get
+            {
+                if (!_mUnknown_EnableDefaultStandards) return _mValue_EnableDefaultStandards;
+                throw new UndeferrableValueException("Value 'Account.EnableDefaultStandards' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:securityhub/account:Account")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
         /// </summary>
-        [Input("autoEnableControls")]
+        [PolicyResourceProperty("autoEnableControls", "_mUnknown_AutoEnableControls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnableControls;
-
-        public bool? AutoEnableControls => _mAutoEnableControls.GetValue("autoEnableControls");
+        private bool? _mValue_AutoEnableControls;
+        private bool _mUnknown_AutoEnableControls;
+        public bool? AutoEnableControls
+        {
+            get
+            {
+                if (!_mUnknown_AutoEnableControls) return _mValue_AutoEnableControls;
+                throw new UndeferrableValueException("Value 'AccountArgs.AutoEnableControls' is not present");
+            }
+        }
 
         /// <summary>
         /// Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
         /// </summary>
-        [Input("controlFindingGenerator")]
+        [PolicyResourceProperty("controlFindingGenerator", "_mUnknown_ControlFindingGenerator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mControlFindingGenerator;
-
-        public string? ControlFindingGenerator => _mControlFindingGenerator.GetValue("controlFindingGenerator");
+        private string? _mValue_ControlFindingGenerator;
+        private bool _mUnknown_ControlFindingGenerator;
+        public string? ControlFindingGenerator
+        {
+            get
+            {
+                if (!_mUnknown_ControlFindingGenerator) return _mValue_ControlFindingGenerator;
+                throw new UndeferrableValueException("Value 'AccountArgs.ControlFindingGenerator' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
         /// </summary>
-        [Input("enableDefaultStandards")]
+        [PolicyResourceProperty("enableDefaultStandards", "_mUnknown_EnableDefaultStandards")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDefaultStandards;
-
-        public bool? EnableDefaultStandards => _mEnableDefaultStandards.GetValue("enableDefaultStandards");
+        private bool? _mValue_EnableDefaultStandards;
+        private bool _mUnknown_EnableDefaultStandards;
+        public bool? EnableDefaultStandards
+        {
+            get
+            {
+                if (!_mUnknown_EnableDefaultStandards) return _mValue_EnableDefaultStandards;
+                throw new UndeferrableValueException("Value 'AccountArgs.EnableDefaultStandards' is not present");
+            }
+        }
     }
 }

@@ -12,31 +12,59 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
 {
     public sealed class JobDefinitionEksPropertiesPodPropertiesVolume
     {
-        [Input("emptyDir")]
+        [PolicyResourceProperty("emptyDir", "_mUnknown_EmptyDir")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir> _mEmptyDir;
+        private Outputs.JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir? _mValue_EmptyDir;
+        private bool _mUnknown_EmptyDir;
+        public Outputs.JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir? EmptyDir
+        {
+            get
+            {
+                if (!_mUnknown_EmptyDir) return _mValue_EmptyDir;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesVolume.EmptyDir' is not present");
+            }
+        }
 
-        public Outputs.JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir? EmptyDir => _mEmptyDir.GetValue("emptyDir");
-
-        [Input("hostPath")]
+        [PolicyResourceProperty("hostPath", "_mUnknown_HostPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JobDefinitionEksPropertiesPodPropertiesVolumeHostPath> _mHostPath;
-
-        public Outputs.JobDefinitionEksPropertiesPodPropertiesVolumeHostPath? HostPath => _mHostPath.GetValue("hostPath");
+        private Outputs.JobDefinitionEksPropertiesPodPropertiesVolumeHostPath? _mValue_HostPath;
+        private bool _mUnknown_HostPath;
+        public Outputs.JobDefinitionEksPropertiesPodPropertiesVolumeHostPath? HostPath
+        {
+            get
+            {
+                if (!_mUnknown_HostPath) return _mValue_HostPath;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesVolume.HostPath' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the job definition.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesVolume.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("secret")]
+        [PolicyResourceProperty("secret", "_mUnknown_Secret")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JobDefinitionEksPropertiesPodPropertiesVolumeSecret> _mSecret;
-
-        public Outputs.JobDefinitionEksPropertiesPodPropertiesVolumeSecret? Secret => _mSecret.GetValue("secret");
+        private Outputs.JobDefinitionEksPropertiesPodPropertiesVolumeSecret? _mValue_Secret;
+        private bool _mUnknown_Secret;
+        public Outputs.JobDefinitionEksPropertiesPodPropertiesVolumeSecret? Secret
+        {
+            get
+            {
+                if (!_mUnknown_Secret) return _mValue_Secret;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesVolume.Secret' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
         /// <summary>
         /// Details for client authentication using SASL. See below.
         /// </summary>
-        [Input("sasl")]
+        [PolicyResourceProperty("sasl", "_mUnknown_Sasl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServerlessClusterClientAuthenticationSasl> _mSasl;
-
-        public Outputs.ServerlessClusterClientAuthenticationSasl? Sasl => _mSasl.GetValue("sasl");
+        private Outputs.ServerlessClusterClientAuthenticationSasl? _mValue_Sasl;
+        private bool _mUnknown_Sasl;
+        public Outputs.ServerlessClusterClientAuthenticationSasl? Sasl
+        {
+            get
+            {
+                if (!_mUnknown_Sasl) return _mValue_Sasl;
+                throw new UndeferrableValueException("Value 'ServerlessClusterClientAuthentication.Sasl' is not present");
+            }
+        }
     }
 }

@@ -17,62 +17,104 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// ID of the associated Elastic IP.
         /// This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
         /// </summary>
-        [Input("allocationId")]
+        [PolicyResourceProperty("allocationId", "_mUnknown_AllocationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationId;
-
-        public string? AllocationId => _mAllocationId.GetValue("allocationId");
+        private string? _mValue_AllocationId;
+        private bool _mUnknown_AllocationId;
+        public string? AllocationId
+        {
+            get
+            {
+                if (!_mUnknown_AllocationId) return _mValue_AllocationId;
+                throw new UndeferrableValueException("Value 'EipAssociation.AllocationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to allow an Elastic IP address to be re-associated.
         /// Defaults to `true`.
         /// </summary>
-        [Input("allowReassociation")]
+        [PolicyResourceProperty("allowReassociation", "_mUnknown_AllowReassociation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowReassociation;
-
-        public bool? AllowReassociation => _mAllowReassociation.GetValue("allowReassociation");
+        private bool? _mValue_AllowReassociation;
+        private bool _mUnknown_AllowReassociation;
+        public bool? AllowReassociation
+        {
+            get
+            {
+                if (!_mUnknown_AllowReassociation) return _mValue_AllowReassociation;
+                throw new UndeferrableValueException("Value 'EipAssociation.AllowReassociation' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the instance.
         /// The instance must have exactly one attached network interface.
         /// You can specify either the instance ID or the network interface ID, but not both.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'EipAssociation.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the network interface.
         /// If the instance has more than one network interface, you must specify a network interface ID.
         /// You can specify either the instance ID or the network interface ID, but not both.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'EipAssociation.NetworkInterfaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Primary or secondary private IP address to associate with the Elastic IP address.
         /// If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         /// </summary>
-        [Input("privateIpAddress")]
+        [PolicyResourceProperty("privateIpAddress", "_mUnknown_PrivateIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIpAddress;
-
-        public string? PrivateIpAddress => _mPrivateIpAddress.GetValue("privateIpAddress");
+        private string? _mValue_PrivateIpAddress;
+        private bool _mUnknown_PrivateIpAddress;
+        public string? PrivateIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIpAddress) return _mValue_PrivateIpAddress;
+                throw new UndeferrableValueException("Value 'EipAssociation.PrivateIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// ) Address of the associated Elastic IP.
         /// </summary>
-        [Input("publicIp")]
+        [PolicyResourceProperty("publicIp", "_mUnknown_PublicIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIp;
-
-        public string? PublicIp => _mPublicIp.GetValue("publicIp");
+        private string? _mValue_PublicIp;
+        private bool _mUnknown_PublicIp;
+        public string? PublicIp
+        {
+            get
+            {
+                if (!_mUnknown_PublicIp) return _mValue_PublicIp;
+                throw new UndeferrableValueException("Value 'EipAssociation.PublicIp' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/eipAssociation:EipAssociation")]
@@ -82,61 +124,103 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// ID of the associated Elastic IP.
         /// This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
         /// </summary>
-        [Input("allocationId")]
+        [PolicyResourceProperty("allocationId", "_mUnknown_AllocationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationId;
-
-        public string? AllocationId => _mAllocationId.GetValue("allocationId");
+        private string? _mValue_AllocationId;
+        private bool _mUnknown_AllocationId;
+        public string? AllocationId
+        {
+            get
+            {
+                if (!_mUnknown_AllocationId) return _mValue_AllocationId;
+                throw new UndeferrableValueException("Value 'EipAssociationArgs.AllocationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to allow an Elastic IP address to be re-associated.
         /// Defaults to `true`.
         /// </summary>
-        [Input("allowReassociation")]
+        [PolicyResourceProperty("allowReassociation", "_mUnknown_AllowReassociation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowReassociation;
-
-        public bool? AllowReassociation => _mAllowReassociation.GetValue("allowReassociation");
+        private bool? _mValue_AllowReassociation;
+        private bool _mUnknown_AllowReassociation;
+        public bool? AllowReassociation
+        {
+            get
+            {
+                if (!_mUnknown_AllowReassociation) return _mValue_AllowReassociation;
+                throw new UndeferrableValueException("Value 'EipAssociationArgs.AllowReassociation' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the instance.
         /// The instance must have exactly one attached network interface.
         /// You can specify either the instance ID or the network interface ID, but not both.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'EipAssociationArgs.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the network interface.
         /// If the instance has more than one network interface, you must specify a network interface ID.
         /// You can specify either the instance ID or the network interface ID, but not both.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'EipAssociationArgs.NetworkInterfaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Primary or secondary private IP address to associate with the Elastic IP address.
         /// If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         /// </summary>
-        [Input("privateIpAddress")]
+        [PolicyResourceProperty("privateIpAddress", "_mUnknown_PrivateIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIpAddress;
-
-        public string? PrivateIpAddress => _mPrivateIpAddress.GetValue("privateIpAddress");
+        private string? _mValue_PrivateIpAddress;
+        private bool _mUnknown_PrivateIpAddress;
+        public string? PrivateIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIpAddress) return _mValue_PrivateIpAddress;
+                throw new UndeferrableValueException("Value 'EipAssociationArgs.PrivateIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// ) Address of the associated Elastic IP.
         /// </summary>
-        [Input("publicIp")]
+        [PolicyResourceProperty("publicIp", "_mUnknown_PublicIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIp;
-
-        public string? PublicIp => _mPublicIp.GetValue("publicIp");
+        private string? _mValue_PublicIp;
+        private bool _mUnknown_PublicIp;
+        public string? PublicIp
+        {
+            get
+            {
+                if (!_mUnknown_PublicIp) return _mValue_PublicIp;
+                throw new UndeferrableValueException("Value 'EipAssociationArgs.PublicIp' is not present");
+            }
+        }
     }
 }

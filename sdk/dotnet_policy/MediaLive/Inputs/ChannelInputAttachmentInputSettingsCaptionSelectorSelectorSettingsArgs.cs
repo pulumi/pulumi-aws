@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Ancillary Source Settings. See Ancillary Source Settings for more details.
         /// </summary>
-        [Input("ancillarySourceSettings")]
+        [PolicyResourceProperty("ancillarySourceSettings", "_mUnknown_AncillarySourceSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs> _mAncillarySourceSettings;
-
-        public Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs? AncillarySourceSettings => _mAncillarySourceSettings.GetValue("ancillarySourceSettings");
+        private Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs? _mValue_AncillarySourceSettings;
+        private bool _mUnknown_AncillarySourceSettings;
+        public Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs? AncillarySourceSettings
+        {
+            get
+            {
+                if (!_mUnknown_AncillarySourceSettings) return _mValue_AncillarySourceSettings;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.AncillarySourceSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// ARIB Source Settings.
         /// </summary>
-        [Input("aribSourceSettings")]
+        [PolicyResourceProperty("aribSourceSettings", "_mUnknown_AribSourceSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs> _mAribSourceSettings;
-
-        public Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs? AribSourceSettings => _mAribSourceSettings.GetValue("aribSourceSettings");
+        private Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs? _mValue_AribSourceSettings;
+        private bool _mUnknown_AribSourceSettings;
+        public Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs? AribSourceSettings
+        {
+            get
+            {
+                if (!_mUnknown_AribSourceSettings) return _mValue_AribSourceSettings;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.AribSourceSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// DVB Sub Source Settings. See DVB Sub Source Settings for more details.
         /// </summary>
-        [Input("dvbSubSourceSettings")]
+        [PolicyResourceProperty("dvbSubSourceSettings", "_mUnknown_DvbSubSourceSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs> _mDvbSubSourceSettings;
-
-        public Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs? DvbSubSourceSettings => _mDvbSubSourceSettings.GetValue("dvbSubSourceSettings");
+        private Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs? _mValue_DvbSubSourceSettings;
+        private bool _mUnknown_DvbSubSourceSettings;
+        public Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs? DvbSubSourceSettings
+        {
+            get
+            {
+                if (!_mUnknown_DvbSubSourceSettings) return _mValue_DvbSubSourceSettings;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.DvbSubSourceSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Embedded Source Settings. See Embedded Source Settings for more details.
         /// </summary>
-        [Input("embeddedSourceSettings")]
+        [PolicyResourceProperty("embeddedSourceSettings", "_mUnknown_EmbeddedSourceSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs> _mEmbeddedSourceSettings;
-
-        public Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs? EmbeddedSourceSettings => _mEmbeddedSourceSettings.GetValue("embeddedSourceSettings");
+        private Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs? _mValue_EmbeddedSourceSettings;
+        private bool _mUnknown_EmbeddedSourceSettings;
+        public Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs? EmbeddedSourceSettings
+        {
+            get
+            {
+                if (!_mUnknown_EmbeddedSourceSettings) return _mValue_EmbeddedSourceSettings;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.EmbeddedSourceSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
         /// </summary>
-        [Input("scte20SourceSettings")]
+        [PolicyResourceProperty("scte20SourceSettings", "_mUnknown_Scte20SourceSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs> _mScte20SourceSettings;
-
-        public Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs? Scte20SourceSettings => _mScte20SourceSettings.GetValue("scte20SourceSettings");
+        private Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs? _mValue_Scte20SourceSettings;
+        private bool _mUnknown_Scte20SourceSettings;
+        public Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs? Scte20SourceSettings
+        {
+            get
+            {
+                if (!_mUnknown_Scte20SourceSettings) return _mValue_Scte20SourceSettings;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.Scte20SourceSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
         /// </summary>
-        [Input("scte27SourceSettings")]
+        [PolicyResourceProperty("scte27SourceSettings", "_mUnknown_Scte27SourceSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs> _mScte27SourceSettings;
-
-        public Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs? Scte27SourceSettings => _mScte27SourceSettings.GetValue("scte27SourceSettings");
+        private Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs? _mValue_Scte27SourceSettings;
+        private bool _mUnknown_Scte27SourceSettings;
+        public Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs? Scte27SourceSettings
+        {
+            get
+            {
+                if (!_mUnknown_Scte27SourceSettings) return _mValue_Scte27SourceSettings;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.Scte27SourceSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Teletext Source Settings. See Teletext Source Settings for more details.
         /// </summary>
-        [Input("teletextSourceSettings")]
+        [PolicyResourceProperty("teletextSourceSettings", "_mUnknown_TeletextSourceSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs> _mTeletextSourceSettings;
-
-        public Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs? TeletextSourceSettings => _mTeletextSourceSettings.GetValue("teletextSourceSettings");
+        private Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs? _mValue_TeletextSourceSettings;
+        private bool _mUnknown_TeletextSourceSettings;
+        public Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs? TeletextSourceSettings
+        {
+            get
+            {
+                if (!_mUnknown_TeletextSourceSettings) return _mValue_TeletextSourceSettings;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.TeletextSourceSettings' is not present");
+            }
+        }
     }
 }

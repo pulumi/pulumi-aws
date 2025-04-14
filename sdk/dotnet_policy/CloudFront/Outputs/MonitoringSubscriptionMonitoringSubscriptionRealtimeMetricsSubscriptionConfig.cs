@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
         /// </summary>
-        [Input("realtimeMetricsSubscriptionStatus")]
+        [PolicyResourceProperty("realtimeMetricsSubscriptionStatus", "_mUnknown_RealtimeMetricsSubscriptionStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRealtimeMetricsSubscriptionStatus;
-
-        public string? RealtimeMetricsSubscriptionStatus => _mRealtimeMetricsSubscriptionStatus.GetValue("realtimeMetricsSubscriptionStatus");
+        private string? _mValue_RealtimeMetricsSubscriptionStatus;
+        private bool _mUnknown_RealtimeMetricsSubscriptionStatus;
+        public string? RealtimeMetricsSubscriptionStatus
+        {
+            get
+            {
+                if (!_mUnknown_RealtimeMetricsSubscriptionStatus) return _mValue_RealtimeMetricsSubscriptionStatus;
+                throw new UndeferrableValueException("Value 'MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig.RealtimeMetricsSubscriptionStatus' is not present");
+            }
+        }
     }
 }

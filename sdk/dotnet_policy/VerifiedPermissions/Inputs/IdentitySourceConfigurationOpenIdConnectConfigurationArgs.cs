@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions.Inputs
         /// <summary>
         /// A descriptive string that you want to prefix to user entities from your OIDC identity provider.
         /// </summary>
-        [Input("entityIdPrefix")]
+        [PolicyResourceProperty("entityIdPrefix", "_mUnknown_EntityIdPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEntityIdPrefix;
-
-        public string? EntityIdPrefix => _mEntityIdPrefix.GetValue("entityIdPrefix");
+        private string? _mValue_EntityIdPrefix;
+        private bool _mUnknown_EntityIdPrefix;
+        public string? EntityIdPrefix
+        {
+            get
+            {
+                if (!_mUnknown_EntityIdPrefix) return _mValue_EntityIdPrefix;
+                throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationArgs.EntityIdPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
         /// </summary>
-        [Input("groupConfiguration")]
+        [PolicyResourceProperty("groupConfiguration", "_mUnknown_GroupConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs> _mGroupConfiguration;
-
-        public Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs? GroupConfiguration => _mGroupConfiguration.GetValue("groupConfiguration");
+        private Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs? _mValue_GroupConfiguration;
+        private bool _mUnknown_GroupConfiguration;
+        public Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs? GroupConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_GroupConfiguration) return _mValue_GroupConfiguration;
+                throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationArgs.GroupConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
         /// </summary>
-        [Input("issuer")]
+        [PolicyResourceProperty("issuer", "_mUnknown_Issuer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIssuer;
-
-        public string? Issuer => _mIssuer.GetValue("issuer");
+        private string? _mValue_Issuer;
+        private bool _mUnknown_Issuer;
+        public string? Issuer
+        {
+            get
+            {
+                if (!_mUnknown_Issuer) return _mValue_Issuer;
+                throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationArgs.Issuer' is not present");
+            }
+        }
 
         /// <summary>
         /// The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
         /// </summary>
-        [Input("tokenSelection")]
+        [PolicyResourceProperty("tokenSelection", "_mUnknown_TokenSelection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs> _mTokenSelection;
-
-        public Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs? TokenSelection => _mTokenSelection.GetValue("tokenSelection");
+        private Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs? _mValue_TokenSelection;
+        private bool _mUnknown_TokenSelection;
+        public Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs? TokenSelection
+        {
+            get
+            {
+                if (!_mUnknown_TokenSelection) return _mValue_TokenSelection;
+                throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationArgs.TokenSelection' is not present");
+            }
+        }
     }
 }

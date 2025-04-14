@@ -15,20 +15,34 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake.Inputs
         /// <summary>
         /// The configurations for HTTPS subscriber notification.
         /// </summary>
-        [Input("httpsNotificationConfiguration")]
+        [PolicyResourceProperty("httpsNotificationConfiguration", "_mUnknown_HttpsNotificationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs> _mHttpsNotificationConfiguration;
-
-        public Inputs.SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs? HttpsNotificationConfiguration => _mHttpsNotificationConfiguration.GetValue("httpsNotificationConfiguration");
+        private Inputs.SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs? _mValue_HttpsNotificationConfiguration;
+        private bool _mUnknown_HttpsNotificationConfiguration;
+        public Inputs.SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs? HttpsNotificationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_HttpsNotificationConfiguration) return _mValue_HttpsNotificationConfiguration;
+                throw new UndeferrableValueException("Value 'SubscriberNotificationConfigurationArgs.HttpsNotificationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The configurations for SQS subscriber notification.
         /// There are no parameters within `sqs_notification_configuration`.
         /// </summary>
-        [Input("sqsNotificationConfiguration")]
+        [PolicyResourceProperty("sqsNotificationConfiguration", "_mUnknown_SqsNotificationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SubscriberNotificationConfigurationSqsNotificationConfigurationArgs> _mSqsNotificationConfiguration;
-
-        public Inputs.SubscriberNotificationConfigurationSqsNotificationConfigurationArgs? SqsNotificationConfiguration => _mSqsNotificationConfiguration.GetValue("sqsNotificationConfiguration");
+        private Inputs.SubscriberNotificationConfigurationSqsNotificationConfigurationArgs? _mValue_SqsNotificationConfiguration;
+        private bool _mUnknown_SqsNotificationConfiguration;
+        public Inputs.SubscriberNotificationConfigurationSqsNotificationConfigurationArgs? SqsNotificationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SqsNotificationConfiguration) return _mValue_SqsNotificationConfiguration;
+                throw new UndeferrableValueException("Value 'SubscriberNotificationConfigurationArgs.SqsNotificationConfiguration' is not present");
+            }
+        }
     }
 }

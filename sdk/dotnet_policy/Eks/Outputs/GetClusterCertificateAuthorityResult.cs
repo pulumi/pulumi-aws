@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// <summary>
         /// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
         /// </summary>
-        [Input("data")]
+        [PolicyResourceProperty("data", "_mUnknown_Data")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mData;
-
-        public string? Data => _mData.GetValue("data");
+        private string? _mValue_Data;
+        private bool _mUnknown_Data;
+        public string? Data
+        {
+            get
+            {
+                if (!_mUnknown_Data) return _mValue_Data;
+                throw new UndeferrableValueException("Value 'GetClusterCertificateAuthorityResult.Data' is not present");
+            }
+        }
     }
 }

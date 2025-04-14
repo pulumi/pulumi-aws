@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionTagConfiguration.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
         /// </summary>
-        [Input("tagRules")]
+        [PolicyResourceProperty("tagRules", "_mUnknown_TagRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DataSetRowLevelPermissionTagConfigurationTagRule>> _mTagRules;
-
-        public List<Outputs.DataSetRowLevelPermissionTagConfigurationTagRule>? TagRules => _mTagRules.GetValue("tagRules");
+        private List<Outputs.DataSetRowLevelPermissionTagConfigurationTagRule>? _mValue_TagRules;
+        private bool _mUnknown_TagRules;
+        public List<Outputs.DataSetRowLevelPermissionTagConfigurationTagRule>? TagRules
+        {
+            get
+            {
+                if (!_mUnknown_TagRules) return _mValue_TagRules;
+                throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionTagConfiguration.TagRules' is not present");
+            }
+        }
     }
 }

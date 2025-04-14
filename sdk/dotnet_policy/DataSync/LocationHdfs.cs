@@ -16,161 +16,287 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// A list of DataSync Agent ARNs with which this location will be associated.
         /// </summary>
-        [Input("agentArns")]
+        [PolicyResourceProperty("agentArns", "_mUnknown_AgentArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAgentArns;
-
-        public List<string>? AgentArns => _mAgentArns.GetValue("agentArns");
+        private List<string>? _mValue_AgentArns;
+        private bool _mUnknown_AgentArns;
+        public List<string>? AgentArns
+        {
+            get
+            {
+                if (!_mUnknown_AgentArns) return _mValue_AgentArns;
+                throw new UndeferrableValueException("Value 'LocationHdfs.AgentArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LocationHdfs.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
         /// </summary>
-        [Input("authenticationType")]
+        [PolicyResourceProperty("authenticationType", "_mUnknown_AuthenticationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
-
-        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
+        private string? _mValue_AuthenticationType;
+        private bool _mUnknown_AuthenticationType;
+        public string? AuthenticationType
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationType) return _mValue_AuthenticationType;
+                throw new UndeferrableValueException("Value 'LocationHdfs.AuthenticationType' is not present");
+            }
+        }
 
         /// <summary>
         /// The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
         /// </summary>
-        [Input("blockSize")]
+        [PolicyResourceProperty("blockSize", "_mUnknown_BlockSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBlockSize;
-
-        public int? BlockSize => _mBlockSize.GetValue("blockSize");
+        private int? _mValue_BlockSize;
+        private bool _mUnknown_BlockSize;
+        public int? BlockSize
+        {
+            get
+            {
+                if (!_mUnknown_BlockSize) return _mValue_BlockSize;
+                throw new UndeferrableValueException("Value 'LocationHdfs.BlockSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
         /// </summary>
-        [Input("kerberosKeytab")]
+        [PolicyResourceProperty("kerberosKeytab", "_mUnknown_KerberosKeytab")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKerberosKeytab;
-
-        public string? KerberosKeytab => _mKerberosKeytab.GetValue("kerberosKeytab");
+        private string? _mValue_KerberosKeytab;
+        private bool _mUnknown_KerberosKeytab;
+        public string? KerberosKeytab
+        {
+            get
+            {
+                if (!_mUnknown_KerberosKeytab) return _mValue_KerberosKeytab;
+                throw new UndeferrableValueException("Value 'LocationHdfs.KerberosKeytab' is not present");
+            }
+        }
 
         /// <summary>
         /// Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
         /// </summary>
-        [Input("kerberosKeytabBase64")]
+        [PolicyResourceProperty("kerberosKeytabBase64", "_mUnknown_KerberosKeytabBase64")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKerberosKeytabBase64;
-
-        public string? KerberosKeytabBase64 => _mKerberosKeytabBase64.GetValue("kerberosKeytabBase64");
+        private string? _mValue_KerberosKeytabBase64;
+        private bool _mUnknown_KerberosKeytabBase64;
+        public string? KerberosKeytabBase64
+        {
+            get
+            {
+                if (!_mUnknown_KerberosKeytabBase64) return _mValue_KerberosKeytabBase64;
+                throw new UndeferrableValueException("Value 'LocationHdfs.KerberosKeytabBase64' is not present");
+            }
+        }
 
         /// <summary>
         /// The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
         /// </summary>
-        [Input("kerberosKrb5Conf")]
+        [PolicyResourceProperty("kerberosKrb5Conf", "_mUnknown_KerberosKrb5Conf")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKerberosKrb5Conf;
-
-        public string? KerberosKrb5Conf => _mKerberosKrb5Conf.GetValue("kerberosKrb5Conf");
+        private string? _mValue_KerberosKrb5Conf;
+        private bool _mUnknown_KerberosKrb5Conf;
+        public string? KerberosKrb5Conf
+        {
+            get
+            {
+                if (!_mUnknown_KerberosKrb5Conf) return _mValue_KerberosKrb5Conf;
+                throw new UndeferrableValueException("Value 'LocationHdfs.KerberosKrb5Conf' is not present");
+            }
+        }
 
         /// <summary>
         /// Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
         /// </summary>
-        [Input("kerberosKrb5ConfBase64")]
+        [PolicyResourceProperty("kerberosKrb5ConfBase64", "_mUnknown_KerberosKrb5ConfBase64")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKerberosKrb5ConfBase64;
-
-        public string? KerberosKrb5ConfBase64 => _mKerberosKrb5ConfBase64.GetValue("kerberosKrb5ConfBase64");
+        private string? _mValue_KerberosKrb5ConfBase64;
+        private bool _mUnknown_KerberosKrb5ConfBase64;
+        public string? KerberosKrb5ConfBase64
+        {
+            get
+            {
+                if (!_mUnknown_KerberosKrb5ConfBase64) return _mValue_KerberosKrb5ConfBase64;
+                throw new UndeferrableValueException("Value 'LocationHdfs.KerberosKrb5ConfBase64' is not present");
+            }
+        }
 
         /// <summary>
         /// The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
         /// </summary>
-        [Input("kerberosPrincipal")]
+        [PolicyResourceProperty("kerberosPrincipal", "_mUnknown_KerberosPrincipal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKerberosPrincipal;
-
-        public string? KerberosPrincipal => _mKerberosPrincipal.GetValue("kerberosPrincipal");
+        private string? _mValue_KerberosPrincipal;
+        private bool _mUnknown_KerberosPrincipal;
+        public string? KerberosPrincipal
+        {
+            get
+            {
+                if (!_mUnknown_KerberosPrincipal) return _mValue_KerberosPrincipal;
+                throw new UndeferrableValueException("Value 'LocationHdfs.KerberosPrincipal' is not present");
+            }
+        }
 
         /// <summary>
         /// The URI of the HDFS cluster's Key Management Server (KMS).
         /// </summary>
-        [Input("kmsKeyProviderUri")]
+        [PolicyResourceProperty("kmsKeyProviderUri", "_mUnknown_KmsKeyProviderUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyProviderUri;
-
-        public string? KmsKeyProviderUri => _mKmsKeyProviderUri.GetValue("kmsKeyProviderUri");
+        private string? _mValue_KmsKeyProviderUri;
+        private bool _mUnknown_KmsKeyProviderUri;
+        public string? KmsKeyProviderUri
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyProviderUri) return _mValue_KmsKeyProviderUri;
+                throw new UndeferrableValueException("Value 'LocationHdfs.KmsKeyProviderUri' is not present");
+            }
+        }
 
         /// <summary>
         /// The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
         /// </summary>
-        [Input("nameNodes")]
+        [PolicyResourceProperty("nameNodes", "_mUnknown_NameNodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LocationHdfsNameNode>> _mNameNodes;
-
-        public List<Outputs.LocationHdfsNameNode>? NameNodes => _mNameNodes.GetValue("nameNodes");
+        private List<Outputs.LocationHdfsNameNode>? _mValue_NameNodes;
+        private bool _mUnknown_NameNodes;
+        public List<Outputs.LocationHdfsNameNode>? NameNodes
+        {
+            get
+            {
+                if (!_mUnknown_NameNodes) return _mValue_NameNodes;
+                throw new UndeferrableValueException("Value 'LocationHdfs.NameNodes' is not present");
+            }
+        }
 
         /// <summary>
         /// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
         /// </summary>
-        [Input("qopConfiguration")]
+        [PolicyResourceProperty("qopConfiguration", "_mUnknown_QopConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LocationHdfsQopConfiguration> _mQopConfiguration;
-
-        public Outputs.LocationHdfsQopConfiguration? QopConfiguration => _mQopConfiguration.GetValue("qopConfiguration");
+        private Outputs.LocationHdfsQopConfiguration? _mValue_QopConfiguration;
+        private bool _mUnknown_QopConfiguration;
+        public Outputs.LocationHdfsQopConfiguration? QopConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_QopConfiguration) return _mValue_QopConfiguration;
+                throw new UndeferrableValueException("Value 'LocationHdfs.QopConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
         /// </summary>
-        [Input("replicationFactor")]
+        [PolicyResourceProperty("replicationFactor", "_mUnknown_ReplicationFactor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mReplicationFactor;
-
-        public int? ReplicationFactor => _mReplicationFactor.GetValue("replicationFactor");
+        private int? _mValue_ReplicationFactor;
+        private bool _mUnknown_ReplicationFactor;
+        public int? ReplicationFactor
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationFactor) return _mValue_ReplicationFactor;
+                throw new UndeferrableValueException("Value 'LocationHdfs.ReplicationFactor' is not present");
+            }
+        }
 
         /// <summary>
         /// The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
         /// </summary>
-        [Input("simpleUser")]
+        [PolicyResourceProperty("simpleUser", "_mUnknown_SimpleUser")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSimpleUser;
-
-        public string? SimpleUser => _mSimpleUser.GetValue("simpleUser");
+        private string? _mValue_SimpleUser;
+        private bool _mUnknown_SimpleUser;
+        public string? SimpleUser
+        {
+            get
+            {
+                if (!_mUnknown_SimpleUser) return _mValue_SimpleUser;
+                throw new UndeferrableValueException("Value 'LocationHdfs.SimpleUser' is not present");
+            }
+        }
 
         /// <summary>
         /// A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'LocationHdfs.Subdirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LocationHdfs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'LocationHdfs.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'LocationHdfs.Uri' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datasync/locationHdfs:LocationHdfs")]
@@ -179,136 +305,241 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// A list of DataSync Agent ARNs with which this location will be associated.
         /// </summary>
-        [Input("agentArns")]
+        [PolicyResourceProperty("agentArns", "_mUnknown_AgentArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAgentArns;
-
-        public List<string>? AgentArns => _mAgentArns.GetValue("agentArns");
+        private List<string>? _mValue_AgentArns;
+        private bool _mUnknown_AgentArns;
+        public List<string>? AgentArns
+        {
+            get
+            {
+                if (!_mUnknown_AgentArns) return _mValue_AgentArns;
+                throw new UndeferrableValueException("Value 'LocationHdfsArgs.AgentArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
         /// </summary>
-        [Input("authenticationType")]
+        [PolicyResourceProperty("authenticationType", "_mUnknown_AuthenticationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
-
-        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
+        private string? _mValue_AuthenticationType;
+        private bool _mUnknown_AuthenticationType;
+        public string? AuthenticationType
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationType) return _mValue_AuthenticationType;
+                throw new UndeferrableValueException("Value 'LocationHdfsArgs.AuthenticationType' is not present");
+            }
+        }
 
         /// <summary>
         /// The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
         /// </summary>
-        [Input("blockSize")]
+        [PolicyResourceProperty("blockSize", "_mUnknown_BlockSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBlockSize;
-
-        public int? BlockSize => _mBlockSize.GetValue("blockSize");
+        private int? _mValue_BlockSize;
+        private bool _mUnknown_BlockSize;
+        public int? BlockSize
+        {
+            get
+            {
+                if (!_mUnknown_BlockSize) return _mValue_BlockSize;
+                throw new UndeferrableValueException("Value 'LocationHdfsArgs.BlockSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
         /// </summary>
-        [Input("kerberosKeytab")]
+        [PolicyResourceProperty("kerberosKeytab", "_mUnknown_KerberosKeytab")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKerberosKeytab;
-
-        public string? KerberosKeytab => _mKerberosKeytab.GetValue("kerberosKeytab");
+        private string? _mValue_KerberosKeytab;
+        private bool _mUnknown_KerberosKeytab;
+        public string? KerberosKeytab
+        {
+            get
+            {
+                if (!_mUnknown_KerberosKeytab) return _mValue_KerberosKeytab;
+                throw new UndeferrableValueException("Value 'LocationHdfsArgs.KerberosKeytab' is not present");
+            }
+        }
 
         /// <summary>
         /// Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
         /// </summary>
-        [Input("kerberosKeytabBase64")]
+        [PolicyResourceProperty("kerberosKeytabBase64", "_mUnknown_KerberosKeytabBase64")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKerberosKeytabBase64;
-
-        public string? KerberosKeytabBase64 => _mKerberosKeytabBase64.GetValue("kerberosKeytabBase64");
+        private string? _mValue_KerberosKeytabBase64;
+        private bool _mUnknown_KerberosKeytabBase64;
+        public string? KerberosKeytabBase64
+        {
+            get
+            {
+                if (!_mUnknown_KerberosKeytabBase64) return _mValue_KerberosKeytabBase64;
+                throw new UndeferrableValueException("Value 'LocationHdfsArgs.KerberosKeytabBase64' is not present");
+            }
+        }
 
         /// <summary>
         /// The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
         /// </summary>
-        [Input("kerberosKrb5Conf")]
+        [PolicyResourceProperty("kerberosKrb5Conf", "_mUnknown_KerberosKrb5Conf")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKerberosKrb5Conf;
-
-        public string? KerberosKrb5Conf => _mKerberosKrb5Conf.GetValue("kerberosKrb5Conf");
+        private string? _mValue_KerberosKrb5Conf;
+        private bool _mUnknown_KerberosKrb5Conf;
+        public string? KerberosKrb5Conf
+        {
+            get
+            {
+                if (!_mUnknown_KerberosKrb5Conf) return _mValue_KerberosKrb5Conf;
+                throw new UndeferrableValueException("Value 'LocationHdfsArgs.KerberosKrb5Conf' is not present");
+            }
+        }
 
         /// <summary>
         /// Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
         /// </summary>
-        [Input("kerberosKrb5ConfBase64")]
+        [PolicyResourceProperty("kerberosKrb5ConfBase64", "_mUnknown_KerberosKrb5ConfBase64")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKerberosKrb5ConfBase64;
-
-        public string? KerberosKrb5ConfBase64 => _mKerberosKrb5ConfBase64.GetValue("kerberosKrb5ConfBase64");
+        private string? _mValue_KerberosKrb5ConfBase64;
+        private bool _mUnknown_KerberosKrb5ConfBase64;
+        public string? KerberosKrb5ConfBase64
+        {
+            get
+            {
+                if (!_mUnknown_KerberosKrb5ConfBase64) return _mValue_KerberosKrb5ConfBase64;
+                throw new UndeferrableValueException("Value 'LocationHdfsArgs.KerberosKrb5ConfBase64' is not present");
+            }
+        }
 
         /// <summary>
         /// The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
         /// </summary>
-        [Input("kerberosPrincipal")]
+        [PolicyResourceProperty("kerberosPrincipal", "_mUnknown_KerberosPrincipal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKerberosPrincipal;
-
-        public string? KerberosPrincipal => _mKerberosPrincipal.GetValue("kerberosPrincipal");
+        private string? _mValue_KerberosPrincipal;
+        private bool _mUnknown_KerberosPrincipal;
+        public string? KerberosPrincipal
+        {
+            get
+            {
+                if (!_mUnknown_KerberosPrincipal) return _mValue_KerberosPrincipal;
+                throw new UndeferrableValueException("Value 'LocationHdfsArgs.KerberosPrincipal' is not present");
+            }
+        }
 
         /// <summary>
         /// The URI of the HDFS cluster's Key Management Server (KMS).
         /// </summary>
-        [Input("kmsKeyProviderUri")]
+        [PolicyResourceProperty("kmsKeyProviderUri", "_mUnknown_KmsKeyProviderUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyProviderUri;
-
-        public string? KmsKeyProviderUri => _mKmsKeyProviderUri.GetValue("kmsKeyProviderUri");
+        private string? _mValue_KmsKeyProviderUri;
+        private bool _mUnknown_KmsKeyProviderUri;
+        public string? KmsKeyProviderUri
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyProviderUri) return _mValue_KmsKeyProviderUri;
+                throw new UndeferrableValueException("Value 'LocationHdfsArgs.KmsKeyProviderUri' is not present");
+            }
+        }
 
         /// <summary>
         /// The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
         /// </summary>
-        [Input("nameNodes")]
+        [PolicyResourceProperty("nameNodes", "_mUnknown_NameNodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LocationHdfsNameNodeArgs>> _mNameNodes;
-
-        public List<Inputs.LocationHdfsNameNodeArgs>? NameNodes => _mNameNodes.GetValue("nameNodes");
+        private List<Inputs.LocationHdfsNameNodeArgs>? _mValue_NameNodes;
+        private bool _mUnknown_NameNodes;
+        public List<Inputs.LocationHdfsNameNodeArgs>? NameNodes
+        {
+            get
+            {
+                if (!_mUnknown_NameNodes) return _mValue_NameNodes;
+                throw new UndeferrableValueException("Value 'LocationHdfsArgs.NameNodes' is not present");
+            }
+        }
 
         /// <summary>
         /// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
         /// </summary>
-        [Input("qopConfiguration")]
+        [PolicyResourceProperty("qopConfiguration", "_mUnknown_QopConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LocationHdfsQopConfigurationArgs> _mQopConfiguration;
-
-        public Inputs.LocationHdfsQopConfigurationArgs? QopConfiguration => _mQopConfiguration.GetValue("qopConfiguration");
+        private Inputs.LocationHdfsQopConfigurationArgs? _mValue_QopConfiguration;
+        private bool _mUnknown_QopConfiguration;
+        public Inputs.LocationHdfsQopConfigurationArgs? QopConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_QopConfiguration) return _mValue_QopConfiguration;
+                throw new UndeferrableValueException("Value 'LocationHdfsArgs.QopConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
         /// </summary>
-        [Input("replicationFactor")]
+        [PolicyResourceProperty("replicationFactor", "_mUnknown_ReplicationFactor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mReplicationFactor;
-
-        public int? ReplicationFactor => _mReplicationFactor.GetValue("replicationFactor");
+        private int? _mValue_ReplicationFactor;
+        private bool _mUnknown_ReplicationFactor;
+        public int? ReplicationFactor
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationFactor) return _mValue_ReplicationFactor;
+                throw new UndeferrableValueException("Value 'LocationHdfsArgs.ReplicationFactor' is not present");
+            }
+        }
 
         /// <summary>
         /// The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
         /// </summary>
-        [Input("simpleUser")]
+        [PolicyResourceProperty("simpleUser", "_mUnknown_SimpleUser")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSimpleUser;
-
-        public string? SimpleUser => _mSimpleUser.GetValue("simpleUser");
+        private string? _mValue_SimpleUser;
+        private bool _mUnknown_SimpleUser;
+        public string? SimpleUser
+        {
+            get
+            {
+                if (!_mUnknown_SimpleUser) return _mValue_SimpleUser;
+                throw new UndeferrableValueException("Value 'LocationHdfsArgs.SimpleUser' is not present");
+            }
+        }
 
         /// <summary>
         /// A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'LocationHdfsArgs.Subdirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LocationHdfsArgs.Tags' is not present");
+            }
+        }
     }
 }

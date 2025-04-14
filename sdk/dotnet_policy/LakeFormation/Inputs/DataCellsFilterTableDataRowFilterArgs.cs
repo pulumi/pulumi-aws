@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation.Inputs
         /// <summary>
         /// (Optional) A wildcard that matches all rows.
         /// </summary>
-        [Input("allRowsWildcard")]
+        [PolicyResourceProperty("allRowsWildcard", "_mUnknown_AllRowsWildcard")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataCellsFilterTableDataRowFilterAllRowsWildcardArgs> _mAllRowsWildcard;
-
-        public Inputs.DataCellsFilterTableDataRowFilterAllRowsWildcardArgs? AllRowsWildcard => _mAllRowsWildcard.GetValue("allRowsWildcard");
+        private Inputs.DataCellsFilterTableDataRowFilterAllRowsWildcardArgs? _mValue_AllRowsWildcard;
+        private bool _mUnknown_AllRowsWildcard;
+        public Inputs.DataCellsFilterTableDataRowFilterAllRowsWildcardArgs? AllRowsWildcard
+        {
+            get
+            {
+                if (!_mUnknown_AllRowsWildcard) return _mValue_AllRowsWildcard;
+                throw new UndeferrableValueException("Value 'DataCellsFilterTableDataRowFilterArgs.AllRowsWildcard' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) A filter expression.
         /// </summary>
-        [Input("filterExpression")]
+        [PolicyResourceProperty("filterExpression", "_mUnknown_FilterExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilterExpression;
-
-        public string? FilterExpression => _mFilterExpression.GetValue("filterExpression");
+        private string? _mValue_FilterExpression;
+        private bool _mUnknown_FilterExpression;
+        public string? FilterExpression
+        {
+            get
+            {
+                if (!_mUnknown_FilterExpression) return _mValue_FilterExpression;
+                throw new UndeferrableValueException("Value 'DataCellsFilterTableDataRowFilterArgs.FilterExpression' is not present");
+            }
+        }
     }
 }

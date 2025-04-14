@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Fis.Inputs
         /// <summary>
         /// Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
         /// </summary>
-        [Input("accountTargeting")]
+        [PolicyResourceProperty("accountTargeting", "_mUnknown_AccountTargeting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountTargeting;
-
-        public string? AccountTargeting => _mAccountTargeting.GetValue("accountTargeting");
+        private string? _mValue_AccountTargeting;
+        private bool _mUnknown_AccountTargeting;
+        public string? AccountTargeting
+        {
+            get
+            {
+                if (!_mUnknown_AccountTargeting) return _mValue_AccountTargeting;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateExperimentOptionsArgs.AccountTargeting' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
         /// </summary>
-        [Input("emptyTargetResolutionMode")]
+        [PolicyResourceProperty("emptyTargetResolutionMode", "_mUnknown_EmptyTargetResolutionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmptyTargetResolutionMode;
-
-        public string? EmptyTargetResolutionMode => _mEmptyTargetResolutionMode.GetValue("emptyTargetResolutionMode");
+        private string? _mValue_EmptyTargetResolutionMode;
+        private bool _mUnknown_EmptyTargetResolutionMode;
+        public string? EmptyTargetResolutionMode
+        {
+            get
+            {
+                if (!_mUnknown_EmptyTargetResolutionMode) return _mValue_EmptyTargetResolutionMode;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateExperimentOptionsArgs.EmptyTargetResolutionMode' is not present");
+            }
+        }
     }
 }

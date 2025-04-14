@@ -18,56 +18,98 @@ namespace Pulumi.PolicyPacks.Aws.AccessAnalyzer
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("analyzerName")]
+        [PolicyResourceProperty("analyzerName", "_mUnknown_AnalyzerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAnalyzerName;
-
-        public string? AnalyzerName => _mAnalyzerName.GetValue("analyzerName");
+        private string? _mValue_AnalyzerName;
+        private bool _mUnknown_AnalyzerName;
+        public string? AnalyzerName
+        {
+            get
+            {
+                if (!_mUnknown_AnalyzerName) return _mValue_AnalyzerName;
+                throw new UndeferrableValueException("Value 'Analyzer.AnalyzerName' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Analyzer.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Analyzer.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the configuration of the analyzer. Documented below
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalyzerConfiguration> _mConfiguration;
-
-        public Outputs.AnalyzerConfiguration? Configuration => _mConfiguration.GetValue("configuration");
+        private Outputs.AnalyzerConfiguration? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Outputs.AnalyzerConfiguration? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'Analyzer.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Analyzer.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Analyzer.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, `ACCOUNT_UNUSED_ACCESS `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Analyzer.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:accessanalyzer/analyzer:Analyzer")]
@@ -78,37 +120,65 @@ namespace Pulumi.PolicyPacks.Aws.AccessAnalyzer
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("analyzerName")]
+        [PolicyResourceProperty("analyzerName", "_mUnknown_AnalyzerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAnalyzerName;
-
-        public string? AnalyzerName => _mAnalyzerName.GetValue("analyzerName");
+        private string? _mValue_AnalyzerName;
+        private bool _mUnknown_AnalyzerName;
+        public string? AnalyzerName
+        {
+            get
+            {
+                if (!_mUnknown_AnalyzerName) return _mValue_AnalyzerName;
+                throw new UndeferrableValueException("Value 'AnalyzerArgs.AnalyzerName' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the configuration of the analyzer. Documented below
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyzerConfigurationArgs> _mConfiguration;
-
-        public Inputs.AnalyzerConfigurationArgs? Configuration => _mConfiguration.GetValue("configuration");
+        private Inputs.AnalyzerConfigurationArgs? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Inputs.AnalyzerConfigurationArgs? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'AnalyzerArgs.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AnalyzerArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, `ACCOUNT_UNUSED_ACCESS `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'AnalyzerArgs.Type' is not present");
+            }
+        }
     }
 }

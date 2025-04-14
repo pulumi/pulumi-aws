@@ -16,119 +16,210 @@ namespace Pulumi.PolicyPacks.Aws.AppSync
         /// <summary>
         /// API ID for the GraphQL API for the data source.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'DataSource.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DataSource.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the data source.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DataSource.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// DynamoDB settings. See `dynamodb_config` Block for details.
         /// </summary>
-        [Input("dynamodbConfig")]
+        [PolicyResourceProperty("dynamodbConfig", "_mUnknown_DynamodbConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceDynamodbConfig> _mDynamodbConfig;
-
-        public Outputs.DataSourceDynamodbConfig? DynamodbConfig => _mDynamodbConfig.GetValue("dynamodbConfig");
+        private Outputs.DataSourceDynamodbConfig? _mValue_DynamodbConfig;
+        private bool _mUnknown_DynamodbConfig;
+        public Outputs.DataSourceDynamodbConfig? DynamodbConfig
+        {
+            get
+            {
+                if (!_mUnknown_DynamodbConfig) return _mValue_DynamodbConfig;
+                throw new UndeferrableValueException("Value 'DataSource.DynamodbConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
         /// </summary>
-        [Input("elasticsearchConfig")]
+        [PolicyResourceProperty("elasticsearchConfig", "_mUnknown_ElasticsearchConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceElasticsearchConfig> _mElasticsearchConfig;
-
-        public Outputs.DataSourceElasticsearchConfig? ElasticsearchConfig => _mElasticsearchConfig.GetValue("elasticsearchConfig");
+        private Outputs.DataSourceElasticsearchConfig? _mValue_ElasticsearchConfig;
+        private bool _mUnknown_ElasticsearchConfig;
+        public Outputs.DataSourceElasticsearchConfig? ElasticsearchConfig
+        {
+            get
+            {
+                if (!_mUnknown_ElasticsearchConfig) return _mValue_ElasticsearchConfig;
+                throw new UndeferrableValueException("Value 'DataSource.ElasticsearchConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS EventBridge settings. See `event_bridge_config` Block for details.
         /// </summary>
-        [Input("eventBridgeConfig")]
+        [PolicyResourceProperty("eventBridgeConfig", "_mUnknown_EventBridgeConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceEventBridgeConfig> _mEventBridgeConfig;
-
-        public Outputs.DataSourceEventBridgeConfig? EventBridgeConfig => _mEventBridgeConfig.GetValue("eventBridgeConfig");
+        private Outputs.DataSourceEventBridgeConfig? _mValue_EventBridgeConfig;
+        private bool _mUnknown_EventBridgeConfig;
+        public Outputs.DataSourceEventBridgeConfig? EventBridgeConfig
+        {
+            get
+            {
+                if (!_mUnknown_EventBridgeConfig) return _mValue_EventBridgeConfig;
+                throw new UndeferrableValueException("Value 'DataSource.EventBridgeConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP settings. See `http_config` Block for details.
         /// </summary>
-        [Input("httpConfig")]
+        [PolicyResourceProperty("httpConfig", "_mUnknown_HttpConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceHttpConfig> _mHttpConfig;
-
-        public Outputs.DataSourceHttpConfig? HttpConfig => _mHttpConfig.GetValue("httpConfig");
+        private Outputs.DataSourceHttpConfig? _mValue_HttpConfig;
+        private bool _mUnknown_HttpConfig;
+        public Outputs.DataSourceHttpConfig? HttpConfig
+        {
+            get
+            {
+                if (!_mUnknown_HttpConfig) return _mValue_HttpConfig;
+                throw new UndeferrableValueException("Value 'DataSource.HttpConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Lambda settings. See `lambda_config` Block for details.
         /// </summary>
-        [Input("lambdaConfig")]
+        [PolicyResourceProperty("lambdaConfig", "_mUnknown_LambdaConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceLambdaConfig> _mLambdaConfig;
-
-        public Outputs.DataSourceLambdaConfig? LambdaConfig => _mLambdaConfig.GetValue("lambdaConfig");
+        private Outputs.DataSourceLambdaConfig? _mValue_LambdaConfig;
+        private bool _mUnknown_LambdaConfig;
+        public Outputs.DataSourceLambdaConfig? LambdaConfig
+        {
+            get
+            {
+                if (!_mUnknown_LambdaConfig) return _mValue_LambdaConfig;
+                throw new UndeferrableValueException("Value 'DataSource.LambdaConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// User-supplied name for the data source.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DataSource.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
         /// </summary>
-        [Input("opensearchserviceConfig")]
+        [PolicyResourceProperty("opensearchserviceConfig", "_mUnknown_OpensearchserviceConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceOpensearchserviceConfig> _mOpensearchserviceConfig;
-
-        public Outputs.DataSourceOpensearchserviceConfig? OpensearchserviceConfig => _mOpensearchserviceConfig.GetValue("opensearchserviceConfig");
+        private Outputs.DataSourceOpensearchserviceConfig? _mValue_OpensearchserviceConfig;
+        private bool _mUnknown_OpensearchserviceConfig;
+        public Outputs.DataSourceOpensearchserviceConfig? OpensearchserviceConfig
+        {
+            get
+            {
+                if (!_mUnknown_OpensearchserviceConfig) return _mValue_OpensearchserviceConfig;
+                throw new UndeferrableValueException("Value 'DataSource.OpensearchserviceConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS RDS settings. See `relational_database_config` Block for details.
         /// </summary>
-        [Input("relationalDatabaseConfig")]
+        [PolicyResourceProperty("relationalDatabaseConfig", "_mUnknown_RelationalDatabaseConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceRelationalDatabaseConfig> _mRelationalDatabaseConfig;
-
-        public Outputs.DataSourceRelationalDatabaseConfig? RelationalDatabaseConfig => _mRelationalDatabaseConfig.GetValue("relationalDatabaseConfig");
+        private Outputs.DataSourceRelationalDatabaseConfig? _mValue_RelationalDatabaseConfig;
+        private bool _mUnknown_RelationalDatabaseConfig;
+        public Outputs.DataSourceRelationalDatabaseConfig? RelationalDatabaseConfig
+        {
+            get
+            {
+                if (!_mUnknown_RelationalDatabaseConfig) return _mValue_RelationalDatabaseConfig;
+                throw new UndeferrableValueException("Value 'DataSource.RelationalDatabaseConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         /// </summary>
-        [Input("serviceRoleArn")]
+        [PolicyResourceProperty("serviceRoleArn", "_mUnknown_ServiceRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRoleArn;
-
-        public string? ServiceRoleArn => _mServiceRoleArn.GetValue("serviceRoleArn");
+        private string? _mValue_ServiceRoleArn;
+        private bool _mUnknown_ServiceRoleArn;
+        public string? ServiceRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRoleArn) return _mValue_ServiceRoleArn;
+                throw new UndeferrableValueException("Value 'DataSource.ServiceRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'DataSource.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appsync/dataSource:DataSource")]
@@ -137,109 +228,193 @@ namespace Pulumi.PolicyPacks.Aws.AppSync
         /// <summary>
         /// API ID for the GraphQL API for the data source.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the data source.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// DynamoDB settings. See `dynamodb_config` Block for details.
         /// </summary>
-        [Input("dynamodbConfig")]
+        [PolicyResourceProperty("dynamodbConfig", "_mUnknown_DynamodbConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceDynamodbConfigArgs> _mDynamodbConfig;
-
-        public Inputs.DataSourceDynamodbConfigArgs? DynamodbConfig => _mDynamodbConfig.GetValue("dynamodbConfig");
+        private Inputs.DataSourceDynamodbConfigArgs? _mValue_DynamodbConfig;
+        private bool _mUnknown_DynamodbConfig;
+        public Inputs.DataSourceDynamodbConfigArgs? DynamodbConfig
+        {
+            get
+            {
+                if (!_mUnknown_DynamodbConfig) return _mValue_DynamodbConfig;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.DynamodbConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
         /// </summary>
-        [Input("elasticsearchConfig")]
+        [PolicyResourceProperty("elasticsearchConfig", "_mUnknown_ElasticsearchConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceElasticsearchConfigArgs> _mElasticsearchConfig;
-
-        public Inputs.DataSourceElasticsearchConfigArgs? ElasticsearchConfig => _mElasticsearchConfig.GetValue("elasticsearchConfig");
+        private Inputs.DataSourceElasticsearchConfigArgs? _mValue_ElasticsearchConfig;
+        private bool _mUnknown_ElasticsearchConfig;
+        public Inputs.DataSourceElasticsearchConfigArgs? ElasticsearchConfig
+        {
+            get
+            {
+                if (!_mUnknown_ElasticsearchConfig) return _mValue_ElasticsearchConfig;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.ElasticsearchConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS EventBridge settings. See `event_bridge_config` Block for details.
         /// </summary>
-        [Input("eventBridgeConfig")]
+        [PolicyResourceProperty("eventBridgeConfig", "_mUnknown_EventBridgeConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceEventBridgeConfigArgs> _mEventBridgeConfig;
-
-        public Inputs.DataSourceEventBridgeConfigArgs? EventBridgeConfig => _mEventBridgeConfig.GetValue("eventBridgeConfig");
+        private Inputs.DataSourceEventBridgeConfigArgs? _mValue_EventBridgeConfig;
+        private bool _mUnknown_EventBridgeConfig;
+        public Inputs.DataSourceEventBridgeConfigArgs? EventBridgeConfig
+        {
+            get
+            {
+                if (!_mUnknown_EventBridgeConfig) return _mValue_EventBridgeConfig;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.EventBridgeConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP settings. See `http_config` Block for details.
         /// </summary>
-        [Input("httpConfig")]
+        [PolicyResourceProperty("httpConfig", "_mUnknown_HttpConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceHttpConfigArgs> _mHttpConfig;
-
-        public Inputs.DataSourceHttpConfigArgs? HttpConfig => _mHttpConfig.GetValue("httpConfig");
+        private Inputs.DataSourceHttpConfigArgs? _mValue_HttpConfig;
+        private bool _mUnknown_HttpConfig;
+        public Inputs.DataSourceHttpConfigArgs? HttpConfig
+        {
+            get
+            {
+                if (!_mUnknown_HttpConfig) return _mValue_HttpConfig;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.HttpConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Lambda settings. See `lambda_config` Block for details.
         /// </summary>
-        [Input("lambdaConfig")]
+        [PolicyResourceProperty("lambdaConfig", "_mUnknown_LambdaConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceLambdaConfigArgs> _mLambdaConfig;
-
-        public Inputs.DataSourceLambdaConfigArgs? LambdaConfig => _mLambdaConfig.GetValue("lambdaConfig");
+        private Inputs.DataSourceLambdaConfigArgs? _mValue_LambdaConfig;
+        private bool _mUnknown_LambdaConfig;
+        public Inputs.DataSourceLambdaConfigArgs? LambdaConfig
+        {
+            get
+            {
+                if (!_mUnknown_LambdaConfig) return _mValue_LambdaConfig;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.LambdaConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// User-supplied name for the data source.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
         /// </summary>
-        [Input("opensearchserviceConfig")]
+        [PolicyResourceProperty("opensearchserviceConfig", "_mUnknown_OpensearchserviceConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceOpensearchserviceConfigArgs> _mOpensearchserviceConfig;
-
-        public Inputs.DataSourceOpensearchserviceConfigArgs? OpensearchserviceConfig => _mOpensearchserviceConfig.GetValue("opensearchserviceConfig");
+        private Inputs.DataSourceOpensearchserviceConfigArgs? _mValue_OpensearchserviceConfig;
+        private bool _mUnknown_OpensearchserviceConfig;
+        public Inputs.DataSourceOpensearchserviceConfigArgs? OpensearchserviceConfig
+        {
+            get
+            {
+                if (!_mUnknown_OpensearchserviceConfig) return _mValue_OpensearchserviceConfig;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.OpensearchserviceConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS RDS settings. See `relational_database_config` Block for details.
         /// </summary>
-        [Input("relationalDatabaseConfig")]
+        [PolicyResourceProperty("relationalDatabaseConfig", "_mUnknown_RelationalDatabaseConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceRelationalDatabaseConfigArgs> _mRelationalDatabaseConfig;
-
-        public Inputs.DataSourceRelationalDatabaseConfigArgs? RelationalDatabaseConfig => _mRelationalDatabaseConfig.GetValue("relationalDatabaseConfig");
+        private Inputs.DataSourceRelationalDatabaseConfigArgs? _mValue_RelationalDatabaseConfig;
+        private bool _mUnknown_RelationalDatabaseConfig;
+        public Inputs.DataSourceRelationalDatabaseConfigArgs? RelationalDatabaseConfig
+        {
+            get
+            {
+                if (!_mUnknown_RelationalDatabaseConfig) return _mValue_RelationalDatabaseConfig;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.RelationalDatabaseConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         /// </summary>
-        [Input("serviceRoleArn")]
+        [PolicyResourceProperty("serviceRoleArn", "_mUnknown_ServiceRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRoleArn;
-
-        public string? ServiceRoleArn => _mServiceRoleArn.GetValue("serviceRoleArn");
+        private string? _mValue_ServiceRoleArn;
+        private bool _mUnknown_ServiceRoleArn;
+        public string? ServiceRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRoleArn) return _mValue_ServiceRoleArn;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.ServiceRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'DataSourceArgs.Type' is not present");
+            }
+        }
     }
 }

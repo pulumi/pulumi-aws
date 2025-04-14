@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.IdentityStore
         /// <summary>
         /// A string containing the description of the group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Group.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A string containing the name of the group. This value is commonly displayed when the group is referenced.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'Group.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
         /// </summary>
-        [Input("externalIds")]
+        [PolicyResourceProperty("externalIds", "_mUnknown_ExternalIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GroupExternalId>> _mExternalIds;
-
-        public List<Outputs.GroupExternalId>? ExternalIds => _mExternalIds.GetValue("externalIds");
+        private List<Outputs.GroupExternalId>? _mValue_ExternalIds;
+        private bool _mUnknown_ExternalIds;
+        public List<Outputs.GroupExternalId>? ExternalIds
+        {
+            get
+            {
+                if (!_mUnknown_ExternalIds) return _mValue_ExternalIds;
+                throw new UndeferrableValueException("Value 'Group.ExternalIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the newly created group in the identity store.
         /// </summary>
-        [Input("groupId")]
+        [PolicyResourceProperty("groupId", "_mUnknown_GroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupId;
-
-        public string? GroupId => _mGroupId.GetValue("groupId");
+        private string? _mValue_GroupId;
+        private bool _mUnknown_GroupId;
+        public string? GroupId
+        {
+            get
+            {
+                if (!_mUnknown_GroupId) return _mValue_GroupId;
+                throw new UndeferrableValueException("Value 'Group.GroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The globally unique identifier for the identity store.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("identityStoreId")]
+        [PolicyResourceProperty("identityStoreId", "_mUnknown_IdentityStoreId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityStoreId;
-
-        public string? IdentityStoreId => _mIdentityStoreId.GetValue("identityStoreId");
+        private string? _mValue_IdentityStoreId;
+        private bool _mUnknown_IdentityStoreId;
+        public string? IdentityStoreId
+        {
+            get
+            {
+                if (!_mUnknown_IdentityStoreId) return _mValue_IdentityStoreId;
+                throw new UndeferrableValueException("Value 'Group.IdentityStoreId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:identitystore/group:Group")]
@@ -67,30 +102,51 @@ namespace Pulumi.PolicyPacks.Aws.IdentityStore
         /// <summary>
         /// A string containing the description of the group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GroupArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A string containing the name of the group. This value is commonly displayed when the group is referenced.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'GroupArgs.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// The globally unique identifier for the identity store.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("identityStoreId")]
+        [PolicyResourceProperty("identityStoreId", "_mUnknown_IdentityStoreId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityStoreId;
-
-        public string? IdentityStoreId => _mIdentityStoreId.GetValue("identityStoreId");
+        private string? _mValue_IdentityStoreId;
+        private bool _mUnknown_IdentityStoreId;
+        public string? IdentityStoreId
+        {
+            get
+            {
+                if (!_mUnknown_IdentityStoreId) return _mValue_IdentityStoreId;
+                throw new UndeferrableValueException("Value 'GroupArgs.IdentityStoreId' is not present");
+            }
+        }
     }
 }

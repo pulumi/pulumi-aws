@@ -12,118 +12,251 @@ namespace Pulumi.PolicyPacks.Aws.Dms.Outputs
 {
     public sealed class GetEndpointKafkaSettingResult
     {
-        [Input("broker")]
+        [PolicyResourceProperty("broker", "_mUnknown_Broker")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBroker;
+        private string? _mValue_Broker;
+        private bool _mUnknown_Broker;
+        public string? Broker
+        {
+            get
+            {
+                if (!_mUnknown_Broker) return _mValue_Broker;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.Broker' is not present");
+            }
+        }
 
-        public string? Broker => _mBroker.GetValue("broker");
-
-        [Input("includeControlDetails")]
+        [PolicyResourceProperty("includeControlDetails", "_mUnknown_IncludeControlDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeControlDetails;
+        private bool? _mValue_IncludeControlDetails;
+        private bool _mUnknown_IncludeControlDetails;
+        public bool? IncludeControlDetails
+        {
+            get
+            {
+                if (!_mUnknown_IncludeControlDetails) return _mValue_IncludeControlDetails;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.IncludeControlDetails' is not present");
+            }
+        }
 
-        public bool? IncludeControlDetails => _mIncludeControlDetails.GetValue("includeControlDetails");
-
-        [Input("includeNullAndEmpty")]
+        [PolicyResourceProperty("includeNullAndEmpty", "_mUnknown_IncludeNullAndEmpty")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeNullAndEmpty;
+        private bool? _mValue_IncludeNullAndEmpty;
+        private bool _mUnknown_IncludeNullAndEmpty;
+        public bool? IncludeNullAndEmpty
+        {
+            get
+            {
+                if (!_mUnknown_IncludeNullAndEmpty) return _mValue_IncludeNullAndEmpty;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.IncludeNullAndEmpty' is not present");
+            }
+        }
 
-        public bool? IncludeNullAndEmpty => _mIncludeNullAndEmpty.GetValue("includeNullAndEmpty");
-
-        [Input("includePartitionValue")]
+        [PolicyResourceProperty("includePartitionValue", "_mUnknown_IncludePartitionValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludePartitionValue;
+        private bool? _mValue_IncludePartitionValue;
+        private bool _mUnknown_IncludePartitionValue;
+        public bool? IncludePartitionValue
+        {
+            get
+            {
+                if (!_mUnknown_IncludePartitionValue) return _mValue_IncludePartitionValue;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.IncludePartitionValue' is not present");
+            }
+        }
 
-        public bool? IncludePartitionValue => _mIncludePartitionValue.GetValue("includePartitionValue");
-
-        [Input("includeTableAlterOperations")]
+        [PolicyResourceProperty("includeTableAlterOperations", "_mUnknown_IncludeTableAlterOperations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeTableAlterOperations;
+        private bool? _mValue_IncludeTableAlterOperations;
+        private bool _mUnknown_IncludeTableAlterOperations;
+        public bool? IncludeTableAlterOperations
+        {
+            get
+            {
+                if (!_mUnknown_IncludeTableAlterOperations) return _mValue_IncludeTableAlterOperations;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.IncludeTableAlterOperations' is not present");
+            }
+        }
 
-        public bool? IncludeTableAlterOperations => _mIncludeTableAlterOperations.GetValue("includeTableAlterOperations");
-
-        [Input("includeTransactionDetails")]
+        [PolicyResourceProperty("includeTransactionDetails", "_mUnknown_IncludeTransactionDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeTransactionDetails;
+        private bool? _mValue_IncludeTransactionDetails;
+        private bool _mUnknown_IncludeTransactionDetails;
+        public bool? IncludeTransactionDetails
+        {
+            get
+            {
+                if (!_mUnknown_IncludeTransactionDetails) return _mValue_IncludeTransactionDetails;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.IncludeTransactionDetails' is not present");
+            }
+        }
 
-        public bool? IncludeTransactionDetails => _mIncludeTransactionDetails.GetValue("includeTransactionDetails");
-
-        [Input("messageFormat")]
+        [PolicyResourceProperty("messageFormat", "_mUnknown_MessageFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessageFormat;
+        private string? _mValue_MessageFormat;
+        private bool _mUnknown_MessageFormat;
+        public string? MessageFormat
+        {
+            get
+            {
+                if (!_mUnknown_MessageFormat) return _mValue_MessageFormat;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.MessageFormat' is not present");
+            }
+        }
 
-        public string? MessageFormat => _mMessageFormat.GetValue("messageFormat");
-
-        [Input("messageMaxBytes")]
+        [PolicyResourceProperty("messageMaxBytes", "_mUnknown_MessageMaxBytes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMessageMaxBytes;
+        private int? _mValue_MessageMaxBytes;
+        private bool _mUnknown_MessageMaxBytes;
+        public int? MessageMaxBytes
+        {
+            get
+            {
+                if (!_mUnknown_MessageMaxBytes) return _mValue_MessageMaxBytes;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.MessageMaxBytes' is not present");
+            }
+        }
 
-        public int? MessageMaxBytes => _mMessageMaxBytes.GetValue("messageMaxBytes");
-
-        [Input("noHexPrefix")]
+        [PolicyResourceProperty("noHexPrefix", "_mUnknown_NoHexPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mNoHexPrefix;
+        private bool? _mValue_NoHexPrefix;
+        private bool _mUnknown_NoHexPrefix;
+        public bool? NoHexPrefix
+        {
+            get
+            {
+                if (!_mUnknown_NoHexPrefix) return _mValue_NoHexPrefix;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.NoHexPrefix' is not present");
+            }
+        }
 
-        public bool? NoHexPrefix => _mNoHexPrefix.GetValue("noHexPrefix");
-
-        [Input("partitionIncludeSchemaTable")]
+        [PolicyResourceProperty("partitionIncludeSchemaTable", "_mUnknown_PartitionIncludeSchemaTable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPartitionIncludeSchemaTable;
+        private bool? _mValue_PartitionIncludeSchemaTable;
+        private bool _mUnknown_PartitionIncludeSchemaTable;
+        public bool? PartitionIncludeSchemaTable
+        {
+            get
+            {
+                if (!_mUnknown_PartitionIncludeSchemaTable) return _mValue_PartitionIncludeSchemaTable;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.PartitionIncludeSchemaTable' is not present");
+            }
+        }
 
-        public bool? PartitionIncludeSchemaTable => _mPartitionIncludeSchemaTable.GetValue("partitionIncludeSchemaTable");
-
-        [Input("saslMechanism")]
+        [PolicyResourceProperty("saslMechanism", "_mUnknown_SaslMechanism")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSaslMechanism;
+        private string? _mValue_SaslMechanism;
+        private bool _mUnknown_SaslMechanism;
+        public string? SaslMechanism
+        {
+            get
+            {
+                if (!_mUnknown_SaslMechanism) return _mValue_SaslMechanism;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.SaslMechanism' is not present");
+            }
+        }
 
-        public string? SaslMechanism => _mSaslMechanism.GetValue("saslMechanism");
-
-        [Input("saslPassword")]
+        [PolicyResourceProperty("saslPassword", "_mUnknown_SaslPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSaslPassword;
+        private string? _mValue_SaslPassword;
+        private bool _mUnknown_SaslPassword;
+        public string? SaslPassword
+        {
+            get
+            {
+                if (!_mUnknown_SaslPassword) return _mValue_SaslPassword;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.SaslPassword' is not present");
+            }
+        }
 
-        public string? SaslPassword => _mSaslPassword.GetValue("saslPassword");
-
-        [Input("saslUsername")]
+        [PolicyResourceProperty("saslUsername", "_mUnknown_SaslUsername")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSaslUsername;
+        private string? _mValue_SaslUsername;
+        private bool _mUnknown_SaslUsername;
+        public string? SaslUsername
+        {
+            get
+            {
+                if (!_mUnknown_SaslUsername) return _mValue_SaslUsername;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.SaslUsername' is not present");
+            }
+        }
 
-        public string? SaslUsername => _mSaslUsername.GetValue("saslUsername");
-
-        [Input("securityProtocol")]
+        [PolicyResourceProperty("securityProtocol", "_mUnknown_SecurityProtocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityProtocol;
+        private string? _mValue_SecurityProtocol;
+        private bool _mUnknown_SecurityProtocol;
+        public string? SecurityProtocol
+        {
+            get
+            {
+                if (!_mUnknown_SecurityProtocol) return _mValue_SecurityProtocol;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.SecurityProtocol' is not present");
+            }
+        }
 
-        public string? SecurityProtocol => _mSecurityProtocol.GetValue("securityProtocol");
-
-        [Input("sslCaCertificateArn")]
+        [PolicyResourceProperty("sslCaCertificateArn", "_mUnknown_SslCaCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslCaCertificateArn;
+        private string? _mValue_SslCaCertificateArn;
+        private bool _mUnknown_SslCaCertificateArn;
+        public string? SslCaCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_SslCaCertificateArn) return _mValue_SslCaCertificateArn;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.SslCaCertificateArn' is not present");
+            }
+        }
 
-        public string? SslCaCertificateArn => _mSslCaCertificateArn.GetValue("sslCaCertificateArn");
-
-        [Input("sslClientCertificateArn")]
+        [PolicyResourceProperty("sslClientCertificateArn", "_mUnknown_SslClientCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslClientCertificateArn;
+        private string? _mValue_SslClientCertificateArn;
+        private bool _mUnknown_SslClientCertificateArn;
+        public string? SslClientCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_SslClientCertificateArn) return _mValue_SslClientCertificateArn;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.SslClientCertificateArn' is not present");
+            }
+        }
 
-        public string? SslClientCertificateArn => _mSslClientCertificateArn.GetValue("sslClientCertificateArn");
-
-        [Input("sslClientKeyArn")]
+        [PolicyResourceProperty("sslClientKeyArn", "_mUnknown_SslClientKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslClientKeyArn;
+        private string? _mValue_SslClientKeyArn;
+        private bool _mUnknown_SslClientKeyArn;
+        public string? SslClientKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_SslClientKeyArn) return _mValue_SslClientKeyArn;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.SslClientKeyArn' is not present");
+            }
+        }
 
-        public string? SslClientKeyArn => _mSslClientKeyArn.GetValue("sslClientKeyArn");
-
-        [Input("sslClientKeyPassword")]
+        [PolicyResourceProperty("sslClientKeyPassword", "_mUnknown_SslClientKeyPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslClientKeyPassword;
+        private string? _mValue_SslClientKeyPassword;
+        private bool _mUnknown_SslClientKeyPassword;
+        public string? SslClientKeyPassword
+        {
+            get
+            {
+                if (!_mUnknown_SslClientKeyPassword) return _mValue_SslClientKeyPassword;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.SslClientKeyPassword' is not present");
+            }
+        }
 
-        public string? SslClientKeyPassword => _mSslClientKeyPassword.GetValue("sslClientKeyPassword");
-
-        [Input("topic")]
+        [PolicyResourceProperty("topic", "_mUnknown_Topic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopic;
-
-        public string? Topic => _mTopic.GetValue("topic");
+        private string? _mValue_Topic;
+        private bool _mUnknown_Topic;
+        public string? Topic
+        {
+            get
+            {
+                if (!_mUnknown_Topic) return _mValue_Topic;
+                throw new UndeferrableValueException("Value 'GetEndpointKafkaSettingResult.Topic' is not present");
+            }
+        }
     }
 }

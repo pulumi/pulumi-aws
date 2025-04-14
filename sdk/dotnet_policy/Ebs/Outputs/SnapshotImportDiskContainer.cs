@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Ebs.Outputs
         /// <summary>
         /// The description of the disk image being imported.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SnapshotImportDiskContainer.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The format of the disk image being imported. One of `VHD` or `VMDK`.
         /// </summary>
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
-
-        public string? Format => _mFormat.GetValue("format");
+        private string? _mValue_Format;
+        private bool _mUnknown_Format;
+        public string? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'SnapshotImportDiskContainer.Format' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'SnapshotImportDiskContainer.Url' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
         /// </summary>
-        [Input("userBucket")]
+        [PolicyResourceProperty("userBucket", "_mUnknown_UserBucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SnapshotImportDiskContainerUserBucket> _mUserBucket;
-
-        public Outputs.SnapshotImportDiskContainerUserBucket? UserBucket => _mUserBucket.GetValue("userBucket");
+        private Outputs.SnapshotImportDiskContainerUserBucket? _mValue_UserBucket;
+        private bool _mUnknown_UserBucket;
+        public Outputs.SnapshotImportDiskContainerUserBucket? UserBucket
+        {
+            get
+            {
+                if (!_mUnknown_UserBucket) return _mValue_UserBucket;
+                throw new UndeferrableValueException("Value 'SnapshotImportDiskContainer.UserBucket' is not present");
+            }
+        }
     }
 }

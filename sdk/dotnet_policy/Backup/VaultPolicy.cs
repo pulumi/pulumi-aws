@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// The ARN of the vault.
         /// </summary>
-        [Input("backupVaultArn")]
+        [PolicyResourceProperty("backupVaultArn", "_mUnknown_BackupVaultArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupVaultArn;
-
-        public string? BackupVaultArn => _mBackupVaultArn.GetValue("backupVaultArn");
+        private string? _mValue_BackupVaultArn;
+        private bool _mUnknown_BackupVaultArn;
+        public string? BackupVaultArn
+        {
+            get
+            {
+                if (!_mUnknown_BackupVaultArn) return _mValue_BackupVaultArn;
+                throw new UndeferrableValueException("Value 'VaultPolicy.BackupVaultArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the backup vault to add policy for.
         /// </summary>
-        [Input("backupVaultName")]
+        [PolicyResourceProperty("backupVaultName", "_mUnknown_BackupVaultName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupVaultName;
-
-        public string? BackupVaultName => _mBackupVaultName.GetValue("backupVaultName");
+        private string? _mValue_BackupVaultName;
+        private bool _mUnknown_BackupVaultName;
+        public string? BackupVaultName
+        {
+            get
+            {
+                if (!_mUnknown_BackupVaultName) return _mValue_BackupVaultName;
+                throw new UndeferrableValueException("Value 'VaultPolicy.BackupVaultName' is not present");
+            }
+        }
 
         /// <summary>
         /// The backup vault access policy document in JSON format.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'VaultPolicy.Policy' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:backup/vaultPolicy:VaultPolicy")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// Name of the backup vault to add policy for.
         /// </summary>
-        [Input("backupVaultName")]
+        [PolicyResourceProperty("backupVaultName", "_mUnknown_BackupVaultName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupVaultName;
-
-        public string? BackupVaultName => _mBackupVaultName.GetValue("backupVaultName");
+        private string? _mValue_BackupVaultName;
+        private bool _mUnknown_BackupVaultName;
+        public string? BackupVaultName
+        {
+            get
+            {
+                if (!_mUnknown_BackupVaultName) return _mValue_BackupVaultName;
+                throw new UndeferrableValueException("Value 'VaultPolicyArgs.BackupVaultName' is not present");
+            }
+        }
 
         /// <summary>
         /// The backup vault access policy document in JSON format.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'VaultPolicyArgs.Policy' is not present");
+            }
+        }
     }
 }

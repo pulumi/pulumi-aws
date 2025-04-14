@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.IdentityStore.Outputs
         /// <summary>
         /// Description of the specified group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GetGroupsGroupResult.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Group's display name.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'GetGroupsGroupResult.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// List of identifiers issued to this resource by an external identity provider.
         /// </summary>
-        [Input("externalIds")]
+        [PolicyResourceProperty("externalIds", "_mUnknown_ExternalIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGroupsGroupExternalIdResult>> _mExternalIds;
-
-        public List<Outputs.GetGroupsGroupExternalIdResult>? ExternalIds => _mExternalIds.GetValue("externalIds");
+        private List<Outputs.GetGroupsGroupExternalIdResult>? _mValue_ExternalIds;
+        private bool _mUnknown_ExternalIds;
+        public List<Outputs.GetGroupsGroupExternalIdResult>? ExternalIds
+        {
+            get
+            {
+                if (!_mUnknown_ExternalIds) return _mValue_ExternalIds;
+                throw new UndeferrableValueException("Value 'GetGroupsGroupResult.ExternalIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the group in the Identity Store.
         /// </summary>
-        [Input("groupId")]
+        [PolicyResourceProperty("groupId", "_mUnknown_GroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupId;
-
-        public string? GroupId => _mGroupId.GetValue("groupId");
+        private string? _mValue_GroupId;
+        private bool _mUnknown_GroupId;
+        public string? GroupId
+        {
+            get
+            {
+                if (!_mUnknown_GroupId) return _mValue_GroupId;
+                throw new UndeferrableValueException("Value 'GetGroupsGroupResult.GroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identity Store ID associated with the Single Sign-On (SSO) Instance.
         /// </summary>
-        [Input("identityStoreId")]
+        [PolicyResourceProperty("identityStoreId", "_mUnknown_IdentityStoreId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityStoreId;
-
-        public string? IdentityStoreId => _mIdentityStoreId.GetValue("identityStoreId");
+        private string? _mValue_IdentityStoreId;
+        private bool _mUnknown_IdentityStoreId;
+        public string? IdentityStoreId
+        {
+            get
+            {
+                if (!_mUnknown_IdentityStoreId) return _mValue_IdentityStoreId;
+                throw new UndeferrableValueException("Value 'GetGroupsGroupResult.IdentityStoreId' is not present");
+            }
+        }
     }
 }

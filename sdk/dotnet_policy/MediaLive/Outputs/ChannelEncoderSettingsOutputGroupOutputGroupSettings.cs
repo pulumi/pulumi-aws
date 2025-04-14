@@ -15,58 +15,114 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Archive group settings. See Archive Group Settings for more details.
         /// </summary>
-        [Input("archiveGroupSettings")]
+        [PolicyResourceProperty("archiveGroupSettings", "_mUnknown_ArchiveGroupSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting>> _mArchiveGroupSettings;
+        private List<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting>? _mValue_ArchiveGroupSettings;
+        private bool _mUnknown_ArchiveGroupSettings;
+        public List<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting>? ArchiveGroupSettings
+        {
+            get
+            {
+                if (!_mUnknown_ArchiveGroupSettings) return _mValue_ArchiveGroupSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettings.ArchiveGroupSettings' is not present");
+            }
+        }
 
-        public List<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting>? ArchiveGroupSettings => _mArchiveGroupSettings.GetValue("archiveGroupSettings");
-
-        [Input("frameCaptureGroupSettings")]
+        [PolicyResourceProperty("frameCaptureGroupSettings", "_mUnknown_FrameCaptureGroupSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings> _mFrameCaptureGroupSettings;
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings? _mValue_FrameCaptureGroupSettings;
+        private bool _mUnknown_FrameCaptureGroupSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings? FrameCaptureGroupSettings
+        {
+            get
+            {
+                if (!_mUnknown_FrameCaptureGroupSettings) return _mValue_FrameCaptureGroupSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettings.FrameCaptureGroupSettings' is not present");
+            }
+        }
 
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings? FrameCaptureGroupSettings => _mFrameCaptureGroupSettings.GetValue("frameCaptureGroupSettings");
-
-        [Input("hlsGroupSettings")]
+        [PolicyResourceProperty("hlsGroupSettings", "_mUnknown_HlsGroupSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings> _mHlsGroupSettings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings? HlsGroupSettings => _mHlsGroupSettings.GetValue("hlsGroupSettings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings? _mValue_HlsGroupSettings;
+        private bool _mUnknown_HlsGroupSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings? HlsGroupSettings
+        {
+            get
+            {
+                if (!_mUnknown_HlsGroupSettings) return _mValue_HlsGroupSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettings.HlsGroupSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Media package group settings. See Media Package Group Settings for more details.
         /// </summary>
-        [Input("mediaPackageGroupSettings")]
+        [PolicyResourceProperty("mediaPackageGroupSettings", "_mUnknown_MediaPackageGroupSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings> _mMediaPackageGroupSettings;
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings? _mValue_MediaPackageGroupSettings;
+        private bool _mUnknown_MediaPackageGroupSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings? MediaPackageGroupSettings
+        {
+            get
+            {
+                if (!_mUnknown_MediaPackageGroupSettings) return _mValue_MediaPackageGroupSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettings.MediaPackageGroupSettings' is not present");
+            }
+        }
 
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings? MediaPackageGroupSettings => _mMediaPackageGroupSettings.GetValue("mediaPackageGroupSettings");
-
-        [Input("msSmoothGroupSettings")]
+        [PolicyResourceProperty("msSmoothGroupSettings", "_mUnknown_MsSmoothGroupSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings> _mMsSmoothGroupSettings;
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings? _mValue_MsSmoothGroupSettings;
+        private bool _mUnknown_MsSmoothGroupSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings? MsSmoothGroupSettings
+        {
+            get
+            {
+                if (!_mUnknown_MsSmoothGroupSettings) return _mValue_MsSmoothGroupSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettings.MsSmoothGroupSettings' is not present");
+            }
+        }
 
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings? MsSmoothGroupSettings => _mMsSmoothGroupSettings.GetValue("msSmoothGroupSettings");
-
-        [Input("multiplexGroupSettings")]
+        [PolicyResourceProperty("multiplexGroupSettings", "_mUnknown_MultiplexGroupSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings> _mMultiplexGroupSettings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings? MultiplexGroupSettings => _mMultiplexGroupSettings.GetValue("multiplexGroupSettings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings? _mValue_MultiplexGroupSettings;
+        private bool _mUnknown_MultiplexGroupSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings? MultiplexGroupSettings
+        {
+            get
+            {
+                if (!_mUnknown_MultiplexGroupSettings) return _mValue_MultiplexGroupSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettings.MultiplexGroupSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// RTMP group settings. See RTMP Group Settings for more details.
         /// </summary>
-        [Input("rtmpGroupSettings")]
+        [PolicyResourceProperty("rtmpGroupSettings", "_mUnknown_RtmpGroupSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings> _mRtmpGroupSettings;
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings? _mValue_RtmpGroupSettings;
+        private bool _mUnknown_RtmpGroupSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings? RtmpGroupSettings
+        {
+            get
+            {
+                if (!_mUnknown_RtmpGroupSettings) return _mValue_RtmpGroupSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettings.RtmpGroupSettings' is not present");
+            }
+        }
 
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings? RtmpGroupSettings => _mRtmpGroupSettings.GetValue("rtmpGroupSettings");
-
-        [Input("udpGroupSettings")]
+        [PolicyResourceProperty("udpGroupSettings", "_mUnknown_UdpGroupSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings> _mUdpGroupSettings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings? UdpGroupSettings => _mUdpGroupSettings.GetValue("udpGroupSettings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings? _mValue_UdpGroupSettings;
+        private bool _mUnknown_UdpGroupSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings? UdpGroupSettings
+        {
+            get
+            {
+                if (!_mUnknown_UdpGroupSettings) return _mValue_UdpGroupSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettings.UdpGroupSettings' is not present");
+            }
+        }
     }
 }

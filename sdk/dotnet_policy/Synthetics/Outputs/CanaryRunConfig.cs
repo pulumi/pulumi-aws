@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Synthetics.Outputs
         /// <summary>
         /// Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
         /// </summary>
-        [Input("activeTracing")]
+        [PolicyResourceProperty("activeTracing", "_mUnknown_ActiveTracing")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mActiveTracing;
-
-        public bool? ActiveTracing => _mActiveTracing.GetValue("activeTracing");
+        private bool? _mValue_ActiveTracing;
+        private bool _mUnknown_ActiveTracing;
+        public bool? ActiveTracing
+        {
+            get
+            {
+                if (!_mUnknown_ActiveTracing) return _mValue_ActiveTracing;
+                throw new UndeferrableValueException("Value 'CanaryRunConfig.ActiveTracing' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
         /// </summary>
-        [Input("environmentVariables")]
+        [PolicyResourceProperty("environmentVariables", "_mUnknown_EnvironmentVariables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEnvironmentVariables;
-
-        public Dictionary<string, string>? EnvironmentVariables => _mEnvironmentVariables.GetValue("environmentVariables");
+        private Dictionary<string, string>? _mValue_EnvironmentVariables;
+        private bool _mUnknown_EnvironmentVariables;
+        public Dictionary<string, string>? EnvironmentVariables
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentVariables) return _mValue_EnvironmentVariables;
+                throw new UndeferrableValueException("Value 'CanaryRunConfig.EnvironmentVariables' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
         /// </summary>
-        [Input("memoryInMb")]
+        [PolicyResourceProperty("memoryInMb", "_mUnknown_MemoryInMb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMemoryInMb;
-
-        public int? MemoryInMb => _mMemoryInMb.GetValue("memoryInMb");
+        private int? _mValue_MemoryInMb;
+        private bool _mUnknown_MemoryInMb;
+        public int? MemoryInMb
+        {
+            get
+            {
+                if (!_mUnknown_MemoryInMb) return _mValue_MemoryInMb;
+                throw new UndeferrableValueException("Value 'CanaryRunConfig.MemoryInMb' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
         /// </summary>
-        [Input("timeoutInSeconds")]
+        [PolicyResourceProperty("timeoutInSeconds", "_mUnknown_TimeoutInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutInSeconds;
-
-        public int? TimeoutInSeconds => _mTimeoutInSeconds.GetValue("timeoutInSeconds");
+        private int? _mValue_TimeoutInSeconds;
+        private bool _mUnknown_TimeoutInSeconds;
+        public int? TimeoutInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutInSeconds) return _mValue_TimeoutInSeconds;
+                throw new UndeferrableValueException("Value 'CanaryRunConfig.TimeoutInSeconds' is not present");
+            }
+        }
     }
 }

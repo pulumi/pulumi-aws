@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks.Outputs
         /// <summary>
         /// Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'ApplicationAppSource.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// For sources that are version-aware, the revision to use.
         /// </summary>
-        [Input("revision")]
+        [PolicyResourceProperty("revision", "_mUnknown_Revision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevision;
-
-        public string? Revision => _mRevision.GetValue("revision");
+        private string? _mValue_Revision;
+        private bool _mUnknown_Revision;
+        public string? Revision
+        {
+            get
+            {
+                if (!_mUnknown_Revision) return _mValue_Revision;
+                throw new UndeferrableValueException("Value 'ApplicationAppSource.Revision' is not present");
+            }
+        }
 
         /// <summary>
         /// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
         /// </summary>
-        [Input("sshKey")]
+        [PolicyResourceProperty("sshKey", "_mUnknown_SshKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSshKey;
-
-        public string? SshKey => _mSshKey.GetValue("sshKey");
+        private string? _mValue_SshKey;
+        private bool _mUnknown_SshKey;
+        public string? SshKey
+        {
+            get
+            {
+                if (!_mUnknown_SshKey) return _mValue_SshKey;
+                throw new UndeferrableValueException("Value 'ApplicationAppSource.SshKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of source to use. For example, "archive".
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ApplicationAppSource.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL where the app resource can be found.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'ApplicationAppSource.Url' is not present");
+            }
+        }
 
         /// <summary>
         /// Username to use when authenticating to the source.
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'ApplicationAppSource.Username' is not present");
+            }
+        }
     }
 }

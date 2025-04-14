@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Outputs
         /// <summary>
         /// The name of the database.
         /// </summary>
-        [Input("database")]
+        [PolicyResourceProperty("database", "_mUnknown_Database")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabase;
-
-        public string? Database => _mDatabase.GetValue("database");
+        private string? _mValue_Database;
+        private bool _mUnknown_Database;
+        public string? Database
+        {
+            get
+            {
+                if (!_mUnknown_Database) return _mValue_Database;
+                throw new UndeferrableValueException("Value 'EventTargetRedshiftTarget.Database' is not present");
+            }
+        }
 
         /// <summary>
         /// The database user name.
         /// </summary>
-        [Input("dbUser")]
+        [PolicyResourceProperty("dbUser", "_mUnknown_DbUser")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbUser;
-
-        public string? DbUser => _mDbUser.GetValue("dbUser");
+        private string? _mValue_DbUser;
+        private bool _mUnknown_DbUser;
+        public string? DbUser
+        {
+            get
+            {
+                if (!_mUnknown_DbUser) return _mValue_DbUser;
+                throw new UndeferrableValueException("Value 'EventTargetRedshiftTarget.DbUser' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or ARN of the secret that enables access to the database.
         /// </summary>
-        [Input("secretsManagerArn")]
+        [PolicyResourceProperty("secretsManagerArn", "_mUnknown_SecretsManagerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretsManagerArn;
-
-        public string? SecretsManagerArn => _mSecretsManagerArn.GetValue("secretsManagerArn");
+        private string? _mValue_SecretsManagerArn;
+        private bool _mUnknown_SecretsManagerArn;
+        public string? SecretsManagerArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretsManagerArn) return _mValue_SecretsManagerArn;
+                throw new UndeferrableValueException("Value 'EventTargetRedshiftTarget.SecretsManagerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The SQL statement text to run.
         /// </summary>
-        [Input("sql")]
+        [PolicyResourceProperty("sql", "_mUnknown_Sql")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSql;
-
-        public string? Sql => _mSql.GetValue("sql");
+        private string? _mValue_Sql;
+        private bool _mUnknown_Sql;
+        public string? Sql
+        {
+            get
+            {
+                if (!_mUnknown_Sql) return _mValue_Sql;
+                throw new UndeferrableValueException("Value 'EventTargetRedshiftTarget.Sql' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the SQL statement.
         /// </summary>
-        [Input("statementName")]
+        [PolicyResourceProperty("statementName", "_mUnknown_StatementName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatementName;
-
-        public string? StatementName => _mStatementName.GetValue("statementName");
+        private string? _mValue_StatementName;
+        private bool _mUnknown_StatementName;
+        public string? StatementName
+        {
+            get
+            {
+                if (!_mUnknown_StatementName) return _mValue_StatementName;
+                throw new UndeferrableValueException("Value 'EventTargetRedshiftTarget.StatementName' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to send an event back to EventBridge after the SQL statement runs.
         /// </summary>
-        [Input("withEvent")]
+        [PolicyResourceProperty("withEvent", "_mUnknown_WithEvent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWithEvent;
-
-        public bool? WithEvent => _mWithEvent.GetValue("withEvent");
+        private bool? _mValue_WithEvent;
+        private bool _mUnknown_WithEvent;
+        public bool? WithEvent
+        {
+            get
+            {
+                if (!_mUnknown_WithEvent) return _mValue_WithEvent;
+                throw new UndeferrableValueException("Value 'EventTargetRedshiftTarget.WithEvent' is not present");
+            }
+        }
     }
 }

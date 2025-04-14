@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetRowLevelPermissionTagConfigurationTagRuleResult
     {
-        [Input("columnName")]
+        [PolicyResourceProperty("columnName", "_mUnknown_ColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColumnName;
+        private string? _mValue_ColumnName;
+        private bool _mUnknown_ColumnName;
+        public string? ColumnName
+        {
+            get
+            {
+                if (!_mUnknown_ColumnName) return _mValue_ColumnName;
+                throw new UndeferrableValueException("Value 'GetDataSetRowLevelPermissionTagConfigurationTagRuleResult.ColumnName' is not present");
+            }
+        }
 
-        public string? ColumnName => _mColumnName.GetValue("columnName");
-
-        [Input("matchAllValue")]
+        [PolicyResourceProperty("matchAllValue", "_mUnknown_MatchAllValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMatchAllValue;
+        private string? _mValue_MatchAllValue;
+        private bool _mUnknown_MatchAllValue;
+        public string? MatchAllValue
+        {
+            get
+            {
+                if (!_mUnknown_MatchAllValue) return _mValue_MatchAllValue;
+                throw new UndeferrableValueException("Value 'GetDataSetRowLevelPermissionTagConfigurationTagRuleResult.MatchAllValue' is not present");
+            }
+        }
 
-        public string? MatchAllValue => _mMatchAllValue.GetValue("matchAllValue");
-
-        [Input("tagKey")]
+        [PolicyResourceProperty("tagKey", "_mUnknown_TagKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTagKey;
+        private string? _mValue_TagKey;
+        private bool _mUnknown_TagKey;
+        public string? TagKey
+        {
+            get
+            {
+                if (!_mUnknown_TagKey) return _mValue_TagKey;
+                throw new UndeferrableValueException("Value 'GetDataSetRowLevelPermissionTagConfigurationTagRuleResult.TagKey' is not present");
+            }
+        }
 
-        public string? TagKey => _mTagKey.GetValue("tagKey");
-
-        [Input("tagMultiValueDelimiter")]
+        [PolicyResourceProperty("tagMultiValueDelimiter", "_mUnknown_TagMultiValueDelimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTagMultiValueDelimiter;
-
-        public string? TagMultiValueDelimiter => _mTagMultiValueDelimiter.GetValue("tagMultiValueDelimiter");
+        private string? _mValue_TagMultiValueDelimiter;
+        private bool _mUnknown_TagMultiValueDelimiter;
+        public string? TagMultiValueDelimiter
+        {
+            get
+            {
+                if (!_mUnknown_TagMultiValueDelimiter) return _mValue_TagMultiValueDelimiter;
+                throw new UndeferrableValueException("Value 'GetDataSetRowLevelPermissionTagConfigurationTagRuleResult.TagMultiValueDelimiter' is not present");
+            }
+        }
     }
 }

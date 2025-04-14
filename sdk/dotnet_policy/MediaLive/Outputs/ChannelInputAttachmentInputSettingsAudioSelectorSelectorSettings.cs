@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
         /// </summary>
-        [Input("audioHlsRenditionSelection")]
+        [PolicyResourceProperty("audioHlsRenditionSelection", "_mUnknown_AudioHlsRenditionSelection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection> _mAudioHlsRenditionSelection;
-
-        public Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection? AudioHlsRenditionSelection => _mAudioHlsRenditionSelection.GetValue("audioHlsRenditionSelection");
+        private Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection? _mValue_AudioHlsRenditionSelection;
+        private bool _mUnknown_AudioHlsRenditionSelection;
+        public Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection? AudioHlsRenditionSelection
+        {
+            get
+            {
+                if (!_mUnknown_AudioHlsRenditionSelection) return _mValue_AudioHlsRenditionSelection;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings.AudioHlsRenditionSelection' is not present");
+            }
+        }
 
         /// <summary>
         /// Audio Language Selection. See Audio Language Selection for more details.
         /// </summary>
-        [Input("audioLanguageSelection")]
+        [PolicyResourceProperty("audioLanguageSelection", "_mUnknown_AudioLanguageSelection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection> _mAudioLanguageSelection;
-
-        public Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection? AudioLanguageSelection => _mAudioLanguageSelection.GetValue("audioLanguageSelection");
+        private Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection? _mValue_AudioLanguageSelection;
+        private bool _mUnknown_AudioLanguageSelection;
+        public Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection? AudioLanguageSelection
+        {
+            get
+            {
+                if (!_mUnknown_AudioLanguageSelection) return _mValue_AudioLanguageSelection;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings.AudioLanguageSelection' is not present");
+            }
+        }
 
         /// <summary>
         /// Audio Pid Selection. See Audio PID Selection for more details.
         /// </summary>
-        [Input("audioPidSelection")]
+        [PolicyResourceProperty("audioPidSelection", "_mUnknown_AudioPidSelection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection> _mAudioPidSelection;
-
-        public Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection? AudioPidSelection => _mAudioPidSelection.GetValue("audioPidSelection");
+        private Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection? _mValue_AudioPidSelection;
+        private bool _mUnknown_AudioPidSelection;
+        public Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection? AudioPidSelection
+        {
+            get
+            {
+                if (!_mUnknown_AudioPidSelection) return _mValue_AudioPidSelection;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings.AudioPidSelection' is not present");
+            }
+        }
 
         /// <summary>
         /// Audio Track Selection. See Audio Track Selection for more details.
         /// </summary>
-        [Input("audioTrackSelection")]
+        [PolicyResourceProperty("audioTrackSelection", "_mUnknown_AudioTrackSelection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection> _mAudioTrackSelection;
-
-        public Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection? AudioTrackSelection => _mAudioTrackSelection.GetValue("audioTrackSelection");
+        private Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection? _mValue_AudioTrackSelection;
+        private bool _mUnknown_AudioTrackSelection;
+        public Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection? AudioTrackSelection
+        {
+            get
+            {
+                if (!_mUnknown_AudioTrackSelection) return _mValue_AudioTrackSelection;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings.AudioTrackSelection' is not present");
+            }
+        }
     }
 }

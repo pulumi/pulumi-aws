@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.BcmData.Outputs
         /// <summary>
         /// Data query for this specific data export. See the `data_query` argument reference below.
         /// </summary>
-        [Input("dataQueries")]
+        [PolicyResourceProperty("dataQueries", "_mUnknown_DataQueries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ExportExportDataQuery>> _mDataQueries;
-
-        public List<Outputs.ExportExportDataQuery>? DataQueries => _mDataQueries.GetValue("dataQueries");
+        private List<Outputs.ExportExportDataQuery>? _mValue_DataQueries;
+        private bool _mUnknown_DataQueries;
+        public List<Outputs.ExportExportDataQuery>? DataQueries
+        {
+            get
+            {
+                if (!_mUnknown_DataQueries) return _mValue_DataQueries;
+                throw new UndeferrableValueException("Value 'ExportExport.DataQueries' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for this specific data export.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ExportExport.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination configuration for this specific data export. See the `destination_configurations` argument reference below.
         /// </summary>
-        [Input("destinationConfigurations")]
+        [PolicyResourceProperty("destinationConfigurations", "_mUnknown_DestinationConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ExportExportDestinationConfiguration>> _mDestinationConfigurations;
-
-        public List<Outputs.ExportExportDestinationConfiguration>? DestinationConfigurations => _mDestinationConfigurations.GetValue("destinationConfigurations");
+        private List<Outputs.ExportExportDestinationConfiguration>? _mValue_DestinationConfigurations;
+        private bool _mUnknown_DestinationConfigurations;
+        public List<Outputs.ExportExportDestinationConfiguration>? DestinationConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_DestinationConfigurations) return _mValue_DestinationConfigurations;
+                throw new UndeferrableValueException("Value 'ExportExport.DestinationConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) for this export.
         /// </summary>
-        [Input("exportArn")]
+        [PolicyResourceProperty("exportArn", "_mUnknown_ExportArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExportArn;
-
-        public string? ExportArn => _mExportArn.GetValue("exportArn");
+        private string? _mValue_ExportArn;
+        private bool _mUnknown_ExportArn;
+        public string? ExportArn
+        {
+            get
+            {
+                if (!_mUnknown_ExportArn) return _mValue_ExportArn;
+                throw new UndeferrableValueException("Value 'ExportExport.ExportArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of this specific data export.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ExportExport.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refresh_cadence` argument reference below.
         /// </summary>
-        [Input("refreshCadences")]
+        [PolicyResourceProperty("refreshCadences", "_mUnknown_RefreshCadences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ExportExportRefreshCadence>> _mRefreshCadences;
-
-        public List<Outputs.ExportExportRefreshCadence>? RefreshCadences => _mRefreshCadences.GetValue("refreshCadences");
+        private List<Outputs.ExportExportRefreshCadence>? _mValue_RefreshCadences;
+        private bool _mUnknown_RefreshCadences;
+        public List<Outputs.ExportExportRefreshCadence>? RefreshCadences
+        {
+            get
+            {
+                if (!_mUnknown_RefreshCadences) return _mValue_RefreshCadences;
+                throw new UndeferrableValueException("Value 'ExportExport.RefreshCadences' is not present");
+            }
+        }
     }
 }

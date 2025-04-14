@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// Enables or disables the Secrets Manager configuration.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the role the stream assumes.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
         /// </summary>
-        [Input("secretArn")]
+        [PolicyResourceProperty("secretArn", "_mUnknown_SecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
-
-        public string? SecretArn => _mSecretArn.GetValue("secretArn");
+        private string? _mValue_SecretArn;
+        private bool _mUnknown_SecretArn;
+        public string? SecretArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretArn) return _mValue_SecretArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration.SecretArn' is not present");
+            }
+        }
     }
 }

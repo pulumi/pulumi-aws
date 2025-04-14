@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CodeRepository.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Code Repository (must be unique).
         /// </summary>
-        [Input("codeRepositoryName")]
+        [PolicyResourceProperty("codeRepositoryName", "_mUnknown_CodeRepositoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodeRepositoryName;
-
-        public string? CodeRepositoryName => _mCodeRepositoryName.GetValue("codeRepositoryName");
+        private string? _mValue_CodeRepositoryName;
+        private bool _mUnknown_CodeRepositoryName;
+        public string? CodeRepositoryName
+        {
+            get
+            {
+                if (!_mUnknown_CodeRepositoryName) return _mValue_CodeRepositoryName;
+                throw new UndeferrableValueException("Value 'CodeRepository.CodeRepositoryName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies details about the repository. see Git Config details below.
         /// </summary>
-        [Input("gitConfig")]
+        [PolicyResourceProperty("gitConfig", "_mUnknown_GitConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CodeRepositoryGitConfig> _mGitConfig;
-
-        public Outputs.CodeRepositoryGitConfig? GitConfig => _mGitConfig.GetValue("gitConfig");
+        private Outputs.CodeRepositoryGitConfig? _mValue_GitConfig;
+        private bool _mUnknown_GitConfig;
+        public Outputs.CodeRepositoryGitConfig? GitConfig
+        {
+            get
+            {
+                if (!_mUnknown_GitConfig) return _mValue_GitConfig;
+                throw new UndeferrableValueException("Value 'CodeRepository.GitConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CodeRepository.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'CodeRepository.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/codeRepository:CodeRepository")]
@@ -65,28 +100,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The name of the Code Repository (must be unique).
         /// </summary>
-        [Input("codeRepositoryName")]
+        [PolicyResourceProperty("codeRepositoryName", "_mUnknown_CodeRepositoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodeRepositoryName;
-
-        public string? CodeRepositoryName => _mCodeRepositoryName.GetValue("codeRepositoryName");
+        private string? _mValue_CodeRepositoryName;
+        private bool _mUnknown_CodeRepositoryName;
+        public string? CodeRepositoryName
+        {
+            get
+            {
+                if (!_mUnknown_CodeRepositoryName) return _mValue_CodeRepositoryName;
+                throw new UndeferrableValueException("Value 'CodeRepositoryArgs.CodeRepositoryName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies details about the repository. see Git Config details below.
         /// </summary>
-        [Input("gitConfig")]
+        [PolicyResourceProperty("gitConfig", "_mUnknown_GitConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CodeRepositoryGitConfigArgs> _mGitConfig;
-
-        public Inputs.CodeRepositoryGitConfigArgs? GitConfig => _mGitConfig.GetValue("gitConfig");
+        private Inputs.CodeRepositoryGitConfigArgs? _mValue_GitConfig;
+        private bool _mUnknown_GitConfig;
+        public Inputs.CodeRepositoryGitConfigArgs? GitConfig
+        {
+            get
+            {
+                if (!_mUnknown_GitConfig) return _mValue_GitConfig;
+                throw new UndeferrableValueException("Value 'CodeRepositoryArgs.GitConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CodeRepositoryArgs.Tags' is not present");
+            }
+        }
     }
 }

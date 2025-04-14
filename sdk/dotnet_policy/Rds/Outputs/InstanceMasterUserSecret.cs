@@ -16,28 +16,49 @@ namespace Pulumi.PolicyPacks.Aws.Rds.Outputs
         /// The ARN for the KMS encryption key. If creating an
         /// encrypted replica, set this to the destination KMS ARN.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'InstanceMasterUserSecret.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the secret.
         /// </summary>
-        [Input("secretArn")]
+        [PolicyResourceProperty("secretArn", "_mUnknown_SecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
-
-        public string? SecretArn => _mSecretArn.GetValue("secretArn");
+        private string? _mValue_SecretArn;
+        private bool _mUnknown_SecretArn;
+        public string? SecretArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretArn) return _mValue_SecretArn;
+                throw new UndeferrableValueException("Value 'InstanceMasterUserSecret.SecretArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
         /// </summary>
-        [Input("secretStatus")]
+        [PolicyResourceProperty("secretStatus", "_mUnknown_SecretStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretStatus;
-
-        public string? SecretStatus => _mSecretStatus.GetValue("secretStatus");
+        private string? _mValue_SecretStatus;
+        private bool _mUnknown_SecretStatus;
+        public string? SecretStatus
+        {
+            get
+            {
+                if (!_mUnknown_SecretStatus) return _mValue_SecretStatus;
+                throw new UndeferrableValueException("Value 'InstanceMasterUserSecret.SecretStatus' is not present");
+            }
+        }
     }
 }

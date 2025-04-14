@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Inputs
         /// <summary>
         /// (Required) The day of the week when the shift coverage occurs.
         /// </summary>
-        [Input("dayOfWeek")]
+        [PolicyResourceProperty("dayOfWeek", "_mUnknown_DayOfWeek")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDayOfWeek;
-
-        public string? DayOfWeek => _mDayOfWeek.GetValue("dayOfWeek");
+        private string? _mValue_DayOfWeek;
+        private bool _mUnknown_DayOfWeek;
+        public string? DayOfWeek
+        {
+            get
+            {
+                if (!_mUnknown_DayOfWeek) return _mValue_DayOfWeek;
+                throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceWeeklySettingArgs.DayOfWeek' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required) The hand off time. See Hand Off Time for more details.
         /// </summary>
-        [Input("handOffTime")]
+        [PolicyResourceProperty("handOffTime", "_mUnknown_HandOffTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs> _mHandOffTime;
-
-        public Inputs.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs? HandOffTime => _mHandOffTime.GetValue("handOffTime");
+        private Inputs.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs? _mValue_HandOffTime;
+        private bool _mUnknown_HandOffTime;
+        public Inputs.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs? HandOffTime
+        {
+            get
+            {
+                if (!_mUnknown_HandOffTime) return _mValue_HandOffTime;
+                throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceWeeklySettingArgs.HandOffTime' is not present");
+            }
+        }
     }
 }

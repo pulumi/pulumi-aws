@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleActionArgs> _mAction;
-
-        public Inputs.RuleGroupRuleActionArgs? Action => _mAction.GetValue("action");
+        private Inputs.RuleGroupRuleActionArgs? _mValue_Action;
+        private bool _mUnknown_Action;
+        public Inputs.RuleGroupRuleActionArgs? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleArgs.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
         /// </summary>
-        [Input("captchaConfig")]
+        [PolicyResourceProperty("captchaConfig", "_mUnknown_CaptchaConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleCaptchaConfigArgs> _mCaptchaConfig;
-
-        public Inputs.RuleGroupRuleCaptchaConfigArgs? CaptchaConfig => _mCaptchaConfig.GetValue("captchaConfig");
+        private Inputs.RuleGroupRuleCaptchaConfigArgs? _mValue_CaptchaConfig;
+        private bool _mUnknown_CaptchaConfig;
+        public Inputs.RuleGroupRuleCaptchaConfigArgs? CaptchaConfig
+        {
+            get
+            {
+                if (!_mUnknown_CaptchaConfig) return _mValue_CaptchaConfig;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleArgs.CaptchaConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly name of the rule.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleArgs.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
         /// </summary>
-        [Input("ruleLabels")]
+        [PolicyResourceProperty("ruleLabels", "_mUnknown_RuleLabels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleGroupRuleRuleLabelArgs>> _mRuleLabels;
-
-        public List<Inputs.RuleGroupRuleRuleLabelArgs>? RuleLabels => _mRuleLabels.GetValue("ruleLabels");
+        private List<Inputs.RuleGroupRuleRuleLabelArgs>? _mValue_RuleLabels;
+        private bool _mUnknown_RuleLabels;
+        public List<Inputs.RuleGroupRuleRuleLabelArgs>? RuleLabels
+        {
+            get
+            {
+                if (!_mUnknown_RuleLabels) return _mValue_RuleLabels;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleArgs.RuleLabels' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
         /// </summary>
-        [Input("statement")]
+        [PolicyResourceProperty("statement", "_mUnknown_Statement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementArgs> _mStatement;
-
-        public Inputs.RuleGroupRuleStatementArgs? Statement => _mStatement.GetValue("statement");
+        private Inputs.RuleGroupRuleStatementArgs? _mValue_Statement;
+        private bool _mUnknown_Statement;
+        public Inputs.RuleGroupRuleStatementArgs? Statement
+        {
+            get
+            {
+                if (!_mUnknown_Statement) return _mValue_Statement;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleArgs.Statement' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
         /// </summary>
-        [Input("visibilityConfig")]
+        [PolicyResourceProperty("visibilityConfig", "_mUnknown_VisibilityConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleVisibilityConfigArgs> _mVisibilityConfig;
-
-        public Inputs.RuleGroupRuleVisibilityConfigArgs? VisibilityConfig => _mVisibilityConfig.GetValue("visibilityConfig");
+        private Inputs.RuleGroupRuleVisibilityConfigArgs? _mValue_VisibilityConfig;
+        private bool _mUnknown_VisibilityConfig;
+        public Inputs.RuleGroupRuleVisibilityConfigArgs? VisibilityConfig
+        {
+            get
+            {
+                if (!_mUnknown_VisibilityConfig) return _mValue_VisibilityConfig;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleArgs.VisibilityConfig' is not present");
+            }
+        }
     }
 }

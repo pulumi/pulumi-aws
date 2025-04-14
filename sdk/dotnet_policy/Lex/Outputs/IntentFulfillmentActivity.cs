@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// A description of the Lambda function that is run to fulfill the intent.
         /// Required if type is CodeHook. Attributes are documented under code_hook.
         /// </summary>
-        [Input("codeHook")]
+        [PolicyResourceProperty("codeHook", "_mUnknown_CodeHook")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IntentFulfillmentActivityCodeHook> _mCodeHook;
-
-        public Outputs.IntentFulfillmentActivityCodeHook? CodeHook => _mCodeHook.GetValue("codeHook");
+        private Outputs.IntentFulfillmentActivityCodeHook? _mValue_CodeHook;
+        private bool _mUnknown_CodeHook;
+        public Outputs.IntentFulfillmentActivityCodeHook? CodeHook
+        {
+            get
+            {
+                if (!_mUnknown_CodeHook) return _mValue_CodeHook;
+                throw new UndeferrableValueException("Value 'IntentFulfillmentActivity.CodeHook' is not present");
+            }
+        }
 
         /// <summary>
         /// How the intent should be fulfilled, either by running a Lambda function or by
         /// returning the slot data to the client application. Type can be either `ReturnIntent` or `CodeHook`, as documented [here](https://docs.aws.amazon.com/lex/latest/dg/API_FulfillmentActivity.html).
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'IntentFulfillmentActivity.Type' is not present");
+            }
+        }
     }
 }

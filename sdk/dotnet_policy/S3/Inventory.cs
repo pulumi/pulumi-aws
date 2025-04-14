@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the source bucket that inventory lists the objects for.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'Inventory.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains information about where to publish the inventory results (documented below).
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InventoryDestination> _mDestination;
-
-        public Outputs.InventoryDestination? Destination => _mDestination.GetValue("destination");
+        private Outputs.InventoryDestination? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public Outputs.InventoryDestination? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'Inventory.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the inventory is enabled or disabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'Inventory.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
         /// </summary>
-        [Input("filter")]
+        [PolicyResourceProperty("filter", "_mUnknown_Filter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InventoryFilter> _mFilter;
-
-        public Outputs.InventoryFilter? Filter => _mFilter.GetValue("filter");
+        private Outputs.InventoryFilter? _mValue_Filter;
+        private bool _mUnknown_Filter;
+        public Outputs.InventoryFilter? Filter
+        {
+            get
+            {
+                if (!_mUnknown_Filter) return _mValue_Filter;
+                throw new UndeferrableValueException("Value 'Inventory.Filter' is not present");
+            }
+        }
 
         /// <summary>
         /// Object versions to include in the inventory list. Valid values: `All`, `Current`.
         /// </summary>
-        [Input("includedObjectVersions")]
+        [PolicyResourceProperty("includedObjectVersions", "_mUnknown_IncludedObjectVersions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIncludedObjectVersions;
-
-        public string? IncludedObjectVersions => _mIncludedObjectVersions.GetValue("includedObjectVersions");
+        private string? _mValue_IncludedObjectVersions;
+        private bool _mUnknown_IncludedObjectVersions;
+        public string? IncludedObjectVersions
+        {
+            get
+            {
+                if (!_mUnknown_IncludedObjectVersions) return _mValue_IncludedObjectVersions;
+                throw new UndeferrableValueException("Value 'Inventory.IncludedObjectVersions' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of the inventory configuration for the bucket.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Inventory.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         /// </summary>
-        [Input("optionalFields")]
+        [PolicyResourceProperty("optionalFields", "_mUnknown_OptionalFields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOptionalFields;
-
-        public List<string>? OptionalFields => _mOptionalFields.GetValue("optionalFields");
+        private List<string>? _mValue_OptionalFields;
+        private bool _mUnknown_OptionalFields;
+        public List<string>? OptionalFields
+        {
+            get
+            {
+                if (!_mUnknown_OptionalFields) return _mValue_OptionalFields;
+                throw new UndeferrableValueException("Value 'Inventory.OptionalFields' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the schedule for generating inventory results (documented below).
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InventorySchedule> _mSchedule;
-
-        public Outputs.InventorySchedule? Schedule => _mSchedule.GetValue("schedule");
+        private Outputs.InventorySchedule? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public Outputs.InventorySchedule? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'Inventory.Schedule' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/inventory:Inventory")]
@@ -92,73 +148,129 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the source bucket that inventory lists the objects for.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'InventoryArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains information about where to publish the inventory results (documented below).
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InventoryDestinationArgs> _mDestination;
-
-        public Inputs.InventoryDestinationArgs? Destination => _mDestination.GetValue("destination");
+        private Inputs.InventoryDestinationArgs? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public Inputs.InventoryDestinationArgs? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'InventoryArgs.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the inventory is enabled or disabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'InventoryArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
         /// </summary>
-        [Input("filter")]
+        [PolicyResourceProperty("filter", "_mUnknown_Filter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InventoryFilterArgs> _mFilter;
-
-        public Inputs.InventoryFilterArgs? Filter => _mFilter.GetValue("filter");
+        private Inputs.InventoryFilterArgs? _mValue_Filter;
+        private bool _mUnknown_Filter;
+        public Inputs.InventoryFilterArgs? Filter
+        {
+            get
+            {
+                if (!_mUnknown_Filter) return _mValue_Filter;
+                throw new UndeferrableValueException("Value 'InventoryArgs.Filter' is not present");
+            }
+        }
 
         /// <summary>
         /// Object versions to include in the inventory list. Valid values: `All`, `Current`.
         /// </summary>
-        [Input("includedObjectVersions")]
+        [PolicyResourceProperty("includedObjectVersions", "_mUnknown_IncludedObjectVersions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIncludedObjectVersions;
-
-        public string? IncludedObjectVersions => _mIncludedObjectVersions.GetValue("includedObjectVersions");
+        private string? _mValue_IncludedObjectVersions;
+        private bool _mUnknown_IncludedObjectVersions;
+        public string? IncludedObjectVersions
+        {
+            get
+            {
+                if (!_mUnknown_IncludedObjectVersions) return _mValue_IncludedObjectVersions;
+                throw new UndeferrableValueException("Value 'InventoryArgs.IncludedObjectVersions' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of the inventory configuration for the bucket.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'InventoryArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         /// </summary>
-        [Input("optionalFields")]
+        [PolicyResourceProperty("optionalFields", "_mUnknown_OptionalFields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOptionalFields;
-
-        public List<string>? OptionalFields => _mOptionalFields.GetValue("optionalFields");
+        private List<string>? _mValue_OptionalFields;
+        private bool _mUnknown_OptionalFields;
+        public List<string>? OptionalFields
+        {
+            get
+            {
+                if (!_mUnknown_OptionalFields) return _mValue_OptionalFields;
+                throw new UndeferrableValueException("Value 'InventoryArgs.OptionalFields' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the schedule for generating inventory results (documented below).
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InventoryScheduleArgs> _mSchedule;
-
-        public Inputs.InventoryScheduleArgs? Schedule => _mSchedule.GetValue("schedule");
+        private Inputs.InventoryScheduleArgs? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public Inputs.InventoryScheduleArgs? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'InventoryArgs.Schedule' is not present");
+            }
+        }
     }
 }

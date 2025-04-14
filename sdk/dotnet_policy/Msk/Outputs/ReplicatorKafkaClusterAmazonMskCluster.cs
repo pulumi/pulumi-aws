@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
         /// <summary>
         /// The ARN of an Amazon MSK cluster.
         /// </summary>
-        [Input("mskClusterArn")]
+        [PolicyResourceProperty("mskClusterArn", "_mUnknown_MskClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMskClusterArn;
-
-        public string? MskClusterArn => _mMskClusterArn.GetValue("mskClusterArn");
+        private string? _mValue_MskClusterArn;
+        private bool _mUnknown_MskClusterArn;
+        public string? MskClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_MskClusterArn) return _mValue_MskClusterArn;
+                throw new UndeferrableValueException("Value 'ReplicatorKafkaClusterAmazonMskCluster.MskClusterArn' is not present");
+            }
+        }
     }
 }

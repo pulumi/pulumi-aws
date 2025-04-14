@@ -15,25 +15,46 @@ namespace Pulumi.PolicyPacks.Aws.ComputeOptimizer.Outputs
         /// <summary>
         /// The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
         /// </summary>
-        [Input("excludeLists")]
+        [PolicyResourceProperty("excludeLists", "_mUnknown_ExcludeLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludeLists;
-
-        public List<string>? ExcludeLists => _mExcludeLists.GetValue("excludeLists");
+        private List<string>? _mValue_ExcludeLists;
+        private bool _mUnknown_ExcludeLists;
+        public List<string>? ExcludeLists
+        {
+            get
+            {
+                if (!_mUnknown_ExcludeLists) return _mValue_ExcludeLists;
+                throw new UndeferrableValueException("Value 'RecommendationPreferencesPreferredResource.ExcludeLists' is not present");
+            }
+        }
 
         /// <summary>
         /// The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `"m5.large"`, or use wild card expressions, such as `"m5"`. If this isn’t specified, all supported resources are included by default.
         /// </summary>
-        [Input("includeLists")]
+        [PolicyResourceProperty("includeLists", "_mUnknown_IncludeLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIncludeLists;
+        private List<string>? _mValue_IncludeLists;
+        private bool _mUnknown_IncludeLists;
+        public List<string>? IncludeLists
+        {
+            get
+            {
+                if (!_mUnknown_IncludeLists) return _mValue_IncludeLists;
+                throw new UndeferrableValueException("Value 'RecommendationPreferencesPreferredResource.IncludeLists' is not present");
+            }
+        }
 
-        public List<string>? IncludeLists => _mIncludeLists.GetValue("includeLists");
-
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RecommendationPreferencesPreferredResource.Name' is not present");
+            }
+        }
     }
 }

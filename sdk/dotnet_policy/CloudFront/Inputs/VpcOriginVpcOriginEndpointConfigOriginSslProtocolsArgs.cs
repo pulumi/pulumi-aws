@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
 {
     public sealed class VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs
     {
-        [Input("items")]
+        [PolicyResourceProperty("items", "_mUnknown_Items")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mItems;
+        private List<string>? _mValue_Items;
+        private bool _mUnknown_Items;
+        public List<string>? Items
+        {
+            get
+            {
+                if (!_mUnknown_Items) return _mValue_Items;
+                throw new UndeferrableValueException("Value 'VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs.Items' is not present");
+            }
+        }
 
-        public List<string>? Items => _mItems.GetValue("items");
-
-        [Input("quantity")]
+        [PolicyResourceProperty("quantity", "_mUnknown_Quantity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mQuantity;
-
-        public int? Quantity => _mQuantity.GetValue("quantity");
+        private int? _mValue_Quantity;
+        private bool _mUnknown_Quantity;
+        public int? Quantity
+        {
+            get
+            {
+                if (!_mUnknown_Quantity) return _mValue_Quantity;
+                throw new UndeferrableValueException("Value 'VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs.Quantity' is not present");
+            }
+        }
     }
 }

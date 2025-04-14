@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Inputs
         /// <summary>
         /// Optional description of the network function group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentNetworkFunctionGroupInputArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// This identifies the network function group container.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentNetworkFunctionGroupInputArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// This will be either `true`, that attachment acceptance is required, or `false`, that it is not required.
         /// </summary>
-        [Input("requireAttachmentAcceptance")]
+        [PolicyResourceProperty("requireAttachmentAcceptance", "_mUnknown_RequireAttachmentAcceptance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireAttachmentAcceptance;
-
-        public bool? RequireAttachmentAcceptance => _mRequireAttachmentAcceptance.GetValue("requireAttachmentAcceptance");
+        private bool? _mValue_RequireAttachmentAcceptance;
+        private bool _mUnknown_RequireAttachmentAcceptance;
+        public bool? RequireAttachmentAcceptance
+        {
+            get
+            {
+                if (!_mUnknown_RequireAttachmentAcceptance) return _mValue_RequireAttachmentAcceptance;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentNetworkFunctionGroupInputArgs.RequireAttachmentAcceptance' is not present");
+            }
+        }
     }
 }

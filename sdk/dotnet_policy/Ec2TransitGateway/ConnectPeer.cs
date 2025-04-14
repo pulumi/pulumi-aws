@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// EC2 Transit Gateway Connect Peer ARN
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ConnectPeer.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
         /// </summary>
-        [Input("bgpAsn")]
+        [PolicyResourceProperty("bgpAsn", "_mUnknown_BgpAsn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAsn;
-
-        public string? BgpAsn => _mBgpAsn.GetValue("bgpAsn");
+        private string? _mValue_BgpAsn;
+        private bool _mUnknown_BgpAsn;
+        public string? BgpAsn
+        {
+            get
+            {
+                if (!_mUnknown_BgpAsn) return _mValue_BgpAsn;
+                throw new UndeferrableValueException("Value 'ConnectPeer.BgpAsn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address assigned to customer device, which is used as BGP IP address.
         /// </summary>
-        [Input("bgpPeerAddress")]
+        [PolicyResourceProperty("bgpPeerAddress", "_mUnknown_BgpPeerAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBgpPeerAddress;
-
-        public string? BgpPeerAddress => _mBgpPeerAddress.GetValue("bgpPeerAddress");
+        private string? _mValue_BgpPeerAddress;
+        private bool _mUnknown_BgpPeerAddress;
+        public string? BgpPeerAddress
+        {
+            get
+            {
+                if (!_mUnknown_BgpPeerAddress) return _mValue_BgpPeerAddress;
+                throw new UndeferrableValueException("Value 'ConnectPeer.BgpPeerAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
         /// </summary>
-        [Input("bgpTransitGatewayAddresses")]
+        [PolicyResourceProperty("bgpTransitGatewayAddresses", "_mUnknown_BgpTransitGatewayAddresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mBgpTransitGatewayAddresses;
-
-        public List<string>? BgpTransitGatewayAddresses => _mBgpTransitGatewayAddresses.GetValue("bgpTransitGatewayAddresses");
+        private List<string>? _mValue_BgpTransitGatewayAddresses;
+        private bool _mUnknown_BgpTransitGatewayAddresses;
+        public List<string>? BgpTransitGatewayAddresses
+        {
+            get
+            {
+                if (!_mUnknown_BgpTransitGatewayAddresses) return _mValue_BgpTransitGatewayAddresses;
+                throw new UndeferrableValueException("Value 'ConnectPeer.BgpTransitGatewayAddresses' is not present");
+            }
+        }
 
         /// <summary>
         /// The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
         /// </summary>
-        [Input("insideCidrBlocks")]
+        [PolicyResourceProperty("insideCidrBlocks", "_mUnknown_InsideCidrBlocks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInsideCidrBlocks;
-
-        public List<string>? InsideCidrBlocks => _mInsideCidrBlocks.GetValue("insideCidrBlocks");
+        private List<string>? _mValue_InsideCidrBlocks;
+        private bool _mUnknown_InsideCidrBlocks;
+        public List<string>? InsideCidrBlocks
+        {
+            get
+            {
+                if (!_mUnknown_InsideCidrBlocks) return _mValue_InsideCidrBlocks;
+                throw new UndeferrableValueException("Value 'ConnectPeer.InsideCidrBlocks' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transit_gateway_address`
         /// </summary>
-        [Input("peerAddress")]
+        [PolicyResourceProperty("peerAddress", "_mUnknown_PeerAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeerAddress;
-
-        public string? PeerAddress => _mPeerAddress.GetValue("peerAddress");
+        private string? _mValue_PeerAddress;
+        private bool _mUnknown_PeerAddress;
+        public string? PeerAddress
+        {
+            get
+            {
+                if (!_mUnknown_PeerAddress) return _mValue_PeerAddress;
+                throw new UndeferrableValueException("Value 'ConnectPeer.PeerAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ConnectPeer.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ConnectPeer.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peer_address`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
         /// </summary>
-        [Input("transitGatewayAddress")]
+        [PolicyResourceProperty("transitGatewayAddress", "_mUnknown_TransitGatewayAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAddress;
-
-        public string? TransitGatewayAddress => _mTransitGatewayAddress.GetValue("transitGatewayAddress");
+        private string? _mValue_TransitGatewayAddress;
+        private bool _mUnknown_TransitGatewayAddress;
+        public string? TransitGatewayAddress
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayAddress) return _mValue_TransitGatewayAddress;
+                throw new UndeferrableValueException("Value 'ConnectPeer.TransitGatewayAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The Transit Gateway Connect
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
+        [PolicyResourceProperty("transitGatewayAttachmentId", "_mUnknown_TransitGatewayAttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
-
-        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+        private string? _mValue_TransitGatewayAttachmentId;
+        private bool _mUnknown_TransitGatewayAttachmentId;
+        public string? TransitGatewayAttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayAttachmentId) return _mValue_TransitGatewayAttachmentId;
+                throw new UndeferrableValueException("Value 'ConnectPeer.TransitGatewayAttachmentId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2transitgateway/connectPeer:ConnectPeer")]
@@ -110,55 +180,97 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
         /// </summary>
-        [Input("bgpAsn")]
+        [PolicyResourceProperty("bgpAsn", "_mUnknown_BgpAsn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAsn;
-
-        public string? BgpAsn => _mBgpAsn.GetValue("bgpAsn");
+        private string? _mValue_BgpAsn;
+        private bool _mUnknown_BgpAsn;
+        public string? BgpAsn
+        {
+            get
+            {
+                if (!_mUnknown_BgpAsn) return _mValue_BgpAsn;
+                throw new UndeferrableValueException("Value 'ConnectPeerArgs.BgpAsn' is not present");
+            }
+        }
 
         /// <summary>
         /// The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
         /// </summary>
-        [Input("insideCidrBlocks")]
+        [PolicyResourceProperty("insideCidrBlocks", "_mUnknown_InsideCidrBlocks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInsideCidrBlocks;
-
-        public List<string>? InsideCidrBlocks => _mInsideCidrBlocks.GetValue("insideCidrBlocks");
+        private List<string>? _mValue_InsideCidrBlocks;
+        private bool _mUnknown_InsideCidrBlocks;
+        public List<string>? InsideCidrBlocks
+        {
+            get
+            {
+                if (!_mUnknown_InsideCidrBlocks) return _mValue_InsideCidrBlocks;
+                throw new UndeferrableValueException("Value 'ConnectPeerArgs.InsideCidrBlocks' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transit_gateway_address`
         /// </summary>
-        [Input("peerAddress")]
+        [PolicyResourceProperty("peerAddress", "_mUnknown_PeerAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeerAddress;
-
-        public string? PeerAddress => _mPeerAddress.GetValue("peerAddress");
+        private string? _mValue_PeerAddress;
+        private bool _mUnknown_PeerAddress;
+        public string? PeerAddress
+        {
+            get
+            {
+                if (!_mUnknown_PeerAddress) return _mValue_PeerAddress;
+                throw new UndeferrableValueException("Value 'ConnectPeerArgs.PeerAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ConnectPeerArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peer_address`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
         /// </summary>
-        [Input("transitGatewayAddress")]
+        [PolicyResourceProperty("transitGatewayAddress", "_mUnknown_TransitGatewayAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAddress;
-
-        public string? TransitGatewayAddress => _mTransitGatewayAddress.GetValue("transitGatewayAddress");
+        private string? _mValue_TransitGatewayAddress;
+        private bool _mUnknown_TransitGatewayAddress;
+        public string? TransitGatewayAddress
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayAddress) return _mValue_TransitGatewayAddress;
+                throw new UndeferrableValueException("Value 'ConnectPeerArgs.TransitGatewayAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The Transit Gateway Connect
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
+        [PolicyResourceProperty("transitGatewayAttachmentId", "_mUnknown_TransitGatewayAttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
-
-        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+        private string? _mValue_TransitGatewayAttachmentId;
+        private bool _mUnknown_TransitGatewayAttachmentId;
+        public string? TransitGatewayAttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayAttachmentId) return _mValue_TransitGatewayAttachmentId;
+                throw new UndeferrableValueException("Value 'ConnectPeerArgs.TransitGatewayAttachmentId' is not present");
+            }
+        }
     }
 }

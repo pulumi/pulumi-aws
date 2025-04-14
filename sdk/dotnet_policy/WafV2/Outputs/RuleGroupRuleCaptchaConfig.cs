@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// Defines custom immunity time. See Immunity Time Property below for details.
         /// </summary>
-        [Input("immunityTimeProperty")]
+        [PolicyResourceProperty("immunityTimeProperty", "_mUnknown_ImmunityTimeProperty")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleCaptchaConfigImmunityTimeProperty> _mImmunityTimeProperty;
-
-        public Outputs.RuleGroupRuleCaptchaConfigImmunityTimeProperty? ImmunityTimeProperty => _mImmunityTimeProperty.GetValue("immunityTimeProperty");
+        private Outputs.RuleGroupRuleCaptchaConfigImmunityTimeProperty? _mValue_ImmunityTimeProperty;
+        private bool _mUnknown_ImmunityTimeProperty;
+        public Outputs.RuleGroupRuleCaptchaConfigImmunityTimeProperty? ImmunityTimeProperty
+        {
+            get
+            {
+                if (!_mUnknown_ImmunityTimeProperty) return _mValue_ImmunityTimeProperty;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleCaptchaConfig.ImmunityTimeProperty' is not present");
+            }
+        }
     }
 }

@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The ARN of the Lightsail static IP
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'StaticIp.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The allocated static IP address
         /// </summary>
-        [Input("ipAddress")]
+        [PolicyResourceProperty("ipAddress", "_mUnknown_IpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
-
-        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
+        private string? _mValue_IpAddress;
+        private bool _mUnknown_IpAddress;
+        public string? IpAddress
+        {
+            get
+            {
+                if (!_mUnknown_IpAddress) return _mValue_IpAddress;
+                throw new UndeferrableValueException("Value 'StaticIp.IpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the allocated static IP
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'StaticIp.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The support code.
         /// </summary>
-        [Input("supportCode")]
+        [PolicyResourceProperty("supportCode", "_mUnknown_SupportCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSupportCode;
-
-        public string? SupportCode => _mSupportCode.GetValue("supportCode");
+        private string? _mValue_SupportCode;
+        private bool _mUnknown_SupportCode;
+        public string? SupportCode
+        {
+            get
+            {
+                if (!_mUnknown_SupportCode) return _mValue_SupportCode;
+                throw new UndeferrableValueException("Value 'StaticIp.SupportCode' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lightsail/staticIp:StaticIp")]
@@ -56,10 +84,17 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The name for the allocated static IP
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'StaticIpArgs.Name' is not present");
+            }
+        }
     }
 }

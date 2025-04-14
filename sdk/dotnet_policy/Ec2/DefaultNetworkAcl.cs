@@ -16,85 +16,148 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// ARN of the Default Network ACL
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DefaultNetworkAcl.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("defaultNetworkAclId")]
+        [PolicyResourceProperty("defaultNetworkAclId", "_mUnknown_DefaultNetworkAclId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultNetworkAclId;
-
-        public string? DefaultNetworkAclId => _mDefaultNetworkAclId.GetValue("defaultNetworkAclId");
+        private string? _mValue_DefaultNetworkAclId;
+        private bool _mUnknown_DefaultNetworkAclId;
+        public string? DefaultNetworkAclId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultNetworkAclId) return _mValue_DefaultNetworkAclId;
+                throw new UndeferrableValueException("Value 'DefaultNetworkAcl.DefaultNetworkAclId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for an egress rule. Detailed below.
         /// </summary>
-        [Input("egress")]
+        [PolicyResourceProperty("egress", "_mUnknown_Egress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DefaultNetworkAclEgress>> _mEgress;
-
-        public List<Outputs.DefaultNetworkAclEgress>? Egress => _mEgress.GetValue("egress");
+        private List<Outputs.DefaultNetworkAclEgress>? _mValue_Egress;
+        private bool _mUnknown_Egress;
+        public List<Outputs.DefaultNetworkAclEgress>? Egress
+        {
+            get
+            {
+                if (!_mUnknown_Egress) return _mValue_Egress;
+                throw new UndeferrableValueException("Value 'DefaultNetworkAcl.Egress' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for an ingress rule. Detailed below.
         /// </summary>
-        [Input("ingress")]
+        [PolicyResourceProperty("ingress", "_mUnknown_Ingress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DefaultNetworkAclIngress>> _mIngress;
-
-        public List<Outputs.DefaultNetworkAclIngress>? Ingress => _mIngress.GetValue("ingress");
+        private List<Outputs.DefaultNetworkAclIngress>? _mValue_Ingress;
+        private bool _mUnknown_Ingress;
+        public List<Outputs.DefaultNetworkAclIngress>? Ingress
+        {
+            get
+            {
+                if (!_mUnknown_Ingress) return _mValue_Ingress;
+                throw new UndeferrableValueException("Value 'DefaultNetworkAcl.Ingress' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the AWS account that owns the Default Network ACL
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'DefaultNetworkAcl.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'DefaultNetworkAcl.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DefaultNetworkAcl.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DefaultNetworkAcl.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the associated VPC
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'DefaultNetworkAcl.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/defaultNetworkAcl:DefaultNetworkAcl")]
@@ -105,46 +168,81 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("defaultNetworkAclId")]
+        [PolicyResourceProperty("defaultNetworkAclId", "_mUnknown_DefaultNetworkAclId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultNetworkAclId;
-
-        public string? DefaultNetworkAclId => _mDefaultNetworkAclId.GetValue("defaultNetworkAclId");
+        private string? _mValue_DefaultNetworkAclId;
+        private bool _mUnknown_DefaultNetworkAclId;
+        public string? DefaultNetworkAclId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultNetworkAclId) return _mValue_DefaultNetworkAclId;
+                throw new UndeferrableValueException("Value 'DefaultNetworkAclArgs.DefaultNetworkAclId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for an egress rule. Detailed below.
         /// </summary>
-        [Input("egress")]
+        [PolicyResourceProperty("egress", "_mUnknown_Egress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DefaultNetworkAclEgressArgs>> _mEgress;
-
-        public List<Inputs.DefaultNetworkAclEgressArgs>? Egress => _mEgress.GetValue("egress");
+        private List<Inputs.DefaultNetworkAclEgressArgs>? _mValue_Egress;
+        private bool _mUnknown_Egress;
+        public List<Inputs.DefaultNetworkAclEgressArgs>? Egress
+        {
+            get
+            {
+                if (!_mUnknown_Egress) return _mValue_Egress;
+                throw new UndeferrableValueException("Value 'DefaultNetworkAclArgs.Egress' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for an ingress rule. Detailed below.
         /// </summary>
-        [Input("ingress")]
+        [PolicyResourceProperty("ingress", "_mUnknown_Ingress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DefaultNetworkAclIngressArgs>> _mIngress;
-
-        public List<Inputs.DefaultNetworkAclIngressArgs>? Ingress => _mIngress.GetValue("ingress");
+        private List<Inputs.DefaultNetworkAclIngressArgs>? _mValue_Ingress;
+        private bool _mUnknown_Ingress;
+        public List<Inputs.DefaultNetworkAclIngressArgs>? Ingress
+        {
+            get
+            {
+                if (!_mUnknown_Ingress) return _mValue_Ingress;
+                throw new UndeferrableValueException("Value 'DefaultNetworkAclArgs.Ingress' is not present");
+            }
+        }
 
         /// <summary>
         /// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'DefaultNetworkAclArgs.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DefaultNetworkAclArgs.Tags' is not present");
+            }
+        }
     }
 }

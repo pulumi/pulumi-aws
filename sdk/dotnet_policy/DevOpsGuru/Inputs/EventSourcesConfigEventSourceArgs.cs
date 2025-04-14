@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.DevOpsGuru.Inputs
         /// <summary>
         /// Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazon_code_guru_profiler` below.
         /// </summary>
-        [Input("amazonCodeGuruProfilers")]
+        [PolicyResourceProperty("amazonCodeGuruProfilers", "_mUnknown_AmazonCodeGuruProfilers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs>> _mAmazonCodeGuruProfilers;
-
-        public List<Inputs.EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs>? AmazonCodeGuruProfilers => _mAmazonCodeGuruProfilers.GetValue("amazonCodeGuruProfilers");
+        private List<Inputs.EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs>? _mValue_AmazonCodeGuruProfilers;
+        private bool _mUnknown_AmazonCodeGuruProfilers;
+        public List<Inputs.EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs>? AmazonCodeGuruProfilers
+        {
+            get
+            {
+                if (!_mUnknown_AmazonCodeGuruProfilers) return _mValue_AmazonCodeGuruProfilers;
+                throw new UndeferrableValueException("Value 'EventSourcesConfigEventSourceArgs.AmazonCodeGuruProfilers' is not present");
+            }
+        }
     }
 }

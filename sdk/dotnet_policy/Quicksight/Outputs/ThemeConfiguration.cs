@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// Color properties that apply to chart data colors. See data_color_palette.
         /// </summary>
-        [Input("dataColorPalette")]
+        [PolicyResourceProperty("dataColorPalette", "_mUnknown_DataColorPalette")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ThemeConfigurationDataColorPalette> _mDataColorPalette;
-
-        public Outputs.ThemeConfigurationDataColorPalette? DataColorPalette => _mDataColorPalette.GetValue("dataColorPalette");
+        private Outputs.ThemeConfigurationDataColorPalette? _mValue_DataColorPalette;
+        private bool _mUnknown_DataColorPalette;
+        public Outputs.ThemeConfigurationDataColorPalette? DataColorPalette
+        {
+            get
+            {
+                if (!_mUnknown_DataColorPalette) return _mValue_DataColorPalette;
+                throw new UndeferrableValueException("Value 'ThemeConfiguration.DataColorPalette' is not present");
+            }
+        }
 
         /// <summary>
         /// Display options related to sheets. See sheet.
         /// </summary>
-        [Input("sheet")]
+        [PolicyResourceProperty("sheet", "_mUnknown_Sheet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ThemeConfigurationSheet> _mSheet;
-
-        public Outputs.ThemeConfigurationSheet? Sheet => _mSheet.GetValue("sheet");
+        private Outputs.ThemeConfigurationSheet? _mValue_Sheet;
+        private bool _mUnknown_Sheet;
+        public Outputs.ThemeConfigurationSheet? Sheet
+        {
+            get
+            {
+                if (!_mUnknown_Sheet) return _mValue_Sheet;
+                throw new UndeferrableValueException("Value 'ThemeConfiguration.Sheet' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the typography options. See typography.
         /// </summary>
-        [Input("typography")]
+        [PolicyResourceProperty("typography", "_mUnknown_Typography")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ThemeConfigurationTypography> _mTypography;
-
-        public Outputs.ThemeConfigurationTypography? Typography => _mTypography.GetValue("typography");
+        private Outputs.ThemeConfigurationTypography? _mValue_Typography;
+        private bool _mUnknown_Typography;
+        public Outputs.ThemeConfigurationTypography? Typography
+        {
+            get
+            {
+                if (!_mUnknown_Typography) return _mValue_Typography;
+                throw new UndeferrableValueException("Value 'ThemeConfiguration.Typography' is not present");
+            }
+        }
 
         /// <summary>
         /// Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
         /// </summary>
-        [Input("uiColorPalette")]
+        [PolicyResourceProperty("uiColorPalette", "_mUnknown_UiColorPalette")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ThemeConfigurationUiColorPalette> _mUiColorPalette;
-
-        public Outputs.ThemeConfigurationUiColorPalette? UiColorPalette => _mUiColorPalette.GetValue("uiColorPalette");
+        private Outputs.ThemeConfigurationUiColorPalette? _mValue_UiColorPalette;
+        private bool _mUnknown_UiColorPalette;
+        public Outputs.ThemeConfigurationUiColorPalette? UiColorPalette
+        {
+            get
+            {
+                if (!_mUnknown_UiColorPalette) return _mValue_UiColorPalette;
+                throw new UndeferrableValueException("Value 'ThemeConfiguration.UiColorPalette' is not present");
+            }
+        }
     }
 }

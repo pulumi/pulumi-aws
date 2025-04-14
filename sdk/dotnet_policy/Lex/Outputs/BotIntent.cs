@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// The name of the intent. Must be less than or equal to 100 characters in length.
         /// </summary>
-        [Input("intentName")]
+        [PolicyResourceProperty("intentName", "_mUnknown_IntentName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIntentName;
-
-        public string? IntentName => _mIntentName.GetValue("intentName");
+        private string? _mValue_IntentName;
+        private bool _mUnknown_IntentName;
+        public string? IntentName
+        {
+            get
+            {
+                if (!_mUnknown_IntentName) return _mValue_IntentName;
+                throw new UndeferrableValueException("Value 'BotIntent.IntentName' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the intent. Must be less than or equal to 64 characters in length.
         /// </summary>
-        [Input("intentVersion")]
+        [PolicyResourceProperty("intentVersion", "_mUnknown_IntentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIntentVersion;
-
-        public string? IntentVersion => _mIntentVersion.GetValue("intentVersion");
+        private string? _mValue_IntentVersion;
+        private bool _mUnknown_IntentVersion;
+        public string? IntentVersion
+        {
+            get
+            {
+                if (!_mUnknown_IntentVersion) return _mValue_IntentVersion;
+                throw new UndeferrableValueException("Value 'BotIntent.IntentVersion' is not present");
+            }
+        }
     }
 }

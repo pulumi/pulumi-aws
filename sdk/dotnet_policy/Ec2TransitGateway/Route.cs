@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// Indicates whether to drop traffic that matches this route (default to `false`).
         /// </summary>
-        [Input("blackhole")]
+        [PolicyResourceProperty("blackhole", "_mUnknown_Blackhole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBlackhole;
-
-        public bool? Blackhole => _mBlackhole.GetValue("blackhole");
+        private bool? _mValue_Blackhole;
+        private bool _mUnknown_Blackhole;
+        public bool? Blackhole
+        {
+            get
+            {
+                if (!_mUnknown_Blackhole) return _mValue_Blackhole;
+                throw new UndeferrableValueException("Value 'Route.Blackhole' is not present");
+            }
+        }
 
         /// <summary>
         /// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
         /// </summary>
-        [Input("destinationCidrBlock")]
+        [PolicyResourceProperty("destinationCidrBlock", "_mUnknown_DestinationCidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
-
-        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+        private string? _mValue_DestinationCidrBlock;
+        private bool _mUnknown_DestinationCidrBlock;
+        public string? DestinationCidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_DestinationCidrBlock) return _mValue_DestinationCidrBlock;
+                throw new UndeferrableValueException("Value 'Route.DestinationCidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
+        [PolicyResourceProperty("transitGatewayAttachmentId", "_mUnknown_TransitGatewayAttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
-
-        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+        private string? _mValue_TransitGatewayAttachmentId;
+        private bool _mUnknown_TransitGatewayAttachmentId;
+        public string? TransitGatewayAttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayAttachmentId) return _mValue_TransitGatewayAttachmentId;
+                throw new UndeferrableValueException("Value 'Route.TransitGatewayAttachmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
         /// </summary>
-        [Input("transitGatewayRouteTableId")]
+        [PolicyResourceProperty("transitGatewayRouteTableId", "_mUnknown_TransitGatewayRouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableId;
-
-        public string? TransitGatewayRouteTableId => _mTransitGatewayRouteTableId.GetValue("transitGatewayRouteTableId");
+        private string? _mValue_TransitGatewayRouteTableId;
+        private bool _mUnknown_TransitGatewayRouteTableId;
+        public string? TransitGatewayRouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayRouteTableId) return _mValue_TransitGatewayRouteTableId;
+                throw new UndeferrableValueException("Value 'Route.TransitGatewayRouteTableId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2transitgateway/route:Route")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// Indicates whether to drop traffic that matches this route (default to `false`).
         /// </summary>
-        [Input("blackhole")]
+        [PolicyResourceProperty("blackhole", "_mUnknown_Blackhole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBlackhole;
-
-        public bool? Blackhole => _mBlackhole.GetValue("blackhole");
+        private bool? _mValue_Blackhole;
+        private bool _mUnknown_Blackhole;
+        public bool? Blackhole
+        {
+            get
+            {
+                if (!_mUnknown_Blackhole) return _mValue_Blackhole;
+                throw new UndeferrableValueException("Value 'RouteArgs.Blackhole' is not present");
+            }
+        }
 
         /// <summary>
         /// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
         /// </summary>
-        [Input("destinationCidrBlock")]
+        [PolicyResourceProperty("destinationCidrBlock", "_mUnknown_DestinationCidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
-
-        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+        private string? _mValue_DestinationCidrBlock;
+        private bool _mUnknown_DestinationCidrBlock;
+        public string? DestinationCidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_DestinationCidrBlock) return _mValue_DestinationCidrBlock;
+                throw new UndeferrableValueException("Value 'RouteArgs.DestinationCidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
+        [PolicyResourceProperty("transitGatewayAttachmentId", "_mUnknown_TransitGatewayAttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
-
-        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+        private string? _mValue_TransitGatewayAttachmentId;
+        private bool _mUnknown_TransitGatewayAttachmentId;
+        public string? TransitGatewayAttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayAttachmentId) return _mValue_TransitGatewayAttachmentId;
+                throw new UndeferrableValueException("Value 'RouteArgs.TransitGatewayAttachmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
         /// </summary>
-        [Input("transitGatewayRouteTableId")]
+        [PolicyResourceProperty("transitGatewayRouteTableId", "_mUnknown_TransitGatewayRouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableId;
-
-        public string? TransitGatewayRouteTableId => _mTransitGatewayRouteTableId.GetValue("transitGatewayRouteTableId");
+        private string? _mValue_TransitGatewayRouteTableId;
+        private bool _mUnknown_TransitGatewayRouteTableId;
+        public string? TransitGatewayRouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayRouteTableId) return _mValue_TransitGatewayRouteTableId;
+                throw new UndeferrableValueException("Value 'RouteArgs.TransitGatewayRouteTableId' is not present");
+            }
+        }
     }
 }

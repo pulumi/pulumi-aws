@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty.Inputs
         /// <summary>
         /// List of string values to be evaluated.
         /// </summary>
-        [Input("equals")]
+        [PolicyResourceProperty("equals", "_mUnknown_Equals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEquals;
-
-        public List<string>? Equals => _mEquals.GetValue("equals");
+        private List<string>? _mValue_Equals;
+        private bool _mUnknown_Equals;
+        public List<string>? Equals
+        {
+            get
+            {
+                if (!_mUnknown_Equals) return _mValue_Equals;
+                throw new UndeferrableValueException("Value 'FilterFindingCriteriaCriterionArgs.Equals' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
         /// </summary>
-        [Input("field")]
+        [PolicyResourceProperty("field", "_mUnknown_Field")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mField;
-
-        public string? Field => _mField.GetValue("field");
+        private string? _mValue_Field;
+        private bool _mUnknown_Field;
+        public string? Field
+        {
+            get
+            {
+                if (!_mUnknown_Field) return _mValue_Field;
+                throw new UndeferrableValueException("Value 'FilterFindingCriteriaCriterionArgs.Field' is not present");
+            }
+        }
 
         /// <summary>
         /// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        [Input("greaterThan")]
+        [PolicyResourceProperty("greaterThan", "_mUnknown_GreaterThan")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGreaterThan;
-
-        public string? GreaterThan => _mGreaterThan.GetValue("greaterThan");
+        private string? _mValue_GreaterThan;
+        private bool _mUnknown_GreaterThan;
+        public string? GreaterThan
+        {
+            get
+            {
+                if (!_mUnknown_GreaterThan) return _mValue_GreaterThan;
+                throw new UndeferrableValueException("Value 'FilterFindingCriteriaCriterionArgs.GreaterThan' is not present");
+            }
+        }
 
         /// <summary>
         /// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        [Input("greaterThanOrEqual")]
+        [PolicyResourceProperty("greaterThanOrEqual", "_mUnknown_GreaterThanOrEqual")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGreaterThanOrEqual;
-
-        public string? GreaterThanOrEqual => _mGreaterThanOrEqual.GetValue("greaterThanOrEqual");
+        private string? _mValue_GreaterThanOrEqual;
+        private bool _mUnknown_GreaterThanOrEqual;
+        public string? GreaterThanOrEqual
+        {
+            get
+            {
+                if (!_mUnknown_GreaterThanOrEqual) return _mValue_GreaterThanOrEqual;
+                throw new UndeferrableValueException("Value 'FilterFindingCriteriaCriterionArgs.GreaterThanOrEqual' is not present");
+            }
+        }
 
         /// <summary>
         /// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        [Input("lessThan")]
+        [PolicyResourceProperty("lessThan", "_mUnknown_LessThan")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLessThan;
-
-        public string? LessThan => _mLessThan.GetValue("lessThan");
+        private string? _mValue_LessThan;
+        private bool _mUnknown_LessThan;
+        public string? LessThan
+        {
+            get
+            {
+                if (!_mUnknown_LessThan) return _mValue_LessThan;
+                throw new UndeferrableValueException("Value 'FilterFindingCriteriaCriterionArgs.LessThan' is not present");
+            }
+        }
 
         /// <summary>
         /// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        [Input("lessThanOrEqual")]
+        [PolicyResourceProperty("lessThanOrEqual", "_mUnknown_LessThanOrEqual")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLessThanOrEqual;
-
-        public string? LessThanOrEqual => _mLessThanOrEqual.GetValue("lessThanOrEqual");
+        private string? _mValue_LessThanOrEqual;
+        private bool _mUnknown_LessThanOrEqual;
+        public string? LessThanOrEqual
+        {
+            get
+            {
+                if (!_mUnknown_LessThanOrEqual) return _mValue_LessThanOrEqual;
+                throw new UndeferrableValueException("Value 'FilterFindingCriteriaCriterionArgs.LessThanOrEqual' is not present");
+            }
+        }
 
         /// <summary>
         /// List of string values to be evaluated.
         /// </summary>
-        [Input("notEquals")]
+        [PolicyResourceProperty("notEquals", "_mUnknown_NotEquals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotEquals;
-
-        public List<string>? NotEquals => _mNotEquals.GetValue("notEquals");
+        private List<string>? _mValue_NotEquals;
+        private bool _mUnknown_NotEquals;
+        public List<string>? NotEquals
+        {
+            get
+            {
+                if (!_mUnknown_NotEquals) return _mValue_NotEquals;
+                throw new UndeferrableValueException("Value 'FilterFindingCriteriaCriterionArgs.NotEquals' is not present");
+            }
+        }
     }
 }

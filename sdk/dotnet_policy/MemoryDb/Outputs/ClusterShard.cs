@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.MemoryDb.Outputs
         /// <summary>
         /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ClusterShard.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of nodes in this shard.
         /// </summary>
-        [Input("nodes")]
+        [PolicyResourceProperty("nodes", "_mUnknown_Nodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterShardNode>> _mNodes;
-
-        public List<Outputs.ClusterShardNode>? Nodes => _mNodes.GetValue("nodes");
+        private List<Outputs.ClusterShardNode>? _mValue_Nodes;
+        private bool _mUnknown_Nodes;
+        public List<Outputs.ClusterShardNode>? Nodes
+        {
+            get
+            {
+                if (!_mUnknown_Nodes) return _mValue_Nodes;
+                throw new UndeferrableValueException("Value 'ClusterShard.Nodes' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of individual nodes in this shard.
         /// </summary>
-        [Input("numNodes")]
+        [PolicyResourceProperty("numNodes", "_mUnknown_NumNodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumNodes;
-
-        public int? NumNodes => _mNumNodes.GetValue("numNodes");
+        private int? _mValue_NumNodes;
+        private bool _mUnknown_NumNodes;
+        public int? NumNodes
+        {
+            get
+            {
+                if (!_mUnknown_NumNodes) return _mValue_NumNodes;
+                throw new UndeferrableValueException("Value 'ClusterShard.NumNodes' is not present");
+            }
+        }
 
         /// <summary>
         /// Keyspace for this shard. Example: `0-16383`.
         /// </summary>
-        [Input("slots")]
+        [PolicyResourceProperty("slots", "_mUnknown_Slots")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSlots;
-
-        public string? Slots => _mSlots.GetValue("slots");
+        private string? _mValue_Slots;
+        private bool _mUnknown_Slots;
+        public string? Slots
+        {
+            get
+            {
+                if (!_mUnknown_Slots) return _mValue_Slots;
+                throw new UndeferrableValueException("Value 'ClusterShard.Slots' is not present");
+            }
+        }
     }
 }

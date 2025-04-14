@@ -15,29 +15,50 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
         /// </summary>
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
-
-        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
+        private Dictionary<string, string>? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public Dictionary<string, string>? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecServiceDiscoveryAwsCloudMap.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the AWS Cloud Map namespace to use.
         /// Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
         /// </summary>
-        [Input("namespaceName")]
+        [PolicyResourceProperty("namespaceName", "_mUnknown_NamespaceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceName;
-
-        public string? NamespaceName => _mNamespaceName.GetValue("namespaceName");
+        private string? _mValue_NamespaceName;
+        private bool _mUnknown_NamespaceName;
+        public string? NamespaceName
+        {
+            get
+            {
+                if (!_mUnknown_NamespaceName) return _mValue_NamespaceName;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecServiceDiscoveryAwsCloudMap.NamespaceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the AWS Cloud Map service to use. Use the `aws.servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
         /// </summary>
-        [Input("serviceName")]
+        [PolicyResourceProperty("serviceName", "_mUnknown_ServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
-
-        public string? ServiceName => _mServiceName.GetValue("serviceName");
+        private string? _mValue_ServiceName;
+        private bool _mUnknown_ServiceName;
+        public string? ServiceName
+        {
+            get
+            {
+                if (!_mUnknown_ServiceName) return _mValue_ServiceName;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecServiceDiscoveryAwsCloudMap.ServiceName' is not present");
+            }
+        }
     }
 }

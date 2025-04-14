@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// The display options for tiles. See tile.
         /// </summary>
-        [Input("tile")]
+        [PolicyResourceProperty("tile", "_mUnknown_Tile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ThemeConfigurationSheetTile> _mTile;
-
-        public Outputs.ThemeConfigurationSheetTile? Tile => _mTile.GetValue("tile");
+        private Outputs.ThemeConfigurationSheetTile? _mValue_Tile;
+        private bool _mUnknown_Tile;
+        public Outputs.ThemeConfigurationSheetTile? Tile
+        {
+            get
+            {
+                if (!_mUnknown_Tile) return _mValue_Tile;
+                throw new UndeferrableValueException("Value 'ThemeConfigurationSheet.Tile' is not present");
+            }
+        }
 
         /// <summary>
         /// The layout options for tiles. See tile_layout.
         /// </summary>
-        [Input("tileLayout")]
+        [PolicyResourceProperty("tileLayout", "_mUnknown_TileLayout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ThemeConfigurationSheetTileLayout> _mTileLayout;
-
-        public Outputs.ThemeConfigurationSheetTileLayout? TileLayout => _mTileLayout.GetValue("tileLayout");
+        private Outputs.ThemeConfigurationSheetTileLayout? _mValue_TileLayout;
+        private bool _mUnknown_TileLayout;
+        public Outputs.ThemeConfigurationSheetTileLayout? TileLayout
+        {
+            get
+            {
+                if (!_mUnknown_TileLayout) return _mValue_TileLayout;
+                throw new UndeferrableValueException("Value 'ThemeConfigurationSheet.TileLayout' is not present");
+            }
+        }
     }
 }

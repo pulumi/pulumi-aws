@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
         /// </summary>
-        [Input("autodefinedReverseFlag")]
+        [PolicyResourceProperty("autodefinedReverseFlag", "_mUnknown_AutodefinedReverseFlag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutodefinedReverseFlag;
-
-        public string? AutodefinedReverseFlag => _mAutodefinedReverseFlag.GetValue("autodefinedReverseFlag");
+        private string? _mValue_AutodefinedReverseFlag;
+        private bool _mUnknown_AutodefinedReverseFlag;
+        public string? AutodefinedReverseFlag
+        {
+            get
+            {
+                if (!_mUnknown_AutodefinedReverseFlag) return _mValue_AutodefinedReverseFlag;
+                throw new UndeferrableValueException("Value 'ResolverConfig.AutodefinedReverseFlag' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS account ID of the owner of the VPC that this resolver configuration applies to.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'ResolverConfig.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC that the configuration is for.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'ResolverConfig.ResourceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/resolverConfig:ResolverConfig")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
         /// </summary>
-        [Input("autodefinedReverseFlag")]
+        [PolicyResourceProperty("autodefinedReverseFlag", "_mUnknown_AutodefinedReverseFlag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutodefinedReverseFlag;
-
-        public string? AutodefinedReverseFlag => _mAutodefinedReverseFlag.GetValue("autodefinedReverseFlag");
+        private string? _mValue_AutodefinedReverseFlag;
+        private bool _mUnknown_AutodefinedReverseFlag;
+        public string? AutodefinedReverseFlag
+        {
+            get
+            {
+                if (!_mUnknown_AutodefinedReverseFlag) return _mValue_AutodefinedReverseFlag;
+                throw new UndeferrableValueException("Value 'ResolverConfigArgs.AutodefinedReverseFlag' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC that the configuration is for.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'ResolverConfigArgs.ResourceId' is not present");
+            }
+        }
     }
 }

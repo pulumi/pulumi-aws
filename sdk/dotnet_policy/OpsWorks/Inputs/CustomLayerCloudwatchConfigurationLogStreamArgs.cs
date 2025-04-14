@@ -15,100 +15,177 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks.Inputs
         /// <summary>
         /// Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
         /// </summary>
-        [Input("batchCount")]
+        [PolicyResourceProperty("batchCount", "_mUnknown_BatchCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBatchCount;
-
-        public int? BatchCount => _mBatchCount.GetValue("batchCount");
+        private int? _mValue_BatchCount;
+        private bool _mUnknown_BatchCount;
+        public int? BatchCount
+        {
+            get
+            {
+                if (!_mUnknown_BatchCount) return _mValue_BatchCount;
+                throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.BatchCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
         /// </summary>
-        [Input("batchSize")]
+        [PolicyResourceProperty("batchSize", "_mUnknown_BatchSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBatchSize;
-
-        public int? BatchSize => _mBatchSize.GetValue("batchSize");
+        private int? _mValue_BatchSize;
+        private bool _mUnknown_BatchSize;
+        public int? BatchSize
+        {
+            get
+            {
+                if (!_mUnknown_BatchSize) return _mValue_BatchSize;
+                throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.BatchSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
         /// </summary>
-        [Input("bufferDuration")]
+        [PolicyResourceProperty("bufferDuration", "_mUnknown_BufferDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferDuration;
-
-        public int? BufferDuration => _mBufferDuration.GetValue("bufferDuration");
+        private int? _mValue_BufferDuration;
+        private bool _mUnknown_BufferDuration;
+        public int? BufferDuration
+        {
+            get
+            {
+                if (!_mUnknown_BufferDuration) return _mValue_BufferDuration;
+                throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.BufferDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
         /// </summary>
-        [Input("datetimeFormat")]
+        [PolicyResourceProperty("datetimeFormat", "_mUnknown_DatetimeFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatetimeFormat;
-
-        public string? DatetimeFormat => _mDatetimeFormat.GetValue("datetimeFormat");
+        private string? _mValue_DatetimeFormat;
+        private bool _mUnknown_DatetimeFormat;
+        public string? DatetimeFormat
+        {
+            get
+            {
+                if (!_mUnknown_DatetimeFormat) return _mValue_DatetimeFormat;
+                throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.DatetimeFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the encoding of the log file so that the file can be read correctly. The default is `utf_8`.
         /// </summary>
-        [Input("encoding")]
+        [PolicyResourceProperty("encoding", "_mUnknown_Encoding")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncoding;
-
-        public string? Encoding => _mEncoding.GetValue("encoding");
+        private string? _mValue_Encoding;
+        private bool _mUnknown_Encoding;
+        public string? Encoding
+        {
+            get
+            {
+                if (!_mUnknown_Encoding) return _mValue_Encoding;
+                throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.Encoding' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
         /// </summary>
-        [Input("file")]
+        [PolicyResourceProperty("file", "_mUnknown_File")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFile;
-
-        public string? File => _mFile.GetValue("file");
+        private string? _mValue_File;
+        private bool _mUnknown_File;
+        public string? File
+        {
+            get
+            {
+                if (!_mUnknown_File) return _mValue_File;
+                throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.File' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
         /// </summary>
-        [Input("fileFingerprintLines")]
+        [PolicyResourceProperty("fileFingerprintLines", "_mUnknown_FileFingerprintLines")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileFingerprintLines;
-
-        public string? FileFingerprintLines => _mFileFingerprintLines.GetValue("fileFingerprintLines");
+        private string? _mValue_FileFingerprintLines;
+        private bool _mUnknown_FileFingerprintLines;
+        public string? FileFingerprintLines
+        {
+            get
+            {
+                if (!_mUnknown_FileFingerprintLines) return _mValue_FileFingerprintLines;
+                throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.FileFingerprintLines' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies where to start to read data (`start_of_file` or `end_of_file`). The default is `start_of_file`.
         /// </summary>
-        [Input("initialPosition")]
+        [PolicyResourceProperty("initialPosition", "_mUnknown_InitialPosition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInitialPosition;
-
-        public string? InitialPosition => _mInitialPosition.GetValue("initialPosition");
+        private string? _mValue_InitialPosition;
+        private bool _mUnknown_InitialPosition;
+        public string? InitialPosition
+        {
+            get
+            {
+                if (!_mUnknown_InitialPosition) return _mValue_InitialPosition;
+                throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.InitialPosition' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the destination log group. A log group is created automatically if it doesn't already exist.
         /// </summary>
-        [Input("logGroupName")]
+        [PolicyResourceProperty("logGroupName", "_mUnknown_LogGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
-
-        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+        private string? _mValue_LogGroupName;
+        private bool _mUnknown_LogGroupName;
+        public string? LogGroupName
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupName) return _mValue_LogGroupName;
+                throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.LogGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the pattern for identifying the start of a log message.
         /// </summary>
-        [Input("multilineStartPattern")]
+        [PolicyResourceProperty("multilineStartPattern", "_mUnknown_MultilineStartPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMultilineStartPattern;
-
-        public string? MultilineStartPattern => _mMultilineStartPattern.GetValue("multilineStartPattern");
+        private string? _mValue_MultilineStartPattern;
+        private bool _mUnknown_MultilineStartPattern;
+        public string? MultilineStartPattern
+        {
+            get
+            {
+                if (!_mUnknown_MultilineStartPattern) return _mValue_MultilineStartPattern;
+                throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.MultilineStartPattern' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the time zone of log event time stamps.
         /// </summary>
-        [Input("timeZone")]
+        [PolicyResourceProperty("timeZone", "_mUnknown_TimeZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeZone;
-
-        public string? TimeZone => _mTimeZone.GetValue("timeZone");
+        private string? _mValue_TimeZone;
+        private bool _mUnknown_TimeZone;
+        public string? TimeZone
+        {
+            get
+            {
+                if (!_mUnknown_TimeZone) return _mValue_TimeZone;
+                throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.TimeZone' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// <summary>
         /// Support type to use for the cluster.
         /// </summary>
-        [Input("supportType")]
+        [PolicyResourceProperty("supportType", "_mUnknown_SupportType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSupportType;
-
-        public string? SupportType => _mSupportType.GetValue("supportType");
+        private string? _mValue_SupportType;
+        private bool _mUnknown_SupportType;
+        public string? SupportType
+        {
+            get
+            {
+                if (!_mUnknown_SupportType) return _mValue_SupportType;
+                throw new UndeferrableValueException("Value 'GetClusterUpgradePolicyResult.SupportType' is not present");
+            }
+        }
     }
 }

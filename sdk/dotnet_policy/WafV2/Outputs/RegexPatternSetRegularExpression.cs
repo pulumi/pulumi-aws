@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// The string representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
         /// </summary>
-        [Input("regexString")]
+        [PolicyResourceProperty("regexString", "_mUnknown_RegexString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegexString;
-
-        public string? RegexString => _mRegexString.GetValue("regexString");
+        private string? _mValue_RegexString;
+        private bool _mUnknown_RegexString;
+        public string? RegexString
+        {
+            get
+            {
+                if (!_mUnknown_RegexString) return _mValue_RegexString;
+                throw new UndeferrableValueException("Value 'RegexPatternSetRegularExpression.RegexString' is not present");
+            }
+        }
     }
 }

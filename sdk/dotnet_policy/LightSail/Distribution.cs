@@ -16,184 +16,324 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The alternate domain names of the distribution.
         /// </summary>
-        [Input("alternativeDomainNames")]
+        [PolicyResourceProperty("alternativeDomainNames", "_mUnknown_AlternativeDomainNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAlternativeDomainNames;
-
-        public List<string>? AlternativeDomainNames => _mAlternativeDomainNames.GetValue("alternativeDomainNames");
+        private List<string>? _mValue_AlternativeDomainNames;
+        private bool _mUnknown_AlternativeDomainNames;
+        public List<string>? AlternativeDomainNames
+        {
+            get
+            {
+                if (!_mUnknown_AlternativeDomainNames) return _mValue_AlternativeDomainNames;
+                throw new UndeferrableValueException("Value 'Distribution.AlternativeDomainNames' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the distribution.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Distribution.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Bundle ID to use for the distribution.
         /// </summary>
-        [Input("bundleId")]
+        [PolicyResourceProperty("bundleId", "_mUnknown_BundleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
-
-        public string? BundleId => _mBundleId.GetValue("bundleId");
+        private string? _mValue_BundleId;
+        private bool _mUnknown_BundleId;
+        public string? BundleId
+        {
+            get
+            {
+                if (!_mUnknown_BundleId) return _mValue_BundleId;
+                throw new UndeferrableValueException("Value 'Distribution.BundleId' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that describes the cache behavior settings of the distribution. Detailed below
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("cacheBehaviorSettings")]
+        [PolicyResourceProperty("cacheBehaviorSettings", "_mUnknown_CacheBehaviorSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DistributionCacheBehaviorSettings> _mCacheBehaviorSettings;
-
-        public Outputs.DistributionCacheBehaviorSettings? CacheBehaviorSettings => _mCacheBehaviorSettings.GetValue("cacheBehaviorSettings");
+        private Outputs.DistributionCacheBehaviorSettings? _mValue_CacheBehaviorSettings;
+        private bool _mUnknown_CacheBehaviorSettings;
+        public Outputs.DistributionCacheBehaviorSettings? CacheBehaviorSettings
+        {
+            get
+            {
+                if (!_mUnknown_CacheBehaviorSettings) return _mValue_CacheBehaviorSettings;
+                throw new UndeferrableValueException("Value 'Distribution.CacheBehaviorSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
         /// </summary>
-        [Input("cacheBehaviors")]
+        [PolicyResourceProperty("cacheBehaviors", "_mUnknown_CacheBehaviors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DistributionCacheBehavior>> _mCacheBehaviors;
-
-        public List<Outputs.DistributionCacheBehavior>? CacheBehaviors => _mCacheBehaviors.GetValue("cacheBehaviors");
+        private List<Outputs.DistributionCacheBehavior>? _mValue_CacheBehaviors;
+        private bool _mUnknown_CacheBehaviors;
+        public List<Outputs.DistributionCacheBehavior>? CacheBehaviors
+        {
+            get
+            {
+                if (!_mUnknown_CacheBehaviors) return _mValue_CacheBehaviors;
+                throw new UndeferrableValueException("Value 'Distribution.CacheBehaviors' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the SSL/TLS certificate attached to the distribution, if any.
         /// </summary>
-        [Input("certificateName")]
+        [PolicyResourceProperty("certificateName", "_mUnknown_CertificateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateName;
-
-        public string? CertificateName => _mCertificateName.GetValue("certificateName");
+        private string? _mValue_CertificateName;
+        private bool _mUnknown_CertificateName;
+        public string? CertificateName
+        {
+            get
+            {
+                if (!_mUnknown_CertificateName) return _mValue_CertificateName;
+                throw new UndeferrableValueException("Value 'Distribution.CertificateName' is not present");
+            }
+        }
 
         /// <summary>
         /// The timestamp when the distribution was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'Distribution.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Object that describes the default cache behavior of the distribution. Detailed below
         /// </summary>
-        [Input("defaultCacheBehavior")]
+        [PolicyResourceProperty("defaultCacheBehavior", "_mUnknown_DefaultCacheBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DistributionDefaultCacheBehavior> _mDefaultCacheBehavior;
-
-        public Outputs.DistributionDefaultCacheBehavior? DefaultCacheBehavior => _mDefaultCacheBehavior.GetValue("defaultCacheBehavior");
+        private Outputs.DistributionDefaultCacheBehavior? _mValue_DefaultCacheBehavior;
+        private bool _mUnknown_DefaultCacheBehavior;
+        public Outputs.DistributionDefaultCacheBehavior? DefaultCacheBehavior
+        {
+            get
+            {
+                if (!_mUnknown_DefaultCacheBehavior) return _mValue_DefaultCacheBehavior;
+                throw new UndeferrableValueException("Value 'Distribution.DefaultCacheBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// The domain name of the distribution.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'Distribution.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address type of the distribution. Default: `dualstack`.
         /// </summary>
-        [Input("ipAddressType")]
+        [PolicyResourceProperty("ipAddressType", "_mUnknown_IpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
-
-        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+        private string? _mValue_IpAddressType;
+        private bool _mUnknown_IpAddressType;
+        public string? IpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressType) return _mValue_IpAddressType;
+                throw new UndeferrableValueException("Value 'Distribution.IpAddressType' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the distribution is enabled. Default: `true`.
         /// </summary>
-        [Input("isEnabled")]
+        [PolicyResourceProperty("isEnabled", "_mUnknown_IsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsEnabled;
-
-        public bool? IsEnabled => _mIsEnabled.GetValue("isEnabled");
+        private bool? _mValue_IsEnabled;
+        private bool _mUnknown_IsEnabled;
+        public bool? IsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_IsEnabled) return _mValue_IsEnabled;
+                throw new UndeferrableValueException("Value 'Distribution.IsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
         /// </summary>
-        [Input("locations")]
+        [PolicyResourceProperty("locations", "_mUnknown_Locations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DistributionLocation>> _mLocations;
-
-        public List<Outputs.DistributionLocation>? Locations => _mLocations.GetValue("locations");
+        private List<Outputs.DistributionLocation>? _mValue_Locations;
+        private bool _mUnknown_Locations;
+        public List<Outputs.DistributionLocation>? Locations
+        {
+            get
+            {
+                if (!_mUnknown_Locations) return _mValue_Locations;
+                throw new UndeferrableValueException("Value 'Distribution.Locations' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the distribution.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Distribution.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
         /// </summary>
-        [Input("origin")]
+        [PolicyResourceProperty("origin", "_mUnknown_Origin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DistributionOrigin> _mOrigin;
-
-        public Outputs.DistributionOrigin? Origin => _mOrigin.GetValue("origin");
+        private Outputs.DistributionOrigin? _mValue_Origin;
+        private bool _mUnknown_Origin;
+        public Outputs.DistributionOrigin? Origin
+        {
+            get
+            {
+                if (!_mUnknown_Origin) return _mValue_Origin;
+                throw new UndeferrableValueException("Value 'Distribution.Origin' is not present");
+            }
+        }
 
         /// <summary>
         /// The public DNS of the origin.
         /// </summary>
-        [Input("originPublicDns")]
+        [PolicyResourceProperty("originPublicDns", "_mUnknown_OriginPublicDns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOriginPublicDns;
-
-        public string? OriginPublicDns => _mOriginPublicDns.GetValue("originPublicDns");
+        private string? _mValue_OriginPublicDns;
+        private bool _mUnknown_OriginPublicDns;
+        public string? OriginPublicDns
+        {
+            get
+            {
+                if (!_mUnknown_OriginPublicDns) return _mValue_OriginPublicDns;
+                throw new UndeferrableValueException("Value 'Distribution.OriginPublicDns' is not present");
+            }
+        }
 
         /// <summary>
         /// The Lightsail resource type (e.g., Distribution).
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'Distribution.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the distribution.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Distribution.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
-        [Input("supportCode")]
+        [PolicyResourceProperty("supportCode", "_mUnknown_SupportCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSupportCode;
-
-        public string? SupportCode => _mSupportCode.GetValue("supportCode");
+        private string? _mValue_SupportCode;
+        private bool _mUnknown_SupportCode;
+        public string? SupportCode
+        {
+            get
+            {
+                if (!_mUnknown_SupportCode) return _mValue_SupportCode;
+                throw new UndeferrableValueException("Value 'Distribution.SupportCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Distribution.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Distribution.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lightsail/distribution:Distribution")]
@@ -202,93 +342,163 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// Bundle ID to use for the distribution.
         /// </summary>
-        [Input("bundleId")]
+        [PolicyResourceProperty("bundleId", "_mUnknown_BundleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
-
-        public string? BundleId => _mBundleId.GetValue("bundleId");
+        private string? _mValue_BundleId;
+        private bool _mUnknown_BundleId;
+        public string? BundleId
+        {
+            get
+            {
+                if (!_mUnknown_BundleId) return _mValue_BundleId;
+                throw new UndeferrableValueException("Value 'DistributionArgs.BundleId' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that describes the cache behavior settings of the distribution. Detailed below
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("cacheBehaviorSettings")]
+        [PolicyResourceProperty("cacheBehaviorSettings", "_mUnknown_CacheBehaviorSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionCacheBehaviorSettingsArgs> _mCacheBehaviorSettings;
-
-        public Inputs.DistributionCacheBehaviorSettingsArgs? CacheBehaviorSettings => _mCacheBehaviorSettings.GetValue("cacheBehaviorSettings");
+        private Inputs.DistributionCacheBehaviorSettingsArgs? _mValue_CacheBehaviorSettings;
+        private bool _mUnknown_CacheBehaviorSettings;
+        public Inputs.DistributionCacheBehaviorSettingsArgs? CacheBehaviorSettings
+        {
+            get
+            {
+                if (!_mUnknown_CacheBehaviorSettings) return _mValue_CacheBehaviorSettings;
+                throw new UndeferrableValueException("Value 'DistributionArgs.CacheBehaviorSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
         /// </summary>
-        [Input("cacheBehaviors")]
+        [PolicyResourceProperty("cacheBehaviors", "_mUnknown_CacheBehaviors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DistributionCacheBehaviorArgs>> _mCacheBehaviors;
-
-        public List<Inputs.DistributionCacheBehaviorArgs>? CacheBehaviors => _mCacheBehaviors.GetValue("cacheBehaviors");
+        private List<Inputs.DistributionCacheBehaviorArgs>? _mValue_CacheBehaviors;
+        private bool _mUnknown_CacheBehaviors;
+        public List<Inputs.DistributionCacheBehaviorArgs>? CacheBehaviors
+        {
+            get
+            {
+                if (!_mUnknown_CacheBehaviors) return _mValue_CacheBehaviors;
+                throw new UndeferrableValueException("Value 'DistributionArgs.CacheBehaviors' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the SSL/TLS certificate attached to the distribution, if any.
         /// </summary>
-        [Input("certificateName")]
+        [PolicyResourceProperty("certificateName", "_mUnknown_CertificateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateName;
-
-        public string? CertificateName => _mCertificateName.GetValue("certificateName");
+        private string? _mValue_CertificateName;
+        private bool _mUnknown_CertificateName;
+        public string? CertificateName
+        {
+            get
+            {
+                if (!_mUnknown_CertificateName) return _mValue_CertificateName;
+                throw new UndeferrableValueException("Value 'DistributionArgs.CertificateName' is not present");
+            }
+        }
 
         /// <summary>
         /// Object that describes the default cache behavior of the distribution. Detailed below
         /// </summary>
-        [Input("defaultCacheBehavior")]
+        [PolicyResourceProperty("defaultCacheBehavior", "_mUnknown_DefaultCacheBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionDefaultCacheBehaviorArgs> _mDefaultCacheBehavior;
-
-        public Inputs.DistributionDefaultCacheBehaviorArgs? DefaultCacheBehavior => _mDefaultCacheBehavior.GetValue("defaultCacheBehavior");
+        private Inputs.DistributionDefaultCacheBehaviorArgs? _mValue_DefaultCacheBehavior;
+        private bool _mUnknown_DefaultCacheBehavior;
+        public Inputs.DistributionDefaultCacheBehaviorArgs? DefaultCacheBehavior
+        {
+            get
+            {
+                if (!_mUnknown_DefaultCacheBehavior) return _mValue_DefaultCacheBehavior;
+                throw new UndeferrableValueException("Value 'DistributionArgs.DefaultCacheBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address type of the distribution. Default: `dualstack`.
         /// </summary>
-        [Input("ipAddressType")]
+        [PolicyResourceProperty("ipAddressType", "_mUnknown_IpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
-
-        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+        private string? _mValue_IpAddressType;
+        private bool _mUnknown_IpAddressType;
+        public string? IpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressType) return _mValue_IpAddressType;
+                throw new UndeferrableValueException("Value 'DistributionArgs.IpAddressType' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the distribution is enabled. Default: `true`.
         /// </summary>
-        [Input("isEnabled")]
+        [PolicyResourceProperty("isEnabled", "_mUnknown_IsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsEnabled;
-
-        public bool? IsEnabled => _mIsEnabled.GetValue("isEnabled");
+        private bool? _mValue_IsEnabled;
+        private bool _mUnknown_IsEnabled;
+        public bool? IsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_IsEnabled) return _mValue_IsEnabled;
+                throw new UndeferrableValueException("Value 'DistributionArgs.IsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the distribution.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DistributionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
         /// </summary>
-        [Input("origin")]
+        [PolicyResourceProperty("origin", "_mUnknown_Origin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionOriginArgs> _mOrigin;
-
-        public Inputs.DistributionOriginArgs? Origin => _mOrigin.GetValue("origin");
+        private Inputs.DistributionOriginArgs? _mValue_Origin;
+        private bool _mUnknown_Origin;
+        public Inputs.DistributionOriginArgs? Origin
+        {
+            get
+            {
+                if (!_mUnknown_Origin) return _mValue_Origin;
+                throw new UndeferrableValueException("Value 'DistributionArgs.Origin' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DistributionArgs.Tags' is not present");
+            }
+        }
     }
 }

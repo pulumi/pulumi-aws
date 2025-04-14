@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Dms.Outputs
         /// <summary>
         /// Endpoint for the OpenSearch cluster.
         /// </summary>
-        [Input("endpointUri")]
+        [PolicyResourceProperty("endpointUri", "_mUnknown_EndpointUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointUri;
-
-        public string? EndpointUri => _mEndpointUri.GetValue("endpointUri");
+        private string? _mValue_EndpointUri;
+        private bool _mUnknown_EndpointUri;
+        public string? EndpointUri
+        {
+            get
+            {
+                if (!_mUnknown_EndpointUri) return _mValue_EndpointUri;
+                throw new UndeferrableValueException("Value 'EndpointElasticsearchSettings.EndpointUri' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
         /// </summary>
-        [Input("errorRetryDuration")]
+        [PolicyResourceProperty("errorRetryDuration", "_mUnknown_ErrorRetryDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mErrorRetryDuration;
-
-        public int? ErrorRetryDuration => _mErrorRetryDuration.GetValue("errorRetryDuration");
+        private int? _mValue_ErrorRetryDuration;
+        private bool _mUnknown_ErrorRetryDuration;
+        public int? ErrorRetryDuration
+        {
+            get
+            {
+                if (!_mUnknown_ErrorRetryDuration) return _mValue_ErrorRetryDuration;
+                throw new UndeferrableValueException("Value 'EndpointElasticsearchSettings.ErrorRetryDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
         /// </summary>
-        [Input("fullLoadErrorPercentage")]
+        [PolicyResourceProperty("fullLoadErrorPercentage", "_mUnknown_FullLoadErrorPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFullLoadErrorPercentage;
-
-        public int? FullLoadErrorPercentage => _mFullLoadErrorPercentage.GetValue("fullLoadErrorPercentage");
+        private int? _mValue_FullLoadErrorPercentage;
+        private bool _mUnknown_FullLoadErrorPercentage;
+        public int? FullLoadErrorPercentage
+        {
+            get
+            {
+                if (!_mUnknown_FullLoadErrorPercentage) return _mValue_FullLoadErrorPercentage;
+                throw new UndeferrableValueException("Value 'EndpointElasticsearchSettings.FullLoadErrorPercentage' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
         /// </summary>
-        [Input("serviceAccessRoleArn")]
+        [PolicyResourceProperty("serviceAccessRoleArn", "_mUnknown_ServiceAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccessRoleArn;
-
-        public string? ServiceAccessRoleArn => _mServiceAccessRoleArn.GetValue("serviceAccessRoleArn");
+        private string? _mValue_ServiceAccessRoleArn;
+        private bool _mUnknown_ServiceAccessRoleArn;
+        public string? ServiceAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccessRoleArn) return _mValue_ServiceAccessRoleArn;
+                throw new UndeferrableValueException("Value 'EndpointElasticsearchSettings.ServiceAccessRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
         /// </summary>
-        [Input("useNewMappingType")]
+        [PolicyResourceProperty("useNewMappingType", "_mUnknown_UseNewMappingType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseNewMappingType;
-
-        public bool? UseNewMappingType => _mUseNewMappingType.GetValue("useNewMappingType");
+        private bool? _mValue_UseNewMappingType;
+        private bool _mUnknown_UseNewMappingType;
+        public bool? UseNewMappingType
+        {
+            get
+            {
+                if (!_mUnknown_UseNewMappingType) return _mValue_UseNewMappingType;
+                throw new UndeferrableValueException("Value 'EndpointElasticsearchSettings.UseNewMappingType' is not present");
+            }
+        }
     }
 }

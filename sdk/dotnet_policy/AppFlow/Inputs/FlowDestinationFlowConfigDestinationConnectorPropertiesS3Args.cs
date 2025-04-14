@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
 {
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args
     {
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args.BucketName' is not present");
+            }
+        }
 
-        public string? BucketName => _mBucketName.GetValue("bucketName");
-
-        [Input("bucketPrefix")]
+        [PolicyResourceProperty("bucketPrefix", "_mUnknown_BucketPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketPrefix;
+        private string? _mValue_BucketPrefix;
+        private bool _mUnknown_BucketPrefix;
+        public string? BucketPrefix
+        {
+            get
+            {
+                if (!_mUnknown_BucketPrefix) return _mValue_BucketPrefix;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args.BucketPrefix' is not present");
+            }
+        }
 
-        public string? BucketPrefix => _mBucketPrefix.GetValue("bucketPrefix");
-
-        [Input("s3OutputFormatConfig")]
+        [PolicyResourceProperty("s3OutputFormatConfig", "_mUnknown_S3OutputFormatConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs> _mS3OutputFormatConfig;
-
-        public Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs? S3OutputFormatConfig => _mS3OutputFormatConfig.GetValue("s3OutputFormatConfig");
+        private Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs? _mValue_S3OutputFormatConfig;
+        private bool _mUnknown_S3OutputFormatConfig;
+        public Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs? S3OutputFormatConfig
+        {
+            get
+            {
+                if (!_mUnknown_S3OutputFormatConfig) return _mValue_S3OutputFormatConfig;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args.S3OutputFormatConfig' is not present");
+            }
+        }
     }
 }

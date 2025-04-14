@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess.Outputs
         /// <summary>
         /// Boolean flag to indicate that the CMK should be used.
         /// </summary>
-        [Input("customerManagedKeyEnabled")]
+        [PolicyResourceProperty("customerManagedKeyEnabled", "_mUnknown_CustomerManagedKeyEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCustomerManagedKeyEnabled;
-
-        public bool? CustomerManagedKeyEnabled => _mCustomerManagedKeyEnabled.GetValue("customerManagedKeyEnabled");
+        private bool? _mValue_CustomerManagedKeyEnabled;
+        private bool _mUnknown_CustomerManagedKeyEnabled;
+        public bool? CustomerManagedKeyEnabled
+        {
+            get
+            {
+                if (!_mUnknown_CustomerManagedKeyEnabled) return _mValue_CustomerManagedKeyEnabled;
+                throw new UndeferrableValueException("Value 'GroupSseConfiguration.CustomerManagedKeyEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the KMS key to use.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'GroupSseConfiguration.KmsKeyArn' is not present");
+            }
+        }
     }
 }

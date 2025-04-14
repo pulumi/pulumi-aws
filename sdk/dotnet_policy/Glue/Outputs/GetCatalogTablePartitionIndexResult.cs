@@ -15,25 +15,46 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// Name of the partition index.
         /// </summary>
-        [Input("indexName")]
+        [PolicyResourceProperty("indexName", "_mUnknown_IndexName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIndexName;
+        private string? _mValue_IndexName;
+        private bool _mUnknown_IndexName;
+        public string? IndexName
+        {
+            get
+            {
+                if (!_mUnknown_IndexName) return _mValue_IndexName;
+                throw new UndeferrableValueException("Value 'GetCatalogTablePartitionIndexResult.IndexName' is not present");
+            }
+        }
 
-        public string? IndexName => _mIndexName.GetValue("indexName");
-
-        [Input("indexStatus")]
+        [PolicyResourceProperty("indexStatus", "_mUnknown_IndexStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIndexStatus;
-
-        public string? IndexStatus => _mIndexStatus.GetValue("indexStatus");
+        private string? _mValue_IndexStatus;
+        private bool _mUnknown_IndexStatus;
+        public string? IndexStatus
+        {
+            get
+            {
+                if (!_mUnknown_IndexStatus) return _mValue_IndexStatus;
+                throw new UndeferrableValueException("Value 'GetCatalogTablePartitionIndexResult.IndexStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Keys for the partition index.
         /// </summary>
-        [Input("keys")]
+        [PolicyResourceProperty("keys", "_mUnknown_Keys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKeys;
-
-        public List<string>? Keys => _mKeys.GetValue("keys");
+        private List<string>? _mValue_Keys;
+        private bool _mUnknown_Keys;
+        public List<string>? Keys
+        {
+            get
+            {
+                if (!_mUnknown_Keys) return _mValue_Keys;
+                throw new UndeferrableValueException("Value 'GetCatalogTablePartitionIndexResult.Keys' is not present");
+            }
+        }
     }
 }

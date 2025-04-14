@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
         /// </summary>
-        [Input("buttons")]
+        [PolicyResourceProperty("buttons", "_mUnknown_Buttons")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton>> _mButtons;
-
-        public List<Outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton>? Buttons => _mButtons.GetValue("buttons");
+        private List<Outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton>? _mValue_Buttons;
+        private bool _mUnknown_Buttons;
+        public List<Outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton>? Buttons
+        {
+            get
+            {
+                if (!_mUnknown_Buttons) return _mValue_Buttons;
+                throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard.Buttons' is not present");
+            }
+        }
 
         /// <summary>
         /// URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
         /// </summary>
-        [Input("imageUrl")]
+        [PolicyResourceProperty("imageUrl", "_mUnknown_ImageUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageUrl;
-
-        public string? ImageUrl => _mImageUrl.GetValue("imageUrl");
+        private string? _mValue_ImageUrl;
+        private bool _mUnknown_ImageUrl;
+        public string? ImageUrl
+        {
+            get
+            {
+                if (!_mUnknown_ImageUrl) return _mValue_ImageUrl;
+                throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard.ImageUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
         /// </summary>
-        [Input("subtitle")]
+        [PolicyResourceProperty("subtitle", "_mUnknown_Subtitle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubtitle;
-
-        public string? Subtitle => _mSubtitle.GetValue("subtitle");
+        private string? _mValue_Subtitle;
+        private bool _mUnknown_Subtitle;
+        public string? Subtitle
+        {
+            get
+            {
+                if (!_mUnknown_Subtitle) return _mValue_Subtitle;
+                throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard.Subtitle' is not present");
+            }
+        }
 
         /// <summary>
         /// Title to display on the response card. The format of the title is determined by the platform displaying the response card.
         /// </summary>
-        [Input("title")]
+        [PolicyResourceProperty("title", "_mUnknown_Title")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTitle;
-
-        public string? Title => _mTitle.GetValue("title");
+        private string? _mValue_Title;
+        private bool _mUnknown_Title;
+        public string? Title
+        {
+            get
+            {
+                if (!_mUnknown_Title) return _mValue_Title;
+                throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard.Title' is not present");
+            }
+        }
     }
 }

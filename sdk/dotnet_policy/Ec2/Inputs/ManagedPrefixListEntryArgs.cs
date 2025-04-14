@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// CIDR block of this entry.
         /// </summary>
-        [Input("cidr")]
+        [PolicyResourceProperty("cidr", "_mUnknown_Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidr;
-
-        public string? Cidr => _mCidr.GetValue("cidr");
+        private string? _mValue_Cidr;
+        private bool _mUnknown_Cidr;
+        public string? Cidr
+        {
+            get
+            {
+                if (!_mUnknown_Cidr) return _mValue_Cidr;
+                throw new UndeferrableValueException("Value 'ManagedPrefixListEntryArgs.Cidr' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of this entry. Due to API limitations, updating only the description of an existing entry requires temporarily removing and re-adding the entry.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ManagedPrefixListEntryArgs.Description' is not present");
+            }
+        }
     }
 }

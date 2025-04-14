@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// The code the system generates when it processes the activation.
         /// </summary>
-        [Input("activationCode")]
+        [PolicyResourceProperty("activationCode", "_mUnknown_ActivationCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActivationCode;
-
-        public string? ActivationCode => _mActivationCode.GetValue("activationCode");
+        private string? _mValue_ActivationCode;
+        private bool _mUnknown_ActivationCode;
+        public string? ActivationCode
+        {
+            get
+            {
+                if (!_mUnknown_ActivationCode) return _mValue_ActivationCode;
+                throw new UndeferrableValueException("Value 'Activation.ActivationCode' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the resource that you want to register.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Activation.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
-        [Input("expirationDate")]
+        [PolicyResourceProperty("expirationDate", "_mUnknown_ExpirationDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpirationDate;
-
-        public string? ExpirationDate => _mExpirationDate.GetValue("expirationDate");
+        private string? _mValue_ExpirationDate;
+        private bool _mUnknown_ExpirationDate;
+        public string? ExpirationDate
+        {
+            get
+            {
+                if (!_mUnknown_ExpirationDate) return _mValue_ExpirationDate;
+                throw new UndeferrableValueException("Value 'Activation.ExpirationDate' is not present");
+            }
+        }
 
         /// <summary>
         /// If the current activation has expired.
         /// </summary>
-        [Input("expired")]
+        [PolicyResourceProperty("expired", "_mUnknown_Expired")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mExpired;
-
-        public bool? Expired => _mExpired.GetValue("expired");
+        private bool? _mValue_Expired;
+        private bool _mUnknown_Expired;
+        public bool? Expired
+        {
+            get
+            {
+                if (!_mUnknown_Expired) return _mValue_Expired;
+                throw new UndeferrableValueException("Value 'Activation.Expired' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM Role to attach to the managed instance.
         /// </summary>
-        [Input("iamRole")]
+        [PolicyResourceProperty("iamRole", "_mUnknown_IamRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRole;
-
-        public string? IamRole => _mIamRole.GetValue("iamRole");
+        private string? _mValue_IamRole;
+        private bool _mUnknown_IamRole;
+        public string? IamRole
+        {
+            get
+            {
+                if (!_mUnknown_IamRole) return _mValue_IamRole;
+                throw new UndeferrableValueException("Value 'Activation.IamRole' is not present");
+            }
+        }
 
         /// <summary>
         /// The default name of the registered managed instance.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Activation.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of managed instances that are currently registered using this activation.
         /// </summary>
-        [Input("registrationCount")]
+        [PolicyResourceProperty("registrationCount", "_mUnknown_RegistrationCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRegistrationCount;
-
-        public int? RegistrationCount => _mRegistrationCount.GetValue("registrationCount");
+        private int? _mValue_RegistrationCount;
+        private bool _mUnknown_RegistrationCount;
+        public int? RegistrationCount
+        {
+            get
+            {
+                if (!_mUnknown_RegistrationCount) return _mValue_RegistrationCount;
+                throw new UndeferrableValueException("Value 'Activation.RegistrationCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of managed instances you want to register. The default value is 1 instance.
         /// </summary>
-        [Input("registrationLimit")]
+        [PolicyResourceProperty("registrationLimit", "_mUnknown_RegistrationLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRegistrationLimit;
-
-        public int? RegistrationLimit => _mRegistrationLimit.GetValue("registrationLimit");
+        private int? _mValue_RegistrationLimit;
+        private bool _mUnknown_RegistrationLimit;
+        public int? RegistrationLimit
+        {
+            get
+            {
+                if (!_mUnknown_RegistrationLimit) return _mValue_RegistrationLimit;
+                throw new UndeferrableValueException("Value 'Activation.RegistrationLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Activation.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Activation.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssm/activation:Activation")]
@@ -110,55 +180,97 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// The description of the resource that you want to register.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ActivationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
-        [Input("expirationDate")]
+        [PolicyResourceProperty("expirationDate", "_mUnknown_ExpirationDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpirationDate;
-
-        public string? ExpirationDate => _mExpirationDate.GetValue("expirationDate");
+        private string? _mValue_ExpirationDate;
+        private bool _mUnknown_ExpirationDate;
+        public string? ExpirationDate
+        {
+            get
+            {
+                if (!_mUnknown_ExpirationDate) return _mValue_ExpirationDate;
+                throw new UndeferrableValueException("Value 'ActivationArgs.ExpirationDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM Role to attach to the managed instance.
         /// </summary>
-        [Input("iamRole")]
+        [PolicyResourceProperty("iamRole", "_mUnknown_IamRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRole;
-
-        public string? IamRole => _mIamRole.GetValue("iamRole");
+        private string? _mValue_IamRole;
+        private bool _mUnknown_IamRole;
+        public string? IamRole
+        {
+            get
+            {
+                if (!_mUnknown_IamRole) return _mValue_IamRole;
+                throw new UndeferrableValueException("Value 'ActivationArgs.IamRole' is not present");
+            }
+        }
 
         /// <summary>
         /// The default name of the registered managed instance.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ActivationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of managed instances you want to register. The default value is 1 instance.
         /// </summary>
-        [Input("registrationLimit")]
+        [PolicyResourceProperty("registrationLimit", "_mUnknown_RegistrationLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRegistrationLimit;
-
-        public int? RegistrationLimit => _mRegistrationLimit.GetValue("registrationLimit");
+        private int? _mValue_RegistrationLimit;
+        private bool _mUnknown_RegistrationLimit;
+        public int? RegistrationLimit
+        {
+            get
+            {
+                if (!_mUnknown_RegistrationLimit) return _mValue_RegistrationLimit;
+                throw new UndeferrableValueException("Value 'ActivationArgs.RegistrationLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ActivationArgs.Tags' is not present");
+            }
+        }
     }
 }

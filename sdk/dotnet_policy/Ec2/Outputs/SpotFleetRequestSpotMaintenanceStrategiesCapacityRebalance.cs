@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// The replacement strategy to use. Only available for spot fleets with `fleet_type` set to `maintain`. Valid values: `launch`.
         /// </summary>
-        [Input("replacementStrategy")]
+        [PolicyResourceProperty("replacementStrategy", "_mUnknown_ReplacementStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplacementStrategy;
-
-        public string? ReplacementStrategy => _mReplacementStrategy.GetValue("replacementStrategy");
+        private string? _mValue_ReplacementStrategy;
+        private bool _mUnknown_ReplacementStrategy;
+        public string? ReplacementStrategy
+        {
+            get
+            {
+                if (!_mUnknown_ReplacementStrategy) return _mValue_ReplacementStrategy;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance.ReplacementStrategy' is not present");
+            }
+        }
     }
 }

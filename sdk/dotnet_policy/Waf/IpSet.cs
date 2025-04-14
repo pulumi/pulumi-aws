@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Waf
         /// <summary>
         /// The ARN of the WAF IPSet.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'IpSet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
         /// </summary>
-        [Input("ipSetDescriptors")]
+        [PolicyResourceProperty("ipSetDescriptors", "_mUnknown_IpSetDescriptors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.IpSetIpSetDescriptor>> _mIpSetDescriptors;
-
-        public List<Outputs.IpSetIpSetDescriptor>? IpSetDescriptors => _mIpSetDescriptors.GetValue("ipSetDescriptors");
+        private List<Outputs.IpSetIpSetDescriptor>? _mValue_IpSetDescriptors;
+        private bool _mUnknown_IpSetDescriptors;
+        public List<Outputs.IpSetIpSetDescriptor>? IpSetDescriptors
+        {
+            get
+            {
+                if (!_mUnknown_IpSetDescriptors) return _mValue_IpSetDescriptors;
+                throw new UndeferrableValueException("Value 'IpSet.IpSetDescriptors' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or description of the IPSet.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'IpSet.Name' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:waf/ipSet:IpSet")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.Waf
         /// <summary>
         /// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
         /// </summary>
-        [Input("ipSetDescriptors")]
+        [PolicyResourceProperty("ipSetDescriptors", "_mUnknown_IpSetDescriptors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.IpSetIpSetDescriptorArgs>> _mIpSetDescriptors;
-
-        public List<Inputs.IpSetIpSetDescriptorArgs>? IpSetDescriptors => _mIpSetDescriptors.GetValue("ipSetDescriptors");
+        private List<Inputs.IpSetIpSetDescriptorArgs>? _mValue_IpSetDescriptors;
+        private bool _mUnknown_IpSetDescriptors;
+        public List<Inputs.IpSetIpSetDescriptorArgs>? IpSetDescriptors
+        {
+            get
+            {
+                if (!_mUnknown_IpSetDescriptors) return _mValue_IpSetDescriptors;
+                throw new UndeferrableValueException("Value 'IpSetArgs.IpSetDescriptors' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or description of the IPSet.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'IpSetArgs.Name' is not present");
+            }
+        }
     }
 }

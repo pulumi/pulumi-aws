@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CustomerProfiles.Inputs
         /// <summary>
         /// The `Address` type. You can choose from `Address`, `BusinessAddress`, `MaillingAddress`, and `ShippingAddress`.
         /// </summary>
-        [Input("addresses")]
+        [PolicyResourceProperty("addresses", "_mUnknown_Addresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAddresses;
-
-        public List<string>? Addresses => _mAddresses.GetValue("addresses");
+        private List<string>? _mValue_Addresses;
+        private bool _mUnknown_Addresses;
+        public List<string>? Addresses
+        {
+            get
+            {
+                if (!_mUnknown_Addresses) return _mValue_Addresses;
+                throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingAttributeTypesSelectorArgs.Addresses' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures the `AttributeMatchingModel`, you can either choose `ONE_TO_ONE` or `MANY_TO_MANY`.
         /// </summary>
-        [Input("attributeMatchingModel")]
+        [PolicyResourceProperty("attributeMatchingModel", "_mUnknown_AttributeMatchingModel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttributeMatchingModel;
-
-        public string? AttributeMatchingModel => _mAttributeMatchingModel.GetValue("attributeMatchingModel");
+        private string? _mValue_AttributeMatchingModel;
+        private bool _mUnknown_AttributeMatchingModel;
+        public string? AttributeMatchingModel
+        {
+            get
+            {
+                if (!_mUnknown_AttributeMatchingModel) return _mValue_AttributeMatchingModel;
+                throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingAttributeTypesSelectorArgs.AttributeMatchingModel' is not present");
+            }
+        }
 
         /// <summary>
         /// The `Email` type. You can choose from `EmailAddress`, `BusinessEmailAddress` and `PersonalEmailAddress`.
         /// </summary>
-        [Input("emailAddresses")]
+        [PolicyResourceProperty("emailAddresses", "_mUnknown_EmailAddresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEmailAddresses;
-
-        public List<string>? EmailAddresses => _mEmailAddresses.GetValue("emailAddresses");
+        private List<string>? _mValue_EmailAddresses;
+        private bool _mUnknown_EmailAddresses;
+        public List<string>? EmailAddresses
+        {
+            get
+            {
+                if (!_mUnknown_EmailAddresses) return _mValue_EmailAddresses;
+                throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingAttributeTypesSelectorArgs.EmailAddresses' is not present");
+            }
+        }
 
         /// <summary>
         /// The `PhoneNumber` type. You can choose from `PhoneNumber`, `HomePhoneNumber`, and `MobilePhoneNumber`.
         /// </summary>
-        [Input("phoneNumbers")]
+        [PolicyResourceProperty("phoneNumbers", "_mUnknown_PhoneNumbers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPhoneNumbers;
-
-        public List<string>? PhoneNumbers => _mPhoneNumbers.GetValue("phoneNumbers");
+        private List<string>? _mValue_PhoneNumbers;
+        private bool _mUnknown_PhoneNumbers;
+        public List<string>? PhoneNumbers
+        {
+            get
+            {
+                if (!_mUnknown_PhoneNumbers) return _mValue_PhoneNumbers;
+                throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingAttributeTypesSelectorArgs.PhoneNumbers' is not present");
+            }
+        }
     }
 }

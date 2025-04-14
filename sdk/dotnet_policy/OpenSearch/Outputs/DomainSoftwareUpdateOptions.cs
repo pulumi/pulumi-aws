@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Outputs
         /// <summary>
         /// Whether automatic service software updates are enabled for the domain. Defaults to `false`.
         /// </summary>
-        [Input("autoSoftwareUpdateEnabled")]
+        [PolicyResourceProperty("autoSoftwareUpdateEnabled", "_mUnknown_AutoSoftwareUpdateEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoSoftwareUpdateEnabled;
-
-        public bool? AutoSoftwareUpdateEnabled => _mAutoSoftwareUpdateEnabled.GetValue("autoSoftwareUpdateEnabled");
+        private bool? _mValue_AutoSoftwareUpdateEnabled;
+        private bool _mUnknown_AutoSoftwareUpdateEnabled;
+        public bool? AutoSoftwareUpdateEnabled
+        {
+            get
+            {
+                if (!_mUnknown_AutoSoftwareUpdateEnabled) return _mValue_AutoSoftwareUpdateEnabled;
+                throw new UndeferrableValueException("Value 'DomainSoftwareUpdateOptions.AutoSoftwareUpdateEnabled' is not present");
+            }
+        }
     }
 }

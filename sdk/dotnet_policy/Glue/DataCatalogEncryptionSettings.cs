@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettings.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// The security configuration to set. see Data Catalog Encryption Settings.
         /// </summary>
-        [Input("dataCatalogEncryptionSettings")]
+        [PolicyResourceProperty("dataCatalogEncryptionSettings", "_mUnknown_DataCatalogEncryptionSettingsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings> _mDataCatalogEncryptionSettingsConfig;
-
-        public Outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings? DataCatalogEncryptionSettingsConfig => _mDataCatalogEncryptionSettingsConfig.GetValue("dataCatalogEncryptionSettings");
+        private Outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings? _mValue_DataCatalogEncryptionSettingsConfig;
+        private bool _mUnknown_DataCatalogEncryptionSettingsConfig;
+        public Outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings? DataCatalogEncryptionSettingsConfig
+        {
+            get
+            {
+                if (!_mUnknown_DataCatalogEncryptionSettingsConfig) return _mValue_DataCatalogEncryptionSettingsConfig;
+                throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettings.DataCatalogEncryptionSettingsConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettingsArgs.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// The security configuration to set. see Data Catalog Encryption Settings.
         /// </summary>
-        [Input("dataCatalogEncryptionSettings")]
+        [PolicyResourceProperty("dataCatalogEncryptionSettings", "_mUnknown_DataCatalogEncryptionSettingsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs> _mDataCatalogEncryptionSettingsConfig;
-
-        public Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs? DataCatalogEncryptionSettingsConfig => _mDataCatalogEncryptionSettingsConfig.GetValue("dataCatalogEncryptionSettings");
+        private Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs? _mValue_DataCatalogEncryptionSettingsConfig;
+        private bool _mUnknown_DataCatalogEncryptionSettingsConfig;
+        public Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs? DataCatalogEncryptionSettingsConfig
+        {
+            get
+            {
+                if (!_mUnknown_DataCatalogEncryptionSettingsConfig) return _mValue_DataCatalogEncryptionSettingsConfig;
+                throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettingsArgs.DataCatalogEncryptionSettingsConfig' is not present");
+            }
+        }
     }
 }

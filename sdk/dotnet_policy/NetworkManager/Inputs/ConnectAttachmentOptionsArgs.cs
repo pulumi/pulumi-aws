@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Inputs
         /// <summary>
         /// The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'ConnectAttachmentOptionsArgs.Protocol' is not present");
+            }
+        }
     }
 }

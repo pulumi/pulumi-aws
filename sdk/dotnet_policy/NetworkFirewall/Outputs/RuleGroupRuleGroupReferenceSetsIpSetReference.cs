@@ -15,16 +15,30 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
         /// </summary>
-        [Input("ipSetReferences")]
+        [PolicyResourceProperty("ipSetReferences", "_mUnknown_IpSetReferences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference>> _mIpSetReferences;
+        private List<Outputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference>? _mValue_IpSetReferences;
+        private bool _mUnknown_IpSetReferences;
+        public List<Outputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference>? IpSetReferences
+        {
+            get
+            {
+                if (!_mUnknown_IpSetReferences) return _mValue_IpSetReferences;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupReferenceSetsIpSetReference.IpSetReferences' is not present");
+            }
+        }
 
-        public List<Outputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference>? IpSetReferences => _mIpSetReferences.GetValue("ipSetReferences");
-
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupReferenceSetsIpSetReference.Key' is not present");
+            }
+        }
     }
 }

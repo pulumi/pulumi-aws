@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         /// </summary>
-        [Input("newerNoncurrentVersions")]
+        [PolicyResourceProperty("newerNoncurrentVersions", "_mUnknown_NewerNoncurrentVersions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNewerNoncurrentVersions;
-
-        public int? NewerNoncurrentVersions => _mNewerNoncurrentVersions.GetValue("newerNoncurrentVersions");
+        private int? _mValue_NewerNoncurrentVersions;
+        private bool _mUnknown_NewerNoncurrentVersions;
+        public int? NewerNoncurrentVersions
+        {
+            get
+            {
+                if (!_mUnknown_NewerNoncurrentVersions) return _mValue_NewerNoncurrentVersions;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs.NewerNoncurrentVersions' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
         /// </summary>
-        [Input("noncurrentDays")]
+        [PolicyResourceProperty("noncurrentDays", "_mUnknown_NoncurrentDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNoncurrentDays;
-
-        public int? NoncurrentDays => _mNoncurrentDays.GetValue("noncurrentDays");
+        private int? _mValue_NoncurrentDays;
+        private bool _mUnknown_NoncurrentDays;
+        public int? NoncurrentDays
+        {
+            get
+            {
+                if (!_mUnknown_NoncurrentDays) return _mValue_NoncurrentDays;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs.NoncurrentDays' is not present");
+            }
+        }
     }
 }

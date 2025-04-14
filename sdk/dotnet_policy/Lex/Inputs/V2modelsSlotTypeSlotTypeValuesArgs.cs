@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// Value of the slot type entry.
         /// See `sample_value` argument reference below.
         /// </summary>
-        [Input("sampleValues")]
+        [PolicyResourceProperty("sampleValues", "_mUnknown_SampleValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsSlotTypeSlotTypeValuesSampleValueArgs>> _mSampleValues;
-
-        public List<Inputs.V2modelsSlotTypeSlotTypeValuesSampleValueArgs>? SampleValues => _mSampleValues.GetValue("sampleValues");
+        private List<Inputs.V2modelsSlotTypeSlotTypeValuesSampleValueArgs>? _mValue_SampleValues;
+        private bool _mUnknown_SampleValues;
+        public List<Inputs.V2modelsSlotTypeSlotTypeValuesSampleValueArgs>? SampleValues
+        {
+            get
+            {
+                if (!_mUnknown_SampleValues) return _mValue_SampleValues;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeSlotTypeValuesArgs.SampleValues' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of additional values related to the slot type entry.
         /// See `synonyms` argument reference below.
         /// </summary>
-        [Input("synonyms")]
+        [PolicyResourceProperty("synonyms", "_mUnknown_Synonyms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsSlotTypeSlotTypeValuesSynonymArgs>> _mSynonyms;
-
-        public List<Inputs.V2modelsSlotTypeSlotTypeValuesSynonymArgs>? Synonyms => _mSynonyms.GetValue("synonyms");
+        private List<Inputs.V2modelsSlotTypeSlotTypeValuesSynonymArgs>? _mValue_Synonyms;
+        private bool _mUnknown_Synonyms;
+        public List<Inputs.V2modelsSlotTypeSlotTypeValuesSynonymArgs>? Synonyms
+        {
+            get
+            {
+                if (!_mUnknown_Synonyms) return _mValue_Synonyms;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeSlotTypeValuesArgs.Synonyms' is not present");
+            }
+        }
     }
 }

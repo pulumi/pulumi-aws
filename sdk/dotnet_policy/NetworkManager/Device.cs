@@ -16,110 +16,194 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// The Amazon Resource Name (ARN) of the device.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Device.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS location of the device. Documented below.
         /// </summary>
-        [Input("awsLocation")]
+        [PolicyResourceProperty("awsLocation", "_mUnknown_AwsLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DeviceAwsLocation> _mAwsLocation;
-
-        public Outputs.DeviceAwsLocation? AwsLocation => _mAwsLocation.GetValue("awsLocation");
+        private Outputs.DeviceAwsLocation? _mValue_AwsLocation;
+        private bool _mUnknown_AwsLocation;
+        public Outputs.DeviceAwsLocation? AwsLocation
+        {
+            get
+            {
+                if (!_mUnknown_AwsLocation) return _mValue_AwsLocation;
+                throw new UndeferrableValueException("Value 'Device.AwsLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the device.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Device.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
+        [PolicyResourceProperty("globalNetworkId", "_mUnknown_GlobalNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
-
-        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+        private string? _mValue_GlobalNetworkId;
+        private bool _mUnknown_GlobalNetworkId;
+        public string? GlobalNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_GlobalNetworkId) return _mValue_GlobalNetworkId;
+                throw new UndeferrableValueException("Value 'Device.GlobalNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The location of the device. Documented below.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DeviceLocation> _mLocation;
-
-        public Outputs.DeviceLocation? Location => _mLocation.GetValue("location");
+        private Outputs.DeviceLocation? _mValue_Location;
+        private bool _mUnknown_Location;
+        public Outputs.DeviceLocation? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'Device.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// The model of device.
         /// </summary>
-        [Input("model")]
+        [PolicyResourceProperty("model", "_mUnknown_Model")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModel;
-
-        public string? Model => _mModel.GetValue("model");
+        private string? _mValue_Model;
+        private bool _mUnknown_Model;
+        public string? Model
+        {
+            get
+            {
+                if (!_mUnknown_Model) return _mValue_Model;
+                throw new UndeferrableValueException("Value 'Device.Model' is not present");
+            }
+        }
 
         /// <summary>
         /// The serial number of the device.
         /// </summary>
-        [Input("serialNumber")]
+        [PolicyResourceProperty("serialNumber", "_mUnknown_SerialNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSerialNumber;
-
-        public string? SerialNumber => _mSerialNumber.GetValue("serialNumber");
+        private string? _mValue_SerialNumber;
+        private bool _mUnknown_SerialNumber;
+        public string? SerialNumber
+        {
+            get
+            {
+                if (!_mUnknown_SerialNumber) return _mValue_SerialNumber;
+                throw new UndeferrableValueException("Value 'Device.SerialNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the site.
         /// </summary>
-        [Input("siteId")]
+        [PolicyResourceProperty("siteId", "_mUnknown_SiteId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSiteId;
-
-        public string? SiteId => _mSiteId.GetValue("siteId");
+        private string? _mValue_SiteId;
+        private bool _mUnknown_SiteId;
+        public string? SiteId
+        {
+            get
+            {
+                if (!_mUnknown_SiteId) return _mValue_SiteId;
+                throw new UndeferrableValueException("Value 'Device.SiteId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Device.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Device.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of device.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Device.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// The vendor of the device.
         /// </summary>
-        [Input("vendor")]
+        [PolicyResourceProperty("vendor", "_mUnknown_Vendor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVendor;
-
-        public string? Vendor => _mVendor.GetValue("vendor");
+        private string? _mValue_Vendor;
+        private bool _mUnknown_Vendor;
+        public string? Vendor
+        {
+            get
+            {
+                if (!_mUnknown_Vendor) return _mValue_Vendor;
+                throw new UndeferrableValueException("Value 'Device.Vendor' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:networkmanager/device:Device")]
@@ -128,91 +212,161 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// The AWS location of the device. Documented below.
         /// </summary>
-        [Input("awsLocation")]
+        [PolicyResourceProperty("awsLocation", "_mUnknown_AwsLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeviceAwsLocationArgs> _mAwsLocation;
-
-        public Inputs.DeviceAwsLocationArgs? AwsLocation => _mAwsLocation.GetValue("awsLocation");
+        private Inputs.DeviceAwsLocationArgs? _mValue_AwsLocation;
+        private bool _mUnknown_AwsLocation;
+        public Inputs.DeviceAwsLocationArgs? AwsLocation
+        {
+            get
+            {
+                if (!_mUnknown_AwsLocation) return _mValue_AwsLocation;
+                throw new UndeferrableValueException("Value 'DeviceArgs.AwsLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the device.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DeviceArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
+        [PolicyResourceProperty("globalNetworkId", "_mUnknown_GlobalNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
-
-        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+        private string? _mValue_GlobalNetworkId;
+        private bool _mUnknown_GlobalNetworkId;
+        public string? GlobalNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_GlobalNetworkId) return _mValue_GlobalNetworkId;
+                throw new UndeferrableValueException("Value 'DeviceArgs.GlobalNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The location of the device. Documented below.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeviceLocationArgs> _mLocation;
-
-        public Inputs.DeviceLocationArgs? Location => _mLocation.GetValue("location");
+        private Inputs.DeviceLocationArgs? _mValue_Location;
+        private bool _mUnknown_Location;
+        public Inputs.DeviceLocationArgs? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'DeviceArgs.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// The model of device.
         /// </summary>
-        [Input("model")]
+        [PolicyResourceProperty("model", "_mUnknown_Model")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModel;
-
-        public string? Model => _mModel.GetValue("model");
+        private string? _mValue_Model;
+        private bool _mUnknown_Model;
+        public string? Model
+        {
+            get
+            {
+                if (!_mUnknown_Model) return _mValue_Model;
+                throw new UndeferrableValueException("Value 'DeviceArgs.Model' is not present");
+            }
+        }
 
         /// <summary>
         /// The serial number of the device.
         /// </summary>
-        [Input("serialNumber")]
+        [PolicyResourceProperty("serialNumber", "_mUnknown_SerialNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSerialNumber;
-
-        public string? SerialNumber => _mSerialNumber.GetValue("serialNumber");
+        private string? _mValue_SerialNumber;
+        private bool _mUnknown_SerialNumber;
+        public string? SerialNumber
+        {
+            get
+            {
+                if (!_mUnknown_SerialNumber) return _mValue_SerialNumber;
+                throw new UndeferrableValueException("Value 'DeviceArgs.SerialNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the site.
         /// </summary>
-        [Input("siteId")]
+        [PolicyResourceProperty("siteId", "_mUnknown_SiteId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSiteId;
-
-        public string? SiteId => _mSiteId.GetValue("siteId");
+        private string? _mValue_SiteId;
+        private bool _mUnknown_SiteId;
+        public string? SiteId
+        {
+            get
+            {
+                if (!_mUnknown_SiteId) return _mValue_SiteId;
+                throw new UndeferrableValueException("Value 'DeviceArgs.SiteId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DeviceArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of device.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'DeviceArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// The vendor of the device.
         /// </summary>
-        [Input("vendor")]
+        [PolicyResourceProperty("vendor", "_mUnknown_Vendor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVendor;
-
-        public string? Vendor => _mVendor.GetValue("vendor");
+        private string? _mValue_Vendor;
+        private bool _mUnknown_Vendor;
+        public string? Vendor
+        {
+            get
+            {
+                if (!_mUnknown_Vendor) return _mValue_Vendor;
+                throw new UndeferrableValueException("Value 'DeviceArgs.Vendor' is not present");
+            }
+        }
     }
 }

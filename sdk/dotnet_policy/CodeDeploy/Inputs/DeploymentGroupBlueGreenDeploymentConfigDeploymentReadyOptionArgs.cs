@@ -17,19 +17,33 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy.Inputs
         /// * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
         /// * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
         /// </summary>
-        [Input("actionOnTimeout")]
+        [PolicyResourceProperty("actionOnTimeout", "_mUnknown_ActionOnTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionOnTimeout;
-
-        public string? ActionOnTimeout => _mActionOnTimeout.GetValue("actionOnTimeout");
+        private string? _mValue_ActionOnTimeout;
+        private bool _mUnknown_ActionOnTimeout;
+        public string? ActionOnTimeout
+        {
+            get
+            {
+                if (!_mUnknown_ActionOnTimeout) return _mValue_ActionOnTimeout;
+                throw new UndeferrableValueException("Value 'DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs.ActionOnTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
         /// </summary>
-        [Input("waitTimeInMinutes")]
+        [PolicyResourceProperty("waitTimeInMinutes", "_mUnknown_WaitTimeInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWaitTimeInMinutes;
-
-        public int? WaitTimeInMinutes => _mWaitTimeInMinutes.GetValue("waitTimeInMinutes");
+        private int? _mValue_WaitTimeInMinutes;
+        private bool _mUnknown_WaitTimeInMinutes;
+        public int? WaitTimeInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_WaitTimeInMinutes) return _mValue_WaitTimeInMinutes;
+                throw new UndeferrableValueException("Value 'DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs.WaitTimeInMinutes' is not present");
+            }
+        }
     }
 }

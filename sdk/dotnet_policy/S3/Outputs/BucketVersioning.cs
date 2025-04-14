@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'BucketVersioning.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
         /// </summary>
-        [Input("mfaDelete")]
+        [PolicyResourceProperty("mfaDelete", "_mUnknown_MfaDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMfaDelete;
-
-        public bool? MfaDelete => _mMfaDelete.GetValue("mfaDelete");
+        private bool? _mValue_MfaDelete;
+        private bool _mUnknown_MfaDelete;
+        public bool? MfaDelete
+        {
+            get
+            {
+                if (!_mUnknown_MfaDelete) return _mValue_MfaDelete;
+                throw new UndeferrableValueException("Value 'BucketVersioning.MfaDelete' is not present");
+            }
+        }
     }
 }

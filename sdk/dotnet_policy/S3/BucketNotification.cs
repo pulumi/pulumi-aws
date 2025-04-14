@@ -18,47 +18,82 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketNotification.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
         /// </summary>
-        [Input("eventbridge")]
+        [PolicyResourceProperty("eventbridge", "_mUnknown_Eventbridge")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEventbridge;
-
-        public bool? Eventbridge => _mEventbridge.GetValue("eventbridge");
+        private bool? _mValue_Eventbridge;
+        private bool _mUnknown_Eventbridge;
+        public bool? Eventbridge
+        {
+            get
+            {
+                if (!_mUnknown_Eventbridge) return _mValue_Eventbridge;
+                throw new UndeferrableValueException("Value 'BucketNotification.Eventbridge' is not present");
+            }
+        }
 
         /// <summary>
         /// Used to configure notifications to a Lambda Function. See below.
         /// </summary>
-        [Input("lambdaFunctions")]
+        [PolicyResourceProperty("lambdaFunctions", "_mUnknown_LambdaFunctions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketNotificationLambdaFunction>> _mLambdaFunctions;
-
-        public List<Outputs.BucketNotificationLambdaFunction>? LambdaFunctions => _mLambdaFunctions.GetValue("lambdaFunctions");
+        private List<Outputs.BucketNotificationLambdaFunction>? _mValue_LambdaFunctions;
+        private bool _mUnknown_LambdaFunctions;
+        public List<Outputs.BucketNotificationLambdaFunction>? LambdaFunctions
+        {
+            get
+            {
+                if (!_mUnknown_LambdaFunctions) return _mValue_LambdaFunctions;
+                throw new UndeferrableValueException("Value 'BucketNotification.LambdaFunctions' is not present");
+            }
+        }
 
         /// <summary>
         /// Notification configuration to SQS Queue. See below.
         /// </summary>
-        [Input("queues")]
+        [PolicyResourceProperty("queues", "_mUnknown_Queues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketNotificationQueue>> _mQueues;
-
-        public List<Outputs.BucketNotificationQueue>? Queues => _mQueues.GetValue("queues");
+        private List<Outputs.BucketNotificationQueue>? _mValue_Queues;
+        private bool _mUnknown_Queues;
+        public List<Outputs.BucketNotificationQueue>? Queues
+        {
+            get
+            {
+                if (!_mUnknown_Queues) return _mValue_Queues;
+                throw new UndeferrableValueException("Value 'BucketNotification.Queues' is not present");
+            }
+        }
 
         /// <summary>
         /// Notification configuration to SNS Topic. See below.
         /// </summary>
-        [Input("topics")]
+        [PolicyResourceProperty("topics", "_mUnknown_Topics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketNotificationTopic>> _mTopics;
-
-        public List<Outputs.BucketNotificationTopic>? Topics => _mTopics.GetValue("topics");
+        private List<Outputs.BucketNotificationTopic>? _mValue_Topics;
+        private bool _mUnknown_Topics;
+        public List<Outputs.BucketNotificationTopic>? Topics
+        {
+            get
+            {
+                if (!_mUnknown_Topics) return _mValue_Topics;
+                throw new UndeferrableValueException("Value 'BucketNotification.Topics' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/bucketNotification:BucketNotification")]
@@ -69,46 +104,81 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketNotificationArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
         /// </summary>
-        [Input("eventbridge")]
+        [PolicyResourceProperty("eventbridge", "_mUnknown_Eventbridge")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEventbridge;
-
-        public bool? Eventbridge => _mEventbridge.GetValue("eventbridge");
+        private bool? _mValue_Eventbridge;
+        private bool _mUnknown_Eventbridge;
+        public bool? Eventbridge
+        {
+            get
+            {
+                if (!_mUnknown_Eventbridge) return _mValue_Eventbridge;
+                throw new UndeferrableValueException("Value 'BucketNotificationArgs.Eventbridge' is not present");
+            }
+        }
 
         /// <summary>
         /// Used to configure notifications to a Lambda Function. See below.
         /// </summary>
-        [Input("lambdaFunctions")]
+        [PolicyResourceProperty("lambdaFunctions", "_mUnknown_LambdaFunctions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketNotificationLambdaFunctionArgs>> _mLambdaFunctions;
-
-        public List<Inputs.BucketNotificationLambdaFunctionArgs>? LambdaFunctions => _mLambdaFunctions.GetValue("lambdaFunctions");
+        private List<Inputs.BucketNotificationLambdaFunctionArgs>? _mValue_LambdaFunctions;
+        private bool _mUnknown_LambdaFunctions;
+        public List<Inputs.BucketNotificationLambdaFunctionArgs>? LambdaFunctions
+        {
+            get
+            {
+                if (!_mUnknown_LambdaFunctions) return _mValue_LambdaFunctions;
+                throw new UndeferrableValueException("Value 'BucketNotificationArgs.LambdaFunctions' is not present");
+            }
+        }
 
         /// <summary>
         /// Notification configuration to SQS Queue. See below.
         /// </summary>
-        [Input("queues")]
+        [PolicyResourceProperty("queues", "_mUnknown_Queues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketNotificationQueueArgs>> _mQueues;
-
-        public List<Inputs.BucketNotificationQueueArgs>? Queues => _mQueues.GetValue("queues");
+        private List<Inputs.BucketNotificationQueueArgs>? _mValue_Queues;
+        private bool _mUnknown_Queues;
+        public List<Inputs.BucketNotificationQueueArgs>? Queues
+        {
+            get
+            {
+                if (!_mUnknown_Queues) return _mValue_Queues;
+                throw new UndeferrableValueException("Value 'BucketNotificationArgs.Queues' is not present");
+            }
+        }
 
         /// <summary>
         /// Notification configuration to SNS Topic. See below.
         /// </summary>
-        [Input("topics")]
+        [PolicyResourceProperty("topics", "_mUnknown_Topics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketNotificationTopicArgs>> _mTopics;
-
-        public List<Inputs.BucketNotificationTopicArgs>? Topics => _mTopics.GetValue("topics");
+        private List<Inputs.BucketNotificationTopicArgs>? _mValue_Topics;
+        private bool _mUnknown_Topics;
+        public List<Inputs.BucketNotificationTopicArgs>? Topics
+        {
+            get
+            {
+                if (!_mUnknown_Topics) return _mValue_Topics;
+                throw new UndeferrableValueException("Value 'BucketNotificationArgs.Topics' is not present");
+            }
+        }
     }
 }

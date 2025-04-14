@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// The ARN of the AWS destination that this delivery destination represents.
         /// </summary>
-        [Input("destinationResourceArn")]
+        [PolicyResourceProperty("destinationResourceArn", "_mUnknown_DestinationResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationResourceArn;
-
-        public string? DestinationResourceArn => _mDestinationResourceArn.GetValue("destinationResourceArn");
+        private string? _mValue_DestinationResourceArn;
+        private bool _mUnknown_DestinationResourceArn;
+        public string? DestinationResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_DestinationResourceArn) return _mValue_DestinationResourceArn;
+                throw new UndeferrableValueException("Value 'LogDeliveryDestinationDeliveryDestinationConfigurationArgs.DestinationResourceArn' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// The ARN of the health check used by the endpoint to determine whether failover is triggered.
         /// </summary>
-        [Input("healthCheck")]
+        [PolicyResourceProperty("healthCheck", "_mUnknown_HealthCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheck;
-
-        public string? HealthCheck => _mHealthCheck.GetValue("healthCheck");
+        private string? _mValue_HealthCheck;
+        private bool _mUnknown_HealthCheck;
+        public string? HealthCheck
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheck) return _mValue_HealthCheck;
+                throw new UndeferrableValueException("Value 'EventEndpointRoutingConfigFailoverConfigPrimaryArgs.HealthCheck' is not present");
+            }
+        }
     }
 }

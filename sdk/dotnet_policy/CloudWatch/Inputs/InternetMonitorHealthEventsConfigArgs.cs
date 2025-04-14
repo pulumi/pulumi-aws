@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// The health event threshold percentage set for availability scores.
         /// </summary>
-        [Input("availabilityScoreThreshold")]
+        [PolicyResourceProperty("availabilityScoreThreshold", "_mUnknown_AvailabilityScoreThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mAvailabilityScoreThreshold;
-
-        public double? AvailabilityScoreThreshold => _mAvailabilityScoreThreshold.GetValue("availabilityScoreThreshold");
+        private double? _mValue_AvailabilityScoreThreshold;
+        private bool _mUnknown_AvailabilityScoreThreshold;
+        public double? AvailabilityScoreThreshold
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityScoreThreshold) return _mValue_AvailabilityScoreThreshold;
+                throw new UndeferrableValueException("Value 'InternetMonitorHealthEventsConfigArgs.AvailabilityScoreThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// The health event threshold percentage set for performance scores.
         /// </summary>
-        [Input("performanceScoreThreshold")]
+        [PolicyResourceProperty("performanceScoreThreshold", "_mUnknown_PerformanceScoreThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mPerformanceScoreThreshold;
-
-        public double? PerformanceScoreThreshold => _mPerformanceScoreThreshold.GetValue("performanceScoreThreshold");
+        private double? _mValue_PerformanceScoreThreshold;
+        private bool _mUnknown_PerformanceScoreThreshold;
+        public double? PerformanceScoreThreshold
+        {
+            get
+            {
+                if (!_mUnknown_PerformanceScoreThreshold) return _mValue_PerformanceScoreThreshold;
+                throw new UndeferrableValueException("Value 'InternetMonitorHealthEventsConfigArgs.PerformanceScoreThreshold' is not present");
+            }
+        }
     }
 }

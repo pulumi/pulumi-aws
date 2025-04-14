@@ -15,136 +15,241 @@ namespace Pulumi.PolicyPacks.Aws.DataSync.Inputs
         /// <summary>
         /// A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
         /// </summary>
-        [Input("atime")]
+        [PolicyResourceProperty("atime", "_mUnknown_Atime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAtime;
-
-        public string? Atime => _mAtime.GetValue("atime");
+        private string? _mValue_Atime;
+        private bool _mUnknown_Atime;
+        public string? Atime
+        {
+            get
+            {
+                if (!_mUnknown_Atime) return _mValue_Atime;
+                throw new UndeferrableValueException("Value 'TaskOptionsArgs.Atime' is not present");
+            }
+        }
 
         /// <summary>
         /// Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
         /// </summary>
-        [Input("bytesPerSecond")]
+        [PolicyResourceProperty("bytesPerSecond", "_mUnknown_BytesPerSecond")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBytesPerSecond;
-
-        public int? BytesPerSecond => _mBytesPerSecond.GetValue("bytesPerSecond");
+        private int? _mValue_BytesPerSecond;
+        private bool _mUnknown_BytesPerSecond;
+        public int? BytesPerSecond
+        {
+            get
+            {
+                if (!_mUnknown_BytesPerSecond) return _mValue_BytesPerSecond;
+                throw new UndeferrableValueException("Value 'TaskOptionsArgs.BytesPerSecond' is not present");
+            }
+        }
 
         /// <summary>
         /// Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
         /// </summary>
-        [Input("gid")]
+        [PolicyResourceProperty("gid", "_mUnknown_Gid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGid;
-
-        public string? Gid => _mGid.GetValue("gid");
+        private string? _mValue_Gid;
+        private bool _mUnknown_Gid;
+        public string? Gid
+        {
+            get
+            {
+                if (!_mUnknown_Gid) return _mValue_Gid;
+                throw new UndeferrableValueException("Value 'TaskOptionsArgs.Gid' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
         /// </summary>
-        [Input("logLevel")]
+        [PolicyResourceProperty("logLevel", "_mUnknown_LogLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogLevel;
-
-        public string? LogLevel => _mLogLevel.GetValue("logLevel");
+        private string? _mValue_LogLevel;
+        private bool _mUnknown_LogLevel;
+        public string? LogLevel
+        {
+            get
+            {
+                if (!_mUnknown_LogLevel) return _mValue_LogLevel;
+                throw new UndeferrableValueException("Value 'TaskOptionsArgs.LogLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
         /// </summary>
-        [Input("mtime")]
+        [PolicyResourceProperty("mtime", "_mUnknown_Mtime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMtime;
-
-        public string? Mtime => _mMtime.GetValue("mtime");
+        private string? _mValue_Mtime;
+        private bool _mUnknown_Mtime;
+        public string? Mtime
+        {
+            get
+            {
+                if (!_mUnknown_Mtime) return _mValue_Mtime;
+                throw new UndeferrableValueException("Value 'TaskOptionsArgs.Mtime' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
         /// </summary>
-        [Input("objectTags")]
+        [PolicyResourceProperty("objectTags", "_mUnknown_ObjectTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectTags;
-
-        public string? ObjectTags => _mObjectTags.GetValue("objectTags");
+        private string? _mValue_ObjectTags;
+        private bool _mUnknown_ObjectTags;
+        public string? ObjectTags
+        {
+            get
+            {
+                if (!_mUnknown_ObjectTags) return _mValue_ObjectTags;
+                throw new UndeferrableValueException("Value 'TaskOptionsArgs.ObjectTags' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
         /// </summary>
-        [Input("overwriteMode")]
+        [PolicyResourceProperty("overwriteMode", "_mUnknown_OverwriteMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOverwriteMode;
-
-        public string? OverwriteMode => _mOverwriteMode.GetValue("overwriteMode");
+        private string? _mValue_OverwriteMode;
+        private bool _mUnknown_OverwriteMode;
+        public string? OverwriteMode
+        {
+            get
+            {
+                if (!_mUnknown_OverwriteMode) return _mValue_OverwriteMode;
+                throw new UndeferrableValueException("Value 'TaskOptionsArgs.OverwriteMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
         /// </summary>
-        [Input("posixPermissions")]
+        [PolicyResourceProperty("posixPermissions", "_mUnknown_PosixPermissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPosixPermissions;
-
-        public string? PosixPermissions => _mPosixPermissions.GetValue("posixPermissions");
+        private string? _mValue_PosixPermissions;
+        private bool _mUnknown_PosixPermissions;
+        public string? PosixPermissions
+        {
+            get
+            {
+                if (!_mUnknown_PosixPermissions) return _mValue_PosixPermissions;
+                throw new UndeferrableValueException("Value 'TaskOptionsArgs.PosixPermissions' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
         /// </summary>
-        [Input("preserveDeletedFiles")]
+        [PolicyResourceProperty("preserveDeletedFiles", "_mUnknown_PreserveDeletedFiles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreserveDeletedFiles;
-
-        public string? PreserveDeletedFiles => _mPreserveDeletedFiles.GetValue("preserveDeletedFiles");
+        private string? _mValue_PreserveDeletedFiles;
+        private bool _mUnknown_PreserveDeletedFiles;
+        public string? PreserveDeletedFiles
+        {
+            get
+            {
+                if (!_mUnknown_PreserveDeletedFiles) return _mValue_PreserveDeletedFiles;
+                throw new UndeferrableValueException("Value 'TaskOptionsArgs.PreserveDeletedFiles' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
         /// </summary>
-        [Input("preserveDevices")]
+        [PolicyResourceProperty("preserveDevices", "_mUnknown_PreserveDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreserveDevices;
-
-        public string? PreserveDevices => _mPreserveDevices.GetValue("preserveDevices");
+        private string? _mValue_PreserveDevices;
+        private bool _mUnknown_PreserveDevices;
+        public string? PreserveDevices
+        {
+            get
+            {
+                if (!_mUnknown_PreserveDevices) return _mValue_PreserveDevices;
+                throw new UndeferrableValueException("Value 'TaskOptionsArgs.PreserveDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
         /// </summary>
-        [Input("securityDescriptorCopyFlags")]
+        [PolicyResourceProperty("securityDescriptorCopyFlags", "_mUnknown_SecurityDescriptorCopyFlags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityDescriptorCopyFlags;
-
-        public string? SecurityDescriptorCopyFlags => _mSecurityDescriptorCopyFlags.GetValue("securityDescriptorCopyFlags");
+        private string? _mValue_SecurityDescriptorCopyFlags;
+        private bool _mUnknown_SecurityDescriptorCopyFlags;
+        public string? SecurityDescriptorCopyFlags
+        {
+            get
+            {
+                if (!_mUnknown_SecurityDescriptorCopyFlags) return _mValue_SecurityDescriptorCopyFlags;
+                throw new UndeferrableValueException("Value 'TaskOptionsArgs.SecurityDescriptorCopyFlags' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
         /// </summary>
-        [Input("taskQueueing")]
+        [PolicyResourceProperty("taskQueueing", "_mUnknown_TaskQueueing")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskQueueing;
-
-        public string? TaskQueueing => _mTaskQueueing.GetValue("taskQueueing");
+        private string? _mValue_TaskQueueing;
+        private bool _mUnknown_TaskQueueing;
+        public string? TaskQueueing
+        {
+            get
+            {
+                if (!_mUnknown_TaskQueueing) return _mValue_TaskQueueing;
+                throw new UndeferrableValueException("Value 'TaskOptionsArgs.TaskQueueing' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
         /// </summary>
-        [Input("transferMode")]
+        [PolicyResourceProperty("transferMode", "_mUnknown_TransferMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransferMode;
-
-        public string? TransferMode => _mTransferMode.GetValue("transferMode");
+        private string? _mValue_TransferMode;
+        private bool _mUnknown_TransferMode;
+        public string? TransferMode
+        {
+            get
+            {
+                if (!_mUnknown_TransferMode) return _mValue_TransferMode;
+                throw new UndeferrableValueException("Value 'TaskOptionsArgs.TransferMode' is not present");
+            }
+        }
 
         /// <summary>
         /// User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
         /// </summary>
-        [Input("uid")]
+        [PolicyResourceProperty("uid", "_mUnknown_Uid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUid;
-
-        public string? Uid => _mUid.GetValue("uid");
+        private string? _mValue_Uid;
+        private bool _mUnknown_Uid;
+        public string? Uid
+        {
+            get
+            {
+                if (!_mUnknown_Uid) return _mValue_Uid;
+                throw new UndeferrableValueException("Value 'TaskOptionsArgs.Uid' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
         /// </summary>
-        [Input("verifyMode")]
+        [PolicyResourceProperty("verifyMode", "_mUnknown_VerifyMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerifyMode;
-
-        public string? VerifyMode => _mVerifyMode.GetValue("verifyMode");
+        private string? _mValue_VerifyMode;
+        private bool _mUnknown_VerifyMode;
+        public string? VerifyMode
+        {
+            get
+            {
+                if (!_mUnknown_VerifyMode) return _mValue_VerifyMode;
+                throw new UndeferrableValueException("Value 'TaskOptionsArgs.VerifyMode' is not present");
+            }
+        }
     }
 }

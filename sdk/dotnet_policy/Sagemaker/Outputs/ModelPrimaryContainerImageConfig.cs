@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
         /// </summary>
-        [Input("repositoryAccessMode")]
+        [PolicyResourceProperty("repositoryAccessMode", "_mUnknown_RepositoryAccessMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryAccessMode;
-
-        public string? RepositoryAccessMode => _mRepositoryAccessMode.GetValue("repositoryAccessMode");
+        private string? _mValue_RepositoryAccessMode;
+        private bool _mUnknown_RepositoryAccessMode;
+        public string? RepositoryAccessMode
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryAccessMode) return _mValue_RepositoryAccessMode;
+                throw new UndeferrableValueException("Value 'ModelPrimaryContainerImageConfig.RepositoryAccessMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
         /// </summary>
-        [Input("repositoryAuthConfig")]
+        [PolicyResourceProperty("repositoryAuthConfig", "_mUnknown_RepositoryAuthConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ModelPrimaryContainerImageConfigRepositoryAuthConfig> _mRepositoryAuthConfig;
-
-        public Outputs.ModelPrimaryContainerImageConfigRepositoryAuthConfig? RepositoryAuthConfig => _mRepositoryAuthConfig.GetValue("repositoryAuthConfig");
+        private Outputs.ModelPrimaryContainerImageConfigRepositoryAuthConfig? _mValue_RepositoryAuthConfig;
+        private bool _mUnknown_RepositoryAuthConfig;
+        public Outputs.ModelPrimaryContainerImageConfigRepositoryAuthConfig? RepositoryAuthConfig
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryAuthConfig) return _mValue_RepositoryAuthConfig;
+                throw new UndeferrableValueException("Value 'ModelPrimaryContainerImageConfig.RepositoryAuthConfig' is not present");
+            }
+        }
     }
 }

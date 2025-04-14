@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// This parameter is specified when you're using an Amazon Elastic File System file system for job storage.
         /// </summary>
-        [Input("efsVolumeConfigurations")]
+        [PolicyResourceProperty("efsVolumeConfigurations", "_mUnknown_EfsVolumeConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationResult>> _mEfsVolumeConfigurations;
-
-        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationResult>? EfsVolumeConfigurations => _mEfsVolumeConfigurations.GetValue("efsVolumeConfigurations");
+        private List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationResult>? _mValue_EfsVolumeConfigurations;
+        private bool _mUnknown_EfsVolumeConfigurations;
+        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationResult>? EfsVolumeConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_EfsVolumeConfigurations) return _mValue_EfsVolumeConfigurations;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeResult.EfsVolumeConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The contents of the host parameter determine whether your data volume persists on the host container instance and where it's stored.
         /// </summary>
-        [Input("hosts")]
+        [PolicyResourceProperty("hosts", "_mUnknown_Hosts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostResult>> _mHosts;
-
-        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostResult>? Hosts => _mHosts.GetValue("hosts");
+        private List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostResult>? _mValue_Hosts;
+        private bool _mUnknown_Hosts;
+        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostResult>? Hosts
+        {
+            get
+            {
+                if (!_mUnknown_Hosts) return _mValue_Hosts;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeResult.Hosts' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeResult.Name' is not present");
+            }
+        }
     }
 }

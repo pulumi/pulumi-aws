@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Backup.Inputs
         /// <summary>
         /// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
         /// </summary>
-        [Input("destinationVaultArn")]
+        [PolicyResourceProperty("destinationVaultArn", "_mUnknown_DestinationVaultArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationVaultArn;
-
-        public string? DestinationVaultArn => _mDestinationVaultArn.GetValue("destinationVaultArn");
+        private string? _mValue_DestinationVaultArn;
+        private bool _mUnknown_DestinationVaultArn;
+        public string? DestinationVaultArn
+        {
+            get
+            {
+                if (!_mUnknown_DestinationVaultArn) return _mValue_DestinationVaultArn;
+                throw new UndeferrableValueException("Value 'PlanRuleCopyActionArgs.DestinationVaultArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
         /// </summary>
-        [Input("lifecycle")]
+        [PolicyResourceProperty("lifecycle", "_mUnknown_Lifecycle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PlanRuleCopyActionLifecycleArgs> _mLifecycle;
-
-        public Inputs.PlanRuleCopyActionLifecycleArgs? Lifecycle => _mLifecycle.GetValue("lifecycle");
+        private Inputs.PlanRuleCopyActionLifecycleArgs? _mValue_Lifecycle;
+        private bool _mUnknown_Lifecycle;
+        public Inputs.PlanRuleCopyActionLifecycleArgs? Lifecycle
+        {
+            get
+            {
+                if (!_mUnknown_Lifecycle) return _mValue_Lifecycle;
+                throw new UndeferrableValueException("Value 'PlanRuleCopyActionArgs.Lifecycle' is not present");
+            }
+        }
     }
 }

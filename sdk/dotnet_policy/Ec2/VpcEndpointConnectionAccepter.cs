@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// AWS VPC Endpoint ID.
         /// </summary>
-        [Input("vpcEndpointId")]
+        [PolicyResourceProperty("vpcEndpointId", "_mUnknown_VpcEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
-
-        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+        private string? _mValue_VpcEndpointId;
+        private bool _mUnknown_VpcEndpointId;
+        public string? VpcEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointId) return _mValue_VpcEndpointId;
+                throw new UndeferrableValueException("Value 'VpcEndpointConnectionAccepter.VpcEndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS VPC Endpoint Service ID.
         /// </summary>
-        [Input("vpcEndpointServiceId")]
+        [PolicyResourceProperty("vpcEndpointServiceId", "_mUnknown_VpcEndpointServiceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointServiceId;
-
-        public string? VpcEndpointServiceId => _mVpcEndpointServiceId.GetValue("vpcEndpointServiceId");
+        private string? _mValue_VpcEndpointServiceId;
+        private bool _mUnknown_VpcEndpointServiceId;
+        public string? VpcEndpointServiceId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointServiceId) return _mValue_VpcEndpointServiceId;
+                throw new UndeferrableValueException("Value 'VpcEndpointConnectionAccepter.VpcEndpointServiceId' is not present");
+            }
+        }
 
         /// <summary>
         /// State of the VPC Endpoint.
         /// </summary>
-        [Input("vpcEndpointState")]
+        [PolicyResourceProperty("vpcEndpointState", "_mUnknown_VpcEndpointState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointState;
-
-        public string? VpcEndpointState => _mVpcEndpointState.GetValue("vpcEndpointState");
+        private string? _mValue_VpcEndpointState;
+        private bool _mUnknown_VpcEndpointState;
+        public string? VpcEndpointState
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointState) return _mValue_VpcEndpointState;
+                throw new UndeferrableValueException("Value 'VpcEndpointConnectionAccepter.VpcEndpointState' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// AWS VPC Endpoint ID.
         /// </summary>
-        [Input("vpcEndpointId")]
+        [PolicyResourceProperty("vpcEndpointId", "_mUnknown_VpcEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
-
-        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+        private string? _mValue_VpcEndpointId;
+        private bool _mUnknown_VpcEndpointId;
+        public string? VpcEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointId) return _mValue_VpcEndpointId;
+                throw new UndeferrableValueException("Value 'VpcEndpointConnectionAccepterArgs.VpcEndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS VPC Endpoint Service ID.
         /// </summary>
-        [Input("vpcEndpointServiceId")]
+        [PolicyResourceProperty("vpcEndpointServiceId", "_mUnknown_VpcEndpointServiceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointServiceId;
-
-        public string? VpcEndpointServiceId => _mVpcEndpointServiceId.GetValue("vpcEndpointServiceId");
+        private string? _mValue_VpcEndpointServiceId;
+        private bool _mUnknown_VpcEndpointServiceId;
+        public string? VpcEndpointServiceId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointServiceId) return _mValue_VpcEndpointServiceId;
+                throw new UndeferrableValueException("Value 'VpcEndpointConnectionAccepterArgs.VpcEndpointServiceId' is not present");
+            }
+        }
     }
 }

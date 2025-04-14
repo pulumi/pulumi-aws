@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Outputs
         /// <summary>
         /// The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
         /// </summary>
-        [Input("batchMode")]
+        [PolicyResourceProperty("batchMode", "_mUnknown_BatchMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBatchMode;
-
-        public bool? BatchMode => _mBatchMode.GetValue("batchMode");
+        private bool? _mValue_BatchMode;
+        private bool _mUnknown_BatchMode;
+        public bool? BatchMode
+        {
+            get
+            {
+                if (!_mUnknown_BatchMode) return _mValue_BatchMode;
+                throw new UndeferrableValueException("Value 'TopicRuleIotEvent.BatchMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the AWS IoT Events input.
         /// </summary>
-        [Input("inputName")]
+        [PolicyResourceProperty("inputName", "_mUnknown_InputName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputName;
-
-        public string? InputName => _mInputName.GetValue("inputName");
+        private string? _mValue_InputName;
+        private bool _mUnknown_InputName;
+        public string? InputName
+        {
+            get
+            {
+                if (!_mUnknown_InputName) return _mValue_InputName;
+                throw new UndeferrableValueException("Value 'TopicRuleIotEvent.InputName' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
         /// </summary>
-        [Input("messageId")]
+        [PolicyResourceProperty("messageId", "_mUnknown_MessageId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessageId;
-
-        public string? MessageId => _mMessageId.GetValue("messageId");
+        private string? _mValue_MessageId;
+        private bool _mUnknown_MessageId;
+        public string? MessageId
+        {
+            get
+            {
+                if (!_mUnknown_MessageId) return _mValue_MessageId;
+                throw new UndeferrableValueException("Value 'TopicRuleIotEvent.MessageId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role that grants access.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'TopicRuleIotEvent.RoleArn' is not present");
+            }
+        }
     }
 }

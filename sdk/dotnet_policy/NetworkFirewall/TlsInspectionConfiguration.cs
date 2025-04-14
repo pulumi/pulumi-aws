@@ -16,112 +16,203 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall
         /// <summary>
         /// ARN of the TLS Inspection Configuration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Certificate Manager certificate block. See Certificate Authority below for details.
         /// </summary>
-        [Input("certificateAuthorities")]
+        [PolicyResourceProperty("certificateAuthorities", "_mUnknown_CertificateAuthorities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TlsInspectionConfigurationCertificateAuthority>> _mCertificateAuthorities;
-
-        public List<Outputs.TlsInspectionConfigurationCertificateAuthority>? CertificateAuthorities => _mCertificateAuthorities.GetValue("certificateAuthorities");
+        private List<Outputs.TlsInspectionConfigurationCertificateAuthority>? _mValue_CertificateAuthorities;
+        private bool _mUnknown_CertificateAuthorities;
+        public List<Outputs.TlsInspectionConfigurationCertificateAuthority>? CertificateAuthorities
+        {
+            get
+            {
+                if (!_mUnknown_CertificateAuthorities) return _mValue_CertificateAuthorities;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.CertificateAuthorities' is not present");
+            }
+        }
 
         /// <summary>
         /// List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
         /// </summary>
-        [Input("certificates")]
+        [PolicyResourceProperty("certificates", "_mUnknown_Certificates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TlsInspectionConfigurationCertificate>> _mCertificates;
-
-        public List<Outputs.TlsInspectionConfigurationCertificate>? Certificates => _mCertificates.GetValue("certificates");
+        private List<Outputs.TlsInspectionConfigurationCertificate>? _mValue_Certificates;
+        private bool _mUnknown_Certificates;
+        public List<Outputs.TlsInspectionConfigurationCertificate>? Certificates
+        {
+            get
+            {
+                if (!_mUnknown_Certificates) return _mValue_Certificates;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.Certificates' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the TLS inspection configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Encryption configuration block. Detailed below.
         /// </summary>
-        [Input("encryptionConfigurations")]
+        [PolicyResourceProperty("encryptionConfigurations", "_mUnknown_EncryptionConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TlsInspectionConfigurationEncryptionConfiguration>> _mEncryptionConfigurations;
-
-        public List<Outputs.TlsInspectionConfigurationEncryptionConfiguration>? EncryptionConfigurations => _mEncryptionConfigurations.GetValue("encryptionConfigurations");
+        private List<Outputs.TlsInspectionConfigurationEncryptionConfiguration>? _mValue_EncryptionConfigurations;
+        private bool _mUnknown_EncryptionConfigurations;
+        public List<Outputs.TlsInspectionConfigurationEncryptionConfiguration>? EncryptionConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfigurations) return _mValue_EncryptionConfigurations;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.EncryptionConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Descriptive name of the TLS inspection configuration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of firewall policies that use this TLS inspection configuration.
         /// </summary>
-        [Input("numberOfAssociations")]
+        [PolicyResourceProperty("numberOfAssociations", "_mUnknown_NumberOfAssociations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfAssociations;
+        private int? _mValue_NumberOfAssociations;
+        private bool _mUnknown_NumberOfAssociations;
+        public int? NumberOfAssociations
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfAssociations) return _mValue_NumberOfAssociations;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.NumberOfAssociations' is not present");
+            }
+        }
 
-        public int? NumberOfAssociations => _mNumberOfAssociations.GetValue("numberOfAssociations");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TlsInspectionConfigurationTimeouts> _mTimeouts;
-
-        public Outputs.TlsInspectionConfigurationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.TlsInspectionConfigurationTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.TlsInspectionConfigurationTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// TLS inspection configuration block. Detailed below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("tlsInspectionConfiguration")]
+        [PolicyResourceProperty("tlsInspectionConfiguration", "_mUnknown_TlsInspectionConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TlsInspectionConfigurationTlsInspectionConfiguration> _mTlsInspectionConfig;
-
-        public Outputs.TlsInspectionConfigurationTlsInspectionConfiguration? TlsInspectionConfig => _mTlsInspectionConfig.GetValue("tlsInspectionConfiguration");
+        private Outputs.TlsInspectionConfigurationTlsInspectionConfiguration? _mValue_TlsInspectionConfig;
+        private bool _mUnknown_TlsInspectionConfig;
+        public Outputs.TlsInspectionConfigurationTlsInspectionConfiguration? TlsInspectionConfig
+        {
+            get
+            {
+                if (!_mUnknown_TlsInspectionConfig) return _mValue_TlsInspectionConfig;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.TlsInspectionConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier for the TLS inspection configuration.
         /// </summary>
-        [Input("tlsInspectionConfigurationId")]
+        [PolicyResourceProperty("tlsInspectionConfigurationId", "_mUnknown_TlsInspectionConfigurationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTlsInspectionConfigurationId;
-
-        public string? TlsInspectionConfigurationId => _mTlsInspectionConfigurationId.GetValue("tlsInspectionConfigurationId");
+        private string? _mValue_TlsInspectionConfigurationId;
+        private bool _mUnknown_TlsInspectionConfigurationId;
+        public string? TlsInspectionConfigurationId
+        {
+            get
+            {
+                if (!_mUnknown_TlsInspectionConfigurationId) return _mValue_TlsInspectionConfigurationId;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.TlsInspectionConfigurationId' is not present");
+            }
+        }
 
         /// <summary>
         /// String token used when updating the rule group.
         /// </summary>
-        [Input("updateToken")]
+        [PolicyResourceProperty("updateToken", "_mUnknown_UpdateToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateToken;
-
-        public string? UpdateToken => _mUpdateToken.GetValue("updateToken");
+        private string? _mValue_UpdateToken;
+        private bool _mUnknown_UpdateToken;
+        public string? UpdateToken
+        {
+            get
+            {
+                if (!_mUnknown_UpdateToken) return _mValue_UpdateToken;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.UpdateToken' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration")]
@@ -130,51 +221,93 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall
         /// <summary>
         /// Description of the TLS inspection configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Encryption configuration block. Detailed below.
         /// </summary>
-        [Input("encryptionConfigurations")]
+        [PolicyResourceProperty("encryptionConfigurations", "_mUnknown_EncryptionConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TlsInspectionConfigurationEncryptionConfigurationArgs>> _mEncryptionConfigurations;
-
-        public List<Inputs.TlsInspectionConfigurationEncryptionConfigurationArgs>? EncryptionConfigurations => _mEncryptionConfigurations.GetValue("encryptionConfigurations");
+        private List<Inputs.TlsInspectionConfigurationEncryptionConfigurationArgs>? _mValue_EncryptionConfigurations;
+        private bool _mUnknown_EncryptionConfigurations;
+        public List<Inputs.TlsInspectionConfigurationEncryptionConfigurationArgs>? EncryptionConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfigurations) return _mValue_EncryptionConfigurations;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationArgs.EncryptionConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Descriptive name of the TLS inspection configuration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationArgs.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TlsInspectionConfigurationTimeoutsArgs> _mTimeouts;
-
-        public Inputs.TlsInspectionConfigurationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.TlsInspectionConfigurationTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.TlsInspectionConfigurationTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// TLS inspection configuration block. Detailed below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("tlsInspectionConfiguration")]
+        [PolicyResourceProperty("tlsInspectionConfiguration", "_mUnknown_TlsInspectionConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs> _mTlsInspectionConfig;
-
-        public Inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs? TlsInspectionConfig => _mTlsInspectionConfig.GetValue("tlsInspectionConfiguration");
+        private Inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs? _mValue_TlsInspectionConfig;
+        private bool _mUnknown_TlsInspectionConfig;
+        public Inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs? TlsInspectionConfig
+        {
+            get
+            {
+                if (!_mUnknown_TlsInspectionConfig) return _mValue_TlsInspectionConfig;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationArgs.TlsInspectionConfig' is not present");
+            }
+        }
     }
 }

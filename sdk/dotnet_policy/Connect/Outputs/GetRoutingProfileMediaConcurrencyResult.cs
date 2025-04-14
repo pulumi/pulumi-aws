@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Connect.Outputs
         /// <summary>
         /// Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
         /// </summary>
-        [Input("channel")]
+        [PolicyResourceProperty("channel", "_mUnknown_Channel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChannel;
-
-        public string? Channel => _mChannel.GetValue("channel");
+        private string? _mValue_Channel;
+        private bool _mUnknown_Channel;
+        public string? Channel
+        {
+            get
+            {
+                if (!_mUnknown_Channel) return _mValue_Channel;
+                throw new UndeferrableValueException("Value 'GetRoutingProfileMediaConcurrencyResult.Channel' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
         /// </summary>
-        [Input("concurrency")]
+        [PolicyResourceProperty("concurrency", "_mUnknown_Concurrency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mConcurrency;
-
-        public int? Concurrency => _mConcurrency.GetValue("concurrency");
+        private int? _mValue_Concurrency;
+        private bool _mUnknown_Concurrency;
+        public int? Concurrency
+        {
+            get
+            {
+                if (!_mUnknown_Concurrency) return _mValue_Concurrency;
+                throw new UndeferrableValueException("Value 'GetRoutingProfileMediaConcurrencyResult.Concurrency' is not present");
+            }
+        }
     }
 }

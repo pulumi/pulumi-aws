@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Outputs
         /// <summary>
         /// List of up to 10 structures that defines custom scaling metric in predictive scaling policy
         /// </summary>
-        [Input("metricDataQueries")]
+        [PolicyResourceProperty("metricDataQueries", "_mUnknown_MetricDataQueries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery>> _mMetricDataQueries;
-
-        public List<Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery>? MetricDataQueries => _mMetricDataQueries.GetValue("metricDataQueries");
+        private List<Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery>? _mValue_MetricDataQueries;
+        private bool _mUnknown_MetricDataQueries;
+        public List<Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery>? MetricDataQueries
+        {
+            get
+            {
+                if (!_mUnknown_MetricDataQueries) return _mValue_MetricDataQueries;
+                throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification.MetricDataQueries' is not present");
+            }
+        }
     }
 }

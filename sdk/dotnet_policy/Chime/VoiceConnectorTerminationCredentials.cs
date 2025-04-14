@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// List of termination SIP credentials.
         /// </summary>
-        [Input("credentials")]
+        [PolicyResourceProperty("credentials", "_mUnknown_Credentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VoiceConnectorTerminationCredentialsCredential>> _mCredentials;
-
-        public List<Outputs.VoiceConnectorTerminationCredentialsCredential>? Credentials => _mCredentials.GetValue("credentials");
+        private List<Outputs.VoiceConnectorTerminationCredentialsCredential>? _mValue_Credentials;
+        private bool _mUnknown_Credentials;
+        public List<Outputs.VoiceConnectorTerminationCredentialsCredential>? Credentials
+        {
+            get
+            {
+                if (!_mUnknown_Credentials) return _mValue_Credentials;
+                throw new UndeferrableValueException("Value 'VoiceConnectorTerminationCredentials.Credentials' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Chime Voice Connector ID.
         /// </summary>
-        [Input("voiceConnectorId")]
+        [PolicyResourceProperty("voiceConnectorId", "_mUnknown_VoiceConnectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceConnectorId;
-
-        public string? VoiceConnectorId => _mVoiceConnectorId.GetValue("voiceConnectorId");
+        private string? _mValue_VoiceConnectorId;
+        private bool _mUnknown_VoiceConnectorId;
+        public string? VoiceConnectorId
+        {
+            get
+            {
+                if (!_mUnknown_VoiceConnectorId) return _mValue_VoiceConnectorId;
+                throw new UndeferrableValueException("Value 'VoiceConnectorTerminationCredentials.VoiceConnectorId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// List of termination SIP credentials.
         /// </summary>
-        [Input("credentials")]
+        [PolicyResourceProperty("credentials", "_mUnknown_Credentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.VoiceConnectorTerminationCredentialsCredentialArgs>> _mCredentials;
-
-        public List<Inputs.VoiceConnectorTerminationCredentialsCredentialArgs>? Credentials => _mCredentials.GetValue("credentials");
+        private List<Inputs.VoiceConnectorTerminationCredentialsCredentialArgs>? _mValue_Credentials;
+        private bool _mUnknown_Credentials;
+        public List<Inputs.VoiceConnectorTerminationCredentialsCredentialArgs>? Credentials
+        {
+            get
+            {
+                if (!_mUnknown_Credentials) return _mValue_Credentials;
+                throw new UndeferrableValueException("Value 'VoiceConnectorTerminationCredentialsArgs.Credentials' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Chime Voice Connector ID.
         /// </summary>
-        [Input("voiceConnectorId")]
+        [PolicyResourceProperty("voiceConnectorId", "_mUnknown_VoiceConnectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceConnectorId;
-
-        public string? VoiceConnectorId => _mVoiceConnectorId.GetValue("voiceConnectorId");
+        private string? _mValue_VoiceConnectorId;
+        private bool _mUnknown_VoiceConnectorId;
+        public string? VoiceConnectorId
+        {
+            get
+            {
+                if (!_mUnknown_VoiceConnectorId) return _mValue_VoiceConnectorId;
+                throw new UndeferrableValueException("Value 'VoiceConnectorTerminationCredentialsArgs.VoiceConnectorId' is not present");
+            }
+        }
     }
 }

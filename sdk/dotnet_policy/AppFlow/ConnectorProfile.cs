@@ -16,71 +16,127 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow
         /// <summary>
         /// ARN of the connector profile.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ConnectorProfile.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
         /// </summary>
-        [Input("connectionMode")]
+        [PolicyResourceProperty("connectionMode", "_mUnknown_ConnectionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionMode;
-
-        public string? ConnectionMode => _mConnectionMode.GetValue("connectionMode");
+        private string? _mValue_ConnectionMode;
+        private bool _mUnknown_ConnectionMode;
+        public string? ConnectionMode
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionMode) return _mValue_ConnectionMode;
+                throw new UndeferrableValueException("Value 'ConnectorProfile.ConnectionMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
         /// </summary>
-        [Input("connectorLabel")]
+        [PolicyResourceProperty("connectorLabel", "_mUnknown_ConnectorLabel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectorLabel;
-
-        public string? ConnectorLabel => _mConnectorLabel.GetValue("connectorLabel");
+        private string? _mValue_ConnectorLabel;
+        private bool _mUnknown_ConnectorLabel;
+        public string? ConnectorLabel
+        {
+            get
+            {
+                if (!_mUnknown_ConnectorLabel) return _mValue_ConnectorLabel;
+                throw new UndeferrableValueException("Value 'ConnectorProfile.ConnectorLabel' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
         /// </summary>
-        [Input("connectorProfileConfig")]
+        [PolicyResourceProperty("connectorProfileConfig", "_mUnknown_ConnectorProfileConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfig> _mConnectorProfileConfig;
-
-        public Outputs.ConnectorProfileConnectorProfileConfig? ConnectorProfileConfig => _mConnectorProfileConfig.GetValue("connectorProfileConfig");
+        private Outputs.ConnectorProfileConnectorProfileConfig? _mValue_ConnectorProfileConfig;
+        private bool _mUnknown_ConnectorProfileConfig;
+        public Outputs.ConnectorProfileConnectorProfileConfig? ConnectorProfileConfig
+        {
+            get
+            {
+                if (!_mUnknown_ConnectorProfileConfig) return _mValue_ConnectorProfileConfig;
+                throw new UndeferrableValueException("Value 'ConnectorProfile.ConnectorProfileConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         /// </summary>
-        [Input("connectorType")]
+        [PolicyResourceProperty("connectorType", "_mUnknown_ConnectorType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectorType;
-
-        public string? ConnectorType => _mConnectorType.GetValue("connectorType");
+        private string? _mValue_ConnectorType;
+        private bool _mUnknown_ConnectorType;
+        public string? ConnectorType
+        {
+            get
+            {
+                if (!_mUnknown_ConnectorType) return _mValue_ConnectorType;
+                throw new UndeferrableValueException("Value 'ConnectorProfile.ConnectorType' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the connector profile credentials.
         /// </summary>
-        [Input("credentialsArn")]
+        [PolicyResourceProperty("credentialsArn", "_mUnknown_CredentialsArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCredentialsArn;
-
-        public string? CredentialsArn => _mCredentialsArn.GetValue("credentialsArn");
+        private string? _mValue_CredentialsArn;
+        private bool _mUnknown_CredentialsArn;
+        public string? CredentialsArn
+        {
+            get
+            {
+                if (!_mUnknown_CredentialsArn) return _mValue_CredentialsArn;
+                throw new UndeferrableValueException("Value 'ConnectorProfile.CredentialsArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         /// </summary>
-        [Input("kmsArn")]
+        [PolicyResourceProperty("kmsArn", "_mUnknown_KmsArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsArn;
+        private string? _mValue_KmsArn;
+        private bool _mUnknown_KmsArn;
+        public string? KmsArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsArn) return _mValue_KmsArn;
+                throw new UndeferrableValueException("Value 'ConnectorProfile.KmsArn' is not present");
+            }
+        }
 
-        public string? KmsArn => _mKmsArn.GetValue("kmsArn");
-
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConnectorProfile.Name' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appflow/connectorProfile:ConnectorProfile")]
@@ -89,52 +145,94 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow
         /// <summary>
         /// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
         /// </summary>
-        [Input("connectionMode")]
+        [PolicyResourceProperty("connectionMode", "_mUnknown_ConnectionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionMode;
-
-        public string? ConnectionMode => _mConnectionMode.GetValue("connectionMode");
+        private string? _mValue_ConnectionMode;
+        private bool _mUnknown_ConnectionMode;
+        public string? ConnectionMode
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionMode) return _mValue_ConnectionMode;
+                throw new UndeferrableValueException("Value 'ConnectorProfileArgs.ConnectionMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
         /// </summary>
-        [Input("connectorLabel")]
+        [PolicyResourceProperty("connectorLabel", "_mUnknown_ConnectorLabel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectorLabel;
-
-        public string? ConnectorLabel => _mConnectorLabel.GetValue("connectorLabel");
+        private string? _mValue_ConnectorLabel;
+        private bool _mUnknown_ConnectorLabel;
+        public string? ConnectorLabel
+        {
+            get
+            {
+                if (!_mUnknown_ConnectorLabel) return _mValue_ConnectorLabel;
+                throw new UndeferrableValueException("Value 'ConnectorProfileArgs.ConnectorLabel' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
         /// </summary>
-        [Input("connectorProfileConfig")]
+        [PolicyResourceProperty("connectorProfileConfig", "_mUnknown_ConnectorProfileConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorProfileConnectorProfileConfigArgs> _mConnectorProfileConfig;
-
-        public Inputs.ConnectorProfileConnectorProfileConfigArgs? ConnectorProfileConfig => _mConnectorProfileConfig.GetValue("connectorProfileConfig");
+        private Inputs.ConnectorProfileConnectorProfileConfigArgs? _mValue_ConnectorProfileConfig;
+        private bool _mUnknown_ConnectorProfileConfig;
+        public Inputs.ConnectorProfileConnectorProfileConfigArgs? ConnectorProfileConfig
+        {
+            get
+            {
+                if (!_mUnknown_ConnectorProfileConfig) return _mValue_ConnectorProfileConfig;
+                throw new UndeferrableValueException("Value 'ConnectorProfileArgs.ConnectorProfileConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         /// </summary>
-        [Input("connectorType")]
+        [PolicyResourceProperty("connectorType", "_mUnknown_ConnectorType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectorType;
-
-        public string? ConnectorType => _mConnectorType.GetValue("connectorType");
+        private string? _mValue_ConnectorType;
+        private bool _mUnknown_ConnectorType;
+        public string? ConnectorType
+        {
+            get
+            {
+                if (!_mUnknown_ConnectorType) return _mValue_ConnectorType;
+                throw new UndeferrableValueException("Value 'ConnectorProfileArgs.ConnectorType' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         /// </summary>
-        [Input("kmsArn")]
+        [PolicyResourceProperty("kmsArn", "_mUnknown_KmsArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsArn;
+        private string? _mValue_KmsArn;
+        private bool _mUnknown_KmsArn;
+        public string? KmsArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsArn) return _mValue_KmsArn;
+                throw new UndeferrableValueException("Value 'ConnectorProfileArgs.KmsArn' is not present");
+            }
+        }
 
-        public string? KmsArn => _mKmsArn.GetValue("kmsArn");
-
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConnectorProfileArgs.Name' is not present");
+            }
+        }
     }
 }

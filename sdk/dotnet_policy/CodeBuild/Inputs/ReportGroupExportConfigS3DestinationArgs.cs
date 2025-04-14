@@ -15,47 +15,82 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Inputs
         /// <summary>
         /// The name of the S3 bucket where the raw data of a report are exported.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'ReportGroupExportConfigS3DestinationArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value that specifies if the results of a report are encrypted.
         /// **Note: the API does not currently allow setting encryption as disabled**
         /// </summary>
-        [Input("encryptionDisabled")]
+        [PolicyResourceProperty("encryptionDisabled", "_mUnknown_EncryptionDisabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEncryptionDisabled;
-
-        public bool? EncryptionDisabled => _mEncryptionDisabled.GetValue("encryptionDisabled");
+        private bool? _mValue_EncryptionDisabled;
+        private bool _mUnknown_EncryptionDisabled;
+        public bool? EncryptionDisabled
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionDisabled) return _mValue_EncryptionDisabled;
+                throw new UndeferrableValueException("Value 'ReportGroupExportConfigS3DestinationArgs.EncryptionDisabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The encryption key for the report's encrypted raw data. The KMS key ARN.
         /// </summary>
-        [Input("encryptionKey")]
+        [PolicyResourceProperty("encryptionKey", "_mUnknown_EncryptionKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionKey;
-
-        public string? EncryptionKey => _mEncryptionKey.GetValue("encryptionKey");
+        private string? _mValue_EncryptionKey;
+        private bool _mUnknown_EncryptionKey;
+        public string? EncryptionKey
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionKey) return _mValue_EncryptionKey;
+                throw new UndeferrableValueException("Value 'ReportGroupExportConfigS3DestinationArgs.EncryptionKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
         /// </summary>
-        [Input("packaging")]
+        [PolicyResourceProperty("packaging", "_mUnknown_Packaging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPackaging;
-
-        public string? Packaging => _mPackaging.GetValue("packaging");
+        private string? _mValue_Packaging;
+        private bool _mUnknown_Packaging;
+        public string? Packaging
+        {
+            get
+            {
+                if (!_mUnknown_Packaging) return _mValue_Packaging;
+                throw new UndeferrableValueException("Value 'ReportGroupExportConfigS3DestinationArgs.Packaging' is not present");
+            }
+        }
 
         /// <summary>
         /// The path to the exported report's raw data results.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'ReportGroupExportConfigS3DestinationArgs.Path' is not present");
+            }
+        }
     }
 }

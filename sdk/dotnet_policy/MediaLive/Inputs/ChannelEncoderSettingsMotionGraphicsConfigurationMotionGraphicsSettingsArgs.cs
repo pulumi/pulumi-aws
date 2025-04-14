@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Html Motion Graphics Settings.
         /// </summary>
-        [Input("htmlMotionGraphicsSettings")]
+        [PolicyResourceProperty("htmlMotionGraphicsSettings", "_mUnknown_HtmlMotionGraphicsSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs> _mHtmlMotionGraphicsSettings;
-
-        public Inputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs? HtmlMotionGraphicsSettings => _mHtmlMotionGraphicsSettings.GetValue("htmlMotionGraphicsSettings");
+        private Inputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs? _mValue_HtmlMotionGraphicsSettings;
+        private bool _mUnknown_HtmlMotionGraphicsSettings;
+        public Inputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs? HtmlMotionGraphicsSettings
+        {
+            get
+            {
+                if (!_mUnknown_HtmlMotionGraphicsSettings) return _mValue_HtmlMotionGraphicsSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs.HtmlMotionGraphicsSettings' is not present");
+            }
+        }
     }
 }

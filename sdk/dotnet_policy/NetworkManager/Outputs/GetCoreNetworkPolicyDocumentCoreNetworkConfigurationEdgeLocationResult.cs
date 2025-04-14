@@ -15,25 +15,46 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Outputs
         /// <summary>
         /// ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
         /// </summary>
-        [Input("asn")]
+        [PolicyResourceProperty("asn", "_mUnknown_Asn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAsn;
-
-        public string? Asn => _mAsn.GetValue("asn");
+        private string? _mValue_Asn;
+        private bool _mUnknown_Asn;
+        public string? Asn
+        {
+            get
+            {
+                if (!_mUnknown_Asn) return _mValue_Asn;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationResult.Asn' is not present");
+            }
+        }
 
         /// <summary>
         /// The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
         /// </summary>
-        [Input("insideCidrBlocks")]
+        [PolicyResourceProperty("insideCidrBlocks", "_mUnknown_InsideCidrBlocks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInsideCidrBlocks;
+        private List<string>? _mValue_InsideCidrBlocks;
+        private bool _mUnknown_InsideCidrBlocks;
+        public List<string>? InsideCidrBlocks
+        {
+            get
+            {
+                if (!_mUnknown_InsideCidrBlocks) return _mValue_InsideCidrBlocks;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationResult.InsideCidrBlocks' is not present");
+            }
+        }
 
-        public List<string>? InsideCidrBlocks => _mInsideCidrBlocks.GetValue("insideCidrBlocks");
-
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
-
-        public string? Location => _mLocation.GetValue("location");
+        private string? _mValue_Location;
+        private bool _mUnknown_Location;
+        public string? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationResult.Location' is not present");
+            }
+        }
     }
 }

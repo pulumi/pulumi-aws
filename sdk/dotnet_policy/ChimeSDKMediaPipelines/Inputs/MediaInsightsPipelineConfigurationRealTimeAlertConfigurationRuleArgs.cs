@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.ChimeSDKMediaPipelines.Inputs
         /// <summary>
         /// Configuration for an issue detection rule.
         /// </summary>
-        [Input("issueDetectionConfiguration")]
+        [PolicyResourceProperty("issueDetectionConfiguration", "_mUnknown_IssueDetectionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs> _mIssueDetectionConfiguration;
-
-        public Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs? IssueDetectionConfiguration => _mIssueDetectionConfiguration.GetValue("issueDetectionConfiguration");
+        private Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs? _mValue_IssueDetectionConfiguration;
+        private bool _mUnknown_IssueDetectionConfiguration;
+        public Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs? IssueDetectionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_IssueDetectionConfiguration) return _mValue_IssueDetectionConfiguration;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs.IssueDetectionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for a keyword match rule.
         /// </summary>
-        [Input("keywordMatchConfiguration")]
+        [PolicyResourceProperty("keywordMatchConfiguration", "_mUnknown_KeywordMatchConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs> _mKeywordMatchConfiguration;
-
-        public Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs? KeywordMatchConfiguration => _mKeywordMatchConfiguration.GetValue("keywordMatchConfiguration");
+        private Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs? _mValue_KeywordMatchConfiguration;
+        private bool _mUnknown_KeywordMatchConfiguration;
+        public Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs? KeywordMatchConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_KeywordMatchConfiguration) return _mValue_KeywordMatchConfiguration;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs.KeywordMatchConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for a sentiment rule.
         /// </summary>
-        [Input("sentimentConfiguration")]
+        [PolicyResourceProperty("sentimentConfiguration", "_mUnknown_SentimentConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs> _mSentimentConfiguration;
-
-        public Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs? SentimentConfiguration => _mSentimentConfiguration.GetValue("sentimentConfiguration");
+        private Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs? _mValue_SentimentConfiguration;
+        private bool _mUnknown_SentimentConfiguration;
+        public Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs? SentimentConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SentimentConfiguration) return _mValue_SentimentConfiguration;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs.SentimentConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule type.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs.Type' is not present");
+            }
+        }
     }
 }

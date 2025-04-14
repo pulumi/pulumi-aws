@@ -16,94 +16,164 @@ namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
         /// <summary>
         /// Name of the Beanstalk Application the version is associated with.
         /// </summary>
-        [Input("application")]
+        [PolicyResourceProperty("application", "_mUnknown_Application")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplication;
-
-        public string? Application => _mApplication.GetValue("application");
+        private string? _mValue_Application;
+        private bool _mUnknown_Application;
+        public string? Application
+        {
+            get
+            {
+                if (!_mUnknown_Application) return _mValue_Application;
+                throw new UndeferrableValueException("Value 'ApplicationVersion.Application' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN assigned by AWS for this Elastic Beanstalk Application.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ApplicationVersion.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 bucket that contains the Application Version source bundle.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'ApplicationVersion.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Short description of the Application Version.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ApplicationVersion.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         /// </summary>
-        [Input("forceDelete")]
+        [PolicyResourceProperty("forceDelete", "_mUnknown_ForceDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
-
-        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+        private bool? _mValue_ForceDelete;
+        private bool _mUnknown_ForceDelete;
+        public bool? ForceDelete
+        {
+            get
+            {
+                if (!_mUnknown_ForceDelete) return _mValue_ForceDelete;
+                throw new UndeferrableValueException("Value 'ApplicationVersion.ForceDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 object that is the Application Version source bundle.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'ApplicationVersion.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the this Application Version.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ApplicationVersion.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Pre-processes and validates the environment manifest (env.yaml ) and configuration files (*.config files in the .ebextensions folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment. You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional. It validates Elastic Beanstalk configuration files. It doesn’t validate your application’s configuration files, like proxy server or Docker configuration.
         /// </summary>
-        [Input("process")]
+        [PolicyResourceProperty("process", "_mUnknown_Process")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mProcess;
-
-        public bool? Process => _mProcess.GetValue("process");
+        private bool? _mValue_Process;
+        private bool _mUnknown_Process;
+        public bool? Process
+        {
+            get
+            {
+                if (!_mUnknown_Process) return _mValue_Process;
+                throw new UndeferrableValueException("Value 'ApplicationVersion.Process' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ApplicationVersion.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ApplicationVersion.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:elasticbeanstalk/applicationVersion:ApplicationVersion")]
@@ -112,75 +182,131 @@ namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
         /// <summary>
         /// Name of the Beanstalk Application the version is associated with.
         /// </summary>
-        [Input("application")]
+        [PolicyResourceProperty("application", "_mUnknown_Application")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplication;
-
-        public string? Application => _mApplication.GetValue("application");
+        private string? _mValue_Application;
+        private bool _mUnknown_Application;
+        public string? Application
+        {
+            get
+            {
+                if (!_mUnknown_Application) return _mValue_Application;
+                throw new UndeferrableValueException("Value 'ApplicationVersionArgs.Application' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 bucket that contains the Application Version source bundle.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'ApplicationVersionArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Short description of the Application Version.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ApplicationVersionArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         /// </summary>
-        [Input("forceDelete")]
+        [PolicyResourceProperty("forceDelete", "_mUnknown_ForceDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
-
-        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+        private bool? _mValue_ForceDelete;
+        private bool _mUnknown_ForceDelete;
+        public bool? ForceDelete
+        {
+            get
+            {
+                if (!_mUnknown_ForceDelete) return _mValue_ForceDelete;
+                throw new UndeferrableValueException("Value 'ApplicationVersionArgs.ForceDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 object that is the Application Version source bundle.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'ApplicationVersionArgs.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the this Application Version.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ApplicationVersionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Pre-processes and validates the environment manifest (env.yaml ) and configuration files (*.config files in the .ebextensions folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment. You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional. It validates Elastic Beanstalk configuration files. It doesn’t validate your application’s configuration files, like proxy server or Docker configuration.
         /// </summary>
-        [Input("process")]
+        [PolicyResourceProperty("process", "_mUnknown_Process")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mProcess;
-
-        public bool? Process => _mProcess.GetValue("process");
+        private bool? _mValue_Process;
+        private bool _mUnknown_Process;
+        public bool? Process
+        {
+            get
+            {
+                if (!_mUnknown_Process) return _mValue_Process;
+                throw new UndeferrableValueException("Value 'ApplicationVersionArgs.Process' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ApplicationVersionArgs.Tags' is not present");
+            }
+        }
     }
 }

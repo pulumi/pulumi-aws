@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Efs.Outputs
         /// <summary>
         /// Single element list containing information on the creation permissions of the directory
         /// </summary>
-        [Input("creationInfos")]
+        [PolicyResourceProperty("creationInfos", "_mUnknown_CreationInfos")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetAccessPointRootDirectoryCreationInfoResult>> _mCreationInfos;
-
-        public List<Outputs.GetAccessPointRootDirectoryCreationInfoResult>? CreationInfos => _mCreationInfos.GetValue("creationInfos");
+        private List<Outputs.GetAccessPointRootDirectoryCreationInfoResult>? _mValue_CreationInfos;
+        private bool _mUnknown_CreationInfos;
+        public List<Outputs.GetAccessPointRootDirectoryCreationInfoResult>? CreationInfos
+        {
+            get
+            {
+                if (!_mUnknown_CreationInfos) return _mValue_CreationInfos;
+                throw new UndeferrableValueException("Value 'GetAccessPointRootDirectoryResult.CreationInfos' is not present");
+            }
+        }
 
         /// <summary>
         /// Path exposed as the root directory
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'GetAccessPointRootDirectoryResult.Path' is not present");
+            }
+        }
     }
 }

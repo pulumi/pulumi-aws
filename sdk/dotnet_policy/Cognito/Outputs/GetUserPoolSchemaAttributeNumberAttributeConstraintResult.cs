@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// - Maximum allowed value.
         /// </summary>
-        [Input("maxValue")]
+        [PolicyResourceProperty("maxValue", "_mUnknown_MaxValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxValue;
-
-        public string? MaxValue => _mMaxValue.GetValue("maxValue");
+        private string? _mValue_MaxValue;
+        private bool _mUnknown_MaxValue;
+        public string? MaxValue
+        {
+            get
+            {
+                if (!_mUnknown_MaxValue) return _mValue_MaxValue;
+                throw new UndeferrableValueException("Value 'GetUserPoolSchemaAttributeNumberAttributeConstraintResult.MaxValue' is not present");
+            }
+        }
 
         /// <summary>
         /// - Minimum allowed value.
         /// </summary>
-        [Input("minValue")]
+        [PolicyResourceProperty("minValue", "_mUnknown_MinValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMinValue;
-
-        public string? MinValue => _mMinValue.GetValue("minValue");
+        private string? _mValue_MinValue;
+        private bool _mUnknown_MinValue;
+        public string? MinValue
+        {
+            get
+            {
+                if (!_mUnknown_MinValue) return _mValue_MinValue;
+                throw new UndeferrableValueException("Value 'GetUserPoolSchemaAttributeNumberAttributeConstraintResult.MinValue' is not present");
+            }
+        }
     }
 }

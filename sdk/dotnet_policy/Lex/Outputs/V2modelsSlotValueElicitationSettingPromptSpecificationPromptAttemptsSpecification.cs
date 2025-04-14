@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
 {
     public sealed class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification
     {
-        [Input("allowInterrupt")]
+        [PolicyResourceProperty("allowInterrupt", "_mUnknown_AllowInterrupt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowInterrupt;
+        private bool? _mValue_AllowInterrupt;
+        private bool _mUnknown_AllowInterrupt;
+        public bool? AllowInterrupt
+        {
+            get
+            {
+                if (!_mUnknown_AllowInterrupt) return _mValue_AllowInterrupt;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification.AllowInterrupt' is not present");
+            }
+        }
 
-        public bool? AllowInterrupt => _mAllowInterrupt.GetValue("allowInterrupt");
-
-        [Input("allowedInputTypes")]
+        [PolicyResourceProperty("allowedInputTypes", "_mUnknown_AllowedInputTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes> _mAllowedInputTypes;
+        private Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes? _mValue_AllowedInputTypes;
+        private bool _mUnknown_AllowedInputTypes;
+        public Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes? AllowedInputTypes
+        {
+            get
+            {
+                if (!_mUnknown_AllowedInputTypes) return _mValue_AllowedInputTypes;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification.AllowedInputTypes' is not present");
+            }
+        }
 
-        public Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes? AllowedInputTypes => _mAllowedInputTypes.GetValue("allowedInputTypes");
-
-        [Input("audioAndDtmfInputSpecification")]
+        [PolicyResourceProperty("audioAndDtmfInputSpecification", "_mUnknown_AudioAndDtmfInputSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification> _mAudioAndDtmfInputSpecification;
+        private Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification? _mValue_AudioAndDtmfInputSpecification;
+        private bool _mUnknown_AudioAndDtmfInputSpecification;
+        public Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification? AudioAndDtmfInputSpecification
+        {
+            get
+            {
+                if (!_mUnknown_AudioAndDtmfInputSpecification) return _mValue_AudioAndDtmfInputSpecification;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification.AudioAndDtmfInputSpecification' is not present");
+            }
+        }
 
-        public Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification? AudioAndDtmfInputSpecification => _mAudioAndDtmfInputSpecification.GetValue("audioAndDtmfInputSpecification");
-
-        [Input("mapBlockKey")]
+        [PolicyResourceProperty("mapBlockKey", "_mUnknown_MapBlockKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMapBlockKey;
+        private string? _mValue_MapBlockKey;
+        private bool _mUnknown_MapBlockKey;
+        public string? MapBlockKey
+        {
+            get
+            {
+                if (!_mUnknown_MapBlockKey) return _mValue_MapBlockKey;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification.MapBlockKey' is not present");
+            }
+        }
 
-        public string? MapBlockKey => _mMapBlockKey.GetValue("mapBlockKey");
-
-        [Input("textInputSpecification")]
+        [PolicyResourceProperty("textInputSpecification", "_mUnknown_TextInputSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification> _mTextInputSpecification;
-
-        public Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification? TextInputSpecification => _mTextInputSpecification.GetValue("textInputSpecification");
+        private Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification? _mValue_TextInputSpecification;
+        private bool _mUnknown_TextInputSpecification;
+        public Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification? TextInputSpecification
+        {
+            get
+            {
+                if (!_mUnknown_TextInputSpecification) return _mValue_TextInputSpecification;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification.TextInputSpecification' is not present");
+            }
+        }
     }
 }

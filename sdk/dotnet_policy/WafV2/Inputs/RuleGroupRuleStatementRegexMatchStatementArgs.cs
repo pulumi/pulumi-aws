@@ -15,30 +15,51 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         /// </summary>
-        [Input("fieldToMatch")]
+        [PolicyResourceProperty("fieldToMatch", "_mUnknown_FieldToMatch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs> _mFieldToMatch;
-
-        public Inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs? FieldToMatch => _mFieldToMatch.GetValue("fieldToMatch");
+        private Inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs? _mValue_FieldToMatch;
+        private bool _mUnknown_FieldToMatch;
+        public Inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs? FieldToMatch
+        {
+            get
+            {
+                if (!_mUnknown_FieldToMatch) return _mValue_FieldToMatch;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementArgs.FieldToMatch' is not present");
+            }
+        }
 
         /// <summary>
         /// The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
         /// </summary>
-        [Input("regexString")]
+        [PolicyResourceProperty("regexString", "_mUnknown_RegexString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegexString;
-
-        public string? RegexString => _mRegexString.GetValue("regexString");
+        private string? _mValue_RegexString;
+        private bool _mUnknown_RegexString;
+        public string? RegexString
+        {
+            get
+            {
+                if (!_mUnknown_RegexString) return _mValue_RegexString;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementArgs.RegexString' is not present");
+            }
+        }
 
         /// <summary>
         /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
         /// At least one required.
         /// See Text Transformation below for details.
         /// </summary>
-        [Input("textTransformations")]
+        [PolicyResourceProperty("textTransformations", "_mUnknown_TextTransformations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs>> _mTextTransformations;
-
-        public List<Inputs.RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs>? TextTransformations => _mTextTransformations.GetValue("textTransformations");
+        private List<Inputs.RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs>? _mValue_TextTransformations;
+        private bool _mUnknown_TextTransformations;
+        public List<Inputs.RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs>? TextTransformations
+        {
+            get
+            {
+                if (!_mUnknown_TextTransformations) return _mValue_TextTransformations;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementArgs.TextTransformations' is not present");
+            }
+        }
     }
 }

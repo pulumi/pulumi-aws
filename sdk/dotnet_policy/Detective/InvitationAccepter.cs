@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.Detective
         /// <summary>
         /// ARN of the behavior graph that the member account is accepting the invitation for.
         /// </summary>
-        [Input("graphArn")]
+        [PolicyResourceProperty("graphArn", "_mUnknown_GraphArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGraphArn;
-
-        public string? GraphArn => _mGraphArn.GetValue("graphArn");
+        private string? _mValue_GraphArn;
+        private bool _mUnknown_GraphArn;
+        public string? GraphArn
+        {
+            get
+            {
+                if (!_mUnknown_GraphArn) return _mValue_GraphArn;
+                throw new UndeferrableValueException("Value 'InvitationAccepter.GraphArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:detective/invitationAccepter:InvitationAccepter")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.Detective
         /// <summary>
         /// ARN of the behavior graph that the member account is accepting the invitation for.
         /// </summary>
-        [Input("graphArn")]
+        [PolicyResourceProperty("graphArn", "_mUnknown_GraphArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGraphArn;
-
-        public string? GraphArn => _mGraphArn.GetValue("graphArn");
+        private string? _mValue_GraphArn;
+        private bool _mUnknown_GraphArn;
+        public string? GraphArn
+        {
+            get
+            {
+                if (!_mUnknown_GraphArn) return _mValue_GraphArn;
+                throw new UndeferrableValueException("Value 'InvitationAccepterArgs.GraphArn' is not present");
+            }
+        }
     }
 }

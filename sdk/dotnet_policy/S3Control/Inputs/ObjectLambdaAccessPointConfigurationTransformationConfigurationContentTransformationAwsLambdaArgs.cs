@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Lambda function.
         /// </summary>
-        [Input("functionArn")]
+        [PolicyResourceProperty("functionArn", "_mUnknown_FunctionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionArn;
-
-        public string? FunctionArn => _mFunctionArn.GetValue("functionArn");
+        private string? _mValue_FunctionArn;
+        private bool _mUnknown_FunctionArn;
+        public string? FunctionArn
+        {
+            get
+            {
+                if (!_mUnknown_FunctionArn) return _mValue_FunctionArn;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs.FunctionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional JSON that provides supplemental data to the Lambda function used to transform objects.
         /// </summary>
-        [Input("functionPayload")]
+        [PolicyResourceProperty("functionPayload", "_mUnknown_FunctionPayload")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionPayload;
-
-        public string? FunctionPayload => _mFunctionPayload.GetValue("functionPayload");
+        private string? _mValue_FunctionPayload;
+        private bool _mUnknown_FunctionPayload;
+        public string? FunctionPayload
+        {
+            get
+            {
+                if (!_mUnknown_FunctionPayload) return _mValue_FunctionPayload;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs.FunctionPayload' is not present");
+            }
+        }
     }
 }

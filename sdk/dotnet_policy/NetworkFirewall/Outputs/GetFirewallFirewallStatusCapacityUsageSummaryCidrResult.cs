@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// Available number of CIDR blocks available for use by the IP set references in a firewall.
         /// </summary>
-        [Input("availableCidrCount")]
+        [PolicyResourceProperty("availableCidrCount", "_mUnknown_AvailableCidrCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAvailableCidrCount;
-
-        public int? AvailableCidrCount => _mAvailableCidrCount.GetValue("availableCidrCount");
+        private int? _mValue_AvailableCidrCount;
+        private bool _mUnknown_AvailableCidrCount;
+        public int? AvailableCidrCount
+        {
+            get
+            {
+                if (!_mUnknown_AvailableCidrCount) return _mValue_AvailableCidrCount;
+                throw new UndeferrableValueException("Value 'GetFirewallFirewallStatusCapacityUsageSummaryCidrResult.AvailableCidrCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of IP set references used by a firewall.
         /// </summary>
-        [Input("ipSetReferences")]
+        [PolicyResourceProperty("ipSetReferences", "_mUnknown_IpSetReferences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult>> _mIpSetReferences;
-
-        public List<Outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult>? IpSetReferences => _mIpSetReferences.GetValue("ipSetReferences");
+        private List<Outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult>? _mValue_IpSetReferences;
+        private bool _mUnknown_IpSetReferences;
+        public List<Outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult>? IpSetReferences
+        {
+            get
+            {
+                if (!_mUnknown_IpSetReferences) return _mValue_IpSetReferences;
+                throw new UndeferrableValueException("Value 'GetFirewallFirewallStatusCapacityUsageSummaryCidrResult.IpSetReferences' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of CIDR blocks used by the IP set references in a firewall.
         /// </summary>
-        [Input("utilizedCidrCount")]
+        [PolicyResourceProperty("utilizedCidrCount", "_mUnknown_UtilizedCidrCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUtilizedCidrCount;
-
-        public int? UtilizedCidrCount => _mUtilizedCidrCount.GetValue("utilizedCidrCount");
+        private int? _mValue_UtilizedCidrCount;
+        private bool _mUnknown_UtilizedCidrCount;
+        public int? UtilizedCidrCount
+        {
+            get
+            {
+                if (!_mUnknown_UtilizedCidrCount) return _mValue_UtilizedCidrCount;
+                throw new UndeferrableValueException("Value 'GetFirewallFirewallStatusCapacityUsageSummaryCidrResult.UtilizedCidrCount' is not present");
+            }
+        }
     }
 }

@@ -16,110 +16,194 @@ namespace Pulumi.PolicyPacks.Aws.Workspaces
         /// <summary>
         /// The ID of the bundle for the WorkSpace.
         /// </summary>
-        [Input("bundleId")]
+        [PolicyResourceProperty("bundleId", "_mUnknown_BundleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
-
-        public string? BundleId => _mBundleId.GetValue("bundleId");
+        private string? _mValue_BundleId;
+        private bool _mUnknown_BundleId;
+        public string? BundleId
+        {
+            get
+            {
+                if (!_mUnknown_BundleId) return _mValue_BundleId;
+                throw new UndeferrableValueException("Value 'Workspace.BundleId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the WorkSpace, as seen by the operating system.
         /// </summary>
-        [Input("computerName")]
+        [PolicyResourceProperty("computerName", "_mUnknown_ComputerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComputerName;
-
-        public string? ComputerName => _mComputerName.GetValue("computerName");
+        private string? _mValue_ComputerName;
+        private bool _mUnknown_ComputerName;
+        public string? ComputerName
+        {
+            get
+            {
+                if (!_mUnknown_ComputerName) return _mValue_ComputerName;
+                throw new UndeferrableValueException("Value 'Workspace.ComputerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the directory for the WorkSpace.
         /// </summary>
-        [Input("directoryId")]
+        [PolicyResourceProperty("directoryId", "_mUnknown_DirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
-
-        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+        private string? _mValue_DirectoryId;
+        private bool _mUnknown_DirectoryId;
+        public string? DirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryId) return _mValue_DirectoryId;
+                throw new UndeferrableValueException("Value 'Workspace.DirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address of the WorkSpace.
         /// </summary>
-        [Input("ipAddress")]
+        [PolicyResourceProperty("ipAddress", "_mUnknown_IpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
-
-        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
+        private string? _mValue_IpAddress;
+        private bool _mUnknown_IpAddress;
+        public string? IpAddress
+        {
+            get
+            {
+                if (!_mUnknown_IpAddress) return _mValue_IpAddress;
+                throw new UndeferrableValueException("Value 'Workspace.IpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the data stored on the root volume is encrypted.
         /// </summary>
-        [Input("rootVolumeEncryptionEnabled")]
+        [PolicyResourceProperty("rootVolumeEncryptionEnabled", "_mUnknown_RootVolumeEncryptionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRootVolumeEncryptionEnabled;
-
-        public bool? RootVolumeEncryptionEnabled => _mRootVolumeEncryptionEnabled.GetValue("rootVolumeEncryptionEnabled");
+        private bool? _mValue_RootVolumeEncryptionEnabled;
+        private bool _mUnknown_RootVolumeEncryptionEnabled;
+        public bool? RootVolumeEncryptionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_RootVolumeEncryptionEnabled) return _mValue_RootVolumeEncryptionEnabled;
+                throw new UndeferrableValueException("Value 'Workspace.RootVolumeEncryptionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The operational state of the WorkSpace.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'Workspace.State' is not present");
+            }
+        }
 
         /// <summary>
         /// The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Workspace.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Workspace.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'Workspace.UserName' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the data stored on the user volume is encrypted.
         /// </summary>
-        [Input("userVolumeEncryptionEnabled")]
+        [PolicyResourceProperty("userVolumeEncryptionEnabled", "_mUnknown_UserVolumeEncryptionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUserVolumeEncryptionEnabled;
-
-        public bool? UserVolumeEncryptionEnabled => _mUserVolumeEncryptionEnabled.GetValue("userVolumeEncryptionEnabled");
+        private bool? _mValue_UserVolumeEncryptionEnabled;
+        private bool _mUnknown_UserVolumeEncryptionEnabled;
+        public bool? UserVolumeEncryptionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_UserVolumeEncryptionEnabled) return _mValue_UserVolumeEncryptionEnabled;
+                throw new UndeferrableValueException("Value 'Workspace.UserVolumeEncryptionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         /// </summary>
-        [Input("volumeEncryptionKey")]
+        [PolicyResourceProperty("volumeEncryptionKey", "_mUnknown_VolumeEncryptionKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeEncryptionKey;
-
-        public string? VolumeEncryptionKey => _mVolumeEncryptionKey.GetValue("volumeEncryptionKey");
+        private string? _mValue_VolumeEncryptionKey;
+        private bool _mUnknown_VolumeEncryptionKey;
+        public string? VolumeEncryptionKey
+        {
+            get
+            {
+                if (!_mUnknown_VolumeEncryptionKey) return _mValue_VolumeEncryptionKey;
+                throw new UndeferrableValueException("Value 'Workspace.VolumeEncryptionKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The WorkSpace properties.
         /// </summary>
-        [Input("workspaceProperties")]
+        [PolicyResourceProperty("workspaceProperties", "_mUnknown_WorkspaceProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkspaceWorkspaceProperties> _mWorkspaceProperties;
-
-        public Outputs.WorkspaceWorkspaceProperties? WorkspaceProperties => _mWorkspaceProperties.GetValue("workspaceProperties");
+        private Outputs.WorkspaceWorkspaceProperties? _mValue_WorkspaceProperties;
+        private bool _mUnknown_WorkspaceProperties;
+        public Outputs.WorkspaceWorkspaceProperties? WorkspaceProperties
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceProperties) return _mValue_WorkspaceProperties;
+                throw new UndeferrableValueException("Value 'Workspace.WorkspaceProperties' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:workspaces/workspace:Workspace")]
@@ -128,73 +212,129 @@ namespace Pulumi.PolicyPacks.Aws.Workspaces
         /// <summary>
         /// The ID of the bundle for the WorkSpace.
         /// </summary>
-        [Input("bundleId")]
+        [PolicyResourceProperty("bundleId", "_mUnknown_BundleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
-
-        public string? BundleId => _mBundleId.GetValue("bundleId");
+        private string? _mValue_BundleId;
+        private bool _mUnknown_BundleId;
+        public string? BundleId
+        {
+            get
+            {
+                if (!_mUnknown_BundleId) return _mValue_BundleId;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.BundleId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the directory for the WorkSpace.
         /// </summary>
-        [Input("directoryId")]
+        [PolicyResourceProperty("directoryId", "_mUnknown_DirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
-
-        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+        private string? _mValue_DirectoryId;
+        private bool _mUnknown_DirectoryId;
+        public string? DirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryId) return _mValue_DirectoryId;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.DirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the data stored on the root volume is encrypted.
         /// </summary>
-        [Input("rootVolumeEncryptionEnabled")]
+        [PolicyResourceProperty("rootVolumeEncryptionEnabled", "_mUnknown_RootVolumeEncryptionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRootVolumeEncryptionEnabled;
-
-        public bool? RootVolumeEncryptionEnabled => _mRootVolumeEncryptionEnabled.GetValue("rootVolumeEncryptionEnabled");
+        private bool? _mValue_RootVolumeEncryptionEnabled;
+        private bool _mUnknown_RootVolumeEncryptionEnabled;
+        public bool? RootVolumeEncryptionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_RootVolumeEncryptionEnabled) return _mValue_RootVolumeEncryptionEnabled;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.RootVolumeEncryptionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.UserName' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the data stored on the user volume is encrypted.
         /// </summary>
-        [Input("userVolumeEncryptionEnabled")]
+        [PolicyResourceProperty("userVolumeEncryptionEnabled", "_mUnknown_UserVolumeEncryptionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUserVolumeEncryptionEnabled;
-
-        public bool? UserVolumeEncryptionEnabled => _mUserVolumeEncryptionEnabled.GetValue("userVolumeEncryptionEnabled");
+        private bool? _mValue_UserVolumeEncryptionEnabled;
+        private bool _mUnknown_UserVolumeEncryptionEnabled;
+        public bool? UserVolumeEncryptionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_UserVolumeEncryptionEnabled) return _mValue_UserVolumeEncryptionEnabled;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.UserVolumeEncryptionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         /// </summary>
-        [Input("volumeEncryptionKey")]
+        [PolicyResourceProperty("volumeEncryptionKey", "_mUnknown_VolumeEncryptionKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeEncryptionKey;
-
-        public string? VolumeEncryptionKey => _mVolumeEncryptionKey.GetValue("volumeEncryptionKey");
+        private string? _mValue_VolumeEncryptionKey;
+        private bool _mUnknown_VolumeEncryptionKey;
+        public string? VolumeEncryptionKey
+        {
+            get
+            {
+                if (!_mUnknown_VolumeEncryptionKey) return _mValue_VolumeEncryptionKey;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.VolumeEncryptionKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The WorkSpace properties.
         /// </summary>
-        [Input("workspaceProperties")]
+        [PolicyResourceProperty("workspaceProperties", "_mUnknown_WorkspaceProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkspaceWorkspacePropertiesArgs> _mWorkspaceProperties;
-
-        public Inputs.WorkspaceWorkspacePropertiesArgs? WorkspaceProperties => _mWorkspaceProperties.GetValue("workspaceProperties");
+        private Inputs.WorkspaceWorkspacePropertiesArgs? _mValue_WorkspaceProperties;
+        private bool _mUnknown_WorkspaceProperties;
+        public Inputs.WorkspaceWorkspacePropertiesArgs? WorkspaceProperties
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceProperties) return _mValue_WorkspaceProperties;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.WorkspaceProperties' is not present");
+            }
+        }
     }
 }

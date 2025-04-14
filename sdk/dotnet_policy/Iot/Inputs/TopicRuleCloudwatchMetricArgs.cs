@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Inputs
         /// <summary>
         /// The CloudWatch metric name.
         /// </summary>
-        [Input("metricName")]
+        [PolicyResourceProperty("metricName", "_mUnknown_MetricName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricName;
-
-        public string? MetricName => _mMetricName.GetValue("metricName");
+        private string? _mValue_MetricName;
+        private bool _mUnknown_MetricName;
+        public string? MetricName
+        {
+            get
+            {
+                if (!_mUnknown_MetricName) return _mValue_MetricName;
+                throw new UndeferrableValueException("Value 'TopicRuleCloudwatchMetricArgs.MetricName' is not present");
+            }
+        }
 
         /// <summary>
         /// The CloudWatch metric namespace name.
         /// </summary>
-        [Input("metricNamespace")]
+        [PolicyResourceProperty("metricNamespace", "_mUnknown_MetricNamespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricNamespace;
-
-        public string? MetricNamespace => _mMetricNamespace.GetValue("metricNamespace");
+        private string? _mValue_MetricNamespace;
+        private bool _mUnknown_MetricNamespace;
+        public string? MetricNamespace
+        {
+            get
+            {
+                if (!_mUnknown_MetricNamespace) return _mValue_MetricNamespace;
+                throw new UndeferrableValueException("Value 'TopicRuleCloudwatchMetricArgs.MetricNamespace' is not present");
+            }
+        }
 
         /// <summary>
         /// An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
         /// </summary>
-        [Input("metricTimestamp")]
+        [PolicyResourceProperty("metricTimestamp", "_mUnknown_MetricTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricTimestamp;
-
-        public string? MetricTimestamp => _mMetricTimestamp.GetValue("metricTimestamp");
+        private string? _mValue_MetricTimestamp;
+        private bool _mUnknown_MetricTimestamp;
+        public string? MetricTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_MetricTimestamp) return _mValue_MetricTimestamp;
+                throw new UndeferrableValueException("Value 'TopicRuleCloudwatchMetricArgs.MetricTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
         /// </summary>
-        [Input("metricUnit")]
+        [PolicyResourceProperty("metricUnit", "_mUnknown_MetricUnit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricUnit;
-
-        public string? MetricUnit => _mMetricUnit.GetValue("metricUnit");
+        private string? _mValue_MetricUnit;
+        private bool _mUnknown_MetricUnit;
+        public string? MetricUnit
+        {
+            get
+            {
+                if (!_mUnknown_MetricUnit) return _mValue_MetricUnit;
+                throw new UndeferrableValueException("Value 'TopicRuleCloudwatchMetricArgs.MetricUnit' is not present");
+            }
+        }
 
         /// <summary>
         /// The CloudWatch metric value.
         /// </summary>
-        [Input("metricValue")]
+        [PolicyResourceProperty("metricValue", "_mUnknown_MetricValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricValue;
-
-        public string? MetricValue => _mMetricValue.GetValue("metricValue");
+        private string? _mValue_MetricValue;
+        private bool _mUnknown_MetricValue;
+        public string? MetricValue
+        {
+            get
+            {
+                if (!_mUnknown_MetricValue) return _mValue_MetricValue;
+                throw new UndeferrableValueException("Value 'TopicRuleCloudwatchMetricArgs.MetricValue' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role ARN that allows access to the CloudWatch metric.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'TopicRuleCloudwatchMetricArgs.RoleArn' is not present");
+            }
+        }
     }
 }

@@ -16,157 +16,276 @@ namespace Pulumi.PolicyPacks.Aws.AppStream
         /// <summary>
         /// Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
         /// </summary>
-        [Input("accessEndpoints")]
+        [PolicyResourceProperty("accessEndpoints", "_mUnknown_AccessEndpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ImageBuilderAccessEndpoint>> _mAccessEndpoints;
-
-        public List<Outputs.ImageBuilderAccessEndpoint>? AccessEndpoints => _mAccessEndpoints.GetValue("accessEndpoints");
+        private List<Outputs.ImageBuilderAccessEndpoint>? _mValue_AccessEndpoints;
+        private bool _mUnknown_AccessEndpoints;
+        public List<Outputs.ImageBuilderAccessEndpoint>? AccessEndpoints
+        {
+            get
+            {
+                if (!_mUnknown_AccessEndpoints) return _mValue_AccessEndpoints;
+                throw new UndeferrableValueException("Value 'ImageBuilder.AccessEndpoints' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the AppStream 2.0 agent to use for this image builder.
         /// </summary>
-        [Input("appstreamAgentVersion")]
+        [PolicyResourceProperty("appstreamAgentVersion", "_mUnknown_AppstreamAgentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppstreamAgentVersion;
-
-        public string? AppstreamAgentVersion => _mAppstreamAgentVersion.GetValue("appstreamAgentVersion");
+        private string? _mValue_AppstreamAgentVersion;
+        private bool _mUnknown_AppstreamAgentVersion;
+        public string? AppstreamAgentVersion
+        {
+            get
+            {
+                if (!_mUnknown_AppstreamAgentVersion) return _mValue_AppstreamAgentVersion;
+                throw new UndeferrableValueException("Value 'ImageBuilder.AppstreamAgentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the appstream image builder.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ImageBuilder.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
-
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'ImageBuilder.CreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Description to display.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ImageBuilder.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Human-readable friendly name for the AppStream image builder.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'ImageBuilder.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
         /// </summary>
-        [Input("domainJoinInfo")]
+        [PolicyResourceProperty("domainJoinInfo", "_mUnknown_DomainJoinInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ImageBuilderDomainJoinInfo> _mDomainJoinInfo;
-
-        public Outputs.ImageBuilderDomainJoinInfo? DomainJoinInfo => _mDomainJoinInfo.GetValue("domainJoinInfo");
+        private Outputs.ImageBuilderDomainJoinInfo? _mValue_DomainJoinInfo;
+        private bool _mUnknown_DomainJoinInfo;
+        public Outputs.ImageBuilderDomainJoinInfo? DomainJoinInfo
+        {
+            get
+            {
+                if (!_mUnknown_DomainJoinInfo) return _mValue_DomainJoinInfo;
+                throw new UndeferrableValueException("Value 'ImageBuilder.DomainJoinInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables or disables default internet access for the image builder.
         /// </summary>
-        [Input("enableDefaultInternetAccess")]
+        [PolicyResourceProperty("enableDefaultInternetAccess", "_mUnknown_EnableDefaultInternetAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDefaultInternetAccess;
-
-        public bool? EnableDefaultInternetAccess => _mEnableDefaultInternetAccess.GetValue("enableDefaultInternetAccess");
+        private bool? _mValue_EnableDefaultInternetAccess;
+        private bool _mUnknown_EnableDefaultInternetAccess;
+        public bool? EnableDefaultInternetAccess
+        {
+            get
+            {
+                if (!_mUnknown_EnableDefaultInternetAccess) return _mValue_EnableDefaultInternetAccess;
+                throw new UndeferrableValueException("Value 'ImageBuilder.EnableDefaultInternetAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role to apply to the image builder.
         /// </summary>
-        [Input("iamRoleArn")]
+        [PolicyResourceProperty("iamRoleArn", "_mUnknown_IamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
-
-        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+        private string? _mValue_IamRoleArn;
+        private bool _mUnknown_IamRoleArn;
+        public string? IamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArn) return _mValue_IamRoleArn;
+                throw new UndeferrableValueException("Value 'ImageBuilder.IamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the public, private, or shared image to use.
         /// </summary>
-        [Input("imageArn")]
+        [PolicyResourceProperty("imageArn", "_mUnknown_ImageArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageArn;
-
-        public string? ImageArn => _mImageArn.GetValue("imageArn");
+        private string? _mValue_ImageArn;
+        private bool _mUnknown_ImageArn;
+        public string? ImageArn
+        {
+            get
+            {
+                if (!_mUnknown_ImageArn) return _mValue_ImageArn;
+                throw new UndeferrableValueException("Value 'ImageBuilder.ImageArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the image used to create the image builder.
         /// </summary>
-        [Input("imageName")]
+        [PolicyResourceProperty("imageName", "_mUnknown_ImageName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageName;
-
-        public string? ImageName => _mImageName.GetValue("imageName");
+        private string? _mValue_ImageName;
+        private bool _mUnknown_ImageName;
+        public string? ImageName
+        {
+            get
+            {
+                if (!_mUnknown_ImageName) return _mValue_ImageName;
+                throw new UndeferrableValueException("Value 'ImageBuilder.ImageName' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance type to use when launching the image builder.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'ImageBuilder.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the image builder.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ImageBuilder.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'ImageBuilder.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ImageBuilder.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ImageBuilder.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the VPC configuration for the image builder. See below.
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ImageBuilderVpcConfig> _mVpcConfig;
-
-        public Outputs.ImageBuilderVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Outputs.ImageBuilderVpcConfig? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Outputs.ImageBuilderVpcConfig? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'ImageBuilder.VpcConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appstream/imageBuilder:ImageBuilder")]
@@ -175,120 +294,211 @@ namespace Pulumi.PolicyPacks.Aws.AppStream
         /// <summary>
         /// Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
         /// </summary>
-        [Input("accessEndpoints")]
+        [PolicyResourceProperty("accessEndpoints", "_mUnknown_AccessEndpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ImageBuilderAccessEndpointArgs>> _mAccessEndpoints;
-
-        public List<Inputs.ImageBuilderAccessEndpointArgs>? AccessEndpoints => _mAccessEndpoints.GetValue("accessEndpoints");
+        private List<Inputs.ImageBuilderAccessEndpointArgs>? _mValue_AccessEndpoints;
+        private bool _mUnknown_AccessEndpoints;
+        public List<Inputs.ImageBuilderAccessEndpointArgs>? AccessEndpoints
+        {
+            get
+            {
+                if (!_mUnknown_AccessEndpoints) return _mValue_AccessEndpoints;
+                throw new UndeferrableValueException("Value 'ImageBuilderArgs.AccessEndpoints' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the AppStream 2.0 agent to use for this image builder.
         /// </summary>
-        [Input("appstreamAgentVersion")]
+        [PolicyResourceProperty("appstreamAgentVersion", "_mUnknown_AppstreamAgentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppstreamAgentVersion;
-
-        public string? AppstreamAgentVersion => _mAppstreamAgentVersion.GetValue("appstreamAgentVersion");
+        private string? _mValue_AppstreamAgentVersion;
+        private bool _mUnknown_AppstreamAgentVersion;
+        public string? AppstreamAgentVersion
+        {
+            get
+            {
+                if (!_mUnknown_AppstreamAgentVersion) return _mValue_AppstreamAgentVersion;
+                throw new UndeferrableValueException("Value 'ImageBuilderArgs.AppstreamAgentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Description to display.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ImageBuilderArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Human-readable friendly name for the AppStream image builder.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'ImageBuilderArgs.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
         /// </summary>
-        [Input("domainJoinInfo")]
+        [PolicyResourceProperty("domainJoinInfo", "_mUnknown_DomainJoinInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ImageBuilderDomainJoinInfoArgs> _mDomainJoinInfo;
-
-        public Inputs.ImageBuilderDomainJoinInfoArgs? DomainJoinInfo => _mDomainJoinInfo.GetValue("domainJoinInfo");
+        private Inputs.ImageBuilderDomainJoinInfoArgs? _mValue_DomainJoinInfo;
+        private bool _mUnknown_DomainJoinInfo;
+        public Inputs.ImageBuilderDomainJoinInfoArgs? DomainJoinInfo
+        {
+            get
+            {
+                if (!_mUnknown_DomainJoinInfo) return _mValue_DomainJoinInfo;
+                throw new UndeferrableValueException("Value 'ImageBuilderArgs.DomainJoinInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables or disables default internet access for the image builder.
         /// </summary>
-        [Input("enableDefaultInternetAccess")]
+        [PolicyResourceProperty("enableDefaultInternetAccess", "_mUnknown_EnableDefaultInternetAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDefaultInternetAccess;
-
-        public bool? EnableDefaultInternetAccess => _mEnableDefaultInternetAccess.GetValue("enableDefaultInternetAccess");
+        private bool? _mValue_EnableDefaultInternetAccess;
+        private bool _mUnknown_EnableDefaultInternetAccess;
+        public bool? EnableDefaultInternetAccess
+        {
+            get
+            {
+                if (!_mUnknown_EnableDefaultInternetAccess) return _mValue_EnableDefaultInternetAccess;
+                throw new UndeferrableValueException("Value 'ImageBuilderArgs.EnableDefaultInternetAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role to apply to the image builder.
         /// </summary>
-        [Input("iamRoleArn")]
+        [PolicyResourceProperty("iamRoleArn", "_mUnknown_IamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
-
-        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+        private string? _mValue_IamRoleArn;
+        private bool _mUnknown_IamRoleArn;
+        public string? IamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArn) return _mValue_IamRoleArn;
+                throw new UndeferrableValueException("Value 'ImageBuilderArgs.IamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the public, private, or shared image to use.
         /// </summary>
-        [Input("imageArn")]
+        [PolicyResourceProperty("imageArn", "_mUnknown_ImageArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageArn;
-
-        public string? ImageArn => _mImageArn.GetValue("imageArn");
+        private string? _mValue_ImageArn;
+        private bool _mUnknown_ImageArn;
+        public string? ImageArn
+        {
+            get
+            {
+                if (!_mUnknown_ImageArn) return _mValue_ImageArn;
+                throw new UndeferrableValueException("Value 'ImageBuilderArgs.ImageArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the image used to create the image builder.
         /// </summary>
-        [Input("imageName")]
+        [PolicyResourceProperty("imageName", "_mUnknown_ImageName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageName;
-
-        public string? ImageName => _mImageName.GetValue("imageName");
+        private string? _mValue_ImageName;
+        private bool _mUnknown_ImageName;
+        public string? ImageName
+        {
+            get
+            {
+                if (!_mUnknown_ImageName) return _mValue_ImageName;
+                throw new UndeferrableValueException("Value 'ImageBuilderArgs.ImageName' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance type to use when launching the image builder.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'ImageBuilderArgs.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the image builder.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ImageBuilderArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ImageBuilderArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the VPC configuration for the image builder. See below.
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ImageBuilderVpcConfigArgs> _mVpcConfig;
-
-        public Inputs.ImageBuilderVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Inputs.ImageBuilderVpcConfigArgs? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Inputs.ImageBuilderVpcConfigArgs? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'ImageBuilderArgs.VpcConfig' is not present");
+            }
+        }
     }
 }

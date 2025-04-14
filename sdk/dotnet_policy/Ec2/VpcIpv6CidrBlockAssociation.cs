@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_pam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
         /// </summary>
-        [Input("assignGeneratedIpv6CidrBlock")]
+        [PolicyResourceProperty("assignGeneratedIpv6CidrBlock", "_mUnknown_AssignGeneratedIpv6CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAssignGeneratedIpv6CidrBlock;
-
-        public bool? AssignGeneratedIpv6CidrBlock => _mAssignGeneratedIpv6CidrBlock.GetValue("assignGeneratedIpv6CidrBlock");
+        private bool? _mValue_AssignGeneratedIpv6CidrBlock;
+        private bool _mUnknown_AssignGeneratedIpv6CidrBlock;
+        public bool? AssignGeneratedIpv6CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_AssignGeneratedIpv6CidrBlock) return _mValue_AssignGeneratedIpv6CidrBlock;
+                throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociation.AssignGeneratedIpv6CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
         /// </summary>
-        [Input("ipSource")]
+        [PolicyResourceProperty("ipSource", "_mUnknown_IpSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpSource;
-
-        public string? IpSource => _mIpSource.GetValue("ipSource");
+        private string? _mValue_IpSource;
+        private bool _mUnknown_IpSource;
+        public string? IpSource
+        {
+            get
+            {
+                if (!_mUnknown_IpSource) return _mValue_IpSource;
+                throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociation.IpSource' is not present");
+            }
+        }
 
         /// <summary>
         /// Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
         /// </summary>
-        [Input("ipv6AddressAttribute")]
+        [PolicyResourceProperty("ipv6AddressAttribute", "_mUnknown_Ipv6AddressAttribute")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6AddressAttribute;
-
-        public string? Ipv6AddressAttribute => _mIpv6AddressAttribute.GetValue("ipv6AddressAttribute");
+        private string? _mValue_Ipv6AddressAttribute;
+        private bool _mUnknown_Ipv6AddressAttribute;
+        public string? Ipv6AddressAttribute
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6AddressAttribute) return _mValue_Ipv6AddressAttribute;
+                throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociation.Ipv6AddressAttribute' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and the IPAM pool does not have `allocation_default_netmask` set. Conflicts with `assign_generated_ipv6_cidr_block`.
         /// </summary>
-        [Input("ipv6CidrBlock")]
+        [PolicyResourceProperty("ipv6CidrBlock", "_mUnknown_Ipv6CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlock;
-
-        public string? Ipv6CidrBlock => _mIpv6CidrBlock.GetValue("ipv6CidrBlock");
+        private string? _mValue_Ipv6CidrBlock;
+        private bool _mUnknown_Ipv6CidrBlock;
+        public string? Ipv6CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6CidrBlock) return _mValue_Ipv6CidrBlock;
+                throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociation.Ipv6CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assign_generated_ipv6_cidr_block` and `ipv6_pool`.
         /// </summary>
-        [Input("ipv6IpamPoolId")]
+        [PolicyResourceProperty("ipv6IpamPoolId", "_mUnknown_Ipv6IpamPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6IpamPoolId;
-
-        public string? Ipv6IpamPoolId => _mIpv6IpamPoolId.GetValue("ipv6IpamPoolId");
+        private string? _mValue_Ipv6IpamPoolId;
+        private bool _mUnknown_Ipv6IpamPoolId;
+        public string? Ipv6IpamPoolId
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6IpamPoolId) return _mValue_Ipv6IpamPoolId;
+                throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociation.Ipv6IpamPoolId' is not present");
+            }
+        }
 
         /// <summary>
         /// The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6_ipam_pool_id`. This parameter is optional if the IPAM pool has `allocation_default_netmask` set, otherwise it or `ipv6_cidr_block` are required. Conflicts with `ipv6_cidr_block`.
         /// </summary>
-        [Input("ipv6NetmaskLength")]
+        [PolicyResourceProperty("ipv6NetmaskLength", "_mUnknown_Ipv6NetmaskLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIpv6NetmaskLength;
-
-        public int? Ipv6NetmaskLength => _mIpv6NetmaskLength.GetValue("ipv6NetmaskLength");
+        private int? _mValue_Ipv6NetmaskLength;
+        private bool _mUnknown_Ipv6NetmaskLength;
+        public int? Ipv6NetmaskLength
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6NetmaskLength) return _mValue_Ipv6NetmaskLength;
+                throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociation.Ipv6NetmaskLength' is not present");
+            }
+        }
 
         /// <summary>
         /// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_pam_pool_id`.
         /// </summary>
-        [Input("ipv6Pool")]
+        [PolicyResourceProperty("ipv6Pool", "_mUnknown_Ipv6Pool")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6Pool;
-
-        public string? Ipv6Pool => _mIpv6Pool.GetValue("ipv6Pool");
+        private string? _mValue_Ipv6Pool;
+        private bool _mUnknown_Ipv6Pool;
+        public string? Ipv6Pool
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6Pool) return _mValue_Ipv6Pool;
+                throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociation.Ipv6Pool' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC to make the association with.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociation.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation")]
@@ -92,55 +148,97 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_pam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
         /// </summary>
-        [Input("assignGeneratedIpv6CidrBlock")]
+        [PolicyResourceProperty("assignGeneratedIpv6CidrBlock", "_mUnknown_AssignGeneratedIpv6CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAssignGeneratedIpv6CidrBlock;
-
-        public bool? AssignGeneratedIpv6CidrBlock => _mAssignGeneratedIpv6CidrBlock.GetValue("assignGeneratedIpv6CidrBlock");
+        private bool? _mValue_AssignGeneratedIpv6CidrBlock;
+        private bool _mUnknown_AssignGeneratedIpv6CidrBlock;
+        public bool? AssignGeneratedIpv6CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_AssignGeneratedIpv6CidrBlock) return _mValue_AssignGeneratedIpv6CidrBlock;
+                throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociationArgs.AssignGeneratedIpv6CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and the IPAM pool does not have `allocation_default_netmask` set. Conflicts with `assign_generated_ipv6_cidr_block`.
         /// </summary>
-        [Input("ipv6CidrBlock")]
+        [PolicyResourceProperty("ipv6CidrBlock", "_mUnknown_Ipv6CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlock;
-
-        public string? Ipv6CidrBlock => _mIpv6CidrBlock.GetValue("ipv6CidrBlock");
+        private string? _mValue_Ipv6CidrBlock;
+        private bool _mUnknown_Ipv6CidrBlock;
+        public string? Ipv6CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6CidrBlock) return _mValue_Ipv6CidrBlock;
+                throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociationArgs.Ipv6CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assign_generated_ipv6_cidr_block` and `ipv6_pool`.
         /// </summary>
-        [Input("ipv6IpamPoolId")]
+        [PolicyResourceProperty("ipv6IpamPoolId", "_mUnknown_Ipv6IpamPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6IpamPoolId;
-
-        public string? Ipv6IpamPoolId => _mIpv6IpamPoolId.GetValue("ipv6IpamPoolId");
+        private string? _mValue_Ipv6IpamPoolId;
+        private bool _mUnknown_Ipv6IpamPoolId;
+        public string? Ipv6IpamPoolId
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6IpamPoolId) return _mValue_Ipv6IpamPoolId;
+                throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociationArgs.Ipv6IpamPoolId' is not present");
+            }
+        }
 
         /// <summary>
         /// The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6_ipam_pool_id`. This parameter is optional if the IPAM pool has `allocation_default_netmask` set, otherwise it or `ipv6_cidr_block` are required. Conflicts with `ipv6_cidr_block`.
         /// </summary>
-        [Input("ipv6NetmaskLength")]
+        [PolicyResourceProperty("ipv6NetmaskLength", "_mUnknown_Ipv6NetmaskLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIpv6NetmaskLength;
-
-        public int? Ipv6NetmaskLength => _mIpv6NetmaskLength.GetValue("ipv6NetmaskLength");
+        private int? _mValue_Ipv6NetmaskLength;
+        private bool _mUnknown_Ipv6NetmaskLength;
+        public int? Ipv6NetmaskLength
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6NetmaskLength) return _mValue_Ipv6NetmaskLength;
+                throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociationArgs.Ipv6NetmaskLength' is not present");
+            }
+        }
 
         /// <summary>
         /// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_pam_pool_id`.
         /// </summary>
-        [Input("ipv6Pool")]
+        [PolicyResourceProperty("ipv6Pool", "_mUnknown_Ipv6Pool")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6Pool;
-
-        public string? Ipv6Pool => _mIpv6Pool.GetValue("ipv6Pool");
+        private string? _mValue_Ipv6Pool;
+        private bool _mUnknown_Ipv6Pool;
+        public string? Ipv6Pool
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6Pool) return _mValue_Ipv6Pool;
+                throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociationArgs.Ipv6Pool' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC to make the association with.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociationArgs.VpcId' is not present");
+            }
+        }
     }
 }

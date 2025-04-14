@@ -12,28 +12,49 @@ namespace Pulumi.PolicyPacks.Aws.Mwaa.Inputs
 {
     public sealed class EnvironmentLoggingConfigurationWebserverLogsArgs
     {
-        [Input("cloudWatchLogGroupArn")]
+        [PolicyResourceProperty("cloudWatchLogGroupArn", "_mUnknown_CloudWatchLogGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudWatchLogGroupArn;
-
-        public string? CloudWatchLogGroupArn => _mCloudWatchLogGroupArn.GetValue("cloudWatchLogGroupArn");
+        private string? _mValue_CloudWatchLogGroupArn;
+        private bool _mUnknown_CloudWatchLogGroupArn;
+        public string? CloudWatchLogGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_CloudWatchLogGroupArn) return _mValue_CloudWatchLogGroupArn;
+                throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationWebserverLogsArgs.CloudWatchLogGroupArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Enabling or disabling the collection of logs
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationWebserverLogsArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
         /// </summary>
-        [Input("logLevel")]
+        [PolicyResourceProperty("logLevel", "_mUnknown_LogLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogLevel;
-
-        public string? LogLevel => _mLogLevel.GetValue("logLevel");
+        private string? _mValue_LogLevel;
+        private bool _mUnknown_LogLevel;
+        public string? LogLevel
+        {
+            get
+            {
+                if (!_mUnknown_LogLevel) return _mValue_LogLevel;
+                throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationWebserverLogsArgs.LogLevel' is not present");
+            }
+        }
     }
 }

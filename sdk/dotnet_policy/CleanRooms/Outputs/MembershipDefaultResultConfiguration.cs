@@ -12,11 +12,18 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms.Outputs
 {
     public sealed class MembershipDefaultResultConfiguration
     {
-        [Input("outputConfiguration")]
+        [PolicyResourceProperty("outputConfiguration", "_mUnknown_OutputConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MembershipDefaultResultConfigurationOutputConfiguration> _mOutputConfiguration;
-
-        public Outputs.MembershipDefaultResultConfigurationOutputConfiguration? OutputConfiguration => _mOutputConfiguration.GetValue("outputConfiguration");
+        private Outputs.MembershipDefaultResultConfigurationOutputConfiguration? _mValue_OutputConfiguration;
+        private bool _mUnknown_OutputConfiguration;
+        public Outputs.MembershipDefaultResultConfigurationOutputConfiguration? OutputConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_OutputConfiguration) return _mValue_OutputConfiguration;
+                throw new UndeferrableValueException("Value 'MembershipDefaultResultConfiguration.OutputConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role which will be used to create the membership.
@@ -24,10 +31,17 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms.Outputs
         /// - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
         /// - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'MembershipDefaultResultConfiguration.RoleArn' is not present");
+            }
+        }
     }
 }

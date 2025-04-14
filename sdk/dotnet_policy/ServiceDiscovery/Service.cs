@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.ServiceDiscovery
         /// <summary>
         /// The ARN of the service.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Service.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the service.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Service.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
         /// </summary>
-        [Input("dnsConfig")]
+        [PolicyResourceProperty("dnsConfig", "_mUnknown_DnsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceDnsConfig> _mDnsConfig;
-
-        public Outputs.ServiceDnsConfig? DnsConfig => _mDnsConfig.GetValue("dnsConfig");
+        private Outputs.ServiceDnsConfig? _mValue_DnsConfig;
+        private bool _mUnknown_DnsConfig;
+        public Outputs.ServiceDnsConfig? DnsConfig
+        {
+            get
+            {
+                if (!_mUnknown_DnsConfig) return _mValue_DnsConfig;
+                throw new UndeferrableValueException("Value 'Service.DnsConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'Service.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
         /// </summary>
-        [Input("healthCheckConfig")]
+        [PolicyResourceProperty("healthCheckConfig", "_mUnknown_HealthCheckConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceHealthCheckConfig> _mHealthCheckConfig;
-
-        public Outputs.ServiceHealthCheckConfig? HealthCheckConfig => _mHealthCheckConfig.GetValue("healthCheckConfig");
+        private Outputs.ServiceHealthCheckConfig? _mValue_HealthCheckConfig;
+        private bool _mUnknown_HealthCheckConfig;
+        public Outputs.ServiceHealthCheckConfig? HealthCheckConfig
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckConfig) return _mValue_HealthCheckConfig;
+                throw new UndeferrableValueException("Value 'Service.HealthCheckConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
         /// </summary>
-        [Input("healthCheckCustomConfig")]
+        [PolicyResourceProperty("healthCheckCustomConfig", "_mUnknown_HealthCheckCustomConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceHealthCheckCustomConfig> _mHealthCheckCustomConfig;
-
-        public Outputs.ServiceHealthCheckCustomConfig? HealthCheckCustomConfig => _mHealthCheckCustomConfig.GetValue("healthCheckCustomConfig");
+        private Outputs.ServiceHealthCheckCustomConfig? _mValue_HealthCheckCustomConfig;
+        private bool _mUnknown_HealthCheckCustomConfig;
+        public Outputs.ServiceHealthCheckCustomConfig? HealthCheckCustomConfig
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckCustomConfig) return _mValue_HealthCheckCustomConfig;
+                throw new UndeferrableValueException("Value 'Service.HealthCheckCustomConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the service.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Service.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the namespace that you want to use to create the service.
         /// </summary>
-        [Input("namespaceId")]
+        [PolicyResourceProperty("namespaceId", "_mUnknown_NamespaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceId;
-
-        public string? NamespaceId => _mNamespaceId.GetValue("namespaceId");
+        private string? _mValue_NamespaceId;
+        private bool _mUnknown_NamespaceId;
+        public string? NamespaceId
+        {
+            get
+            {
+                if (!_mUnknown_NamespaceId) return _mValue_NamespaceId;
+                throw new UndeferrableValueException("Value 'Service.NamespaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Service.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Service.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Service.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:servicediscovery/service:Service")]
@@ -119,82 +196,145 @@ namespace Pulumi.PolicyPacks.Aws.ServiceDiscovery
         /// <summary>
         /// The description of the service.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ServiceArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
         /// </summary>
-        [Input("dnsConfig")]
+        [PolicyResourceProperty("dnsConfig", "_mUnknown_DnsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceDnsConfigArgs> _mDnsConfig;
-
-        public Inputs.ServiceDnsConfigArgs? DnsConfig => _mDnsConfig.GetValue("dnsConfig");
+        private Inputs.ServiceDnsConfigArgs? _mValue_DnsConfig;
+        private bool _mUnknown_DnsConfig;
+        public Inputs.ServiceDnsConfigArgs? DnsConfig
+        {
+            get
+            {
+                if (!_mUnknown_DnsConfig) return _mValue_DnsConfig;
+                throw new UndeferrableValueException("Value 'ServiceArgs.DnsConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'ServiceArgs.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
         /// </summary>
-        [Input("healthCheckConfig")]
+        [PolicyResourceProperty("healthCheckConfig", "_mUnknown_HealthCheckConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceHealthCheckConfigArgs> _mHealthCheckConfig;
-
-        public Inputs.ServiceHealthCheckConfigArgs? HealthCheckConfig => _mHealthCheckConfig.GetValue("healthCheckConfig");
+        private Inputs.ServiceHealthCheckConfigArgs? _mValue_HealthCheckConfig;
+        private bool _mUnknown_HealthCheckConfig;
+        public Inputs.ServiceHealthCheckConfigArgs? HealthCheckConfig
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckConfig) return _mValue_HealthCheckConfig;
+                throw new UndeferrableValueException("Value 'ServiceArgs.HealthCheckConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
         /// </summary>
-        [Input("healthCheckCustomConfig")]
+        [PolicyResourceProperty("healthCheckCustomConfig", "_mUnknown_HealthCheckCustomConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceHealthCheckCustomConfigArgs> _mHealthCheckCustomConfig;
-
-        public Inputs.ServiceHealthCheckCustomConfigArgs? HealthCheckCustomConfig => _mHealthCheckCustomConfig.GetValue("healthCheckCustomConfig");
+        private Inputs.ServiceHealthCheckCustomConfigArgs? _mValue_HealthCheckCustomConfig;
+        private bool _mUnknown_HealthCheckCustomConfig;
+        public Inputs.ServiceHealthCheckCustomConfigArgs? HealthCheckCustomConfig
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckCustomConfig) return _mValue_HealthCheckCustomConfig;
+                throw new UndeferrableValueException("Value 'ServiceArgs.HealthCheckCustomConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the service.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServiceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the namespace that you want to use to create the service.
         /// </summary>
-        [Input("namespaceId")]
+        [PolicyResourceProperty("namespaceId", "_mUnknown_NamespaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceId;
-
-        public string? NamespaceId => _mNamespaceId.GetValue("namespaceId");
+        private string? _mValue_NamespaceId;
+        private bool _mUnknown_NamespaceId;
+        public string? NamespaceId
+        {
+            get
+            {
+                if (!_mUnknown_NamespaceId) return _mValue_NamespaceId;
+                throw new UndeferrableValueException("Value 'ServiceArgs.NamespaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServiceArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ServiceArgs.Type' is not present");
+            }
+        }
     }
 }

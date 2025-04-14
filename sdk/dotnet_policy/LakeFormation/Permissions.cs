@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// <summary>
         /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'Permissions.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
         /// </summary>
-        [Input("catalogResource")]
+        [PolicyResourceProperty("catalogResource", "_mUnknown_CatalogResource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCatalogResource;
-
-        public bool? CatalogResource => _mCatalogResource.GetValue("catalogResource");
+        private bool? _mValue_CatalogResource;
+        private bool _mUnknown_CatalogResource;
+        public bool? CatalogResource
+        {
+            get
+            {
+                if (!_mUnknown_CatalogResource) return _mValue_CatalogResource;
+                throw new UndeferrableValueException("Value 'Permissions.CatalogResource' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a data cells filter resource. Detailed below.
         /// </summary>
-        [Input("dataCellsFilter")]
+        [PolicyResourceProperty("dataCellsFilter", "_mUnknown_DataCellsFilter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PermissionsDataCellsFilter> _mDataCellsFilter;
-
-        public Outputs.PermissionsDataCellsFilter? DataCellsFilter => _mDataCellsFilter.GetValue("dataCellsFilter");
+        private Outputs.PermissionsDataCellsFilter? _mValue_DataCellsFilter;
+        private bool _mUnknown_DataCellsFilter;
+        public Outputs.PermissionsDataCellsFilter? DataCellsFilter
+        {
+            get
+            {
+                if (!_mUnknown_DataCellsFilter) return _mValue_DataCellsFilter;
+                throw new UndeferrableValueException("Value 'Permissions.DataCellsFilter' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a data location resource. Detailed below.
         /// </summary>
-        [Input("dataLocation")]
+        [PolicyResourceProperty("dataLocation", "_mUnknown_DataLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PermissionsDataLocation> _mDataLocation;
-
-        public Outputs.PermissionsDataLocation? DataLocation => _mDataLocation.GetValue("dataLocation");
+        private Outputs.PermissionsDataLocation? _mValue_DataLocation;
+        private bool _mUnknown_DataLocation;
+        public Outputs.PermissionsDataLocation? DataLocation
+        {
+            get
+            {
+                if (!_mUnknown_DataLocation) return _mValue_DataLocation;
+                throw new UndeferrableValueException("Value 'Permissions.DataLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a database resource. Detailed below.
         /// </summary>
-        [Input("database")]
+        [PolicyResourceProperty("database", "_mUnknown_Database")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PermissionsDatabase> _mDatabase;
-
-        public Outputs.PermissionsDatabase? Database => _mDatabase.GetValue("database");
+        private Outputs.PermissionsDatabase? _mValue_Database;
+        private bool _mUnknown_Database;
+        public Outputs.PermissionsDatabase? Database
+        {
+            get
+            {
+                if (!_mUnknown_Database) return _mValue_Database;
+                throw new UndeferrableValueException("Value 'Permissions.Database' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for an LF-tag resource. Detailed below.
         /// </summary>
-        [Input("lfTag")]
+        [PolicyResourceProperty("lfTag", "_mUnknown_LfTag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PermissionsLfTag> _mLfTag;
-
-        public Outputs.PermissionsLfTag? LfTag => _mLfTag.GetValue("lfTag");
+        private Outputs.PermissionsLfTag? _mValue_LfTag;
+        private bool _mUnknown_LfTag;
+        public Outputs.PermissionsLfTag? LfTag
+        {
+            get
+            {
+                if (!_mUnknown_LfTag) return _mValue_LfTag;
+                throw new UndeferrableValueException("Value 'Permissions.LfTag' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for an LF-tag policy resource. Detailed below.
         /// </summary>
-        [Input("lfTagPolicy")]
+        [PolicyResourceProperty("lfTagPolicy", "_mUnknown_LfTagPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PermissionsLfTagPolicy> _mLfTagPolicy;
-
-        public Outputs.PermissionsLfTagPolicy? LfTagPolicy => _mLfTagPolicy.GetValue("lfTagPolicy");
+        private Outputs.PermissionsLfTagPolicy? _mValue_LfTagPolicy;
+        private bool _mUnknown_LfTagPolicy;
+        public Outputs.PermissionsLfTagPolicy? LfTagPolicy
+        {
+            get
+            {
+                if (!_mUnknown_LfTagPolicy) return _mValue_LfTagPolicy;
+                throw new UndeferrableValueException("Value 'Permissions.LfTagPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_PermissionDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPermissionDetails;
-
-        public List<string>? PermissionDetails => _mPermissionDetails.GetValue("permissions");
+        private List<string>? _mValue_PermissionDetails;
+        private bool _mUnknown_PermissionDetails;
+        public List<string>? PermissionDetails
+        {
+            get
+            {
+                if (!_mUnknown_PermissionDetails) return _mValue_PermissionDetails;
+                throw new UndeferrableValueException("Value 'Permissions.PermissionDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Subset of `permissions` which the principal can pass.
         /// </summary>
-        [Input("permissionsWithGrantOptions")]
+        [PolicyResourceProperty("permissionsWithGrantOptions", "_mUnknown_PermissionsWithGrantOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPermissionsWithGrantOptions;
-
-        public List<string>? PermissionsWithGrantOptions => _mPermissionsWithGrantOptions.GetValue("permissionsWithGrantOptions");
+        private List<string>? _mValue_PermissionsWithGrantOptions;
+        private bool _mUnknown_PermissionsWithGrantOptions;
+        public List<string>? PermissionsWithGrantOptions
+        {
+            get
+            {
+                if (!_mUnknown_PermissionsWithGrantOptions) return _mValue_PermissionsWithGrantOptions;
+                throw new UndeferrableValueException("Value 'Permissions.PermissionsWithGrantOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, Federated Users, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
@@ -101,31 +164,52 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// 
         /// One of the following is required:
         /// </summary>
-        [Input("principal")]
+        [PolicyResourceProperty("principal", "_mUnknown_Principal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
-
-        public string? Principal => _mPrincipal.GetValue("principal");
+        private string? _mValue_Principal;
+        private bool _mUnknown_Principal;
+        public string? Principal
+        {
+            get
+            {
+                if (!_mUnknown_Principal) return _mValue_Principal;
+                throw new UndeferrableValueException("Value 'Permissions.Principal' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a table resource. Detailed below.
         /// </summary>
-        [Input("table")]
+        [PolicyResourceProperty("table", "_mUnknown_Table")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PermissionsTable> _mTable;
-
-        public Outputs.PermissionsTable? Table => _mTable.GetValue("table");
+        private Outputs.PermissionsTable? _mValue_Table;
+        private bool _mUnknown_Table;
+        public Outputs.PermissionsTable? Table
+        {
+            get
+            {
+                if (!_mUnknown_Table) return _mValue_Table;
+                throw new UndeferrableValueException("Value 'Permissions.Table' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a table with columns resource. Detailed below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("tableWithColumns")]
+        [PolicyResourceProperty("tableWithColumns", "_mUnknown_TableWithColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PermissionsTableWithColumns> _mTableWithColumns;
-
-        public Outputs.PermissionsTableWithColumns? TableWithColumns => _mTableWithColumns.GetValue("tableWithColumns");
+        private Outputs.PermissionsTableWithColumns? _mValue_TableWithColumns;
+        private bool _mUnknown_TableWithColumns;
+        public Outputs.PermissionsTableWithColumns? TableWithColumns
+        {
+            get
+            {
+                if (!_mUnknown_TableWithColumns) return _mValue_TableWithColumns;
+                throw new UndeferrableValueException("Value 'Permissions.TableWithColumns' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lakeformation/permissions:Permissions")]
@@ -134,83 +218,146 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// <summary>
         /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'PermissionsArgs.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
         /// </summary>
-        [Input("catalogResource")]
+        [PolicyResourceProperty("catalogResource", "_mUnknown_CatalogResource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCatalogResource;
-
-        public bool? CatalogResource => _mCatalogResource.GetValue("catalogResource");
+        private bool? _mValue_CatalogResource;
+        private bool _mUnknown_CatalogResource;
+        public bool? CatalogResource
+        {
+            get
+            {
+                if (!_mUnknown_CatalogResource) return _mValue_CatalogResource;
+                throw new UndeferrableValueException("Value 'PermissionsArgs.CatalogResource' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a data cells filter resource. Detailed below.
         /// </summary>
-        [Input("dataCellsFilter")]
+        [PolicyResourceProperty("dataCellsFilter", "_mUnknown_DataCellsFilter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PermissionsDataCellsFilterArgs> _mDataCellsFilter;
-
-        public Inputs.PermissionsDataCellsFilterArgs? DataCellsFilter => _mDataCellsFilter.GetValue("dataCellsFilter");
+        private Inputs.PermissionsDataCellsFilterArgs? _mValue_DataCellsFilter;
+        private bool _mUnknown_DataCellsFilter;
+        public Inputs.PermissionsDataCellsFilterArgs? DataCellsFilter
+        {
+            get
+            {
+                if (!_mUnknown_DataCellsFilter) return _mValue_DataCellsFilter;
+                throw new UndeferrableValueException("Value 'PermissionsArgs.DataCellsFilter' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a data location resource. Detailed below.
         /// </summary>
-        [Input("dataLocation")]
+        [PolicyResourceProperty("dataLocation", "_mUnknown_DataLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PermissionsDataLocationArgs> _mDataLocation;
-
-        public Inputs.PermissionsDataLocationArgs? DataLocation => _mDataLocation.GetValue("dataLocation");
+        private Inputs.PermissionsDataLocationArgs? _mValue_DataLocation;
+        private bool _mUnknown_DataLocation;
+        public Inputs.PermissionsDataLocationArgs? DataLocation
+        {
+            get
+            {
+                if (!_mUnknown_DataLocation) return _mValue_DataLocation;
+                throw new UndeferrableValueException("Value 'PermissionsArgs.DataLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a database resource. Detailed below.
         /// </summary>
-        [Input("database")]
+        [PolicyResourceProperty("database", "_mUnknown_Database")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PermissionsDatabaseArgs> _mDatabase;
-
-        public Inputs.PermissionsDatabaseArgs? Database => _mDatabase.GetValue("database");
+        private Inputs.PermissionsDatabaseArgs? _mValue_Database;
+        private bool _mUnknown_Database;
+        public Inputs.PermissionsDatabaseArgs? Database
+        {
+            get
+            {
+                if (!_mUnknown_Database) return _mValue_Database;
+                throw new UndeferrableValueException("Value 'PermissionsArgs.Database' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for an LF-tag resource. Detailed below.
         /// </summary>
-        [Input("lfTag")]
+        [PolicyResourceProperty("lfTag", "_mUnknown_LfTag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PermissionsLfTagArgs> _mLfTag;
-
-        public Inputs.PermissionsLfTagArgs? LfTag => _mLfTag.GetValue("lfTag");
+        private Inputs.PermissionsLfTagArgs? _mValue_LfTag;
+        private bool _mUnknown_LfTag;
+        public Inputs.PermissionsLfTagArgs? LfTag
+        {
+            get
+            {
+                if (!_mUnknown_LfTag) return _mValue_LfTag;
+                throw new UndeferrableValueException("Value 'PermissionsArgs.LfTag' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for an LF-tag policy resource. Detailed below.
         /// </summary>
-        [Input("lfTagPolicy")]
+        [PolicyResourceProperty("lfTagPolicy", "_mUnknown_LfTagPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PermissionsLfTagPolicyArgs> _mLfTagPolicy;
-
-        public Inputs.PermissionsLfTagPolicyArgs? LfTagPolicy => _mLfTagPolicy.GetValue("lfTagPolicy");
+        private Inputs.PermissionsLfTagPolicyArgs? _mValue_LfTagPolicy;
+        private bool _mUnknown_LfTagPolicy;
+        public Inputs.PermissionsLfTagPolicyArgs? LfTagPolicy
+        {
+            get
+            {
+                if (!_mUnknown_LfTagPolicy) return _mValue_LfTagPolicy;
+                throw new UndeferrableValueException("Value 'PermissionsArgs.LfTagPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_PermissionDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPermissionDetails;
-
-        public List<string>? PermissionDetails => _mPermissionDetails.GetValue("permissions");
+        private List<string>? _mValue_PermissionDetails;
+        private bool _mUnknown_PermissionDetails;
+        public List<string>? PermissionDetails
+        {
+            get
+            {
+                if (!_mUnknown_PermissionDetails) return _mValue_PermissionDetails;
+                throw new UndeferrableValueException("Value 'PermissionsArgs.PermissionDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Subset of `permissions` which the principal can pass.
         /// </summary>
-        [Input("permissionsWithGrantOptions")]
+        [PolicyResourceProperty("permissionsWithGrantOptions", "_mUnknown_PermissionsWithGrantOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPermissionsWithGrantOptions;
-
-        public List<string>? PermissionsWithGrantOptions => _mPermissionsWithGrantOptions.GetValue("permissionsWithGrantOptions");
+        private List<string>? _mValue_PermissionsWithGrantOptions;
+        private bool _mUnknown_PermissionsWithGrantOptions;
+        public List<string>? PermissionsWithGrantOptions
+        {
+            get
+            {
+                if (!_mUnknown_PermissionsWithGrantOptions) return _mValue_PermissionsWithGrantOptions;
+                throw new UndeferrableValueException("Value 'PermissionsArgs.PermissionsWithGrantOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, Federated Users, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
@@ -219,30 +366,51 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// 
         /// One of the following is required:
         /// </summary>
-        [Input("principal")]
+        [PolicyResourceProperty("principal", "_mUnknown_Principal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
-
-        public string? Principal => _mPrincipal.GetValue("principal");
+        private string? _mValue_Principal;
+        private bool _mUnknown_Principal;
+        public string? Principal
+        {
+            get
+            {
+                if (!_mUnknown_Principal) return _mValue_Principal;
+                throw new UndeferrableValueException("Value 'PermissionsArgs.Principal' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a table resource. Detailed below.
         /// </summary>
-        [Input("table")]
+        [PolicyResourceProperty("table", "_mUnknown_Table")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PermissionsTableArgs> _mTable;
-
-        public Inputs.PermissionsTableArgs? Table => _mTable.GetValue("table");
+        private Inputs.PermissionsTableArgs? _mValue_Table;
+        private bool _mUnknown_Table;
+        public Inputs.PermissionsTableArgs? Table
+        {
+            get
+            {
+                if (!_mUnknown_Table) return _mValue_Table;
+                throw new UndeferrableValueException("Value 'PermissionsArgs.Table' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a table with columns resource. Detailed below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("tableWithColumns")]
+        [PolicyResourceProperty("tableWithColumns", "_mUnknown_TableWithColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PermissionsTableWithColumnsArgs> _mTableWithColumns;
-
-        public Inputs.PermissionsTableWithColumnsArgs? TableWithColumns => _mTableWithColumns.GetValue("tableWithColumns");
+        private Inputs.PermissionsTableWithColumnsArgs? _mValue_TableWithColumns;
+        private bool _mUnknown_TableWithColumns;
+        public Inputs.PermissionsTableWithColumnsArgs? TableWithColumns
+        {
+            get
+            {
+                if (!_mUnknown_TableWithColumns) return _mValue_TableWithColumns;
+                throw new UndeferrableValueException("Value 'PermissionsArgs.TableWithColumns' is not present");
+            }
+        }
     }
 }

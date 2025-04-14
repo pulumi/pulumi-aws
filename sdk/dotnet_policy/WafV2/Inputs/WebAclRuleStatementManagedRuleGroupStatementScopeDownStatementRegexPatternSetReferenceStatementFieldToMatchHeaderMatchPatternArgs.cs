@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// An empty configuration block that is used for inspecting all headers.
         /// </summary>
-        [Input("all")]
+        [PolicyResourceProperty("all", "_mUnknown_All")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs> _mAll;
-
-        public Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs? All => _mAll.GetValue("all");
+        private Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs? _mValue_All;
+        private bool _mUnknown_All;
+        public Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs? All
+        {
+            get
+            {
+                if (!_mUnknown_All) return _mValue_All;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs.All' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         /// </summary>
-        [Input("excludedHeaders")]
+        [PolicyResourceProperty("excludedHeaders", "_mUnknown_ExcludedHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedHeaders;
-
-        public List<string>? ExcludedHeaders => _mExcludedHeaders.GetValue("excludedHeaders");
+        private List<string>? _mValue_ExcludedHeaders;
+        private bool _mUnknown_ExcludedHeaders;
+        public List<string>? ExcludedHeaders
+        {
+            get
+            {
+                if (!_mUnknown_ExcludedHeaders) return _mValue_ExcludedHeaders;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs.ExcludedHeaders' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         /// </summary>
-        [Input("includedHeaders")]
+        [PolicyResourceProperty("includedHeaders", "_mUnknown_IncludedHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIncludedHeaders;
-
-        public List<string>? IncludedHeaders => _mIncludedHeaders.GetValue("includedHeaders");
+        private List<string>? _mValue_IncludedHeaders;
+        private bool _mUnknown_IncludedHeaders;
+        public List<string>? IncludedHeaders
+        {
+            get
+            {
+                if (!_mUnknown_IncludedHeaders) return _mValue_IncludedHeaders;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs.IncludedHeaders' is not present");
+            }
+        }
     }
 }

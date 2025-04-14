@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         /// </summary>
-        [Input("message")]
+        [PolicyResourceProperty("message", "_mUnknown_Message")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessage> _mMessage;
-
-        public Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessage? Message => _mMessage.GetValue("message");
+        private Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessage? _mValue_Message;
+        private bool _mUnknown_Message;
+        public Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessage? Message
+        {
+            get
+            {
+                if (!_mUnknown_Message) return _mValue_Message;
+                throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroup.Message' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         /// </summary>
-        [Input("variations")]
+        [PolicyResourceProperty("variations", "_mUnknown_Variations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariation>> _mVariations;
-
-        public List<Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariation>? Variations => _mVariations.GetValue("variations");
+        private List<Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariation>? _mValue_Variations;
+        private bool _mUnknown_Variations;
+        public List<Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariation>? Variations
+        {
+            get
+            {
+                if (!_mUnknown_Variations) return _mValue_Variations;
+                throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroup.Variations' is not present");
+            }
+        }
     }
 }

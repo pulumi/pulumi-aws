@@ -15,43 +15,78 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
         /// <summary>
         /// Document type specified in the Veeva document extract flow.
         /// </summary>
-        [Input("documentType")]
+        [PolicyResourceProperty("documentType", "_mUnknown_DocumentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentType;
-
-        public string? DocumentType => _mDocumentType.GetValue("documentType");
+        private string? _mValue_DocumentType;
+        private bool _mUnknown_DocumentType;
+        public string? DocumentType
+        {
+            get
+            {
+                if (!_mUnknown_DocumentType) return _mValue_DocumentType;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs.DocumentType' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean value to include All Versions of files in Veeva document extract flow.
         /// </summary>
-        [Input("includeAllVersions")]
+        [PolicyResourceProperty("includeAllVersions", "_mUnknown_IncludeAllVersions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeAllVersions;
-
-        public bool? IncludeAllVersions => _mIncludeAllVersions.GetValue("includeAllVersions");
+        private bool? _mValue_IncludeAllVersions;
+        private bool _mUnknown_IncludeAllVersions;
+        public bool? IncludeAllVersions
+        {
+            get
+            {
+                if (!_mUnknown_IncludeAllVersions) return _mValue_IncludeAllVersions;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs.IncludeAllVersions' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean value to include file renditions in Veeva document extract flow.
         /// </summary>
-        [Input("includeRenditions")]
+        [PolicyResourceProperty("includeRenditions", "_mUnknown_IncludeRenditions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeRenditions;
-
-        public bool? IncludeRenditions => _mIncludeRenditions.GetValue("includeRenditions");
+        private bool? _mValue_IncludeRenditions;
+        private bool _mUnknown_IncludeRenditions;
+        public bool? IncludeRenditions
+        {
+            get
+            {
+                if (!_mUnknown_IncludeRenditions) return _mValue_IncludeRenditions;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs.IncludeRenditions' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean value to include source files in Veeva document extract flow.
         /// </summary>
-        [Input("includeSourceFiles")]
+        [PolicyResourceProperty("includeSourceFiles", "_mUnknown_IncludeSourceFiles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeSourceFiles;
+        private bool? _mValue_IncludeSourceFiles;
+        private bool _mUnknown_IncludeSourceFiles;
+        public bool? IncludeSourceFiles
+        {
+            get
+            {
+                if (!_mUnknown_IncludeSourceFiles) return _mValue_IncludeSourceFiles;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs.IncludeSourceFiles' is not present");
+            }
+        }
 
-        public bool? IncludeSourceFiles => _mIncludeSourceFiles.GetValue("includeSourceFiles");
-
-        [Input("object")]
+        [PolicyResourceProperty("object", "_mUnknown_Object")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObject;
-
-        public string? Object => _mObject.GetValue("object");
+        private string? _mValue_Object;
+        private bool _mUnknown_Object;
+        public string? Object
+        {
+            get
+            {
+                if (!_mUnknown_Object) return _mValue_Object;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs.Object' is not present");
+            }
+        }
     }
 }

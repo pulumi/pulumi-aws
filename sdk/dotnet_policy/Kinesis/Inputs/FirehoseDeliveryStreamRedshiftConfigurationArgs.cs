@@ -15,125 +15,223 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
-        [Input("cloudwatchLoggingOptions")]
+        [PolicyResourceProperty("cloudwatchLoggingOptions", "_mUnknown_CloudwatchLoggingOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs> _mCloudwatchLoggingOptions;
-
-        public Inputs.FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs? CloudwatchLoggingOptions => _mCloudwatchLoggingOptions.GetValue("cloudwatchLoggingOptions");
+        private Inputs.FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs? _mValue_CloudwatchLoggingOptions;
+        private bool _mUnknown_CloudwatchLoggingOptions;
+        public Inputs.FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs? CloudwatchLoggingOptions
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLoggingOptions) return _mValue_CloudwatchLoggingOptions;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfigurationArgs.CloudwatchLoggingOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The jdbcurl of the redshift cluster.
         /// </summary>
-        [Input("clusterJdbcurl")]
+        [PolicyResourceProperty("clusterJdbcurl", "_mUnknown_ClusterJdbcurl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterJdbcurl;
-
-        public string? ClusterJdbcurl => _mClusterJdbcurl.GetValue("clusterJdbcurl");
+        private string? _mValue_ClusterJdbcurl;
+        private bool _mUnknown_ClusterJdbcurl;
+        public string? ClusterJdbcurl
+        {
+            get
+            {
+                if (!_mUnknown_ClusterJdbcurl) return _mValue_ClusterJdbcurl;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfigurationArgs.ClusterJdbcurl' is not present");
+            }
+        }
 
         /// <summary>
         /// Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
         /// </summary>
-        [Input("copyOptions")]
+        [PolicyResourceProperty("copyOptions", "_mUnknown_CopyOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCopyOptions;
-
-        public string? CopyOptions => _mCopyOptions.GetValue("copyOptions");
+        private string? _mValue_CopyOptions;
+        private bool _mUnknown_CopyOptions;
+        public string? CopyOptions
+        {
+            get
+            {
+                if (!_mUnknown_CopyOptions) return _mValue_CopyOptions;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfigurationArgs.CopyOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The data table columns that will be targeted by the copy command.
         /// </summary>
-        [Input("dataTableColumns")]
+        [PolicyResourceProperty("dataTableColumns", "_mUnknown_DataTableColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataTableColumns;
-
-        public string? DataTableColumns => _mDataTableColumns.GetValue("dataTableColumns");
+        private string? _mValue_DataTableColumns;
+        private bool _mUnknown_DataTableColumns;
+        public string? DataTableColumns
+        {
+            get
+            {
+                if (!_mUnknown_DataTableColumns) return _mValue_DataTableColumns;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfigurationArgs.DataTableColumns' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the table in the redshift cluster that the s3 bucket will copy to.
         /// </summary>
-        [Input("dataTableName")]
+        [PolicyResourceProperty("dataTableName", "_mUnknown_DataTableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataTableName;
-
-        public string? DataTableName => _mDataTableName.GetValue("dataTableName");
+        private string? _mValue_DataTableName;
+        private bool _mUnknown_DataTableName;
+        public string? DataTableName
+        {
+            get
+            {
+                if (!_mUnknown_DataTableName) return _mValue_DataTableName;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfigurationArgs.DataTableName' is not present");
+            }
+        }
 
         /// <summary>
         /// The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfigurationArgs.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// The data processing configuration.  See `processing_configuration` block below for details.
         /// </summary>
-        [Input("processingConfiguration")]
+        [PolicyResourceProperty("processingConfiguration", "_mUnknown_ProcessingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs> _mProcessingConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs? ProcessingConfiguration => _mProcessingConfiguration.GetValue("processingConfiguration");
+        private Inputs.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs? _mValue_ProcessingConfiguration;
+        private bool _mUnknown_ProcessingConfiguration;
+        public Inputs.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs? ProcessingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ProcessingConfiguration) return _mValue_ProcessingConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfigurationArgs.ProcessingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
         /// </summary>
-        [Input("retryDuration")]
+        [PolicyResourceProperty("retryDuration", "_mUnknown_RetryDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetryDuration;
-
-        public int? RetryDuration => _mRetryDuration.GetValue("retryDuration");
+        private int? _mValue_RetryDuration;
+        private bool _mUnknown_RetryDuration;
+        public int? RetryDuration
+        {
+            get
+            {
+                if (!_mUnknown_RetryDuration) return _mValue_RetryDuration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfigurationArgs.RetryDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The arn of the role the stream assumes.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfigurationArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
         /// `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
         /// </summary>
-        [Input("s3BackupConfiguration")]
+        [PolicyResourceProperty("s3BackupConfiguration", "_mUnknown_S3BackupConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs> _mS3BackupConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs? S3BackupConfiguration => _mS3BackupConfiguration.GetValue("s3BackupConfiguration");
+        private Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs? _mValue_S3BackupConfiguration;
+        private bool _mUnknown_S3BackupConfiguration;
+        public Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs? S3BackupConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_S3BackupConfiguration) return _mValue_S3BackupConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfigurationArgs.S3BackupConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
         /// </summary>
-        [Input("s3BackupMode")]
+        [PolicyResourceProperty("s3BackupMode", "_mUnknown_S3BackupMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BackupMode;
-
-        public string? S3BackupMode => _mS3BackupMode.GetValue("s3BackupMode");
+        private string? _mValue_S3BackupMode;
+        private bool _mUnknown_S3BackupMode;
+        public string? S3BackupMode
+        {
+            get
+            {
+                if (!_mUnknown_S3BackupMode) return _mValue_S3BackupMode;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfigurationArgs.S3BackupMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 Configuration. See s3_configuration below for details.
         /// </summary>
-        [Input("s3Configuration")]
+        [PolicyResourceProperty("s3Configuration", "_mUnknown_S3Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs> _mS3Configuration;
+        private Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs? _mValue_S3Configuration;
+        private bool _mUnknown_S3Configuration;
+        public Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs? S3Configuration
+        {
+            get
+            {
+                if (!_mUnknown_S3Configuration) return _mValue_S3Configuration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfigurationArgs.S3Configuration' is not present");
+            }
+        }
 
-        public Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs? S3Configuration => _mS3Configuration.GetValue("s3Configuration");
-
-        [Input("secretsManagerConfiguration")]
+        [PolicyResourceProperty("secretsManagerConfiguration", "_mUnknown_SecretsManagerConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs> _mSecretsManagerConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs? SecretsManagerConfiguration => _mSecretsManagerConfiguration.GetValue("secretsManagerConfiguration");
+        private Inputs.FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs? _mValue_SecretsManagerConfiguration;
+        private bool _mUnknown_SecretsManagerConfiguration;
+        public Inputs.FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs? SecretsManagerConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SecretsManagerConfiguration) return _mValue_SecretsManagerConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfigurationArgs.SecretsManagerConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfigurationArgs.Username' is not present");
+            }
+        }
     }
 }

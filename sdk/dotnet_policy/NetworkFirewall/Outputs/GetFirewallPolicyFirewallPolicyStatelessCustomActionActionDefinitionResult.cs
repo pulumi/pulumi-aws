@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
 {
     public sealed class GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionResult
     {
-        [Input("publishMetricActions")]
+        [PolicyResourceProperty("publishMetricActions", "_mUnknown_PublishMetricActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionResult>> _mPublishMetricActions;
-
-        public List<Outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionResult>? PublishMetricActions => _mPublishMetricActions.GetValue("publishMetricActions");
+        private List<Outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionResult>? _mValue_PublishMetricActions;
+        private bool _mUnknown_PublishMetricActions;
+        public List<Outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionResult>? PublishMetricActions
+        {
+            get
+            {
+                if (!_mUnknown_PublishMetricActions) return _mValue_PublishMetricActions;
+                throw new UndeferrableValueException("Value 'GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionResult.PublishMetricActions' is not present");
+            }
+        }
     }
 }

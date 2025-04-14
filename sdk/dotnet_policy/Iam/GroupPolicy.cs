@@ -16,40 +16,68 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The IAM group to attach to the policy.
         /// </summary>
-        [Input("group")]
+        [PolicyResourceProperty("group", "_mUnknown_Group")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroup;
-
-        public string? Group => _mGroup.GetValue("group");
+        private string? _mValue_Group;
+        private bool _mUnknown_Group;
+        public string? Group
+        {
+            get
+            {
+                if (!_mUnknown_Group) return _mValue_Group;
+                throw new UndeferrableValueException("Value 'GroupPolicy.Group' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the policy. If omitted, the provider will
         /// assign a random, unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GroupPolicy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified
         /// prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'GroupPolicy.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The policy document. This is a JSON formatted string.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'GroupPolicy.Policy' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/groupPolicy:GroupPolicy")]
@@ -58,39 +86,67 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The IAM group to attach to the policy.
         /// </summary>
-        [Input("group")]
+        [PolicyResourceProperty("group", "_mUnknown_Group")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroup;
-
-        public string? Group => _mGroup.GetValue("group");
+        private string? _mValue_Group;
+        private bool _mUnknown_Group;
+        public string? Group
+        {
+            get
+            {
+                if (!_mUnknown_Group) return _mValue_Group;
+                throw new UndeferrableValueException("Value 'GroupPolicyArgs.Group' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the policy. If omitted, the provider will
         /// assign a random, unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GroupPolicyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified
         /// prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'GroupPolicyArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The policy document. This is a JSON formatted string.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'GroupPolicyArgs.Policy' is not present");
+            }
+        }
     }
 }

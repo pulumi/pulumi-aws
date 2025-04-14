@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Elb
         /// <summary>
         /// The instance port to apply the policy to.
         /// </summary>
-        [Input("instancePort")]
+        [PolicyResourceProperty("instancePort", "_mUnknown_InstancePort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstancePort;
-
-        public int? InstancePort => _mInstancePort.GetValue("instancePort");
+        private int? _mValue_InstancePort;
+        private bool _mUnknown_InstancePort;
+        public int? InstancePort
+        {
+            get
+            {
+                if (!_mUnknown_InstancePort) return _mValue_InstancePort;
+                throw new UndeferrableValueException("Value 'LoadBalancerBackendServerPolicy.InstancePort' is not present");
+            }
+        }
 
         /// <summary>
         /// The load balancer to attach the policy to.
         /// </summary>
-        [Input("loadBalancerName")]
+        [PolicyResourceProperty("loadBalancerName", "_mUnknown_LoadBalancerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancerName;
-
-        public string? LoadBalancerName => _mLoadBalancerName.GetValue("loadBalancerName");
+        private string? _mValue_LoadBalancerName;
+        private bool _mUnknown_LoadBalancerName;
+        public string? LoadBalancerName
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerName) return _mValue_LoadBalancerName;
+                throw new UndeferrableValueException("Value 'LoadBalancerBackendServerPolicy.LoadBalancerName' is not present");
+            }
+        }
 
         /// <summary>
         /// List of Policy Names to apply to the backend server.
         /// </summary>
-        [Input("policyNames")]
+        [PolicyResourceProperty("policyNames", "_mUnknown_PolicyNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyNames;
-
-        public List<string>? PolicyNames => _mPolicyNames.GetValue("policyNames");
+        private List<string>? _mValue_PolicyNames;
+        private bool _mUnknown_PolicyNames;
+        public List<string>? PolicyNames
+        {
+            get
+            {
+                if (!_mUnknown_PolicyNames) return _mValue_PolicyNames;
+                throw new UndeferrableValueException("Value 'LoadBalancerBackendServerPolicy.PolicyNames' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Elb
         /// <summary>
         /// The instance port to apply the policy to.
         /// </summary>
-        [Input("instancePort")]
+        [PolicyResourceProperty("instancePort", "_mUnknown_InstancePort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstancePort;
-
-        public int? InstancePort => _mInstancePort.GetValue("instancePort");
+        private int? _mValue_InstancePort;
+        private bool _mUnknown_InstancePort;
+        public int? InstancePort
+        {
+            get
+            {
+                if (!_mUnknown_InstancePort) return _mValue_InstancePort;
+                throw new UndeferrableValueException("Value 'LoadBalancerBackendServerPolicyArgs.InstancePort' is not present");
+            }
+        }
 
         /// <summary>
         /// The load balancer to attach the policy to.
         /// </summary>
-        [Input("loadBalancerName")]
+        [PolicyResourceProperty("loadBalancerName", "_mUnknown_LoadBalancerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancerName;
-
-        public string? LoadBalancerName => _mLoadBalancerName.GetValue("loadBalancerName");
+        private string? _mValue_LoadBalancerName;
+        private bool _mUnknown_LoadBalancerName;
+        public string? LoadBalancerName
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerName) return _mValue_LoadBalancerName;
+                throw new UndeferrableValueException("Value 'LoadBalancerBackendServerPolicyArgs.LoadBalancerName' is not present");
+            }
+        }
 
         /// <summary>
         /// List of Policy Names to apply to the backend server.
         /// </summary>
-        [Input("policyNames")]
+        [PolicyResourceProperty("policyNames", "_mUnknown_PolicyNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyNames;
-
-        public List<string>? PolicyNames => _mPolicyNames.GetValue("policyNames");
+        private List<string>? _mValue_PolicyNames;
+        private bool _mUnknown_PolicyNames;
+        public List<string>? PolicyNames
+        {
+            get
+            {
+                if (!_mUnknown_PolicyNames) return _mValue_PolicyNames;
+                throw new UndeferrableValueException("Value 'LoadBalancerBackendServerPolicyArgs.PolicyNames' is not present");
+            }
+        }
     }
 }

@@ -16,39 +16,67 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms
         /// <summary>
         /// The arn of the collaboration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Collaboration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time the collaboration was created.
         /// * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
         /// </summary>
-        [Input("createTime")]
+        [PolicyResourceProperty("createTime", "_mUnknown_CreateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
-
-        public string? CreateTime => _mCreateTime.GetValue("createTime");
+        private string? _mValue_CreateTime;
+        private bool _mUnknown_CreateTime;
+        public string? CreateTime
+        {
+            get
+            {
+                if (!_mUnknown_CreateTime) return _mValue_CreateTime;
+                throw new UndeferrableValueException("Value 'Collaboration.CreateTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the member record for the collaboration creator.
         /// </summary>
-        [Input("creatorDisplayName")]
+        [PolicyResourceProperty("creatorDisplayName", "_mUnknown_CreatorDisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatorDisplayName;
-
-        public string? CreatorDisplayName => _mCreatorDisplayName.GetValue("creatorDisplayName");
+        private string? _mValue_CreatorDisplayName;
+        private bool _mUnknown_CreatorDisplayName;
+        public string? CreatorDisplayName
+        {
+            get
+            {
+                if (!_mUnknown_CreatorDisplayName) return _mValue_CreatorDisplayName;
+                throw new UndeferrableValueException("Value 'Collaboration.CreatorDisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
         /// </summary>
-        [Input("creatorMemberAbilities")]
+        [PolicyResourceProperty("creatorMemberAbilities", "_mUnknown_CreatorMemberAbilities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCreatorMemberAbilities;
-
-        public List<string>? CreatorMemberAbilities => _mCreatorMemberAbilities.GetValue("creatorMemberAbilities");
+        private List<string>? _mValue_CreatorMemberAbilities;
+        private bool _mUnknown_CreatorMemberAbilities;
+        public List<string>? CreatorMemberAbilities
+        {
+            get
+            {
+                if (!_mUnknown_CreatorMemberAbilities) return _mValue_CreatorMemberAbilities;
+                throw new UndeferrableValueException("Value 'Collaboration.CreatorMemberAbilities' is not present");
+            }
+        }
 
         /// <summary>
         /// a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
@@ -61,20 +89,34 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms
         /// * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
         /// or cryptographically processed (false).
         /// </summary>
-        [Input("dataEncryptionMetadata")]
+        [PolicyResourceProperty("dataEncryptionMetadata", "_mUnknown_DataEncryptionMetadata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CollaborationDataEncryptionMetadata> _mDataEncryptionMetadata;
-
-        public Outputs.CollaborationDataEncryptionMetadata? DataEncryptionMetadata => _mDataEncryptionMetadata.GetValue("dataEncryptionMetadata");
+        private Outputs.CollaborationDataEncryptionMetadata? _mValue_DataEncryptionMetadata;
+        private bool _mUnknown_DataEncryptionMetadata;
+        public Outputs.CollaborationDataEncryptionMetadata? DataEncryptionMetadata
+        {
+            get
+            {
+                if (!_mUnknown_DataEncryptionMetadata) return _mValue_DataEncryptionMetadata;
+                throw new UndeferrableValueException("Value 'Collaboration.DataEncryptionMetadata' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for a collaboration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Collaboration.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional members of the collaboration which will be invited to join the collaboration.
@@ -82,51 +124,93 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms
         /// * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
         /// * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
         /// </summary>
-        [Input("members")]
+        [PolicyResourceProperty("members", "_mUnknown_Members")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CollaborationMember>> _mMembers;
-
-        public List<Outputs.CollaborationMember>? Members => _mMembers.GetValue("members");
+        private List<Outputs.CollaborationMember>? _mValue_Members;
+        private bool _mUnknown_Members;
+        public List<Outputs.CollaborationMember>? Members
+        {
+            get
+            {
+                if (!_mUnknown_Members) return _mValue_Members;
+                throw new UndeferrableValueException("Value 'Collaboration.Members' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the collaboration.  Collaboration names do not need to be unique.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Collaboration.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines if members of the collaboration can enable query logs within their own.
         /// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
         /// </summary>
-        [Input("queryLogStatus")]
+        [PolicyResourceProperty("queryLogStatus", "_mUnknown_QueryLogStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueryLogStatus;
-
-        public string? QueryLogStatus => _mQueryLogStatus.GetValue("queryLogStatus");
+        private string? _mValue_QueryLogStatus;
+        private bool _mUnknown_QueryLogStatus;
+        public string? QueryLogStatus
+        {
+            get
+            {
+                if (!_mUnknown_QueryLogStatus) return _mValue_QueryLogStatus;
+                throw new UndeferrableValueException("Value 'Collaboration.QueryLogStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Key value pairs which tag the collaboration.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Collaboration.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Collaboration.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("updateTime")]
+        [PolicyResourceProperty("updateTime", "_mUnknown_UpdateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateTime;
-
-        public string? UpdateTime => _mUpdateTime.GetValue("updateTime");
+        private string? _mValue_UpdateTime;
+        private bool _mUnknown_UpdateTime;
+        public string? UpdateTime
+        {
+            get
+            {
+                if (!_mUnknown_UpdateTime) return _mValue_UpdateTime;
+                throw new UndeferrableValueException("Value 'Collaboration.UpdateTime' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cleanrooms/collaboration:Collaboration")]
@@ -135,20 +219,34 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms
         /// <summary>
         /// The name for the member record for the collaboration creator.
         /// </summary>
-        [Input("creatorDisplayName")]
+        [PolicyResourceProperty("creatorDisplayName", "_mUnknown_CreatorDisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatorDisplayName;
-
-        public string? CreatorDisplayName => _mCreatorDisplayName.GetValue("creatorDisplayName");
+        private string? _mValue_CreatorDisplayName;
+        private bool _mUnknown_CreatorDisplayName;
+        public string? CreatorDisplayName
+        {
+            get
+            {
+                if (!_mUnknown_CreatorDisplayName) return _mValue_CreatorDisplayName;
+                throw new UndeferrableValueException("Value 'CollaborationArgs.CreatorDisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
         /// </summary>
-        [Input("creatorMemberAbilities")]
+        [PolicyResourceProperty("creatorMemberAbilities", "_mUnknown_CreatorMemberAbilities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCreatorMemberAbilities;
-
-        public List<string>? CreatorMemberAbilities => _mCreatorMemberAbilities.GetValue("creatorMemberAbilities");
+        private List<string>? _mValue_CreatorMemberAbilities;
+        private bool _mUnknown_CreatorMemberAbilities;
+        public List<string>? CreatorMemberAbilities
+        {
+            get
+            {
+                if (!_mUnknown_CreatorMemberAbilities) return _mValue_CreatorMemberAbilities;
+                throw new UndeferrableValueException("Value 'CollaborationArgs.CreatorMemberAbilities' is not present");
+            }
+        }
 
         /// <summary>
         /// a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
@@ -161,20 +259,34 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms
         /// * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
         /// or cryptographically processed (false).
         /// </summary>
-        [Input("dataEncryptionMetadata")]
+        [PolicyResourceProperty("dataEncryptionMetadata", "_mUnknown_DataEncryptionMetadata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CollaborationDataEncryptionMetadataArgs> _mDataEncryptionMetadata;
-
-        public Inputs.CollaborationDataEncryptionMetadataArgs? DataEncryptionMetadata => _mDataEncryptionMetadata.GetValue("dataEncryptionMetadata");
+        private Inputs.CollaborationDataEncryptionMetadataArgs? _mValue_DataEncryptionMetadata;
+        private bool _mUnknown_DataEncryptionMetadata;
+        public Inputs.CollaborationDataEncryptionMetadataArgs? DataEncryptionMetadata
+        {
+            get
+            {
+                if (!_mUnknown_DataEncryptionMetadata) return _mValue_DataEncryptionMetadata;
+                throw new UndeferrableValueException("Value 'CollaborationArgs.DataEncryptionMetadata' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for a collaboration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'CollaborationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional members of the collaboration which will be invited to join the collaboration.
@@ -182,38 +294,66 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms
         /// * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
         /// * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
         /// </summary>
-        [Input("members")]
+        [PolicyResourceProperty("members", "_mUnknown_Members")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CollaborationMemberArgs>> _mMembers;
-
-        public List<Inputs.CollaborationMemberArgs>? Members => _mMembers.GetValue("members");
+        private List<Inputs.CollaborationMemberArgs>? _mValue_Members;
+        private bool _mUnknown_Members;
+        public List<Inputs.CollaborationMemberArgs>? Members
+        {
+            get
+            {
+                if (!_mUnknown_Members) return _mValue_Members;
+                throw new UndeferrableValueException("Value 'CollaborationArgs.Members' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the collaboration.  Collaboration names do not need to be unique.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CollaborationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines if members of the collaboration can enable query logs within their own.
         /// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
         /// </summary>
-        [Input("queryLogStatus")]
+        [PolicyResourceProperty("queryLogStatus", "_mUnknown_QueryLogStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueryLogStatus;
-
-        public string? QueryLogStatus => _mQueryLogStatus.GetValue("queryLogStatus");
+        private string? _mValue_QueryLogStatus;
+        private bool _mUnknown_QueryLogStatus;
+        public string? QueryLogStatus
+        {
+            get
+            {
+                if (!_mUnknown_QueryLogStatus) return _mValue_QueryLogStatus;
+                throw new UndeferrableValueException("Value 'CollaborationArgs.QueryLogStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Key value pairs which tag the collaboration.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CollaborationArgs.Tags' is not present");
+            }
+        }
     }
 }

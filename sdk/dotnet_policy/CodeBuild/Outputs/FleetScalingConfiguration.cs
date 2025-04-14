@@ -12,37 +12,65 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
 {
     public sealed class FleetScalingConfiguration
     {
-        [Input("desiredCapacity")]
+        [PolicyResourceProperty("desiredCapacity", "_mUnknown_DesiredCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredCapacity;
-
-        public int? DesiredCapacity => _mDesiredCapacity.GetValue("desiredCapacity");
+        private int? _mValue_DesiredCapacity;
+        private bool _mUnknown_DesiredCapacity;
+        public int? DesiredCapacity
+        {
+            get
+            {
+                if (!_mUnknown_DesiredCapacity) return _mValue_DesiredCapacity;
+                throw new UndeferrableValueException("Value 'FleetScalingConfiguration.DesiredCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of instances in the ﬂeet when auto-scaling.
         /// </summary>
-        [Input("maxCapacity")]
+        [PolicyResourceProperty("maxCapacity", "_mUnknown_MaxCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxCapacity;
-
-        public int? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
+        private int? _mValue_MaxCapacity;
+        private bool _mUnknown_MaxCapacity;
+        public int? MaxCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MaxCapacity) return _mValue_MaxCapacity;
+                throw new UndeferrableValueException("Value 'FleetScalingConfiguration.MaxCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
         /// </summary>
-        [Input("scalingType")]
+        [PolicyResourceProperty("scalingType", "_mUnknown_ScalingType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScalingType;
-
-        public string? ScalingType => _mScalingType.GetValue("scalingType");
+        private string? _mValue_ScalingType;
+        private bool _mUnknown_ScalingType;
+        public string? ScalingType
+        {
+            get
+            {
+                if (!_mUnknown_ScalingType) return _mValue_ScalingType;
+                throw new UndeferrableValueException("Value 'FleetScalingConfiguration.ScalingType' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("targetTrackingScalingConfigs")]
+        [PolicyResourceProperty("targetTrackingScalingConfigs", "_mUnknown_TargetTrackingScalingConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FleetScalingConfigurationTargetTrackingScalingConfig>> _mTargetTrackingScalingConfigs;
-
-        public List<Outputs.FleetScalingConfigurationTargetTrackingScalingConfig>? TargetTrackingScalingConfigs => _mTargetTrackingScalingConfigs.GetValue("targetTrackingScalingConfigs");
+        private List<Outputs.FleetScalingConfigurationTargetTrackingScalingConfig>? _mValue_TargetTrackingScalingConfigs;
+        private bool _mUnknown_TargetTrackingScalingConfigs;
+        public List<Outputs.FleetScalingConfigurationTargetTrackingScalingConfig>? TargetTrackingScalingConfigs
+        {
+            get
+            {
+                if (!_mUnknown_TargetTrackingScalingConfigs) return _mValue_TargetTrackingScalingConfigs;
+                throw new UndeferrableValueException("Value 'FleetScalingConfiguration.TargetTrackingScalingConfigs' is not present");
+            }
+        }
     }
 }

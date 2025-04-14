@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin.Outputs
         /// <summary>
         /// Specifies the name and path of a customer managed policy. See below.
         /// </summary>
-        [Input("customerManagedPolicyReference")]
+        [PolicyResourceProperty("customerManagedPolicyReference", "_mUnknown_CustomerManagedPolicyReference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference> _mCustomerManagedPolicyReference;
-
-        public Outputs.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference? CustomerManagedPolicyReference => _mCustomerManagedPolicyReference.GetValue("customerManagedPolicyReference");
+        private Outputs.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference? _mValue_CustomerManagedPolicyReference;
+        private bool _mUnknown_CustomerManagedPolicyReference;
+        public Outputs.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference? CustomerManagedPolicyReference
+        {
+            get
+            {
+                if (!_mUnknown_CustomerManagedPolicyReference) return _mValue_CustomerManagedPolicyReference;
+                throw new UndeferrableValueException("Value 'PermissionsBoundaryAttachmentPermissionsBoundary.CustomerManagedPolicyReference' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS-managed IAM policy ARN to use as the permissions boundary.
         /// </summary>
-        [Input("managedPolicyArn")]
+        [PolicyResourceProperty("managedPolicyArn", "_mUnknown_ManagedPolicyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManagedPolicyArn;
-
-        public string? ManagedPolicyArn => _mManagedPolicyArn.GetValue("managedPolicyArn");
+        private string? _mValue_ManagedPolicyArn;
+        private bool _mUnknown_ManagedPolicyArn;
+        public string? ManagedPolicyArn
+        {
+            get
+            {
+                if (!_mUnknown_ManagedPolicyArn) return _mValue_ManagedPolicyArn;
+                throw new UndeferrableValueException("Value 'PermissionsBoundaryAttachmentPermissionsBoundary.ManagedPolicyArn' is not present");
+            }
+        }
     }
 }

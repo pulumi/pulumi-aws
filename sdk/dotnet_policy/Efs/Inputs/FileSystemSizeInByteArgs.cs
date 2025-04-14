@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Efs.Inputs
         /// <summary>
         /// The latest known metered size (in bytes) of data stored in the file system.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mValue;
-
-        public int? Value => _mValue.GetValue("value");
+        private int? _mValue_Value;
+        private bool _mUnknown_Value;
+        public int? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'FileSystemSizeInByteArgs.Value' is not present");
+            }
+        }
 
         /// <summary>
         /// The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
         /// </summary>
-        [Input("valueInIa")]
+        [PolicyResourceProperty("valueInIa", "_mUnknown_ValueInIa")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mValueInIa;
-
-        public int? ValueInIa => _mValueInIa.GetValue("valueInIa");
+        private int? _mValue_ValueInIa;
+        private bool _mUnknown_ValueInIa;
+        public int? ValueInIa
+        {
+            get
+            {
+                if (!_mUnknown_ValueInIa) return _mValue_ValueInIa;
+                throw new UndeferrableValueException("Value 'FileSystemSizeInByteArgs.ValueInIa' is not present");
+            }
+        }
 
         /// <summary>
         /// The latest known metered size (in bytes) of data stored in the Standard storage class.
         /// </summary>
-        [Input("valueInStandard")]
+        [PolicyResourceProperty("valueInStandard", "_mUnknown_ValueInStandard")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mValueInStandard;
-
-        public int? ValueInStandard => _mValueInStandard.GetValue("valueInStandard");
+        private int? _mValue_ValueInStandard;
+        private bool _mUnknown_ValueInStandard;
+        public int? ValueInStandard
+        {
+            get
+            {
+                if (!_mUnknown_ValueInStandard) return _mValue_ValueInStandard;
+                throw new UndeferrableValueException("Value 'FileSystemSizeInByteArgs.ValueInStandard' is not present");
+            }
+        }
     }
 }

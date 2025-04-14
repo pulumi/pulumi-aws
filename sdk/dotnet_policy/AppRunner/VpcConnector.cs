@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner
         /// <summary>
         /// ARN of VPC connector.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'VpcConnector.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'VpcConnector.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can't be used. Inactive connector revisions are permanently removed some time after they are deleted.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'VpcConnector.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
         /// </summary>
-        [Input("subnets")]
+        [PolicyResourceProperty("subnets", "_mUnknown_Subnets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnets;
-
-        public List<string>? Subnets => _mSubnets.GetValue("subnets");
+        private List<string>? _mValue_Subnets;
+        private bool _mUnknown_Subnets;
+        public List<string>? Subnets
+        {
+            get
+            {
+                if (!_mUnknown_Subnets) return _mValue_Subnets;
+                throw new UndeferrableValueException("Value 'VpcConnector.Subnets' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcConnector.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'VpcConnector.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the VPC connector.
         /// </summary>
-        [Input("vpcConnectorName")]
+        [PolicyResourceProperty("vpcConnectorName", "_mUnknown_VpcConnectorName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcConnectorName;
-
-        public string? VpcConnectorName => _mVpcConnectorName.GetValue("vpcConnectorName");
+        private string? _mValue_VpcConnectorName;
+        private bool _mUnknown_VpcConnectorName;
+        public string? VpcConnectorName
+        {
+            get
+            {
+                if (!_mUnknown_VpcConnectorName) return _mValue_VpcConnectorName;
+                throw new UndeferrableValueException("Value 'VpcConnector.VpcConnectorName' is not present");
+            }
+        }
 
         /// <summary>
         /// The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
         /// </summary>
-        [Input("vpcConnectorRevision")]
+        [PolicyResourceProperty("vpcConnectorRevision", "_mUnknown_VpcConnectorRevision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVpcConnectorRevision;
-
-        public int? VpcConnectorRevision => _mVpcConnectorRevision.GetValue("vpcConnectorRevision");
+        private int? _mValue_VpcConnectorRevision;
+        private bool _mUnknown_VpcConnectorRevision;
+        public int? VpcConnectorRevision
+        {
+            get
+            {
+                if (!_mUnknown_VpcConnectorRevision) return _mValue_VpcConnectorRevision;
+                throw new UndeferrableValueException("Value 'VpcConnector.VpcConnectorRevision' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apprunner/vpcConnector:VpcConnector")]
@@ -92,37 +148,65 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner
         /// <summary>
         /// List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'VpcConnectorArgs.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
         /// </summary>
-        [Input("subnets")]
+        [PolicyResourceProperty("subnets", "_mUnknown_Subnets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnets;
-
-        public List<string>? Subnets => _mSubnets.GetValue("subnets");
+        private List<string>? _mValue_Subnets;
+        private bool _mUnknown_Subnets;
+        public List<string>? Subnets
+        {
+            get
+            {
+                if (!_mUnknown_Subnets) return _mValue_Subnets;
+                throw new UndeferrableValueException("Value 'VpcConnectorArgs.Subnets' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcConnectorArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the VPC connector.
         /// </summary>
-        [Input("vpcConnectorName")]
+        [PolicyResourceProperty("vpcConnectorName", "_mUnknown_VpcConnectorName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcConnectorName;
-
-        public string? VpcConnectorName => _mVpcConnectorName.GetValue("vpcConnectorName");
+        private string? _mValue_VpcConnectorName;
+        private bool _mUnknown_VpcConnectorName;
+        public string? VpcConnectorName
+        {
+            get
+            {
+                if (!_mUnknown_VpcConnectorName) return _mValue_VpcConnectorName;
+                throw new UndeferrableValueException("Value 'VpcConnectorArgs.VpcConnectorName' is not present");
+            }
+        }
     }
 }

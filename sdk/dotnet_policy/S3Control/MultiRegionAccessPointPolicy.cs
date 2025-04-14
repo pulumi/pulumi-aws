@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
         /// <summary>
         /// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'MultiRegionAccessPointPolicy.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
         /// </summary>
-        [Input("details")]
+        [PolicyResourceProperty("details", "_mUnknown_Details")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MultiRegionAccessPointPolicyDetails> _mDetails;
-
-        public Outputs.MultiRegionAccessPointPolicyDetails? Details => _mDetails.GetValue("details");
+        private Outputs.MultiRegionAccessPointPolicyDetails? _mValue_Details;
+        private bool _mUnknown_Details;
+        public Outputs.MultiRegionAccessPointPolicyDetails? Details
+        {
+            get
+            {
+                if (!_mUnknown_Details) return _mValue_Details;
+                throw new UndeferrableValueException("Value 'MultiRegionAccessPointPolicy.Details' is not present");
+            }
+        }
 
         /// <summary>
         /// The last established policy for the Multi-Region Access Point.
         /// </summary>
-        [Input("established")]
+        [PolicyResourceProperty("established", "_mUnknown_Established")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEstablished;
-
-        public string? Established => _mEstablished.GetValue("established");
+        private string? _mValue_Established;
+        private bool _mUnknown_Established;
+        public string? Established
+        {
+            get
+            {
+                if (!_mUnknown_Established) return _mValue_Established;
+                throw new UndeferrableValueException("Value 'MultiRegionAccessPointPolicy.Established' is not present");
+            }
+        }
 
         /// <summary>
         /// The proposed policy for the Multi-Region Access Point.
         /// </summary>
-        [Input("proposed")]
+        [PolicyResourceProperty("proposed", "_mUnknown_Proposed")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProposed;
-
-        public string? Proposed => _mProposed.GetValue("proposed");
+        private string? _mValue_Proposed;
+        private bool _mUnknown_Proposed;
+        public string? Proposed
+        {
+            get
+            {
+                if (!_mUnknown_Proposed) return _mValue_Proposed;
+                throw new UndeferrableValueException("Value 'MultiRegionAccessPointPolicy.Proposed' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy")]
@@ -56,19 +84,33 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
         /// <summary>
         /// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'MultiRegionAccessPointPolicyArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
         /// </summary>
-        [Input("details")]
+        [PolicyResourceProperty("details", "_mUnknown_Details")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MultiRegionAccessPointPolicyDetailsArgs> _mDetails;
-
-        public Inputs.MultiRegionAccessPointPolicyDetailsArgs? Details => _mDetails.GetValue("details");
+        private Inputs.MultiRegionAccessPointPolicyDetailsArgs? _mValue_Details;
+        private bool _mUnknown_Details;
+        public Inputs.MultiRegionAccessPointPolicyDetailsArgs? Details
+        {
+            get
+            {
+                if (!_mUnknown_Details) return _mValue_Details;
+                throw new UndeferrableValueException("Value 'MultiRegionAccessPointPolicyArgs.Details' is not present");
+            }
+        }
     }
 }

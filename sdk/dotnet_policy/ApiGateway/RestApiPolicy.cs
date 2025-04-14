@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// JSON formatted policy document that controls access to the API Gateway.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'RestApiPolicy.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the REST API.
         /// </summary>
-        [Input("restApiId")]
+        [PolicyResourceProperty("restApiId", "_mUnknown_RestApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApiId;
-
-        public string? RestApiId => _mRestApiId.GetValue("restApiId");
+        private string? _mValue_RestApiId;
+        private bool _mUnknown_RestApiId;
+        public string? RestApiId
+        {
+            get
+            {
+                if (!_mUnknown_RestApiId) return _mValue_RestApiId;
+                throw new UndeferrableValueException("Value 'RestApiPolicy.RestApiId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/restApiPolicy:RestApiPolicy")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// JSON formatted policy document that controls access to the API Gateway.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'RestApiPolicyArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the REST API.
         /// </summary>
-        [Input("restApiId")]
+        [PolicyResourceProperty("restApiId", "_mUnknown_RestApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApiId;
-
-        public string? RestApiId => _mRestApiId.GetValue("restApiId");
+        private string? _mValue_RestApiId;
+        private bool _mUnknown_RestApiId;
+        public string? RestApiId
+        {
+            get
+            {
+                if (!_mUnknown_RestApiId) return _mValue_RestApiId;
+                throw new UndeferrableValueException("Value 'RestApiPolicyArgs.RestApiId' is not present");
+            }
+        }
     }
 }

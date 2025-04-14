@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
         /// Only one of `payload` or `s3` can be specified.
         /// </summary>
-        [Input("payload")]
+        [PolicyResourceProperty("payload", "_mUnknown_Payload")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPayload;
-
-        public string? Payload => _mPayload.GetValue("payload");
+        private string? _mValue_Payload;
+        private bool _mUnknown_Payload;
+        public string? Payload
+        {
+            get
+            {
+                if (!_mUnknown_Payload) return _mValue_Payload;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupApiSchemaArgs.Payload' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
         /// Only one of `s3` or `payload` can be specified.
         /// </summary>
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentActionGroupApiSchemaS3Args> _mS3;
-
-        public Inputs.AgentAgentActionGroupApiSchemaS3Args? S3 => _mS3.GetValue("s3");
+        private Inputs.AgentAgentActionGroupApiSchemaS3Args? _mValue_S3;
+        private bool _mUnknown_S3;
+        public Inputs.AgentAgentActionGroupApiSchemaS3Args? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupApiSchemaArgs.S3' is not present");
+            }
+        }
     }
 }

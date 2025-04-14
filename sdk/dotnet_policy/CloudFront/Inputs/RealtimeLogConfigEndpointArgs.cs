@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// The Amazon Kinesis data stream configuration.
         /// </summary>
-        [Input("kinesisStreamConfig")]
+        [PolicyResourceProperty("kinesisStreamConfig", "_mUnknown_KinesisStreamConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RealtimeLogConfigEndpointKinesisStreamConfigArgs> _mKinesisStreamConfig;
-
-        public Inputs.RealtimeLogConfigEndpointKinesisStreamConfigArgs? KinesisStreamConfig => _mKinesisStreamConfig.GetValue("kinesisStreamConfig");
+        private Inputs.RealtimeLogConfigEndpointKinesisStreamConfigArgs? _mValue_KinesisStreamConfig;
+        private bool _mUnknown_KinesisStreamConfig;
+        public Inputs.RealtimeLogConfigEndpointKinesisStreamConfigArgs? KinesisStreamConfig
+        {
+            get
+            {
+                if (!_mUnknown_KinesisStreamConfig) return _mValue_KinesisStreamConfig;
+                throw new UndeferrableValueException("Value 'RealtimeLogConfigEndpointArgs.KinesisStreamConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
         /// </summary>
-        [Input("streamType")]
+        [PolicyResourceProperty("streamType", "_mUnknown_StreamType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamType;
-
-        public string? StreamType => _mStreamType.GetValue("streamType");
+        private string? _mValue_StreamType;
+        private bool _mUnknown_StreamType;
+        public string? StreamType
+        {
+            get
+            {
+                if (!_mUnknown_StreamType) return _mValue_StreamType;
+                throw new UndeferrableValueException("Value 'RealtimeLogConfigEndpointArgs.StreamType' is not present");
+            }
+        }
     }
 }

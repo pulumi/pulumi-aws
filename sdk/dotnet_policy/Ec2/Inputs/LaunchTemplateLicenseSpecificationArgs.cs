@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// ARN of the license configuration.
         /// </summary>
-        [Input("licenseConfigurationArn")]
+        [PolicyResourceProperty("licenseConfigurationArn", "_mUnknown_LicenseConfigurationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseConfigurationArn;
-
-        public string? LicenseConfigurationArn => _mLicenseConfigurationArn.GetValue("licenseConfigurationArn");
+        private string? _mValue_LicenseConfigurationArn;
+        private bool _mUnknown_LicenseConfigurationArn;
+        public string? LicenseConfigurationArn
+        {
+            get
+            {
+                if (!_mUnknown_LicenseConfigurationArn) return _mValue_LicenseConfigurationArn;
+                throw new UndeferrableValueException("Value 'LaunchTemplateLicenseSpecificationArgs.LicenseConfigurationArn' is not present");
+            }
+        }
     }
 }

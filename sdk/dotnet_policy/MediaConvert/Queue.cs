@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.MediaConvert
         /// <summary>
         /// The Arn of the queue
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Queue.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
         /// </summary>
-        [Input("concurrentJobs")]
+        [PolicyResourceProperty("concurrentJobs", "_mUnknown_ConcurrentJobs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mConcurrentJobs;
-
-        public int? ConcurrentJobs => _mConcurrentJobs.GetValue("concurrentJobs");
+        private int? _mValue_ConcurrentJobs;
+        private bool _mUnknown_ConcurrentJobs;
+        public int? ConcurrentJobs
+        {
+            get
+            {
+                if (!_mUnknown_ConcurrentJobs) return _mValue_ConcurrentJobs;
+                throw new UndeferrableValueException("Value 'Queue.ConcurrentJobs' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the queue
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Queue.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier describing the queue
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Queue.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         /// </summary>
-        [Input("pricingPlan")]
+        [PolicyResourceProperty("pricingPlan", "_mUnknown_PricingPlan")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPricingPlan;
-
-        public string? PricingPlan => _mPricingPlan.GetValue("pricingPlan");
+        private string? _mValue_PricingPlan;
+        private bool _mUnknown_PricingPlan;
+        public string? PricingPlan
+        {
+            get
+            {
+                if (!_mUnknown_PricingPlan) return _mValue_PricingPlan;
+                throw new UndeferrableValueException("Value 'Queue.PricingPlan' is not present");
+            }
+        }
 
         /// <summary>
         /// A detail pricing plan of the  reserved queue. See below.
         /// </summary>
-        [Input("reservationPlanSettings")]
+        [PolicyResourceProperty("reservationPlanSettings", "_mUnknown_ReservationPlanSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.QueueReservationPlanSettings> _mReservationPlanSettings;
-
-        public Outputs.QueueReservationPlanSettings? ReservationPlanSettings => _mReservationPlanSettings.GetValue("reservationPlanSettings");
+        private Outputs.QueueReservationPlanSettings? _mValue_ReservationPlanSettings;
+        private bool _mUnknown_ReservationPlanSettings;
+        public Outputs.QueueReservationPlanSettings? ReservationPlanSettings
+        {
+            get
+            {
+                if (!_mUnknown_ReservationPlanSettings) return _mValue_ReservationPlanSettings;
+                throw new UndeferrableValueException("Value 'Queue.ReservationPlanSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Queue.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Queue.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Queue.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:mediaconvert/queue:Queue")]
@@ -101,64 +164,113 @@ namespace Pulumi.PolicyPacks.Aws.MediaConvert
         /// <summary>
         /// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
         /// </summary>
-        [Input("concurrentJobs")]
+        [PolicyResourceProperty("concurrentJobs", "_mUnknown_ConcurrentJobs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mConcurrentJobs;
-
-        public int? ConcurrentJobs => _mConcurrentJobs.GetValue("concurrentJobs");
+        private int? _mValue_ConcurrentJobs;
+        private bool _mUnknown_ConcurrentJobs;
+        public int? ConcurrentJobs
+        {
+            get
+            {
+                if (!_mUnknown_ConcurrentJobs) return _mValue_ConcurrentJobs;
+                throw new UndeferrableValueException("Value 'QueueArgs.ConcurrentJobs' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the queue
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'QueueArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier describing the queue
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'QueueArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         /// </summary>
-        [Input("pricingPlan")]
+        [PolicyResourceProperty("pricingPlan", "_mUnknown_PricingPlan")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPricingPlan;
-
-        public string? PricingPlan => _mPricingPlan.GetValue("pricingPlan");
+        private string? _mValue_PricingPlan;
+        private bool _mUnknown_PricingPlan;
+        public string? PricingPlan
+        {
+            get
+            {
+                if (!_mUnknown_PricingPlan) return _mValue_PricingPlan;
+                throw new UndeferrableValueException("Value 'QueueArgs.PricingPlan' is not present");
+            }
+        }
 
         /// <summary>
         /// A detail pricing plan of the  reserved queue. See below.
         /// </summary>
-        [Input("reservationPlanSettings")]
+        [PolicyResourceProperty("reservationPlanSettings", "_mUnknown_ReservationPlanSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.QueueReservationPlanSettingsArgs> _mReservationPlanSettings;
-
-        public Inputs.QueueReservationPlanSettingsArgs? ReservationPlanSettings => _mReservationPlanSettings.GetValue("reservationPlanSettings");
+        private Inputs.QueueReservationPlanSettingsArgs? _mValue_ReservationPlanSettings;
+        private bool _mUnknown_ReservationPlanSettings;
+        public Inputs.QueueReservationPlanSettingsArgs? ReservationPlanSettings
+        {
+            get
+            {
+                if (!_mUnknown_ReservationPlanSettings) return _mValue_ReservationPlanSettings;
+                throw new UndeferrableValueException("Value 'QueueArgs.ReservationPlanSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'QueueArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'QueueArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The name of the Lightsail Disk.
         /// </summary>
-        [Input("diskName")]
+        [PolicyResourceProperty("diskName", "_mUnknown_DiskName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDiskName;
-
-        public string? DiskName => _mDiskName.GetValue("diskName");
+        private string? _mValue_DiskName;
+        private bool _mUnknown_DiskName;
+        public string? DiskName
+        {
+            get
+            {
+                if (!_mUnknown_DiskName) return _mValue_DiskName;
+                throw new UndeferrableValueException("Value 'Disk_attachment.DiskName' is not present");
+            }
+        }
 
         /// <summary>
         /// The disk path to expose to the instance.
         /// </summary>
-        [Input("diskPath")]
+        [PolicyResourceProperty("diskPath", "_mUnknown_DiskPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDiskPath;
-
-        public string? DiskPath => _mDiskPath.GetValue("diskPath");
+        private string? _mValue_DiskPath;
+        private bool _mUnknown_DiskPath;
+        public string? DiskPath
+        {
+            get
+            {
+                if (!_mUnknown_DiskPath) return _mValue_DiskPath;
+                throw new UndeferrableValueException("Value 'Disk_attachment.DiskPath' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Lightsail Instance to attach to.
         /// </summary>
-        [Input("instanceName")]
+        [PolicyResourceProperty("instanceName", "_mUnknown_InstanceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceName;
-
-        public string? InstanceName => _mInstanceName.GetValue("instanceName");
+        private string? _mValue_InstanceName;
+        private bool _mUnknown_InstanceName;
+        public string? InstanceName
+        {
+            get
+            {
+                if (!_mUnknown_InstanceName) return _mValue_InstanceName;
+                throw new UndeferrableValueException("Value 'Disk_attachment.InstanceName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lightsail/disk_attachment:Disk_attachment")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The name of the Lightsail Disk.
         /// </summary>
-        [Input("diskName")]
+        [PolicyResourceProperty("diskName", "_mUnknown_DiskName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDiskName;
-
-        public string? DiskName => _mDiskName.GetValue("diskName");
+        private string? _mValue_DiskName;
+        private bool _mUnknown_DiskName;
+        public string? DiskName
+        {
+            get
+            {
+                if (!_mUnknown_DiskName) return _mValue_DiskName;
+                throw new UndeferrableValueException("Value 'Disk_attachmentArgs.DiskName' is not present");
+            }
+        }
 
         /// <summary>
         /// The disk path to expose to the instance.
         /// </summary>
-        [Input("diskPath")]
+        [PolicyResourceProperty("diskPath", "_mUnknown_DiskPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDiskPath;
-
-        public string? DiskPath => _mDiskPath.GetValue("diskPath");
+        private string? _mValue_DiskPath;
+        private bool _mUnknown_DiskPath;
+        public string? DiskPath
+        {
+            get
+            {
+                if (!_mUnknown_DiskPath) return _mValue_DiskPath;
+                throw new UndeferrableValueException("Value 'Disk_attachmentArgs.DiskPath' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Lightsail Instance to attach to.
         /// </summary>
-        [Input("instanceName")]
+        [PolicyResourceProperty("instanceName", "_mUnknown_InstanceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceName;
-
-        public string? InstanceName => _mInstanceName.GetValue("instanceName");
+        private string? _mValue_InstanceName;
+        private bool _mUnknown_InstanceName;
+        public string? InstanceName
+        {
+            get
+            {
+                if (!_mUnknown_InstanceName) return _mValue_InstanceName;
+                throw new UndeferrableValueException("Value 'Disk_attachmentArgs.InstanceName' is not present");
+            }
+        }
     }
 }

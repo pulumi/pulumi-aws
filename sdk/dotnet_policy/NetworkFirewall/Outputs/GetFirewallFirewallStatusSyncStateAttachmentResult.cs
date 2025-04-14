@@ -15,25 +15,46 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
         /// </summary>
-        [Input("endpointId")]
+        [PolicyResourceProperty("endpointId", "_mUnknown_EndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointId;
+        private string? _mValue_EndpointId;
+        private bool _mUnknown_EndpointId;
+        public string? EndpointId
+        {
+            get
+            {
+                if (!_mUnknown_EndpointId) return _mValue_EndpointId;
+                throw new UndeferrableValueException("Value 'GetFirewallFirewallStatusSyncStateAttachmentResult.EndpointId' is not present");
+            }
+        }
 
-        public string? EndpointId => _mEndpointId.GetValue("endpointId");
-
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'GetFirewallFirewallStatusSyncStateAttachmentResult.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the subnet.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'GetFirewallFirewallStatusSyncStateAttachmentResult.SubnetId' is not present");
+            }
+        }
     }
 }

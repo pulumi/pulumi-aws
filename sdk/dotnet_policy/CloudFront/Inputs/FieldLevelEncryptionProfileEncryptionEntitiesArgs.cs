@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
 {
     public sealed class FieldLevelEncryptionProfileEncryptionEntitiesArgs
     {
-        [Input("items")]
+        [PolicyResourceProperty("items", "_mUnknown_Items")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs>> _mItems;
-
-        public List<Inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs>? Items => _mItems.GetValue("items");
+        private List<Inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs>? _mValue_Items;
+        private bool _mUnknown_Items;
+        public List<Inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs>? Items
+        {
+            get
+            {
+                if (!_mUnknown_Items) return _mValue_Items;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfileEncryptionEntitiesArgs.Items' is not present");
+            }
+        }
     }
 }

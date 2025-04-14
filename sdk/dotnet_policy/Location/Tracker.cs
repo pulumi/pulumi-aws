@@ -16,85 +16,148 @@ namespace Pulumi.PolicyPacks.Aws.Location
         /// <summary>
         /// The timestamp for when the tracker resource was created in ISO 8601 format.
         /// </summary>
-        [Input("createTime")]
+        [PolicyResourceProperty("createTime", "_mUnknown_CreateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
-
-        public string? CreateTime => _mCreateTime.GetValue("createTime");
+        private string? _mValue_CreateTime;
+        private bool _mUnknown_CreateTime;
+        public string? CreateTime
+        {
+            get
+            {
+                if (!_mUnknown_CreateTime) return _mValue_CreateTime;
+                throw new UndeferrableValueException("Value 'Tracker.CreateTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The optional description for the tracker resource.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Tracker.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'Tracker.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
         /// </summary>
-        [Input("positionFiltering")]
+        [PolicyResourceProperty("positionFiltering", "_mUnknown_PositionFiltering")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPositionFiltering;
-
-        public string? PositionFiltering => _mPositionFiltering.GetValue("positionFiltering");
+        private string? _mValue_PositionFiltering;
+        private bool _mUnknown_PositionFiltering;
+        public string? PositionFiltering
+        {
+            get
+            {
+                if (!_mUnknown_PositionFiltering) return _mValue_PositionFiltering;
+                throw new UndeferrableValueException("Value 'Tracker.PositionFiltering' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Tracker.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Tracker.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
         /// </summary>
-        [Input("trackerArn")]
+        [PolicyResourceProperty("trackerArn", "_mUnknown_TrackerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrackerArn;
-
-        public string? TrackerArn => _mTrackerArn.GetValue("trackerArn");
+        private string? _mValue_TrackerArn;
+        private bool _mUnknown_TrackerArn;
+        public string? TrackerArn
+        {
+            get
+            {
+                if (!_mUnknown_TrackerArn) return _mValue_TrackerArn;
+                throw new UndeferrableValueException("Value 'Tracker.TrackerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the tracker resource.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("trackerName")]
+        [PolicyResourceProperty("trackerName", "_mUnknown_TrackerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrackerName;
-
-        public string? TrackerName => _mTrackerName.GetValue("trackerName");
+        private string? _mValue_TrackerName;
+        private bool _mUnknown_TrackerName;
+        public string? TrackerName
+        {
+            get
+            {
+                if (!_mUnknown_TrackerName) return _mValue_TrackerName;
+                throw new UndeferrableValueException("Value 'Tracker.TrackerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The timestamp for when the tracker resource was last updated in ISO 8601 format.
         /// </summary>
-        [Input("updateTime")]
+        [PolicyResourceProperty("updateTime", "_mUnknown_UpdateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateTime;
-
-        public string? UpdateTime => _mUpdateTime.GetValue("updateTime");
+        private string? _mValue_UpdateTime;
+        private bool _mUnknown_UpdateTime;
+        public string? UpdateTime
+        {
+            get
+            {
+                if (!_mUnknown_UpdateTime) return _mValue_UpdateTime;
+                throw new UndeferrableValueException("Value 'Tracker.UpdateTime' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:location/tracker:Tracker")]
@@ -103,48 +166,83 @@ namespace Pulumi.PolicyPacks.Aws.Location
         /// <summary>
         /// The optional description for the tracker resource.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'TrackerArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'TrackerArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
         /// </summary>
-        [Input("positionFiltering")]
+        [PolicyResourceProperty("positionFiltering", "_mUnknown_PositionFiltering")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPositionFiltering;
-
-        public string? PositionFiltering => _mPositionFiltering.GetValue("positionFiltering");
+        private string? _mValue_PositionFiltering;
+        private bool _mUnknown_PositionFiltering;
+        public string? PositionFiltering
+        {
+            get
+            {
+                if (!_mUnknown_PositionFiltering) return _mValue_PositionFiltering;
+                throw new UndeferrableValueException("Value 'TrackerArgs.PositionFiltering' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TrackerArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the tracker resource.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("trackerName")]
+        [PolicyResourceProperty("trackerName", "_mUnknown_TrackerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrackerName;
-
-        public string? TrackerName => _mTrackerName.GetValue("trackerName");
+        private string? _mValue_TrackerName;
+        private bool _mUnknown_TrackerName;
+        public string? TrackerName
+        {
+            get
+            {
+                if (!_mUnknown_TrackerName) return _mValue_TrackerName;
+                throw new UndeferrableValueException("Value 'TrackerArgs.TrackerName' is not present");
+            }
+        }
     }
 }

@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
         /// </summary>
-        [Input("actionsEnabled")]
+        [PolicyResourceProperty("actionsEnabled", "_mUnknown_ActionsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mActionsEnabled;
-
-        public bool? ActionsEnabled => _mActionsEnabled.GetValue("actionsEnabled");
+        private bool? _mValue_ActionsEnabled;
+        private bool _mUnknown_ActionsEnabled;
+        public bool? ActionsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ActionsEnabled) return _mValue_ActionsEnabled;
+                throw new UndeferrableValueException("Value 'CompositeAlarm.ActionsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Actions will be suppressed if the suppressor alarm is in the ALARM state.
         /// </summary>
-        [Input("actionsSuppressor")]
+        [PolicyResourceProperty("actionsSuppressor", "_mUnknown_ActionsSuppressor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CompositeAlarmActionsSuppressor> _mActionsSuppressor;
-
-        public Outputs.CompositeAlarmActionsSuppressor? ActionsSuppressor => _mActionsSuppressor.GetValue("actionsSuppressor");
+        private Outputs.CompositeAlarmActionsSuppressor? _mValue_ActionsSuppressor;
+        private bool _mUnknown_ActionsSuppressor;
+        public Outputs.CompositeAlarmActionsSuppressor? ActionsSuppressor
+        {
+            get
+            {
+                if (!_mUnknown_ActionsSuppressor) return _mValue_ActionsSuppressor;
+                throw new UndeferrableValueException("Value 'CompositeAlarm.ActionsSuppressor' is not present");
+            }
+        }
 
         /// <summary>
         /// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         /// </summary>
-        [Input("alarmActions")]
+        [PolicyResourceProperty("alarmActions", "_mUnknown_AlarmActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAlarmActions;
-
-        public List<string>? AlarmActions => _mAlarmActions.GetValue("alarmActions");
+        private List<string>? _mValue_AlarmActions;
+        private bool _mUnknown_AlarmActions;
+        public List<string>? AlarmActions
+        {
+            get
+            {
+                if (!_mUnknown_AlarmActions) return _mValue_AlarmActions;
+                throw new UndeferrableValueException("Value 'CompositeAlarm.AlarmActions' is not present");
+            }
+        }
 
         /// <summary>
         /// The description for the composite alarm.
         /// </summary>
-        [Input("alarmDescription")]
+        [PolicyResourceProperty("alarmDescription", "_mUnknown_AlarmDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlarmDescription;
-
-        public string? AlarmDescription => _mAlarmDescription.GetValue("alarmDescription");
+        private string? _mValue_AlarmDescription;
+        private bool _mUnknown_AlarmDescription;
+        public string? AlarmDescription
+        {
+            get
+            {
+                if (!_mUnknown_AlarmDescription) return _mValue_AlarmDescription;
+                throw new UndeferrableValueException("Value 'CompositeAlarm.AlarmDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the composite alarm. This name must be unique within the region.
         /// </summary>
-        [Input("alarmName")]
+        [PolicyResourceProperty("alarmName", "_mUnknown_AlarmName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlarmName;
-
-        public string? AlarmName => _mAlarmName.GetValue("alarmName");
+        private string? _mValue_AlarmName;
+        private bool _mUnknown_AlarmName;
+        public string? AlarmName
+        {
+            get
+            {
+                if (!_mUnknown_AlarmName) return _mValue_AlarmName;
+                throw new UndeferrableValueException("Value 'CompositeAlarm.AlarmName' is not present");
+            }
+        }
 
         /// <summary>
         /// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
         /// </summary>
-        [Input("alarmRule")]
+        [PolicyResourceProperty("alarmRule", "_mUnknown_AlarmRule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlarmRule;
-
-        public string? AlarmRule => _mAlarmRule.GetValue("alarmRule");
+        private string? _mValue_AlarmRule;
+        private bool _mUnknown_AlarmRule;
+        public string? AlarmRule
+        {
+            get
+            {
+                if (!_mUnknown_AlarmRule) return _mValue_AlarmRule;
+                throw new UndeferrableValueException("Value 'CompositeAlarm.AlarmRule' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the composite alarm.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CompositeAlarm.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         /// </summary>
-        [Input("insufficientDataActions")]
+        [PolicyResourceProperty("insufficientDataActions", "_mUnknown_InsufficientDataActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInsufficientDataActions;
-
-        public List<string>? InsufficientDataActions => _mInsufficientDataActions.GetValue("insufficientDataActions");
+        private List<string>? _mValue_InsufficientDataActions;
+        private bool _mUnknown_InsufficientDataActions;
+        public List<string>? InsufficientDataActions
+        {
+            get
+            {
+                if (!_mUnknown_InsufficientDataActions) return _mValue_InsufficientDataActions;
+                throw new UndeferrableValueException("Value 'CompositeAlarm.InsufficientDataActions' is not present");
+            }
+        }
 
         /// <summary>
         /// The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         /// </summary>
-        [Input("okActions")]
+        [PolicyResourceProperty("okActions", "_mUnknown_OkActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOkActions;
-
-        public List<string>? OkActions => _mOkActions.GetValue("okActions");
+        private List<string>? _mValue_OkActions;
+        private bool _mUnknown_OkActions;
+        public List<string>? OkActions
+        {
+            get
+            {
+                if (!_mUnknown_OkActions) return _mValue_OkActions;
+                throw new UndeferrableValueException("Value 'CompositeAlarm.OkActions' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CompositeAlarm.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'CompositeAlarm.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/compositeAlarm:CompositeAlarm")]
@@ -119,82 +196,145 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
         /// </summary>
-        [Input("actionsEnabled")]
+        [PolicyResourceProperty("actionsEnabled", "_mUnknown_ActionsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mActionsEnabled;
-
-        public bool? ActionsEnabled => _mActionsEnabled.GetValue("actionsEnabled");
+        private bool? _mValue_ActionsEnabled;
+        private bool _mUnknown_ActionsEnabled;
+        public bool? ActionsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ActionsEnabled) return _mValue_ActionsEnabled;
+                throw new UndeferrableValueException("Value 'CompositeAlarmArgs.ActionsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Actions will be suppressed if the suppressor alarm is in the ALARM state.
         /// </summary>
-        [Input("actionsSuppressor")]
+        [PolicyResourceProperty("actionsSuppressor", "_mUnknown_ActionsSuppressor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CompositeAlarmActionsSuppressorArgs> _mActionsSuppressor;
-
-        public Inputs.CompositeAlarmActionsSuppressorArgs? ActionsSuppressor => _mActionsSuppressor.GetValue("actionsSuppressor");
+        private Inputs.CompositeAlarmActionsSuppressorArgs? _mValue_ActionsSuppressor;
+        private bool _mUnknown_ActionsSuppressor;
+        public Inputs.CompositeAlarmActionsSuppressorArgs? ActionsSuppressor
+        {
+            get
+            {
+                if (!_mUnknown_ActionsSuppressor) return _mValue_ActionsSuppressor;
+                throw new UndeferrableValueException("Value 'CompositeAlarmArgs.ActionsSuppressor' is not present");
+            }
+        }
 
         /// <summary>
         /// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         /// </summary>
-        [Input("alarmActions")]
+        [PolicyResourceProperty("alarmActions", "_mUnknown_AlarmActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAlarmActions;
-
-        public List<string>? AlarmActions => _mAlarmActions.GetValue("alarmActions");
+        private List<string>? _mValue_AlarmActions;
+        private bool _mUnknown_AlarmActions;
+        public List<string>? AlarmActions
+        {
+            get
+            {
+                if (!_mUnknown_AlarmActions) return _mValue_AlarmActions;
+                throw new UndeferrableValueException("Value 'CompositeAlarmArgs.AlarmActions' is not present");
+            }
+        }
 
         /// <summary>
         /// The description for the composite alarm.
         /// </summary>
-        [Input("alarmDescription")]
+        [PolicyResourceProperty("alarmDescription", "_mUnknown_AlarmDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlarmDescription;
-
-        public string? AlarmDescription => _mAlarmDescription.GetValue("alarmDescription");
+        private string? _mValue_AlarmDescription;
+        private bool _mUnknown_AlarmDescription;
+        public string? AlarmDescription
+        {
+            get
+            {
+                if (!_mUnknown_AlarmDescription) return _mValue_AlarmDescription;
+                throw new UndeferrableValueException("Value 'CompositeAlarmArgs.AlarmDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the composite alarm. This name must be unique within the region.
         /// </summary>
-        [Input("alarmName")]
+        [PolicyResourceProperty("alarmName", "_mUnknown_AlarmName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlarmName;
-
-        public string? AlarmName => _mAlarmName.GetValue("alarmName");
+        private string? _mValue_AlarmName;
+        private bool _mUnknown_AlarmName;
+        public string? AlarmName
+        {
+            get
+            {
+                if (!_mUnknown_AlarmName) return _mValue_AlarmName;
+                throw new UndeferrableValueException("Value 'CompositeAlarmArgs.AlarmName' is not present");
+            }
+        }
 
         /// <summary>
         /// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
         /// </summary>
-        [Input("alarmRule")]
+        [PolicyResourceProperty("alarmRule", "_mUnknown_AlarmRule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlarmRule;
-
-        public string? AlarmRule => _mAlarmRule.GetValue("alarmRule");
+        private string? _mValue_AlarmRule;
+        private bool _mUnknown_AlarmRule;
+        public string? AlarmRule
+        {
+            get
+            {
+                if (!_mUnknown_AlarmRule) return _mValue_AlarmRule;
+                throw new UndeferrableValueException("Value 'CompositeAlarmArgs.AlarmRule' is not present");
+            }
+        }
 
         /// <summary>
         /// The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         /// </summary>
-        [Input("insufficientDataActions")]
+        [PolicyResourceProperty("insufficientDataActions", "_mUnknown_InsufficientDataActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInsufficientDataActions;
-
-        public List<string>? InsufficientDataActions => _mInsufficientDataActions.GetValue("insufficientDataActions");
+        private List<string>? _mValue_InsufficientDataActions;
+        private bool _mUnknown_InsufficientDataActions;
+        public List<string>? InsufficientDataActions
+        {
+            get
+            {
+                if (!_mUnknown_InsufficientDataActions) return _mValue_InsufficientDataActions;
+                throw new UndeferrableValueException("Value 'CompositeAlarmArgs.InsufficientDataActions' is not present");
+            }
+        }
 
         /// <summary>
         /// The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         /// </summary>
-        [Input("okActions")]
+        [PolicyResourceProperty("okActions", "_mUnknown_OkActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOkActions;
-
-        public List<string>? OkActions => _mOkActions.GetValue("okActions");
+        private List<string>? _mValue_OkActions;
+        private bool _mUnknown_OkActions;
+        public List<string>? OkActions
+        {
+            get
+            {
+                if (!_mUnknown_OkActions) return _mValue_OkActions;
+                throw new UndeferrableValueException("Value 'CompositeAlarmArgs.OkActions' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CompositeAlarmArgs.Tags' is not present");
+            }
+        }
     }
 }

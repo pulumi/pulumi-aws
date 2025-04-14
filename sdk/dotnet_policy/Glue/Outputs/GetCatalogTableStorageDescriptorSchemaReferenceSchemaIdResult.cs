@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// Name of the schema registry that contains the schema.
         /// </summary>
-        [Input("registryName")]
+        [PolicyResourceProperty("registryName", "_mUnknown_RegistryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryName;
-
-        public string? RegistryName => _mRegistryName.GetValue("registryName");
+        private string? _mValue_RegistryName;
+        private bool _mUnknown_RegistryName;
+        public string? RegistryName
+        {
+            get
+            {
+                if (!_mUnknown_RegistryName) return _mValue_RegistryName;
+                throw new UndeferrableValueException("Value 'GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult.RegistryName' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the schema.
         /// </summary>
-        [Input("schemaArn")]
+        [PolicyResourceProperty("schemaArn", "_mUnknown_SchemaArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchemaArn;
-
-        public string? SchemaArn => _mSchemaArn.GetValue("schemaArn");
+        private string? _mValue_SchemaArn;
+        private bool _mUnknown_SchemaArn;
+        public string? SchemaArn
+        {
+            get
+            {
+                if (!_mUnknown_SchemaArn) return _mValue_SchemaArn;
+                throw new UndeferrableValueException("Value 'GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult.SchemaArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the schema.
         /// </summary>
-        [Input("schemaName")]
+        [PolicyResourceProperty("schemaName", "_mUnknown_SchemaName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchemaName;
-
-        public string? SchemaName => _mSchemaName.GetValue("schemaName");
+        private string? _mValue_SchemaName;
+        private bool _mUnknown_SchemaName;
+        public string? SchemaName
+        {
+            get
+            {
+                if (!_mUnknown_SchemaName) return _mValue_SchemaName;
+                throw new UndeferrableValueException("Value 'GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult.SchemaName' is not present");
+            }
+        }
     }
 }

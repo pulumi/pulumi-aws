@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.MediaConvert.Outputs
         /// <summary>
         /// The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
         /// </summary>
-        [Input("commitment")]
+        [PolicyResourceProperty("commitment", "_mUnknown_Commitment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCommitment;
-
-        public string? Commitment => _mCommitment.GetValue("commitment");
+        private string? _mValue_Commitment;
+        private bool _mUnknown_Commitment;
+        public string? Commitment
+        {
+            get
+            {
+                if (!_mUnknown_Commitment) return _mValue_Commitment;
+                throw new UndeferrableValueException("Value 'QueueReservationPlanSettings.Commitment' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
         /// </summary>
-        [Input("renewalType")]
+        [PolicyResourceProperty("renewalType", "_mUnknown_RenewalType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRenewalType;
-
-        public string? RenewalType => _mRenewalType.GetValue("renewalType");
+        private string? _mValue_RenewalType;
+        private bool _mUnknown_RenewalType;
+        public string? RenewalType
+        {
+            get
+            {
+                if (!_mUnknown_RenewalType) return _mValue_RenewalType;
+                throw new UndeferrableValueException("Value 'QueueReservationPlanSettings.RenewalType' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the number of reserved transcode slots (RTS) for queue.
         /// </summary>
-        [Input("reservedSlots")]
+        [PolicyResourceProperty("reservedSlots", "_mUnknown_ReservedSlots")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mReservedSlots;
-
-        public int? ReservedSlots => _mReservedSlots.GetValue("reservedSlots");
+        private int? _mValue_ReservedSlots;
+        private bool _mUnknown_ReservedSlots;
+        public int? ReservedSlots
+        {
+            get
+            {
+                if (!_mUnknown_ReservedSlots) return _mValue_ReservedSlots;
+                throw new UndeferrableValueException("Value 'QueueReservationPlanSettings.ReservedSlots' is not present");
+            }
+        }
     }
 }

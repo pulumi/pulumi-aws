@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Mq.Outputs
 {
     public sealed class GetBrokerInstanceResult
     {
-        [Input("consoleUrl")]
+        [PolicyResourceProperty("consoleUrl", "_mUnknown_ConsoleUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConsoleUrl;
+        private string? _mValue_ConsoleUrl;
+        private bool _mUnknown_ConsoleUrl;
+        public string? ConsoleUrl
+        {
+            get
+            {
+                if (!_mUnknown_ConsoleUrl) return _mValue_ConsoleUrl;
+                throw new UndeferrableValueException("Value 'GetBrokerInstanceResult.ConsoleUrl' is not present");
+            }
+        }
 
-        public string? ConsoleUrl => _mConsoleUrl.GetValue("consoleUrl");
-
-        [Input("endpoints")]
+        [PolicyResourceProperty("endpoints", "_mUnknown_Endpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEndpoints;
+        private List<string>? _mValue_Endpoints;
+        private bool _mUnknown_Endpoints;
+        public List<string>? Endpoints
+        {
+            get
+            {
+                if (!_mUnknown_Endpoints) return _mValue_Endpoints;
+                throw new UndeferrableValueException("Value 'GetBrokerInstanceResult.Endpoints' is not present");
+            }
+        }
 
-        public List<string>? Endpoints => _mEndpoints.GetValue("endpoints");
-
-        [Input("ipAddress")]
+        [PolicyResourceProperty("ipAddress", "_mUnknown_IpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
-
-        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
+        private string? _mValue_IpAddress;
+        private bool _mUnknown_IpAddress;
+        public string? IpAddress
+        {
+            get
+            {
+                if (!_mUnknown_IpAddress) return _mValue_IpAddress;
+                throw new UndeferrableValueException("Value 'GetBrokerInstanceResult.IpAddress' is not present");
+            }
+        }
     }
 }

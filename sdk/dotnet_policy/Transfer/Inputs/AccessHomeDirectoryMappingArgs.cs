@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Transfer.Inputs
         /// <summary>
         /// Represents an entry and a target.
         /// </summary>
-        [Input("entry")]
+        [PolicyResourceProperty("entry", "_mUnknown_Entry")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEntry;
-
-        public string? Entry => _mEntry.GetValue("entry");
+        private string? _mValue_Entry;
+        private bool _mUnknown_Entry;
+        public string? Entry
+        {
+            get
+            {
+                if (!_mUnknown_Entry) return _mValue_Entry;
+                throw new UndeferrableValueException("Value 'AccessHomeDirectoryMappingArgs.Entry' is not present");
+            }
+        }
 
         /// <summary>
         /// Represents the map target.
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
-
-        public string? Target => _mTarget.GetValue("target");
+        private string? _mValue_Target;
+        private bool _mUnknown_Target;
+        public string? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'AccessHomeDirectoryMappingArgs.Target' is not present");
+            }
+        }
     }
 }

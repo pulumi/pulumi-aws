@@ -15,47 +15,82 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// GRPC routing information for the route.
         /// </summary>
-        [Input("grpcRoute")]
+        [PolicyResourceProperty("grpcRoute", "_mUnknown_GrpcRoute")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RouteSpecGrpcRouteArgs> _mGrpcRoute;
-
-        public Inputs.RouteSpecGrpcRouteArgs? GrpcRoute => _mGrpcRoute.GetValue("grpcRoute");
+        private Inputs.RouteSpecGrpcRouteArgs? _mValue_GrpcRoute;
+        private bool _mUnknown_GrpcRoute;
+        public Inputs.RouteSpecGrpcRouteArgs? GrpcRoute
+        {
+            get
+            {
+                if (!_mUnknown_GrpcRoute) return _mValue_GrpcRoute;
+                throw new UndeferrableValueException("Value 'RouteSpecArgs.GrpcRoute' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP/2 routing information for the route.
         /// </summary>
-        [Input("http2Route")]
+        [PolicyResourceProperty("http2Route", "_mUnknown_Http2Route")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RouteSpecHttp2RouteArgs> _mHttp2Route;
-
-        public Inputs.RouteSpecHttp2RouteArgs? Http2Route => _mHttp2Route.GetValue("http2Route");
+        private Inputs.RouteSpecHttp2RouteArgs? _mValue_Http2Route;
+        private bool _mUnknown_Http2Route;
+        public Inputs.RouteSpecHttp2RouteArgs? Http2Route
+        {
+            get
+            {
+                if (!_mUnknown_Http2Route) return _mValue_Http2Route;
+                throw new UndeferrableValueException("Value 'RouteSpecArgs.Http2Route' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP routing information for the route.
         /// </summary>
-        [Input("httpRoute")]
+        [PolicyResourceProperty("httpRoute", "_mUnknown_HttpRoute")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RouteSpecHttpRouteArgs> _mHttpRoute;
-
-        public Inputs.RouteSpecHttpRouteArgs? HttpRoute => _mHttpRoute.GetValue("httpRoute");
+        private Inputs.RouteSpecHttpRouteArgs? _mValue_HttpRoute;
+        private bool _mUnknown_HttpRoute;
+        public Inputs.RouteSpecHttpRouteArgs? HttpRoute
+        {
+            get
+            {
+                if (!_mUnknown_HttpRoute) return _mValue_HttpRoute;
+                throw new UndeferrableValueException("Value 'RouteSpecArgs.HttpRoute' is not present");
+            }
+        }
 
         /// <summary>
         /// Priority for the route, between `0` and `1000`.
         /// Routes are matched based on the specified value, where `0` is the highest priority.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'RouteSpecArgs.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// TCP routing information for the route.
         /// </summary>
-        [Input("tcpRoute")]
+        [PolicyResourceProperty("tcpRoute", "_mUnknown_TcpRoute")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RouteSpecTcpRouteArgs> _mTcpRoute;
-
-        public Inputs.RouteSpecTcpRouteArgs? TcpRoute => _mTcpRoute.GetValue("tcpRoute");
+        private Inputs.RouteSpecTcpRouteArgs? _mValue_TcpRoute;
+        private bool _mUnknown_TcpRoute;
+        public Inputs.RouteSpecTcpRouteArgs? TcpRoute
+        {
+            get
+            {
+                if (!_mUnknown_TcpRoute) return _mValue_TcpRoute;
+                throw new UndeferrableValueException("Value 'RouteSpecArgs.TcpRoute' is not present");
+            }
+        }
     }
 }

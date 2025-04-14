@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CodeConnections.Outputs
         /// <summary>
         /// ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'HostVpcConfiguration.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'HostVpcConfiguration.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
         /// </summary>
-        [Input("tlsCertificate")]
+        [PolicyResourceProperty("tlsCertificate", "_mUnknown_TlsCertificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTlsCertificate;
-
-        public string? TlsCertificate => _mTlsCertificate.GetValue("tlsCertificate");
+        private string? _mValue_TlsCertificate;
+        private bool _mUnknown_TlsCertificate;
+        public string? TlsCertificate
+        {
+            get
+            {
+                if (!_mUnknown_TlsCertificate) return _mValue_TlsCertificate;
+                throw new UndeferrableValueException("Value 'HostVpcConfiguration.TlsCertificate' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'HostVpcConfiguration.VpcId' is not present");
+            }
+        }
     }
 }

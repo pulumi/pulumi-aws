@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Sfn.Outputs
 {
     public sealed class GetAliasRoutingConfigurationResult
     {
-        [Input("stateMachineVersionArn")]
+        [PolicyResourceProperty("stateMachineVersionArn", "_mUnknown_StateMachineVersionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStateMachineVersionArn;
+        private string? _mValue_StateMachineVersionArn;
+        private bool _mUnknown_StateMachineVersionArn;
+        public string? StateMachineVersionArn
+        {
+            get
+            {
+                if (!_mUnknown_StateMachineVersionArn) return _mValue_StateMachineVersionArn;
+                throw new UndeferrableValueException("Value 'GetAliasRoutingConfigurationResult.StateMachineVersionArn' is not present");
+            }
+        }
 
-        public string? StateMachineVersionArn => _mStateMachineVersionArn.GetValue("stateMachineVersionArn");
-
-        [Input("weight")]
+        [PolicyResourceProperty("weight", "_mUnknown_Weight")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWeight;
-
-        public int? Weight => _mWeight.GetValue("weight");
+        private int? _mValue_Weight;
+        private bool _mUnknown_Weight;
+        public int? Weight
+        {
+            get
+            {
+                if (!_mUnknown_Weight) return _mValue_Weight;
+                throw new UndeferrableValueException("Value 'GetAliasRoutingConfigurationResult.Weight' is not present");
+            }
+        }
     }
 }

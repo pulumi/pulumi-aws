@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         /// </summary>
-        [Input("fallbackBehavior")]
+        [PolicyResourceProperty("fallbackBehavior", "_mUnknown_FallbackBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFallbackBehavior;
-
-        public string? FallbackBehavior => _mFallbackBehavior.GetValue("fallbackBehavior");
+        private string? _mValue_FallbackBehavior;
+        private bool _mUnknown_FallbackBehavior;
+        public string? FallbackBehavior
+        {
+            get
+            {
+                if (!_mUnknown_FallbackBehavior) return _mValue_FallbackBehavior;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs.FallbackBehavior' is not present");
+            }
+        }
     }
 }

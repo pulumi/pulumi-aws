@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Account
         /// <summary>
         /// ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'AlternativeContact.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         /// </summary>
-        [Input("alternateContactType")]
+        [PolicyResourceProperty("alternateContactType", "_mUnknown_AlternateContactType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlternateContactType;
-
-        public string? AlternateContactType => _mAlternateContactType.GetValue("alternateContactType");
+        private string? _mValue_AlternateContactType;
+        private bool _mUnknown_AlternateContactType;
+        public string? AlternateContactType
+        {
+            get
+            {
+                if (!_mUnknown_AlternateContactType) return _mValue_AlternateContactType;
+                throw new UndeferrableValueException("Value 'AlternativeContact.AlternateContactType' is not present");
+            }
+        }
 
         /// <summary>
         /// An email address for the alternate contact.
         /// </summary>
-        [Input("emailAddress")]
+        [PolicyResourceProperty("emailAddress", "_mUnknown_EmailAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAddress;
-
-        public string? EmailAddress => _mEmailAddress.GetValue("emailAddress");
+        private string? _mValue_EmailAddress;
+        private bool _mUnknown_EmailAddress;
+        public string? EmailAddress
+        {
+            get
+            {
+                if (!_mUnknown_EmailAddress) return _mValue_EmailAddress;
+                throw new UndeferrableValueException("Value 'AlternativeContact.EmailAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the alternate contact.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AlternativeContact.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Phone number for the alternate contact.
         /// </summary>
-        [Input("phoneNumber")]
+        [PolicyResourceProperty("phoneNumber", "_mUnknown_PhoneNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPhoneNumber;
-
-        public string? PhoneNumber => _mPhoneNumber.GetValue("phoneNumber");
+        private string? _mValue_PhoneNumber;
+        private bool _mUnknown_PhoneNumber;
+        public string? PhoneNumber
+        {
+            get
+            {
+                if (!_mUnknown_PhoneNumber) return _mValue_PhoneNumber;
+                throw new UndeferrableValueException("Value 'AlternativeContact.PhoneNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// Title for the alternate contact.
         /// </summary>
-        [Input("title")]
+        [PolicyResourceProperty("title", "_mUnknown_Title")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTitle;
-
-        public string? Title => _mTitle.GetValue("title");
+        private string? _mValue_Title;
+        private bool _mUnknown_Title;
+        public string? Title
+        {
+            get
+            {
+                if (!_mUnknown_Title) return _mValue_Title;
+                throw new UndeferrableValueException("Value 'AlternativeContact.Title' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:account/alternativeContact:AlternativeContact")]
@@ -74,55 +116,97 @@ namespace Pulumi.PolicyPacks.Aws.Account
         /// <summary>
         /// ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'AlternativeContactArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         /// </summary>
-        [Input("alternateContactType")]
+        [PolicyResourceProperty("alternateContactType", "_mUnknown_AlternateContactType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlternateContactType;
-
-        public string? AlternateContactType => _mAlternateContactType.GetValue("alternateContactType");
+        private string? _mValue_AlternateContactType;
+        private bool _mUnknown_AlternateContactType;
+        public string? AlternateContactType
+        {
+            get
+            {
+                if (!_mUnknown_AlternateContactType) return _mValue_AlternateContactType;
+                throw new UndeferrableValueException("Value 'AlternativeContactArgs.AlternateContactType' is not present");
+            }
+        }
 
         /// <summary>
         /// An email address for the alternate contact.
         /// </summary>
-        [Input("emailAddress")]
+        [PolicyResourceProperty("emailAddress", "_mUnknown_EmailAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAddress;
-
-        public string? EmailAddress => _mEmailAddress.GetValue("emailAddress");
+        private string? _mValue_EmailAddress;
+        private bool _mUnknown_EmailAddress;
+        public string? EmailAddress
+        {
+            get
+            {
+                if (!_mUnknown_EmailAddress) return _mValue_EmailAddress;
+                throw new UndeferrableValueException("Value 'AlternativeContactArgs.EmailAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the alternate contact.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AlternativeContactArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Phone number for the alternate contact.
         /// </summary>
-        [Input("phoneNumber")]
+        [PolicyResourceProperty("phoneNumber", "_mUnknown_PhoneNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPhoneNumber;
-
-        public string? PhoneNumber => _mPhoneNumber.GetValue("phoneNumber");
+        private string? _mValue_PhoneNumber;
+        private bool _mUnknown_PhoneNumber;
+        public string? PhoneNumber
+        {
+            get
+            {
+                if (!_mUnknown_PhoneNumber) return _mValue_PhoneNumber;
+                throw new UndeferrableValueException("Value 'AlternativeContactArgs.PhoneNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// Title for the alternate contact.
         /// </summary>
-        [Input("title")]
+        [PolicyResourceProperty("title", "_mUnknown_Title")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTitle;
-
-        public string? Title => _mTitle.GetValue("title");
+        private string? _mValue_Title;
+        private bool _mUnknown_Title;
+        public string? Title
+        {
+            get
+            {
+                if (!_mUnknown_Title) return _mValue_Title;
+                throw new UndeferrableValueException("Value 'AlternativeContactArgs.Title' is not present");
+            }
+        }
     }
 }

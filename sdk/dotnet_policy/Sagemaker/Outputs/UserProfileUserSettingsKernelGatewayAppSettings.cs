@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
         /// </summary>
-        [Input("customImages")]
+        [PolicyResourceProperty("customImages", "_mUnknown_CustomImages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UserProfileUserSettingsKernelGatewayAppSettingsCustomImage>> _mCustomImages;
-
-        public List<Outputs.UserProfileUserSettingsKernelGatewayAppSettingsCustomImage>? CustomImages => _mCustomImages.GetValue("customImages");
+        private List<Outputs.UserProfileUserSettingsKernelGatewayAppSettingsCustomImage>? _mValue_CustomImages;
+        private bool _mUnknown_CustomImages;
+        public List<Outputs.UserProfileUserSettingsKernelGatewayAppSettingsCustomImage>? CustomImages
+        {
+            get
+            {
+                if (!_mUnknown_CustomImages) return _mValue_CustomImages;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsKernelGatewayAppSettings.CustomImages' is not present");
+            }
+        }
 
         /// <summary>
         /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         /// </summary>
-        [Input("defaultResourceSpec")]
+        [PolicyResourceProperty("defaultResourceSpec", "_mUnknown_DefaultResourceSpec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec> _mDefaultResourceSpec;
-
-        public Outputs.UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec? DefaultResourceSpec => _mDefaultResourceSpec.GetValue("defaultResourceSpec");
+        private Outputs.UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec? _mValue_DefaultResourceSpec;
+        private bool _mUnknown_DefaultResourceSpec;
+        public Outputs.UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec? DefaultResourceSpec
+        {
+            get
+            {
+                if (!_mUnknown_DefaultResourceSpec) return _mValue_DefaultResourceSpec;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsKernelGatewayAppSettings.DefaultResourceSpec' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         /// </summary>
-        [Input("lifecycleConfigArns")]
+        [PolicyResourceProperty("lifecycleConfigArns", "_mUnknown_LifecycleConfigArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLifecycleConfigArns;
-
-        public List<string>? LifecycleConfigArns => _mLifecycleConfigArns.GetValue("lifecycleConfigArns");
+        private List<string>? _mValue_LifecycleConfigArns;
+        private bool _mUnknown_LifecycleConfigArns;
+        public List<string>? LifecycleConfigArns
+        {
+            get
+            {
+                if (!_mUnknown_LifecycleConfigArns) return _mValue_LifecycleConfigArns;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsKernelGatewayAppSettings.LifecycleConfigArns' is not present");
+            }
+        }
     }
 }

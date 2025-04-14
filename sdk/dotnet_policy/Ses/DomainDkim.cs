@@ -21,20 +21,34 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// Find out more about verifying domains in Amazon SES
         /// in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html).
         /// </summary>
-        [Input("dkimTokens")]
+        [PolicyResourceProperty("dkimTokens", "_mUnknown_DkimTokens")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDkimTokens;
-
-        public List<string>? DkimTokens => _mDkimTokens.GetValue("dkimTokens");
+        private List<string>? _mValue_DkimTokens;
+        private bool _mUnknown_DkimTokens;
+        public List<string>? DkimTokens
+        {
+            get
+            {
+                if (!_mUnknown_DkimTokens) return _mValue_DkimTokens;
+                throw new UndeferrableValueException("Value 'DomainDkim.DkimTokens' is not present");
+            }
+        }
 
         /// <summary>
         /// Verified domain name to generate DKIM tokens for.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'DomainDkim.Domain' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ses/domainDkim:DomainDkim")]
@@ -43,10 +57,17 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// Verified domain name to generate DKIM tokens for.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'DomainDkimArgs.Domain' is not present");
+            }
+        }
     }
 }

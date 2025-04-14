@@ -12,40 +12,82 @@ namespace Pulumi.PolicyPacks.Aws.Rds.Outputs
 {
     public sealed class GetProxyAuthResult
     {
-        [Input("authScheme")]
+        [PolicyResourceProperty("authScheme", "_mUnknown_AuthScheme")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthScheme;
+        private string? _mValue_AuthScheme;
+        private bool _mUnknown_AuthScheme;
+        public string? AuthScheme
+        {
+            get
+            {
+                if (!_mUnknown_AuthScheme) return _mValue_AuthScheme;
+                throw new UndeferrableValueException("Value 'GetProxyAuthResult.AuthScheme' is not present");
+            }
+        }
 
-        public string? AuthScheme => _mAuthScheme.GetValue("authScheme");
-
-        [Input("clientPasswordAuthType")]
+        [PolicyResourceProperty("clientPasswordAuthType", "_mUnknown_ClientPasswordAuthType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientPasswordAuthType;
+        private string? _mValue_ClientPasswordAuthType;
+        private bool _mUnknown_ClientPasswordAuthType;
+        public string? ClientPasswordAuthType
+        {
+            get
+            {
+                if (!_mUnknown_ClientPasswordAuthType) return _mValue_ClientPasswordAuthType;
+                throw new UndeferrableValueException("Value 'GetProxyAuthResult.ClientPasswordAuthType' is not present");
+            }
+        }
 
-        public string? ClientPasswordAuthType => _mClientPasswordAuthType.GetValue("clientPasswordAuthType");
-
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GetProxyAuthResult.Description' is not present");
+            }
+        }
 
-        public string? Description => _mDescription.GetValue("description");
-
-        [Input("iamAuth")]
+        [PolicyResourceProperty("iamAuth", "_mUnknown_IamAuth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamAuth;
+        private string? _mValue_IamAuth;
+        private bool _mUnknown_IamAuth;
+        public string? IamAuth
+        {
+            get
+            {
+                if (!_mUnknown_IamAuth) return _mValue_IamAuth;
+                throw new UndeferrableValueException("Value 'GetProxyAuthResult.IamAuth' is not present");
+            }
+        }
 
-        public string? IamAuth => _mIamAuth.GetValue("iamAuth");
-
-        [Input("secretArn")]
+        [PolicyResourceProperty("secretArn", "_mUnknown_SecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
+        private string? _mValue_SecretArn;
+        private bool _mUnknown_SecretArn;
+        public string? SecretArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretArn) return _mValue_SecretArn;
+                throw new UndeferrableValueException("Value 'GetProxyAuthResult.SecretArn' is not present");
+            }
+        }
 
-        public string? SecretArn => _mSecretArn.GetValue("secretArn");
-
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'GetProxyAuthResult.Username' is not present");
+            }
+        }
     }
 }

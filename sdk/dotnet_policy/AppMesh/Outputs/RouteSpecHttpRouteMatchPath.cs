@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// The exact path to match on.
         /// </summary>
-        [Input("exact")]
+        [PolicyResourceProperty("exact", "_mUnknown_Exact")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExact;
-
-        public string? Exact => _mExact.GetValue("exact");
+        private string? _mValue_Exact;
+        private bool _mUnknown_Exact;
+        public string? Exact
+        {
+            get
+            {
+                if (!_mUnknown_Exact) return _mValue_Exact;
+                throw new UndeferrableValueException("Value 'RouteSpecHttpRouteMatchPath.Exact' is not present");
+            }
+        }
 
         /// <summary>
         /// The regex used to match the path.
         /// </summary>
-        [Input("regex")]
+        [PolicyResourceProperty("regex", "_mUnknown_Regex")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegex;
-
-        public string? Regex => _mRegex.GetValue("regex");
+        private string? _mValue_Regex;
+        private bool _mUnknown_Regex;
+        public string? Regex
+        {
+            get
+            {
+                if (!_mUnknown_Regex) return _mValue_Regex;
+                throw new UndeferrableValueException("Value 'RouteSpecHttpRouteMatchPath.Regex' is not present");
+            }
+        }
     }
 }

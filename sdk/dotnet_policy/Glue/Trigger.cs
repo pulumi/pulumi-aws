@@ -16,128 +16,226 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// List of actions initiated by this trigger when it fires. See Actions Below.
         /// </summary>
-        [Input("actions")]
+        [PolicyResourceProperty("actions", "_mUnknown_Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TriggerAction>> _mActions;
-
-        public List<Outputs.TriggerAction>? Actions => _mActions.GetValue("actions");
+        private List<Outputs.TriggerAction>? _mValue_Actions;
+        private bool _mUnknown_Actions;
+        public List<Outputs.TriggerAction>? Actions
+        {
+            get
+            {
+                if (!_mUnknown_Actions) return _mValue_Actions;
+                throw new UndeferrableValueException("Value 'Trigger.Actions' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of Glue Trigger
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Trigger.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the new trigger.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Trigger.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Start the trigger. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'Trigger.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
         /// </summary>
-        [Input("eventBatchingConditions")]
+        [PolicyResourceProperty("eventBatchingConditions", "_mUnknown_EventBatchingConditions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TriggerEventBatchingCondition>> _mEventBatchingConditions;
-
-        public List<Outputs.TriggerEventBatchingCondition>? EventBatchingConditions => _mEventBatchingConditions.GetValue("eventBatchingConditions");
+        private List<Outputs.TriggerEventBatchingCondition>? _mValue_EventBatchingConditions;
+        private bool _mUnknown_EventBatchingConditions;
+        public List<Outputs.TriggerEventBatchingCondition>? EventBatchingConditions
+        {
+            get
+            {
+                if (!_mUnknown_EventBatchingConditions) return _mValue_EventBatchingConditions;
+                throw new UndeferrableValueException("Value 'Trigger.EventBatchingConditions' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the trigger.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Trigger.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         /// </summary>
-        [Input("predicate")]
+        [PolicyResourceProperty("predicate", "_mUnknown_Predicate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TriggerPredicate> _mPredicate;
-
-        public Outputs.TriggerPredicate? Predicate => _mPredicate.GetValue("predicate");
+        private Outputs.TriggerPredicate? _mValue_Predicate;
+        private bool _mUnknown_Predicate;
+        public Outputs.TriggerPredicate? Predicate
+        {
+            get
+            {
+                if (!_mUnknown_Predicate) return _mValue_Predicate;
+                throw new UndeferrableValueException("Value 'Trigger.Predicate' is not present");
+            }
+        }
 
         /// <summary>
         /// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchedule;
-
-        public string? Schedule => _mSchedule.GetValue("schedule");
+        private string? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public string? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'Trigger.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
         /// </summary>
-        [Input("startOnCreation")]
+        [PolicyResourceProperty("startOnCreation", "_mUnknown_StartOnCreation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStartOnCreation;
-
-        public bool? StartOnCreation => _mStartOnCreation.GetValue("startOnCreation");
+        private bool? _mValue_StartOnCreation;
+        private bool _mUnknown_StartOnCreation;
+        public bool? StartOnCreation
+        {
+            get
+            {
+                if (!_mUnknown_StartOnCreation) return _mValue_StartOnCreation;
+                throw new UndeferrableValueException("Value 'Trigger.StartOnCreation' is not present");
+            }
+        }
 
         /// <summary>
         /// The current state of the trigger.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'Trigger.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Trigger.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Trigger.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Trigger.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
         /// </summary>
-        [Input("workflowName")]
+        [PolicyResourceProperty("workflowName", "_mUnknown_WorkflowName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkflowName;
-
-        public string? WorkflowName => _mWorkflowName.GetValue("workflowName");
+        private string? _mValue_WorkflowName;
+        private bool _mUnknown_WorkflowName;
+        public string? WorkflowName
+        {
+            get
+            {
+                if (!_mUnknown_WorkflowName) return _mValue_WorkflowName;
+                throw new UndeferrableValueException("Value 'Trigger.WorkflowName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:glue/trigger:Trigger")]
@@ -146,100 +244,177 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// List of actions initiated by this trigger when it fires. See Actions Below.
         /// </summary>
-        [Input("actions")]
+        [PolicyResourceProperty("actions", "_mUnknown_Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TriggerActionArgs>> _mActions;
-
-        public List<Inputs.TriggerActionArgs>? Actions => _mActions.GetValue("actions");
+        private List<Inputs.TriggerActionArgs>? _mValue_Actions;
+        private bool _mUnknown_Actions;
+        public List<Inputs.TriggerActionArgs>? Actions
+        {
+            get
+            {
+                if (!_mUnknown_Actions) return _mValue_Actions;
+                throw new UndeferrableValueException("Value 'TriggerArgs.Actions' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the new trigger.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'TriggerArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Start the trigger. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'TriggerArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
         /// </summary>
-        [Input("eventBatchingConditions")]
+        [PolicyResourceProperty("eventBatchingConditions", "_mUnknown_EventBatchingConditions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TriggerEventBatchingConditionArgs>> _mEventBatchingConditions;
-
-        public List<Inputs.TriggerEventBatchingConditionArgs>? EventBatchingConditions => _mEventBatchingConditions.GetValue("eventBatchingConditions");
+        private List<Inputs.TriggerEventBatchingConditionArgs>? _mValue_EventBatchingConditions;
+        private bool _mUnknown_EventBatchingConditions;
+        public List<Inputs.TriggerEventBatchingConditionArgs>? EventBatchingConditions
+        {
+            get
+            {
+                if (!_mUnknown_EventBatchingConditions) return _mValue_EventBatchingConditions;
+                throw new UndeferrableValueException("Value 'TriggerArgs.EventBatchingConditions' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the trigger.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TriggerArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         /// </summary>
-        [Input("predicate")]
+        [PolicyResourceProperty("predicate", "_mUnknown_Predicate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TriggerPredicateArgs> _mPredicate;
-
-        public Inputs.TriggerPredicateArgs? Predicate => _mPredicate.GetValue("predicate");
+        private Inputs.TriggerPredicateArgs? _mValue_Predicate;
+        private bool _mUnknown_Predicate;
+        public Inputs.TriggerPredicateArgs? Predicate
+        {
+            get
+            {
+                if (!_mUnknown_Predicate) return _mValue_Predicate;
+                throw new UndeferrableValueException("Value 'TriggerArgs.Predicate' is not present");
+            }
+        }
 
         /// <summary>
         /// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchedule;
-
-        public string? Schedule => _mSchedule.GetValue("schedule");
+        private string? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public string? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'TriggerArgs.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
         /// </summary>
-        [Input("startOnCreation")]
+        [PolicyResourceProperty("startOnCreation", "_mUnknown_StartOnCreation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStartOnCreation;
-
-        public bool? StartOnCreation => _mStartOnCreation.GetValue("startOnCreation");
+        private bool? _mValue_StartOnCreation;
+        private bool _mUnknown_StartOnCreation;
+        public bool? StartOnCreation
+        {
+            get
+            {
+                if (!_mUnknown_StartOnCreation) return _mValue_StartOnCreation;
+                throw new UndeferrableValueException("Value 'TriggerArgs.StartOnCreation' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TriggerArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'TriggerArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
         /// </summary>
-        [Input("workflowName")]
+        [PolicyResourceProperty("workflowName", "_mUnknown_WorkflowName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkflowName;
-
-        public string? WorkflowName => _mWorkflowName.GetValue("workflowName");
+        private string? _mValue_WorkflowName;
+        private bool _mUnknown_WorkflowName;
+        public string? WorkflowName
+        {
+            get
+            {
+                if (!_mUnknown_WorkflowName) return _mValue_WorkflowName;
+                throw new UndeferrableValueException("Value 'TriggerArgs.WorkflowName' is not present");
+            }
+        }
     }
 }

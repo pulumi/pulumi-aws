@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
         /// <summary>
         /// Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
         /// </summary>
-        [Input("copyAccessControlListsForTopics")]
+        [PolicyResourceProperty("copyAccessControlListsForTopics", "_mUnknown_CopyAccessControlListsForTopics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyAccessControlListsForTopics;
-
-        public bool? CopyAccessControlListsForTopics => _mCopyAccessControlListsForTopics.GetValue("copyAccessControlListsForTopics");
+        private bool? _mValue_CopyAccessControlListsForTopics;
+        private bool _mUnknown_CopyAccessControlListsForTopics;
+        public bool? CopyAccessControlListsForTopics
+        {
+            get
+            {
+                if (!_mUnknown_CopyAccessControlListsForTopics) return _mValue_CopyAccessControlListsForTopics;
+                throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListTopicReplication.CopyAccessControlListsForTopics' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to periodically configure remote topics to match their corresponding upstream topics.
         /// </summary>
-        [Input("copyTopicConfigurations")]
+        [PolicyResourceProperty("copyTopicConfigurations", "_mUnknown_CopyTopicConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTopicConfigurations;
-
-        public bool? CopyTopicConfigurations => _mCopyTopicConfigurations.GetValue("copyTopicConfigurations");
+        private bool? _mValue_CopyTopicConfigurations;
+        private bool _mUnknown_CopyTopicConfigurations;
+        public bool? CopyTopicConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_CopyTopicConfigurations) return _mValue_CopyTopicConfigurations;
+                throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListTopicReplication.CopyTopicConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to periodically check for new topics and partitions.
         /// </summary>
-        [Input("detectAndCopyNewTopics")]
+        [PolicyResourceProperty("detectAndCopyNewTopics", "_mUnknown_DetectAndCopyNewTopics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDetectAndCopyNewTopics;
-
-        public bool? DetectAndCopyNewTopics => _mDetectAndCopyNewTopics.GetValue("detectAndCopyNewTopics");
+        private bool? _mValue_DetectAndCopyNewTopics;
+        private bool _mUnknown_DetectAndCopyNewTopics;
+        public bool? DetectAndCopyNewTopics
+        {
+            get
+            {
+                if (!_mUnknown_DetectAndCopyNewTopics) return _mValue_DetectAndCopyNewTopics;
+                throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListTopicReplication.DetectAndCopyNewTopics' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for specifying the position in the topics to start replicating from.
         /// </summary>
-        [Input("startingPosition")]
+        [PolicyResourceProperty("startingPosition", "_mUnknown_StartingPosition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ReplicatorReplicationInfoListTopicReplicationStartingPosition> _mStartingPosition;
-
-        public Outputs.ReplicatorReplicationInfoListTopicReplicationStartingPosition? StartingPosition => _mStartingPosition.GetValue("startingPosition");
+        private Outputs.ReplicatorReplicationInfoListTopicReplicationStartingPosition? _mValue_StartingPosition;
+        private bool _mUnknown_StartingPosition;
+        public Outputs.ReplicatorReplicationInfoListTopicReplicationStartingPosition? StartingPosition
+        {
+            get
+            {
+                if (!_mUnknown_StartingPosition) return _mValue_StartingPosition;
+                throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListTopicReplication.StartingPosition' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
         /// </summary>
-        [Input("topicNameConfiguration")]
+        [PolicyResourceProperty("topicNameConfiguration", "_mUnknown_TopicNameConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration> _mTopicNameConfiguration;
-
-        public Outputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration? TopicNameConfiguration => _mTopicNameConfiguration.GetValue("topicNameConfiguration");
+        private Outputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration? _mValue_TopicNameConfiguration;
+        private bool _mUnknown_TopicNameConfiguration;
+        public Outputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration? TopicNameConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_TopicNameConfiguration) return _mValue_TopicNameConfiguration;
+                throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListTopicReplication.TopicNameConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// List of regular expression patterns indicating the topics that should not be replica.
         /// </summary>
-        [Input("topicsToExcludes")]
+        [PolicyResourceProperty("topicsToExcludes", "_mUnknown_TopicsToExcludes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTopicsToExcludes;
-
-        public List<string>? TopicsToExcludes => _mTopicsToExcludes.GetValue("topicsToExcludes");
+        private List<string>? _mValue_TopicsToExcludes;
+        private bool _mUnknown_TopicsToExcludes;
+        public List<string>? TopicsToExcludes
+        {
+            get
+            {
+                if (!_mUnknown_TopicsToExcludes) return _mValue_TopicsToExcludes;
+                throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListTopicReplication.TopicsToExcludes' is not present");
+            }
+        }
 
         /// <summary>
         /// List of regular expression patterns indicating the topics to copy.
         /// </summary>
-        [Input("topicsToReplicates")]
+        [PolicyResourceProperty("topicsToReplicates", "_mUnknown_TopicsToReplicates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTopicsToReplicates;
-
-        public List<string>? TopicsToReplicates => _mTopicsToReplicates.GetValue("topicsToReplicates");
+        private List<string>? _mValue_TopicsToReplicates;
+        private bool _mUnknown_TopicsToReplicates;
+        public List<string>? TopicsToReplicates
+        {
+            get
+            {
+                if (!_mUnknown_TopicsToReplicates) return _mValue_TopicsToReplicates;
+                throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListTopicReplication.TopicsToReplicates' is not present");
+            }
+        }
     }
 }

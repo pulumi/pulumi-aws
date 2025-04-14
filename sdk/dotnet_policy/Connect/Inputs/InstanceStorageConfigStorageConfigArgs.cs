@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Connect.Inputs
         /// <summary>
         /// A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
         /// </summary>
-        [Input("kinesisFirehoseConfig")]
+        [PolicyResourceProperty("kinesisFirehoseConfig", "_mUnknown_KinesisFirehoseConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs> _mKinesisFirehoseConfig;
-
-        public Inputs.InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs? KinesisFirehoseConfig => _mKinesisFirehoseConfig.GetValue("kinesisFirehoseConfig");
+        private Inputs.InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs? _mValue_KinesisFirehoseConfig;
+        private bool _mUnknown_KinesisFirehoseConfig;
+        public Inputs.InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs? KinesisFirehoseConfig
+        {
+            get
+            {
+                if (!_mUnknown_KinesisFirehoseConfig) return _mValue_KinesisFirehoseConfig;
+                throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigArgs.KinesisFirehoseConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the configuration of the Kinesis data stream. Documented below.
         /// </summary>
-        [Input("kinesisStreamConfig")]
+        [PolicyResourceProperty("kinesisStreamConfig", "_mUnknown_KinesisStreamConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceStorageConfigStorageConfigKinesisStreamConfigArgs> _mKinesisStreamConfig;
-
-        public Inputs.InstanceStorageConfigStorageConfigKinesisStreamConfigArgs? KinesisStreamConfig => _mKinesisStreamConfig.GetValue("kinesisStreamConfig");
+        private Inputs.InstanceStorageConfigStorageConfigKinesisStreamConfigArgs? _mValue_KinesisStreamConfig;
+        private bool _mUnknown_KinesisStreamConfig;
+        public Inputs.InstanceStorageConfigStorageConfigKinesisStreamConfigArgs? KinesisStreamConfig
+        {
+            get
+            {
+                if (!_mUnknown_KinesisStreamConfig) return _mValue_KinesisStreamConfig;
+                throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigArgs.KinesisStreamConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the configuration of the Kinesis video stream. Documented below.
         /// </summary>
-        [Input("kinesisVideoStreamConfig")]
+        [PolicyResourceProperty("kinesisVideoStreamConfig", "_mUnknown_KinesisVideoStreamConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs> _mKinesisVideoStreamConfig;
-
-        public Inputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs? KinesisVideoStreamConfig => _mKinesisVideoStreamConfig.GetValue("kinesisVideoStreamConfig");
+        private Inputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs? _mValue_KinesisVideoStreamConfig;
+        private bool _mUnknown_KinesisVideoStreamConfig;
+        public Inputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs? KinesisVideoStreamConfig
+        {
+            get
+            {
+                if (!_mUnknown_KinesisVideoStreamConfig) return _mValue_KinesisVideoStreamConfig;
+                throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigArgs.KinesisVideoStreamConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the configuration of S3 Bucket. Documented below.
         /// </summary>
-        [Input("s3Config")]
+        [PolicyResourceProperty("s3Config", "_mUnknown_S3Config")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceStorageConfigStorageConfigS3ConfigArgs> _mS3Config;
-
-        public Inputs.InstanceStorageConfigStorageConfigS3ConfigArgs? S3Config => _mS3Config.GetValue("s3Config");
+        private Inputs.InstanceStorageConfigStorageConfigS3ConfigArgs? _mValue_S3Config;
+        private bool _mUnknown_S3Config;
+        public Inputs.InstanceStorageConfigStorageConfigS3ConfigArgs? S3Config
+        {
+            get
+            {
+                if (!_mUnknown_S3Config) return _mValue_S3Config;
+                throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigArgs.S3Config' is not present");
+            }
+        }
 
         /// <summary>
         /// A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
         /// </summary>
-        [Input("storageType")]
+        [PolicyResourceProperty("storageType", "_mUnknown_StorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
-
-        public string? StorageType => _mStorageType.GetValue("storageType");
+        private string? _mValue_StorageType;
+        private bool _mUnknown_StorageType;
+        public string? StorageType
+        {
+            get
+            {
+                if (!_mUnknown_StorageType) return _mValue_StorageType;
+                throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigArgs.StorageType' is not present");
+            }
+        }
     }
 }

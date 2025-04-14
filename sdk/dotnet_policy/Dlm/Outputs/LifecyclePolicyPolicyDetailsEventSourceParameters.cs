@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Dlm.Outputs
         /// <summary>
         /// The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
         /// </summary>
-        [Input("descriptionRegex")]
+        [PolicyResourceProperty("descriptionRegex", "_mUnknown_DescriptionRegex")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescriptionRegex;
-
-        public string? DescriptionRegex => _mDescriptionRegex.GetValue("descriptionRegex");
+        private string? _mValue_DescriptionRegex;
+        private bool _mUnknown_DescriptionRegex;
+        public string? DescriptionRegex
+        {
+            get
+            {
+                if (!_mUnknown_DescriptionRegex) return _mValue_DescriptionRegex;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsEventSourceParameters.DescriptionRegex' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of event. Currently, only `shareSnapshot` events are supported.
         /// </summary>
-        [Input("eventType")]
+        [PolicyResourceProperty("eventType", "_mUnknown_EventType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventType;
-
-        public string? EventType => _mEventType.GetValue("eventType");
+        private string? _mValue_EventType;
+        private bool _mUnknown_EventType;
+        public string? EventType
+        {
+            get
+            {
+                if (!_mUnknown_EventType) return _mValue_EventType;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsEventSourceParameters.EventType' is not present");
+            }
+        }
 
         /// <summary>
         /// The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
         /// </summary>
-        [Input("snapshotOwners")]
+        [PolicyResourceProperty("snapshotOwners", "_mUnknown_SnapshotOwners")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSnapshotOwners;
-
-        public List<string>? SnapshotOwners => _mSnapshotOwners.GetValue("snapshotOwners");
+        private List<string>? _mValue_SnapshotOwners;
+        private bool _mUnknown_SnapshotOwners;
+        public List<string>? SnapshotOwners
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotOwners) return _mValue_SnapshotOwners;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsEventSourceParameters.SnapshotOwners' is not present");
+            }
+        }
     }
 }

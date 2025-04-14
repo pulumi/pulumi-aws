@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.Inspector
         /// <summary>
         /// The template assessment ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'AssessmentTemplate.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The duration of the inspector run.
         /// </summary>
-        [Input("duration")]
+        [PolicyResourceProperty("duration", "_mUnknown_Duration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDuration;
-
-        public int? Duration => _mDuration.GetValue("duration");
+        private int? _mValue_Duration;
+        private bool _mUnknown_Duration;
+        public int? Duration
+        {
+            get
+            {
+                if (!_mUnknown_Duration) return _mValue_Duration;
+                throw new UndeferrableValueException("Value 'AssessmentTemplate.Duration' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
         /// </summary>
-        [Input("eventSubscriptions")]
+        [PolicyResourceProperty("eventSubscriptions", "_mUnknown_EventSubscriptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AssessmentTemplateEventSubscription>> _mEventSubscriptions;
-
-        public List<Outputs.AssessmentTemplateEventSubscription>? EventSubscriptions => _mEventSubscriptions.GetValue("eventSubscriptions");
+        private List<Outputs.AssessmentTemplateEventSubscription>? _mValue_EventSubscriptions;
+        private bool _mUnknown_EventSubscriptions;
+        public List<Outputs.AssessmentTemplateEventSubscription>? EventSubscriptions
+        {
+            get
+            {
+                if (!_mUnknown_EventSubscriptions) return _mValue_EventSubscriptions;
+                throw new UndeferrableValueException("Value 'AssessmentTemplate.EventSubscriptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the assessment template.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AssessmentTemplate.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The rules to be used during the run.
         /// </summary>
-        [Input("rulesPackageArns")]
+        [PolicyResourceProperty("rulesPackageArns", "_mUnknown_RulesPackageArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRulesPackageArns;
-
-        public List<string>? RulesPackageArns => _mRulesPackageArns.GetValue("rulesPackageArns");
+        private List<string>? _mValue_RulesPackageArns;
+        private bool _mUnknown_RulesPackageArns;
+        public List<string>? RulesPackageArns
+        {
+            get
+            {
+                if (!_mUnknown_RulesPackageArns) return _mValue_RulesPackageArns;
+                throw new UndeferrableValueException("Value 'AssessmentTemplate.RulesPackageArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AssessmentTemplate.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'AssessmentTemplate.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The assessment target ARN to attach the template to.
         /// </summary>
-        [Input("targetArn")]
+        [PolicyResourceProperty("targetArn", "_mUnknown_TargetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetArn;
-
-        public string? TargetArn => _mTargetArn.GetValue("targetArn");
+        private string? _mValue_TargetArn;
+        private bool _mUnknown_TargetArn;
+        public string? TargetArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetArn) return _mValue_TargetArn;
+                throw new UndeferrableValueException("Value 'AssessmentTemplate.TargetArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:inspector/assessmentTemplate:AssessmentTemplate")]
@@ -92,55 +148,97 @@ namespace Pulumi.PolicyPacks.Aws.Inspector
         /// <summary>
         /// The duration of the inspector run.
         /// </summary>
-        [Input("duration")]
+        [PolicyResourceProperty("duration", "_mUnknown_Duration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDuration;
-
-        public int? Duration => _mDuration.GetValue("duration");
+        private int? _mValue_Duration;
+        private bool _mUnknown_Duration;
+        public int? Duration
+        {
+            get
+            {
+                if (!_mUnknown_Duration) return _mValue_Duration;
+                throw new UndeferrableValueException("Value 'AssessmentTemplateArgs.Duration' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
         /// </summary>
-        [Input("eventSubscriptions")]
+        [PolicyResourceProperty("eventSubscriptions", "_mUnknown_EventSubscriptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AssessmentTemplateEventSubscriptionArgs>> _mEventSubscriptions;
-
-        public List<Inputs.AssessmentTemplateEventSubscriptionArgs>? EventSubscriptions => _mEventSubscriptions.GetValue("eventSubscriptions");
+        private List<Inputs.AssessmentTemplateEventSubscriptionArgs>? _mValue_EventSubscriptions;
+        private bool _mUnknown_EventSubscriptions;
+        public List<Inputs.AssessmentTemplateEventSubscriptionArgs>? EventSubscriptions
+        {
+            get
+            {
+                if (!_mUnknown_EventSubscriptions) return _mValue_EventSubscriptions;
+                throw new UndeferrableValueException("Value 'AssessmentTemplateArgs.EventSubscriptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the assessment template.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AssessmentTemplateArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The rules to be used during the run.
         /// </summary>
-        [Input("rulesPackageArns")]
+        [PolicyResourceProperty("rulesPackageArns", "_mUnknown_RulesPackageArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRulesPackageArns;
-
-        public List<string>? RulesPackageArns => _mRulesPackageArns.GetValue("rulesPackageArns");
+        private List<string>? _mValue_RulesPackageArns;
+        private bool _mUnknown_RulesPackageArns;
+        public List<string>? RulesPackageArns
+        {
+            get
+            {
+                if (!_mUnknown_RulesPackageArns) return _mValue_RulesPackageArns;
+                throw new UndeferrableValueException("Value 'AssessmentTemplateArgs.RulesPackageArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AssessmentTemplateArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The assessment target ARN to attach the template to.
         /// </summary>
-        [Input("targetArn")]
+        [PolicyResourceProperty("targetArn", "_mUnknown_TargetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetArn;
-
-        public string? TargetArn => _mTargetArn.GetValue("targetArn");
+        private string? _mValue_TargetArn;
+        private bool _mUnknown_TargetArn;
+        public string? TargetArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetArn) return _mValue_TargetArn;
+                throw new UndeferrableValueException("Value 'AssessmentTemplateArgs.TargetArn' is not present");
+            }
+        }
     }
 }

@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
         /// <summary>
         /// Amazon Resource Name (ARN) of the bucket.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfiguration.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) containing lifecycle rules for the bucket.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketLifecycleConfigurationRule>> _mRules;
-
-        public List<Outputs.BucketLifecycleConfigurationRule>? Rules => _mRules.GetValue("rules");
+        private List<Outputs.BucketLifecycleConfigurationRule>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Outputs.BucketLifecycleConfigurationRule>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfiguration.Rules' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
         /// <summary>
         /// Amazon Resource Name (ARN) of the bucket.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) containing lifecycle rules for the bucket.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketLifecycleConfigurationRuleArgs>> _mRules;
-
-        public List<Inputs.BucketLifecycleConfigurationRuleArgs>? Rules => _mRules.GetValue("rules");
+        private List<Inputs.BucketLifecycleConfigurationRuleArgs>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Inputs.BucketLifecycleConfigurationRuleArgs>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationArgs.Rules' is not present");
+            }
+        }
     }
 }

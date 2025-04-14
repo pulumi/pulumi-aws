@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Outputs
 {
     public sealed class FileCacheLustreConfigurationLogConfiguration
     {
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
+        private string? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public string? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'FileCacheLustreConfigurationLogConfiguration.Destination' is not present");
+            }
+        }
 
-        public string? Destination => _mDestination.GetValue("destination");
-
-        [Input("level")]
+        [PolicyResourceProperty("level", "_mUnknown_Level")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLevel;
-
-        public string? Level => _mLevel.GetValue("level");
+        private string? _mValue_Level;
+        private bool _mUnknown_Level;
+        public string? Level
+        {
+            get
+            {
+                if (!_mUnknown_Level) return _mValue_Level;
+                throw new UndeferrableValueException("Value 'FileCacheLustreConfigurationLogConfiguration.Level' is not present");
+            }
+        }
     }
 }

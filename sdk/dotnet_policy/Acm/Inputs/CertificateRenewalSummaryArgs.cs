@@ -15,25 +15,46 @@ namespace Pulumi.PolicyPacks.Aws.Acm.Inputs
         /// <summary>
         /// The status of ACM's managed renewal of the certificate
         /// </summary>
-        [Input("renewalStatus")]
+        [PolicyResourceProperty("renewalStatus", "_mUnknown_RenewalStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRenewalStatus;
-
-        public string? RenewalStatus => _mRenewalStatus.GetValue("renewalStatus");
+        private string? _mValue_RenewalStatus;
+        private bool _mUnknown_RenewalStatus;
+        public string? RenewalStatus
+        {
+            get
+            {
+                if (!_mUnknown_RenewalStatus) return _mValue_RenewalStatus;
+                throw new UndeferrableValueException("Value 'CertificateRenewalSummaryArgs.RenewalStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// The reason that a renewal request was unsuccessful or is pending
         /// </summary>
-        [Input("renewalStatusReason")]
+        [PolicyResourceProperty("renewalStatusReason", "_mUnknown_RenewalStatusReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRenewalStatusReason;
+        private string? _mValue_RenewalStatusReason;
+        private bool _mUnknown_RenewalStatusReason;
+        public string? RenewalStatusReason
+        {
+            get
+            {
+                if (!_mUnknown_RenewalStatusReason) return _mValue_RenewalStatusReason;
+                throw new UndeferrableValueException("Value 'CertificateRenewalSummaryArgs.RenewalStatusReason' is not present");
+            }
+        }
 
-        public string? RenewalStatusReason => _mRenewalStatusReason.GetValue("renewalStatusReason");
-
-        [Input("updatedAt")]
+        [PolicyResourceProperty("updatedAt", "_mUnknown_UpdatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
-
-        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
+        private string? _mValue_UpdatedAt;
+        private bool _mUnknown_UpdatedAt;
+        public string? UpdatedAt
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedAt) return _mValue_UpdatedAt;
+                throw new UndeferrableValueException("Value 'CertificateRenewalSummaryArgs.UpdatedAt' is not present");
+            }
+        }
     }
 }

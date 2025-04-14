@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks
         /// <summary>
         /// A db password
         /// </summary>
-        [Input("dbPassword")]
+        [PolicyResourceProperty("dbPassword", "_mUnknown_DbPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbPassword;
-
-        public string? DbPassword => _mDbPassword.GetValue("dbPassword");
+        private string? _mValue_DbPassword;
+        private bool _mUnknown_DbPassword;
+        public string? DbPassword
+        {
+            get
+            {
+                if (!_mUnknown_DbPassword) return _mValue_DbPassword;
+                throw new UndeferrableValueException("Value 'RdsDbInstance.DbPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// A db username
         /// </summary>
-        [Input("dbUser")]
+        [PolicyResourceProperty("dbUser", "_mUnknown_DbUser")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbUser;
-
-        public string? DbUser => _mDbUser.GetValue("dbUser");
+        private string? _mValue_DbUser;
+        private bool _mUnknown_DbUser;
+        public string? DbUser
+        {
+            get
+            {
+                if (!_mUnknown_DbUser) return _mValue_DbUser;
+                throw new UndeferrableValueException("Value 'RdsDbInstance.DbUser' is not present");
+            }
+        }
 
         /// <summary>
         /// The db instance to register for this stack. Changing this will force a new resource.
         /// </summary>
-        [Input("rdsDbInstanceArn")]
+        [PolicyResourceProperty("rdsDbInstanceArn", "_mUnknown_RdsDbInstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRdsDbInstanceArn;
-
-        public string? RdsDbInstanceArn => _mRdsDbInstanceArn.GetValue("rdsDbInstanceArn");
+        private string? _mValue_RdsDbInstanceArn;
+        private bool _mUnknown_RdsDbInstanceArn;
+        public string? RdsDbInstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_RdsDbInstanceArn) return _mValue_RdsDbInstanceArn;
+                throw new UndeferrableValueException("Value 'RdsDbInstance.RdsDbInstanceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The stack to register a db instance for. Changing this will force a new resource.
         /// </summary>
-        [Input("stackId")]
+        [PolicyResourceProperty("stackId", "_mUnknown_StackId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
-
-        public string? StackId => _mStackId.GetValue("stackId");
+        private string? _mValue_StackId;
+        private bool _mUnknown_StackId;
+        public string? StackId
+        {
+            get
+            {
+                if (!_mUnknown_StackId) return _mValue_StackId;
+                throw new UndeferrableValueException("Value 'RdsDbInstance.StackId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opsworks/rdsDbInstance:RdsDbInstance")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks
         /// <summary>
         /// A db password
         /// </summary>
-        [Input("dbPassword")]
+        [PolicyResourceProperty("dbPassword", "_mUnknown_DbPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbPassword;
-
-        public string? DbPassword => _mDbPassword.GetValue("dbPassword");
+        private string? _mValue_DbPassword;
+        private bool _mUnknown_DbPassword;
+        public string? DbPassword
+        {
+            get
+            {
+                if (!_mUnknown_DbPassword) return _mValue_DbPassword;
+                throw new UndeferrableValueException("Value 'RdsDbInstanceArgs.DbPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// A db username
         /// </summary>
-        [Input("dbUser")]
+        [PolicyResourceProperty("dbUser", "_mUnknown_DbUser")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbUser;
-
-        public string? DbUser => _mDbUser.GetValue("dbUser");
+        private string? _mValue_DbUser;
+        private bool _mUnknown_DbUser;
+        public string? DbUser
+        {
+            get
+            {
+                if (!_mUnknown_DbUser) return _mValue_DbUser;
+                throw new UndeferrableValueException("Value 'RdsDbInstanceArgs.DbUser' is not present");
+            }
+        }
 
         /// <summary>
         /// The db instance to register for this stack. Changing this will force a new resource.
         /// </summary>
-        [Input("rdsDbInstanceArn")]
+        [PolicyResourceProperty("rdsDbInstanceArn", "_mUnknown_RdsDbInstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRdsDbInstanceArn;
-
-        public string? RdsDbInstanceArn => _mRdsDbInstanceArn.GetValue("rdsDbInstanceArn");
+        private string? _mValue_RdsDbInstanceArn;
+        private bool _mUnknown_RdsDbInstanceArn;
+        public string? RdsDbInstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_RdsDbInstanceArn) return _mValue_RdsDbInstanceArn;
+                throw new UndeferrableValueException("Value 'RdsDbInstanceArgs.RdsDbInstanceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The stack to register a db instance for. Changing this will force a new resource.
         /// </summary>
-        [Input("stackId")]
+        [PolicyResourceProperty("stackId", "_mUnknown_StackId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
-
-        public string? StackId => _mStackId.GetValue("stackId");
+        private string? _mValue_StackId;
+        private bool _mUnknown_StackId;
+        public string? StackId
+        {
+            get
+            {
+                if (!_mUnknown_StackId) return _mValue_StackId;
+                throw new UndeferrableValueException("Value 'RdsDbInstanceArgs.StackId' is not present");
+            }
+        }
     }
 }

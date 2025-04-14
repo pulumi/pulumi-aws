@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
 {
     public sealed class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs
     {
-        [Input("gain")]
+        [PolicyResourceProperty("gain", "_mUnknown_Gain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mGain;
+        private int? _mValue_Gain;
+        private bool _mUnknown_Gain;
+        public int? Gain
+        {
+            get
+            {
+                if (!_mUnknown_Gain) return _mValue_Gain;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs.Gain' is not present");
+            }
+        }
 
-        public int? Gain => _mGain.GetValue("gain");
-
-        [Input("inputChannel")]
+        [PolicyResourceProperty("inputChannel", "_mUnknown_InputChannel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInputChannel;
-
-        public int? InputChannel => _mInputChannel.GetValue("inputChannel");
+        private int? _mValue_InputChannel;
+        private bool _mUnknown_InputChannel;
+        public int? InputChannel
+        {
+            get
+            {
+                if (!_mUnknown_InputChannel) return _mValue_InputChannel;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs.InputChannel' is not present");
+            }
+        }
     }
 }

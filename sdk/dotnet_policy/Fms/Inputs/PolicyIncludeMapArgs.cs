@@ -15,21 +15,35 @@ namespace Pulumi.PolicyPacks.Aws.Fms.Inputs
         /// <summary>
         /// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
         /// </summary>
-        [Input("accounts")]
+        [PolicyResourceProperty("accounts", "_mUnknown_Accounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAccounts;
-
-        public List<string>? Accounts => _mAccounts.GetValue("accounts");
+        private List<string>? _mValue_Accounts;
+        private bool _mUnknown_Accounts;
+        public List<string>? Accounts
+        {
+            get
+            {
+                if (!_mUnknown_Accounts) return _mValue_Accounts;
+                throw new UndeferrableValueException("Value 'PolicyIncludeMapArgs.Accounts' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
         /// 
         /// You can specify inclusions or exclusions, but not both. If you specify an `include_map`, AWS Firewall Manager applies the policy to all accounts specified by the `include_map`, and does not evaluate any `exclude_map` specifications. If you do not specify an `include_map`, then Firewall Manager applies the policy to all accounts except for those specified by the `exclude_map`.
         /// </summary>
-        [Input("orgunits")]
+        [PolicyResourceProperty("orgunits", "_mUnknown_Orgunits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOrgunits;
-
-        public List<string>? Orgunits => _mOrgunits.GetValue("orgunits");
+        private List<string>? _mValue_Orgunits;
+        private bool _mUnknown_Orgunits;
+        public List<string>? Orgunits
+        {
+            get
+            {
+                if (!_mUnknown_Orgunits) return _mValue_Orgunits;
+                throw new UndeferrableValueException("Value 'PolicyIncludeMapArgs.Orgunits' is not present");
+            }
+        }
     }
 }

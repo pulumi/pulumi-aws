@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// The Lambda function configuration. See Lambda below for more details.
         /// </summary>
-        [Input("lambda")]
+        [PolicyResourceProperty("lambda", "_mUnknown_Lambda")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalyticsApplicationInputsProcessingConfigurationLambda> _mLambda;
-
-        public Outputs.AnalyticsApplicationInputsProcessingConfigurationLambda? Lambda => _mLambda.GetValue("lambda");
+        private Outputs.AnalyticsApplicationInputsProcessingConfigurationLambda? _mValue_Lambda;
+        private bool _mUnknown_Lambda;
+        public Outputs.AnalyticsApplicationInputsProcessingConfigurationLambda? Lambda
+        {
+            get
+            {
+                if (!_mUnknown_Lambda) return _mValue_Lambda;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsProcessingConfiguration.Lambda' is not present");
+            }
+        }
     }
 }

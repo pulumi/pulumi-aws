@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Sfn
         /// <summary>
         /// The Amazon Resource Name (ARN) identifying your state machine alias.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Alias.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The date the state machine alias was created.
         /// </summary>
-        [Input("creationDate")]
+        [PolicyResourceProperty("creationDate", "_mUnknown_CreationDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDate;
-
-        public string? CreationDate => _mCreationDate.GetValue("creationDate");
+        private string? _mValue_CreationDate;
+        private bool _mUnknown_CreationDate;
+        public string? CreationDate
+        {
+            get
+            {
+                if (!_mUnknown_CreationDate) return _mValue_CreationDate;
+                throw new UndeferrableValueException("Value 'Alias.CreationDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the alias.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Alias.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the alias you are creating.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Alias.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The StateMachine alias' route configuration settings. Fields documented below
         /// </summary>
-        [Input("routingConfigurations")]
+        [PolicyResourceProperty("routingConfigurations", "_mUnknown_RoutingConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AliasRoutingConfiguration>> _mRoutingConfigurations;
-
-        public List<Outputs.AliasRoutingConfiguration>? RoutingConfigurations => _mRoutingConfigurations.GetValue("routingConfigurations");
+        private List<Outputs.AliasRoutingConfiguration>? _mValue_RoutingConfigurations;
+        private bool _mUnknown_RoutingConfigurations;
+        public List<Outputs.AliasRoutingConfiguration>? RoutingConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_RoutingConfigurations) return _mValue_RoutingConfigurations;
+                throw new UndeferrableValueException("Value 'Alias.RoutingConfigurations' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sfn/alias:Alias")]
@@ -65,28 +100,49 @@ namespace Pulumi.PolicyPacks.Aws.Sfn
         /// <summary>
         /// Description of the alias.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AliasArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the alias you are creating.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AliasArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The StateMachine alias' route configuration settings. Fields documented below
         /// </summary>
-        [Input("routingConfigurations")]
+        [PolicyResourceProperty("routingConfigurations", "_mUnknown_RoutingConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AliasRoutingConfigurationArgs>> _mRoutingConfigurations;
-
-        public List<Inputs.AliasRoutingConfigurationArgs>? RoutingConfigurations => _mRoutingConfigurations.GetValue("routingConfigurations");
+        private List<Inputs.AliasRoutingConfigurationArgs>? _mValue_RoutingConfigurations;
+        private bool _mUnknown_RoutingConfigurations;
+        public List<Inputs.AliasRoutingConfigurationArgs>? RoutingConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_RoutingConfigurations) return _mValue_RoutingConfigurations;
+                throw new UndeferrableValueException("Value 'AliasArgs.RoutingConfigurations' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
         /// </summary>
-        [Input("notebookOutputOption")]
+        [PolicyResourceProperty("notebookOutputOption", "_mUnknown_NotebookOutputOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotebookOutputOption;
-
-        public string? NotebookOutputOption => _mNotebookOutputOption.GetValue("notebookOutputOption");
+        private string? _mValue_NotebookOutputOption;
+        private bool _mUnknown_NotebookOutputOption;
+        public string? NotebookOutputOption
+        {
+            get
+            {
+                if (!_mUnknown_NotebookOutputOption) return _mValue_NotebookOutputOption;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsSharingSettings.NotebookOutputOption' is not present");
+            }
+        }
 
         /// <summary>
         /// When `notebook_output_option` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
         /// </summary>
-        [Input("s3KmsKeyId")]
+        [PolicyResourceProperty("s3KmsKeyId", "_mUnknown_S3KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3KmsKeyId;
-
-        public string? S3KmsKeyId => _mS3KmsKeyId.GetValue("s3KmsKeyId");
+        private string? _mValue_S3KmsKeyId;
+        private bool _mUnknown_S3KmsKeyId;
+        public string? S3KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_S3KmsKeyId) return _mValue_S3KmsKeyId;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsSharingSettings.S3KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// When `notebook_output_option` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
         /// </summary>
-        [Input("s3OutputPath")]
+        [PolicyResourceProperty("s3OutputPath", "_mUnknown_S3OutputPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3OutputPath;
-
-        public string? S3OutputPath => _mS3OutputPath.GetValue("s3OutputPath");
+        private string? _mValue_S3OutputPath;
+        private bool _mUnknown_S3OutputPath;
+        public string? S3OutputPath
+        {
+            get
+            {
+                if (!_mUnknown_S3OutputPath) return _mValue_S3OutputPath;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsSharingSettings.S3OutputPath' is not present");
+            }
+        }
     }
 }

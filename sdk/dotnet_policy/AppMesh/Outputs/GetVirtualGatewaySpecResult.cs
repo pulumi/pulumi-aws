@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualGatewaySpecResult
     {
-        [Input("backendDefaults")]
+        [PolicyResourceProperty("backendDefaults", "_mUnknown_BackendDefaults")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualGatewaySpecBackendDefaultResult>> _mBackendDefaults;
+        private List<Outputs.GetVirtualGatewaySpecBackendDefaultResult>? _mValue_BackendDefaults;
+        private bool _mUnknown_BackendDefaults;
+        public List<Outputs.GetVirtualGatewaySpecBackendDefaultResult>? BackendDefaults
+        {
+            get
+            {
+                if (!_mUnknown_BackendDefaults) return _mValue_BackendDefaults;
+                throw new UndeferrableValueException("Value 'GetVirtualGatewaySpecResult.BackendDefaults' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualGatewaySpecBackendDefaultResult>? BackendDefaults => _mBackendDefaults.GetValue("backendDefaults");
-
-        [Input("listeners")]
+        [PolicyResourceProperty("listeners", "_mUnknown_Listeners")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualGatewaySpecListenerResult>> _mListeners;
+        private List<Outputs.GetVirtualGatewaySpecListenerResult>? _mValue_Listeners;
+        private bool _mUnknown_Listeners;
+        public List<Outputs.GetVirtualGatewaySpecListenerResult>? Listeners
+        {
+            get
+            {
+                if (!_mUnknown_Listeners) return _mValue_Listeners;
+                throw new UndeferrableValueException("Value 'GetVirtualGatewaySpecResult.Listeners' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualGatewaySpecListenerResult>? Listeners => _mListeners.GetValue("listeners");
-
-        [Input("loggings")]
+        [PolicyResourceProperty("loggings", "_mUnknown_Loggings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualGatewaySpecLoggingResult>> _mLoggings;
-
-        public List<Outputs.GetVirtualGatewaySpecLoggingResult>? Loggings => _mLoggings.GetValue("loggings");
+        private List<Outputs.GetVirtualGatewaySpecLoggingResult>? _mValue_Loggings;
+        private bool _mUnknown_Loggings;
+        public List<Outputs.GetVirtualGatewaySpecLoggingResult>? Loggings
+        {
+            get
+            {
+                if (!_mUnknown_Loggings) return _mValue_Loggings;
+                throw new UndeferrableValueException("Value 'GetVirtualGatewaySpecResult.Loggings' is not present");
+            }
+        }
     }
 }

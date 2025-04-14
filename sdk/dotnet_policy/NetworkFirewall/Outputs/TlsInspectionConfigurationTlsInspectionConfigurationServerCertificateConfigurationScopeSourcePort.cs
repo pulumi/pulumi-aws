@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// The lower limit of the port range. This must be less than or equal to the `to_port`.
         /// </summary>
-        [Input("fromPort")]
+        [PolicyResourceProperty("fromPort", "_mUnknown_FromPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFromPort;
-
-        public int? FromPort => _mFromPort.GetValue("fromPort");
+        private int? _mValue_FromPort;
+        private bool _mUnknown_FromPort;
+        public int? FromPort
+        {
+            get
+            {
+                if (!_mUnknown_FromPort) return _mValue_FromPort;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort.FromPort' is not present");
+            }
+        }
 
         /// <summary>
         /// The upper limit of the port range. This must be greater than or equal to the `from_port`.
         /// </summary>
-        [Input("toPort")]
+        [PolicyResourceProperty("toPort", "_mUnknown_ToPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mToPort;
-
-        public int? ToPort => _mToPort.GetValue("toPort");
+        private int? _mValue_ToPort;
+        private bool _mUnknown_ToPort;
+        public int? ToPort
+        {
+            get
+            {
+                if (!_mUnknown_ToPort) return _mValue_ToPort;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort.ToPort' is not present");
+            }
+        }
     }
 }

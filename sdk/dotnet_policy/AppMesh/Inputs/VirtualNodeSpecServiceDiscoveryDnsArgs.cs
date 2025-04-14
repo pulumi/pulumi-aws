@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// DNS host name for your virtual node.
         /// </summary>
-        [Input("hostname")]
+        [PolicyResourceProperty("hostname", "_mUnknown_Hostname")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostname;
-
-        public string? Hostname => _mHostname.GetValue("hostname");
+        private string? _mValue_Hostname;
+        private bool _mUnknown_Hostname;
+        public string? Hostname
+        {
+            get
+            {
+                if (!_mUnknown_Hostname) return _mValue_Hostname;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecServiceDiscoveryDnsArgs.Hostname' is not present");
+            }
+        }
 
         /// <summary>
         /// The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
         /// </summary>
-        [Input("ipPreference")]
+        [PolicyResourceProperty("ipPreference", "_mUnknown_IpPreference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpPreference;
-
-        public string? IpPreference => _mIpPreference.GetValue("ipPreference");
+        private string? _mValue_IpPreference;
+        private bool _mUnknown_IpPreference;
+        public string? IpPreference
+        {
+            get
+            {
+                if (!_mUnknown_IpPreference) return _mValue_IpPreference;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecServiceDiscoveryDnsArgs.IpPreference' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
         /// </summary>
-        [Input("responseType")]
+        [PolicyResourceProperty("responseType", "_mUnknown_ResponseType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResponseType;
-
-        public string? ResponseType => _mResponseType.GetValue("responseType");
+        private string? _mValue_ResponseType;
+        private bool _mUnknown_ResponseType;
+        public string? ResponseType
+        {
+            get
+            {
+                if (!_mUnknown_ResponseType) return _mValue_ResponseType;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecServiceDiscoveryDnsArgs.ResponseType' is not present");
+            }
+        }
     }
 }

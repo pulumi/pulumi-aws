@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// A display name for the logical table.
         /// </summary>
-        [Input("alias")]
+        [PolicyResourceProperty("alias", "_mUnknown_Alias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
-
-        public string? Alias => _mAlias.GetValue("alias");
+        private string? _mValue_Alias;
+        private bool _mUnknown_Alias;
+        public string? Alias
+        {
+            get
+            {
+                if (!_mUnknown_Alias) return _mValue_Alias;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapArgs.Alias' is not present");
+            }
+        }
 
         /// <summary>
         /// Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
         /// </summary>
-        [Input("dataTransforms")]
+        [PolicyResourceProperty("dataTransforms", "_mUnknown_DataTransforms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DataSetLogicalTableMapDataTransformArgs>> _mDataTransforms;
-
-        public List<Inputs.DataSetLogicalTableMapDataTransformArgs>? DataTransforms => _mDataTransforms.GetValue("dataTransforms");
+        private List<Inputs.DataSetLogicalTableMapDataTransformArgs>? _mValue_DataTransforms;
+        private bool _mUnknown_DataTransforms;
+        public List<Inputs.DataSetLogicalTableMapDataTransformArgs>? DataTransforms
+        {
+            get
+            {
+                if (!_mUnknown_DataTransforms) return _mValue_DataTransforms;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapArgs.DataTransforms' is not present");
+            }
+        }
 
         /// <summary>
         /// Key of the logical table map.
         /// </summary>
-        [Input("logicalTableMapId")]
+        [PolicyResourceProperty("logicalTableMapId", "_mUnknown_LogicalTableMapId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogicalTableMapId;
-
-        public string? LogicalTableMapId => _mLogicalTableMapId.GetValue("logicalTableMapId");
+        private string? _mValue_LogicalTableMapId;
+        private bool _mUnknown_LogicalTableMapId;
+        public string? LogicalTableMapId
+        {
+            get
+            {
+                if (!_mUnknown_LogicalTableMapId) return _mValue_LogicalTableMapId;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapArgs.LogicalTableMapId' is not present");
+            }
+        }
 
         /// <summary>
         /// Source of this logical table. See source.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSetLogicalTableMapSourceArgs> _mSource;
-
-        public Inputs.DataSetLogicalTableMapSourceArgs? Source => _mSource.GetValue("source");
+        private Inputs.DataSetLogicalTableMapSourceArgs? _mValue_Source;
+        private bool _mUnknown_Source;
+        public Inputs.DataSetLogicalTableMapSourceArgs? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapArgs.Source' is not present");
+            }
+        }
     }
 }

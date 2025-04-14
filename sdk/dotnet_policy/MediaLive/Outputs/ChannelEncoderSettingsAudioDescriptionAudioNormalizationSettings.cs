@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
         /// </summary>
-        [Input("algorithm")]
+        [PolicyResourceProperty("algorithm", "_mUnknown_Algorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlgorithm;
-
-        public string? Algorithm => _mAlgorithm.GetValue("algorithm");
+        private string? _mValue_Algorithm;
+        private bool _mUnknown_Algorithm;
+        public string? Algorithm
+        {
+            get
+            {
+                if (!_mUnknown_Algorithm) return _mValue_Algorithm;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings.Algorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Algorithm control for the audio description.
         /// </summary>
-        [Input("algorithmControl")]
+        [PolicyResourceProperty("algorithmControl", "_mUnknown_AlgorithmControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlgorithmControl;
-
-        public string? AlgorithmControl => _mAlgorithmControl.GetValue("algorithmControl");
+        private string? _mValue_AlgorithmControl;
+        private bool _mUnknown_AlgorithmControl;
+        public string? AlgorithmControl
+        {
+            get
+            {
+                if (!_mUnknown_AlgorithmControl) return _mValue_AlgorithmControl;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings.AlgorithmControl' is not present");
+            }
+        }
 
         /// <summary>
         /// Target LKFS (loudness) to adjust volume to.
         /// </summary>
-        [Input("targetLkfs")]
+        [PolicyResourceProperty("targetLkfs", "_mUnknown_TargetLkfs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mTargetLkfs;
-
-        public double? TargetLkfs => _mTargetLkfs.GetValue("targetLkfs");
+        private double? _mValue_TargetLkfs;
+        private bool _mUnknown_TargetLkfs;
+        public double? TargetLkfs
+        {
+            get
+            {
+                if (!_mUnknown_TargetLkfs) return _mValue_TargetLkfs;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings.TargetLkfs' is not present");
+            }
+        }
     }
 }

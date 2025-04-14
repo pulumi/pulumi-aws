@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ses.Outputs
         /// <summary>
         /// The position of the action in the receipt rule
         /// </summary>
-        [Input("position")]
+        [PolicyResourceProperty("position", "_mUnknown_Position")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPosition;
-
-        public int? Position => _mPosition.GetValue("position");
+        private int? _mValue_Position;
+        private bool _mUnknown_Position;
+        public int? Position
+        {
+            get
+            {
+                if (!_mUnknown_Position) return _mValue_Position;
+                throw new UndeferrableValueException("Value 'ReceiptRuleStopAction.Position' is not present");
+            }
+        }
 
         /// <summary>
         /// The scope to apply. The only acceptable value is `RuleSet`.
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
-
-        public string? Scope => _mScope.GetValue("scope");
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'ReceiptRuleStopAction.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an SNS topic to notify
         /// </summary>
-        [Input("topicArn")]
+        [PolicyResourceProperty("topicArn", "_mUnknown_TopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopicArn;
-
-        public string? TopicArn => _mTopicArn.GetValue("topicArn");
+        private string? _mValue_TopicArn;
+        private bool _mUnknown_TopicArn;
+        public string? TopicArn
+        {
+            get
+            {
+                if (!_mUnknown_TopicArn) return _mValue_TopicArn;
+                throw new UndeferrableValueException("Value 'ReceiptRuleStopAction.TopicArn' is not present");
+            }
+        }
     }
 }

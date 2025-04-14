@@ -15,72 +15,128 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager.Outputs
         /// <summary>
         /// Description of the source.
         /// </summary>
-        [Input("sourceDescription")]
+        [PolicyResourceProperty("sourceDescription", "_mUnknown_SourceDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceDescription;
-
-        public string? SourceDescription => _mSourceDescription.GetValue("sourceDescription");
+        private string? _mValue_SourceDescription;
+        private bool _mUnknown_SourceDescription;
+        public string? SourceDescription
+        {
+            get
+            {
+                if (!_mUnknown_SourceDescription) return _mValue_SourceDescription;
+                throw new UndeferrableValueException("Value 'ControlControlMappingSource.SourceDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
         /// </summary>
-        [Input("sourceFrequency")]
+        [PolicyResourceProperty("sourceFrequency", "_mUnknown_SourceFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceFrequency;
+        private string? _mValue_SourceFrequency;
+        private bool _mUnknown_SourceFrequency;
+        public string? SourceFrequency
+        {
+            get
+            {
+                if (!_mUnknown_SourceFrequency) return _mValue_SourceFrequency;
+                throw new UndeferrableValueException("Value 'ControlControlMappingSource.SourceFrequency' is not present");
+            }
+        }
 
-        public string? SourceFrequency => _mSourceFrequency.GetValue("sourceFrequency");
-
-        [Input("sourceId")]
+        [PolicyResourceProperty("sourceId", "_mUnknown_SourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceId;
-
-        public string? SourceId => _mSourceId.GetValue("sourceId");
+        private string? _mValue_SourceId;
+        private bool _mUnknown_SourceId;
+        public string? SourceId
+        {
+            get
+            {
+                if (!_mUnknown_SourceId) return _mValue_SourceId;
+                throw new UndeferrableValueException("Value 'ControlControlMappingSource.SourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
         /// </summary>
-        [Input("sourceKeyword")]
+        [PolicyResourceProperty("sourceKeyword", "_mUnknown_SourceKeyword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ControlControlMappingSourceSourceKeyword> _mSourceKeyword;
-
-        public Outputs.ControlControlMappingSourceSourceKeyword? SourceKeyword => _mSourceKeyword.GetValue("sourceKeyword");
+        private Outputs.ControlControlMappingSourceSourceKeyword? _mValue_SourceKeyword;
+        private bool _mUnknown_SourceKeyword;
+        public Outputs.ControlControlMappingSourceSourceKeyword? SourceKeyword
+        {
+            get
+            {
+                if (!_mUnknown_SourceKeyword) return _mValue_SourceKeyword;
+                throw new UndeferrableValueException("Value 'ControlControlMappingSource.SourceKeyword' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the source.
         /// </summary>
-        [Input("sourceName")]
+        [PolicyResourceProperty("sourceName", "_mUnknown_SourceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceName;
-
-        public string? SourceName => _mSourceName.GetValue("sourceName");
+        private string? _mValue_SourceName;
+        private bool _mUnknown_SourceName;
+        public string? SourceName
+        {
+            get
+            {
+                if (!_mUnknown_SourceName) return _mValue_SourceName;
+                throw new UndeferrableValueException("Value 'ControlControlMappingSource.SourceName' is not present");
+            }
+        }
 
         /// <summary>
         /// The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
         /// </summary>
-        [Input("sourceSetUpOption")]
+        [PolicyResourceProperty("sourceSetUpOption", "_mUnknown_SourceSetUpOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceSetUpOption;
-
-        public string? SourceSetUpOption => _mSourceSetUpOption.GetValue("sourceSetUpOption");
+        private string? _mValue_SourceSetUpOption;
+        private bool _mUnknown_SourceSetUpOption;
+        public string? SourceSetUpOption
+        {
+            get
+            {
+                if (!_mUnknown_SourceSetUpOption) return _mValue_SourceSetUpOption;
+                throw new UndeferrableValueException("Value 'ControlControlMappingSource.SourceSetUpOption' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of data source for evidence collection. If `source_set_up_option` is manual, the only valid value is `MANUAL`. If `source_set_up_option` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("sourceType")]
+        [PolicyResourceProperty("sourceType", "_mUnknown_SourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceType;
-
-        public string? SourceType => _mSourceType.GetValue("sourceType");
+        private string? _mValue_SourceType;
+        private bool _mUnknown_SourceType;
+        public string? SourceType
+        {
+            get
+            {
+                if (!_mUnknown_SourceType) return _mValue_SourceType;
+                throw new UndeferrableValueException("Value 'ControlControlMappingSource.SourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Instructions for troubleshooting the control.
         /// </summary>
-        [Input("troubleshootingText")]
+        [PolicyResourceProperty("troubleshootingText", "_mUnknown_TroubleshootingText")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTroubleshootingText;
-
-        public string? TroubleshootingText => _mTroubleshootingText.GetValue("troubleshootingText");
+        private string? _mValue_TroubleshootingText;
+        private bool _mUnknown_TroubleshootingText;
+        public string? TroubleshootingText
+        {
+            get
+            {
+                if (!_mUnknown_TroubleshootingText) return _mValue_TroubleshootingText;
+                throw new UndeferrableValueException("Value 'ControlControlMappingSource.TroubleshootingText' is not present");
+            }
+        }
     }
 }

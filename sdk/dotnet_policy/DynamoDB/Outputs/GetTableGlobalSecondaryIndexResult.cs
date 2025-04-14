@@ -12,55 +12,111 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB.Outputs
 {
     public sealed class GetTableGlobalSecondaryIndexResult
     {
-        [Input("hashKey")]
+        [PolicyResourceProperty("hashKey", "_mUnknown_HashKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHashKey;
-
-        public string? HashKey => _mHashKey.GetValue("hashKey");
+        private string? _mValue_HashKey;
+        private bool _mUnknown_HashKey;
+        public string? HashKey
+        {
+            get
+            {
+                if (!_mUnknown_HashKey) return _mValue_HashKey;
+                throw new UndeferrableValueException("Value 'GetTableGlobalSecondaryIndexResult.HashKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the DynamoDB table.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetTableGlobalSecondaryIndexResult.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("nonKeyAttributes")]
+        [PolicyResourceProperty("nonKeyAttributes", "_mUnknown_NonKeyAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNonKeyAttributes;
+        private List<string>? _mValue_NonKeyAttributes;
+        private bool _mUnknown_NonKeyAttributes;
+        public List<string>? NonKeyAttributes
+        {
+            get
+            {
+                if (!_mUnknown_NonKeyAttributes) return _mValue_NonKeyAttributes;
+                throw new UndeferrableValueException("Value 'GetTableGlobalSecondaryIndexResult.NonKeyAttributes' is not present");
+            }
+        }
 
-        public List<string>? NonKeyAttributes => _mNonKeyAttributes.GetValue("nonKeyAttributes");
-
-        [Input("onDemandThroughputs")]
+        [PolicyResourceProperty("onDemandThroughputs", "_mUnknown_OnDemandThroughputs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetTableGlobalSecondaryIndexOnDemandThroughputResult>> _mOnDemandThroughputs;
+        private List<Outputs.GetTableGlobalSecondaryIndexOnDemandThroughputResult>? _mValue_OnDemandThroughputs;
+        private bool _mUnknown_OnDemandThroughputs;
+        public List<Outputs.GetTableGlobalSecondaryIndexOnDemandThroughputResult>? OnDemandThroughputs
+        {
+            get
+            {
+                if (!_mUnknown_OnDemandThroughputs) return _mValue_OnDemandThroughputs;
+                throw new UndeferrableValueException("Value 'GetTableGlobalSecondaryIndexResult.OnDemandThroughputs' is not present");
+            }
+        }
 
-        public List<Outputs.GetTableGlobalSecondaryIndexOnDemandThroughputResult>? OnDemandThroughputs => _mOnDemandThroughputs.GetValue("onDemandThroughputs");
-
-        [Input("projectionType")]
+        [PolicyResourceProperty("projectionType", "_mUnknown_ProjectionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectionType;
+        private string? _mValue_ProjectionType;
+        private bool _mUnknown_ProjectionType;
+        public string? ProjectionType
+        {
+            get
+            {
+                if (!_mUnknown_ProjectionType) return _mValue_ProjectionType;
+                throw new UndeferrableValueException("Value 'GetTableGlobalSecondaryIndexResult.ProjectionType' is not present");
+            }
+        }
 
-        public string? ProjectionType => _mProjectionType.GetValue("projectionType");
-
-        [Input("rangeKey")]
+        [PolicyResourceProperty("rangeKey", "_mUnknown_RangeKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRangeKey;
+        private string? _mValue_RangeKey;
+        private bool _mUnknown_RangeKey;
+        public string? RangeKey
+        {
+            get
+            {
+                if (!_mUnknown_RangeKey) return _mValue_RangeKey;
+                throw new UndeferrableValueException("Value 'GetTableGlobalSecondaryIndexResult.RangeKey' is not present");
+            }
+        }
 
-        public string? RangeKey => _mRangeKey.GetValue("rangeKey");
-
-        [Input("readCapacity")]
+        [PolicyResourceProperty("readCapacity", "_mUnknown_ReadCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mReadCapacity;
+        private int? _mValue_ReadCapacity;
+        private bool _mUnknown_ReadCapacity;
+        public int? ReadCapacity
+        {
+            get
+            {
+                if (!_mUnknown_ReadCapacity) return _mValue_ReadCapacity;
+                throw new UndeferrableValueException("Value 'GetTableGlobalSecondaryIndexResult.ReadCapacity' is not present");
+            }
+        }
 
-        public int? ReadCapacity => _mReadCapacity.GetValue("readCapacity");
-
-        [Input("writeCapacity")]
+        [PolicyResourceProperty("writeCapacity", "_mUnknown_WriteCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWriteCapacity;
-
-        public int? WriteCapacity => _mWriteCapacity.GetValue("writeCapacity");
+        private int? _mValue_WriteCapacity;
+        private bool _mUnknown_WriteCapacity;
+        public int? WriteCapacity
+        {
+            get
+            {
+                if (!_mUnknown_WriteCapacity) return _mValue_WriteCapacity;
+                throw new UndeferrableValueException("Value 'GetTableGlobalSecondaryIndexResult.WriteCapacity' is not present");
+            }
+        }
     }
 }

@@ -16,61 +16,110 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// <summary>
         /// Amazon Resource Name (ARN) of the access log subscription.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'AccessLogSubscription.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the log destination.
         /// </summary>
-        [Input("destinationArn")]
+        [PolicyResourceProperty("destinationArn", "_mUnknown_DestinationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
-
-        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
+        private string? _mValue_DestinationArn;
+        private bool _mUnknown_DestinationArn;
+        public string? DestinationArn
+        {
+            get
+            {
+                if (!_mUnknown_DestinationArn) return _mValue_DestinationArn;
+                throw new UndeferrableValueException("Value 'AccessLogSubscription.DestinationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the service network or service.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'AccessLogSubscription.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("resourceIdentifier")]
+        [PolicyResourceProperty("resourceIdentifier", "_mUnknown_ResourceIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceIdentifier;
-
-        public string? ResourceIdentifier => _mResourceIdentifier.GetValue("resourceIdentifier");
+        private string? _mValue_ResourceIdentifier;
+        private bool _mUnknown_ResourceIdentifier;
+        public string? ResourceIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ResourceIdentifier) return _mValue_ResourceIdentifier;
+                throw new UndeferrableValueException("Value 'AccessLogSubscription.ResourceIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
         /// </summary>
-        [Input("serviceNetworkLogType")]
+        [PolicyResourceProperty("serviceNetworkLogType", "_mUnknown_ServiceNetworkLogType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNetworkLogType;
+        private string? _mValue_ServiceNetworkLogType;
+        private bool _mUnknown_ServiceNetworkLogType;
+        public string? ServiceNetworkLogType
+        {
+            get
+            {
+                if (!_mUnknown_ServiceNetworkLogType) return _mValue_ServiceNetworkLogType;
+                throw new UndeferrableValueException("Value 'AccessLogSubscription.ServiceNetworkLogType' is not present");
+            }
+        }
 
-        public string? ServiceNetworkLogType => _mServiceNetworkLogType.GetValue("serviceNetworkLogType");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AccessLogSubscription.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'AccessLogSubscription.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:vpclattice/accessLogSubscription:AccessLogSubscription")]
@@ -79,36 +128,64 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// <summary>
         /// Amazon Resource Name (ARN) of the log destination.
         /// </summary>
-        [Input("destinationArn")]
+        [PolicyResourceProperty("destinationArn", "_mUnknown_DestinationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
-
-        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
+        private string? _mValue_DestinationArn;
+        private bool _mUnknown_DestinationArn;
+        public string? DestinationArn
+        {
+            get
+            {
+                if (!_mUnknown_DestinationArn) return _mValue_DestinationArn;
+                throw new UndeferrableValueException("Value 'AccessLogSubscriptionArgs.DestinationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("resourceIdentifier")]
+        [PolicyResourceProperty("resourceIdentifier", "_mUnknown_ResourceIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceIdentifier;
-
-        public string? ResourceIdentifier => _mResourceIdentifier.GetValue("resourceIdentifier");
+        private string? _mValue_ResourceIdentifier;
+        private bool _mUnknown_ResourceIdentifier;
+        public string? ResourceIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ResourceIdentifier) return _mValue_ResourceIdentifier;
+                throw new UndeferrableValueException("Value 'AccessLogSubscriptionArgs.ResourceIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
         /// </summary>
-        [Input("serviceNetworkLogType")]
+        [PolicyResourceProperty("serviceNetworkLogType", "_mUnknown_ServiceNetworkLogType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNetworkLogType;
+        private string? _mValue_ServiceNetworkLogType;
+        private bool _mUnknown_ServiceNetworkLogType;
+        public string? ServiceNetworkLogType
+        {
+            get
+            {
+                if (!_mUnknown_ServiceNetworkLogType) return _mValue_ServiceNetworkLogType;
+                throw new UndeferrableValueException("Value 'AccessLogSubscriptionArgs.ServiceNetworkLogType' is not present");
+            }
+        }
 
-        public string? ServiceNetworkLogType => _mServiceNetworkLogType.GetValue("serviceNetworkLogType");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AccessLogSubscriptionArgs.Tags' is not present");
+            }
+        }
     }
 }

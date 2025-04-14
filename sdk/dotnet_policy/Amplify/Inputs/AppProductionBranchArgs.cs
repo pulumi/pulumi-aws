@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Amplify.Inputs
         /// <summary>
         /// Branch name for the production branch.
         /// </summary>
-        [Input("branchName")]
+        [PolicyResourceProperty("branchName", "_mUnknown_BranchName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBranchName;
-
-        public string? BranchName => _mBranchName.GetValue("branchName");
+        private string? _mValue_BranchName;
+        private bool _mUnknown_BranchName;
+        public string? BranchName
+        {
+            get
+            {
+                if (!_mUnknown_BranchName) return _mValue_BranchName;
+                throw new UndeferrableValueException("Value 'AppProductionBranchArgs.BranchName' is not present");
+            }
+        }
 
         /// <summary>
         /// Last deploy time of the production branch.
         /// </summary>
-        [Input("lastDeployTime")]
+        [PolicyResourceProperty("lastDeployTime", "_mUnknown_LastDeployTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastDeployTime;
-
-        public string? LastDeployTime => _mLastDeployTime.GetValue("lastDeployTime");
+        private string? _mValue_LastDeployTime;
+        private bool _mUnknown_LastDeployTime;
+        public string? LastDeployTime
+        {
+            get
+            {
+                if (!_mUnknown_LastDeployTime) return _mValue_LastDeployTime;
+                throw new UndeferrableValueException("Value 'AppProductionBranchArgs.LastDeployTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the production branch.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'AppProductionBranchArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Thumbnail URL for the production branch.
         /// </summary>
-        [Input("thumbnailUrl")]
+        [PolicyResourceProperty("thumbnailUrl", "_mUnknown_ThumbnailUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThumbnailUrl;
-
-        public string? ThumbnailUrl => _mThumbnailUrl.GetValue("thumbnailUrl");
+        private string? _mValue_ThumbnailUrl;
+        private bool _mUnknown_ThumbnailUrl;
+        public string? ThumbnailUrl
+        {
+            get
+            {
+                if (!_mUnknown_ThumbnailUrl) return _mValue_ThumbnailUrl;
+                throw new UndeferrableValueException("Value 'AppProductionBranchArgs.ThumbnailUrl' is not present");
+            }
+        }
     }
 }

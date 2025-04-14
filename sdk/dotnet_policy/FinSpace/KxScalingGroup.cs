@@ -16,76 +16,132 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// <summary>
         /// Amazon Resource Name (ARN) identifier of the KX Scaling Group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'KxScalingGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The availability zone identifiers for the requested regions.
         /// </summary>
-        [Input("availabilityZoneId")]
+        [PolicyResourceProperty("availabilityZoneId", "_mUnknown_AvailabilityZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneId;
-
-        public string? AvailabilityZoneId => _mAvailabilityZoneId.GetValue("availabilityZoneId");
+        private string? _mValue_AvailabilityZoneId;
+        private bool _mUnknown_AvailabilityZoneId;
+        public string? AvailabilityZoneId
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZoneId) return _mValue_AvailabilityZoneId;
+                throw new UndeferrableValueException("Value 'KxScalingGroup.AvailabilityZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of Managed kdb clusters that are currently active in the given scaling group.
         /// </summary>
-        [Input("clusters")]
+        [PolicyResourceProperty("clusters", "_mUnknown_Clusters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClusters;
-
-        public List<string>? Clusters => _mClusters.GetValue("clusters");
+        private List<string>? _mValue_Clusters;
+        private bool _mUnknown_Clusters;
+        public List<string>? Clusters
+        {
+            get
+            {
+                if (!_mUnknown_Clusters) return _mValue_Clusters;
+                throw new UndeferrableValueException("Value 'KxScalingGroup.Clusters' is not present");
+            }
+        }
 
         /// <summary>
         /// The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         /// </summary>
-        [Input("createdTimestamp")]
+        [PolicyResourceProperty("createdTimestamp", "_mUnknown_CreatedTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTimestamp;
-
-        public string? CreatedTimestamp => _mCreatedTimestamp.GetValue("createdTimestamp");
+        private string? _mValue_CreatedTimestamp;
+        private bool _mUnknown_CreatedTimestamp;
+        public string? CreatedTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTimestamp) return _mValue_CreatedTimestamp;
+                throw new UndeferrableValueException("Value 'KxScalingGroup.CreatedTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier for the kdb environment, where you want to create the scaling group.
         /// </summary>
-        [Input("environmentId")]
+        [PolicyResourceProperty("environmentId", "_mUnknown_EnvironmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
-
-        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+        private string? _mValue_EnvironmentId;
+        private bool _mUnknown_EnvironmentId;
+        public string? EnvironmentId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentId) return _mValue_EnvironmentId;
+                throw new UndeferrableValueException("Value 'KxScalingGroup.EnvironmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("hostType")]
+        [PolicyResourceProperty("hostType", "_mUnknown_HostType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostType;
-
-        public string? HostType => _mHostType.GetValue("hostType");
+        private string? _mValue_HostType;
+        private bool _mUnknown_HostType;
+        public string? HostType
+        {
+            get
+            {
+                if (!_mUnknown_HostType) return _mValue_HostType;
+                throw new UndeferrableValueException("Value 'KxScalingGroup.HostType' is not present");
+            }
+        }
 
         /// <summary>
         /// Last timestamp at which the scaling group was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         /// </summary>
-        [Input("lastModifiedTimestamp")]
+        [PolicyResourceProperty("lastModifiedTimestamp", "_mUnknown_LastModifiedTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedTimestamp;
-
-        public string? LastModifiedTimestamp => _mLastModifiedTimestamp.GetValue("lastModifiedTimestamp");
+        private string? _mValue_LastModifiedTimestamp;
+        private bool _mUnknown_LastModifiedTimestamp;
+        public string? LastModifiedTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_LastModifiedTimestamp) return _mValue_LastModifiedTimestamp;
+                throw new UndeferrableValueException("Value 'KxScalingGroup.LastModifiedTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the scaling group that you want to create.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'KxScalingGroup.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of scaling group.
@@ -98,38 +154,66 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// * `DELETE_FAILED` – The system failed to delete the scaling group.
         /// * `DELETED` – The scaling group is successfully deleted.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'KxScalingGroup.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The error message when a failed state occurs.
         /// </summary>
-        [Input("statusReason")]
+        [PolicyResourceProperty("statusReason", "_mUnknown_StatusReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusReason;
-
-        public string? StatusReason => _mStatusReason.GetValue("statusReason");
+        private string? _mValue_StatusReason;
+        private bool _mUnknown_StatusReason;
+        public string? StatusReason
+        {
+            get
+            {
+                if (!_mUnknown_StatusReason) return _mValue_StatusReason;
+                throw new UndeferrableValueException("Value 'KxScalingGroup.StatusReason' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'KxScalingGroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'KxScalingGroup.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:finspace/kxScalingGroup:KxScalingGroup")]
@@ -138,48 +222,83 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// <summary>
         /// The availability zone identifiers for the requested regions.
         /// </summary>
-        [Input("availabilityZoneId")]
+        [PolicyResourceProperty("availabilityZoneId", "_mUnknown_AvailabilityZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneId;
-
-        public string? AvailabilityZoneId => _mAvailabilityZoneId.GetValue("availabilityZoneId");
+        private string? _mValue_AvailabilityZoneId;
+        private bool _mUnknown_AvailabilityZoneId;
+        public string? AvailabilityZoneId
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZoneId) return _mValue_AvailabilityZoneId;
+                throw new UndeferrableValueException("Value 'KxScalingGroupArgs.AvailabilityZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier for the kdb environment, where you want to create the scaling group.
         /// </summary>
-        [Input("environmentId")]
+        [PolicyResourceProperty("environmentId", "_mUnknown_EnvironmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
-
-        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+        private string? _mValue_EnvironmentId;
+        private bool _mUnknown_EnvironmentId;
+        public string? EnvironmentId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentId) return _mValue_EnvironmentId;
+                throw new UndeferrableValueException("Value 'KxScalingGroupArgs.EnvironmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("hostType")]
+        [PolicyResourceProperty("hostType", "_mUnknown_HostType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostType;
-
-        public string? HostType => _mHostType.GetValue("hostType");
+        private string? _mValue_HostType;
+        private bool _mUnknown_HostType;
+        public string? HostType
+        {
+            get
+            {
+                if (!_mUnknown_HostType) return _mValue_HostType;
+                throw new UndeferrableValueException("Value 'KxScalingGroupArgs.HostType' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the scaling group that you want to create.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'KxScalingGroupArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'KxScalingGroupArgs.Tags' is not present");
+            }
+        }
     }
 }

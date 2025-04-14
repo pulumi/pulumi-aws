@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetNetworkInterfaceAttachmentResult
     {
-        [Input("attachmentId")]
+        [PolicyResourceProperty("attachmentId", "_mUnknown_AttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentId;
+        private string? _mValue_AttachmentId;
+        private bool _mUnknown_AttachmentId;
+        public string? AttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentId) return _mValue_AttachmentId;
+                throw new UndeferrableValueException("Value 'GetNetworkInterfaceAttachmentResult.AttachmentId' is not present");
+            }
+        }
 
-        public string? AttachmentId => _mAttachmentId.GetValue("attachmentId");
-
-        [Input("deviceIndex")]
+        [PolicyResourceProperty("deviceIndex", "_mUnknown_DeviceIndex")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeviceIndex;
+        private int? _mValue_DeviceIndex;
+        private bool _mUnknown_DeviceIndex;
+        public int? DeviceIndex
+        {
+            get
+            {
+                if (!_mUnknown_DeviceIndex) return _mValue_DeviceIndex;
+                throw new UndeferrableValueException("Value 'GetNetworkInterfaceAttachmentResult.DeviceIndex' is not present");
+            }
+        }
 
-        public int? DeviceIndex => _mDeviceIndex.GetValue("deviceIndex");
-
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'GetNetworkInterfaceAttachmentResult.InstanceId' is not present");
+            }
+        }
 
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
-
-        [Input("instanceOwnerId")]
+        [PolicyResourceProperty("instanceOwnerId", "_mUnknown_InstanceOwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceOwnerId;
-
-        public string? InstanceOwnerId => _mInstanceOwnerId.GetValue("instanceOwnerId");
+        private string? _mValue_InstanceOwnerId;
+        private bool _mUnknown_InstanceOwnerId;
+        public string? InstanceOwnerId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceOwnerId) return _mValue_InstanceOwnerId;
+                throw new UndeferrableValueException("Value 'GetNetworkInterfaceAttachmentResult.InstanceOwnerId' is not present");
+            }
+        }
     }
 }

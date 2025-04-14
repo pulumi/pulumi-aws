@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.GameLift
         /// <summary>
         /// GameLift Script ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Script.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the script
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Script.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Information indicating where your game script files are stored. See below.
         /// </summary>
-        [Input("storageLocation")]
+        [PolicyResourceProperty("storageLocation", "_mUnknown_StorageLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScriptStorageLocation> _mStorageLocation;
-
-        public Outputs.ScriptStorageLocation? StorageLocation => _mStorageLocation.GetValue("storageLocation");
+        private Outputs.ScriptStorageLocation? _mValue_StorageLocation;
+        private bool _mUnknown_StorageLocation;
+        public Outputs.ScriptStorageLocation? StorageLocation
+        {
+            get
+            {
+                if (!_mUnknown_StorageLocation) return _mValue_StorageLocation;
+                throw new UndeferrableValueException("Value 'Script.StorageLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Script.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Script.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Version that is associated with this script.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'Script.Version' is not present");
+            }
+        }
 
         /// <summary>
         /// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
         /// </summary>
-        [Input("zipFile")]
+        [PolicyResourceProperty("zipFile", "_mUnknown_ZipFile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZipFile;
-
-        public string? ZipFile => _mZipFile.GetValue("zipFile");
+        private string? _mValue_ZipFile;
+        private bool _mUnknown_ZipFile;
+        public string? ZipFile
+        {
+            get
+            {
+                if (!_mUnknown_ZipFile) return _mValue_ZipFile;
+                throw new UndeferrableValueException("Value 'Script.ZipFile' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:gamelift/script:Script")]
@@ -83,46 +132,81 @@ namespace Pulumi.PolicyPacks.Aws.GameLift
         /// <summary>
         /// Name of the script
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ScriptArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Information indicating where your game script files are stored. See below.
         /// </summary>
-        [Input("storageLocation")]
+        [PolicyResourceProperty("storageLocation", "_mUnknown_StorageLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScriptStorageLocationArgs> _mStorageLocation;
-
-        public Inputs.ScriptStorageLocationArgs? StorageLocation => _mStorageLocation.GetValue("storageLocation");
+        private Inputs.ScriptStorageLocationArgs? _mValue_StorageLocation;
+        private bool _mUnknown_StorageLocation;
+        public Inputs.ScriptStorageLocationArgs? StorageLocation
+        {
+            get
+            {
+                if (!_mUnknown_StorageLocation) return _mValue_StorageLocation;
+                throw new UndeferrableValueException("Value 'ScriptArgs.StorageLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ScriptArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Version that is associated with this script.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'ScriptArgs.Version' is not present");
+            }
+        }
 
         /// <summary>
         /// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
         /// </summary>
-        [Input("zipFile")]
+        [PolicyResourceProperty("zipFile", "_mUnknown_ZipFile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZipFile;
-
-        public string? ZipFile => _mZipFile.GetValue("zipFile");
+        private string? _mValue_ZipFile;
+        private bool _mUnknown_ZipFile;
+        public string? ZipFile
+        {
+            get
+            {
+                if (!_mUnknown_ZipFile) return _mValue_ZipFile;
+                throw new UndeferrableValueException("Value 'ScriptArgs.ZipFile' is not present");
+            }
+        }
     }
 }

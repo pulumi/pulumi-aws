@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Rds.Outputs
         /// <summary>
         /// List of DB Security Groups for which the option is enabled.
         /// </summary>
-        [Input("dbSecurityGroupMemberships")]
+        [PolicyResourceProperty("dbSecurityGroupMemberships", "_mUnknown_DbSecurityGroupMemberships")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDbSecurityGroupMemberships;
-
-        public List<string>? DbSecurityGroupMemberships => _mDbSecurityGroupMemberships.GetValue("dbSecurityGroupMemberships");
+        private List<string>? _mValue_DbSecurityGroupMemberships;
+        private bool _mUnknown_DbSecurityGroupMemberships;
+        public List<string>? DbSecurityGroupMemberships
+        {
+            get
+            {
+                if (!_mUnknown_DbSecurityGroupMemberships) return _mValue_DbSecurityGroupMemberships;
+                throw new UndeferrableValueException("Value 'OptionGroupOption.DbSecurityGroupMemberships' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the option (e.g., MEMCACHED).
         /// </summary>
-        [Input("optionName")]
+        [PolicyResourceProperty("optionName", "_mUnknown_OptionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOptionName;
-
-        public string? OptionName => _mOptionName.GetValue("optionName");
+        private string? _mValue_OptionName;
+        private bool _mUnknown_OptionName;
+        public string? OptionName
+        {
+            get
+            {
+                if (!_mUnknown_OptionName) return _mValue_OptionName;
+                throw new UndeferrableValueException("Value 'OptionGroupOption.OptionName' is not present");
+            }
+        }
 
         /// <summary>
         /// The option settings to apply. See `option_settings` Block below for more details.
         /// </summary>
-        [Input("optionSettings")]
+        [PolicyResourceProperty("optionSettings", "_mUnknown_OptionSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OptionGroupOptionOptionSetting>> _mOptionSettings;
-
-        public List<Outputs.OptionGroupOptionOptionSetting>? OptionSettings => _mOptionSettings.GetValue("optionSettings");
+        private List<Outputs.OptionGroupOptionOptionSetting>? _mValue_OptionSettings;
+        private bool _mUnknown_OptionSettings;
+        public List<Outputs.OptionGroupOptionOptionSetting>? OptionSettings
+        {
+            get
+            {
+                if (!_mUnknown_OptionSettings) return _mValue_OptionSettings;
+                throw new UndeferrableValueException("Value 'OptionGroupOption.OptionSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'OptionGroupOption.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'OptionGroupOption.Version' is not present");
+            }
+        }
 
         /// <summary>
         /// List of VPC Security Groups for which the option is enabled.
         /// </summary>
-        [Input("vpcSecurityGroupMemberships")]
+        [PolicyResourceProperty("vpcSecurityGroupMemberships", "_mUnknown_VpcSecurityGroupMemberships")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupMemberships;
-
-        public List<string>? VpcSecurityGroupMemberships => _mVpcSecurityGroupMemberships.GetValue("vpcSecurityGroupMemberships");
+        private List<string>? _mValue_VpcSecurityGroupMemberships;
+        private bool _mUnknown_VpcSecurityGroupMemberships;
+        public List<string>? VpcSecurityGroupMemberships
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupMemberships) return _mValue_VpcSecurityGroupMemberships;
+                throw new UndeferrableValueException("Value 'OptionGroupOption.VpcSecurityGroupMemberships' is not present");
+            }
+        }
     }
 }

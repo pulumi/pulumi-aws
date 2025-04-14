@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.LB.Outputs
         /// <summary>
         /// Only used when the type is `lb_cookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
         /// </summary>
-        [Input("cookieDuration")]
+        [PolicyResourceProperty("cookieDuration", "_mUnknown_CookieDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCookieDuration;
-
-        public int? CookieDuration => _mCookieDuration.GetValue("cookieDuration");
+        private int? _mValue_CookieDuration;
+        private bool _mUnknown_CookieDuration;
+        public int? CookieDuration
+        {
+            get
+            {
+                if (!_mUnknown_CookieDuration) return _mValue_CookieDuration;
+                throw new UndeferrableValueException("Value 'TargetGroupStickiness.CookieDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `app_cookie`.
         /// </summary>
-        [Input("cookieName")]
+        [PolicyResourceProperty("cookieName", "_mUnknown_CookieName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCookieName;
-
-        public string? CookieName => _mCookieName.GetValue("cookieName");
+        private string? _mValue_CookieName;
+        private bool _mUnknown_CookieName;
+        public string? CookieName
+        {
+            get
+            {
+                if (!_mUnknown_CookieName) return _mValue_CookieName;
+                throw new UndeferrableValueException("Value 'TargetGroupStickiness.CookieName' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean to enable / disable `stickiness`. Default is `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'TargetGroupStickiness.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, `source_ip` for NLBs, and `source_ip_dest_ip`, `source_ip_dest_ip_proto` for GWLBs.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'TargetGroupStickiness.Type' is not present");
+            }
+        }
     }
 }

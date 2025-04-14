@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway.Inputs
         /// <summary>
         /// A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
         /// </summary>
-        [Input("types")]
+        [PolicyResourceProperty("types", "_mUnknown_Types")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTypes;
-
-        public string? Types => _mTypes.GetValue("types");
+        private string? _mValue_Types;
+        private bool _mUnknown_Types;
+        public string? Types
+        {
+            get
+            {
+                if (!_mUnknown_Types) return _mValue_Types;
+                throw new UndeferrableValueException("Value 'DomainNameEndpointConfigurationArgs.Types' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// A storage location specification for images extracted from multimodal documents in your data source.  See `storage_location` block for details.
         /// </summary>
-        [Input("storageLocations")]
+        [PolicyResourceProperty("storageLocations", "_mUnknown_StorageLocations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation>> _mStorageLocations;
-
-        public List<Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation>? StorageLocations => _mStorageLocations.GetValue("storageLocations");
+        private List<Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation>? _mValue_StorageLocations;
+        private bool _mUnknown_StorageLocations;
+        public List<Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation>? StorageLocations
+        {
+            get
+            {
+                if (!_mUnknown_StorageLocations) return _mValue_StorageLocations;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration.StorageLocations' is not present");
+            }
+        }
     }
 }

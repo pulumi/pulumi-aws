@@ -15,25 +15,46 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Inputs
         /// <summary>
         /// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
         /// </summary>
-        [Input("computeReservation")]
+        [PolicyResourceProperty("computeReservation", "_mUnknown_ComputeReservation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mComputeReservation;
+        private int? _mValue_ComputeReservation;
+        private bool _mUnknown_ComputeReservation;
+        public int? ComputeReservation
+        {
+            get
+            {
+                if (!_mUnknown_ComputeReservation) return _mValue_ComputeReservation;
+                throw new UndeferrableValueException("Value 'SchedulingPolicyFairSharePolicyArgs.ComputeReservation' is not present");
+            }
+        }
 
-        public int? ComputeReservation => _mComputeReservation.GetValue("computeReservation");
-
-        [Input("shareDecaySeconds")]
+        [PolicyResourceProperty("shareDecaySeconds", "_mUnknown_ShareDecaySeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mShareDecaySeconds;
-
-        public int? ShareDecaySeconds => _mShareDecaySeconds.GetValue("shareDecaySeconds");
+        private int? _mValue_ShareDecaySeconds;
+        private bool _mUnknown_ShareDecaySeconds;
+        public int? ShareDecaySeconds
+        {
+            get
+            {
+                if (!_mUnknown_ShareDecaySeconds) return _mValue_ShareDecaySeconds;
+                throw new UndeferrableValueException("Value 'SchedulingPolicyFairSharePolicyArgs.ShareDecaySeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
         /// </summary>
-        [Input("shareDistributions")]
+        [PolicyResourceProperty("shareDistributions", "_mUnknown_ShareDistributions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs>> _mShareDistributions;
-
-        public List<Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs>? ShareDistributions => _mShareDistributions.GetValue("shareDistributions");
+        private List<Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs>? _mValue_ShareDistributions;
+        private bool _mUnknown_ShareDistributions;
+        public List<Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs>? ShareDistributions
+        {
+            get
+            {
+                if (!_mUnknown_ShareDistributions) return _mValue_ShareDistributions;
+                throw new UndeferrableValueException("Value 'SchedulingPolicyFairSharePolicyArgs.ShareDistributions' is not present");
+            }
+        }
     }
 }

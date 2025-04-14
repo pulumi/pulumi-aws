@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         /// </summary>
-        [Input("secretName")]
+        [PolicyResourceProperty("secretName", "_mUnknown_SecretName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretName;
-
-        public string? SecretName => _mSecretName.GetValue("secretName");
+        private string? _mValue_SecretName;
+        private bool _mUnknown_SecretName;
+        public string? SecretName
+        {
+            get
+            {
+                if (!_mUnknown_SecretName) return _mValue_SecretName;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds.SecretName' is not present");
+            }
+        }
     }
 }

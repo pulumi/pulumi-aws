@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.BcmData.Inputs
         /// <summary>
         /// Compression type for the data export. Valid values `GZIP`, `PARQUET`.
         /// </summary>
-        [Input("compression")]
+        [PolicyResourceProperty("compression", "_mUnknown_Compression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCompression;
-
-        public string? Compression => _mCompression.GetValue("compression");
+        private string? _mValue_Compression;
+        private bool _mUnknown_Compression;
+        public string? Compression
+        {
+            get
+            {
+                if (!_mUnknown_Compression) return _mValue_Compression;
+                throw new UndeferrableValueException("Value 'ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs.Compression' is not present");
+            }
+        }
 
         /// <summary>
         /// File format for the data export. Valid values `TEXT_OR_CSV` or `PARQUET`.
         /// </summary>
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
-
-        public string? Format => _mFormat.GetValue("format");
+        private string? _mValue_Format;
+        private bool _mUnknown_Format;
+        public string? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs.Format' is not present");
+            }
+        }
 
         /// <summary>
         /// Output type for the data export. Valid value `CUSTOM`.
         /// </summary>
-        [Input("outputType")]
+        [PolicyResourceProperty("outputType", "_mUnknown_OutputType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputType;
-
-        public string? OutputType => _mOutputType.GetValue("outputType");
+        private string? _mValue_OutputType;
+        private bool _mUnknown_OutputType;
+        public string? OutputType
+        {
+            get
+            {
+                if (!_mUnknown_OutputType) return _mValue_OutputType;
+                throw new UndeferrableValueException("Value 'ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs.OutputType' is not present");
+            }
+        }
 
         /// <summary>
         /// The rule to follow when generating a version of the data export file. You have the choice to overwrite the previous version or to be delivered in addition to the previous versions. Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows you to track the changes in cost and usage data over time. Valid values `CREATE_NEW_REPORT` or `OVERWRITE_REPORT`.
         /// </summary>
-        [Input("overwrite")]
+        [PolicyResourceProperty("overwrite", "_mUnknown_Overwrite")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOverwrite;
-
-        public string? Overwrite => _mOverwrite.GetValue("overwrite");
+        private string? _mValue_Overwrite;
+        private bool _mUnknown_Overwrite;
+        public string? Overwrite
+        {
+            get
+            {
+                if (!_mUnknown_Overwrite) return _mValue_Overwrite;
+                throw new UndeferrableValueException("Value 'ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs.Overwrite' is not present");
+            }
+        }
     }
 }

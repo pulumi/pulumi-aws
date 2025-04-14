@@ -16,163 +16,289 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery
         /// <summary>
         /// ARN of the Scheduled Query.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ScheduledQuery.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Creation time for the scheduled query.
         /// </summary>
-        [Input("creationTime")]
+        [PolicyResourceProperty("creationTime", "_mUnknown_CreationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
-
-        public string? CreationTime => _mCreationTime.GetValue("creationTime");
+        private string? _mValue_CreationTime;
+        private bool _mUnknown_CreationTime;
+        public string? CreationTime
+        {
+            get
+            {
+                if (!_mUnknown_CreationTime) return _mValue_CreationTime;
+                throw new UndeferrableValueException("Value 'ScheduledQuery.CreationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for error reporting configuration. See below.
         /// </summary>
-        [Input("errorReportConfiguration")]
+        [PolicyResourceProperty("errorReportConfiguration", "_mUnknown_ErrorReportConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduledQueryErrorReportConfiguration> _mErrorReportConfiguration;
-
-        public Outputs.ScheduledQueryErrorReportConfiguration? ErrorReportConfiguration => _mErrorReportConfiguration.GetValue("errorReportConfiguration");
+        private Outputs.ScheduledQueryErrorReportConfiguration? _mValue_ErrorReportConfiguration;
+        private bool _mUnknown_ErrorReportConfiguration;
+        public Outputs.ScheduledQueryErrorReportConfiguration? ErrorReportConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ErrorReportConfiguration) return _mValue_ErrorReportConfiguration;
+                throw new UndeferrableValueException("Value 'ScheduledQuery.ErrorReportConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the IAM role that Timestream will assume when running the scheduled query.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'ScheduledQuery.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `error_report_configuration` uses `SSE_KMS` as the encryption type, the same `kms_key_id` is used to encrypt the error report at rest.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ScheduledQuery.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Runtime summary for the last scheduled query run.
         /// </summary>
-        [Input("lastRunSummaries")]
+        [PolicyResourceProperty("lastRunSummaries", "_mUnknown_LastRunSummaries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ScheduledQueryLastRunSummary>> _mLastRunSummaries;
-
-        public List<Outputs.ScheduledQueryLastRunSummary>? LastRunSummaries => _mLastRunSummaries.GetValue("lastRunSummaries");
+        private List<Outputs.ScheduledQueryLastRunSummary>? _mValue_LastRunSummaries;
+        private bool _mUnknown_LastRunSummaries;
+        public List<Outputs.ScheduledQueryLastRunSummary>? LastRunSummaries
+        {
+            get
+            {
+                if (!_mUnknown_LastRunSummaries) return _mValue_LastRunSummaries;
+                throw new UndeferrableValueException("Value 'ScheduledQuery.LastRunSummaries' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the scheduled query.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ScheduledQuery.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Next time the scheduled query is scheduled to run.
         /// </summary>
-        [Input("nextInvocationTime")]
+        [PolicyResourceProperty("nextInvocationTime", "_mUnknown_NextInvocationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNextInvocationTime;
-
-        public string? NextInvocationTime => _mNextInvocationTime.GetValue("nextInvocationTime");
+        private string? _mValue_NextInvocationTime;
+        private bool _mUnknown_NextInvocationTime;
+        public string? NextInvocationTime
+        {
+            get
+            {
+                if (!_mUnknown_NextInvocationTime) return _mValue_NextInvocationTime;
+                throw new UndeferrableValueException("Value 'ScheduledQuery.NextInvocationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
         /// </summary>
-        [Input("notificationConfiguration")]
+        [PolicyResourceProperty("notificationConfiguration", "_mUnknown_NotificationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduledQueryNotificationConfiguration> _mNotificationConfiguration;
-
-        public Outputs.ScheduledQueryNotificationConfiguration? NotificationConfiguration => _mNotificationConfiguration.GetValue("notificationConfiguration");
+        private Outputs.ScheduledQueryNotificationConfiguration? _mValue_NotificationConfiguration;
+        private bool _mUnknown_NotificationConfiguration;
+        public Outputs.ScheduledQueryNotificationConfiguration? NotificationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_NotificationConfiguration) return _mValue_NotificationConfiguration;
+                throw new UndeferrableValueException("Value 'ScheduledQuery.NotificationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Last time the scheduled query was run.
         /// </summary>
-        [Input("previousInvocationTime")]
+        [PolicyResourceProperty("previousInvocationTime", "_mUnknown_PreviousInvocationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreviousInvocationTime;
-
-        public string? PreviousInvocationTime => _mPreviousInvocationTime.GetValue("previousInvocationTime");
+        private string? _mValue_PreviousInvocationTime;
+        private bool _mUnknown_PreviousInvocationTime;
+        public string? PreviousInvocationTime
+        {
+            get
+            {
+                if (!_mUnknown_PreviousInvocationTime) return _mValue_PreviousInvocationTime;
+                throw new UndeferrableValueException("Value 'ScheduledQuery.PreviousInvocationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
         /// </summary>
-        [Input("queryString")]
+        [PolicyResourceProperty("queryString", "_mUnknown_QueryString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueryString;
-
-        public string? QueryString => _mQueryString.GetValue("queryString");
+        private string? _mValue_QueryString;
+        private bool _mUnknown_QueryString;
+        public string? QueryString
+        {
+            get
+            {
+                if (!_mUnknown_QueryString) return _mValue_QueryString;
+                throw new UndeferrableValueException("Value 'ScheduledQuery.QueryString' is not present");
+            }
+        }
 
         /// <summary>
         /// Runtime summary for the last five failed scheduled query runs.
         /// </summary>
-        [Input("recentlyFailedRuns")]
+        [PolicyResourceProperty("recentlyFailedRuns", "_mUnknown_RecentlyFailedRuns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ScheduledQueryRecentlyFailedRun>> _mRecentlyFailedRuns;
-
-        public List<Outputs.ScheduledQueryRecentlyFailedRun>? RecentlyFailedRuns => _mRecentlyFailedRuns.GetValue("recentlyFailedRuns");
+        private List<Outputs.ScheduledQueryRecentlyFailedRun>? _mValue_RecentlyFailedRuns;
+        private bool _mUnknown_RecentlyFailedRuns;
+        public List<Outputs.ScheduledQueryRecentlyFailedRun>? RecentlyFailedRuns
+        {
+            get
+            {
+                if (!_mUnknown_RecentlyFailedRuns) return _mValue_RecentlyFailedRuns;
+                throw new UndeferrableValueException("Value 'ScheduledQuery.RecentlyFailedRuns' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for schedule configuration for the query. See below.
         /// </summary>
-        [Input("scheduleConfiguration")]
+        [PolicyResourceProperty("scheduleConfiguration", "_mUnknown_ScheduleConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduledQueryScheduleConfiguration> _mScheduleConfiguration;
-
-        public Outputs.ScheduledQueryScheduleConfiguration? ScheduleConfiguration => _mScheduleConfiguration.GetValue("scheduleConfiguration");
+        private Outputs.ScheduledQueryScheduleConfiguration? _mValue_ScheduleConfiguration;
+        private bool _mUnknown_ScheduleConfiguration;
+        public Outputs.ScheduledQueryScheduleConfiguration? ScheduleConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleConfiguration) return _mValue_ScheduleConfiguration;
+                throw new UndeferrableValueException("Value 'ScheduledQuery.ScheduleConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// State of the scheduled query, either `ENABLED` or `DISABLED`.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'ScheduledQuery.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ScheduledQuery.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ScheduledQuery.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for writing the result of a query. See below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("targetConfiguration")]
+        [PolicyResourceProperty("targetConfiguration", "_mUnknown_TargetConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduledQueryTargetConfiguration> _mTargetConfiguration;
+        private Outputs.ScheduledQueryTargetConfiguration? _mValue_TargetConfiguration;
+        private bool _mUnknown_TargetConfiguration;
+        public Outputs.ScheduledQueryTargetConfiguration? TargetConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_TargetConfiguration) return _mValue_TargetConfiguration;
+                throw new UndeferrableValueException("Value 'ScheduledQuery.TargetConfiguration' is not present");
+            }
+        }
 
-        public Outputs.ScheduledQueryTargetConfiguration? TargetConfiguration => _mTargetConfiguration.GetValue("targetConfiguration");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduledQueryTimeouts> _mTimeouts;
-
-        public Outputs.ScheduledQueryTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.ScheduledQueryTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.ScheduledQueryTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ScheduledQuery.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:timestreamquery/scheduledQuery:ScheduledQuery")]
@@ -181,108 +307,192 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery
         /// <summary>
         /// Configuration block for error reporting configuration. See below.
         /// </summary>
-        [Input("errorReportConfiguration")]
+        [PolicyResourceProperty("errorReportConfiguration", "_mUnknown_ErrorReportConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScheduledQueryErrorReportConfigurationArgs> _mErrorReportConfiguration;
-
-        public Inputs.ScheduledQueryErrorReportConfigurationArgs? ErrorReportConfiguration => _mErrorReportConfiguration.GetValue("errorReportConfiguration");
+        private Inputs.ScheduledQueryErrorReportConfigurationArgs? _mValue_ErrorReportConfiguration;
+        private bool _mUnknown_ErrorReportConfiguration;
+        public Inputs.ScheduledQueryErrorReportConfigurationArgs? ErrorReportConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ErrorReportConfiguration) return _mValue_ErrorReportConfiguration;
+                throw new UndeferrableValueException("Value 'ScheduledQueryArgs.ErrorReportConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the IAM role that Timestream will assume when running the scheduled query.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'ScheduledQueryArgs.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `error_report_configuration` uses `SSE_KMS` as the encryption type, the same `kms_key_id` is used to encrypt the error report at rest.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ScheduledQueryArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Runtime summary for the last scheduled query run.
         /// </summary>
-        [Input("lastRunSummaries")]
+        [PolicyResourceProperty("lastRunSummaries", "_mUnknown_LastRunSummaries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ScheduledQueryLastRunSummaryArgs>> _mLastRunSummaries;
-
-        public List<Inputs.ScheduledQueryLastRunSummaryArgs>? LastRunSummaries => _mLastRunSummaries.GetValue("lastRunSummaries");
+        private List<Inputs.ScheduledQueryLastRunSummaryArgs>? _mValue_LastRunSummaries;
+        private bool _mUnknown_LastRunSummaries;
+        public List<Inputs.ScheduledQueryLastRunSummaryArgs>? LastRunSummaries
+        {
+            get
+            {
+                if (!_mUnknown_LastRunSummaries) return _mValue_LastRunSummaries;
+                throw new UndeferrableValueException("Value 'ScheduledQueryArgs.LastRunSummaries' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the scheduled query.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ScheduledQueryArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
         /// </summary>
-        [Input("notificationConfiguration")]
+        [PolicyResourceProperty("notificationConfiguration", "_mUnknown_NotificationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScheduledQueryNotificationConfigurationArgs> _mNotificationConfiguration;
-
-        public Inputs.ScheduledQueryNotificationConfigurationArgs? NotificationConfiguration => _mNotificationConfiguration.GetValue("notificationConfiguration");
+        private Inputs.ScheduledQueryNotificationConfigurationArgs? _mValue_NotificationConfiguration;
+        private bool _mUnknown_NotificationConfiguration;
+        public Inputs.ScheduledQueryNotificationConfigurationArgs? NotificationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_NotificationConfiguration) return _mValue_NotificationConfiguration;
+                throw new UndeferrableValueException("Value 'ScheduledQueryArgs.NotificationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
         /// </summary>
-        [Input("queryString")]
+        [PolicyResourceProperty("queryString", "_mUnknown_QueryString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueryString;
-
-        public string? QueryString => _mQueryString.GetValue("queryString");
+        private string? _mValue_QueryString;
+        private bool _mUnknown_QueryString;
+        public string? QueryString
+        {
+            get
+            {
+                if (!_mUnknown_QueryString) return _mValue_QueryString;
+                throw new UndeferrableValueException("Value 'ScheduledQueryArgs.QueryString' is not present");
+            }
+        }
 
         /// <summary>
         /// Runtime summary for the last five failed scheduled query runs.
         /// </summary>
-        [Input("recentlyFailedRuns")]
+        [PolicyResourceProperty("recentlyFailedRuns", "_mUnknown_RecentlyFailedRuns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ScheduledQueryRecentlyFailedRunArgs>> _mRecentlyFailedRuns;
-
-        public List<Inputs.ScheduledQueryRecentlyFailedRunArgs>? RecentlyFailedRuns => _mRecentlyFailedRuns.GetValue("recentlyFailedRuns");
+        private List<Inputs.ScheduledQueryRecentlyFailedRunArgs>? _mValue_RecentlyFailedRuns;
+        private bool _mUnknown_RecentlyFailedRuns;
+        public List<Inputs.ScheduledQueryRecentlyFailedRunArgs>? RecentlyFailedRuns
+        {
+            get
+            {
+                if (!_mUnknown_RecentlyFailedRuns) return _mValue_RecentlyFailedRuns;
+                throw new UndeferrableValueException("Value 'ScheduledQueryArgs.RecentlyFailedRuns' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for schedule configuration for the query. See below.
         /// </summary>
-        [Input("scheduleConfiguration")]
+        [PolicyResourceProperty("scheduleConfiguration", "_mUnknown_ScheduleConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScheduledQueryScheduleConfigurationArgs> _mScheduleConfiguration;
-
-        public Inputs.ScheduledQueryScheduleConfigurationArgs? ScheduleConfiguration => _mScheduleConfiguration.GetValue("scheduleConfiguration");
+        private Inputs.ScheduledQueryScheduleConfigurationArgs? _mValue_ScheduleConfiguration;
+        private bool _mUnknown_ScheduleConfiguration;
+        public Inputs.ScheduledQueryScheduleConfigurationArgs? ScheduleConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleConfiguration) return _mValue_ScheduleConfiguration;
+                throw new UndeferrableValueException("Value 'ScheduledQueryArgs.ScheduleConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ScheduledQueryArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for writing the result of a query. See below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("targetConfiguration")]
+        [PolicyResourceProperty("targetConfiguration", "_mUnknown_TargetConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScheduledQueryTargetConfigurationArgs> _mTargetConfiguration;
+        private Inputs.ScheduledQueryTargetConfigurationArgs? _mValue_TargetConfiguration;
+        private bool _mUnknown_TargetConfiguration;
+        public Inputs.ScheduledQueryTargetConfigurationArgs? TargetConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_TargetConfiguration) return _mValue_TargetConfiguration;
+                throw new UndeferrableValueException("Value 'ScheduledQueryArgs.TargetConfiguration' is not present");
+            }
+        }
 
-        public Inputs.ScheduledQueryTargetConfigurationArgs? TargetConfiguration => _mTargetConfiguration.GetValue("targetConfiguration");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScheduledQueryTimeoutsArgs> _mTimeouts;
-
-        public Inputs.ScheduledQueryTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.ScheduledQueryTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.ScheduledQueryTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ScheduledQueryArgs.Timeouts' is not present");
+            }
+        }
     }
 }

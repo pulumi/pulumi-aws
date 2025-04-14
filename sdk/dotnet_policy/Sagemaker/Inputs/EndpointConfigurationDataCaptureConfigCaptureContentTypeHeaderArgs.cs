@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// The CSV content type headers to capture.
         /// One of `csv_content_types` or `json_content_types` is required.
         /// </summary>
-        [Input("csvContentTypes")]
+        [PolicyResourceProperty("csvContentTypes", "_mUnknown_CsvContentTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCsvContentTypes;
-
-        public List<string>? CsvContentTypes => _mCsvContentTypes.GetValue("csvContentTypes");
+        private List<string>? _mValue_CsvContentTypes;
+        private bool _mUnknown_CsvContentTypes;
+        public List<string>? CsvContentTypes
+        {
+            get
+            {
+                if (!_mUnknown_CsvContentTypes) return _mValue_CsvContentTypes;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs.CsvContentTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The JSON content type headers to capture.
         /// One of `json_content_types` or `csv_content_types` is required.
         /// </summary>
-        [Input("jsonContentTypes")]
+        [PolicyResourceProperty("jsonContentTypes", "_mUnknown_JsonContentTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mJsonContentTypes;
-
-        public List<string>? JsonContentTypes => _mJsonContentTypes.GetValue("jsonContentTypes");
+        private List<string>? _mValue_JsonContentTypes;
+        private bool _mUnknown_JsonContentTypes;
+        public List<string>? JsonContentTypes
+        {
+            get
+            {
+                if (!_mUnknown_JsonContentTypes) return _mValue_JsonContentTypes;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs.JsonContentTypes' is not present");
+            }
+        }
     }
 }

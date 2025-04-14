@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// The gutter settings that apply between tiles. See gutter.
         /// </summary>
-        [Input("gutters")]
+        [PolicyResourceProperty("gutters", "_mUnknown_Gutters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetThemeConfigurationSheetTileLayoutGutterResult>> _mGutters;
-
-        public List<Outputs.GetThemeConfigurationSheetTileLayoutGutterResult>? Gutters => _mGutters.GetValue("gutters");
+        private List<Outputs.GetThemeConfigurationSheetTileLayoutGutterResult>? _mValue_Gutters;
+        private bool _mUnknown_Gutters;
+        public List<Outputs.GetThemeConfigurationSheetTileLayoutGutterResult>? Gutters
+        {
+            get
+            {
+                if (!_mUnknown_Gutters) return _mValue_Gutters;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationSheetTileLayoutResult.Gutters' is not present");
+            }
+        }
 
         /// <summary>
         /// The margin settings that apply around the outside edge of sheets. See margin.
         /// </summary>
-        [Input("margins")]
+        [PolicyResourceProperty("margins", "_mUnknown_Margins")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetThemeConfigurationSheetTileLayoutMarginResult>> _mMargins;
-
-        public List<Outputs.GetThemeConfigurationSheetTileLayoutMarginResult>? Margins => _mMargins.GetValue("margins");
+        private List<Outputs.GetThemeConfigurationSheetTileLayoutMarginResult>? _mValue_Margins;
+        private bool _mUnknown_Margins;
+        public List<Outputs.GetThemeConfigurationSheetTileLayoutMarginResult>? Margins
+        {
+            get
+            {
+                if (!_mUnknown_Margins) return _mValue_Margins;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationSheetTileLayoutResult.Margins' is not present");
+            }
+        }
     }
 }

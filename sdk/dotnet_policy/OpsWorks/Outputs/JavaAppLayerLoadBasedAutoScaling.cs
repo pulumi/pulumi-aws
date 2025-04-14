@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks.Outputs
 {
     public sealed class JavaAppLayerLoadBasedAutoScaling
     {
-        [Input("downscaling")]
+        [PolicyResourceProperty("downscaling", "_mUnknown_Downscaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JavaAppLayerLoadBasedAutoScalingDownscaling> _mDownscaling;
+        private Outputs.JavaAppLayerLoadBasedAutoScalingDownscaling? _mValue_Downscaling;
+        private bool _mUnknown_Downscaling;
+        public Outputs.JavaAppLayerLoadBasedAutoScalingDownscaling? Downscaling
+        {
+            get
+            {
+                if (!_mUnknown_Downscaling) return _mValue_Downscaling;
+                throw new UndeferrableValueException("Value 'JavaAppLayerLoadBasedAutoScaling.Downscaling' is not present");
+            }
+        }
 
-        public Outputs.JavaAppLayerLoadBasedAutoScalingDownscaling? Downscaling => _mDownscaling.GetValue("downscaling");
-
-        [Input("enable")]
+        [PolicyResourceProperty("enable", "_mUnknown_Enable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnable;
+        private bool? _mValue_Enable;
+        private bool _mUnknown_Enable;
+        public bool? Enable
+        {
+            get
+            {
+                if (!_mUnknown_Enable) return _mValue_Enable;
+                throw new UndeferrableValueException("Value 'JavaAppLayerLoadBasedAutoScaling.Enable' is not present");
+            }
+        }
 
-        public bool? Enable => _mEnable.GetValue("enable");
-
-        [Input("upscaling")]
+        [PolicyResourceProperty("upscaling", "_mUnknown_Upscaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JavaAppLayerLoadBasedAutoScalingUpscaling> _mUpscaling;
-
-        public Outputs.JavaAppLayerLoadBasedAutoScalingUpscaling? Upscaling => _mUpscaling.GetValue("upscaling");
+        private Outputs.JavaAppLayerLoadBasedAutoScalingUpscaling? _mValue_Upscaling;
+        private bool _mUnknown_Upscaling;
+        public Outputs.JavaAppLayerLoadBasedAutoScalingUpscaling? Upscaling
+        {
+            get
+            {
+                if (!_mUnknown_Upscaling) return _mValue_Upscaling;
+                throw new UndeferrableValueException("Value 'JavaAppLayerLoadBasedAutoScaling.Upscaling' is not present");
+            }
+        }
     }
 }

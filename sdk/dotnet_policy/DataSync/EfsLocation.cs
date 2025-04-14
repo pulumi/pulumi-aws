@@ -16,89 +16,159 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
         /// </summary>
-        [Input("accessPointArn")]
+        [PolicyResourceProperty("accessPointArn", "_mUnknown_AccessPointArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPointArn;
-
-        public string? AccessPointArn => _mAccessPointArn.GetValue("accessPointArn");
+        private string? _mValue_AccessPointArn;
+        private bool _mUnknown_AccessPointArn;
+        public string? AccessPointArn
+        {
+            get
+            {
+                if (!_mUnknown_AccessPointArn) return _mValue_AccessPointArn;
+                throw new UndeferrableValueException("Value 'EfsLocation.AccessPointArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'EfsLocation.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing EC2 configurations for connecting to the EFS File System.
         /// </summary>
-        [Input("ec2Config")]
+        [PolicyResourceProperty("ec2Config", "_mUnknown_Ec2Config")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EfsLocationEc2Config> _mEc2Config;
-
-        public Outputs.EfsLocationEc2Config? Ec2Config => _mEc2Config.GetValue("ec2Config");
+        private Outputs.EfsLocationEc2Config? _mValue_Ec2Config;
+        private bool _mUnknown_Ec2Config;
+        public Outputs.EfsLocationEc2Config? Ec2Config
+        {
+            get
+            {
+                if (!_mUnknown_Ec2Config) return _mValue_Ec2Config;
+                throw new UndeferrableValueException("Value 'EfsLocation.Ec2Config' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of EFS File System.
         /// </summary>
-        [Input("efsFileSystemArn")]
+        [PolicyResourceProperty("efsFileSystemArn", "_mUnknown_EfsFileSystemArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEfsFileSystemArn;
-
-        public string? EfsFileSystemArn => _mEfsFileSystemArn.GetValue("efsFileSystemArn");
+        private string? _mValue_EfsFileSystemArn;
+        private bool _mUnknown_EfsFileSystemArn;
+        public string? EfsFileSystemArn
+        {
+            get
+            {
+                if (!_mUnknown_EfsFileSystemArn) return _mValue_EfsFileSystemArn;
+                throw new UndeferrableValueException("Value 'EfsLocation.EfsFileSystemArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
         /// </summary>
-        [Input("fileSystemAccessRoleArn")]
+        [PolicyResourceProperty("fileSystemAccessRoleArn", "_mUnknown_FileSystemAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemAccessRoleArn;
-
-        public string? FileSystemAccessRoleArn => _mFileSystemAccessRoleArn.GetValue("fileSystemAccessRoleArn");
+        private string? _mValue_FileSystemAccessRoleArn;
+        private bool _mUnknown_FileSystemAccessRoleArn;
+        public string? FileSystemAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemAccessRoleArn) return _mValue_FileSystemAccessRoleArn;
+                throw new UndeferrableValueException("Value 'EfsLocation.FileSystemAccessRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
         /// </summary>
-        [Input("inTransitEncryption")]
+        [PolicyResourceProperty("inTransitEncryption", "_mUnknown_InTransitEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInTransitEncryption;
-
-        public string? InTransitEncryption => _mInTransitEncryption.GetValue("inTransitEncryption");
+        private string? _mValue_InTransitEncryption;
+        private bool _mUnknown_InTransitEncryption;
+        public string? InTransitEncryption
+        {
+            get
+            {
+                if (!_mUnknown_InTransitEncryption) return _mValue_InTransitEncryption;
+                throw new UndeferrableValueException("Value 'EfsLocation.InTransitEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Subdirectory to perform actions as source or destination. Default `/`.
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'EfsLocation.Subdirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EfsLocation.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'EfsLocation.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'EfsLocation.Uri' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datasync/efsLocation:EfsLocation")]
@@ -107,64 +177,113 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
         /// </summary>
-        [Input("accessPointArn")]
+        [PolicyResourceProperty("accessPointArn", "_mUnknown_AccessPointArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPointArn;
-
-        public string? AccessPointArn => _mAccessPointArn.GetValue("accessPointArn");
+        private string? _mValue_AccessPointArn;
+        private bool _mUnknown_AccessPointArn;
+        public string? AccessPointArn
+        {
+            get
+            {
+                if (!_mUnknown_AccessPointArn) return _mValue_AccessPointArn;
+                throw new UndeferrableValueException("Value 'EfsLocationArgs.AccessPointArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing EC2 configurations for connecting to the EFS File System.
         /// </summary>
-        [Input("ec2Config")]
+        [PolicyResourceProperty("ec2Config", "_mUnknown_Ec2Config")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EfsLocationEc2ConfigArgs> _mEc2Config;
-
-        public Inputs.EfsLocationEc2ConfigArgs? Ec2Config => _mEc2Config.GetValue("ec2Config");
+        private Inputs.EfsLocationEc2ConfigArgs? _mValue_Ec2Config;
+        private bool _mUnknown_Ec2Config;
+        public Inputs.EfsLocationEc2ConfigArgs? Ec2Config
+        {
+            get
+            {
+                if (!_mUnknown_Ec2Config) return _mValue_Ec2Config;
+                throw new UndeferrableValueException("Value 'EfsLocationArgs.Ec2Config' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of EFS File System.
         /// </summary>
-        [Input("efsFileSystemArn")]
+        [PolicyResourceProperty("efsFileSystemArn", "_mUnknown_EfsFileSystemArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEfsFileSystemArn;
-
-        public string? EfsFileSystemArn => _mEfsFileSystemArn.GetValue("efsFileSystemArn");
+        private string? _mValue_EfsFileSystemArn;
+        private bool _mUnknown_EfsFileSystemArn;
+        public string? EfsFileSystemArn
+        {
+            get
+            {
+                if (!_mUnknown_EfsFileSystemArn) return _mValue_EfsFileSystemArn;
+                throw new UndeferrableValueException("Value 'EfsLocationArgs.EfsFileSystemArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
         /// </summary>
-        [Input("fileSystemAccessRoleArn")]
+        [PolicyResourceProperty("fileSystemAccessRoleArn", "_mUnknown_FileSystemAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemAccessRoleArn;
-
-        public string? FileSystemAccessRoleArn => _mFileSystemAccessRoleArn.GetValue("fileSystemAccessRoleArn");
+        private string? _mValue_FileSystemAccessRoleArn;
+        private bool _mUnknown_FileSystemAccessRoleArn;
+        public string? FileSystemAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemAccessRoleArn) return _mValue_FileSystemAccessRoleArn;
+                throw new UndeferrableValueException("Value 'EfsLocationArgs.FileSystemAccessRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
         /// </summary>
-        [Input("inTransitEncryption")]
+        [PolicyResourceProperty("inTransitEncryption", "_mUnknown_InTransitEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInTransitEncryption;
-
-        public string? InTransitEncryption => _mInTransitEncryption.GetValue("inTransitEncryption");
+        private string? _mValue_InTransitEncryption;
+        private bool _mUnknown_InTransitEncryption;
+        public string? InTransitEncryption
+        {
+            get
+            {
+                if (!_mUnknown_InTransitEncryption) return _mValue_InTransitEncryption;
+                throw new UndeferrableValueException("Value 'EfsLocationArgs.InTransitEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Subdirectory to perform actions as source or destination. Default `/`.
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'EfsLocationArgs.Subdirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EfsLocationArgs.Tags' is not present");
+            }
+        }
     }
 }

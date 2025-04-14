@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'NotebookInstanceLifecycleConfiguration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'NotebookInstanceLifecycleConfiguration.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
         /// </summary>
-        [Input("onCreate")]
+        [PolicyResourceProperty("onCreate", "_mUnknown_OnCreate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOnCreate;
-
-        public string? OnCreate => _mOnCreate.GetValue("onCreate");
+        private string? _mValue_OnCreate;
+        private bool _mUnknown_OnCreate;
+        public string? OnCreate
+        {
+            get
+            {
+                if (!_mUnknown_OnCreate) return _mValue_OnCreate;
+                throw new UndeferrableValueException("Value 'NotebookInstanceLifecycleConfiguration.OnCreate' is not present");
+            }
+        }
 
         /// <summary>
         /// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
         /// </summary>
-        [Input("onStart")]
+        [PolicyResourceProperty("onStart", "_mUnknown_OnStart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOnStart;
-
-        public string? OnStart => _mOnStart.GetValue("onStart");
+        private string? _mValue_OnStart;
+        private bool _mUnknown_OnStart;
+        public string? OnStart
+        {
+            get
+            {
+                if (!_mUnknown_OnStart) return _mValue_OnStart;
+                throw new UndeferrableValueException("Value 'NotebookInstanceLifecycleConfiguration.OnStart' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'NotebookInstanceLifecycleConfigurationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
         /// </summary>
-        [Input("onCreate")]
+        [PolicyResourceProperty("onCreate", "_mUnknown_OnCreate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOnCreate;
-
-        public string? OnCreate => _mOnCreate.GetValue("onCreate");
+        private string? _mValue_OnCreate;
+        private bool _mUnknown_OnCreate;
+        public string? OnCreate
+        {
+            get
+            {
+                if (!_mUnknown_OnCreate) return _mValue_OnCreate;
+                throw new UndeferrableValueException("Value 'NotebookInstanceLifecycleConfigurationArgs.OnCreate' is not present");
+            }
+        }
 
         /// <summary>
         /// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
         /// </summary>
-        [Input("onStart")]
+        [PolicyResourceProperty("onStart", "_mUnknown_OnStart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOnStart;
-
-        public string? OnStart => _mOnStart.GetValue("onStart");
+        private string? _mValue_OnStart;
+        private bool _mUnknown_OnStart;
+        public string? OnStart
+        {
+            get
+            {
+                if (!_mUnknown_OnStart) return _mValue_OnStart;
+                throw new UndeferrableValueException("Value 'NotebookInstanceLifecycleConfigurationArgs.OnStart' is not present");
+            }
+        }
     }
 }

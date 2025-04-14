@@ -17,39 +17,67 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// The name of the role policy. If omitted, this provider will
         /// assign a random, unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RolePolicy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified
         /// prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'RolePolicy.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'RolePolicy.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the IAM role to attach to the policy.
         /// </summary>
-        [Input("role")]
+        [PolicyResourceProperty("role", "_mUnknown_Role")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
-
-        public string? Role => _mRole.GetValue("role");
+        private string? _mValue_Role;
+        private bool _mUnknown_Role;
+        public string? Role
+        {
+            get
+            {
+                if (!_mUnknown_Role) return _mValue_Role;
+                throw new UndeferrableValueException("Value 'RolePolicy.Role' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/rolePolicy:RolePolicy")]
@@ -59,38 +87,66 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// The name of the role policy. If omitted, this provider will
         /// assign a random, unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RolePolicyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified
         /// prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'RolePolicyArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'RolePolicyArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the IAM role to attach to the policy.
         /// </summary>
-        [Input("role")]
+        [PolicyResourceProperty("role", "_mUnknown_Role")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
-
-        public string? Role => _mRole.GetValue("role");
+        private string? _mValue_Role;
+        private bool _mUnknown_Role;
+        public string? Role
+        {
+            get
+            {
+                if (!_mUnknown_Role) return _mValue_Role;
+                throw new UndeferrableValueException("Value 'RolePolicyArgs.Role' is not present");
+            }
+        }
     }
 }

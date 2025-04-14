@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetPhysicalTableMapS3SourceResult
     {
-        [Input("dataSourceArn")]
+        [PolicyResourceProperty("dataSourceArn", "_mUnknown_DataSourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceArn;
+        private string? _mValue_DataSourceArn;
+        private bool _mUnknown_DataSourceArn;
+        public string? DataSourceArn
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceArn) return _mValue_DataSourceArn;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapS3SourceResult.DataSourceArn' is not present");
+            }
+        }
 
-        public string? DataSourceArn => _mDataSourceArn.GetValue("dataSourceArn");
-
-        [Input("inputColumns")]
+        [PolicyResourceProperty("inputColumns", "_mUnknown_InputColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDataSetPhysicalTableMapS3SourceInputColumnResult>> _mInputColumns;
+        private List<Outputs.GetDataSetPhysicalTableMapS3SourceInputColumnResult>? _mValue_InputColumns;
+        private bool _mUnknown_InputColumns;
+        public List<Outputs.GetDataSetPhysicalTableMapS3SourceInputColumnResult>? InputColumns
+        {
+            get
+            {
+                if (!_mUnknown_InputColumns) return _mValue_InputColumns;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapS3SourceResult.InputColumns' is not present");
+            }
+        }
 
-        public List<Outputs.GetDataSetPhysicalTableMapS3SourceInputColumnResult>? InputColumns => _mInputColumns.GetValue("inputColumns");
-
-        [Input("uploadSettings")]
+        [PolicyResourceProperty("uploadSettings", "_mUnknown_UploadSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDataSetPhysicalTableMapS3SourceUploadSettingResult>> _mUploadSettings;
-
-        public List<Outputs.GetDataSetPhysicalTableMapS3SourceUploadSettingResult>? UploadSettings => _mUploadSettings.GetValue("uploadSettings");
+        private List<Outputs.GetDataSetPhysicalTableMapS3SourceUploadSettingResult>? _mValue_UploadSettings;
+        private bool _mUnknown_UploadSettings;
+        public List<Outputs.GetDataSetPhysicalTableMapS3SourceUploadSettingResult>? UploadSettings
+        {
+            get
+            {
+                if (!_mUnknown_UploadSettings) return _mValue_UploadSettings;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapS3SourceResult.UploadSettings' is not present");
+            }
+        }
     }
 }

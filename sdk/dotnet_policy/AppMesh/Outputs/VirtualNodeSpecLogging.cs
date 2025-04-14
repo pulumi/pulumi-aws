@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// Access log configuration for a virtual node.
         /// </summary>
-        [Input("accessLog")]
+        [PolicyResourceProperty("accessLog", "_mUnknown_AccessLog")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualNodeSpecLoggingAccessLog> _mAccessLog;
-
-        public Outputs.VirtualNodeSpecLoggingAccessLog? AccessLog => _mAccessLog.GetValue("accessLog");
+        private Outputs.VirtualNodeSpecLoggingAccessLog? _mValue_AccessLog;
+        private bool _mUnknown_AccessLog;
+        public Outputs.VirtualNodeSpecLoggingAccessLog? AccessLog
+        {
+            get
+            {
+                if (!_mUnknown_AccessLog) return _mValue_AccessLog;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecLogging.AccessLog' is not present");
+            }
+        }
     }
 }

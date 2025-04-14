@@ -15,91 +15,161 @@ namespace Pulumi.PolicyPacks.Aws.Backup.Outputs
         /// <summary>
         /// The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
         /// </summary>
-        [Input("completionWindow")]
+        [PolicyResourceProperty("completionWindow", "_mUnknown_CompletionWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCompletionWindow;
-
-        public int? CompletionWindow => _mCompletionWindow.GetValue("completionWindow");
+        private int? _mValue_CompletionWindow;
+        private bool _mUnknown_CompletionWindow;
+        public int? CompletionWindow
+        {
+            get
+            {
+                if (!_mUnknown_CompletionWindow) return _mValue_CompletionWindow;
+                throw new UndeferrableValueException("Value 'PlanRule.CompletionWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) with copy operation settings. Detailed below.
         /// </summary>
-        [Input("copyActions")]
+        [PolicyResourceProperty("copyActions", "_mUnknown_CopyActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PlanRuleCopyAction>> _mCopyActions;
-
-        public List<Outputs.PlanRuleCopyAction>? CopyActions => _mCopyActions.GetValue("copyActions");
+        private List<Outputs.PlanRuleCopyAction>? _mValue_CopyActions;
+        private bool _mUnknown_CopyActions;
+        public List<Outputs.PlanRuleCopyAction>? CopyActions
+        {
+            get
+            {
+                if (!_mUnknown_CopyActions) return _mValue_CopyActions;
+                throw new UndeferrableValueException("Value 'PlanRule.CopyActions' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable continuous backups for supported resources.
         /// </summary>
-        [Input("enableContinuousBackup")]
+        [PolicyResourceProperty("enableContinuousBackup", "_mUnknown_EnableContinuousBackup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableContinuousBackup;
-
-        public bool? EnableContinuousBackup => _mEnableContinuousBackup.GetValue("enableContinuousBackup");
+        private bool? _mValue_EnableContinuousBackup;
+        private bool _mUnknown_EnableContinuousBackup;
+        public bool? EnableContinuousBackup
+        {
+            get
+            {
+                if (!_mUnknown_EnableContinuousBackup) return _mValue_EnableContinuousBackup;
+                throw new UndeferrableValueException("Value 'PlanRule.EnableContinuousBackup' is not present");
+            }
+        }
 
         /// <summary>
         /// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
         /// </summary>
-        [Input("lifecycle")]
+        [PolicyResourceProperty("lifecycle", "_mUnknown_Lifecycle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PlanRuleLifecycle> _mLifecycle;
-
-        public Outputs.PlanRuleLifecycle? Lifecycle => _mLifecycle.GetValue("lifecycle");
+        private Outputs.PlanRuleLifecycle? _mValue_Lifecycle;
+        private bool _mUnknown_Lifecycle;
+        public Outputs.PlanRuleLifecycle? Lifecycle
+        {
+            get
+            {
+                if (!_mUnknown_Lifecycle) return _mValue_Lifecycle;
+                throw new UndeferrableValueException("Value 'PlanRule.Lifecycle' is not present");
+            }
+        }
 
         /// <summary>
         /// Metadata that you can assign to help organize the resources that you create.
         /// </summary>
-        [Input("recoveryPointTags")]
+        [PolicyResourceProperty("recoveryPointTags", "_mUnknown_RecoveryPointTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRecoveryPointTags;
-
-        public Dictionary<string, string>? RecoveryPointTags => _mRecoveryPointTags.GetValue("recoveryPointTags");
+        private Dictionary<string, string>? _mValue_RecoveryPointTags;
+        private bool _mUnknown_RecoveryPointTags;
+        public Dictionary<string, string>? RecoveryPointTags
+        {
+            get
+            {
+                if (!_mUnknown_RecoveryPointTags) return _mValue_RecoveryPointTags;
+                throw new UndeferrableValueException("Value 'PlanRule.RecoveryPointTags' is not present");
+            }
+        }
 
         /// <summary>
         /// An display name for a backup rule.
         /// </summary>
-        [Input("ruleName")]
+        [PolicyResourceProperty("ruleName", "_mUnknown_RuleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
-
-        public string? RuleName => _mRuleName.GetValue("ruleName");
+        private string? _mValue_RuleName;
+        private bool _mUnknown_RuleName;
+        public string? RuleName
+        {
+            get
+            {
+                if (!_mUnknown_RuleName) return _mValue_RuleName;
+                throw new UndeferrableValueException("Value 'PlanRule.RuleName' is not present");
+            }
+        }
 
         /// <summary>
         /// A CRON expression specifying when AWS Backup initiates a backup job.
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchedule;
-
-        public string? Schedule => _mSchedule.GetValue("schedule");
+        private string? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public string? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'PlanRule.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
         /// </summary>
-        [Input("scheduleExpressionTimezone")]
+        [PolicyResourceProperty("scheduleExpressionTimezone", "_mUnknown_ScheduleExpressionTimezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpressionTimezone;
-
-        public string? ScheduleExpressionTimezone => _mScheduleExpressionTimezone.GetValue("scheduleExpressionTimezone");
+        private string? _mValue_ScheduleExpressionTimezone;
+        private bool _mUnknown_ScheduleExpressionTimezone;
+        public string? ScheduleExpressionTimezone
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleExpressionTimezone) return _mValue_ScheduleExpressionTimezone;
+                throw new UndeferrableValueException("Value 'PlanRule.ScheduleExpressionTimezone' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of time in minutes before beginning a backup.
         /// </summary>
-        [Input("startWindow")]
+        [PolicyResourceProperty("startWindow", "_mUnknown_StartWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStartWindow;
-
-        public int? StartWindow => _mStartWindow.GetValue("startWindow");
+        private int? _mValue_StartWindow;
+        private bool _mUnknown_StartWindow;
+        public int? StartWindow
+        {
+            get
+            {
+                if (!_mUnknown_StartWindow) return _mValue_StartWindow;
+                throw new UndeferrableValueException("Value 'PlanRule.StartWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of a logical container where backups are stored.
         /// </summary>
-        [Input("targetVaultName")]
+        [PolicyResourceProperty("targetVaultName", "_mUnknown_TargetVaultName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetVaultName;
-
-        public string? TargetVaultName => _mTargetVaultName.GetValue("targetVaultName");
+        private string? _mValue_TargetVaultName;
+        private bool _mUnknown_TargetVaultName;
+        public string? TargetVaultName
+        {
+            get
+            {
+                if (!_mUnknown_TargetVaultName) return _mValue_TargetVaultName;
+                throw new UndeferrableValueException("Value 'PlanRule.TargetVaultName' is not present");
+            }
+        }
     }
 }

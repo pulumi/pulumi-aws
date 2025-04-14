@@ -12,25 +12,46 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Outputs
 {
     public sealed class ThingGroupMetadata
     {
-        [Input("creationDate")]
+        [PolicyResourceProperty("creationDate", "_mUnknown_CreationDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDate;
-
-        public string? CreationDate => _mCreationDate.GetValue("creationDate");
+        private string? _mValue_CreationDate;
+        private bool _mUnknown_CreationDate;
+        public string? CreationDate
+        {
+            get
+            {
+                if (!_mUnknown_CreationDate) return _mValue_CreationDate;
+                throw new UndeferrableValueException("Value 'ThingGroupMetadata.CreationDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the parent Thing Group.
         /// </summary>
-        [Input("parentGroupName")]
+        [PolicyResourceProperty("parentGroupName", "_mUnknown_ParentGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentGroupName;
+        private string? _mValue_ParentGroupName;
+        private bool _mUnknown_ParentGroupName;
+        public string? ParentGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ParentGroupName) return _mValue_ParentGroupName;
+                throw new UndeferrableValueException("Value 'ThingGroupMetadata.ParentGroupName' is not present");
+            }
+        }
 
-        public string? ParentGroupName => _mParentGroupName.GetValue("parentGroupName");
-
-        [Input("rootToParentGroups")]
+        [PolicyResourceProperty("rootToParentGroups", "_mUnknown_RootToParentGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ThingGroupMetadataRootToParentGroup>> _mRootToParentGroups;
-
-        public List<Outputs.ThingGroupMetadataRootToParentGroup>? RootToParentGroups => _mRootToParentGroups.GetValue("rootToParentGroups");
+        private List<Outputs.ThingGroupMetadataRootToParentGroup>? _mValue_RootToParentGroups;
+        private bool _mUnknown_RootToParentGroups;
+        public List<Outputs.ThingGroupMetadataRootToParentGroup>? RootToParentGroups
+        {
+            get
+            {
+                if (!_mUnknown_RootToParentGroups) return _mValue_RootToParentGroups;
+                throw new UndeferrableValueException("Value 'ThingGroupMetadata.RootToParentGroups' is not present");
+            }
+        }
     }
 }

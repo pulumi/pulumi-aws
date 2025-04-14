@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Fis.Outputs
         /// <summary>
         /// Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
-
-        public string? Source => _mSource.GetValue("source");
+        private string? _mValue_Source;
+        private bool _mUnknown_Source;
+        public string? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateStopCondition.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateStopCondition.Value' is not present");
+            }
+        }
     }
 }

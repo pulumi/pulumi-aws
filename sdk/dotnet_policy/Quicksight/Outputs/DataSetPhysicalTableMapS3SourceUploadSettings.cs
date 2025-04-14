@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// Whether the file has a header row, or the files each have a header row.
         /// </summary>
-        [Input("containsHeader")]
+        [PolicyResourceProperty("containsHeader", "_mUnknown_ContainsHeader")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mContainsHeader;
-
-        public bool? ContainsHeader => _mContainsHeader.GetValue("containsHeader");
+        private bool? _mValue_ContainsHeader;
+        private bool _mUnknown_ContainsHeader;
+        public bool? ContainsHeader
+        {
+            get
+            {
+                if (!_mUnknown_ContainsHeader) return _mValue_ContainsHeader;
+                throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapS3SourceUploadSettings.ContainsHeader' is not present");
+            }
+        }
 
         /// <summary>
         /// Delimiter between values in the file.
         /// </summary>
-        [Input("delimiter")]
+        [PolicyResourceProperty("delimiter", "_mUnknown_Delimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDelimiter;
-
-        public string? Delimiter => _mDelimiter.GetValue("delimiter");
+        private string? _mValue_Delimiter;
+        private bool _mUnknown_Delimiter;
+        public string? Delimiter
+        {
+            get
+            {
+                if (!_mUnknown_Delimiter) return _mValue_Delimiter;
+                throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapS3SourceUploadSettings.Delimiter' is not present");
+            }
+        }
 
         /// <summary>
         /// File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
         /// </summary>
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
-
-        public string? Format => _mFormat.GetValue("format");
+        private string? _mValue_Format;
+        private bool _mUnknown_Format;
+        public string? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapS3SourceUploadSettings.Format' is not present");
+            }
+        }
 
         /// <summary>
         /// A row number to start reading data from.
         /// </summary>
-        [Input("startFromRow")]
+        [PolicyResourceProperty("startFromRow", "_mUnknown_StartFromRow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStartFromRow;
-
-        public int? StartFromRow => _mStartFromRow.GetValue("startFromRow");
+        private int? _mValue_StartFromRow;
+        private bool _mUnknown_StartFromRow;
+        public int? StartFromRow
+        {
+            get
+            {
+                if (!_mUnknown_StartFromRow) return _mValue_StartFromRow;
+                throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapS3SourceUploadSettings.StartFromRow' is not present");
+            }
+        }
 
         /// <summary>
         /// Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
         /// </summary>
-        [Input("textQualifier")]
+        [PolicyResourceProperty("textQualifier", "_mUnknown_TextQualifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTextQualifier;
-
-        public string? TextQualifier => _mTextQualifier.GetValue("textQualifier");
+        private string? _mValue_TextQualifier;
+        private bool _mUnknown_TextQualifier;
+        public string? TextQualifier
+        {
+            get
+            {
+                if (!_mUnknown_TextQualifier) return _mValue_TextQualifier;
+                throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapS3SourceUploadSettings.TextQualifier' is not present");
+            }
+        }
     }
 }

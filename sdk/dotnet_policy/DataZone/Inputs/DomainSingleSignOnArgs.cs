@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.DataZone.Inputs
 {
     public sealed class DomainSingleSignOnArgs
     {
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'DomainSingleSignOnArgs.Type' is not present");
+            }
+        }
 
-        public string? Type => _mType.GetValue("type");
-
-        [Input("userAssignment")]
+        [PolicyResourceProperty("userAssignment", "_mUnknown_UserAssignment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserAssignment;
-
-        public string? UserAssignment => _mUserAssignment.GetValue("userAssignment");
+        private string? _mValue_UserAssignment;
+        private bool _mUnknown_UserAssignment;
+        public string? UserAssignment
+        {
+            get
+            {
+                if (!_mUnknown_UserAssignment) return _mValue_UserAssignment;
+                throw new UndeferrableValueException("Value 'DomainSingleSignOnArgs.UserAssignment' is not present");
+            }
+        }
     }
 }

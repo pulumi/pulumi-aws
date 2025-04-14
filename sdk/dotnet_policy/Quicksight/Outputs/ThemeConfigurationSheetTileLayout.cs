@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// The gutter settings that apply between tiles. See gutter.
         /// </summary>
-        [Input("gutter")]
+        [PolicyResourceProperty("gutter", "_mUnknown_Gutter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ThemeConfigurationSheetTileLayoutGutter> _mGutter;
-
-        public Outputs.ThemeConfigurationSheetTileLayoutGutter? Gutter => _mGutter.GetValue("gutter");
+        private Outputs.ThemeConfigurationSheetTileLayoutGutter? _mValue_Gutter;
+        private bool _mUnknown_Gutter;
+        public Outputs.ThemeConfigurationSheetTileLayoutGutter? Gutter
+        {
+            get
+            {
+                if (!_mUnknown_Gutter) return _mValue_Gutter;
+                throw new UndeferrableValueException("Value 'ThemeConfigurationSheetTileLayout.Gutter' is not present");
+            }
+        }
 
         /// <summary>
         /// The margin settings that apply around the outside edge of sheets. See margin.
         /// </summary>
-        [Input("margin")]
+        [PolicyResourceProperty("margin", "_mUnknown_Margin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ThemeConfigurationSheetTileLayoutMargin> _mMargin;
-
-        public Outputs.ThemeConfigurationSheetTileLayoutMargin? Margin => _mMargin.GetValue("margin");
+        private Outputs.ThemeConfigurationSheetTileLayoutMargin? _mValue_Margin;
+        private bool _mUnknown_Margin;
+        public Outputs.ThemeConfigurationSheetTileLayoutMargin? Margin
+        {
+            get
+            {
+                if (!_mUnknown_Margin) return _mValue_Margin;
+                throw new UndeferrableValueException("Value 'ThemeConfigurationSheetTileLayout.Margin' is not present");
+            }
+        }
     }
 }

@@ -15,34 +15,62 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional.Inputs
         /// <summary>
         /// Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupActivatedRuleActionArgs> _mAction;
-
-        public Inputs.RuleGroupActivatedRuleActionArgs? Action => _mAction.GetValue("action");
+        private Inputs.RuleGroupActivatedRuleActionArgs? _mValue_Action;
+        private bool _mUnknown_Action;
+        public Inputs.RuleGroupActivatedRuleActionArgs? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'RuleGroupActivatedRuleArgs.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'RuleGroupActivatedRuleArgs.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of a rule
         /// </summary>
-        [Input("ruleId")]
+        [PolicyResourceProperty("ruleId", "_mUnknown_RuleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleId;
+        private string? _mValue_RuleId;
+        private bool _mUnknown_RuleId;
+        public string? RuleId
+        {
+            get
+            {
+                if (!_mUnknown_RuleId) return _mValue_RuleId;
+                throw new UndeferrableValueException("Value 'RuleGroupActivatedRuleArgs.RuleId' is not present");
+            }
+        }
 
-        public string? RuleId => _mRuleId.GetValue("ruleId");
-
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'RuleGroupActivatedRuleArgs.Type' is not present");
+            }
+        }
     }
 }

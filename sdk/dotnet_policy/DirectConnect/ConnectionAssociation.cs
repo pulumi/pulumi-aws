@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// The ID of the connection.
         /// </summary>
-        [Input("connectionId")]
+        [PolicyResourceProperty("connectionId", "_mUnknown_ConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
-
-        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+        private string? _mValue_ConnectionId;
+        private bool _mUnknown_ConnectionId;
+        public string? ConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionId) return _mValue_ConnectionId;
+                throw new UndeferrableValueException("Value 'ConnectionAssociation.ConnectionId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the LAG with which to associate the connection.
         /// </summary>
-        [Input("lagId")]
+        [PolicyResourceProperty("lagId", "_mUnknown_LagId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLagId;
-
-        public string? LagId => _mLagId.GetValue("lagId");
+        private string? _mValue_LagId;
+        private bool _mUnknown_LagId;
+        public string? LagId
+        {
+            get
+            {
+                if (!_mUnknown_LagId) return _mValue_LagId;
+                throw new UndeferrableValueException("Value 'ConnectionAssociation.LagId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:directconnect/connectionAssociation:ConnectionAssociation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// The ID of the connection.
         /// </summary>
-        [Input("connectionId")]
+        [PolicyResourceProperty("connectionId", "_mUnknown_ConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
-
-        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+        private string? _mValue_ConnectionId;
+        private bool _mUnknown_ConnectionId;
+        public string? ConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionId) return _mValue_ConnectionId;
+                throw new UndeferrableValueException("Value 'ConnectionAssociationArgs.ConnectionId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the LAG with which to associate the connection.
         /// </summary>
-        [Input("lagId")]
+        [PolicyResourceProperty("lagId", "_mUnknown_LagId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLagId;
-
-        public string? LagId => _mLagId.GetValue("lagId");
+        private string? _mValue_LagId;
+        private bool _mUnknown_LagId;
+        public string? LagId
+        {
+            get
+            {
+                if (!_mUnknown_LagId) return _mValue_LagId;
+                throw new UndeferrableValueException("Value 'ConnectionAssociationArgs.LagId' is not present");
+            }
+        }
     }
 }

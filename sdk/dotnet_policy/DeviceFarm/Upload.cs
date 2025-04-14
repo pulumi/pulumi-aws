@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.DeviceFarm
         /// <summary>
         /// The Amazon Resource Name of this upload.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Upload.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The upload's category.
         /// </summary>
-        [Input("category")]
+        [PolicyResourceProperty("category", "_mUnknown_Category")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCategory;
-
-        public string? Category => _mCategory.GetValue("category");
+        private string? _mValue_Category;
+        private bool _mUnknown_Category;
+        public string? Category
+        {
+            get
+            {
+                if (!_mUnknown_Category) return _mValue_Category;
+                throw new UndeferrableValueException("Value 'Upload.Category' is not present");
+            }
+        }
 
         /// <summary>
         /// The upload's content type (for example, application/octet-stream).
         /// </summary>
-        [Input("contentType")]
+        [PolicyResourceProperty("contentType", "_mUnknown_ContentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
-
-        public string? ContentType => _mContentType.GetValue("contentType");
+        private string? _mValue_ContentType;
+        private bool _mUnknown_ContentType;
+        public string? ContentType
+        {
+            get
+            {
+                if (!_mUnknown_ContentType) return _mValue_ContentType;
+                throw new UndeferrableValueException("Value 'Upload.ContentType' is not present");
+            }
+        }
 
         /// <summary>
         /// The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
         /// </summary>
-        [Input("metadata")]
+        [PolicyResourceProperty("metadata", "_mUnknown_Metadata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetadata;
-
-        public string? Metadata => _mMetadata.GetValue("metadata");
+        private string? _mValue_Metadata;
+        private bool _mUnknown_Metadata;
+        public string? Metadata
+        {
+            get
+            {
+                if (!_mUnknown_Metadata) return _mValue_Metadata;
+                throw new UndeferrableValueException("Value 'Upload.Metadata' is not present");
+            }
+        }
 
         /// <summary>
         /// The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Upload.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the project for the upload.
         /// </summary>
-        [Input("projectArn")]
+        [PolicyResourceProperty("projectArn", "_mUnknown_ProjectArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectArn;
-
-        public string? ProjectArn => _mProjectArn.GetValue("projectArn");
+        private string? _mValue_ProjectArn;
+        private bool _mUnknown_ProjectArn;
+        public string? ProjectArn
+        {
+            get
+            {
+                if (!_mUnknown_ProjectArn) return _mValue_ProjectArn;
+                throw new UndeferrableValueException("Value 'Upload.ProjectArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Upload.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// The presigned Amazon S3 URL that was used to store a file using a PUT request.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'Upload.Url' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:devicefarm/upload:Upload")]
@@ -92,37 +148,65 @@ namespace Pulumi.PolicyPacks.Aws.DeviceFarm
         /// <summary>
         /// The upload's content type (for example, application/octet-stream).
         /// </summary>
-        [Input("contentType")]
+        [PolicyResourceProperty("contentType", "_mUnknown_ContentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
-
-        public string? ContentType => _mContentType.GetValue("contentType");
+        private string? _mValue_ContentType;
+        private bool _mUnknown_ContentType;
+        public string? ContentType
+        {
+            get
+            {
+                if (!_mUnknown_ContentType) return _mValue_ContentType;
+                throw new UndeferrableValueException("Value 'UploadArgs.ContentType' is not present");
+            }
+        }
 
         /// <summary>
         /// The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UploadArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the project for the upload.
         /// </summary>
-        [Input("projectArn")]
+        [PolicyResourceProperty("projectArn", "_mUnknown_ProjectArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectArn;
-
-        public string? ProjectArn => _mProjectArn.GetValue("projectArn");
+        private string? _mValue_ProjectArn;
+        private bool _mUnknown_ProjectArn;
+        public string? ProjectArn
+        {
+            get
+            {
+                if (!_mUnknown_ProjectArn) return _mValue_ProjectArn;
+                throw new UndeferrableValueException("Value 'UploadArgs.ProjectArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'UploadArgs.Type' is not present");
+            }
+        }
     }
 }

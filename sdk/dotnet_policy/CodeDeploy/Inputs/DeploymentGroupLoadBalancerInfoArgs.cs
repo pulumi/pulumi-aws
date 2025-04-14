@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy.Inputs
         /// <summary>
         /// The Classic Elastic Load Balancer to use in a deployment. Conflicts with `target_group_info` and `target_group_pair_info`.
         /// </summary>
-        [Input("elbInfos")]
+        [PolicyResourceProperty("elbInfos", "_mUnknown_ElbInfos")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DeploymentGroupLoadBalancerInfoElbInfoArgs>> _mElbInfos;
-
-        public List<Inputs.DeploymentGroupLoadBalancerInfoElbInfoArgs>? ElbInfos => _mElbInfos.GetValue("elbInfos");
+        private List<Inputs.DeploymentGroupLoadBalancerInfoElbInfoArgs>? _mValue_ElbInfos;
+        private bool _mUnknown_ElbInfos;
+        public List<Inputs.DeploymentGroupLoadBalancerInfoElbInfoArgs>? ElbInfos
+        {
+            get
+            {
+                if (!_mUnknown_ElbInfos) return _mValue_ElbInfos;
+                throw new UndeferrableValueException("Value 'DeploymentGroupLoadBalancerInfoArgs.ElbInfos' is not present");
+            }
+        }
 
         /// <summary>
         /// The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elb_info` and `target_group_pair_info`.
         /// </summary>
-        [Input("targetGroupInfos")]
+        [PolicyResourceProperty("targetGroupInfos", "_mUnknown_TargetGroupInfos")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs>> _mTargetGroupInfos;
-
-        public List<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs>? TargetGroupInfos => _mTargetGroupInfos.GetValue("targetGroupInfos");
+        private List<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs>? _mValue_TargetGroupInfos;
+        private bool _mUnknown_TargetGroupInfos;
+        public List<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs>? TargetGroupInfos
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroupInfos) return _mValue_TargetGroupInfos;
+                throw new UndeferrableValueException("Value 'DeploymentGroupLoadBalancerInfoArgs.TargetGroupInfos' is not present");
+            }
+        }
 
         /// <summary>
         /// The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elb_info` and `target_group_info`.
         /// </summary>
-        [Input("targetGroupPairInfo")]
+        [PolicyResourceProperty("targetGroupPairInfo", "_mUnknown_TargetGroupPairInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs> _mTargetGroupPairInfo;
-
-        public Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs? TargetGroupPairInfo => _mTargetGroupPairInfo.GetValue("targetGroupPairInfo");
+        private Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs? _mValue_TargetGroupPairInfo;
+        private bool _mUnknown_TargetGroupPairInfo;
+        public Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs? TargetGroupPairInfo
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroupPairInfo) return _mValue_TargetGroupPairInfo;
+                throw new UndeferrableValueException("Value 'DeploymentGroupLoadBalancerInfoArgs.TargetGroupPairInfo' is not present");
+            }
+        }
     }
 }

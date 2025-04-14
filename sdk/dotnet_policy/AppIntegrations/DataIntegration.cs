@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.AppIntegrations
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Data Integration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DataIntegration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the description of the Data Integration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DataIntegration.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
         /// </summary>
-        [Input("kmsKey")]
+        [PolicyResourceProperty("kmsKey", "_mUnknown_KmsKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKey;
-
-        public string? KmsKey => _mKmsKey.GetValue("kmsKey");
+        private string? _mValue_KmsKey;
+        private bool _mUnknown_KmsKey;
+        public string? KmsKey
+        {
+            get
+            {
+                if (!_mUnknown_KmsKey) return _mValue_KmsKey;
+                throw new UndeferrableValueException("Value 'DataIntegration.KmsKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the Data Integration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DataIntegration.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
         /// </summary>
-        [Input("scheduleConfig")]
+        [PolicyResourceProperty("scheduleConfig", "_mUnknown_ScheduleConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataIntegrationScheduleConfig> _mScheduleConfig;
-
-        public Outputs.DataIntegrationScheduleConfig? ScheduleConfig => _mScheduleConfig.GetValue("scheduleConfig");
+        private Outputs.DataIntegrationScheduleConfig? _mValue_ScheduleConfig;
+        private bool _mUnknown_ScheduleConfig;
+        public Outputs.DataIntegrationScheduleConfig? ScheduleConfig
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleConfig) return _mValue_ScheduleConfig;
+                throw new UndeferrableValueException("Value 'DataIntegration.ScheduleConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
         /// </summary>
-        [Input("sourceUri")]
+        [PolicyResourceProperty("sourceUri", "_mUnknown_SourceUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceUri;
-
-        public string? SourceUri => _mSourceUri.GetValue("sourceUri");
+        private string? _mValue_SourceUri;
+        private bool _mUnknown_SourceUri;
+        public string? SourceUri
+        {
+            get
+            {
+                if (!_mUnknown_SourceUri) return _mValue_SourceUri;
+                throw new UndeferrableValueException("Value 'DataIntegration.SourceUri' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the Data Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DataIntegration.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DataIntegration.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appintegrations/dataIntegration:DataIntegration")]
@@ -92,55 +148,97 @@ namespace Pulumi.PolicyPacks.Aws.AppIntegrations
         /// <summary>
         /// Specifies the description of the Data Integration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DataIntegrationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
         /// </summary>
-        [Input("kmsKey")]
+        [PolicyResourceProperty("kmsKey", "_mUnknown_KmsKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKey;
-
-        public string? KmsKey => _mKmsKey.GetValue("kmsKey");
+        private string? _mValue_KmsKey;
+        private bool _mUnknown_KmsKey;
+        public string? KmsKey
+        {
+            get
+            {
+                if (!_mUnknown_KmsKey) return _mValue_KmsKey;
+                throw new UndeferrableValueException("Value 'DataIntegrationArgs.KmsKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the Data Integration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DataIntegrationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
         /// </summary>
-        [Input("scheduleConfig")]
+        [PolicyResourceProperty("scheduleConfig", "_mUnknown_ScheduleConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataIntegrationScheduleConfigArgs> _mScheduleConfig;
-
-        public Inputs.DataIntegrationScheduleConfigArgs? ScheduleConfig => _mScheduleConfig.GetValue("scheduleConfig");
+        private Inputs.DataIntegrationScheduleConfigArgs? _mValue_ScheduleConfig;
+        private bool _mUnknown_ScheduleConfig;
+        public Inputs.DataIntegrationScheduleConfigArgs? ScheduleConfig
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleConfig) return _mValue_ScheduleConfig;
+                throw new UndeferrableValueException("Value 'DataIntegrationArgs.ScheduleConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
         /// </summary>
-        [Input("sourceUri")]
+        [PolicyResourceProperty("sourceUri", "_mUnknown_SourceUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceUri;
-
-        public string? SourceUri => _mSourceUri.GetValue("sourceUri");
+        private string? _mValue_SourceUri;
+        private bool _mUnknown_SourceUri;
+        public string? SourceUri
+        {
+            get
+            {
+                if (!_mUnknown_SourceUri) return _mValue_SourceUri;
+                throw new UndeferrableValueException("Value 'DataIntegrationArgs.SourceUri' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the Data Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DataIntegrationArgs.Tags' is not present");
+            }
+        }
     }
 }

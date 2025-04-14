@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Key-value map of tags to apply to distributed AMI.
         /// </summary>
-        [Input("amiTags")]
+        [PolicyResourceProperty("amiTags", "_mUnknown_AmiTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAmiTags;
-
-        public Dictionary<string, string>? AmiTags => _mAmiTags.GetValue("amiTags");
+        private Dictionary<string, string>? _mValue_AmiTags;
+        private bool _mUnknown_AmiTags;
+        public Dictionary<string, string>? AmiTags
+        {
+            get
+            {
+                if (!_mUnknown_AmiTags) return _mValue_AmiTags;
+                throw new UndeferrableValueException("Value 'GetDistributionConfigurationDistributionAmiDistributionConfigurationResult.AmiTags' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the container distribution configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GetDistributionConfigurationDistributionAmiDistributionConfigurationResult.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of Key Management Service (KMS) Key to encrypt AMI.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'GetDistributionConfigurationDistributionAmiDistributionConfigurationResult.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested list of EC2 launch permissions.
         /// </summary>
-        [Input("launchPermissions")]
+        [PolicyResourceProperty("launchPermissions", "_mUnknown_LaunchPermissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionResult>> _mLaunchPermissions;
-
-        public List<Outputs.GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionResult>? LaunchPermissions => _mLaunchPermissions.GetValue("launchPermissions");
+        private List<Outputs.GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionResult>? _mValue_LaunchPermissions;
+        private bool _mUnknown_LaunchPermissions;
+        public List<Outputs.GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionResult>? LaunchPermissions
+        {
+            get
+            {
+                if (!_mUnknown_LaunchPermissions) return _mValue_LaunchPermissions;
+                throw new UndeferrableValueException("Value 'GetDistributionConfigurationDistributionAmiDistributionConfigurationResult.LaunchPermissions' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the distribution configuration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetDistributionConfigurationDistributionAmiDistributionConfigurationResult.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of target AWS Account identifiers.
         /// </summary>
-        [Input("targetAccountIds")]
+        [PolicyResourceProperty("targetAccountIds", "_mUnknown_TargetAccountIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTargetAccountIds;
-
-        public List<string>? TargetAccountIds => _mTargetAccountIds.GetValue("targetAccountIds");
+        private List<string>? _mValue_TargetAccountIds;
+        private bool _mUnknown_TargetAccountIds;
+        public List<string>? TargetAccountIds
+        {
+            get
+            {
+                if (!_mUnknown_TargetAccountIds) return _mValue_TargetAccountIds;
+                throw new UndeferrableValueException("Value 'GetDistributionConfigurationDistributionAmiDistributionConfigurationResult.TargetAccountIds' is not present");
+            }
+        }
     }
 }

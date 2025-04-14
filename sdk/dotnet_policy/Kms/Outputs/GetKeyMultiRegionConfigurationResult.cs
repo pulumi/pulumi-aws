@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Kms.Outputs
         /// <summary>
         /// Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
         /// </summary>
-        [Input("multiRegionKeyType")]
+        [PolicyResourceProperty("multiRegionKeyType", "_mUnknown_MultiRegionKeyType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMultiRegionKeyType;
-
-        public string? MultiRegionKeyType => _mMultiRegionKeyType.GetValue("multiRegionKeyType");
+        private string? _mValue_MultiRegionKeyType;
+        private bool _mUnknown_MultiRegionKeyType;
+        public string? MultiRegionKeyType
+        {
+            get
+            {
+                if (!_mUnknown_MultiRegionKeyType) return _mValue_MultiRegionKeyType;
+                throw new UndeferrableValueException("Value 'GetKeyMultiRegionConfigurationResult.MultiRegionKeyType' is not present");
+            }
+        }
 
         /// <summary>
         /// The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
         /// </summary>
-        [Input("primaryKeys")]
+        [PolicyResourceProperty("primaryKeys", "_mUnknown_PrimaryKeys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetKeyMultiRegionConfigurationPrimaryKeyResult>> _mPrimaryKeys;
-
-        public List<Outputs.GetKeyMultiRegionConfigurationPrimaryKeyResult>? PrimaryKeys => _mPrimaryKeys.GetValue("primaryKeys");
+        private List<Outputs.GetKeyMultiRegionConfigurationPrimaryKeyResult>? _mValue_PrimaryKeys;
+        private bool _mUnknown_PrimaryKeys;
+        public List<Outputs.GetKeyMultiRegionConfigurationPrimaryKeyResult>? PrimaryKeys
+        {
+            get
+            {
+                if (!_mUnknown_PrimaryKeys) return _mValue_PrimaryKeys;
+                throw new UndeferrableValueException("Value 'GetKeyMultiRegionConfigurationResult.PrimaryKeys' is not present");
+            }
+        }
 
         /// <summary>
         /// The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
         /// </summary>
-        [Input("replicaKeys")]
+        [PolicyResourceProperty("replicaKeys", "_mUnknown_ReplicaKeys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetKeyMultiRegionConfigurationReplicaKeyResult>> _mReplicaKeys;
-
-        public List<Outputs.GetKeyMultiRegionConfigurationReplicaKeyResult>? ReplicaKeys => _mReplicaKeys.GetValue("replicaKeys");
+        private List<Outputs.GetKeyMultiRegionConfigurationReplicaKeyResult>? _mValue_ReplicaKeys;
+        private bool _mUnknown_ReplicaKeys;
+        public List<Outputs.GetKeyMultiRegionConfigurationReplicaKeyResult>? ReplicaKeys
+        {
+            get
+            {
+                if (!_mUnknown_ReplicaKeys) return _mValue_ReplicaKeys;
+                throw new UndeferrableValueException("Value 'GetKeyMultiRegionConfigurationResult.ReplicaKeys' is not present");
+            }
+        }
     }
 }

@@ -15,43 +15,78 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
         /// </summary>
-        [Input("privileged")]
+        [PolicyResourceProperty("privileged", "_mUnknown_Privileged")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPrivileged;
+        private bool? _mValue_Privileged;
+        private bool _mUnknown_Privileged;
+        public bool? Privileged
+        {
+            get
+            {
+                if (!_mUnknown_Privileged) return _mValue_Privileged;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextResult.Privileged' is not present");
+            }
+        }
 
-        public bool? Privileged => _mPrivileged.GetValue("privileged");
-
-        [Input("readOnlyRootFileSystem")]
+        [PolicyResourceProperty("readOnlyRootFileSystem", "_mUnknown_ReadOnlyRootFileSystem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReadOnlyRootFileSystem;
-
-        public bool? ReadOnlyRootFileSystem => _mReadOnlyRootFileSystem.GetValue("readOnlyRootFileSystem");
+        private bool? _mValue_ReadOnlyRootFileSystem;
+        private bool _mUnknown_ReadOnlyRootFileSystem;
+        public bool? ReadOnlyRootFileSystem
+        {
+            get
+            {
+                if (!_mUnknown_ReadOnlyRootFileSystem) return _mValue_ReadOnlyRootFileSystem;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextResult.ReadOnlyRootFileSystem' is not present");
+            }
+        }
 
         /// <summary>
         /// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
         /// </summary>
-        [Input("runAsGroup")]
+        [PolicyResourceProperty("runAsGroup", "_mUnknown_RunAsGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRunAsGroup;
-
-        public int? RunAsGroup => _mRunAsGroup.GetValue("runAsGroup");
+        private int? _mValue_RunAsGroup;
+        private bool _mUnknown_RunAsGroup;
+        public int? RunAsGroup
+        {
+            get
+            {
+                if (!_mUnknown_RunAsGroup) return _mValue_RunAsGroup;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextResult.RunAsGroup' is not present");
+            }
+        }
 
         /// <summary>
         /// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
         /// </summary>
-        [Input("runAsNonRoot")]
+        [PolicyResourceProperty("runAsNonRoot", "_mUnknown_RunAsNonRoot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRunAsNonRoot;
-
-        public bool? RunAsNonRoot => _mRunAsNonRoot.GetValue("runAsNonRoot");
+        private bool? _mValue_RunAsNonRoot;
+        private bool _mUnknown_RunAsNonRoot;
+        public bool? RunAsNonRoot
+        {
+            get
+            {
+                if (!_mUnknown_RunAsNonRoot) return _mValue_RunAsNonRoot;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextResult.RunAsNonRoot' is not present");
+            }
+        }
 
         /// <summary>
         /// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
         /// </summary>
-        [Input("runAsUser")]
+        [PolicyResourceProperty("runAsUser", "_mUnknown_RunAsUser")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRunAsUser;
-
-        public int? RunAsUser => _mRunAsUser.GetValue("runAsUser");
+        private int? _mValue_RunAsUser;
+        private bool _mUnknown_RunAsUser;
+        public int? RunAsUser
+        {
+            get
+            {
+                if (!_mUnknown_RunAsUser) return _mValue_RunAsUser;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextResult.RunAsUser' is not present");
+            }
+        }
     }
 }

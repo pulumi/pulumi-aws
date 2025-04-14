@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
         /// <summary>
         /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'StorageLensConfiguration.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'StorageLensConfiguration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the S3 Storage Lens configuration.
         /// </summary>
-        [Input("configId")]
+        [PolicyResourceProperty("configId", "_mUnknown_ConfigId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigId;
-
-        public string? ConfigId => _mConfigId.GetValue("configId");
+        private string? _mValue_ConfigId;
+        private bool _mUnknown_ConfigId;
+        public string? ConfigId
+        {
+            get
+            {
+                if (!_mUnknown_ConfigId) return _mValue_ConfigId;
+                throw new UndeferrableValueException("Value 'StorageLensConfiguration.ConfigId' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
         /// </summary>
-        [Input("storageLensConfiguration")]
+        [PolicyResourceProperty("storageLensConfiguration", "_mUnknown_StorageLensConfigurationDetail")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StorageLensConfigurationStorageLensConfiguration> _mStorageLensConfigurationDetail;
-
-        public Outputs.StorageLensConfigurationStorageLensConfiguration? StorageLensConfigurationDetail => _mStorageLensConfigurationDetail.GetValue("storageLensConfiguration");
+        private Outputs.StorageLensConfigurationStorageLensConfiguration? _mValue_StorageLensConfigurationDetail;
+        private bool _mUnknown_StorageLensConfigurationDetail;
+        public Outputs.StorageLensConfigurationStorageLensConfiguration? StorageLensConfigurationDetail
+        {
+            get
+            {
+                if (!_mUnknown_StorageLensConfigurationDetail) return _mValue_StorageLensConfigurationDetail;
+                throw new UndeferrableValueException("Value 'StorageLensConfiguration.StorageLensConfigurationDetail' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'StorageLensConfiguration.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'StorageLensConfiguration.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3control/storageLensConfiguration:StorageLensConfiguration")]
@@ -74,37 +116,65 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
         /// <summary>
         /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the S3 Storage Lens configuration.
         /// </summary>
-        [Input("configId")]
+        [PolicyResourceProperty("configId", "_mUnknown_ConfigId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigId;
-
-        public string? ConfigId => _mConfigId.GetValue("configId");
+        private string? _mValue_ConfigId;
+        private bool _mUnknown_ConfigId;
+        public string? ConfigId
+        {
+            get
+            {
+                if (!_mUnknown_ConfigId) return _mValue_ConfigId;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationArgs.ConfigId' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
         /// </summary>
-        [Input("storageLensConfiguration")]
+        [PolicyResourceProperty("storageLensConfiguration", "_mUnknown_StorageLensConfigurationDetail")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StorageLensConfigurationStorageLensConfigurationArgs> _mStorageLensConfigurationDetail;
-
-        public Inputs.StorageLensConfigurationStorageLensConfigurationArgs? StorageLensConfigurationDetail => _mStorageLensConfigurationDetail.GetValue("storageLensConfiguration");
+        private Inputs.StorageLensConfigurationStorageLensConfigurationArgs? _mValue_StorageLensConfigurationDetail;
+        private bool _mUnknown_StorageLensConfigurationDetail;
+        public Inputs.StorageLensConfigurationStorageLensConfigurationArgs? StorageLensConfigurationDetail
+        {
+            get
+            {
+                if (!_mUnknown_StorageLensConfigurationDetail) return _mValue_StorageLensConfigurationDetail;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationArgs.StorageLensConfigurationDetail' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationArgs.Tags' is not present");
+            }
+        }
     }
 }

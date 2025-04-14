@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Outputs
         /// <summary>
         /// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
         /// </summary>
-        [Input("qos")]
+        [PolicyResourceProperty("qos", "_mUnknown_Qos")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mQos;
-
-        public int? Qos => _mQos.GetValue("qos");
+        private int? _mValue_Qos;
+        private bool _mUnknown_Qos;
+        public int? Qos
+        {
+            get
+            {
+                if (!_mUnknown_Qos) return _mValue_Qos;
+                throw new UndeferrableValueException("Value 'TopicRuleRepublish.Qos' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role that grants access.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'TopicRuleRepublish.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the MQTT topic the message should be republished to.
         /// </summary>
-        [Input("topic")]
+        [PolicyResourceProperty("topic", "_mUnknown_Topic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopic;
-
-        public string? Topic => _mTopic.GetValue("topic");
+        private string? _mValue_Topic;
+        private bool _mUnknown_Topic;
+        public string? Topic
+        {
+            get
+            {
+                if (!_mUnknown_Topic) return _mValue_Topic;
+                throw new UndeferrableValueException("Value 'TopicRuleRepublish.Topic' is not present");
+            }
+        }
     }
 }

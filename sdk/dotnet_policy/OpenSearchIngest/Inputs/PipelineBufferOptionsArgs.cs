@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearchIngest.Inputs
         /// <summary>
         /// Whether persistent buffering should be enabled.
         /// </summary>
-        [Input("persistentBufferEnabled")]
+        [PolicyResourceProperty("persistentBufferEnabled", "_mUnknown_PersistentBufferEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPersistentBufferEnabled;
-
-        public bool? PersistentBufferEnabled => _mPersistentBufferEnabled.GetValue("persistentBufferEnabled");
+        private bool? _mValue_PersistentBufferEnabled;
+        private bool _mUnknown_PersistentBufferEnabled;
+        public bool? PersistentBufferEnabled
+        {
+            get
+            {
+                if (!_mUnknown_PersistentBufferEnabled) return _mValue_PersistentBufferEnabled;
+                throw new UndeferrableValueException("Value 'PipelineBufferOptionsArgs.PersistentBufferEnabled' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.DataSync.Inputs
         /// <summary>
         /// Represents the mount options that are available for DataSync to access an NFS location. See below.
         /// </summary>
-        [Input("mountOptions")]
+        [PolicyResourceProperty("mountOptions", "_mUnknown_MountOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs> _mMountOptions;
-
-        public Inputs.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs? MountOptions => _mMountOptions.GetValue("mountOptions");
+        private Inputs.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs? _mValue_MountOptions;
+        private bool _mUnknown_MountOptions;
+        public Inputs.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs? MountOptions
+        {
+            get
+            {
+                if (!_mUnknown_MountOptions) return _mValue_MountOptions;
+                throw new UndeferrableValueException("Value 'FsxOpenZfsFileSystemProtocolNfsArgs.MountOptions' is not present");
+            }
+        }
     }
 }

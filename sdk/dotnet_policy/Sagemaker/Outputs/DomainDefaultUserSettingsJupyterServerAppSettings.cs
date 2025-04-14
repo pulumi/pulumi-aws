@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
         /// </summary>
-        [Input("codeRepositories")]
+        [PolicyResourceProperty("codeRepositories", "_mUnknown_CodeRepositories")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository>> _mCodeRepositories;
-
-        public List<Outputs.DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository>? CodeRepositories => _mCodeRepositories.GetValue("codeRepositories");
+        private List<Outputs.DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository>? _mValue_CodeRepositories;
+        private bool _mUnknown_CodeRepositories;
+        public List<Outputs.DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository>? CodeRepositories
+        {
+            get
+            {
+                if (!_mUnknown_CodeRepositories) return _mValue_CodeRepositories;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsJupyterServerAppSettings.CodeRepositories' is not present");
+            }
+        }
 
         /// <summary>
         /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         /// </summary>
-        [Input("defaultResourceSpec")]
+        [PolicyResourceProperty("defaultResourceSpec", "_mUnknown_DefaultResourceSpec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec> _mDefaultResourceSpec;
-
-        public Outputs.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec? DefaultResourceSpec => _mDefaultResourceSpec.GetValue("defaultResourceSpec");
+        private Outputs.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec? _mValue_DefaultResourceSpec;
+        private bool _mUnknown_DefaultResourceSpec;
+        public Outputs.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec? DefaultResourceSpec
+        {
+            get
+            {
+                if (!_mUnknown_DefaultResourceSpec) return _mValue_DefaultResourceSpec;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsJupyterServerAppSettings.DefaultResourceSpec' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         /// </summary>
-        [Input("lifecycleConfigArns")]
+        [PolicyResourceProperty("lifecycleConfigArns", "_mUnknown_LifecycleConfigArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLifecycleConfigArns;
-
-        public List<string>? LifecycleConfigArns => _mLifecycleConfigArns.GetValue("lifecycleConfigArns");
+        private List<string>? _mValue_LifecycleConfigArns;
+        private bool _mUnknown_LifecycleConfigArns;
+        public List<string>? LifecycleConfigArns
+        {
+            get
+            {
+                if (!_mUnknown_LifecycleConfigArns) return _mValue_LifecycleConfigArns;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsJupyterServerAppSettings.LifecycleConfigArns' is not present");
+            }
+        }
     }
 }

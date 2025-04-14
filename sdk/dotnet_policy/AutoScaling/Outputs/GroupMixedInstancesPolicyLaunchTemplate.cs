@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Outputs
         /// <summary>
         /// Override the instance launch template specification in the Launch Template.
         /// </summary>
-        [Input("launchTemplateSpecification")]
+        [PolicyResourceProperty("launchTemplateSpecification", "_mUnknown_LaunchTemplateSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification> _mLaunchTemplateSpecification;
-
-        public Outputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification? LaunchTemplateSpecification => _mLaunchTemplateSpecification.GetValue("launchTemplateSpecification");
+        private Outputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification? _mValue_LaunchTemplateSpecification;
+        private bool _mUnknown_LaunchTemplateSpecification;
+        public Outputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification? LaunchTemplateSpecification
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplateSpecification) return _mValue_LaunchTemplateSpecification;
+                throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplate.LaunchTemplateSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
         /// </summary>
-        [Input("overrides")]
+        [PolicyResourceProperty("overrides", "_mUnknown_Overrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GroupMixedInstancesPolicyLaunchTemplateOverride>> _mOverrides;
-
-        public List<Outputs.GroupMixedInstancesPolicyLaunchTemplateOverride>? Overrides => _mOverrides.GetValue("overrides");
+        private List<Outputs.GroupMixedInstancesPolicyLaunchTemplateOverride>? _mValue_Overrides;
+        private bool _mUnknown_Overrides;
+        public List<Outputs.GroupMixedInstancesPolicyLaunchTemplateOverride>? Overrides
+        {
+            get
+            {
+                if (!_mUnknown_Overrides) return _mValue_Overrides;
+                throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplate.Overrides' is not present");
+            }
+        }
     }
 }

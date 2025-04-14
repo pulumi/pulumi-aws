@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// Indicates whether the domain can access Docker. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("enableDockerAccess")]
+        [PolicyResourceProperty("enableDockerAccess", "_mUnknown_EnableDockerAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnableDockerAccess;
-
-        public string? EnableDockerAccess => _mEnableDockerAccess.GetValue("enableDockerAccess");
+        private string? _mValue_EnableDockerAccess;
+        private bool _mUnknown_EnableDockerAccess;
+        public string? EnableDockerAccess
+        {
+            get
+            {
+                if (!_mUnknown_EnableDockerAccess) return _mValue_EnableDockerAccess;
+                throw new UndeferrableValueException("Value 'DomainDomainSettingsDockerSettings.EnableDockerAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of Amazon Web Services accounts that are trusted when the domain is created in VPC-only mode.
         /// </summary>
-        [Input("vpcOnlyTrustedAccounts")]
+        [PolicyResourceProperty("vpcOnlyTrustedAccounts", "_mUnknown_VpcOnlyTrustedAccounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcOnlyTrustedAccounts;
-
-        public List<string>? VpcOnlyTrustedAccounts => _mVpcOnlyTrustedAccounts.GetValue("vpcOnlyTrustedAccounts");
+        private List<string>? _mValue_VpcOnlyTrustedAccounts;
+        private bool _mUnknown_VpcOnlyTrustedAccounts;
+        public List<string>? VpcOnlyTrustedAccounts
+        {
+            get
+            {
+                if (!_mUnknown_VpcOnlyTrustedAccounts) return _mValue_VpcOnlyTrustedAccounts;
+                throw new UndeferrableValueException("Value 'DomainDomainSettingsDockerSettings.VpcOnlyTrustedAccounts' is not present");
+            }
+        }
     }
 }

@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.LicenseManager
         /// <summary>
         /// The license configuration ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LicenseConfiguration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the license configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'LicenseConfiguration.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of licenses managed by the license configuration.
         /// </summary>
-        [Input("licenseCount")]
+        [PolicyResourceProperty("licenseCount", "_mUnknown_LicenseCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLicenseCount;
-
-        public int? LicenseCount => _mLicenseCount.GetValue("licenseCount");
+        private int? _mValue_LicenseCount;
+        private bool _mUnknown_LicenseCount;
+        public int? LicenseCount
+        {
+            get
+            {
+                if (!_mUnknown_LicenseCount) return _mValue_LicenseCount;
+                throw new UndeferrableValueException("Value 'LicenseConfiguration.LicenseCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the number of available licenses as a hard limit.
         /// </summary>
-        [Input("licenseCountHardLimit")]
+        [PolicyResourceProperty("licenseCountHardLimit", "_mUnknown_LicenseCountHardLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mLicenseCountHardLimit;
-
-        public bool? LicenseCountHardLimit => _mLicenseCountHardLimit.GetValue("licenseCountHardLimit");
+        private bool? _mValue_LicenseCountHardLimit;
+        private bool _mUnknown_LicenseCountHardLimit;
+        public bool? LicenseCountHardLimit
+        {
+            get
+            {
+                if (!_mUnknown_LicenseCountHardLimit) return _mValue_LicenseCountHardLimit;
+                throw new UndeferrableValueException("Value 'LicenseConfiguration.LicenseCountHardLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
         /// </summary>
-        [Input("licenseCountingType")]
+        [PolicyResourceProperty("licenseCountingType", "_mUnknown_LicenseCountingType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseCountingType;
-
-        public string? LicenseCountingType => _mLicenseCountingType.GetValue("licenseCountingType");
+        private string? _mValue_LicenseCountingType;
+        private bool _mUnknown_LicenseCountingType;
+        public string? LicenseCountingType
+        {
+            get
+            {
+                if (!_mUnknown_LicenseCountingType) return _mValue_LicenseCountingType;
+                throw new UndeferrableValueException("Value 'LicenseConfiguration.LicenseCountingType' is not present");
+            }
+        }
 
         /// <summary>
         /// Array of configured License Manager rules.
         /// </summary>
-        [Input("licenseRules")]
+        [PolicyResourceProperty("licenseRules", "_mUnknown_LicenseRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLicenseRules;
-
-        public List<string>? LicenseRules => _mLicenseRules.GetValue("licenseRules");
+        private List<string>? _mValue_LicenseRules;
+        private bool _mUnknown_LicenseRules;
+        public List<string>? LicenseRules
+        {
+            get
+            {
+                if (!_mUnknown_LicenseRules) return _mValue_LicenseRules;
+                throw new UndeferrableValueException("Value 'LicenseConfiguration.LicenseRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the license configuration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LicenseConfiguration.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the owner of the license configuration.
         /// </summary>
-        [Input("ownerAccountId")]
+        [PolicyResourceProperty("ownerAccountId", "_mUnknown_OwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
-
-        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+        private string? _mValue_OwnerAccountId;
+        private bool _mUnknown_OwnerAccountId;
+        public string? OwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccountId) return _mValue_OwnerAccountId;
+                throw new UndeferrableValueException("Value 'LicenseConfiguration.OwnerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LicenseConfiguration.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'LicenseConfiguration.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:licensemanager/licenseConfiguration:LicenseConfiguration")]
@@ -110,64 +180,113 @@ namespace Pulumi.PolicyPacks.Aws.LicenseManager
         /// <summary>
         /// Description of the license configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'LicenseConfigurationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of licenses managed by the license configuration.
         /// </summary>
-        [Input("licenseCount")]
+        [PolicyResourceProperty("licenseCount", "_mUnknown_LicenseCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLicenseCount;
-
-        public int? LicenseCount => _mLicenseCount.GetValue("licenseCount");
+        private int? _mValue_LicenseCount;
+        private bool _mUnknown_LicenseCount;
+        public int? LicenseCount
+        {
+            get
+            {
+                if (!_mUnknown_LicenseCount) return _mValue_LicenseCount;
+                throw new UndeferrableValueException("Value 'LicenseConfigurationArgs.LicenseCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the number of available licenses as a hard limit.
         /// </summary>
-        [Input("licenseCountHardLimit")]
+        [PolicyResourceProperty("licenseCountHardLimit", "_mUnknown_LicenseCountHardLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mLicenseCountHardLimit;
-
-        public bool? LicenseCountHardLimit => _mLicenseCountHardLimit.GetValue("licenseCountHardLimit");
+        private bool? _mValue_LicenseCountHardLimit;
+        private bool _mUnknown_LicenseCountHardLimit;
+        public bool? LicenseCountHardLimit
+        {
+            get
+            {
+                if (!_mUnknown_LicenseCountHardLimit) return _mValue_LicenseCountHardLimit;
+                throw new UndeferrableValueException("Value 'LicenseConfigurationArgs.LicenseCountHardLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
         /// </summary>
-        [Input("licenseCountingType")]
+        [PolicyResourceProperty("licenseCountingType", "_mUnknown_LicenseCountingType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseCountingType;
-
-        public string? LicenseCountingType => _mLicenseCountingType.GetValue("licenseCountingType");
+        private string? _mValue_LicenseCountingType;
+        private bool _mUnknown_LicenseCountingType;
+        public string? LicenseCountingType
+        {
+            get
+            {
+                if (!_mUnknown_LicenseCountingType) return _mValue_LicenseCountingType;
+                throw new UndeferrableValueException("Value 'LicenseConfigurationArgs.LicenseCountingType' is not present");
+            }
+        }
 
         /// <summary>
         /// Array of configured License Manager rules.
         /// </summary>
-        [Input("licenseRules")]
+        [PolicyResourceProperty("licenseRules", "_mUnknown_LicenseRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLicenseRules;
-
-        public List<string>? LicenseRules => _mLicenseRules.GetValue("licenseRules");
+        private List<string>? _mValue_LicenseRules;
+        private bool _mUnknown_LicenseRules;
+        public List<string>? LicenseRules
+        {
+            get
+            {
+                if (!_mUnknown_LicenseRules) return _mValue_LicenseRules;
+                throw new UndeferrableValueException("Value 'LicenseConfigurationArgs.LicenseRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the license configuration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LicenseConfigurationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LicenseConfigurationArgs.Tags' is not present");
+            }
+        }
     }
 }

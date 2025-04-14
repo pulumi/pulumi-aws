@@ -13,150 +13,262 @@ namespace Pulumi.PolicyPacks.Aws.CodeCatalyst
     [PolicyResourceType("aws:codecatalyst/devEnvironment:DevEnvironment")]
     public sealed class DevEnvironment : global::Pulumi.PolicyResourceOutput
     {
-        [Input("alias")]
+        [PolicyResourceProperty("alias", "_mUnknown_Alias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
-
-        public string? Alias => _mAlias.GetValue("alias");
+        private string? _mValue_Alias;
+        private bool _mUnknown_Alias;
+        public string? Alias
+        {
+            get
+            {
+                if (!_mUnknown_Alias) return _mValue_Alias;
+                throw new UndeferrableValueException("Value 'DevEnvironment.Alias' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the integrated development environment (IDE) configured for a Dev Environment.
         /// </summary>
-        [Input("ides")]
+        [PolicyResourceProperty("ides", "_mUnknown_Ides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DevEnvironmentIdes> _mIdes;
-
-        public Outputs.DevEnvironmentIdes? Ides => _mIdes.GetValue("ides");
+        private Outputs.DevEnvironmentIdes? _mValue_Ides;
+        private bool _mUnknown_Ides;
+        public Outputs.DevEnvironmentIdes? Ides
+        {
+            get
+            {
+                if (!_mUnknown_Ides) return _mValue_Ides;
+                throw new UndeferrableValueException("Value 'DevEnvironment.Ides' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
         /// </summary>
-        [Input("inactivityTimeoutMinutes")]
+        [PolicyResourceProperty("inactivityTimeoutMinutes", "_mUnknown_InactivityTimeoutMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInactivityTimeoutMinutes;
-
-        public int? InactivityTimeoutMinutes => _mInactivityTimeoutMinutes.GetValue("inactivityTimeoutMinutes");
+        private int? _mValue_InactivityTimeoutMinutes;
+        private bool _mUnknown_InactivityTimeoutMinutes;
+        public int? InactivityTimeoutMinutes
+        {
+            get
+            {
+                if (!_mUnknown_InactivityTimeoutMinutes) return _mValue_InactivityTimeoutMinutes;
+                throw new UndeferrableValueException("Value 'DevEnvironment.InactivityTimeoutMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'DevEnvironment.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the amount of storage allocated to the Dev Environment.
         /// </summary>
-        [Input("persistentStorage")]
+        [PolicyResourceProperty("persistentStorage", "_mUnknown_PersistentStorage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DevEnvironmentPersistentStorage> _mPersistentStorage;
-
-        public Outputs.DevEnvironmentPersistentStorage? PersistentStorage => _mPersistentStorage.GetValue("persistentStorage");
+        private Outputs.DevEnvironmentPersistentStorage? _mValue_PersistentStorage;
+        private bool _mUnknown_PersistentStorage;
+        public Outputs.DevEnvironmentPersistentStorage? PersistentStorage
+        {
+            get
+            {
+                if (!_mUnknown_PersistentStorage) return _mValue_PersistentStorage;
+                throw new UndeferrableValueException("Value 'DevEnvironment.PersistentStorage' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the project in the space.
         /// </summary>
-        [Input("projectName")]
+        [PolicyResourceProperty("projectName", "_mUnknown_ProjectName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectName;
-
-        public string? ProjectName => _mProjectName.GetValue("projectName");
+        private string? _mValue_ProjectName;
+        private bool _mUnknown_ProjectName;
+        public string? ProjectName
+        {
+            get
+            {
+                if (!_mUnknown_ProjectName) return _mValue_ProjectName;
+                throw new UndeferrableValueException("Value 'DevEnvironment.ProjectName' is not present");
+            }
+        }
 
         /// <summary>
         /// The source repository that contains the branch to clone into the Dev Environment.
         /// </summary>
-        [Input("repositories")]
+        [PolicyResourceProperty("repositories", "_mUnknown_Repositories")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DevEnvironmentRepository>> _mRepositories;
-
-        public List<Outputs.DevEnvironmentRepository>? Repositories => _mRepositories.GetValue("repositories");
+        private List<Outputs.DevEnvironmentRepository>? _mValue_Repositories;
+        private bool _mUnknown_Repositories;
+        public List<Outputs.DevEnvironmentRepository>? Repositories
+        {
+            get
+            {
+                if (!_mUnknown_Repositories) return _mValue_Repositories;
+                throw new UndeferrableValueException("Value 'DevEnvironment.Repositories' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the space.
         /// </summary>
-        [Input("spaceName")]
+        [PolicyResourceProperty("spaceName", "_mUnknown_SpaceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceName;
-
-        public string? SpaceName => _mSpaceName.GetValue("spaceName");
+        private string? _mValue_SpaceName;
+        private bool _mUnknown_SpaceName;
+        public string? SpaceName
+        {
+            get
+            {
+                if (!_mUnknown_SpaceName) return _mValue_SpaceName;
+                throw new UndeferrableValueException("Value 'DevEnvironment.SpaceName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codecatalyst/devEnvironment:DevEnvironment")]
     public sealed class DevEnvironmentArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("alias")]
+        [PolicyResourceProperty("alias", "_mUnknown_Alias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
-
-        public string? Alias => _mAlias.GetValue("alias");
+        private string? _mValue_Alias;
+        private bool _mUnknown_Alias;
+        public string? Alias
+        {
+            get
+            {
+                if (!_mUnknown_Alias) return _mValue_Alias;
+                throw new UndeferrableValueException("Value 'DevEnvironmentArgs.Alias' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the integrated development environment (IDE) configured for a Dev Environment.
         /// </summary>
-        [Input("ides")]
+        [PolicyResourceProperty("ides", "_mUnknown_Ides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DevEnvironmentIdesArgs> _mIdes;
-
-        public Inputs.DevEnvironmentIdesArgs? Ides => _mIdes.GetValue("ides");
+        private Inputs.DevEnvironmentIdesArgs? _mValue_Ides;
+        private bool _mUnknown_Ides;
+        public Inputs.DevEnvironmentIdesArgs? Ides
+        {
+            get
+            {
+                if (!_mUnknown_Ides) return _mValue_Ides;
+                throw new UndeferrableValueException("Value 'DevEnvironmentArgs.Ides' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
         /// </summary>
-        [Input("inactivityTimeoutMinutes")]
+        [PolicyResourceProperty("inactivityTimeoutMinutes", "_mUnknown_InactivityTimeoutMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInactivityTimeoutMinutes;
-
-        public int? InactivityTimeoutMinutes => _mInactivityTimeoutMinutes.GetValue("inactivityTimeoutMinutes");
+        private int? _mValue_InactivityTimeoutMinutes;
+        private bool _mUnknown_InactivityTimeoutMinutes;
+        public int? InactivityTimeoutMinutes
+        {
+            get
+            {
+                if (!_mUnknown_InactivityTimeoutMinutes) return _mValue_InactivityTimeoutMinutes;
+                throw new UndeferrableValueException("Value 'DevEnvironmentArgs.InactivityTimeoutMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'DevEnvironmentArgs.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the amount of storage allocated to the Dev Environment.
         /// </summary>
-        [Input("persistentStorage")]
+        [PolicyResourceProperty("persistentStorage", "_mUnknown_PersistentStorage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DevEnvironmentPersistentStorageArgs> _mPersistentStorage;
-
-        public Inputs.DevEnvironmentPersistentStorageArgs? PersistentStorage => _mPersistentStorage.GetValue("persistentStorage");
+        private Inputs.DevEnvironmentPersistentStorageArgs? _mValue_PersistentStorage;
+        private bool _mUnknown_PersistentStorage;
+        public Inputs.DevEnvironmentPersistentStorageArgs? PersistentStorage
+        {
+            get
+            {
+                if (!_mUnknown_PersistentStorage) return _mValue_PersistentStorage;
+                throw new UndeferrableValueException("Value 'DevEnvironmentArgs.PersistentStorage' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the project in the space.
         /// </summary>
-        [Input("projectName")]
+        [PolicyResourceProperty("projectName", "_mUnknown_ProjectName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectName;
-
-        public string? ProjectName => _mProjectName.GetValue("projectName");
+        private string? _mValue_ProjectName;
+        private bool _mUnknown_ProjectName;
+        public string? ProjectName
+        {
+            get
+            {
+                if (!_mUnknown_ProjectName) return _mValue_ProjectName;
+                throw new UndeferrableValueException("Value 'DevEnvironmentArgs.ProjectName' is not present");
+            }
+        }
 
         /// <summary>
         /// The source repository that contains the branch to clone into the Dev Environment.
         /// </summary>
-        [Input("repositories")]
+        [PolicyResourceProperty("repositories", "_mUnknown_Repositories")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DevEnvironmentRepositoryArgs>> _mRepositories;
-
-        public List<Inputs.DevEnvironmentRepositoryArgs>? Repositories => _mRepositories.GetValue("repositories");
+        private List<Inputs.DevEnvironmentRepositoryArgs>? _mValue_Repositories;
+        private bool _mUnknown_Repositories;
+        public List<Inputs.DevEnvironmentRepositoryArgs>? Repositories
+        {
+            get
+            {
+                if (!_mUnknown_Repositories) return _mValue_Repositories;
+                throw new UndeferrableValueException("Value 'DevEnvironmentArgs.Repositories' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the space.
         /// </summary>
-        [Input("spaceName")]
+        [PolicyResourceProperty("spaceName", "_mUnknown_SpaceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceName;
-
-        public string? SpaceName => _mSpaceName.GetValue("spaceName");
+        private string? _mValue_SpaceName;
+        private bool _mUnknown_SpaceName;
+        public string? SpaceName
+        {
+            get
+            {
+                if (!_mUnknown_SpaceName) return _mValue_SpaceName;
+                throw new UndeferrableValueException("Value 'DevEnvironmentArgs.SpaceName' is not present");
+            }
+        }
     }
 }

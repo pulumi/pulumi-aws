@@ -16,103 +16,180 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("applicationAccount")]
+        [PolicyResourceProperty("applicationAccount", "_mUnknown_ApplicationAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationAccount;
-
-        public string? ApplicationAccount => _mApplicationAccount.GetValue("applicationAccount");
+        private string? _mValue_ApplicationAccount;
+        private bool _mUnknown_ApplicationAccount;
+        public string? ApplicationAccount
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationAccount) return _mValue_ApplicationAccount;
+                throw new UndeferrableValueException("Value 'Application.ApplicationAccount' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the application.
         /// </summary>
-        [Input("applicationArn")]
+        [PolicyResourceProperty("applicationArn", "_mUnknown_ApplicationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationArn;
-
-        public string? ApplicationArn => _mApplicationArn.GetValue("applicationArn");
+        private string? _mValue_ApplicationArn;
+        private bool _mUnknown_ApplicationArn;
+        public string? ApplicationArn
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationArn) return _mValue_ApplicationArn;
+                throw new UndeferrableValueException("Value 'Application.ApplicationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the application provider.
         /// </summary>
-        [Input("applicationProviderArn")]
+        [PolicyResourceProperty("applicationProviderArn", "_mUnknown_ApplicationProviderArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationProviderArn;
-
-        public string? ApplicationProviderArn => _mApplicationProviderArn.GetValue("applicationProviderArn");
+        private string? _mValue_ApplicationProviderArn;
+        private bool _mUnknown_ApplicationProviderArn;
+        public string? ApplicationProviderArn
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationProviderArn) return _mValue_ApplicationProviderArn;
+                throw new UndeferrableValueException("Value 'Application.ApplicationProviderArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
         /// </summary>
-        [Input("clientToken")]
+        [PolicyResourceProperty("clientToken", "_mUnknown_ClientToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientToken;
-
-        public string? ClientToken => _mClientToken.GetValue("clientToken");
+        private string? _mValue_ClientToken;
+        private bool _mUnknown_ClientToken;
+        public string? ClientToken
+        {
+            get
+            {
+                if (!_mUnknown_ClientToken) return _mValue_ClientToken;
+                throw new UndeferrableValueException("Value 'Application.ClientToken' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the application.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Application.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the instance of IAM Identity Center.
         /// </summary>
-        [Input("instanceArn")]
+        [PolicyResourceProperty("instanceArn", "_mUnknown_InstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
-
-        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+        private string? _mValue_InstanceArn;
+        private bool _mUnknown_InstanceArn;
+        public string? InstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_InstanceArn) return _mValue_InstanceArn;
+                throw new UndeferrableValueException("Value 'Application.InstanceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the application.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Application.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Options for the portal associated with an application. See `portal_options` below.
         /// </summary>
-        [Input("portalOptions")]
+        [PolicyResourceProperty("portalOptions", "_mUnknown_PortalOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationPortalOptions> _mPortalOptions;
-
-        public Outputs.ApplicationPortalOptions? PortalOptions => _mPortalOptions.GetValue("portalOptions");
+        private Outputs.ApplicationPortalOptions? _mValue_PortalOptions;
+        private bool _mUnknown_PortalOptions;
+        public Outputs.ApplicationPortalOptions? PortalOptions
+        {
+            get
+            {
+                if (!_mUnknown_PortalOptions) return _mValue_PortalOptions;
+                throw new UndeferrableValueException("Value 'Application.PortalOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the application. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Application.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Application.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Application.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssoadmin/application:Application")]
@@ -121,75 +198,131 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// <summary>
         /// ARN of the application provider.
         /// </summary>
-        [Input("applicationProviderArn")]
+        [PolicyResourceProperty("applicationProviderArn", "_mUnknown_ApplicationProviderArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationProviderArn;
-
-        public string? ApplicationProviderArn => _mApplicationProviderArn.GetValue("applicationProviderArn");
+        private string? _mValue_ApplicationProviderArn;
+        private bool _mUnknown_ApplicationProviderArn;
+        public string? ApplicationProviderArn
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationProviderArn) return _mValue_ApplicationProviderArn;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.ApplicationProviderArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
         /// </summary>
-        [Input("clientToken")]
+        [PolicyResourceProperty("clientToken", "_mUnknown_ClientToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientToken;
-
-        public string? ClientToken => _mClientToken.GetValue("clientToken");
+        private string? _mValue_ClientToken;
+        private bool _mUnknown_ClientToken;
+        public string? ClientToken
+        {
+            get
+            {
+                if (!_mUnknown_ClientToken) return _mValue_ClientToken;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.ClientToken' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the application.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the instance of IAM Identity Center.
         /// </summary>
-        [Input("instanceArn")]
+        [PolicyResourceProperty("instanceArn", "_mUnknown_InstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
-
-        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+        private string? _mValue_InstanceArn;
+        private bool _mUnknown_InstanceArn;
+        public string? InstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_InstanceArn) return _mValue_InstanceArn;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.InstanceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the application.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Options for the portal associated with an application. See `portal_options` below.
         /// </summary>
-        [Input("portalOptions")]
+        [PolicyResourceProperty("portalOptions", "_mUnknown_PortalOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationPortalOptionsArgs> _mPortalOptions;
-
-        public Inputs.ApplicationPortalOptionsArgs? PortalOptions => _mPortalOptions.GetValue("portalOptions");
+        private Inputs.ApplicationPortalOptionsArgs? _mValue_PortalOptions;
+        private bool _mUnknown_PortalOptions;
+        public Inputs.ApplicationPortalOptionsArgs? PortalOptions
+        {
+            get
+            {
+                if (!_mUnknown_PortalOptions) return _mValue_PortalOptions;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.PortalOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the application. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Outputs
         /// <summary>
         /// Action to take when a condition is true. Detailed Below.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult> _mAction;
-
-        public Outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult? Action => _mAction.GetValue("action");
+        private Outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult? _mValue_Action;
+        private bool _mUnknown_Action;
+        public Outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentAttachmentPolicyResult.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `condition_logic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
         /// </summary>
-        [Input("conditionLogic")]
+        [PolicyResourceProperty("conditionLogic", "_mUnknown_ConditionLogic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConditionLogic;
-
-        public string? ConditionLogic => _mConditionLogic.GetValue("conditionLogic");
+        private string? _mValue_ConditionLogic;
+        private bool _mUnknown_ConditionLogic;
+        public string? ConditionLogic
+        {
+            get
+            {
+                if (!_mUnknown_ConditionLogic) return _mValue_ConditionLogic;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentAttachmentPolicyResult.ConditionLogic' is not present");
+            }
+        }
 
         /// <summary>
         /// A block argument. Detailed Below.
         /// </summary>
-        [Input("conditions")]
+        [PolicyResourceProperty("conditions", "_mUnknown_Conditions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult>> _mConditions;
-
-        public List<Outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult>? Conditions => _mConditions.GetValue("conditions");
+        private List<Outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult>? _mValue_Conditions;
+        private bool _mUnknown_Conditions;
+        public List<Outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult>? Conditions
+        {
+            get
+            {
+                if (!_mUnknown_Conditions) return _mValue_Conditions;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentAttachmentPolicyResult.Conditions' is not present");
+            }
+        }
 
         /// <summary>
         /// A user-defined description that further helps identify the rule.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentAttachmentPolicyResult.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It's important to make sure that you number your rules in the exact order that you want them processed.
         /// </summary>
-        [Input("ruleNumber")]
+        [PolicyResourceProperty("ruleNumber", "_mUnknown_RuleNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRuleNumber;
-
-        public int? RuleNumber => _mRuleNumber.GetValue("ruleNumber");
+        private int? _mValue_RuleNumber;
+        private bool _mUnknown_RuleNumber;
+        public int? RuleNumber
+        {
+            get
+            {
+                if (!_mUnknown_RuleNumber) return _mValue_RuleNumber;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentAttachmentPolicyResult.RuleNumber' is not present");
+            }
+        }
     }
 }

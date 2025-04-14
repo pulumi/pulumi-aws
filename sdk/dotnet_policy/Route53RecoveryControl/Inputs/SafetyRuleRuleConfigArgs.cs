@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryControl.Inputs
         /// <summary>
         /// Logical negation of the rule.
         /// </summary>
-        [Input("inverted")]
+        [PolicyResourceProperty("inverted", "_mUnknown_Inverted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInverted;
-
-        public bool? Inverted => _mInverted.GetValue("inverted");
+        private bool? _mValue_Inverted;
+        private bool _mUnknown_Inverted;
+        public bool? Inverted
+        {
+            get
+            {
+                if (!_mUnknown_Inverted) return _mValue_Inverted;
+                throw new UndeferrableValueException("Value 'SafetyRuleRuleConfigArgs.Inverted' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of controls that must be set when you specify an `ATLEAST` type rule.
         /// </summary>
-        [Input("threshold")]
+        [PolicyResourceProperty("threshold", "_mUnknown_Threshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThreshold;
-
-        public int? Threshold => _mThreshold.GetValue("threshold");
+        private int? _mValue_Threshold;
+        private bool _mUnknown_Threshold;
+        public int? Threshold
+        {
+            get
+            {
+                if (!_mUnknown_Threshold) return _mValue_Threshold;
+                throw new UndeferrableValueException("Value 'SafetyRuleRuleConfigArgs.Threshold' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'SafetyRuleRuleConfigArgs.Type' is not present");
+            }
+        }
     }
 }

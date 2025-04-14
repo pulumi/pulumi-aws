@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// Properties for the Kubernetes pod resources of a job. See `pod_properties` below.
         /// </summary>
-        [Input("podProperties")]
+        [PolicyResourceProperty("podProperties", "_mUnknown_PodProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JobDefinitionEksPropertiesPodProperties> _mPodProperties;
-
-        public Outputs.JobDefinitionEksPropertiesPodProperties? PodProperties => _mPodProperties.GetValue("podProperties");
+        private Outputs.JobDefinitionEksPropertiesPodProperties? _mValue_PodProperties;
+        private bool _mUnknown_PodProperties;
+        public Outputs.JobDefinitionEksPropertiesPodProperties? PodProperties
+        {
+            get
+            {
+                if (!_mUnknown_PodProperties) return _mValue_PodProperties;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksProperties.PodProperties' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Ses.Outputs
         /// <summary>
         /// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
         /// </summary>
-        [Input("customRedirectDomain")]
+        [PolicyResourceProperty("customRedirectDomain", "_mUnknown_CustomRedirectDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomRedirectDomain;
-
-        public string? CustomRedirectDomain => _mCustomRedirectDomain.GetValue("customRedirectDomain");
+        private string? _mValue_CustomRedirectDomain;
+        private bool _mUnknown_CustomRedirectDomain;
+        public string? CustomRedirectDomain
+        {
+            get
+            {
+                if (!_mUnknown_CustomRedirectDomain) return _mValue_CustomRedirectDomain;
+                throw new UndeferrableValueException("Value 'ConfigurationSetTrackingOptions.CustomRedirectDomain' is not present");
+            }
+        }
     }
 }

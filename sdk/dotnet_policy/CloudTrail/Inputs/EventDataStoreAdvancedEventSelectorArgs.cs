@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudTrail.Inputs
         /// <summary>
         /// Specifies the selector statements in an advanced event selector. Fields documented below.
         /// </summary>
-        [Input("fieldSelectors")]
+        [PolicyResourceProperty("fieldSelectors", "_mUnknown_FieldSelectors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EventDataStoreAdvancedEventSelectorFieldSelectorArgs>> _mFieldSelectors;
-
-        public List<Inputs.EventDataStoreAdvancedEventSelectorFieldSelectorArgs>? FieldSelectors => _mFieldSelectors.GetValue("fieldSelectors");
+        private List<Inputs.EventDataStoreAdvancedEventSelectorFieldSelectorArgs>? _mValue_FieldSelectors;
+        private bool _mUnknown_FieldSelectors;
+        public List<Inputs.EventDataStoreAdvancedEventSelectorFieldSelectorArgs>? FieldSelectors
+        {
+            get
+            {
+                if (!_mUnknown_FieldSelectors) return _mValue_FieldSelectors;
+                throw new UndeferrableValueException("Value 'EventDataStoreAdvancedEventSelectorArgs.FieldSelectors' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the advanced event selector.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EventDataStoreAdvancedEventSelectorArgs.Name' is not present");
+            }
+        }
     }
 }

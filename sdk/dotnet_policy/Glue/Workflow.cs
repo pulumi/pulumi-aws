@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// Amazon Resource Name (ARN) of Glue Workflow
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Workflow.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         /// </summary>
-        [Input("defaultRunProperties")]
+        [PolicyResourceProperty("defaultRunProperties", "_mUnknown_DefaultRunProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mDefaultRunProperties;
-
-        public Dictionary<string, string>? DefaultRunProperties => _mDefaultRunProperties.GetValue("defaultRunProperties");
+        private Dictionary<string, string>? _mValue_DefaultRunProperties;
+        private bool _mUnknown_DefaultRunProperties;
+        public Dictionary<string, string>? DefaultRunProperties
+        {
+            get
+            {
+                if (!_mUnknown_DefaultRunProperties) return _mValue_DefaultRunProperties;
+                throw new UndeferrableValueException("Value 'Workflow.DefaultRunProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the workflow.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Workflow.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
         /// </summary>
-        [Input("maxConcurrentRuns")]
+        [PolicyResourceProperty("maxConcurrentRuns", "_mUnknown_MaxConcurrentRuns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxConcurrentRuns;
-
-        public int? MaxConcurrentRuns => _mMaxConcurrentRuns.GetValue("maxConcurrentRuns");
+        private int? _mValue_MaxConcurrentRuns;
+        private bool _mUnknown_MaxConcurrentRuns;
+        public int? MaxConcurrentRuns
+        {
+            get
+            {
+                if (!_mUnknown_MaxConcurrentRuns) return _mValue_MaxConcurrentRuns;
+                throw new UndeferrableValueException("Value 'Workflow.MaxConcurrentRuns' is not present");
+            }
+        }
 
         /// <summary>
         /// The name you assign to this workflow.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Workflow.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Workflow.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Workflow.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:glue/workflow:Workflow")]
@@ -83,46 +132,81 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         /// </summary>
-        [Input("defaultRunProperties")]
+        [PolicyResourceProperty("defaultRunProperties", "_mUnknown_DefaultRunProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mDefaultRunProperties;
-
-        public Dictionary<string, string>? DefaultRunProperties => _mDefaultRunProperties.GetValue("defaultRunProperties");
+        private Dictionary<string, string>? _mValue_DefaultRunProperties;
+        private bool _mUnknown_DefaultRunProperties;
+        public Dictionary<string, string>? DefaultRunProperties
+        {
+            get
+            {
+                if (!_mUnknown_DefaultRunProperties) return _mValue_DefaultRunProperties;
+                throw new UndeferrableValueException("Value 'WorkflowArgs.DefaultRunProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the workflow.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'WorkflowArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
         /// </summary>
-        [Input("maxConcurrentRuns")]
+        [PolicyResourceProperty("maxConcurrentRuns", "_mUnknown_MaxConcurrentRuns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxConcurrentRuns;
-
-        public int? MaxConcurrentRuns => _mMaxConcurrentRuns.GetValue("maxConcurrentRuns");
+        private int? _mValue_MaxConcurrentRuns;
+        private bool _mUnknown_MaxConcurrentRuns;
+        public int? MaxConcurrentRuns
+        {
+            get
+            {
+                if (!_mUnknown_MaxConcurrentRuns) return _mValue_MaxConcurrentRuns;
+                throw new UndeferrableValueException("Value 'WorkflowArgs.MaxConcurrentRuns' is not present");
+            }
+        }
 
         /// <summary>
         /// The name you assign to this workflow.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'WorkflowArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'WorkflowArgs.Tags' is not present");
+            }
+        }
     }
 }

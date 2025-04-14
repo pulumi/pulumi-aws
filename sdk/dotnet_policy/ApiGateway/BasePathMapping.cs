@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
         /// </summary>
-        [Input("basePath")]
+        [PolicyResourceProperty("basePath", "_mUnknown_BasePath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBasePath;
-
-        public string? BasePath => _mBasePath.GetValue("basePath");
+        private string? _mValue_BasePath;
+        private bool _mUnknown_BasePath;
+        public string? BasePath
+        {
+            get
+            {
+                if (!_mUnknown_BasePath) return _mValue_BasePath;
+                throw new UndeferrableValueException("Value 'BasePathMapping.BasePath' is not present");
+            }
+        }
 
         /// <summary>
         /// Already-registered domain name to connect the API to.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'BasePathMapping.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the domain name resource. Supported only for private custom domain names.
         /// </summary>
-        [Input("domainNameId")]
+        [PolicyResourceProperty("domainNameId", "_mUnknown_DomainNameId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainNameId;
-
-        public string? DomainNameId => _mDomainNameId.GetValue("domainNameId");
+        private string? _mValue_DomainNameId;
+        private bool _mUnknown_DomainNameId;
+        public string? DomainNameId
+        {
+            get
+            {
+                if (!_mUnknown_DomainNameId) return _mValue_DomainNameId;
+                throw new UndeferrableValueException("Value 'BasePathMapping.DomainNameId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the API to connect.
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'BasePathMapping.RestApi' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         /// </summary>
-        [Input("stageName")]
+        [PolicyResourceProperty("stageName", "_mUnknown_StageName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStageName;
-
-        public string? StageName => _mStageName.GetValue("stageName");
+        private string? _mValue_StageName;
+        private bool _mUnknown_StageName;
+        public string? StageName
+        {
+            get
+            {
+                if (!_mUnknown_StageName) return _mValue_StageName;
+                throw new UndeferrableValueException("Value 'BasePathMapping.StageName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/basePathMapping:BasePathMapping")]
@@ -65,46 +100,81 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
         /// </summary>
-        [Input("basePath")]
+        [PolicyResourceProperty("basePath", "_mUnknown_BasePath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBasePath;
-
-        public string? BasePath => _mBasePath.GetValue("basePath");
+        private string? _mValue_BasePath;
+        private bool _mUnknown_BasePath;
+        public string? BasePath
+        {
+            get
+            {
+                if (!_mUnknown_BasePath) return _mValue_BasePath;
+                throw new UndeferrableValueException("Value 'BasePathMappingArgs.BasePath' is not present");
+            }
+        }
 
         /// <summary>
         /// Already-registered domain name to connect the API to.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'BasePathMappingArgs.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the domain name resource. Supported only for private custom domain names.
         /// </summary>
-        [Input("domainNameId")]
+        [PolicyResourceProperty("domainNameId", "_mUnknown_DomainNameId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainNameId;
-
-        public string? DomainNameId => _mDomainNameId.GetValue("domainNameId");
+        private string? _mValue_DomainNameId;
+        private bool _mUnknown_DomainNameId;
+        public string? DomainNameId
+        {
+            get
+            {
+                if (!_mUnknown_DomainNameId) return _mValue_DomainNameId;
+                throw new UndeferrableValueException("Value 'BasePathMappingArgs.DomainNameId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the API to connect.
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'BasePathMappingArgs.RestApi' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         /// </summary>
-        [Input("stageName")]
+        [PolicyResourceProperty("stageName", "_mUnknown_StageName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStageName;
-
-        public string? StageName => _mStageName.GetValue("stageName");
+        private string? _mValue_StageName;
+        private bool _mUnknown_StageName;
+        public string? StageName
+        {
+            get
+            {
+                if (!_mUnknown_StageName) return _mValue_StageName;
+                throw new UndeferrableValueException("Value 'BasePathMappingArgs.StageName' is not present");
+            }
+        }
     }
 }

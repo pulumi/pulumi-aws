@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery.Inputs
         /// <summary>
         /// Partition key used for partitioning, which can be a default measure_name or a customer defined partition key.
         /// </summary>
-        [Input("partitionKeys")]
+        [PolicyResourceProperty("partitionKeys", "_mUnknown_PartitionKeys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPartitionKeys;
-
-        public List<string>? PartitionKeys => _mPartitionKeys.GetValue("partitionKeys");
+        private List<string>? _mValue_PartitionKeys;
+        private bool _mUnknown_PartitionKeys;
+        public List<string>? PartitionKeys
+        {
+            get
+            {
+                if (!_mUnknown_PartitionKeys) return _mValue_PartitionKeys;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs.PartitionKeys' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the table which is queried with the largest time range.
         /// </summary>
-        [Input("tableArn")]
+        [PolicyResourceProperty("tableArn", "_mUnknown_TableArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableArn;
-
-        public string? TableArn => _mTableArn.GetValue("tableArn");
+        private string? _mValue_TableArn;
+        private bool _mUnknown_TableArn;
+        public string? TableArn
+        {
+            get
+            {
+                if (!_mUnknown_TableArn) return _mValue_TableArn;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs.TableArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum duration in nanoseconds between the start and end of the query.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mValue;
-
-        public double? Value => _mValue.GetValue("value");
+        private double? _mValue_Value;
+        private bool _mUnknown_Value;
+        public double? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs.Value' is not present");
+            }
+        }
     }
 }

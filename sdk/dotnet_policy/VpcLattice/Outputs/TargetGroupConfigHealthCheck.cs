@@ -15,89 +15,159 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Outputs
         /// <summary>
         /// Indicates whether health checking is enabled. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheck.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
         /// </summary>
-        [Input("healthCheckIntervalSeconds")]
+        [PolicyResourceProperty("healthCheckIntervalSeconds", "_mUnknown_HealthCheckIntervalSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHealthCheckIntervalSeconds;
-
-        public int? HealthCheckIntervalSeconds => _mHealthCheckIntervalSeconds.GetValue("healthCheckIntervalSeconds");
+        private int? _mValue_HealthCheckIntervalSeconds;
+        private bool _mUnknown_HealthCheckIntervalSeconds;
+        public int? HealthCheckIntervalSeconds
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckIntervalSeconds) return _mValue_HealthCheckIntervalSeconds;
+                throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheck.HealthCheckIntervalSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
         /// * `healthy_threshold_count ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
         /// </summary>
-        [Input("healthCheckTimeoutSeconds")]
+        [PolicyResourceProperty("healthCheckTimeoutSeconds", "_mUnknown_HealthCheckTimeoutSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHealthCheckTimeoutSeconds;
+        private int? _mValue_HealthCheckTimeoutSeconds;
+        private bool _mUnknown_HealthCheckTimeoutSeconds;
+        public int? HealthCheckTimeoutSeconds
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckTimeoutSeconds) return _mValue_HealthCheckTimeoutSeconds;
+                throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheck.HealthCheckTimeoutSeconds' is not present");
+            }
+        }
 
-        public int? HealthCheckTimeoutSeconds => _mHealthCheckTimeoutSeconds.GetValue("healthCheckTimeoutSeconds");
-
-        [Input("healthyThresholdCount")]
+        [PolicyResourceProperty("healthyThresholdCount", "_mUnknown_HealthyThresholdCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHealthyThresholdCount;
-
-        public int? HealthyThresholdCount => _mHealthyThresholdCount.GetValue("healthyThresholdCount");
+        private int? _mValue_HealthyThresholdCount;
+        private bool _mUnknown_HealthyThresholdCount;
+        public int? HealthyThresholdCount
+        {
+            get
+            {
+                if (!_mUnknown_HealthyThresholdCount) return _mValue_HealthyThresholdCount;
+                throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheck.HealthyThresholdCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
         /// </summary>
-        [Input("matcher")]
+        [PolicyResourceProperty("matcher", "_mUnknown_Matcher")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TargetGroupConfigHealthCheckMatcher> _mMatcher;
-
-        public Outputs.TargetGroupConfigHealthCheckMatcher? Matcher => _mMatcher.GetValue("matcher");
+        private Outputs.TargetGroupConfigHealthCheckMatcher? _mValue_Matcher;
+        private bool _mUnknown_Matcher;
+        public Outputs.TargetGroupConfigHealthCheckMatcher? Matcher
+        {
+            get
+            {
+                if (!_mUnknown_Matcher) return _mValue_Matcher;
+                throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheck.Matcher' is not present");
+            }
+        }
 
         /// <summary>
         /// The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheck.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheck.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheck.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
         /// </summary>
-        [Input("protocolVersion")]
+        [PolicyResourceProperty("protocolVersion", "_mUnknown_ProtocolVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocolVersion;
-
-        public string? ProtocolVersion => _mProtocolVersion.GetValue("protocolVersion");
+        private string? _mValue_ProtocolVersion;
+        private bool _mUnknown_ProtocolVersion;
+        public string? ProtocolVersion
+        {
+            get
+            {
+                if (!_mUnknown_ProtocolVersion) return _mValue_ProtocolVersion;
+                throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheck.ProtocolVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
         /// </summary>
-        [Input("unhealthyThresholdCount")]
+        [PolicyResourceProperty("unhealthyThresholdCount", "_mUnknown_UnhealthyThresholdCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUnhealthyThresholdCount;
-
-        public int? UnhealthyThresholdCount => _mUnhealthyThresholdCount.GetValue("unhealthyThresholdCount");
+        private int? _mValue_UnhealthyThresholdCount;
+        private bool _mUnknown_UnhealthyThresholdCount;
+        public int? UnhealthyThresholdCount
+        {
+            get
+            {
+                if (!_mUnknown_UnhealthyThresholdCount) return _mValue_UnhealthyThresholdCount;
+                throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheck.UnhealthyThresholdCount' is not present");
+            }
+        }
     }
 }

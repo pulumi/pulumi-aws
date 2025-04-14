@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.Ram
         /// <summary>
         /// The ARN of the resource share invitation.
         /// </summary>
-        [Input("invitationArn")]
+        [PolicyResourceProperty("invitationArn", "_mUnknown_InvitationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInvitationArn;
-
-        public string? InvitationArn => _mInvitationArn.GetValue("invitationArn");
+        private string? _mValue_InvitationArn;
+        private bool _mUnknown_InvitationArn;
+        public string? InvitationArn
+        {
+            get
+            {
+                if (!_mUnknown_InvitationArn) return _mValue_InvitationArn;
+                throw new UndeferrableValueException("Value 'ResourceShareAccepter.InvitationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The account ID of the receiver account which accepts the invitation.
         /// </summary>
-        [Input("receiverAccountId")]
+        [PolicyResourceProperty("receiverAccountId", "_mUnknown_ReceiverAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReceiverAccountId;
-
-        public string? ReceiverAccountId => _mReceiverAccountId.GetValue("receiverAccountId");
+        private string? _mValue_ReceiverAccountId;
+        private bool _mUnknown_ReceiverAccountId;
+        public string? ReceiverAccountId
+        {
+            get
+            {
+                if (!_mUnknown_ReceiverAccountId) return _mValue_ReceiverAccountId;
+                throw new UndeferrableValueException("Value 'ResourceShareAccepter.ReceiverAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of the resource ARNs shared via the resource share.
         /// </summary>
-        [Input("resources")]
+        [PolicyResourceProperty("resources", "_mUnknown_Resources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResources;
-
-        public List<string>? Resources => _mResources.GetValue("resources");
+        private List<string>? _mValue_Resources;
+        private bool _mUnknown_Resources;
+        public List<string>? Resources
+        {
+            get
+            {
+                if (!_mUnknown_Resources) return _mValue_Resources;
+                throw new UndeferrableValueException("Value 'ResourceShareAccepter.Resources' is not present");
+            }
+        }
 
         /// <summary>
         /// The account ID of the sender account which submits the invitation.
         /// </summary>
-        [Input("senderAccountId")]
+        [PolicyResourceProperty("senderAccountId", "_mUnknown_SenderAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSenderAccountId;
-
-        public string? SenderAccountId => _mSenderAccountId.GetValue("senderAccountId");
+        private string? _mValue_SenderAccountId;
+        private bool _mUnknown_SenderAccountId;
+        public string? SenderAccountId
+        {
+            get
+            {
+                if (!_mUnknown_SenderAccountId) return _mValue_SenderAccountId;
+                throw new UndeferrableValueException("Value 'ResourceShareAccepter.SenderAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the resource share.
         /// </summary>
-        [Input("shareArn")]
+        [PolicyResourceProperty("shareArn", "_mUnknown_ShareArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShareArn;
-
-        public string? ShareArn => _mShareArn.GetValue("shareArn");
+        private string? _mValue_ShareArn;
+        private bool _mUnknown_ShareArn;
+        public string? ShareArn
+        {
+            get
+            {
+                if (!_mUnknown_ShareArn) return _mValue_ShareArn;
+                throw new UndeferrableValueException("Value 'ResourceShareAccepter.ShareArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the resource share as displayed in the console.
         /// </summary>
-        [Input("shareId")]
+        [PolicyResourceProperty("shareId", "_mUnknown_ShareId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShareId;
-
-        public string? ShareId => _mShareId.GetValue("shareId");
+        private string? _mValue_ShareId;
+        private bool _mUnknown_ShareId;
+        public string? ShareId
+        {
+            get
+            {
+                if (!_mUnknown_ShareId) return _mValue_ShareId;
+                throw new UndeferrableValueException("Value 'ResourceShareAccepter.ShareId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the resource share.
         /// </summary>
-        [Input("shareName")]
+        [PolicyResourceProperty("shareName", "_mUnknown_ShareName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShareName;
-
-        public string? ShareName => _mShareName.GetValue("shareName");
+        private string? _mValue_ShareName;
+        private bool _mUnknown_ShareName;
+        public string? ShareName
+        {
+            get
+            {
+                if (!_mUnknown_ShareName) return _mValue_ShareName;
+                throw new UndeferrableValueException("Value 'ResourceShareAccepter.ShareName' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'ResourceShareAccepter.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ram/resourceShareAccepter:ResourceShareAccepter")]
@@ -92,10 +148,17 @@ namespace Pulumi.PolicyPacks.Aws.Ram
         /// <summary>
         /// The ARN of the resource share.
         /// </summary>
-        [Input("shareArn")]
+        [PolicyResourceProperty("shareArn", "_mUnknown_ShareArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShareArn;
-
-        public string? ShareArn => _mShareArn.GetValue("shareArn");
+        private string? _mValue_ShareArn;
+        private bool _mUnknown_ShareArn;
+        public string? ShareArn
+        {
+            get
+            {
+                if (!_mUnknown_ShareArn) return _mValue_ShareArn;
+                throw new UndeferrableValueException("Value 'ResourceShareAccepterArgs.ShareArn' is not present");
+            }
+        }
     }
 }

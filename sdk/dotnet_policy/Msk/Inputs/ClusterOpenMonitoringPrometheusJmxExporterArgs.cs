@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Inputs
         /// <summary>
         /// Indicates whether you want to enable or disable the Node Exporter.
         /// </summary>
-        [Input("enabledInBroker")]
+        [PolicyResourceProperty("enabledInBroker", "_mUnknown_EnabledInBroker")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabledInBroker;
-
-        public bool? EnabledInBroker => _mEnabledInBroker.GetValue("enabledInBroker");
+        private bool? _mValue_EnabledInBroker;
+        private bool _mUnknown_EnabledInBroker;
+        public bool? EnabledInBroker
+        {
+            get
+            {
+                if (!_mUnknown_EnabledInBroker) return _mValue_EnabledInBroker;
+                throw new UndeferrableValueException("Value 'ClusterOpenMonitoringPrometheusJmxExporterArgs.EnabledInBroker' is not present");
+            }
+        }
     }
 }

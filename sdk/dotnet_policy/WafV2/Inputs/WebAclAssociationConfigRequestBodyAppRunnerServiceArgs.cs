@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Specifies the maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
         /// </summary>
-        [Input("defaultSizeInspectionLimit")]
+        [PolicyResourceProperty("defaultSizeInspectionLimit", "_mUnknown_DefaultSizeInspectionLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSizeInspectionLimit;
-
-        public string? DefaultSizeInspectionLimit => _mDefaultSizeInspectionLimit.GetValue("defaultSizeInspectionLimit");
+        private string? _mValue_DefaultSizeInspectionLimit;
+        private bool _mUnknown_DefaultSizeInspectionLimit;
+        public string? DefaultSizeInspectionLimit
+        {
+            get
+            {
+                if (!_mUnknown_DefaultSizeInspectionLimit) return _mValue_DefaultSizeInspectionLimit;
+                throw new UndeferrableValueException("Value 'WebAclAssociationConfigRequestBodyAppRunnerServiceArgs.DefaultSizeInspectionLimit' is not present");
+            }
+        }
     }
 }

@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// Name for the configuration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResourceDataSync.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon S3 configuration details for the sync.
         /// </summary>
-        [Input("s3Destination")]
+        [PolicyResourceProperty("s3Destination", "_mUnknown_S3Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceDataSyncS3Destination> _mS3Destination;
-
-        public Outputs.ResourceDataSyncS3Destination? S3Destination => _mS3Destination.GetValue("s3Destination");
+        private Outputs.ResourceDataSyncS3Destination? _mValue_S3Destination;
+        private bool _mUnknown_S3Destination;
+        public Outputs.ResourceDataSyncS3Destination? S3Destination
+        {
+            get
+            {
+                if (!_mUnknown_S3Destination) return _mValue_S3Destination;
+                throw new UndeferrableValueException("Value 'ResourceDataSync.S3Destination' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssm/resourceDataSync:ResourceDataSync")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// Name for the configuration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResourceDataSyncArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon S3 configuration details for the sync.
         /// </summary>
-        [Input("s3Destination")]
+        [PolicyResourceProperty("s3Destination", "_mUnknown_S3Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResourceDataSyncS3DestinationArgs> _mS3Destination;
-
-        public Inputs.ResourceDataSyncS3DestinationArgs? S3Destination => _mS3Destination.GetValue("s3Destination");
+        private Inputs.ResourceDataSyncS3DestinationArgs? _mValue_S3Destination;
+        private bool _mUnknown_S3Destination;
+        public Inputs.ResourceDataSyncS3DestinationArgs? S3Destination
+        {
+            get
+            {
+                if (!_mUnknown_S3Destination) return _mValue_S3Destination;
+                throw new UndeferrableValueException("Value 'ResourceDataSyncArgs.S3Destination' is not present");
+            }
+        }
     }
 }

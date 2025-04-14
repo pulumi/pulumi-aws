@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// Indicates the minimum IMDS version that the notebook instance supports. When passed "1" is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
         /// </summary>
-        [Input("minimumInstanceMetadataServiceVersion")]
+        [PolicyResourceProperty("minimumInstanceMetadataServiceVersion", "_mUnknown_MinimumInstanceMetadataServiceVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMinimumInstanceMetadataServiceVersion;
-
-        public string? MinimumInstanceMetadataServiceVersion => _mMinimumInstanceMetadataServiceVersion.GetValue("minimumInstanceMetadataServiceVersion");
+        private string? _mValue_MinimumInstanceMetadataServiceVersion;
+        private bool _mUnknown_MinimumInstanceMetadataServiceVersion;
+        public string? MinimumInstanceMetadataServiceVersion
+        {
+            get
+            {
+                if (!_mUnknown_MinimumInstanceMetadataServiceVersion) return _mValue_MinimumInstanceMetadataServiceVersion;
+                throw new UndeferrableValueException("Value 'NotebookInstanceInstanceMetadataServiceConfigurationArgs.MinimumInstanceMetadataServiceVersion' is not present");
+            }
+        }
     }
 }

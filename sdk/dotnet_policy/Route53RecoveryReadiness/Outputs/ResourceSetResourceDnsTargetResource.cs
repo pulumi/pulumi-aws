@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryReadiness.Outputs
         /// <summary>
         /// DNS Name that acts as the ingress point to a portion of application.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResource.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Hosted Zone ARN that contains the DNS record with the provided name of target resource.
         /// </summary>
-        [Input("hostedZoneArn")]
+        [PolicyResourceProperty("hostedZoneArn", "_mUnknown_HostedZoneArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneArn;
-
-        public string? HostedZoneArn => _mHostedZoneArn.GetValue("hostedZoneArn");
+        private string? _mValue_HostedZoneArn;
+        private bool _mUnknown_HostedZoneArn;
+        public string? HostedZoneArn
+        {
+            get
+            {
+                if (!_mUnknown_HostedZoneArn) return _mValue_HostedZoneArn;
+                throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResource.HostedZoneArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
         /// </summary>
-        [Input("recordSetId")]
+        [PolicyResourceProperty("recordSetId", "_mUnknown_RecordSetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecordSetId;
-
-        public string? RecordSetId => _mRecordSetId.GetValue("recordSetId");
+        private string? _mValue_RecordSetId;
+        private bool _mUnknown_RecordSetId;
+        public string? RecordSetId
+        {
+            get
+            {
+                if (!_mUnknown_RecordSetId) return _mValue_RecordSetId;
+                throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResource.RecordSetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of DNS Record of target resource.
         /// </summary>
-        [Input("recordType")]
+        [PolicyResourceProperty("recordType", "_mUnknown_RecordType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecordType;
-
-        public string? RecordType => _mRecordType.GetValue("recordType");
+        private string? _mValue_RecordType;
+        private bool _mUnknown_RecordType;
+        public string? RecordType
+        {
+            get
+            {
+                if (!_mUnknown_RecordType) return _mValue_RecordType;
+                throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResource.RecordType' is not present");
+            }
+        }
 
         /// <summary>
         /// Target resource the R53 record specified with the above params points to.
         /// </summary>
-        [Input("targetResource")]
+        [PolicyResourceProperty("targetResource", "_mUnknown_TargetResource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceSetResourceDnsTargetResourceTargetResource> _mTargetResource;
-
-        public Outputs.ResourceSetResourceDnsTargetResourceTargetResource? TargetResource => _mTargetResource.GetValue("targetResource");
+        private Outputs.ResourceSetResourceDnsTargetResourceTargetResource? _mValue_TargetResource;
+        private bool _mUnknown_TargetResource;
+        public Outputs.ResourceSetResourceDnsTargetResourceTargetResource? TargetResource
+        {
+            get
+            {
+                if (!_mUnknown_TargetResource) return _mValue_TargetResource;
+                throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResource.TargetResource' is not present");
+            }
+        }
     }
 }

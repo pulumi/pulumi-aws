@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.RedshiftServerless.Outputs
         /// <summary>
         /// The key of the parameter. The options are `auto_mv`, `datestyle`, `enable_case_sensitive_identifier`, `enable_user_activity_logging`, `query_group`, `search_path`, `require_ssl`, `use_fips_ssl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `max_query_cpu_time`, `max_query_blocks_read`, `max_scan_row_count`, `max_query_execution_time`, `max_query_queue_time`, `max_query_cpu_usage_percent`, `max_query_temp_blocks_to_disk`, `max_join_row_count` and `max_nested_loop_join_row_count`.
         /// </summary>
-        [Input("parameterKey")]
+        [PolicyResourceProperty("parameterKey", "_mUnknown_ParameterKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameterKey;
-
-        public string? ParameterKey => _mParameterKey.GetValue("parameterKey");
+        private string? _mValue_ParameterKey;
+        private bool _mUnknown_ParameterKey;
+        public string? ParameterKey
+        {
+            get
+            {
+                if (!_mUnknown_ParameterKey) return _mValue_ParameterKey;
+                throw new UndeferrableValueException("Value 'WorkgroupConfigParameter.ParameterKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The value of the parameter to set.
         /// </summary>
-        [Input("parameterValue")]
+        [PolicyResourceProperty("parameterValue", "_mUnknown_ParameterValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameterValue;
-
-        public string? ParameterValue => _mParameterValue.GetValue("parameterValue");
+        private string? _mValue_ParameterValue;
+        private bool _mUnknown_ParameterValue;
+        public string? ParameterValue
+        {
+            get
+            {
+                if (!_mUnknown_ParameterValue) return _mValue_ParameterValue;
+                throw new UndeferrableValueException("Value 'WorkgroupConfigParameter.ParameterValue' is not present");
+            }
+        }
     }
 }

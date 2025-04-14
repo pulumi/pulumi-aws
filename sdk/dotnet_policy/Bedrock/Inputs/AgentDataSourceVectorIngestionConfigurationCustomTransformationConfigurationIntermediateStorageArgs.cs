@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// Configuration block for intermedia S3 storage.
         /// </summary>
-        [Input("s3Location")]
+        [PolicyResourceProperty("s3Location", "_mUnknown_S3Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs> _mS3Location;
-
-        public Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs? S3Location => _mS3Location.GetValue("s3Location");
+        private Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs? _mValue_S3Location;
+        private bool _mUnknown_S3Location;
+        public Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs? S3Location
+        {
+            get
+            {
+                if (!_mUnknown_S3Location) return _mValue_S3Location;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs.S3Location' is not present");
+            }
+        }
     }
 }

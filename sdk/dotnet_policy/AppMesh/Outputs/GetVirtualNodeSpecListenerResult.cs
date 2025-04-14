@@ -12,40 +12,82 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualNodeSpecListenerResult
     {
-        [Input("connectionPools")]
+        [PolicyResourceProperty("connectionPools", "_mUnknown_ConnectionPools")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecListenerConnectionPoolResult>> _mConnectionPools;
+        private List<Outputs.GetVirtualNodeSpecListenerConnectionPoolResult>? _mValue_ConnectionPools;
+        private bool _mUnknown_ConnectionPools;
+        public List<Outputs.GetVirtualNodeSpecListenerConnectionPoolResult>? ConnectionPools
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionPools) return _mValue_ConnectionPools;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerResult.ConnectionPools' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecListenerConnectionPoolResult>? ConnectionPools => _mConnectionPools.GetValue("connectionPools");
-
-        [Input("healthChecks")]
+        [PolicyResourceProperty("healthChecks", "_mUnknown_HealthChecks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecListenerHealthCheckResult>> _mHealthChecks;
+        private List<Outputs.GetVirtualNodeSpecListenerHealthCheckResult>? _mValue_HealthChecks;
+        private bool _mUnknown_HealthChecks;
+        public List<Outputs.GetVirtualNodeSpecListenerHealthCheckResult>? HealthChecks
+        {
+            get
+            {
+                if (!_mUnknown_HealthChecks) return _mValue_HealthChecks;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerResult.HealthChecks' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecListenerHealthCheckResult>? HealthChecks => _mHealthChecks.GetValue("healthChecks");
-
-        [Input("outlierDetections")]
+        [PolicyResourceProperty("outlierDetections", "_mUnknown_OutlierDetections")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecListenerOutlierDetectionResult>> _mOutlierDetections;
+        private List<Outputs.GetVirtualNodeSpecListenerOutlierDetectionResult>? _mValue_OutlierDetections;
+        private bool _mUnknown_OutlierDetections;
+        public List<Outputs.GetVirtualNodeSpecListenerOutlierDetectionResult>? OutlierDetections
+        {
+            get
+            {
+                if (!_mUnknown_OutlierDetections) return _mValue_OutlierDetections;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerResult.OutlierDetections' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecListenerOutlierDetectionResult>? OutlierDetections => _mOutlierDetections.GetValue("outlierDetections");
-
-        [Input("portMappings")]
+        [PolicyResourceProperty("portMappings", "_mUnknown_PortMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecListenerPortMappingResult>> _mPortMappings;
+        private List<Outputs.GetVirtualNodeSpecListenerPortMappingResult>? _mValue_PortMappings;
+        private bool _mUnknown_PortMappings;
+        public List<Outputs.GetVirtualNodeSpecListenerPortMappingResult>? PortMappings
+        {
+            get
+            {
+                if (!_mUnknown_PortMappings) return _mValue_PortMappings;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerResult.PortMappings' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecListenerPortMappingResult>? PortMappings => _mPortMappings.GetValue("portMappings");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecListenerTimeoutResult>> _mTimeouts;
+        private List<Outputs.GetVirtualNodeSpecListenerTimeoutResult>? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public List<Outputs.GetVirtualNodeSpecListenerTimeoutResult>? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerResult.Timeouts' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecListenerTimeoutResult>? Timeouts => _mTimeouts.GetValue("timeouts");
-
-        [Input("tls")]
+        [PolicyResourceProperty("tls", "_mUnknown_Tls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecListenerTlResult>> _mTls;
-
-        public List<Outputs.GetVirtualNodeSpecListenerTlResult>? Tls => _mTls.GetValue("tls");
+        private List<Outputs.GetVirtualNodeSpecListenerTlResult>? _mValue_Tls;
+        private bool _mUnknown_Tls;
+        public List<Outputs.GetVirtualNodeSpecListenerTlResult>? Tls
+        {
+            get
+            {
+                if (!_mUnknown_Tls) return _mValue_Tls;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerResult.Tls' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Single object for setting server-side encryption by default. See below.
         /// </summary>
-        [Input("applyServerSideEncryptionByDefault")]
+        [PolicyResourceProperty("applyServerSideEncryptionByDefault", "_mUnknown_ApplyServerSideEncryptionByDefault")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs> _mApplyServerSideEncryptionByDefault;
-
-        public Inputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs? ApplyServerSideEncryptionByDefault => _mApplyServerSideEncryptionByDefault.GetValue("applyServerSideEncryptionByDefault");
+        private Inputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs? _mValue_ApplyServerSideEncryptionByDefault;
+        private bool _mUnknown_ApplyServerSideEncryptionByDefault;
+        public Inputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs? ApplyServerSideEncryptionByDefault
+        {
+            get
+            {
+                if (!_mUnknown_ApplyServerSideEncryptionByDefault) return _mValue_ApplyServerSideEncryptionByDefault;
+                throw new UndeferrableValueException("Value 'BucketServerSideEncryptionConfigurationV2RuleArgs.ApplyServerSideEncryptionByDefault' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         /// </summary>
-        [Input("bucketKeyEnabled")]
+        [PolicyResourceProperty("bucketKeyEnabled", "_mUnknown_BucketKeyEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBucketKeyEnabled;
-
-        public bool? BucketKeyEnabled => _mBucketKeyEnabled.GetValue("bucketKeyEnabled");
+        private bool? _mValue_BucketKeyEnabled;
+        private bool _mUnknown_BucketKeyEnabled;
+        public bool? BucketKeyEnabled
+        {
+            get
+            {
+                if (!_mUnknown_BucketKeyEnabled) return _mValue_BucketKeyEnabled;
+                throw new UndeferrableValueException("Value 'BucketServerSideEncryptionConfigurationV2RuleArgs.BucketKeyEnabled' is not present");
+            }
+        }
     }
 }

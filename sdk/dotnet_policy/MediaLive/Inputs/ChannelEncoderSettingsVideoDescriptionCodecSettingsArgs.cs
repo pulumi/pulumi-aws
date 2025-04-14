@@ -15,25 +15,46 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Frame capture settings. See Frame Capture Settings for more details.
         /// </summary>
-        [Input("frameCaptureSettings")]
+        [PolicyResourceProperty("frameCaptureSettings", "_mUnknown_FrameCaptureSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs> _mFrameCaptureSettings;
-
-        public Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs? FrameCaptureSettings => _mFrameCaptureSettings.GetValue("frameCaptureSettings");
+        private Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs? _mValue_FrameCaptureSettings;
+        private bool _mUnknown_FrameCaptureSettings;
+        public Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs? FrameCaptureSettings
+        {
+            get
+            {
+                if (!_mUnknown_FrameCaptureSettings) return _mValue_FrameCaptureSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs.FrameCaptureSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// H264 settings. See H264 Settings for more details.
         /// </summary>
-        [Input("h264Settings")]
+        [PolicyResourceProperty("h264Settings", "_mUnknown_H264Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs> _mH264Settings;
+        private Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs? _mValue_H264Settings;
+        private bool _mUnknown_H264Settings;
+        public Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs? H264Settings
+        {
+            get
+            {
+                if (!_mUnknown_H264Settings) return _mValue_H264Settings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs.H264Settings' is not present");
+            }
+        }
 
-        public Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs? H264Settings => _mH264Settings.GetValue("h264Settings");
-
-        [Input("h265Settings")]
+        [PolicyResourceProperty("h265Settings", "_mUnknown_H265Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs> _mH265Settings;
-
-        public Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs? H265Settings => _mH265Settings.GetValue("h265Settings");
+        private Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs? _mValue_H265Settings;
+        private bool _mUnknown_H265Settings;
+        public Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs? H265Settings
+        {
+            get
+            {
+                if (!_mUnknown_H265Settings) return _mValue_H265Settings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs.H265Settings' is not present");
+            }
+        }
     }
 }

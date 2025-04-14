@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudTrail.Outputs
         /// <summary>
         /// Type of insights to log on a trail. Valid values are: `ApiCallRateInsight` and `ApiErrorRateInsight`.
         /// </summary>
-        [Input("insightType")]
+        [PolicyResourceProperty("insightType", "_mUnknown_InsightType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInsightType;
-
-        public string? InsightType => _mInsightType.GetValue("insightType");
+        private string? _mValue_InsightType;
+        private bool _mUnknown_InsightType;
+        public string? InsightType
+        {
+            get
+            {
+                if (!_mUnknown_InsightType) return _mValue_InsightType;
+                throw new UndeferrableValueException("Value 'TrailInsightSelector.InsightType' is not present");
+            }
+        }
     }
 }

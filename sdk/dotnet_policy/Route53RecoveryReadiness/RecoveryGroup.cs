@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryReadiness
         /// <summary>
         /// ARN of the recovery group
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'RecoveryGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of cell arns to add as nested fault domains within this recovery group
         /// </summary>
-        [Input("cells")]
+        [PolicyResourceProperty("cells", "_mUnknown_Cells")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCells;
-
-        public List<string>? Cells => _mCells.GetValue("cells");
+        private List<string>? _mValue_Cells;
+        private bool _mUnknown_Cells;
+        public List<string>? Cells
+        {
+            get
+            {
+                if (!_mUnknown_Cells) return _mValue_Cells;
+                throw new UndeferrableValueException("Value 'RecoveryGroup.Cells' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique name describing the recovery group.
         /// 
         /// The following argument are optional:
         /// </summary>
-        [Input("recoveryGroupName")]
+        [PolicyResourceProperty("recoveryGroupName", "_mUnknown_RecoveryGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecoveryGroupName;
-
-        public string? RecoveryGroupName => _mRecoveryGroupName.GetValue("recoveryGroupName");
+        private string? _mValue_RecoveryGroupName;
+        private bool _mUnknown_RecoveryGroupName;
+        public string? RecoveryGroupName
+        {
+            get
+            {
+                if (!_mUnknown_RecoveryGroupName) return _mValue_RecoveryGroupName;
+                throw new UndeferrableValueException("Value 'RecoveryGroup.RecoveryGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RecoveryGroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'RecoveryGroup.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup")]
@@ -67,30 +102,51 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryReadiness
         /// <summary>
         /// List of cell arns to add as nested fault domains within this recovery group
         /// </summary>
-        [Input("cells")]
+        [PolicyResourceProperty("cells", "_mUnknown_Cells")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCells;
-
-        public List<string>? Cells => _mCells.GetValue("cells");
+        private List<string>? _mValue_Cells;
+        private bool _mUnknown_Cells;
+        public List<string>? Cells
+        {
+            get
+            {
+                if (!_mUnknown_Cells) return _mValue_Cells;
+                throw new UndeferrableValueException("Value 'RecoveryGroupArgs.Cells' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique name describing the recovery group.
         /// 
         /// The following argument are optional:
         /// </summary>
-        [Input("recoveryGroupName")]
+        [PolicyResourceProperty("recoveryGroupName", "_mUnknown_RecoveryGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecoveryGroupName;
-
-        public string? RecoveryGroupName => _mRecoveryGroupName.GetValue("recoveryGroupName");
+        private string? _mValue_RecoveryGroupName;
+        private bool _mUnknown_RecoveryGroupName;
+        public string? RecoveryGroupName
+        {
+            get
+            {
+                if (!_mUnknown_RecoveryGroupName) return _mValue_RecoveryGroupName;
+                throw new UndeferrableValueException("Value 'RecoveryGroupArgs.RecoveryGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RecoveryGroupArgs.Tags' is not present");
+            }
+        }
     }
 }

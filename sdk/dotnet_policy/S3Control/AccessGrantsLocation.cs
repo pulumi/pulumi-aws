@@ -16,100 +16,177 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
         /// <summary>
         /// Amazon Resource Name (ARN) of the S3 Access Grants location.
         /// </summary>
-        [Input("accessGrantsLocationArn")]
+        [PolicyResourceProperty("accessGrantsLocationArn", "_mUnknown_AccessGrantsLocationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessGrantsLocationArn;
-
-        public string? AccessGrantsLocationArn => _mAccessGrantsLocationArn.GetValue("accessGrantsLocationArn");
+        private string? _mValue_AccessGrantsLocationArn;
+        private bool _mUnknown_AccessGrantsLocationArn;
+        public string? AccessGrantsLocationArn
+        {
+            get
+            {
+                if (!_mUnknown_AccessGrantsLocationArn) return _mValue_AccessGrantsLocationArn;
+                throw new UndeferrableValueException("Value 'AccessGrantsLocation.AccessGrantsLocationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique ID of the S3 Access Grants location.
         /// </summary>
-        [Input("accessGrantsLocationId")]
+        [PolicyResourceProperty("accessGrantsLocationId", "_mUnknown_AccessGrantsLocationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessGrantsLocationId;
+        private string? _mValue_AccessGrantsLocationId;
+        private bool _mUnknown_AccessGrantsLocationId;
+        public string? AccessGrantsLocationId
+        {
+            get
+            {
+                if (!_mUnknown_AccessGrantsLocationId) return _mValue_AccessGrantsLocationId;
+                throw new UndeferrableValueException("Value 'AccessGrantsLocation.AccessGrantsLocationId' is not present");
+            }
+        }
 
-        public string? AccessGrantsLocationId => _mAccessGrantsLocationId.GetValue("accessGrantsLocationId");
-
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'AccessGrantsLocation.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
         /// requests to the location.
         /// </summary>
-        [Input("iamRoleArn")]
+        [PolicyResourceProperty("iamRoleArn", "_mUnknown_IamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
-
-        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+        private string? _mValue_IamRoleArn;
+        private bool _mUnknown_IamRoleArn;
+        public string? IamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArn) return _mValue_IamRoleArn;
+                throw new UndeferrableValueException("Value 'AccessGrantsLocation.IamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
         /// </summary>
-        [Input("locationScope")]
+        [PolicyResourceProperty("locationScope", "_mUnknown_LocationScope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocationScope;
-
-        public string? LocationScope => _mLocationScope.GetValue("locationScope");
+        private string? _mValue_LocationScope;
+        private bool _mUnknown_LocationScope;
+        public string? LocationScope
+        {
+            get
+            {
+                if (!_mUnknown_LocationScope) return _mValue_LocationScope;
+                throw new UndeferrableValueException("Value 'AccessGrantsLocation.LocationScope' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AccessGrantsLocation.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'AccessGrantsLocation.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3control/accessGrantsLocation:AccessGrantsLocation")]
     public sealed class AccessGrantsLocationArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'AccessGrantsLocationArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
         /// requests to the location.
         /// </summary>
-        [Input("iamRoleArn")]
+        [PolicyResourceProperty("iamRoleArn", "_mUnknown_IamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
-
-        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+        private string? _mValue_IamRoleArn;
+        private bool _mUnknown_IamRoleArn;
+        public string? IamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArn) return _mValue_IamRoleArn;
+                throw new UndeferrableValueException("Value 'AccessGrantsLocationArgs.IamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
         /// </summary>
-        [Input("locationScope")]
+        [PolicyResourceProperty("locationScope", "_mUnknown_LocationScope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocationScope;
-
-        public string? LocationScope => _mLocationScope.GetValue("locationScope");
+        private string? _mValue_LocationScope;
+        private bool _mUnknown_LocationScope;
+        public string? LocationScope
+        {
+            get
+            {
+                if (!_mUnknown_LocationScope) return _mValue_LocationScope;
+                throw new UndeferrableValueException("Value 'AccessGrantsLocationArgs.LocationScope' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AccessGrantsLocationArgs.Tags' is not present");
+            }
+        }
     }
 }

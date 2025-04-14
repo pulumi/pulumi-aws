@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Athena.Inputs
         /// <summary>
         /// Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
         /// </summary>
-        [Input("s3AclOption")]
+        [PolicyResourceProperty("s3AclOption", "_mUnknown_S3AclOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3AclOption;
-
-        public string? S3AclOption => _mS3AclOption.GetValue("s3AclOption");
+        private string? _mValue_S3AclOption;
+        private bool _mUnknown_S3AclOption;
+        public string? S3AclOption
+        {
+            get
+            {
+                if (!_mUnknown_S3AclOption) return _mValue_S3AclOption;
+                throw new UndeferrableValueException("Value 'WorkgroupConfigurationResultConfigurationAclConfigurationArgs.S3AclOption' is not present");
+            }
+        }
     }
 }

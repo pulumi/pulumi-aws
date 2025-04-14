@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
         /// </summary>
-        [Input("contentSecurityPolicy")]
+        [PolicyResourceProperty("contentSecurityPolicy", "_mUnknown_ContentSecurityPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentSecurityPolicy;
-
-        public string? ContentSecurityPolicy => _mContentSecurityPolicy.GetValue("contentSecurityPolicy");
+        private string? _mValue_ContentSecurityPolicy;
+        private bool _mUnknown_ContentSecurityPolicy;
+        public string? ContentSecurityPolicy
+        {
+            get
+            {
+                if (!_mUnknown_ContentSecurityPolicy) return _mValue_ContentSecurityPolicy;
+                throw new UndeferrableValueException("Value 'GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyResult.ContentSecurityPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
-        [Input("override")]
+        [PolicyResourceProperty("override", "_mUnknown_Override")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOverride;
-
-        public bool? Override => _mOverride.GetValue("override");
+        private bool? _mValue_Override;
+        private bool _mUnknown_Override;
+        public bool? Override
+        {
+            get
+            {
+                if (!_mUnknown_Override) return _mValue_Override;
+                throw new UndeferrableValueException("Value 'GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyResult.Override' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,56 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB.Outputs
         /// <summary>
         /// Name of the DynamoDB table.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetTableLocalSecondaryIndexResult.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("nonKeyAttributes")]
+        [PolicyResourceProperty("nonKeyAttributes", "_mUnknown_NonKeyAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNonKeyAttributes;
+        private List<string>? _mValue_NonKeyAttributes;
+        private bool _mUnknown_NonKeyAttributes;
+        public List<string>? NonKeyAttributes
+        {
+            get
+            {
+                if (!_mUnknown_NonKeyAttributes) return _mValue_NonKeyAttributes;
+                throw new UndeferrableValueException("Value 'GetTableLocalSecondaryIndexResult.NonKeyAttributes' is not present");
+            }
+        }
 
-        public List<string>? NonKeyAttributes => _mNonKeyAttributes.GetValue("nonKeyAttributes");
-
-        [Input("projectionType")]
+        [PolicyResourceProperty("projectionType", "_mUnknown_ProjectionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectionType;
+        private string? _mValue_ProjectionType;
+        private bool _mUnknown_ProjectionType;
+        public string? ProjectionType
+        {
+            get
+            {
+                if (!_mUnknown_ProjectionType) return _mValue_ProjectionType;
+                throw new UndeferrableValueException("Value 'GetTableLocalSecondaryIndexResult.ProjectionType' is not present");
+            }
+        }
 
-        public string? ProjectionType => _mProjectionType.GetValue("projectionType");
-
-        [Input("rangeKey")]
+        [PolicyResourceProperty("rangeKey", "_mUnknown_RangeKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRangeKey;
-
-        public string? RangeKey => _mRangeKey.GetValue("rangeKey");
+        private string? _mValue_RangeKey;
+        private bool _mUnknown_RangeKey;
+        public string? RangeKey
+        {
+            get
+            {
+                if (!_mUnknown_RangeKey) return _mValue_RangeKey;
+                throw new UndeferrableValueException("Value 'GetTableLocalSecondaryIndexResult.RangeKey' is not present");
+            }
+        }
     }
 }

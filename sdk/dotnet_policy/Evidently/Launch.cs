@@ -16,146 +16,258 @@ namespace Pulumi.PolicyPacks.Aws.Evidently
         /// <summary>
         /// The ARN of the launch.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Launch.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time that the launch is created.
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
-
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'Launch.CreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the description of the launch.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Launch.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that contains information about the start and end times of the launch. Detailed below
         /// </summary>
-        [Input("executions")]
+        [PolicyResourceProperty("executions", "_mUnknown_Executions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchExecution>> _mExecutions;
-
-        public List<Outputs.LaunchExecution>? Executions => _mExecutions.GetValue("executions");
+        private List<Outputs.LaunchExecution>? _mValue_Executions;
+        private bool _mUnknown_Executions;
+        public List<Outputs.LaunchExecution>? Executions
+        {
+            get
+            {
+                if (!_mUnknown_Executions) return _mValue_Executions;
+                throw new UndeferrableValueException("Value 'Launch.Executions' is not present");
+            }
+        }
 
         /// <summary>
         /// One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
         /// </summary>
-        [Input("groups")]
+        [PolicyResourceProperty("groups", "_mUnknown_Groups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchGroup>> _mGroups;
-
-        public List<Outputs.LaunchGroup>? Groups => _mGroups.GetValue("groups");
+        private List<Outputs.LaunchGroup>? _mValue_Groups;
+        private bool _mUnknown_Groups;
+        public List<Outputs.LaunchGroup>? Groups
+        {
+            get
+            {
+                if (!_mUnknown_Groups) return _mValue_Groups;
+                throw new UndeferrableValueException("Value 'Launch.Groups' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time that the launch was most recently updated.
         /// </summary>
-        [Input("lastUpdatedTime")]
+        [PolicyResourceProperty("lastUpdatedTime", "_mUnknown_LastUpdatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
-
-        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
+        private string? _mValue_LastUpdatedTime;
+        private bool _mUnknown_LastUpdatedTime;
+        public string? LastUpdatedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedTime) return _mValue_LastUpdatedTime;
+                throw new UndeferrableValueException("Value 'Launch.LastUpdatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
         /// </summary>
-        [Input("metricMonitors")]
+        [PolicyResourceProperty("metricMonitors", "_mUnknown_MetricMonitors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchMetricMonitor>> _mMetricMonitors;
-
-        public List<Outputs.LaunchMetricMonitor>? MetricMonitors => _mMetricMonitors.GetValue("metricMonitors");
+        private List<Outputs.LaunchMetricMonitor>? _mValue_MetricMonitors;
+        private bool _mUnknown_MetricMonitors;
+        public List<Outputs.LaunchMetricMonitor>? MetricMonitors
+        {
+            get
+            {
+                if (!_mUnknown_MetricMonitors) return _mValue_MetricMonitors;
+                throw new UndeferrableValueException("Value 'Launch.MetricMonitors' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the new launch. Minimum length of `1`. Maximum length of `127`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Launch.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or ARN of the project that is to contain the new launch.
         /// </summary>
-        [Input("project")]
+        [PolicyResourceProperty("project", "_mUnknown_Project")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProject;
-
-        public string? Project => _mProject.GetValue("project");
+        private string? _mValue_Project;
+        private bool _mUnknown_Project;
+        public string? Project
+        {
+            get
+            {
+                if (!_mUnknown_Project) return _mValue_Project;
+                throw new UndeferrableValueException("Value 'Launch.Project' is not present");
+            }
+        }
 
         /// <summary>
         /// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
         /// </summary>
-        [Input("randomizationSalt")]
+        [PolicyResourceProperty("randomizationSalt", "_mUnknown_RandomizationSalt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRandomizationSalt;
-
-        public string? RandomizationSalt => _mRandomizationSalt.GetValue("randomizationSalt");
+        private string? _mValue_RandomizationSalt;
+        private bool _mUnknown_RandomizationSalt;
+        public string? RandomizationSalt
+        {
+            get
+            {
+                if (!_mUnknown_RandomizationSalt) return _mValue_RandomizationSalt;
+                throw new UndeferrableValueException("Value 'Launch.RandomizationSalt' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         /// </summary>
-        [Input("scheduledSplitsConfig")]
+        [PolicyResourceProperty("scheduledSplitsConfig", "_mUnknown_ScheduledSplitsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchScheduledSplitsConfig> _mScheduledSplitsConfig;
-
-        public Outputs.LaunchScheduledSplitsConfig? ScheduledSplitsConfig => _mScheduledSplitsConfig.GetValue("scheduledSplitsConfig");
+        private Outputs.LaunchScheduledSplitsConfig? _mValue_ScheduledSplitsConfig;
+        private bool _mUnknown_ScheduledSplitsConfig;
+        public Outputs.LaunchScheduledSplitsConfig? ScheduledSplitsConfig
+        {
+            get
+            {
+                if (!_mUnknown_ScheduledSplitsConfig) return _mValue_ScheduledSplitsConfig;
+                throw new UndeferrableValueException("Value 'Launch.ScheduledSplitsConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Launch.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
         /// </summary>
-        [Input("statusReason")]
+        [PolicyResourceProperty("statusReason", "_mUnknown_StatusReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusReason;
-
-        public string? StatusReason => _mStatusReason.GetValue("statusReason");
+        private string? _mValue_StatusReason;
+        private bool _mUnknown_StatusReason;
+        public string? StatusReason
+        {
+            get
+            {
+                if (!_mUnknown_StatusReason) return _mValue_StatusReason;
+                throw new UndeferrableValueException("Value 'Launch.StatusReason' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Launch.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Launch.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of launch.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Launch.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:evidently/launch:Launch")]
@@ -164,73 +276,129 @@ namespace Pulumi.PolicyPacks.Aws.Evidently
         /// <summary>
         /// Specifies the description of the launch.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'LaunchArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
         /// </summary>
-        [Input("groups")]
+        [PolicyResourceProperty("groups", "_mUnknown_Groups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LaunchGroupArgs>> _mGroups;
-
-        public List<Inputs.LaunchGroupArgs>? Groups => _mGroups.GetValue("groups");
+        private List<Inputs.LaunchGroupArgs>? _mValue_Groups;
+        private bool _mUnknown_Groups;
+        public List<Inputs.LaunchGroupArgs>? Groups
+        {
+            get
+            {
+                if (!_mUnknown_Groups) return _mValue_Groups;
+                throw new UndeferrableValueException("Value 'LaunchArgs.Groups' is not present");
+            }
+        }
 
         /// <summary>
         /// One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
         /// </summary>
-        [Input("metricMonitors")]
+        [PolicyResourceProperty("metricMonitors", "_mUnknown_MetricMonitors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LaunchMetricMonitorArgs>> _mMetricMonitors;
-
-        public List<Inputs.LaunchMetricMonitorArgs>? MetricMonitors => _mMetricMonitors.GetValue("metricMonitors");
+        private List<Inputs.LaunchMetricMonitorArgs>? _mValue_MetricMonitors;
+        private bool _mUnknown_MetricMonitors;
+        public List<Inputs.LaunchMetricMonitorArgs>? MetricMonitors
+        {
+            get
+            {
+                if (!_mUnknown_MetricMonitors) return _mValue_MetricMonitors;
+                throw new UndeferrableValueException("Value 'LaunchArgs.MetricMonitors' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the new launch. Minimum length of `1`. Maximum length of `127`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LaunchArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or ARN of the project that is to contain the new launch.
         /// </summary>
-        [Input("project")]
+        [PolicyResourceProperty("project", "_mUnknown_Project")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProject;
-
-        public string? Project => _mProject.GetValue("project");
+        private string? _mValue_Project;
+        private bool _mUnknown_Project;
+        public string? Project
+        {
+            get
+            {
+                if (!_mUnknown_Project) return _mValue_Project;
+                throw new UndeferrableValueException("Value 'LaunchArgs.Project' is not present");
+            }
+        }
 
         /// <summary>
         /// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
         /// </summary>
-        [Input("randomizationSalt")]
+        [PolicyResourceProperty("randomizationSalt", "_mUnknown_RandomizationSalt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRandomizationSalt;
-
-        public string? RandomizationSalt => _mRandomizationSalt.GetValue("randomizationSalt");
+        private string? _mValue_RandomizationSalt;
+        private bool _mUnknown_RandomizationSalt;
+        public string? RandomizationSalt
+        {
+            get
+            {
+                if (!_mUnknown_RandomizationSalt) return _mValue_RandomizationSalt;
+                throw new UndeferrableValueException("Value 'LaunchArgs.RandomizationSalt' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         /// </summary>
-        [Input("scheduledSplitsConfig")]
+        [PolicyResourceProperty("scheduledSplitsConfig", "_mUnknown_ScheduledSplitsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchScheduledSplitsConfigArgs> _mScheduledSplitsConfig;
-
-        public Inputs.LaunchScheduledSplitsConfigArgs? ScheduledSplitsConfig => _mScheduledSplitsConfig.GetValue("scheduledSplitsConfig");
+        private Inputs.LaunchScheduledSplitsConfigArgs? _mValue_ScheduledSplitsConfig;
+        private bool _mUnknown_ScheduledSplitsConfig;
+        public Inputs.LaunchScheduledSplitsConfigArgs? ScheduledSplitsConfig
+        {
+            get
+            {
+                if (!_mUnknown_ScheduledSplitsConfig) return _mValue_ScheduledSplitsConfig;
+                throw new UndeferrableValueException("Value 'LaunchArgs.ScheduledSplitsConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LaunchArgs.Tags' is not present");
+            }
+        }
     }
 }

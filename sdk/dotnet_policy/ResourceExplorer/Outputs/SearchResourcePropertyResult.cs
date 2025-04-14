@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ResourceExplorer.Outputs
         /// <summary>
         /// Details about this property. The content of this field is a JSON object that varies based on the resource type.
         /// </summary>
-        [Input("data")]
+        [PolicyResourceProperty("data", "_mUnknown_Data")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mData;
-
-        public string? Data => _mData.GetValue("data");
+        private string? _mValue_Data;
+        private bool _mUnknown_Data;
+        public string? Data
+        {
+            get
+            {
+                if (!_mUnknown_Data) return _mValue_Data;
+                throw new UndeferrableValueException("Value 'SearchResourcePropertyResult.Data' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time that the information about this resource property was last updated.
         /// </summary>
-        [Input("lastReportedAt")]
+        [PolicyResourceProperty("lastReportedAt", "_mUnknown_LastReportedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastReportedAt;
-
-        public string? LastReportedAt => _mLastReportedAt.GetValue("lastReportedAt");
+        private string? _mValue_LastReportedAt;
+        private bool _mUnknown_LastReportedAt;
+        public string? LastReportedAt
+        {
+            get
+            {
+                if (!_mUnknown_LastReportedAt) return _mValue_LastReportedAt;
+                throw new UndeferrableValueException("Value 'SearchResourcePropertyResult.LastReportedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of this property of the resource.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SearchResourcePropertyResult.Name' is not present");
+            }
+        }
     }
 }

@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery.Outputs
         /// <summary>
         /// Bytes metered for a single scheduled query run.
         /// </summary>
-        [Input("bytesMetered")]
+        [PolicyResourceProperty("bytesMetered", "_mUnknown_BytesMetered")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBytesMetered;
-
-        public int? BytesMetered => _mBytesMetered.GetValue("bytesMetered");
+        private int? _mValue_BytesMetered;
+        private bool _mUnknown_BytesMetered;
+        public int? BytesMetered
+        {
+            get
+            {
+                if (!_mUnknown_BytesMetered) return _mValue_BytesMetered;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryExecutionStat.BytesMetered' is not present");
+            }
+        }
 
         /// <summary>
         /// Bytes scanned for a single scheduled query run.
         /// </summary>
-        [Input("cumulativeBytesScanned")]
+        [PolicyResourceProperty("cumulativeBytesScanned", "_mUnknown_CumulativeBytesScanned")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCumulativeBytesScanned;
-
-        public int? CumulativeBytesScanned => _mCumulativeBytesScanned.GetValue("cumulativeBytesScanned");
+        private int? _mValue_CumulativeBytesScanned;
+        private bool _mUnknown_CumulativeBytesScanned;
+        public int? CumulativeBytesScanned
+        {
+            get
+            {
+                if (!_mUnknown_CumulativeBytesScanned) return _mValue_CumulativeBytesScanned;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryExecutionStat.CumulativeBytesScanned' is not present");
+            }
+        }
 
         /// <summary>
         /// Data writes metered for records ingested in a single scheduled query run.
         /// </summary>
-        [Input("dataWrites")]
+        [PolicyResourceProperty("dataWrites", "_mUnknown_DataWrites")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDataWrites;
-
-        public int? DataWrites => _mDataWrites.GetValue("dataWrites");
+        private int? _mValue_DataWrites;
+        private bool _mUnknown_DataWrites;
+        public int? DataWrites
+        {
+            get
+            {
+                if (!_mUnknown_DataWrites) return _mValue_DataWrites;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryExecutionStat.DataWrites' is not present");
+            }
+        }
 
         /// <summary>
         /// Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
         /// </summary>
-        [Input("executionTimeInMillis")]
+        [PolicyResourceProperty("executionTimeInMillis", "_mUnknown_ExecutionTimeInMillis")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mExecutionTimeInMillis;
-
-        public int? ExecutionTimeInMillis => _mExecutionTimeInMillis.GetValue("executionTimeInMillis");
+        private int? _mValue_ExecutionTimeInMillis;
+        private bool _mUnknown_ExecutionTimeInMillis;
+        public int? ExecutionTimeInMillis
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionTimeInMillis) return _mValue_ExecutionTimeInMillis;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryExecutionStat.ExecutionTimeInMillis' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of rows present in the output from running a query before ingestion to destination data source.
         /// </summary>
-        [Input("queryResultRows")]
+        [PolicyResourceProperty("queryResultRows", "_mUnknown_QueryResultRows")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mQueryResultRows;
-
-        public int? QueryResultRows => _mQueryResultRows.GetValue("queryResultRows");
+        private int? _mValue_QueryResultRows;
+        private bool _mUnknown_QueryResultRows;
+        public int? QueryResultRows
+        {
+            get
+            {
+                if (!_mUnknown_QueryResultRows) return _mValue_QueryResultRows;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryExecutionStat.QueryResultRows' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of records ingested for a single scheduled query run.
         /// </summary>
-        [Input("recordsIngested")]
+        [PolicyResourceProperty("recordsIngested", "_mUnknown_RecordsIngested")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRecordsIngested;
-
-        public int? RecordsIngested => _mRecordsIngested.GetValue("recordsIngested");
+        private int? _mValue_RecordsIngested;
+        private bool _mUnknown_RecordsIngested;
+        public int? RecordsIngested
+        {
+            get
+            {
+                if (!_mUnknown_RecordsIngested) return _mValue_RecordsIngested;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryExecutionStat.RecordsIngested' is not present");
+            }
+        }
     }
 }

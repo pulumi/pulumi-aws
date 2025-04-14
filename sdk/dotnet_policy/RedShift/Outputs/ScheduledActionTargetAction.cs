@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.RedShift.Outputs
         /// <summary>
         /// An action that runs a `PauseCluster` API operation. Documented below.
         /// </summary>
-        [Input("pauseCluster")]
+        [PolicyResourceProperty("pauseCluster", "_mUnknown_PauseCluster")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduledActionTargetActionPauseCluster> _mPauseCluster;
-
-        public Outputs.ScheduledActionTargetActionPauseCluster? PauseCluster => _mPauseCluster.GetValue("pauseCluster");
+        private Outputs.ScheduledActionTargetActionPauseCluster? _mValue_PauseCluster;
+        private bool _mUnknown_PauseCluster;
+        public Outputs.ScheduledActionTargetActionPauseCluster? PauseCluster
+        {
+            get
+            {
+                if (!_mUnknown_PauseCluster) return _mValue_PauseCluster;
+                throw new UndeferrableValueException("Value 'ScheduledActionTargetAction.PauseCluster' is not present");
+            }
+        }
 
         /// <summary>
         /// An action that runs a `ResizeCluster` API operation. Documented below.
         /// </summary>
-        [Input("resizeCluster")]
+        [PolicyResourceProperty("resizeCluster", "_mUnknown_ResizeCluster")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduledActionTargetActionResizeCluster> _mResizeCluster;
-
-        public Outputs.ScheduledActionTargetActionResizeCluster? ResizeCluster => _mResizeCluster.GetValue("resizeCluster");
+        private Outputs.ScheduledActionTargetActionResizeCluster? _mValue_ResizeCluster;
+        private bool _mUnknown_ResizeCluster;
+        public Outputs.ScheduledActionTargetActionResizeCluster? ResizeCluster
+        {
+            get
+            {
+                if (!_mUnknown_ResizeCluster) return _mValue_ResizeCluster;
+                throw new UndeferrableValueException("Value 'ScheduledActionTargetAction.ResizeCluster' is not present");
+            }
+        }
 
         /// <summary>
         /// An action that runs a `ResumeCluster` API operation. Documented below.
         /// </summary>
-        [Input("resumeCluster")]
+        [PolicyResourceProperty("resumeCluster", "_mUnknown_ResumeCluster")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduledActionTargetActionResumeCluster> _mResumeCluster;
-
-        public Outputs.ScheduledActionTargetActionResumeCluster? ResumeCluster => _mResumeCluster.GetValue("resumeCluster");
+        private Outputs.ScheduledActionTargetActionResumeCluster? _mValue_ResumeCluster;
+        private bool _mUnknown_ResumeCluster;
+        public Outputs.ScheduledActionTargetActionResumeCluster? ResumeCluster
+        {
+            get
+            {
+                if (!_mUnknown_ResumeCluster) return _mValue_ResumeCluster;
+                throw new UndeferrableValueException("Value 'ScheduledActionTargetAction.ResumeCluster' is not present");
+            }
+        }
     }
 }

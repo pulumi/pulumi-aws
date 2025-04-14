@@ -12,25 +12,46 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
 {
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs
     {
-        [Input("bitDepth")]
+        [PolicyResourceProperty("bitDepth", "_mUnknown_BitDepth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mBitDepth;
+        private double? _mValue_BitDepth;
+        private bool _mUnknown_BitDepth;
+        public double? BitDepth
+        {
+            get
+            {
+                if (!_mUnknown_BitDepth) return _mValue_BitDepth;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs.BitDepth' is not present");
+            }
+        }
 
-        public double? BitDepth => _mBitDepth.GetValue("bitDepth");
-
-        [Input("codingMode")]
+        [PolicyResourceProperty("codingMode", "_mUnknown_CodingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodingMode;
-
-        public string? CodingMode => _mCodingMode.GetValue("codingMode");
+        private string? _mValue_CodingMode;
+        private bool _mUnknown_CodingMode;
+        public string? CodingMode
+        {
+            get
+            {
+                if (!_mUnknown_CodingMode) return _mValue_CodingMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs.CodingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Sample rate in Hz.
         /// </summary>
-        [Input("sampleRate")]
+        [PolicyResourceProperty("sampleRate", "_mUnknown_SampleRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mSampleRate;
-
-        public double? SampleRate => _mSampleRate.GetValue("sampleRate");
+        private double? _mValue_SampleRate;
+        private bool _mUnknown_SampleRate;
+        public double? SampleRate
+        {
+            get
+            {
+                if (!_mUnknown_SampleRate) return _mValue_SampleRate;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs.SampleRate' is not present");
+            }
+        }
     }
 }

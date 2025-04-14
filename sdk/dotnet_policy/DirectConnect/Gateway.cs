@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
         /// </summary>
-        [Input("amazonSideAsn")]
+        [PolicyResourceProperty("amazonSideAsn", "_mUnknown_AmazonSideAsn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonSideAsn;
-
-        public string? AmazonSideAsn => _mAmazonSideAsn.GetValue("amazonSideAsn");
+        private string? _mValue_AmazonSideAsn;
+        private bool _mUnknown_AmazonSideAsn;
+        public string? AmazonSideAsn
+        {
+            get
+            {
+                if (!_mUnknown_AmazonSideAsn) return _mValue_AmazonSideAsn;
+                throw new UndeferrableValueException("Value 'Gateway.AmazonSideAsn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the gateway.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Gateway.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the connection.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Gateway.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Account ID of the gateway.
         /// </summary>
-        [Input("ownerAccountId")]
+        [PolicyResourceProperty("ownerAccountId", "_mUnknown_OwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
-
-        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+        private string? _mValue_OwnerAccountId;
+        private bool _mUnknown_OwnerAccountId;
+        public string? OwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccountId) return _mValue_OwnerAccountId;
+                throw new UndeferrableValueException("Value 'Gateway.OwnerAccountId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:directconnect/gateway:Gateway")]
@@ -56,19 +84,33 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
         /// </summary>
-        [Input("amazonSideAsn")]
+        [PolicyResourceProperty("amazonSideAsn", "_mUnknown_AmazonSideAsn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonSideAsn;
-
-        public string? AmazonSideAsn => _mAmazonSideAsn.GetValue("amazonSideAsn");
+        private string? _mValue_AmazonSideAsn;
+        private bool _mUnknown_AmazonSideAsn;
+        public string? AmazonSideAsn
+        {
+            get
+            {
+                if (!_mUnknown_AmazonSideAsn) return _mValue_AmazonSideAsn;
+                throw new UndeferrableValueException("Value 'GatewayArgs.AmazonSideAsn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the connection.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GatewayArgs.Name' is not present");
+            }
+        }
     }
 }

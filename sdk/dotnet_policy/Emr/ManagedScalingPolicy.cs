@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Emr
         /// <summary>
         /// ID of the EMR cluster
         /// </summary>
-        [Input("clusterId")]
+        [PolicyResourceProperty("clusterId", "_mUnknown_ClusterId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
-
-        public string? ClusterId => _mClusterId.GetValue("clusterId");
+        private string? _mValue_ClusterId;
+        private bool _mUnknown_ClusterId;
+        public string? ClusterId
+        {
+            get
+            {
+                if (!_mUnknown_ClusterId) return _mValue_ClusterId;
+                throw new UndeferrableValueException("Value 'ManagedScalingPolicy.ClusterId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with compute limit settings. Described below.
         /// </summary>
-        [Input("computeLimits")]
+        [PolicyResourceProperty("computeLimits", "_mUnknown_ComputeLimits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ManagedScalingPolicyComputeLimit>> _mComputeLimits;
-
-        public List<Outputs.ManagedScalingPolicyComputeLimit>? ComputeLimits => _mComputeLimits.GetValue("computeLimits");
+        private List<Outputs.ManagedScalingPolicyComputeLimit>? _mValue_ComputeLimits;
+        private bool _mUnknown_ComputeLimits;
+        public List<Outputs.ManagedScalingPolicyComputeLimit>? ComputeLimits
+        {
+            get
+            {
+                if (!_mUnknown_ComputeLimits) return _mValue_ComputeLimits;
+                throw new UndeferrableValueException("Value 'ManagedScalingPolicy.ComputeLimits' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:emr/managedScalingPolicy:ManagedScalingPolicy")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Emr
         /// <summary>
         /// ID of the EMR cluster
         /// </summary>
-        [Input("clusterId")]
+        [PolicyResourceProperty("clusterId", "_mUnknown_ClusterId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
-
-        public string? ClusterId => _mClusterId.GetValue("clusterId");
+        private string? _mValue_ClusterId;
+        private bool _mUnknown_ClusterId;
+        public string? ClusterId
+        {
+            get
+            {
+                if (!_mUnknown_ClusterId) return _mValue_ClusterId;
+                throw new UndeferrableValueException("Value 'ManagedScalingPolicyArgs.ClusterId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with compute limit settings. Described below.
         /// </summary>
-        [Input("computeLimits")]
+        [PolicyResourceProperty("computeLimits", "_mUnknown_ComputeLimits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ManagedScalingPolicyComputeLimitArgs>> _mComputeLimits;
-
-        public List<Inputs.ManagedScalingPolicyComputeLimitArgs>? ComputeLimits => _mComputeLimits.GetValue("computeLimits");
+        private List<Inputs.ManagedScalingPolicyComputeLimitArgs>? _mValue_ComputeLimits;
+        private bool _mUnknown_ComputeLimits;
+        public List<Inputs.ManagedScalingPolicyComputeLimitArgs>? ComputeLimits
+        {
+            get
+            {
+                if (!_mUnknown_ComputeLimits) return _mValue_ComputeLimits;
+                throw new UndeferrableValueException("Value 'ManagedScalingPolicyArgs.ComputeLimits' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// Color properties that apply to chart data colors. See data_color_palette.
         /// </summary>
-        [Input("dataColorPalettes")]
+        [PolicyResourceProperty("dataColorPalettes", "_mUnknown_DataColorPalettes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetThemeConfigurationDataColorPaletteResult>> _mDataColorPalettes;
-
-        public List<Outputs.GetThemeConfigurationDataColorPaletteResult>? DataColorPalettes => _mDataColorPalettes.GetValue("dataColorPalettes");
+        private List<Outputs.GetThemeConfigurationDataColorPaletteResult>? _mValue_DataColorPalettes;
+        private bool _mUnknown_DataColorPalettes;
+        public List<Outputs.GetThemeConfigurationDataColorPaletteResult>? DataColorPalettes
+        {
+            get
+            {
+                if (!_mUnknown_DataColorPalettes) return _mValue_DataColorPalettes;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationResult.DataColorPalettes' is not present");
+            }
+        }
 
         /// <summary>
         /// Display options related to sheets. See sheet.
         /// </summary>
-        [Input("sheets")]
+        [PolicyResourceProperty("sheets", "_mUnknown_Sheets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetThemeConfigurationSheetResult>> _mSheets;
-
-        public List<Outputs.GetThemeConfigurationSheetResult>? Sheets => _mSheets.GetValue("sheets");
+        private List<Outputs.GetThemeConfigurationSheetResult>? _mValue_Sheets;
+        private bool _mUnknown_Sheets;
+        public List<Outputs.GetThemeConfigurationSheetResult>? Sheets
+        {
+            get
+            {
+                if (!_mUnknown_Sheets) return _mValue_Sheets;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationResult.Sheets' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the typography options. See typography.
         /// </summary>
-        [Input("typographies")]
+        [PolicyResourceProperty("typographies", "_mUnknown_Typographies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetThemeConfigurationTypographyResult>> _mTypographies;
-
-        public List<Outputs.GetThemeConfigurationTypographyResult>? Typographies => _mTypographies.GetValue("typographies");
+        private List<Outputs.GetThemeConfigurationTypographyResult>? _mValue_Typographies;
+        private bool _mUnknown_Typographies;
+        public List<Outputs.GetThemeConfigurationTypographyResult>? Typographies
+        {
+            get
+            {
+                if (!_mUnknown_Typographies) return _mValue_Typographies;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationResult.Typographies' is not present");
+            }
+        }
 
         /// <summary>
         /// Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
         /// </summary>
-        [Input("uiColorPalettes")]
+        [PolicyResourceProperty("uiColorPalettes", "_mUnknown_UiColorPalettes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetThemeConfigurationUiColorPaletteResult>> _mUiColorPalettes;
-
-        public List<Outputs.GetThemeConfigurationUiColorPaletteResult>? UiColorPalettes => _mUiColorPalettes.GetValue("uiColorPalettes");
+        private List<Outputs.GetThemeConfigurationUiColorPaletteResult>? _mValue_UiColorPalettes;
+        private bool _mUnknown_UiColorPalettes;
+        public List<Outputs.GetThemeConfigurationUiColorPaletteResult>? UiColorPalettes
+        {
+            get
+            {
+                if (!_mUnknown_UiColorPalettes) return _mValue_UiColorPalettes;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationResult.UiColorPalettes' is not present");
+            }
+        }
     }
 }

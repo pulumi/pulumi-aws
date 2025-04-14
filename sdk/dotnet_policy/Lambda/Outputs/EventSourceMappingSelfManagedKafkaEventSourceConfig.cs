@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Outputs
         /// <summary>
         /// A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
         /// </summary>
-        [Input("consumerGroupId")]
+        [PolicyResourceProperty("consumerGroupId", "_mUnknown_ConsumerGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerGroupId;
-
-        public string? ConsumerGroupId => _mConsumerGroupId.GetValue("consumerGroupId");
+        private string? _mValue_ConsumerGroupId;
+        private bool _mUnknown_ConsumerGroupId;
+        public string? ConsumerGroupId
+        {
+            get
+            {
+                if (!_mUnknown_ConsumerGroupId) return _mValue_ConsumerGroupId;
+                throw new UndeferrableValueException("Value 'EventSourceMappingSelfManagedKafkaEventSourceConfig.ConsumerGroupId' is not present");
+            }
+        }
     }
 }

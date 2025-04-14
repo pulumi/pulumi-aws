@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Name of the Availability Zone Group.
         /// </summary>
-        [Input("groupName")]
+        [PolicyResourceProperty("groupName", "_mUnknown_GroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
-
-        public string? GroupName => _mGroupName.GetValue("groupName");
+        private string? _mValue_GroupName;
+        private bool _mUnknown_GroupName;
+        public string? GroupName
+        {
+            get
+            {
+                if (!_mUnknown_GroupName) return _mValue_GroupName;
+                throw new UndeferrableValueException("Value 'AvailabilityZoneGroup.GroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
         /// </summary>
-        [Input("optInStatus")]
+        [PolicyResourceProperty("optInStatus", "_mUnknown_OptInStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOptInStatus;
-
-        public string? OptInStatus => _mOptInStatus.GetValue("optInStatus");
+        private string? _mValue_OptInStatus;
+        private bool _mUnknown_OptInStatus;
+        public string? OptInStatus
+        {
+            get
+            {
+                if (!_mUnknown_OptInStatus) return _mValue_OptInStatus;
+                throw new UndeferrableValueException("Value 'AvailabilityZoneGroup.OptInStatus' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Name of the Availability Zone Group.
         /// </summary>
-        [Input("groupName")]
+        [PolicyResourceProperty("groupName", "_mUnknown_GroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
-
-        public string? GroupName => _mGroupName.GetValue("groupName");
+        private string? _mValue_GroupName;
+        private bool _mUnknown_GroupName;
+        public string? GroupName
+        {
+            get
+            {
+                if (!_mUnknown_GroupName) return _mValue_GroupName;
+                throw new UndeferrableValueException("Value 'AvailabilityZoneGroupArgs.GroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
         /// </summary>
-        [Input("optInStatus")]
+        [PolicyResourceProperty("optInStatus", "_mUnknown_OptInStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOptInStatus;
-
-        public string? OptInStatus => _mOptInStatus.GetValue("optInStatus");
+        private string? _mValue_OptInStatus;
+        private bool _mUnknown_OptInStatus;
+        public string? OptInStatus
+        {
+            get
+            {
+                if (!_mUnknown_OptInStatus) return _mValue_OptInStatus;
+                throw new UndeferrableValueException("Value 'AvailabilityZoneGroupArgs.OptInStatus' is not present");
+            }
+        }
     }
 }

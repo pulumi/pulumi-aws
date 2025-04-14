@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'DistributionTrustedKeyGroup.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested attributes for each trusted signer
         /// </summary>
-        [Input("items")]
+        [PolicyResourceProperty("items", "_mUnknown_Items")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DistributionTrustedKeyGroupItem>> _mItems;
-
-        public List<Outputs.DistributionTrustedKeyGroupItem>? Items => _mItems.GetValue("items");
+        private List<Outputs.DistributionTrustedKeyGroupItem>? _mValue_Items;
+        private bool _mUnknown_Items;
+        public List<Outputs.DistributionTrustedKeyGroupItem>? Items
+        {
+            get
+            {
+                if (!_mUnknown_Items) return _mValue_Items;
+                throw new UndeferrableValueException("Value 'DistributionTrustedKeyGroup.Items' is not present");
+            }
+        }
     }
 }

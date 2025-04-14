@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Rds.Inputs
         /// <summary>
         /// Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
         /// </summary>
-        [Input("autoPause")]
+        [PolicyResourceProperty("autoPause", "_mUnknown_AutoPause")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoPause;
-
-        public bool? AutoPause => _mAutoPause.GetValue("autoPause");
+        private bool? _mValue_AutoPause;
+        private bool _mUnknown_AutoPause;
+        public bool? AutoPause
+        {
+            get
+            {
+                if (!_mUnknown_AutoPause) return _mValue_AutoPause;
+                throw new UndeferrableValueException("Value 'ClusterScalingConfigurationArgs.AutoPause' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
         /// </summary>
-        [Input("maxCapacity")]
+        [PolicyResourceProperty("maxCapacity", "_mUnknown_MaxCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxCapacity;
-
-        public int? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
+        private int? _mValue_MaxCapacity;
+        private bool _mUnknown_MaxCapacity;
+        public int? MaxCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MaxCapacity) return _mValue_MaxCapacity;
+                throw new UndeferrableValueException("Value 'ClusterScalingConfigurationArgs.MaxCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
         /// </summary>
-        [Input("minCapacity")]
+        [PolicyResourceProperty("minCapacity", "_mUnknown_MinCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinCapacity;
-
-        public int? MinCapacity => _mMinCapacity.GetValue("minCapacity");
+        private int? _mValue_MinCapacity;
+        private bool _mUnknown_MinCapacity;
+        public int? MinCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MinCapacity) return _mValue_MinCapacity;
+                throw new UndeferrableValueException("Value 'ClusterScalingConfigurationArgs.MinCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
         /// </summary>
-        [Input("secondsBeforeTimeout")]
+        [PolicyResourceProperty("secondsBeforeTimeout", "_mUnknown_SecondsBeforeTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSecondsBeforeTimeout;
-
-        public int? SecondsBeforeTimeout => _mSecondsBeforeTimeout.GetValue("secondsBeforeTimeout");
+        private int? _mValue_SecondsBeforeTimeout;
+        private bool _mUnknown_SecondsBeforeTimeout;
+        public int? SecondsBeforeTimeout
+        {
+            get
+            {
+                if (!_mUnknown_SecondsBeforeTimeout) return _mValue_SecondsBeforeTimeout;
+                throw new UndeferrableValueException("Value 'ClusterScalingConfigurationArgs.SecondsBeforeTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
         /// </summary>
-        [Input("secondsUntilAutoPause")]
+        [PolicyResourceProperty("secondsUntilAutoPause", "_mUnknown_SecondsUntilAutoPause")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSecondsUntilAutoPause;
-
-        public int? SecondsUntilAutoPause => _mSecondsUntilAutoPause.GetValue("secondsUntilAutoPause");
+        private int? _mValue_SecondsUntilAutoPause;
+        private bool _mUnknown_SecondsUntilAutoPause;
+        public int? SecondsUntilAutoPause
+        {
+            get
+            {
+                if (!_mUnknown_SecondsUntilAutoPause) return _mValue_SecondsUntilAutoPause;
+                throw new UndeferrableValueException("Value 'ClusterScalingConfigurationArgs.SecondsUntilAutoPause' is not present");
+            }
+        }
 
         /// <summary>
         /// Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v1.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
         /// </summary>
-        [Input("timeoutAction")]
+        [PolicyResourceProperty("timeoutAction", "_mUnknown_TimeoutAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeoutAction;
-
-        public string? TimeoutAction => _mTimeoutAction.GetValue("timeoutAction");
+        private string? _mValue_TimeoutAction;
+        private bool _mUnknown_TimeoutAction;
+        public string? TimeoutAction
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutAction) return _mValue_TimeoutAction;
+                throw new UndeferrableValueException("Value 'ClusterScalingConfigurationArgs.TimeoutAction' is not present");
+            }
+        }
     }
 }

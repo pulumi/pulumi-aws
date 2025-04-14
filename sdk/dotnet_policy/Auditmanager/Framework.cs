@@ -17,73 +17,129 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// Amazon Resource Name (ARN) of the framework.
         /// * `control_sets[*].id` - Unique identifier for the framework control set.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Framework.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
         /// </summary>
-        [Input("complianceType")]
+        [PolicyResourceProperty("complianceType", "_mUnknown_ComplianceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComplianceType;
-
-        public string? ComplianceType => _mComplianceType.GetValue("complianceType");
+        private string? _mValue_ComplianceType;
+        private bool _mUnknown_ComplianceType;
+        public string? ComplianceType
+        {
+            get
+            {
+                if (!_mUnknown_ComplianceType) return _mValue_ComplianceType;
+                throw new UndeferrableValueException("Value 'Framework.ComplianceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("controlSets")]
+        [PolicyResourceProperty("controlSets", "_mUnknown_ControlSets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FrameworkControlSet>> _mControlSets;
-
-        public List<Outputs.FrameworkControlSet>? ControlSets => _mControlSets.GetValue("controlSets");
+        private List<Outputs.FrameworkControlSet>? _mValue_ControlSets;
+        private bool _mUnknown_ControlSets;
+        public List<Outputs.FrameworkControlSet>? ControlSets
+        {
+            get
+            {
+                if (!_mUnknown_ControlSets) return _mValue_ControlSets;
+                throw new UndeferrableValueException("Value 'Framework.ControlSets' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the framework.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Framework.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Framework type, such as a custom framework or a standard framework.
         /// </summary>
-        [Input("frameworkType")]
+        [PolicyResourceProperty("frameworkType", "_mUnknown_FrameworkType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFrameworkType;
-
-        public string? FrameworkType => _mFrameworkType.GetValue("frameworkType");
+        private string? _mValue_FrameworkType;
+        private bool _mUnknown_FrameworkType;
+        public string? FrameworkType
+        {
+            get
+            {
+                if (!_mUnknown_FrameworkType) return _mValue_FrameworkType;
+                throw new UndeferrableValueException("Value 'Framework.FrameworkType' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the framework.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Framework.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Framework.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Framework.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:auditmanager/framework:Framework")]
@@ -92,48 +148,83 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// <summary>
         /// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
         /// </summary>
-        [Input("complianceType")]
+        [PolicyResourceProperty("complianceType", "_mUnknown_ComplianceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComplianceType;
-
-        public string? ComplianceType => _mComplianceType.GetValue("complianceType");
+        private string? _mValue_ComplianceType;
+        private bool _mUnknown_ComplianceType;
+        public string? ComplianceType
+        {
+            get
+            {
+                if (!_mUnknown_ComplianceType) return _mValue_ComplianceType;
+                throw new UndeferrableValueException("Value 'FrameworkArgs.ComplianceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("controlSets")]
+        [PolicyResourceProperty("controlSets", "_mUnknown_ControlSets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FrameworkControlSetArgs>> _mControlSets;
-
-        public List<Inputs.FrameworkControlSetArgs>? ControlSets => _mControlSets.GetValue("controlSets");
+        private List<Inputs.FrameworkControlSetArgs>? _mValue_ControlSets;
+        private bool _mUnknown_ControlSets;
+        public List<Inputs.FrameworkControlSetArgs>? ControlSets
+        {
+            get
+            {
+                if (!_mUnknown_ControlSets) return _mValue_ControlSets;
+                throw new UndeferrableValueException("Value 'FrameworkArgs.ControlSets' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the framework.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'FrameworkArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the framework.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FrameworkArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FrameworkArgs.Tags' is not present");
+            }
+        }
     }
 }

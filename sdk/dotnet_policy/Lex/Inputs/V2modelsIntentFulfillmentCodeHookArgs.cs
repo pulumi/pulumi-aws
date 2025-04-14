@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
         /// </summary>
-        [Input("active")]
+        [PolicyResourceProperty("active", "_mUnknown_Active")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
-
-        public bool? Active => _mActive.GetValue("active");
+        private bool? _mValue_Active;
+        private bool _mUnknown_Active;
+        public bool? Active
+        {
+            get
+            {
+                if (!_mUnknown_Active) return _mValue_Active;
+                throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookArgs.Active' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether a Lambda function should be invoked to fulfill a specific intent.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations. See `fulfillment_updates_specification`.
         /// </summary>
-        [Input("fulfillmentUpdatesSpecification")]
+        [PolicyResourceProperty("fulfillmentUpdatesSpecification", "_mUnknown_FulfillmentUpdatesSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs> _mFulfillmentUpdatesSpecification;
-
-        public Inputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs? FulfillmentUpdatesSpecification => _mFulfillmentUpdatesSpecification.GetValue("fulfillmentUpdatesSpecification");
+        private Inputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs? _mValue_FulfillmentUpdatesSpecification;
+        private bool _mUnknown_FulfillmentUpdatesSpecification;
+        public Inputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs? FulfillmentUpdatesSpecification
+        {
+            get
+            {
+                if (!_mUnknown_FulfillmentUpdatesSpecification) return _mValue_FulfillmentUpdatesSpecification;
+                throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookArgs.FulfillmentUpdatesSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations. See `post_fulfillment_status_specification`.
         /// </summary>
-        [Input("postFulfillmentStatusSpecification")]
+        [PolicyResourceProperty("postFulfillmentStatusSpecification", "_mUnknown_PostFulfillmentStatusSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationArgs> _mPostFulfillmentStatusSpecification;
-
-        public Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationArgs? PostFulfillmentStatusSpecification => _mPostFulfillmentStatusSpecification.GetValue("postFulfillmentStatusSpecification");
+        private Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationArgs? _mValue_PostFulfillmentStatusSpecification;
+        private bool _mUnknown_PostFulfillmentStatusSpecification;
+        public Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationArgs? PostFulfillmentStatusSpecification
+        {
+            get
+            {
+                if (!_mUnknown_PostFulfillmentStatusSpecification) return _mValue_PostFulfillmentStatusSpecification;
+                throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookArgs.PostFulfillmentStatusSpecification' is not present");
+            }
+        }
     }
 }

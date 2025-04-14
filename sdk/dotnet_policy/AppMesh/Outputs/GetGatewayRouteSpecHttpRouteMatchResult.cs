@@ -12,40 +12,82 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetGatewayRouteSpecHttpRouteMatchResult
     {
-        [Input("headers")]
+        [PolicyResourceProperty("headers", "_mUnknown_Headers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGatewayRouteSpecHttpRouteMatchHeaderResult>> _mHeaders;
+        private List<Outputs.GetGatewayRouteSpecHttpRouteMatchHeaderResult>? _mValue_Headers;
+        private bool _mUnknown_Headers;
+        public List<Outputs.GetGatewayRouteSpecHttpRouteMatchHeaderResult>? Headers
+        {
+            get
+            {
+                if (!_mUnknown_Headers) return _mValue_Headers;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecHttpRouteMatchResult.Headers' is not present");
+            }
+        }
 
-        public List<Outputs.GetGatewayRouteSpecHttpRouteMatchHeaderResult>? Headers => _mHeaders.GetValue("headers");
-
-        [Input("hostnames")]
+        [PolicyResourceProperty("hostnames", "_mUnknown_Hostnames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGatewayRouteSpecHttpRouteMatchHostnameResult>> _mHostnames;
+        private List<Outputs.GetGatewayRouteSpecHttpRouteMatchHostnameResult>? _mValue_Hostnames;
+        private bool _mUnknown_Hostnames;
+        public List<Outputs.GetGatewayRouteSpecHttpRouteMatchHostnameResult>? Hostnames
+        {
+            get
+            {
+                if (!_mUnknown_Hostnames) return _mValue_Hostnames;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecHttpRouteMatchResult.Hostnames' is not present");
+            }
+        }
 
-        public List<Outputs.GetGatewayRouteSpecHttpRouteMatchHostnameResult>? Hostnames => _mHostnames.GetValue("hostnames");
-
-        [Input("paths")]
+        [PolicyResourceProperty("paths", "_mUnknown_Paths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGatewayRouteSpecHttpRouteMatchPathResult>> _mPaths;
+        private List<Outputs.GetGatewayRouteSpecHttpRouteMatchPathResult>? _mValue_Paths;
+        private bool _mUnknown_Paths;
+        public List<Outputs.GetGatewayRouteSpecHttpRouteMatchPathResult>? Paths
+        {
+            get
+            {
+                if (!_mUnknown_Paths) return _mValue_Paths;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecHttpRouteMatchResult.Paths' is not present");
+            }
+        }
 
-        public List<Outputs.GetGatewayRouteSpecHttpRouteMatchPathResult>? Paths => _mPaths.GetValue("paths");
-
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecHttpRouteMatchResult.Port' is not present");
+            }
+        }
 
-        public int? Port => _mPort.GetValue("port");
-
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecHttpRouteMatchResult.Prefix' is not present");
+            }
+        }
 
-        public string? Prefix => _mPrefix.GetValue("prefix");
-
-        [Input("queryParameters")]
+        [PolicyResourceProperty("queryParameters", "_mUnknown_QueryParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterResult>> _mQueryParameters;
-
-        public List<Outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterResult>? QueryParameters => _mQueryParameters.GetValue("queryParameters");
+        private List<Outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterResult>? _mValue_QueryParameters;
+        private bool _mUnknown_QueryParameters;
+        public List<Outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterResult>? QueryParameters
+        {
+            get
+            {
+                if (!_mUnknown_QueryParameters) return _mValue_QueryParameters;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecHttpRouteMatchResult.QueryParameters' is not present");
+            }
+        }
     }
 }

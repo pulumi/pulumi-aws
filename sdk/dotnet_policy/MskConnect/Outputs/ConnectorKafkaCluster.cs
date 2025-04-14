@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect.Outputs
         /// <summary>
         /// The Apache Kafka cluster to which the connector is connected. See `apache_kafka_cluster` Block for details.
         /// </summary>
-        [Input("apacheKafkaCluster")]
+        [PolicyResourceProperty("apacheKafkaCluster", "_mUnknown_ApacheKafkaCluster")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorKafkaClusterApacheKafkaCluster> _mApacheKafkaCluster;
-
-        public Outputs.ConnectorKafkaClusterApacheKafkaCluster? ApacheKafkaCluster => _mApacheKafkaCluster.GetValue("apacheKafkaCluster");
+        private Outputs.ConnectorKafkaClusterApacheKafkaCluster? _mValue_ApacheKafkaCluster;
+        private bool _mUnknown_ApacheKafkaCluster;
+        public Outputs.ConnectorKafkaClusterApacheKafkaCluster? ApacheKafkaCluster
+        {
+            get
+            {
+                if (!_mUnknown_ApacheKafkaCluster) return _mValue_ApacheKafkaCluster;
+                throw new UndeferrableValueException("Value 'ConnectorKafkaCluster.ApacheKafkaCluster' is not present");
+            }
+        }
     }
 }

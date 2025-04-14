@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
 {
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs
     {
-        [Input("audioGroupId")]
+        [PolicyResourceProperty("audioGroupId", "_mUnknown_AudioGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAudioGroupId;
+        private string? _mValue_AudioGroupId;
+        private bool _mUnknown_AudioGroupId;
+        public string? AudioGroupId
+        {
+            get
+            {
+                if (!_mUnknown_AudioGroupId) return _mValue_AudioGroupId;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs.AudioGroupId' is not present");
+            }
+        }
 
-        public string? AudioGroupId => _mAudioGroupId.GetValue("audioGroupId");
-
-        [Input("audioOnlyImage")]
+        [PolicyResourceProperty("audioOnlyImage", "_mUnknown_AudioOnlyImage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs> _mAudioOnlyImage;
+        private Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs? _mValue_AudioOnlyImage;
+        private bool _mUnknown_AudioOnlyImage;
+        public Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs? AudioOnlyImage
+        {
+            get
+            {
+                if (!_mUnknown_AudioOnlyImage) return _mValue_AudioOnlyImage;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs.AudioOnlyImage' is not present");
+            }
+        }
 
-        public Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs? AudioOnlyImage => _mAudioOnlyImage.GetValue("audioOnlyImage");
-
-        [Input("audioTrackType")]
+        [PolicyResourceProperty("audioTrackType", "_mUnknown_AudioTrackType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAudioTrackType;
+        private string? _mValue_AudioTrackType;
+        private bool _mUnknown_AudioTrackType;
+        public string? AudioTrackType
+        {
+            get
+            {
+                if (!_mUnknown_AudioTrackType) return _mValue_AudioTrackType;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs.AudioTrackType' is not present");
+            }
+        }
 
-        public string? AudioTrackType => _mAudioTrackType.GetValue("audioTrackType");
-
-        [Input("segmentType")]
+        [PolicyResourceProperty("segmentType", "_mUnknown_SegmentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSegmentType;
-
-        public string? SegmentType => _mSegmentType.GetValue("segmentType");
+        private string? _mValue_SegmentType;
+        private bool _mUnknown_SegmentType;
+        public string? SegmentType
+        {
+            get
+            {
+                if (!_mUnknown_SegmentType) return _mValue_SegmentType;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs.SegmentType' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// Calculated columns to create. See columns.
         /// </summary>
-        [Input("columns")]
+        [PolicyResourceProperty("columns", "_mUnknown_Columns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs>> _mColumns;
-
-        public List<Inputs.DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs>? Columns => _mColumns.GetValue("columns");
+        private List<Inputs.DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs>? _mValue_Columns;
+        private bool _mUnknown_Columns;
+        public List<Inputs.DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs>? Columns
+        {
+            get
+            {
+                if (!_mUnknown_Columns) return _mValue_Columns;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs.Columns' is not present");
+            }
+        }
     }
 }

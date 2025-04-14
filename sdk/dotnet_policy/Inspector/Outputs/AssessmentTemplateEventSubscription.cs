@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Inspector.Outputs
         /// <summary>
         /// The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
         /// </summary>
-        [Input("event")]
+        [PolicyResourceProperty("event", "_mUnknown_Event")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEvent;
-
-        public string? Event => _mEvent.GetValue("event");
+        private string? _mValue_Event;
+        private bool _mUnknown_Event;
+        public string? Event
+        {
+            get
+            {
+                if (!_mUnknown_Event) return _mValue_Event;
+                throw new UndeferrableValueException("Value 'AssessmentTemplateEventSubscription.Event' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SNS topic to which notifications are sent.
         /// </summary>
-        [Input("topicArn")]
+        [PolicyResourceProperty("topicArn", "_mUnknown_TopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopicArn;
-
-        public string? TopicArn => _mTopicArn.GetValue("topicArn");
+        private string? _mValue_TopicArn;
+        private bool _mUnknown_TopicArn;
+        public string? TopicArn
+        {
+            get
+            {
+                if (!_mUnknown_TopicArn) return _mValue_TopicArn;
+                throw new UndeferrableValueException("Value 'AssessmentTemplateEventSubscription.TopicArn' is not present");
+            }
+        }
     }
 }

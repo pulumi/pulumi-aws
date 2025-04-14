@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CodeCatalyst.Inputs
         /// <summary>
         /// The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DevEnvironmentIdesArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
         /// </summary>
-        [Input("runtime")]
+        [PolicyResourceProperty("runtime", "_mUnknown_Runtime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuntime;
-
-        public string? Runtime => _mRuntime.GetValue("runtime");
+        private string? _mValue_Runtime;
+        private bool _mUnknown_Runtime;
+        public string? Runtime
+        {
+            get
+            {
+                if (!_mUnknown_Runtime) return _mValue_Runtime;
+                throw new UndeferrableValueException("Value 'DevEnvironmentIdesArgs.Runtime' is not present");
+            }
+        }
     }
 }

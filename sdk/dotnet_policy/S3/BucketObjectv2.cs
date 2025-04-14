@@ -16,301 +16,532 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
         /// </summary>
-        [Input("acl")]
+        [PolicyResourceProperty("acl", "_mUnknown_Acl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcl;
-
-        public string? Acl => _mAcl.GetValue("acl");
+        private string? _mValue_Acl;
+        private bool _mUnknown_Acl;
+        public string? Acl
+        {
+            get
+            {
+                if (!_mUnknown_Acl) return _mValue_Acl;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.Acl' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the object.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         /// </summary>
-        [Input("bucketKeyEnabled")]
+        [PolicyResourceProperty("bucketKeyEnabled", "_mUnknown_BucketKeyEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBucketKeyEnabled;
-
-        public bool? BucketKeyEnabled => _mBucketKeyEnabled.GetValue("bucketKeyEnabled");
+        private bool? _mValue_BucketKeyEnabled;
+        private bool _mUnknown_BucketKeyEnabled;
+        public bool? BucketKeyEnabled
+        {
+            get
+            {
+                if (!_mUnknown_BucketKeyEnabled) return _mValue_BucketKeyEnabled;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.BucketKeyEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         /// </summary>
-        [Input("cacheControl")]
+        [PolicyResourceProperty("cacheControl", "_mUnknown_CacheControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCacheControl;
-
-        public string? CacheControl => _mCacheControl.GetValue("cacheControl");
+        private string? _mValue_CacheControl;
+        private bool _mUnknown_CacheControl;
+        public string? CacheControl
+        {
+            get
+            {
+                if (!_mUnknown_CacheControl) return _mValue_CacheControl;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.CacheControl' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
         /// </summary>
-        [Input("checksumAlgorithm")]
+        [PolicyResourceProperty("checksumAlgorithm", "_mUnknown_ChecksumAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChecksumAlgorithm;
-
-        public string? ChecksumAlgorithm => _mChecksumAlgorithm.GetValue("checksumAlgorithm");
+        private string? _mValue_ChecksumAlgorithm;
+        private bool _mUnknown_ChecksumAlgorithm;
+        public string? ChecksumAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_ChecksumAlgorithm) return _mValue_ChecksumAlgorithm;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.ChecksumAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// The base64-encoded, 32-bit CRC32 checksum of the object.
         /// </summary>
-        [Input("checksumCrc32")]
+        [PolicyResourceProperty("checksumCrc32", "_mUnknown_ChecksumCrc32")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChecksumCrc32;
-
-        public string? ChecksumCrc32 => _mChecksumCrc32.GetValue("checksumCrc32");
+        private string? _mValue_ChecksumCrc32;
+        private bool _mUnknown_ChecksumCrc32;
+        public string? ChecksumCrc32
+        {
+            get
+            {
+                if (!_mUnknown_ChecksumCrc32) return _mValue_ChecksumCrc32;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.ChecksumCrc32' is not present");
+            }
+        }
 
         /// <summary>
         /// The base64-encoded, 32-bit CRC32C checksum of the object.
         /// </summary>
-        [Input("checksumCrc32c")]
+        [PolicyResourceProperty("checksumCrc32c", "_mUnknown_ChecksumCrc32c")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChecksumCrc32c;
-
-        public string? ChecksumCrc32c => _mChecksumCrc32c.GetValue("checksumCrc32c");
+        private string? _mValue_ChecksumCrc32c;
+        private bool _mUnknown_ChecksumCrc32c;
+        public string? ChecksumCrc32c
+        {
+            get
+            {
+                if (!_mUnknown_ChecksumCrc32c) return _mValue_ChecksumCrc32c;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.ChecksumCrc32c' is not present");
+            }
+        }
 
         /// <summary>
         /// The base64-encoded, 64-bit CRC64NVME checksum of the object.
         /// </summary>
-        [Input("checksumCrc64nvme")]
+        [PolicyResourceProperty("checksumCrc64nvme", "_mUnknown_ChecksumCrc64nvme")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChecksumCrc64nvme;
-
-        public string? ChecksumCrc64nvme => _mChecksumCrc64nvme.GetValue("checksumCrc64nvme");
+        private string? _mValue_ChecksumCrc64nvme;
+        private bool _mUnknown_ChecksumCrc64nvme;
+        public string? ChecksumCrc64nvme
+        {
+            get
+            {
+                if (!_mUnknown_ChecksumCrc64nvme) return _mValue_ChecksumCrc64nvme;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.ChecksumCrc64nvme' is not present");
+            }
+        }
 
         /// <summary>
         /// The base64-encoded, 160-bit SHA-1 digest of the object.
         /// </summary>
-        [Input("checksumSha1")]
+        [PolicyResourceProperty("checksumSha1", "_mUnknown_ChecksumSha1")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChecksumSha1;
-
-        public string? ChecksumSha1 => _mChecksumSha1.GetValue("checksumSha1");
+        private string? _mValue_ChecksumSha1;
+        private bool _mUnknown_ChecksumSha1;
+        public string? ChecksumSha1
+        {
+            get
+            {
+                if (!_mUnknown_ChecksumSha1) return _mValue_ChecksumSha1;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.ChecksumSha1' is not present");
+            }
+        }
 
         /// <summary>
         /// The base64-encoded, 256-bit SHA-256 digest of the object.
         /// </summary>
-        [Input("checksumSha256")]
+        [PolicyResourceProperty("checksumSha256", "_mUnknown_ChecksumSha256")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChecksumSha256;
-
-        public string? ChecksumSha256 => _mChecksumSha256.GetValue("checksumSha256");
+        private string? _mValue_ChecksumSha256;
+        private bool _mUnknown_ChecksumSha256;
+        public string? ChecksumSha256
+        {
+            get
+            {
+                if (!_mUnknown_ChecksumSha256) return _mValue_ChecksumSha256;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.ChecksumSha256' is not present");
+            }
+        }
 
         /// <summary>
         /// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
         /// </summary>
-        [Input("content")]
+        [PolicyResourceProperty("content", "_mUnknown_Content")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContent;
-
-        public string? Content => _mContent.GetValue("content");
+        private string? _mValue_Content;
+        private bool _mUnknown_Content;
+        public string? Content
+        {
+            get
+            {
+                if (!_mUnknown_Content) return _mValue_Content;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.Content' is not present");
+            }
+        }
 
         /// <summary>
         /// Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
         /// </summary>
-        [Input("contentBase64")]
+        [PolicyResourceProperty("contentBase64", "_mUnknown_ContentBase64")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentBase64;
-
-        public string? ContentBase64 => _mContentBase64.GetValue("contentBase64");
+        private string? _mValue_ContentBase64;
+        private bool _mUnknown_ContentBase64;
+        public string? ContentBase64
+        {
+            get
+            {
+                if (!_mUnknown_ContentBase64) return _mValue_ContentBase64;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.ContentBase64' is not present");
+            }
+        }
 
         /// <summary>
         /// Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         /// </summary>
-        [Input("contentDisposition")]
+        [PolicyResourceProperty("contentDisposition", "_mUnknown_ContentDisposition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentDisposition;
-
-        public string? ContentDisposition => _mContentDisposition.GetValue("contentDisposition");
+        private string? _mValue_ContentDisposition;
+        private bool _mUnknown_ContentDisposition;
+        public string? ContentDisposition
+        {
+            get
+            {
+                if (!_mUnknown_ContentDisposition) return _mValue_ContentDisposition;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.ContentDisposition' is not present");
+            }
+        }
 
         /// <summary>
         /// Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         /// </summary>
-        [Input("contentEncoding")]
+        [PolicyResourceProperty("contentEncoding", "_mUnknown_ContentEncoding")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentEncoding;
-
-        public string? ContentEncoding => _mContentEncoding.GetValue("contentEncoding");
+        private string? _mValue_ContentEncoding;
+        private bool _mUnknown_ContentEncoding;
+        public string? ContentEncoding
+        {
+            get
+            {
+                if (!_mUnknown_ContentEncoding) return _mValue_ContentEncoding;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.ContentEncoding' is not present");
+            }
+        }
 
         /// <summary>
         /// Language the content is in e.g., en-US or en-GB.
         /// </summary>
-        [Input("contentLanguage")]
+        [PolicyResourceProperty("contentLanguage", "_mUnknown_ContentLanguage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentLanguage;
-
-        public string? ContentLanguage => _mContentLanguage.GetValue("contentLanguage");
+        private string? _mValue_ContentLanguage;
+        private bool _mUnknown_ContentLanguage;
+        public string? ContentLanguage
+        {
+            get
+            {
+                if (!_mUnknown_ContentLanguage) return _mValue_ContentLanguage;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.ContentLanguage' is not present");
+            }
+        }
 
         /// <summary>
         /// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
         /// </summary>
-        [Input("contentType")]
+        [PolicyResourceProperty("contentType", "_mUnknown_ContentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
-
-        public string? ContentType => _mContentType.GetValue("contentType");
+        private string? _mValue_ContentType;
+        private bool _mUnknown_ContentType;
+        public string? ContentType
+        {
+            get
+            {
+                if (!_mUnknown_ContentType) return _mValue_ContentType;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.ContentType' is not present");
+            }
+        }
 
         /// <summary>
         /// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `source_hash` instead).
         /// </summary>
-        [Input("etag")]
+        [PolicyResourceProperty("etag", "_mUnknown_Etag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
-
-        public string? Etag => _mEtag.GetValue("etag");
+        private string? _mValue_Etag;
+        private bool _mUnknown_Etag;
+        public string? Etag
+        {
+            get
+            {
+                if (!_mUnknown_Etag) return _mValue_Etag;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.Etag' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the object once it is in the bucket.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         /// </summary>
-        [Input("metadata")]
+        [PolicyResourceProperty("metadata", "_mUnknown_Metadata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mMetadata;
-
-        public Dictionary<string, string>? Metadata => _mMetadata.GetValue("metadata");
+        private Dictionary<string, string>? _mValue_Metadata;
+        private bool _mUnknown_Metadata;
+        public Dictionary<string, string>? Metadata
+        {
+            get
+            {
+                if (!_mUnknown_Metadata) return _mValue_Metadata;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.Metadata' is not present");
+            }
+        }
 
         /// <summary>
         /// [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         /// </summary>
-        [Input("objectLockLegalHoldStatus")]
+        [PolicyResourceProperty("objectLockLegalHoldStatus", "_mUnknown_ObjectLockLegalHoldStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectLockLegalHoldStatus;
-
-        public string? ObjectLockLegalHoldStatus => _mObjectLockLegalHoldStatus.GetValue("objectLockLegalHoldStatus");
+        private string? _mValue_ObjectLockLegalHoldStatus;
+        private bool _mUnknown_ObjectLockLegalHoldStatus;
+        public string? ObjectLockLegalHoldStatus
+        {
+            get
+            {
+                if (!_mUnknown_ObjectLockLegalHoldStatus) return _mValue_ObjectLockLegalHoldStatus;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.ObjectLockLegalHoldStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         /// </summary>
-        [Input("objectLockMode")]
+        [PolicyResourceProperty("objectLockMode", "_mUnknown_ObjectLockMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectLockMode;
-
-        public string? ObjectLockMode => _mObjectLockMode.GetValue("objectLockMode");
+        private string? _mValue_ObjectLockMode;
+        private bool _mUnknown_ObjectLockMode;
+        public string? ObjectLockMode
+        {
+            get
+            {
+                if (!_mUnknown_ObjectLockMode) return _mValue_ObjectLockMode;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.ObjectLockMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         /// </summary>
-        [Input("objectLockRetainUntilDate")]
+        [PolicyResourceProperty("objectLockRetainUntilDate", "_mUnknown_ObjectLockRetainUntilDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectLockRetainUntilDate;
-
-        public string? ObjectLockRetainUntilDate => _mObjectLockRetainUntilDate.GetValue("objectLockRetainUntilDate");
+        private string? _mValue_ObjectLockRetainUntilDate;
+        private bool _mUnknown_ObjectLockRetainUntilDate;
+        public string? ObjectLockRetainUntilDate
+        {
+            get
+            {
+                if (!_mUnknown_ObjectLockRetainUntilDate) return _mValue_ObjectLockRetainUntilDate;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.ObjectLockRetainUntilDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Override provider-level configuration options. See Override Provider below for more details.
         /// </summary>
-        [Input("overrideProvider")]
+        [PolicyResourceProperty("overrideProvider", "_mUnknown_OverrideProvider")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketObjectv2OverrideProvider> _mOverrideProvider;
-
-        public Outputs.BucketObjectv2OverrideProvider? OverrideProvider => _mOverrideProvider.GetValue("overrideProvider");
+        private Outputs.BucketObjectv2OverrideProvider? _mValue_OverrideProvider;
+        private bool _mUnknown_OverrideProvider;
+        public Outputs.BucketObjectv2OverrideProvider? OverrideProvider
+        {
+            get
+            {
+                if (!_mUnknown_OverrideProvider) return _mValue_OverrideProvider;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.OverrideProvider' is not present");
+            }
+        }
 
         /// <summary>
         /// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         /// </summary>
-        [Input("serverSideEncryption")]
+        [PolicyResourceProperty("serverSideEncryption", "_mUnknown_ServerSideEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerSideEncryption;
-
-        public string? ServerSideEncryption => _mServerSideEncryption.GetValue("serverSideEncryption");
+        private string? _mValue_ServerSideEncryption;
+        private bool _mUnknown_ServerSideEncryption;
+        public string? ServerSideEncryption
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryption) return _mValue_ServerSideEncryption;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.ServerSideEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to a file that will be read and uploaded as raw bytes for the object content.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<AssetOrArchive> _mSource;
-
-        public AssetOrArchive? Source => _mSource.GetValue("source");
+        private AssetOrArchive? _mValue_Source;
+        private bool _mUnknown_Source;
+        public AssetOrArchive? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
         /// </summary>
-        [Input("sourceHash")]
+        [PolicyResourceProperty("sourceHash", "_mUnknown_SourceHash")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceHash;
-
-        public string? SourceHash => _mSourceHash.GetValue("sourceHash");
+        private string? _mValue_SourceHash;
+        private bool _mUnknown_SourceHash;
+        public string? SourceHash
+        {
+            get
+            {
+                if (!_mUnknown_SourceHash) return _mValue_SourceHash;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.SourceHash' is not present");
+            }
+        }
 
         /// <summary>
         /// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         /// </summary>
-        [Input("storageClass")]
+        [PolicyResourceProperty("storageClass", "_mUnknown_StorageClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageClass;
-
-        public string? StorageClass => _mStorageClass.GetValue("storageClass");
+        private string? _mValue_StorageClass;
+        private bool _mUnknown_StorageClass;
+        public string? StorageClass
+        {
+            get
+            {
+                if (!_mUnknown_StorageClass) return _mValue_StorageClass;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.StorageClass' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique version ID value for the object, if bucket versioning is enabled.
         /// </summary>
-        [Input("versionId")]
+        [PolicyResourceProperty("versionId", "_mUnknown_VersionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionId;
-
-        public string? VersionId => _mVersionId.GetValue("versionId");
+        private string? _mValue_VersionId;
+        private bool _mUnknown_VersionId;
+        public string? VersionId
+        {
+            get
+            {
+                if (!_mUnknown_VersionId) return _mValue_VersionId;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.VersionId' is not present");
+            }
+        }
 
         /// <summary>
         /// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
@@ -319,11 +550,18 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// 
         /// &gt; **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         /// </summary>
-        [Input("websiteRedirect")]
+        [PolicyResourceProperty("websiteRedirect", "_mUnknown_WebsiteRedirect")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebsiteRedirect;
-
-        public string? WebsiteRedirect => _mWebsiteRedirect.GetValue("websiteRedirect");
+        private string? _mValue_WebsiteRedirect;
+        private bool _mUnknown_WebsiteRedirect;
+        public string? WebsiteRedirect
+        {
+            get
+            {
+                if (!_mUnknown_WebsiteRedirect) return _mValue_WebsiteRedirect;
+                throw new UndeferrableValueException("Value 'BucketObjectv2.WebsiteRedirect' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/bucketObjectv2:BucketObjectv2")]
@@ -332,229 +570,404 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
         /// </summary>
-        [Input("acl")]
+        [PolicyResourceProperty("acl", "_mUnknown_Acl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcl;
-
-        public string? Acl => _mAcl.GetValue("acl");
+        private string? _mValue_Acl;
+        private bool _mUnknown_Acl;
+        public string? Acl
+        {
+            get
+            {
+                if (!_mUnknown_Acl) return _mValue_Acl;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.Acl' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         /// </summary>
-        [Input("bucketKeyEnabled")]
+        [PolicyResourceProperty("bucketKeyEnabled", "_mUnknown_BucketKeyEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBucketKeyEnabled;
-
-        public bool? BucketKeyEnabled => _mBucketKeyEnabled.GetValue("bucketKeyEnabled");
+        private bool? _mValue_BucketKeyEnabled;
+        private bool _mUnknown_BucketKeyEnabled;
+        public bool? BucketKeyEnabled
+        {
+            get
+            {
+                if (!_mUnknown_BucketKeyEnabled) return _mValue_BucketKeyEnabled;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.BucketKeyEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         /// </summary>
-        [Input("cacheControl")]
+        [PolicyResourceProperty("cacheControl", "_mUnknown_CacheControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCacheControl;
-
-        public string? CacheControl => _mCacheControl.GetValue("cacheControl");
+        private string? _mValue_CacheControl;
+        private bool _mUnknown_CacheControl;
+        public string? CacheControl
+        {
+            get
+            {
+                if (!_mUnknown_CacheControl) return _mValue_CacheControl;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.CacheControl' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
         /// </summary>
-        [Input("checksumAlgorithm")]
+        [PolicyResourceProperty("checksumAlgorithm", "_mUnknown_ChecksumAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChecksumAlgorithm;
-
-        public string? ChecksumAlgorithm => _mChecksumAlgorithm.GetValue("checksumAlgorithm");
+        private string? _mValue_ChecksumAlgorithm;
+        private bool _mUnknown_ChecksumAlgorithm;
+        public string? ChecksumAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_ChecksumAlgorithm) return _mValue_ChecksumAlgorithm;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.ChecksumAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
         /// </summary>
-        [Input("content")]
+        [PolicyResourceProperty("content", "_mUnknown_Content")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContent;
-
-        public string? Content => _mContent.GetValue("content");
+        private string? _mValue_Content;
+        private bool _mUnknown_Content;
+        public string? Content
+        {
+            get
+            {
+                if (!_mUnknown_Content) return _mValue_Content;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.Content' is not present");
+            }
+        }
 
         /// <summary>
         /// Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
         /// </summary>
-        [Input("contentBase64")]
+        [PolicyResourceProperty("contentBase64", "_mUnknown_ContentBase64")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentBase64;
-
-        public string? ContentBase64 => _mContentBase64.GetValue("contentBase64");
+        private string? _mValue_ContentBase64;
+        private bool _mUnknown_ContentBase64;
+        public string? ContentBase64
+        {
+            get
+            {
+                if (!_mUnknown_ContentBase64) return _mValue_ContentBase64;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.ContentBase64' is not present");
+            }
+        }
 
         /// <summary>
         /// Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         /// </summary>
-        [Input("contentDisposition")]
+        [PolicyResourceProperty("contentDisposition", "_mUnknown_ContentDisposition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentDisposition;
-
-        public string? ContentDisposition => _mContentDisposition.GetValue("contentDisposition");
+        private string? _mValue_ContentDisposition;
+        private bool _mUnknown_ContentDisposition;
+        public string? ContentDisposition
+        {
+            get
+            {
+                if (!_mUnknown_ContentDisposition) return _mValue_ContentDisposition;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.ContentDisposition' is not present");
+            }
+        }
 
         /// <summary>
         /// Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         /// </summary>
-        [Input("contentEncoding")]
+        [PolicyResourceProperty("contentEncoding", "_mUnknown_ContentEncoding")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentEncoding;
-
-        public string? ContentEncoding => _mContentEncoding.GetValue("contentEncoding");
+        private string? _mValue_ContentEncoding;
+        private bool _mUnknown_ContentEncoding;
+        public string? ContentEncoding
+        {
+            get
+            {
+                if (!_mUnknown_ContentEncoding) return _mValue_ContentEncoding;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.ContentEncoding' is not present");
+            }
+        }
 
         /// <summary>
         /// Language the content is in e.g., en-US or en-GB.
         /// </summary>
-        [Input("contentLanguage")]
+        [PolicyResourceProperty("contentLanguage", "_mUnknown_ContentLanguage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentLanguage;
-
-        public string? ContentLanguage => _mContentLanguage.GetValue("contentLanguage");
+        private string? _mValue_ContentLanguage;
+        private bool _mUnknown_ContentLanguage;
+        public string? ContentLanguage
+        {
+            get
+            {
+                if (!_mUnknown_ContentLanguage) return _mValue_ContentLanguage;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.ContentLanguage' is not present");
+            }
+        }
 
         /// <summary>
         /// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
         /// </summary>
-        [Input("contentType")]
+        [PolicyResourceProperty("contentType", "_mUnknown_ContentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
-
-        public string? ContentType => _mContentType.GetValue("contentType");
+        private string? _mValue_ContentType;
+        private bool _mUnknown_ContentType;
+        public string? ContentType
+        {
+            get
+            {
+                if (!_mUnknown_ContentType) return _mValue_ContentType;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.ContentType' is not present");
+            }
+        }
 
         /// <summary>
         /// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `source_hash` instead).
         /// </summary>
-        [Input("etag")]
+        [PolicyResourceProperty("etag", "_mUnknown_Etag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
-
-        public string? Etag => _mEtag.GetValue("etag");
+        private string? _mValue_Etag;
+        private bool _mUnknown_Etag;
+        public string? Etag
+        {
+            get
+            {
+                if (!_mUnknown_Etag) return _mValue_Etag;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.Etag' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the object once it is in the bucket.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         /// </summary>
-        [Input("metadata")]
+        [PolicyResourceProperty("metadata", "_mUnknown_Metadata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mMetadata;
-
-        public Dictionary<string, string>? Metadata => _mMetadata.GetValue("metadata");
+        private Dictionary<string, string>? _mValue_Metadata;
+        private bool _mUnknown_Metadata;
+        public Dictionary<string, string>? Metadata
+        {
+            get
+            {
+                if (!_mUnknown_Metadata) return _mValue_Metadata;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.Metadata' is not present");
+            }
+        }
 
         /// <summary>
         /// [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         /// </summary>
-        [Input("objectLockLegalHoldStatus")]
+        [PolicyResourceProperty("objectLockLegalHoldStatus", "_mUnknown_ObjectLockLegalHoldStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectLockLegalHoldStatus;
-
-        public string? ObjectLockLegalHoldStatus => _mObjectLockLegalHoldStatus.GetValue("objectLockLegalHoldStatus");
+        private string? _mValue_ObjectLockLegalHoldStatus;
+        private bool _mUnknown_ObjectLockLegalHoldStatus;
+        public string? ObjectLockLegalHoldStatus
+        {
+            get
+            {
+                if (!_mUnknown_ObjectLockLegalHoldStatus) return _mValue_ObjectLockLegalHoldStatus;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.ObjectLockLegalHoldStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         /// </summary>
-        [Input("objectLockMode")]
+        [PolicyResourceProperty("objectLockMode", "_mUnknown_ObjectLockMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectLockMode;
-
-        public string? ObjectLockMode => _mObjectLockMode.GetValue("objectLockMode");
+        private string? _mValue_ObjectLockMode;
+        private bool _mUnknown_ObjectLockMode;
+        public string? ObjectLockMode
+        {
+            get
+            {
+                if (!_mUnknown_ObjectLockMode) return _mValue_ObjectLockMode;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.ObjectLockMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         /// </summary>
-        [Input("objectLockRetainUntilDate")]
+        [PolicyResourceProperty("objectLockRetainUntilDate", "_mUnknown_ObjectLockRetainUntilDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectLockRetainUntilDate;
-
-        public string? ObjectLockRetainUntilDate => _mObjectLockRetainUntilDate.GetValue("objectLockRetainUntilDate");
+        private string? _mValue_ObjectLockRetainUntilDate;
+        private bool _mUnknown_ObjectLockRetainUntilDate;
+        public string? ObjectLockRetainUntilDate
+        {
+            get
+            {
+                if (!_mUnknown_ObjectLockRetainUntilDate) return _mValue_ObjectLockRetainUntilDate;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.ObjectLockRetainUntilDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Override provider-level configuration options. See Override Provider below for more details.
         /// </summary>
-        [Input("overrideProvider")]
+        [PolicyResourceProperty("overrideProvider", "_mUnknown_OverrideProvider")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketObjectv2OverrideProviderArgs> _mOverrideProvider;
-
-        public Inputs.BucketObjectv2OverrideProviderArgs? OverrideProvider => _mOverrideProvider.GetValue("overrideProvider");
+        private Inputs.BucketObjectv2OverrideProviderArgs? _mValue_OverrideProvider;
+        private bool _mUnknown_OverrideProvider;
+        public Inputs.BucketObjectv2OverrideProviderArgs? OverrideProvider
+        {
+            get
+            {
+                if (!_mUnknown_OverrideProvider) return _mValue_OverrideProvider;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.OverrideProvider' is not present");
+            }
+        }
 
         /// <summary>
         /// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         /// </summary>
-        [Input("serverSideEncryption")]
+        [PolicyResourceProperty("serverSideEncryption", "_mUnknown_ServerSideEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerSideEncryption;
-
-        public string? ServerSideEncryption => _mServerSideEncryption.GetValue("serverSideEncryption");
+        private string? _mValue_ServerSideEncryption;
+        private bool _mUnknown_ServerSideEncryption;
+        public string? ServerSideEncryption
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryption) return _mValue_ServerSideEncryption;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.ServerSideEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to a file that will be read and uploaded as raw bytes for the object content.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<AssetOrArchive> _mSource;
-
-        public AssetOrArchive? Source => _mSource.GetValue("source");
+        private AssetOrArchive? _mValue_Source;
+        private bool _mUnknown_Source;
+        public AssetOrArchive? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
         /// </summary>
-        [Input("sourceHash")]
+        [PolicyResourceProperty("sourceHash", "_mUnknown_SourceHash")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceHash;
-
-        public string? SourceHash => _mSourceHash.GetValue("sourceHash");
+        private string? _mValue_SourceHash;
+        private bool _mUnknown_SourceHash;
+        public string? SourceHash
+        {
+            get
+            {
+                if (!_mUnknown_SourceHash) return _mValue_SourceHash;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.SourceHash' is not present");
+            }
+        }
 
         /// <summary>
         /// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         /// </summary>
-        [Input("storageClass")]
+        [PolicyResourceProperty("storageClass", "_mUnknown_StorageClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageClass;
-
-        public string? StorageClass => _mStorageClass.GetValue("storageClass");
+        private string? _mValue_StorageClass;
+        private bool _mUnknown_StorageClass;
+        public string? StorageClass
+        {
+            get
+            {
+                if (!_mUnknown_StorageClass) return _mValue_StorageClass;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.StorageClass' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
@@ -563,10 +976,17 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// 
         /// &gt; **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         /// </summary>
-        [Input("websiteRedirect")]
+        [PolicyResourceProperty("websiteRedirect", "_mUnknown_WebsiteRedirect")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebsiteRedirect;
-
-        public string? WebsiteRedirect => _mWebsiteRedirect.GetValue("websiteRedirect");
+        private string? _mValue_WebsiteRedirect;
+        private bool _mUnknown_WebsiteRedirect;
+        public string? WebsiteRedirect
+        {
+            get
+            {
+                if (!_mUnknown_WebsiteRedirect) return _mValue_WebsiteRedirect;
+                throw new UndeferrableValueException("Value 'BucketObjectv2Args.WebsiteRedirect' is not present");
+            }
+        }
     }
 }

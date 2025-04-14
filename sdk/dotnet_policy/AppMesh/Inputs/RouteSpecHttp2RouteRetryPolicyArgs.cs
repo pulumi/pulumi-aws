@@ -16,39 +16,67 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// List of HTTP retry events.
         /// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         /// </summary>
-        [Input("httpRetryEvents")]
+        [PolicyResourceProperty("httpRetryEvents", "_mUnknown_HttpRetryEvents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mHttpRetryEvents;
-
-        public List<string>? HttpRetryEvents => _mHttpRetryEvents.GetValue("httpRetryEvents");
+        private List<string>? _mValue_HttpRetryEvents;
+        private bool _mUnknown_HttpRetryEvents;
+        public List<string>? HttpRetryEvents
+        {
+            get
+            {
+                if (!_mUnknown_HttpRetryEvents) return _mValue_HttpRetryEvents;
+                throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteRetryPolicyArgs.HttpRetryEvents' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of retries.
         /// </summary>
-        [Input("maxRetries")]
+        [PolicyResourceProperty("maxRetries", "_mUnknown_MaxRetries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRetries;
-
-        public int? MaxRetries => _mMaxRetries.GetValue("maxRetries");
+        private int? _mValue_MaxRetries;
+        private bool _mUnknown_MaxRetries;
+        public int? MaxRetries
+        {
+            get
+            {
+                if (!_mUnknown_MaxRetries) return _mValue_MaxRetries;
+                throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteRetryPolicyArgs.MaxRetries' is not present");
+            }
+        }
 
         /// <summary>
         /// Per-retry timeout.
         /// </summary>
-        [Input("perRetryTimeout")]
+        [PolicyResourceProperty("perRetryTimeout", "_mUnknown_PerRetryTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs> _mPerRetryTimeout;
-
-        public Inputs.RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs? PerRetryTimeout => _mPerRetryTimeout.GetValue("perRetryTimeout");
+        private Inputs.RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs? _mValue_PerRetryTimeout;
+        private bool _mUnknown_PerRetryTimeout;
+        public Inputs.RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs? PerRetryTimeout
+        {
+            get
+            {
+                if (!_mUnknown_PerRetryTimeout) return _mValue_PerRetryTimeout;
+                throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteRetryPolicyArgs.PerRetryTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// List of TCP retry events. The only valid value is `connection-error`.
         /// 
         /// You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         /// </summary>
-        [Input("tcpRetryEvents")]
+        [PolicyResourceProperty("tcpRetryEvents", "_mUnknown_TcpRetryEvents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTcpRetryEvents;
-
-        public List<string>? TcpRetryEvents => _mTcpRetryEvents.GetValue("tcpRetryEvents");
+        private List<string>? _mValue_TcpRetryEvents;
+        private bool _mUnknown_TcpRetryEvents;
+        public List<string>? TcpRetryEvents
+        {
+            get
+            {
+                if (!_mUnknown_TcpRetryEvents) return _mValue_TcpRetryEvents;
+                throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteRetryPolicyArgs.TcpRetryEvents' is not present");
+            }
+        }
     }
 }

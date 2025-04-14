@@ -15,54 +15,96 @@ namespace Pulumi.PolicyPacks.Aws.LightSail.Inputs
         /// <summary>
         /// Set of CIDR aliases that define access for a preconfigured range of IP addresses.
         /// </summary>
-        [Input("cidrListAliases")]
+        [PolicyResourceProperty("cidrListAliases", "_mUnknown_CidrListAliases")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCidrListAliases;
-
-        public List<string>? CidrListAliases => _mCidrListAliases.GetValue("cidrListAliases");
+        private List<string>? _mValue_CidrListAliases;
+        private bool _mUnknown_CidrListAliases;
+        public List<string>? CidrListAliases
+        {
+            get
+            {
+                if (!_mUnknown_CidrListAliases) return _mValue_CidrListAliases;
+                throw new UndeferrableValueException("Value 'InstancePublicPortsPortInfoArgs.CidrListAliases' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of CIDR blocks.
         /// </summary>
-        [Input("cidrs")]
+        [PolicyResourceProperty("cidrs", "_mUnknown_Cidrs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCidrs;
-
-        public List<string>? Cidrs => _mCidrs.GetValue("cidrs");
+        private List<string>? _mValue_Cidrs;
+        private bool _mUnknown_Cidrs;
+        public List<string>? Cidrs
+        {
+            get
+            {
+                if (!_mUnknown_Cidrs) return _mValue_Cidrs;
+                throw new UndeferrableValueException("Value 'InstancePublicPortsPortInfoArgs.Cidrs' is not present");
+            }
+        }
 
         /// <summary>
         /// First port in a range of open ports on an instance.
         /// </summary>
-        [Input("fromPort")]
+        [PolicyResourceProperty("fromPort", "_mUnknown_FromPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFromPort;
+        private int? _mValue_FromPort;
+        private bool _mUnknown_FromPort;
+        public int? FromPort
+        {
+            get
+            {
+                if (!_mUnknown_FromPort) return _mValue_FromPort;
+                throw new UndeferrableValueException("Value 'InstancePublicPortsPortInfoArgs.FromPort' is not present");
+            }
+        }
 
-        public int? FromPort => _mFromPort.GetValue("fromPort");
-
-        [Input("ipv6Cidrs")]
+        [PolicyResourceProperty("ipv6Cidrs", "_mUnknown_Ipv6Cidrs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6Cidrs;
-
-        public List<string>? Ipv6Cidrs => _mIpv6Cidrs.GetValue("ipv6Cidrs");
+        private List<string>? _mValue_Ipv6Cidrs;
+        private bool _mUnknown_Ipv6Cidrs;
+        public List<string>? Ipv6Cidrs
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6Cidrs) return _mValue_Ipv6Cidrs;
+                throw new UndeferrableValueException("Value 'InstancePublicPortsPortInfoArgs.Ipv6Cidrs' is not present");
+            }
+        }
 
         /// <summary>
         /// IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'InstancePublicPortsPortInfoArgs.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Last port in a range of open ports on an instance.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("toPort")]
+        [PolicyResourceProperty("toPort", "_mUnknown_ToPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mToPort;
-
-        public int? ToPort => _mToPort.GetValue("toPort");
+        private int? _mValue_ToPort;
+        private bool _mUnknown_ToPort;
+        public int? ToPort
+        {
+            get
+            {
+                if (!_mUnknown_ToPort) return _mValue_ToPort;
+                throw new UndeferrableValueException("Value 'InstancePublicPortsPortInfoArgs.ToPort' is not present");
+            }
+        }
     }
 }

@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// IAM group name.
         /// </summary>
-        [Input("groupName")]
+        [PolicyResourceProperty("groupName", "_mUnknown_GroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
-
-        public string? GroupName => _mGroupName.GetValue("groupName");
+        private string? _mValue_GroupName;
+        private bool _mUnknown_GroupName;
+        public string? GroupName
+        {
+            get
+            {
+                if (!_mUnknown_GroupName) return _mValue_GroupName;
+                throw new UndeferrableValueException("Value 'GroupPoliciesExclusive.GroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
         /// </summary>
-        [Input("policyNames")]
+        [PolicyResourceProperty("policyNames", "_mUnknown_PolicyNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyNames;
-
-        public List<string>? PolicyNames => _mPolicyNames.GetValue("policyNames");
+        private List<string>? _mValue_PolicyNames;
+        private bool _mUnknown_PolicyNames;
+        public List<string>? PolicyNames
+        {
+            get
+            {
+                if (!_mUnknown_PolicyNames) return _mValue_PolicyNames;
+                throw new UndeferrableValueException("Value 'GroupPoliciesExclusive.PolicyNames' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// IAM group name.
         /// </summary>
-        [Input("groupName")]
+        [PolicyResourceProperty("groupName", "_mUnknown_GroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
-
-        public string? GroupName => _mGroupName.GetValue("groupName");
+        private string? _mValue_GroupName;
+        private bool _mUnknown_GroupName;
+        public string? GroupName
+        {
+            get
+            {
+                if (!_mUnknown_GroupName) return _mValue_GroupName;
+                throw new UndeferrableValueException("Value 'GroupPoliciesExclusiveArgs.GroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
         /// </summary>
-        [Input("policyNames")]
+        [PolicyResourceProperty("policyNames", "_mUnknown_PolicyNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyNames;
-
-        public List<string>? PolicyNames => _mPolicyNames.GetValue("policyNames");
+        private List<string>? _mValue_PolicyNames;
+        private bool _mUnknown_PolicyNames;
+        public List<string>? PolicyNames
+        {
+            get
+            {
+                if (!_mUnknown_PolicyNames) return _mValue_PolicyNames;
+                throw new UndeferrableValueException("Value 'GroupPoliciesExclusiveArgs.PolicyNames' is not present");
+            }
+        }
     }
 }

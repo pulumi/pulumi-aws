@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// Dimension details for the vector configuration used on the Bedrock embeddings model.
         /// </summary>
-        [Input("dimensions")]
+        [PolicyResourceProperty("dimensions", "_mUnknown_Dimensions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDimensions;
-
-        public int? Dimensions => _mDimensions.GetValue("dimensions");
+        private int? _mValue_Dimensions;
+        private bool _mUnknown_Dimensions;
+        public int? Dimensions
+        {
+            get
+            {
+                if (!_mUnknown_Dimensions) return _mValue_Dimensions;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration.Dimensions' is not present");
+            }
+        }
 
         /// <summary>
         /// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
         /// </summary>
-        [Input("embeddingDataType")]
+        [PolicyResourceProperty("embeddingDataType", "_mUnknown_EmbeddingDataType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmbeddingDataType;
-
-        public string? EmbeddingDataType => _mEmbeddingDataType.GetValue("embeddingDataType");
+        private string? _mValue_EmbeddingDataType;
+        private bool _mUnknown_EmbeddingDataType;
+        public string? EmbeddingDataType
+        {
+            get
+            {
+                if (!_mUnknown_EmbeddingDataType) return _mValue_EmbeddingDataType;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration.EmbeddingDataType' is not present");
+            }
+        }
     }
 }

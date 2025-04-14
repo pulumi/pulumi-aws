@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms.Outputs
 {
     public sealed class MembershipPaymentConfiguration
     {
-        [Input("queryCompute")]
+        [PolicyResourceProperty("queryCompute", "_mUnknown_QueryCompute")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MembershipPaymentConfigurationQueryCompute> _mQueryCompute;
-
-        public Outputs.MembershipPaymentConfigurationQueryCompute? QueryCompute => _mQueryCompute.GetValue("queryCompute");
+        private Outputs.MembershipPaymentConfigurationQueryCompute? _mValue_QueryCompute;
+        private bool _mUnknown_QueryCompute;
+        public Outputs.MembershipPaymentConfigurationQueryCompute? QueryCompute
+        {
+            get
+            {
+                if (!_mUnknown_QueryCompute) return _mValue_QueryCompute;
+                throw new UndeferrableValueException("Value 'MembershipPaymentConfiguration.QueryCompute' is not present");
+            }
+        }
     }
 }

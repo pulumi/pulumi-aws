@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
 {
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs
     {
-        [Input("frameCaptureS3Settings")]
+        [PolicyResourceProperty("frameCaptureS3Settings", "_mUnknown_FrameCaptureS3Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs> _mFrameCaptureS3Settings;
-
-        public Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs? FrameCaptureS3Settings => _mFrameCaptureS3Settings.GetValue("frameCaptureS3Settings");
+        private Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs? _mValue_FrameCaptureS3Settings;
+        private bool _mUnknown_FrameCaptureS3Settings;
+        public Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs? FrameCaptureS3Settings
+        {
+            get
+            {
+                if (!_mUnknown_FrameCaptureS3Settings) return _mValue_FrameCaptureS3Settings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs.FrameCaptureS3Settings' is not present");
+            }
+        }
     }
 }

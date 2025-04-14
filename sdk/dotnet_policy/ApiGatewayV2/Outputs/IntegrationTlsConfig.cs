@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2.Outputs
         /// <summary>
         /// If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
         /// </summary>
-        [Input("serverNameToVerify")]
+        [PolicyResourceProperty("serverNameToVerify", "_mUnknown_ServerNameToVerify")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerNameToVerify;
-
-        public string? ServerNameToVerify => _mServerNameToVerify.GetValue("serverNameToVerify");
+        private string? _mValue_ServerNameToVerify;
+        private bool _mUnknown_ServerNameToVerify;
+        public string? ServerNameToVerify
+        {
+            get
+            {
+                if (!_mUnknown_ServerNameToVerify) return _mValue_ServerNameToVerify;
+                throw new UndeferrableValueException("Value 'IntegrationTlsConfig.ServerNameToVerify' is not present");
+            }
+        }
     }
 }

@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Inputs
         /// <summary>
         /// The parameters for using an Active MQ broker as a source. Detailed below.
         /// </summary>
-        [Input("activemqBrokerParameters")]
+        [PolicyResourceProperty("activemqBrokerParameters", "_mUnknown_ActivemqBrokerParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeSourceParametersActivemqBrokerParametersArgs> _mActivemqBrokerParameters;
-
-        public Inputs.PipeSourceParametersActivemqBrokerParametersArgs? ActivemqBrokerParameters => _mActivemqBrokerParameters.GetValue("activemqBrokerParameters");
+        private Inputs.PipeSourceParametersActivemqBrokerParametersArgs? _mValue_ActivemqBrokerParameters;
+        private bool _mUnknown_ActivemqBrokerParameters;
+        public Inputs.PipeSourceParametersActivemqBrokerParametersArgs? ActivemqBrokerParameters
+        {
+            get
+            {
+                if (!_mUnknown_ActivemqBrokerParameters) return _mValue_ActivemqBrokerParameters;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersArgs.ActivemqBrokerParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for using a DynamoDB stream as a source.  Detailed below.
         /// </summary>
-        [Input("dynamodbStreamParameters")]
+        [PolicyResourceProperty("dynamodbStreamParameters", "_mUnknown_DynamodbStreamParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeSourceParametersDynamodbStreamParametersArgs> _mDynamodbStreamParameters;
-
-        public Inputs.PipeSourceParametersDynamodbStreamParametersArgs? DynamodbStreamParameters => _mDynamodbStreamParameters.GetValue("dynamodbStreamParameters");
+        private Inputs.PipeSourceParametersDynamodbStreamParametersArgs? _mValue_DynamodbStreamParameters;
+        private bool _mUnknown_DynamodbStreamParameters;
+        public Inputs.PipeSourceParametersDynamodbStreamParametersArgs? DynamodbStreamParameters
+        {
+            get
+            {
+                if (!_mUnknown_DynamodbStreamParameters) return _mValue_DynamodbStreamParameters;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersArgs.DynamodbStreamParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
         /// </summary>
-        [Input("filterCriteria")]
+        [PolicyResourceProperty("filterCriteria", "_mUnknown_FilterCriteria")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeSourceParametersFilterCriteriaArgs> _mFilterCriteria;
-
-        public Inputs.PipeSourceParametersFilterCriteriaArgs? FilterCriteria => _mFilterCriteria.GetValue("filterCriteria");
+        private Inputs.PipeSourceParametersFilterCriteriaArgs? _mValue_FilterCriteria;
+        private bool _mUnknown_FilterCriteria;
+        public Inputs.PipeSourceParametersFilterCriteriaArgs? FilterCriteria
+        {
+            get
+            {
+                if (!_mUnknown_FilterCriteria) return _mValue_FilterCriteria;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersArgs.FilterCriteria' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for using a Kinesis stream as a source. Detailed below.
         /// </summary>
-        [Input("kinesisStreamParameters")]
+        [PolicyResourceProperty("kinesisStreamParameters", "_mUnknown_KinesisStreamParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeSourceParametersKinesisStreamParametersArgs> _mKinesisStreamParameters;
-
-        public Inputs.PipeSourceParametersKinesisStreamParametersArgs? KinesisStreamParameters => _mKinesisStreamParameters.GetValue("kinesisStreamParameters");
+        private Inputs.PipeSourceParametersKinesisStreamParametersArgs? _mValue_KinesisStreamParameters;
+        private bool _mUnknown_KinesisStreamParameters;
+        public Inputs.PipeSourceParametersKinesisStreamParametersArgs? KinesisStreamParameters
+        {
+            get
+            {
+                if (!_mUnknown_KinesisStreamParameters) return _mValue_KinesisStreamParameters;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersArgs.KinesisStreamParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for using an MSK stream as a source. Detailed below.
         /// </summary>
-        [Input("managedStreamingKafkaParameters")]
+        [PolicyResourceProperty("managedStreamingKafkaParameters", "_mUnknown_ManagedStreamingKafkaParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeSourceParametersManagedStreamingKafkaParametersArgs> _mManagedStreamingKafkaParameters;
-
-        public Inputs.PipeSourceParametersManagedStreamingKafkaParametersArgs? ManagedStreamingKafkaParameters => _mManagedStreamingKafkaParameters.GetValue("managedStreamingKafkaParameters");
+        private Inputs.PipeSourceParametersManagedStreamingKafkaParametersArgs? _mValue_ManagedStreamingKafkaParameters;
+        private bool _mUnknown_ManagedStreamingKafkaParameters;
+        public Inputs.PipeSourceParametersManagedStreamingKafkaParametersArgs? ManagedStreamingKafkaParameters
+        {
+            get
+            {
+                if (!_mUnknown_ManagedStreamingKafkaParameters) return _mValue_ManagedStreamingKafkaParameters;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersArgs.ManagedStreamingKafkaParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for using a Rabbit MQ broker as a source. Detailed below.
         /// </summary>
-        [Input("rabbitmqBrokerParameters")]
+        [PolicyResourceProperty("rabbitmqBrokerParameters", "_mUnknown_RabbitmqBrokerParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeSourceParametersRabbitmqBrokerParametersArgs> _mRabbitmqBrokerParameters;
-
-        public Inputs.PipeSourceParametersRabbitmqBrokerParametersArgs? RabbitmqBrokerParameters => _mRabbitmqBrokerParameters.GetValue("rabbitmqBrokerParameters");
+        private Inputs.PipeSourceParametersRabbitmqBrokerParametersArgs? _mValue_RabbitmqBrokerParameters;
+        private bool _mUnknown_RabbitmqBrokerParameters;
+        public Inputs.PipeSourceParametersRabbitmqBrokerParametersArgs? RabbitmqBrokerParameters
+        {
+            get
+            {
+                if (!_mUnknown_RabbitmqBrokerParameters) return _mValue_RabbitmqBrokerParameters;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersArgs.RabbitmqBrokerParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
         /// </summary>
-        [Input("selfManagedKafkaParameters")]
+        [PolicyResourceProperty("selfManagedKafkaParameters", "_mUnknown_SelfManagedKafkaParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeSourceParametersSelfManagedKafkaParametersArgs> _mSelfManagedKafkaParameters;
-
-        public Inputs.PipeSourceParametersSelfManagedKafkaParametersArgs? SelfManagedKafkaParameters => _mSelfManagedKafkaParameters.GetValue("selfManagedKafkaParameters");
+        private Inputs.PipeSourceParametersSelfManagedKafkaParametersArgs? _mValue_SelfManagedKafkaParameters;
+        private bool _mUnknown_SelfManagedKafkaParameters;
+        public Inputs.PipeSourceParametersSelfManagedKafkaParametersArgs? SelfManagedKafkaParameters
+        {
+            get
+            {
+                if (!_mUnknown_SelfManagedKafkaParameters) return _mValue_SelfManagedKafkaParameters;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersArgs.SelfManagedKafkaParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for using a Amazon SQS stream as a source. Detailed below.
         /// </summary>
-        [Input("sqsQueueParameters")]
+        [PolicyResourceProperty("sqsQueueParameters", "_mUnknown_SqsQueueParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeSourceParametersSqsQueueParametersArgs> _mSqsQueueParameters;
-
-        public Inputs.PipeSourceParametersSqsQueueParametersArgs? SqsQueueParameters => _mSqsQueueParameters.GetValue("sqsQueueParameters");
+        private Inputs.PipeSourceParametersSqsQueueParametersArgs? _mValue_SqsQueueParameters;
+        private bool _mUnknown_SqsQueueParameters;
+        public Inputs.PipeSourceParametersSqsQueueParametersArgs? SqsQueueParameters
+        {
+            get
+            {
+                if (!_mUnknown_SqsQueueParameters) return _mValue_SqsQueueParameters;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersArgs.SqsQueueParameters' is not present");
+            }
+        }
     }
 }

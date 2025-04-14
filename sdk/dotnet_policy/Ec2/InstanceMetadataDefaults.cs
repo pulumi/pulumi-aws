@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Whether the metadata service is available. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
         /// </summary>
-        [Input("httpEndpoint")]
+        [PolicyResourceProperty("httpEndpoint", "_mUnknown_HttpEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpEndpoint;
-
-        public string? HttpEndpoint => _mHttpEndpoint.GetValue("httpEndpoint");
+        private string? _mValue_HttpEndpoint;
+        private bool _mUnknown_HttpEndpoint;
+        public string? HttpEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_HttpEndpoint) return _mValue_HttpEndpoint;
+                throw new UndeferrableValueException("Value 'InstanceMetadataDefaults.HttpEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
         /// </summary>
-        [Input("httpPutResponseHopLimit")]
+        [PolicyResourceProperty("httpPutResponseHopLimit", "_mUnknown_HttpPutResponseHopLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHttpPutResponseHopLimit;
-
-        public int? HttpPutResponseHopLimit => _mHttpPutResponseHopLimit.GetValue("httpPutResponseHopLimit");
+        private int? _mValue_HttpPutResponseHopLimit;
+        private bool _mUnknown_HttpPutResponseHopLimit;
+        public int? HttpPutResponseHopLimit
+        {
+            get
+            {
+                if (!_mUnknown_HttpPutResponseHopLimit) return _mValue_HttpPutResponseHopLimit;
+                throw new UndeferrableValueException("Value 'InstanceMetadataDefaults.HttpPutResponseHopLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"`, `"required"`, or `"no-preference"`. Default: `"no-preference"`.
         /// </summary>
-        [Input("httpTokens")]
+        [PolicyResourceProperty("httpTokens", "_mUnknown_HttpTokens")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpTokens;
-
-        public string? HttpTokens => _mHttpTokens.GetValue("httpTokens");
+        private string? _mValue_HttpTokens;
+        private bool _mUnknown_HttpTokens;
+        public string? HttpTokens
+        {
+            get
+            {
+                if (!_mUnknown_HttpTokens) return _mValue_HttpTokens;
+                throw new UndeferrableValueException("Value 'InstanceMetadataDefaults.HttpTokens' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
         /// </summary>
-        [Input("instanceMetadataTags")]
+        [PolicyResourceProperty("instanceMetadataTags", "_mUnknown_InstanceMetadataTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceMetadataTags;
-
-        public string? InstanceMetadataTags => _mInstanceMetadataTags.GetValue("instanceMetadataTags");
+        private string? _mValue_InstanceMetadataTags;
+        private bool _mUnknown_InstanceMetadataTags;
+        public string? InstanceMetadataTags
+        {
+            get
+            {
+                if (!_mUnknown_InstanceMetadataTags) return _mValue_InstanceMetadataTags;
+                throw new UndeferrableValueException("Value 'InstanceMetadataDefaults.InstanceMetadataTags' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/instanceMetadataDefaults:InstanceMetadataDefaults")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Whether the metadata service is available. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
         /// </summary>
-        [Input("httpEndpoint")]
+        [PolicyResourceProperty("httpEndpoint", "_mUnknown_HttpEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpEndpoint;
-
-        public string? HttpEndpoint => _mHttpEndpoint.GetValue("httpEndpoint");
+        private string? _mValue_HttpEndpoint;
+        private bool _mUnknown_HttpEndpoint;
+        public string? HttpEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_HttpEndpoint) return _mValue_HttpEndpoint;
+                throw new UndeferrableValueException("Value 'InstanceMetadataDefaultsArgs.HttpEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
         /// </summary>
-        [Input("httpPutResponseHopLimit")]
+        [PolicyResourceProperty("httpPutResponseHopLimit", "_mUnknown_HttpPutResponseHopLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHttpPutResponseHopLimit;
-
-        public int? HttpPutResponseHopLimit => _mHttpPutResponseHopLimit.GetValue("httpPutResponseHopLimit");
+        private int? _mValue_HttpPutResponseHopLimit;
+        private bool _mUnknown_HttpPutResponseHopLimit;
+        public int? HttpPutResponseHopLimit
+        {
+            get
+            {
+                if (!_mUnknown_HttpPutResponseHopLimit) return _mValue_HttpPutResponseHopLimit;
+                throw new UndeferrableValueException("Value 'InstanceMetadataDefaultsArgs.HttpPutResponseHopLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"`, `"required"`, or `"no-preference"`. Default: `"no-preference"`.
         /// </summary>
-        [Input("httpTokens")]
+        [PolicyResourceProperty("httpTokens", "_mUnknown_HttpTokens")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpTokens;
-
-        public string? HttpTokens => _mHttpTokens.GetValue("httpTokens");
+        private string? _mValue_HttpTokens;
+        private bool _mUnknown_HttpTokens;
+        public string? HttpTokens
+        {
+            get
+            {
+                if (!_mUnknown_HttpTokens) return _mValue_HttpTokens;
+                throw new UndeferrableValueException("Value 'InstanceMetadataDefaultsArgs.HttpTokens' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
         /// </summary>
-        [Input("instanceMetadataTags")]
+        [PolicyResourceProperty("instanceMetadataTags", "_mUnknown_InstanceMetadataTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceMetadataTags;
-
-        public string? InstanceMetadataTags => _mInstanceMetadataTags.GetValue("instanceMetadataTags");
+        private string? _mValue_InstanceMetadataTags;
+        private bool _mUnknown_InstanceMetadataTags;
+        public string? InstanceMetadataTags
+        {
+            get
+            {
+                if (!_mUnknown_InstanceMetadataTags) return _mValue_InstanceMetadataTags;
+                throw new UndeferrableValueException("Value 'InstanceMetadataDefaultsArgs.InstanceMetadataTags' is not present");
+            }
+        }
     }
 }

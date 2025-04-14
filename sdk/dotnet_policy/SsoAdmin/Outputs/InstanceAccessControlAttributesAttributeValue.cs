@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin.Outputs
         /// <summary>
         /// The identity source to use when mapping a specified attribute to AWS SSO.
         /// </summary>
-        [Input("sources")]
+        [PolicyResourceProperty("sources", "_mUnknown_Sources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSources;
-
-        public List<string>? Sources => _mSources.GetValue("sources");
+        private List<string>? _mValue_Sources;
+        private bool _mUnknown_Sources;
+        public List<string>? Sources
+        {
+            get
+            {
+                if (!_mUnknown_Sources) return _mValue_Sources;
+                throw new UndeferrableValueException("Value 'InstanceAccessControlAttributesAttributeValue.Sources' is not present");
+            }
+        }
     }
 }

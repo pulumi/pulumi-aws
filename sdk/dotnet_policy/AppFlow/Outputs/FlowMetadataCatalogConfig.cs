@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
 {
     public sealed class FlowMetadataCatalogConfig
     {
-        [Input("glueDataCatalog")]
+        [PolicyResourceProperty("glueDataCatalog", "_mUnknown_GlueDataCatalog")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowMetadataCatalogConfigGlueDataCatalog> _mGlueDataCatalog;
-
-        public Outputs.FlowMetadataCatalogConfigGlueDataCatalog? GlueDataCatalog => _mGlueDataCatalog.GetValue("glueDataCatalog");
+        private Outputs.FlowMetadataCatalogConfigGlueDataCatalog? _mValue_GlueDataCatalog;
+        private bool _mUnknown_GlueDataCatalog;
+        public Outputs.FlowMetadataCatalogConfigGlueDataCatalog? GlueDataCatalog
+        {
+            get
+            {
+                if (!_mUnknown_GlueDataCatalog) return _mValue_GlueDataCatalog;
+                throw new UndeferrableValueException("Value 'FlowMetadataCatalogConfig.GlueDataCatalog' is not present");
+            }
+        }
     }
 }

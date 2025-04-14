@@ -16,125 +16,223 @@ namespace Pulumi.PolicyPacks.Aws.Macie2
         /// <summary>
         /// The AWS account ID for the account.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'Member.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS account ID for the administrator account.
         /// </summary>
-        [Input("administratorAccountId")]
+        [PolicyResourceProperty("administratorAccountId", "_mUnknown_AdministratorAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdministratorAccountId;
-
-        public string? AdministratorAccountId => _mAdministratorAccountId.GetValue("administratorAccountId");
+        private string? _mValue_AdministratorAccountId;
+        private bool _mUnknown_AdministratorAccountId;
+        public string? AdministratorAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AdministratorAccountId) return _mValue_AdministratorAccountId;
+                throw new UndeferrableValueException("Value 'Member.AdministratorAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the account.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Member.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The email address for the account.
         /// </summary>
-        [Input("email")]
+        [PolicyResourceProperty("email", "_mUnknown_Email")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
-
-        public string? Email => _mEmail.GetValue("email");
+        private string? _mValue_Email;
+        private bool _mUnknown_Email;
+        public string? Email
+        {
+            get
+            {
+                if (!_mUnknown_Email) return _mValue_Email;
+                throw new UndeferrableValueException("Value 'Member.Email' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
         /// </summary>
-        [Input("invitationDisableEmailNotification")]
+        [PolicyResourceProperty("invitationDisableEmailNotification", "_mUnknown_InvitationDisableEmailNotification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInvitationDisableEmailNotification;
-
-        public bool? InvitationDisableEmailNotification => _mInvitationDisableEmailNotification.GetValue("invitationDisableEmailNotification");
+        private bool? _mValue_InvitationDisableEmailNotification;
+        private bool _mUnknown_InvitationDisableEmailNotification;
+        public bool? InvitationDisableEmailNotification
+        {
+            get
+            {
+                if (!_mUnknown_InvitationDisableEmailNotification) return _mValue_InvitationDisableEmailNotification;
+                throw new UndeferrableValueException("Value 'Member.InvitationDisableEmailNotification' is not present");
+            }
+        }
 
         /// <summary>
         /// A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
         /// </summary>
-        [Input("invitationMessage")]
+        [PolicyResourceProperty("invitationMessage", "_mUnknown_InvitationMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInvitationMessage;
-
-        public string? InvitationMessage => _mInvitationMessage.GetValue("invitationMessage");
+        private string? _mValue_InvitationMessage;
+        private bool _mUnknown_InvitationMessage;
+        public string? InvitationMessage
+        {
+            get
+            {
+                if (!_mUnknown_InvitationMessage) return _mValue_InvitationMessage;
+                throw new UndeferrableValueException("Value 'Member.InvitationMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// Send an invitation to a member
         /// </summary>
-        [Input("invite")]
+        [PolicyResourceProperty("invite", "_mUnknown_Invite")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInvite;
-
-        public bool? Invite => _mInvite.GetValue("invite");
+        private bool? _mValue_Invite;
+        private bool _mUnknown_Invite;
+        public bool? Invite
+        {
+            get
+            {
+                if (!_mUnknown_Invite) return _mValue_Invite;
+                throw new UndeferrableValueException("Value 'Member.Invite' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
         /// </summary>
-        [Input("invitedAt")]
+        [PolicyResourceProperty("invitedAt", "_mUnknown_InvitedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInvitedAt;
+        private string? _mValue_InvitedAt;
+        private bool _mUnknown_InvitedAt;
+        public string? InvitedAt
+        {
+            get
+            {
+                if (!_mUnknown_InvitedAt) return _mValue_InvitedAt;
+                throw new UndeferrableValueException("Value 'Member.InvitedAt' is not present");
+            }
+        }
 
-        public string? InvitedAt => _mInvitedAt.GetValue("invitedAt");
-
-        [Input("masterAccountId")]
+        [PolicyResourceProperty("masterAccountId", "_mUnknown_MasterAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterAccountId;
-
-        public string? MasterAccountId => _mMasterAccountId.GetValue("masterAccountId");
+        private string? _mValue_MasterAccountId;
+        private bool _mUnknown_MasterAccountId;
+        public string? MasterAccountId
+        {
+            get
+            {
+                if (!_mUnknown_MasterAccountId) return _mValue_MasterAccountId;
+                throw new UndeferrableValueException("Value 'Member.MasterAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The current status of the relationship between the account and the administrator account.
         /// </summary>
-        [Input("relationshipStatus")]
+        [PolicyResourceProperty("relationshipStatus", "_mUnknown_RelationshipStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRelationshipStatus;
-
-        public string? RelationshipStatus => _mRelationshipStatus.GetValue("relationshipStatus");
+        private string? _mValue_RelationshipStatus;
+        private bool _mUnknown_RelationshipStatus;
+        public string? RelationshipStatus
+        {
+            get
+            {
+                if (!_mUnknown_RelationshipStatus) return _mValue_RelationshipStatus;
+                throw new UndeferrableValueException("Value 'Member.RelationshipStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Member.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Member.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Member.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
         /// </summary>
-        [Input("updatedAt")]
+        [PolicyResourceProperty("updatedAt", "_mUnknown_UpdatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
-
-        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
+        private string? _mValue_UpdatedAt;
+        private bool _mUnknown_UpdatedAt;
+        public string? UpdatedAt
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedAt) return _mValue_UpdatedAt;
+                throw new UndeferrableValueException("Value 'Member.UpdatedAt' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:macie2/member:Member")]
@@ -143,64 +241,113 @@ namespace Pulumi.PolicyPacks.Aws.Macie2
         /// <summary>
         /// The AWS account ID for the account.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'MemberArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The email address for the account.
         /// </summary>
-        [Input("email")]
+        [PolicyResourceProperty("email", "_mUnknown_Email")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
-
-        public string? Email => _mEmail.GetValue("email");
+        private string? _mValue_Email;
+        private bool _mUnknown_Email;
+        public string? Email
+        {
+            get
+            {
+                if (!_mUnknown_Email) return _mValue_Email;
+                throw new UndeferrableValueException("Value 'MemberArgs.Email' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
         /// </summary>
-        [Input("invitationDisableEmailNotification")]
+        [PolicyResourceProperty("invitationDisableEmailNotification", "_mUnknown_InvitationDisableEmailNotification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInvitationDisableEmailNotification;
-
-        public bool? InvitationDisableEmailNotification => _mInvitationDisableEmailNotification.GetValue("invitationDisableEmailNotification");
+        private bool? _mValue_InvitationDisableEmailNotification;
+        private bool _mUnknown_InvitationDisableEmailNotification;
+        public bool? InvitationDisableEmailNotification
+        {
+            get
+            {
+                if (!_mUnknown_InvitationDisableEmailNotification) return _mValue_InvitationDisableEmailNotification;
+                throw new UndeferrableValueException("Value 'MemberArgs.InvitationDisableEmailNotification' is not present");
+            }
+        }
 
         /// <summary>
         /// A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
         /// </summary>
-        [Input("invitationMessage")]
+        [PolicyResourceProperty("invitationMessage", "_mUnknown_InvitationMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInvitationMessage;
-
-        public string? InvitationMessage => _mInvitationMessage.GetValue("invitationMessage");
+        private string? _mValue_InvitationMessage;
+        private bool _mUnknown_InvitationMessage;
+        public string? InvitationMessage
+        {
+            get
+            {
+                if (!_mUnknown_InvitationMessage) return _mValue_InvitationMessage;
+                throw new UndeferrableValueException("Value 'MemberArgs.InvitationMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// Send an invitation to a member
         /// </summary>
-        [Input("invite")]
+        [PolicyResourceProperty("invite", "_mUnknown_Invite")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInvite;
-
-        public bool? Invite => _mInvite.GetValue("invite");
+        private bool? _mValue_Invite;
+        private bool _mUnknown_Invite;
+        public bool? Invite
+        {
+            get
+            {
+                if (!_mUnknown_Invite) return _mValue_Invite;
+                throw new UndeferrableValueException("Value 'MemberArgs.Invite' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'MemberArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'MemberArgs.Tags' is not present");
+            }
+        }
     }
 }

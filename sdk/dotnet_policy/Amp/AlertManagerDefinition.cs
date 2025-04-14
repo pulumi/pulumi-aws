@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Amp
         /// <summary>
         /// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
         /// </summary>
-        [Input("definition")]
+        [PolicyResourceProperty("definition", "_mUnknown_Definition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefinition;
-
-        public string? Definition => _mDefinition.GetValue("definition");
+        private string? _mValue_Definition;
+        private bool _mUnknown_Definition;
+        public string? Definition
+        {
+            get
+            {
+                if (!_mUnknown_Definition) return _mValue_Definition;
+                throw new UndeferrableValueException("Value 'AlertManagerDefinition.Definition' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the prometheus workspace the alert manager definition should be linked to
         /// </summary>
-        [Input("workspaceId")]
+        [PolicyResourceProperty("workspaceId", "_mUnknown_WorkspaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
-
-        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+        private string? _mValue_WorkspaceId;
+        private bool _mUnknown_WorkspaceId;
+        public string? WorkspaceId
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceId) return _mValue_WorkspaceId;
+                throw new UndeferrableValueException("Value 'AlertManagerDefinition.WorkspaceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:amp/alertManagerDefinition:AlertManagerDefinition")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Amp
         /// <summary>
         /// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
         /// </summary>
-        [Input("definition")]
+        [PolicyResourceProperty("definition", "_mUnknown_Definition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefinition;
-
-        public string? Definition => _mDefinition.GetValue("definition");
+        private string? _mValue_Definition;
+        private bool _mUnknown_Definition;
+        public string? Definition
+        {
+            get
+            {
+                if (!_mUnknown_Definition) return _mValue_Definition;
+                throw new UndeferrableValueException("Value 'AlertManagerDefinitionArgs.Definition' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the prometheus workspace the alert manager definition should be linked to
         /// </summary>
-        [Input("workspaceId")]
+        [PolicyResourceProperty("workspaceId", "_mUnknown_WorkspaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
-
-        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+        private string? _mValue_WorkspaceId;
+        private bool _mUnknown_WorkspaceId;
+        public string? WorkspaceId
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceId) return _mValue_WorkspaceId;
+                throw new UndeferrableValueException("Value 'AlertManagerDefinitionArgs.WorkspaceId' is not present");
+            }
+        }
     }
 }

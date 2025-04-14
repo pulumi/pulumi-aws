@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// The destination where logs are delivered. Options are `CLOUDWATCH_LOGS` or `S3`.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
-
-        public string? Destination => _mDestination.GetValue("destination");
+        private string? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public string? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'BotAliasConversationLogsLogSettingArgs.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'BotAliasConversationLogsLogSettingArgs.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of logging that is enabled. Options are `AUDIO` or `TEXT`.
         /// </summary>
-        [Input("logType")]
+        [PolicyResourceProperty("logType", "_mUnknown_LogType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogType;
-
-        public string? LogType => _mLogType.GetValue("logType");
+        private string? _mValue_LogType;
+        private bool _mUnknown_LogType;
+        public string? LogType
+        {
+            get
+            {
+                if (!_mUnknown_LogType) return _mValue_LogType;
+                throw new UndeferrableValueException("Value 'BotAliasConversationLogsLogSettingArgs.LogType' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'BotAliasConversationLogsLogSettingArgs.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The prefix of the S3 object key for `AUDIO` logs or the log stream name for `TEXT` logs.
         /// </summary>
-        [Input("resourcePrefix")]
+        [PolicyResourceProperty("resourcePrefix", "_mUnknown_ResourcePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourcePrefix;
-
-        public string? ResourcePrefix => _mResourcePrefix.GetValue("resourcePrefix");
+        private string? _mValue_ResourcePrefix;
+        private bool _mUnknown_ResourcePrefix;
+        public string? ResourcePrefix
+        {
+            get
+            {
+                if (!_mUnknown_ResourcePrefix) return _mValue_ResourcePrefix;
+                throw new UndeferrableValueException("Value 'BotAliasConversationLogsLogSettingArgs.ResourcePrefix' is not present");
+            }
+        }
     }
 }

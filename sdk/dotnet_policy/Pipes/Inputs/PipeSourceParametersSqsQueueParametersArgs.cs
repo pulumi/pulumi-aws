@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Inputs
         /// <summary>
         /// The maximum number of records to include in each batch. Maximum value of 10000.
         /// </summary>
-        [Input("batchSize")]
+        [PolicyResourceProperty("batchSize", "_mUnknown_BatchSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBatchSize;
-
-        public int? BatchSize => _mBatchSize.GetValue("batchSize");
+        private int? _mValue_BatchSize;
+        private bool _mUnknown_BatchSize;
+        public int? BatchSize
+        {
+            get
+            {
+                if (!_mUnknown_BatchSize) return _mValue_BatchSize;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersSqsQueueParametersArgs.BatchSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum length of a time to wait for events. Maximum value of 300.
         /// </summary>
-        [Input("maximumBatchingWindowInSeconds")]
+        [PolicyResourceProperty("maximumBatchingWindowInSeconds", "_mUnknown_MaximumBatchingWindowInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumBatchingWindowInSeconds;
-
-        public int? MaximumBatchingWindowInSeconds => _mMaximumBatchingWindowInSeconds.GetValue("maximumBatchingWindowInSeconds");
+        private int? _mValue_MaximumBatchingWindowInSeconds;
+        private bool _mUnknown_MaximumBatchingWindowInSeconds;
+        public int? MaximumBatchingWindowInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaximumBatchingWindowInSeconds) return _mValue_MaximumBatchingWindowInSeconds;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersSqsQueueParametersArgs.MaximumBatchingWindowInSeconds' is not present");
+            }
+        }
     }
 }

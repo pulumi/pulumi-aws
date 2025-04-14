@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Budgets.Outputs
         /// <summary>
         /// The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
         /// </summary>
-        [Input("actionSubType")]
+        [PolicyResourceProperty("actionSubType", "_mUnknown_ActionSubType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionSubType;
-
-        public string? ActionSubType => _mActionSubType.GetValue("actionSubType");
+        private string? _mValue_ActionSubType;
+        private bool _mUnknown_ActionSubType;
+        public string? ActionSubType
+        {
+            get
+            {
+                if (!_mUnknown_ActionSubType) return _mValue_ActionSubType;
+                throw new UndeferrableValueException("Value 'BudgetActionDefinitionSsmActionDefinition.ActionSubType' is not present");
+            }
+        }
 
         /// <summary>
         /// The EC2 and RDS instance IDs.
         /// </summary>
-        [Input("instanceIds")]
+        [PolicyResourceProperty("instanceIds", "_mUnknown_InstanceIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstanceIds;
-
-        public List<string>? InstanceIds => _mInstanceIds.GetValue("instanceIds");
+        private List<string>? _mValue_InstanceIds;
+        private bool _mUnknown_InstanceIds;
+        public List<string>? InstanceIds
+        {
+            get
+            {
+                if (!_mUnknown_InstanceIds) return _mValue_InstanceIds;
+                throw new UndeferrableValueException("Value 'BudgetActionDefinitionSsmActionDefinition.InstanceIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The Region to run the SSM document.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'BudgetActionDefinitionSsmActionDefinition.Region' is not present");
+            }
+        }
     }
 }

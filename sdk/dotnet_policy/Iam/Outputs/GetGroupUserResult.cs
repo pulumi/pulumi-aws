@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Iam.Outputs
         /// <summary>
         /// User ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'GetGroupUserResult.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to the IAM user.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'GetGroupUserResult.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// Stable and unique string identifying the IAM user.
         /// </summary>
-        [Input("userId")]
+        [PolicyResourceProperty("userId", "_mUnknown_UserId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserId;
-
-        public string? UserId => _mUserId.GetValue("userId");
+        private string? _mValue_UserId;
+        private bool _mUnknown_UserId;
+        public string? UserId
+        {
+            get
+            {
+                if (!_mUnknown_UserId) return _mValue_UserId;
+                throw new UndeferrableValueException("Value 'GetGroupUserResult.UserId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the IAM user.
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'GetGroupUserResult.UserName' is not present");
+            }
+        }
     }
 }

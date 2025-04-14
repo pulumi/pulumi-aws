@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ivs.Inputs
         /// <summary>
         /// Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
         /// </summary>
-        [Input("recordingMode")]
+        [PolicyResourceProperty("recordingMode", "_mUnknown_RecordingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecordingMode;
-
-        public string? RecordingMode => _mRecordingMode.GetValue("recordingMode");
+        private string? _mValue_RecordingMode;
+        private bool _mUnknown_RecordingMode;
+        public string? RecordingMode
+        {
+            get
+            {
+                if (!_mUnknown_RecordingMode) return _mValue_RecordingMode;
+                throw new UndeferrableValueException("Value 'RecordingConfigurationThumbnailConfigurationArgs.RecordingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The targeted thumbnail-generation interval in seconds.
         /// </summary>
-        [Input("targetIntervalSeconds")]
+        [PolicyResourceProperty("targetIntervalSeconds", "_mUnknown_TargetIntervalSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTargetIntervalSeconds;
-
-        public int? TargetIntervalSeconds => _mTargetIntervalSeconds.GetValue("targetIntervalSeconds");
+        private int? _mValue_TargetIntervalSeconds;
+        private bool _mUnknown_TargetIntervalSeconds;
+        public int? TargetIntervalSeconds
+        {
+            get
+            {
+                if (!_mUnknown_TargetIntervalSeconds) return _mValue_TargetIntervalSeconds;
+                throw new UndeferrableValueException("Value 'RecordingConfigurationThumbnailConfigurationArgs.TargetIntervalSeconds' is not present");
+            }
+        }
     }
 }

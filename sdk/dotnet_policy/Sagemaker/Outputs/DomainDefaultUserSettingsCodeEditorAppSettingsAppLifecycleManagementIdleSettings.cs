@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         /// </summary>
-        [Input("idleTimeoutInMinutes")]
+        [PolicyResourceProperty("idleTimeoutInMinutes", "_mUnknown_IdleTimeoutInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIdleTimeoutInMinutes;
-
-        public int? IdleTimeoutInMinutes => _mIdleTimeoutInMinutes.GetValue("idleTimeoutInMinutes");
+        private int? _mValue_IdleTimeoutInMinutes;
+        private bool _mUnknown_IdleTimeoutInMinutes;
+        public int? IdleTimeoutInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_IdleTimeoutInMinutes) return _mValue_IdleTimeoutInMinutes;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings.IdleTimeoutInMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("lifecycleManagement")]
+        [PolicyResourceProperty("lifecycleManagement", "_mUnknown_LifecycleManagement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLifecycleManagement;
-
-        public string? LifecycleManagement => _mLifecycleManagement.GetValue("lifecycleManagement");
+        private string? _mValue_LifecycleManagement;
+        private bool _mUnknown_LifecycleManagement;
+        public string? LifecycleManagement
+        {
+            get
+            {
+                if (!_mUnknown_LifecycleManagement) return _mValue_LifecycleManagement;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings.LifecycleManagement' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
         /// </summary>
-        [Input("maxIdleTimeoutInMinutes")]
+        [PolicyResourceProperty("maxIdleTimeoutInMinutes", "_mUnknown_MaxIdleTimeoutInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxIdleTimeoutInMinutes;
-
-        public int? MaxIdleTimeoutInMinutes => _mMaxIdleTimeoutInMinutes.GetValue("maxIdleTimeoutInMinutes");
+        private int? _mValue_MaxIdleTimeoutInMinutes;
+        private bool _mUnknown_MaxIdleTimeoutInMinutes;
+        public int? MaxIdleTimeoutInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_MaxIdleTimeoutInMinutes) return _mValue_MaxIdleTimeoutInMinutes;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings.MaxIdleTimeoutInMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
         /// </summary>
-        [Input("minIdleTimeoutInMinutes")]
+        [PolicyResourceProperty("minIdleTimeoutInMinutes", "_mUnknown_MinIdleTimeoutInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinIdleTimeoutInMinutes;
-
-        public int? MinIdleTimeoutInMinutes => _mMinIdleTimeoutInMinutes.GetValue("minIdleTimeoutInMinutes");
+        private int? _mValue_MinIdleTimeoutInMinutes;
+        private bool _mUnknown_MinIdleTimeoutInMinutes;
+        public int? MinIdleTimeoutInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_MinIdleTimeoutInMinutes) return _mValue_MinIdleTimeoutInMinutes;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings.MinIdleTimeoutInMinutes' is not present");
+            }
+        }
     }
 }

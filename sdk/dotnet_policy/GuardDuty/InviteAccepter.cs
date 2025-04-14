@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty
         /// <summary>
         /// The detector ID of the member GuardDuty account.
         /// </summary>
-        [Input("detectorId")]
+        [PolicyResourceProperty("detectorId", "_mUnknown_DetectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
-
-        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+        private string? _mValue_DetectorId;
+        private bool _mUnknown_DetectorId;
+        public string? DetectorId
+        {
+            get
+            {
+                if (!_mUnknown_DetectorId) return _mValue_DetectorId;
+                throw new UndeferrableValueException("Value 'InviteAccepter.DetectorId' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID for primary account.
         /// </summary>
-        [Input("masterAccountId")]
+        [PolicyResourceProperty("masterAccountId", "_mUnknown_MasterAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterAccountId;
-
-        public string? MasterAccountId => _mMasterAccountId.GetValue("masterAccountId");
+        private string? _mValue_MasterAccountId;
+        private bool _mUnknown_MasterAccountId;
+        public string? MasterAccountId
+        {
+            get
+            {
+                if (!_mUnknown_MasterAccountId) return _mValue_MasterAccountId;
+                throw new UndeferrableValueException("Value 'InviteAccepter.MasterAccountId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:guardduty/inviteAccepter:InviteAccepter")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty
         /// <summary>
         /// The detector ID of the member GuardDuty account.
         /// </summary>
-        [Input("detectorId")]
+        [PolicyResourceProperty("detectorId", "_mUnknown_DetectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
-
-        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+        private string? _mValue_DetectorId;
+        private bool _mUnknown_DetectorId;
+        public string? DetectorId
+        {
+            get
+            {
+                if (!_mUnknown_DetectorId) return _mValue_DetectorId;
+                throw new UndeferrableValueException("Value 'InviteAccepterArgs.DetectorId' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID for primary account.
         /// </summary>
-        [Input("masterAccountId")]
+        [PolicyResourceProperty("masterAccountId", "_mUnknown_MasterAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterAccountId;
-
-        public string? MasterAccountId => _mMasterAccountId.GetValue("masterAccountId");
+        private string? _mValue_MasterAccountId;
+        private bool _mUnknown_MasterAccountId;
+        public string? MasterAccountId
+        {
+            get
+            {
+                if (!_mUnknown_MasterAccountId) return _mValue_MasterAccountId;
+                throw new UndeferrableValueException("Value 'InviteAccepterArgs.MasterAccountId' is not present");
+            }
+        }
     }
 }

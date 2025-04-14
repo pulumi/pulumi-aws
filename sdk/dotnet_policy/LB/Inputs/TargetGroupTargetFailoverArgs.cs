@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.LB.Inputs
         /// <summary>
         /// Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_unhealthy`. Default: `no_rebalance`.
         /// </summary>
-        [Input("onDeregistration")]
+        [PolicyResourceProperty("onDeregistration", "_mUnknown_OnDeregistration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOnDeregistration;
-
-        public string? OnDeregistration => _mOnDeregistration.GetValue("onDeregistration");
+        private string? _mValue_OnDeregistration;
+        private bool _mUnknown_OnDeregistration;
+        public string? OnDeregistration
+        {
+            get
+            {
+                if (!_mUnknown_OnDeregistration) return _mValue_OnDeregistration;
+                throw new UndeferrableValueException("Value 'TargetGroupTargetFailoverArgs.OnDeregistration' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_deregistration`. Default: `no_rebalance`.
         /// </summary>
-        [Input("onUnhealthy")]
+        [PolicyResourceProperty("onUnhealthy", "_mUnknown_OnUnhealthy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOnUnhealthy;
-
-        public string? OnUnhealthy => _mOnUnhealthy.GetValue("onUnhealthy");
+        private string? _mValue_OnUnhealthy;
+        private bool _mUnknown_OnUnhealthy;
+        public string? OnUnhealthy
+        {
+            get
+            {
+                if (!_mUnknown_OnUnhealthy) return _mValue_OnUnhealthy;
+                throw new UndeferrableValueException("Value 'TargetGroupTargetFailoverArgs.OnUnhealthy' is not present");
+            }
+        }
     }
 }

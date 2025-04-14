@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
         /// </summary>
-        [Input("attempts")]
+        [PolicyResourceProperty("attempts", "_mUnknown_Attempts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAttempts;
-
-        public int? Attempts => _mAttempts.GetValue("attempts");
+        private int? _mValue_Attempts;
+        private bool _mUnknown_Attempts;
+        public int? Attempts
+        {
+            get
+            {
+                if (!_mUnknown_Attempts) return _mValue_Attempts;
+                throw new UndeferrableValueException("Value 'JobDefinitionRetryStrategy.Attempts' is not present");
+            }
+        }
 
         /// <summary>
         /// Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
         /// </summary>
-        [Input("evaluateOnExits")]
+        [PolicyResourceProperty("evaluateOnExits", "_mUnknown_EvaluateOnExits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.JobDefinitionRetryStrategyEvaluateOnExit>> _mEvaluateOnExits;
-
-        public List<Outputs.JobDefinitionRetryStrategyEvaluateOnExit>? EvaluateOnExits => _mEvaluateOnExits.GetValue("evaluateOnExits");
+        private List<Outputs.JobDefinitionRetryStrategyEvaluateOnExit>? _mValue_EvaluateOnExits;
+        private bool _mUnknown_EvaluateOnExits;
+        public List<Outputs.JobDefinitionRetryStrategyEvaluateOnExit>? EvaluateOnExits
+        {
+            get
+            {
+                if (!_mUnknown_EvaluateOnExits) return _mValue_EvaluateOnExits;
+                throw new UndeferrableValueException("Value 'JobDefinitionRetryStrategy.EvaluateOnExits' is not present");
+            }
+        }
     }
 }

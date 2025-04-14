@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// An AWS Certificate Manager (ACM) certificate.
         /// </summary>
-        [Input("acm")]
+        [PolicyResourceProperty("acm", "_mUnknown_Acm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualGatewaySpecListenerTlsCertificateAcm> _mAcm;
-
-        public Outputs.VirtualGatewaySpecListenerTlsCertificateAcm? Acm => _mAcm.GetValue("acm");
+        private Outputs.VirtualGatewaySpecListenerTlsCertificateAcm? _mValue_Acm;
+        private bool _mUnknown_Acm;
+        public Outputs.VirtualGatewaySpecListenerTlsCertificateAcm? Acm
+        {
+            get
+            {
+                if (!_mUnknown_Acm) return _mValue_Acm;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTlsCertificate.Acm' is not present");
+            }
+        }
 
         /// <summary>
         /// Local file certificate.
         /// </summary>
-        [Input("file")]
+        [PolicyResourceProperty("file", "_mUnknown_File")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualGatewaySpecListenerTlsCertificateFile> _mFile;
-
-        public Outputs.VirtualGatewaySpecListenerTlsCertificateFile? File => _mFile.GetValue("file");
+        private Outputs.VirtualGatewaySpecListenerTlsCertificateFile? _mValue_File;
+        private bool _mUnknown_File;
+        public Outputs.VirtualGatewaySpecListenerTlsCertificateFile? File
+        {
+            get
+            {
+                if (!_mUnknown_File) return _mValue_File;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTlsCertificate.File' is not present");
+            }
+        }
 
         /// <summary>
         /// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         /// </summary>
-        [Input("sds")]
+        [PolicyResourceProperty("sds", "_mUnknown_Sds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualGatewaySpecListenerTlsCertificateSds> _mSds;
-
-        public Outputs.VirtualGatewaySpecListenerTlsCertificateSds? Sds => _mSds.GetValue("sds");
+        private Outputs.VirtualGatewaySpecListenerTlsCertificateSds? _mValue_Sds;
+        private bool _mUnknown_Sds;
+        public Outputs.VirtualGatewaySpecListenerTlsCertificateSds? Sds
+        {
+            get
+            {
+                if (!_mUnknown_Sds) return _mValue_Sds;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTlsCertificate.Sds' is not present");
+            }
+        }
     }
 }

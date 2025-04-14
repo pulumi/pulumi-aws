@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualServiceSpecProviderResult
     {
-        [Input("virtualNodes")]
+        [PolicyResourceProperty("virtualNodes", "_mUnknown_VirtualNodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualServiceSpecProviderVirtualNodeResult>> _mVirtualNodes;
+        private List<Outputs.GetVirtualServiceSpecProviderVirtualNodeResult>? _mValue_VirtualNodes;
+        private bool _mUnknown_VirtualNodes;
+        public List<Outputs.GetVirtualServiceSpecProviderVirtualNodeResult>? VirtualNodes
+        {
+            get
+            {
+                if (!_mUnknown_VirtualNodes) return _mValue_VirtualNodes;
+                throw new UndeferrableValueException("Value 'GetVirtualServiceSpecProviderResult.VirtualNodes' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualServiceSpecProviderVirtualNodeResult>? VirtualNodes => _mVirtualNodes.GetValue("virtualNodes");
-
-        [Input("virtualRouters")]
+        [PolicyResourceProperty("virtualRouters", "_mUnknown_VirtualRouters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualServiceSpecProviderVirtualRouterResult>> _mVirtualRouters;
-
-        public List<Outputs.GetVirtualServiceSpecProviderVirtualRouterResult>? VirtualRouters => _mVirtualRouters.GetValue("virtualRouters");
+        private List<Outputs.GetVirtualServiceSpecProviderVirtualRouterResult>? _mValue_VirtualRouters;
+        private bool _mUnknown_VirtualRouters;
+        public List<Outputs.GetVirtualServiceSpecProviderVirtualRouterResult>? VirtualRouters
+        {
+            get
+            {
+                if (!_mUnknown_VirtualRouters) return _mValue_VirtualRouters;
+                throw new UndeferrableValueException("Value 'GetVirtualServiceSpecProviderResult.VirtualRouters' is not present");
+            }
+        }
     }
 }

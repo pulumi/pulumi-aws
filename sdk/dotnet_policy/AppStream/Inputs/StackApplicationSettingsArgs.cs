@@ -15,21 +15,35 @@ namespace Pulumi.PolicyPacks.Aws.AppStream.Inputs
         /// <summary>
         /// Whether application settings should be persisted.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'StackApplicationSettingsArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the settings group.
         /// Required when `enabled` is `true`.
         /// Can be up to 100 characters.
         /// </summary>
-        [Input("settingsGroup")]
+        [PolicyResourceProperty("settingsGroup", "_mUnknown_SettingsGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSettingsGroup;
-
-        public string? SettingsGroup => _mSettingsGroup.GetValue("settingsGroup");
+        private string? _mValue_SettingsGroup;
+        private bool _mUnknown_SettingsGroup;
+        public string? SettingsGroup
+        {
+            get
+            {
+                if (!_mUnknown_SettingsGroup) return _mValue_SettingsGroup;
+                throw new UndeferrableValueException("Value 'StackApplicationSettingsArgs.SettingsGroup' is not present");
+            }
+        }
     }
 }

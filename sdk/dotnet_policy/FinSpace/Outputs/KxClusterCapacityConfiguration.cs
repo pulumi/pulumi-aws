@@ -15,11 +15,18 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace.Outputs
         /// <summary>
         /// Number of instances running in a cluster. Must be at least 1 and at most 5.
         /// </summary>
-        [Input("nodeCount")]
+        [PolicyResourceProperty("nodeCount", "_mUnknown_NodeCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNodeCount;
-
-        public int? NodeCount => _mNodeCount.GetValue("nodeCount");
+        private int? _mValue_NodeCount;
+        private bool _mUnknown_NodeCount;
+        public int? NodeCount
+        {
+            get
+            {
+                if (!_mUnknown_NodeCount) return _mValue_NodeCount;
+                throw new UndeferrableValueException("Value 'KxClusterCapacityConfiguration.NodeCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the hardware of the host computer used for your cluster instance. Each node type offers different memory and storage capabilities. Choose a node type based on the requirements of the application or software that you plan to run on your instance.
@@ -33,10 +40,17 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace.Outputs
         /// * kx.s.16xlarge – The node type with a configuration of 432 GiB memory and 64 vCPUs.
         /// * kx.s.32xlarge – The node type with a configuration of 864 GiB memory and 128 vCPUs.
         /// </summary>
-        [Input("nodeType")]
+        [PolicyResourceProperty("nodeType", "_mUnknown_NodeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeType;
-
-        public string? NodeType => _mNodeType.GetValue("nodeType");
+        private string? _mValue_NodeType;
+        private bool _mUnknown_NodeType;
+        public string? NodeType
+        {
+            get
+            {
+                if (!_mUnknown_NodeType) return _mValue_NodeType;
+                throw new UndeferrableValueException("Value 'KxClusterCapacityConfiguration.NodeType' is not present");
+            }
+        }
     }
 }

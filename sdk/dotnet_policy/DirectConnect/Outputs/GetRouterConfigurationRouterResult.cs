@@ -15,11 +15,18 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect.Outputs
         /// <summary>
         /// Router platform
         /// </summary>
-        [Input("platform")]
+        [PolicyResourceProperty("platform", "_mUnknown_Platform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
-
-        public string? Platform => _mPlatform.GetValue("platform");
+        private string? _mValue_Platform;
+        private bool _mUnknown_Platform;
+        public string? Platform
+        {
+            get
+            {
+                if (!_mUnknown_Platform) return _mValue_Platform;
+                throw new UndeferrableValueException("Value 'GetRouterConfigurationRouterResult.Platform' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
@@ -41,43 +48,78 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect.Outputs
         /// }
         /// ```
         /// </summary>
-        [Input("routerTypeIdentifier")]
+        [PolicyResourceProperty("routerTypeIdentifier", "_mUnknown_RouterTypeIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouterTypeIdentifier;
-
-        public string? RouterTypeIdentifier => _mRouterTypeIdentifier.GetValue("routerTypeIdentifier");
+        private string? _mValue_RouterTypeIdentifier;
+        private bool _mUnknown_RouterTypeIdentifier;
+        public string? RouterTypeIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_RouterTypeIdentifier) return _mValue_RouterTypeIdentifier;
+                throw new UndeferrableValueException("Value 'GetRouterConfigurationRouterResult.RouterTypeIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Router operating system
         /// </summary>
-        [Input("software")]
+        [PolicyResourceProperty("software", "_mUnknown_Software")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSoftware;
-
-        public string? Software => _mSoftware.GetValue("software");
+        private string? _mValue_Software;
+        private bool _mUnknown_Software;
+        public string? Software
+        {
+            get
+            {
+                if (!_mUnknown_Software) return _mValue_Software;
+                throw new UndeferrableValueException("Value 'GetRouterConfigurationRouterResult.Software' is not present");
+            }
+        }
 
         /// <summary>
         /// Router vendor
         /// </summary>
-        [Input("vendor")]
+        [PolicyResourceProperty("vendor", "_mUnknown_Vendor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVendor;
-
-        public string? Vendor => _mVendor.GetValue("vendor");
+        private string? _mValue_Vendor;
+        private bool _mUnknown_Vendor;
+        public string? Vendor
+        {
+            get
+            {
+                if (!_mUnknown_Vendor) return _mValue_Vendor;
+                throw new UndeferrableValueException("Value 'GetRouterConfigurationRouterResult.Vendor' is not present");
+            }
+        }
 
         /// <summary>
         /// Router XSLT Template Name
         /// </summary>
-        [Input("xsltTemplateName")]
+        [PolicyResourceProperty("xsltTemplateName", "_mUnknown_XsltTemplateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mXsltTemplateName;
+        private string? _mValue_XsltTemplateName;
+        private bool _mUnknown_XsltTemplateName;
+        public string? XsltTemplateName
+        {
+            get
+            {
+                if (!_mUnknown_XsltTemplateName) return _mValue_XsltTemplateName;
+                throw new UndeferrableValueException("Value 'GetRouterConfigurationRouterResult.XsltTemplateName' is not present");
+            }
+        }
 
-        public string? XsltTemplateName => _mXsltTemplateName.GetValue("xsltTemplateName");
-
-        [Input("xsltTemplateNameForMacSec")]
+        [PolicyResourceProperty("xsltTemplateNameForMacSec", "_mUnknown_XsltTemplateNameForMacSec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mXsltTemplateNameForMacSec;
-
-        public string? XsltTemplateNameForMacSec => _mXsltTemplateNameForMacSec.GetValue("xsltTemplateNameForMacSec");
+        private string? _mValue_XsltTemplateNameForMacSec;
+        private bool _mUnknown_XsltTemplateNameForMacSec;
+        public string? XsltTemplateNameForMacSec
+        {
+            get
+            {
+                if (!_mUnknown_XsltTemplateNameForMacSec) return _mValue_XsltTemplateNameForMacSec;
+                throw new UndeferrableValueException("Value 'GetRouterConfigurationRouterResult.XsltTemplateNameForMacSec' is not present");
+            }
+        }
     }
 }

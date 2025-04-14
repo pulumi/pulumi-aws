@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualNodeSpecListenerTlResult
     {
-        [Input("certificates")]
+        [PolicyResourceProperty("certificates", "_mUnknown_Certificates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecListenerTlCertificateResult>> _mCertificates;
+        private List<Outputs.GetVirtualNodeSpecListenerTlCertificateResult>? _mValue_Certificates;
+        private bool _mUnknown_Certificates;
+        public List<Outputs.GetVirtualNodeSpecListenerTlCertificateResult>? Certificates
+        {
+            get
+            {
+                if (!_mUnknown_Certificates) return _mValue_Certificates;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerTlResult.Certificates' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecListenerTlCertificateResult>? Certificates => _mCertificates.GetValue("certificates");
-
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerTlResult.Mode' is not present");
+            }
+        }
 
-        public string? Mode => _mMode.GetValue("mode");
-
-        [Input("validations")]
+        [PolicyResourceProperty("validations", "_mUnknown_Validations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecListenerTlValidationResult>> _mValidations;
-
-        public List<Outputs.GetVirtualNodeSpecListenerTlValidationResult>? Validations => _mValidations.GetValue("validations");
+        private List<Outputs.GetVirtualNodeSpecListenerTlValidationResult>? _mValue_Validations;
+        private bool _mUnknown_Validations;
+        public List<Outputs.GetVirtualNodeSpecListenerTlValidationResult>? Validations
+        {
+            get
+            {
+                if (!_mUnknown_Validations) return _mValue_Validations;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerTlResult.Validations' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Whether fulfillment updates are sent to the user. When this field is true, updates are sent. If the active field is set to true, the `start_response`, `update_response`, and `timeout_in_seconds` fields are required.
         /// </summary>
-        [Input("active")]
+        [PolicyResourceProperty("active", "_mUnknown_Active")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
-
-        public bool? Active => _mActive.GetValue("active");
+        private bool? _mValue_Active;
+        private bool _mUnknown_Active;
+        public bool? Active
+        {
+            get
+            {
+                if (!_mUnknown_Active) return _mValue_Active;
+                throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs.Active' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the message sent to users when the fulfillment Lambda functions starts running.
         /// </summary>
-        [Input("startResponse")]
+        [PolicyResourceProperty("startResponse", "_mUnknown_StartResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseArgs> _mStartResponse;
-
-        public Inputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseArgs? StartResponse => _mStartResponse.GetValue("startResponse");
+        private Inputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseArgs? _mValue_StartResponse;
+        private bool _mUnknown_StartResponse;
+        public Inputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseArgs? StartResponse
+        {
+            get
+            {
+                if (!_mUnknown_StartResponse) return _mValue_StartResponse;
+                throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs.StartResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// Length of time that the fulfillment Lambda function should run before it times out.
         /// </summary>
-        [Input("timeoutInSeconds")]
+        [PolicyResourceProperty("timeoutInSeconds", "_mUnknown_TimeoutInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutInSeconds;
-
-        public int? TimeoutInSeconds => _mTimeoutInSeconds.GetValue("timeoutInSeconds");
+        private int? _mValue_TimeoutInSeconds;
+        private bool _mUnknown_TimeoutInSeconds;
+        public int? TimeoutInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutInSeconds) return _mValue_TimeoutInSeconds;
+                throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs.TimeoutInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for messages sent periodically to the user while the fulfillment Lambda function is running.
         /// </summary>
-        [Input("updateResponse")]
+        [PolicyResourceProperty("updateResponse", "_mUnknown_UpdateResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseArgs> _mUpdateResponse;
-
-        public Inputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseArgs? UpdateResponse => _mUpdateResponse.GetValue("updateResponse");
+        private Inputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseArgs? _mValue_UpdateResponse;
+        private bool _mUnknown_UpdateResponse;
+        public Inputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseArgs? UpdateResponse
+        {
+            get
+            {
+                if (!_mUnknown_UpdateResponse) return _mValue_UpdateResponse;
+                throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs.UpdateResponse' is not present");
+            }
+        }
     }
 }

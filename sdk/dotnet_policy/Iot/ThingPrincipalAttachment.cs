@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         /// </summary>
-        [Input("principal")]
+        [PolicyResourceProperty("principal", "_mUnknown_Principal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
-
-        public string? Principal => _mPrincipal.GetValue("principal");
+        private string? _mValue_Principal;
+        private bool _mUnknown_Principal;
+        public string? Principal
+        {
+            get
+            {
+                if (!_mUnknown_Principal) return _mValue_Principal;
+                throw new UndeferrableValueException("Value 'ThingPrincipalAttachment.Principal' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the thing.
         /// </summary>
-        [Input("thing")]
+        [PolicyResourceProperty("thing", "_mUnknown_Thing")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThing;
-
-        public string? Thing => _mThing.GetValue("thing");
+        private string? _mValue_Thing;
+        private bool _mUnknown_Thing;
+        public string? Thing
+        {
+            get
+            {
+                if (!_mUnknown_Thing) return _mValue_Thing;
+                throw new UndeferrableValueException("Value 'ThingPrincipalAttachment.Thing' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         /// </summary>
-        [Input("principal")]
+        [PolicyResourceProperty("principal", "_mUnknown_Principal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
-
-        public string? Principal => _mPrincipal.GetValue("principal");
+        private string? _mValue_Principal;
+        private bool _mUnknown_Principal;
+        public string? Principal
+        {
+            get
+            {
+                if (!_mUnknown_Principal) return _mValue_Principal;
+                throw new UndeferrableValueException("Value 'ThingPrincipalAttachmentArgs.Principal' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the thing.
         /// </summary>
-        [Input("thing")]
+        [PolicyResourceProperty("thing", "_mUnknown_Thing")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThing;
-
-        public string? Thing => _mThing.GetValue("thing");
+        private string? _mValue_Thing;
+        private bool _mUnknown_Thing;
+        public string? Thing
+        {
+            get
+            {
+                if (!_mUnknown_Thing) return _mValue_Thing;
+                throw new UndeferrableValueException("Value 'ThingPrincipalAttachmentArgs.Thing' is not present");
+            }
+        }
     }
 }

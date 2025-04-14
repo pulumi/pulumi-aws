@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions.Outputs
         /// <summary>
         /// The entity ID of the resource.
         /// </summary>
-        [Input("entityId")]
+        [PolicyResourceProperty("entityId", "_mUnknown_EntityId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEntityId;
-
-        public string? EntityId => _mEntityId.GetValue("entityId");
+        private string? _mValue_EntityId;
+        private bool _mUnknown_EntityId;
+        public string? EntityId
+        {
+            get
+            {
+                if (!_mUnknown_EntityId) return _mValue_EntityId;
+                throw new UndeferrableValueException("Value 'PolicyDefinitionTemplateLinkedResource.EntityId' is not present");
+            }
+        }
 
         /// <summary>
         /// The entity type of the resource.
         /// </summary>
-        [Input("entityType")]
+        [PolicyResourceProperty("entityType", "_mUnknown_EntityType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEntityType;
-
-        public string? EntityType => _mEntityType.GetValue("entityType");
+        private string? _mValue_EntityType;
+        private bool _mUnknown_EntityType;
+        public string? EntityType
+        {
+            get
+            {
+                if (!_mUnknown_EntityType) return _mValue_EntityType;
+                throw new UndeferrableValueException("Value 'PolicyDefinitionTemplateLinkedResource.EntityType' is not present");
+            }
+        }
     }
 }

@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.SecretsManager
         /// <summary>
         /// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotation_rules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
         /// </summary>
-        [Input("rotateImmediately")]
+        [PolicyResourceProperty("rotateImmediately", "_mUnknown_RotateImmediately")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRotateImmediately;
-
-        public bool? RotateImmediately => _mRotateImmediately.GetValue("rotateImmediately");
+        private bool? _mValue_RotateImmediately;
+        private bool _mUnknown_RotateImmediately;
+        public bool? RotateImmediately
+        {
+            get
+            {
+                if (!_mUnknown_RotateImmediately) return _mValue_RotateImmediately;
+                throw new UndeferrableValueException("Value 'SecretRotation.RotateImmediately' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether automatic rotation is enabled for this secret.
         /// </summary>
-        [Input("rotationEnabled")]
+        [PolicyResourceProperty("rotationEnabled", "_mUnknown_RotationEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRotationEnabled;
-
-        public bool? RotationEnabled => _mRotationEnabled.GetValue("rotationEnabled");
+        private bool? _mValue_RotationEnabled;
+        private bool _mUnknown_RotationEnabled;
+        public bool? RotationEnabled
+        {
+            get
+            {
+                if (!_mUnknown_RotationEnabled) return _mValue_RotationEnabled;
+                throw new UndeferrableValueException("Value 'SecretRotation.RotationEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         /// </summary>
-        [Input("rotationLambdaArn")]
+        [PolicyResourceProperty("rotationLambdaArn", "_mUnknown_RotationLambdaArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRotationLambdaArn;
-
-        public string? RotationLambdaArn => _mRotationLambdaArn.GetValue("rotationLambdaArn");
+        private string? _mValue_RotationLambdaArn;
+        private bool _mUnknown_RotationLambdaArn;
+        public string? RotationLambdaArn
+        {
+            get
+            {
+                if (!_mUnknown_RotationLambdaArn) return _mValue_RotationLambdaArn;
+                throw new UndeferrableValueException("Value 'SecretRotation.RotationLambdaArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A structure that defines the rotation configuration for this secret. Defined below.
         /// </summary>
-        [Input("rotationRules")]
+        [PolicyResourceProperty("rotationRules", "_mUnknown_RotationRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SecretRotationRotationRules> _mRotationRules;
-
-        public Outputs.SecretRotationRotationRules? RotationRules => _mRotationRules.GetValue("rotationRules");
+        private Outputs.SecretRotationRotationRules? _mValue_RotationRules;
+        private bool _mUnknown_RotationRules;
+        public Outputs.SecretRotationRotationRules? RotationRules
+        {
+            get
+            {
+                if (!_mUnknown_RotationRules) return _mValue_RotationRules;
+                throw new UndeferrableValueException("Value 'SecretRotation.RotationRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         /// </summary>
-        [Input("secretId")]
+        [PolicyResourceProperty("secretId", "_mUnknown_SecretId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretId;
-
-        public string? SecretId => _mSecretId.GetValue("secretId");
+        private string? _mValue_SecretId;
+        private bool _mUnknown_SecretId;
+        public string? SecretId
+        {
+            get
+            {
+                if (!_mUnknown_SecretId) return _mValue_SecretId;
+                throw new UndeferrableValueException("Value 'SecretRotation.SecretId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:secretsmanager/secretRotation:SecretRotation")]
@@ -65,37 +100,65 @@ namespace Pulumi.PolicyPacks.Aws.SecretsManager
         /// <summary>
         /// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotation_rules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
         /// </summary>
-        [Input("rotateImmediately")]
+        [PolicyResourceProperty("rotateImmediately", "_mUnknown_RotateImmediately")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRotateImmediately;
-
-        public bool? RotateImmediately => _mRotateImmediately.GetValue("rotateImmediately");
+        private bool? _mValue_RotateImmediately;
+        private bool _mUnknown_RotateImmediately;
+        public bool? RotateImmediately
+        {
+            get
+            {
+                if (!_mUnknown_RotateImmediately) return _mValue_RotateImmediately;
+                throw new UndeferrableValueException("Value 'SecretRotationArgs.RotateImmediately' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         /// </summary>
-        [Input("rotationLambdaArn")]
+        [PolicyResourceProperty("rotationLambdaArn", "_mUnknown_RotationLambdaArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRotationLambdaArn;
-
-        public string? RotationLambdaArn => _mRotationLambdaArn.GetValue("rotationLambdaArn");
+        private string? _mValue_RotationLambdaArn;
+        private bool _mUnknown_RotationLambdaArn;
+        public string? RotationLambdaArn
+        {
+            get
+            {
+                if (!_mUnknown_RotationLambdaArn) return _mValue_RotationLambdaArn;
+                throw new UndeferrableValueException("Value 'SecretRotationArgs.RotationLambdaArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A structure that defines the rotation configuration for this secret. Defined below.
         /// </summary>
-        [Input("rotationRules")]
+        [PolicyResourceProperty("rotationRules", "_mUnknown_RotationRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SecretRotationRotationRulesArgs> _mRotationRules;
-
-        public Inputs.SecretRotationRotationRulesArgs? RotationRules => _mRotationRules.GetValue("rotationRules");
+        private Inputs.SecretRotationRotationRulesArgs? _mValue_RotationRules;
+        private bool _mUnknown_RotationRules;
+        public Inputs.SecretRotationRotationRulesArgs? RotationRules
+        {
+            get
+            {
+                if (!_mUnknown_RotationRules) return _mValue_RotationRules;
+                throw new UndeferrableValueException("Value 'SecretRotationArgs.RotationRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         /// </summary>
-        [Input("secretId")]
+        [PolicyResourceProperty("secretId", "_mUnknown_SecretId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretId;
-
-        public string? SecretId => _mSecretId.GetValue("secretId");
+        private string? _mValue_SecretId;
+        private bool _mUnknown_SecretId;
+        public string? SecretId
+        {
+            get
+            {
+                if (!_mUnknown_SecretId) return _mValue_SecretId;
+                throw new UndeferrableValueException("Value 'SecretRotationArgs.SecretId' is not present");
+            }
+        }
     }
 }

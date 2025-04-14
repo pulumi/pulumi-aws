@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// <summary>
         /// Client ID for the OpenID Connect identity provider.
         /// </summary>
-        [Input("clientId")]
+        [PolicyResourceProperty("clientId", "_mUnknown_ClientId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
-
-        public string? ClientId => _mClientId.GetValue("clientId");
+        private string? _mValue_ClientId;
+        private bool _mUnknown_ClientId;
+        public string? ClientId
+        {
+            get
+            {
+                if (!_mUnknown_ClientId) return _mValue_ClientId;
+                throw new UndeferrableValueException("Value 'IdentityProviderConfigOidc.ClientId' is not present");
+            }
+        }
 
         /// <summary>
         /// The JWT claim that the provider will use to return groups.
         /// </summary>
-        [Input("groupsClaim")]
+        [PolicyResourceProperty("groupsClaim", "_mUnknown_GroupsClaim")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupsClaim;
-
-        public string? GroupsClaim => _mGroupsClaim.GetValue("groupsClaim");
+        private string? _mValue_GroupsClaim;
+        private bool _mUnknown_GroupsClaim;
+        public string? GroupsClaim
+        {
+            get
+            {
+                if (!_mUnknown_GroupsClaim) return _mValue_GroupsClaim;
+                throw new UndeferrableValueException("Value 'IdentityProviderConfigOidc.GroupsClaim' is not present");
+            }
+        }
 
         /// <summary>
         /// A prefix that is prepended to group claims e.g., `oidc:`.
         /// </summary>
-        [Input("groupsPrefix")]
+        [PolicyResourceProperty("groupsPrefix", "_mUnknown_GroupsPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupsPrefix;
-
-        public string? GroupsPrefix => _mGroupsPrefix.GetValue("groupsPrefix");
+        private string? _mValue_GroupsPrefix;
+        private bool _mUnknown_GroupsPrefix;
+        public string? GroupsPrefix
+        {
+            get
+            {
+                if (!_mUnknown_GroupsPrefix) return _mValue_GroupsPrefix;
+                throw new UndeferrableValueException("Value 'IdentityProviderConfigOidc.GroupsPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the identity provider config.
         /// </summary>
-        [Input("identityProviderConfigName")]
+        [PolicyResourceProperty("identityProviderConfigName", "_mUnknown_IdentityProviderConfigName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityProviderConfigName;
-
-        public string? IdentityProviderConfigName => _mIdentityProviderConfigName.GetValue("identityProviderConfigName");
+        private string? _mValue_IdentityProviderConfigName;
+        private bool _mUnknown_IdentityProviderConfigName;
+        public string? IdentityProviderConfigName
+        {
+            get
+            {
+                if (!_mUnknown_IdentityProviderConfigName) return _mValue_IdentityProviderConfigName;
+                throw new UndeferrableValueException("Value 'IdentityProviderConfigOidc.IdentityProviderConfigName' is not present");
+            }
+        }
 
         /// <summary>
         /// Issuer URL for the OpenID Connect identity provider.
         /// </summary>
-        [Input("issuerUrl")]
+        [PolicyResourceProperty("issuerUrl", "_mUnknown_IssuerUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIssuerUrl;
-
-        public string? IssuerUrl => _mIssuerUrl.GetValue("issuerUrl");
+        private string? _mValue_IssuerUrl;
+        private bool _mUnknown_IssuerUrl;
+        public string? IssuerUrl
+        {
+            get
+            {
+                if (!_mUnknown_IssuerUrl) return _mValue_IssuerUrl;
+                throw new UndeferrableValueException("Value 'IdentityProviderConfigOidc.IssuerUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The key value pairs that describe required claims in the identity token.
         /// </summary>
-        [Input("requiredClaims")]
+        [PolicyResourceProperty("requiredClaims", "_mUnknown_RequiredClaims")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRequiredClaims;
-
-        public Dictionary<string, string>? RequiredClaims => _mRequiredClaims.GetValue("requiredClaims");
+        private Dictionary<string, string>? _mValue_RequiredClaims;
+        private bool _mUnknown_RequiredClaims;
+        public Dictionary<string, string>? RequiredClaims
+        {
+            get
+            {
+                if (!_mUnknown_RequiredClaims) return _mValue_RequiredClaims;
+                throw new UndeferrableValueException("Value 'IdentityProviderConfigOidc.RequiredClaims' is not present");
+            }
+        }
 
         /// <summary>
         /// The JWT claim that the provider will use as the username.
         /// </summary>
-        [Input("usernameClaim")]
+        [PolicyResourceProperty("usernameClaim", "_mUnknown_UsernameClaim")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsernameClaim;
-
-        public string? UsernameClaim => _mUsernameClaim.GetValue("usernameClaim");
+        private string? _mValue_UsernameClaim;
+        private bool _mUnknown_UsernameClaim;
+        public string? UsernameClaim
+        {
+            get
+            {
+                if (!_mUnknown_UsernameClaim) return _mValue_UsernameClaim;
+                throw new UndeferrableValueException("Value 'IdentityProviderConfigOidc.UsernameClaim' is not present");
+            }
+        }
 
         /// <summary>
         /// A prefix that is prepended to username claims.
         /// </summary>
-        [Input("usernamePrefix")]
+        [PolicyResourceProperty("usernamePrefix", "_mUnknown_UsernamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsernamePrefix;
-
-        public string? UsernamePrefix => _mUsernamePrefix.GetValue("usernamePrefix");
+        private string? _mValue_UsernamePrefix;
+        private bool _mUnknown_UsernamePrefix;
+        public string? UsernamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_UsernamePrefix) return _mValue_UsernamePrefix;
+                throw new UndeferrableValueException("Value 'IdentityProviderConfigOidc.UsernamePrefix' is not present");
+            }
+        }
     }
 }

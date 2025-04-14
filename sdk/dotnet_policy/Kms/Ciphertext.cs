@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Kms
         /// <summary>
         /// Base64 encoded ciphertext
         /// </summary>
-        [Input("ciphertextBlob")]
+        [PolicyResourceProperty("ciphertextBlob", "_mUnknown_CiphertextBlob")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCiphertextBlob;
-
-        public string? CiphertextBlob => _mCiphertextBlob.GetValue("ciphertextBlob");
+        private string? _mValue_CiphertextBlob;
+        private bool _mUnknown_CiphertextBlob;
+        public string? CiphertextBlob
+        {
+            get
+            {
+                if (!_mUnknown_CiphertextBlob) return _mValue_CiphertextBlob;
+                throw new UndeferrableValueException("Value 'Ciphertext.CiphertextBlob' is not present");
+            }
+        }
 
         /// <summary>
         /// An optional mapping that makes up the encryption context.
         /// </summary>
-        [Input("context")]
+        [PolicyResourceProperty("context", "_mUnknown_Context")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mContext;
-
-        public Dictionary<string, string>? Context => _mContext.GetValue("context");
+        private Dictionary<string, string>? _mValue_Context;
+        private bool _mUnknown_Context;
+        public Dictionary<string, string>? Context
+        {
+            get
+            {
+                if (!_mUnknown_Context) return _mValue_Context;
+                throw new UndeferrableValueException("Value 'Ciphertext.Context' is not present");
+            }
+        }
 
         /// <summary>
         /// Globally unique key ID for the customer master key.
         /// </summary>
-        [Input("keyId")]
+        [PolicyResourceProperty("keyId", "_mUnknown_KeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
-
-        public string? KeyId => _mKeyId.GetValue("keyId");
+        private string? _mValue_KeyId;
+        private bool _mUnknown_KeyId;
+        public string? KeyId
+        {
+            get
+            {
+                if (!_mUnknown_KeyId) return _mValue_KeyId;
+                throw new UndeferrableValueException("Value 'Ciphertext.KeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         /// </summary>
-        [Input("plaintext")]
+        [PolicyResourceProperty("plaintext", "_mUnknown_Plaintext")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlaintext;
-
-        public string? Plaintext => _mPlaintext.GetValue("plaintext");
+        private string? _mValue_Plaintext;
+        private bool _mUnknown_Plaintext;
+        public string? Plaintext
+        {
+            get
+            {
+                if (!_mUnknown_Plaintext) return _mValue_Plaintext;
+                throw new UndeferrableValueException("Value 'Ciphertext.Plaintext' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:kms/ciphertext:Ciphertext")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.Kms
         /// <summary>
         /// An optional mapping that makes up the encryption context.
         /// </summary>
-        [Input("context")]
+        [PolicyResourceProperty("context", "_mUnknown_Context")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mContext;
-
-        public Dictionary<string, string>? Context => _mContext.GetValue("context");
+        private Dictionary<string, string>? _mValue_Context;
+        private bool _mUnknown_Context;
+        public Dictionary<string, string>? Context
+        {
+            get
+            {
+                if (!_mUnknown_Context) return _mValue_Context;
+                throw new UndeferrableValueException("Value 'CiphertextArgs.Context' is not present");
+            }
+        }
 
         /// <summary>
         /// Globally unique key ID for the customer master key.
         /// </summary>
-        [Input("keyId")]
+        [PolicyResourceProperty("keyId", "_mUnknown_KeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
-
-        public string? KeyId => _mKeyId.GetValue("keyId");
+        private string? _mValue_KeyId;
+        private bool _mUnknown_KeyId;
+        public string? KeyId
+        {
+            get
+            {
+                if (!_mUnknown_KeyId) return _mValue_KeyId;
+                throw new UndeferrableValueException("Value 'CiphertextArgs.KeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         /// </summary>
-        [Input("plaintext")]
+        [PolicyResourceProperty("plaintext", "_mUnknown_Plaintext")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlaintext;
-
-        public string? Plaintext => _mPlaintext.GetValue("plaintext");
+        private string? _mValue_Plaintext;
+        private bool _mUnknown_Plaintext;
+        public string? Plaintext
+        {
+            get
+            {
+                if (!_mUnknown_Plaintext) return _mValue_Plaintext;
+                throw new UndeferrableValueException("Value 'CiphertextArgs.Plaintext' is not present");
+            }
+        }
     }
 }

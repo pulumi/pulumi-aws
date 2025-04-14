@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetPhysicalTableMapRelationalTableResult
     {
-        [Input("catalog")]
+        [PolicyResourceProperty("catalog", "_mUnknown_Catalog")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalog;
+        private string? _mValue_Catalog;
+        private bool _mUnknown_Catalog;
+        public string? Catalog
+        {
+            get
+            {
+                if (!_mUnknown_Catalog) return _mValue_Catalog;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapRelationalTableResult.Catalog' is not present");
+            }
+        }
 
-        public string? Catalog => _mCatalog.GetValue("catalog");
-
-        [Input("dataSourceArn")]
+        [PolicyResourceProperty("dataSourceArn", "_mUnknown_DataSourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceArn;
+        private string? _mValue_DataSourceArn;
+        private bool _mUnknown_DataSourceArn;
+        public string? DataSourceArn
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceArn) return _mValue_DataSourceArn;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapRelationalTableResult.DataSourceArn' is not present");
+            }
+        }
 
-        public string? DataSourceArn => _mDataSourceArn.GetValue("dataSourceArn");
-
-        [Input("inputColumns")]
+        [PolicyResourceProperty("inputColumns", "_mUnknown_InputColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDataSetPhysicalTableMapRelationalTableInputColumnResult>> _mInputColumns;
+        private List<Outputs.GetDataSetPhysicalTableMapRelationalTableInputColumnResult>? _mValue_InputColumns;
+        private bool _mUnknown_InputColumns;
+        public List<Outputs.GetDataSetPhysicalTableMapRelationalTableInputColumnResult>? InputColumns
+        {
+            get
+            {
+                if (!_mUnknown_InputColumns) return _mValue_InputColumns;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapRelationalTableResult.InputColumns' is not present");
+            }
+        }
 
-        public List<Outputs.GetDataSetPhysicalTableMapRelationalTableInputColumnResult>? InputColumns => _mInputColumns.GetValue("inputColumns");
-
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapRelationalTableResult.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("schema")]
+        [PolicyResourceProperty("schema", "_mUnknown_Schema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchema;
-
-        public string? Schema => _mSchema.GetValue("schema");
+        private string? _mValue_Schema;
+        private bool _mUnknown_Schema;
+        public string? Schema
+        {
+            get
+            {
+                if (!_mUnknown_Schema) return _mValue_Schema;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapRelationalTableResult.Schema' is not present");
+            }
+        }
     }
 }

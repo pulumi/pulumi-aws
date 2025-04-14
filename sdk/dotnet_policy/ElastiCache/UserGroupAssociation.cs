@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// <summary>
         /// ID of the user group.
         /// </summary>
-        [Input("userGroupId")]
+        [PolicyResourceProperty("userGroupId", "_mUnknown_UserGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserGroupId;
-
-        public string? UserGroupId => _mUserGroupId.GetValue("userGroupId");
+        private string? _mValue_UserGroupId;
+        private bool _mUnknown_UserGroupId;
+        public string? UserGroupId
+        {
+            get
+            {
+                if (!_mUnknown_UserGroupId) return _mValue_UserGroupId;
+                throw new UndeferrableValueException("Value 'UserGroupAssociation.UserGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the user to associated with the user group.
         /// </summary>
-        [Input("userId")]
+        [PolicyResourceProperty("userId", "_mUnknown_UserId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserId;
-
-        public string? UserId => _mUserId.GetValue("userId");
+        private string? _mValue_UserId;
+        private bool _mUnknown_UserId;
+        public string? UserId
+        {
+            get
+            {
+                if (!_mUnknown_UserId) return _mValue_UserId;
+                throw new UndeferrableValueException("Value 'UserGroupAssociation.UserId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:elasticache/userGroupAssociation:UserGroupAssociation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// <summary>
         /// ID of the user group.
         /// </summary>
-        [Input("userGroupId")]
+        [PolicyResourceProperty("userGroupId", "_mUnknown_UserGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserGroupId;
-
-        public string? UserGroupId => _mUserGroupId.GetValue("userGroupId");
+        private string? _mValue_UserGroupId;
+        private bool _mUnknown_UserGroupId;
+        public string? UserGroupId
+        {
+            get
+            {
+                if (!_mUnknown_UserGroupId) return _mValue_UserGroupId;
+                throw new UndeferrableValueException("Value 'UserGroupAssociationArgs.UserGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the user to associated with the user group.
         /// </summary>
-        [Input("userId")]
+        [PolicyResourceProperty("userId", "_mUnknown_UserId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserId;
-
-        public string? UserId => _mUserId.GetValue("userId");
+        private string? _mValue_UserId;
+        private bool _mUnknown_UserId;
+        public string? UserId
+        {
+            get
+            {
+                if (!_mUnknown_UserId) return _mValue_UserId;
+                throw new UndeferrableValueException("Value 'UserGroupAssociationArgs.UserId' is not present");
+            }
+        }
     }
 }

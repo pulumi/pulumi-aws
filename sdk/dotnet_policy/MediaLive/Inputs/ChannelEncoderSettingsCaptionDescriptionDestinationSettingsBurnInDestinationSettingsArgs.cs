@@ -15,154 +15,273 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
         /// </summary>
-        [Input("alignment")]
+        [PolicyResourceProperty("alignment", "_mUnknown_Alignment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlignment;
-
-        public string? Alignment => _mAlignment.GetValue("alignment");
+        private string? _mValue_Alignment;
+        private bool _mUnknown_Alignment;
+        public string? Alignment
+        {
+            get
+            {
+                if (!_mUnknown_Alignment) return _mValue_Alignment;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs.Alignment' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
         /// </summary>
-        [Input("backgroundColor")]
+        [PolicyResourceProperty("backgroundColor", "_mUnknown_BackgroundColor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackgroundColor;
-
-        public string? BackgroundColor => _mBackgroundColor.GetValue("backgroundColor");
+        private string? _mValue_BackgroundColor;
+        private bool _mUnknown_BackgroundColor;
+        public string? BackgroundColor
+        {
+            get
+            {
+                if (!_mUnknown_BackgroundColor) return _mValue_BackgroundColor;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs.BackgroundColor' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
         /// </summary>
-        [Input("backgroundOpacity")]
+        [PolicyResourceProperty("backgroundOpacity", "_mUnknown_BackgroundOpacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBackgroundOpacity;
-
-        public int? BackgroundOpacity => _mBackgroundOpacity.GetValue("backgroundOpacity");
+        private int? _mValue_BackgroundOpacity;
+        private bool _mUnknown_BackgroundOpacity;
+        public int? BackgroundOpacity
+        {
+            get
+            {
+                if (!_mUnknown_BackgroundOpacity) return _mValue_BackgroundOpacity;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs.BackgroundOpacity' is not present");
+            }
+        }
 
         /// <summary>
         /// External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
         /// </summary>
-        [Input("font")]
+        [PolicyResourceProperty("font", "_mUnknown_Font")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs> _mFont;
-
-        public Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs? Font => _mFont.GetValue("font");
+        private Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs? _mValue_Font;
+        private bool _mUnknown_Font;
+        public Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs? Font
+        {
+            get
+            {
+                if (!_mUnknown_Font) return _mValue_Font;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs.Font' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
         /// </summary>
-        [Input("fontColor")]
+        [PolicyResourceProperty("fontColor", "_mUnknown_FontColor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFontColor;
-
-        public string? FontColor => _mFontColor.GetValue("fontColor");
+        private string? _mValue_FontColor;
+        private bool _mUnknown_FontColor;
+        public string? FontColor
+        {
+            get
+            {
+                if (!_mUnknown_FontColor) return _mValue_FontColor;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs.FontColor' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
         /// </summary>
-        [Input("fontOpacity")]
+        [PolicyResourceProperty("fontOpacity", "_mUnknown_FontOpacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFontOpacity;
-
-        public int? FontOpacity => _mFontOpacity.GetValue("fontOpacity");
+        private int? _mValue_FontOpacity;
+        private bool _mUnknown_FontOpacity;
+        public int? FontOpacity
+        {
+            get
+            {
+                if (!_mUnknown_FontOpacity) return _mValue_FontOpacity;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs.FontOpacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
         /// </summary>
-        [Input("fontResolution")]
+        [PolicyResourceProperty("fontResolution", "_mUnknown_FontResolution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFontResolution;
-
-        public int? FontResolution => _mFontResolution.GetValue("fontResolution");
+        private int? _mValue_FontResolution;
+        private bool _mUnknown_FontResolution;
+        public int? FontResolution
+        {
+            get
+            {
+                if (!_mUnknown_FontResolution) return _mValue_FontResolution;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs.FontResolution' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to ‘auto’ fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
         /// </summary>
-        [Input("fontSize")]
+        [PolicyResourceProperty("fontSize", "_mUnknown_FontSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFontSize;
-
-        public string? FontSize => _mFontSize.GetValue("fontSize");
+        private string? _mValue_FontSize;
+        private bool _mUnknown_FontSize;
+        public string? FontSize
+        {
+            get
+            {
+                if (!_mUnknown_FontSize) return _mValue_FontSize;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs.FontSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
         /// </summary>
-        [Input("outlineColor")]
+        [PolicyResourceProperty("outlineColor", "_mUnknown_OutlineColor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutlineColor;
-
-        public string? OutlineColor => _mOutlineColor.GetValue("outlineColor");
+        private string? _mValue_OutlineColor;
+        private bool _mUnknown_OutlineColor;
+        public string? OutlineColor
+        {
+            get
+            {
+                if (!_mUnknown_OutlineColor) return _mValue_OutlineColor;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs.OutlineColor' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
         /// </summary>
-        [Input("outlineSize")]
+        [PolicyResourceProperty("outlineSize", "_mUnknown_OutlineSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOutlineSize;
-
-        public int? OutlineSize => _mOutlineSize.GetValue("outlineSize");
+        private int? _mValue_OutlineSize;
+        private bool _mUnknown_OutlineSize;
+        public int? OutlineSize
+        {
+            get
+            {
+                if (!_mUnknown_OutlineSize) return _mValue_OutlineSize;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs.OutlineSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
         /// </summary>
-        [Input("shadowColor")]
+        [PolicyResourceProperty("shadowColor", "_mUnknown_ShadowColor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShadowColor;
-
-        public string? ShadowColor => _mShadowColor.GetValue("shadowColor");
+        private string? _mValue_ShadowColor;
+        private bool _mUnknown_ShadowColor;
+        public string? ShadowColor
+        {
+            get
+            {
+                if (!_mUnknown_ShadowColor) return _mValue_ShadowColor;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs.ShadowColor' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
         /// </summary>
-        [Input("shadowOpacity")]
+        [PolicyResourceProperty("shadowOpacity", "_mUnknown_ShadowOpacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mShadowOpacity;
-
-        public int? ShadowOpacity => _mShadowOpacity.GetValue("shadowOpacity");
+        private int? _mValue_ShadowOpacity;
+        private bool _mUnknown_ShadowOpacity;
+        public int? ShadowOpacity
+        {
+            get
+            {
+                if (!_mUnknown_ShadowOpacity) return _mValue_ShadowOpacity;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs.ShadowOpacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
         /// </summary>
-        [Input("shadowXOffset")]
+        [PolicyResourceProperty("shadowXOffset", "_mUnknown_ShadowXOffset")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mShadowXOffset;
-
-        public int? ShadowXOffset => _mShadowXOffset.GetValue("shadowXOffset");
+        private int? _mValue_ShadowXOffset;
+        private bool _mUnknown_ShadowXOffset;
+        public int? ShadowXOffset
+        {
+            get
+            {
+                if (!_mUnknown_ShadowXOffset) return _mValue_ShadowXOffset;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs.ShadowXOffset' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
         /// </summary>
-        [Input("shadowYOffset")]
+        [PolicyResourceProperty("shadowYOffset", "_mUnknown_ShadowYOffset")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mShadowYOffset;
-
-        public int? ShadowYOffset => _mShadowYOffset.GetValue("shadowYOffset");
+        private int? _mValue_ShadowYOffset;
+        private bool _mUnknown_ShadowYOffset;
+        public int? ShadowYOffset
+        {
+            get
+            {
+                if (!_mUnknown_ShadowYOffset) return _mValue_ShadowYOffset;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs.ShadowYOffset' is not present");
+            }
+        }
 
         /// <summary>
         /// Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
         /// </summary>
-        [Input("teletextGridControl")]
+        [PolicyResourceProperty("teletextGridControl", "_mUnknown_TeletextGridControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTeletextGridControl;
-
-        public string? TeletextGridControl => _mTeletextGridControl.GetValue("teletextGridControl");
+        private string? _mValue_TeletextGridControl;
+        private bool _mUnknown_TeletextGridControl;
+        public string? TeletextGridControl
+        {
+            get
+            {
+                if (!_mUnknown_TeletextGridControl) return _mValue_TeletextGridControl;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs.TeletextGridControl' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
         /// </summary>
-        [Input("xPosition")]
+        [PolicyResourceProperty("xPosition", "_mUnknown_XPosition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mXPosition;
-
-        public int? XPosition => _mXPosition.GetValue("xPosition");
+        private int? _mValue_XPosition;
+        private bool _mUnknown_XPosition;
+        public int? XPosition
+        {
+            get
+            {
+                if (!_mUnknown_XPosition) return _mValue_XPosition;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs.XPosition' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
         /// </summary>
-        [Input("yPosition")]
+        [PolicyResourceProperty("yPosition", "_mUnknown_YPosition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mYPosition;
-
-        public int? YPosition => _mYPosition.GetValue("yPosition");
+        private int? _mValue_YPosition;
+        private bool _mUnknown_YPosition;
+        public int? YPosition
+        {
+            get
+            {
+                if (!_mUnknown_YPosition) return _mValue_YPosition;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs.YPosition' is not present");
+            }
+        }
     }
 }

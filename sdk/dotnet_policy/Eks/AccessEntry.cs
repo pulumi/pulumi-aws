@@ -16,94 +16,164 @@ namespace Pulumi.PolicyPacks.Aws.Eks
         /// <summary>
         /// Amazon Resource Name (ARN) of the Access Entry.
         /// </summary>
-        [Input("accessEntryArn")]
+        [PolicyResourceProperty("accessEntryArn", "_mUnknown_AccessEntryArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessEntryArn;
-
-        public string? AccessEntryArn => _mAccessEntryArn.GetValue("accessEntryArn");
+        private string? _mValue_AccessEntryArn;
+        private bool _mUnknown_AccessEntryArn;
+        public string? AccessEntryArn
+        {
+            get
+            {
+                if (!_mUnknown_AccessEntryArn) return _mValue_AccessEntryArn;
+                throw new UndeferrableValueException("Value 'AccessEntry.AccessEntryArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the EKS Cluster.
         /// </summary>
-        [Input("clusterName")]
+        [PolicyResourceProperty("clusterName", "_mUnknown_ClusterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
-
-        public string? ClusterName => _mClusterName.GetValue("clusterName");
+        private string? _mValue_ClusterName;
+        private bool _mUnknown_ClusterName;
+        public string? ClusterName
+        {
+            get
+            {
+                if (!_mUnknown_ClusterName) return _mValue_ClusterName;
+                throw new UndeferrableValueException("Value 'AccessEntry.ClusterName' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'AccessEntry.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
         /// </summary>
-        [Input("kubernetesGroups")]
+        [PolicyResourceProperty("kubernetesGroups", "_mUnknown_KubernetesGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKubernetesGroups;
-
-        public List<string>? KubernetesGroups => _mKubernetesGroups.GetValue("kubernetesGroups");
+        private List<string>? _mValue_KubernetesGroups;
+        private bool _mUnknown_KubernetesGroups;
+        public List<string>? KubernetesGroups
+        {
+            get
+            {
+                if (!_mUnknown_KubernetesGroups) return _mValue_KubernetesGroups;
+                throw new UndeferrableValueException("Value 'AccessEntry.KubernetesGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
         /// </summary>
-        [Input("modifiedAt")]
+        [PolicyResourceProperty("modifiedAt", "_mUnknown_ModifiedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModifiedAt;
-
-        public string? ModifiedAt => _mModifiedAt.GetValue("modifiedAt");
+        private string? _mValue_ModifiedAt;
+        private bool _mUnknown_ModifiedAt;
+        public string? ModifiedAt
+        {
+            get
+            {
+                if (!_mUnknown_ModifiedAt) return _mValue_ModifiedAt;
+                throw new UndeferrableValueException("Value 'AccessEntry.ModifiedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM Principal ARN which requires Authentication access to the EKS cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("principalArn")]
+        [PolicyResourceProperty("principalArn", "_mUnknown_PrincipalArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalArn;
-
-        public string? PrincipalArn => _mPrincipalArn.GetValue("principalArn");
+        private string? _mValue_PrincipalArn;
+        private bool _mUnknown_PrincipalArn;
+        public string? PrincipalArn
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalArn) return _mValue_PrincipalArn;
+                throw new UndeferrableValueException("Value 'AccessEntry.PrincipalArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AccessEntry.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'AccessEntry.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'AccessEntry.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'AccessEntry.UserName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:eks/accessEntry:AccessEntry")]
@@ -112,57 +182,99 @@ namespace Pulumi.PolicyPacks.Aws.Eks
         /// <summary>
         /// Name of the EKS Cluster.
         /// </summary>
-        [Input("clusterName")]
+        [PolicyResourceProperty("clusterName", "_mUnknown_ClusterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
-
-        public string? ClusterName => _mClusterName.GetValue("clusterName");
+        private string? _mValue_ClusterName;
+        private bool _mUnknown_ClusterName;
+        public string? ClusterName
+        {
+            get
+            {
+                if (!_mUnknown_ClusterName) return _mValue_ClusterName;
+                throw new UndeferrableValueException("Value 'AccessEntryArgs.ClusterName' is not present");
+            }
+        }
 
         /// <summary>
         /// List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
         /// </summary>
-        [Input("kubernetesGroups")]
+        [PolicyResourceProperty("kubernetesGroups", "_mUnknown_KubernetesGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKubernetesGroups;
-
-        public List<string>? KubernetesGroups => _mKubernetesGroups.GetValue("kubernetesGroups");
+        private List<string>? _mValue_KubernetesGroups;
+        private bool _mUnknown_KubernetesGroups;
+        public List<string>? KubernetesGroups
+        {
+            get
+            {
+                if (!_mUnknown_KubernetesGroups) return _mValue_KubernetesGroups;
+                throw new UndeferrableValueException("Value 'AccessEntryArgs.KubernetesGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM Principal ARN which requires Authentication access to the EKS cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("principalArn")]
+        [PolicyResourceProperty("principalArn", "_mUnknown_PrincipalArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalArn;
-
-        public string? PrincipalArn => _mPrincipalArn.GetValue("principalArn");
+        private string? _mValue_PrincipalArn;
+        private bool _mUnknown_PrincipalArn;
+        public string? PrincipalArn
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalArn) return _mValue_PrincipalArn;
+                throw new UndeferrableValueException("Value 'AccessEntryArgs.PrincipalArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AccessEntryArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'AccessEntryArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'AccessEntryArgs.UserName' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The name of a CloudWatch alarm in your account.
         /// </summary>
-        [Input("alarmName")]
+        [PolicyResourceProperty("alarmName", "_mUnknown_AlarmName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlarmName;
-
-        public string? AlarmName => _mAlarmName.GetValue("alarmName");
+        private string? _mValue_AlarmName;
+        private bool _mUnknown_AlarmName;
+        public string? AlarmName
+        {
+            get
+            {
+                if (!_mUnknown_AlarmName) return _mValue_AlarmName;
+                throw new UndeferrableValueException("Value 'EndpointDeploymentConfigAutoRollbackConfigurationAlarm.AlarmName' is not present");
+            }
+        }
     }
 }

@@ -16,80 +16,143 @@ namespace Pulumi.PolicyPacks.Aws.DeviceFarm
         /// <summary>
         /// The Amazon Resource Name of this Device Pool
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DevicePool.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The device pool's description.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DevicePool.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of devices that Device Farm can add to your device pool.
         /// </summary>
-        [Input("maxDevices")]
+        [PolicyResourceProperty("maxDevices", "_mUnknown_MaxDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxDevices;
-
-        public int? MaxDevices => _mMaxDevices.GetValue("maxDevices");
+        private int? _mValue_MaxDevices;
+        private bool _mUnknown_MaxDevices;
+        public int? MaxDevices
+        {
+            get
+            {
+                if (!_mUnknown_MaxDevices) return _mValue_MaxDevices;
+                throw new UndeferrableValueException("Value 'DevicePool.MaxDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Device Pool
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DevicePool.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the project for the device pool.
         /// </summary>
-        [Input("projectArn")]
+        [PolicyResourceProperty("projectArn", "_mUnknown_ProjectArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectArn;
-
-        public string? ProjectArn => _mProjectArn.GetValue("projectArn");
+        private string? _mValue_ProjectArn;
+        private bool _mUnknown_ProjectArn;
+        public string? ProjectArn
+        {
+            get
+            {
+                if (!_mUnknown_ProjectArn) return _mValue_ProjectArn;
+                throw new UndeferrableValueException("Value 'DevicePool.ProjectArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The device pool's rules. See Rule.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DevicePoolRule>> _mRules;
-
-        public List<Outputs.DevicePoolRule>? Rules => _mRules.GetValue("rules");
+        private List<Outputs.DevicePoolRule>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Outputs.DevicePoolRule>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'DevicePool.Rules' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DevicePool.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DevicePool.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'DevicePool.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:devicefarm/devicePool:DevicePool")]
@@ -98,55 +161,97 @@ namespace Pulumi.PolicyPacks.Aws.DeviceFarm
         /// <summary>
         /// The device pool's description.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DevicePoolArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of devices that Device Farm can add to your device pool.
         /// </summary>
-        [Input("maxDevices")]
+        [PolicyResourceProperty("maxDevices", "_mUnknown_MaxDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxDevices;
-
-        public int? MaxDevices => _mMaxDevices.GetValue("maxDevices");
+        private int? _mValue_MaxDevices;
+        private bool _mUnknown_MaxDevices;
+        public int? MaxDevices
+        {
+            get
+            {
+                if (!_mUnknown_MaxDevices) return _mValue_MaxDevices;
+                throw new UndeferrableValueException("Value 'DevicePoolArgs.MaxDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Device Pool
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DevicePoolArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the project for the device pool.
         /// </summary>
-        [Input("projectArn")]
+        [PolicyResourceProperty("projectArn", "_mUnknown_ProjectArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectArn;
-
-        public string? ProjectArn => _mProjectArn.GetValue("projectArn");
+        private string? _mValue_ProjectArn;
+        private bool _mUnknown_ProjectArn;
+        public string? ProjectArn
+        {
+            get
+            {
+                if (!_mUnknown_ProjectArn) return _mValue_ProjectArn;
+                throw new UndeferrableValueException("Value 'DevicePoolArgs.ProjectArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The device pool's rules. See Rule.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DevicePoolRuleArgs>> _mRules;
-
-        public List<Inputs.DevicePoolRuleArgs>? Rules => _mRules.GetValue("rules");
+        private List<Inputs.DevicePoolRuleArgs>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Inputs.DevicePoolRuleArgs>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'DevicePoolArgs.Rules' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DevicePoolArgs.Tags' is not present");
+            }
+        }
     }
 }

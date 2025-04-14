@@ -16,44 +16,79 @@ namespace Pulumi.PolicyPacks.Aws.AppSync
         /// <summary>
         /// ID of the associated AppSync API
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'ApiKey.ApiId' is not present");
+            }
+        }
 
-        public string? ApiId => _mApiId.GetValue("apiId");
-
-        [Input("apiKeyId")]
+        [PolicyResourceProperty("apiKeyId", "_mUnknown_ApiKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiKeyId;
-
-        public string? ApiKeyId => _mApiKeyId.GetValue("apiKeyId");
+        private string? _mValue_ApiKeyId;
+        private bool _mUnknown_ApiKeyId;
+        public string? ApiKeyId
+        {
+            get
+            {
+                if (!_mUnknown_ApiKeyId) return _mValue_ApiKeyId;
+                throw new UndeferrableValueException("Value 'ApiKey.ApiKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// API key description. Defaults to "Managed by Pulumi".
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ApiKey.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
         /// </summary>
-        [Input("expires")]
+        [PolicyResourceProperty("expires", "_mUnknown_Expires")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpires;
-
-        public string? Expires => _mExpires.GetValue("expires");
+        private string? _mValue_Expires;
+        private bool _mUnknown_Expires;
+        public string? Expires
+        {
+            get
+            {
+                if (!_mUnknown_Expires) return _mValue_Expires;
+                throw new UndeferrableValueException("Value 'ApiKey.Expires' is not present");
+            }
+        }
 
         /// <summary>
         /// API key
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'ApiKey.Key' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appsync/apiKey:ApiKey")]
@@ -62,28 +97,49 @@ namespace Pulumi.PolicyPacks.Aws.AppSync
         /// <summary>
         /// ID of the associated AppSync API
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'ApiKeyArgs.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// API key description. Defaults to "Managed by Pulumi".
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ApiKeyArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
         /// </summary>
-        [Input("expires")]
+        [PolicyResourceProperty("expires", "_mUnknown_Expires")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpires;
-
-        public string? Expires => _mExpires.GetValue("expires");
+        private string? _mValue_Expires;
+        private bool _mUnknown_Expires;
+        public string? Expires
+        {
+            get
+            {
+                if (!_mUnknown_Expires) return _mValue_Expires;
+                throw new UndeferrableValueException("Value 'ApiKeyArgs.Expires' is not present");
+            }
+        }
     }
 }

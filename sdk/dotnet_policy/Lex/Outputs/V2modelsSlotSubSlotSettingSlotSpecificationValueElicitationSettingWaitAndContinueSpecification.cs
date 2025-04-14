@@ -17,40 +17,68 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// When this field is `false`, wait and continue responses for a slot aren't used.
         /// If the active field isn't specified, the default is `true`.
         /// </summary>
-        [Input("active")]
+        [PolicyResourceProperty("active", "_mUnknown_Active")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
-
-        public bool? Active => _mActive.GetValue("active");
+        private bool? _mValue_Active;
+        private bool _mUnknown_Active;
+        public bool? Active
+        {
+            get
+            {
+                if (!_mUnknown_Active) return _mValue_Active;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification.Active' is not present");
+            }
+        }
 
         /// <summary>
         /// Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
         /// See the `continue_response` argument reference below.
         /// </summary>
-        [Input("continueResponses")]
+        [PolicyResourceProperty("continueResponses", "_mUnknown_ContinueResponses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponse>> _mContinueResponses;
-
-        public List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponse>? ContinueResponses => _mContinueResponses.GetValue("continueResponses");
+        private List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponse>? _mValue_ContinueResponses;
+        private bool _mUnknown_ContinueResponses;
+        public List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponse>? ContinueResponses
+        {
+            get
+            {
+                if (!_mUnknown_ContinueResponses) return _mValue_ContinueResponses;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification.ContinueResponses' is not present");
+            }
+        }
 
         /// <summary>
         /// Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
         /// See the `still_waiting_response` argument reference below.
         /// </summary>
-        [Input("stillWaitingResponses")]
+        [PolicyResourceProperty("stillWaitingResponses", "_mUnknown_StillWaitingResponses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse>> _mStillWaitingResponses;
-
-        public List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse>? StillWaitingResponses => _mStillWaitingResponses.GetValue("stillWaitingResponses");
+        private List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse>? _mValue_StillWaitingResponses;
+        private bool _mUnknown_StillWaitingResponses;
+        public List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse>? StillWaitingResponses
+        {
+            get
+            {
+                if (!_mUnknown_StillWaitingResponses) return _mValue_StillWaitingResponses;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification.StillWaitingResponses' is not present");
+            }
+        }
 
         /// <summary>
         /// Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
         /// See the `waiting_response` argument reference below.
         /// </summary>
-        [Input("waitingResponses")]
+        [PolicyResourceProperty("waitingResponses", "_mUnknown_WaitingResponses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse>> _mWaitingResponses;
-
-        public List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse>? WaitingResponses => _mWaitingResponses.GetValue("waitingResponses");
+        private List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse>? _mValue_WaitingResponses;
+        private bool _mUnknown_WaitingResponses;
+        public List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse>? WaitingResponses
+        {
+            get
+            {
+                if (!_mUnknown_WaitingResponses) return _mValue_WaitingResponses;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification.WaitingResponses' is not present");
+            }
+        }
     }
 }

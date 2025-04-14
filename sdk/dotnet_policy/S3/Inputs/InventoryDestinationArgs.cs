@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// S3 bucket configuration where inventory results are published (documented below).
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InventoryDestinationBucketArgs> _mBucket;
-
-        public Inputs.InventoryDestinationBucketArgs? Bucket => _mBucket.GetValue("bucket");
+        private Inputs.InventoryDestinationBucketArgs? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public Inputs.InventoryDestinationBucketArgs? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'InventoryDestinationArgs.Bucket' is not present");
+            }
+        }
     }
 }

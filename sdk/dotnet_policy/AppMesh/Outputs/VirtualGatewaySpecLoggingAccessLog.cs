@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// File object to send virtual gateway access logs to.
         /// </summary>
-        [Input("file")]
+        [PolicyResourceProperty("file", "_mUnknown_File")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualGatewaySpecLoggingAccessLogFile> _mFile;
-
-        public Outputs.VirtualGatewaySpecLoggingAccessLogFile? File => _mFile.GetValue("file");
+        private Outputs.VirtualGatewaySpecLoggingAccessLogFile? _mValue_File;
+        private bool _mUnknown_File;
+        public Outputs.VirtualGatewaySpecLoggingAccessLogFile? File
+        {
+            get
+            {
+                if (!_mUnknown_File) return _mValue_File;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecLoggingAccessLog.File' is not present");
+            }
+        }
     }
 }

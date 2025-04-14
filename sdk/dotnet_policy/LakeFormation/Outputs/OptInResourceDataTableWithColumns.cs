@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation.Outputs
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'OptInResourceDataTableWithColumns.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
         /// </summary>
-        [Input("columnNames")]
+        [PolicyResourceProperty("columnNames", "_mUnknown_ColumnNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mColumnNames;
-
-        public List<string>? ColumnNames => _mColumnNames.GetValue("columnNames");
+        private List<string>? _mValue_ColumnNames;
+        private bool _mUnknown_ColumnNames;
+        public List<string>? ColumnNames
+        {
+            get
+            {
+                if (!_mUnknown_ColumnNames) return _mValue_ColumnNames;
+                throw new UndeferrableValueException("Value 'OptInResourceDataTableWithColumns.ColumnNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
         /// </summary>
-        [Input("columnWildcard")]
+        [PolicyResourceProperty("columnWildcard", "_mUnknown_ColumnWildcard")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OptInResourceDataTableWithColumnsColumnWildcard> _mColumnWildcard;
-
-        public Outputs.OptInResourceDataTableWithColumnsColumnWildcard? ColumnWildcard => _mColumnWildcard.GetValue("columnWildcard");
+        private Outputs.OptInResourceDataTableWithColumnsColumnWildcard? _mValue_ColumnWildcard;
+        private bool _mUnknown_ColumnWildcard;
+        public Outputs.OptInResourceDataTableWithColumnsColumnWildcard? ColumnWildcard
+        {
+            get
+            {
+                if (!_mUnknown_ColumnWildcard) return _mValue_ColumnWildcard;
+                throw new UndeferrableValueException("Value 'OptInResourceDataTableWithColumns.ColumnWildcard' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'OptInResourceDataTableWithColumns.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the table.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'OptInResourceDataTableWithColumns.Name' is not present");
+            }
+        }
     }
 }

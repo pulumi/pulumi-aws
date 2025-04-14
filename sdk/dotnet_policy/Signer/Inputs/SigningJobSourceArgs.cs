@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Signer.Inputs
         /// <summary>
         /// A configuration block describing the S3 Source object: See S3 Source below for details.
         /// </summary>
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SigningJobSourceS3Args> _mS3;
-
-        public Inputs.SigningJobSourceS3Args? S3 => _mS3.GetValue("s3");
+        private Inputs.SigningJobSourceS3Args? _mValue_S3;
+        private bool _mUnknown_S3;
+        public Inputs.SigningJobSourceS3Args? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'SigningJobSourceArgs.S3' is not present");
+            }
+        }
     }
 }

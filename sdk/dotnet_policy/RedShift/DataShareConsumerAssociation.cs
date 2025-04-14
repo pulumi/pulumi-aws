@@ -16,67 +16,116 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// Whether to allow write operations for a datashare.
         /// </summary>
-        [Input("allowWrites")]
+        [PolicyResourceProperty("allowWrites", "_mUnknown_AllowWrites")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowWrites;
-
-        public bool? AllowWrites => _mAllowWrites.GetValue("allowWrites");
+        private bool? _mValue_AllowWrites;
+        private bool _mUnknown_AllowWrites;
+        public bool? AllowWrites
+        {
+            get
+            {
+                if (!_mUnknown_AllowWrites) return _mValue_AllowWrites;
+                throw new UndeferrableValueException("Value 'DataShareConsumerAssociation.AllowWrites' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the datashare is associated with the entire account. Conflicts with `consumer_arn` and `consumer_region`.
         /// </summary>
-        [Input("associateEntireAccount")]
+        [PolicyResourceProperty("associateEntireAccount", "_mUnknown_AssociateEntireAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAssociateEntireAccount;
-
-        public bool? AssociateEntireAccount => _mAssociateEntireAccount.GetValue("associateEntireAccount");
+        private bool? _mValue_AssociateEntireAccount;
+        private bool _mUnknown_AssociateEntireAccount;
+        public bool? AssociateEntireAccount
+        {
+            get
+            {
+                if (!_mUnknown_AssociateEntireAccount) return _mValue_AssociateEntireAccount;
+                throw new UndeferrableValueException("Value 'DataShareConsumerAssociation.AssociateEntireAccount' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associate_entire_account` and `consumer_region`.
         /// </summary>
-        [Input("consumerArn")]
+        [PolicyResourceProperty("consumerArn", "_mUnknown_ConsumerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerArn;
-
-        public string? ConsumerArn => _mConsumerArn.GetValue("consumerArn");
+        private string? _mValue_ConsumerArn;
+        private bool _mUnknown_ConsumerArn;
+        public string? ConsumerArn
+        {
+            get
+            {
+                if (!_mUnknown_ConsumerArn) return _mValue_ConsumerArn;
+                throw new UndeferrableValueException("Value 'DataShareConsumerAssociation.ConsumerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associate_entire_account` and `consumer_arn`.
         /// </summary>
-        [Input("consumerRegion")]
+        [PolicyResourceProperty("consumerRegion", "_mUnknown_ConsumerRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerRegion;
-
-        public string? ConsumerRegion => _mConsumerRegion.GetValue("consumerRegion");
+        private string? _mValue_ConsumerRegion;
+        private bool _mUnknown_ConsumerRegion;
+        public string? ConsumerRegion
+        {
+            get
+            {
+                if (!_mUnknown_ConsumerRegion) return _mValue_ConsumerRegion;
+                throw new UndeferrableValueException("Value 'DataShareConsumerAssociation.ConsumerRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("dataShareArn")]
+        [PolicyResourceProperty("dataShareArn", "_mUnknown_DataShareArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataShareArn;
-
-        public string? DataShareArn => _mDataShareArn.GetValue("dataShareArn");
+        private string? _mValue_DataShareArn;
+        private bool _mUnknown_DataShareArn;
+        public string? DataShareArn
+        {
+            get
+            {
+                if (!_mUnknown_DataShareArn) return _mValue_DataShareArn;
+                throw new UndeferrableValueException("Value 'DataShareConsumerAssociation.DataShareArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of a datashare to show its managing entity.
         /// </summary>
-        [Input("managedBy")]
+        [PolicyResourceProperty("managedBy", "_mUnknown_ManagedBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManagedBy;
-
-        public string? ManagedBy => _mManagedBy.GetValue("managedBy");
+        private string? _mValue_ManagedBy;
+        private bool _mUnknown_ManagedBy;
+        public string? ManagedBy
+        {
+            get
+            {
+                if (!_mUnknown_ManagedBy) return _mValue_ManagedBy;
+                throw new UndeferrableValueException("Value 'DataShareConsumerAssociation.ManagedBy' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the producer.
         /// </summary>
-        [Input("producerArn")]
+        [PolicyResourceProperty("producerArn", "_mUnknown_ProducerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProducerArn;
-
-        public string? ProducerArn => _mProducerArn.GetValue("producerArn");
+        private string? _mValue_ProducerArn;
+        private bool _mUnknown_ProducerArn;
+        public string? ProducerArn
+        {
+            get
+            {
+                if (!_mUnknown_ProducerArn) return _mValue_ProducerArn;
+                throw new UndeferrableValueException("Value 'DataShareConsumerAssociation.ProducerArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation")]
@@ -85,48 +134,83 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// Whether to allow write operations for a datashare.
         /// </summary>
-        [Input("allowWrites")]
+        [PolicyResourceProperty("allowWrites", "_mUnknown_AllowWrites")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowWrites;
-
-        public bool? AllowWrites => _mAllowWrites.GetValue("allowWrites");
+        private bool? _mValue_AllowWrites;
+        private bool _mUnknown_AllowWrites;
+        public bool? AllowWrites
+        {
+            get
+            {
+                if (!_mUnknown_AllowWrites) return _mValue_AllowWrites;
+                throw new UndeferrableValueException("Value 'DataShareConsumerAssociationArgs.AllowWrites' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the datashare is associated with the entire account. Conflicts with `consumer_arn` and `consumer_region`.
         /// </summary>
-        [Input("associateEntireAccount")]
+        [PolicyResourceProperty("associateEntireAccount", "_mUnknown_AssociateEntireAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAssociateEntireAccount;
-
-        public bool? AssociateEntireAccount => _mAssociateEntireAccount.GetValue("associateEntireAccount");
+        private bool? _mValue_AssociateEntireAccount;
+        private bool _mUnknown_AssociateEntireAccount;
+        public bool? AssociateEntireAccount
+        {
+            get
+            {
+                if (!_mUnknown_AssociateEntireAccount) return _mValue_AssociateEntireAccount;
+                throw new UndeferrableValueException("Value 'DataShareConsumerAssociationArgs.AssociateEntireAccount' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associate_entire_account` and `consumer_region`.
         /// </summary>
-        [Input("consumerArn")]
+        [PolicyResourceProperty("consumerArn", "_mUnknown_ConsumerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerArn;
-
-        public string? ConsumerArn => _mConsumerArn.GetValue("consumerArn");
+        private string? _mValue_ConsumerArn;
+        private bool _mUnknown_ConsumerArn;
+        public string? ConsumerArn
+        {
+            get
+            {
+                if (!_mUnknown_ConsumerArn) return _mValue_ConsumerArn;
+                throw new UndeferrableValueException("Value 'DataShareConsumerAssociationArgs.ConsumerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associate_entire_account` and `consumer_arn`.
         /// </summary>
-        [Input("consumerRegion")]
+        [PolicyResourceProperty("consumerRegion", "_mUnknown_ConsumerRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerRegion;
-
-        public string? ConsumerRegion => _mConsumerRegion.GetValue("consumerRegion");
+        private string? _mValue_ConsumerRegion;
+        private bool _mUnknown_ConsumerRegion;
+        public string? ConsumerRegion
+        {
+            get
+            {
+                if (!_mUnknown_ConsumerRegion) return _mValue_ConsumerRegion;
+                throw new UndeferrableValueException("Value 'DataShareConsumerAssociationArgs.ConsumerRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("dataShareArn")]
+        [PolicyResourceProperty("dataShareArn", "_mUnknown_DataShareArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataShareArn;
-
-        public string? DataShareArn => _mDataShareArn.GetValue("dataShareArn");
+        private string? _mValue_DataShareArn;
+        private bool _mUnknown_DataShareArn;
+        public string? DataShareArn
+        {
+            get
+            {
+                if (!_mUnknown_DataShareArn) return _mValue_DataShareArn;
+                throw new UndeferrableValueException("Value 'DataShareConsumerAssociationArgs.DataShareArn' is not present");
+            }
+        }
     }
 }

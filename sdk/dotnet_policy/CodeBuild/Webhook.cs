@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild
         /// <summary>
         /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
         /// </summary>
-        [Input("branchFilter")]
+        [PolicyResourceProperty("branchFilter", "_mUnknown_BranchFilter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBranchFilter;
-
-        public string? BranchFilter => _mBranchFilter.GetValue("branchFilter");
+        private string? _mValue_BranchFilter;
+        private bool _mUnknown_BranchFilter;
+        public string? BranchFilter
+        {
+            get
+            {
+                if (!_mUnknown_BranchFilter) return _mValue_BranchFilter;
+                throw new UndeferrableValueException("Value 'Webhook.BranchFilter' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         /// </summary>
-        [Input("buildType")]
+        [PolicyResourceProperty("buildType", "_mUnknown_BuildType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBuildType;
-
-        public string? BuildType => _mBuildType.GetValue("buildType");
+        private string? _mValue_BuildType;
+        private bool _mUnknown_BuildType;
+        public string? BuildType
+        {
+            get
+            {
+                if (!_mUnknown_BuildType) return _mValue_BuildType;
+                throw new UndeferrableValueException("Value 'Webhook.BuildType' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the webhook's trigger. Filter group blocks are documented below.
         /// </summary>
-        [Input("filterGroups")]
+        [PolicyResourceProperty("filterGroups", "_mUnknown_FilterGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebhookFilterGroup>> _mFilterGroups;
-
-        public List<Outputs.WebhookFilterGroup>? FilterGroups => _mFilterGroups.GetValue("filterGroups");
+        private List<Outputs.WebhookFilterGroup>? _mValue_FilterGroups;
+        private bool _mUnknown_FilterGroups;
+        public List<Outputs.WebhookFilterGroup>? FilterGroups
+        {
+            get
+            {
+                if (!_mUnknown_FilterGroups) return _mValue_FilterGroups;
+                throw new UndeferrableValueException("Value 'Webhook.FilterGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// The CodeBuild endpoint where webhook events are sent.
         /// </summary>
-        [Input("payloadUrl")]
+        [PolicyResourceProperty("payloadUrl", "_mUnknown_PayloadUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPayloadUrl;
-
-        public string? PayloadUrl => _mPayloadUrl.GetValue("payloadUrl");
+        private string? _mValue_PayloadUrl;
+        private bool _mUnknown_PayloadUrl;
+        public string? PayloadUrl
+        {
+            get
+            {
+                if (!_mUnknown_PayloadUrl) return _mValue_PayloadUrl;
+                throw new UndeferrableValueException("Value 'Webhook.PayloadUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the build project.
         /// </summary>
-        [Input("projectName")]
+        [PolicyResourceProperty("projectName", "_mUnknown_ProjectName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectName;
-
-        public string? ProjectName => _mProjectName.GetValue("projectName");
+        private string? _mValue_ProjectName;
+        private bool _mUnknown_ProjectName;
+        public string? ProjectName
+        {
+            get
+            {
+                if (!_mUnknown_ProjectName) return _mValue_ProjectName;
+                throw new UndeferrableValueException("Value 'Webhook.ProjectName' is not present");
+            }
+        }
 
         /// <summary>
         /// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
         /// </summary>
-        [Input("scopeConfiguration")]
+        [PolicyResourceProperty("scopeConfiguration", "_mUnknown_ScopeConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebhookScopeConfiguration> _mScopeConfiguration;
-
-        public Outputs.WebhookScopeConfiguration? ScopeConfiguration => _mScopeConfiguration.GetValue("scopeConfiguration");
+        private Outputs.WebhookScopeConfiguration? _mValue_ScopeConfiguration;
+        private bool _mUnknown_ScopeConfiguration;
+        public Outputs.WebhookScopeConfiguration? ScopeConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ScopeConfiguration) return _mValue_ScopeConfiguration;
+                throw new UndeferrableValueException("Value 'Webhook.ScopeConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
         /// </summary>
-        [Input("secret")]
+        [PolicyResourceProperty("secret", "_mUnknown_Secret")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecret;
-
-        public string? Secret => _mSecret.GetValue("secret");
+        private string? _mValue_Secret;
+        private bool _mUnknown_Secret;
+        public string? Secret
+        {
+            get
+            {
+                if (!_mUnknown_Secret) return _mValue_Secret;
+                throw new UndeferrableValueException("Value 'Webhook.Secret' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL to the webhook.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'Webhook.Url' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codebuild/webhook:Webhook")]
@@ -92,46 +148,81 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild
         /// <summary>
         /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
         /// </summary>
-        [Input("branchFilter")]
+        [PolicyResourceProperty("branchFilter", "_mUnknown_BranchFilter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBranchFilter;
-
-        public string? BranchFilter => _mBranchFilter.GetValue("branchFilter");
+        private string? _mValue_BranchFilter;
+        private bool _mUnknown_BranchFilter;
+        public string? BranchFilter
+        {
+            get
+            {
+                if (!_mUnknown_BranchFilter) return _mValue_BranchFilter;
+                throw new UndeferrableValueException("Value 'WebhookArgs.BranchFilter' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         /// </summary>
-        [Input("buildType")]
+        [PolicyResourceProperty("buildType", "_mUnknown_BuildType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBuildType;
-
-        public string? BuildType => _mBuildType.GetValue("buildType");
+        private string? _mValue_BuildType;
+        private bool _mUnknown_BuildType;
+        public string? BuildType
+        {
+            get
+            {
+                if (!_mUnknown_BuildType) return _mValue_BuildType;
+                throw new UndeferrableValueException("Value 'WebhookArgs.BuildType' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the webhook's trigger. Filter group blocks are documented below.
         /// </summary>
-        [Input("filterGroups")]
+        [PolicyResourceProperty("filterGroups", "_mUnknown_FilterGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebhookFilterGroupArgs>> _mFilterGroups;
-
-        public List<Inputs.WebhookFilterGroupArgs>? FilterGroups => _mFilterGroups.GetValue("filterGroups");
+        private List<Inputs.WebhookFilterGroupArgs>? _mValue_FilterGroups;
+        private bool _mUnknown_FilterGroups;
+        public List<Inputs.WebhookFilterGroupArgs>? FilterGroups
+        {
+            get
+            {
+                if (!_mUnknown_FilterGroups) return _mValue_FilterGroups;
+                throw new UndeferrableValueException("Value 'WebhookArgs.FilterGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the build project.
         /// </summary>
-        [Input("projectName")]
+        [PolicyResourceProperty("projectName", "_mUnknown_ProjectName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectName;
-
-        public string? ProjectName => _mProjectName.GetValue("projectName");
+        private string? _mValue_ProjectName;
+        private bool _mUnknown_ProjectName;
+        public string? ProjectName
+        {
+            get
+            {
+                if (!_mUnknown_ProjectName) return _mValue_ProjectName;
+                throw new UndeferrableValueException("Value 'WebhookArgs.ProjectName' is not present");
+            }
+        }
 
         /// <summary>
         /// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
         /// </summary>
-        [Input("scopeConfiguration")]
+        [PolicyResourceProperty("scopeConfiguration", "_mUnknown_ScopeConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebhookScopeConfigurationArgs> _mScopeConfiguration;
-
-        public Inputs.WebhookScopeConfigurationArgs? ScopeConfiguration => _mScopeConfiguration.GetValue("scopeConfiguration");
+        private Inputs.WebhookScopeConfigurationArgs? _mValue_ScopeConfiguration;
+        private bool _mUnknown_ScopeConfiguration;
+        public Inputs.WebhookScopeConfigurationArgs? ScopeConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ScopeConfiguration) return _mValue_ScopeConfiguration;
+                throw new UndeferrableValueException("Value 'WebhookArgs.ScopeConfiguration' is not present");
+            }
+        }
     }
 }

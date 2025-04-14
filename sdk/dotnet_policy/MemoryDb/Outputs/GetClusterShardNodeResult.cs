@@ -15,34 +15,62 @@ namespace Pulumi.PolicyPacks.Aws.MemoryDb.Outputs
         /// <summary>
         /// The Availability Zone in which the node resides.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'GetClusterShardNodeResult.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
         /// </summary>
-        [Input("createTime")]
+        [PolicyResourceProperty("createTime", "_mUnknown_CreateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
+        private string? _mValue_CreateTime;
+        private bool _mUnknown_CreateTime;
+        public string? CreateTime
+        {
+            get
+            {
+                if (!_mUnknown_CreateTime) return _mValue_CreateTime;
+                throw new UndeferrableValueException("Value 'GetClusterShardNodeResult.CreateTime' is not present");
+            }
+        }
 
-        public string? CreateTime => _mCreateTime.GetValue("createTime");
-
-        [Input("endpoints")]
+        [PolicyResourceProperty("endpoints", "_mUnknown_Endpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetClusterShardNodeEndpointResult>> _mEndpoints;
-
-        public List<Outputs.GetClusterShardNodeEndpointResult>? Endpoints => _mEndpoints.GetValue("endpoints");
+        private List<Outputs.GetClusterShardNodeEndpointResult>? _mValue_Endpoints;
+        private bool _mUnknown_Endpoints;
+        public List<Outputs.GetClusterShardNodeEndpointResult>? Endpoints
+        {
+            get
+            {
+                if (!_mUnknown_Endpoints) return _mValue_Endpoints;
+                throw new UndeferrableValueException("Value 'GetClusterShardNodeResult.Endpoints' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the cluster.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetClusterShardNodeResult.Name' is not present");
+            }
+        }
     }
 }

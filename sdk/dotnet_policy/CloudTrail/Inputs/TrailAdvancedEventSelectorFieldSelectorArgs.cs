@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.CloudTrail.Inputs
         /// <summary>
         /// A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
         /// </summary>
-        [Input("endsWiths")]
+        [PolicyResourceProperty("endsWiths", "_mUnknown_EndsWiths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEndsWiths;
-
-        public List<string>? EndsWiths => _mEndsWiths.GetValue("endsWiths");
+        private List<string>? _mValue_EndsWiths;
+        private bool _mUnknown_EndsWiths;
+        public List<string>? EndsWiths
+        {
+            get
+            {
+                if (!_mUnknown_EndsWiths) return _mValue_EndsWiths;
+                throw new UndeferrableValueException("Value 'TrailAdvancedEventSelectorFieldSelectorArgs.EndsWiths' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
         /// </summary>
-        [Input("equals")]
+        [PolicyResourceProperty("equals", "_mUnknown_Equals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEquals;
-
-        public List<string>? Equals => _mEquals.GetValue("equals");
+        private List<string>? _mValue_Equals;
+        private bool _mUnknown_Equals;
+        public List<string>? Equals
+        {
+            get
+            {
+                if (!_mUnknown_Equals) return _mValue_Equals;
+                throw new UndeferrableValueException("Value 'TrailAdvancedEventSelectorFieldSelectorArgs.Equals' is not present");
+            }
+        }
 
         /// <summary>
         /// Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
         /// </summary>
-        [Input("field")]
+        [PolicyResourceProperty("field", "_mUnknown_Field")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mField;
-
-        public string? Field => _mField.GetValue("field");
+        private string? _mValue_Field;
+        private bool _mUnknown_Field;
+        public string? Field
+        {
+            get
+            {
+                if (!_mUnknown_Field) return _mValue_Field;
+                throw new UndeferrableValueException("Value 'TrailAdvancedEventSelectorFieldSelectorArgs.Field' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
         /// </summary>
-        [Input("notEndsWiths")]
+        [PolicyResourceProperty("notEndsWiths", "_mUnknown_NotEndsWiths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotEndsWiths;
-
-        public List<string>? NotEndsWiths => _mNotEndsWiths.GetValue("notEndsWiths");
+        private List<string>? _mValue_NotEndsWiths;
+        private bool _mUnknown_NotEndsWiths;
+        public List<string>? NotEndsWiths
+        {
+            get
+            {
+                if (!_mUnknown_NotEndsWiths) return _mValue_NotEndsWiths;
+                throw new UndeferrableValueException("Value 'TrailAdvancedEventSelectorFieldSelectorArgs.NotEndsWiths' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
         /// </summary>
-        [Input("notEquals")]
+        [PolicyResourceProperty("notEquals", "_mUnknown_NotEquals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotEquals;
-
-        public List<string>? NotEquals => _mNotEquals.GetValue("notEquals");
+        private List<string>? _mValue_NotEquals;
+        private bool _mUnknown_NotEquals;
+        public List<string>? NotEquals
+        {
+            get
+            {
+                if (!_mUnknown_NotEquals) return _mValue_NotEquals;
+                throw new UndeferrableValueException("Value 'TrailAdvancedEventSelectorFieldSelectorArgs.NotEquals' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
         /// </summary>
-        [Input("notStartsWiths")]
+        [PolicyResourceProperty("notStartsWiths", "_mUnknown_NotStartsWiths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotStartsWiths;
-
-        public List<string>? NotStartsWiths => _mNotStartsWiths.GetValue("notStartsWiths");
+        private List<string>? _mValue_NotStartsWiths;
+        private bool _mUnknown_NotStartsWiths;
+        public List<string>? NotStartsWiths
+        {
+            get
+            {
+                if (!_mUnknown_NotStartsWiths) return _mValue_NotStartsWiths;
+                throw new UndeferrableValueException("Value 'TrailAdvancedEventSelectorFieldSelectorArgs.NotStartsWiths' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
         /// </summary>
-        [Input("startsWiths")]
+        [PolicyResourceProperty("startsWiths", "_mUnknown_StartsWiths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStartsWiths;
-
-        public List<string>? StartsWiths => _mStartsWiths.GetValue("startsWiths");
+        private List<string>? _mValue_StartsWiths;
+        private bool _mUnknown_StartsWiths;
+        public List<string>? StartsWiths
+        {
+            get
+            {
+                if (!_mUnknown_StartsWiths) return _mValue_StartsWiths;
+                throw new UndeferrableValueException("Value 'TrailAdvancedEventSelectorFieldSelectorArgs.StartsWiths' is not present");
+            }
+        }
     }
 }

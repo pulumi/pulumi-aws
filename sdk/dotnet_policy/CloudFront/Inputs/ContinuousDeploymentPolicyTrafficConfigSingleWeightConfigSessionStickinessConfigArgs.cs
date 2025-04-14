@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
         /// </summary>
-        [Input("idleTtl")]
+        [PolicyResourceProperty("idleTtl", "_mUnknown_IdleTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIdleTtl;
-
-        public int? IdleTtl => _mIdleTtl.GetValue("idleTtl");
+        private int? _mValue_IdleTtl;
+        private bool _mUnknown_IdleTtl;
+        public int? IdleTtl
+        {
+            get
+            {
+                if (!_mUnknown_IdleTtl) return _mValue_IdleTtl;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs.IdleTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
         /// </summary>
-        [Input("maximumTtl")]
+        [PolicyResourceProperty("maximumTtl", "_mUnknown_MaximumTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumTtl;
-
-        public int? MaximumTtl => _mMaximumTtl.GetValue("maximumTtl");
+        private int? _mValue_MaximumTtl;
+        private bool _mUnknown_MaximumTtl;
+        public int? MaximumTtl
+        {
+            get
+            {
+                if (!_mUnknown_MaximumTtl) return _mValue_MaximumTtl;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs.MaximumTtl' is not present");
+            }
+        }
     }
 }

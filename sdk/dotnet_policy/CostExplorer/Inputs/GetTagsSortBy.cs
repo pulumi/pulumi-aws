@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer.Inputs
         /// <summary>
         /// key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'GetTagsSortByArgs.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// order that's used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
         /// </summary>
-        [Input("sortOrder")]
+        [PolicyResourceProperty("sortOrder", "_mUnknown_SortOrder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSortOrder;
-
-        public string? SortOrder => _mSortOrder.GetValue("sortOrder");
+        private string? _mValue_SortOrder;
+        private bool _mUnknown_SortOrder;
+        public string? SortOrder
+        {
+            get
+            {
+                if (!_mUnknown_SortOrder) return _mValue_SortOrder;
+                throw new UndeferrableValueException("Value 'GetTagsSortByArgs.SortOrder' is not present");
+            }
+        }
     }
 }

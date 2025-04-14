@@ -16,118 +16,209 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder
         /// <summary>
         /// Amazon Resource Name (ARN) of the workflow.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Workflow.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Change description of the workflow.
         /// </summary>
-        [Input("changeDescription")]
+        [PolicyResourceProperty("changeDescription", "_mUnknown_ChangeDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChangeDescription;
-
-        public string? ChangeDescription => _mChangeDescription.GetValue("changeDescription");
+        private string? _mValue_ChangeDescription;
+        private bool _mUnknown_ChangeDescription;
+        public string? ChangeDescription
+        {
+            get
+            {
+                if (!_mUnknown_ChangeDescription) return _mValue_ChangeDescription;
+                throw new UndeferrableValueException("Value 'Workflow.ChangeDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
         /// </summary>
-        [Input("data")]
+        [PolicyResourceProperty("data", "_mUnknown_Data")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mData;
-
-        public string? Data => _mData.GetValue("data");
+        private string? _mValue_Data;
+        private bool _mUnknown_Data;
+        public string? Data
+        {
+            get
+            {
+                if (!_mUnknown_Data) return _mValue_Data;
+                throw new UndeferrableValueException("Value 'Workflow.Data' is not present");
+            }
+        }
 
         /// <summary>
         /// Date the workflow was created.
         /// </summary>
-        [Input("dateCreated")]
+        [PolicyResourceProperty("dateCreated", "_mUnknown_DateCreated")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDateCreated;
-
-        public string? DateCreated => _mDateCreated.GetValue("dateCreated");
+        private string? _mValue_DateCreated;
+        private bool _mUnknown_DateCreated;
+        public string? DateCreated
+        {
+            get
+            {
+                if (!_mUnknown_DateCreated) return _mValue_DateCreated;
+                throw new UndeferrableValueException("Value 'Workflow.DateCreated' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the workflow.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Workflow.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'Workflow.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the workflow.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Workflow.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Owner of the workflow.
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'Workflow.Owner' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Workflow.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Workflow.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the workflow. Valid values: `BUILD`, `TEST`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Workflow.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
         /// </summary>
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'Workflow.Uri' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the workflow.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'Workflow.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:imagebuilder/workflow:Workflow")]
@@ -136,84 +227,147 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder
         /// <summary>
         /// Change description of the workflow.
         /// </summary>
-        [Input("changeDescription")]
+        [PolicyResourceProperty("changeDescription", "_mUnknown_ChangeDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChangeDescription;
-
-        public string? ChangeDescription => _mChangeDescription.GetValue("changeDescription");
+        private string? _mValue_ChangeDescription;
+        private bool _mUnknown_ChangeDescription;
+        public string? ChangeDescription
+        {
+            get
+            {
+                if (!_mUnknown_ChangeDescription) return _mValue_ChangeDescription;
+                throw new UndeferrableValueException("Value 'WorkflowArgs.ChangeDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
         /// </summary>
-        [Input("data")]
+        [PolicyResourceProperty("data", "_mUnknown_Data")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mData;
-
-        public string? Data => _mData.GetValue("data");
+        private string? _mValue_Data;
+        private bool _mUnknown_Data;
+        public string? Data
+        {
+            get
+            {
+                if (!_mUnknown_Data) return _mValue_Data;
+                throw new UndeferrableValueException("Value 'WorkflowArgs.Data' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the workflow.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'WorkflowArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'WorkflowArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the workflow.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'WorkflowArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'WorkflowArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the workflow. Valid values: `BUILD`, `TEST`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'WorkflowArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
         /// </summary>
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'WorkflowArgs.Uri' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the workflow.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'WorkflowArgs.Version' is not present");
+            }
+        }
     }
 }

@@ -23,10 +23,17 @@ namespace Pulumi.PolicyPacks.Aws.Rds.Inputs
         /// [blue-green]:
         /// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'InstanceBlueGreenUpdateArgs.Enabled' is not present");
+            }
+        }
     }
 }

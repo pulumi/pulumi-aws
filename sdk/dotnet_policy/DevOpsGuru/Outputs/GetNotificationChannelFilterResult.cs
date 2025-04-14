@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.DevOpsGuru.Outputs
         /// <summary>
         /// Events to receive notifications for.
         /// </summary>
-        [Input("messageTypes")]
+        [PolicyResourceProperty("messageTypes", "_mUnknown_MessageTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMessageTypes;
-
-        public List<string>? MessageTypes => _mMessageTypes.GetValue("messageTypes");
+        private List<string>? _mValue_MessageTypes;
+        private bool _mUnknown_MessageTypes;
+        public List<string>? MessageTypes
+        {
+            get
+            {
+                if (!_mUnknown_MessageTypes) return _mValue_MessageTypes;
+                throw new UndeferrableValueException("Value 'GetNotificationChannelFilterResult.MessageTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Severity levels to receive notifications for.
         /// </summary>
-        [Input("severities")]
+        [PolicyResourceProperty("severities", "_mUnknown_Severities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSeverities;
-
-        public List<string>? Severities => _mSeverities.GetValue("severities");
+        private List<string>? _mValue_Severities;
+        private bool _mUnknown_Severities;
+        public List<string>? Severities
+        {
+            get
+            {
+                if (!_mUnknown_Severities) return _mValue_Severities;
+                throw new UndeferrableValueException("Value 'GetNotificationChannelFilterResult.Severities' is not present");
+            }
+        }
     }
 }

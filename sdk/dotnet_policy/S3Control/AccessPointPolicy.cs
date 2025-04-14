@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
         /// <summary>
         /// The ARN of the access point that you want to associate with the specified policy.
         /// </summary>
-        [Input("accessPointArn")]
+        [PolicyResourceProperty("accessPointArn", "_mUnknown_AccessPointArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPointArn;
-
-        public string? AccessPointArn => _mAccessPointArn.GetValue("accessPointArn");
+        private string? _mValue_AccessPointArn;
+        private bool _mUnknown_AccessPointArn;
+        public string? AccessPointArn
+        {
+            get
+            {
+                if (!_mUnknown_AccessPointArn) return _mValue_AccessPointArn;
+                throw new UndeferrableValueException("Value 'AccessPointPolicy.AccessPointArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether this access point currently has a policy that allows public access.
         /// </summary>
-        [Input("hasPublicAccessPolicy")]
+        [PolicyResourceProperty("hasPublicAccessPolicy", "_mUnknown_HasPublicAccessPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mHasPublicAccessPolicy;
-
-        public bool? HasPublicAccessPolicy => _mHasPublicAccessPolicy.GetValue("hasPublicAccessPolicy");
+        private bool? _mValue_HasPublicAccessPolicy;
+        private bool _mUnknown_HasPublicAccessPolicy;
+        public bool? HasPublicAccessPolicy
+        {
+            get
+            {
+                if (!_mUnknown_HasPublicAccessPolicy) return _mValue_HasPublicAccessPolicy;
+                throw new UndeferrableValueException("Value 'AccessPointPolicy.HasPublicAccessPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The policy that you want to apply to the specified access point.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'AccessPointPolicy.Policy' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3control/accessPointPolicy:AccessPointPolicy")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
         /// <summary>
         /// The ARN of the access point that you want to associate with the specified policy.
         /// </summary>
-        [Input("accessPointArn")]
+        [PolicyResourceProperty("accessPointArn", "_mUnknown_AccessPointArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPointArn;
-
-        public string? AccessPointArn => _mAccessPointArn.GetValue("accessPointArn");
+        private string? _mValue_AccessPointArn;
+        private bool _mUnknown_AccessPointArn;
+        public string? AccessPointArn
+        {
+            get
+            {
+                if (!_mUnknown_AccessPointArn) return _mValue_AccessPointArn;
+                throw new UndeferrableValueException("Value 'AccessPointPolicyArgs.AccessPointArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The policy that you want to apply to the specified access point.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'AccessPointPolicyArgs.Policy' is not present");
+            }
+        }
     }
 }

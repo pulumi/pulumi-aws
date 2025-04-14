@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// Minimum amount of time you want HTTP error codes to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated.
         /// </summary>
-        [Input("errorCachingMinTtl")]
+        [PolicyResourceProperty("errorCachingMinTtl", "_mUnknown_ErrorCachingMinTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mErrorCachingMinTtl;
-
-        public int? ErrorCachingMinTtl => _mErrorCachingMinTtl.GetValue("errorCachingMinTtl");
+        private int? _mValue_ErrorCachingMinTtl;
+        private bool _mUnknown_ErrorCachingMinTtl;
+        public int? ErrorCachingMinTtl
+        {
+            get
+            {
+                if (!_mUnknown_ErrorCachingMinTtl) return _mValue_ErrorCachingMinTtl;
+                throw new UndeferrableValueException("Value 'DistributionCustomErrorResponseArgs.ErrorCachingMinTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// 4xx or 5xx HTTP status code that you want to customize.
         /// </summary>
-        [Input("errorCode")]
+        [PolicyResourceProperty("errorCode", "_mUnknown_ErrorCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mErrorCode;
-
-        public int? ErrorCode => _mErrorCode.GetValue("errorCode");
+        private int? _mValue_ErrorCode;
+        private bool _mUnknown_ErrorCode;
+        public int? ErrorCode
+        {
+            get
+            {
+                if (!_mUnknown_ErrorCode) return _mValue_ErrorCode;
+                throw new UndeferrableValueException("Value 'DistributionCustomErrorResponseArgs.ErrorCode' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP status code that you want CloudFront to return with the custom error page to the viewer.
         /// </summary>
-        [Input("responseCode")]
+        [PolicyResourceProperty("responseCode", "_mUnknown_ResponseCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mResponseCode;
-
-        public int? ResponseCode => _mResponseCode.GetValue("responseCode");
+        private int? _mValue_ResponseCode;
+        private bool _mUnknown_ResponseCode;
+        public int? ResponseCode
+        {
+            get
+            {
+                if (!_mUnknown_ResponseCode) return _mValue_ResponseCode;
+                throw new UndeferrableValueException("Value 'DistributionCustomErrorResponseArgs.ResponseCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Path of the custom error page (for example, `/custom_404.html`).
         /// </summary>
-        [Input("responsePagePath")]
+        [PolicyResourceProperty("responsePagePath", "_mUnknown_ResponsePagePath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResponsePagePath;
-
-        public string? ResponsePagePath => _mResponsePagePath.GetValue("responsePagePath");
+        private string? _mValue_ResponsePagePath;
+        private bool _mUnknown_ResponsePagePath;
+        public string? ResponsePagePath
+        {
+            get
+            {
+                if (!_mUnknown_ResponsePagePath) return _mValue_ResponsePagePath;
+                throw new UndeferrableValueException("Value 'DistributionCustomErrorResponseArgs.ResponsePagePath' is not present");
+            }
+        }
     }
 }

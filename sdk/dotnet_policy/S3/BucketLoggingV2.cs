@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the bucket.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the expected bucket owner.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2.ExpectedBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the bucket where you want Amazon S3 to store server access logs.
         /// </summary>
-        [Input("targetBucket")]
+        [PolicyResourceProperty("targetBucket", "_mUnknown_TargetBucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetBucket;
-
-        public string? TargetBucket => _mTargetBucket.GetValue("targetBucket");
+        private string? _mValue_TargetBucket;
+        private bool _mUnknown_TargetBucket;
+        public string? TargetBucket
+        {
+            get
+            {
+                if (!_mUnknown_TargetBucket) return _mValue_TargetBucket;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2.TargetBucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks with information for granting permissions. See below.
         /// </summary>
-        [Input("targetGrants")]
+        [PolicyResourceProperty("targetGrants", "_mUnknown_TargetGrants")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketLoggingV2TargetGrant>> _mTargetGrants;
-
-        public List<Outputs.BucketLoggingV2TargetGrant>? TargetGrants => _mTargetGrants.GetValue("targetGrants");
+        private List<Outputs.BucketLoggingV2TargetGrant>? _mValue_TargetGrants;
+        private bool _mUnknown_TargetGrants;
+        public List<Outputs.BucketLoggingV2TargetGrant>? TargetGrants
+        {
+            get
+            {
+                if (!_mUnknown_TargetGrants) return _mValue_TargetGrants;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2.TargetGrants' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon S3 key format for log objects. See below.
         /// </summary>
-        [Input("targetObjectKeyFormat")]
+        [PolicyResourceProperty("targetObjectKeyFormat", "_mUnknown_TargetObjectKeyFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketLoggingV2TargetObjectKeyFormat> _mTargetObjectKeyFormat;
-
-        public Outputs.BucketLoggingV2TargetObjectKeyFormat? TargetObjectKeyFormat => _mTargetObjectKeyFormat.GetValue("targetObjectKeyFormat");
+        private Outputs.BucketLoggingV2TargetObjectKeyFormat? _mValue_TargetObjectKeyFormat;
+        private bool _mUnknown_TargetObjectKeyFormat;
+        public Outputs.BucketLoggingV2TargetObjectKeyFormat? TargetObjectKeyFormat
+        {
+            get
+            {
+                if (!_mUnknown_TargetObjectKeyFormat) return _mValue_TargetObjectKeyFormat;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2.TargetObjectKeyFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix for all log object keys.
         /// </summary>
-        [Input("targetPrefix")]
+        [PolicyResourceProperty("targetPrefix", "_mUnknown_TargetPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetPrefix;
-
-        public string? TargetPrefix => _mTargetPrefix.GetValue("targetPrefix");
+        private string? _mValue_TargetPrefix;
+        private bool _mUnknown_TargetPrefix;
+        public string? TargetPrefix
+        {
+            get
+            {
+                if (!_mUnknown_TargetPrefix) return _mValue_TargetPrefix;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2.TargetPrefix' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/bucketLoggingV2:BucketLoggingV2")]
@@ -74,55 +116,97 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the bucket.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2Args.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the expected bucket owner.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2Args.ExpectedBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the bucket where you want Amazon S3 to store server access logs.
         /// </summary>
-        [Input("targetBucket")]
+        [PolicyResourceProperty("targetBucket", "_mUnknown_TargetBucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetBucket;
-
-        public string? TargetBucket => _mTargetBucket.GetValue("targetBucket");
+        private string? _mValue_TargetBucket;
+        private bool _mUnknown_TargetBucket;
+        public string? TargetBucket
+        {
+            get
+            {
+                if (!_mUnknown_TargetBucket) return _mValue_TargetBucket;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2Args.TargetBucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks with information for granting permissions. See below.
         /// </summary>
-        [Input("targetGrants")]
+        [PolicyResourceProperty("targetGrants", "_mUnknown_TargetGrants")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketLoggingV2TargetGrantArgs>> _mTargetGrants;
-
-        public List<Inputs.BucketLoggingV2TargetGrantArgs>? TargetGrants => _mTargetGrants.GetValue("targetGrants");
+        private List<Inputs.BucketLoggingV2TargetGrantArgs>? _mValue_TargetGrants;
+        private bool _mUnknown_TargetGrants;
+        public List<Inputs.BucketLoggingV2TargetGrantArgs>? TargetGrants
+        {
+            get
+            {
+                if (!_mUnknown_TargetGrants) return _mValue_TargetGrants;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2Args.TargetGrants' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon S3 key format for log objects. See below.
         /// </summary>
-        [Input("targetObjectKeyFormat")]
+        [PolicyResourceProperty("targetObjectKeyFormat", "_mUnknown_TargetObjectKeyFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketLoggingV2TargetObjectKeyFormatArgs> _mTargetObjectKeyFormat;
-
-        public Inputs.BucketLoggingV2TargetObjectKeyFormatArgs? TargetObjectKeyFormat => _mTargetObjectKeyFormat.GetValue("targetObjectKeyFormat");
+        private Inputs.BucketLoggingV2TargetObjectKeyFormatArgs? _mValue_TargetObjectKeyFormat;
+        private bool _mUnknown_TargetObjectKeyFormat;
+        public Inputs.BucketLoggingV2TargetObjectKeyFormatArgs? TargetObjectKeyFormat
+        {
+            get
+            {
+                if (!_mUnknown_TargetObjectKeyFormat) return _mValue_TargetObjectKeyFormat;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2Args.TargetObjectKeyFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix for all log object keys.
         /// </summary>
-        [Input("targetPrefix")]
+        [PolicyResourceProperty("targetPrefix", "_mUnknown_TargetPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetPrefix;
-
-        public string? TargetPrefix => _mTargetPrefix.GetValue("targetPrefix");
+        private string? _mValue_TargetPrefix;
+        private bool _mUnknown_TargetPrefix;
+        public string? TargetPrefix
+        {
+            get
+            {
+                if (!_mUnknown_TargetPrefix) return _mValue_TargetPrefix;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2Args.TargetPrefix' is not present");
+            }
+        }
     }
 }

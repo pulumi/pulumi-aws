@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Scheduler.Inputs
         /// <summary>
         /// How many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Ranges from `0` (default) to `100000`.
         /// </summary>
-        [Input("base")]
+        [PolicyResourceProperty("base", "_mUnknown_Base")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBase;
-
-        public int? Base => _mBase.GetValue("base");
+        private int? _mValue_Base;
+        private bool _mUnknown_Base;
+        public int? Base
+        {
+            get
+            {
+                if (!_mUnknown_Base) return _mValue_Base;
+                throw new UndeferrableValueException("Value 'ScheduleTargetEcsParametersCapacityProviderStrategyArgs.Base' is not present");
+            }
+        }
 
         /// <summary>
         /// Short name of the capacity provider.
         /// </summary>
-        [Input("capacityProvider")]
+        [PolicyResourceProperty("capacityProvider", "_mUnknown_CapacityProvider")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCapacityProvider;
-
-        public string? CapacityProvider => _mCapacityProvider.GetValue("capacityProvider");
+        private string? _mValue_CapacityProvider;
+        private bool _mUnknown_CapacityProvider;
+        public string? CapacityProvider
+        {
+            get
+            {
+                if (!_mUnknown_CapacityProvider) return _mValue_CapacityProvider;
+                throw new UndeferrableValueException("Value 'ScheduleTargetEcsParametersCapacityProviderStrategyArgs.CapacityProvider' is not present");
+            }
+        }
 
         /// <summary>
         /// Designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Ranges from from `0` to `1000`.
         /// </summary>
-        [Input("weight")]
+        [PolicyResourceProperty("weight", "_mUnknown_Weight")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWeight;
-
-        public int? Weight => _mWeight.GetValue("weight");
+        private int? _mValue_Weight;
+        private bool _mUnknown_Weight;
+        public int? Weight
+        {
+            get
+            {
+                if (!_mUnknown_Weight) return _mValue_Weight;
+                throw new UndeferrableValueException("Value 'ScheduleTargetEcsParametersCapacityProviderStrategyArgs.Weight' is not present");
+            }
+        }
     }
 }

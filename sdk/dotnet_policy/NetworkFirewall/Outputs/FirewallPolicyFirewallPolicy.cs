@@ -15,84 +15,147 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
         /// </summary>
-        [Input("policyVariables")]
+        [PolicyResourceProperty("policyVariables", "_mUnknown_PolicyVariables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirewallPolicyFirewallPolicyPolicyVariables> _mPolicyVariables;
-
-        public Outputs.FirewallPolicyFirewallPolicyPolicyVariables? PolicyVariables => _mPolicyVariables.GetValue("policyVariables");
+        private Outputs.FirewallPolicyFirewallPolicyPolicyVariables? _mValue_PolicyVariables;
+        private bool _mUnknown_PolicyVariables;
+        public Outputs.FirewallPolicyFirewallPolicyPolicyVariables? PolicyVariables
+        {
+            get
+            {
+                if (!_mUnknown_PolicyVariables) return _mValue_PolicyVariables;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicy.PolicyVariables' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
         /// </summary>
-        [Input("statefulDefaultActions")]
+        [PolicyResourceProperty("statefulDefaultActions", "_mUnknown_StatefulDefaultActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStatefulDefaultActions;
-
-        public List<string>? StatefulDefaultActions => _mStatefulDefaultActions.GetValue("statefulDefaultActions");
+        private List<string>? _mValue_StatefulDefaultActions;
+        private bool _mUnknown_StatefulDefaultActions;
+        public List<string>? StatefulDefaultActions
+        {
+            get
+            {
+                if (!_mUnknown_StatefulDefaultActions) return _mValue_StatefulDefaultActions;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicy.StatefulDefaultActions' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
         /// </summary>
-        [Input("statefulEngineOptions")]
+        [PolicyResourceProperty("statefulEngineOptions", "_mUnknown_StatefulEngineOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirewallPolicyFirewallPolicyStatefulEngineOptions> _mStatefulEngineOptions;
-
-        public Outputs.FirewallPolicyFirewallPolicyStatefulEngineOptions? StatefulEngineOptions => _mStatefulEngineOptions.GetValue("statefulEngineOptions");
+        private Outputs.FirewallPolicyFirewallPolicyStatefulEngineOptions? _mValue_StatefulEngineOptions;
+        private bool _mUnknown_StatefulEngineOptions;
+        public Outputs.FirewallPolicyFirewallPolicyStatefulEngineOptions? StatefulEngineOptions
+        {
+            get
+            {
+                if (!_mUnknown_StatefulEngineOptions) return _mValue_StatefulEngineOptions;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicy.StatefulEngineOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
         /// </summary>
-        [Input("statefulRuleGroupReferences")]
+        [PolicyResourceProperty("statefulRuleGroupReferences", "_mUnknown_StatefulRuleGroupReferences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReference>> _mStatefulRuleGroupReferences;
-
-        public List<Outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReference>? StatefulRuleGroupReferences => _mStatefulRuleGroupReferences.GetValue("statefulRuleGroupReferences");
+        private List<Outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReference>? _mValue_StatefulRuleGroupReferences;
+        private bool _mUnknown_StatefulRuleGroupReferences;
+        public List<Outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReference>? StatefulRuleGroupReferences
+        {
+            get
+            {
+                if (!_mUnknown_StatefulRuleGroupReferences) return _mValue_StatefulRuleGroupReferences;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicy.StatefulRuleGroupReferences' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's `stateless_default_actions`. See Stateless Custom Action below for details.
         /// </summary>
-        [Input("statelessCustomActions")]
+        [PolicyResourceProperty("statelessCustomActions", "_mUnknown_StatelessCustomActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FirewallPolicyFirewallPolicyStatelessCustomAction>> _mStatelessCustomActions;
-
-        public List<Outputs.FirewallPolicyFirewallPolicyStatelessCustomAction>? StatelessCustomActions => _mStatelessCustomActions.GetValue("statelessCustomActions");
+        private List<Outputs.FirewallPolicyFirewallPolicyStatelessCustomAction>? _mValue_StatelessCustomActions;
+        private bool _mUnknown_StatelessCustomActions;
+        public List<Outputs.FirewallPolicyFirewallPolicyStatelessCustomAction>? StatelessCustomActions
+        {
+            get
+            {
+                if (!_mUnknown_StatelessCustomActions) return _mValue_StatelessCustomActions;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicy.StatelessCustomActions' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
         /// In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
         /// </summary>
-        [Input("statelessDefaultActions")]
+        [PolicyResourceProperty("statelessDefaultActions", "_mUnknown_StatelessDefaultActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStatelessDefaultActions;
-
-        public List<string>? StatelessDefaultActions => _mStatelessDefaultActions.GetValue("statelessDefaultActions");
+        private List<string>? _mValue_StatelessDefaultActions;
+        private bool _mUnknown_StatelessDefaultActions;
+        public List<string>? StatelessDefaultActions
+        {
+            get
+            {
+                if (!_mUnknown_StatelessDefaultActions) return _mValue_StatelessDefaultActions;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicy.StatelessDefaultActions' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
         /// In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
         /// </summary>
-        [Input("statelessFragmentDefaultActions")]
+        [PolicyResourceProperty("statelessFragmentDefaultActions", "_mUnknown_StatelessFragmentDefaultActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStatelessFragmentDefaultActions;
-
-        public List<string>? StatelessFragmentDefaultActions => _mStatelessFragmentDefaultActions.GetValue("statelessFragmentDefaultActions");
+        private List<string>? _mValue_StatelessFragmentDefaultActions;
+        private bool _mUnknown_StatelessFragmentDefaultActions;
+        public List<string>? StatelessFragmentDefaultActions
+        {
+            get
+            {
+                if (!_mUnknown_StatelessFragmentDefaultActions) return _mValue_StatelessFragmentDefaultActions;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicy.StatelessFragmentDefaultActions' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
         /// </summary>
-        [Input("statelessRuleGroupReferences")]
+        [PolicyResourceProperty("statelessRuleGroupReferences", "_mUnknown_StatelessRuleGroupReferences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReference>> _mStatelessRuleGroupReferences;
-
-        public List<Outputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReference>? StatelessRuleGroupReferences => _mStatelessRuleGroupReferences.GetValue("statelessRuleGroupReferences");
+        private List<Outputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReference>? _mValue_StatelessRuleGroupReferences;
+        private bool _mUnknown_StatelessRuleGroupReferences;
+        public List<Outputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReference>? StatelessRuleGroupReferences
+        {
+            get
+            {
+                if (!_mUnknown_StatelessRuleGroupReferences) return _mValue_StatelessRuleGroupReferences;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicy.StatelessRuleGroupReferences' is not present");
+            }
+        }
 
         /// <summary>
         /// The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. "You can only add a TLS inspection configuration to a new policy, not to an existing policy."  This cannot be removed from a FW Policy.
         /// </summary>
-        [Input("tlsInspectionConfigurationArn")]
+        [PolicyResourceProperty("tlsInspectionConfigurationArn", "_mUnknown_TlsInspectionConfigurationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTlsInspectionConfigurationArn;
-
-        public string? TlsInspectionConfigurationArn => _mTlsInspectionConfigurationArn.GetValue("tlsInspectionConfigurationArn");
+        private string? _mValue_TlsInspectionConfigurationArn;
+        private bool _mUnknown_TlsInspectionConfigurationArn;
+        public string? TlsInspectionConfigurationArn
+        {
+            get
+            {
+                if (!_mUnknown_TlsInspectionConfigurationArn) return _mValue_TlsInspectionConfigurationArn;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicy.TlsInspectionConfigurationArn' is not present");
+            }
+        }
     }
 }

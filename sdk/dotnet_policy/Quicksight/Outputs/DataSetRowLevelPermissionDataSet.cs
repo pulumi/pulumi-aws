@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// ARN of the dataset that contains permissions for RLS.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionDataSet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// User or group rules associated with the dataset that contains permissions for RLS.
         /// </summary>
-        [Input("formatVersion")]
+        [PolicyResourceProperty("formatVersion", "_mUnknown_FormatVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormatVersion;
-
-        public string? FormatVersion => _mFormatVersion.GetValue("formatVersion");
+        private string? _mValue_FormatVersion;
+        private bool _mUnknown_FormatVersion;
+        public string? FormatVersion
+        {
+            get
+            {
+                if (!_mUnknown_FormatVersion) return _mValue_FormatVersion;
+                throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionDataSet.FormatVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Namespace associated with the dataset that contains permissions for RLS.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionDataSet.Namespace' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of permissions to use when interpreting the permissions for RLS. Valid values are `GRANT_ACCESS` and `DENY_ACCESS`.
         /// </summary>
-        [Input("permissionPolicy")]
+        [PolicyResourceProperty("permissionPolicy", "_mUnknown_PermissionPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionPolicy;
-
-        public string? PermissionPolicy => _mPermissionPolicy.GetValue("permissionPolicy");
+        private string? _mValue_PermissionPolicy;
+        private bool _mUnknown_PermissionPolicy;
+        public string? PermissionPolicy
+        {
+            get
+            {
+                if (!_mUnknown_PermissionPolicy) return _mValue_PermissionPolicy;
+                throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionDataSet.PermissionPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the row-level security permission dataset. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionDataSet.Status' is not present");
+            }
+        }
     }
 }

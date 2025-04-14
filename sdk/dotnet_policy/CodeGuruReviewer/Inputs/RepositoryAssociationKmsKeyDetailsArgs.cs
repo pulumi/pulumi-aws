@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CodeGuruReviewer.Inputs
         /// <summary>
         /// The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
         /// </summary>
-        [Input("encryptionOption")]
+        [PolicyResourceProperty("encryptionOption", "_mUnknown_EncryptionOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionOption;
-
-        public string? EncryptionOption => _mEncryptionOption.GetValue("encryptionOption");
+        private string? _mValue_EncryptionOption;
+        private bool _mUnknown_EncryptionOption;
+        public string? EncryptionOption
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionOption) return _mValue_EncryptionOption;
+                throw new UndeferrableValueException("Value 'RepositoryAssociationKmsKeyDetailsArgs.EncryptionOption' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the AWS KMS key that is associated with a repository association.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'RepositoryAssociationKmsKeyDetailsArgs.KmsKeyId' is not present");
+            }
+        }
     }
 }

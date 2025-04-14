@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog.Outputs
         /// <summary>
         /// Block for constraints on the portfolio-product relationship. See details below.
         /// </summary>
-        [Input("constraintSummaries")]
+        [PolicyResourceProperty("constraintSummaries", "_mUnknown_ConstraintSummaries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetLaunchPathsSummaryConstraintSummaryResult>> _mConstraintSummaries;
-
-        public List<Outputs.GetLaunchPathsSummaryConstraintSummaryResult>? ConstraintSummaries => _mConstraintSummaries.GetValue("constraintSummaries");
+        private List<Outputs.GetLaunchPathsSummaryConstraintSummaryResult>? _mValue_ConstraintSummaries;
+        private bool _mUnknown_ConstraintSummaries;
+        public List<Outputs.GetLaunchPathsSummaryConstraintSummaryResult>? ConstraintSummaries
+        {
+            get
+            {
+                if (!_mUnknown_ConstraintSummaries) return _mValue_ConstraintSummaries;
+                throw new UndeferrableValueException("Value 'GetLaunchPathsSummaryResult.ConstraintSummaries' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the portfolio to which the path was assigned.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetLaunchPathsSummaryResult.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the product path.
         /// </summary>
-        [Input("pathId")]
+        [PolicyResourceProperty("pathId", "_mUnknown_PathId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPathId;
-
-        public string? PathId => _mPathId.GetValue("pathId");
+        private string? _mValue_PathId;
+        private bool _mUnknown_PathId;
+        public string? PathId
+        {
+            get
+            {
+                if (!_mUnknown_PathId) return _mValue_PathId;
+                throw new UndeferrableValueException("Value 'GetLaunchPathsSummaryResult.PathId' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags associated with this product path.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GetLaunchPathsSummaryResult.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
         /// </summary>
-        [Input("refreshType")]
+        [PolicyResourceProperty("refreshType", "_mUnknown_RefreshType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRefreshType;
-
-        public string? RefreshType => _mRefreshType.GetValue("refreshType");
+        private string? _mValue_RefreshType;
+        private bool _mUnknown_RefreshType;
+        public string? RefreshType
+        {
+            get
+            {
+                if (!_mUnknown_RefreshType) return _mValue_RefreshType;
+                throw new UndeferrableValueException("Value 'RefreshScheduleSchedule.RefreshType' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
         /// </summary>
-        [Input("scheduleFrequency")]
+        [PolicyResourceProperty("scheduleFrequency", "_mUnknown_ScheduleFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RefreshScheduleScheduleScheduleFrequency> _mScheduleFrequency;
-
-        public Outputs.RefreshScheduleScheduleScheduleFrequency? ScheduleFrequency => _mScheduleFrequency.GetValue("scheduleFrequency");
+        private Outputs.RefreshScheduleScheduleScheduleFrequency? _mValue_ScheduleFrequency;
+        private bool _mUnknown_ScheduleFrequency;
+        public Outputs.RefreshScheduleScheduleScheduleFrequency? ScheduleFrequency
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleFrequency) return _mValue_ScheduleFrequency;
+                throw new UndeferrableValueException("Value 'RefreshScheduleSchedule.ScheduleFrequency' is not present");
+            }
+        }
 
         /// <summary>
         /// Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
         /// </summary>
-        [Input("startAfterDateTime")]
+        [PolicyResourceProperty("startAfterDateTime", "_mUnknown_StartAfterDateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartAfterDateTime;
-
-        public string? StartAfterDateTime => _mStartAfterDateTime.GetValue("startAfterDateTime");
+        private string? _mValue_StartAfterDateTime;
+        private bool _mUnknown_StartAfterDateTime;
+        public string? StartAfterDateTime
+        {
+            get
+            {
+                if (!_mUnknown_StartAfterDateTime) return _mValue_StartAfterDateTime;
+                throw new UndeferrableValueException("Value 'RefreshScheduleSchedule.StartAfterDateTime' is not present");
+            }
+        }
     }
 }

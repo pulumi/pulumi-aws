@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Inputs
         /// <summary>
         /// Configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. See below.
         /// </summary>
-        [Input("managedEbsVolume")]
+        [PolicyResourceProperty("managedEbsVolume", "_mUnknown_ManagedEbsVolume")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceVolumeConfigurationManagedEbsVolumeArgs> _mManagedEbsVolume;
-
-        public Inputs.ServiceVolumeConfigurationManagedEbsVolumeArgs? ManagedEbsVolume => _mManagedEbsVolume.GetValue("managedEbsVolume");
+        private Inputs.ServiceVolumeConfigurationManagedEbsVolumeArgs? _mValue_ManagedEbsVolume;
+        private bool _mUnknown_ManagedEbsVolume;
+        public Inputs.ServiceVolumeConfigurationManagedEbsVolumeArgs? ManagedEbsVolume
+        {
+            get
+            {
+                if (!_mUnknown_ManagedEbsVolume) return _mValue_ManagedEbsVolume;
+                throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationArgs.ManagedEbsVolume' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the volume.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationArgs.Name' is not present");
+            }
+        }
     }
 }

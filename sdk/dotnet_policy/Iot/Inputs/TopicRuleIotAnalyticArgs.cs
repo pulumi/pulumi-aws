@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Inputs
         /// <summary>
         /// The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
         /// </summary>
-        [Input("batchMode")]
+        [PolicyResourceProperty("batchMode", "_mUnknown_BatchMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBatchMode;
-
-        public bool? BatchMode => _mBatchMode.GetValue("batchMode");
+        private bool? _mValue_BatchMode;
+        private bool _mUnknown_BatchMode;
+        public bool? BatchMode
+        {
+            get
+            {
+                if (!_mUnknown_BatchMode) return _mValue_BatchMode;
+                throw new UndeferrableValueException("Value 'TopicRuleIotAnalyticArgs.BatchMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of AWS IOT Analytics channel.
         /// </summary>
-        [Input("channelName")]
+        [PolicyResourceProperty("channelName", "_mUnknown_ChannelName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChannelName;
-
-        public string? ChannelName => _mChannelName.GetValue("channelName");
+        private string? _mValue_ChannelName;
+        private bool _mUnknown_ChannelName;
+        public string? ChannelName
+        {
+            get
+            {
+                if (!_mUnknown_ChannelName) return _mValue_ChannelName;
+                throw new UndeferrableValueException("Value 'TopicRuleIotAnalyticArgs.ChannelName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role that grants access.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'TopicRuleIotAnalyticArgs.RoleArn' is not present");
+            }
+        }
     }
 }

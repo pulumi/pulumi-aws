@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// KMS key required to decrypt the contents of the grammar, if any.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Amazon S3 bucket that contains the grammar source.
         /// </summary>
-        [Input("s3BucketName")]
+        [PolicyResourceProperty("s3BucketName", "_mUnknown_S3BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketName;
-
-        public string? S3BucketName => _mS3BucketName.GetValue("s3BucketName");
+        private string? _mValue_S3BucketName;
+        private bool _mUnknown_S3BucketName;
+        public string? S3BucketName
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketName) return _mValue_S3BucketName;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource.S3BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to the grammar in the Amazon S3 bucket.
         /// </summary>
-        [Input("s3ObjectKey")]
+        [PolicyResourceProperty("s3ObjectKey", "_mUnknown_S3ObjectKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3ObjectKey;
-
-        public string? S3ObjectKey => _mS3ObjectKey.GetValue("s3ObjectKey");
+        private string? _mValue_S3ObjectKey;
+        private bool _mUnknown_S3ObjectKey;
+        public string? S3ObjectKey
+        {
+            get
+            {
+                if (!_mUnknown_S3ObjectKey) return _mValue_S3ObjectKey;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource.S3ObjectKey' is not present");
+            }
+        }
     }
 }

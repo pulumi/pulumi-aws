@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AccessAnalyzer.Outputs
         /// <summary>
         /// The specified access age in days for which to generate findings for unused access.
         /// </summary>
-        [Input("unusedAccessAge")]
+        [PolicyResourceProperty("unusedAccessAge", "_mUnknown_UnusedAccessAge")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUnusedAccessAge;
-
-        public int? UnusedAccessAge => _mUnusedAccessAge.GetValue("unusedAccessAge");
+        private int? _mValue_UnusedAccessAge;
+        private bool _mUnknown_UnusedAccessAge;
+        public int? UnusedAccessAge
+        {
+            get
+            {
+                if (!_mUnknown_UnusedAccessAge) return _mValue_UnusedAccessAge;
+                throw new UndeferrableValueException("Value 'AnalyzerConfigurationUnusedAccess.UnusedAccessAge' is not present");
+            }
+        }
     }
 }

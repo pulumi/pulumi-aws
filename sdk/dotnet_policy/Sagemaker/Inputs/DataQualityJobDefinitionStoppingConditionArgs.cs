@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The maximum runtime allowed in seconds.
         /// </summary>
-        [Input("maxRuntimeInSeconds")]
+        [PolicyResourceProperty("maxRuntimeInSeconds", "_mUnknown_MaxRuntimeInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRuntimeInSeconds;
-
-        public int? MaxRuntimeInSeconds => _mMaxRuntimeInSeconds.GetValue("maxRuntimeInSeconds");
+        private int? _mValue_MaxRuntimeInSeconds;
+        private bool _mUnknown_MaxRuntimeInSeconds;
+        public int? MaxRuntimeInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaxRuntimeInSeconds) return _mValue_MaxRuntimeInSeconds;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionStoppingConditionArgs.MaxRuntimeInSeconds' is not present");
+            }
+        }
     }
 }

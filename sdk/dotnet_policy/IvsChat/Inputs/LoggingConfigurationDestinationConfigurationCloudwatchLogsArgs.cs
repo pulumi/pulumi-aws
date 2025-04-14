@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.IvsChat.Inputs
         /// <summary>
         /// Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
         /// </summary>
-        [Input("logGroupName")]
+        [PolicyResourceProperty("logGroupName", "_mUnknown_LogGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
-
-        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+        private string? _mValue_LogGroupName;
+        private bool _mUnknown_LogGroupName;
+        public string? LogGroupName
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupName) return _mValue_LogGroupName;
+                throw new UndeferrableValueException("Value 'LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs.LogGroupName' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Fis.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.
         /// </summary>
-        [Input("logGroupArn")]
+        [PolicyResourceProperty("logGroupArn", "_mUnknown_LogGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupArn;
-
-        public string? LogGroupArn => _mLogGroupArn.GetValue("logGroupArn");
+        private string? _mValue_LogGroupArn;
+        private bool _mUnknown_LogGroupArn;
+        public string? LogGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupArn) return _mValue_LogGroupArn;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs.LogGroupArn' is not present");
+            }
+        }
     }
 }

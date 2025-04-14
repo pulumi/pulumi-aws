@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CustomerProfiles.Outputs
         /// <summary>
         /// How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
         /// </summary>
-        [Input("conflictResolvingModel")]
+        [PolicyResourceProperty("conflictResolvingModel", "_mUnknown_ConflictResolvingModel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConflictResolvingModel;
-
-        public string? ConflictResolvingModel => _mConflictResolvingModel.GetValue("conflictResolvingModel");
+        private string? _mValue_ConflictResolvingModel;
+        private bool _mUnknown_ConflictResolvingModel;
+        public string? ConflictResolvingModel
+        {
+            get
+            {
+                if (!_mUnknown_ConflictResolvingModel) return _mValue_ConflictResolvingModel;
+                throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingConflictResolution.ConflictResolvingModel' is not present");
+            }
+        }
 
         /// <summary>
         /// The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
         /// </summary>
-        [Input("sourceName")]
+        [PolicyResourceProperty("sourceName", "_mUnknown_SourceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceName;
-
-        public string? SourceName => _mSourceName.GetValue("sourceName");
+        private string? _mValue_SourceName;
+        private bool _mUnknown_SourceName;
+        public string? SourceName
+        {
+            get
+            {
+                if (!_mUnknown_SourceName) return _mValue_SourceName;
+                throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingConflictResolution.SourceName' is not present");
+            }
+        }
     }
 }

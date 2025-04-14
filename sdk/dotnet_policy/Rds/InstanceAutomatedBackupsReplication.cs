@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'InstanceAutomatedBackupsReplication.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
         /// </summary>
-        [Input("preSignedUrl")]
+        [PolicyResourceProperty("preSignedUrl", "_mUnknown_PreSignedUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreSignedUrl;
-
-        public string? PreSignedUrl => _mPreSignedUrl.GetValue("preSignedUrl");
+        private string? _mValue_PreSignedUrl;
+        private bool _mUnknown_PreSignedUrl;
+        public string? PreSignedUrl
+        {
+            get
+            {
+                if (!_mUnknown_PreSignedUrl) return _mValue_PreSignedUrl;
+                throw new UndeferrableValueException("Value 'InstanceAutomatedBackupsReplication.PreSignedUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The retention period for the replicated automated backups, defaults to `7`.
         /// </summary>
-        [Input("retentionPeriod")]
+        [PolicyResourceProperty("retentionPeriod", "_mUnknown_RetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
-
-        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
+        private int? _mValue_RetentionPeriod;
+        private bool _mUnknown_RetentionPeriod;
+        public int? RetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_RetentionPeriod) return _mValue_RetentionPeriod;
+                throw new UndeferrableValueException("Value 'InstanceAutomatedBackupsReplication.RetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
         /// </summary>
-        [Input("sourceDbInstanceArn")]
+        [PolicyResourceProperty("sourceDbInstanceArn", "_mUnknown_SourceDbInstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceDbInstanceArn;
-
-        public string? SourceDbInstanceArn => _mSourceDbInstanceArn.GetValue("sourceDbInstanceArn");
+        private string? _mValue_SourceDbInstanceArn;
+        private bool _mUnknown_SourceDbInstanceArn;
+        public string? SourceDbInstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceDbInstanceArn) return _mValue_SourceDbInstanceArn;
+                throw new UndeferrableValueException("Value 'InstanceAutomatedBackupsReplication.SourceDbInstanceArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'InstanceAutomatedBackupsReplicationArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
         /// </summary>
-        [Input("preSignedUrl")]
+        [PolicyResourceProperty("preSignedUrl", "_mUnknown_PreSignedUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreSignedUrl;
-
-        public string? PreSignedUrl => _mPreSignedUrl.GetValue("preSignedUrl");
+        private string? _mValue_PreSignedUrl;
+        private bool _mUnknown_PreSignedUrl;
+        public string? PreSignedUrl
+        {
+            get
+            {
+                if (!_mUnknown_PreSignedUrl) return _mValue_PreSignedUrl;
+                throw new UndeferrableValueException("Value 'InstanceAutomatedBackupsReplicationArgs.PreSignedUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The retention period for the replicated automated backups, defaults to `7`.
         /// </summary>
-        [Input("retentionPeriod")]
+        [PolicyResourceProperty("retentionPeriod", "_mUnknown_RetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
-
-        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
+        private int? _mValue_RetentionPeriod;
+        private bool _mUnknown_RetentionPeriod;
+        public int? RetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_RetentionPeriod) return _mValue_RetentionPeriod;
+                throw new UndeferrableValueException("Value 'InstanceAutomatedBackupsReplicationArgs.RetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
         /// </summary>
-        [Input("sourceDbInstanceArn")]
+        [PolicyResourceProperty("sourceDbInstanceArn", "_mUnknown_SourceDbInstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceDbInstanceArn;
-
-        public string? SourceDbInstanceArn => _mSourceDbInstanceArn.GetValue("sourceDbInstanceArn");
+        private string? _mValue_SourceDbInstanceArn;
+        private bool _mUnknown_SourceDbInstanceArn;
+        public string? SourceDbInstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceDbInstanceArn) return _mValue_SourceDbInstanceArn;
+                throw new UndeferrableValueException("Value 'InstanceAutomatedBackupsReplicationArgs.SourceDbInstanceArn' is not present");
+            }
+        }
     }
 }

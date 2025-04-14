@@ -15,16 +15,30 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend.Outputs
         /// <summary>
         /// Location of training annotations.
         /// </summary>
-        [Input("s3Uri")]
+        [PolicyResourceProperty("s3Uri", "_mUnknown_S3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Uri;
+        private string? _mValue_S3Uri;
+        private bool _mUnknown_S3Uri;
+        public string? S3Uri
+        {
+            get
+            {
+                if (!_mUnknown_S3Uri) return _mValue_S3Uri;
+                throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigAnnotations.S3Uri' is not present");
+            }
+        }
 
-        public string? S3Uri => _mS3Uri.GetValue("s3Uri");
-
-        [Input("testS3Uri")]
+        [PolicyResourceProperty("testS3Uri", "_mUnknown_TestS3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTestS3Uri;
-
-        public string? TestS3Uri => _mTestS3Uri.GetValue("testS3Uri");
+        private string? _mValue_TestS3Uri;
+        private bool _mUnknown_TestS3Uri;
+        public string? TestS3Uri
+        {
+            get
+            {
+                if (!_mUnknown_TestS3Uri) return _mValue_TestS3Uri;
+                throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigAnnotations.TestS3Uri' is not present");
+            }
+        }
     }
 }

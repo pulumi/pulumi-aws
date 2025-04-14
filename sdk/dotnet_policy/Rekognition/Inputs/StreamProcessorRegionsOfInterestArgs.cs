@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Rekognition.Inputs
         /// <summary>
         /// Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
         /// </summary>
-        [Input("boundingBox")]
+        [PolicyResourceProperty("boundingBox", "_mUnknown_BoundingBox")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamProcessorRegionsOfInterestBoundingBoxArgs> _mBoundingBox;
-
-        public Inputs.StreamProcessorRegionsOfInterestBoundingBoxArgs? BoundingBox => _mBoundingBox.GetValue("boundingBox");
+        private Inputs.StreamProcessorRegionsOfInterestBoundingBoxArgs? _mValue_BoundingBox;
+        private bool _mUnknown_BoundingBox;
+        public Inputs.StreamProcessorRegionsOfInterestBoundingBoxArgs? BoundingBox
+        {
+            get
+            {
+                if (!_mUnknown_BoundingBox) return _mValue_BoundingBox;
+                throw new UndeferrableValueException("Value 'StreamProcessorRegionsOfInterestArgs.BoundingBox' is not present");
+            }
+        }
 
         /// <summary>
         /// Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
         /// </summary>
-        [Input("polygons")]
+        [PolicyResourceProperty("polygons", "_mUnknown_Polygons")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.StreamProcessorRegionsOfInterestPolygonArgs>> _mPolygons;
-
-        public List<Inputs.StreamProcessorRegionsOfInterestPolygonArgs>? Polygons => _mPolygons.GetValue("polygons");
+        private List<Inputs.StreamProcessorRegionsOfInterestPolygonArgs>? _mValue_Polygons;
+        private bool _mUnknown_Polygons;
+        public List<Inputs.StreamProcessorRegionsOfInterestPolygonArgs>? Polygons
+        {
+            get
+            {
+                if (!_mUnknown_Polygons) return _mValue_Polygons;
+                throw new UndeferrableValueException("Value 'StreamProcessorRegionsOfInterestArgs.Polygons' is not present");
+            }
+        }
     }
 }

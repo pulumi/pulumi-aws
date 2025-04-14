@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// The name of the connection to use to connect to the Iceberg target.
         /// </summary>
-        [Input("connectionName")]
+        [PolicyResourceProperty("connectionName", "_mUnknown_ConnectionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionName;
-
-        public string? ConnectionName => _mConnectionName.GetValue("connectionName");
+        private string? _mValue_ConnectionName;
+        private bool _mUnknown_ConnectionName;
+        public string? ConnectionName
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionName) return _mValue_ConnectionName;
+                throw new UndeferrableValueException("Value 'CrawlerIcebergTargetArgs.ConnectionName' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of glob patterns used to exclude from the crawl.
         /// </summary>
-        [Input("exclusions")]
+        [PolicyResourceProperty("exclusions", "_mUnknown_Exclusions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExclusions;
-
-        public List<string>? Exclusions => _mExclusions.GetValue("exclusions");
+        private List<string>? _mValue_Exclusions;
+        private bool _mUnknown_Exclusions;
+        public List<string>? Exclusions
+        {
+            get
+            {
+                if (!_mUnknown_Exclusions) return _mValue_Exclusions;
+                throw new UndeferrableValueException("Value 'CrawlerIcebergTargetArgs.Exclusions' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
         /// </summary>
-        [Input("maximumTraversalDepth")]
+        [PolicyResourceProperty("maximumTraversalDepth", "_mUnknown_MaximumTraversalDepth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumTraversalDepth;
-
-        public int? MaximumTraversalDepth => _mMaximumTraversalDepth.GetValue("maximumTraversalDepth");
+        private int? _mValue_MaximumTraversalDepth;
+        private bool _mUnknown_MaximumTraversalDepth;
+        public int? MaximumTraversalDepth
+        {
+            get
+            {
+                if (!_mUnknown_MaximumTraversalDepth) return _mValue_MaximumTraversalDepth;
+                throw new UndeferrableValueException("Value 'CrawlerIcebergTargetArgs.MaximumTraversalDepth' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
         /// </summary>
-        [Input("paths")]
+        [PolicyResourceProperty("paths", "_mUnknown_Paths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPaths;
-
-        public List<string>? Paths => _mPaths.GetValue("paths");
+        private List<string>? _mValue_Paths;
+        private bool _mUnknown_Paths;
+        public List<string>? Paths
+        {
+            get
+            {
+                if (!_mUnknown_Paths) return _mValue_Paths;
+                throw new UndeferrableValueException("Value 'CrawlerIcebergTargetArgs.Paths' is not present");
+            }
+        }
     }
 }

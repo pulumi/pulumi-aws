@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.IdentityStore.Inputs
         /// <summary>
         /// The identifier issued to this resource by an external identity provider.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'GetGroupAlternateIdentifierExternalIdInputArgs.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// The issuer for an external identifier.
         /// </summary>
-        [Input("issuer")]
+        [PolicyResourceProperty("issuer", "_mUnknown_Issuer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIssuer;
-
-        public string? Issuer => _mIssuer.GetValue("issuer");
+        private string? _mValue_Issuer;
+        private bool _mUnknown_Issuer;
+        public string? Issuer
+        {
+            get
+            {
+                if (!_mUnknown_Issuer) return _mValue_Issuer;
+                throw new UndeferrableValueException("Value 'GetGroupAlternateIdentifierExternalIdInputArgs.Issuer' is not present");
+            }
+        }
     }
 }

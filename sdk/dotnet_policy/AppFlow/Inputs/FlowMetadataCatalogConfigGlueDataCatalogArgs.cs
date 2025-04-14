@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
         /// <summary>
         /// The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'FlowMetadataCatalogConfigGlueDataCatalogArgs.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'FlowMetadataCatalogConfigGlueDataCatalogArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A naming prefix for each Data Catalog table that Amazon AppFlow creates
         /// </summary>
-        [Input("tablePrefix")]
+        [PolicyResourceProperty("tablePrefix", "_mUnknown_TablePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTablePrefix;
-
-        public string? TablePrefix => _mTablePrefix.GetValue("tablePrefix");
+        private string? _mValue_TablePrefix;
+        private bool _mUnknown_TablePrefix;
+        public string? TablePrefix
+        {
+            get
+            {
+                if (!_mUnknown_TablePrefix) return _mValue_TablePrefix;
+                throw new UndeferrableValueException("Value 'FlowMetadataCatalogConfigGlueDataCatalogArgs.TablePrefix' is not present");
+            }
+        }
     }
 }

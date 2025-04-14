@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Inputs
         /// <summary>
         /// Amazon RDS HTTP endpoint configuration. See `http_endpoint_config` Block for details.
         /// </summary>
-        [Input("httpEndpointConfig")]
+        [PolicyResourceProperty("httpEndpointConfig", "_mUnknown_HttpEndpointConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs> _mHttpEndpointConfig;
-
-        public Inputs.DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs? HttpEndpointConfig => _mHttpEndpointConfig.GetValue("httpEndpointConfig");
+        private Inputs.DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs? _mValue_HttpEndpointConfig;
+        private bool _mUnknown_HttpEndpointConfig;
+        public Inputs.DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs? HttpEndpointConfig
+        {
+            get
+            {
+                if (!_mUnknown_HttpEndpointConfig) return _mValue_HttpEndpointConfig;
+                throw new UndeferrableValueException("Value 'DataSourceRelationalDatabaseConfigArgs.HttpEndpointConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
         /// </summary>
-        [Input("sourceType")]
+        [PolicyResourceProperty("sourceType", "_mUnknown_SourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceType;
-
-        public string? SourceType => _mSourceType.GetValue("sourceType");
+        private string? _mValue_SourceType;
+        private bool _mUnknown_SourceType;
+        public string? SourceType
+        {
+            get
+            {
+                if (!_mUnknown_SourceType) return _mValue_SourceType;
+                throw new UndeferrableValueException("Value 'DataSourceRelationalDatabaseConfigArgs.SourceType' is not present");
+            }
+        }
     }
 }

@@ -16,35 +16,63 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// <summary>
         /// The public key portion of an SSH key pair.
         /// </summary>
-        [Input("body")]
+        [PolicyResourceProperty("body", "_mUnknown_Body")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBody;
-
-        public string? Body => _mBody.GetValue("body");
+        private string? _mValue_Body;
+        private bool _mUnknown_Body;
+        public string? Body
+        {
+            get
+            {
+                if (!_mUnknown_Body) return _mValue_Body;
+                throw new UndeferrableValueException("Value 'SshKey.Body' is not present");
+            }
+        }
 
         /// <summary>
         /// The Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
-        [Input("serverId")]
+        [PolicyResourceProperty("serverId", "_mUnknown_ServerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerId;
+        private string? _mValue_ServerId;
+        private bool _mUnknown_ServerId;
+        public string? ServerId
+        {
+            get
+            {
+                if (!_mUnknown_ServerId) return _mValue_ServerId;
+                throw new UndeferrableValueException("Value 'SshKey.ServerId' is not present");
+            }
+        }
 
-        public string? ServerId => _mServerId.GetValue("serverId");
-
-        [Input("sshKeyId")]
+        [PolicyResourceProperty("sshKeyId", "_mUnknown_SshKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSshKeyId;
-
-        public string? SshKeyId => _mSshKeyId.GetValue("sshKeyId");
+        private string? _mValue_SshKeyId;
+        private bool _mUnknown_SshKeyId;
+        public string? SshKeyId
+        {
+            get
+            {
+                if (!_mUnknown_SshKeyId) return _mValue_SshKeyId;
+                throw new UndeferrableValueException("Value 'SshKey.SshKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the user account that is assigned to one or more servers.
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'SshKey.UserName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:transfer/sshKey:SshKey")]
@@ -53,28 +81,49 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// <summary>
         /// The public key portion of an SSH key pair.
         /// </summary>
-        [Input("body")]
+        [PolicyResourceProperty("body", "_mUnknown_Body")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBody;
-
-        public string? Body => _mBody.GetValue("body");
+        private string? _mValue_Body;
+        private bool _mUnknown_Body;
+        public string? Body
+        {
+            get
+            {
+                if (!_mUnknown_Body) return _mValue_Body;
+                throw new UndeferrableValueException("Value 'SshKeyArgs.Body' is not present");
+            }
+        }
 
         /// <summary>
         /// The Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
-        [Input("serverId")]
+        [PolicyResourceProperty("serverId", "_mUnknown_ServerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerId;
-
-        public string? ServerId => _mServerId.GetValue("serverId");
+        private string? _mValue_ServerId;
+        private bool _mUnknown_ServerId;
+        public string? ServerId
+        {
+            get
+            {
+                if (!_mUnknown_ServerId) return _mValue_ServerId;
+                throw new UndeferrableValueException("Value 'SshKeyArgs.ServerId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the user account that is assigned to one or more servers.
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'SshKeyArgs.UserName' is not present");
+            }
+        }
     }
 }

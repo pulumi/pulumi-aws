@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// Whether to use Service Connect with this service.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfiguration.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Log configuration for the container. See below.
         /// </summary>
-        [Input("logConfiguration")]
+        [PolicyResourceProperty("logConfiguration", "_mUnknown_LogConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceServiceConnectConfigurationLogConfiguration> _mLogConfiguration;
-
-        public Outputs.ServiceServiceConnectConfigurationLogConfiguration? LogConfiguration => _mLogConfiguration.GetValue("logConfiguration");
+        private Outputs.ServiceServiceConnectConfigurationLogConfiguration? _mValue_LogConfiguration;
+        private bool _mUnknown_LogConfiguration;
+        public Outputs.ServiceServiceConnectConfigurationLogConfiguration? LogConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LogConfiguration) return _mValue_LogConfiguration;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfiguration.LogConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfiguration.Namespace' is not present");
+            }
+        }
 
         /// <summary>
         /// List of Service Connect service objects. See below.
         /// </summary>
-        [Input("services")]
+        [PolicyResourceProperty("services", "_mUnknown_Services")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServiceServiceConnectConfigurationService>> _mServices;
-
-        public List<Outputs.ServiceServiceConnectConfigurationService>? Services => _mServices.GetValue("services");
+        private List<Outputs.ServiceServiceConnectConfigurationService>? _mValue_Services;
+        private bool _mUnknown_Services;
+        public List<Outputs.ServiceServiceConnectConfigurationService>? Services
+        {
+            get
+            {
+                if (!_mUnknown_Services) return _mValue_Services;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfiguration.Services' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'LaunchTemplateElasticGpuSpecificationArgs.Type' is not present");
+            }
+        }
     }
 }

@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Audio descriptions for the channel. See Audio Descriptions for more details.
         /// </summary>
-        [Input("audioDescriptions")]
+        [PolicyResourceProperty("audioDescriptions", "_mUnknown_AudioDescriptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ChannelEncoderSettingsAudioDescription>> _mAudioDescriptions;
-
-        public List<Outputs.ChannelEncoderSettingsAudioDescription>? AudioDescriptions => _mAudioDescriptions.GetValue("audioDescriptions");
+        private List<Outputs.ChannelEncoderSettingsAudioDescription>? _mValue_AudioDescriptions;
+        private bool _mUnknown_AudioDescriptions;
+        public List<Outputs.ChannelEncoderSettingsAudioDescription>? AudioDescriptions
+        {
+            get
+            {
+                if (!_mUnknown_AudioDescriptions) return _mValue_AudioDescriptions;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettings.AudioDescriptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Settings for ad avail blanking. See Avail Blanking for more details.
         /// </summary>
-        [Input("availBlanking")]
+        [PolicyResourceProperty("availBlanking", "_mUnknown_AvailBlanking")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsAvailBlanking> _mAvailBlanking;
-
-        public Outputs.ChannelEncoderSettingsAvailBlanking? AvailBlanking => _mAvailBlanking.GetValue("availBlanking");
+        private Outputs.ChannelEncoderSettingsAvailBlanking? _mValue_AvailBlanking;
+        private bool _mUnknown_AvailBlanking;
+        public Outputs.ChannelEncoderSettingsAvailBlanking? AvailBlanking
+        {
+            get
+            {
+                if (!_mUnknown_AvailBlanking) return _mValue_AvailBlanking;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettings.AvailBlanking' is not present");
+            }
+        }
 
         /// <summary>
         /// Caption Descriptions. See Caption Descriptions for more details.
         /// </summary>
-        [Input("captionDescriptions")]
+        [PolicyResourceProperty("captionDescriptions", "_mUnknown_CaptionDescriptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ChannelEncoderSettingsCaptionDescription>> _mCaptionDescriptions;
-
-        public List<Outputs.ChannelEncoderSettingsCaptionDescription>? CaptionDescriptions => _mCaptionDescriptions.GetValue("captionDescriptions");
+        private List<Outputs.ChannelEncoderSettingsCaptionDescription>? _mValue_CaptionDescriptions;
+        private bool _mUnknown_CaptionDescriptions;
+        public List<Outputs.ChannelEncoderSettingsCaptionDescription>? CaptionDescriptions
+        {
+            get
+            {
+                if (!_mUnknown_CaptionDescriptions) return _mValue_CaptionDescriptions;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettings.CaptionDescriptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration settings that apply to the event as a whole. See Global Configuration for more details.
         /// </summary>
-        [Input("globalConfiguration")]
+        [PolicyResourceProperty("globalConfiguration", "_mUnknown_GlobalConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsGlobalConfiguration> _mGlobalConfiguration;
-
-        public Outputs.ChannelEncoderSettingsGlobalConfiguration? GlobalConfiguration => _mGlobalConfiguration.GetValue("globalConfiguration");
+        private Outputs.ChannelEncoderSettingsGlobalConfiguration? _mValue_GlobalConfiguration;
+        private bool _mUnknown_GlobalConfiguration;
+        public Outputs.ChannelEncoderSettingsGlobalConfiguration? GlobalConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_GlobalConfiguration) return _mValue_GlobalConfiguration;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettings.GlobalConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Settings for motion graphics. See Motion Graphics Configuration for more details.
         /// </summary>
-        [Input("motionGraphicsConfiguration")]
+        [PolicyResourceProperty("motionGraphicsConfiguration", "_mUnknown_MotionGraphicsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsMotionGraphicsConfiguration> _mMotionGraphicsConfiguration;
-
-        public Outputs.ChannelEncoderSettingsMotionGraphicsConfiguration? MotionGraphicsConfiguration => _mMotionGraphicsConfiguration.GetValue("motionGraphicsConfiguration");
+        private Outputs.ChannelEncoderSettingsMotionGraphicsConfiguration? _mValue_MotionGraphicsConfiguration;
+        private bool _mUnknown_MotionGraphicsConfiguration;
+        public Outputs.ChannelEncoderSettingsMotionGraphicsConfiguration? MotionGraphicsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_MotionGraphicsConfiguration) return _mValue_MotionGraphicsConfiguration;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettings.MotionGraphicsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Nielsen configuration settings. See Nielsen Configuration for more details.
         /// </summary>
-        [Input("nielsenConfiguration")]
+        [PolicyResourceProperty("nielsenConfiguration", "_mUnknown_NielsenConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsNielsenConfiguration> _mNielsenConfiguration;
-
-        public Outputs.ChannelEncoderSettingsNielsenConfiguration? NielsenConfiguration => _mNielsenConfiguration.GetValue("nielsenConfiguration");
+        private Outputs.ChannelEncoderSettingsNielsenConfiguration? _mValue_NielsenConfiguration;
+        private bool _mUnknown_NielsenConfiguration;
+        public Outputs.ChannelEncoderSettingsNielsenConfiguration? NielsenConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_NielsenConfiguration) return _mValue_NielsenConfiguration;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettings.NielsenConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Output groups for the channel. See Output Groups for more details.
         /// </summary>
-        [Input("outputGroups")]
+        [PolicyResourceProperty("outputGroups", "_mUnknown_OutputGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ChannelEncoderSettingsOutputGroup>> _mOutputGroups;
-
-        public List<Outputs.ChannelEncoderSettingsOutputGroup>? OutputGroups => _mOutputGroups.GetValue("outputGroups");
+        private List<Outputs.ChannelEncoderSettingsOutputGroup>? _mValue_OutputGroups;
+        private bool _mUnknown_OutputGroups;
+        public List<Outputs.ChannelEncoderSettingsOutputGroup>? OutputGroups
+        {
+            get
+            {
+                if (!_mUnknown_OutputGroups) return _mValue_OutputGroups;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettings.OutputGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
         /// </summary>
-        [Input("timecodeConfig")]
+        [PolicyResourceProperty("timecodeConfig", "_mUnknown_TimecodeConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsTimecodeConfig> _mTimecodeConfig;
-
-        public Outputs.ChannelEncoderSettingsTimecodeConfig? TimecodeConfig => _mTimecodeConfig.GetValue("timecodeConfig");
+        private Outputs.ChannelEncoderSettingsTimecodeConfig? _mValue_TimecodeConfig;
+        private bool _mUnknown_TimecodeConfig;
+        public Outputs.ChannelEncoderSettingsTimecodeConfig? TimecodeConfig
+        {
+            get
+            {
+                if (!_mUnknown_TimecodeConfig) return _mValue_TimecodeConfig;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettings.TimecodeConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Video Descriptions. See Video Descriptions for more details.
         /// </summary>
-        [Input("videoDescriptions")]
+        [PolicyResourceProperty("videoDescriptions", "_mUnknown_VideoDescriptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ChannelEncoderSettingsVideoDescription>> _mVideoDescriptions;
-
-        public List<Outputs.ChannelEncoderSettingsVideoDescription>? VideoDescriptions => _mVideoDescriptions.GetValue("videoDescriptions");
+        private List<Outputs.ChannelEncoderSettingsVideoDescription>? _mValue_VideoDescriptions;
+        private bool _mUnknown_VideoDescriptions;
+        public List<Outputs.ChannelEncoderSettingsVideoDescription>? VideoDescriptions
+        {
+            get
+            {
+                if (!_mUnknown_VideoDescriptions) return _mValue_VideoDescriptions;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettings.VideoDescriptions' is not present");
+            }
+        }
     }
 }

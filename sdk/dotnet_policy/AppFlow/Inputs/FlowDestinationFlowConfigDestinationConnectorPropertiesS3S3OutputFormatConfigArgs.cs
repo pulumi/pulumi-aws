@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
         /// <summary>
         /// Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
         /// </summary>
-        [Input("aggregationConfig")]
+        [PolicyResourceProperty("aggregationConfig", "_mUnknown_AggregationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs> _mAggregationConfig;
-
-        public Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs? AggregationConfig => _mAggregationConfig.GetValue("aggregationConfig");
+        private Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs? _mValue_AggregationConfig;
+        private bool _mUnknown_AggregationConfig;
+        public Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs? AggregationConfig
+        {
+            get
+            {
+                if (!_mUnknown_AggregationConfig) return _mValue_AggregationConfig;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs.AggregationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
         /// </summary>
-        [Input("fileType")]
+        [PolicyResourceProperty("fileType", "_mUnknown_FileType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileType;
-
-        public string? FileType => _mFileType.GetValue("fileType");
+        private string? _mValue_FileType;
+        private bool _mUnknown_FileType;
+        public string? FileType
+        {
+            get
+            {
+                if (!_mUnknown_FileType) return _mValue_FileType;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs.FileType' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
         /// </summary>
-        [Input("prefixConfig")]
+        [PolicyResourceProperty("prefixConfig", "_mUnknown_PrefixConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs> _mPrefixConfig;
-
-        public Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs? PrefixConfig => _mPrefixConfig.GetValue("prefixConfig");
+        private Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs? _mValue_PrefixConfig;
+        private bool _mUnknown_PrefixConfig;
+        public Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs? PrefixConfig
+        {
+            get
+            {
+                if (!_mUnknown_PrefixConfig) return _mValue_PrefixConfig;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs.PrefixConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
         /// </summary>
-        [Input("preserveSourceDataTyping")]
+        [PolicyResourceProperty("preserveSourceDataTyping", "_mUnknown_PreserveSourceDataTyping")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPreserveSourceDataTyping;
-
-        public bool? PreserveSourceDataTyping => _mPreserveSourceDataTyping.GetValue("preserveSourceDataTyping");
+        private bool? _mValue_PreserveSourceDataTyping;
+        private bool _mUnknown_PreserveSourceDataTyping;
+        public bool? PreserveSourceDataTyping
+        {
+            get
+            {
+                if (!_mUnknown_PreserveSourceDataTyping) return _mValue_PreserveSourceDataTyping;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs.PreserveSourceDataTyping' is not present");
+            }
+        }
     }
 }

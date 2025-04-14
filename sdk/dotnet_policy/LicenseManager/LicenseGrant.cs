@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.LicenseManager
         /// <summary>
         /// A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
         /// </summary>
-        [Input("allowedOperations")]
+        [PolicyResourceProperty("allowedOperations", "_mUnknown_AllowedOperations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedOperations;
-
-        public List<string>? AllowedOperations => _mAllowedOperations.GetValue("allowedOperations");
+        private List<string>? _mValue_AllowedOperations;
+        private bool _mUnknown_AllowedOperations;
+        public List<string>? AllowedOperations
+        {
+            get
+            {
+                if (!_mUnknown_AllowedOperations) return _mValue_AllowedOperations;
+                throw new UndeferrableValueException("Value 'LicenseGrant.AllowedOperations' is not present");
+            }
+        }
 
         /// <summary>
         /// The grant ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LicenseGrant.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The home region for the license.
         /// </summary>
-        [Input("homeRegion")]
+        [PolicyResourceProperty("homeRegion", "_mUnknown_HomeRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHomeRegion;
-
-        public string? HomeRegion => _mHomeRegion.GetValue("homeRegion");
+        private string? _mValue_HomeRegion;
+        private bool _mUnknown_HomeRegion;
+        public string? HomeRegion
+        {
+            get
+            {
+                if (!_mUnknown_HomeRegion) return _mValue_HomeRegion;
+                throw new UndeferrableValueException("Value 'LicenseGrant.HomeRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the license to grant.
         /// </summary>
-        [Input("licenseArn")]
+        [PolicyResourceProperty("licenseArn", "_mUnknown_LicenseArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseArn;
-
-        public string? LicenseArn => _mLicenseArn.GetValue("licenseArn");
+        private string? _mValue_LicenseArn;
+        private bool _mUnknown_LicenseArn;
+        public string? LicenseArn
+        {
+            get
+            {
+                if (!_mUnknown_LicenseArn) return _mValue_LicenseArn;
+                throw new UndeferrableValueException("Value 'LicenseGrant.LicenseArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Name of the grant.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LicenseGrant.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The parent ARN.
         /// </summary>
-        [Input("parentArn")]
+        [PolicyResourceProperty("parentArn", "_mUnknown_ParentArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentArn;
-
-        public string? ParentArn => _mParentArn.GetValue("parentArn");
+        private string? _mValue_ParentArn;
+        private bool _mUnknown_ParentArn;
+        public string? ParentArn
+        {
+            get
+            {
+                if (!_mUnknown_ParentArn) return _mValue_ParentArn;
+                throw new UndeferrableValueException("Value 'LicenseGrant.ParentArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The target account for the grant in the form of the ARN for an account principal of the root user.
         /// </summary>
-        [Input("principal")]
+        [PolicyResourceProperty("principal", "_mUnknown_Principal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
-
-        public string? Principal => _mPrincipal.GetValue("principal");
+        private string? _mValue_Principal;
+        private bool _mUnknown_Principal;
+        public string? Principal
+        {
+            get
+            {
+                if (!_mUnknown_Principal) return _mValue_Principal;
+                throw new UndeferrableValueException("Value 'LicenseGrant.Principal' is not present");
+            }
+        }
 
         /// <summary>
         /// The grant status.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'LicenseGrant.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The grant version.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'LicenseGrant.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:licensemanager/licenseGrant:LicenseGrant")]
@@ -101,37 +164,65 @@ namespace Pulumi.PolicyPacks.Aws.LicenseManager
         /// <summary>
         /// A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
         /// </summary>
-        [Input("allowedOperations")]
+        [PolicyResourceProperty("allowedOperations", "_mUnknown_AllowedOperations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedOperations;
-
-        public List<string>? AllowedOperations => _mAllowedOperations.GetValue("allowedOperations");
+        private List<string>? _mValue_AllowedOperations;
+        private bool _mUnknown_AllowedOperations;
+        public List<string>? AllowedOperations
+        {
+            get
+            {
+                if (!_mUnknown_AllowedOperations) return _mValue_AllowedOperations;
+                throw new UndeferrableValueException("Value 'LicenseGrantArgs.AllowedOperations' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the license to grant.
         /// </summary>
-        [Input("licenseArn")]
+        [PolicyResourceProperty("licenseArn", "_mUnknown_LicenseArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseArn;
-
-        public string? LicenseArn => _mLicenseArn.GetValue("licenseArn");
+        private string? _mValue_LicenseArn;
+        private bool _mUnknown_LicenseArn;
+        public string? LicenseArn
+        {
+            get
+            {
+                if (!_mUnknown_LicenseArn) return _mValue_LicenseArn;
+                throw new UndeferrableValueException("Value 'LicenseGrantArgs.LicenseArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Name of the grant.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LicenseGrantArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The target account for the grant in the form of the ARN for an account principal of the root user.
         /// </summary>
-        [Input("principal")]
+        [PolicyResourceProperty("principal", "_mUnknown_Principal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
-
-        public string? Principal => _mPrincipal.GetValue("principal");
+        private string? _mValue_Principal;
+        private bool _mUnknown_Principal;
+        public string? Principal
+        {
+            get
+            {
+                if (!_mUnknown_Principal) return _mValue_Principal;
+                throw new UndeferrableValueException("Value 'LicenseGrantArgs.Principal' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Outputs
         /// <summary>
         /// Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
         /// </summary>
-        [Input("dataIdentifiers")]
+        [PolicyResourceProperty("dataIdentifiers", "_mUnknown_DataIdentifiers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDataIdentifiers;
-
-        public List<string>? DataIdentifiers => _mDataIdentifiers.GetValue("dataIdentifiers");
+        private List<string>? _mValue_DataIdentifiers;
+        private bool _mUnknown_DataIdentifiers;
+        public List<string>? DataIdentifiers
+        {
+            get
+            {
+                if (!_mUnknown_DataIdentifiers) return _mValue_DataIdentifiers;
+                throw new UndeferrableValueException("Value 'GetLogDataProtectionPolicyDocumentStatementResult.DataIdentifiers' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures the data protection operation applied by this statement.
         /// </summary>
-        [Input("operation")]
+        [PolicyResourceProperty("operation", "_mUnknown_Operation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GetLogDataProtectionPolicyDocumentStatementOperationResult> _mOperation;
-
-        public Outputs.GetLogDataProtectionPolicyDocumentStatementOperationResult? Operation => _mOperation.GetValue("operation");
+        private Outputs.GetLogDataProtectionPolicyDocumentStatementOperationResult? _mValue_Operation;
+        private bool _mUnknown_Operation;
+        public Outputs.GetLogDataProtectionPolicyDocumentStatementOperationResult? Operation
+        {
+            get
+            {
+                if (!_mUnknown_Operation) return _mValue_Operation;
+                throw new UndeferrableValueException("Value 'GetLogDataProtectionPolicyDocumentStatementResult.Operation' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of this statement.
         /// </summary>
-        [Input("sid")]
+        [PolicyResourceProperty("sid", "_mUnknown_Sid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSid;
-
-        public string? Sid => _mSid.GetValue("sid");
+        private string? _mValue_Sid;
+        private bool _mUnknown_Sid;
+        public string? Sid
+        {
+            get
+            {
+                if (!_mUnknown_Sid) return _mValue_Sid;
+                throw new UndeferrableValueException("Value 'GetLogDataProtectionPolicyDocumentStatementResult.Sid' is not present");
+            }
+        }
     }
 }

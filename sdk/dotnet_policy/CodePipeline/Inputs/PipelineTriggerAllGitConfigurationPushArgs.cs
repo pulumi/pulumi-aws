@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Inputs
         /// <summary>
         /// The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
         /// </summary>
-        [Input("branches")]
+        [PolicyResourceProperty("branches", "_mUnknown_Branches")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineTriggerAllGitConfigurationPushBranchArgs>> _mBranches;
-
-        public List<Inputs.PipelineTriggerAllGitConfigurationPushBranchArgs>? Branches => _mBranches.GetValue("branches");
+        private List<Inputs.PipelineTriggerAllGitConfigurationPushBranchArgs>? _mValue_Branches;
+        private bool _mUnknown_Branches;
+        public List<Inputs.PipelineTriggerAllGitConfigurationPushBranchArgs>? Branches
+        {
+            get
+            {
+                if (!_mUnknown_Branches) return _mValue_Branches;
+                throw new UndeferrableValueException("Value 'PipelineTriggerAllGitConfigurationPushArgs.Branches' is not present");
+            }
+        }
 
         /// <summary>
         /// The field that specifies to filter on file paths for the push trigger configuration. A `file_paths` block is documented below.
         /// </summary>
-        [Input("filePaths")]
+        [PolicyResourceProperty("filePaths", "_mUnknown_FilePaths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineTriggerAllGitConfigurationPushFilePathArgs>> _mFilePaths;
-
-        public List<Inputs.PipelineTriggerAllGitConfigurationPushFilePathArgs>? FilePaths => _mFilePaths.GetValue("filePaths");
+        private List<Inputs.PipelineTriggerAllGitConfigurationPushFilePathArgs>? _mValue_FilePaths;
+        private bool _mUnknown_FilePaths;
+        public List<Inputs.PipelineTriggerAllGitConfigurationPushFilePathArgs>? FilePaths
+        {
+            get
+            {
+                if (!_mUnknown_FilePaths) return _mValue_FilePaths;
+                throw new UndeferrableValueException("Value 'PipelineTriggerAllGitConfigurationPushArgs.FilePaths' is not present");
+            }
+        }
 
         /// <summary>
         /// The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineTriggerAllGitConfigurationPushTagArgs>> _mTags;
-
-        public List<Inputs.PipelineTriggerAllGitConfigurationPushTagArgs>? Tags => _mTags.GetValue("tags");
+        private List<Inputs.PipelineTriggerAllGitConfigurationPushTagArgs>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public List<Inputs.PipelineTriggerAllGitConfigurationPushTagArgs>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'PipelineTriggerAllGitConfigurationPushArgs.Tags' is not present");
+            }
+        }
     }
 }

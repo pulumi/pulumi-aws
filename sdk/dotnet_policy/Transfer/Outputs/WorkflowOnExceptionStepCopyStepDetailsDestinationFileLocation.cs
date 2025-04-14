@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Transfer.Outputs
         /// <summary>
         /// Specifies the details for the EFS file being copied.
         /// </summary>
-        [Input("efsFileLocation")]
+        [PolicyResourceProperty("efsFileLocation", "_mUnknown_EfsFileLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation> _mEfsFileLocation;
-
-        public Outputs.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation? EfsFileLocation => _mEfsFileLocation.GetValue("efsFileLocation");
+        private Outputs.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation? _mValue_EfsFileLocation;
+        private bool _mUnknown_EfsFileLocation;
+        public Outputs.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation? EfsFileLocation
+        {
+            get
+            {
+                if (!_mUnknown_EfsFileLocation) return _mValue_EfsFileLocation;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation.EfsFileLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the details for the S3 file being copied.
         /// </summary>
-        [Input("s3FileLocation")]
+        [PolicyResourceProperty("s3FileLocation", "_mUnknown_S3FileLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation> _mS3FileLocation;
-
-        public Outputs.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation? S3FileLocation => _mS3FileLocation.GetValue("s3FileLocation");
+        private Outputs.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation? _mValue_S3FileLocation;
+        private bool _mUnknown_S3FileLocation;
+        public Outputs.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation? S3FileLocation
+        {
+            get
+            {
+                if (!_mUnknown_S3FileLocation) return _mValue_S3FileLocation;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation.S3FileLocation' is not present");
+            }
+        }
     }
 }

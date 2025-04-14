@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// <summary>
         /// Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
         /// </summary>
-        [Input("metricType")]
+        [PolicyResourceProperty("metricType", "_mUnknown_MetricType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricType;
-
-        public string? MetricType => _mMetricType.GetValue("metricType");
+        private string? _mValue_MetricType;
+        private bool _mUnknown_MetricType;
+        public string? MetricType
+        {
+            get
+            {
+                if (!_mUnknown_MetricType) return _mValue_MetricType;
+                throw new UndeferrableValueException("Value 'FleetScalingConfigurationTargetTrackingScalingConfig.MetricType' is not present");
+            }
+        }
 
         /// <summary>
         /// Value of metricType when to start scaling.
         /// </summary>
-        [Input("targetValue")]
+        [PolicyResourceProperty("targetValue", "_mUnknown_TargetValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mTargetValue;
-
-        public double? TargetValue => _mTargetValue.GetValue("targetValue");
+        private double? _mValue_TargetValue;
+        private bool _mUnknown_TargetValue;
+        public double? TargetValue
+        {
+            get
+            {
+                if (!_mUnknown_TargetValue) return _mValue_TargetValue;
+                throw new UndeferrableValueException("Value 'FleetScalingConfigurationTargetTrackingScalingConfig.TargetValue' is not present");
+            }
+        }
     }
 }

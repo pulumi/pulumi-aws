@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// <summary>
         /// Budget name.
         /// </summary>
-        [Input("budgetName")]
+        [PolicyResourceProperty("budgetName", "_mUnknown_BudgetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBudgetName;
-
-        public string? BudgetName => _mBudgetName.GetValue("budgetName");
+        private string? _mValue_BudgetName;
+        private bool _mUnknown_BudgetName;
+        public string? BudgetName
+        {
+            get
+            {
+                if (!_mUnknown_BudgetName) return _mValue_BudgetName;
+                throw new UndeferrableValueException("Value 'BudgetResourceAssociation.BudgetName' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource identifier.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'BudgetResourceAssociation.ResourceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// <summary>
         /// Budget name.
         /// </summary>
-        [Input("budgetName")]
+        [PolicyResourceProperty("budgetName", "_mUnknown_BudgetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBudgetName;
-
-        public string? BudgetName => _mBudgetName.GetValue("budgetName");
+        private string? _mValue_BudgetName;
+        private bool _mUnknown_BudgetName;
+        public string? BudgetName
+        {
+            get
+            {
+                if (!_mUnknown_BudgetName) return _mValue_BudgetName;
+                throw new UndeferrableValueException("Value 'BudgetResourceAssociationArgs.BudgetName' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource identifier.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'BudgetResourceAssociationArgs.ResourceId' is not present");
+            }
+        }
     }
 }

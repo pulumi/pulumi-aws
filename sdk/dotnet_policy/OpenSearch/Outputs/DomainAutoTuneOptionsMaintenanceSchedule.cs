@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Outputs
         /// <summary>
         /// A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
         /// </summary>
-        [Input("cronExpressionForRecurrence")]
+        [PolicyResourceProperty("cronExpressionForRecurrence", "_mUnknown_CronExpressionForRecurrence")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCronExpressionForRecurrence;
-
-        public string? CronExpressionForRecurrence => _mCronExpressionForRecurrence.GetValue("cronExpressionForRecurrence");
+        private string? _mValue_CronExpressionForRecurrence;
+        private bool _mUnknown_CronExpressionForRecurrence;
+        public string? CronExpressionForRecurrence
+        {
+            get
+            {
+                if (!_mUnknown_CronExpressionForRecurrence) return _mValue_CronExpressionForRecurrence;
+                throw new UndeferrableValueException("Value 'DomainAutoTuneOptionsMaintenanceSchedule.CronExpressionForRecurrence' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
         /// </summary>
-        [Input("duration")]
+        [PolicyResourceProperty("duration", "_mUnknown_Duration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainAutoTuneOptionsMaintenanceScheduleDuration> _mDuration;
-
-        public Outputs.DomainAutoTuneOptionsMaintenanceScheduleDuration? Duration => _mDuration.GetValue("duration");
+        private Outputs.DomainAutoTuneOptionsMaintenanceScheduleDuration? _mValue_Duration;
+        private bool _mUnknown_Duration;
+        public Outputs.DomainAutoTuneOptionsMaintenanceScheduleDuration? Duration
+        {
+            get
+            {
+                if (!_mUnknown_Duration) return _mValue_Duration;
+                throw new UndeferrableValueException("Value 'DomainAutoTuneOptionsMaintenanceSchedule.Duration' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        [Input("startAt")]
+        [PolicyResourceProperty("startAt", "_mUnknown_StartAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartAt;
-
-        public string? StartAt => _mStartAt.GetValue("startAt");
+        private string? _mValue_StartAt;
+        private bool _mUnknown_StartAt;
+        public string? StartAt
+        {
+            get
+            {
+                if (!_mUnknown_StartAt) return _mValue_StartAt;
+                throw new UndeferrableValueException("Value 'DomainAutoTuneOptionsMaintenanceSchedule.StartAt' is not present");
+            }
+        }
     }
 }

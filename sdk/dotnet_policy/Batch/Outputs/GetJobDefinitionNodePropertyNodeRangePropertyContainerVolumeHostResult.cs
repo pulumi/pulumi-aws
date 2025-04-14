@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// The path on the host container instance that's presented to the container.
         /// </summary>
-        [Input("sourcePath")]
+        [PolicyResourceProperty("sourcePath", "_mUnknown_SourcePath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourcePath;
-
-        public string? SourcePath => _mSourcePath.GetValue("sourcePath");
+        private string? _mValue_SourcePath;
+        private bool _mUnknown_SourcePath;
+        public string? SourcePath
+        {
+            get
+            {
+                if (!_mUnknown_SourcePath) return _mValue_SourcePath;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostResult.SourcePath' is not present");
+            }
+        }
     }
 }

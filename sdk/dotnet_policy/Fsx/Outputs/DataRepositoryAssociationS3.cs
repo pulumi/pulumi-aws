@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Outputs
         /// <summary>
         /// Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
         /// </summary>
-        [Input("autoExportPolicy")]
+        [PolicyResourceProperty("autoExportPolicy", "_mUnknown_AutoExportPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataRepositoryAssociationS3AutoExportPolicy> _mAutoExportPolicy;
-
-        public Outputs.DataRepositoryAssociationS3AutoExportPolicy? AutoExportPolicy => _mAutoExportPolicy.GetValue("autoExportPolicy");
+        private Outputs.DataRepositoryAssociationS3AutoExportPolicy? _mValue_AutoExportPolicy;
+        private bool _mUnknown_AutoExportPolicy;
+        public Outputs.DataRepositoryAssociationS3AutoExportPolicy? AutoExportPolicy
+        {
+            get
+            {
+                if (!_mUnknown_AutoExportPolicy) return _mValue_AutoExportPolicy;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociationS3.AutoExportPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
         /// </summary>
-        [Input("autoImportPolicy")]
+        [PolicyResourceProperty("autoImportPolicy", "_mUnknown_AutoImportPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataRepositoryAssociationS3AutoImportPolicy> _mAutoImportPolicy;
-
-        public Outputs.DataRepositoryAssociationS3AutoImportPolicy? AutoImportPolicy => _mAutoImportPolicy.GetValue("autoImportPolicy");
+        private Outputs.DataRepositoryAssociationS3AutoImportPolicy? _mValue_AutoImportPolicy;
+        private bool _mUnknown_AutoImportPolicy;
+        public Outputs.DataRepositoryAssociationS3AutoImportPolicy? AutoImportPolicy
+        {
+            get
+            {
+                if (!_mUnknown_AutoImportPolicy) return _mValue_AutoImportPolicy;
+                throw new UndeferrableValueException("Value 'DataRepositoryAssociationS3.AutoImportPolicy' is not present");
+            }
+        }
     }
 }

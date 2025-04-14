@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Outputs
         /// <summary>
         /// References to an endpoint.
         /// </summary>
-        [Input("endpointReference")]
+        [PolicyResourceProperty("endpointReference", "_mUnknown_EndpointReference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointReference;
-
-        public string? EndpointReference => _mEndpointReference.GetValue("endpointReference");
+        private string? _mValue_EndpointReference;
+        private bool _mUnknown_EndpointReference;
+        public string? EndpointReference
+        {
+            get
+            {
+                if (!_mUnknown_EndpointReference) return _mValue_EndpointReference;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRulePrimaryResult.EndpointReference' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
         /// </summary>
-        [Input("evaluateTargetHealth")]
+        [PolicyResourceProperty("evaluateTargetHealth", "_mUnknown_EvaluateTargetHealth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEvaluateTargetHealth;
-
-        public bool? EvaluateTargetHealth => _mEvaluateTargetHealth.GetValue("evaluateTargetHealth");
+        private bool? _mValue_EvaluateTargetHealth;
+        private bool _mUnknown_EvaluateTargetHealth;
+        public bool? EvaluateTargetHealth
+        {
+            get
+            {
+                if (!_mUnknown_EvaluateTargetHealth) return _mValue_EvaluateTargetHealth;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRulePrimaryResult.EvaluateTargetHealth' is not present");
+            }
+        }
 
         /// <summary>
         /// If you want to associate a health check with the endpoint or rule.
         /// </summary>
-        [Input("healthCheck")]
+        [PolicyResourceProperty("healthCheck", "_mUnknown_HealthCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheck;
-
-        public string? HealthCheck => _mHealthCheck.GetValue("healthCheck");
+        private string? _mValue_HealthCheck;
+        private bool _mUnknown_HealthCheck;
+        public string? HealthCheck
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheck) return _mValue_HealthCheck;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRulePrimaryResult.HealthCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// References to a rule.
         /// </summary>
-        [Input("ruleReference")]
+        [PolicyResourceProperty("ruleReference", "_mUnknown_RuleReference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleReference;
-
-        public string? RuleReference => _mRuleReference.GetValue("ruleReference");
+        private string? _mValue_RuleReference;
+        private bool _mUnknown_RuleReference;
+        public string? RuleReference
+        {
+            get
+            {
+                if (!_mUnknown_RuleReference) return _mValue_RuleReference;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRulePrimaryResult.RuleReference' is not present");
+            }
+        }
     }
 }

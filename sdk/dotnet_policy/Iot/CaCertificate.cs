@@ -16,111 +16,195 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// Boolean flag to indicate if the certificate should be active for device authentication.
         /// </summary>
-        [Input("active")]
+        [PolicyResourceProperty("active", "_mUnknown_Active")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
-
-        public bool? Active => _mActive.GetValue("active");
+        private bool? _mValue_Active;
+        private bool _mUnknown_Active;
+        public bool? Active
+        {
+            get
+            {
+                if (!_mUnknown_Active) return _mValue_Active;
+                throw new UndeferrableValueException("Value 'CaCertificate.Active' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean flag to indicate if the certificate should be active for device regisration.
         /// </summary>
-        [Input("allowAutoRegistration")]
+        [PolicyResourceProperty("allowAutoRegistration", "_mUnknown_AllowAutoRegistration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowAutoRegistration;
-
-        public bool? AllowAutoRegistration => _mAllowAutoRegistration.GetValue("allowAutoRegistration");
+        private bool? _mValue_AllowAutoRegistration;
+        private bool _mUnknown_AllowAutoRegistration;
+        public bool? AllowAutoRegistration
+        {
+            get
+            {
+                if (!_mUnknown_AllowAutoRegistration) return _mValue_AllowAutoRegistration;
+                throw new UndeferrableValueException("Value 'CaCertificate.AllowAutoRegistration' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the created CA certificate.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CaCertificate.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// PEM encoded CA certificate.
         /// </summary>
-        [Input("caCertificatePem")]
+        [PolicyResourceProperty("caCertificatePem", "_mUnknown_CaCertificatePem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificatePem;
-
-        public string? CaCertificatePem => _mCaCertificatePem.GetValue("caCertificatePem");
+        private string? _mValue_CaCertificatePem;
+        private bool _mUnknown_CaCertificatePem;
+        public string? CaCertificatePem
+        {
+            get
+            {
+                if (!_mUnknown_CaCertificatePem) return _mValue_CaCertificatePem;
+                throw new UndeferrableValueException("Value 'CaCertificate.CaCertificatePem' is not present");
+            }
+        }
 
         /// <summary>
         /// The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
         /// </summary>
-        [Input("certificateMode")]
+        [PolicyResourceProperty("certificateMode", "_mUnknown_CertificateMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateMode;
-
-        public string? CertificateMode => _mCertificateMode.GetValue("certificateMode");
+        private string? _mValue_CertificateMode;
+        private bool _mUnknown_CertificateMode;
+        public string? CertificateMode
+        {
+            get
+            {
+                if (!_mUnknown_CertificateMode) return _mValue_CertificateMode;
+                throw new UndeferrableValueException("Value 'CaCertificate.CertificateMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer version of the CA certificate.
         /// </summary>
-        [Input("customerVersion")]
+        [PolicyResourceProperty("customerVersion", "_mUnknown_CustomerVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCustomerVersion;
-
-        public int? CustomerVersion => _mCustomerVersion.GetValue("customerVersion");
+        private int? _mValue_CustomerVersion;
+        private bool _mUnknown_CustomerVersion;
+        public int? CustomerVersion
+        {
+            get
+            {
+                if (!_mUnknown_CustomerVersion) return _mValue_CustomerVersion;
+                throw new UndeferrableValueException("Value 'CaCertificate.CustomerVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The generation ID of the CA certificate.
         /// </summary>
-        [Input("generationId")]
+        [PolicyResourceProperty("generationId", "_mUnknown_GenerationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGenerationId;
-
-        public string? GenerationId => _mGenerationId.GetValue("generationId");
+        private string? _mValue_GenerationId;
+        private bool _mUnknown_GenerationId;
+        public string? GenerationId
+        {
+            get
+            {
+                if (!_mUnknown_GenerationId) return _mValue_GenerationId;
+                throw new UndeferrableValueException("Value 'CaCertificate.GenerationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the registration configuration. See below.
         /// </summary>
-        [Input("registrationConfig")]
+        [PolicyResourceProperty("registrationConfig", "_mUnknown_RegistrationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CaCertificateRegistrationConfig> _mRegistrationConfig;
-
-        public Outputs.CaCertificateRegistrationConfig? RegistrationConfig => _mRegistrationConfig.GetValue("registrationConfig");
+        private Outputs.CaCertificateRegistrationConfig? _mValue_RegistrationConfig;
+        private bool _mUnknown_RegistrationConfig;
+        public Outputs.CaCertificateRegistrationConfig? RegistrationConfig
+        {
+            get
+            {
+                if (!_mUnknown_RegistrationConfig) return _mValue_RegistrationConfig;
+                throw new UndeferrableValueException("Value 'CaCertificate.RegistrationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CaCertificate.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'CaCertificate.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// When the CA certificate is valid.
         /// </summary>
-        [Input("validities")]
+        [PolicyResourceProperty("validities", "_mUnknown_Validities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CaCertificateValidity>> _mValidities;
-
-        public List<Outputs.CaCertificateValidity>? Validities => _mValidities.GetValue("validities");
+        private List<Outputs.CaCertificateValidity>? _mValue_Validities;
+        private bool _mUnknown_Validities;
+        public List<Outputs.CaCertificateValidity>? Validities
+        {
+            get
+            {
+                if (!_mUnknown_Validities) return _mValue_Validities;
+                throw new UndeferrableValueException("Value 'CaCertificate.Validities' is not present");
+            }
+        }
 
         /// <summary>
         /// PEM encoded verification certificate containing the common name of a registration code. Review
         /// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.
         /// </summary>
-        [Input("verificationCertificatePem")]
+        [PolicyResourceProperty("verificationCertificatePem", "_mUnknown_VerificationCertificatePem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerificationCertificatePem;
-
-        public string? VerificationCertificatePem => _mVerificationCertificatePem.GetValue("verificationCertificatePem");
+        private string? _mValue_VerificationCertificatePem;
+        private bool _mUnknown_VerificationCertificatePem;
+        public string? VerificationCertificatePem
+        {
+            get
+            {
+                if (!_mUnknown_VerificationCertificatePem) return _mValue_VerificationCertificatePem;
+                throw new UndeferrableValueException("Value 'CaCertificate.VerificationCertificatePem' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iot/caCertificate:CaCertificate")]
@@ -129,65 +213,114 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// Boolean flag to indicate if the certificate should be active for device authentication.
         /// </summary>
-        [Input("active")]
+        [PolicyResourceProperty("active", "_mUnknown_Active")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
-
-        public bool? Active => _mActive.GetValue("active");
+        private bool? _mValue_Active;
+        private bool _mUnknown_Active;
+        public bool? Active
+        {
+            get
+            {
+                if (!_mUnknown_Active) return _mValue_Active;
+                throw new UndeferrableValueException("Value 'CaCertificateArgs.Active' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean flag to indicate if the certificate should be active for device regisration.
         /// </summary>
-        [Input("allowAutoRegistration")]
+        [PolicyResourceProperty("allowAutoRegistration", "_mUnknown_AllowAutoRegistration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowAutoRegistration;
-
-        public bool? AllowAutoRegistration => _mAllowAutoRegistration.GetValue("allowAutoRegistration");
+        private bool? _mValue_AllowAutoRegistration;
+        private bool _mUnknown_AllowAutoRegistration;
+        public bool? AllowAutoRegistration
+        {
+            get
+            {
+                if (!_mUnknown_AllowAutoRegistration) return _mValue_AllowAutoRegistration;
+                throw new UndeferrableValueException("Value 'CaCertificateArgs.AllowAutoRegistration' is not present");
+            }
+        }
 
         /// <summary>
         /// PEM encoded CA certificate.
         /// </summary>
-        [Input("caCertificatePem")]
+        [PolicyResourceProperty("caCertificatePem", "_mUnknown_CaCertificatePem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificatePem;
-
-        public string? CaCertificatePem => _mCaCertificatePem.GetValue("caCertificatePem");
+        private string? _mValue_CaCertificatePem;
+        private bool _mUnknown_CaCertificatePem;
+        public string? CaCertificatePem
+        {
+            get
+            {
+                if (!_mUnknown_CaCertificatePem) return _mValue_CaCertificatePem;
+                throw new UndeferrableValueException("Value 'CaCertificateArgs.CaCertificatePem' is not present");
+            }
+        }
 
         /// <summary>
         /// The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
         /// </summary>
-        [Input("certificateMode")]
+        [PolicyResourceProperty("certificateMode", "_mUnknown_CertificateMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateMode;
-
-        public string? CertificateMode => _mCertificateMode.GetValue("certificateMode");
+        private string? _mValue_CertificateMode;
+        private bool _mUnknown_CertificateMode;
+        public string? CertificateMode
+        {
+            get
+            {
+                if (!_mUnknown_CertificateMode) return _mValue_CertificateMode;
+                throw new UndeferrableValueException("Value 'CaCertificateArgs.CertificateMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the registration configuration. See below.
         /// </summary>
-        [Input("registrationConfig")]
+        [PolicyResourceProperty("registrationConfig", "_mUnknown_RegistrationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CaCertificateRegistrationConfigArgs> _mRegistrationConfig;
-
-        public Inputs.CaCertificateRegistrationConfigArgs? RegistrationConfig => _mRegistrationConfig.GetValue("registrationConfig");
+        private Inputs.CaCertificateRegistrationConfigArgs? _mValue_RegistrationConfig;
+        private bool _mUnknown_RegistrationConfig;
+        public Inputs.CaCertificateRegistrationConfigArgs? RegistrationConfig
+        {
+            get
+            {
+                if (!_mUnknown_RegistrationConfig) return _mValue_RegistrationConfig;
+                throw new UndeferrableValueException("Value 'CaCertificateArgs.RegistrationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CaCertificateArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// PEM encoded verification certificate containing the common name of a registration code. Review
         /// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.
         /// </summary>
-        [Input("verificationCertificatePem")]
+        [PolicyResourceProperty("verificationCertificatePem", "_mUnknown_VerificationCertificatePem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerificationCertificatePem;
-
-        public string? VerificationCertificatePem => _mVerificationCertificatePem.GetValue("verificationCertificatePem");
+        private string? _mValue_VerificationCertificatePem;
+        private bool _mUnknown_VerificationCertificatePem;
+        public string? VerificationCertificatePem
+        {
+            get
+            {
+                if (!_mUnknown_VerificationCertificatePem) return _mValue_VerificationCertificatePem;
+                throw new UndeferrableValueException("Value 'CaCertificateArgs.VerificationCertificatePem' is not present");
+            }
+        }
     }
 }

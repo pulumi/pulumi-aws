@@ -15,100 +15,177 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         /// </summary>
-        [Input("bufferingInterval")]
+        [PolicyResourceProperty("bufferingInterval", "_mUnknown_BufferingInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferingInterval;
-
-        public int? BufferingInterval => _mBufferingInterval.GetValue("bufferingInterval");
+        private int? _mValue_BufferingInterval;
+        private bool _mUnknown_BufferingInterval;
+        public int? BufferingInterval
+        {
+            get
+            {
+                if (!_mUnknown_BufferingInterval) return _mValue_BufferingInterval;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfiguration.BufferingInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         /// </summary>
-        [Input("bufferingSize")]
+        [PolicyResourceProperty("bufferingSize", "_mUnknown_BufferingSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferingSize;
-
-        public int? BufferingSize => _mBufferingSize.GetValue("bufferingSize");
+        private int? _mValue_BufferingSize;
+        private bool _mUnknown_BufferingSize;
+        public int? BufferingSize
+        {
+            get
+            {
+                if (!_mUnknown_BufferingSize) return _mValue_BufferingSize;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfiguration.BufferingSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
-        [Input("cloudwatchLoggingOptions")]
+        [PolicyResourceProperty("cloudwatchLoggingOptions", "_mUnknown_CloudwatchLoggingOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions> _mCloudwatchLoggingOptions;
-
-        public Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions => _mCloudwatchLoggingOptions.GetValue("cloudwatchLoggingOptions");
+        private Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions? _mValue_CloudwatchLoggingOptions;
+        private bool _mUnknown_CloudwatchLoggingOptions;
+        public Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLoggingOptions) return _mValue_CloudwatchLoggingOptions;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfiguration.CloudwatchLoggingOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
         /// </summary>
-        [Input("collectionEndpoint")]
+        [PolicyResourceProperty("collectionEndpoint", "_mUnknown_CollectionEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollectionEndpoint;
-
-        public string? CollectionEndpoint => _mCollectionEndpoint.GetValue("collectionEndpoint");
+        private string? _mValue_CollectionEndpoint;
+        private bool _mUnknown_CollectionEndpoint;
+        public string? CollectionEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_CollectionEndpoint) return _mValue_CollectionEndpoint;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfiguration.CollectionEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The Serverless offering for Amazon OpenSearch Service index name.
         /// </summary>
-        [Input("indexName")]
+        [PolicyResourceProperty("indexName", "_mUnknown_IndexName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIndexName;
-
-        public string? IndexName => _mIndexName.GetValue("indexName");
+        private string? _mValue_IndexName;
+        private bool _mUnknown_IndexName;
+        public string? IndexName
+        {
+            get
+            {
+                if (!_mUnknown_IndexName) return _mValue_IndexName;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfiguration.IndexName' is not present");
+            }
+        }
 
         /// <summary>
         /// The data processing configuration.  See `processing_configuration` block below for details.
         /// </summary>
-        [Input("processingConfiguration")]
+        [PolicyResourceProperty("processingConfiguration", "_mUnknown_ProcessingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration> _mProcessingConfiguration;
-
-        public Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration? ProcessingConfiguration => _mProcessingConfiguration.GetValue("processingConfiguration");
+        private Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration? _mValue_ProcessingConfiguration;
+        private bool _mUnknown_ProcessingConfiguration;
+        public Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration? ProcessingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ProcessingConfiguration) return _mValue_ProcessingConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfiguration.ProcessingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
         /// </summary>
-        [Input("retryDuration")]
+        [PolicyResourceProperty("retryDuration", "_mUnknown_RetryDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetryDuration;
-
-        public int? RetryDuration => _mRetryDuration.GetValue("retryDuration");
+        private int? _mValue_RetryDuration;
+        private bool _mUnknown_RetryDuration;
+        public int? RetryDuration
+        {
+            get
+            {
+                if (!_mUnknown_RetryDuration) return _mValue_RetryDuration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfiguration.RetryDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfiguration.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
         /// </summary>
-        [Input("s3BackupMode")]
+        [PolicyResourceProperty("s3BackupMode", "_mUnknown_S3BackupMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BackupMode;
-
-        public string? S3BackupMode => _mS3BackupMode.GetValue("s3BackupMode");
+        private string? _mValue_S3BackupMode;
+        private bool _mUnknown_S3BackupMode;
+        public string? S3BackupMode
+        {
+            get
+            {
+                if (!_mUnknown_S3BackupMode) return _mValue_S3BackupMode;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfiguration.S3BackupMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 Configuration. See `s3_configuration` block below for details.
         /// </summary>
-        [Input("s3Configuration")]
+        [PolicyResourceProperty("s3Configuration", "_mUnknown_S3Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration> _mS3Configuration;
-
-        public Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration? S3Configuration => _mS3Configuration.GetValue("s3Configuration");
+        private Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration? _mValue_S3Configuration;
+        private bool _mUnknown_S3Configuration;
+        public Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration? S3Configuration
+        {
+            get
+            {
+                if (!_mUnknown_S3Configuration) return _mValue_S3Configuration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfiguration.S3Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpc_config` block below for details.
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig> _mVpcConfig;
-
-        public Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfiguration.VpcConfig' is not present");
+            }
+        }
     }
 }

@@ -16,142 +16,254 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// <summary>
         /// The ID of the Amazon Web Services account where the environment exists
         /// </summary>
-        [Input("accountIdentifier")]
+        [PolicyResourceProperty("accountIdentifier", "_mUnknown_AccountIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountIdentifier;
-
-        public string? AccountIdentifier => _mAccountIdentifier.GetValue("accountIdentifier");
+        private string? _mValue_AccountIdentifier;
+        private bool _mUnknown_AccountIdentifier;
+        public string? AccountIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_AccountIdentifier) return _mValue_AccountIdentifier;
+                throw new UndeferrableValueException("Value 'Environment.AccountIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Web Services region where the environment exists.
         /// </summary>
-        [Input("accountRegion")]
+        [PolicyResourceProperty("accountRegion", "_mUnknown_AccountRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountRegion;
-
-        public string? AccountRegion => _mAccountRegion.GetValue("accountRegion");
+        private string? _mValue_AccountRegion;
+        private bool _mUnknown_AccountRegion;
+        public string? AccountRegion
+        {
+            get
+            {
+                if (!_mUnknown_AccountRegion) return _mValue_AccountRegion;
+                throw new UndeferrableValueException("Value 'Environment.AccountRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// The blueprint with which the environment is created.
         /// </summary>
-        [Input("blueprintIdentifier")]
+        [PolicyResourceProperty("blueprintIdentifier", "_mUnknown_BlueprintIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlueprintIdentifier;
-
-        public string? BlueprintIdentifier => _mBlueprintIdentifier.GetValue("blueprintIdentifier");
+        private string? _mValue_BlueprintIdentifier;
+        private bool _mUnknown_BlueprintIdentifier;
+        public string? BlueprintIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_BlueprintIdentifier) return _mValue_BlueprintIdentifier;
+                throw new UndeferrableValueException("Value 'Environment.BlueprintIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The time the environment was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'Environment.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// The user who created the environment.
         /// </summary>
-        [Input("createdBy")]
+        [PolicyResourceProperty("createdBy", "_mUnknown_CreatedBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedBy;
-
-        public string? CreatedBy => _mCreatedBy.GetValue("createdBy");
+        private string? _mValue_CreatedBy;
+        private bool _mUnknown_CreatedBy;
+        public string? CreatedBy
+        {
+            get
+            {
+                if (!_mUnknown_CreatedBy) return _mValue_CreatedBy;
+                throw new UndeferrableValueException("Value 'Environment.CreatedBy' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the environment.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Environment.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the domain where the environment exists.
         /// </summary>
-        [Input("domainIdentifier")]
+        [PolicyResourceProperty("domainIdentifier", "_mUnknown_DomainIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
-
-        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
+        private string? _mValue_DomainIdentifier;
+        private bool _mUnknown_DomainIdentifier;
+        public string? DomainIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DomainIdentifier) return _mValue_DomainIdentifier;
+                throw new UndeferrableValueException("Value 'Environment.DomainIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The business glossary terms that can be used in this environment.
         /// </summary>
-        [Input("glossaryTerms")]
+        [PolicyResourceProperty("glossaryTerms", "_mUnknown_GlossaryTerms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGlossaryTerms;
-
-        public List<string>? GlossaryTerms => _mGlossaryTerms.GetValue("glossaryTerms");
+        private List<string>? _mValue_GlossaryTerms;
+        private bool _mUnknown_GlossaryTerms;
+        public List<string>? GlossaryTerms
+        {
+            get
+            {
+                if (!_mUnknown_GlossaryTerms) return _mValue_GlossaryTerms;
+                throw new UndeferrableValueException("Value 'Environment.GlossaryTerms' is not present");
+            }
+        }
 
         /// <summary>
         /// The details of the last deployment of the environment.
         /// </summary>
-        [Input("lastDeployments")]
+        [PolicyResourceProperty("lastDeployments", "_mUnknown_LastDeployments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EnvironmentLastDeployment>> _mLastDeployments;
-
-        public List<Outputs.EnvironmentLastDeployment>? LastDeployments => _mLastDeployments.GetValue("lastDeployments");
+        private List<Outputs.EnvironmentLastDeployment>? _mValue_LastDeployments;
+        private bool _mUnknown_LastDeployments;
+        public List<Outputs.EnvironmentLastDeployment>? LastDeployments
+        {
+            get
+            {
+                if (!_mUnknown_LastDeployments) return _mValue_LastDeployments;
+                throw new UndeferrableValueException("Value 'Environment.LastDeployments' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the environment.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Environment.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the profile with which the environment is created.
         /// </summary>
-        [Input("profileIdentifier")]
+        [PolicyResourceProperty("profileIdentifier", "_mUnknown_ProfileIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProfileIdentifier;
-
-        public string? ProfileIdentifier => _mProfileIdentifier.GetValue("profileIdentifier");
+        private string? _mValue_ProfileIdentifier;
+        private bool _mUnknown_ProfileIdentifier;
+        public string? ProfileIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ProfileIdentifier) return _mValue_ProfileIdentifier;
+                throw new UndeferrableValueException("Value 'Environment.ProfileIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the project where the environment exists.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("projectIdentifier")]
+        [PolicyResourceProperty("projectIdentifier", "_mUnknown_ProjectIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectIdentifier;
-
-        public string? ProjectIdentifier => _mProjectIdentifier.GetValue("projectIdentifier");
+        private string? _mValue_ProjectIdentifier;
+        private bool _mUnknown_ProjectIdentifier;
+        public string? ProjectIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ProjectIdentifier) return _mValue_ProjectIdentifier;
+                throw new UndeferrableValueException("Value 'Environment.ProjectIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The provider of the environment.
         /// </summary>
-        [Input("providerEnvironment")]
+        [PolicyResourceProperty("providerEnvironment", "_mUnknown_ProviderEnvironment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderEnvironment;
+        private string? _mValue_ProviderEnvironment;
+        private bool _mUnknown_ProviderEnvironment;
+        public string? ProviderEnvironment
+        {
+            get
+            {
+                if (!_mUnknown_ProviderEnvironment) return _mValue_ProviderEnvironment;
+                throw new UndeferrableValueException("Value 'Environment.ProviderEnvironment' is not present");
+            }
+        }
 
-        public string? ProviderEnvironment => _mProviderEnvironment.GetValue("providerEnvironment");
-
-        [Input("provisionedResources")]
+        [PolicyResourceProperty("provisionedResources", "_mUnknown_ProvisionedResources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EnvironmentProvisionedResource>> _mProvisionedResources;
+        private List<Outputs.EnvironmentProvisionedResource>? _mValue_ProvisionedResources;
+        private bool _mUnknown_ProvisionedResources;
+        public List<Outputs.EnvironmentProvisionedResource>? ProvisionedResources
+        {
+            get
+            {
+                if (!_mUnknown_ProvisionedResources) return _mValue_ProvisionedResources;
+                throw new UndeferrableValueException("Value 'Environment.ProvisionedResources' is not present");
+            }
+        }
 
-        public List<Outputs.EnvironmentProvisionedResource>? ProvisionedResources => _mProvisionedResources.GetValue("provisionedResources");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EnvironmentTimeouts> _mTimeouts;
-
-        public Outputs.EnvironmentTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.EnvironmentTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.EnvironmentTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'Environment.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// The user parameters that are used in the environment. See User Parameters for more information.
         /// </summary>
-        [Input("userParameters")]
+        [PolicyResourceProperty("userParameters", "_mUnknown_UserParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EnvironmentUserParameter>> _mUserParameters;
-
-        public List<Outputs.EnvironmentUserParameter>? UserParameters => _mUserParameters.GetValue("userParameters");
+        private List<Outputs.EnvironmentUserParameter>? _mValue_UserParameters;
+        private bool _mUnknown_UserParameters;
+        public List<Outputs.EnvironmentUserParameter>? UserParameters
+        {
+            get
+            {
+                if (!_mUnknown_UserParameters) return _mValue_UserParameters;
+                throw new UndeferrableValueException("Value 'Environment.UserParameters' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datazone/environment:Environment")]
@@ -160,99 +272,176 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// <summary>
         /// The ID of the Amazon Web Services account where the environment exists
         /// </summary>
-        [Input("accountIdentifier")]
+        [PolicyResourceProperty("accountIdentifier", "_mUnknown_AccountIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountIdentifier;
-
-        public string? AccountIdentifier => _mAccountIdentifier.GetValue("accountIdentifier");
+        private string? _mValue_AccountIdentifier;
+        private bool _mUnknown_AccountIdentifier;
+        public string? AccountIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_AccountIdentifier) return _mValue_AccountIdentifier;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.AccountIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Web Services region where the environment exists.
         /// </summary>
-        [Input("accountRegion")]
+        [PolicyResourceProperty("accountRegion", "_mUnknown_AccountRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountRegion;
-
-        public string? AccountRegion => _mAccountRegion.GetValue("accountRegion");
+        private string? _mValue_AccountRegion;
+        private bool _mUnknown_AccountRegion;
+        public string? AccountRegion
+        {
+            get
+            {
+                if (!_mUnknown_AccountRegion) return _mValue_AccountRegion;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.AccountRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// The blueprint with which the environment is created.
         /// </summary>
-        [Input("blueprintIdentifier")]
+        [PolicyResourceProperty("blueprintIdentifier", "_mUnknown_BlueprintIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlueprintIdentifier;
-
-        public string? BlueprintIdentifier => _mBlueprintIdentifier.GetValue("blueprintIdentifier");
+        private string? _mValue_BlueprintIdentifier;
+        private bool _mUnknown_BlueprintIdentifier;
+        public string? BlueprintIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_BlueprintIdentifier) return _mValue_BlueprintIdentifier;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.BlueprintIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the environment.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the domain where the environment exists.
         /// </summary>
-        [Input("domainIdentifier")]
+        [PolicyResourceProperty("domainIdentifier", "_mUnknown_DomainIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
-
-        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
+        private string? _mValue_DomainIdentifier;
+        private bool _mUnknown_DomainIdentifier;
+        public string? DomainIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DomainIdentifier) return _mValue_DomainIdentifier;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.DomainIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The business glossary terms that can be used in this environment.
         /// </summary>
-        [Input("glossaryTerms")]
+        [PolicyResourceProperty("glossaryTerms", "_mUnknown_GlossaryTerms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGlossaryTerms;
-
-        public List<string>? GlossaryTerms => _mGlossaryTerms.GetValue("glossaryTerms");
+        private List<string>? _mValue_GlossaryTerms;
+        private bool _mUnknown_GlossaryTerms;
+        public List<string>? GlossaryTerms
+        {
+            get
+            {
+                if (!_mUnknown_GlossaryTerms) return _mValue_GlossaryTerms;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.GlossaryTerms' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the environment.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the profile with which the environment is created.
         /// </summary>
-        [Input("profileIdentifier")]
+        [PolicyResourceProperty("profileIdentifier", "_mUnknown_ProfileIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProfileIdentifier;
-
-        public string? ProfileIdentifier => _mProfileIdentifier.GetValue("profileIdentifier");
+        private string? _mValue_ProfileIdentifier;
+        private bool _mUnknown_ProfileIdentifier;
+        public string? ProfileIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ProfileIdentifier) return _mValue_ProfileIdentifier;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.ProfileIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the project where the environment exists.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("projectIdentifier")]
+        [PolicyResourceProperty("projectIdentifier", "_mUnknown_ProjectIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectIdentifier;
+        private string? _mValue_ProjectIdentifier;
+        private bool _mUnknown_ProjectIdentifier;
+        public string? ProjectIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ProjectIdentifier) return _mValue_ProjectIdentifier;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.ProjectIdentifier' is not present");
+            }
+        }
 
-        public string? ProjectIdentifier => _mProjectIdentifier.GetValue("projectIdentifier");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EnvironmentTimeoutsArgs> _mTimeouts;
-
-        public Inputs.EnvironmentTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.EnvironmentTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.EnvironmentTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// The user parameters that are used in the environment. See User Parameters for more information.
         /// </summary>
-        [Input("userParameters")]
+        [PolicyResourceProperty("userParameters", "_mUnknown_UserParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EnvironmentUserParameterArgs>> _mUserParameters;
-
-        public List<Inputs.EnvironmentUserParameterArgs>? UserParameters => _mUserParameters.GetValue("userParameters");
+        private List<Inputs.EnvironmentUserParameterArgs>? _mValue_UserParameters;
+        private bool _mUnknown_UserParameters;
+        public List<Inputs.EnvironmentUserParameterArgs>? UserParameters
+        {
+            get
+            {
+                if (!_mUnknown_UserParameters) return _mValue_UserParameters;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.UserParameters' is not present");
+            }
+        }
     }
 }

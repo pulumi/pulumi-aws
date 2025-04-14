@@ -15,88 +15,158 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway.Outputs
         /// <summary>
         /// Date and time when the API Key was created.
         /// </summary>
-        [Input("createdDate")]
+        [PolicyResourceProperty("createdDate", "_mUnknown_CreatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
-
-        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
+        private string? _mValue_CreatedDate;
+        private bool _mUnknown_CreatedDate;
+        public string? CreatedDate
+        {
+            get
+            {
+                if (!_mUnknown_CreatedDate) return _mValue_CreatedDate;
+                throw new UndeferrableValueException("Value 'GetApiKeysItemResult.CreatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
         /// </summary>
-        [Input("customerId")]
+        [PolicyResourceProperty("customerId", "_mUnknown_CustomerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerId;
-
-        public string? CustomerId => _mCustomerId.GetValue("customerId");
+        private string? _mValue_CustomerId;
+        private bool _mUnknown_CustomerId;
+        public string? CustomerId
+        {
+            get
+            {
+                if (!_mUnknown_CustomerId) return _mValue_CustomerId;
+                throw new UndeferrableValueException("Value 'GetApiKeysItemResult.CustomerId' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the API Key.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GetApiKeysItemResult.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the API Key is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'GetApiKeysItemResult.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the API Key.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'GetApiKeysItemResult.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time when the API Key was last updated.
         /// </summary>
-        [Input("lastUpdatedDate")]
+        [PolicyResourceProperty("lastUpdatedDate", "_mUnknown_LastUpdatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedDate;
-
-        public string? LastUpdatedDate => _mLastUpdatedDate.GetValue("lastUpdatedDate");
+        private string? _mValue_LastUpdatedDate;
+        private bool _mUnknown_LastUpdatedDate;
+        public string? LastUpdatedDate
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedDate) return _mValue_LastUpdatedDate;
+                throw new UndeferrableValueException("Value 'GetApiKeysItemResult.LastUpdatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the API Key.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetApiKeysItemResult.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("stageKeys")]
+        [PolicyResourceProperty("stageKeys", "_mUnknown_StageKeys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStageKeys;
-
-        public List<string>? StageKeys => _mStageKeys.GetValue("stageKeys");
+        private List<string>? _mValue_StageKeys;
+        private bool _mUnknown_StageKeys;
+        public List<string>? StageKeys
+        {
+            get
+            {
+                if (!_mUnknown_StageKeys) return _mValue_StageKeys;
+                throw new UndeferrableValueException("Value 'GetApiKeysItemResult.StageKeys' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags for the resource.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GetApiKeysItemResult.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Value of the API Key.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'GetApiKeysItemResult.Value' is not present");
+            }
+        }
     }
 }

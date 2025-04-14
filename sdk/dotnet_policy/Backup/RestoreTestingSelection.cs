@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// The ARN of the IAM role.
         /// </summary>
-        [Input("iamRoleArn")]
+        [PolicyResourceProperty("iamRoleArn", "_mUnknown_IamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
-
-        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+        private string? _mValue_IamRoleArn;
+        private bool _mUnknown_IamRoleArn;
+        public string? IamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArn) return _mValue_IamRoleArn;
+                throw new UndeferrableValueException("Value 'RestoreTestingSelection.IamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the backup restore testing selection.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RestoreTestingSelection.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARNs for the protected resources.
         /// </summary>
-        [Input("protectedResourceArns")]
+        [PolicyResourceProperty("protectedResourceArns", "_mUnknown_ProtectedResourceArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mProtectedResourceArns;
-
-        public List<string>? ProtectedResourceArns => _mProtectedResourceArns.GetValue("protectedResourceArns");
+        private List<string>? _mValue_ProtectedResourceArns;
+        private bool _mUnknown_ProtectedResourceArns;
+        public List<string>? ProtectedResourceArns
+        {
+            get
+            {
+                if (!_mUnknown_ProtectedResourceArns) return _mValue_ProtectedResourceArns;
+                throw new UndeferrableValueException("Value 'RestoreTestingSelection.ProtectedResourceArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The conditions for the protected resource.
         /// </summary>
-        [Input("protectedResourceConditions")]
+        [PolicyResourceProperty("protectedResourceConditions", "_mUnknown_ProtectedResourceConditions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RestoreTestingSelectionProtectedResourceConditions> _mProtectedResourceConditions;
-
-        public Outputs.RestoreTestingSelectionProtectedResourceConditions? ProtectedResourceConditions => _mProtectedResourceConditions.GetValue("protectedResourceConditions");
+        private Outputs.RestoreTestingSelectionProtectedResourceConditions? _mValue_ProtectedResourceConditions;
+        private bool _mUnknown_ProtectedResourceConditions;
+        public Outputs.RestoreTestingSelectionProtectedResourceConditions? ProtectedResourceConditions
+        {
+            get
+            {
+                if (!_mUnknown_ProtectedResourceConditions) return _mValue_ProtectedResourceConditions;
+                throw new UndeferrableValueException("Value 'RestoreTestingSelection.ProtectedResourceConditions' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the protected resource.
         /// </summary>
-        [Input("protectedResourceType")]
+        [PolicyResourceProperty("protectedResourceType", "_mUnknown_ProtectedResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtectedResourceType;
-
-        public string? ProtectedResourceType => _mProtectedResourceType.GetValue("protectedResourceType");
+        private string? _mValue_ProtectedResourceType;
+        private bool _mUnknown_ProtectedResourceType;
+        public string? ProtectedResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ProtectedResourceType) return _mValue_ProtectedResourceType;
+                throw new UndeferrableValueException("Value 'RestoreTestingSelection.ProtectedResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
         /// </summary>
-        [Input("restoreMetadataOverrides")]
+        [PolicyResourceProperty("restoreMetadataOverrides", "_mUnknown_RestoreMetadataOverrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRestoreMetadataOverrides;
-
-        public Dictionary<string, string>? RestoreMetadataOverrides => _mRestoreMetadataOverrides.GetValue("restoreMetadataOverrides");
+        private Dictionary<string, string>? _mValue_RestoreMetadataOverrides;
+        private bool _mUnknown_RestoreMetadataOverrides;
+        public Dictionary<string, string>? RestoreMetadataOverrides
+        {
+            get
+            {
+                if (!_mUnknown_RestoreMetadataOverrides) return _mValue_RestoreMetadataOverrides;
+                throw new UndeferrableValueException("Value 'RestoreTestingSelection.RestoreMetadataOverrides' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the restore testing plan.
         /// </summary>
-        [Input("restoreTestingPlanName")]
+        [PolicyResourceProperty("restoreTestingPlanName", "_mUnknown_RestoreTestingPlanName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreTestingPlanName;
-
-        public string? RestoreTestingPlanName => _mRestoreTestingPlanName.GetValue("restoreTestingPlanName");
+        private string? _mValue_RestoreTestingPlanName;
+        private bool _mUnknown_RestoreTestingPlanName;
+        public string? RestoreTestingPlanName
+        {
+            get
+            {
+                if (!_mUnknown_RestoreTestingPlanName) return _mValue_RestoreTestingPlanName;
+                throw new UndeferrableValueException("Value 'RestoreTestingSelection.RestoreTestingPlanName' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
         /// </summary>
-        [Input("validationWindowHours")]
+        [PolicyResourceProperty("validationWindowHours", "_mUnknown_ValidationWindowHours")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mValidationWindowHours;
-
-        public int? ValidationWindowHours => _mValidationWindowHours.GetValue("validationWindowHours");
+        private int? _mValue_ValidationWindowHours;
+        private bool _mUnknown_ValidationWindowHours;
+        public int? ValidationWindowHours
+        {
+            get
+            {
+                if (!_mUnknown_ValidationWindowHours) return _mValue_ValidationWindowHours;
+                throw new UndeferrableValueException("Value 'RestoreTestingSelection.ValidationWindowHours' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:backup/restoreTestingSelection:RestoreTestingSelection")]
@@ -92,73 +148,129 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// The ARN of the IAM role.
         /// </summary>
-        [Input("iamRoleArn")]
+        [PolicyResourceProperty("iamRoleArn", "_mUnknown_IamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
-
-        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+        private string? _mValue_IamRoleArn;
+        private bool _mUnknown_IamRoleArn;
+        public string? IamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArn) return _mValue_IamRoleArn;
+                throw new UndeferrableValueException("Value 'RestoreTestingSelectionArgs.IamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the backup restore testing selection.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RestoreTestingSelectionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARNs for the protected resources.
         /// </summary>
-        [Input("protectedResourceArns")]
+        [PolicyResourceProperty("protectedResourceArns", "_mUnknown_ProtectedResourceArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mProtectedResourceArns;
-
-        public List<string>? ProtectedResourceArns => _mProtectedResourceArns.GetValue("protectedResourceArns");
+        private List<string>? _mValue_ProtectedResourceArns;
+        private bool _mUnknown_ProtectedResourceArns;
+        public List<string>? ProtectedResourceArns
+        {
+            get
+            {
+                if (!_mUnknown_ProtectedResourceArns) return _mValue_ProtectedResourceArns;
+                throw new UndeferrableValueException("Value 'RestoreTestingSelectionArgs.ProtectedResourceArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The conditions for the protected resource.
         /// </summary>
-        [Input("protectedResourceConditions")]
+        [PolicyResourceProperty("protectedResourceConditions", "_mUnknown_ProtectedResourceConditions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RestoreTestingSelectionProtectedResourceConditionsArgs> _mProtectedResourceConditions;
-
-        public Inputs.RestoreTestingSelectionProtectedResourceConditionsArgs? ProtectedResourceConditions => _mProtectedResourceConditions.GetValue("protectedResourceConditions");
+        private Inputs.RestoreTestingSelectionProtectedResourceConditionsArgs? _mValue_ProtectedResourceConditions;
+        private bool _mUnknown_ProtectedResourceConditions;
+        public Inputs.RestoreTestingSelectionProtectedResourceConditionsArgs? ProtectedResourceConditions
+        {
+            get
+            {
+                if (!_mUnknown_ProtectedResourceConditions) return _mValue_ProtectedResourceConditions;
+                throw new UndeferrableValueException("Value 'RestoreTestingSelectionArgs.ProtectedResourceConditions' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the protected resource.
         /// </summary>
-        [Input("protectedResourceType")]
+        [PolicyResourceProperty("protectedResourceType", "_mUnknown_ProtectedResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtectedResourceType;
-
-        public string? ProtectedResourceType => _mProtectedResourceType.GetValue("protectedResourceType");
+        private string? _mValue_ProtectedResourceType;
+        private bool _mUnknown_ProtectedResourceType;
+        public string? ProtectedResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ProtectedResourceType) return _mValue_ProtectedResourceType;
+                throw new UndeferrableValueException("Value 'RestoreTestingSelectionArgs.ProtectedResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
         /// </summary>
-        [Input("restoreMetadataOverrides")]
+        [PolicyResourceProperty("restoreMetadataOverrides", "_mUnknown_RestoreMetadataOverrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRestoreMetadataOverrides;
-
-        public Dictionary<string, string>? RestoreMetadataOverrides => _mRestoreMetadataOverrides.GetValue("restoreMetadataOverrides");
+        private Dictionary<string, string>? _mValue_RestoreMetadataOverrides;
+        private bool _mUnknown_RestoreMetadataOverrides;
+        public Dictionary<string, string>? RestoreMetadataOverrides
+        {
+            get
+            {
+                if (!_mUnknown_RestoreMetadataOverrides) return _mValue_RestoreMetadataOverrides;
+                throw new UndeferrableValueException("Value 'RestoreTestingSelectionArgs.RestoreMetadataOverrides' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the restore testing plan.
         /// </summary>
-        [Input("restoreTestingPlanName")]
+        [PolicyResourceProperty("restoreTestingPlanName", "_mUnknown_RestoreTestingPlanName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreTestingPlanName;
-
-        public string? RestoreTestingPlanName => _mRestoreTestingPlanName.GetValue("restoreTestingPlanName");
+        private string? _mValue_RestoreTestingPlanName;
+        private bool _mUnknown_RestoreTestingPlanName;
+        public string? RestoreTestingPlanName
+        {
+            get
+            {
+                if (!_mUnknown_RestoreTestingPlanName) return _mValue_RestoreTestingPlanName;
+                throw new UndeferrableValueException("Value 'RestoreTestingSelectionArgs.RestoreTestingPlanName' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
         /// </summary>
-        [Input("validationWindowHours")]
+        [PolicyResourceProperty("validationWindowHours", "_mUnknown_ValidationWindowHours")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mValidationWindowHours;
-
-        public int? ValidationWindowHours => _mValidationWindowHours.GetValue("validationWindowHours");
+        private int? _mValue_ValidationWindowHours;
+        private bool _mUnknown_ValidationWindowHours;
+        public int? ValidationWindowHours
+        {
+            get
+            {
+                if (!_mUnknown_ValidationWindowHours) return _mValue_ValidationWindowHours;
+                throw new UndeferrableValueException("Value 'RestoreTestingSelectionArgs.ValidationWindowHours' is not present");
+            }
+        }
     }
 }

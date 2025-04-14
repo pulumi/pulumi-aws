@@ -12,34 +12,62 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
 {
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs
     {
-        [Input("height")]
+        [PolicyResourceProperty("height", "_mUnknown_Height")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mHeight;
-
-        public double? Height => _mHeight.GetValue("height");
+        private double? _mValue_Height;
+        private bool _mUnknown_Height;
+        public double? Height
+        {
+            get
+            {
+                if (!_mUnknown_Height) return _mValue_Height;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs.Height' is not present");
+            }
+        }
 
         /// <summary>
         /// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
         /// </summary>
-        [Input("leftOffset")]
+        [PolicyResourceProperty("leftOffset", "_mUnknown_LeftOffset")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mLeftOffset;
-
-        public double? LeftOffset => _mLeftOffset.GetValue("leftOffset");
+        private double? _mValue_LeftOffset;
+        private bool _mUnknown_LeftOffset;
+        public double? LeftOffset
+        {
+            get
+            {
+                if (!_mUnknown_LeftOffset) return _mValue_LeftOffset;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs.LeftOffset' is not present");
+            }
+        }
 
         /// <summary>
         /// See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
         /// </summary>
-        [Input("topOffset")]
+        [PolicyResourceProperty("topOffset", "_mUnknown_TopOffset")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mTopOffset;
+        private double? _mValue_TopOffset;
+        private bool _mUnknown_TopOffset;
+        public double? TopOffset
+        {
+            get
+            {
+                if (!_mUnknown_TopOffset) return _mValue_TopOffset;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs.TopOffset' is not present");
+            }
+        }
 
-        public double? TopOffset => _mTopOffset.GetValue("topOffset");
-
-        [Input("width")]
+        [PolicyResourceProperty("width", "_mUnknown_Width")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mWidth;
-
-        public double? Width => _mWidth.GetValue("width");
+        private double? _mValue_Width;
+        private bool _mUnknown_Width;
+        public double? Width
+        {
+            get
+            {
+                if (!_mUnknown_Width) return _mValue_Width;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs.Width' is not present");
+            }
+        }
     }
 }

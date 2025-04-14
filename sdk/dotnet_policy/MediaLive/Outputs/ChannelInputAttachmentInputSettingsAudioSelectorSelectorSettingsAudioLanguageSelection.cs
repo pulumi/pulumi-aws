@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Selects a specific three-letter language code from within an audio source.
         /// </summary>
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
-
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection.LanguageCode' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
         /// </summary>
-        [Input("languageSelectionPolicy")]
+        [PolicyResourceProperty("languageSelectionPolicy", "_mUnknown_LanguageSelectionPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageSelectionPolicy;
-
-        public string? LanguageSelectionPolicy => _mLanguageSelectionPolicy.GetValue("languageSelectionPolicy");
+        private string? _mValue_LanguageSelectionPolicy;
+        private bool _mUnknown_LanguageSelectionPolicy;
+        public string? LanguageSelectionPolicy
+        {
+            get
+            {
+                if (!_mUnknown_LanguageSelectionPolicy) return _mValue_LanguageSelectionPolicy;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection.LanguageSelectionPolicy' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// Specifies the native Hive / HCatalog JsonSerDe. More details below. See `hive_json_ser_de` block below for details.
         /// </summary>
-        [Input("hiveJsonSerDe")]
+        [PolicyResourceProperty("hiveJsonSerDe", "_mUnknown_HiveJsonSerDe")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe> _mHiveJsonSerDe;
-
-        public Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe? HiveJsonSerDe => _mHiveJsonSerDe.GetValue("hiveJsonSerDe");
+        private Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe? _mValue_HiveJsonSerDe;
+        private bool _mUnknown_HiveJsonSerDe;
+        public Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe? HiveJsonSerDe
+        {
+            get
+            {
+                if (!_mUnknown_HiveJsonSerDe) return _mValue_HiveJsonSerDe;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer.HiveJsonSerDe' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the OpenX SerDe. See `open_x_json_ser_de` block below for details.
         /// </summary>
-        [Input("openXJsonSerDe")]
+        [PolicyResourceProperty("openXJsonSerDe", "_mUnknown_OpenXJsonSerDe")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe> _mOpenXJsonSerDe;
-
-        public Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe? OpenXJsonSerDe => _mOpenXJsonSerDe.GetValue("openXJsonSerDe");
+        private Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe? _mValue_OpenXJsonSerDe;
+        private bool _mUnknown_OpenXJsonSerDe;
+        public Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe? OpenXJsonSerDe
+        {
+            get
+            {
+                if (!_mUnknown_OpenXJsonSerDe) return _mValue_OpenXJsonSerDe;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer.OpenXJsonSerDe' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// The host to which to connect.
         /// </summary>
-        [Input("host")]
+        [PolicyResourceProperty("host", "_mUnknown_Host")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHost;
-
-        public string? Host => _mHost.GetValue("host");
+        private string? _mValue_Host;
+        private bool _mUnknown_Host;
+        public string? Host
+        {
+            get
+            {
+                if (!_mUnknown_Host) return _mValue_Host;
+                throw new UndeferrableValueException("Value 'DataSourceParametersSparkArgs.Host' is not present");
+            }
+        }
 
         /// <summary>
         /// The warehouse to which to connect.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'DataSourceParametersSparkArgs.Port' is not present");
+            }
+        }
     }
 }

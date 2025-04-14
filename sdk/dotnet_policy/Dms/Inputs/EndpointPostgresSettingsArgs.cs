@@ -15,145 +15,257 @@ namespace Pulumi.PolicyPacks.Aws.Dms.Inputs
         /// <summary>
         /// For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
         /// </summary>
-        [Input("afterConnectScript")]
+        [PolicyResourceProperty("afterConnectScript", "_mUnknown_AfterConnectScript")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAfterConnectScript;
-
-        public string? AfterConnectScript => _mAfterConnectScript.GetValue("afterConnectScript");
+        private string? _mValue_AfterConnectScript;
+        private bool _mUnknown_AfterConnectScript;
+        public string? AfterConnectScript
+        {
+            get
+            {
+                if (!_mUnknown_AfterConnectScript) return _mValue_AfterConnectScript;
+                throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.AfterConnectScript' is not present");
+            }
+        }
 
         /// <summary>
         /// The Babelfish for Aurora PostgreSQL database name for the endpoint.
         /// </summary>
-        [Input("babelfishDatabaseName")]
+        [PolicyResourceProperty("babelfishDatabaseName", "_mUnknown_BabelfishDatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBabelfishDatabaseName;
-
-        public string? BabelfishDatabaseName => _mBabelfishDatabaseName.GetValue("babelfishDatabaseName");
+        private string? _mValue_BabelfishDatabaseName;
+        private bool _mUnknown_BabelfishDatabaseName;
+        public string? BabelfishDatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_BabelfishDatabaseName) return _mValue_BabelfishDatabaseName;
+                throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.BabelfishDatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
         /// </summary>
-        [Input("captureDdls")]
+        [PolicyResourceProperty("captureDdls", "_mUnknown_CaptureDdls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCaptureDdls;
-
-        public bool? CaptureDdls => _mCaptureDdls.GetValue("captureDdls");
+        private bool? _mValue_CaptureDdls;
+        private bool _mUnknown_CaptureDdls;
+        public bool? CaptureDdls
+        {
+            get
+            {
+                if (!_mUnknown_CaptureDdls) return _mValue_CaptureDdls;
+                throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.CaptureDdls' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
         /// </summary>
-        [Input("databaseMode")]
+        [PolicyResourceProperty("databaseMode", "_mUnknown_DatabaseMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseMode;
-
-        public string? DatabaseMode => _mDatabaseMode.GetValue("databaseMode");
+        private string? _mValue_DatabaseMode;
+        private bool _mUnknown_DatabaseMode;
+        public string? DatabaseMode
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseMode) return _mValue_DatabaseMode;
+                throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.DatabaseMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
         /// </summary>
-        [Input("ddlArtifactsSchema")]
+        [PolicyResourceProperty("ddlArtifactsSchema", "_mUnknown_DdlArtifactsSchema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDdlArtifactsSchema;
-
-        public string? DdlArtifactsSchema => _mDdlArtifactsSchema.GetValue("ddlArtifactsSchema");
+        private string? _mValue_DdlArtifactsSchema;
+        private bool _mUnknown_DdlArtifactsSchema;
+        public string? DdlArtifactsSchema
+        {
+            get
+            {
+                if (!_mUnknown_DdlArtifactsSchema) return _mValue_DdlArtifactsSchema;
+                throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.DdlArtifactsSchema' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
         /// </summary>
-        [Input("executeTimeout")]
+        [PolicyResourceProperty("executeTimeout", "_mUnknown_ExecuteTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mExecuteTimeout;
-
-        public int? ExecuteTimeout => _mExecuteTimeout.GetValue("executeTimeout");
+        private int? _mValue_ExecuteTimeout;
+        private bool _mUnknown_ExecuteTimeout;
+        public int? ExecuteTimeout
+        {
+            get
+            {
+                if (!_mUnknown_ExecuteTimeout) return _mValue_ExecuteTimeout;
+                throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.ExecuteTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
         /// </summary>
-        [Input("failTasksOnLobTruncation")]
+        [PolicyResourceProperty("failTasksOnLobTruncation", "_mUnknown_FailTasksOnLobTruncation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFailTasksOnLobTruncation;
-
-        public bool? FailTasksOnLobTruncation => _mFailTasksOnLobTruncation.GetValue("failTasksOnLobTruncation");
+        private bool? _mValue_FailTasksOnLobTruncation;
+        private bool _mUnknown_FailTasksOnLobTruncation;
+        public bool? FailTasksOnLobTruncation
+        {
+            get
+            {
+                if (!_mUnknown_FailTasksOnLobTruncation) return _mValue_FailTasksOnLobTruncation;
+                throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.FailTasksOnLobTruncation' is not present");
+            }
+        }
 
         /// <summary>
         /// The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
         /// </summary>
-        [Input("heartbeatEnable")]
+        [PolicyResourceProperty("heartbeatEnable", "_mUnknown_HeartbeatEnable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mHeartbeatEnable;
-
-        public bool? HeartbeatEnable => _mHeartbeatEnable.GetValue("heartbeatEnable");
+        private bool? _mValue_HeartbeatEnable;
+        private bool _mUnknown_HeartbeatEnable;
+        public bool? HeartbeatEnable
+        {
+            get
+            {
+                if (!_mUnknown_HeartbeatEnable) return _mValue_HeartbeatEnable;
+                throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.HeartbeatEnable' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
         /// </summary>
-        [Input("heartbeatFrequency")]
+        [PolicyResourceProperty("heartbeatFrequency", "_mUnknown_HeartbeatFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHeartbeatFrequency;
-
-        public int? HeartbeatFrequency => _mHeartbeatFrequency.GetValue("heartbeatFrequency");
+        private int? _mValue_HeartbeatFrequency;
+        private bool _mUnknown_HeartbeatFrequency;
+        public int? HeartbeatFrequency
+        {
+            get
+            {
+                if (!_mUnknown_HeartbeatFrequency) return _mValue_HeartbeatFrequency;
+                throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.HeartbeatFrequency' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
         /// </summary>
-        [Input("heartbeatSchema")]
+        [PolicyResourceProperty("heartbeatSchema", "_mUnknown_HeartbeatSchema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHeartbeatSchema;
-
-        public string? HeartbeatSchema => _mHeartbeatSchema.GetValue("heartbeatSchema");
+        private string? _mValue_HeartbeatSchema;
+        private bool _mUnknown_HeartbeatSchema;
+        public string? HeartbeatSchema
+        {
+            get
+            {
+                if (!_mUnknown_HeartbeatSchema) return _mValue_HeartbeatSchema;
+                throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.HeartbeatSchema' is not present");
+            }
+        }
 
         /// <summary>
         /// You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
         /// </summary>
-        [Input("mapBooleanAsBoolean")]
+        [PolicyResourceProperty("mapBooleanAsBoolean", "_mUnknown_MapBooleanAsBoolean")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMapBooleanAsBoolean;
-
-        public bool? MapBooleanAsBoolean => _mMapBooleanAsBoolean.GetValue("mapBooleanAsBoolean");
+        private bool? _mValue_MapBooleanAsBoolean;
+        private bool _mUnknown_MapBooleanAsBoolean;
+        public bool? MapBooleanAsBoolean
+        {
+            get
+            {
+                if (!_mUnknown_MapBooleanAsBoolean) return _mValue_MapBooleanAsBoolean;
+                throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.MapBooleanAsBoolean' is not present");
+            }
+        }
 
         /// <summary>
         /// Optional When true, DMS migrates JSONB values as CLOB.
         /// </summary>
-        [Input("mapJsonbAsClob")]
+        [PolicyResourceProperty("mapJsonbAsClob", "_mUnknown_MapJsonbAsClob")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMapJsonbAsClob;
-
-        public bool? MapJsonbAsClob => _mMapJsonbAsClob.GetValue("mapJsonbAsClob");
+        private bool? _mValue_MapJsonbAsClob;
+        private bool _mUnknown_MapJsonbAsClob;
+        public bool? MapJsonbAsClob
+        {
+            get
+            {
+                if (!_mUnknown_MapJsonbAsClob) return _mValue_MapJsonbAsClob;
+                throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.MapJsonbAsClob' is not present");
+            }
+        }
 
         /// <summary>
         /// Optional When true, DMS migrates LONG values as VARCHAR.
         /// </summary>
-        [Input("mapLongVarcharAs")]
+        [PolicyResourceProperty("mapLongVarcharAs", "_mUnknown_MapLongVarcharAs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMapLongVarcharAs;
-
-        public string? MapLongVarcharAs => _mMapLongVarcharAs.GetValue("mapLongVarcharAs");
+        private string? _mValue_MapLongVarcharAs;
+        private bool _mUnknown_MapLongVarcharAs;
+        public string? MapLongVarcharAs
+        {
+            get
+            {
+                if (!_mUnknown_MapLongVarcharAs) return _mValue_MapLongVarcharAs;
+                throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.MapLongVarcharAs' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
         /// </summary>
-        [Input("maxFileSize")]
+        [PolicyResourceProperty("maxFileSize", "_mUnknown_MaxFileSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxFileSize;
-
-        public int? MaxFileSize => _mMaxFileSize.GetValue("maxFileSize");
+        private int? _mValue_MaxFileSize;
+        private bool _mUnknown_MaxFileSize;
+        public int? MaxFileSize
+        {
+            get
+            {
+                if (!_mUnknown_MaxFileSize) return _mValue_MaxFileSize;
+                throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.MaxFileSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
         /// </summary>
-        [Input("pluginName")]
+        [PolicyResourceProperty("pluginName", "_mUnknown_PluginName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPluginName;
-
-        public string? PluginName => _mPluginName.GetValue("pluginName");
+        private string? _mValue_PluginName;
+        private bool _mUnknown_PluginName;
+        public string? PluginName
+        {
+            get
+            {
+                if (!_mUnknown_PluginName) return _mValue_PluginName;
+                throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.PluginName' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
         /// </summary>
-        [Input("slotName")]
+        [PolicyResourceProperty("slotName", "_mUnknown_SlotName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSlotName;
-
-        public string? SlotName => _mSlotName.GetValue("slotName");
+        private string? _mValue_SlotName;
+        private bool _mUnknown_SlotName;
+        public string? SlotName
+        {
+            get
+            {
+                if (!_mUnknown_SlotName) return _mValue_SlotName;
+                throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.SlotName' is not present");
+            }
+        }
     }
 }

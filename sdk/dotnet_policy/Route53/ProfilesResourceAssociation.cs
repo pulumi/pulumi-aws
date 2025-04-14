@@ -16,77 +16,140 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// Name of the Profile Resource Association.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ProfilesResourceAssociation.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'ProfilesResourceAssociation.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the profile associated with the VPC.
         /// </summary>
-        [Input("profileId")]
+        [PolicyResourceProperty("profileId", "_mUnknown_ProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProfileId;
-
-        public string? ProfileId => _mProfileId.GetValue("profileId");
+        private string? _mValue_ProfileId;
+        private bool _mUnknown_ProfileId;
+        public string? ProfileId
+        {
+            get
+            {
+                if (!_mUnknown_ProfileId) return _mValue_ProfileId;
+                throw new UndeferrableValueException("Value 'ProfilesResourceAssociation.ProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource ID of the resource to be associated with the profile.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'ProfilesResourceAssociation.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource properties for the resource to be associated with the profile.
         /// </summary>
-        [Input("resourceProperties")]
+        [PolicyResourceProperty("resourceProperties", "_mUnknown_ResourceProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceProperties;
-
-        public string? ResourceProperties => _mResourceProperties.GetValue("resourceProperties");
+        private string? _mValue_ResourceProperties;
+        private bool _mUnknown_ResourceProperties;
+        public string? ResourceProperties
+        {
+            get
+            {
+                if (!_mUnknown_ResourceProperties) return _mValue_ResourceProperties;
+                throw new UndeferrableValueException("Value 'ProfilesResourceAssociation.ResourceProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of resource associated with the profile.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'ProfilesResourceAssociation.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'ProfilesResourceAssociation.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Status message of the Profile Resource Association.
         /// </summary>
-        [Input("statusMessage")]
+        [PolicyResourceProperty("statusMessage", "_mUnknown_StatusMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusMessage;
+        private string? _mValue_StatusMessage;
+        private bool _mUnknown_StatusMessage;
+        public string? StatusMessage
+        {
+            get
+            {
+                if (!_mUnknown_StatusMessage) return _mValue_StatusMessage;
+                throw new UndeferrableValueException("Value 'ProfilesResourceAssociation.StatusMessage' is not present");
+            }
+        }
 
-        public string? StatusMessage => _mStatusMessage.GetValue("statusMessage");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProfilesResourceAssociationTimeouts> _mTimeouts;
-
-        public Outputs.ProfilesResourceAssociationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.ProfilesResourceAssociationTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.ProfilesResourceAssociationTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ProfilesResourceAssociation.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/profilesResourceAssociation:ProfilesResourceAssociation")]
@@ -95,43 +158,78 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// Name of the Profile Resource Association.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ProfilesResourceAssociationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the profile associated with the VPC.
         /// </summary>
-        [Input("profileId")]
+        [PolicyResourceProperty("profileId", "_mUnknown_ProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProfileId;
-
-        public string? ProfileId => _mProfileId.GetValue("profileId");
+        private string? _mValue_ProfileId;
+        private bool _mUnknown_ProfileId;
+        public string? ProfileId
+        {
+            get
+            {
+                if (!_mUnknown_ProfileId) return _mValue_ProfileId;
+                throw new UndeferrableValueException("Value 'ProfilesResourceAssociationArgs.ProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource ID of the resource to be associated with the profile.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'ProfilesResourceAssociationArgs.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource properties for the resource to be associated with the profile.
         /// </summary>
-        [Input("resourceProperties")]
+        [PolicyResourceProperty("resourceProperties", "_mUnknown_ResourceProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceProperties;
+        private string? _mValue_ResourceProperties;
+        private bool _mUnknown_ResourceProperties;
+        public string? ResourceProperties
+        {
+            get
+            {
+                if (!_mUnknown_ResourceProperties) return _mValue_ResourceProperties;
+                throw new UndeferrableValueException("Value 'ProfilesResourceAssociationArgs.ResourceProperties' is not present");
+            }
+        }
 
-        public string? ResourceProperties => _mResourceProperties.GetValue("resourceProperties");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProfilesResourceAssociationTimeoutsArgs> _mTimeouts;
-
-        public Inputs.ProfilesResourceAssociationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.ProfilesResourceAssociationTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.ProfilesResourceAssociationTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ProfilesResourceAssociationArgs.Timeouts' is not present");
+            }
+        }
     }
 }

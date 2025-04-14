@@ -16,137 +16,242 @@ namespace Pulumi.PolicyPacks.Aws.Alb
         /// <summary>
         /// ARN of the Target Group (matches `id`).
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TargetGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN suffix for use with CloudWatch Metrics.
         /// </summary>
-        [Input("arnSuffix")]
+        [PolicyResourceProperty("arnSuffix", "_mUnknown_ArnSuffix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArnSuffix;
-
-        public string? ArnSuffix => _mArnSuffix.GetValue("arnSuffix");
+        private string? _mValue_ArnSuffix;
+        private bool _mUnknown_ArnSuffix;
+        public string? ArnSuffix
+        {
+            get
+            {
+                if (!_mUnknown_ArnSuffix) return _mValue_ArnSuffix;
+                throw new UndeferrableValueException("Value 'TargetGroup.ArnSuffix' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
         /// </summary>
-        [Input("connectionTermination")]
+        [PolicyResourceProperty("connectionTermination", "_mUnknown_ConnectionTermination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mConnectionTermination;
-
-        public bool? ConnectionTermination => _mConnectionTermination.GetValue("connectionTermination");
+        private bool? _mValue_ConnectionTermination;
+        private bool _mUnknown_ConnectionTermination;
+        public bool? ConnectionTermination
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionTermination) return _mValue_ConnectionTermination;
+                throw new UndeferrableValueException("Value 'TargetGroup.ConnectionTermination' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         /// </summary>
-        [Input("deregistrationDelay")]
+        [PolicyResourceProperty("deregistrationDelay", "_mUnknown_DeregistrationDelay")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeregistrationDelay;
-
-        public int? DeregistrationDelay => _mDeregistrationDelay.GetValue("deregistrationDelay");
+        private int? _mValue_DeregistrationDelay;
+        private bool _mUnknown_DeregistrationDelay;
+        public int? DeregistrationDelay
+        {
+            get
+            {
+                if (!_mUnknown_DeregistrationDelay) return _mValue_DeregistrationDelay;
+                throw new UndeferrableValueException("Value 'TargetGroup.DeregistrationDelay' is not present");
+            }
+        }
 
         /// <summary>
         /// Health Check configuration block. Detailed below.
         /// </summary>
-        [Input("healthCheck")]
+        [PolicyResourceProperty("healthCheck", "_mUnknown_HealthCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TargetGroupHealthCheck> _mHealthCheck;
-
-        public Outputs.TargetGroupHealthCheck? HealthCheck => _mHealthCheck.GetValue("healthCheck");
+        private Outputs.TargetGroupHealthCheck? _mValue_HealthCheck;
+        private bool _mUnknown_HealthCheck;
+        public Outputs.TargetGroupHealthCheck? HealthCheck
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheck) return _mValue_HealthCheck;
+                throw new UndeferrableValueException("Value 'TargetGroup.HealthCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
         /// </summary>
-        [Input("ipAddressType")]
+        [PolicyResourceProperty("ipAddressType", "_mUnknown_IpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
-
-        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+        private string? _mValue_IpAddressType;
+        private bool _mUnknown_IpAddressType;
+        public string? IpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressType) return _mValue_IpAddressType;
+                throw new UndeferrableValueException("Value 'TargetGroup.IpAddressType' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         /// </summary>
-        [Input("lambdaMultiValueHeadersEnabled")]
+        [PolicyResourceProperty("lambdaMultiValueHeadersEnabled", "_mUnknown_LambdaMultiValueHeadersEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mLambdaMultiValueHeadersEnabled;
-
-        public bool? LambdaMultiValueHeadersEnabled => _mLambdaMultiValueHeadersEnabled.GetValue("lambdaMultiValueHeadersEnabled");
+        private bool? _mValue_LambdaMultiValueHeadersEnabled;
+        private bool _mUnknown_LambdaMultiValueHeadersEnabled;
+        public bool? LambdaMultiValueHeadersEnabled
+        {
+            get
+            {
+                if (!_mUnknown_LambdaMultiValueHeadersEnabled) return _mValue_LambdaMultiValueHeadersEnabled;
+                throw new UndeferrableValueException("Value 'TargetGroup.LambdaMultiValueHeadersEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// ARNs of the Load Balancers associated with the Target Group.
         /// </summary>
-        [Input("loadBalancerArns")]
+        [PolicyResourceProperty("loadBalancerArns", "_mUnknown_LoadBalancerArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLoadBalancerArns;
-
-        public List<string>? LoadBalancerArns => _mLoadBalancerArns.GetValue("loadBalancerArns");
+        private List<string>? _mValue_LoadBalancerArns;
+        private bool _mUnknown_LoadBalancerArns;
+        public List<string>? LoadBalancerArns
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerArns) return _mValue_LoadBalancerArns;
+                throw new UndeferrableValueException("Value 'TargetGroup.LoadBalancerArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
         /// </summary>
-        [Input("loadBalancingAlgorithmType")]
+        [PolicyResourceProperty("loadBalancingAlgorithmType", "_mUnknown_LoadBalancingAlgorithmType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancingAlgorithmType;
-
-        public string? LoadBalancingAlgorithmType => _mLoadBalancingAlgorithmType.GetValue("loadBalancingAlgorithmType");
+        private string? _mValue_LoadBalancingAlgorithmType;
+        private bool _mUnknown_LoadBalancingAlgorithmType;
+        public string? LoadBalancingAlgorithmType
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancingAlgorithmType) return _mValue_LoadBalancingAlgorithmType;
+                throw new UndeferrableValueException("Value 'TargetGroup.LoadBalancingAlgorithmType' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
         /// </summary>
-        [Input("loadBalancingAnomalyMitigation")]
+        [PolicyResourceProperty("loadBalancingAnomalyMitigation", "_mUnknown_LoadBalancingAnomalyMitigation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancingAnomalyMitigation;
-
-        public string? LoadBalancingAnomalyMitigation => _mLoadBalancingAnomalyMitigation.GetValue("loadBalancingAnomalyMitigation");
+        private string? _mValue_LoadBalancingAnomalyMitigation;
+        private bool _mUnknown_LoadBalancingAnomalyMitigation;
+        public string? LoadBalancingAnomalyMitigation
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancingAnomalyMitigation) return _mValue_LoadBalancingAnomalyMitigation;
+                throw new UndeferrableValueException("Value 'TargetGroup.LoadBalancingAnomalyMitigation' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
         /// </summary>
-        [Input("loadBalancingCrossZoneEnabled")]
+        [PolicyResourceProperty("loadBalancingCrossZoneEnabled", "_mUnknown_LoadBalancingCrossZoneEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancingCrossZoneEnabled;
-
-        public string? LoadBalancingCrossZoneEnabled => _mLoadBalancingCrossZoneEnabled.GetValue("loadBalancingCrossZoneEnabled");
+        private string? _mValue_LoadBalancingCrossZoneEnabled;
+        private bool _mUnknown_LoadBalancingCrossZoneEnabled;
+        public string? LoadBalancingCrossZoneEnabled
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancingCrossZoneEnabled) return _mValue_LoadBalancingCrossZoneEnabled;
+                throw new UndeferrableValueException("Value 'TargetGroup.LoadBalancingCrossZoneEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TargetGroup.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'TargetGroup.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'TargetGroup.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
         /// </summary>
-        [Input("preserveClientIp")]
+        [PolicyResourceProperty("preserveClientIp", "_mUnknown_PreserveClientIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreserveClientIp;
-
-        public string? PreserveClientIp => _mPreserveClientIp.GetValue("preserveClientIp");
+        private string? _mValue_PreserveClientIp;
+        private bool _mUnknown_PreserveClientIp;
+        public string? PreserveClientIp
+        {
+            get
+            {
+                if (!_mUnknown_PreserveClientIp) return _mValue_PreserveClientIp;
+                throw new UndeferrableValueException("Value 'TargetGroup.PreserveClientIp' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol to use for routing traffic to the targets.
@@ -154,92 +259,162 @@ namespace Pulumi.PolicyPacks.Aws.Alb
         /// Required when `target_type` is `instance`, `ip`, or `alb`.
         /// Does not apply when `target_type` is `lambda`.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'TargetGroup.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
         /// </summary>
-        [Input("protocolVersion")]
+        [PolicyResourceProperty("protocolVersion", "_mUnknown_ProtocolVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocolVersion;
-
-        public string? ProtocolVersion => _mProtocolVersion.GetValue("protocolVersion");
+        private string? _mValue_ProtocolVersion;
+        private bool _mUnknown_ProtocolVersion;
+        public string? ProtocolVersion
+        {
+            get
+            {
+                if (!_mUnknown_ProtocolVersion) return _mValue_ProtocolVersion;
+                throw new UndeferrableValueException("Value 'TargetGroup.ProtocolVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
         /// </summary>
-        [Input("proxyProtocolV2")]
+        [PolicyResourceProperty("proxyProtocolV2", "_mUnknown_ProxyProtocolV2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mProxyProtocolV2;
-
-        public bool? ProxyProtocolV2 => _mProxyProtocolV2.GetValue("proxyProtocolV2");
+        private bool? _mValue_ProxyProtocolV2;
+        private bool _mUnknown_ProxyProtocolV2;
+        public bool? ProxyProtocolV2
+        {
+            get
+            {
+                if (!_mUnknown_ProxyProtocolV2) return _mValue_ProxyProtocolV2;
+                throw new UndeferrableValueException("Value 'TargetGroup.ProxyProtocolV2' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         /// </summary>
-        [Input("slowStart")]
+        [PolicyResourceProperty("slowStart", "_mUnknown_SlowStart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSlowStart;
-
-        public int? SlowStart => _mSlowStart.GetValue("slowStart");
+        private int? _mValue_SlowStart;
+        private bool _mUnknown_SlowStart;
+        public int? SlowStart
+        {
+            get
+            {
+                if (!_mUnknown_SlowStart) return _mValue_SlowStart;
+                throw new UndeferrableValueException("Value 'TargetGroup.SlowStart' is not present");
+            }
+        }
 
         /// <summary>
         /// Stickiness configuration block. Detailed below.
         /// </summary>
-        [Input("stickiness")]
+        [PolicyResourceProperty("stickiness", "_mUnknown_Stickiness")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TargetGroupStickiness> _mStickiness;
-
-        public Outputs.TargetGroupStickiness? Stickiness => _mStickiness.GetValue("stickiness");
+        private Outputs.TargetGroupStickiness? _mValue_Stickiness;
+        private bool _mUnknown_Stickiness;
+        public Outputs.TargetGroupStickiness? Stickiness
+        {
+            get
+            {
+                if (!_mUnknown_Stickiness) return _mValue_Stickiness;
+                throw new UndeferrableValueException("Value 'TargetGroup.Stickiness' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TargetGroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'TargetGroup.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
         /// </summary>
-        [Input("targetFailovers")]
+        [PolicyResourceProperty("targetFailovers", "_mUnknown_TargetFailovers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TargetGroupTargetFailover>> _mTargetFailovers;
-
-        public List<Outputs.TargetGroupTargetFailover>? TargetFailovers => _mTargetFailovers.GetValue("targetFailovers");
+        private List<Outputs.TargetGroupTargetFailover>? _mValue_TargetFailovers;
+        private bool _mUnknown_TargetFailovers;
+        public List<Outputs.TargetGroupTargetFailover>? TargetFailovers
+        {
+            get
+            {
+                if (!_mUnknown_TargetFailovers) return _mValue_TargetFailovers;
+                throw new UndeferrableValueException("Value 'TargetGroup.TargetFailovers' is not present");
+            }
+        }
 
         /// <summary>
         /// Target health requirements block. See target_group_health for more information.
         /// </summary>
-        [Input("targetGroupHealth")]
+        [PolicyResourceProperty("targetGroupHealth", "_mUnknown_TargetGroupHealth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TargetGroupTargetGroupHealth> _mTargetGroupHealth;
-
-        public Outputs.TargetGroupTargetGroupHealth? TargetGroupHealth => _mTargetGroupHealth.GetValue("targetGroupHealth");
+        private Outputs.TargetGroupTargetGroupHealth? _mValue_TargetGroupHealth;
+        private bool _mUnknown_TargetGroupHealth;
+        public Outputs.TargetGroupTargetGroupHealth? TargetGroupHealth
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroupHealth) return _mValue_TargetGroupHealth;
+                throw new UndeferrableValueException("Value 'TargetGroup.TargetGroupHealth' is not present");
+            }
+        }
 
         /// <summary>
         /// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
         /// </summary>
-        [Input("targetHealthStates")]
+        [PolicyResourceProperty("targetHealthStates", "_mUnknown_TargetHealthStates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TargetGroupTargetHealthState>> _mTargetHealthStates;
-
-        public List<Outputs.TargetGroupTargetHealthState>? TargetHealthStates => _mTargetHealthStates.GetValue("targetHealthStates");
+        private List<Outputs.TargetGroupTargetHealthState>? _mValue_TargetHealthStates;
+        private bool _mUnknown_TargetHealthStates;
+        public List<Outputs.TargetGroupTargetHealthState>? TargetHealthStates
+        {
+            get
+            {
+                if (!_mUnknown_TargetHealthStates) return _mValue_TargetHealthStates;
+                throw new UndeferrableValueException("Value 'TargetGroup.TargetHealthStates' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of target that you must specify when registering targets with this target group.
@@ -254,20 +429,34 @@ namespace Pulumi.PolicyPacks.Aws.Alb
         /// 
         /// Application Load Balancers do not support the `alb` target type.
         /// </summary>
-        [Input("targetType")]
+        [PolicyResourceProperty("targetType", "_mUnknown_TargetType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetType;
-
-        public string? TargetType => _mTargetType.GetValue("targetType");
+        private string? _mValue_TargetType;
+        private bool _mUnknown_TargetType;
+        public string? TargetType
+        {
+            get
+            {
+                if (!_mUnknown_TargetType) return _mValue_TargetType;
+                throw new UndeferrableValueException("Value 'TargetGroup.TargetType' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'TargetGroup.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:alb/targetGroup:TargetGroup")]
@@ -276,110 +465,194 @@ namespace Pulumi.PolicyPacks.Aws.Alb
         /// <summary>
         /// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
         /// </summary>
-        [Input("connectionTermination")]
+        [PolicyResourceProperty("connectionTermination", "_mUnknown_ConnectionTermination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mConnectionTermination;
-
-        public bool? ConnectionTermination => _mConnectionTermination.GetValue("connectionTermination");
+        private bool? _mValue_ConnectionTermination;
+        private bool _mUnknown_ConnectionTermination;
+        public bool? ConnectionTermination
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionTermination) return _mValue_ConnectionTermination;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.ConnectionTermination' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         /// </summary>
-        [Input("deregistrationDelay")]
+        [PolicyResourceProperty("deregistrationDelay", "_mUnknown_DeregistrationDelay")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeregistrationDelay;
-
-        public int? DeregistrationDelay => _mDeregistrationDelay.GetValue("deregistrationDelay");
+        private int? _mValue_DeregistrationDelay;
+        private bool _mUnknown_DeregistrationDelay;
+        public int? DeregistrationDelay
+        {
+            get
+            {
+                if (!_mUnknown_DeregistrationDelay) return _mValue_DeregistrationDelay;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.DeregistrationDelay' is not present");
+            }
+        }
 
         /// <summary>
         /// Health Check configuration block. Detailed below.
         /// </summary>
-        [Input("healthCheck")]
+        [PolicyResourceProperty("healthCheck", "_mUnknown_HealthCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TargetGroupHealthCheckArgs> _mHealthCheck;
-
-        public Inputs.TargetGroupHealthCheckArgs? HealthCheck => _mHealthCheck.GetValue("healthCheck");
+        private Inputs.TargetGroupHealthCheckArgs? _mValue_HealthCheck;
+        private bool _mUnknown_HealthCheck;
+        public Inputs.TargetGroupHealthCheckArgs? HealthCheck
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheck) return _mValue_HealthCheck;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.HealthCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
         /// </summary>
-        [Input("ipAddressType")]
+        [PolicyResourceProperty("ipAddressType", "_mUnknown_IpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
-
-        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+        private string? _mValue_IpAddressType;
+        private bool _mUnknown_IpAddressType;
+        public string? IpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressType) return _mValue_IpAddressType;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.IpAddressType' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         /// </summary>
-        [Input("lambdaMultiValueHeadersEnabled")]
+        [PolicyResourceProperty("lambdaMultiValueHeadersEnabled", "_mUnknown_LambdaMultiValueHeadersEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mLambdaMultiValueHeadersEnabled;
-
-        public bool? LambdaMultiValueHeadersEnabled => _mLambdaMultiValueHeadersEnabled.GetValue("lambdaMultiValueHeadersEnabled");
+        private bool? _mValue_LambdaMultiValueHeadersEnabled;
+        private bool _mUnknown_LambdaMultiValueHeadersEnabled;
+        public bool? LambdaMultiValueHeadersEnabled
+        {
+            get
+            {
+                if (!_mUnknown_LambdaMultiValueHeadersEnabled) return _mValue_LambdaMultiValueHeadersEnabled;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.LambdaMultiValueHeadersEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
         /// </summary>
-        [Input("loadBalancingAlgorithmType")]
+        [PolicyResourceProperty("loadBalancingAlgorithmType", "_mUnknown_LoadBalancingAlgorithmType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancingAlgorithmType;
-
-        public string? LoadBalancingAlgorithmType => _mLoadBalancingAlgorithmType.GetValue("loadBalancingAlgorithmType");
+        private string? _mValue_LoadBalancingAlgorithmType;
+        private bool _mUnknown_LoadBalancingAlgorithmType;
+        public string? LoadBalancingAlgorithmType
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancingAlgorithmType) return _mValue_LoadBalancingAlgorithmType;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.LoadBalancingAlgorithmType' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
         /// </summary>
-        [Input("loadBalancingAnomalyMitigation")]
+        [PolicyResourceProperty("loadBalancingAnomalyMitigation", "_mUnknown_LoadBalancingAnomalyMitigation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancingAnomalyMitigation;
-
-        public string? LoadBalancingAnomalyMitigation => _mLoadBalancingAnomalyMitigation.GetValue("loadBalancingAnomalyMitigation");
+        private string? _mValue_LoadBalancingAnomalyMitigation;
+        private bool _mUnknown_LoadBalancingAnomalyMitigation;
+        public string? LoadBalancingAnomalyMitigation
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancingAnomalyMitigation) return _mValue_LoadBalancingAnomalyMitigation;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.LoadBalancingAnomalyMitigation' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
         /// </summary>
-        [Input("loadBalancingCrossZoneEnabled")]
+        [PolicyResourceProperty("loadBalancingCrossZoneEnabled", "_mUnknown_LoadBalancingCrossZoneEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancingCrossZoneEnabled;
-
-        public string? LoadBalancingCrossZoneEnabled => _mLoadBalancingCrossZoneEnabled.GetValue("loadBalancingCrossZoneEnabled");
+        private string? _mValue_LoadBalancingCrossZoneEnabled;
+        private bool _mUnknown_LoadBalancingCrossZoneEnabled;
+        public string? LoadBalancingCrossZoneEnabled
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancingCrossZoneEnabled) return _mValue_LoadBalancingCrossZoneEnabled;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.LoadBalancingCrossZoneEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
         /// </summary>
-        [Input("preserveClientIp")]
+        [PolicyResourceProperty("preserveClientIp", "_mUnknown_PreserveClientIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreserveClientIp;
-
-        public string? PreserveClientIp => _mPreserveClientIp.GetValue("preserveClientIp");
+        private string? _mValue_PreserveClientIp;
+        private bool _mUnknown_PreserveClientIp;
+        public string? PreserveClientIp
+        {
+            get
+            {
+                if (!_mUnknown_PreserveClientIp) return _mValue_PreserveClientIp;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.PreserveClientIp' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol to use for routing traffic to the targets.
@@ -387,83 +660,146 @@ namespace Pulumi.PolicyPacks.Aws.Alb
         /// Required when `target_type` is `instance`, `ip`, or `alb`.
         /// Does not apply when `target_type` is `lambda`.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
         /// </summary>
-        [Input("protocolVersion")]
+        [PolicyResourceProperty("protocolVersion", "_mUnknown_ProtocolVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocolVersion;
-
-        public string? ProtocolVersion => _mProtocolVersion.GetValue("protocolVersion");
+        private string? _mValue_ProtocolVersion;
+        private bool _mUnknown_ProtocolVersion;
+        public string? ProtocolVersion
+        {
+            get
+            {
+                if (!_mUnknown_ProtocolVersion) return _mValue_ProtocolVersion;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.ProtocolVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
         /// </summary>
-        [Input("proxyProtocolV2")]
+        [PolicyResourceProperty("proxyProtocolV2", "_mUnknown_ProxyProtocolV2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mProxyProtocolV2;
-
-        public bool? ProxyProtocolV2 => _mProxyProtocolV2.GetValue("proxyProtocolV2");
+        private bool? _mValue_ProxyProtocolV2;
+        private bool _mUnknown_ProxyProtocolV2;
+        public bool? ProxyProtocolV2
+        {
+            get
+            {
+                if (!_mUnknown_ProxyProtocolV2) return _mValue_ProxyProtocolV2;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.ProxyProtocolV2' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         /// </summary>
-        [Input("slowStart")]
+        [PolicyResourceProperty("slowStart", "_mUnknown_SlowStart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSlowStart;
-
-        public int? SlowStart => _mSlowStart.GetValue("slowStart");
+        private int? _mValue_SlowStart;
+        private bool _mUnknown_SlowStart;
+        public int? SlowStart
+        {
+            get
+            {
+                if (!_mUnknown_SlowStart) return _mValue_SlowStart;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.SlowStart' is not present");
+            }
+        }
 
         /// <summary>
         /// Stickiness configuration block. Detailed below.
         /// </summary>
-        [Input("stickiness")]
+        [PolicyResourceProperty("stickiness", "_mUnknown_Stickiness")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TargetGroupStickinessArgs> _mStickiness;
-
-        public Inputs.TargetGroupStickinessArgs? Stickiness => _mStickiness.GetValue("stickiness");
+        private Inputs.TargetGroupStickinessArgs? _mValue_Stickiness;
+        private bool _mUnknown_Stickiness;
+        public Inputs.TargetGroupStickinessArgs? Stickiness
+        {
+            get
+            {
+                if (!_mUnknown_Stickiness) return _mValue_Stickiness;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.Stickiness' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
         /// </summary>
-        [Input("targetFailovers")]
+        [PolicyResourceProperty("targetFailovers", "_mUnknown_TargetFailovers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TargetGroupTargetFailoverArgs>> _mTargetFailovers;
-
-        public List<Inputs.TargetGroupTargetFailoverArgs>? TargetFailovers => _mTargetFailovers.GetValue("targetFailovers");
+        private List<Inputs.TargetGroupTargetFailoverArgs>? _mValue_TargetFailovers;
+        private bool _mUnknown_TargetFailovers;
+        public List<Inputs.TargetGroupTargetFailoverArgs>? TargetFailovers
+        {
+            get
+            {
+                if (!_mUnknown_TargetFailovers) return _mValue_TargetFailovers;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.TargetFailovers' is not present");
+            }
+        }
 
         /// <summary>
         /// Target health requirements block. See target_group_health for more information.
         /// </summary>
-        [Input("targetGroupHealth")]
+        [PolicyResourceProperty("targetGroupHealth", "_mUnknown_TargetGroupHealth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TargetGroupTargetGroupHealthArgs> _mTargetGroupHealth;
-
-        public Inputs.TargetGroupTargetGroupHealthArgs? TargetGroupHealth => _mTargetGroupHealth.GetValue("targetGroupHealth");
+        private Inputs.TargetGroupTargetGroupHealthArgs? _mValue_TargetGroupHealth;
+        private bool _mUnknown_TargetGroupHealth;
+        public Inputs.TargetGroupTargetGroupHealthArgs? TargetGroupHealth
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroupHealth) return _mValue_TargetGroupHealth;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.TargetGroupHealth' is not present");
+            }
+        }
 
         /// <summary>
         /// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
         /// </summary>
-        [Input("targetHealthStates")]
+        [PolicyResourceProperty("targetHealthStates", "_mUnknown_TargetHealthStates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TargetGroupTargetHealthStateArgs>> _mTargetHealthStates;
-
-        public List<Inputs.TargetGroupTargetHealthStateArgs>? TargetHealthStates => _mTargetHealthStates.GetValue("targetHealthStates");
+        private List<Inputs.TargetGroupTargetHealthStateArgs>? _mValue_TargetHealthStates;
+        private bool _mUnknown_TargetHealthStates;
+        public List<Inputs.TargetGroupTargetHealthStateArgs>? TargetHealthStates
+        {
+            get
+            {
+                if (!_mUnknown_TargetHealthStates) return _mValue_TargetHealthStates;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.TargetHealthStates' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of target that you must specify when registering targets with this target group.
@@ -478,19 +814,33 @@ namespace Pulumi.PolicyPacks.Aws.Alb
         /// 
         /// Application Load Balancers do not support the `alb` target type.
         /// </summary>
-        [Input("targetType")]
+        [PolicyResourceProperty("targetType", "_mUnknown_TargetType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetType;
-
-        public string? TargetType => _mTargetType.GetValue("targetType");
+        private string? _mValue_TargetType;
+        private bool _mUnknown_TargetType;
+        public string? TargetType
+        {
+            get
+            {
+                if (!_mUnknown_TargetType) return _mValue_TargetType;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.TargetType' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'TargetGroupArgs.VpcId' is not present");
+            }
+        }
     }
 }

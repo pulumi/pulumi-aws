@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake.Inputs
         /// <summary>
         /// Amazon Security Lake supports log and event collection for natively supported AWS services. See `aws_log_source_resource` Block below.
         /// </summary>
-        [Input("awsLogSourceResource")]
+        [PolicyResourceProperty("awsLogSourceResource", "_mUnknown_AwsLogSourceResource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SubscriberSourceAwsLogSourceResourceArgs> _mAwsLogSourceResource;
-
-        public Inputs.SubscriberSourceAwsLogSourceResourceArgs? AwsLogSourceResource => _mAwsLogSourceResource.GetValue("awsLogSourceResource");
+        private Inputs.SubscriberSourceAwsLogSourceResourceArgs? _mValue_AwsLogSourceResource;
+        private bool _mUnknown_AwsLogSourceResource;
+        public Inputs.SubscriberSourceAwsLogSourceResourceArgs? AwsLogSourceResource
+        {
+            get
+            {
+                if (!_mUnknown_AwsLogSourceResource) return _mValue_AwsLogSourceResource;
+                throw new UndeferrableValueException("Value 'SubscriberSourceArgs.AwsLogSourceResource' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Security Lake supports custom source types. See `custom_log_source_resource` Block below.
         /// </summary>
-        [Input("customLogSourceResource")]
+        [PolicyResourceProperty("customLogSourceResource", "_mUnknown_CustomLogSourceResource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SubscriberSourceCustomLogSourceResourceArgs> _mCustomLogSourceResource;
-
-        public Inputs.SubscriberSourceCustomLogSourceResourceArgs? CustomLogSourceResource => _mCustomLogSourceResource.GetValue("customLogSourceResource");
+        private Inputs.SubscriberSourceCustomLogSourceResourceArgs? _mValue_CustomLogSourceResource;
+        private bool _mUnknown_CustomLogSourceResource;
+        public Inputs.SubscriberSourceCustomLogSourceResourceArgs? CustomLogSourceResource
+        {
+            get
+            {
+                if (!_mUnknown_CustomLogSourceResource) return _mValue_CustomLogSourceResource;
+                throw new UndeferrableValueException("Value 'SubscriberSourceArgs.CustomLogSourceResource' is not present");
+            }
+        }
     }
 }

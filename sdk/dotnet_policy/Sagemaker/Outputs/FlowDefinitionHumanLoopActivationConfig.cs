@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// defines under what conditions SageMaker AI creates a human loop. See Human Loop Activation Conditions Config details below.
         /// </summary>
-        [Input("humanLoopActivationConditionsConfig")]
+        [PolicyResourceProperty("humanLoopActivationConditionsConfig", "_mUnknown_HumanLoopActivationConditionsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig> _mHumanLoopActivationConditionsConfig;
-
-        public Outputs.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig? HumanLoopActivationConditionsConfig => _mHumanLoopActivationConditionsConfig.GetValue("humanLoopActivationConditionsConfig");
+        private Outputs.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig? _mValue_HumanLoopActivationConditionsConfig;
+        private bool _mUnknown_HumanLoopActivationConditionsConfig;
+        public Outputs.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig? HumanLoopActivationConditionsConfig
+        {
+            get
+            {
+                if (!_mUnknown_HumanLoopActivationConditionsConfig) return _mValue_HumanLoopActivationConditionsConfig;
+                throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopActivationConfig.HumanLoopActivationConditionsConfig' is not present");
+            }
+        }
     }
 }

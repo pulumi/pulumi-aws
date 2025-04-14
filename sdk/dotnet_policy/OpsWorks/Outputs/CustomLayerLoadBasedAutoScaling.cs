@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks.Outputs
         /// <summary>
         /// The downscaling settings, as defined below, used for load-based autoscaling
         /// </summary>
-        [Input("downscaling")]
+        [PolicyResourceProperty("downscaling", "_mUnknown_Downscaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomLayerLoadBasedAutoScalingDownscaling> _mDownscaling;
-
-        public Outputs.CustomLayerLoadBasedAutoScalingDownscaling? Downscaling => _mDownscaling.GetValue("downscaling");
+        private Outputs.CustomLayerLoadBasedAutoScalingDownscaling? _mValue_Downscaling;
+        private bool _mUnknown_Downscaling;
+        public Outputs.CustomLayerLoadBasedAutoScalingDownscaling? Downscaling
+        {
+            get
+            {
+                if (!_mUnknown_Downscaling) return _mValue_Downscaling;
+                throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScaling.Downscaling' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether load-based auto scaling is enabled for the layer.
         /// </summary>
-        [Input("enable")]
+        [PolicyResourceProperty("enable", "_mUnknown_Enable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnable;
-
-        public bool? Enable => _mEnable.GetValue("enable");
+        private bool? _mValue_Enable;
+        private bool _mUnknown_Enable;
+        public bool? Enable
+        {
+            get
+            {
+                if (!_mUnknown_Enable) return _mValue_Enable;
+                throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScaling.Enable' is not present");
+            }
+        }
 
         /// <summary>
         /// The upscaling settings, as defined below, used for load-based autoscaling
         /// </summary>
-        [Input("upscaling")]
+        [PolicyResourceProperty("upscaling", "_mUnknown_Upscaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomLayerLoadBasedAutoScalingUpscaling> _mUpscaling;
-
-        public Outputs.CustomLayerLoadBasedAutoScalingUpscaling? Upscaling => _mUpscaling.GetValue("upscaling");
+        private Outputs.CustomLayerLoadBasedAutoScalingUpscaling? _mValue_Upscaling;
+        private bool _mUnknown_Upscaling;
+        public Outputs.CustomLayerLoadBasedAutoScalingUpscaling? Upscaling
+        {
+            get
+            {
+                if (!_mUnknown_Upscaling) return _mValue_Upscaling;
+                throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScaling.Upscaling' is not present");
+            }
+        }
     }
 }

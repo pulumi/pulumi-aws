@@ -16,39 +16,67 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake.Outputs
         /// Specify the AWS account information where you want to enable Security Lake.
         /// If not specified, uses all accounts included in the Security Lake.
         /// </summary>
-        [Input("accounts")]
+        [PolicyResourceProperty("accounts", "_mUnknown_Accounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAccounts;
-
-        public List<string>? Accounts => _mAccounts.GetValue("accounts");
+        private List<string>? _mValue_Accounts;
+        private bool _mUnknown_Accounts;
+        public List<string>? Accounts
+        {
+            get
+            {
+                if (!_mUnknown_Accounts) return _mValue_Accounts;
+                throw new UndeferrableValueException("Value 'AwsLogSourceSource.Accounts' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify the Regions where you want to enable Security Lake.
         /// </summary>
-        [Input("regions")]
+        [PolicyResourceProperty("regions", "_mUnknown_Regions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegions;
-
-        public List<string>? Regions => _mRegions.GetValue("regions");
+        private List<string>? _mValue_Regions;
+        private bool _mUnknown_Regions;
+        public List<string>? Regions
+        {
+            get
+            {
+                if (!_mUnknown_Regions) return _mValue_Regions;
+                throw new UndeferrableValueException("Value 'AwsLogSourceSource.Regions' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
         /// </summary>
-        [Input("sourceName")]
+        [PolicyResourceProperty("sourceName", "_mUnknown_SourceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceName;
-
-        public string? SourceName => _mSourceName.GetValue("sourceName");
+        private string? _mValue_SourceName;
+        private bool _mUnknown_SourceName;
+        public string? SourceName
+        {
+            get
+            {
+                if (!_mUnknown_SourceName) return _mValue_SourceName;
+                throw new UndeferrableValueException("Value 'AwsLogSourceSource.SourceName' is not present");
+            }
+        }
 
         /// <summary>
         /// The version for a AWS source.
         /// If not specified, the version will be the default.
         /// This must be a Regionally unique value.
         /// </summary>
-        [Input("sourceVersion")]
+        [PolicyResourceProperty("sourceVersion", "_mUnknown_SourceVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceVersion;
-
-        public string? SourceVersion => _mSourceVersion.GetValue("sourceVersion");
+        private string? _mValue_SourceVersion;
+        private bool _mUnknown_SourceVersion;
+        public string? SourceVersion
+        {
+            get
+            {
+                if (!_mUnknown_SourceVersion) return _mValue_SourceVersion;
+                throw new UndeferrableValueException("Value 'AwsLogSourceSource.SourceVersion' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// The name of the DynamoDB table to crawl.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'CrawlerDynamodbTarget.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
         /// </summary>
-        [Input("scanAll")]
+        [PolicyResourceProperty("scanAll", "_mUnknown_ScanAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mScanAll;
-
-        public bool? ScanAll => _mScanAll.GetValue("scanAll");
+        private bool? _mValue_ScanAll;
+        private bool _mUnknown_ScanAll;
+        public bool? ScanAll
+        {
+            get
+            {
+                if (!_mUnknown_ScanAll) return _mValue_ScanAll;
+                throw new UndeferrableValueException("Value 'CrawlerDynamodbTarget.ScanAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
         /// </summary>
-        [Input("scanRate")]
+        [PolicyResourceProperty("scanRate", "_mUnknown_ScanRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mScanRate;
-
-        public double? ScanRate => _mScanRate.GetValue("scanRate");
+        private double? _mValue_ScanRate;
+        private bool _mUnknown_ScanRate;
+        public double? ScanRate
+        {
+            get
+            {
+                if (!_mUnknown_ScanRate) return _mValue_ScanRate;
+                throw new UndeferrableValueException("Value 'CrawlerDynamodbTarget.ScanRate' is not present");
+            }
+        }
     }
 }

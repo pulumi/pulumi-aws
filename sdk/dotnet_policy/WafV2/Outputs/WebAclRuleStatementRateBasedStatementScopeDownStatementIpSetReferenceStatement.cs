@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ip_set_forwarded_ip_config` below for more details.
         /// </summary>
-        [Input("ipSetForwardedIpConfig")]
+        [PolicyResourceProperty("ipSetForwardedIpConfig", "_mUnknown_IpSetForwardedIpConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig> _mIpSetForwardedIpConfig;
-
-        public Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig? IpSetForwardedIpConfig => _mIpSetForwardedIpConfig.GetValue("ipSetForwardedIpConfig");
+        private Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig? _mValue_IpSetForwardedIpConfig;
+        private bool _mUnknown_IpSetForwardedIpConfig;
+        public Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig? IpSetForwardedIpConfig
+        {
+            get
+            {
+                if (!_mUnknown_IpSetForwardedIpConfig) return _mValue_IpSetForwardedIpConfig;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement.IpSetForwardedIpConfig' is not present");
+            }
+        }
     }
 }

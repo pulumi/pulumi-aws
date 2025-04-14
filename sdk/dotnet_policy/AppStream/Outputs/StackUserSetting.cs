@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.AppStream.Outputs
         /// Action that is enabled or disabled.
         /// Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
-
-        public string? Action => _mAction.GetValue("action");
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'StackUserSetting.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the action is enabled or disabled.
         /// Valid values are `ENABLED` or `DISABLED`.
         /// </summary>
-        [Input("permission")]
+        [PolicyResourceProperty("permission", "_mUnknown_Permission")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermission;
-
-        public string? Permission => _mPermission.GetValue("permission");
+        private string? _mValue_Permission;
+        private bool _mUnknown_Permission;
+        public string? Permission
+        {
+            get
+            {
+                if (!_mUnknown_Permission) return _mValue_Permission;
+                throw new UndeferrableValueException("Value 'StackUserSetting.Permission' is not present");
+            }
+        }
     }
 }

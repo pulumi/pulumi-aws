@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         /// </summary>
-        [Input("certificateChain")]
+        [PolicyResourceProperty("certificateChain", "_mUnknown_CertificateChain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
-
-        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
+        private string? _mValue_CertificateChain;
+        private bool _mUnknown_CertificateChain;
+        public string? CertificateChain
+        {
+            get
+            {
+                if (!_mUnknown_CertificateChain) return _mValue_CertificateChain;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTlsValidationTrustFile.CertificateChain' is not present");
+            }
+        }
     }
 }

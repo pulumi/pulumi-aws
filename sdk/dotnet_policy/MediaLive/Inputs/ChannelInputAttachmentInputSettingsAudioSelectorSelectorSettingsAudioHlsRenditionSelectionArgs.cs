@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
         /// </summary>
-        [Input("groupId")]
+        [PolicyResourceProperty("groupId", "_mUnknown_GroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupId;
-
-        public string? GroupId => _mGroupId.GetValue("groupId");
+        private string? _mValue_GroupId;
+        private bool _mUnknown_GroupId;
+        public string? GroupId
+        {
+            get
+            {
+                if (!_mUnknown_GroupId) return _mValue_GroupId;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs.GroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs.Name' is not present");
+            }
+        }
     }
 }

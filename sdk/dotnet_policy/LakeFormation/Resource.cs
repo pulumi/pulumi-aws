@@ -18,55 +18,97 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Resource.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Flag to enable AWS LakeFormation hybrid access permission mode.
         /// 
         /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         /// </summary>
-        [Input("hybridAccessEnabled")]
+        [PolicyResourceProperty("hybridAccessEnabled", "_mUnknown_HybridAccessEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mHybridAccessEnabled;
-
-        public bool? HybridAccessEnabled => _mHybridAccessEnabled.GetValue("hybridAccessEnabled");
+        private bool? _mValue_HybridAccessEnabled;
+        private bool _mUnknown_HybridAccessEnabled;
+        public bool? HybridAccessEnabled
+        {
+            get
+            {
+                if (!_mUnknown_HybridAccessEnabled) return _mValue_HybridAccessEnabled;
+                throw new UndeferrableValueException("Value 'Resource.HybridAccessEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        [Input("lastModified")]
+        [PolicyResourceProperty("lastModified", "_mUnknown_LastModified")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModified;
-
-        public string? LastModified => _mLastModified.GetValue("lastModified");
+        private string? _mValue_LastModified;
+        private bool _mUnknown_LastModified;
+        public string? LastModified
+        {
+            get
+            {
+                if (!_mUnknown_LastModified) return _mValue_LastModified;
+                throw new UndeferrableValueException("Value 'Resource.LastModified' is not present");
+            }
+        }
 
         /// <summary>
         /// Role that has read/write access to the resource.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Resource.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
         /// </summary>
-        [Input("useServiceLinkedRole")]
+        [PolicyResourceProperty("useServiceLinkedRole", "_mUnknown_UseServiceLinkedRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseServiceLinkedRole;
+        private bool? _mValue_UseServiceLinkedRole;
+        private bool _mUnknown_UseServiceLinkedRole;
+        public bool? UseServiceLinkedRole
+        {
+            get
+            {
+                if (!_mUnknown_UseServiceLinkedRole) return _mValue_UseServiceLinkedRole;
+                throw new UndeferrableValueException("Value 'Resource.UseServiceLinkedRole' is not present");
+            }
+        }
 
-        public bool? UseServiceLinkedRole => _mUseServiceLinkedRole.GetValue("useServiceLinkedRole");
-
-        [Input("withFederation")]
+        [PolicyResourceProperty("withFederation", "_mUnknown_WithFederation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWithFederation;
-
-        public bool? WithFederation => _mWithFederation.GetValue("withFederation");
+        private bool? _mValue_WithFederation;
+        private bool _mUnknown_WithFederation;
+        public bool? WithFederation
+        {
+            get
+            {
+                if (!_mUnknown_WithFederation) return _mValue_WithFederation;
+                throw new UndeferrableValueException("Value 'Resource.WithFederation' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lakeformation/resource:Resource")]
@@ -77,45 +119,80 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ResourceArgs.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Flag to enable AWS LakeFormation hybrid access permission mode.
         /// 
         /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         /// </summary>
-        [Input("hybridAccessEnabled")]
+        [PolicyResourceProperty("hybridAccessEnabled", "_mUnknown_HybridAccessEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mHybridAccessEnabled;
-
-        public bool? HybridAccessEnabled => _mHybridAccessEnabled.GetValue("hybridAccessEnabled");
+        private bool? _mValue_HybridAccessEnabled;
+        private bool _mUnknown_HybridAccessEnabled;
+        public bool? HybridAccessEnabled
+        {
+            get
+            {
+                if (!_mUnknown_HybridAccessEnabled) return _mValue_HybridAccessEnabled;
+                throw new UndeferrableValueException("Value 'ResourceArgs.HybridAccessEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Role that has read/write access to the resource.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ResourceArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
         /// </summary>
-        [Input("useServiceLinkedRole")]
+        [PolicyResourceProperty("useServiceLinkedRole", "_mUnknown_UseServiceLinkedRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseServiceLinkedRole;
+        private bool? _mValue_UseServiceLinkedRole;
+        private bool _mUnknown_UseServiceLinkedRole;
+        public bool? UseServiceLinkedRole
+        {
+            get
+            {
+                if (!_mUnknown_UseServiceLinkedRole) return _mValue_UseServiceLinkedRole;
+                throw new UndeferrableValueException("Value 'ResourceArgs.UseServiceLinkedRole' is not present");
+            }
+        }
 
-        public bool? UseServiceLinkedRole => _mUseServiceLinkedRole.GetValue("useServiceLinkedRole");
-
-        [Input("withFederation")]
+        [PolicyResourceProperty("withFederation", "_mUnknown_WithFederation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWithFederation;
-
-        public bool? WithFederation => _mWithFederation.GetValue("withFederation");
+        private bool? _mValue_WithFederation;
+        private bool _mUnknown_WithFederation;
+        public bool? WithFederation
+        {
+            get
+            {
+                if (!_mUnknown_WithFederation) return _mValue_WithFederation;
+                throw new UndeferrableValueException("Value 'ResourceArgs.WithFederation' is not present");
+            }
+        }
     }
 }

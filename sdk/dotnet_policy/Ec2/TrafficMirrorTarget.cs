@@ -16,76 +16,132 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ARN of the traffic mirror target.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TrafficMirrorTarget.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the traffic mirror session.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'TrafficMirrorTarget.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
         /// </summary>
-        [Input("gatewayLoadBalancerEndpointId")]
+        [PolicyResourceProperty("gatewayLoadBalancerEndpointId", "_mUnknown_GatewayLoadBalancerEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayLoadBalancerEndpointId;
-
-        public string? GatewayLoadBalancerEndpointId => _mGatewayLoadBalancerEndpointId.GetValue("gatewayLoadBalancerEndpointId");
+        private string? _mValue_GatewayLoadBalancerEndpointId;
+        private bool _mUnknown_GatewayLoadBalancerEndpointId;
+        public string? GatewayLoadBalancerEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_GatewayLoadBalancerEndpointId) return _mValue_GatewayLoadBalancerEndpointId;
+                throw new UndeferrableValueException("Value 'TrafficMirrorTarget.GatewayLoadBalancerEndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// The network interface ID that is associated with the target.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'TrafficMirrorTarget.NetworkInterfaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
         /// </summary>
-        [Input("networkLoadBalancerArn")]
+        [PolicyResourceProperty("networkLoadBalancerArn", "_mUnknown_NetworkLoadBalancerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkLoadBalancerArn;
-
-        public string? NetworkLoadBalancerArn => _mNetworkLoadBalancerArn.GetValue("networkLoadBalancerArn");
+        private string? _mValue_NetworkLoadBalancerArn;
+        private bool _mUnknown_NetworkLoadBalancerArn;
+        public string? NetworkLoadBalancerArn
+        {
+            get
+            {
+                if (!_mUnknown_NetworkLoadBalancerArn) return _mValue_NetworkLoadBalancerArn;
+                throw new UndeferrableValueException("Value 'TrafficMirrorTarget.NetworkLoadBalancerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the AWS account that owns the traffic mirror target.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'TrafficMirrorTarget.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TrafficMirrorTarget.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'TrafficMirrorTarget.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/trafficMirrorTarget:TrafficMirrorTarget")]
@@ -94,48 +150,83 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// A description of the traffic mirror session.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'TrafficMirrorTargetArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
         /// </summary>
-        [Input("gatewayLoadBalancerEndpointId")]
+        [PolicyResourceProperty("gatewayLoadBalancerEndpointId", "_mUnknown_GatewayLoadBalancerEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayLoadBalancerEndpointId;
-
-        public string? GatewayLoadBalancerEndpointId => _mGatewayLoadBalancerEndpointId.GetValue("gatewayLoadBalancerEndpointId");
+        private string? _mValue_GatewayLoadBalancerEndpointId;
+        private bool _mUnknown_GatewayLoadBalancerEndpointId;
+        public string? GatewayLoadBalancerEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_GatewayLoadBalancerEndpointId) return _mValue_GatewayLoadBalancerEndpointId;
+                throw new UndeferrableValueException("Value 'TrafficMirrorTargetArgs.GatewayLoadBalancerEndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// The network interface ID that is associated with the target.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'TrafficMirrorTargetArgs.NetworkInterfaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
         /// </summary>
-        [Input("networkLoadBalancerArn")]
+        [PolicyResourceProperty("networkLoadBalancerArn", "_mUnknown_NetworkLoadBalancerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkLoadBalancerArn;
-
-        public string? NetworkLoadBalancerArn => _mNetworkLoadBalancerArn.GetValue("networkLoadBalancerArn");
+        private string? _mValue_NetworkLoadBalancerArn;
+        private bool _mUnknown_NetworkLoadBalancerArn;
+        public string? NetworkLoadBalancerArn
+        {
+            get
+            {
+                if (!_mUnknown_NetworkLoadBalancerArn) return _mValue_NetworkLoadBalancerArn;
+                throw new UndeferrableValueException("Value 'TrafficMirrorTargetArgs.NetworkLoadBalancerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TrafficMirrorTargetArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -17,10 +17,17 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Outputs
         /// 
         /// The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
         /// </summary>
-        [Input("targetGroups")]
+        [PolicyResourceProperty("targetGroups", "_mUnknown_TargetGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ListenerRuleActionForwardTargetGroup>> _mTargetGroups;
-
-        public List<Outputs.ListenerRuleActionForwardTargetGroup>? TargetGroups => _mTargetGroups.GetValue("targetGroups");
+        private List<Outputs.ListenerRuleActionForwardTargetGroup>? _mValue_TargetGroups;
+        private bool _mUnknown_TargetGroups;
+        public List<Outputs.ListenerRuleActionForwardTargetGroup>? TargetGroups
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroups) return _mValue_TargetGroups;
+                throw new UndeferrableValueException("Value 'ListenerRuleActionForward.TargetGroups' is not present");
+            }
+        }
     }
 }

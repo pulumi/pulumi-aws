@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// The ID of the Multiplex that the encoder is providing output to.
         /// </summary>
-        [Input("multiplexId")]
+        [PolicyResourceProperty("multiplexId", "_mUnknown_MultiplexId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMultiplexId;
-
-        public string? MultiplexId => _mMultiplexId.GetValue("multiplexId");
+        private string? _mValue_MultiplexId;
+        private bool _mUnknown_MultiplexId;
+        public string? MultiplexId
+        {
+            get
+            {
+                if (!_mUnknown_MultiplexId) return _mValue_MultiplexId;
+                throw new UndeferrableValueException("Value 'ChannelDestinationMultiplexSettingsArgs.MultiplexId' is not present");
+            }
+        }
 
         /// <summary>
         /// The program name of the Multiplex program that the encoder is providing output to.
         /// </summary>
-        [Input("programName")]
+        [PolicyResourceProperty("programName", "_mUnknown_ProgramName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProgramName;
-
-        public string? ProgramName => _mProgramName.GetValue("programName");
+        private string? _mValue_ProgramName;
+        private bool _mUnknown_ProgramName;
+        public string? ProgramName
+        {
+            get
+            {
+                if (!_mUnknown_ProgramName) return _mValue_ProgramName;
+                throw new UndeferrableValueException("Value 'ChannelDestinationMultiplexSettingsArgs.ProgramName' is not present");
+            }
+        }
     }
 }

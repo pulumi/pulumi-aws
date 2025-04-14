@@ -12,19 +12,33 @@ namespace Pulumi.PolicyPacks.Aws.Dlm.Outputs
 {
     public sealed class LifecyclePolicyPolicyDetailsEventSource
     {
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LifecyclePolicyPolicyDetailsEventSourceParameters> _mParameters;
-
-        public Outputs.LifecyclePolicyPolicyDetailsEventSourceParameters? Parameters => _mParameters.GetValue("parameters");
+        private Outputs.LifecyclePolicyPolicyDetailsEventSourceParameters? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Outputs.LifecyclePolicyPolicyDetailsEventSourceParameters? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsEventSource.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsEventSource.Type' is not present");
+            }
+        }
     }
 }

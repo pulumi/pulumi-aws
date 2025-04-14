@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner
         /// <summary>
         /// The ARN of the App Runner auto scaling configuration that you want to set as the default.
         /// </summary>
-        [Input("autoScalingConfigurationArn")]
+        [PolicyResourceProperty("autoScalingConfigurationArn", "_mUnknown_AutoScalingConfigurationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingConfigurationArn;
-
-        public string? AutoScalingConfigurationArn => _mAutoScalingConfigurationArn.GetValue("autoScalingConfigurationArn");
+        private string? _mValue_AutoScalingConfigurationArn;
+        private bool _mUnknown_AutoScalingConfigurationArn;
+        public string? AutoScalingConfigurationArn
+        {
+            get
+            {
+                if (!_mUnknown_AutoScalingConfigurationArn) return _mValue_AutoScalingConfigurationArn;
+                throw new UndeferrableValueException("Value 'DefaultAutoScalingConfigurationVersion.AutoScalingConfigurationArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apprunner/defaultAutoScalingConfigurationVersion:DefaultAutoScalingConfigurationVersion")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner
         /// <summary>
         /// The ARN of the App Runner auto scaling configuration that you want to set as the default.
         /// </summary>
-        [Input("autoScalingConfigurationArn")]
+        [PolicyResourceProperty("autoScalingConfigurationArn", "_mUnknown_AutoScalingConfigurationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingConfigurationArn;
-
-        public string? AutoScalingConfigurationArn => _mAutoScalingConfigurationArn.GetValue("autoScalingConfigurationArn");
+        private string? _mValue_AutoScalingConfigurationArn;
+        private bool _mUnknown_AutoScalingConfigurationArn;
+        public string? AutoScalingConfigurationArn
+        {
+            get
+            {
+                if (!_mUnknown_AutoScalingConfigurationArn) return _mValue_AutoScalingConfigurationArn;
+                throw new UndeferrableValueException("Value 'DefaultAutoScalingConfigurationVersionArgs.AutoScalingConfigurationArn' is not present");
+            }
+        }
     }
 }

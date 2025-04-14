@@ -15,11 +15,18 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Inputs
         /// <summary>
         /// AWS region of the resource where DNS traffic is directed to.
         /// </summary>
-        [Input("awsRegion")]
+        [PolicyResourceProperty("awsRegion", "_mUnknown_AwsRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsRegion;
-
-        public string? AwsRegion => _mAwsRegion.GetValue("awsRegion");
+        private string? _mValue_AwsRegion;
+        private bool _mUnknown_AwsRegion;
+        public string? AwsRegion
+        {
+            get
+            {
+                if (!_mUnknown_AwsRegion) return _mValue_AwsRegion;
+                throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetGeoproximityLocationArgs.AwsRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// Increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
@@ -27,30 +34,51 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Inputs
         /// To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of `-1` to `-99`.
         /// See the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html) for additional details.
         /// </summary>
-        [Input("bias")]
+        [PolicyResourceProperty("bias", "_mUnknown_Bias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBias;
-
-        public int? Bias => _mBias.GetValue("bias");
+        private int? _mValue_Bias;
+        private bool _mUnknown_Bias;
+        public int? Bias
+        {
+            get
+            {
+                if (!_mUnknown_Bias) return _mValue_Bias;
+                throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetGeoproximityLocationArgs.Bias' is not present");
+            }
+        }
 
         /// <summary>
         /// Coordinates for a geoproximity resource record.
         /// See `coordinates` below.
         /// </summary>
-        [Input("coordinates")]
+        [PolicyResourceProperty("coordinates", "_mUnknown_Coordinates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs> _mCoordinates;
-
-        public Inputs.RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs? Coordinates => _mCoordinates.GetValue("coordinates");
+        private Inputs.RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs? _mValue_Coordinates;
+        private bool _mUnknown_Coordinates;
+        public Inputs.RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs? Coordinates
+        {
+            get
+            {
+                if (!_mUnknown_Coordinates) return _mValue_Coordinates;
+                throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetGeoproximityLocationArgs.Coordinates' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS local zone group.
         /// Identify the Local Zones Group for a specific Local Zone by using the [`describe-availability-zones` CLI command](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html).
         /// </summary>
-        [Input("localZoneGroup")]
+        [PolicyResourceProperty("localZoneGroup", "_mUnknown_LocalZoneGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalZoneGroup;
-
-        public string? LocalZoneGroup => _mLocalZoneGroup.GetValue("localZoneGroup");
+        private string? _mValue_LocalZoneGroup;
+        private bool _mUnknown_LocalZoneGroup;
+        public string? LocalZoneGroup
+        {
+            get
+            {
+                if (!_mUnknown_LocalZoneGroup) return _mValue_LocalZoneGroup;
+                throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetGeoproximityLocationArgs.LocalZoneGroup' is not present");
+            }
+        }
     }
 }

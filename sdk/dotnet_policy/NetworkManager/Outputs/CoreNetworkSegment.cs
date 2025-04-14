@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Outputs
         /// <summary>
         /// Regions where the edges are located.
         /// </summary>
-        [Input("edgeLocations")]
+        [PolicyResourceProperty("edgeLocations", "_mUnknown_EdgeLocations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEdgeLocations;
-
-        public List<string>? EdgeLocations => _mEdgeLocations.GetValue("edgeLocations");
+        private List<string>? _mValue_EdgeLocations;
+        private bool _mUnknown_EdgeLocations;
+        public List<string>? EdgeLocations
+        {
+            get
+            {
+                if (!_mUnknown_EdgeLocations) return _mValue_EdgeLocations;
+                throw new UndeferrableValueException("Value 'CoreNetworkSegment.EdgeLocations' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of a core network segment.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CoreNetworkSegment.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Shared segments of a core network.
         /// </summary>
-        [Input("sharedSegments")]
+        [PolicyResourceProperty("sharedSegments", "_mUnknown_SharedSegments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSharedSegments;
-
-        public List<string>? SharedSegments => _mSharedSegments.GetValue("sharedSegments");
+        private List<string>? _mValue_SharedSegments;
+        private bool _mUnknown_SharedSegments;
+        public List<string>? SharedSegments
+        {
+            get
+            {
+                if (!_mUnknown_SharedSegments) return _mValue_SharedSegments;
+                throw new UndeferrableValueException("Value 'CoreNetworkSegment.SharedSegments' is not present");
+            }
+        }
     }
 }

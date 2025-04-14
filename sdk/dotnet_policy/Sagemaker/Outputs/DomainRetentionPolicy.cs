@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
         /// </summary>
-        [Input("homeEfsFileSystem")]
+        [PolicyResourceProperty("homeEfsFileSystem", "_mUnknown_HomeEfsFileSystem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHomeEfsFileSystem;
-
-        public string? HomeEfsFileSystem => _mHomeEfsFileSystem.GetValue("homeEfsFileSystem");
+        private string? _mValue_HomeEfsFileSystem;
+        private bool _mUnknown_HomeEfsFileSystem;
+        public string? HomeEfsFileSystem
+        {
+            get
+            {
+                if (!_mUnknown_HomeEfsFileSystem) return _mValue_HomeEfsFileSystem;
+                throw new UndeferrableValueException("Value 'DomainRetentionPolicy.HomeEfsFileSystem' is not present");
+            }
+        }
     }
 }

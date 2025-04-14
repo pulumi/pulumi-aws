@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// Account takeover risk configuration actions. See details below.
         /// </summary>
-        [Input("actions")]
+        [PolicyResourceProperty("actions", "_mUnknown_Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RiskConfigurationAccountTakeoverRiskConfigurationActions> _mActions;
-
-        public Outputs.RiskConfigurationAccountTakeoverRiskConfigurationActions? Actions => _mActions.GetValue("actions");
+        private Outputs.RiskConfigurationAccountTakeoverRiskConfigurationActions? _mValue_Actions;
+        private bool _mUnknown_Actions;
+        public Outputs.RiskConfigurationAccountTakeoverRiskConfigurationActions? Actions
+        {
+            get
+            {
+                if (!_mUnknown_Actions) return _mValue_Actions;
+                throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfiguration.Actions' is not present");
+            }
+        }
 
         /// <summary>
         /// The notify configuration used to construct email notifications. See details below.
         /// </summary>
-        [Input("notifyConfiguration")]
+        [PolicyResourceProperty("notifyConfiguration", "_mUnknown_NotifyConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration> _mNotifyConfiguration;
-
-        public Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration? NotifyConfiguration => _mNotifyConfiguration.GetValue("notifyConfiguration");
+        private Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration? _mValue_NotifyConfiguration;
+        private bool _mUnknown_NotifyConfiguration;
+        public Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration? NotifyConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_NotifyConfiguration) return _mValue_NotifyConfiguration;
+                throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfiguration.NotifyConfiguration' is not present");
+            }
+        }
     }
 }

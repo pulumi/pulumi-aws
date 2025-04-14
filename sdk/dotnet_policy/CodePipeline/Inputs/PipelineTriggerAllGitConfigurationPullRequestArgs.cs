@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Inputs
         /// <summary>
         /// The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
         /// </summary>
-        [Input("branches")]
+        [PolicyResourceProperty("branches", "_mUnknown_Branches")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineTriggerAllGitConfigurationPullRequestBranchArgs>> _mBranches;
-
-        public List<Inputs.PipelineTriggerAllGitConfigurationPullRequestBranchArgs>? Branches => _mBranches.GetValue("branches");
+        private List<Inputs.PipelineTriggerAllGitConfigurationPullRequestBranchArgs>? _mValue_Branches;
+        private bool _mUnknown_Branches;
+        public List<Inputs.PipelineTriggerAllGitConfigurationPullRequestBranchArgs>? Branches
+        {
+            get
+            {
+                if (!_mUnknown_Branches) return _mValue_Branches;
+                throw new UndeferrableValueException("Value 'PipelineTriggerAllGitConfigurationPullRequestArgs.Branches' is not present");
+            }
+        }
 
         /// <summary>
         /// A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, `UPDATED ` and `CLOSED`.
         /// </summary>
-        [Input("events")]
+        [PolicyResourceProperty("events", "_mUnknown_Events")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEvents;
-
-        public List<string>? Events => _mEvents.GetValue("events");
+        private List<string>? _mValue_Events;
+        private bool _mUnknown_Events;
+        public List<string>? Events
+        {
+            get
+            {
+                if (!_mUnknown_Events) return _mValue_Events;
+                throw new UndeferrableValueException("Value 'PipelineTriggerAllGitConfigurationPullRequestArgs.Events' is not present");
+            }
+        }
 
         /// <summary>
         /// The field that specifies to filter on file paths for the pull request trigger configuration. A `file_paths` block is documented below.
         /// </summary>
-        [Input("filePaths")]
+        [PolicyResourceProperty("filePaths", "_mUnknown_FilePaths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineTriggerAllGitConfigurationPullRequestFilePathArgs>> _mFilePaths;
-
-        public List<Inputs.PipelineTriggerAllGitConfigurationPullRequestFilePathArgs>? FilePaths => _mFilePaths.GetValue("filePaths");
+        private List<Inputs.PipelineTriggerAllGitConfigurationPullRequestFilePathArgs>? _mValue_FilePaths;
+        private bool _mUnknown_FilePaths;
+        public List<Inputs.PipelineTriggerAllGitConfigurationPullRequestFilePathArgs>? FilePaths
+        {
+            get
+            {
+                if (!_mUnknown_FilePaths) return _mValue_FilePaths;
+                throw new UndeferrableValueException("Value 'PipelineTriggerAllGitConfigurationPullRequestArgs.FilePaths' is not present");
+            }
+        }
     }
 }

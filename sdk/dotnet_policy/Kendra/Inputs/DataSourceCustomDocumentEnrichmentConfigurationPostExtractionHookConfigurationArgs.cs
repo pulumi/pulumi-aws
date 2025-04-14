@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Inputs
         /// <summary>
         /// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
         /// </summary>
-        [Input("invocationCondition")]
+        [PolicyResourceProperty("invocationCondition", "_mUnknown_InvocationCondition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs> _mInvocationCondition;
-
-        public Inputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs? InvocationCondition => _mInvocationCondition.GetValue("invocationCondition");
+        private Inputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs? _mValue_InvocationCondition;
+        private bool _mUnknown_InvocationCondition;
+        public Inputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs? InvocationCondition
+        {
+            get
+            {
+                if (!_mUnknown_InvocationCondition) return _mValue_InvocationCondition;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs.InvocationCondition' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
         /// </summary>
-        [Input("lambdaArn")]
+        [PolicyResourceProperty("lambdaArn", "_mUnknown_LambdaArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaArn;
-
-        public string? LambdaArn => _mLambdaArn.GetValue("lambdaArn");
+        private string? _mValue_LambdaArn;
+        private bool _mUnknown_LambdaArn;
+        public string? LambdaArn
+        {
+            get
+            {
+                if (!_mUnknown_LambdaArn) return _mValue_LambdaArn;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs.LambdaArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
         /// </summary>
-        [Input("s3Bucket")]
+        [PolicyResourceProperty("s3Bucket", "_mUnknown_S3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
-
-        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+        private string? _mValue_S3Bucket;
+        private bool _mUnknown_S3Bucket;
+        public string? S3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_S3Bucket) return _mValue_S3Bucket;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs.S3Bucket' is not present");
+            }
+        }
     }
 }

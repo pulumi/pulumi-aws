@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// CIDR block of this entry.
         /// </summary>
-        [Input("cidr")]
+        [PolicyResourceProperty("cidr", "_mUnknown_Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidr;
-
-        public string? Cidr => _mCidr.GetValue("cidr");
+        private string? _mValue_Cidr;
+        private bool _mUnknown_Cidr;
+        public string? Cidr
+        {
+            get
+            {
+                if (!_mUnknown_Cidr) return _mValue_Cidr;
+                throw new UndeferrableValueException("Value 'ManagedPrefixListEntry.Cidr' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ManagedPrefixListEntry.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the prefix list.
         /// </summary>
-        [Input("prefixListId")]
+        [PolicyResourceProperty("prefixListId", "_mUnknown_PrefixListId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixListId;
-
-        public string? PrefixListId => _mPrefixListId.GetValue("prefixListId");
+        private string? _mValue_PrefixListId;
+        private bool _mUnknown_PrefixListId;
+        public string? PrefixListId
+        {
+            get
+            {
+                if (!_mUnknown_PrefixListId) return _mValue_PrefixListId;
+                throw new UndeferrableValueException("Value 'ManagedPrefixListEntry.PrefixListId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// CIDR block of this entry.
         /// </summary>
-        [Input("cidr")]
+        [PolicyResourceProperty("cidr", "_mUnknown_Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidr;
-
-        public string? Cidr => _mCidr.GetValue("cidr");
+        private string? _mValue_Cidr;
+        private bool _mUnknown_Cidr;
+        public string? Cidr
+        {
+            get
+            {
+                if (!_mUnknown_Cidr) return _mValue_Cidr;
+                throw new UndeferrableValueException("Value 'ManagedPrefixListEntryArgs.Cidr' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ManagedPrefixListEntryArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the prefix list.
         /// </summary>
-        [Input("prefixListId")]
+        [PolicyResourceProperty("prefixListId", "_mUnknown_PrefixListId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixListId;
-
-        public string? PrefixListId => _mPrefixListId.GetValue("prefixListId");
+        private string? _mValue_PrefixListId;
+        private bool _mUnknown_PrefixListId;
+        public string? PrefixListId
+        {
+            get
+            {
+                if (!_mUnknown_PrefixListId) return _mValue_PrefixListId;
+                throw new UndeferrableValueException("Value 'ManagedPrefixListEntryArgs.PrefixListId' is not present");
+            }
+        }
     }
 }

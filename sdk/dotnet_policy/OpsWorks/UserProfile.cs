@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks
         /// <summary>
         /// Whether users can specify their own SSH public key through the My Settings page
         /// </summary>
-        [Input("allowSelfManagement")]
+        [PolicyResourceProperty("allowSelfManagement", "_mUnknown_AllowSelfManagement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowSelfManagement;
-
-        public bool? AllowSelfManagement => _mAllowSelfManagement.GetValue("allowSelfManagement");
+        private bool? _mValue_AllowSelfManagement;
+        private bool _mUnknown_AllowSelfManagement;
+        public bool? AllowSelfManagement
+        {
+            get
+            {
+                if (!_mUnknown_AllowSelfManagement) return _mValue_AllowSelfManagement;
+                throw new UndeferrableValueException("Value 'UserProfile.AllowSelfManagement' is not present");
+            }
+        }
 
         /// <summary>
         /// The users public key
         /// </summary>
-        [Input("sshPublicKey")]
+        [PolicyResourceProperty("sshPublicKey", "_mUnknown_SshPublicKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSshPublicKey;
-
-        public string? SshPublicKey => _mSshPublicKey.GetValue("sshPublicKey");
+        private string? _mValue_SshPublicKey;
+        private bool _mUnknown_SshPublicKey;
+        public string? SshPublicKey
+        {
+            get
+            {
+                if (!_mUnknown_SshPublicKey) return _mValue_SshPublicKey;
+                throw new UndeferrableValueException("Value 'UserProfile.SshPublicKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The ssh username, with witch this user wants to log in
         /// </summary>
-        [Input("sshUsername")]
+        [PolicyResourceProperty("sshUsername", "_mUnknown_SshUsername")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSshUsername;
-
-        public string? SshUsername => _mSshUsername.GetValue("sshUsername");
+        private string? _mValue_SshUsername;
+        private bool _mUnknown_SshUsername;
+        public string? SshUsername
+        {
+            get
+            {
+                if (!_mUnknown_SshUsername) return _mValue_SshUsername;
+                throw new UndeferrableValueException("Value 'UserProfile.SshUsername' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's IAM ARN
         /// </summary>
-        [Input("userArn")]
+        [PolicyResourceProperty("userArn", "_mUnknown_UserArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserArn;
-
-        public string? UserArn => _mUserArn.GetValue("userArn");
+        private string? _mValue_UserArn;
+        private bool _mUnknown_UserArn;
+        public string? UserArn
+        {
+            get
+            {
+                if (!_mUnknown_UserArn) return _mValue_UserArn;
+                throw new UndeferrableValueException("Value 'UserProfile.UserArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opsworks/userProfile:UserProfile")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks
         /// <summary>
         /// Whether users can specify their own SSH public key through the My Settings page
         /// </summary>
-        [Input("allowSelfManagement")]
+        [PolicyResourceProperty("allowSelfManagement", "_mUnknown_AllowSelfManagement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowSelfManagement;
-
-        public bool? AllowSelfManagement => _mAllowSelfManagement.GetValue("allowSelfManagement");
+        private bool? _mValue_AllowSelfManagement;
+        private bool _mUnknown_AllowSelfManagement;
+        public bool? AllowSelfManagement
+        {
+            get
+            {
+                if (!_mUnknown_AllowSelfManagement) return _mValue_AllowSelfManagement;
+                throw new UndeferrableValueException("Value 'UserProfileArgs.AllowSelfManagement' is not present");
+            }
+        }
 
         /// <summary>
         /// The users public key
         /// </summary>
-        [Input("sshPublicKey")]
+        [PolicyResourceProperty("sshPublicKey", "_mUnknown_SshPublicKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSshPublicKey;
-
-        public string? SshPublicKey => _mSshPublicKey.GetValue("sshPublicKey");
+        private string? _mValue_SshPublicKey;
+        private bool _mUnknown_SshPublicKey;
+        public string? SshPublicKey
+        {
+            get
+            {
+                if (!_mUnknown_SshPublicKey) return _mValue_SshPublicKey;
+                throw new UndeferrableValueException("Value 'UserProfileArgs.SshPublicKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The ssh username, with witch this user wants to log in
         /// </summary>
-        [Input("sshUsername")]
+        [PolicyResourceProperty("sshUsername", "_mUnknown_SshUsername")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSshUsername;
-
-        public string? SshUsername => _mSshUsername.GetValue("sshUsername");
+        private string? _mValue_SshUsername;
+        private bool _mUnknown_SshUsername;
+        public string? SshUsername
+        {
+            get
+            {
+                if (!_mUnknown_SshUsername) return _mValue_SshUsername;
+                throw new UndeferrableValueException("Value 'UserProfileArgs.SshUsername' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's IAM ARN
         /// </summary>
-        [Input("userArn")]
+        [PolicyResourceProperty("userArn", "_mUnknown_UserArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserArn;
-
-        public string? UserArn => _mUserArn.GetValue("userArn");
+        private string? _mValue_UserArn;
+        private bool _mUnknown_UserArn;
+        public string? UserArn
+        {
+            get
+            {
+                if (!_mUnknown_UserArn) return _mValue_UserArn;
+                throw new UndeferrableValueException("Value 'UserProfileArgs.UserArn' is not present");
+            }
+        }
     }
 }

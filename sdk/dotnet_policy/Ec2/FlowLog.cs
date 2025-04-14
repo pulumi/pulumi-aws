@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ARN of the Flow Log.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'FlowLog.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
         /// </summary>
-        [Input("deliverCrossAccountRole")]
+        [PolicyResourceProperty("deliverCrossAccountRole", "_mUnknown_DeliverCrossAccountRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliverCrossAccountRole;
-
-        public string? DeliverCrossAccountRole => _mDeliverCrossAccountRole.GetValue("deliverCrossAccountRole");
+        private string? _mValue_DeliverCrossAccountRole;
+        private bool _mUnknown_DeliverCrossAccountRole;
+        public string? DeliverCrossAccountRole
+        {
+            get
+            {
+                if (!_mUnknown_DeliverCrossAccountRole) return _mValue_DeliverCrossAccountRole;
+                throw new UndeferrableValueException("Value 'FlowLog.DeliverCrossAccountRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the destination options for a flow log. More details below.
         /// </summary>
-        [Input("destinationOptions")]
+        [PolicyResourceProperty("destinationOptions", "_mUnknown_DestinationOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowLogDestinationOptions> _mDestinationOptions;
-
-        public Outputs.FlowLogDestinationOptions? DestinationOptions => _mDestinationOptions.GetValue("destinationOptions");
+        private Outputs.FlowLogDestinationOptions? _mValue_DestinationOptions;
+        private bool _mUnknown_DestinationOptions;
+        public Outputs.FlowLogDestinationOptions? DestinationOptions
+        {
+            get
+            {
+                if (!_mUnknown_DestinationOptions) return _mValue_DestinationOptions;
+                throw new UndeferrableValueException("Value 'FlowLog.DestinationOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Elastic Network Interface ID to attach to
         /// </summary>
-        [Input("eniId")]
+        [PolicyResourceProperty("eniId", "_mUnknown_EniId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEniId;
-
-        public string? EniId => _mEniId.GetValue("eniId");
+        private string? _mValue_EniId;
+        private bool _mUnknown_EniId;
+        public string? EniId
+        {
+            get
+            {
+                if (!_mUnknown_EniId) return _mValue_EniId;
+                throw new UndeferrableValueException("Value 'FlowLog.EniId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         /// </summary>
-        [Input("iamRoleArn")]
+        [PolicyResourceProperty("iamRoleArn", "_mUnknown_IamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
-
-        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+        private string? _mValue_IamRoleArn;
+        private bool _mUnknown_IamRoleArn;
+        public string? IamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArn) return _mValue_IamRoleArn;
+                throw new UndeferrableValueException("Value 'FlowLog.IamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
         /// </summary>
-        [Input("logDestination")]
+        [PolicyResourceProperty("logDestination", "_mUnknown_LogDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogDestination;
-
-        public string? LogDestination => _mLogDestination.GetValue("logDestination");
+        private string? _mValue_LogDestination;
+        private bool _mUnknown_LogDestination;
+        public string? LogDestination
+        {
+            get
+            {
+                if (!_mUnknown_LogDestination) return _mValue_LogDestination;
+                throw new UndeferrableValueException("Value 'FlowLog.LogDestination' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         /// </summary>
-        [Input("logDestinationType")]
+        [PolicyResourceProperty("logDestinationType", "_mUnknown_LogDestinationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogDestinationType;
-
-        public string? LogDestinationType => _mLogDestinationType.GetValue("logDestinationType");
+        private string? _mValue_LogDestinationType;
+        private bool _mUnknown_LogDestinationType;
+        public string? LogDestinationType
+        {
+            get
+            {
+                if (!_mUnknown_LogDestinationType) return _mValue_LogDestinationType;
+                throw new UndeferrableValueException("Value 'FlowLog.LogDestinationType' is not present");
+            }
+        }
 
         /// <summary>
         /// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         /// </summary>
-        [Input("logFormat")]
+        [PolicyResourceProperty("logFormat", "_mUnknown_LogFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogFormat;
-
-        public string? LogFormat => _mLogFormat.GetValue("logFormat");
+        private string? _mValue_LogFormat;
+        private bool _mUnknown_LogFormat;
+        public string? LogFormat
+        {
+            get
+            {
+                if (!_mUnknown_LogFormat) return _mValue_LogFormat;
+                throw new UndeferrableValueException("Value 'FlowLog.LogFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         /// </summary>
-        [Input("logGroupName")]
+        [PolicyResourceProperty("logGroupName", "_mUnknown_LogGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
-
-        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+        private string? _mValue_LogGroupName;
+        private bool _mUnknown_LogGroupName;
+        public string? LogGroupName
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupName) return _mValue_LogGroupName;
+                throw new UndeferrableValueException("Value 'FlowLog.LogGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum interval of time
@@ -100,74 +163,130 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
         /// minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         /// </summary>
-        [Input("maxAggregationInterval")]
+        [PolicyResourceProperty("maxAggregationInterval", "_mUnknown_MaxAggregationInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxAggregationInterval;
-
-        public int? MaxAggregationInterval => _mMaxAggregationInterval.GetValue("maxAggregationInterval");
+        private int? _mValue_MaxAggregationInterval;
+        private bool _mUnknown_MaxAggregationInterval;
+        public int? MaxAggregationInterval
+        {
+            get
+            {
+                if (!_mUnknown_MaxAggregationInterval) return _mValue_MaxAggregationInterval;
+                throw new UndeferrableValueException("Value 'FlowLog.MaxAggregationInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// Subnet ID to attach to
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'FlowLog.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FlowLog.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'FlowLog.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
         /// </summary>
-        [Input("trafficType")]
+        [PolicyResourceProperty("trafficType", "_mUnknown_TrafficType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficType;
-
-        public string? TrafficType => _mTrafficType.GetValue("trafficType");
+        private string? _mValue_TrafficType;
+        private bool _mUnknown_TrafficType;
+        public string? TrafficType
+        {
+            get
+            {
+                if (!_mUnknown_TrafficType) return _mValue_TrafficType;
+                throw new UndeferrableValueException("Value 'FlowLog.TrafficType' is not present");
+            }
+        }
 
         /// <summary>
         /// Transit Gateway Attachment ID to attach to
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
+        [PolicyResourceProperty("transitGatewayAttachmentId", "_mUnknown_TransitGatewayAttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
-
-        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+        private string? _mValue_TransitGatewayAttachmentId;
+        private bool _mUnknown_TransitGatewayAttachmentId;
+        public string? TransitGatewayAttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayAttachmentId) return _mValue_TransitGatewayAttachmentId;
+                throw new UndeferrableValueException("Value 'FlowLog.TransitGatewayAttachmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Transit Gateway ID to attach to
         /// </summary>
-        [Input("transitGatewayId")]
+        [PolicyResourceProperty("transitGatewayId", "_mUnknown_TransitGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
-
-        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+        private string? _mValue_TransitGatewayId;
+        private bool _mUnknown_TransitGatewayId;
+        public string? TransitGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayId) return _mValue_TransitGatewayId;
+                throw new UndeferrableValueException("Value 'FlowLog.TransitGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC ID to attach to
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'FlowLog.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/flowLog:FlowLog")]
@@ -176,74 +295,130 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
         /// </summary>
-        [Input("deliverCrossAccountRole")]
+        [PolicyResourceProperty("deliverCrossAccountRole", "_mUnknown_DeliverCrossAccountRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliverCrossAccountRole;
-
-        public string? DeliverCrossAccountRole => _mDeliverCrossAccountRole.GetValue("deliverCrossAccountRole");
+        private string? _mValue_DeliverCrossAccountRole;
+        private bool _mUnknown_DeliverCrossAccountRole;
+        public string? DeliverCrossAccountRole
+        {
+            get
+            {
+                if (!_mUnknown_DeliverCrossAccountRole) return _mValue_DeliverCrossAccountRole;
+                throw new UndeferrableValueException("Value 'FlowLogArgs.DeliverCrossAccountRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the destination options for a flow log. More details below.
         /// </summary>
-        [Input("destinationOptions")]
+        [PolicyResourceProperty("destinationOptions", "_mUnknown_DestinationOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowLogDestinationOptionsArgs> _mDestinationOptions;
-
-        public Inputs.FlowLogDestinationOptionsArgs? DestinationOptions => _mDestinationOptions.GetValue("destinationOptions");
+        private Inputs.FlowLogDestinationOptionsArgs? _mValue_DestinationOptions;
+        private bool _mUnknown_DestinationOptions;
+        public Inputs.FlowLogDestinationOptionsArgs? DestinationOptions
+        {
+            get
+            {
+                if (!_mUnknown_DestinationOptions) return _mValue_DestinationOptions;
+                throw new UndeferrableValueException("Value 'FlowLogArgs.DestinationOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Elastic Network Interface ID to attach to
         /// </summary>
-        [Input("eniId")]
+        [PolicyResourceProperty("eniId", "_mUnknown_EniId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEniId;
-
-        public string? EniId => _mEniId.GetValue("eniId");
+        private string? _mValue_EniId;
+        private bool _mUnknown_EniId;
+        public string? EniId
+        {
+            get
+            {
+                if (!_mUnknown_EniId) return _mValue_EniId;
+                throw new UndeferrableValueException("Value 'FlowLogArgs.EniId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         /// </summary>
-        [Input("iamRoleArn")]
+        [PolicyResourceProperty("iamRoleArn", "_mUnknown_IamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
-
-        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+        private string? _mValue_IamRoleArn;
+        private bool _mUnknown_IamRoleArn;
+        public string? IamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArn) return _mValue_IamRoleArn;
+                throw new UndeferrableValueException("Value 'FlowLogArgs.IamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
         /// </summary>
-        [Input("logDestination")]
+        [PolicyResourceProperty("logDestination", "_mUnknown_LogDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogDestination;
-
-        public string? LogDestination => _mLogDestination.GetValue("logDestination");
+        private string? _mValue_LogDestination;
+        private bool _mUnknown_LogDestination;
+        public string? LogDestination
+        {
+            get
+            {
+                if (!_mUnknown_LogDestination) return _mValue_LogDestination;
+                throw new UndeferrableValueException("Value 'FlowLogArgs.LogDestination' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         /// </summary>
-        [Input("logDestinationType")]
+        [PolicyResourceProperty("logDestinationType", "_mUnknown_LogDestinationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogDestinationType;
-
-        public string? LogDestinationType => _mLogDestinationType.GetValue("logDestinationType");
+        private string? _mValue_LogDestinationType;
+        private bool _mUnknown_LogDestinationType;
+        public string? LogDestinationType
+        {
+            get
+            {
+                if (!_mUnknown_LogDestinationType) return _mValue_LogDestinationType;
+                throw new UndeferrableValueException("Value 'FlowLogArgs.LogDestinationType' is not present");
+            }
+        }
 
         /// <summary>
         /// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         /// </summary>
-        [Input("logFormat")]
+        [PolicyResourceProperty("logFormat", "_mUnknown_LogFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogFormat;
-
-        public string? LogFormat => _mLogFormat.GetValue("logFormat");
+        private string? _mValue_LogFormat;
+        private bool _mUnknown_LogFormat;
+        public string? LogFormat
+        {
+            get
+            {
+                if (!_mUnknown_LogFormat) return _mValue_LogFormat;
+                throw new UndeferrableValueException("Value 'FlowLogArgs.LogFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         /// </summary>
-        [Input("logGroupName")]
+        [PolicyResourceProperty("logGroupName", "_mUnknown_LogGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
-
-        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+        private string? _mValue_LogGroupName;
+        private bool _mUnknown_LogGroupName;
+        public string? LogGroupName
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupName) return _mValue_LogGroupName;
+                throw new UndeferrableValueException("Value 'FlowLogArgs.LogGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum interval of time
@@ -251,64 +426,113 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
         /// minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         /// </summary>
-        [Input("maxAggregationInterval")]
+        [PolicyResourceProperty("maxAggregationInterval", "_mUnknown_MaxAggregationInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxAggregationInterval;
-
-        public int? MaxAggregationInterval => _mMaxAggregationInterval.GetValue("maxAggregationInterval");
+        private int? _mValue_MaxAggregationInterval;
+        private bool _mUnknown_MaxAggregationInterval;
+        public int? MaxAggregationInterval
+        {
+            get
+            {
+                if (!_mUnknown_MaxAggregationInterval) return _mValue_MaxAggregationInterval;
+                throw new UndeferrableValueException("Value 'FlowLogArgs.MaxAggregationInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// Subnet ID to attach to
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'FlowLogArgs.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FlowLogArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
         /// </summary>
-        [Input("trafficType")]
+        [PolicyResourceProperty("trafficType", "_mUnknown_TrafficType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficType;
-
-        public string? TrafficType => _mTrafficType.GetValue("trafficType");
+        private string? _mValue_TrafficType;
+        private bool _mUnknown_TrafficType;
+        public string? TrafficType
+        {
+            get
+            {
+                if (!_mUnknown_TrafficType) return _mValue_TrafficType;
+                throw new UndeferrableValueException("Value 'FlowLogArgs.TrafficType' is not present");
+            }
+        }
 
         /// <summary>
         /// Transit Gateway Attachment ID to attach to
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
+        [PolicyResourceProperty("transitGatewayAttachmentId", "_mUnknown_TransitGatewayAttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
-
-        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+        private string? _mValue_TransitGatewayAttachmentId;
+        private bool _mUnknown_TransitGatewayAttachmentId;
+        public string? TransitGatewayAttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayAttachmentId) return _mValue_TransitGatewayAttachmentId;
+                throw new UndeferrableValueException("Value 'FlowLogArgs.TransitGatewayAttachmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Transit Gateway ID to attach to
         /// </summary>
-        [Input("transitGatewayId")]
+        [PolicyResourceProperty("transitGatewayId", "_mUnknown_TransitGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
-
-        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+        private string? _mValue_TransitGatewayId;
+        private bool _mUnknown_TransitGatewayId;
+        public string? TransitGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayId) return _mValue_TransitGatewayId;
+                throw new UndeferrableValueException("Value 'FlowLogArgs.TransitGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC ID to attach to
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'FlowLogArgs.VpcId' is not present");
+            }
+        }
     }
 }

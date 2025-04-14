@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Inputs
         /// <summary>
         /// List of Account Recovery Options of the following structure:
         /// </summary>
-        [Input("recoveryMechanisms")]
+        [PolicyResourceProperty("recoveryMechanisms", "_mUnknown_RecoveryMechanisms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.UserPoolAccountRecoverySettingRecoveryMechanismArgs>> _mRecoveryMechanisms;
-
-        public List<Inputs.UserPoolAccountRecoverySettingRecoveryMechanismArgs>? RecoveryMechanisms => _mRecoveryMechanisms.GetValue("recoveryMechanisms");
+        private List<Inputs.UserPoolAccountRecoverySettingRecoveryMechanismArgs>? _mValue_RecoveryMechanisms;
+        private bool _mUnknown_RecoveryMechanisms;
+        public List<Inputs.UserPoolAccountRecoverySettingRecoveryMechanismArgs>? RecoveryMechanisms
+        {
+            get
+            {
+                if (!_mUnknown_RecoveryMechanisms) return _mValue_RecoveryMechanisms;
+                throw new UndeferrableValueException("Value 'UserPoolAccountRecoverySettingArgs.RecoveryMechanisms' is not present");
+            }
+        }
     }
 }

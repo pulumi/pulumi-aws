@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `code_hook`.
         /// </summary>
-        [Input("codeHook")]
+        [PolicyResourceProperty("codeHook", "_mUnknown_CodeHook")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingCodeHookArgs> _mCodeHook;
-
-        public Inputs.V2modelsIntentInitialResponseSettingCodeHookArgs? CodeHook => _mCodeHook.GetValue("codeHook");
+        private Inputs.V2modelsIntentInitialResponseSettingCodeHookArgs? _mValue_CodeHook;
+        private bool _mUnknown_CodeHook;
+        public Inputs.V2modelsIntentInitialResponseSettingCodeHookArgs? CodeHook
+        {
+            get
+            {
+                if (!_mUnknown_CodeHook) return _mValue_CodeHook;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingArgs.CodeHook' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `conditional`.
         /// </summary>
-        [Input("conditional")]
+        [PolicyResourceProperty("conditional", "_mUnknown_Conditional")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingConditionalArgs> _mConditional;
-
-        public Inputs.V2modelsIntentInitialResponseSettingConditionalArgs? Conditional => _mConditional.GetValue("conditional");
+        private Inputs.V2modelsIntentInitialResponseSettingConditionalArgs? _mValue_Conditional;
+        private bool _mUnknown_Conditional;
+        public Inputs.V2modelsIntentInitialResponseSettingConditionalArgs? Conditional
+        {
+            get
+            {
+                if (!_mUnknown_Conditional) return _mValue_Conditional;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingArgs.Conditional' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `initial_response`.
         /// </summary>
-        [Input("initialResponse")]
+        [PolicyResourceProperty("initialResponse", "_mUnknown_InitialResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingInitialResponseArgs> _mInitialResponse;
-
-        public Inputs.V2modelsIntentInitialResponseSettingInitialResponseArgs? InitialResponse => _mInitialResponse.GetValue("initialResponse");
+        private Inputs.V2modelsIntentInitialResponseSettingInitialResponseArgs? _mValue_InitialResponse;
+        private bool _mUnknown_InitialResponse;
+        public Inputs.V2modelsIntentInitialResponseSettingInitialResponseArgs? InitialResponse
+        {
+            get
+            {
+                if (!_mUnknown_InitialResponse) return _mValue_InitialResponse;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingArgs.InitialResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the next step in the conversation. See `next_step`.
         /// </summary>
-        [Input("nextStep")]
+        [PolicyResourceProperty("nextStep", "_mUnknown_NextStep")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingNextStepArgs> _mNextStep;
-
-        public Inputs.V2modelsIntentInitialResponseSettingNextStepArgs? NextStep => _mNextStep.GetValue("nextStep");
+        private Inputs.V2modelsIntentInitialResponseSettingNextStepArgs? _mValue_NextStep;
+        private bool _mUnknown_NextStep;
+        public Inputs.V2modelsIntentInitialResponseSettingNextStepArgs? NextStep
+        {
+            get
+            {
+                if (!_mUnknown_NextStep) return _mValue_NextStep;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingArgs.NextStep' is not present");
+            }
+        }
     }
 }

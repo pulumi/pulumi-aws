@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Ram
         /// <summary>
         /// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         /// </summary>
-        [Input("principal")]
+        [PolicyResourceProperty("principal", "_mUnknown_Principal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
-
-        public string? Principal => _mPrincipal.GetValue("principal");
+        private string? _mValue_Principal;
+        private bool _mUnknown_Principal;
+        public string? Principal
+        {
+            get
+            {
+                if (!_mUnknown_Principal) return _mValue_Principal;
+                throw new UndeferrableValueException("Value 'PrincipalAssociation.Principal' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the resource share.
         /// </summary>
-        [Input("resourceShareArn")]
+        [PolicyResourceProperty("resourceShareArn", "_mUnknown_ResourceShareArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceShareArn;
-
-        public string? ResourceShareArn => _mResourceShareArn.GetValue("resourceShareArn");
+        private string? _mValue_ResourceShareArn;
+        private bool _mUnknown_ResourceShareArn;
+        public string? ResourceShareArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceShareArn) return _mValue_ResourceShareArn;
+                throw new UndeferrableValueException("Value 'PrincipalAssociation.ResourceShareArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ram/principalAssociation:PrincipalAssociation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Ram
         /// <summary>
         /// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         /// </summary>
-        [Input("principal")]
+        [PolicyResourceProperty("principal", "_mUnknown_Principal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
-
-        public string? Principal => _mPrincipal.GetValue("principal");
+        private string? _mValue_Principal;
+        private bool _mUnknown_Principal;
+        public string? Principal
+        {
+            get
+            {
+                if (!_mUnknown_Principal) return _mValue_Principal;
+                throw new UndeferrableValueException("Value 'PrincipalAssociationArgs.Principal' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the resource share.
         /// </summary>
-        [Input("resourceShareArn")]
+        [PolicyResourceProperty("resourceShareArn", "_mUnknown_ResourceShareArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceShareArn;
-
-        public string? ResourceShareArn => _mResourceShareArn.GetValue("resourceShareArn");
+        private string? _mValue_ResourceShareArn;
+        private bool _mUnknown_ResourceShareArn;
+        public string? ResourceShareArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceShareArn) return _mValue_ResourceShareArn;
+                throw new UndeferrableValueException("Value 'PrincipalAssociationArgs.ResourceShareArn' is not present");
+            }
+        }
     }
 }

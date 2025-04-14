@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// <summary>
         /// Dedicated IP address.
         /// </summary>
-        [Input("destinationPoolName")]
+        [PolicyResourceProperty("destinationPoolName", "_mUnknown_DestinationPoolName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationPoolName;
-
-        public string? DestinationPoolName => _mDestinationPoolName.GetValue("destinationPoolName");
+        private string? _mValue_DestinationPoolName;
+        private bool _mUnknown_DestinationPoolName;
+        public string? DestinationPoolName
+        {
+            get
+            {
+                if (!_mUnknown_DestinationPoolName) return _mValue_DestinationPoolName;
+                throw new UndeferrableValueException("Value 'DedicatedIpAssignment.DestinationPoolName' is not present");
+            }
+        }
 
         /// <summary>
         /// Dedicated IP address.
         /// </summary>
-        [Input("ip")]
+        [PolicyResourceProperty("ip", "_mUnknown_Ip")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIp;
-
-        public string? Ip => _mIp.GetValue("ip");
+        private string? _mValue_Ip;
+        private bool _mUnknown_Ip;
+        public string? Ip
+        {
+            get
+            {
+                if (!_mUnknown_Ip) return _mValue_Ip;
+                throw new UndeferrableValueException("Value 'DedicatedIpAssignment.Ip' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// <summary>
         /// Dedicated IP address.
         /// </summary>
-        [Input("destinationPoolName")]
+        [PolicyResourceProperty("destinationPoolName", "_mUnknown_DestinationPoolName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationPoolName;
-
-        public string? DestinationPoolName => _mDestinationPoolName.GetValue("destinationPoolName");
+        private string? _mValue_DestinationPoolName;
+        private bool _mUnknown_DestinationPoolName;
+        public string? DestinationPoolName
+        {
+            get
+            {
+                if (!_mUnknown_DestinationPoolName) return _mValue_DestinationPoolName;
+                throw new UndeferrableValueException("Value 'DedicatedIpAssignmentArgs.DestinationPoolName' is not present");
+            }
+        }
 
         /// <summary>
         /// Dedicated IP address.
         /// </summary>
-        [Input("ip")]
+        [PolicyResourceProperty("ip", "_mUnknown_Ip")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIp;
-
-        public string? Ip => _mIp.GetValue("ip");
+        private string? _mValue_Ip;
+        private bool _mUnknown_Ip;
+        public string? Ip
+        {
+            get
+            {
+                if (!_mUnknown_Ip) return _mValue_Ip;
+                throw new UndeferrableValueException("Value 'DedicatedIpAssignmentArgs.Ip' is not present");
+            }
+        }
     }
 }

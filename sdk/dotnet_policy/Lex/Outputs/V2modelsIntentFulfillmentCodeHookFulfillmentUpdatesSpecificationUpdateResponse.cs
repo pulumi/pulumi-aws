@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Whether the user can interrupt the start message while it is playing.
         /// </summary>
-        [Input("allowInterrupt")]
+        [PolicyResourceProperty("allowInterrupt", "_mUnknown_AllowInterrupt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowInterrupt;
-
-        public bool? AllowInterrupt => _mAllowInterrupt.GetValue("allowInterrupt");
+        private bool? _mValue_AllowInterrupt;
+        private bool _mUnknown_AllowInterrupt;
+        public bool? AllowInterrupt
+        {
+            get
+            {
+                if (!_mUnknown_AllowInterrupt) return _mValue_AllowInterrupt;
+                throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponse.AllowInterrupt' is not present");
+            }
+        }
 
         /// <summary>
         /// Frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
         /// </summary>
-        [Input("frequencyInSeconds")]
+        [PolicyResourceProperty("frequencyInSeconds", "_mUnknown_FrequencyInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFrequencyInSeconds;
-
-        public int? FrequencyInSeconds => _mFrequencyInSeconds.GetValue("frequencyInSeconds");
+        private int? _mValue_FrequencyInSeconds;
+        private bool _mUnknown_FrequencyInSeconds;
+        public int? FrequencyInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_FrequencyInSeconds) return _mValue_FrequencyInSeconds;
+                throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponse.FrequencyInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `message_group`.
         /// </summary>
-        [Input("messageGroups")]
+        [PolicyResourceProperty("messageGroups", "_mUnknown_MessageGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup>> _mMessageGroups;
-
-        public List<Outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup>? MessageGroups => _mMessageGroups.GetValue("messageGroups");
+        private List<Outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup>? _mValue_MessageGroups;
+        private bool _mUnknown_MessageGroups;
+        public List<Outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup>? MessageGroups
+        {
+            get
+            {
+                if (!_mUnknown_MessageGroups) return _mValue_MessageGroups;
+                throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponse.MessageGroups' is not present");
+            }
+        }
     }
 }

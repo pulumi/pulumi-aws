@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// <summary>
         /// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
         /// </summary>
-        [Input("behaviorOnMxFailure")]
+        [PolicyResourceProperty("behaviorOnMxFailure", "_mUnknown_BehaviorOnMxFailure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBehaviorOnMxFailure;
-
-        public string? BehaviorOnMxFailure => _mBehaviorOnMxFailure.GetValue("behaviorOnMxFailure");
+        private string? _mValue_BehaviorOnMxFailure;
+        private bool _mUnknown_BehaviorOnMxFailure;
+        public string? BehaviorOnMxFailure
+        {
+            get
+            {
+                if (!_mUnknown_BehaviorOnMxFailure) return _mValue_BehaviorOnMxFailure;
+                throw new UndeferrableValueException("Value 'EmailIdentityMailFromAttributes.BehaviorOnMxFailure' is not present");
+            }
+        }
 
         /// <summary>
         /// The verified email identity.
         /// </summary>
-        [Input("emailIdentity")]
+        [PolicyResourceProperty("emailIdentity", "_mUnknown_EmailIdentity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailIdentity;
-
-        public string? EmailIdentity => _mEmailIdentity.GetValue("emailIdentity");
+        private string? _mValue_EmailIdentity;
+        private bool _mUnknown_EmailIdentity;
+        public string? EmailIdentity
+        {
+            get
+            {
+                if (!_mUnknown_EmailIdentity) return _mValue_EmailIdentity;
+                throw new UndeferrableValueException("Value 'EmailIdentityMailFromAttributes.EmailIdentity' is not present");
+            }
+        }
 
         /// <summary>
         /// The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
         /// </summary>
-        [Input("mailFromDomain")]
+        [PolicyResourceProperty("mailFromDomain", "_mUnknown_MailFromDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMailFromDomain;
-
-        public string? MailFromDomain => _mMailFromDomain.GetValue("mailFromDomain");
+        private string? _mValue_MailFromDomain;
+        private bool _mUnknown_MailFromDomain;
+        public string? MailFromDomain
+        {
+            get
+            {
+                if (!_mUnknown_MailFromDomain) return _mValue_MailFromDomain;
+                throw new UndeferrableValueException("Value 'EmailIdentityMailFromAttributes.MailFromDomain' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// <summary>
         /// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
         /// </summary>
-        [Input("behaviorOnMxFailure")]
+        [PolicyResourceProperty("behaviorOnMxFailure", "_mUnknown_BehaviorOnMxFailure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBehaviorOnMxFailure;
-
-        public string? BehaviorOnMxFailure => _mBehaviorOnMxFailure.GetValue("behaviorOnMxFailure");
+        private string? _mValue_BehaviorOnMxFailure;
+        private bool _mUnknown_BehaviorOnMxFailure;
+        public string? BehaviorOnMxFailure
+        {
+            get
+            {
+                if (!_mUnknown_BehaviorOnMxFailure) return _mValue_BehaviorOnMxFailure;
+                throw new UndeferrableValueException("Value 'EmailIdentityMailFromAttributesArgs.BehaviorOnMxFailure' is not present");
+            }
+        }
 
         /// <summary>
         /// The verified email identity.
         /// </summary>
-        [Input("emailIdentity")]
+        [PolicyResourceProperty("emailIdentity", "_mUnknown_EmailIdentity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailIdentity;
-
-        public string? EmailIdentity => _mEmailIdentity.GetValue("emailIdentity");
+        private string? _mValue_EmailIdentity;
+        private bool _mUnknown_EmailIdentity;
+        public string? EmailIdentity
+        {
+            get
+            {
+                if (!_mUnknown_EmailIdentity) return _mValue_EmailIdentity;
+                throw new UndeferrableValueException("Value 'EmailIdentityMailFromAttributesArgs.EmailIdentity' is not present");
+            }
+        }
 
         /// <summary>
         /// The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
         /// </summary>
-        [Input("mailFromDomain")]
+        [PolicyResourceProperty("mailFromDomain", "_mUnknown_MailFromDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMailFromDomain;
-
-        public string? MailFromDomain => _mMailFromDomain.GetValue("mailFromDomain");
+        private string? _mValue_MailFromDomain;
+        private bool _mUnknown_MailFromDomain;
+        public string? MailFromDomain
+        {
+            get
+            {
+                if (!_mUnknown_MailFromDomain) return _mValue_MailFromDomain;
+                throw new UndeferrableValueException("Value 'EmailIdentityMailFromAttributesArgs.MailFromDomain' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
         /// </summary>
-        [Input("sseKms")]
+        [PolicyResourceProperty("sseKms", "_mUnknown_SseKms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InventoryDestinationBucketEncryptionSseKmsArgs> _mSseKms;
-
-        public Inputs.InventoryDestinationBucketEncryptionSseKmsArgs? SseKms => _mSseKms.GetValue("sseKms");
+        private Inputs.InventoryDestinationBucketEncryptionSseKmsArgs? _mValue_SseKms;
+        private bool _mUnknown_SseKms;
+        public Inputs.InventoryDestinationBucketEncryptionSseKmsArgs? SseKms
+        {
+            get
+            {
+                if (!_mUnknown_SseKms) return _mValue_SseKms;
+                throw new UndeferrableValueException("Value 'InventoryDestinationBucketEncryptionArgs.SseKms' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
         /// </summary>
-        [Input("sseS3")]
+        [PolicyResourceProperty("sseS3", "_mUnknown_SseS3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InventoryDestinationBucketEncryptionSseS3Args> _mSseS3;
-
-        public Inputs.InventoryDestinationBucketEncryptionSseS3Args? SseS3 => _mSseS3.GetValue("sseS3");
+        private Inputs.InventoryDestinationBucketEncryptionSseS3Args? _mValue_SseS3;
+        private bool _mUnknown_SseS3;
+        public Inputs.InventoryDestinationBucketEncryptionSseS3Args? SseS3
+        {
+            get
+            {
+                if (!_mUnknown_SseS3) return _mValue_SseS3;
+                throw new UndeferrableValueException("Value 'InventoryDestinationBucketEncryptionArgs.SseS3' is not present");
+            }
+        }
     }
 }

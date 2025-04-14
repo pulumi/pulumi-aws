@@ -16,58 +16,100 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// Amazon Resource Name (ARN) of the traffic policy.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TrafficPolicy.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Comment for the traffic policy.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'TrafficPolicy.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("document")]
+        [PolicyResourceProperty("document", "_mUnknown_Document")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocument;
-
-        public string? Document => _mDocument.GetValue("document");
+        private string? _mValue_Document;
+        private bool _mUnknown_Document;
+        public string? Document
+        {
+            get
+            {
+                if (!_mUnknown_Document) return _mValue_Document;
+                throw new UndeferrableValueException("Value 'TrafficPolicy.Document' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the traffic policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TrafficPolicy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'TrafficPolicy.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
-
-        public int? Version => _mVersion.GetValue("version");
+        private int? _mValue_Version;
+        private bool _mUnknown_Version;
+        public int? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'TrafficPolicy.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/trafficPolicy:TrafficPolicy")]
@@ -76,30 +118,51 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// Comment for the traffic policy.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'TrafficPolicyArgs.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("document")]
+        [PolicyResourceProperty("document", "_mUnknown_Document")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocument;
-
-        public string? Document => _mDocument.GetValue("document");
+        private string? _mValue_Document;
+        private bool _mUnknown_Document;
+        public string? Document
+        {
+            get
+            {
+                if (!_mUnknown_Document) return _mValue_Document;
+                throw new UndeferrableValueException("Value 'TrafficPolicyArgs.Document' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the traffic policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TrafficPolicyArgs.Name' is not present");
+            }
+        }
     }
 }

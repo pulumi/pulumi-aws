@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.DataSync.Outputs
         /// <summary>
         /// Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
         /// </summary>
-        [Input("nfs")]
+        [PolicyResourceProperty("nfs", "_mUnknown_Nfs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LocationFsxOntapFileSystemProtocolNfs> _mNfs;
-
-        public Outputs.LocationFsxOntapFileSystemProtocolNfs? Nfs => _mNfs.GetValue("nfs");
+        private Outputs.LocationFsxOntapFileSystemProtocolNfs? _mValue_Nfs;
+        private bool _mUnknown_Nfs;
+        public Outputs.LocationFsxOntapFileSystemProtocolNfs? Nfs
+        {
+            get
+            {
+                if (!_mUnknown_Nfs) return _mValue_Nfs;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemProtocol.Nfs' is not present");
+            }
+        }
 
         /// <summary>
         /// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
         /// </summary>
-        [Input("smb")]
+        [PolicyResourceProperty("smb", "_mUnknown_Smb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LocationFsxOntapFileSystemProtocolSmb> _mSmb;
-
-        public Outputs.LocationFsxOntapFileSystemProtocolSmb? Smb => _mSmb.GetValue("smb");
+        private Outputs.LocationFsxOntapFileSystemProtocolSmb? _mValue_Smb;
+        private bool _mUnknown_Smb;
+        public Outputs.LocationFsxOntapFileSystemProtocolSmb? Smb
+        {
+            get
+            {
+                if (!_mUnknown_Smb) return _mValue_Smb;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemProtocol.Smb' is not present");
+            }
+        }
     }
 }

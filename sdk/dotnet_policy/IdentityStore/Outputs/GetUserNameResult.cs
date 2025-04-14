@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.IdentityStore.Outputs
         /// <summary>
         /// The family name of the user.
         /// </summary>
-        [Input("familyName")]
+        [PolicyResourceProperty("familyName", "_mUnknown_FamilyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFamilyName;
-
-        public string? FamilyName => _mFamilyName.GetValue("familyName");
+        private string? _mValue_FamilyName;
+        private bool _mUnknown_FamilyName;
+        public string? FamilyName
+        {
+            get
+            {
+                if (!_mUnknown_FamilyName) return _mValue_FamilyName;
+                throw new UndeferrableValueException("Value 'GetUserNameResult.FamilyName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name that is typically displayed when the name is shown for display.
         /// </summary>
-        [Input("formatted")]
+        [PolicyResourceProperty("formatted", "_mUnknown_Formatted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormatted;
-
-        public string? Formatted => _mFormatted.GetValue("formatted");
+        private string? _mValue_Formatted;
+        private bool _mUnknown_Formatted;
+        public string? Formatted
+        {
+            get
+            {
+                if (!_mUnknown_Formatted) return _mValue_Formatted;
+                throw new UndeferrableValueException("Value 'GetUserNameResult.Formatted' is not present");
+            }
+        }
 
         /// <summary>
         /// The given name of the user.
         /// </summary>
-        [Input("givenName")]
+        [PolicyResourceProperty("givenName", "_mUnknown_GivenName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGivenName;
-
-        public string? GivenName => _mGivenName.GetValue("givenName");
+        private string? _mValue_GivenName;
+        private bool _mUnknown_GivenName;
+        public string? GivenName
+        {
+            get
+            {
+                if (!_mUnknown_GivenName) return _mValue_GivenName;
+                throw new UndeferrableValueException("Value 'GetUserNameResult.GivenName' is not present");
+            }
+        }
 
         /// <summary>
         /// The honorific prefix of the user.
         /// </summary>
-        [Input("honorificPrefix")]
+        [PolicyResourceProperty("honorificPrefix", "_mUnknown_HonorificPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHonorificPrefix;
-
-        public string? HonorificPrefix => _mHonorificPrefix.GetValue("honorificPrefix");
+        private string? _mValue_HonorificPrefix;
+        private bool _mUnknown_HonorificPrefix;
+        public string? HonorificPrefix
+        {
+            get
+            {
+                if (!_mUnknown_HonorificPrefix) return _mValue_HonorificPrefix;
+                throw new UndeferrableValueException("Value 'GetUserNameResult.HonorificPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The honorific suffix of the user.
         /// </summary>
-        [Input("honorificSuffix")]
+        [PolicyResourceProperty("honorificSuffix", "_mUnknown_HonorificSuffix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHonorificSuffix;
-
-        public string? HonorificSuffix => _mHonorificSuffix.GetValue("honorificSuffix");
+        private string? _mValue_HonorificSuffix;
+        private bool _mUnknown_HonorificSuffix;
+        public string? HonorificSuffix
+        {
+            get
+            {
+                if (!_mUnknown_HonorificSuffix) return _mValue_HonorificSuffix;
+                throw new UndeferrableValueException("Value 'GetUserNameResult.HonorificSuffix' is not present");
+            }
+        }
 
         /// <summary>
         /// The middle name of the user.
         /// </summary>
-        [Input("middleName")]
+        [PolicyResourceProperty("middleName", "_mUnknown_MiddleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMiddleName;
-
-        public string? MiddleName => _mMiddleName.GetValue("middleName");
+        private string? _mValue_MiddleName;
+        private bool _mUnknown_MiddleName;
+        public string? MiddleName
+        {
+            get
+            {
+                if (!_mUnknown_MiddleName) return _mValue_MiddleName;
+                throw new UndeferrableValueException("Value 'GetUserNameResult.MiddleName' is not present");
+            }
+        }
     }
 }

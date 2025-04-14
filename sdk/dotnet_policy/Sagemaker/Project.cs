@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Project.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Project.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the project.
         /// </summary>
-        [Input("projectDescription")]
+        [PolicyResourceProperty("projectDescription", "_mUnknown_ProjectDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectDescription;
-
-        public string? ProjectDescription => _mProjectDescription.GetValue("projectDescription");
+        private string? _mValue_ProjectDescription;
+        private bool _mUnknown_ProjectDescription;
+        public string? ProjectDescription
+        {
+            get
+            {
+                if (!_mUnknown_ProjectDescription) return _mValue_ProjectDescription;
+                throw new UndeferrableValueException("Value 'Project.ProjectDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the project.
         /// </summary>
-        [Input("projectId")]
+        [PolicyResourceProperty("projectId", "_mUnknown_ProjectId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectId;
-
-        public string? ProjectId => _mProjectId.GetValue("projectId");
+        private string? _mValue_ProjectId;
+        private bool _mUnknown_ProjectId;
+        public string? ProjectId
+        {
+            get
+            {
+                if (!_mUnknown_ProjectId) return _mValue_ProjectId;
+                throw new UndeferrableValueException("Value 'Project.ProjectId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Project.
         /// </summary>
-        [Input("projectName")]
+        [PolicyResourceProperty("projectName", "_mUnknown_ProjectName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectName;
-
-        public string? ProjectName => _mProjectName.GetValue("projectName");
+        private string? _mValue_ProjectName;
+        private bool _mUnknown_ProjectName;
+        public string? ProjectName
+        {
+            get
+            {
+                if (!_mUnknown_ProjectName) return _mValue_ProjectName;
+                throw new UndeferrableValueException("Value 'Project.ProjectName' is not present");
+            }
+        }
 
         /// <summary>
         /// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         /// </summary>
-        [Input("serviceCatalogProvisioningDetails")]
+        [PolicyResourceProperty("serviceCatalogProvisioningDetails", "_mUnknown_ServiceCatalogProvisioningDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectServiceCatalogProvisioningDetails> _mServiceCatalogProvisioningDetails;
-
-        public Outputs.ProjectServiceCatalogProvisioningDetails? ServiceCatalogProvisioningDetails => _mServiceCatalogProvisioningDetails.GetValue("serviceCatalogProvisioningDetails");
+        private Outputs.ProjectServiceCatalogProvisioningDetails? _mValue_ServiceCatalogProvisioningDetails;
+        private bool _mUnknown_ServiceCatalogProvisioningDetails;
+        public Outputs.ProjectServiceCatalogProvisioningDetails? ServiceCatalogProvisioningDetails
+        {
+            get
+            {
+                if (!_mUnknown_ServiceCatalogProvisioningDetails) return _mValue_ServiceCatalogProvisioningDetails;
+                throw new UndeferrableValueException("Value 'Project.ServiceCatalogProvisioningDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Project.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Project.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/project:Project")]
@@ -83,37 +132,65 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// A description for the project.
         /// </summary>
-        [Input("projectDescription")]
+        [PolicyResourceProperty("projectDescription", "_mUnknown_ProjectDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectDescription;
-
-        public string? ProjectDescription => _mProjectDescription.GetValue("projectDescription");
+        private string? _mValue_ProjectDescription;
+        private bool _mUnknown_ProjectDescription;
+        public string? ProjectDescription
+        {
+            get
+            {
+                if (!_mUnknown_ProjectDescription) return _mValue_ProjectDescription;
+                throw new UndeferrableValueException("Value 'ProjectArgs.ProjectDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Project.
         /// </summary>
-        [Input("projectName")]
+        [PolicyResourceProperty("projectName", "_mUnknown_ProjectName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectName;
-
-        public string? ProjectName => _mProjectName.GetValue("projectName");
+        private string? _mValue_ProjectName;
+        private bool _mUnknown_ProjectName;
+        public string? ProjectName
+        {
+            get
+            {
+                if (!_mUnknown_ProjectName) return _mValue_ProjectName;
+                throw new UndeferrableValueException("Value 'ProjectArgs.ProjectName' is not present");
+            }
+        }
 
         /// <summary>
         /// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         /// </summary>
-        [Input("serviceCatalogProvisioningDetails")]
+        [PolicyResourceProperty("serviceCatalogProvisioningDetails", "_mUnknown_ServiceCatalogProvisioningDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectServiceCatalogProvisioningDetailsArgs> _mServiceCatalogProvisioningDetails;
-
-        public Inputs.ProjectServiceCatalogProvisioningDetailsArgs? ServiceCatalogProvisioningDetails => _mServiceCatalogProvisioningDetails.GetValue("serviceCatalogProvisioningDetails");
+        private Inputs.ProjectServiceCatalogProvisioningDetailsArgs? _mValue_ServiceCatalogProvisioningDetails;
+        private bool _mUnknown_ServiceCatalogProvisioningDetails;
+        public Inputs.ProjectServiceCatalogProvisioningDetailsArgs? ServiceCatalogProvisioningDetails
+        {
+            get
+            {
+                if (!_mUnknown_ServiceCatalogProvisioningDetails) return _mValue_ServiceCatalogProvisioningDetails;
+                throw new UndeferrableValueException("Value 'ProjectArgs.ServiceCatalogProvisioningDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ProjectArgs.Tags' is not present");
+            }
+        }
     }
 }

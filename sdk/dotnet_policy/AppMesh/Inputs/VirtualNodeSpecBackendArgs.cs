@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Virtual service to use as a backend for a virtual node.
         /// </summary>
-        [Input("virtualService")]
+        [PolicyResourceProperty("virtualService", "_mUnknown_VirtualService")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualNodeSpecBackendVirtualServiceArgs> _mVirtualService;
-
-        public Inputs.VirtualNodeSpecBackendVirtualServiceArgs? VirtualService => _mVirtualService.GetValue("virtualService");
+        private Inputs.VirtualNodeSpecBackendVirtualServiceArgs? _mValue_VirtualService;
+        private bool _mUnknown_VirtualService;
+        public Inputs.VirtualNodeSpecBackendVirtualServiceArgs? VirtualService
+        {
+            get
+            {
+                if (!_mUnknown_VirtualService) return _mValue_VirtualService;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendArgs.VirtualService' is not present");
+            }
+        }
     }
 }

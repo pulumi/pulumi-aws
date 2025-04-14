@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks.Outputs
 {
     public sealed class MysqlLayerLoadBasedAutoScaling
     {
-        [Input("downscaling")]
+        [PolicyResourceProperty("downscaling", "_mUnknown_Downscaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MysqlLayerLoadBasedAutoScalingDownscaling> _mDownscaling;
+        private Outputs.MysqlLayerLoadBasedAutoScalingDownscaling? _mValue_Downscaling;
+        private bool _mUnknown_Downscaling;
+        public Outputs.MysqlLayerLoadBasedAutoScalingDownscaling? Downscaling
+        {
+            get
+            {
+                if (!_mUnknown_Downscaling) return _mValue_Downscaling;
+                throw new UndeferrableValueException("Value 'MysqlLayerLoadBasedAutoScaling.Downscaling' is not present");
+            }
+        }
 
-        public Outputs.MysqlLayerLoadBasedAutoScalingDownscaling? Downscaling => _mDownscaling.GetValue("downscaling");
-
-        [Input("enable")]
+        [PolicyResourceProperty("enable", "_mUnknown_Enable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnable;
+        private bool? _mValue_Enable;
+        private bool _mUnknown_Enable;
+        public bool? Enable
+        {
+            get
+            {
+                if (!_mUnknown_Enable) return _mValue_Enable;
+                throw new UndeferrableValueException("Value 'MysqlLayerLoadBasedAutoScaling.Enable' is not present");
+            }
+        }
 
-        public bool? Enable => _mEnable.GetValue("enable");
-
-        [Input("upscaling")]
+        [PolicyResourceProperty("upscaling", "_mUnknown_Upscaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MysqlLayerLoadBasedAutoScalingUpscaling> _mUpscaling;
-
-        public Outputs.MysqlLayerLoadBasedAutoScalingUpscaling? Upscaling => _mUpscaling.GetValue("upscaling");
+        private Outputs.MysqlLayerLoadBasedAutoScalingUpscaling? _mValue_Upscaling;
+        private bool _mUnknown_Upscaling;
+        public Outputs.MysqlLayerLoadBasedAutoScalingUpscaling? Upscaling
+        {
+            get
+            {
+                if (!_mUnknown_Upscaling) return _mValue_Upscaling;
+                throw new UndeferrableValueException("Value 'MysqlLayerLoadBasedAutoScaling.Upscaling' is not present");
+            }
+        }
     }
 }

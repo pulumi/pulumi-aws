@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Outputs
         /// <summary>
         /// List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
         /// </summary>
-        [Input("pipelineParameterLists")]
+        [PolicyResourceProperty("pipelineParameterLists", "_mUnknown_PipelineParameterLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EventTargetSagemakerPipelineTargetPipelineParameterList>> _mPipelineParameterLists;
-
-        public List<Outputs.EventTargetSagemakerPipelineTargetPipelineParameterList>? PipelineParameterLists => _mPipelineParameterLists.GetValue("pipelineParameterLists");
+        private List<Outputs.EventTargetSagemakerPipelineTargetPipelineParameterList>? _mValue_PipelineParameterLists;
+        private bool _mUnknown_PipelineParameterLists;
+        public List<Outputs.EventTargetSagemakerPipelineTargetPipelineParameterList>? PipelineParameterLists
+        {
+            get
+            {
+                if (!_mUnknown_PipelineParameterLists) return _mValue_PipelineParameterLists;
+                throw new UndeferrableValueException("Value 'EventTargetSagemakerPipelineTarget.PipelineParameterLists' is not present");
+            }
+        }
     }
 }

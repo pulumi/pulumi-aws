@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Outputs
         /// <summary>
         /// ARN for the EventBridge bus.
         /// </summary>
-        [Input("eventBusArn")]
+        [PolicyResourceProperty("eventBusArn", "_mUnknown_EventBusArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventBusArn;
-
-        public string? EventBusArn => _mEventBusArn.GetValue("eventBusArn");
+        private string? _mValue_EventBusArn;
+        private bool _mUnknown_EventBusArn;
+        public string? EventBusArn
+        {
+            get
+            {
+                if (!_mUnknown_EventBusArn) return _mValue_EventBusArn;
+                throw new UndeferrableValueException("Value 'DataSourceEventBridgeConfig.EventBusArn' is not present");
+            }
+        }
     }
 }

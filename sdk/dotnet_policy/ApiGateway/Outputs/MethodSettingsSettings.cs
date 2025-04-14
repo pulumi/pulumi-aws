@@ -15,91 +15,161 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway.Outputs
         /// <summary>
         /// Whether the cached responses are encrypted.
         /// </summary>
-        [Input("cacheDataEncrypted")]
+        [PolicyResourceProperty("cacheDataEncrypted", "_mUnknown_CacheDataEncrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCacheDataEncrypted;
-
-        public bool? CacheDataEncrypted => _mCacheDataEncrypted.GetValue("cacheDataEncrypted");
+        private bool? _mValue_CacheDataEncrypted;
+        private bool _mUnknown_CacheDataEncrypted;
+        public bool? CacheDataEncrypted
+        {
+            get
+            {
+                if (!_mUnknown_CacheDataEncrypted) return _mValue_CacheDataEncrypted;
+                throw new UndeferrableValueException("Value 'MethodSettingsSettings.CacheDataEncrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// Time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
         /// </summary>
-        [Input("cacheTtlInSeconds")]
+        [PolicyResourceProperty("cacheTtlInSeconds", "_mUnknown_CacheTtlInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCacheTtlInSeconds;
-
-        public int? CacheTtlInSeconds => _mCacheTtlInSeconds.GetValue("cacheTtlInSeconds");
+        private int? _mValue_CacheTtlInSeconds;
+        private bool _mUnknown_CacheTtlInSeconds;
+        public int? CacheTtlInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_CacheTtlInSeconds) return _mValue_CacheTtlInSeconds;
+                throw new UndeferrableValueException("Value 'MethodSettingsSettings.CacheTtlInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
         /// </summary>
-        [Input("cachingEnabled")]
+        [PolicyResourceProperty("cachingEnabled", "_mUnknown_CachingEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCachingEnabled;
-
-        public bool? CachingEnabled => _mCachingEnabled.GetValue("cachingEnabled");
+        private bool? _mValue_CachingEnabled;
+        private bool _mUnknown_CachingEnabled;
+        public bool? CachingEnabled
+        {
+            get
+            {
+                if (!_mUnknown_CachingEnabled) return _mValue_CachingEnabled;
+                throw new UndeferrableValueException("Value 'MethodSettingsSettings.CachingEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
         /// </summary>
-        [Input("dataTraceEnabled")]
+        [PolicyResourceProperty("dataTraceEnabled", "_mUnknown_DataTraceEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDataTraceEnabled;
-
-        public bool? DataTraceEnabled => _mDataTraceEnabled.GetValue("dataTraceEnabled");
+        private bool? _mValue_DataTraceEnabled;
+        private bool _mUnknown_DataTraceEnabled;
+        public bool? DataTraceEnabled
+        {
+            get
+            {
+                if (!_mUnknown_DataTraceEnabled) return _mValue_DataTraceEnabled;
+                throw new UndeferrableValueException("Value 'MethodSettingsSettings.DataTraceEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
         /// </summary>
-        [Input("loggingLevel")]
+        [PolicyResourceProperty("loggingLevel", "_mUnknown_LoggingLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoggingLevel;
-
-        public string? LoggingLevel => _mLoggingLevel.GetValue("loggingLevel");
+        private string? _mValue_LoggingLevel;
+        private bool _mUnknown_LoggingLevel;
+        public string? LoggingLevel
+        {
+            get
+            {
+                if (!_mUnknown_LoggingLevel) return _mValue_LoggingLevel;
+                throw new UndeferrableValueException("Value 'MethodSettingsSettings.LoggingLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether Amazon CloudWatch metrics are enabled for this method.
         /// </summary>
-        [Input("metricsEnabled")]
+        [PolicyResourceProperty("metricsEnabled", "_mUnknown_MetricsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMetricsEnabled;
-
-        public bool? MetricsEnabled => _mMetricsEnabled.GetValue("metricsEnabled");
+        private bool? _mValue_MetricsEnabled;
+        private bool _mUnknown_MetricsEnabled;
+        public bool? MetricsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_MetricsEnabled) return _mValue_MetricsEnabled;
+                throw new UndeferrableValueException("Value 'MethodSettingsSettings.MetricsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether authorization is required for a cache invalidation request.
         /// </summary>
-        [Input("requireAuthorizationForCacheControl")]
+        [PolicyResourceProperty("requireAuthorizationForCacheControl", "_mUnknown_RequireAuthorizationForCacheControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireAuthorizationForCacheControl;
-
-        public bool? RequireAuthorizationForCacheControl => _mRequireAuthorizationForCacheControl.GetValue("requireAuthorizationForCacheControl");
+        private bool? _mValue_RequireAuthorizationForCacheControl;
+        private bool _mUnknown_RequireAuthorizationForCacheControl;
+        public bool? RequireAuthorizationForCacheControl
+        {
+            get
+            {
+                if (!_mUnknown_RequireAuthorizationForCacheControl) return _mValue_RequireAuthorizationForCacheControl;
+                throw new UndeferrableValueException("Value 'MethodSettingsSettings.RequireAuthorizationForCacheControl' is not present");
+            }
+        }
 
         /// <summary>
         /// Throttling burst limit. Default: `-1` (throttling disabled).
         /// </summary>
-        [Input("throttlingBurstLimit")]
+        [PolicyResourceProperty("throttlingBurstLimit", "_mUnknown_ThrottlingBurstLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThrottlingBurstLimit;
-
-        public int? ThrottlingBurstLimit => _mThrottlingBurstLimit.GetValue("throttlingBurstLimit");
+        private int? _mValue_ThrottlingBurstLimit;
+        private bool _mUnknown_ThrottlingBurstLimit;
+        public int? ThrottlingBurstLimit
+        {
+            get
+            {
+                if (!_mUnknown_ThrottlingBurstLimit) return _mValue_ThrottlingBurstLimit;
+                throw new UndeferrableValueException("Value 'MethodSettingsSettings.ThrottlingBurstLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// Throttling rate limit. Default: `-1` (throttling disabled).
         /// </summary>
-        [Input("throttlingRateLimit")]
+        [PolicyResourceProperty("throttlingRateLimit", "_mUnknown_ThrottlingRateLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mThrottlingRateLimit;
-
-        public double? ThrottlingRateLimit => _mThrottlingRateLimit.GetValue("throttlingRateLimit");
+        private double? _mValue_ThrottlingRateLimit;
+        private bool _mUnknown_ThrottlingRateLimit;
+        public double? ThrottlingRateLimit
+        {
+            get
+            {
+                if (!_mUnknown_ThrottlingRateLimit) return _mValue_ThrottlingRateLimit;
+                throw new UndeferrableValueException("Value 'MethodSettingsSettings.ThrottlingRateLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// How to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
         /// </summary>
-        [Input("unauthorizedCacheControlHeaderStrategy")]
+        [PolicyResourceProperty("unauthorizedCacheControlHeaderStrategy", "_mUnknown_UnauthorizedCacheControlHeaderStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnauthorizedCacheControlHeaderStrategy;
-
-        public string? UnauthorizedCacheControlHeaderStrategy => _mUnauthorizedCacheControlHeaderStrategy.GetValue("unauthorizedCacheControlHeaderStrategy");
+        private string? _mValue_UnauthorizedCacheControlHeaderStrategy;
+        private bool _mUnknown_UnauthorizedCacheControlHeaderStrategy;
+        public string? UnauthorizedCacheControlHeaderStrategy
+        {
+            get
+            {
+                if (!_mUnknown_UnauthorizedCacheControlHeaderStrategy) return _mValue_UnauthorizedCacheControlHeaderStrategy;
+                throw new UndeferrableValueException("Value 'MethodSettingsSettings.UnauthorizedCacheControlHeaderStrategy' is not present");
+            }
+        }
     }
 }

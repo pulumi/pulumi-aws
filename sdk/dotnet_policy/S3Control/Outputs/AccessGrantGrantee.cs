@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Outputs
         /// <summary>
         /// Grantee identifier.
         /// </summary>
-        [Input("granteeIdentifier")]
+        [PolicyResourceProperty("granteeIdentifier", "_mUnknown_GranteeIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGranteeIdentifier;
-
-        public string? GranteeIdentifier => _mGranteeIdentifier.GetValue("granteeIdentifier");
+        private string? _mValue_GranteeIdentifier;
+        private bool _mUnknown_GranteeIdentifier;
+        public string? GranteeIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_GranteeIdentifier) return _mValue_GranteeIdentifier;
+                throw new UndeferrableValueException("Value 'AccessGrantGrantee.GranteeIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
         /// </summary>
-        [Input("granteeType")]
+        [PolicyResourceProperty("granteeType", "_mUnknown_GranteeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGranteeType;
-
-        public string? GranteeType => _mGranteeType.GetValue("granteeType");
+        private string? _mValue_GranteeType;
+        private bool _mUnknown_GranteeType;
+        public string? GranteeType
+        {
+            get
+            {
+                if (!_mUnknown_GranteeType) return _mValue_GranteeType;
+                throw new UndeferrableValueException("Value 'AccessGrantGrantee.GranteeType' is not present");
+            }
+        }
     }
 }

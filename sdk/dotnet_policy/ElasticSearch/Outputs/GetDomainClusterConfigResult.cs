@@ -15,100 +15,177 @@ namespace Pulumi.PolicyPacks.Aws.ElasticSearch.Outputs
         /// <summary>
         /// Configuration block containing cold storage configuration.
         /// </summary>
-        [Input("coldStorageOptions")]
+        [PolicyResourceProperty("coldStorageOptions", "_mUnknown_ColdStorageOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDomainClusterConfigColdStorageOptionResult>> _mColdStorageOptions;
-
-        public List<Outputs.GetDomainClusterConfigColdStorageOptionResult>? ColdStorageOptions => _mColdStorageOptions.GetValue("coldStorageOptions");
+        private List<Outputs.GetDomainClusterConfigColdStorageOptionResult>? _mValue_ColdStorageOptions;
+        private bool _mUnknown_ColdStorageOptions;
+        public List<Outputs.GetDomainClusterConfigColdStorageOptionResult>? ColdStorageOptions
+        {
+            get
+            {
+                if (!_mUnknown_ColdStorageOptions) return _mValue_ColdStorageOptions;
+                throw new UndeferrableValueException("Value 'GetDomainClusterConfigResult.ColdStorageOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of dedicated master nodes in the cluster.
         /// </summary>
-        [Input("dedicatedMasterCount")]
+        [PolicyResourceProperty("dedicatedMasterCount", "_mUnknown_DedicatedMasterCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDedicatedMasterCount;
-
-        public int? DedicatedMasterCount => _mDedicatedMasterCount.GetValue("dedicatedMasterCount");
+        private int? _mValue_DedicatedMasterCount;
+        private bool _mUnknown_DedicatedMasterCount;
+        public int? DedicatedMasterCount
+        {
+            get
+            {
+                if (!_mUnknown_DedicatedMasterCount) return _mValue_DedicatedMasterCount;
+                throw new UndeferrableValueException("Value 'GetDomainClusterConfigResult.DedicatedMasterCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether dedicated master nodes are enabled for the cluster.
         /// </summary>
-        [Input("dedicatedMasterEnabled")]
+        [PolicyResourceProperty("dedicatedMasterEnabled", "_mUnknown_DedicatedMasterEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDedicatedMasterEnabled;
-
-        public bool? DedicatedMasterEnabled => _mDedicatedMasterEnabled.GetValue("dedicatedMasterEnabled");
+        private bool? _mValue_DedicatedMasterEnabled;
+        private bool _mUnknown_DedicatedMasterEnabled;
+        public bool? DedicatedMasterEnabled
+        {
+            get
+            {
+                if (!_mUnknown_DedicatedMasterEnabled) return _mValue_DedicatedMasterEnabled;
+                throw new UndeferrableValueException("Value 'GetDomainClusterConfigResult.DedicatedMasterEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance type of the dedicated master nodes in the cluster.
         /// </summary>
-        [Input("dedicatedMasterType")]
+        [PolicyResourceProperty("dedicatedMasterType", "_mUnknown_DedicatedMasterType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDedicatedMasterType;
-
-        public string? DedicatedMasterType => _mDedicatedMasterType.GetValue("dedicatedMasterType");
+        private string? _mValue_DedicatedMasterType;
+        private bool _mUnknown_DedicatedMasterType;
+        public string? DedicatedMasterType
+        {
+            get
+            {
+                if (!_mUnknown_DedicatedMasterType) return _mValue_DedicatedMasterType;
+                throw new UndeferrableValueException("Value 'GetDomainClusterConfigResult.DedicatedMasterType' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of instances in the cluster.
         /// </summary>
-        [Input("instanceCount")]
+        [PolicyResourceProperty("instanceCount", "_mUnknown_InstanceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceCount;
-
-        public int? InstanceCount => _mInstanceCount.GetValue("instanceCount");
+        private int? _mValue_InstanceCount;
+        private bool _mUnknown_InstanceCount;
+        public int? InstanceCount
+        {
+            get
+            {
+                if (!_mUnknown_InstanceCount) return _mValue_InstanceCount;
+                throw new UndeferrableValueException("Value 'GetDomainClusterConfigResult.InstanceCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance type of data nodes in the cluster.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'GetDomainClusterConfigResult.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of warm nodes in the cluster.
         /// </summary>
-        [Input("warmCount")]
+        [PolicyResourceProperty("warmCount", "_mUnknown_WarmCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWarmCount;
-
-        public int? WarmCount => _mWarmCount.GetValue("warmCount");
+        private int? _mValue_WarmCount;
+        private bool _mUnknown_WarmCount;
+        public int? WarmCount
+        {
+            get
+            {
+                if (!_mUnknown_WarmCount) return _mValue_WarmCount;
+                throw new UndeferrableValueException("Value 'GetDomainClusterConfigResult.WarmCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Warm storage is enabled.
         /// </summary>
-        [Input("warmEnabled")]
+        [PolicyResourceProperty("warmEnabled", "_mUnknown_WarmEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWarmEnabled;
-
-        public bool? WarmEnabled => _mWarmEnabled.GetValue("warmEnabled");
+        private bool? _mValue_WarmEnabled;
+        private bool _mUnknown_WarmEnabled;
+        public bool? WarmEnabled
+        {
+            get
+            {
+                if (!_mUnknown_WarmEnabled) return _mValue_WarmEnabled;
+                throw new UndeferrableValueException("Value 'GetDomainClusterConfigResult.WarmEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance type for the Elasticsearch cluster's warm nodes.
         /// </summary>
-        [Input("warmType")]
+        [PolicyResourceProperty("warmType", "_mUnknown_WarmType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWarmType;
-
-        public string? WarmType => _mWarmType.GetValue("warmType");
+        private string? _mValue_WarmType;
+        private bool _mUnknown_WarmType;
+        public string? WarmType
+        {
+            get
+            {
+                if (!_mUnknown_WarmType) return _mValue_WarmType;
+                throw new UndeferrableValueException("Value 'GetDomainClusterConfigResult.WarmType' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing zone awareness settings.
         /// </summary>
-        [Input("zoneAwarenessConfigs")]
+        [PolicyResourceProperty("zoneAwarenessConfigs", "_mUnknown_ZoneAwarenessConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDomainClusterConfigZoneAwarenessConfigResult>> _mZoneAwarenessConfigs;
-
-        public List<Outputs.GetDomainClusterConfigZoneAwarenessConfigResult>? ZoneAwarenessConfigs => _mZoneAwarenessConfigs.GetValue("zoneAwarenessConfigs");
+        private List<Outputs.GetDomainClusterConfigZoneAwarenessConfigResult>? _mValue_ZoneAwarenessConfigs;
+        private bool _mUnknown_ZoneAwarenessConfigs;
+        public List<Outputs.GetDomainClusterConfigZoneAwarenessConfigResult>? ZoneAwarenessConfigs
+        {
+            get
+            {
+                if (!_mUnknown_ZoneAwarenessConfigs) return _mValue_ZoneAwarenessConfigs;
+                throw new UndeferrableValueException("Value 'GetDomainClusterConfigResult.ZoneAwarenessConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether zone awareness is enabled.
         /// </summary>
-        [Input("zoneAwarenessEnabled")]
+        [PolicyResourceProperty("zoneAwarenessEnabled", "_mUnknown_ZoneAwarenessEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mZoneAwarenessEnabled;
-
-        public bool? ZoneAwarenessEnabled => _mZoneAwarenessEnabled.GetValue("zoneAwarenessEnabled");
+        private bool? _mValue_ZoneAwarenessEnabled;
+        private bool _mUnknown_ZoneAwarenessEnabled;
+        public bool? ZoneAwarenessEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ZoneAwarenessEnabled) return _mValue_ZoneAwarenessEnabled;
+                throw new UndeferrableValueException("Value 'GetDomainClusterConfigResult.ZoneAwarenessEnabled' is not present");
+            }
+        }
     }
 }

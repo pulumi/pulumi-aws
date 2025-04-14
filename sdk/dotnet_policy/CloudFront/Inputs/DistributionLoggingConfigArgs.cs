@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'DistributionLoggingConfigArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to include cookies in access logs (default: `false`).
         /// </summary>
-        [Input("includeCookies")]
+        [PolicyResourceProperty("includeCookies", "_mUnknown_IncludeCookies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeCookies;
-
-        public bool? IncludeCookies => _mIncludeCookies.GetValue("includeCookies");
+        private bool? _mValue_IncludeCookies;
+        private bool _mUnknown_IncludeCookies;
+        public bool? IncludeCookies
+        {
+            get
+            {
+                if (!_mUnknown_IncludeCookies) return _mValue_IncludeCookies;
+                throw new UndeferrableValueException("Value 'DistributionLoggingConfigArgs.IncludeCookies' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix to the access log filenames for this distribution, for example, `myprefix/`.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'DistributionLoggingConfigArgs.Prefix' is not present");
+            }
+        }
     }
 }

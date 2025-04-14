@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// <summary>
         /// The Workflow ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Workflow.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A textual description for the workflow.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Workflow.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
         /// </summary>
-        [Input("onExceptionSteps")]
+        [PolicyResourceProperty("onExceptionSteps", "_mUnknown_OnExceptionSteps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WorkflowOnExceptionStep>> _mOnExceptionSteps;
-
-        public List<Outputs.WorkflowOnExceptionStep>? OnExceptionSteps => _mOnExceptionSteps.GetValue("onExceptionSteps");
+        private List<Outputs.WorkflowOnExceptionStep>? _mValue_OnExceptionSteps;
+        private bool _mUnknown_OnExceptionSteps;
+        public List<Outputs.WorkflowOnExceptionStep>? OnExceptionSteps
+        {
+            get
+            {
+                if (!_mUnknown_OnExceptionSteps) return _mValue_OnExceptionSteps;
+                throw new UndeferrableValueException("Value 'Workflow.OnExceptionSteps' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
         /// </summary>
-        [Input("steps")]
+        [PolicyResourceProperty("steps", "_mUnknown_Steps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WorkflowStep>> _mSteps;
-
-        public List<Outputs.WorkflowStep>? Steps => _mSteps.GetValue("steps");
+        private List<Outputs.WorkflowStep>? _mValue_Steps;
+        private bool _mUnknown_Steps;
+        public List<Outputs.WorkflowStep>? Steps
+        {
+            get
+            {
+                if (!_mUnknown_Steps) return _mValue_Steps;
+                throw new UndeferrableValueException("Value 'Workflow.Steps' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Workflow.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Workflow.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:transfer/workflow:Workflow")]
@@ -74,37 +116,65 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// <summary>
         /// A textual description for the workflow.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'WorkflowArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
         /// </summary>
-        [Input("onExceptionSteps")]
+        [PolicyResourceProperty("onExceptionSteps", "_mUnknown_OnExceptionSteps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WorkflowOnExceptionStepArgs>> _mOnExceptionSteps;
-
-        public List<Inputs.WorkflowOnExceptionStepArgs>? OnExceptionSteps => _mOnExceptionSteps.GetValue("onExceptionSteps");
+        private List<Inputs.WorkflowOnExceptionStepArgs>? _mValue_OnExceptionSteps;
+        private bool _mUnknown_OnExceptionSteps;
+        public List<Inputs.WorkflowOnExceptionStepArgs>? OnExceptionSteps
+        {
+            get
+            {
+                if (!_mUnknown_OnExceptionSteps) return _mValue_OnExceptionSteps;
+                throw new UndeferrableValueException("Value 'WorkflowArgs.OnExceptionSteps' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
         /// </summary>
-        [Input("steps")]
+        [PolicyResourceProperty("steps", "_mUnknown_Steps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WorkflowStepArgs>> _mSteps;
-
-        public List<Inputs.WorkflowStepArgs>? Steps => _mSteps.GetValue("steps");
+        private List<Inputs.WorkflowStepArgs>? _mValue_Steps;
+        private bool _mUnknown_Steps;
+        public List<Inputs.WorkflowStepArgs>? Steps
+        {
+            get
+            {
+                if (!_mUnknown_Steps) return _mValue_Steps;
+                throw new UndeferrableValueException("Value 'WorkflowArgs.Steps' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'WorkflowArgs.Tags' is not present");
+            }
+        }
     }
 }

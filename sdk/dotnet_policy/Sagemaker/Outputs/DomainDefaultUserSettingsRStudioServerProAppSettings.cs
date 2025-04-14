@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("accessStatus")]
+        [PolicyResourceProperty("accessStatus", "_mUnknown_AccessStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessStatus;
-
-        public string? AccessStatus => _mAccessStatus.GetValue("accessStatus");
+        private string? _mValue_AccessStatus;
+        private bool _mUnknown_AccessStatus;
+        public string? AccessStatus
+        {
+            get
+            {
+                if (!_mUnknown_AccessStatus) return _mValue_AccessStatus;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsRStudioServerProAppSettings.AccessStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
         /// </summary>
-        [Input("userGroup")]
+        [PolicyResourceProperty("userGroup", "_mUnknown_UserGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserGroup;
-
-        public string? UserGroup => _mUserGroup.GetValue("userGroup");
+        private string? _mValue_UserGroup;
+        private bool _mUnknown_UserGroup;
+        public string? UserGroup
+        {
+            get
+            {
+                if (!_mUnknown_UserGroup) return _mValue_UserGroup;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsRStudioServerProAppSettings.UserGroup' is not present");
+            }
+        }
     }
 }

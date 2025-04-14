@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Inputs
         /// <summary>
         /// Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
         /// </summary>
-        [Input("attributeDataType")]
+        [PolicyResourceProperty("attributeDataType", "_mUnknown_AttributeDataType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttributeDataType;
-
-        public string? AttributeDataType => _mAttributeDataType.GetValue("attributeDataType");
+        private string? _mValue_AttributeDataType;
+        private bool _mUnknown_AttributeDataType;
+        public string? AttributeDataType
+        {
+            get
+            {
+                if (!_mUnknown_AttributeDataType) return _mValue_AttributeDataType;
+                throw new UndeferrableValueException("Value 'UserPoolSchemaArgs.AttributeDataType' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the attribute type is developer only.
         /// </summary>
-        [Input("developerOnlyAttribute")]
+        [PolicyResourceProperty("developerOnlyAttribute", "_mUnknown_DeveloperOnlyAttribute")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeveloperOnlyAttribute;
-
-        public bool? DeveloperOnlyAttribute => _mDeveloperOnlyAttribute.GetValue("developerOnlyAttribute");
+        private bool? _mValue_DeveloperOnlyAttribute;
+        private bool _mUnknown_DeveloperOnlyAttribute;
+        public bool? DeveloperOnlyAttribute
+        {
+            get
+            {
+                if (!_mUnknown_DeveloperOnlyAttribute) return _mValue_DeveloperOnlyAttribute;
+                throw new UndeferrableValueException("Value 'UserPoolSchemaArgs.DeveloperOnlyAttribute' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the attribute can be changed once it has been created.
         /// </summary>
-        [Input("mutable")]
+        [PolicyResourceProperty("mutable", "_mUnknown_Mutable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMutable;
-
-        public bool? Mutable => _mMutable.GetValue("mutable");
+        private bool? _mValue_Mutable;
+        private bool _mUnknown_Mutable;
+        public bool? Mutable
+        {
+            get
+            {
+                if (!_mUnknown_Mutable) return _mValue_Mutable;
+                throw new UndeferrableValueException("Value 'UserPoolSchemaArgs.Mutable' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the attribute.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UserPoolSchemaArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the constraints for an attribute of the number type. Detailed below.
         /// </summary>
-        [Input("numberAttributeConstraints")]
+        [PolicyResourceProperty("numberAttributeConstraints", "_mUnknown_NumberAttributeConstraints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPoolSchemaNumberAttributeConstraintsArgs> _mNumberAttributeConstraints;
-
-        public Inputs.UserPoolSchemaNumberAttributeConstraintsArgs? NumberAttributeConstraints => _mNumberAttributeConstraints.GetValue("numberAttributeConstraints");
+        private Inputs.UserPoolSchemaNumberAttributeConstraintsArgs? _mValue_NumberAttributeConstraints;
+        private bool _mUnknown_NumberAttributeConstraints;
+        public Inputs.UserPoolSchemaNumberAttributeConstraintsArgs? NumberAttributeConstraints
+        {
+            get
+            {
+                if (!_mUnknown_NumberAttributeConstraints) return _mValue_NumberAttributeConstraints;
+                throw new UndeferrableValueException("Value 'UserPoolSchemaArgs.NumberAttributeConstraints' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
         /// </summary>
-        [Input("required")]
+        [PolicyResourceProperty("required", "_mUnknown_Required")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequired;
-
-        public bool? Required => _mRequired.GetValue("required");
+        private bool? _mValue_Required;
+        private bool _mUnknown_Required;
+        public bool? Required
+        {
+            get
+            {
+                if (!_mUnknown_Required) return _mValue_Required;
+                throw new UndeferrableValueException("Value 'UserPoolSchemaArgs.Required' is not present");
+            }
+        }
 
         /// <summary>
         /// Constraints for an attribute of the string type. Detailed below.
         /// </summary>
-        [Input("stringAttributeConstraints")]
+        [PolicyResourceProperty("stringAttributeConstraints", "_mUnknown_StringAttributeConstraints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPoolSchemaStringAttributeConstraintsArgs> _mStringAttributeConstraints;
-
-        public Inputs.UserPoolSchemaStringAttributeConstraintsArgs? StringAttributeConstraints => _mStringAttributeConstraints.GetValue("stringAttributeConstraints");
+        private Inputs.UserPoolSchemaStringAttributeConstraintsArgs? _mValue_StringAttributeConstraints;
+        private bool _mUnknown_StringAttributeConstraints;
+        public Inputs.UserPoolSchemaStringAttributeConstraintsArgs? StringAttributeConstraints
+        {
+            get
+            {
+                if (!_mUnknown_StringAttributeConstraints) return _mValue_StringAttributeConstraints;
+                throw new UndeferrableValueException("Value 'UserPoolSchemaArgs.StringAttributeConstraints' is not present");
+            }
+        }
     }
 }

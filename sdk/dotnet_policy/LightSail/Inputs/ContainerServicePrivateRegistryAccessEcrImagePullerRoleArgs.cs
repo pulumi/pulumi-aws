@@ -15,21 +15,35 @@ namespace Pulumi.PolicyPacks.Aws.LightSail.Inputs
         /// <summary>
         /// A Boolean value that indicates whether to activate the role. The default is `false`.
         /// </summary>
-        [Input("isActive")]
+        [PolicyResourceProperty("isActive", "_mUnknown_IsActive")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsActive;
-
-        public bool? IsActive => _mIsActive.GetValue("isActive");
+        private bool? _mValue_IsActive;
+        private bool _mUnknown_IsActive;
+        public bool? IsActive
+        {
+            get
+            {
+                if (!_mUnknown_IsActive) return _mValue_IsActive;
+                throw new UndeferrableValueException("Value 'ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs.IsActive' is not present");
+            }
+        }
 
         /// <summary>
         /// The principal ARN of the container service. The principal ARN can be used to create a trust
         /// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
         /// service permission to access resources in your standard AWS account.
         /// </summary>
-        [Input("principalArn")]
+        [PolicyResourceProperty("principalArn", "_mUnknown_PrincipalArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalArn;
-
-        public string? PrincipalArn => _mPrincipalArn.GetValue("principalArn");
+        private string? _mValue_PrincipalArn;
+        private bool _mUnknown_PrincipalArn;
+        public string? PrincipalArn
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalArn) return _mValue_PrincipalArn;
+                throw new UndeferrableValueException("Value 'ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs.PrincipalArn' is not present");
+            }
+        }
     }
 }

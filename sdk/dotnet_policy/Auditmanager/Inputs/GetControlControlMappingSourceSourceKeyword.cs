@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager.Inputs
 {
     public sealed class GetControlControlMappingSourceSourceKeywordArgs
     {
-        [Input("keywordInputType")]
+        [PolicyResourceProperty("keywordInputType", "_mUnknown_KeywordInputType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeywordInputType;
+        private string? _mValue_KeywordInputType;
+        private bool _mUnknown_KeywordInputType;
+        public string? KeywordInputType
+        {
+            get
+            {
+                if (!_mUnknown_KeywordInputType) return _mValue_KeywordInputType;
+                throw new UndeferrableValueException("Value 'GetControlControlMappingSourceSourceKeywordArgs.KeywordInputType' is not present");
+            }
+        }
 
-        public string? KeywordInputType => _mKeywordInputType.GetValue("keywordInputType");
-
-        [Input("keywordValue")]
+        [PolicyResourceProperty("keywordValue", "_mUnknown_KeywordValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeywordValue;
-
-        public string? KeywordValue => _mKeywordValue.GetValue("keywordValue");
+        private string? _mValue_KeywordValue;
+        private bool _mUnknown_KeywordValue;
+        public string? KeywordValue
+        {
+            get
+            {
+                if (!_mUnknown_KeywordValue) return _mValue_KeywordValue;
+                throw new UndeferrableValueException("Value 'GetControlControlMappingSourceSourceKeywordArgs.KeywordValue' is not present");
+            }
+        }
     }
 }

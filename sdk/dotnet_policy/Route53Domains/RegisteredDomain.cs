@@ -16,218 +16,386 @@ namespace Pulumi.PolicyPacks.Aws.Route53Domains
         /// <summary>
         /// Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
         /// </summary>
-        [Input("abuseContactEmail")]
+        [PolicyResourceProperty("abuseContactEmail", "_mUnknown_AbuseContactEmail")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAbuseContactEmail;
-
-        public string? AbuseContactEmail => _mAbuseContactEmail.GetValue("abuseContactEmail");
+        private string? _mValue_AbuseContactEmail;
+        private bool _mUnknown_AbuseContactEmail;
+        public string? AbuseContactEmail
+        {
+            get
+            {
+                if (!_mUnknown_AbuseContactEmail) return _mValue_AbuseContactEmail;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.AbuseContactEmail' is not present");
+            }
+        }
 
         /// <summary>
         /// Phone number for reporting abuse.
         /// </summary>
-        [Input("abuseContactPhone")]
+        [PolicyResourceProperty("abuseContactPhone", "_mUnknown_AbuseContactPhone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAbuseContactPhone;
-
-        public string? AbuseContactPhone => _mAbuseContactPhone.GetValue("abuseContactPhone");
+        private string? _mValue_AbuseContactPhone;
+        private bool _mUnknown_AbuseContactPhone;
+        public string? AbuseContactPhone
+        {
+            get
+            {
+                if (!_mUnknown_AbuseContactPhone) return _mValue_AbuseContactPhone;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.AbuseContactPhone' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the domain administrative contact. See Contact Blocks for more details.
         /// </summary>
-        [Input("adminContact")]
+        [PolicyResourceProperty("adminContact", "_mUnknown_AdminContact")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RegisteredDomainAdminContact> _mAdminContact;
-
-        public Outputs.RegisteredDomainAdminContact? AdminContact => _mAdminContact.GetValue("adminContact");
+        private Outputs.RegisteredDomainAdminContact? _mValue_AdminContact;
+        private bool _mUnknown_AdminContact;
+        public Outputs.RegisteredDomainAdminContact? AdminContact
+        {
+            get
+            {
+                if (!_mUnknown_AdminContact) return _mValue_AdminContact;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.AdminContact' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
         /// </summary>
-        [Input("adminPrivacy")]
+        [PolicyResourceProperty("adminPrivacy", "_mUnknown_AdminPrivacy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAdminPrivacy;
-
-        public bool? AdminPrivacy => _mAdminPrivacy.GetValue("adminPrivacy");
+        private bool? _mValue_AdminPrivacy;
+        private bool _mUnknown_AdminPrivacy;
+        public bool? AdminPrivacy
+        {
+            get
+            {
+                if (!_mUnknown_AdminPrivacy) return _mValue_AdminPrivacy;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.AdminPrivacy' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the domain registration is set to renew automatically. Default: `true`.
         /// </summary>
-        [Input("autoRenew")]
+        [PolicyResourceProperty("autoRenew", "_mUnknown_AutoRenew")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoRenew;
-
-        public bool? AutoRenew => _mAutoRenew.GetValue("autoRenew");
+        private bool? _mValue_AutoRenew;
+        private bool _mUnknown_AutoRenew;
+        public bool? AutoRenew
+        {
+            get
+            {
+                if (!_mUnknown_AutoRenew) return _mValue_AutoRenew;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.AutoRenew' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the domain billing contact. See Contact Blocks for more details.
         /// </summary>
-        [Input("billingContact")]
+        [PolicyResourceProperty("billingContact", "_mUnknown_BillingContact")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RegisteredDomainBillingContact> _mBillingContact;
-
-        public Outputs.RegisteredDomainBillingContact? BillingContact => _mBillingContact.GetValue("billingContact");
+        private Outputs.RegisteredDomainBillingContact? _mValue_BillingContact;
+        private bool _mUnknown_BillingContact;
+        public Outputs.RegisteredDomainBillingContact? BillingContact
+        {
+            get
+            {
+                if (!_mUnknown_BillingContact) return _mValue_BillingContact;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.BillingContact' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
         /// </summary>
-        [Input("billingPrivacy")]
+        [PolicyResourceProperty("billingPrivacy", "_mUnknown_BillingPrivacy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBillingPrivacy;
-
-        public bool? BillingPrivacy => _mBillingPrivacy.GetValue("billingPrivacy");
+        private bool? _mValue_BillingPrivacy;
+        private bool _mUnknown_BillingPrivacy;
+        public bool? BillingPrivacy
+        {
+            get
+            {
+                if (!_mUnknown_BillingPrivacy) return _mValue_BillingPrivacy;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.BillingPrivacy' is not present");
+            }
+        }
 
         /// <summary>
         /// The date when the domain was created as found in the response to a WHOIS query.
         /// </summary>
-        [Input("creationDate")]
+        [PolicyResourceProperty("creationDate", "_mUnknown_CreationDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDate;
-
-        public string? CreationDate => _mCreationDate.GetValue("creationDate");
+        private string? _mValue_CreationDate;
+        private bool _mUnknown_CreationDate;
+        public string? CreationDate
+        {
+            get
+            {
+                if (!_mUnknown_CreationDate) return _mValue_CreationDate;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.CreationDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the registered domain.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The date when the registration for the domain is set to expire.
         /// </summary>
-        [Input("expirationDate")]
+        [PolicyResourceProperty("expirationDate", "_mUnknown_ExpirationDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpirationDate;
-
-        public string? ExpirationDate => _mExpirationDate.GetValue("expirationDate");
+        private string? _mValue_ExpirationDate;
+        private bool _mUnknown_ExpirationDate;
+        public string? ExpirationDate
+        {
+            get
+            {
+                if (!_mUnknown_ExpirationDate) return _mValue_ExpirationDate;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.ExpirationDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of nameservers for the domain. See `name_server` Blocks for more details.
         /// </summary>
-        [Input("nameServers")]
+        [PolicyResourceProperty("nameServers", "_mUnknown_NameServers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RegisteredDomainNameServer>> _mNameServers;
-
-        public List<Outputs.RegisteredDomainNameServer>? NameServers => _mNameServers.GetValue("nameServers");
+        private List<Outputs.RegisteredDomainNameServer>? _mValue_NameServers;
+        private bool _mUnknown_NameServers;
+        public List<Outputs.RegisteredDomainNameServer>? NameServers
+        {
+            get
+            {
+                if (!_mUnknown_NameServers) return _mValue_NameServers;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.NameServers' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the domain registrant. See Contact Blocks for more details.
         /// </summary>
-        [Input("registrantContact")]
+        [PolicyResourceProperty("registrantContact", "_mUnknown_RegistrantContact")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RegisteredDomainRegistrantContact> _mRegistrantContact;
-
-        public Outputs.RegisteredDomainRegistrantContact? RegistrantContact => _mRegistrantContact.GetValue("registrantContact");
+        private Outputs.RegisteredDomainRegistrantContact? _mValue_RegistrantContact;
+        private bool _mUnknown_RegistrantContact;
+        public Outputs.RegisteredDomainRegistrantContact? RegistrantContact
+        {
+            get
+            {
+                if (!_mUnknown_RegistrantContact) return _mValue_RegistrantContact;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.RegistrantContact' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
         /// </summary>
-        [Input("registrantPrivacy")]
+        [PolicyResourceProperty("registrantPrivacy", "_mUnknown_RegistrantPrivacy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRegistrantPrivacy;
-
-        public bool? RegistrantPrivacy => _mRegistrantPrivacy.GetValue("registrantPrivacy");
+        private bool? _mValue_RegistrantPrivacy;
+        private bool _mUnknown_RegistrantPrivacy;
+        public bool? RegistrantPrivacy
+        {
+            get
+            {
+                if (!_mUnknown_RegistrantPrivacy) return _mValue_RegistrantPrivacy;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.RegistrantPrivacy' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the registrar of the domain as identified in the registry.
         /// </summary>
-        [Input("registrarName")]
+        [PolicyResourceProperty("registrarName", "_mUnknown_RegistrarName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegistrarName;
-
-        public string? RegistrarName => _mRegistrarName.GetValue("registrarName");
+        private string? _mValue_RegistrarName;
+        private bool _mUnknown_RegistrarName;
+        public string? RegistrarName
+        {
+            get
+            {
+                if (!_mUnknown_RegistrarName) return _mValue_RegistrarName;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.RegistrarName' is not present");
+            }
+        }
 
         /// <summary>
         /// Web address of the registrar.
         /// </summary>
-        [Input("registrarUrl")]
+        [PolicyResourceProperty("registrarUrl", "_mUnknown_RegistrarUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegistrarUrl;
-
-        public string? RegistrarUrl => _mRegistrarUrl.GetValue("registrarUrl");
+        private string? _mValue_RegistrarUrl;
+        private bool _mUnknown_RegistrarUrl;
+        public string? RegistrarUrl
+        {
+            get
+            {
+                if (!_mUnknown_RegistrarUrl) return _mValue_RegistrarUrl;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.RegistrarUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// Reseller of the domain.
         /// </summary>
-        [Input("reseller")]
+        [PolicyResourceProperty("reseller", "_mUnknown_Reseller")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReseller;
-
-        public string? Reseller => _mReseller.GetValue("reseller");
+        private string? _mValue_Reseller;
+        private bool _mUnknown_Reseller;
+        public string? Reseller
+        {
+            get
+            {
+                if (!_mUnknown_Reseller) return _mValue_Reseller;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.Reseller' is not present");
+            }
+        }
 
         /// <summary>
         /// List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
         /// </summary>
-        [Input("statusLists")]
+        [PolicyResourceProperty("statusLists", "_mUnknown_StatusLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStatusLists;
-
-        public List<string>? StatusLists => _mStatusLists.GetValue("statusLists");
+        private List<string>? _mValue_StatusLists;
+        private bool _mUnknown_StatusLists;
+        public List<string>? StatusLists
+        {
+            get
+            {
+                if (!_mUnknown_StatusLists) return _mValue_StatusLists;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.StatusLists' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the domain technical contact. See Contact Blocks for more details.
         /// </summary>
-        [Input("techContact")]
+        [PolicyResourceProperty("techContact", "_mUnknown_TechContact")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RegisteredDomainTechContact> _mTechContact;
-
-        public Outputs.RegisteredDomainTechContact? TechContact => _mTechContact.GetValue("techContact");
+        private Outputs.RegisteredDomainTechContact? _mValue_TechContact;
+        private bool _mUnknown_TechContact;
+        public Outputs.RegisteredDomainTechContact? TechContact
+        {
+            get
+            {
+                if (!_mUnknown_TechContact) return _mValue_TechContact;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.TechContact' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
         /// </summary>
-        [Input("techPrivacy")]
+        [PolicyResourceProperty("techPrivacy", "_mUnknown_TechPrivacy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTechPrivacy;
-
-        public bool? TechPrivacy => _mTechPrivacy.GetValue("techPrivacy");
+        private bool? _mValue_TechPrivacy;
+        private bool _mUnknown_TechPrivacy;
+        public bool? TechPrivacy
+        {
+            get
+            {
+                if (!_mUnknown_TechPrivacy) return _mValue_TechPrivacy;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.TechPrivacy' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the domain is locked for transfer. Default: `true`.
         /// </summary>
-        [Input("transferLock")]
+        [PolicyResourceProperty("transferLock", "_mUnknown_TransferLock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTransferLock;
-
-        public bool? TransferLock => _mTransferLock.GetValue("transferLock");
+        private bool? _mValue_TransferLock;
+        private bool _mUnknown_TransferLock;
+        public bool? TransferLock
+        {
+            get
+            {
+                if (!_mUnknown_TransferLock) return _mValue_TransferLock;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.TransferLock' is not present");
+            }
+        }
 
         /// <summary>
         /// The last updated date of the domain as found in the response to a WHOIS query.
         /// </summary>
-        [Input("updatedDate")]
+        [PolicyResourceProperty("updatedDate", "_mUnknown_UpdatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedDate;
-
-        public string? UpdatedDate => _mUpdatedDate.GetValue("updatedDate");
+        private string? _mValue_UpdatedDate;
+        private bool _mUnknown_UpdatedDate;
+        public string? UpdatedDate
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedDate) return _mValue_UpdatedDate;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.UpdatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
         /// </summary>
-        [Input("whoisServer")]
+        [PolicyResourceProperty("whoisServer", "_mUnknown_WhoisServer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWhoisServer;
-
-        public string? WhoisServer => _mWhoisServer.GetValue("whoisServer");
+        private string? _mValue_WhoisServer;
+        private bool _mUnknown_WhoisServer;
+        public string? WhoisServer
+        {
+            get
+            {
+                if (!_mUnknown_WhoisServer) return _mValue_WhoisServer;
+                throw new UndeferrableValueException("Value 'RegisteredDomain.WhoisServer' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53domains/registeredDomain:RegisteredDomain")]
@@ -236,118 +404,209 @@ namespace Pulumi.PolicyPacks.Aws.Route53Domains
         /// <summary>
         /// Details about the domain administrative contact. See Contact Blocks for more details.
         /// </summary>
-        [Input("adminContact")]
+        [PolicyResourceProperty("adminContact", "_mUnknown_AdminContact")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RegisteredDomainAdminContactArgs> _mAdminContact;
-
-        public Inputs.RegisteredDomainAdminContactArgs? AdminContact => _mAdminContact.GetValue("adminContact");
+        private Inputs.RegisteredDomainAdminContactArgs? _mValue_AdminContact;
+        private bool _mUnknown_AdminContact;
+        public Inputs.RegisteredDomainAdminContactArgs? AdminContact
+        {
+            get
+            {
+                if (!_mUnknown_AdminContact) return _mValue_AdminContact;
+                throw new UndeferrableValueException("Value 'RegisteredDomainArgs.AdminContact' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
         /// </summary>
-        [Input("adminPrivacy")]
+        [PolicyResourceProperty("adminPrivacy", "_mUnknown_AdminPrivacy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAdminPrivacy;
-
-        public bool? AdminPrivacy => _mAdminPrivacy.GetValue("adminPrivacy");
+        private bool? _mValue_AdminPrivacy;
+        private bool _mUnknown_AdminPrivacy;
+        public bool? AdminPrivacy
+        {
+            get
+            {
+                if (!_mUnknown_AdminPrivacy) return _mValue_AdminPrivacy;
+                throw new UndeferrableValueException("Value 'RegisteredDomainArgs.AdminPrivacy' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the domain registration is set to renew automatically. Default: `true`.
         /// </summary>
-        [Input("autoRenew")]
+        [PolicyResourceProperty("autoRenew", "_mUnknown_AutoRenew")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoRenew;
-
-        public bool? AutoRenew => _mAutoRenew.GetValue("autoRenew");
+        private bool? _mValue_AutoRenew;
+        private bool _mUnknown_AutoRenew;
+        public bool? AutoRenew
+        {
+            get
+            {
+                if (!_mUnknown_AutoRenew) return _mValue_AutoRenew;
+                throw new UndeferrableValueException("Value 'RegisteredDomainArgs.AutoRenew' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the domain billing contact. See Contact Blocks for more details.
         /// </summary>
-        [Input("billingContact")]
+        [PolicyResourceProperty("billingContact", "_mUnknown_BillingContact")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RegisteredDomainBillingContactArgs> _mBillingContact;
-
-        public Inputs.RegisteredDomainBillingContactArgs? BillingContact => _mBillingContact.GetValue("billingContact");
+        private Inputs.RegisteredDomainBillingContactArgs? _mValue_BillingContact;
+        private bool _mUnknown_BillingContact;
+        public Inputs.RegisteredDomainBillingContactArgs? BillingContact
+        {
+            get
+            {
+                if (!_mUnknown_BillingContact) return _mValue_BillingContact;
+                throw new UndeferrableValueException("Value 'RegisteredDomainArgs.BillingContact' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
         /// </summary>
-        [Input("billingPrivacy")]
+        [PolicyResourceProperty("billingPrivacy", "_mUnknown_BillingPrivacy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBillingPrivacy;
-
-        public bool? BillingPrivacy => _mBillingPrivacy.GetValue("billingPrivacy");
+        private bool? _mValue_BillingPrivacy;
+        private bool _mUnknown_BillingPrivacy;
+        public bool? BillingPrivacy
+        {
+            get
+            {
+                if (!_mUnknown_BillingPrivacy) return _mValue_BillingPrivacy;
+                throw new UndeferrableValueException("Value 'RegisteredDomainArgs.BillingPrivacy' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the registered domain.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'RegisteredDomainArgs.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of nameservers for the domain. See `name_server` Blocks for more details.
         /// </summary>
-        [Input("nameServers")]
+        [PolicyResourceProperty("nameServers", "_mUnknown_NameServers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RegisteredDomainNameServerArgs>> _mNameServers;
-
-        public List<Inputs.RegisteredDomainNameServerArgs>? NameServers => _mNameServers.GetValue("nameServers");
+        private List<Inputs.RegisteredDomainNameServerArgs>? _mValue_NameServers;
+        private bool _mUnknown_NameServers;
+        public List<Inputs.RegisteredDomainNameServerArgs>? NameServers
+        {
+            get
+            {
+                if (!_mUnknown_NameServers) return _mValue_NameServers;
+                throw new UndeferrableValueException("Value 'RegisteredDomainArgs.NameServers' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the domain registrant. See Contact Blocks for more details.
         /// </summary>
-        [Input("registrantContact")]
+        [PolicyResourceProperty("registrantContact", "_mUnknown_RegistrantContact")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RegisteredDomainRegistrantContactArgs> _mRegistrantContact;
-
-        public Inputs.RegisteredDomainRegistrantContactArgs? RegistrantContact => _mRegistrantContact.GetValue("registrantContact");
+        private Inputs.RegisteredDomainRegistrantContactArgs? _mValue_RegistrantContact;
+        private bool _mUnknown_RegistrantContact;
+        public Inputs.RegisteredDomainRegistrantContactArgs? RegistrantContact
+        {
+            get
+            {
+                if (!_mUnknown_RegistrantContact) return _mValue_RegistrantContact;
+                throw new UndeferrableValueException("Value 'RegisteredDomainArgs.RegistrantContact' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
         /// </summary>
-        [Input("registrantPrivacy")]
+        [PolicyResourceProperty("registrantPrivacy", "_mUnknown_RegistrantPrivacy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRegistrantPrivacy;
-
-        public bool? RegistrantPrivacy => _mRegistrantPrivacy.GetValue("registrantPrivacy");
+        private bool? _mValue_RegistrantPrivacy;
+        private bool _mUnknown_RegistrantPrivacy;
+        public bool? RegistrantPrivacy
+        {
+            get
+            {
+                if (!_mUnknown_RegistrantPrivacy) return _mValue_RegistrantPrivacy;
+                throw new UndeferrableValueException("Value 'RegisteredDomainArgs.RegistrantPrivacy' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RegisteredDomainArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the domain technical contact. See Contact Blocks for more details.
         /// </summary>
-        [Input("techContact")]
+        [PolicyResourceProperty("techContact", "_mUnknown_TechContact")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RegisteredDomainTechContactArgs> _mTechContact;
-
-        public Inputs.RegisteredDomainTechContactArgs? TechContact => _mTechContact.GetValue("techContact");
+        private Inputs.RegisteredDomainTechContactArgs? _mValue_TechContact;
+        private bool _mUnknown_TechContact;
+        public Inputs.RegisteredDomainTechContactArgs? TechContact
+        {
+            get
+            {
+                if (!_mUnknown_TechContact) return _mValue_TechContact;
+                throw new UndeferrableValueException("Value 'RegisteredDomainArgs.TechContact' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
         /// </summary>
-        [Input("techPrivacy")]
+        [PolicyResourceProperty("techPrivacy", "_mUnknown_TechPrivacy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTechPrivacy;
-
-        public bool? TechPrivacy => _mTechPrivacy.GetValue("techPrivacy");
+        private bool? _mValue_TechPrivacy;
+        private bool _mUnknown_TechPrivacy;
+        public bool? TechPrivacy
+        {
+            get
+            {
+                if (!_mUnknown_TechPrivacy) return _mValue_TechPrivacy;
+                throw new UndeferrableValueException("Value 'RegisteredDomainArgs.TechPrivacy' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the domain is locked for transfer. Default: `true`.
         /// </summary>
-        [Input("transferLock")]
+        [PolicyResourceProperty("transferLock", "_mUnknown_TransferLock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTransferLock;
-
-        public bool? TransferLock => _mTransferLock.GetValue("transferLock");
+        private bool? _mValue_TransferLock;
+        private bool _mUnknown_TransferLock;
+        public bool? TransferLock
+        {
+            get
+            {
+                if (!_mUnknown_TransferLock) return _mValue_TransferLock;
+                throw new UndeferrableValueException("Value 'RegisteredDomainArgs.TransferLock' is not present");
+            }
+        }
     }
 }

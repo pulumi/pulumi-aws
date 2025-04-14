@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Inputs
         /// <summary>
         /// Provides additional mapping information when the record format uses delimiters (for example, CSV).
         /// </summary>
-        [Input("csvMappingParameters")]
+        [PolicyResourceProperty("csvMappingParameters", "_mUnknown_CsvMappingParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs> _mCsvMappingParameters;
-
-        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs? CsvMappingParameters => _mCsvMappingParameters.GetValue("csvMappingParameters");
+        private Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs? _mValue_CsvMappingParameters;
+        private bool _mUnknown_CsvMappingParameters;
+        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs? CsvMappingParameters
+        {
+            get
+            {
+                if (!_mUnknown_CsvMappingParameters) return _mValue_CsvMappingParameters;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs.CsvMappingParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Provides additional mapping information when JSON is the record format on the streaming source.
         /// </summary>
-        [Input("jsonMappingParameters")]
+        [PolicyResourceProperty("jsonMappingParameters", "_mUnknown_JsonMappingParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs> _mJsonMappingParameters;
-
-        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs? JsonMappingParameters => _mJsonMappingParameters.GetValue("jsonMappingParameters");
+        private Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs? _mValue_JsonMappingParameters;
+        private bool _mUnknown_JsonMappingParameters;
+        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs? JsonMappingParameters
+        {
+            get
+            {
+                if (!_mUnknown_JsonMappingParameters) return _mValue_JsonMappingParameters;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs.JsonMappingParameters' is not present");
+            }
+        }
     }
 }

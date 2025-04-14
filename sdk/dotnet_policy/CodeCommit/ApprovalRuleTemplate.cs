@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.CodeCommit
         /// <summary>
         /// The ID of the approval rule template
         /// </summary>
-        [Input("approvalRuleTemplateId")]
+        [PolicyResourceProperty("approvalRuleTemplateId", "_mUnknown_ApprovalRuleTemplateId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApprovalRuleTemplateId;
-
-        public string? ApprovalRuleTemplateId => _mApprovalRuleTemplateId.GetValue("approvalRuleTemplateId");
+        private string? _mValue_ApprovalRuleTemplateId;
+        private bool _mUnknown_ApprovalRuleTemplateId;
+        public string? ApprovalRuleTemplateId
+        {
+            get
+            {
+                if (!_mUnknown_ApprovalRuleTemplateId) return _mValue_ApprovalRuleTemplateId;
+                throw new UndeferrableValueException("Value 'ApprovalRuleTemplate.ApprovalRuleTemplateId' is not present");
+            }
+        }
 
         /// <summary>
         /// The content of the approval rule template. Maximum of 3000 characters.
         /// </summary>
-        [Input("content")]
+        [PolicyResourceProperty("content", "_mUnknown_Content")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContent;
-
-        public string? Content => _mContent.GetValue("content");
+        private string? _mValue_Content;
+        private bool _mUnknown_Content;
+        public string? Content
+        {
+            get
+            {
+                if (!_mUnknown_Content) return _mValue_Content;
+                throw new UndeferrableValueException("Value 'ApprovalRuleTemplate.Content' is not present");
+            }
+        }
 
         /// <summary>
         /// The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        [Input("creationDate")]
+        [PolicyResourceProperty("creationDate", "_mUnknown_CreationDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDate;
-
-        public string? CreationDate => _mCreationDate.GetValue("creationDate");
+        private string? _mValue_CreationDate;
+        private bool _mUnknown_CreationDate;
+        public string? CreationDate
+        {
+            get
+            {
+                if (!_mUnknown_CreationDate) return _mValue_CreationDate;
+                throw new UndeferrableValueException("Value 'ApprovalRuleTemplate.CreationDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the approval rule template. Maximum of 1000 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ApprovalRuleTemplate.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        [Input("lastModifiedDate")]
+        [PolicyResourceProperty("lastModifiedDate", "_mUnknown_LastModifiedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedDate;
-
-        public string? LastModifiedDate => _mLastModifiedDate.GetValue("lastModifiedDate");
+        private string? _mValue_LastModifiedDate;
+        private bool _mUnknown_LastModifiedDate;
+        public string? LastModifiedDate
+        {
+            get
+            {
+                if (!_mUnknown_LastModifiedDate) return _mValue_LastModifiedDate;
+                throw new UndeferrableValueException("Value 'ApprovalRuleTemplate.LastModifiedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
         /// </summary>
-        [Input("lastModifiedUser")]
+        [PolicyResourceProperty("lastModifiedUser", "_mUnknown_LastModifiedUser")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedUser;
-
-        public string? LastModifiedUser => _mLastModifiedUser.GetValue("lastModifiedUser");
+        private string? _mValue_LastModifiedUser;
+        private bool _mUnknown_LastModifiedUser;
+        public string? LastModifiedUser
+        {
+            get
+            {
+                if (!_mUnknown_LastModifiedUser) return _mValue_LastModifiedUser;
+                throw new UndeferrableValueException("Value 'ApprovalRuleTemplate.LastModifiedUser' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the approval rule template. Maximum of 100 characters.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ApprovalRuleTemplate.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The SHA-256 hash signature for the content of the approval rule template.
         /// </summary>
-        [Input("ruleContentSha256")]
+        [PolicyResourceProperty("ruleContentSha256", "_mUnknown_RuleContentSha256")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleContentSha256;
-
-        public string? RuleContentSha256 => _mRuleContentSha256.GetValue("ruleContentSha256");
+        private string? _mValue_RuleContentSha256;
+        private bool _mUnknown_RuleContentSha256;
+        public string? RuleContentSha256
+        {
+            get
+            {
+                if (!_mUnknown_RuleContentSha256) return _mValue_RuleContentSha256;
+                throw new UndeferrableValueException("Value 'ApprovalRuleTemplate.RuleContentSha256' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate")]
@@ -92,28 +148,49 @@ namespace Pulumi.PolicyPacks.Aws.CodeCommit
         /// <summary>
         /// The content of the approval rule template. Maximum of 3000 characters.
         /// </summary>
-        [Input("content")]
+        [PolicyResourceProperty("content", "_mUnknown_Content")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContent;
-
-        public string? Content => _mContent.GetValue("content");
+        private string? _mValue_Content;
+        private bool _mUnknown_Content;
+        public string? Content
+        {
+            get
+            {
+                if (!_mUnknown_Content) return _mValue_Content;
+                throw new UndeferrableValueException("Value 'ApprovalRuleTemplateArgs.Content' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the approval rule template. Maximum of 1000 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ApprovalRuleTemplateArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the approval rule template. Maximum of 100 characters.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ApprovalRuleTemplateArgs.Name' is not present");
+            }
+        }
     }
 }

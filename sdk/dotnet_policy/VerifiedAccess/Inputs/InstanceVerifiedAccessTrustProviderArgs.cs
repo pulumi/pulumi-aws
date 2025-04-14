@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess.Inputs
         /// <summary>
         /// A description for the AWS Verified Access Instance.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'InstanceVerifiedAccessTrustProviderArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of device-based trust provider.
         /// </summary>
-        [Input("deviceTrustProviderType")]
+        [PolicyResourceProperty("deviceTrustProviderType", "_mUnknown_DeviceTrustProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceTrustProviderType;
-
-        public string? DeviceTrustProviderType => _mDeviceTrustProviderType.GetValue("deviceTrustProviderType");
+        private string? _mValue_DeviceTrustProviderType;
+        private bool _mUnknown_DeviceTrustProviderType;
+        public string? DeviceTrustProviderType
+        {
+            get
+            {
+                if (!_mUnknown_DeviceTrustProviderType) return _mValue_DeviceTrustProviderType;
+                throw new UndeferrableValueException("Value 'InstanceVerifiedAccessTrustProviderArgs.DeviceTrustProviderType' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of trust provider (user- or device-based).
         /// </summary>
-        [Input("trustProviderType")]
+        [PolicyResourceProperty("trustProviderType", "_mUnknown_TrustProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrustProviderType;
-
-        public string? TrustProviderType => _mTrustProviderType.GetValue("trustProviderType");
+        private string? _mValue_TrustProviderType;
+        private bool _mUnknown_TrustProviderType;
+        public string? TrustProviderType
+        {
+            get
+            {
+                if (!_mUnknown_TrustProviderType) return _mValue_TrustProviderType;
+                throw new UndeferrableValueException("Value 'InstanceVerifiedAccessTrustProviderArgs.TrustProviderType' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of user-based trust provider.
         /// </summary>
-        [Input("userTrustProviderType")]
+        [PolicyResourceProperty("userTrustProviderType", "_mUnknown_UserTrustProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserTrustProviderType;
-
-        public string? UserTrustProviderType => _mUserTrustProviderType.GetValue("userTrustProviderType");
+        private string? _mValue_UserTrustProviderType;
+        private bool _mUnknown_UserTrustProviderType;
+        public string? UserTrustProviderType
+        {
+            get
+            {
+                if (!_mUnknown_UserTrustProviderType) return _mValue_UserTrustProviderType;
+                throw new UndeferrableValueException("Value 'InstanceVerifiedAccessTrustProviderArgs.UserTrustProviderType' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the trust provider.
         /// </summary>
-        [Input("verifiedAccessTrustProviderId")]
+        [PolicyResourceProperty("verifiedAccessTrustProviderId", "_mUnknown_VerifiedAccessTrustProviderId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedAccessTrustProviderId;
-
-        public string? VerifiedAccessTrustProviderId => _mVerifiedAccessTrustProviderId.GetValue("verifiedAccessTrustProviderId");
+        private string? _mValue_VerifiedAccessTrustProviderId;
+        private bool _mUnknown_VerifiedAccessTrustProviderId;
+        public string? VerifiedAccessTrustProviderId
+        {
+            get
+            {
+                if (!_mUnknown_VerifiedAccessTrustProviderId) return _mValue_VerifiedAccessTrustProviderId;
+                throw new UndeferrableValueException("Value 'InstanceVerifiedAccessTrustProviderArgs.VerifiedAccessTrustProviderId' is not present");
+            }
+        }
     }
 }

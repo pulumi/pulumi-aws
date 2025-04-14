@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// The absolute file path in the container where the tmpfs volume is mounted.
         /// </summary>
-        [Input("containerPath")]
+        [PolicyResourceProperty("containerPath", "_mUnknown_ContainerPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerPath;
-
-        public string? ContainerPath => _mContainerPath.GetValue("containerPath");
+        private string? _mValue_ContainerPath;
+        private bool _mUnknown_ContainerPath;
+        public string? ContainerPath
+        {
+            get
+            {
+                if (!_mUnknown_ContainerPath) return _mValue_ContainerPath;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointResult.ContainerPath' is not present");
+            }
+        }
 
         /// <summary>
         /// If this value is true, the container has read-only access to the volume.
         /// </summary>
-        [Input("readOnly")]
+        [PolicyResourceProperty("readOnly", "_mUnknown_ReadOnly")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReadOnly;
-
-        public bool? ReadOnly => _mReadOnly.GetValue("readOnly");
+        private bool? _mValue_ReadOnly;
+        private bool _mUnknown_ReadOnly;
+        public bool? ReadOnly
+        {
+            get
+            {
+                if (!_mUnknown_ReadOnly) return _mValue_ReadOnly;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointResult.ReadOnly' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the volume to mount.
         /// </summary>
-        [Input("sourceVolume")]
+        [PolicyResourceProperty("sourceVolume", "_mUnknown_SourceVolume")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceVolume;
-
-        public string? SourceVolume => _mSourceVolume.GetValue("sourceVolume");
+        private string? _mValue_SourceVolume;
+        private bool _mUnknown_SourceVolume;
+        public string? SourceVolume
+        {
+            get
+            {
+                if (!_mUnknown_SourceVolume) return _mValue_SourceVolume;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointResult.SourceVolume' is not present");
+            }
+        }
     }
 }

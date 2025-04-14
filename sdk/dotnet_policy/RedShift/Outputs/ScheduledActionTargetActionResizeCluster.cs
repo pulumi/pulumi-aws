@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.RedShift.Outputs
         /// <summary>
         /// A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
         /// </summary>
-        [Input("classic")]
+        [PolicyResourceProperty("classic", "_mUnknown_Classic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mClassic;
-
-        public bool? Classic => _mClassic.GetValue("classic");
+        private bool? _mValue_Classic;
+        private bool _mUnknown_Classic;
+        public bool? Classic
+        {
+            get
+            {
+                if (!_mUnknown_Classic) return _mValue_Classic;
+                throw new UndeferrableValueException("Value 'ScheduledActionTargetActionResizeCluster.Classic' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the cluster to resize.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ScheduledActionTargetActionResizeCluster.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The new cluster type for the specified cluster.
         /// </summary>
-        [Input("clusterType")]
+        [PolicyResourceProperty("clusterType", "_mUnknown_ClusterType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterType;
-
-        public string? ClusterType => _mClusterType.GetValue("clusterType");
+        private string? _mValue_ClusterType;
+        private bool _mUnknown_ClusterType;
+        public string? ClusterType
+        {
+            get
+            {
+                if (!_mUnknown_ClusterType) return _mValue_ClusterType;
+                throw new UndeferrableValueException("Value 'ScheduledActionTargetActionResizeCluster.ClusterType' is not present");
+            }
+        }
 
         /// <summary>
         /// The new node type for the nodes you are adding.
         /// </summary>
-        [Input("nodeType")]
+        [PolicyResourceProperty("nodeType", "_mUnknown_NodeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeType;
-
-        public string? NodeType => _mNodeType.GetValue("nodeType");
+        private string? _mValue_NodeType;
+        private bool _mUnknown_NodeType;
+        public string? NodeType
+        {
+            get
+            {
+                if (!_mUnknown_NodeType) return _mValue_NodeType;
+                throw new UndeferrableValueException("Value 'ScheduledActionTargetActionResizeCluster.NodeType' is not present");
+            }
+        }
 
         /// <summary>
         /// The new number of nodes for the cluster.
         /// </summary>
-        [Input("numberOfNodes")]
+        [PolicyResourceProperty("numberOfNodes", "_mUnknown_NumberOfNodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfNodes;
-
-        public int? NumberOfNodes => _mNumberOfNodes.GetValue("numberOfNodes");
+        private int? _mValue_NumberOfNodes;
+        private bool _mUnknown_NumberOfNodes;
+        public int? NumberOfNodes
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfNodes) return _mValue_NumberOfNodes;
+                throw new UndeferrableValueException("Value 'ScheduledActionTargetActionResizeCluster.NumberOfNodes' is not present");
+            }
+        }
     }
 }

@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Ecr
         /// <summary>
         /// The registry ID where the replication configuration was created.
         /// </summary>
-        [Input("registryId")]
+        [PolicyResourceProperty("registryId", "_mUnknown_RegistryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryId;
-
-        public string? RegistryId => _mRegistryId.GetValue("registryId");
+        private string? _mValue_RegistryId;
+        private bool _mUnknown_RegistryId;
+        public string? RegistryId
+        {
+            get
+            {
+                if (!_mUnknown_RegistryId) return _mValue_RegistryId;
+                throw new UndeferrableValueException("Value 'ReplicationConfiguration.RegistryId' is not present");
+            }
+        }
 
         /// <summary>
         /// Replication configuration for a registry. See Replication Configuration.
         /// </summary>
-        [Input("replicationConfiguration")]
+        [PolicyResourceProperty("replicationConfiguration", "_mUnknown_ReplicationConfigurationDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ReplicationConfigurationReplicationConfiguration> _mReplicationConfigurationDetails;
-
-        public Outputs.ReplicationConfigurationReplicationConfiguration? ReplicationConfigurationDetails => _mReplicationConfigurationDetails.GetValue("replicationConfiguration");
+        private Outputs.ReplicationConfigurationReplicationConfiguration? _mValue_ReplicationConfigurationDetails;
+        private bool _mUnknown_ReplicationConfigurationDetails;
+        public Outputs.ReplicationConfigurationReplicationConfiguration? ReplicationConfigurationDetails
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationConfigurationDetails) return _mValue_ReplicationConfigurationDetails;
+                throw new UndeferrableValueException("Value 'ReplicationConfiguration.ReplicationConfigurationDetails' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ecr/replicationConfiguration:ReplicationConfiguration")]
@@ -38,10 +52,17 @@ namespace Pulumi.PolicyPacks.Aws.Ecr
         /// <summary>
         /// Replication configuration for a registry. See Replication Configuration.
         /// </summary>
-        [Input("replicationConfiguration")]
+        [PolicyResourceProperty("replicationConfiguration", "_mUnknown_ReplicationConfigurationDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ReplicationConfigurationReplicationConfigurationArgs> _mReplicationConfigurationDetails;
-
-        public Inputs.ReplicationConfigurationReplicationConfigurationArgs? ReplicationConfigurationDetails => _mReplicationConfigurationDetails.GetValue("replicationConfiguration");
+        private Inputs.ReplicationConfigurationReplicationConfigurationArgs? _mValue_ReplicationConfigurationDetails;
+        private bool _mUnknown_ReplicationConfigurationDetails;
+        public Inputs.ReplicationConfigurationReplicationConfigurationArgs? ReplicationConfigurationDetails
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationConfigurationDetails) return _mValue_ReplicationConfigurationDetails;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationArgs.ReplicationConfigurationDetails' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Outputs
         /// <summary>
         /// Configuration block for cross cluster search.
         /// </summary>
-        [Input("crossClusterSearch")]
+        [PolicyResourceProperty("crossClusterSearch", "_mUnknown_CrossClusterSearch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OutboundConnectionConnectionPropertiesCrossClusterSearch> _mCrossClusterSearch;
-
-        public Outputs.OutboundConnectionConnectionPropertiesCrossClusterSearch? CrossClusterSearch => _mCrossClusterSearch.GetValue("crossClusterSearch");
+        private Outputs.OutboundConnectionConnectionPropertiesCrossClusterSearch? _mValue_CrossClusterSearch;
+        private bool _mUnknown_CrossClusterSearch;
+        public Outputs.OutboundConnectionConnectionPropertiesCrossClusterSearch? CrossClusterSearch
+        {
+            get
+            {
+                if (!_mUnknown_CrossClusterSearch) return _mValue_CrossClusterSearch;
+                throw new UndeferrableValueException("Value 'OutboundConnectionConnectionProperties.CrossClusterSearch' is not present");
+            }
+        }
 
         /// <summary>
         /// The endpoint of the remote domain, is only set when `connection_mode` is `VPC_ENDPOINT` and `accept_connection` is `TRUE`.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'OutboundConnectionConnectionProperties.Endpoint' is not present");
+            }
+        }
     }
 }

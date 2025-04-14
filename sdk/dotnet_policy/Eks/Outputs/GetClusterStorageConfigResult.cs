@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// <summary>
         /// Contains block storage configuration for EKS Auto Mode enabled cluster.
         /// </summary>
-        [Input("blockStorages")]
+        [PolicyResourceProperty("blockStorages", "_mUnknown_BlockStorages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetClusterStorageConfigBlockStorageResult>> _mBlockStorages;
-
-        public List<Outputs.GetClusterStorageConfigBlockStorageResult>? BlockStorages => _mBlockStorages.GetValue("blockStorages");
+        private List<Outputs.GetClusterStorageConfigBlockStorageResult>? _mValue_BlockStorages;
+        private bool _mUnknown_BlockStorages;
+        public List<Outputs.GetClusterStorageConfigBlockStorageResult>? BlockStorages
+        {
+            get
+            {
+                if (!_mUnknown_BlockStorages) return _mValue_BlockStorages;
+                throw new UndeferrableValueException("Value 'GetClusterStorageConfigResult.BlockStorages' is not present");
+            }
+        }
     }
 }

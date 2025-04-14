@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Ports below for details.
         /// </summary>
-        [Input("destinationPorts")]
+        [PolicyResourceProperty("destinationPorts", "_mUnknown_DestinationPorts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort>> _mDestinationPorts;
-
-        public List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort>? DestinationPorts => _mDestinationPorts.GetValue("destinationPorts");
+        private List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort>? _mValue_DestinationPorts;
+        private bool _mUnknown_DestinationPorts;
+        public List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort>? DestinationPorts
+        {
+            get
+            {
+                if (!_mUnknown_DestinationPorts) return _mValue_DestinationPorts;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope.DestinationPorts' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
         /// </summary>
-        [Input("destinations")]
+        [PolicyResourceProperty("destinations", "_mUnknown_Destinations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination>> _mDestinations;
-
-        public List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination>? Destinations => _mDestinations.GetValue("destinations");
+        private List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination>? _mValue_Destinations;
+        private bool _mUnknown_Destinations;
+        public List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination>? Destinations
+        {
+            get
+            {
+                if (!_mUnknown_Destinations) return _mValue_Destinations;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope.Destinations' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
         /// </summary>
-        [Input("protocols")]
+        [PolicyResourceProperty("protocols", "_mUnknown_Protocols")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mProtocols;
-
-        public List<int>? Protocols => _mProtocols.GetValue("protocols");
+        private List<int>? _mValue_Protocols;
+        private bool _mUnknown_Protocols;
+        public List<int>? Protocols
+        {
+            get
+            {
+                if (!_mUnknown_Protocols) return _mValue_Protocols;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope.Protocols' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
         /// </summary>
-        [Input("sourcePorts")]
+        [PolicyResourceProperty("sourcePorts", "_mUnknown_SourcePorts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort>> _mSourcePorts;
-
-        public List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort>? SourcePorts => _mSourcePorts.GetValue("sourcePorts");
+        private List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort>? _mValue_SourcePorts;
+        private bool _mUnknown_SourcePorts;
+        public List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort>? SourcePorts
+        {
+            get
+            {
+                if (!_mUnknown_SourcePorts) return _mValue_SourcePorts;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope.SourcePorts' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
         /// </summary>
-        [Input("sources")]
+        [PolicyResourceProperty("sources", "_mUnknown_Sources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource>> _mSources;
-
-        public List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource>? Sources => _mSources.GetValue("sources");
+        private List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource>? _mValue_Sources;
+        private bool _mUnknown_Sources;
+        public List<Outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource>? Sources
+        {
+            get
+            {
+                if (!_mUnknown_Sources) return _mValue_Sources;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope.Sources' is not present");
+            }
+        }
     }
 }

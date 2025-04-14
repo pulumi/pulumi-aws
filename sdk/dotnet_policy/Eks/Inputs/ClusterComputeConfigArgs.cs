@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Inputs
         /// <summary>
         /// Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ClusterComputeConfigArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `system`.
         /// </summary>
-        [Input("nodePools")]
+        [PolicyResourceProperty("nodePools", "_mUnknown_NodePools")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNodePools;
-
-        public List<string>? NodePools => _mNodePools.GetValue("nodePools");
+        private List<string>? _mValue_NodePools;
+        private bool _mUnknown_NodePools;
+        public List<string>? NodePools
+        {
+            get
+            {
+                if (!_mUnknown_NodePools) return _mValue_NodePools;
+                throw new UndeferrableValueException("Value 'ClusterComputeConfigArgs.NodePools' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled..
         /// </summary>
-        [Input("nodeRoleArn")]
+        [PolicyResourceProperty("nodeRoleArn", "_mUnknown_NodeRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeRoleArn;
-
-        public string? NodeRoleArn => _mNodeRoleArn.GetValue("nodeRoleArn");
+        private string? _mValue_NodeRoleArn;
+        private bool _mUnknown_NodeRoleArn;
+        public string? NodeRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_NodeRoleArn) return _mValue_NodeRoleArn;
+                throw new UndeferrableValueException("Value 'ClusterComputeConfigArgs.NodeRoleArn' is not present");
+            }
+        }
     }
 }

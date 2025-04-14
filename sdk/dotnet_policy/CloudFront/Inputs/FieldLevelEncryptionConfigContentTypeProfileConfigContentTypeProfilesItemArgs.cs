@@ -15,25 +15,46 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
         /// </summary>
-        [Input("contentType")]
+        [PolicyResourceProperty("contentType", "_mUnknown_ContentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
-
-        public string? ContentType => _mContentType.GetValue("contentType");
+        private string? _mValue_ContentType;
+        private bool _mUnknown_ContentType;
+        public string? ContentType
+        {
+            get
+            {
+                if (!_mUnknown_ContentType) return _mValue_ContentType;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs.ContentType' is not present");
+            }
+        }
 
         /// <summary>
         /// The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
         /// </summary>
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
+        private string? _mValue_Format;
+        private bool _mUnknown_Format;
+        public string? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs.Format' is not present");
+            }
+        }
 
-        public string? Format => _mFormat.GetValue("format");
-
-        [Input("profileId")]
+        [PolicyResourceProperty("profileId", "_mUnknown_ProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProfileId;
-
-        public string? ProfileId => _mProfileId.GetValue("profileId");
+        private string? _mValue_ProfileId;
+        private bool _mUnknown_ProfileId;
+        public string? ProfileId
+        {
+            get
+            {
+                if (!_mUnknown_ProfileId) return _mValue_ProfileId;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs.ProfileId' is not present");
+            }
+        }
     }
 }

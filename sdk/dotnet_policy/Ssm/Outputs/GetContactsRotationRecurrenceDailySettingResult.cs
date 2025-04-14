@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Outputs
 {
     public sealed class GetContactsRotationRecurrenceDailySettingResult
     {
-        [Input("hourOfDay")]
+        [PolicyResourceProperty("hourOfDay", "_mUnknown_HourOfDay")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHourOfDay;
+        private int? _mValue_HourOfDay;
+        private bool _mUnknown_HourOfDay;
+        public int? HourOfDay
+        {
+            get
+            {
+                if (!_mUnknown_HourOfDay) return _mValue_HourOfDay;
+                throw new UndeferrableValueException("Value 'GetContactsRotationRecurrenceDailySettingResult.HourOfDay' is not present");
+            }
+        }
 
-        public int? HourOfDay => _mHourOfDay.GetValue("hourOfDay");
-
-        [Input("minuteOfHour")]
+        [PolicyResourceProperty("minuteOfHour", "_mUnknown_MinuteOfHour")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinuteOfHour;
-
-        public int? MinuteOfHour => _mMinuteOfHour.GetValue("minuteOfHour");
+        private int? _mValue_MinuteOfHour;
+        private bool _mUnknown_MinuteOfHour;
+        public int? MinuteOfHour
+        {
+            get
+            {
+                if (!_mUnknown_MinuteOfHour) return _mValue_MinuteOfHour;
+                throw new UndeferrableValueException("Value 'GetContactsRotationRecurrenceDailySettingResult.MinuteOfHour' is not present");
+            }
+        }
     }
 }

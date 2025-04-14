@@ -15,91 +15,161 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Inputs
         /// <summary>
         /// Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
-
-        public string? Action => _mAction.GetValue("action");
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentSegmentActionInputArgs.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// A user-defined string describing the segment action.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentSegmentActionInputArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// List of strings containing CIDRs. You can define the IPv4 and IPv6 CIDR notation for each AWS Region. For example, `10.1.0.0/16` or `2001:db8::/56`. This is an array of CIDR notation strings.
         /// </summary>
-        [Input("destinationCidrBlocks")]
+        [PolicyResourceProperty("destinationCidrBlocks", "_mUnknown_DestinationCidrBlocks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDestinationCidrBlocks;
-
-        public List<string>? DestinationCidrBlocks => _mDestinationCidrBlocks.GetValue("destinationCidrBlocks");
+        private List<string>? _mValue_DestinationCidrBlocks;
+        private bool _mUnknown_DestinationCidrBlocks;
+        public List<string>? DestinationCidrBlocks
+        {
+            get
+            {
+                if (!_mUnknown_DestinationCidrBlocks) return _mValue_DestinationCidrBlocks;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentSegmentActionInputArgs.DestinationCidrBlocks' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
         /// </summary>
-        [Input("destinations")]
+        [PolicyResourceProperty("destinations", "_mUnknown_Destinations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDestinations;
-
-        public List<string>? Destinations => _mDestinations.GetValue("destinations");
+        private List<string>? _mValue_Destinations;
+        private bool _mUnknown_Destinations;
+        public List<string>? Destinations
+        {
+            get
+            {
+                if (!_mUnknown_Destinations) return _mValue_Destinations;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentSegmentActionInputArgs.Destinations' is not present");
+            }
+        }
 
         /// <summary>
         /// String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
         /// </summary>
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
-
-        public string? Mode => _mMode.GetValue("mode");
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentSegmentActionInputArgs.Mode' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the segment.
         /// </summary>
-        [Input("segment")]
+        [PolicyResourceProperty("segment", "_mUnknown_Segment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSegment;
-
-        public string? Segment => _mSegment.GetValue("segment");
+        private string? _mValue_Segment;
+        private bool _mUnknown_Segment;
+        public string? Segment
+        {
+            get
+            {
+                if (!_mUnknown_Segment) return _mValue_Segment;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentSegmentActionInputArgs.Segment' is not present");
+            }
+        }
 
         /// <summary>
         /// A set subtraction of segments to not share with.
         /// </summary>
-        [Input("shareWithExcepts")]
+        [PolicyResourceProperty("shareWithExcepts", "_mUnknown_ShareWithExcepts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mShareWithExcepts;
-
-        public List<string>? ShareWithExcepts => _mShareWithExcepts.GetValue("shareWithExcepts");
+        private List<string>? _mValue_ShareWithExcepts;
+        private bool _mUnknown_ShareWithExcepts;
+        public List<string>? ShareWithExcepts
+        {
+            get
+            {
+                if (!_mUnknown_ShareWithExcepts) return _mValue_ShareWithExcepts;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentSegmentActionInputArgs.ShareWithExcepts' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of strings to share with. Must be a substring is all segments. Valid values include: `["*"]` or `["&lt;segment-names&gt;"]`.
         /// </summary>
-        [Input("shareWiths")]
+        [PolicyResourceProperty("shareWiths", "_mUnknown_ShareWiths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mShareWiths;
-
-        public List<string>? ShareWiths => _mShareWiths.GetValue("shareWiths");
+        private List<string>? _mValue_ShareWiths;
+        private bool _mUnknown_ShareWiths;
+        public List<string>? ShareWiths
+        {
+            get
+            {
+                if (!_mUnknown_ShareWiths) return _mValue_ShareWiths;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentSegmentActionInputArgs.ShareWiths' is not present");
+            }
+        }
 
         /// <summary>
         /// The network function groups and any edge overrides associated with the action.
         /// </summary>
-        [Input("via")]
+        [PolicyResourceProperty("via", "_mUnknown_Via")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetCoreNetworkPolicyDocumentSegmentActionViaInputArgs> _mVia;
-
-        public Inputs.GetCoreNetworkPolicyDocumentSegmentActionViaInputArgs? Via => _mVia.GetValue("via");
+        private Inputs.GetCoreNetworkPolicyDocumentSegmentActionViaInputArgs? _mValue_Via;
+        private bool _mUnknown_Via;
+        public Inputs.GetCoreNetworkPolicyDocumentSegmentActionViaInputArgs? Via
+        {
+            get
+            {
+                if (!_mUnknown_Via) return _mValue_Via;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentSegmentActionInputArgs.Via' is not present");
+            }
+        }
 
         /// <summary>
         /// The destination segments for the `send-via` or `send-to` `action`.
         /// </summary>
-        [Input("whenSentTo")]
+        [PolicyResourceProperty("whenSentTo", "_mUnknown_WhenSentTo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetCoreNetworkPolicyDocumentSegmentActionWhenSentToInputArgs> _mWhenSentTo;
-
-        public Inputs.GetCoreNetworkPolicyDocumentSegmentActionWhenSentToInputArgs? WhenSentTo => _mWhenSentTo.GetValue("whenSentTo");
+        private Inputs.GetCoreNetworkPolicyDocumentSegmentActionWhenSentToInputArgs? _mValue_WhenSentTo;
+        private bool _mUnknown_WhenSentTo;
+        public Inputs.GetCoreNetworkPolicyDocumentSegmentActionWhenSentToInputArgs? WhenSentTo
+        {
+            get
+            {
+                if (!_mUnknown_WhenSentTo) return _mValue_WhenSentTo;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentSegmentActionInputArgs.WhenSentTo' is not present");
+            }
+        }
     }
 }

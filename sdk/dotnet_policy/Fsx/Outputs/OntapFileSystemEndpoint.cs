@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Outputs
         /// <summary>
         /// An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
         /// </summary>
-        [Input("interclusters")]
+        [PolicyResourceProperty("interclusters", "_mUnknown_Interclusters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OntapFileSystemEndpointIntercluster>> _mInterclusters;
-
-        public List<Outputs.OntapFileSystemEndpointIntercluster>? Interclusters => _mInterclusters.GetValue("interclusters");
+        private List<Outputs.OntapFileSystemEndpointIntercluster>? _mValue_Interclusters;
+        private bool _mUnknown_Interclusters;
+        public List<Outputs.OntapFileSystemEndpointIntercluster>? Interclusters
+        {
+            get
+            {
+                if (!_mUnknown_Interclusters) return _mValue_Interclusters;
+                throw new UndeferrableValueException("Value 'OntapFileSystemEndpoint.Interclusters' is not present");
+            }
+        }
 
         /// <summary>
         /// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
         /// </summary>
-        [Input("managements")]
+        [PolicyResourceProperty("managements", "_mUnknown_Managements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OntapFileSystemEndpointManagement>> _mManagements;
-
-        public List<Outputs.OntapFileSystemEndpointManagement>? Managements => _mManagements.GetValue("managements");
+        private List<Outputs.OntapFileSystemEndpointManagement>? _mValue_Managements;
+        private bool _mUnknown_Managements;
+        public List<Outputs.OntapFileSystemEndpointManagement>? Managements
+        {
+            get
+            {
+                if (!_mUnknown_Managements) return _mValue_Managements;
+                throw new UndeferrableValueException("Value 'OntapFileSystemEndpoint.Managements' is not present");
+            }
+        }
     }
 }

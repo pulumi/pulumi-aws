@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// Object that contains an attribute `items` that contains the list of field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted.
         /// </summary>
-        [Input("fieldPatterns")]
+        [PolicyResourceProperty("fieldPatterns", "_mUnknown_FieldPatterns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns> _mFieldPatterns;
-
-        public Outputs.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns? FieldPatterns => _mFieldPatterns.GetValue("fieldPatterns");
+        private Outputs.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns? _mValue_FieldPatterns;
+        private bool _mUnknown_FieldPatterns;
+        public Outputs.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns? FieldPatterns
+        {
+            get
+            {
+                if (!_mUnknown_FieldPatterns) return _mValue_FieldPatterns;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfileEncryptionEntitiesItem.FieldPatterns' is not present");
+            }
+        }
 
         /// <summary>
         /// The provider associated with the public key being used for encryption.
         /// </summary>
-        [Input("providerId")]
+        [PolicyResourceProperty("providerId", "_mUnknown_ProviderId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderId;
-
-        public string? ProviderId => _mProviderId.GetValue("providerId");
+        private string? _mValue_ProviderId;
+        private bool _mUnknown_ProviderId;
+        public string? ProviderId
+        {
+            get
+            {
+                if (!_mUnknown_ProviderId) return _mValue_ProviderId;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfileEncryptionEntitiesItem.ProviderId' is not present");
+            }
+        }
 
         /// <summary>
         /// The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
         /// </summary>
-        [Input("publicKeyId")]
+        [PolicyResourceProperty("publicKeyId", "_mUnknown_PublicKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKeyId;
-
-        public string? PublicKeyId => _mPublicKeyId.GetValue("publicKeyId");
+        private string? _mValue_PublicKeyId;
+        private bool _mUnknown_PublicKeyId;
+        public string? PublicKeyId
+        {
+            get
+            {
+                if (!_mUnknown_PublicKeyId) return _mValue_PublicKeyId;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfileEncryptionEntitiesItem.PublicKeyId' is not present");
+            }
+        }
     }
 }

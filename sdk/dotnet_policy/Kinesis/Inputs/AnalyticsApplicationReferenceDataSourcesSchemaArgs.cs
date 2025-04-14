@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// The Record Column mapping for the streaming source data element.
         /// See Record Columns below for more details.
         /// </summary>
-        [Input("recordColumns")]
+        [PolicyResourceProperty("recordColumns", "_mUnknown_RecordColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs>> _mRecordColumns;
-
-        public List<Inputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs>? RecordColumns => _mRecordColumns.GetValue("recordColumns");
+        private List<Inputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs>? _mValue_RecordColumns;
+        private bool _mUnknown_RecordColumns;
+        public List<Inputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs>? RecordColumns
+        {
+            get
+            {
+                if (!_mUnknown_RecordColumns) return _mValue_RecordColumns;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaArgs.RecordColumns' is not present");
+            }
+        }
 
         /// <summary>
         /// The Encoding of the record in the streaming source.
         /// </summary>
-        [Input("recordEncoding")]
+        [PolicyResourceProperty("recordEncoding", "_mUnknown_RecordEncoding")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecordEncoding;
-
-        public string? RecordEncoding => _mRecordEncoding.GetValue("recordEncoding");
+        private string? _mValue_RecordEncoding;
+        private bool _mUnknown_RecordEncoding;
+        public string? RecordEncoding
+        {
+            get
+            {
+                if (!_mUnknown_RecordEncoding) return _mValue_RecordEncoding;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaArgs.RecordEncoding' is not present");
+            }
+        }
 
         /// <summary>
         /// The Record Format and mapping information to schematize a record.
         /// See Record Format below for more details.
         /// </summary>
-        [Input("recordFormat")]
+        [PolicyResourceProperty("recordFormat", "_mUnknown_RecordFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs> _mRecordFormat;
-
-        public Inputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs? RecordFormat => _mRecordFormat.GetValue("recordFormat");
+        private Inputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs? _mValue_RecordFormat;
+        private bool _mUnknown_RecordFormat;
+        public Inputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs? RecordFormat
+        {
+            get
+            {
+                if (!_mUnknown_RecordFormat) return _mValue_RecordFormat;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaArgs.RecordFormat' is not present");
+            }
+        }
     }
 }

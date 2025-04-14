@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetRouteSpecHttpRouteActionResult
     {
-        [Input("weightedTargets")]
+        [PolicyResourceProperty("weightedTargets", "_mUnknown_WeightedTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetRouteSpecHttpRouteActionWeightedTargetResult>> _mWeightedTargets;
-
-        public List<Outputs.GetRouteSpecHttpRouteActionWeightedTargetResult>? WeightedTargets => _mWeightedTargets.GetValue("weightedTargets");
+        private List<Outputs.GetRouteSpecHttpRouteActionWeightedTargetResult>? _mValue_WeightedTargets;
+        private bool _mUnknown_WeightedTargets;
+        public List<Outputs.GetRouteSpecHttpRouteActionWeightedTargetResult>? WeightedTargets
+        {
+            get
+            {
+                if (!_mUnknown_WeightedTargets) return _mValue_WeightedTargets;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttpRouteActionResult.WeightedTargets' is not present");
+            }
+        }
     }
 }

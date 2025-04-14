@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// The validation loss associated with the validator.
         /// </summary>
-        [Input("validationLoss")]
+        [PolicyResourceProperty("validationLoss", "_mUnknown_ValidationLoss")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mValidationLoss;
-
-        public double? ValidationLoss => _mValidationLoss.GetValue("validationLoss");
+        private double? _mValue_ValidationLoss;
+        private bool _mUnknown_ValidationLoss;
+        public double? ValidationLoss
+        {
+            get
+            {
+                if (!_mUnknown_ValidationLoss) return _mValue_ValidationLoss;
+                throw new UndeferrableValueException("Value 'GetCustomModelValidationMetricResult.ValidationLoss' is not present");
+            }
+        }
     }
 }

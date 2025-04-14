@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
         /// </summary>
-        [Input("locations")]
+        [PolicyResourceProperty("locations", "_mUnknown_Locations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLocations;
-
-        public List<string>? Locations => _mLocations.GetValue("locations");
+        private List<string>? _mValue_Locations;
+        private bool _mUnknown_Locations;
+        public List<string>? Locations
+        {
+            get
+            {
+                if (!_mUnknown_Locations) return _mValue_Locations;
+                throw new UndeferrableValueException("Value 'DistributionRestrictionsGeoRestriction.Locations' is not present");
+            }
+        }
 
         /// <summary>
         /// Method that you want to use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`.
         /// </summary>
-        [Input("restrictionType")]
+        [PolicyResourceProperty("restrictionType", "_mUnknown_RestrictionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestrictionType;
-
-        public string? RestrictionType => _mRestrictionType.GetValue("restrictionType");
+        private string? _mValue_RestrictionType;
+        private bool _mUnknown_RestrictionType;
+        public string? RestrictionType
+        {
+            get
+            {
+                if (!_mUnknown_RestrictionType) return _mValue_RestrictionType;
+                throw new UndeferrableValueException("Value 'DistributionRestrictionsGeoRestriction.RestrictionType' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Outputs
         /// <summary>
         /// A list of recipe that are used as selection criteria for the output images that the lifecycle policy applies to. Detailed below.
         /// </summary>
-        [Input("recipes")]
+        [PolicyResourceProperty("recipes", "_mUnknown_Recipes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LifecyclePolicyResourceSelectionRecipe>> _mRecipes;
-
-        public List<Outputs.LifecyclePolicyResourceSelectionRecipe>? Recipes => _mRecipes.GetValue("recipes");
+        private List<Outputs.LifecyclePolicyResourceSelectionRecipe>? _mValue_Recipes;
+        private bool _mUnknown_Recipes;
+        public List<Outputs.LifecyclePolicyResourceSelectionRecipe>? Recipes
+        {
+            get
+            {
+                if (!_mUnknown_Recipes) return _mValue_Recipes;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyResourceSelection.Recipes' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of tags that are used as selection criteria for the Image Builder image resources that the lifecycle policy applies to.
         /// </summary>
-        [Input("tagMap")]
+        [PolicyResourceProperty("tagMap", "_mUnknown_TagMap")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagMap;
-
-        public Dictionary<string, string>? TagMap => _mTagMap.GetValue("tagMap");
+        private Dictionary<string, string>? _mValue_TagMap;
+        private bool _mUnknown_TagMap;
+        public Dictionary<string, string>? TagMap
+        {
+            get
+            {
+                if (!_mUnknown_TagMap) return _mValue_TagMap;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyResourceSelection.TagMap' is not present");
+            }
+        }
     }
 }

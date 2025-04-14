@@ -16,28 +16,49 @@ namespace Pulumi.PolicyPacks.Aws.AppStream.Outputs
         /// Type of storage connector.
         /// Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
         /// </summary>
-        [Input("connectorType")]
+        [PolicyResourceProperty("connectorType", "_mUnknown_ConnectorType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectorType;
-
-        public string? ConnectorType => _mConnectorType.GetValue("connectorType");
+        private string? _mValue_ConnectorType;
+        private bool _mUnknown_ConnectorType;
+        public string? ConnectorType
+        {
+            get
+            {
+                if (!_mUnknown_ConnectorType) return _mValue_ConnectorType;
+                throw new UndeferrableValueException("Value 'StackStorageConnector.ConnectorType' is not present");
+            }
+        }
 
         /// <summary>
         /// Names of the domains for the account.
         /// </summary>
-        [Input("domains")]
+        [PolicyResourceProperty("domains", "_mUnknown_Domains")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDomains;
-
-        public List<string>? Domains => _mDomains.GetValue("domains");
+        private List<string>? _mValue_Domains;
+        private bool _mUnknown_Domains;
+        public List<string>? Domains
+        {
+            get
+            {
+                if (!_mUnknown_Domains) return _mValue_Domains;
+                throw new UndeferrableValueException("Value 'StackStorageConnector.Domains' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the storage connector.
         /// </summary>
-        [Input("resourceIdentifier")]
+        [PolicyResourceProperty("resourceIdentifier", "_mUnknown_ResourceIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceIdentifier;
-
-        public string? ResourceIdentifier => _mResourceIdentifier.GetValue("resourceIdentifier");
+        private string? _mValue_ResourceIdentifier;
+        private bool _mUnknown_ResourceIdentifier;
+        public string? ResourceIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ResourceIdentifier) return _mValue_ResourceIdentifier;
+                throw new UndeferrableValueException("Value 'StackStorageConnector.ResourceIdentifier' is not present");
+            }
+        }
     }
 }

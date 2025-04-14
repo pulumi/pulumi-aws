@@ -15,190 +15,337 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// The URL of the Snowflake account. Format: https://[account_identifier].snowflakecomputing.com.
         /// </summary>
-        [Input("accountUrl")]
+        [PolicyResourceProperty("accountUrl", "_mUnknown_AccountUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountUrl;
-
-        public string? AccountUrl => _mAccountUrl.GetValue("accountUrl");
+        private string? _mValue_AccountUrl;
+        private bool _mUnknown_AccountUrl;
+        public string? AccountUrl
+        {
+            get
+            {
+                if (!_mUnknown_AccountUrl) return _mValue_AccountUrl;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.AccountUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
         /// </summary>
-        [Input("bufferingInterval")]
+        [PolicyResourceProperty("bufferingInterval", "_mUnknown_BufferingInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferingInterval;
-
-        public int? BufferingInterval => _mBufferingInterval.GetValue("bufferingInterval");
+        private int? _mValue_BufferingInterval;
+        private bool _mUnknown_BufferingInterval;
+        public int? BufferingInterval
+        {
+            get
+            {
+                if (!_mUnknown_BufferingInterval) return _mValue_BufferingInterval;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.BufferingInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
         /// </summary>
-        [Input("bufferingSize")]
+        [PolicyResourceProperty("bufferingSize", "_mUnknown_BufferingSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferingSize;
-
-        public int? BufferingSize => _mBufferingSize.GetValue("bufferingSize");
+        private int? _mValue_BufferingSize;
+        private bool _mUnknown_BufferingSize;
+        public int? BufferingSize
+        {
+            get
+            {
+                if (!_mUnknown_BufferingSize) return _mValue_BufferingSize;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.BufferingSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
-        [Input("cloudwatchLoggingOptions")]
+        [PolicyResourceProperty("cloudwatchLoggingOptions", "_mUnknown_CloudwatchLoggingOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs> _mCloudwatchLoggingOptions;
-
-        public Inputs.FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs? CloudwatchLoggingOptions => _mCloudwatchLoggingOptions.GetValue("cloudwatchLoggingOptions");
+        private Inputs.FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs? _mValue_CloudwatchLoggingOptions;
+        private bool _mUnknown_CloudwatchLoggingOptions;
+        public Inputs.FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs? CloudwatchLoggingOptions
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLoggingOptions) return _mValue_CloudwatchLoggingOptions;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.CloudwatchLoggingOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the content column.
         /// </summary>
-        [Input("contentColumnName")]
+        [PolicyResourceProperty("contentColumnName", "_mUnknown_ContentColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentColumnName;
-
-        public string? ContentColumnName => _mContentColumnName.GetValue("contentColumnName");
+        private string? _mValue_ContentColumnName;
+        private bool _mUnknown_ContentColumnName;
+        public string? ContentColumnName
+        {
+            get
+            {
+                if (!_mUnknown_ContentColumnName) return _mValue_ContentColumnName;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.ContentColumnName' is not present");
+            }
+        }
 
         /// <summary>
         /// The data loading option.
         /// </summary>
-        [Input("dataLoadingOption")]
+        [PolicyResourceProperty("dataLoadingOption", "_mUnknown_DataLoadingOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataLoadingOption;
-
-        public string? DataLoadingOption => _mDataLoadingOption.GetValue("dataLoadingOption");
+        private string? _mValue_DataLoadingOption;
+        private bool _mUnknown_DataLoadingOption;
+        public string? DataLoadingOption
+        {
+            get
+            {
+                if (!_mUnknown_DataLoadingOption) return _mValue_DataLoadingOption;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.DataLoadingOption' is not present");
+            }
+        }
 
         /// <summary>
         /// The Snowflake database name.
         /// </summary>
-        [Input("database")]
+        [PolicyResourceProperty("database", "_mUnknown_Database")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabase;
-
-        public string? Database => _mDatabase.GetValue("database");
+        private string? _mValue_Database;
+        private bool _mUnknown_Database;
+        public string? Database
+        {
+            get
+            {
+                if (!_mUnknown_Database) return _mValue_Database;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.Database' is not present");
+            }
+        }
 
         /// <summary>
         /// The passphrase for the private key.
         /// </summary>
-        [Input("keyPassphrase")]
+        [PolicyResourceProperty("keyPassphrase", "_mUnknown_KeyPassphrase")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyPassphrase;
-
-        public string? KeyPassphrase => _mKeyPassphrase.GetValue("keyPassphrase");
+        private string? _mValue_KeyPassphrase;
+        private bool _mUnknown_KeyPassphrase;
+        public string? KeyPassphrase
+        {
+            get
+            {
+                if (!_mUnknown_KeyPassphrase) return _mValue_KeyPassphrase;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.KeyPassphrase' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the metadata column.
         /// </summary>
-        [Input("metadataColumnName")]
+        [PolicyResourceProperty("metadataColumnName", "_mUnknown_MetadataColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetadataColumnName;
-
-        public string? MetadataColumnName => _mMetadataColumnName.GetValue("metadataColumnName");
+        private string? _mValue_MetadataColumnName;
+        private bool _mUnknown_MetadataColumnName;
+        public string? MetadataColumnName
+        {
+            get
+            {
+                if (!_mUnknown_MetadataColumnName) return _mValue_MetadataColumnName;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.MetadataColumnName' is not present");
+            }
+        }
 
         /// <summary>
         /// The private key for authentication. This value is required if `secrets_manager_configuration` is not provided.
         /// </summary>
-        [Input("privateKey")]
+        [PolicyResourceProperty("privateKey", "_mUnknown_PrivateKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateKey;
-
-        public string? PrivateKey => _mPrivateKey.GetValue("privateKey");
+        private string? _mValue_PrivateKey;
+        private bool _mUnknown_PrivateKey;
+        public string? PrivateKey
+        {
+            get
+            {
+                if (!_mUnknown_PrivateKey) return _mValue_PrivateKey;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.PrivateKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The processing configuration. See `processing_configuration` block below for details.
         /// </summary>
-        [Input("processingConfiguration")]
+        [PolicyResourceProperty("processingConfiguration", "_mUnknown_ProcessingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs> _mProcessingConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs? ProcessingConfiguration => _mProcessingConfiguration.GetValue("processingConfiguration");
+        private Inputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs? _mValue_ProcessingConfiguration;
+        private bool _mUnknown_ProcessingConfiguration;
+        public Inputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs? ProcessingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ProcessingConfiguration) return _mValue_ProcessingConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.ProcessingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
         /// </summary>
-        [Input("retryDuration")]
+        [PolicyResourceProperty("retryDuration", "_mUnknown_RetryDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetryDuration;
-
-        public int? RetryDuration => _mRetryDuration.GetValue("retryDuration");
+        private int? _mValue_RetryDuration;
+        private bool _mUnknown_RetryDuration;
+        public int? RetryDuration
+        {
+            get
+            {
+                if (!_mUnknown_RetryDuration) return _mValue_RetryDuration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.RetryDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 backup mode.
         /// </summary>
-        [Input("s3BackupMode")]
+        [PolicyResourceProperty("s3BackupMode", "_mUnknown_S3BackupMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BackupMode;
-
-        public string? S3BackupMode => _mS3BackupMode.GetValue("s3BackupMode");
+        private string? _mValue_S3BackupMode;
+        private bool _mUnknown_S3BackupMode;
+        public string? S3BackupMode
+        {
+            get
+            {
+                if (!_mUnknown_S3BackupMode) return _mValue_S3BackupMode;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.S3BackupMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 configuration. See `s3_configuration` block below for details.
         /// </summary>
-        [Input("s3Configuration")]
+        [PolicyResourceProperty("s3Configuration", "_mUnknown_S3Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs> _mS3Configuration;
-
-        public Inputs.FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs? S3Configuration => _mS3Configuration.GetValue("s3Configuration");
+        private Inputs.FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs? _mValue_S3Configuration;
+        private bool _mUnknown_S3Configuration;
+        public Inputs.FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs? S3Configuration
+        {
+            get
+            {
+                if (!_mUnknown_S3Configuration) return _mValue_S3Configuration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.S3Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The Snowflake schema name.
         /// </summary>
-        [Input("schema")]
+        [PolicyResourceProperty("schema", "_mUnknown_Schema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchema;
-
-        public string? Schema => _mSchema.GetValue("schema");
+        private string? _mValue_Schema;
+        private bool _mUnknown_Schema;
+        public string? Schema
+        {
+            get
+            {
+                if (!_mUnknown_Schema) return _mValue_Schema;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.Schema' is not present");
+            }
+        }
 
         /// <summary>
         /// The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `user` and `private_key` are not provided.
         /// </summary>
-        [Input("secretsManagerConfiguration")]
+        [PolicyResourceProperty("secretsManagerConfiguration", "_mUnknown_SecretsManagerConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs> _mSecretsManagerConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs? SecretsManagerConfiguration => _mSecretsManagerConfiguration.GetValue("secretsManagerConfiguration");
+        private Inputs.FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs? _mValue_SecretsManagerConfiguration;
+        private bool _mUnknown_SecretsManagerConfiguration;
+        public Inputs.FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs? SecretsManagerConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SecretsManagerConfiguration) return _mValue_SecretsManagerConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.SecretsManagerConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for Snowflake role.
         /// </summary>
-        [Input("snowflakeRoleConfiguration")]
+        [PolicyResourceProperty("snowflakeRoleConfiguration", "_mUnknown_SnowflakeRoleConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs> _mSnowflakeRoleConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs? SnowflakeRoleConfiguration => _mSnowflakeRoleConfiguration.GetValue("snowflakeRoleConfiguration");
+        private Inputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs? _mValue_SnowflakeRoleConfiguration;
+        private bool _mUnknown_SnowflakeRoleConfiguration;
+        public Inputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs? SnowflakeRoleConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SnowflakeRoleConfiguration) return _mValue_SnowflakeRoleConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.SnowflakeRoleConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC configuration for Snowflake.
         /// </summary>
-        [Input("snowflakeVpcConfiguration")]
+        [PolicyResourceProperty("snowflakeVpcConfiguration", "_mUnknown_SnowflakeVpcConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs> _mSnowflakeVpcConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs? SnowflakeVpcConfiguration => _mSnowflakeVpcConfiguration.GetValue("snowflakeVpcConfiguration");
+        private Inputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs? _mValue_SnowflakeVpcConfiguration;
+        private bool _mUnknown_SnowflakeVpcConfiguration;
+        public Inputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs? SnowflakeVpcConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SnowflakeVpcConfiguration) return _mValue_SnowflakeVpcConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.SnowflakeVpcConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The Snowflake table name.
         /// </summary>
-        [Input("table")]
+        [PolicyResourceProperty("table", "_mUnknown_Table")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTable;
-
-        public string? Table => _mTable.GetValue("table");
+        private string? _mValue_Table;
+        private bool _mUnknown_Table;
+        public string? Table
+        {
+            get
+            {
+                if (!_mUnknown_Table) return _mValue_Table;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.Table' is not present");
+            }
+        }
 
         /// <summary>
         /// The user for authentication. This value is required if `secrets_manager_configuration` is not provided.
         /// </summary>
-        [Input("user")]
+        [PolicyResourceProperty("user", "_mUnknown_User")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
-
-        public string? User => _mUser.GetValue("user");
+        private string? _mValue_User;
+        private bool _mUnknown_User;
+        public string? User
+        {
+            get
+            {
+                if (!_mUnknown_User) return _mValue_User;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationArgs.User' is not present");
+            }
+        }
     }
 }

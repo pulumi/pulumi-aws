@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Inputs
         /// <summary>
         /// A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
         /// </summary>
-        [Input("accessControlListConfiguration")]
+        [PolicyResourceProperty("accessControlListConfiguration", "_mUnknown_AccessControlListConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs> _mAccessControlListConfiguration;
-
-        public Inputs.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs? AccessControlListConfiguration => _mAccessControlListConfiguration.GetValue("accessControlListConfiguration");
+        private Inputs.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs? _mValue_AccessControlListConfiguration;
+        private bool _mUnknown_AccessControlListConfiguration;
+        public Inputs.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs? AccessControlListConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AccessControlListConfiguration) return _mValue_AccessControlListConfiguration;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationS3ConfigurationArgs.AccessControlListConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the bucket that contains the documents.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationS3ConfigurationArgs.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
         /// </summary>
-        [Input("documentsMetadataConfiguration")]
+        [PolicyResourceProperty("documentsMetadataConfiguration", "_mUnknown_DocumentsMetadataConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs> _mDocumentsMetadataConfiguration;
-
-        public Inputs.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs? DocumentsMetadataConfiguration => _mDocumentsMetadataConfiguration.GetValue("documentsMetadataConfiguration");
+        private Inputs.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs? _mValue_DocumentsMetadataConfiguration;
+        private bool _mUnknown_DocumentsMetadataConfiguration;
+        public Inputs.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs? DocumentsMetadataConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DocumentsMetadataConfiguration) return _mValue_DocumentsMetadataConfiguration;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationS3ConfigurationArgs.DocumentsMetadataConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
         /// </summary>
-        [Input("exclusionPatterns")]
+        [PolicyResourceProperty("exclusionPatterns", "_mUnknown_ExclusionPatterns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExclusionPatterns;
-
-        public List<string>? ExclusionPatterns => _mExclusionPatterns.GetValue("exclusionPatterns");
+        private List<string>? _mValue_ExclusionPatterns;
+        private bool _mUnknown_ExclusionPatterns;
+        public List<string>? ExclusionPatterns
+        {
+            get
+            {
+                if (!_mUnknown_ExclusionPatterns) return _mValue_ExclusionPatterns;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationS3ConfigurationArgs.ExclusionPatterns' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
         /// </summary>
-        [Input("inclusionPatterns")]
+        [PolicyResourceProperty("inclusionPatterns", "_mUnknown_InclusionPatterns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInclusionPatterns;
-
-        public List<string>? InclusionPatterns => _mInclusionPatterns.GetValue("inclusionPatterns");
+        private List<string>? _mValue_InclusionPatterns;
+        private bool _mUnknown_InclusionPatterns;
+        public List<string>? InclusionPatterns
+        {
+            get
+            {
+                if (!_mUnknown_InclusionPatterns) return _mValue_InclusionPatterns;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationS3ConfigurationArgs.InclusionPatterns' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of S3 prefixes for the documents that should be included in the index.
         /// </summary>
-        [Input("inclusionPrefixes")]
+        [PolicyResourceProperty("inclusionPrefixes", "_mUnknown_InclusionPrefixes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInclusionPrefixes;
-
-        public List<string>? InclusionPrefixes => _mInclusionPrefixes.GetValue("inclusionPrefixes");
+        private List<string>? _mValue_InclusionPrefixes;
+        private bool _mUnknown_InclusionPrefixes;
+        public List<string>? InclusionPrefixes
+        {
+            get
+            {
+                if (!_mUnknown_InclusionPrefixes) return _mValue_InclusionPrefixes;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationS3ConfigurationArgs.InclusionPrefixes' is not present");
+            }
+        }
     }
 }

@@ -16,10 +16,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// Listeners that the virtual router is expected to receive inbound traffic from.
         /// Currently only one listener is supported per virtual router.
         /// </summary>
-        [Input("listeners")]
+        [PolicyResourceProperty("listeners", "_mUnknown_Listeners")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.VirtualRouterSpecListenerArgs>> _mListeners;
-
-        public List<Inputs.VirtualRouterSpecListenerArgs>? Listeners => _mListeners.GetValue("listeners");
+        private List<Inputs.VirtualRouterSpecListenerArgs>? _mValue_Listeners;
+        private bool _mUnknown_Listeners;
+        public List<Inputs.VirtualRouterSpecListenerArgs>? Listeners
+        {
+            get
+            {
+                if (!_mUnknown_Listeners) return _mValue_Listeners;
+                throw new UndeferrableValueException("Value 'VirtualRouterSpecArgs.Listeners' is not present");
+            }
+        }
     }
 }

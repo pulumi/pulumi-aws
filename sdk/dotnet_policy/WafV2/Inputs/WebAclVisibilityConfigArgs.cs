@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
         /// </summary>
-        [Input("cloudwatchMetricsEnabled")]
+        [PolicyResourceProperty("cloudwatchMetricsEnabled", "_mUnknown_CloudwatchMetricsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCloudwatchMetricsEnabled;
-
-        public bool? CloudwatchMetricsEnabled => _mCloudwatchMetricsEnabled.GetValue("cloudwatchMetricsEnabled");
+        private bool? _mValue_CloudwatchMetricsEnabled;
+        private bool _mUnknown_CloudwatchMetricsEnabled;
+        public bool? CloudwatchMetricsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchMetricsEnabled) return _mValue_CloudwatchMetricsEnabled;
+                throw new UndeferrableValueException("Value 'WebAclVisibilityConfigArgs.CloudwatchMetricsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
         /// </summary>
-        [Input("metricName")]
+        [PolicyResourceProperty("metricName", "_mUnknown_MetricName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricName;
-
-        public string? MetricName => _mMetricName.GetValue("metricName");
+        private string? _mValue_MetricName;
+        private bool _mUnknown_MetricName;
+        public string? MetricName
+        {
+            get
+            {
+                if (!_mUnknown_MetricName) return _mValue_MetricName;
+                throw new UndeferrableValueException("Value 'WebAclVisibilityConfigArgs.MetricName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
         /// </summary>
-        [Input("sampledRequestsEnabled")]
+        [PolicyResourceProperty("sampledRequestsEnabled", "_mUnknown_SampledRequestsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSampledRequestsEnabled;
-
-        public bool? SampledRequestsEnabled => _mSampledRequestsEnabled.GetValue("sampledRequestsEnabled");
+        private bool? _mValue_SampledRequestsEnabled;
+        private bool _mUnknown_SampledRequestsEnabled;
+        public bool? SampledRequestsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_SampledRequestsEnabled) return _mValue_SampledRequestsEnabled;
+                throw new UndeferrableValueException("Value 'WebAclVisibilityConfigArgs.SampledRequestsEnabled' is not present");
+            }
+        }
     }
 }

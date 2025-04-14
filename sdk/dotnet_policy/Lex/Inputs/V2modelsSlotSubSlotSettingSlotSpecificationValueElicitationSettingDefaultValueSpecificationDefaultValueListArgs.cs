@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Default value to use when a user doesn't provide a value for a slot.
         /// </summary>
-        [Input("defaultValue")]
+        [PolicyResourceProperty("defaultValue", "_mUnknown_DefaultValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultValue;
-
-        public string? DefaultValue => _mDefaultValue.GetValue("defaultValue");
+        private string? _mValue_DefaultValue;
+        private bool _mUnknown_DefaultValue;
+        public string? DefaultValue
+        {
+            get
+            {
+                if (!_mUnknown_DefaultValue) return _mValue_DefaultValue;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs.DefaultValue' is not present");
+            }
+        }
     }
 }

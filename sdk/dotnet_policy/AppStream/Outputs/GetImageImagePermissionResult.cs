@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppStream.Outputs
         /// <summary>
         /// Boolean indicating if the image can be used for a fleet.
         /// </summary>
-        [Input("allowFleet")]
+        [PolicyResourceProperty("allowFleet", "_mUnknown_AllowFleet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowFleet;
-
-        public bool? AllowFleet => _mAllowFleet.GetValue("allowFleet");
+        private bool? _mValue_AllowFleet;
+        private bool _mUnknown_AllowFleet;
+        public bool? AllowFleet
+        {
+            get
+            {
+                if (!_mUnknown_AllowFleet) return _mValue_AllowFleet;
+                throw new UndeferrableValueException("Value 'GetImageImagePermissionResult.AllowFleet' is not present");
+            }
+        }
 
         /// <summary>
         /// indicated whether the image can be used for an image builder.
         /// </summary>
-        [Input("allowImageBuilder")]
+        [PolicyResourceProperty("allowImageBuilder", "_mUnknown_AllowImageBuilder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowImageBuilder;
-
-        public bool? AllowImageBuilder => _mAllowImageBuilder.GetValue("allowImageBuilder");
+        private bool? _mValue_AllowImageBuilder;
+        private bool _mUnknown_AllowImageBuilder;
+        public bool? AllowImageBuilder
+        {
+            get
+            {
+                if (!_mUnknown_AllowImageBuilder) return _mValue_AllowImageBuilder;
+                throw new UndeferrableValueException("Value 'GetImageImagePermissionResult.AllowImageBuilder' is not present");
+            }
+        }
     }
 }

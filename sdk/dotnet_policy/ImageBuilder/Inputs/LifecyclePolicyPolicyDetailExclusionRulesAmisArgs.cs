@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Inputs
         /// <summary>
         /// Configures whether public AMIs are excluded from the lifecycle action.
         /// </summary>
-        [Input("isPublic")]
+        [PolicyResourceProperty("isPublic", "_mUnknown_IsPublic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsPublic;
-
-        public bool? IsPublic => _mIsPublic.GetValue("isPublic");
+        private bool? _mValue_IsPublic;
+        private bool _mUnknown_IsPublic;
+        public bool? IsPublic
+        {
+            get
+            {
+                if (!_mUnknown_IsPublic) return _mValue_IsPublic;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesAmisArgs.IsPublic' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions. Detailed below.
         /// </summary>
-        [Input("lastLaunched")]
+        [PolicyResourceProperty("lastLaunched", "_mUnknown_LastLaunched")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs> _mLastLaunched;
-
-        public Inputs.LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs? LastLaunched => _mLastLaunched.GetValue("lastLaunched");
+        private Inputs.LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs? _mValue_LastLaunched;
+        private bool _mUnknown_LastLaunched;
+        public Inputs.LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs? LastLaunched
+        {
+            get
+            {
+                if (!_mUnknown_LastLaunched) return _mValue_LastLaunched;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesAmisArgs.LastLaunched' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures AWS Regions that are excluded from the lifecycle action.
         /// </summary>
-        [Input("regions")]
+        [PolicyResourceProperty("regions", "_mUnknown_Regions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegions;
-
-        public List<string>? Regions => _mRegions.GetValue("regions");
+        private List<string>? _mValue_Regions;
+        private bool _mUnknown_Regions;
+        public List<string>? Regions
+        {
+            get
+            {
+                if (!_mUnknown_Regions) return _mValue_Regions;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesAmisArgs.Regions' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies AWS accounts whose resources are excluded from the lifecycle action.
         /// </summary>
-        [Input("sharedAccounts")]
+        [PolicyResourceProperty("sharedAccounts", "_mUnknown_SharedAccounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSharedAccounts;
-
-        public List<string>? SharedAccounts => _mSharedAccounts.GetValue("sharedAccounts");
+        private List<string>? _mValue_SharedAccounts;
+        private bool _mUnknown_SharedAccounts;
+        public List<string>? SharedAccounts
+        {
+            get
+            {
+                if (!_mUnknown_SharedAccounts) return _mValue_SharedAccounts;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesAmisArgs.SharedAccounts' is not present");
+            }
+        }
 
         /// <summary>
         /// Lists tags that should be excluded from lifecycle actions for the AMIs that have them.
         /// </summary>
-        [Input("tagMap")]
+        [PolicyResourceProperty("tagMap", "_mUnknown_TagMap")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagMap;
-
-        public Dictionary<string, string>? TagMap => _mTagMap.GetValue("tagMap");
+        private Dictionary<string, string>? _mValue_TagMap;
+        private bool _mUnknown_TagMap;
+        public Dictionary<string, string>? TagMap
+        {
+            get
+            {
+                if (!_mUnknown_TagMap) return _mValue_TagMap;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesAmisArgs.TagMap' is not present");
+            }
+        }
     }
 }

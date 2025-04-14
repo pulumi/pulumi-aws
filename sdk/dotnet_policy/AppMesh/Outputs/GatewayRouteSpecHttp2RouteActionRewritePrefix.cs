@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("defaultPrefix")]
+        [PolicyResourceProperty("defaultPrefix", "_mUnknown_DefaultPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultPrefix;
-
-        public string? DefaultPrefix => _mDefaultPrefix.GetValue("defaultPrefix");
+        private string? _mValue_DefaultPrefix;
+        private bool _mUnknown_DefaultPrefix;
+        public string? DefaultPrefix
+        {
+            get
+            {
+                if (!_mUnknown_DefaultPrefix) return _mValue_DefaultPrefix;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2RouteActionRewritePrefix.DefaultPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Value used to replace the incoming route prefix when rewritten.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2RouteActionRewritePrefix.Value' is not present");
+            }
+        }
     }
 }

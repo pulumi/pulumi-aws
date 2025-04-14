@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery.Inputs
         /// <summary>
         /// Name of the S3 bucket under which error reports will be created.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'ScheduledQueryErrorReportConfigurationS3ConfigurationArgs.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose `SSE_S3` as default. Valid values are `SSE_S3`, `SSE_KMS`.
         /// </summary>
-        [Input("encryptionOption")]
+        [PolicyResourceProperty("encryptionOption", "_mUnknown_EncryptionOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionOption;
-
-        public string? EncryptionOption => _mEncryptionOption.GetValue("encryptionOption");
+        private string? _mValue_EncryptionOption;
+        private bool _mUnknown_EncryptionOption;
+        public string? EncryptionOption
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionOption) return _mValue_EncryptionOption;
+                throw new UndeferrableValueException("Value 'ScheduledQueryErrorReportConfigurationS3ConfigurationArgs.EncryptionOption' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix for the error report key.
         /// </summary>
-        [Input("objectKeyPrefix")]
+        [PolicyResourceProperty("objectKeyPrefix", "_mUnknown_ObjectKeyPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectKeyPrefix;
-
-        public string? ObjectKeyPrefix => _mObjectKeyPrefix.GetValue("objectKeyPrefix");
+        private string? _mValue_ObjectKeyPrefix;
+        private bool _mUnknown_ObjectKeyPrefix;
+        public string? ObjectKeyPrefix
+        {
+            get
+            {
+                if (!_mUnknown_ObjectKeyPrefix) return _mValue_ObjectKeyPrefix;
+                throw new UndeferrableValueException("Value 'ScheduledQueryErrorReportConfigurationS3ConfigurationArgs.ObjectKeyPrefix' is not present");
+            }
+        }
     }
 }

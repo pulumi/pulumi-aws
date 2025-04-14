@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional
         /// <summary>
         /// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'WebAclAssociation.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the WAF Regional WebACL to create an association.
         /// </summary>
-        [Input("webAclId")]
+        [PolicyResourceProperty("webAclId", "_mUnknown_WebAclId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebAclId;
-
-        public string? WebAclId => _mWebAclId.GetValue("webAclId");
+        private string? _mValue_WebAclId;
+        private bool _mUnknown_WebAclId;
+        public string? WebAclId
+        {
+            get
+            {
+                if (!_mUnknown_WebAclId) return _mValue_WebAclId;
+                throw new UndeferrableValueException("Value 'WebAclAssociation.WebAclId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:wafregional/webAclAssociation:WebAclAssociation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional
         /// <summary>
         /// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'WebAclAssociationArgs.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the WAF Regional WebACL to create an association.
         /// </summary>
-        [Input("webAclId")]
+        [PolicyResourceProperty("webAclId", "_mUnknown_WebAclId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebAclId;
-
-        public string? WebAclId => _mWebAclId.GetValue("webAclId");
+        private string? _mValue_WebAclId;
+        private bool _mUnknown_WebAclId;
+        public string? WebAclId
+        {
+            get
+            {
+                if (!_mUnknown_WebAclId) return _mValue_WebAclId;
+                throw new UndeferrableValueException("Value 'WebAclAssociationArgs.WebAclId' is not present");
+            }
+        }
     }
 }

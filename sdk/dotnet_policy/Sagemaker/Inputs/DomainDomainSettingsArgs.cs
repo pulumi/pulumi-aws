@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
         /// </summary>
-        [Input("dockerSettings")]
+        [PolicyResourceProperty("dockerSettings", "_mUnknown_DockerSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDomainSettingsDockerSettingsArgs> _mDockerSettings;
-
-        public Inputs.DomainDomainSettingsDockerSettingsArgs? DockerSettings => _mDockerSettings.GetValue("dockerSettings");
+        private Inputs.DomainDomainSettingsDockerSettingsArgs? _mValue_DockerSettings;
+        private bool _mUnknown_DockerSettings;
+        public Inputs.DomainDomainSettingsDockerSettingsArgs? DockerSettings
+        {
+            get
+            {
+                if (!_mUnknown_DockerSettings) return _mValue_DockerSettings;
+                throw new UndeferrableValueException("Value 'DomainDomainSettingsArgs.DockerSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for attaching a SageMaker AI user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
         /// </summary>
-        [Input("executionRoleIdentityConfig")]
+        [PolicyResourceProperty("executionRoleIdentityConfig", "_mUnknown_ExecutionRoleIdentityConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleIdentityConfig;
-
-        public string? ExecutionRoleIdentityConfig => _mExecutionRoleIdentityConfig.GetValue("executionRoleIdentityConfig");
+        private string? _mValue_ExecutionRoleIdentityConfig;
+        private bool _mUnknown_ExecutionRoleIdentityConfig;
+        public string? ExecutionRoleIdentityConfig
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleIdentityConfig) return _mValue_ExecutionRoleIdentityConfig;
+                throw new UndeferrableValueException("Value 'DomainDomainSettingsArgs.ExecutionRoleIdentityConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
         /// </summary>
-        [Input("rStudioServerProDomainSettings")]
+        [PolicyResourceProperty("rStudioServerProDomainSettings", "_mUnknown_RStudioServerProDomainSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDomainSettingsRStudioServerProDomainSettingsArgs> _mRStudioServerProDomainSettings;
-
-        public Inputs.DomainDomainSettingsRStudioServerProDomainSettingsArgs? RStudioServerProDomainSettings => _mRStudioServerProDomainSettings.GetValue("rStudioServerProDomainSettings");
+        private Inputs.DomainDomainSettingsRStudioServerProDomainSettingsArgs? _mValue_RStudioServerProDomainSettings;
+        private bool _mUnknown_RStudioServerProDomainSettings;
+        public Inputs.DomainDomainSettingsRStudioServerProDomainSettingsArgs? RStudioServerProDomainSettings
+        {
+            get
+            {
+                if (!_mUnknown_RStudioServerProDomainSettings) return _mValue_RStudioServerProDomainSettings;
+                throw new UndeferrableValueException("Value 'DomainDomainSettingsArgs.RStudioServerProDomainSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'DomainDomainSettingsArgs.SecurityGroupIds' is not present");
+            }
+        }
     }
 }

@@ -16,95 +16,172 @@ namespace Pulumi.PolicyPacks.Aws.ServiceQuotas
         /// <summary>
         /// Whether the service quota can be increased.
         /// </summary>
-        [Input("adjustable")]
+        [PolicyResourceProperty("adjustable", "_mUnknown_Adjustable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAdjustable;
-
-        public bool? Adjustable => _mAdjustable.GetValue("adjustable");
+        private bool? _mValue_Adjustable;
+        private bool _mUnknown_Adjustable;
+        public bool? Adjustable
+        {
+            get
+            {
+                if (!_mUnknown_Adjustable) return _mValue_Adjustable;
+                throw new UndeferrableValueException("Value 'ServiceQuota.Adjustable' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the service quota.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ServiceQuota.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Default value of the service quota.
         /// </summary>
-        [Input("defaultValue")]
+        [PolicyResourceProperty("defaultValue", "_mUnknown_DefaultValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mDefaultValue;
-
-        public double? DefaultValue => _mDefaultValue.GetValue("defaultValue");
+        private double? _mValue_DefaultValue;
+        private bool _mUnknown_DefaultValue;
+        public double? DefaultValue
+        {
+            get
+            {
+                if (!_mUnknown_DefaultValue) return _mValue_DefaultValue;
+                throw new UndeferrableValueException("Value 'ServiceQuota.DefaultValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
         /// </summary>
-        [Input("quotaCode")]
+        [PolicyResourceProperty("quotaCode", "_mUnknown_QuotaCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQuotaCode;
-
-        public string? QuotaCode => _mQuotaCode.GetValue("quotaCode");
+        private string? _mValue_QuotaCode;
+        private bool _mUnknown_QuotaCode;
+        public string? QuotaCode
+        {
+            get
+            {
+                if (!_mUnknown_QuotaCode) return _mValue_QuotaCode;
+                throw new UndeferrableValueException("Value 'ServiceQuota.QuotaCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the quota.
         /// </summary>
-        [Input("quotaName")]
+        [PolicyResourceProperty("quotaName", "_mUnknown_QuotaName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQuotaName;
+        private string? _mValue_QuotaName;
+        private bool _mUnknown_QuotaName;
+        public string? QuotaName
+        {
+            get
+            {
+                if (!_mUnknown_QuotaName) return _mValue_QuotaName;
+                throw new UndeferrableValueException("Value 'ServiceQuota.QuotaName' is not present");
+            }
+        }
 
-        public string? QuotaName => _mQuotaName.GetValue("quotaName");
-
-        [Input("requestId")]
+        [PolicyResourceProperty("requestId", "_mUnknown_RequestId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequestId;
+        private string? _mValue_RequestId;
+        private bool _mUnknown_RequestId;
+        public string? RequestId
+        {
+            get
+            {
+                if (!_mUnknown_RequestId) return _mValue_RequestId;
+                throw new UndeferrableValueException("Value 'ServiceQuota.RequestId' is not present");
+            }
+        }
 
-        public string? RequestId => _mRequestId.GetValue("requestId");
-
-        [Input("requestStatus")]
+        [PolicyResourceProperty("requestStatus", "_mUnknown_RequestStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequestStatus;
-
-        public string? RequestStatus => _mRequestStatus.GetValue("requestStatus");
+        private string? _mValue_RequestStatus;
+        private bool _mUnknown_RequestStatus;
+        public string? RequestStatus
+        {
+            get
+            {
+                if (!_mUnknown_RequestStatus) return _mValue_RequestStatus;
+                throw new UndeferrableValueException("Value 'ServiceQuota.RequestStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         /// </summary>
-        [Input("serviceCode")]
+        [PolicyResourceProperty("serviceCode", "_mUnknown_ServiceCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceCode;
-
-        public string? ServiceCode => _mServiceCode.GetValue("serviceCode");
+        private string? _mValue_ServiceCode;
+        private bool _mUnknown_ServiceCode;
+        public string? ServiceCode
+        {
+            get
+            {
+                if (!_mUnknown_ServiceCode) return _mValue_ServiceCode;
+                throw new UndeferrableValueException("Value 'ServiceQuota.ServiceCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the service.
         /// </summary>
-        [Input("serviceName")]
+        [PolicyResourceProperty("serviceName", "_mUnknown_ServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
-
-        public string? ServiceName => _mServiceName.GetValue("serviceName");
+        private string? _mValue_ServiceName;
+        private bool _mUnknown_ServiceName;
+        public string? ServiceName
+        {
+            get
+            {
+                if (!_mUnknown_ServiceName) return _mValue_ServiceName;
+                throw new UndeferrableValueException("Value 'ServiceQuota.ServiceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the measurement.
         /// </summary>
-        [Input("usageMetrics")]
+        [PolicyResourceProperty("usageMetrics", "_mUnknown_UsageMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServiceQuotaUsageMetric>> _mUsageMetrics;
-
-        public List<Outputs.ServiceQuotaUsageMetric>? UsageMetrics => _mUsageMetrics.GetValue("usageMetrics");
+        private List<Outputs.ServiceQuotaUsageMetric>? _mValue_UsageMetrics;
+        private bool _mUnknown_UsageMetrics;
+        public List<Outputs.ServiceQuotaUsageMetric>? UsageMetrics
+        {
+            get
+            {
+                if (!_mUnknown_UsageMetrics) return _mValue_UsageMetrics;
+                throw new UndeferrableValueException("Value 'ServiceQuota.UsageMetrics' is not present");
+            }
+        }
 
         /// <summary>
         /// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mValue;
-
-        public double? Value => _mValue.GetValue("value");
+        private double? _mValue_Value;
+        private bool _mUnknown_Value;
+        public double? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'ServiceQuota.Value' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:servicequotas/serviceQuota:ServiceQuota")]
@@ -113,28 +190,49 @@ namespace Pulumi.PolicyPacks.Aws.ServiceQuotas
         /// <summary>
         /// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
         /// </summary>
-        [Input("quotaCode")]
+        [PolicyResourceProperty("quotaCode", "_mUnknown_QuotaCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQuotaCode;
-
-        public string? QuotaCode => _mQuotaCode.GetValue("quotaCode");
+        private string? _mValue_QuotaCode;
+        private bool _mUnknown_QuotaCode;
+        public string? QuotaCode
+        {
+            get
+            {
+                if (!_mUnknown_QuotaCode) return _mValue_QuotaCode;
+                throw new UndeferrableValueException("Value 'ServiceQuotaArgs.QuotaCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         /// </summary>
-        [Input("serviceCode")]
+        [PolicyResourceProperty("serviceCode", "_mUnknown_ServiceCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceCode;
-
-        public string? ServiceCode => _mServiceCode.GetValue("serviceCode");
+        private string? _mValue_ServiceCode;
+        private bool _mUnknown_ServiceCode;
+        public string? ServiceCode
+        {
+            get
+            {
+                if (!_mUnknown_ServiceCode) return _mValue_ServiceCode;
+                throw new UndeferrableValueException("Value 'ServiceQuotaArgs.ServiceCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mValue;
-
-        public double? Value => _mValue.GetValue("value");
+        private double? _mValue_Value;
+        private bool _mUnknown_Value;
+        public double? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'ServiceQuotaArgs.Value' is not present");
+            }
+        }
     }
 }

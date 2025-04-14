@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppFabric.Outputs
         /// <summary>
         /// Contains API key credential information.
         /// </summary>
-        [Input("apiKeyCredentials")]
+        [PolicyResourceProperty("apiKeyCredentials", "_mUnknown_ApiKeyCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AppAuthorizationCredentialApiKeyCredential>> _mApiKeyCredentials;
-
-        public List<Outputs.AppAuthorizationCredentialApiKeyCredential>? ApiKeyCredentials => _mApiKeyCredentials.GetValue("apiKeyCredentials");
+        private List<Outputs.AppAuthorizationCredentialApiKeyCredential>? _mValue_ApiKeyCredentials;
+        private bool _mUnknown_ApiKeyCredentials;
+        public List<Outputs.AppAuthorizationCredentialApiKeyCredential>? ApiKeyCredentials
+        {
+            get
+            {
+                if (!_mUnknown_ApiKeyCredentials) return _mValue_ApiKeyCredentials;
+                throw new UndeferrableValueException("Value 'AppAuthorizationCredential.ApiKeyCredentials' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains OAuth2 client credential information.
         /// </summary>
-        [Input("oauth2Credential")]
+        [PolicyResourceProperty("oauth2Credential", "_mUnknown_Oauth2Credential")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AppAuthorizationCredentialOauth2Credential> _mOauth2Credential;
-
-        public Outputs.AppAuthorizationCredentialOauth2Credential? Oauth2Credential => _mOauth2Credential.GetValue("oauth2Credential");
+        private Outputs.AppAuthorizationCredentialOauth2Credential? _mValue_Oauth2Credential;
+        private bool _mUnknown_Oauth2Credential;
+        public Outputs.AppAuthorizationCredentialOauth2Credential? Oauth2Credential
+        {
+            get
+            {
+                if (!_mUnknown_Oauth2Credential) return _mValue_Oauth2Credential;
+                throw new UndeferrableValueException("Value 'AppAuthorizationCredential.Oauth2Credential' is not present");
+            }
+        }
     }
 }

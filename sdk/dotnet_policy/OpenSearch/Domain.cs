@@ -16,258 +16,454 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// IAM policy document specifying the access policies for the domain.
         /// </summary>
-        [Input("accessPolicies")]
+        [PolicyResourceProperty("accessPolicies", "_mUnknown_AccessPolicies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPolicies;
-
-        public string? AccessPolicies => _mAccessPolicies.GetValue("accessPolicies");
+        private string? _mValue_AccessPolicies;
+        private bool _mUnknown_AccessPolicies;
+        public string? AccessPolicies
+        {
+            get
+            {
+                if (!_mUnknown_AccessPolicies) return _mValue_AccessPolicies;
+                throw new UndeferrableValueException("Value 'Domain.AccessPolicies' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
         /// </summary>
-        [Input("advancedOptions")]
+        [PolicyResourceProperty("advancedOptions", "_mUnknown_AdvancedOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAdvancedOptions;
-
-        public Dictionary<string, string>? AdvancedOptions => _mAdvancedOptions.GetValue("advancedOptions");
+        private Dictionary<string, string>? _mValue_AdvancedOptions;
+        private bool _mUnknown_AdvancedOptions;
+        public Dictionary<string, string>? AdvancedOptions
+        {
+            get
+            {
+                if (!_mUnknown_AdvancedOptions) return _mValue_AdvancedOptions;
+                throw new UndeferrableValueException("Value 'Domain.AdvancedOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
         /// </summary>
-        [Input("advancedSecurityOptions")]
+        [PolicyResourceProperty("advancedSecurityOptions", "_mUnknown_AdvancedSecurityOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainAdvancedSecurityOptions> _mAdvancedSecurityOptions;
-
-        public Outputs.DomainAdvancedSecurityOptions? AdvancedSecurityOptions => _mAdvancedSecurityOptions.GetValue("advancedSecurityOptions");
+        private Outputs.DomainAdvancedSecurityOptions? _mValue_AdvancedSecurityOptions;
+        private bool _mUnknown_AdvancedSecurityOptions;
+        public Outputs.DomainAdvancedSecurityOptions? AdvancedSecurityOptions
+        {
+            get
+            {
+                if (!_mUnknown_AdvancedSecurityOptions) return _mValue_AdvancedSecurityOptions;
+                throw new UndeferrableValueException("Value 'Domain.AdvancedSecurityOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the domain.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Domain.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the Auto-Tune options of the domain. Detailed below.
         /// </summary>
-        [Input("autoTuneOptions")]
+        [PolicyResourceProperty("autoTuneOptions", "_mUnknown_AutoTuneOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainAutoTuneOptions> _mAutoTuneOptions;
-
-        public Outputs.DomainAutoTuneOptions? AutoTuneOptions => _mAutoTuneOptions.GetValue("autoTuneOptions");
+        private Outputs.DomainAutoTuneOptions? _mValue_AutoTuneOptions;
+        private bool _mUnknown_AutoTuneOptions;
+        public Outputs.DomainAutoTuneOptions? AutoTuneOptions
+        {
+            get
+            {
+                if (!_mUnknown_AutoTuneOptions) return _mValue_AutoTuneOptions;
+                throw new UndeferrableValueException("Value 'Domain.AutoTuneOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the cluster of the domain. Detailed below.
         /// </summary>
-        [Input("clusterConfig")]
+        [PolicyResourceProperty("clusterConfig", "_mUnknown_ClusterConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainClusterConfig> _mClusterConfig;
-
-        public Outputs.DomainClusterConfig? ClusterConfig => _mClusterConfig.GetValue("clusterConfig");
+        private Outputs.DomainClusterConfig? _mValue_ClusterConfig;
+        private bool _mUnknown_ClusterConfig;
+        public Outputs.DomainClusterConfig? ClusterConfig
+        {
+            get
+            {
+                if (!_mUnknown_ClusterConfig) return _mValue_ClusterConfig;
+                throw new UndeferrableValueException("Value 'Domain.ClusterConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for authenticating dashboard with Cognito. Detailed below.
         /// </summary>
-        [Input("cognitoOptions")]
+        [PolicyResourceProperty("cognitoOptions", "_mUnknown_CognitoOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainCognitoOptions> _mCognitoOptions;
-
-        public Outputs.DomainCognitoOptions? CognitoOptions => _mCognitoOptions.GetValue("cognitoOptions");
+        private Outputs.DomainCognitoOptions? _mValue_CognitoOptions;
+        private bool _mUnknown_CognitoOptions;
+        public Outputs.DomainCognitoOptions? CognitoOptions
+        {
+            get
+            {
+                if (!_mUnknown_CognitoOptions) return _mValue_CognitoOptions;
+                throw new UndeferrableValueException("Value 'Domain.CognitoOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain-specific endpoint for Dashboard without https scheme.
         /// </summary>
-        [Input("dashboardEndpoint")]
+        [PolicyResourceProperty("dashboardEndpoint", "_mUnknown_DashboardEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDashboardEndpoint;
-
-        public string? DashboardEndpoint => _mDashboardEndpoint.GetValue("dashboardEndpoint");
+        private string? _mValue_DashboardEndpoint;
+        private bool _mUnknown_DashboardEndpoint;
+        public string? DashboardEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_DashboardEndpoint) return _mValue_DashboardEndpoint;
+                throw new UndeferrableValueException("Value 'Domain.DashboardEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
         /// </summary>
-        [Input("dashboardEndpointV2")]
+        [PolicyResourceProperty("dashboardEndpointV2", "_mUnknown_DashboardEndpointV2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDashboardEndpointV2;
-
-        public string? DashboardEndpointV2 => _mDashboardEndpointV2.GetValue("dashboardEndpointV2");
+        private string? _mValue_DashboardEndpointV2;
+        private bool _mUnknown_DashboardEndpointV2;
+        public string? DashboardEndpointV2
+        {
+            get
+            {
+                if (!_mUnknown_DashboardEndpointV2) return _mValue_DashboardEndpointV2;
+                throw new UndeferrableValueException("Value 'Domain.DashboardEndpointV2' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         /// </summary>
-        [Input("domainEndpointOptions")]
+        [PolicyResourceProperty("domainEndpointOptions", "_mUnknown_DomainEndpointOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainDomainEndpointOptions> _mDomainEndpointOptions;
-
-        public Outputs.DomainDomainEndpointOptions? DomainEndpointOptions => _mDomainEndpointOptions.GetValue("domainEndpointOptions");
+        private Outputs.DomainDomainEndpointOptions? _mValue_DomainEndpointOptions;
+        private bool _mUnknown_DomainEndpointOptions;
+        public Outputs.DomainDomainEndpointOptions? DomainEndpointOptions
+        {
+            get
+            {
+                if (!_mUnknown_DomainEndpointOptions) return _mValue_DomainEndpointOptions;
+                throw new UndeferrableValueException("Value 'Domain.DomainEndpointOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Dual stack hosted zone ID for the domain.
         /// </summary>
-        [Input("domainEndpointV2HostedZoneId")]
+        [PolicyResourceProperty("domainEndpointV2HostedZoneId", "_mUnknown_DomainEndpointV2HostedZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainEndpointV2HostedZoneId;
-
-        public string? DomainEndpointV2HostedZoneId => _mDomainEndpointV2HostedZoneId.GetValue("domainEndpointV2HostedZoneId");
+        private string? _mValue_DomainEndpointV2HostedZoneId;
+        private bool _mUnknown_DomainEndpointV2HostedZoneId;
+        public string? DomainEndpointV2HostedZoneId
+        {
+            get
+            {
+                if (!_mUnknown_DomainEndpointV2HostedZoneId) return _mValue_DomainEndpointV2HostedZoneId;
+                throw new UndeferrableValueException("Value 'Domain.DomainEndpointV2HostedZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the domain.
         /// </summary>
-        [Input("domainId")]
+        [PolicyResourceProperty("domainId", "_mUnknown_DomainId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainId;
-
-        public string? DomainId => _mDomainId.GetValue("domainId");
+        private string? _mValue_DomainId;
+        private bool _mUnknown_DomainId;
+        public string? DomainId
+        {
+            get
+            {
+                if (!_mUnknown_DomainId) return _mValue_DomainId;
+                throw new UndeferrableValueException("Value 'Domain.DomainId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the domain.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'Domain.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
         /// </summary>
-        [Input("ebsOptions")]
+        [PolicyResourceProperty("ebsOptions", "_mUnknown_EbsOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainEbsOptions> _mEbsOptions;
-
-        public Outputs.DomainEbsOptions? EbsOptions => _mEbsOptions.GetValue("ebsOptions");
+        private Outputs.DomainEbsOptions? _mValue_EbsOptions;
+        private bool _mUnknown_EbsOptions;
+        public Outputs.DomainEbsOptions? EbsOptions
+        {
+            get
+            {
+                if (!_mUnknown_EbsOptions) return _mValue_EbsOptions;
+                throw new UndeferrableValueException("Value 'Domain.EbsOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
         /// </summary>
-        [Input("encryptAtRest")]
+        [PolicyResourceProperty("encryptAtRest", "_mUnknown_EncryptAtRest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainEncryptAtRest> _mEncryptAtRest;
-
-        public Outputs.DomainEncryptAtRest? EncryptAtRest => _mEncryptAtRest.GetValue("encryptAtRest");
+        private Outputs.DomainEncryptAtRest? _mValue_EncryptAtRest;
+        private bool _mUnknown_EncryptAtRest;
+        public Outputs.DomainEncryptAtRest? EncryptAtRest
+        {
+            get
+            {
+                if (!_mUnknown_EncryptAtRest) return _mValue_EncryptAtRest;
+                throw new UndeferrableValueException("Value 'Domain.EncryptAtRest' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain-specific endpoint used to submit index, search, and data upload requests.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'Domain.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
         /// </summary>
-        [Input("endpointV2")]
+        [PolicyResourceProperty("endpointV2", "_mUnknown_EndpointV2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointV2;
-
-        public string? EndpointV2 => _mEndpointV2.GetValue("endpointV2");
+        private string? _mValue_EndpointV2;
+        private bool _mUnknown_EndpointV2;
+        public string? EndpointV2
+        {
+            get
+            {
+                if (!_mUnknown_EndpointV2) return _mValue_EndpointV2;
+                throw new UndeferrableValueException("Value 'Domain.EndpointV2' is not present");
+            }
+        }
 
         /// <summary>
         /// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
         /// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
         /// Defaults to the lastest version of OpenSearch.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'Domain.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
         /// </summary>
-        [Input("ipAddressType")]
+        [PolicyResourceProperty("ipAddressType", "_mUnknown_IpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
-
-        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+        private string? _mValue_IpAddressType;
+        private bool _mUnknown_IpAddressType;
+        public string? IpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressType) return _mValue_IpAddressType;
+                throw new UndeferrableValueException("Value 'Domain.IpAddressType' is not present");
+            }
+        }
 
         /// <summary>
         /// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
         /// </summary>
-        [Input("kibanaEndpoint")]
+        [PolicyResourceProperty("kibanaEndpoint", "_mUnknown_KibanaEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKibanaEndpoint;
-
-        public string? KibanaEndpoint => _mKibanaEndpoint.GetValue("kibanaEndpoint");
+        private string? _mValue_KibanaEndpoint;
+        private bool _mUnknown_KibanaEndpoint;
+        public string? KibanaEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_KibanaEndpoint) return _mValue_KibanaEndpoint;
+                throw new UndeferrableValueException("Value 'Domain.KibanaEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         /// </summary>
-        [Input("logPublishingOptions")]
+        [PolicyResourceProperty("logPublishingOptions", "_mUnknown_LogPublishingOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DomainLogPublishingOption>> _mLogPublishingOptions;
-
-        public List<Outputs.DomainLogPublishingOption>? LogPublishingOptions => _mLogPublishingOptions.GetValue("logPublishingOptions");
+        private List<Outputs.DomainLogPublishingOption>? _mValue_LogPublishingOptions;
+        private bool _mUnknown_LogPublishingOptions;
+        public List<Outputs.DomainLogPublishingOption>? LogPublishingOptions
+        {
+            get
+            {
+                if (!_mUnknown_LogPublishingOptions) return _mValue_LogPublishingOptions;
+                throw new UndeferrableValueException("Value 'Domain.LogPublishingOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for node-to-node encryption options. Detailed below.
         /// </summary>
-        [Input("nodeToNodeEncryption")]
+        [PolicyResourceProperty("nodeToNodeEncryption", "_mUnknown_NodeToNodeEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainNodeToNodeEncryption> _mNodeToNodeEncryption;
-
-        public Outputs.DomainNodeToNodeEncryption? NodeToNodeEncryption => _mNodeToNodeEncryption.GetValue("nodeToNodeEncryption");
+        private Outputs.DomainNodeToNodeEncryption? _mValue_NodeToNodeEncryption;
+        private bool _mUnknown_NodeToNodeEncryption;
+        public Outputs.DomainNodeToNodeEncryption? NodeToNodeEncryption
+        {
+            get
+            {
+                if (!_mUnknown_NodeToNodeEncryption) return _mValue_NodeToNodeEncryption;
+                throw new UndeferrableValueException("Value 'Domain.NodeToNodeEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
         /// </summary>
-        [Input("offPeakWindowOptions")]
+        [PolicyResourceProperty("offPeakWindowOptions", "_mUnknown_OffPeakWindowOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainOffPeakWindowOptions> _mOffPeakWindowOptions;
-
-        public Outputs.DomainOffPeakWindowOptions? OffPeakWindowOptions => _mOffPeakWindowOptions.GetValue("offPeakWindowOptions");
+        private Outputs.DomainOffPeakWindowOptions? _mValue_OffPeakWindowOptions;
+        private bool _mUnknown_OffPeakWindowOptions;
+        public Outputs.DomainOffPeakWindowOptions? OffPeakWindowOptions
+        {
+            get
+            {
+                if (!_mUnknown_OffPeakWindowOptions) return _mValue_OffPeakWindowOptions;
+                throw new UndeferrableValueException("Value 'Domain.OffPeakWindowOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
         /// </summary>
-        [Input("snapshotOptions")]
+        [PolicyResourceProperty("snapshotOptions", "_mUnknown_SnapshotOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainSnapshotOptions> _mSnapshotOptions;
-
-        public Outputs.DomainSnapshotOptions? SnapshotOptions => _mSnapshotOptions.GetValue("snapshotOptions");
+        private Outputs.DomainSnapshotOptions? _mValue_SnapshotOptions;
+        private bool _mUnknown_SnapshotOptions;
+        public Outputs.DomainSnapshotOptions? SnapshotOptions
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotOptions) return _mValue_SnapshotOptions;
+                throw new UndeferrableValueException("Value 'Domain.SnapshotOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Software update options for the domain. Detailed below.
         /// </summary>
-        [Input("softwareUpdateOptions")]
+        [PolicyResourceProperty("softwareUpdateOptions", "_mUnknown_SoftwareUpdateOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainSoftwareUpdateOptions> _mSoftwareUpdateOptions;
-
-        public Outputs.DomainSoftwareUpdateOptions? SoftwareUpdateOptions => _mSoftwareUpdateOptions.GetValue("softwareUpdateOptions");
+        private Outputs.DomainSoftwareUpdateOptions? _mValue_SoftwareUpdateOptions;
+        private bool _mUnknown_SoftwareUpdateOptions;
+        public Outputs.DomainSoftwareUpdateOptions? SoftwareUpdateOptions
+        {
+            get
+            {
+                if (!_mUnknown_SoftwareUpdateOptions) return _mValue_SoftwareUpdateOptions;
+                throw new UndeferrableValueException("Value 'Domain.SoftwareUpdateOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Domain.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Domain.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
         /// </summary>
-        [Input("vpcOptions")]
+        [PolicyResourceProperty("vpcOptions", "_mUnknown_VpcOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainVpcOptions> _mVpcOptions;
-
-        public Outputs.DomainVpcOptions? VpcOptions => _mVpcOptions.GetValue("vpcOptions");
+        private Outputs.DomainVpcOptions? _mValue_VpcOptions;
+        private bool _mUnknown_VpcOptions;
+        public Outputs.DomainVpcOptions? VpcOptions
+        {
+            get
+            {
+                if (!_mUnknown_VpcOptions) return _mValue_VpcOptions;
+                throw new UndeferrableValueException("Value 'Domain.VpcOptions' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opensearch/domain:Domain")]
@@ -276,176 +472,309 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// IAM policy document specifying the access policies for the domain.
         /// </summary>
-        [Input("accessPolicies")]
+        [PolicyResourceProperty("accessPolicies", "_mUnknown_AccessPolicies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPolicies;
-
-        public string? AccessPolicies => _mAccessPolicies.GetValue("accessPolicies");
+        private string? _mValue_AccessPolicies;
+        private bool _mUnknown_AccessPolicies;
+        public string? AccessPolicies
+        {
+            get
+            {
+                if (!_mUnknown_AccessPolicies) return _mValue_AccessPolicies;
+                throw new UndeferrableValueException("Value 'DomainArgs.AccessPolicies' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
         /// </summary>
-        [Input("advancedOptions")]
+        [PolicyResourceProperty("advancedOptions", "_mUnknown_AdvancedOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAdvancedOptions;
-
-        public Dictionary<string, string>? AdvancedOptions => _mAdvancedOptions.GetValue("advancedOptions");
+        private Dictionary<string, string>? _mValue_AdvancedOptions;
+        private bool _mUnknown_AdvancedOptions;
+        public Dictionary<string, string>? AdvancedOptions
+        {
+            get
+            {
+                if (!_mUnknown_AdvancedOptions) return _mValue_AdvancedOptions;
+                throw new UndeferrableValueException("Value 'DomainArgs.AdvancedOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
         /// </summary>
-        [Input("advancedSecurityOptions")]
+        [PolicyResourceProperty("advancedSecurityOptions", "_mUnknown_AdvancedSecurityOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainAdvancedSecurityOptionsArgs> _mAdvancedSecurityOptions;
-
-        public Inputs.DomainAdvancedSecurityOptionsArgs? AdvancedSecurityOptions => _mAdvancedSecurityOptions.GetValue("advancedSecurityOptions");
+        private Inputs.DomainAdvancedSecurityOptionsArgs? _mValue_AdvancedSecurityOptions;
+        private bool _mUnknown_AdvancedSecurityOptions;
+        public Inputs.DomainAdvancedSecurityOptionsArgs? AdvancedSecurityOptions
+        {
+            get
+            {
+                if (!_mUnknown_AdvancedSecurityOptions) return _mValue_AdvancedSecurityOptions;
+                throw new UndeferrableValueException("Value 'DomainArgs.AdvancedSecurityOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the Auto-Tune options of the domain. Detailed below.
         /// </summary>
-        [Input("autoTuneOptions")]
+        [PolicyResourceProperty("autoTuneOptions", "_mUnknown_AutoTuneOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainAutoTuneOptionsArgs> _mAutoTuneOptions;
-
-        public Inputs.DomainAutoTuneOptionsArgs? AutoTuneOptions => _mAutoTuneOptions.GetValue("autoTuneOptions");
+        private Inputs.DomainAutoTuneOptionsArgs? _mValue_AutoTuneOptions;
+        private bool _mUnknown_AutoTuneOptions;
+        public Inputs.DomainAutoTuneOptionsArgs? AutoTuneOptions
+        {
+            get
+            {
+                if (!_mUnknown_AutoTuneOptions) return _mValue_AutoTuneOptions;
+                throw new UndeferrableValueException("Value 'DomainArgs.AutoTuneOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the cluster of the domain. Detailed below.
         /// </summary>
-        [Input("clusterConfig")]
+        [PolicyResourceProperty("clusterConfig", "_mUnknown_ClusterConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainClusterConfigArgs> _mClusterConfig;
-
-        public Inputs.DomainClusterConfigArgs? ClusterConfig => _mClusterConfig.GetValue("clusterConfig");
+        private Inputs.DomainClusterConfigArgs? _mValue_ClusterConfig;
+        private bool _mUnknown_ClusterConfig;
+        public Inputs.DomainClusterConfigArgs? ClusterConfig
+        {
+            get
+            {
+                if (!_mUnknown_ClusterConfig) return _mValue_ClusterConfig;
+                throw new UndeferrableValueException("Value 'DomainArgs.ClusterConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for authenticating dashboard with Cognito. Detailed below.
         /// </summary>
-        [Input("cognitoOptions")]
+        [PolicyResourceProperty("cognitoOptions", "_mUnknown_CognitoOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainCognitoOptionsArgs> _mCognitoOptions;
-
-        public Inputs.DomainCognitoOptionsArgs? CognitoOptions => _mCognitoOptions.GetValue("cognitoOptions");
+        private Inputs.DomainCognitoOptionsArgs? _mValue_CognitoOptions;
+        private bool _mUnknown_CognitoOptions;
+        public Inputs.DomainCognitoOptionsArgs? CognitoOptions
+        {
+            get
+            {
+                if (!_mUnknown_CognitoOptions) return _mValue_CognitoOptions;
+                throw new UndeferrableValueException("Value 'DomainArgs.CognitoOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         /// </summary>
-        [Input("domainEndpointOptions")]
+        [PolicyResourceProperty("domainEndpointOptions", "_mUnknown_DomainEndpointOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDomainEndpointOptionsArgs> _mDomainEndpointOptions;
-
-        public Inputs.DomainDomainEndpointOptionsArgs? DomainEndpointOptions => _mDomainEndpointOptions.GetValue("domainEndpointOptions");
+        private Inputs.DomainDomainEndpointOptionsArgs? _mValue_DomainEndpointOptions;
+        private bool _mUnknown_DomainEndpointOptions;
+        public Inputs.DomainDomainEndpointOptionsArgs? DomainEndpointOptions
+        {
+            get
+            {
+                if (!_mUnknown_DomainEndpointOptions) return _mValue_DomainEndpointOptions;
+                throw new UndeferrableValueException("Value 'DomainArgs.DomainEndpointOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the domain.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'DomainArgs.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
         /// </summary>
-        [Input("ebsOptions")]
+        [PolicyResourceProperty("ebsOptions", "_mUnknown_EbsOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainEbsOptionsArgs> _mEbsOptions;
-
-        public Inputs.DomainEbsOptionsArgs? EbsOptions => _mEbsOptions.GetValue("ebsOptions");
+        private Inputs.DomainEbsOptionsArgs? _mValue_EbsOptions;
+        private bool _mUnknown_EbsOptions;
+        public Inputs.DomainEbsOptionsArgs? EbsOptions
+        {
+            get
+            {
+                if (!_mUnknown_EbsOptions) return _mValue_EbsOptions;
+                throw new UndeferrableValueException("Value 'DomainArgs.EbsOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
         /// </summary>
-        [Input("encryptAtRest")]
+        [PolicyResourceProperty("encryptAtRest", "_mUnknown_EncryptAtRest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainEncryptAtRestArgs> _mEncryptAtRest;
-
-        public Inputs.DomainEncryptAtRestArgs? EncryptAtRest => _mEncryptAtRest.GetValue("encryptAtRest");
+        private Inputs.DomainEncryptAtRestArgs? _mValue_EncryptAtRest;
+        private bool _mUnknown_EncryptAtRest;
+        public Inputs.DomainEncryptAtRestArgs? EncryptAtRest
+        {
+            get
+            {
+                if (!_mUnknown_EncryptAtRest) return _mValue_EncryptAtRest;
+                throw new UndeferrableValueException("Value 'DomainArgs.EncryptAtRest' is not present");
+            }
+        }
 
         /// <summary>
         /// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
         /// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
         /// Defaults to the lastest version of OpenSearch.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'DomainArgs.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
         /// </summary>
-        [Input("ipAddressType")]
+        [PolicyResourceProperty("ipAddressType", "_mUnknown_IpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
-
-        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+        private string? _mValue_IpAddressType;
+        private bool _mUnknown_IpAddressType;
+        public string? IpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressType) return _mValue_IpAddressType;
+                throw new UndeferrableValueException("Value 'DomainArgs.IpAddressType' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         /// </summary>
-        [Input("logPublishingOptions")]
+        [PolicyResourceProperty("logPublishingOptions", "_mUnknown_LogPublishingOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DomainLogPublishingOptionArgs>> _mLogPublishingOptions;
-
-        public List<Inputs.DomainLogPublishingOptionArgs>? LogPublishingOptions => _mLogPublishingOptions.GetValue("logPublishingOptions");
+        private List<Inputs.DomainLogPublishingOptionArgs>? _mValue_LogPublishingOptions;
+        private bool _mUnknown_LogPublishingOptions;
+        public List<Inputs.DomainLogPublishingOptionArgs>? LogPublishingOptions
+        {
+            get
+            {
+                if (!_mUnknown_LogPublishingOptions) return _mValue_LogPublishingOptions;
+                throw new UndeferrableValueException("Value 'DomainArgs.LogPublishingOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for node-to-node encryption options. Detailed below.
         /// </summary>
-        [Input("nodeToNodeEncryption")]
+        [PolicyResourceProperty("nodeToNodeEncryption", "_mUnknown_NodeToNodeEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainNodeToNodeEncryptionArgs> _mNodeToNodeEncryption;
-
-        public Inputs.DomainNodeToNodeEncryptionArgs? NodeToNodeEncryption => _mNodeToNodeEncryption.GetValue("nodeToNodeEncryption");
+        private Inputs.DomainNodeToNodeEncryptionArgs? _mValue_NodeToNodeEncryption;
+        private bool _mUnknown_NodeToNodeEncryption;
+        public Inputs.DomainNodeToNodeEncryptionArgs? NodeToNodeEncryption
+        {
+            get
+            {
+                if (!_mUnknown_NodeToNodeEncryption) return _mValue_NodeToNodeEncryption;
+                throw new UndeferrableValueException("Value 'DomainArgs.NodeToNodeEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
         /// </summary>
-        [Input("offPeakWindowOptions")]
+        [PolicyResourceProperty("offPeakWindowOptions", "_mUnknown_OffPeakWindowOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainOffPeakWindowOptionsArgs> _mOffPeakWindowOptions;
-
-        public Inputs.DomainOffPeakWindowOptionsArgs? OffPeakWindowOptions => _mOffPeakWindowOptions.GetValue("offPeakWindowOptions");
+        private Inputs.DomainOffPeakWindowOptionsArgs? _mValue_OffPeakWindowOptions;
+        private bool _mUnknown_OffPeakWindowOptions;
+        public Inputs.DomainOffPeakWindowOptionsArgs? OffPeakWindowOptions
+        {
+            get
+            {
+                if (!_mUnknown_OffPeakWindowOptions) return _mValue_OffPeakWindowOptions;
+                throw new UndeferrableValueException("Value 'DomainArgs.OffPeakWindowOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
         /// </summary>
-        [Input("snapshotOptions")]
+        [PolicyResourceProperty("snapshotOptions", "_mUnknown_SnapshotOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainSnapshotOptionsArgs> _mSnapshotOptions;
-
-        public Inputs.DomainSnapshotOptionsArgs? SnapshotOptions => _mSnapshotOptions.GetValue("snapshotOptions");
+        private Inputs.DomainSnapshotOptionsArgs? _mValue_SnapshotOptions;
+        private bool _mUnknown_SnapshotOptions;
+        public Inputs.DomainSnapshotOptionsArgs? SnapshotOptions
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotOptions) return _mValue_SnapshotOptions;
+                throw new UndeferrableValueException("Value 'DomainArgs.SnapshotOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Software update options for the domain. Detailed below.
         /// </summary>
-        [Input("softwareUpdateOptions")]
+        [PolicyResourceProperty("softwareUpdateOptions", "_mUnknown_SoftwareUpdateOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainSoftwareUpdateOptionsArgs> _mSoftwareUpdateOptions;
-
-        public Inputs.DomainSoftwareUpdateOptionsArgs? SoftwareUpdateOptions => _mSoftwareUpdateOptions.GetValue("softwareUpdateOptions");
+        private Inputs.DomainSoftwareUpdateOptionsArgs? _mValue_SoftwareUpdateOptions;
+        private bool _mUnknown_SoftwareUpdateOptions;
+        public Inputs.DomainSoftwareUpdateOptionsArgs? SoftwareUpdateOptions
+        {
+            get
+            {
+                if (!_mUnknown_SoftwareUpdateOptions) return _mValue_SoftwareUpdateOptions;
+                throw new UndeferrableValueException("Value 'DomainArgs.SoftwareUpdateOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DomainArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
         /// </summary>
-        [Input("vpcOptions")]
+        [PolicyResourceProperty("vpcOptions", "_mUnknown_VpcOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainVpcOptionsArgs> _mVpcOptions;
-
-        public Inputs.DomainVpcOptionsArgs? VpcOptions => _mVpcOptions.GetValue("vpcOptions");
+        private Inputs.DomainVpcOptionsArgs? _mValue_VpcOptions;
+        private bool _mUnknown_VpcOptions;
+        public Inputs.DomainVpcOptionsArgs? VpcOptions
+        {
+            get
+            {
+                if (!_mUnknown_VpcOptions) return _mValue_VpcOptions;
+                throw new UndeferrableValueException("Value 'DomainArgs.VpcOptions' is not present");
+            }
+        }
     }
 }

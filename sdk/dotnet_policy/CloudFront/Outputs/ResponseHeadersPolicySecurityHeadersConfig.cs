@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
         /// </summary>
-        [Input("contentSecurityPolicy")]
+        [PolicyResourceProperty("contentSecurityPolicy", "_mUnknown_ContentSecurityPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy> _mContentSecurityPolicy;
-
-        public Outputs.ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy? ContentSecurityPolicy => _mContentSecurityPolicy.GetValue("contentSecurityPolicy");
+        private Outputs.ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy? _mValue_ContentSecurityPolicy;
+        private bool _mUnknown_ContentSecurityPolicy;
+        public Outputs.ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy? ContentSecurityPolicy
+        {
+            get
+            {
+                if (!_mUnknown_ContentSecurityPolicy) return _mValue_ContentSecurityPolicy;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfig.ContentSecurityPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff`. See Content Type Options for more information.
         /// </summary>
-        [Input("contentTypeOptions")]
+        [PolicyResourceProperty("contentTypeOptions", "_mUnknown_ContentTypeOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions> _mContentTypeOptions;
-
-        public Outputs.ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions? ContentTypeOptions => _mContentTypeOptions.GetValue("contentTypeOptions");
+        private Outputs.ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions? _mValue_ContentTypeOptions;
+        private bool _mUnknown_ContentTypeOptions;
+        public Outputs.ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions? ContentTypeOptions
+        {
+            get
+            {
+                if (!_mUnknown_ContentTypeOptions) return _mValue_ContentTypeOptions;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfig.ContentTypeOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header’s value. See Frame Options for more information.
         /// </summary>
-        [Input("frameOptions")]
+        [PolicyResourceProperty("frameOptions", "_mUnknown_FrameOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicySecurityHeadersConfigFrameOptions> _mFrameOptions;
-
-        public Outputs.ResponseHeadersPolicySecurityHeadersConfigFrameOptions? FrameOptions => _mFrameOptions.GetValue("frameOptions");
+        private Outputs.ResponseHeadersPolicySecurityHeadersConfigFrameOptions? _mValue_FrameOptions;
+        private bool _mUnknown_FrameOptions;
+        public Outputs.ResponseHeadersPolicySecurityHeadersConfigFrameOptions? FrameOptions
+        {
+            get
+            {
+                if (!_mUnknown_FrameOptions) return _mValue_FrameOptions;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfig.FrameOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
         /// </summary>
-        [Input("referrerPolicy")]
+        [PolicyResourceProperty("referrerPolicy", "_mUnknown_ReferrerPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy> _mReferrerPolicy;
-
-        public Outputs.ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy? ReferrerPolicy => _mReferrerPolicy.GetValue("referrerPolicy");
+        private Outputs.ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy? _mValue_ReferrerPolicy;
+        private bool _mUnknown_ReferrerPolicy;
+        public Outputs.ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy? ReferrerPolicy
+        {
+            get
+            {
+                if (!_mUnknown_ReferrerPolicy) return _mValue_ReferrerPolicy;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfig.ReferrerPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value. See Strict Transport Security for more information.
         /// </summary>
-        [Input("strictTransportSecurity")]
+        [PolicyResourceProperty("strictTransportSecurity", "_mUnknown_StrictTransportSecurity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity> _mStrictTransportSecurity;
-
-        public Outputs.ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity? StrictTransportSecurity => _mStrictTransportSecurity.GetValue("strictTransportSecurity");
+        private Outputs.ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity? _mValue_StrictTransportSecurity;
+        private bool _mUnknown_StrictTransportSecurity;
+        public Outputs.ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity? StrictTransportSecurity
+        {
+            get
+            {
+                if (!_mUnknown_StrictTransportSecurity) return _mValue_StrictTransportSecurity;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfig.StrictTransportSecurity' is not present");
+            }
+        }
 
         /// <summary>
         /// Determine whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header’s value. See XSS Protection for more information.
         /// </summary>
-        [Input("xssProtection")]
+        [PolicyResourceProperty("xssProtection", "_mUnknown_XssProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicySecurityHeadersConfigXssProtection> _mXssProtection;
-
-        public Outputs.ResponseHeadersPolicySecurityHeadersConfigXssProtection? XssProtection => _mXssProtection.GetValue("xssProtection");
+        private Outputs.ResponseHeadersPolicySecurityHeadersConfigXssProtection? _mValue_XssProtection;
+        private bool _mUnknown_XssProtection;
+        public Outputs.ResponseHeadersPolicySecurityHeadersConfigXssProtection? XssProtection
+        {
+            get
+            {
+                if (!_mUnknown_XssProtection) return _mValue_XssProtection;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfig.XssProtection' is not present");
+            }
+        }
     }
 }

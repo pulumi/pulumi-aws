@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery.Outputs
         /// <summary>
         /// S3 bucket name.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocation.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 key.
         /// </summary>
-        [Input("objectKey")]
+        [PolicyResourceProperty("objectKey", "_mUnknown_ObjectKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectKey;
-
-        public string? ObjectKey => _mObjectKey.GetValue("objectKey");
+        private string? _mValue_ObjectKey;
+        private bool _mUnknown_ObjectKey;
+        public string? ObjectKey
+        {
+            get
+            {
+                if (!_mUnknown_ObjectKey) return _mValue_ObjectKey;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocation.ObjectKey' is not present");
+            }
+        }
     }
 }

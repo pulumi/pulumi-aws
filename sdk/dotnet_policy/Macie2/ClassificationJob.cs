@@ -16,140 +16,252 @@ namespace Pulumi.PolicyPacks.Aws.Macie2
         /// <summary>
         /// The date and time, in UTC and extended RFC 3339 format, when the job was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'ClassificationJob.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// The custom data identifiers to use for data analysis and classification.
         /// </summary>
-        [Input("customDataIdentifierIds")]
+        [PolicyResourceProperty("customDataIdentifierIds", "_mUnknown_CustomDataIdentifierIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomDataIdentifierIds;
-
-        public List<string>? CustomDataIdentifierIds => _mCustomDataIdentifierIds.GetValue("customDataIdentifierIds");
+        private List<string>? _mValue_CustomDataIdentifierIds;
+        private bool _mUnknown_CustomDataIdentifierIds;
+        public List<string>? CustomDataIdentifierIds
+        {
+            get
+            {
+                if (!_mUnknown_CustomDataIdentifierIds) return _mValue_CustomDataIdentifierIds;
+                throw new UndeferrableValueException("Value 'ClassificationJob.CustomDataIdentifierIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A custom description of the job. The description can contain as many as 200 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ClassificationJob.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to analyze all existing, eligible objects immediately after the job is created.
         /// </summary>
-        [Input("initialRun")]
+        [PolicyResourceProperty("initialRun", "_mUnknown_InitialRun")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInitialRun;
+        private bool? _mValue_InitialRun;
+        private bool _mUnknown_InitialRun;
+        public bool? InitialRun
+        {
+            get
+            {
+                if (!_mUnknown_InitialRun) return _mValue_InitialRun;
+                throw new UndeferrableValueException("Value 'ClassificationJob.InitialRun' is not present");
+            }
+        }
 
-        public bool? InitialRun => _mInitialRun.GetValue("initialRun");
-
-        [Input("jobArn")]
+        [PolicyResourceProperty("jobArn", "_mUnknown_JobArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobArn;
+        private string? _mValue_JobArn;
+        private bool _mUnknown_JobArn;
+        public string? JobArn
+        {
+            get
+            {
+                if (!_mUnknown_JobArn) return _mValue_JobArn;
+                throw new UndeferrableValueException("Value 'ClassificationJob.JobArn' is not present");
+            }
+        }
 
-        public string? JobArn => _mJobArn.GetValue("jobArn");
-
-        [Input("jobId")]
+        [PolicyResourceProperty("jobId", "_mUnknown_JobId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobId;
-
-        public string? JobId => _mJobId.GetValue("jobId");
+        private string? _mValue_JobId;
+        private bool _mUnknown_JobId;
+        public string? JobId
+        {
+            get
+            {
+                if (!_mUnknown_JobId) return _mValue_JobId;
+                throw new UndeferrableValueException("Value 'ClassificationJob.JobId' is not present");
+            }
+        }
 
         /// <summary>
         /// The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
         /// </summary>
-        [Input("jobStatus")]
+        [PolicyResourceProperty("jobStatus", "_mUnknown_JobStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobStatus;
-
-        public string? JobStatus => _mJobStatus.GetValue("jobStatus");
+        private string? _mValue_JobStatus;
+        private bool _mUnknown_JobStatus;
+        public string? JobStatus
+        {
+            get
+            {
+                if (!_mUnknown_JobStatus) return _mValue_JobStatus;
+                throw new UndeferrableValueException("Value 'ClassificationJob.JobStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
         /// </summary>
-        [Input("jobType")]
+        [PolicyResourceProperty("jobType", "_mUnknown_JobType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobType;
-
-        public string? JobType => _mJobType.GetValue("jobType");
+        private string? _mValue_JobType;
+        private bool _mUnknown_JobType;
+        public string? JobType
+        {
+            get
+            {
+                if (!_mUnknown_JobType) return _mValue_JobType;
+                throw new UndeferrableValueException("Value 'ClassificationJob.JobType' is not present");
+            }
+        }
 
         /// <summary>
         /// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ClassificationJob.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'ClassificationJob.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
         /// </summary>
-        [Input("s3JobDefinition")]
+        [PolicyResourceProperty("s3JobDefinition", "_mUnknown_S3JobDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClassificationJobS3JobDefinition> _mS3JobDefinition;
-
-        public Outputs.ClassificationJobS3JobDefinition? S3JobDefinition => _mS3JobDefinition.GetValue("s3JobDefinition");
+        private Outputs.ClassificationJobS3JobDefinition? _mValue_S3JobDefinition;
+        private bool _mUnknown_S3JobDefinition;
+        public Outputs.ClassificationJobS3JobDefinition? S3JobDefinition
+        {
+            get
+            {
+                if (!_mUnknown_S3JobDefinition) return _mValue_S3JobDefinition;
+                throw new UndeferrableValueException("Value 'ClassificationJob.S3JobDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
         /// </summary>
-        [Input("samplingPercentage")]
+        [PolicyResourceProperty("samplingPercentage", "_mUnknown_SamplingPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSamplingPercentage;
-
-        public int? SamplingPercentage => _mSamplingPercentage.GetValue("samplingPercentage");
+        private int? _mValue_SamplingPercentage;
+        private bool _mUnknown_SamplingPercentage;
+        public int? SamplingPercentage
+        {
+            get
+            {
+                if (!_mUnknown_SamplingPercentage) return _mValue_SamplingPercentage;
+                throw new UndeferrableValueException("Value 'ClassificationJob.SamplingPercentage' is not present");
+            }
+        }
 
         /// <summary>
         /// The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
         /// </summary>
-        [Input("scheduleFrequency")]
+        [PolicyResourceProperty("scheduleFrequency", "_mUnknown_ScheduleFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClassificationJobScheduleFrequency> _mScheduleFrequency;
-
-        public Outputs.ClassificationJobScheduleFrequency? ScheduleFrequency => _mScheduleFrequency.GetValue("scheduleFrequency");
+        private Outputs.ClassificationJobScheduleFrequency? _mValue_ScheduleFrequency;
+        private bool _mUnknown_ScheduleFrequency;
+        public Outputs.ClassificationJobScheduleFrequency? ScheduleFrequency
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleFrequency) return _mValue_ScheduleFrequency;
+                throw new UndeferrableValueException("Value 'ClassificationJob.ScheduleFrequency' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ClassificationJob.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ClassificationJob.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
         /// </summary>
-        [Input("userPausedDetails")]
+        [PolicyResourceProperty("userPausedDetails", "_mUnknown_UserPausedDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClassificationJobUserPausedDetail>> _mUserPausedDetails;
-
-        public List<Outputs.ClassificationJobUserPausedDetail>? UserPausedDetails => _mUserPausedDetails.GetValue("userPausedDetails");
+        private List<Outputs.ClassificationJobUserPausedDetail>? _mValue_UserPausedDetails;
+        private bool _mUnknown_UserPausedDetails;
+        public List<Outputs.ClassificationJobUserPausedDetail>? UserPausedDetails
+        {
+            get
+            {
+                if (!_mUnknown_UserPausedDetails) return _mValue_UserPausedDetails;
+                throw new UndeferrableValueException("Value 'ClassificationJob.UserPausedDetails' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:macie2/classificationJob:ClassificationJob")]
@@ -158,100 +270,177 @@ namespace Pulumi.PolicyPacks.Aws.Macie2
         /// <summary>
         /// The custom data identifiers to use for data analysis and classification.
         /// </summary>
-        [Input("customDataIdentifierIds")]
+        [PolicyResourceProperty("customDataIdentifierIds", "_mUnknown_CustomDataIdentifierIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomDataIdentifierIds;
-
-        public List<string>? CustomDataIdentifierIds => _mCustomDataIdentifierIds.GetValue("customDataIdentifierIds");
+        private List<string>? _mValue_CustomDataIdentifierIds;
+        private bool _mUnknown_CustomDataIdentifierIds;
+        public List<string>? CustomDataIdentifierIds
+        {
+            get
+            {
+                if (!_mUnknown_CustomDataIdentifierIds) return _mValue_CustomDataIdentifierIds;
+                throw new UndeferrableValueException("Value 'ClassificationJobArgs.CustomDataIdentifierIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A custom description of the job. The description can contain as many as 200 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ClassificationJobArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to analyze all existing, eligible objects immediately after the job is created.
         /// </summary>
-        [Input("initialRun")]
+        [PolicyResourceProperty("initialRun", "_mUnknown_InitialRun")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInitialRun;
-
-        public bool? InitialRun => _mInitialRun.GetValue("initialRun");
+        private bool? _mValue_InitialRun;
+        private bool _mUnknown_InitialRun;
+        public bool? InitialRun
+        {
+            get
+            {
+                if (!_mUnknown_InitialRun) return _mValue_InitialRun;
+                throw new UndeferrableValueException("Value 'ClassificationJobArgs.InitialRun' is not present");
+            }
+        }
 
         /// <summary>
         /// The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
         /// </summary>
-        [Input("jobStatus")]
+        [PolicyResourceProperty("jobStatus", "_mUnknown_JobStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobStatus;
-
-        public string? JobStatus => _mJobStatus.GetValue("jobStatus");
+        private string? _mValue_JobStatus;
+        private bool _mUnknown_JobStatus;
+        public string? JobStatus
+        {
+            get
+            {
+                if (!_mUnknown_JobStatus) return _mValue_JobStatus;
+                throw new UndeferrableValueException("Value 'ClassificationJobArgs.JobStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
         /// </summary>
-        [Input("jobType")]
+        [PolicyResourceProperty("jobType", "_mUnknown_JobType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobType;
-
-        public string? JobType => _mJobType.GetValue("jobType");
+        private string? _mValue_JobType;
+        private bool _mUnknown_JobType;
+        public string? JobType
+        {
+            get
+            {
+                if (!_mUnknown_JobType) return _mValue_JobType;
+                throw new UndeferrableValueException("Value 'ClassificationJobArgs.JobType' is not present");
+            }
+        }
 
         /// <summary>
         /// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ClassificationJobArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'ClassificationJobArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
         /// </summary>
-        [Input("s3JobDefinition")]
+        [PolicyResourceProperty("s3JobDefinition", "_mUnknown_S3JobDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassificationJobS3JobDefinitionArgs> _mS3JobDefinition;
-
-        public Inputs.ClassificationJobS3JobDefinitionArgs? S3JobDefinition => _mS3JobDefinition.GetValue("s3JobDefinition");
+        private Inputs.ClassificationJobS3JobDefinitionArgs? _mValue_S3JobDefinition;
+        private bool _mUnknown_S3JobDefinition;
+        public Inputs.ClassificationJobS3JobDefinitionArgs? S3JobDefinition
+        {
+            get
+            {
+                if (!_mUnknown_S3JobDefinition) return _mValue_S3JobDefinition;
+                throw new UndeferrableValueException("Value 'ClassificationJobArgs.S3JobDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
         /// </summary>
-        [Input("samplingPercentage")]
+        [PolicyResourceProperty("samplingPercentage", "_mUnknown_SamplingPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSamplingPercentage;
-
-        public int? SamplingPercentage => _mSamplingPercentage.GetValue("samplingPercentage");
+        private int? _mValue_SamplingPercentage;
+        private bool _mUnknown_SamplingPercentage;
+        public int? SamplingPercentage
+        {
+            get
+            {
+                if (!_mUnknown_SamplingPercentage) return _mValue_SamplingPercentage;
+                throw new UndeferrableValueException("Value 'ClassificationJobArgs.SamplingPercentage' is not present");
+            }
+        }
 
         /// <summary>
         /// The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
         /// </summary>
-        [Input("scheduleFrequency")]
+        [PolicyResourceProperty("scheduleFrequency", "_mUnknown_ScheduleFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassificationJobScheduleFrequencyArgs> _mScheduleFrequency;
-
-        public Inputs.ClassificationJobScheduleFrequencyArgs? ScheduleFrequency => _mScheduleFrequency.GetValue("scheduleFrequency");
+        private Inputs.ClassificationJobScheduleFrequencyArgs? _mValue_ScheduleFrequency;
+        private bool _mUnknown_ScheduleFrequency;
+        public Inputs.ClassificationJobScheduleFrequencyArgs? ScheduleFrequency
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleFrequency) return _mValue_ScheduleFrequency;
+                throw new UndeferrableValueException("Value 'ClassificationJobArgs.ScheduleFrequency' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ClassificationJobArgs.Tags' is not present");
+            }
+        }
     }
 }

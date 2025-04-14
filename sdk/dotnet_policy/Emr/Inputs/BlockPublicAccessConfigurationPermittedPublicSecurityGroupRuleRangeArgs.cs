@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Inputs
         /// <summary>
         /// The final port in the range of TCP ports.
         /// </summary>
-        [Input("maxRange")]
+        [PolicyResourceProperty("maxRange", "_mUnknown_MaxRange")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRange;
-
-        public int? MaxRange => _mMaxRange.GetValue("maxRange");
+        private int? _mValue_MaxRange;
+        private bool _mUnknown_MaxRange;
+        public int? MaxRange
+        {
+            get
+            {
+                if (!_mUnknown_MaxRange) return _mValue_MaxRange;
+                throw new UndeferrableValueException("Value 'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs.MaxRange' is not present");
+            }
+        }
 
         /// <summary>
         /// The first port in the range of TCP ports.
         /// </summary>
-        [Input("minRange")]
+        [PolicyResourceProperty("minRange", "_mUnknown_MinRange")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinRange;
-
-        public int? MinRange => _mMinRange.GetValue("minRange");
+        private int? _mValue_MinRange;
+        private bool _mUnknown_MinRange;
+        public int? MinRange
+        {
+            get
+            {
+                if (!_mUnknown_MinRange) return _mValue_MinRange;
+                throw new UndeferrableValueException("Value 'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs.MinRange' is not present");
+            }
+        }
     }
 }

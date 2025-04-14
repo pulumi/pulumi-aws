@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// <summary>
         /// The name of the configuration set.
         /// </summary>
-        [Input("configurationSetName")]
+        [PolicyResourceProperty("configurationSetName", "_mUnknown_ConfigurationSetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSetName;
-
-        public string? ConfigurationSetName => _mConfigurationSetName.GetValue("configurationSetName");
+        private string? _mValue_ConfigurationSetName;
+        private bool _mUnknown_ConfigurationSetName;
+        public string? ConfigurationSetName
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationSetName) return _mValue_ConfigurationSetName;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestination.ConfigurationSetName' is not present");
+            }
+        }
 
         /// <summary>
         /// A name that identifies the event destination within the configuration set.
         /// </summary>
-        [Input("eventDestination")]
+        [PolicyResourceProperty("eventDestination", "_mUnknown_EventDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationSetEventDestinationEventDestination> _mEventDestination;
-
-        public Outputs.ConfigurationSetEventDestinationEventDestination? EventDestination => _mEventDestination.GetValue("eventDestination");
+        private Outputs.ConfigurationSetEventDestinationEventDestination? _mValue_EventDestination;
+        private bool _mUnknown_EventDestination;
+        public Outputs.ConfigurationSetEventDestinationEventDestination? EventDestination
+        {
+            get
+            {
+                if (!_mUnknown_EventDestination) return _mValue_EventDestination;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestination.EventDestination' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that defines the event destination. See `event_destination` Block for details.
         /// </summary>
-        [Input("eventDestinationName")]
+        [PolicyResourceProperty("eventDestinationName", "_mUnknown_EventDestinationName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventDestinationName;
-
-        public string? EventDestinationName => _mEventDestinationName.GetValue("eventDestinationName");
+        private string? _mValue_EventDestinationName;
+        private bool _mUnknown_EventDestinationName;
+        public string? EventDestinationName
+        {
+            get
+            {
+                if (!_mUnknown_EventDestinationName) return _mValue_EventDestinationName;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestination.EventDestinationName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// <summary>
         /// The name of the configuration set.
         /// </summary>
-        [Input("configurationSetName")]
+        [PolicyResourceProperty("configurationSetName", "_mUnknown_ConfigurationSetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSetName;
-
-        public string? ConfigurationSetName => _mConfigurationSetName.GetValue("configurationSetName");
+        private string? _mValue_ConfigurationSetName;
+        private bool _mUnknown_ConfigurationSetName;
+        public string? ConfigurationSetName
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationSetName) return _mValue_ConfigurationSetName;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationArgs.ConfigurationSetName' is not present");
+            }
+        }
 
         /// <summary>
         /// A name that identifies the event destination within the configuration set.
         /// </summary>
-        [Input("eventDestination")]
+        [PolicyResourceProperty("eventDestination", "_mUnknown_EventDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationSetEventDestinationEventDestinationArgs> _mEventDestination;
-
-        public Inputs.ConfigurationSetEventDestinationEventDestinationArgs? EventDestination => _mEventDestination.GetValue("eventDestination");
+        private Inputs.ConfigurationSetEventDestinationEventDestinationArgs? _mValue_EventDestination;
+        private bool _mUnknown_EventDestination;
+        public Inputs.ConfigurationSetEventDestinationEventDestinationArgs? EventDestination
+        {
+            get
+            {
+                if (!_mUnknown_EventDestination) return _mValue_EventDestination;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationArgs.EventDestination' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that defines the event destination. See `event_destination` Block for details.
         /// </summary>
-        [Input("eventDestinationName")]
+        [PolicyResourceProperty("eventDestinationName", "_mUnknown_EventDestinationName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventDestinationName;
-
-        public string? EventDestinationName => _mEventDestinationName.GetValue("eventDestinationName");
+        private string? _mValue_EventDestinationName;
+        private bool _mUnknown_EventDestinationName;
+        public string? EventDestinationName
+        {
+            get
+            {
+                if (!_mUnknown_EventDestinationName) return _mValue_EventDestinationName;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationArgs.EventDestinationName' is not present");
+            }
+        }
     }
 }

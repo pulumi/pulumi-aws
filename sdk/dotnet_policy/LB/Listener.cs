@@ -16,285 +16,502 @@ namespace Pulumi.PolicyPacks.Aws.LB
         /// <summary>
         /// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
         /// </summary>
-        [Input("alpnPolicy")]
+        [PolicyResourceProperty("alpnPolicy", "_mUnknown_AlpnPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlpnPolicy;
-
-        public string? AlpnPolicy => _mAlpnPolicy.GetValue("alpnPolicy");
+        private string? _mValue_AlpnPolicy;
+        private bool _mUnknown_AlpnPolicy;
+        public string? AlpnPolicy
+        {
+            get
+            {
+                if (!_mUnknown_AlpnPolicy) return _mValue_AlpnPolicy;
+                throw new UndeferrableValueException("Value 'Listener.AlpnPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the listener (matches `id`).
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Listener.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'Listener.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for default actions. See below.
         /// </summary>
-        [Input("defaultActions")]
+        [PolicyResourceProperty("defaultActions", "_mUnknown_DefaultActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ListenerDefaultAction>> _mDefaultActions;
-
-        public List<Outputs.ListenerDefaultAction>? DefaultActions => _mDefaultActions.GetValue("defaultActions");
+        private List<Outputs.ListenerDefaultAction>? _mValue_DefaultActions;
+        private bool _mUnknown_DefaultActions;
+        public List<Outputs.ListenerDefaultAction>? DefaultActions
+        {
+            get
+            {
+                if (!_mUnknown_DefaultActions) return _mValue_DefaultActions;
+                throw new UndeferrableValueException("Value 'Listener.DefaultActions' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the load balancer.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("loadBalancerArn")]
+        [PolicyResourceProperty("loadBalancerArn", "_mUnknown_LoadBalancerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancerArn;
-
-        public string? LoadBalancerArn => _mLoadBalancerArn.GetValue("loadBalancerArn");
+        private string? _mValue_LoadBalancerArn;
+        private bool _mUnknown_LoadBalancerArn;
+        public string? LoadBalancerArn
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerArn) return _mValue_LoadBalancerArn;
+                throw new UndeferrableValueException("Value 'Listener.LoadBalancerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The mutual authentication configuration information. See below.
         /// </summary>
-        [Input("mutualAuthentication")]
+        [PolicyResourceProperty("mutualAuthentication", "_mUnknown_MutualAuthentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ListenerMutualAuthentication> _mMutualAuthentication;
-
-        public Outputs.ListenerMutualAuthentication? MutualAuthentication => _mMutualAuthentication.GetValue("mutualAuthentication");
+        private Outputs.ListenerMutualAuthentication? _mValue_MutualAuthentication;
+        private bool _mUnknown_MutualAuthentication;
+        public Outputs.ListenerMutualAuthentication? MutualAuthentication
+        {
+            get
+            {
+                if (!_mUnknown_MutualAuthentication) return _mValue_MutualAuthentication;
+                throw new UndeferrableValueException("Value 'Listener.MutualAuthentication' is not present");
+            }
+        }
 
         /// <summary>
         /// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'Listener.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'Listener.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         /// </summary>
-        [Input("routingHttpRequestXAmznMtlsClientcertHeaderName")]
+        [PolicyResourceProperty("routingHttpRequestXAmznMtlsClientcertHeaderName", "_mUnknown_RoutingHttpRequestXAmznMtlsClientcertHeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpRequestXAmznMtlsClientcertHeaderName;
-
-        public string? RoutingHttpRequestXAmznMtlsClientcertHeaderName => _mRoutingHttpRequestXAmznMtlsClientcertHeaderName.GetValue("routingHttpRequestXAmznMtlsClientcertHeaderName");
+        private string? _mValue_RoutingHttpRequestXAmznMtlsClientcertHeaderName;
+        private bool _mUnknown_RoutingHttpRequestXAmznMtlsClientcertHeaderName;
+        public string? RoutingHttpRequestXAmznMtlsClientcertHeaderName
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpRequestXAmznMtlsClientcertHeaderName) return _mValue_RoutingHttpRequestXAmznMtlsClientcertHeaderName;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpRequestXAmznMtlsClientcertHeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         /// </summary>
-        [Input("routingHttpRequestXAmznMtlsClientcertIssuerHeaderName")]
+        [PolicyResourceProperty("routingHttpRequestXAmznMtlsClientcertIssuerHeaderName", "_mUnknown_RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
-
-        public string? RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName => _mRoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName.GetValue("routingHttpRequestXAmznMtlsClientcertIssuerHeaderName");
+        private string? _mValue_RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
+        private bool _mUnknown_RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
+        public string? RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName) return _mValue_RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         /// </summary>
-        [Input("routingHttpRequestXAmznMtlsClientcertLeafHeaderName")]
+        [PolicyResourceProperty("routingHttpRequestXAmznMtlsClientcertLeafHeaderName", "_mUnknown_RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpRequestXAmznMtlsClientcertLeafHeaderName;
-
-        public string? RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName => _mRoutingHttpRequestXAmznMtlsClientcertLeafHeaderName.GetValue("routingHttpRequestXAmznMtlsClientcertLeafHeaderName");
+        private string? _mValue_RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName;
+        private bool _mUnknown_RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName;
+        public string? RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName) return _mValue_RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Serial-Number` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         /// </summary>
-        [Input("routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName")]
+        [PolicyResourceProperty("routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName", "_mUnknown_RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
-
-        public string? RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName => _mRoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName.GetValue("routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName");
+        private string? _mValue_RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
+        private bool _mUnknown_RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
+        public string? RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName) return _mValue_RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Subject` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         /// </summary>
-        [Input("routingHttpRequestXAmznMtlsClientcertSubjectHeaderName")]
+        [PolicyResourceProperty("routingHttpRequestXAmznMtlsClientcertSubjectHeaderName", "_mUnknown_RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
-
-        public string? RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName => _mRoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName.GetValue("routingHttpRequestXAmznMtlsClientcertSubjectHeaderName");
+        private string? _mValue_RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
+        private bool _mUnknown_RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
+        public string? RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName) return _mValue_RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Validity` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         /// </summary>
-        [Input("routingHttpRequestXAmznMtlsClientcertValidityHeaderName")]
+        [PolicyResourceProperty("routingHttpRequestXAmznMtlsClientcertValidityHeaderName", "_mUnknown_RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpRequestXAmznMtlsClientcertValidityHeaderName;
-
-        public string? RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName => _mRoutingHttpRequestXAmznMtlsClientcertValidityHeaderName.GetValue("routingHttpRequestXAmznMtlsClientcertValidityHeaderName");
+        private string? _mValue_RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName;
+        private bool _mUnknown_RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName;
+        public string? RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName) return _mValue_RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Tls-Cipher-Suite` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         /// </summary>
-        [Input("routingHttpRequestXAmznTlsCipherSuiteHeaderName")]
+        [PolicyResourceProperty("routingHttpRequestXAmznTlsCipherSuiteHeaderName", "_mUnknown_RoutingHttpRequestXAmznTlsCipherSuiteHeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpRequestXAmznTlsCipherSuiteHeaderName;
-
-        public string? RoutingHttpRequestXAmznTlsCipherSuiteHeaderName => _mRoutingHttpRequestXAmznTlsCipherSuiteHeaderName.GetValue("routingHttpRequestXAmznTlsCipherSuiteHeaderName");
+        private string? _mValue_RoutingHttpRequestXAmznTlsCipherSuiteHeaderName;
+        private bool _mUnknown_RoutingHttpRequestXAmznTlsCipherSuiteHeaderName;
+        public string? RoutingHttpRequestXAmznTlsCipherSuiteHeaderName
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpRequestXAmznTlsCipherSuiteHeaderName) return _mValue_RoutingHttpRequestXAmznTlsCipherSuiteHeaderName;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpRequestXAmznTlsCipherSuiteHeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Tls-Version` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         /// </summary>
-        [Input("routingHttpRequestXAmznTlsVersionHeaderName")]
+        [PolicyResourceProperty("routingHttpRequestXAmznTlsVersionHeaderName", "_mUnknown_RoutingHttpRequestXAmznTlsVersionHeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpRequestXAmznTlsVersionHeaderName;
-
-        public string? RoutingHttpRequestXAmznTlsVersionHeaderName => _mRoutingHttpRequestXAmznTlsVersionHeaderName.GetValue("routingHttpRequestXAmznTlsVersionHeaderName");
+        private string? _mValue_RoutingHttpRequestXAmznTlsVersionHeaderName;
+        private bool _mUnknown_RoutingHttpRequestXAmznTlsVersionHeaderName;
+        public string? RoutingHttpRequestXAmznTlsVersionHeaderName
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpRequestXAmznTlsVersionHeaderName) return _mValue_RoutingHttpRequestXAmznTlsVersionHeaderName;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpRequestXAmznTlsVersionHeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `true`.
         /// </summary>
-        [Input("routingHttpResponseAccessControlAllowCredentialsHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseAccessControlAllowCredentialsHeaderValue", "_mUnknown_RoutingHttpResponseAccessControlAllowCredentialsHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseAccessControlAllowCredentialsHeaderValue;
-
-        public string? RoutingHttpResponseAccessControlAllowCredentialsHeaderValue => _mRoutingHttpResponseAccessControlAllowCredentialsHeaderValue.GetValue("routingHttpResponseAccessControlAllowCredentialsHeaderValue");
+        private string? _mValue_RoutingHttpResponseAccessControlAllowCredentialsHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseAccessControlAllowCredentialsHeaderValue;
+        public string? RoutingHttpResponseAccessControlAllowCredentialsHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseAccessControlAllowCredentialsHeaderValue) return _mValue_RoutingHttpResponseAccessControlAllowCredentialsHeaderValue;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpResponseAccessControlAllowCredentialsHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which headers can be used during the request. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Accept`, `Accept-Language`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, `Pragma`. Dependent on your use-case other headers can be exposed and then set as a value consult the Access-Control-Allow-Headers documentation.
         /// </summary>
-        [Input("routingHttpResponseAccessControlAllowHeadersHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseAccessControlAllowHeadersHeaderValue", "_mUnknown_RoutingHttpResponseAccessControlAllowHeadersHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseAccessControlAllowHeadersHeaderValue;
-
-        public string? RoutingHttpResponseAccessControlAllowHeadersHeaderValue => _mRoutingHttpResponseAccessControlAllowHeadersHeaderValue.GetValue("routingHttpResponseAccessControlAllowHeadersHeaderValue");
+        private string? _mValue_RoutingHttpResponseAccessControlAllowHeadersHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseAccessControlAllowHeadersHeaderValue;
+        public string? RoutingHttpResponseAccessControlAllowHeadersHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseAccessControlAllowHeadersHeaderValue) return _mValue_RoutingHttpResponseAccessControlAllowHeadersHeaderValue;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpResponseAccessControlAllowHeadersHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Set which HTTP methods are allowed when accessing the server from a different origin. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `GET`, `HEAD`, `POST`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` or `PATCH`.
         /// </summary>
-        [Input("routingHttpResponseAccessControlAllowMethodsHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseAccessControlAllowMethodsHeaderValue", "_mUnknown_RoutingHttpResponseAccessControlAllowMethodsHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseAccessControlAllowMethodsHeaderValue;
-
-        public string? RoutingHttpResponseAccessControlAllowMethodsHeaderValue => _mRoutingHttpResponseAccessControlAllowMethodsHeaderValue.GetValue("routingHttpResponseAccessControlAllowMethodsHeaderValue");
+        private string? _mValue_RoutingHttpResponseAccessControlAllowMethodsHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseAccessControlAllowMethodsHeaderValue;
+        public string? RoutingHttpResponseAccessControlAllowMethodsHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseAccessControlAllowMethodsHeaderValue) return _mValue_RoutingHttpResponseAccessControlAllowMethodsHeaderValue;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpResponseAccessControlAllowMethodsHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which origins are allowed to access the server. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. A valid value is a URI, eg: `https://example.com`.
         /// </summary>
-        [Input("routingHttpResponseAccessControlAllowOriginHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseAccessControlAllowOriginHeaderValue", "_mUnknown_RoutingHttpResponseAccessControlAllowOriginHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseAccessControlAllowOriginHeaderValue;
-
-        public string? RoutingHttpResponseAccessControlAllowOriginHeaderValue => _mRoutingHttpResponseAccessControlAllowOriginHeaderValue.GetValue("routingHttpResponseAccessControlAllowOriginHeaderValue");
+        private string? _mValue_RoutingHttpResponseAccessControlAllowOriginHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseAccessControlAllowOriginHeaderValue;
+        public string? RoutingHttpResponseAccessControlAllowOriginHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseAccessControlAllowOriginHeaderValue) return _mValue_RoutingHttpResponseAccessControlAllowOriginHeaderValue;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpResponseAccessControlAllowOriginHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the browser should include credentials such as cookies or authentication when making requests. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, or `Pragma`. Dependent on your use-case other headers can be exposed, consult the Access-Control-Expose-Headers documentation.
         /// </summary>
-        [Input("routingHttpResponseAccessControlExposeHeadersHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseAccessControlExposeHeadersHeaderValue", "_mUnknown_RoutingHttpResponseAccessControlExposeHeadersHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseAccessControlExposeHeadersHeaderValue;
-
-        public string? RoutingHttpResponseAccessControlExposeHeadersHeaderValue => _mRoutingHttpResponseAccessControlExposeHeadersHeaderValue.GetValue("routingHttpResponseAccessControlExposeHeadersHeaderValue");
+        private string? _mValue_RoutingHttpResponseAccessControlExposeHeadersHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseAccessControlExposeHeadersHeaderValue;
+        public string? RoutingHttpResponseAccessControlExposeHeadersHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseAccessControlExposeHeadersHeaderValue) return _mValue_RoutingHttpResponseAccessControlExposeHeadersHeaderValue;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpResponseAccessControlExposeHeadersHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies how long the results of a preflight request can be cached, in seconds. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are between `0` and `86400`. This value is browser specific, consult the Access-Control-Max-Age documentation.
         /// </summary>
-        [Input("routingHttpResponseAccessControlMaxAgeHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseAccessControlMaxAgeHeaderValue", "_mUnknown_RoutingHttpResponseAccessControlMaxAgeHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseAccessControlMaxAgeHeaderValue;
-
-        public string? RoutingHttpResponseAccessControlMaxAgeHeaderValue => _mRoutingHttpResponseAccessControlMaxAgeHeaderValue.GetValue("routingHttpResponseAccessControlMaxAgeHeaderValue");
+        private string? _mValue_RoutingHttpResponseAccessControlMaxAgeHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseAccessControlMaxAgeHeaderValue;
+        public string? RoutingHttpResponseAccessControlMaxAgeHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseAccessControlMaxAgeHeaderValue) return _mValue_RoutingHttpResponseAccessControlMaxAgeHeaderValue;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpResponseAccessControlMaxAgeHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies restrictions enforced by the browser to help minimize the risk of certain types of security threats. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Values for this are extensive, and can be impactful when set, consult Content-Security-Policy documentation.
         /// </summary>
-        [Input("routingHttpResponseContentSecurityPolicyHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseContentSecurityPolicyHeaderValue", "_mUnknown_RoutingHttpResponseContentSecurityPolicyHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseContentSecurityPolicyHeaderValue;
-
-        public string? RoutingHttpResponseContentSecurityPolicyHeaderValue => _mRoutingHttpResponseContentSecurityPolicyHeaderValue.GetValue("routingHttpResponseContentSecurityPolicyHeaderValue");
+        private string? _mValue_RoutingHttpResponseContentSecurityPolicyHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseContentSecurityPolicyHeaderValue;
+        public string? RoutingHttpResponseContentSecurityPolicyHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseContentSecurityPolicyHeaderValue) return _mValue_RoutingHttpResponseContentSecurityPolicyHeaderValue;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpResponseContentSecurityPolicyHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `true` or `false`.
         /// </summary>
-        [Input("routingHttpResponseServerEnabled")]
+        [PolicyResourceProperty("routingHttpResponseServerEnabled", "_mUnknown_RoutingHttpResponseServerEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRoutingHttpResponseServerEnabled;
-
-        public bool? RoutingHttpResponseServerEnabled => _mRoutingHttpResponseServerEnabled.GetValue("routingHttpResponseServerEnabled");
+        private bool? _mValue_RoutingHttpResponseServerEnabled;
+        private bool _mUnknown_RoutingHttpResponseServerEnabled;
+        public bool? RoutingHttpResponseServerEnabled
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseServerEnabled) return _mValue_RoutingHttpResponseServerEnabled;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpResponseServerEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS. Default values are `max-age=31536000; includeSubDomains; preload` consult the Strict-Transport-Security documentation for further details.
         /// </summary>
-        [Input("routingHttpResponseStrictTransportSecurityHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseStrictTransportSecurityHeaderValue", "_mUnknown_RoutingHttpResponseStrictTransportSecurityHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseStrictTransportSecurityHeaderValue;
-
-        public string? RoutingHttpResponseStrictTransportSecurityHeaderValue => _mRoutingHttpResponseStrictTransportSecurityHeaderValue.GetValue("routingHttpResponseStrictTransportSecurityHeaderValue");
+        private string? _mValue_RoutingHttpResponseStrictTransportSecurityHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseStrictTransportSecurityHeaderValue;
+        public string? RoutingHttpResponseStrictTransportSecurityHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseStrictTransportSecurityHeaderValue) return _mValue_RoutingHttpResponseStrictTransportSecurityHeaderValue;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpResponseStrictTransportSecurityHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `nosniff`.
         /// </summary>
-        [Input("routingHttpResponseXContentTypeOptionsHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseXContentTypeOptionsHeaderValue", "_mUnknown_RoutingHttpResponseXContentTypeOptionsHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseXContentTypeOptionsHeaderValue;
-
-        public string? RoutingHttpResponseXContentTypeOptionsHeaderValue => _mRoutingHttpResponseXContentTypeOptionsHeaderValue.GetValue("routingHttpResponseXContentTypeOptionsHeaderValue");
+        private string? _mValue_RoutingHttpResponseXContentTypeOptionsHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseXContentTypeOptionsHeaderValue;
+        public string? RoutingHttpResponseXContentTypeOptionsHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseXContentTypeOptionsHeaderValue) return _mValue_RoutingHttpResponseXContentTypeOptionsHeaderValue;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpResponseXContentTypeOptionsHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the browser is allowed to render a page in a frame, iframe, embed or object. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid values are `DENY`, `SAMEORIGIN`, or `ALLOW-FROM https://example.com`.
         /// </summary>
-        [Input("routingHttpResponseXFrameOptionsHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseXFrameOptionsHeaderValue", "_mUnknown_RoutingHttpResponseXFrameOptionsHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseXFrameOptionsHeaderValue;
-
-        public string? RoutingHttpResponseXFrameOptionsHeaderValue => _mRoutingHttpResponseXFrameOptionsHeaderValue.GetValue("routingHttpResponseXFrameOptionsHeaderValue");
+        private string? _mValue_RoutingHttpResponseXFrameOptionsHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseXFrameOptionsHeaderValue;
+        public string? RoutingHttpResponseXFrameOptionsHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseXFrameOptionsHeaderValue) return _mValue_RoutingHttpResponseXFrameOptionsHeaderValue;
+                throw new UndeferrableValueException("Value 'Listener.RoutingHttpResponseXFrameOptionsHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
         /// </summary>
-        [Input("sslPolicy")]
+        [PolicyResourceProperty("sslPolicy", "_mUnknown_SslPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslPolicy;
-
-        public string? SslPolicy => _mSslPolicy.GetValue("sslPolicy");
+        private string? _mValue_SslPolicy;
+        private bool _mUnknown_SslPolicy;
+        public string? SslPolicy
+        {
+            get
+            {
+                if (!_mUnknown_SslPolicy) return _mValue_SslPolicy;
+                throw new UndeferrableValueException("Value 'Listener.SslPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// &gt; **Note::** When a `Name` key is specified in the map, the AWS Console maps the value to the `Name Tag` column value inside the `Listener Rules` table within a specific load balancer listener page. Otherwise, the value resolves to `Default`.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Listener.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Listener.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
         /// </summary>
-        [Input("tcpIdleTimeoutSeconds")]
+        [PolicyResourceProperty("tcpIdleTimeoutSeconds", "_mUnknown_TcpIdleTimeoutSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTcpIdleTimeoutSeconds;
-
-        public int? TcpIdleTimeoutSeconds => _mTcpIdleTimeoutSeconds.GetValue("tcpIdleTimeoutSeconds");
+        private int? _mValue_TcpIdleTimeoutSeconds;
+        private bool _mUnknown_TcpIdleTimeoutSeconds;
+        public int? TcpIdleTimeoutSeconds
+        {
+            get
+            {
+                if (!_mUnknown_TcpIdleTimeoutSeconds) return _mValue_TcpIdleTimeoutSeconds;
+                throw new UndeferrableValueException("Value 'Listener.TcpIdleTimeoutSeconds' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lb/listener:Listener")]
@@ -303,266 +520,469 @@ namespace Pulumi.PolicyPacks.Aws.LB
         /// <summary>
         /// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
         /// </summary>
-        [Input("alpnPolicy")]
+        [PolicyResourceProperty("alpnPolicy", "_mUnknown_AlpnPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlpnPolicy;
-
-        public string? AlpnPolicy => _mAlpnPolicy.GetValue("alpnPolicy");
+        private string? _mValue_AlpnPolicy;
+        private bool _mUnknown_AlpnPolicy;
+        public string? AlpnPolicy
+        {
+            get
+            {
+                if (!_mUnknown_AlpnPolicy) return _mValue_AlpnPolicy;
+                throw new UndeferrableValueException("Value 'ListenerArgs.AlpnPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'ListenerArgs.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for default actions. See below.
         /// </summary>
-        [Input("defaultActions")]
+        [PolicyResourceProperty("defaultActions", "_mUnknown_DefaultActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ListenerDefaultActionArgs>> _mDefaultActions;
-
-        public List<Inputs.ListenerDefaultActionArgs>? DefaultActions => _mDefaultActions.GetValue("defaultActions");
+        private List<Inputs.ListenerDefaultActionArgs>? _mValue_DefaultActions;
+        private bool _mUnknown_DefaultActions;
+        public List<Inputs.ListenerDefaultActionArgs>? DefaultActions
+        {
+            get
+            {
+                if (!_mUnknown_DefaultActions) return _mValue_DefaultActions;
+                throw new UndeferrableValueException("Value 'ListenerArgs.DefaultActions' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the load balancer.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("loadBalancerArn")]
+        [PolicyResourceProperty("loadBalancerArn", "_mUnknown_LoadBalancerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancerArn;
-
-        public string? LoadBalancerArn => _mLoadBalancerArn.GetValue("loadBalancerArn");
+        private string? _mValue_LoadBalancerArn;
+        private bool _mUnknown_LoadBalancerArn;
+        public string? LoadBalancerArn
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerArn) return _mValue_LoadBalancerArn;
+                throw new UndeferrableValueException("Value 'ListenerArgs.LoadBalancerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The mutual authentication configuration information. See below.
         /// </summary>
-        [Input("mutualAuthentication")]
+        [PolicyResourceProperty("mutualAuthentication", "_mUnknown_MutualAuthentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ListenerMutualAuthenticationArgs> _mMutualAuthentication;
-
-        public Inputs.ListenerMutualAuthenticationArgs? MutualAuthentication => _mMutualAuthentication.GetValue("mutualAuthentication");
+        private Inputs.ListenerMutualAuthenticationArgs? _mValue_MutualAuthentication;
+        private bool _mUnknown_MutualAuthentication;
+        public Inputs.ListenerMutualAuthenticationArgs? MutualAuthentication
+        {
+            get
+            {
+                if (!_mUnknown_MutualAuthentication) return _mValue_MutualAuthentication;
+                throw new UndeferrableValueException("Value 'ListenerArgs.MutualAuthentication' is not present");
+            }
+        }
 
         /// <summary>
         /// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'ListenerArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'ListenerArgs.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         /// </summary>
-        [Input("routingHttpRequestXAmznMtlsClientcertHeaderName")]
+        [PolicyResourceProperty("routingHttpRequestXAmznMtlsClientcertHeaderName", "_mUnknown_RoutingHttpRequestXAmznMtlsClientcertHeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpRequestXAmznMtlsClientcertHeaderName;
-
-        public string? RoutingHttpRequestXAmznMtlsClientcertHeaderName => _mRoutingHttpRequestXAmznMtlsClientcertHeaderName.GetValue("routingHttpRequestXAmznMtlsClientcertHeaderName");
+        private string? _mValue_RoutingHttpRequestXAmznMtlsClientcertHeaderName;
+        private bool _mUnknown_RoutingHttpRequestXAmznMtlsClientcertHeaderName;
+        public string? RoutingHttpRequestXAmznMtlsClientcertHeaderName
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpRequestXAmznMtlsClientcertHeaderName) return _mValue_RoutingHttpRequestXAmznMtlsClientcertHeaderName;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpRequestXAmznMtlsClientcertHeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         /// </summary>
-        [Input("routingHttpRequestXAmznMtlsClientcertIssuerHeaderName")]
+        [PolicyResourceProperty("routingHttpRequestXAmznMtlsClientcertIssuerHeaderName", "_mUnknown_RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
-
-        public string? RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName => _mRoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName.GetValue("routingHttpRequestXAmznMtlsClientcertIssuerHeaderName");
+        private string? _mValue_RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
+        private bool _mUnknown_RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
+        public string? RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName) return _mValue_RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         /// </summary>
-        [Input("routingHttpRequestXAmznMtlsClientcertLeafHeaderName")]
+        [PolicyResourceProperty("routingHttpRequestXAmznMtlsClientcertLeafHeaderName", "_mUnknown_RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpRequestXAmznMtlsClientcertLeafHeaderName;
-
-        public string? RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName => _mRoutingHttpRequestXAmznMtlsClientcertLeafHeaderName.GetValue("routingHttpRequestXAmznMtlsClientcertLeafHeaderName");
+        private string? _mValue_RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName;
+        private bool _mUnknown_RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName;
+        public string? RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName) return _mValue_RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Serial-Number` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         /// </summary>
-        [Input("routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName")]
+        [PolicyResourceProperty("routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName", "_mUnknown_RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
-
-        public string? RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName => _mRoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName.GetValue("routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName");
+        private string? _mValue_RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
+        private bool _mUnknown_RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
+        public string? RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName) return _mValue_RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Subject` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         /// </summary>
-        [Input("routingHttpRequestXAmznMtlsClientcertSubjectHeaderName")]
+        [PolicyResourceProperty("routingHttpRequestXAmznMtlsClientcertSubjectHeaderName", "_mUnknown_RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
-
-        public string? RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName => _mRoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName.GetValue("routingHttpRequestXAmznMtlsClientcertSubjectHeaderName");
+        private string? _mValue_RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
+        private bool _mUnknown_RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
+        public string? RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName) return _mValue_RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Validity` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         /// </summary>
-        [Input("routingHttpRequestXAmznMtlsClientcertValidityHeaderName")]
+        [PolicyResourceProperty("routingHttpRequestXAmznMtlsClientcertValidityHeaderName", "_mUnknown_RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpRequestXAmznMtlsClientcertValidityHeaderName;
-
-        public string? RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName => _mRoutingHttpRequestXAmznMtlsClientcertValidityHeaderName.GetValue("routingHttpRequestXAmznMtlsClientcertValidityHeaderName");
+        private string? _mValue_RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName;
+        private bool _mUnknown_RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName;
+        public string? RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName) return _mValue_RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Tls-Cipher-Suite` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         /// </summary>
-        [Input("routingHttpRequestXAmznTlsCipherSuiteHeaderName")]
+        [PolicyResourceProperty("routingHttpRequestXAmznTlsCipherSuiteHeaderName", "_mUnknown_RoutingHttpRequestXAmznTlsCipherSuiteHeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpRequestXAmznTlsCipherSuiteHeaderName;
-
-        public string? RoutingHttpRequestXAmznTlsCipherSuiteHeaderName => _mRoutingHttpRequestXAmznTlsCipherSuiteHeaderName.GetValue("routingHttpRequestXAmznTlsCipherSuiteHeaderName");
+        private string? _mValue_RoutingHttpRequestXAmznTlsCipherSuiteHeaderName;
+        private bool _mUnknown_RoutingHttpRequestXAmznTlsCipherSuiteHeaderName;
+        public string? RoutingHttpRequestXAmznTlsCipherSuiteHeaderName
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpRequestXAmznTlsCipherSuiteHeaderName) return _mValue_RoutingHttpRequestXAmznTlsCipherSuiteHeaderName;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpRequestXAmznTlsCipherSuiteHeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to modify the header name of the `X-Amzn-Tls-Version` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         /// </summary>
-        [Input("routingHttpRequestXAmznTlsVersionHeaderName")]
+        [PolicyResourceProperty("routingHttpRequestXAmznTlsVersionHeaderName", "_mUnknown_RoutingHttpRequestXAmznTlsVersionHeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpRequestXAmznTlsVersionHeaderName;
-
-        public string? RoutingHttpRequestXAmznTlsVersionHeaderName => _mRoutingHttpRequestXAmznTlsVersionHeaderName.GetValue("routingHttpRequestXAmznTlsVersionHeaderName");
+        private string? _mValue_RoutingHttpRequestXAmznTlsVersionHeaderName;
+        private bool _mUnknown_RoutingHttpRequestXAmznTlsVersionHeaderName;
+        public string? RoutingHttpRequestXAmznTlsVersionHeaderName
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpRequestXAmznTlsVersionHeaderName) return _mValue_RoutingHttpRequestXAmznTlsVersionHeaderName;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpRequestXAmznTlsVersionHeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `true`.
         /// </summary>
-        [Input("routingHttpResponseAccessControlAllowCredentialsHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseAccessControlAllowCredentialsHeaderValue", "_mUnknown_RoutingHttpResponseAccessControlAllowCredentialsHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseAccessControlAllowCredentialsHeaderValue;
-
-        public string? RoutingHttpResponseAccessControlAllowCredentialsHeaderValue => _mRoutingHttpResponseAccessControlAllowCredentialsHeaderValue.GetValue("routingHttpResponseAccessControlAllowCredentialsHeaderValue");
+        private string? _mValue_RoutingHttpResponseAccessControlAllowCredentialsHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseAccessControlAllowCredentialsHeaderValue;
+        public string? RoutingHttpResponseAccessControlAllowCredentialsHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseAccessControlAllowCredentialsHeaderValue) return _mValue_RoutingHttpResponseAccessControlAllowCredentialsHeaderValue;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpResponseAccessControlAllowCredentialsHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which headers can be used during the request. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Accept`, `Accept-Language`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, `Pragma`. Dependent on your use-case other headers can be exposed and then set as a value consult the Access-Control-Allow-Headers documentation.
         /// </summary>
-        [Input("routingHttpResponseAccessControlAllowHeadersHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseAccessControlAllowHeadersHeaderValue", "_mUnknown_RoutingHttpResponseAccessControlAllowHeadersHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseAccessControlAllowHeadersHeaderValue;
-
-        public string? RoutingHttpResponseAccessControlAllowHeadersHeaderValue => _mRoutingHttpResponseAccessControlAllowHeadersHeaderValue.GetValue("routingHttpResponseAccessControlAllowHeadersHeaderValue");
+        private string? _mValue_RoutingHttpResponseAccessControlAllowHeadersHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseAccessControlAllowHeadersHeaderValue;
+        public string? RoutingHttpResponseAccessControlAllowHeadersHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseAccessControlAllowHeadersHeaderValue) return _mValue_RoutingHttpResponseAccessControlAllowHeadersHeaderValue;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpResponseAccessControlAllowHeadersHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Set which HTTP methods are allowed when accessing the server from a different origin. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `GET`, `HEAD`, `POST`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` or `PATCH`.
         /// </summary>
-        [Input("routingHttpResponseAccessControlAllowMethodsHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseAccessControlAllowMethodsHeaderValue", "_mUnknown_RoutingHttpResponseAccessControlAllowMethodsHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseAccessControlAllowMethodsHeaderValue;
-
-        public string? RoutingHttpResponseAccessControlAllowMethodsHeaderValue => _mRoutingHttpResponseAccessControlAllowMethodsHeaderValue.GetValue("routingHttpResponseAccessControlAllowMethodsHeaderValue");
+        private string? _mValue_RoutingHttpResponseAccessControlAllowMethodsHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseAccessControlAllowMethodsHeaderValue;
+        public string? RoutingHttpResponseAccessControlAllowMethodsHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseAccessControlAllowMethodsHeaderValue) return _mValue_RoutingHttpResponseAccessControlAllowMethodsHeaderValue;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpResponseAccessControlAllowMethodsHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which origins are allowed to access the server. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. A valid value is a URI, eg: `https://example.com`.
         /// </summary>
-        [Input("routingHttpResponseAccessControlAllowOriginHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseAccessControlAllowOriginHeaderValue", "_mUnknown_RoutingHttpResponseAccessControlAllowOriginHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseAccessControlAllowOriginHeaderValue;
-
-        public string? RoutingHttpResponseAccessControlAllowOriginHeaderValue => _mRoutingHttpResponseAccessControlAllowOriginHeaderValue.GetValue("routingHttpResponseAccessControlAllowOriginHeaderValue");
+        private string? _mValue_RoutingHttpResponseAccessControlAllowOriginHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseAccessControlAllowOriginHeaderValue;
+        public string? RoutingHttpResponseAccessControlAllowOriginHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseAccessControlAllowOriginHeaderValue) return _mValue_RoutingHttpResponseAccessControlAllowOriginHeaderValue;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpResponseAccessControlAllowOriginHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the browser should include credentials such as cookies or authentication when making requests. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, or `Pragma`. Dependent on your use-case other headers can be exposed, consult the Access-Control-Expose-Headers documentation.
         /// </summary>
-        [Input("routingHttpResponseAccessControlExposeHeadersHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseAccessControlExposeHeadersHeaderValue", "_mUnknown_RoutingHttpResponseAccessControlExposeHeadersHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseAccessControlExposeHeadersHeaderValue;
-
-        public string? RoutingHttpResponseAccessControlExposeHeadersHeaderValue => _mRoutingHttpResponseAccessControlExposeHeadersHeaderValue.GetValue("routingHttpResponseAccessControlExposeHeadersHeaderValue");
+        private string? _mValue_RoutingHttpResponseAccessControlExposeHeadersHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseAccessControlExposeHeadersHeaderValue;
+        public string? RoutingHttpResponseAccessControlExposeHeadersHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseAccessControlExposeHeadersHeaderValue) return _mValue_RoutingHttpResponseAccessControlExposeHeadersHeaderValue;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpResponseAccessControlExposeHeadersHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies how long the results of a preflight request can be cached, in seconds. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are between `0` and `86400`. This value is browser specific, consult the Access-Control-Max-Age documentation.
         /// </summary>
-        [Input("routingHttpResponseAccessControlMaxAgeHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseAccessControlMaxAgeHeaderValue", "_mUnknown_RoutingHttpResponseAccessControlMaxAgeHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseAccessControlMaxAgeHeaderValue;
-
-        public string? RoutingHttpResponseAccessControlMaxAgeHeaderValue => _mRoutingHttpResponseAccessControlMaxAgeHeaderValue.GetValue("routingHttpResponseAccessControlMaxAgeHeaderValue");
+        private string? _mValue_RoutingHttpResponseAccessControlMaxAgeHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseAccessControlMaxAgeHeaderValue;
+        public string? RoutingHttpResponseAccessControlMaxAgeHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseAccessControlMaxAgeHeaderValue) return _mValue_RoutingHttpResponseAccessControlMaxAgeHeaderValue;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpResponseAccessControlMaxAgeHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies restrictions enforced by the browser to help minimize the risk of certain types of security threats. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Values for this are extensive, and can be impactful when set, consult Content-Security-Policy documentation.
         /// </summary>
-        [Input("routingHttpResponseContentSecurityPolicyHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseContentSecurityPolicyHeaderValue", "_mUnknown_RoutingHttpResponseContentSecurityPolicyHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseContentSecurityPolicyHeaderValue;
-
-        public string? RoutingHttpResponseContentSecurityPolicyHeaderValue => _mRoutingHttpResponseContentSecurityPolicyHeaderValue.GetValue("routingHttpResponseContentSecurityPolicyHeaderValue");
+        private string? _mValue_RoutingHttpResponseContentSecurityPolicyHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseContentSecurityPolicyHeaderValue;
+        public string? RoutingHttpResponseContentSecurityPolicyHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseContentSecurityPolicyHeaderValue) return _mValue_RoutingHttpResponseContentSecurityPolicyHeaderValue;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpResponseContentSecurityPolicyHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `true` or `false`.
         /// </summary>
-        [Input("routingHttpResponseServerEnabled")]
+        [PolicyResourceProperty("routingHttpResponseServerEnabled", "_mUnknown_RoutingHttpResponseServerEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRoutingHttpResponseServerEnabled;
-
-        public bool? RoutingHttpResponseServerEnabled => _mRoutingHttpResponseServerEnabled.GetValue("routingHttpResponseServerEnabled");
+        private bool? _mValue_RoutingHttpResponseServerEnabled;
+        private bool _mUnknown_RoutingHttpResponseServerEnabled;
+        public bool? RoutingHttpResponseServerEnabled
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseServerEnabled) return _mValue_RoutingHttpResponseServerEnabled;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpResponseServerEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS. Default values are `max-age=31536000; includeSubDomains; preload` consult the Strict-Transport-Security documentation for further details.
         /// </summary>
-        [Input("routingHttpResponseStrictTransportSecurityHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseStrictTransportSecurityHeaderValue", "_mUnknown_RoutingHttpResponseStrictTransportSecurityHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseStrictTransportSecurityHeaderValue;
-
-        public string? RoutingHttpResponseStrictTransportSecurityHeaderValue => _mRoutingHttpResponseStrictTransportSecurityHeaderValue.GetValue("routingHttpResponseStrictTransportSecurityHeaderValue");
+        private string? _mValue_RoutingHttpResponseStrictTransportSecurityHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseStrictTransportSecurityHeaderValue;
+        public string? RoutingHttpResponseStrictTransportSecurityHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseStrictTransportSecurityHeaderValue) return _mValue_RoutingHttpResponseStrictTransportSecurityHeaderValue;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpResponseStrictTransportSecurityHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `nosniff`.
         /// </summary>
-        [Input("routingHttpResponseXContentTypeOptionsHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseXContentTypeOptionsHeaderValue", "_mUnknown_RoutingHttpResponseXContentTypeOptionsHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseXContentTypeOptionsHeaderValue;
-
-        public string? RoutingHttpResponseXContentTypeOptionsHeaderValue => _mRoutingHttpResponseXContentTypeOptionsHeaderValue.GetValue("routingHttpResponseXContentTypeOptionsHeaderValue");
+        private string? _mValue_RoutingHttpResponseXContentTypeOptionsHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseXContentTypeOptionsHeaderValue;
+        public string? RoutingHttpResponseXContentTypeOptionsHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseXContentTypeOptionsHeaderValue) return _mValue_RoutingHttpResponseXContentTypeOptionsHeaderValue;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpResponseXContentTypeOptionsHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the browser is allowed to render a page in a frame, iframe, embed or object. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid values are `DENY`, `SAMEORIGIN`, or `ALLOW-FROM https://example.com`.
         /// </summary>
-        [Input("routingHttpResponseXFrameOptionsHeaderValue")]
+        [PolicyResourceProperty("routingHttpResponseXFrameOptionsHeaderValue", "_mUnknown_RoutingHttpResponseXFrameOptionsHeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingHttpResponseXFrameOptionsHeaderValue;
-
-        public string? RoutingHttpResponseXFrameOptionsHeaderValue => _mRoutingHttpResponseXFrameOptionsHeaderValue.GetValue("routingHttpResponseXFrameOptionsHeaderValue");
+        private string? _mValue_RoutingHttpResponseXFrameOptionsHeaderValue;
+        private bool _mUnknown_RoutingHttpResponseXFrameOptionsHeaderValue;
+        public string? RoutingHttpResponseXFrameOptionsHeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_RoutingHttpResponseXFrameOptionsHeaderValue) return _mValue_RoutingHttpResponseXFrameOptionsHeaderValue;
+                throw new UndeferrableValueException("Value 'ListenerArgs.RoutingHttpResponseXFrameOptionsHeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
         /// </summary>
-        [Input("sslPolicy")]
+        [PolicyResourceProperty("sslPolicy", "_mUnknown_SslPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslPolicy;
-
-        public string? SslPolicy => _mSslPolicy.GetValue("sslPolicy");
+        private string? _mValue_SslPolicy;
+        private bool _mUnknown_SslPolicy;
+        public string? SslPolicy
+        {
+            get
+            {
+                if (!_mUnknown_SslPolicy) return _mValue_SslPolicy;
+                throw new UndeferrableValueException("Value 'ListenerArgs.SslPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// &gt; **Note::** When a `Name` key is specified in the map, the AWS Console maps the value to the `Name Tag` column value inside the `Listener Rules` table within a specific load balancer listener page. Otherwise, the value resolves to `Default`.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ListenerArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
         /// </summary>
-        [Input("tcpIdleTimeoutSeconds")]
+        [PolicyResourceProperty("tcpIdleTimeoutSeconds", "_mUnknown_TcpIdleTimeoutSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTcpIdleTimeoutSeconds;
-
-        public int? TcpIdleTimeoutSeconds => _mTcpIdleTimeoutSeconds.GetValue("tcpIdleTimeoutSeconds");
+        private int? _mValue_TcpIdleTimeoutSeconds;
+        private bool _mUnknown_TcpIdleTimeoutSeconds;
+        public int? TcpIdleTimeoutSeconds
+        {
+            get
+            {
+                if (!_mUnknown_TcpIdleTimeoutSeconds) return _mValue_TcpIdleTimeoutSeconds;
+                throw new UndeferrableValueException("Value 'ListenerArgs.TcpIdleTimeoutSeconds' is not present");
+            }
+        }
     }
 }

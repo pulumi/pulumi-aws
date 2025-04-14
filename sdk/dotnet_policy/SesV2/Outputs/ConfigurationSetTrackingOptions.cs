@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SesV2.Outputs
         /// <summary>
         /// The domain to use for tracking open and click events.
         /// </summary>
-        [Input("customRedirectDomain")]
+        [PolicyResourceProperty("customRedirectDomain", "_mUnknown_CustomRedirectDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomRedirectDomain;
-
-        public string? CustomRedirectDomain => _mCustomRedirectDomain.GetValue("customRedirectDomain");
+        private string? _mValue_CustomRedirectDomain;
+        private bool _mUnknown_CustomRedirectDomain;
+        public string? CustomRedirectDomain
+        {
+            get
+            {
+                if (!_mUnknown_CustomRedirectDomain) return _mValue_CustomRedirectDomain;
+                throw new UndeferrableValueException("Value 'ConfigurationSetTrackingOptions.CustomRedirectDomain' is not present");
+            }
+        }
 
         /// <summary>
         /// The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
         /// </summary>
-        [Input("httpsPolicy")]
+        [PolicyResourceProperty("httpsPolicy", "_mUnknown_HttpsPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpsPolicy;
-
-        public string? HttpsPolicy => _mHttpsPolicy.GetValue("httpsPolicy");
+        private string? _mValue_HttpsPolicy;
+        private bool _mUnknown_HttpsPolicy;
+        public string? HttpsPolicy
+        {
+            get
+            {
+                if (!_mUnknown_HttpsPolicy) return _mValue_HttpsPolicy;
+                throw new UndeferrableValueException("Value 'ConfigurationSetTrackingOptions.HttpsPolicy' is not present");
+            }
+        }
     }
 }

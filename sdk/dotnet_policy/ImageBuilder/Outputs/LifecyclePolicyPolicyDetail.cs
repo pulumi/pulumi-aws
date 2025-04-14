@@ -15,30 +15,51 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Configuration details for the policy action.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LifecyclePolicyPolicyDetailAction> _mAction;
-
-        public Outputs.LifecyclePolicyPolicyDetailAction? Action => _mAction.GetValue("action");
+        private Outputs.LifecyclePolicyPolicyDetailAction? _mValue_Action;
+        private bool _mUnknown_Action;
+        public Outputs.LifecyclePolicyPolicyDetailAction? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetail.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional rules to specify resources that should be exempt from policy actions.
         /// </summary>
-        [Input("exclusionRules")]
+        [PolicyResourceProperty("exclusionRules", "_mUnknown_ExclusionRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LifecyclePolicyPolicyDetailExclusionRules> _mExclusionRules;
-
-        public Outputs.LifecyclePolicyPolicyDetailExclusionRules? ExclusionRules => _mExclusionRules.GetValue("exclusionRules");
+        private Outputs.LifecyclePolicyPolicyDetailExclusionRules? _mValue_ExclusionRules;
+        private bool _mUnknown_ExclusionRules;
+        public Outputs.LifecyclePolicyPolicyDetailExclusionRules? ExclusionRules
+        {
+            get
+            {
+                if (!_mUnknown_ExclusionRules) return _mValue_ExclusionRules;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetail.ExclusionRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the resources that the lifecycle policy applies to.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("filter")]
+        [PolicyResourceProperty("filter", "_mUnknown_Filter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LifecyclePolicyPolicyDetailFilter> _mFilter;
-
-        public Outputs.LifecyclePolicyPolicyDetailFilter? Filter => _mFilter.GetValue("filter");
+        private Outputs.LifecyclePolicyPolicyDetailFilter? _mValue_Filter;
+        private bool _mUnknown_Filter;
+        public Outputs.LifecyclePolicyPolicyDetailFilter? Filter
+        {
+            get
+            {
+                if (!_mUnknown_Filter) return _mValue_Filter;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetail.Filter' is not present");
+            }
+        }
     }
 }

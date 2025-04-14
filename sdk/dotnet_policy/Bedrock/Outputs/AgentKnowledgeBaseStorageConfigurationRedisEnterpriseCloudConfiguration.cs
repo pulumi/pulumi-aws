@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
         /// </summary>
-        [Input("credentialsSecretArn")]
+        [PolicyResourceProperty("credentialsSecretArn", "_mUnknown_CredentialsSecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCredentialsSecretArn;
-
-        public string? CredentialsSecretArn => _mCredentialsSecretArn.GetValue("credentialsSecretArn");
+        private string? _mValue_CredentialsSecretArn;
+        private bool _mUnknown_CredentialsSecretArn;
+        public string? CredentialsSecretArn
+        {
+            get
+            {
+                if (!_mUnknown_CredentialsSecretArn) return _mValue_CredentialsSecretArn;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration.CredentialsSecretArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Endpoint URL of the Redis Enterprise Cloud database.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The names of the fields to which to map information about the vector store. This block supports the following arguments:
         /// </summary>
-        [Input("fieldMapping")]
+        [PolicyResourceProperty("fieldMapping", "_mUnknown_FieldMapping")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping> _mFieldMapping;
-
-        public Outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping? FieldMapping => _mFieldMapping.GetValue("fieldMapping");
+        private Outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping? _mValue_FieldMapping;
+        private bool _mUnknown_FieldMapping;
+        public Outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping? FieldMapping
+        {
+            get
+            {
+                if (!_mUnknown_FieldMapping) return _mValue_FieldMapping;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration.FieldMapping' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the vector index.
         /// </summary>
-        [Input("vectorIndexName")]
+        [PolicyResourceProperty("vectorIndexName", "_mUnknown_VectorIndexName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVectorIndexName;
-
-        public string? VectorIndexName => _mVectorIndexName.GetValue("vectorIndexName");
+        private string? _mValue_VectorIndexName;
+        private bool _mUnknown_VectorIndexName;
+        public string? VectorIndexName
+        {
+            get
+            {
+                if (!_mUnknown_VectorIndexName) return _mValue_VectorIndexName;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration.VectorIndexName' is not present");
+            }
+        }
     }
 }

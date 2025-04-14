@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance.
         /// </summary>
-        [Input("instanceArn")]
+        [PolicyResourceProperty("instanceArn", "_mUnknown_InstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
-
-        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+        private string? _mValue_InstanceArn;
+        private bool _mUnknown_InstanceArn;
+        public string? InstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_InstanceArn) return _mValue_InstanceArn;
+                throw new UndeferrableValueException("Value 'AccountAssignment.InstanceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
         /// </summary>
-        [Input("permissionSetArn")]
+        [PolicyResourceProperty("permissionSetArn", "_mUnknown_PermissionSetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionSetArn;
-
-        public string? PermissionSetArn => _mPermissionSetArn.GetValue("permissionSetArn");
+        private string? _mValue_PermissionSetArn;
+        private bool _mUnknown_PermissionSetArn;
+        public string? PermissionSetArn
+        {
+            get
+            {
+                if (!_mUnknown_PermissionSetArn) return _mValue_PermissionSetArn;
+                throw new UndeferrableValueException("Value 'AccountAssignment.PermissionSetArn' is not present");
+            }
+        }
 
         /// <summary>
         /// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
         /// </summary>
-        [Input("principalId")]
+        [PolicyResourceProperty("principalId", "_mUnknown_PrincipalId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalId;
-
-        public string? PrincipalId => _mPrincipalId.GetValue("principalId");
+        private string? _mValue_PrincipalId;
+        private bool _mUnknown_PrincipalId;
+        public string? PrincipalId
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalId) return _mValue_PrincipalId;
+                throw new UndeferrableValueException("Value 'AccountAssignment.PrincipalId' is not present");
+            }
+        }
 
         /// <summary>
         /// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
         /// </summary>
-        [Input("principalType")]
+        [PolicyResourceProperty("principalType", "_mUnknown_PrincipalType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalType;
-
-        public string? PrincipalType => _mPrincipalType.GetValue("principalType");
+        private string? _mValue_PrincipalType;
+        private bool _mUnknown_PrincipalType;
+        public string? PrincipalType
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalType) return _mValue_PrincipalType;
+                throw new UndeferrableValueException("Value 'AccountAssignment.PrincipalType' is not present");
+            }
+        }
 
         /// <summary>
         /// An AWS account identifier, typically a 10-12 digit string.
         /// </summary>
-        [Input("targetId")]
+        [PolicyResourceProperty("targetId", "_mUnknown_TargetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetId;
-
-        public string? TargetId => _mTargetId.GetValue("targetId");
+        private string? _mValue_TargetId;
+        private bool _mUnknown_TargetId;
+        public string? TargetId
+        {
+            get
+            {
+                if (!_mUnknown_TargetId) return _mValue_TargetId;
+                throw new UndeferrableValueException("Value 'AccountAssignment.TargetId' is not present");
+            }
+        }
 
         /// <summary>
         /// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
         /// </summary>
-        [Input("targetType")]
+        [PolicyResourceProperty("targetType", "_mUnknown_TargetType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetType;
-
-        public string? TargetType => _mTargetType.GetValue("targetType");
+        private string? _mValue_TargetType;
+        private bool _mUnknown_TargetType;
+        public string? TargetType
+        {
+            get
+            {
+                if (!_mUnknown_TargetType) return _mValue_TargetType;
+                throw new UndeferrableValueException("Value 'AccountAssignment.TargetType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssoadmin/accountAssignment:AccountAssignment")]
@@ -74,55 +116,97 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance.
         /// </summary>
-        [Input("instanceArn")]
+        [PolicyResourceProperty("instanceArn", "_mUnknown_InstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
-
-        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+        private string? _mValue_InstanceArn;
+        private bool _mUnknown_InstanceArn;
+        public string? InstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_InstanceArn) return _mValue_InstanceArn;
+                throw new UndeferrableValueException("Value 'AccountAssignmentArgs.InstanceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
         /// </summary>
-        [Input("permissionSetArn")]
+        [PolicyResourceProperty("permissionSetArn", "_mUnknown_PermissionSetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionSetArn;
-
-        public string? PermissionSetArn => _mPermissionSetArn.GetValue("permissionSetArn");
+        private string? _mValue_PermissionSetArn;
+        private bool _mUnknown_PermissionSetArn;
+        public string? PermissionSetArn
+        {
+            get
+            {
+                if (!_mUnknown_PermissionSetArn) return _mValue_PermissionSetArn;
+                throw new UndeferrableValueException("Value 'AccountAssignmentArgs.PermissionSetArn' is not present");
+            }
+        }
 
         /// <summary>
         /// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
         /// </summary>
-        [Input("principalId")]
+        [PolicyResourceProperty("principalId", "_mUnknown_PrincipalId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalId;
-
-        public string? PrincipalId => _mPrincipalId.GetValue("principalId");
+        private string? _mValue_PrincipalId;
+        private bool _mUnknown_PrincipalId;
+        public string? PrincipalId
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalId) return _mValue_PrincipalId;
+                throw new UndeferrableValueException("Value 'AccountAssignmentArgs.PrincipalId' is not present");
+            }
+        }
 
         /// <summary>
         /// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
         /// </summary>
-        [Input("principalType")]
+        [PolicyResourceProperty("principalType", "_mUnknown_PrincipalType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalType;
-
-        public string? PrincipalType => _mPrincipalType.GetValue("principalType");
+        private string? _mValue_PrincipalType;
+        private bool _mUnknown_PrincipalType;
+        public string? PrincipalType
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalType) return _mValue_PrincipalType;
+                throw new UndeferrableValueException("Value 'AccountAssignmentArgs.PrincipalType' is not present");
+            }
+        }
 
         /// <summary>
         /// An AWS account identifier, typically a 10-12 digit string.
         /// </summary>
-        [Input("targetId")]
+        [PolicyResourceProperty("targetId", "_mUnknown_TargetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetId;
-
-        public string? TargetId => _mTargetId.GetValue("targetId");
+        private string? _mValue_TargetId;
+        private bool _mUnknown_TargetId;
+        public string? TargetId
+        {
+            get
+            {
+                if (!_mUnknown_TargetId) return _mValue_TargetId;
+                throw new UndeferrableValueException("Value 'AccountAssignmentArgs.TargetId' is not present");
+            }
+        }
 
         /// <summary>
         /// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
         /// </summary>
-        [Input("targetType")]
+        [PolicyResourceProperty("targetType", "_mUnknown_TargetType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetType;
-
-        public string? TargetType => _mTargetType.GetValue("targetType");
+        private string? _mValue_TargetType;
+        private bool _mUnknown_TargetType;
+        public string? TargetType
+        {
+            get
+            {
+                if (!_mUnknown_TargetType) return _mValue_TargetType;
+                throw new UndeferrableValueException("Value 'AccountAssignmentArgs.TargetType' is not present");
+            }
+        }
     }
 }

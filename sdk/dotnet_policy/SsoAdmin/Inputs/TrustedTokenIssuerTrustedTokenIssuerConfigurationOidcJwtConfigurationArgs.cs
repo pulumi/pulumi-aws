@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin.Inputs
         /// <summary>
         /// Specifies the path of the source attribute in the JWT from the trusted token issuer.
         /// </summary>
-        [Input("claimAttributePath")]
+        [PolicyResourceProperty("claimAttributePath", "_mUnknown_ClaimAttributePath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClaimAttributePath;
-
-        public string? ClaimAttributePath => _mClaimAttributePath.GetValue("claimAttributePath");
+        private string? _mValue_ClaimAttributePath;
+        private bool _mUnknown_ClaimAttributePath;
+        public string? ClaimAttributePath
+        {
+            get
+            {
+                if (!_mUnknown_ClaimAttributePath) return _mValue_ClaimAttributePath;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs.ClaimAttributePath' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claim_attribute_path` when a trusted token issuer token is exchanged for an IAM Identity Center token.
         /// </summary>
-        [Input("identityStoreAttributePath")]
+        [PolicyResourceProperty("identityStoreAttributePath", "_mUnknown_IdentityStoreAttributePath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityStoreAttributePath;
-
-        public string? IdentityStoreAttributePath => _mIdentityStoreAttributePath.GetValue("identityStoreAttributePath");
+        private string? _mValue_IdentityStoreAttributePath;
+        private bool _mUnknown_IdentityStoreAttributePath;
+        public string? IdentityStoreAttributePath
+        {
+            get
+            {
+                if (!_mUnknown_IdentityStoreAttributePath) return _mValue_IdentityStoreAttributePath;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs.IdentityStoreAttributePath' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
         /// </summary>
-        [Input("issuerUrl")]
+        [PolicyResourceProperty("issuerUrl", "_mUnknown_IssuerUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIssuerUrl;
-
-        public string? IssuerUrl => _mIssuerUrl.GetValue("issuerUrl");
+        private string? _mValue_IssuerUrl;
+        private bool _mUnknown_IssuerUrl;
+        public string? IssuerUrl
+        {
+            get
+            {
+                if (!_mUnknown_IssuerUrl) return _mValue_IssuerUrl;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs.IssuerUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
         /// </summary>
-        [Input("jwksRetrievalOption")]
+        [PolicyResourceProperty("jwksRetrievalOption", "_mUnknown_JwksRetrievalOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJwksRetrievalOption;
-
-        public string? JwksRetrievalOption => _mJwksRetrievalOption.GetValue("jwksRetrievalOption");
+        private string? _mValue_JwksRetrievalOption;
+        private bool _mUnknown_JwksRetrievalOption;
+        public string? JwksRetrievalOption
+        {
+            get
+            {
+                if (!_mUnknown_JwksRetrievalOption) return _mValue_JwksRetrievalOption;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs.JwksRetrievalOption' is not present");
+            }
+        }
     }
 }

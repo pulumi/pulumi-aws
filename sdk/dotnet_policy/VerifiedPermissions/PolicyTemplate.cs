@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions
         /// <summary>
         /// The date the Policy Store was created.
         /// </summary>
-        [Input("createdDate")]
+        [PolicyResourceProperty("createdDate", "_mUnknown_CreatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
-
-        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
+        private string? _mValue_CreatedDate;
+        private bool _mUnknown_CreatedDate;
+        public string? CreatedDate
+        {
+            get
+            {
+                if (!_mUnknown_CreatedDate) return _mValue_CreatedDate;
+                throw new UndeferrableValueException("Value 'PolicyTemplate.CreatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Provides a description for the policy template.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'PolicyTemplate.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Policy Store.
         /// </summary>
-        [Input("policyStoreId")]
+        [PolicyResourceProperty("policyStoreId", "_mUnknown_PolicyStoreId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyStoreId;
-
-        public string? PolicyStoreId => _mPolicyStoreId.GetValue("policyStoreId");
+        private string? _mValue_PolicyStoreId;
+        private bool _mUnknown_PolicyStoreId;
+        public string? PolicyStoreId
+        {
+            get
+            {
+                if (!_mUnknown_PolicyStoreId) return _mValue_PolicyStoreId;
+                throw new UndeferrableValueException("Value 'PolicyTemplate.PolicyStoreId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Policy Store.
         /// </summary>
-        [Input("policyTemplateId")]
+        [PolicyResourceProperty("policyTemplateId", "_mUnknown_PolicyTemplateId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyTemplateId;
-
-        public string? PolicyTemplateId => _mPolicyTemplateId.GetValue("policyTemplateId");
+        private string? _mValue_PolicyTemplateId;
+        private bool _mUnknown_PolicyTemplateId;
+        public string? PolicyTemplateId
+        {
+            get
+            {
+                if (!_mUnknown_PolicyTemplateId) return _mValue_PolicyTemplateId;
+                throw new UndeferrableValueException("Value 'PolicyTemplate.PolicyTemplateId' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the content of the statement, written in Cedar policy language.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("statement")]
+        [PolicyResourceProperty("statement", "_mUnknown_Statement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatement;
-
-        public string? Statement => _mStatement.GetValue("statement");
+        private string? _mValue_Statement;
+        private bool _mUnknown_Statement;
+        public string? Statement
+        {
+            get
+            {
+                if (!_mUnknown_Statement) return _mValue_Statement;
+                throw new UndeferrableValueException("Value 'PolicyTemplate.Statement' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:verifiedpermissions/policyTemplate:PolicyTemplate")]
@@ -67,30 +102,51 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions
         /// <summary>
         /// Provides a description for the policy template.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'PolicyTemplateArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Policy Store.
         /// </summary>
-        [Input("policyStoreId")]
+        [PolicyResourceProperty("policyStoreId", "_mUnknown_PolicyStoreId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyStoreId;
-
-        public string? PolicyStoreId => _mPolicyStoreId.GetValue("policyStoreId");
+        private string? _mValue_PolicyStoreId;
+        private bool _mUnknown_PolicyStoreId;
+        public string? PolicyStoreId
+        {
+            get
+            {
+                if (!_mUnknown_PolicyStoreId) return _mValue_PolicyStoreId;
+                throw new UndeferrableValueException("Value 'PolicyTemplateArgs.PolicyStoreId' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the content of the statement, written in Cedar policy language.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("statement")]
+        [PolicyResourceProperty("statement", "_mUnknown_Statement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatement;
-
-        public string? Statement => _mStatement.GetValue("statement");
+        private string? _mValue_Statement;
+        private bool _mUnknown_Statement;
+        public string? Statement
+        {
+            get
+            {
+                if (!_mUnknown_Statement) return _mValue_Statement;
+                throw new UndeferrableValueException("Value 'PolicyTemplateArgs.Statement' is not present");
+            }
+        }
     }
 }

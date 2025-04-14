@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// The ARN (Amazon Resource Name) of the firewall rule group association.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociation.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier of the firewall rule group.
         /// </summary>
-        [Input("firewallRuleGroupId")]
+        [PolicyResourceProperty("firewallRuleGroupId", "_mUnknown_FirewallRuleGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallRuleGroupId;
-
-        public string? FirewallRuleGroupId => _mFirewallRuleGroupId.GetValue("firewallRuleGroupId");
+        private string? _mValue_FirewallRuleGroupId;
+        private bool _mUnknown_FirewallRuleGroupId;
+        public string? FirewallRuleGroupId
+        {
+            get
+            {
+                if (!_mUnknown_FirewallRuleGroupId) return _mValue_FirewallRuleGroupId;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociation.FirewallRuleGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("mutationProtection")]
+        [PolicyResourceProperty("mutationProtection", "_mUnknown_MutationProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMutationProtection;
-
-        public string? MutationProtection => _mMutationProtection.GetValue("mutationProtection");
+        private string? _mValue_MutationProtection;
+        private bool _mUnknown_MutationProtection;
+        public string? MutationProtection
+        {
+            get
+            {
+                if (!_mUnknown_MutationProtection) return _mValue_MutationProtection;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociation.MutationProtection' is not present");
+            }
+        }
 
         /// <summary>
         /// A name that lets you identify the rule group association, to manage and use it.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociation.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociation.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociation.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociation.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier of the VPC that you want to associate with the rule group.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociation.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation")]
@@ -92,55 +148,97 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// The unique identifier of the firewall rule group.
         /// </summary>
-        [Input("firewallRuleGroupId")]
+        [PolicyResourceProperty("firewallRuleGroupId", "_mUnknown_FirewallRuleGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallRuleGroupId;
-
-        public string? FirewallRuleGroupId => _mFirewallRuleGroupId.GetValue("firewallRuleGroupId");
+        private string? _mValue_FirewallRuleGroupId;
+        private bool _mUnknown_FirewallRuleGroupId;
+        public string? FirewallRuleGroupId
+        {
+            get
+            {
+                if (!_mUnknown_FirewallRuleGroupId) return _mValue_FirewallRuleGroupId;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociationArgs.FirewallRuleGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("mutationProtection")]
+        [PolicyResourceProperty("mutationProtection", "_mUnknown_MutationProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMutationProtection;
-
-        public string? MutationProtection => _mMutationProtection.GetValue("mutationProtection");
+        private string? _mValue_MutationProtection;
+        private bool _mUnknown_MutationProtection;
+        public string? MutationProtection
+        {
+            get
+            {
+                if (!_mUnknown_MutationProtection) return _mValue_MutationProtection;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociationArgs.MutationProtection' is not present");
+            }
+        }
 
         /// <summary>
         /// A name that lets you identify the rule group association, to manage and use it.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociationArgs.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociationArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier of the VPC that you want to associate with the rule group.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociationArgs.VpcId' is not present");
+            }
+        }
     }
 }

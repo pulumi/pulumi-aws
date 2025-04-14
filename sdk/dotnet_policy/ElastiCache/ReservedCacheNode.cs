@@ -16,75 +16,131 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// <summary>
         /// ARN for the reserved cache node.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ReservedCacheNode.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of cache node instances to reserve.
         /// Default value is `1`.
         /// </summary>
-        [Input("cacheNodeCount")]
+        [PolicyResourceProperty("cacheNodeCount", "_mUnknown_CacheNodeCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCacheNodeCount;
-
-        public int? CacheNodeCount => _mCacheNodeCount.GetValue("cacheNodeCount");
+        private int? _mValue_CacheNodeCount;
+        private bool _mUnknown_CacheNodeCount;
+        public int? CacheNodeCount
+        {
+            get
+            {
+                if (!_mUnknown_CacheNodeCount) return _mValue_CacheNodeCount;
+                throw new UndeferrableValueException("Value 'ReservedCacheNode.CacheNodeCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Node type for the reserved cache nodes.
         /// </summary>
-        [Input("cacheNodeType")]
+        [PolicyResourceProperty("cacheNodeType", "_mUnknown_CacheNodeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCacheNodeType;
-
-        public string? CacheNodeType => _mCacheNodeType.GetValue("cacheNodeType");
+        private string? _mValue_CacheNodeType;
+        private bool _mUnknown_CacheNodeType;
+        public string? CacheNodeType
+        {
+            get
+            {
+                if (!_mUnknown_CacheNodeType) return _mValue_CacheNodeType;
+                throw new UndeferrableValueException("Value 'ReservedCacheNode.CacheNodeType' is not present");
+            }
+        }
 
         /// <summary>
         /// Duration of the reservation as an RFC3339 duration.
         /// </summary>
-        [Input("duration")]
+        [PolicyResourceProperty("duration", "_mUnknown_Duration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDuration;
-
-        public string? Duration => _mDuration.GetValue("duration");
+        private string? _mValue_Duration;
+        private bool _mUnknown_Duration;
+        public string? Duration
+        {
+            get
+            {
+                if (!_mUnknown_Duration) return _mValue_Duration;
+                throw new UndeferrableValueException("Value 'ReservedCacheNode.Duration' is not present");
+            }
+        }
 
         /// <summary>
         /// Fixed price charged for this reserved cache node.
         /// </summary>
-        [Input("fixedPrice")]
+        [PolicyResourceProperty("fixedPrice", "_mUnknown_FixedPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mFixedPrice;
-
-        public double? FixedPrice => _mFixedPrice.GetValue("fixedPrice");
+        private double? _mValue_FixedPrice;
+        private bool _mUnknown_FixedPrice;
+        public double? FixedPrice
+        {
+            get
+            {
+                if (!_mUnknown_FixedPrice) return _mValue_FixedPrice;
+                throw new UndeferrableValueException("Value 'ReservedCacheNode.FixedPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// Offering type of this reserved cache node.
         /// </summary>
-        [Input("offeringType")]
+        [PolicyResourceProperty("offeringType", "_mUnknown_OfferingType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOfferingType;
-
-        public string? OfferingType => _mOfferingType.GetValue("offeringType");
+        private string? _mValue_OfferingType;
+        private bool _mUnknown_OfferingType;
+        public string? OfferingType
+        {
+            get
+            {
+                if (!_mUnknown_OfferingType) return _mValue_OfferingType;
+                throw new UndeferrableValueException("Value 'ReservedCacheNode.OfferingType' is not present");
+            }
+        }
 
         /// <summary>
         /// Engine type for the reserved cache node.
         /// </summary>
-        [Input("productDescription")]
+        [PolicyResourceProperty("productDescription", "_mUnknown_ProductDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProductDescription;
-
-        public string? ProductDescription => _mProductDescription.GetValue("productDescription");
+        private string? _mValue_ProductDescription;
+        private bool _mUnknown_ProductDescription;
+        public string? ProductDescription
+        {
+            get
+            {
+                if (!_mUnknown_ProductDescription) return _mValue_ProductDescription;
+                throw new UndeferrableValueException("Value 'ReservedCacheNode.ProductDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// Recurring price charged to run this reserved cache node.
         /// </summary>
-        [Input("recurringCharges")]
+        [PolicyResourceProperty("recurringCharges", "_mUnknown_RecurringCharges")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReservedCacheNodeRecurringCharge>> _mRecurringCharges;
-
-        public List<Outputs.ReservedCacheNodeRecurringCharge>? RecurringCharges => _mRecurringCharges.GetValue("recurringCharges");
+        private List<Outputs.ReservedCacheNodeRecurringCharge>? _mValue_RecurringCharges;
+        private bool _mUnknown_RecurringCharges;
+        public List<Outputs.ReservedCacheNodeRecurringCharge>? RecurringCharges
+        {
+            get
+            {
+                if (!_mUnknown_RecurringCharges) return _mValue_RecurringCharges;
+                throw new UndeferrableValueException("Value 'ReservedCacheNode.RecurringCharges' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the reserved cache node offering to purchase.
@@ -92,62 +148,111 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("reservedCacheNodesOfferingId")]
+        [PolicyResourceProperty("reservedCacheNodesOfferingId", "_mUnknown_ReservedCacheNodesOfferingId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReservedCacheNodesOfferingId;
-
-        public string? ReservedCacheNodesOfferingId => _mReservedCacheNodesOfferingId.GetValue("reservedCacheNodesOfferingId");
+        private string? _mValue_ReservedCacheNodesOfferingId;
+        private bool _mUnknown_ReservedCacheNodesOfferingId;
+        public string? ReservedCacheNodesOfferingId
+        {
+            get
+            {
+                if (!_mUnknown_ReservedCacheNodesOfferingId) return _mValue_ReservedCacheNodesOfferingId;
+                throw new UndeferrableValueException("Value 'ReservedCacheNode.ReservedCacheNodesOfferingId' is not present");
+            }
+        }
 
         /// <summary>
         /// Time the reservation started.
         /// </summary>
-        [Input("startTime")]
+        [PolicyResourceProperty("startTime", "_mUnknown_StartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
-
-        public string? StartTime => _mStartTime.GetValue("startTime");
+        private string? _mValue_StartTime;
+        private bool _mUnknown_StartTime;
+        public string? StartTime
+        {
+            get
+            {
+                if (!_mUnknown_StartTime) return _mValue_StartTime;
+                throw new UndeferrableValueException("Value 'ReservedCacheNode.StartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// State of the reserved cache node.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'ReservedCacheNode.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReservedCacheNode.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ReservedCacheNode.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ReservedCacheNodeTimeouts> _mTimeouts;
-
-        public Outputs.ReservedCacheNodeTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.ReservedCacheNodeTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.ReservedCacheNodeTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ReservedCacheNode.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Hourly price charged for this reserved cache node.
         /// </summary>
-        [Input("usagePrice")]
+        [PolicyResourceProperty("usagePrice", "_mUnknown_UsagePrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mUsagePrice;
-
-        public double? UsagePrice => _mUsagePrice.GetValue("usagePrice");
+        private double? _mValue_UsagePrice;
+        private bool _mUnknown_UsagePrice;
+        public double? UsagePrice
+        {
+            get
+            {
+                if (!_mUnknown_UsagePrice) return _mValue_UsagePrice;
+                throw new UndeferrableValueException("Value 'ReservedCacheNode.UsagePrice' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:elasticache/reservedCacheNode:ReservedCacheNode")]
@@ -157,11 +262,18 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// Number of cache node instances to reserve.
         /// Default value is `1`.
         /// </summary>
-        [Input("cacheNodeCount")]
+        [PolicyResourceProperty("cacheNodeCount", "_mUnknown_CacheNodeCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCacheNodeCount;
-
-        public int? CacheNodeCount => _mCacheNodeCount.GetValue("cacheNodeCount");
+        private int? _mValue_CacheNodeCount;
+        private bool _mUnknown_CacheNodeCount;
+        public int? CacheNodeCount
+        {
+            get
+            {
+                if (!_mUnknown_CacheNodeCount) return _mValue_CacheNodeCount;
+                throw new UndeferrableValueException("Value 'ReservedCacheNodeArgs.CacheNodeCount' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the reserved cache node offering to purchase.
@@ -169,25 +281,46 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("reservedCacheNodesOfferingId")]
+        [PolicyResourceProperty("reservedCacheNodesOfferingId", "_mUnknown_ReservedCacheNodesOfferingId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReservedCacheNodesOfferingId;
-
-        public string? ReservedCacheNodesOfferingId => _mReservedCacheNodesOfferingId.GetValue("reservedCacheNodesOfferingId");
+        private string? _mValue_ReservedCacheNodesOfferingId;
+        private bool _mUnknown_ReservedCacheNodesOfferingId;
+        public string? ReservedCacheNodesOfferingId
+        {
+            get
+            {
+                if (!_mUnknown_ReservedCacheNodesOfferingId) return _mValue_ReservedCacheNodesOfferingId;
+                throw new UndeferrableValueException("Value 'ReservedCacheNodeArgs.ReservedCacheNodesOfferingId' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReservedCacheNodeArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ReservedCacheNodeTimeoutsArgs> _mTimeouts;
-
-        public Inputs.ReservedCacheNodeTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.ReservedCacheNodeTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.ReservedCacheNodeTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ReservedCacheNodeArgs.Timeouts' is not present");
+            }
+        }
     }
 }

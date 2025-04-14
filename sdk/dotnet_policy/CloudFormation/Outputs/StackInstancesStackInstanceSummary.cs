@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.CloudFormation.Outputs
         /// <summary>
         /// Account ID in which the instance is deployed.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'StackInstancesStackInstanceSummary.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Detailed status of the stack instance. Values include `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELLED`, `INOPERABLE`, `SKIPPED_SUSPENDED_ACCOUNT`, `FAILED_IMPORT`.
         /// </summary>
-        [Input("detailedStatus")]
+        [PolicyResourceProperty("detailedStatus", "_mUnknown_DetailedStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetailedStatus;
-
-        public string? DetailedStatus => _mDetailedStatus.GetValue("detailedStatus");
+        private string? _mValue_DetailedStatus;
+        private bool _mUnknown_DetailedStatus;
+        public string? DetailedStatus
+        {
+            get
+            {
+                if (!_mUnknown_DetailedStatus) return _mValue_DetailedStatus;
+                throw new UndeferrableValueException("Value 'StackInstancesStackInstanceSummary.DetailedStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs. Values include `DRIFTED`, `IN_SYNC`, `UNKNOWN`, `NOT_CHECKED`.
         /// </summary>
-        [Input("driftStatus")]
+        [PolicyResourceProperty("driftStatus", "_mUnknown_DriftStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDriftStatus;
-
-        public string? DriftStatus => _mDriftStatus.GetValue("driftStatus");
+        private string? _mValue_DriftStatus;
+        private bool _mUnknown_DriftStatus;
+        public string? DriftStatus
+        {
+            get
+            {
+                if (!_mUnknown_DriftStatus) return _mValue_DriftStatus;
+                throw new UndeferrableValueException("Value 'StackInstancesStackInstanceSummary.DriftStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Organization root ID or organizational unit (OU) IDs that you specified for `deployment_targets`.
         /// </summary>
-        [Input("organizationalUnitId")]
+        [PolicyResourceProperty("organizationalUnitId", "_mUnknown_OrganizationalUnitId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationalUnitId;
-
-        public string? OrganizationalUnitId => _mOrganizationalUnitId.GetValue("organizationalUnitId");
+        private string? _mValue_OrganizationalUnitId;
+        private bool _mUnknown_OrganizationalUnitId;
+        public string? OrganizationalUnitId
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationalUnitId) return _mValue_OrganizationalUnitId;
+                throw new UndeferrableValueException("Value 'StackInstancesStackInstanceSummary.OrganizationalUnitId' is not present");
+            }
+        }
 
         /// <summary>
         /// Region that the stack instance is associated with.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'StackInstancesStackInstanceSummary.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the stack instance.
         /// </summary>
-        [Input("stackId")]
+        [PolicyResourceProperty("stackId", "_mUnknown_StackId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
-
-        public string? StackId => _mStackId.GetValue("stackId");
+        private string? _mValue_StackId;
+        private bool _mUnknown_StackId;
+        public string? StackId
+        {
+            get
+            {
+                if (!_mUnknown_StackId) return _mValue_StackId;
+                throw new UndeferrableValueException("Value 'StackInstancesStackInstanceSummary.StackId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name or unique ID of the stack set that the stack instance is associated with.
         /// </summary>
-        [Input("stackSetId")]
+        [PolicyResourceProperty("stackSetId", "_mUnknown_StackSetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackSetId;
-
-        public string? StackSetId => _mStackSetId.GetValue("stackSetId");
+        private string? _mValue_StackSetId;
+        private bool _mUnknown_StackSetId;
+        public string? StackSetId
+        {
+            get
+            {
+                if (!_mUnknown_StackSetId) return _mValue_StackSetId;
+                throw new UndeferrableValueException("Value 'StackInstancesStackInstanceSummary.StackSetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the stack instance, in terms of its synchronization with its associated stack set. Values include `CURRENT`, `OUTDATED`, `INOPERABLE`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'StackInstancesStackInstanceSummary.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Explanation for the specific status code assigned to this stack instance.
         /// </summary>
-        [Input("statusReason")]
+        [PolicyResourceProperty("statusReason", "_mUnknown_StatusReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusReason;
-
-        public string? StatusReason => _mStatusReason.GetValue("statusReason");
+        private string? _mValue_StatusReason;
+        private bool _mUnknown_StatusReason;
+        public string? StatusReason
+        {
+            get
+            {
+                if (!_mUnknown_StatusReason) return _mValue_StatusReason;
+                throw new UndeferrableValueException("Value 'StackInstancesStackInstanceSummary.StatusReason' is not present");
+            }
+        }
     }
 }

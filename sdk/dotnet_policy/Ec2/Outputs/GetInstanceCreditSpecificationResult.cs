@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetInstanceCreditSpecificationResult
     {
-        [Input("cpuCredits")]
+        [PolicyResourceProperty("cpuCredits", "_mUnknown_CpuCredits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCpuCredits;
-
-        public string? CpuCredits => _mCpuCredits.GetValue("cpuCredits");
+        private string? _mValue_CpuCredits;
+        private bool _mUnknown_CpuCredits;
+        public string? CpuCredits
+        {
+            get
+            {
+                if (!_mUnknown_CpuCredits) return _mValue_CpuCredits;
+                throw new UndeferrableValueException("Value 'GetInstanceCreditSpecificationResult.CpuCredits' is not present");
+            }
+        }
     }
 }

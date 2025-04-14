@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
         /// </summary>
-        [Input("classification")]
+        [PolicyResourceProperty("classification", "_mUnknown_Classification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClassification;
-
-        public string? Classification => _mClassification.GetValue("classification");
+        private string? _mValue_Classification;
+        private bool _mUnknown_Classification;
+        public string? Classification
+        {
+            get
+            {
+                if (!_mUnknown_Classification) return _mValue_Classification;
+                throw new UndeferrableValueException("Value 'ClassifierGrokClassifier.Classification' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom grok patterns used by this classifier.
         /// </summary>
-        [Input("customPatterns")]
+        [PolicyResourceProperty("customPatterns", "_mUnknown_CustomPatterns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomPatterns;
-
-        public string? CustomPatterns => _mCustomPatterns.GetValue("customPatterns");
+        private string? _mValue_CustomPatterns;
+        private bool _mUnknown_CustomPatterns;
+        public string? CustomPatterns
+        {
+            get
+            {
+                if (!_mUnknown_CustomPatterns) return _mValue_CustomPatterns;
+                throw new UndeferrableValueException("Value 'ClassifierGrokClassifier.CustomPatterns' is not present");
+            }
+        }
 
         /// <summary>
         /// The grok pattern used by this classifier.
         /// </summary>
-        [Input("grokPattern")]
+        [PolicyResourceProperty("grokPattern", "_mUnknown_GrokPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGrokPattern;
-
-        public string? GrokPattern => _mGrokPattern.GetValue("grokPattern");
+        private string? _mValue_GrokPattern;
+        private bool _mUnknown_GrokPattern;
+        public string? GrokPattern
+        {
+            get
+            {
+                if (!_mUnknown_GrokPattern) return _mValue_GrokPattern;
+                throw new UndeferrableValueException("Value 'ClassifierGrokClassifier.GrokPattern' is not present");
+            }
+        }
     }
 }

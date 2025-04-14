@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The name of the monitoring job definition to schedule.
         /// </summary>
-        [Input("monitoringJobDefinitionName")]
+        [PolicyResourceProperty("monitoringJobDefinitionName", "_mUnknown_MonitoringJobDefinitionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMonitoringJobDefinitionName;
-
-        public string? MonitoringJobDefinitionName => _mMonitoringJobDefinitionName.GetValue("monitoringJobDefinitionName");
+        private string? _mValue_MonitoringJobDefinitionName;
+        private bool _mUnknown_MonitoringJobDefinitionName;
+        public string? MonitoringJobDefinitionName
+        {
+            get
+            {
+                if (!_mUnknown_MonitoringJobDefinitionName) return _mValue_MonitoringJobDefinitionName;
+                throw new UndeferrableValueException("Value 'MonitoringScheduleMonitoringScheduleConfigArgs.MonitoringJobDefinitionName' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
         /// </summary>
-        [Input("monitoringType")]
+        [PolicyResourceProperty("monitoringType", "_mUnknown_MonitoringType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMonitoringType;
-
-        public string? MonitoringType => _mMonitoringType.GetValue("monitoringType");
+        private string? _mValue_MonitoringType;
+        private bool _mUnknown_MonitoringType;
+        public string? MonitoringType
+        {
+            get
+            {
+                if (!_mUnknown_MonitoringType) return _mValue_MonitoringType;
+                throw new UndeferrableValueException("Value 'MonitoringScheduleMonitoringScheduleConfigArgs.MonitoringType' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures the monitoring schedule. Fields are documented below.
         /// </summary>
-        [Input("scheduleConfig")]
+        [PolicyResourceProperty("scheduleConfig", "_mUnknown_ScheduleConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs> _mScheduleConfig;
-
-        public Inputs.MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs? ScheduleConfig => _mScheduleConfig.GetValue("scheduleConfig");
+        private Inputs.MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs? _mValue_ScheduleConfig;
+        private bool _mUnknown_ScheduleConfig;
+        public Inputs.MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs? ScheduleConfig
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleConfig) return _mValue_ScheduleConfig;
+                throw new UndeferrableValueException("Value 'MonitoringScheduleMonitoringScheduleConfigArgs.ScheduleConfig' is not present");
+            }
+        }
     }
 }

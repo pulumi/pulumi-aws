@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// The frequency at which to capture frames for inclusion in the output.
         /// </summary>
-        [Input("captureInterval")]
+        [PolicyResourceProperty("captureInterval", "_mUnknown_CaptureInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCaptureInterval;
-
-        public int? CaptureInterval => _mCaptureInterval.GetValue("captureInterval");
+        private int? _mValue_CaptureInterval;
+        private bool _mUnknown_CaptureInterval;
+        public int? CaptureInterval
+        {
+            get
+            {
+                if (!_mUnknown_CaptureInterval) return _mValue_CaptureInterval;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs.CaptureInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// Unit for the frame capture interval.
         /// </summary>
-        [Input("captureIntervalUnits")]
+        [PolicyResourceProperty("captureIntervalUnits", "_mUnknown_CaptureIntervalUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaptureIntervalUnits;
-
-        public string? CaptureIntervalUnits => _mCaptureIntervalUnits.GetValue("captureIntervalUnits");
+        private string? _mValue_CaptureIntervalUnits;
+        private bool _mUnknown_CaptureIntervalUnits;
+        public string? CaptureIntervalUnits
+        {
+            get
+            {
+                if (!_mUnknown_CaptureIntervalUnits) return _mValue_CaptureIntervalUnits;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs.CaptureIntervalUnits' is not present");
+            }
+        }
     }
 }

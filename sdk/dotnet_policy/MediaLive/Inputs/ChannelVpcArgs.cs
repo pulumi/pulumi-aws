@@ -12,43 +12,78 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
 {
     public sealed class ChannelVpcArgs
     {
-        [Input("availabilityZones")]
+        [PolicyResourceProperty("availabilityZones", "_mUnknown_AvailabilityZones")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
+        private List<string>? _mValue_AvailabilityZones;
+        private bool _mUnknown_AvailabilityZones;
+        public List<string>? AvailabilityZones
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZones) return _mValue_AvailabilityZones;
+                throw new UndeferrableValueException("Value 'ChannelVpcArgs.AvailabilityZones' is not present");
+            }
+        }
 
-        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
-
-        [Input("networkInterfaceIds")]
+        [PolicyResourceProperty("networkInterfaceIds", "_mUnknown_NetworkInterfaceIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNetworkInterfaceIds;
-
-        public List<string>? NetworkInterfaceIds => _mNetworkInterfaceIds.GetValue("networkInterfaceIds");
+        private List<string>? _mValue_NetworkInterfaceIds;
+        private bool _mUnknown_NetworkInterfaceIds;
+        public List<string>? NetworkInterfaceIds
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceIds) return _mValue_NetworkInterfaceIds;
+                throw new UndeferrableValueException("Value 'ChannelVpcArgs.NetworkInterfaceIds' is not present");
+            }
+        }
 
         /// <summary>
         /// List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
         /// </summary>
-        [Input("publicAddressAllocationIds")]
+        [PolicyResourceProperty("publicAddressAllocationIds", "_mUnknown_PublicAddressAllocationIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPublicAddressAllocationIds;
-
-        public List<string>? PublicAddressAllocationIds => _mPublicAddressAllocationIds.GetValue("publicAddressAllocationIds");
+        private List<string>? _mValue_PublicAddressAllocationIds;
+        private bool _mUnknown_PublicAddressAllocationIds;
+        public List<string>? PublicAddressAllocationIds
+        {
+            get
+            {
+                if (!_mUnknown_PublicAddressAllocationIds) return _mValue_PublicAddressAllocationIds;
+                throw new UndeferrableValueException("Value 'ChannelVpcArgs.PublicAddressAllocationIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ChannelVpcArgs.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'ChannelVpcArgs.SubnetIds' is not present");
+            }
+        }
     }
 }

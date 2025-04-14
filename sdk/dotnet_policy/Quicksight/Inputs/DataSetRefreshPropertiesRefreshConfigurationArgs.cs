@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// The incremental refresh for the data set. See incremental_refresh.
         /// </summary>
-        [Input("incrementalRefresh")]
+        [PolicyResourceProperty("incrementalRefresh", "_mUnknown_IncrementalRefresh")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs> _mIncrementalRefresh;
-
-        public Inputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs? IncrementalRefresh => _mIncrementalRefresh.GetValue("incrementalRefresh");
+        private Inputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs? _mValue_IncrementalRefresh;
+        private bool _mUnknown_IncrementalRefresh;
+        public Inputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs? IncrementalRefresh
+        {
+            get
+            {
+                if (!_mUnknown_IncrementalRefresh) return _mValue_IncrementalRefresh;
+                throw new UndeferrableValueException("Value 'DataSetRefreshPropertiesRefreshConfigurationArgs.IncrementalRefresh' is not present");
+            }
+        }
     }
 }

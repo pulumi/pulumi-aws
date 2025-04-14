@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Outputs
         /// <summary>
         /// The security policy for a domain configuration.
         /// </summary>
-        [Input("securityPolicy")]
+        [PolicyResourceProperty("securityPolicy", "_mUnknown_SecurityPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityPolicy;
-
-        public string? SecurityPolicy => _mSecurityPolicy.GetValue("securityPolicy");
+        private string? _mValue_SecurityPolicy;
+        private bool _mUnknown_SecurityPolicy;
+        public string? SecurityPolicy
+        {
+            get
+            {
+                if (!_mUnknown_SecurityPolicy) return _mValue_SecurityPolicy;
+                throw new UndeferrableValueException("Value 'DomainConfigurationTlsConfig.SecurityPolicy' is not present");
+            }
+        }
     }
 }
